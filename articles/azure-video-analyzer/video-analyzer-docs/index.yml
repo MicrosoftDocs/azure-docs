@@ -80,7 +80,7 @@ landingContent:
     - linkListType: reference
       links:
         - text: FAQs
-          url: faq-edge.md 
+          url: faq-edge.yml 
         - text: SDKs
           url: sdk.md
         - text: Pipeline extension

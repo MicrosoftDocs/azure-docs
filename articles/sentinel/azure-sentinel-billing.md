@@ -97,7 +97,7 @@ For data connectors that include both free and paid data types, you can select w
 ![Screenshot showing the Data connector page for MCAS, with the free Security Alerts selected and the paid MCASShadowITReporting not selected.](media/billing/data-types.png)
 
 > [!NOTE]
-> Data connectors listed as Public Preview do not generate cost. Data connectors generate cost only once becoming Generally Available.
+> Data connectors listed as Public Preview do not generate cost. Data connectors generate cost only once becoming Generally Available (GA).
 >
 
 ## Estimate Azure Sentinel costs

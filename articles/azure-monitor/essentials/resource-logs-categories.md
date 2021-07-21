@@ -963,19 +963,6 @@ If you think there is something is missing, you can open a GitHub comment at the
 |BigDataPoolAppsEnded|Big Data Pool Applications Ended|No|
 
 
-## Microsoft.Synapse/workspaces/kustoPools
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|Command|Command|No|
-|FailedIngestion|Failed ingest operations|No|
-|IngestionBatching|Ingestion batching|No|
-|Query|Query|No|
-|SucceededIngestion|Successful ingest operations|No|
-|TableDetails|Table details|No|
-|TableUsageStatistics|Table usage statistics|No|
-
-
 ## Microsoft.Synapse/workspaces/sqlPools
 
 |Category|Category Display Name|Costs To Export|

@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 07/21/2021
 ---
 
 # Pre-deployment activities and prerequisites for deploying Azure Sentinel
@@ -16,9 +16,11 @@ This article introduces the pre-deployment activities and prerequisites for depl
 
 ## Pre-deployment activities
 
-Before deploying Azure Sentinel, we recommend identifying the key business use cases for your service, so that your deployment can focus on those and provide value as soon as possible.
+Before deploying Azure Sentinel, we recommend taking the following steps to help focus your deployment on providing maximum value, as soon as possible.
 
-1. Determine which [data sources](connect-data-sources.md) you need and the data size requirements to help you accurately project your deployment's budget and timeline. You might determine this information during your business use case review, or by evaluating a current SIEM that you already have in place. If you already have a SIEM in place, analyze your data to understand which data sources provide the most value and should be ingested into Azure Sentinel.
+1. Determine which [data sources](connect-data-sources.md) you need and the data size requirements to help you accurately project your deployment's budget and timeline.
+
+    You might determine this information during your business use case review, or by evaluating a current SIEM that you already have in place. If you already have a SIEM in place, analyze your data to understand which data sources provide the most value and should be ingested into Azure Sentinel.
 
 1. Design your Azure Sentinel workspace. Consider parameters such as:
 
@@ -52,7 +54,7 @@ Before deploying Azure Sentinel, make sure that your Azure tenant has the follow
 
 - After you have a subscription, you'll need the [relevant permissions](/azure/role-based-access-control/) to begin using your subscription. If you are using a new subscription, an admin or higher from the AAD tenant should be designated as the [owner/contributor](/azure/role-based-access-control/rbac-and-directory-admin-roles) for the subscription.
 
-    - To maintain the least privilege access available, assign roles at the level of the resource group.
+    - To maintain the least privileged access available, assign roles at the level of the resource group.
     - For more control over permissions and access, set up custom roles. For more information, see [Role-based access control](/azure/role-based-access-control/custom-roles).
     - For additional separation between users and security users, you might want to use [resource-context](resource-context-rbac.md) or [table-level RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043).
 
@@ -63,7 +65,7 @@ Before deploying Azure Sentinel, make sure that your Azure tenant has the follow
 > [!TIP]
 > When setting up your Azure Sentinel workspace, [create a resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal) that's dedicated to Azure Sentinel and the resources that Azure Sentinel users including the Log Analytics workspace, any playbooks, workbooks, and so on.
 >
-> A resource group allows for permissions to be assigned once, at the resource group level, with permissions applied to any relevant resources. Managing access via a resource group helps to ensure that you're using Azure Sentinel efficiently without potentially issuing improper permissions. Without a resource group for Azure Sentinel, where resources are scattered among multiple resource groups, a user or service principal may find themselves unable to perform a required action or view data due to insufficient permissions.
+> A dedicated resource group allows for permissions to be assigned once, at the resource group level, with permissions automatically applied to any relevant resources. Managing access via a resource group helps to ensure that you're using Azure Sentinel efficiently without potentially issuing improper permissions. Without a resource group for Azure Sentinel, where resources are scattered among multiple resource groups, a user or service principal may find themselves unable to perform a required action or view data due to insufficient permissions.
 >
 > To implement additional access control to resources by tiers, use additional resource groups to house the resources that should be accessed only by those groups. Using multiple tiers of resource groups enables you to separate access between those tiers.
 >
