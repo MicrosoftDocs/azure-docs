@@ -26,7 +26,7 @@
     href: tutorial-configure-networking.md
   - name: Create a private cloud
     href: tutorial-create-private-cloud.md
-  - name: Create an NSX-T network segment
+  - name: Create a network segment
     href: tutorial-nsx-t-network-segment.md
   - name: Delete a private cloud
     href: tutorial-delete-private-cloud.md

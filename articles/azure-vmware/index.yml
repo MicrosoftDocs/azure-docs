@@ -91,7 +91,7 @@ landingContent:
             url: tutorial-access-private-cloud.md
           - text: Configure networking
             url: tutorial-configure-networking.md
-          - text: Create an NSX-T network segment 
+          - text: Create a network segment 
             url: tutorial-nsx-t-network-segment.md
           - text: Expand or shrink clusters in a private cloud 
             url: tutorial-scale-private-cloud.md

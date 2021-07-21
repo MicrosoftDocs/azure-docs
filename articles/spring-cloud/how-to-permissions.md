@@ -1,8 +1,8 @@
 ---
 title: "How to - Use permissions in Azure Spring Cloud"
 description: This article shows you how to create custom roles for permissions in Azure Spring Cloud.
-author: brendm
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/04/2020

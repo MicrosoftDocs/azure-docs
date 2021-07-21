@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.author: peterlu
-author: peterclu
-ms.date: 06/14/2021
+ms.author: jhirono
+author: jhirono
+ms.date: 07/13/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
 
 ---
@@ -43,6 +43,14 @@ In this article you learn how to secure the following inferencing resources in a
     - "Microsoft.Network/virtualNetworks/subnet/join/action" on the subnet resource.
 
     For more information on Azure RBAC with networking, see the [Networking built-in roles](../role-based-access-control/built-in-roles.md#networking)
+
+## Limitations
+
+### Azure Container Instances
+
+* When using Azure Container Instances in a virtual network, the virtual network must be in the same resource group as your Azure Machine Learning workspace.
+* If your workspace has a __private endpoint__, the virtual network used for Azure Container Instances must be the same as the one used by the workspace private endpoint.
+* When using Azure Container Instances inside the virtual network, the Azure Container Registry (ACR) for your workspace can't be in the virtual network.
 
 <a id="aksvnet"></a>
 
@@ -249,16 +257,7 @@ aks_target.wait_for_completion(show_output = True)
 
 ## Enable Azure Container Instances (ACI)
 
-Azure Container Instances are dynamically created when deploying a model. To enable Azure Machine Learning to create ACI inside the virtual network, you must enable __subnet delegation__ for the subnet used by the deployment.
-
-> [!WARNING]
-> When using Azure Container Instances in a virtual network, the virtual network must be:
-> * In the same resource group as your Azure Machine Learning workspace.
-> * If your workspace has a __private endpoint__, the virtual network used for Azure Container Instances must be the same as the one used by the workspace private endpoint.
->
-> When using Azure Container Instances inside the virtual network, the Azure Container Registry (ACR) for your workspace cannot be in the virtual network.
-
-To use ACI in a virtual network to your workspace, use the following steps:
+Azure Container Instances are dynamically created when deploying a model. To enable Azure Machine Learning to create ACI inside the virtual network, you must enable __subnet delegation__ for the subnet used by the deployment. To use ACI in a virtual network to your workspace, use the following steps:
 
 1. To enable subnet delegation on your virtual network, use the information in the [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md) article. You can enable delegation when creating a virtual network, or add it to an existing network.
 
