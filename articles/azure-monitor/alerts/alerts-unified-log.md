@@ -21,7 +21,7 @@ Log alerts are one of the alert types that are supported in [Azure Alerts](./ale
 
 ## Prerequisites
 
-Log alerts run queries on Log Analytics data. First you should start [collecting log data](../essentials/resource-logs.md) and query the log data for issues. You can use the [alert query examples topic](../logs/example-queries.md) in Log Analytics to understand what you can discover or [get started on writing your own query](../logs/log-analytics-tutorial.md).
+Log alerts run queries on Log Analytics data. First you should start [collecting log data](../essentials/resource-logs.md) and query the log data for issues. You can use the [alert query examples article](../logs/queries.md) in Log Analytics to understand what you can discover or [get started on writing your own query](../logs/log-analytics-tutorial.md).
 
 [Azure Monitoring Contributor](../roles-permissions-security.md) is a common role that is needed for creating, modifying, and updating log alerts. Access & query execution rights for the resource logs are also needed. Partial access to resource logs can fail queries or return partial results. [Learn more about configuring log alerts in Azure](./alerts-log.md).
 
@@ -115,7 +115,7 @@ In workspaces and Application Insights, it's supported only in **Metric measurem
 
 Split alerts by number or string columns into separate alerts by grouping into unique combinations. When creating resource-centric alerts at scale (subscription or resource group scope), you can split by Azure resource ID column. Splitting on Azure resource ID column will change the target of the alert to the specified resource.
 
-Splitting by Azure resource ID column is recommended when you want to monitor the same condition on multiple Azure resources. For example, monitoring all virtual machines for CPU usage over 80%. You may also decide not to split when you want a condition on multiple resources in the scope, such as monitoring that at least five machines in the resource group scope have CPU usage over 80%.
+Splitting by Azure resource ID column is recommended when you want to monitor the same condition on multiple Azure resources. For example, monitoring all virtual machines for CPU usage over 80%. You may also decide not to split when you want a condition on multiple resources in the scope. Such as monitoring that at least five machines in the resource group scope have CPU usage over 80%.
 
 In workspaces and Application Insights, it's supported only in **Metric measurement** measure type. The field is called **Aggregate On**. It's limited to three columns. Having more than three groups by columns in the query could lead to unexpected results. In all other resource types, it's configured in **Split by dimensions** section of the condition (limited to six splits).
 
@@ -175,11 +175,11 @@ For example, if your rule [**Aggregation granularity**](#aggregation-granularity
 
 ## State and resolving alerts
 
-Log alerts can either be stateless or stateful (currently in preview when using the API). 
+Log alerts can either be stateless or stateful (currently in preview).
 
 Stateless alerts fire each time the condition is met, even if fired previously. You can [mark the alert as closed](../alerts/alerts-managing-alert-states.md) once the alert instance is resolved. You can also mute actions to prevent them from triggering for a period after an alert rule fired. In Log Analytics Workspaces and Application Insights, it's called **Suppress Alerts**. In all other resource types, it's called **Mute Actions**. 
 
-See this alert evaluation example:
+See this alert stateless evaluation example:
 
 | Time    | Log condition evaluation | Result 
 | ------- | ----------| ----------| ------- 
@@ -188,7 +188,15 @@ See this alert evaluation example:
 | 00:15 | TRUE  | Alert fires and action groups called. New alert state ACTIVE.
 | 00:20 | FALSE | Alert doesn't fire. No actions called. Pervious alerts state remains ACTIVE.
 
-Stateful alerts fire once per incident and resolve. When creating new or updating existing log alert rules, add the `autoMitigate` flag with value `true` of type `Boolean`, under the `properties` section. You can use this feature in these API versions: `2018-04-16` and `2020-05-01-preview`.
+Stateful alerts fire once per incident and resolve. The alert rule resolves when the alert condition isn't met for 30 minutes for a specific evaluation period (to account for log ingestion delay), and for three consecutive evaluations to reduce noise if there is flapping conditions. For example, with a frequency of 5 minutes, the alert resolve after 40 minutes or with a frequency of 1 minute, the alert resolve after 32 minutes. The resolved notification is sent out via web-hooks or email, the status of the alert instance (called monitor state) in Azure portal is also set to resolved.
+
+Stateful alerts feature is currently in preview in the Azure public cloud. You can set this using **Automatically resolve alerts** in the alert details section.
+
+## Location selection in log alerts
+
+Log alerts allow you to set a location for alert rules. In Log Analytics Workspaces, the rule location must match the workspace location. In all other resources, you can select any of the supported locations, which align to [Log Analytics supported region list](https://azure.microsoft.com/global-infrastructure/services/?products=monitor).
+
+Location affects which region the alert rule is evaluated in. Queries are executed on the log data in the selected region, that said, the alert service end to end is global. Meaning alert rule definition, fired alerts, notifications, and actions aren't bound to the location in the alert rule. Data is transfer from the set region since the Azure Monitor alerts service is a [non-regional service](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=non-regional).
 
 ## Pricing and billing of log alerts
 

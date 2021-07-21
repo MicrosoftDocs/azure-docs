@@ -11,14 +11,14 @@ ms.author: keli19
 ms.custom: devx-track-python, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
 ---
-# Execute Python machine learning scripts in Azure Machine Learning Studio (classic)
+# Execute Python machine learning scripts in Machine Learning Studio (classic)
 
 **APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Python is a valuable tool in the tool chest of many data scientists. It's used in every stage of typical machine learning workflows including data exploration, feature extraction, model training and validation, and deployment.
 
-This article describes how you can use the Execute Python Script module to use Python code in your Azure Machine Learning Studio (classic) experiments and web services.
+This article describes how you can use the Execute Python Script module to use Python code in your Machine Learning Studio (classic) experiments and web services.
 
 ## Using the Execute Python Script module
 
@@ -150,7 +150,7 @@ Here is the Python function used to compute the importance scores and order the 
 
 ![Function to rank features by scores](./media/execute-python-scripts/figure8.png)
 
-The following experiment then computes and returns the importance scores of features in the "Pima Indian Diabetes" dataset in Azure Machine Learning Studio (classic):
+The following experiment then computes and returns the importance scores of features in the "Pima Indian Diabetes" dataset in Machine Learning Studio (classic):
 
 ![Experiment to rank features in the Pima Indian Diabetes dataset using Python](./media/execute-python-scripts/figure9a.png)
 

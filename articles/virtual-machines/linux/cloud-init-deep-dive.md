@@ -3,11 +3,11 @@ title: Understanding cloud-init
 description: Deep dive for understanding provisioning an Azure VM using cloud-init.
 author: danielsollondon 
 ms.service: virtual-machines
-ms.subservice: imaging
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
+ms.subservice: cloud-init
 ---
 
 # Diving deeper into cloud-init
@@ -17,7 +17,7 @@ When cloud-init is included in a generalized image, and a VM is created from tha
 
 
 ## Understand Cloud-Init configuration
-Configuring a VM to run on a platform, means cloud-init needs to apply multiple configurations, as an image consumer, the main configurations you will be interacting with is `User data` (customData), which supports multiple formats, these are documented [here](https://cloudinit.readthedocs.io/en/latest/topics/format.html#user-data-formats). You also have the ability to add and run scripts (/var/lib/cloud/scripts) for additional configuration, below discusses this in more detail.
+Configuring a VM to run on a platform, means cloud-init needs to apply multiple configurations, as an image consumer, the main configurations you will be interacting with is `User data` (customData), which supports multiple formats. For more information, see [User-Data Formats & cloud-init 21.2 documentation](https://cloudinit.readthedocs.io/en/latest/topics/format.html#user-data-formats). You also have the ability to add and run scripts (/var/lib/cloud/scripts) for additional configuration, below discusses this in more detail.
 
 Some configurations are already baked into Azure Marketplace images that come with cloud-init, such as:
 

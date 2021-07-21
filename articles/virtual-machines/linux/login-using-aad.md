@@ -1,26 +1,27 @@
 ---
-title: Log in to a Linux VM with Azure Active Directory credentials 
+title: Log in to a Linux VM with Azure Active Directory credentials
 description: Learn how to create and configure a Linux VM to sign in using Azure Active Directory authentication.
-author: SanDeo-MSFT
+
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 11/17/2020
-ms.author: sandeo
----
+ms.date: 05/11/2021
 
-# Preview: Log in to a Linux virtual machine in Azure using Azure Active Directory authentication
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
+ms.reviewer: sandeo
+
+ms.custom: references_regions
+---
+# Deprecated: Login to a Linux virtual machine in Azure with Azure Active Directory using device code flow authentication
+
+> [!CAUTION]
+> **The public preview feature described in this article is being deprecated August 15th, 2021.**
+> 
+> This feature is being replaced with the ability to use Azure AD and SSH via certificate-based authentication. For more information see the article, [Preview: Login to a Linux virtual machine in Azure with Azure Active Directory using SSH certificate-based authentication](../../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md). To migrate from the old version to this version, see [Migration from previous preview](../../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md#migration-from-previous-preview)
 
 To improve the security of Linux virtual machines (VMs) in Azure, you can integrate with Azure Active Directory (AD) authentication. When you use Azure AD authentication for Linux VMs, you centrally control and enforce policies that allow or deny access to the VMs. This article shows you how to create and configure a Linux VM to use Azure AD authentication.
-
-
-> [!IMPORTANT]
-> Azure Active Directory authentication is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> Use this feature on a test virtual machine that you expect to discard after testing.
->
-
 
 There are many benefits of using Azure AD authentication to log in to Linux VMs in Azure, including:
 
@@ -46,16 +47,10 @@ The following Linux distributions are currently supported during the preview of 
 | SUSE Linux Enterprise Server | SLES 12 |
 | Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04, and Ubuntu Server 18.04 |
 
-
-The following Azure regions are currently supported during the preview of this feature:
-
-- All global Azure regions
-
->[!IMPORTANT]
-> To use this preview feature, only deploy a supported Linux distro and in a supported Azure region. The feature is not supported in Azure Government or sovereign clouds.
+> [!IMPORTANT]
+> The preview is not supported in Azure Government or sovereign clouds.
 >
 > It's not supported to use this extension on Azure Kubernetes Service (AKS) clusters. For more information, see [Support policies for AKS](../../aks/support-policies.md).
-
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.31 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -178,7 +173,6 @@ With this line:
 ```bash
 %aad_admins ALL=(ALL) NOPASSWD:ALL
 ```
-
 
 ## Troubleshoot sign-in issues
 

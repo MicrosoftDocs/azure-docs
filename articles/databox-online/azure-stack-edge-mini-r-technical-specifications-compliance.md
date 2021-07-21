@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 06/29/2021
 ms.author: alkohli
 ---
 # Azure Stack Edge Mini R technical specifications
@@ -49,7 +49,7 @@ The Azure Stack Edge Mini R device has 1 data disk and 1 boot disk (that serves 
 |    Total capacity (data only)              |    1 TB                                                |
 |    Total usable capacity*                  |    ~ 750 GB                                            |
 
-**Some space is reserved for internal use.*
+*Some space is reserved for internal use.*
 
 ## Network
 
@@ -57,15 +57,11 @@ The Azure Stack Edge Mini R device has the following specifications for the netw
 
 |Specification         |Value                                                               |
 |----------------------|--------------------------------------------------------------------|
-|Network interfaces    |2 x 10 Gbps SFP+ <br> Shown as PORT 3 and PORT 4 in the local UI     |
-|Network interfaces    |2 x 1 Gbps RJ45 <br> Shown as PORT 1 and PORT 2 in the local UI      |
+|Network interfaces    |2 x 10 Gbps SFP+ <br> Shown as PORT 3 and PORT 4 in the local UI    |
+|Network interfaces    |2 x 1 Gbps RJ45 <br> Shown as PORT 1 and PORT 2 in the local UI     |
 |Wi-Fi                 |802.11ac                                                            |
 
-|Specification  |Value  |
-|---------|---------|
-|Network interfaces    |2 x 10 GbE SFP+ <br> Shown as PORT 3 and PORT 4 in the local UI           |
-|Network interfaces    |2 x 1 GbE RJ45 <br> Shown as PORT 1 and PORT 2 in the local UI          |
-|Wi-Fi   |802.11ac         |
+## Routers and switches
 
 The following routers and switches are compatible with the 10 Gbps SPF+ network interfaces (Port 3 and Port 4) on your Azure Stack Edge Mini R devices:
 
@@ -80,7 +76,7 @@ The following routers and switches are compatible with the 10 Gbps SPF+ network 
 
 ## Transceivers, cables
 
-The following copper SFP+ (10 Gbps) transceivers and cables are strongly recommended for use with Azure Stack Edge Mini R devices. Compatible fiber-optic cables can be used with SFP+ network interfaces (Port 3 and Port 4) but have not been tested. 
+The following copper SFP+ (10 Gbps) transceivers and cables are strongly recommended for use with Azure Stack Edge Mini R devices. Compatible fiber-optic cables can be used with SFP+ network interfaces (Port 3 and Port 4) but have not been tested.
 
 |SFP+ transceiver type |Supported cables    | Notes |
 |----------------------|--------------------|-------|
@@ -103,7 +99,6 @@ The following table shows the power supply unit specifications:
 The Azure Stack Edge Mini R device also includes an onboard battery that is charged by the power supply.
 
 An additional [Type 2590 battery](https://www.bren-tronics.com/bt-70791ck.html) can be used along with the onboard battery to extend the use of the device between the charges. This battery should be compliant with all the safety, transportation, and environmental regulations applicable in the country of use.
-
 
 | Specification            | Value      |
 |--------------------------|------------|
@@ -132,18 +127,16 @@ The following table lists the weight of the device including the battery.
 |-----------------------------------|---------------------|
 |    Total weight of the device     |     7 lbs           |
 
-## Enclosure environment specifications
-
 ## Enclosure environment
 
 This section lists the specifications related to the enclosure environment, such as temperature, humidity, and altitude.
 
 |     Specifications             |     Description                                                          |
 |--------------------------------|--------------------------------------------------------------------------|
-|     Temperature range          |     0 – 43° C (operational)                                              |
+|     Temperature range          |     0 – 40° C (operational)                                              |
 |     Vibration                  |     MIL-STD-810 Method 514.7*<br> Procedure I CAT 4, 20                  |
 |     Shock                      |     MIL-STD-810 Method 516.7*<br> Procedure IV, Logistic                 |
-|     Altitude                   |     Operational:   10,000 feet<br> Non-operational: 40,000 feet          |
+|     Altitude                   |     Operational:   15,000 feet<br> Non-operational: 40,000 feet          |
 
 **All references are to MIL-STD-810G Change 1 (2014)*
 

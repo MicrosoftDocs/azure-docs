@@ -41,30 +41,31 @@ Most browser-based applications use session tokens instead of access and refresh
 
 - When a user opens a browser and authenticates to an application via Azure AD, the user receives two session tokens. One from Azure AD and another from the application.  
 
-- Once an application issues its own session token, access to the application is governed by the application’s session. At this point, the user is affected by only the authorization policies that the application is aware of.
+- Once an application issues its own session token, access to the application is governed by the application's session. At this point, the user is affected by only the authorization policies that the application is aware of.
 
 - The authorization policies of Azure AD are reevaluated as often as the application sends the user back to Azure AD. Reevaluation usually happens silently, though the frequency depends on how the application is configured. It's possible that the app may never send the user back to Azure AD as long as the session token is valid.
 
-- For a session token to be revoked, the application must revoke access based on its own authorization policies. Azure AD can’t directly revoke a session token issued by an application.  
+- For a session token to be revoked, the application must revoke access based on its own authorization policies. Azure AD can't directly revoke a session token issued by an application.  
 
 ## Revoke access for a user in the hybrid environment
 
-For a hybrid environment with on-premises Active Directory synchronized with Azure Active Directory, Microsoft recommends IT admins to take the following actions. If you have an **Azure AD only environment**, you may skip the [On-premises Active Directory environment](https://docs.microsoft.com/azure/active-directory/enterprise-users/users-revoke-access#on-premises-active-directory-environment) section.
+For a hybrid environment with on-premises Active Directory synchronized with Azure Active Directory, Microsoft recommends IT admins to take the following actions. If you have an **Azure AD only environment**, skip to the [Azure Active Directory environment](#azure-active-directory-environment) section.
+
 
 ### On-premises Active Directory environment
 
 As an admin in the Active Directory, connect to your on-premises network, open PowerShell, and take the following actions:
 
-1. Disable the user in Active Directory. Refer to [Disable-ADAccount](/powershell/module/activedirectory/disable-adaccount?view=win10-ps).
+1. Disable the user in Active Directory. Refer to [Disable-ADAccount](/powershell/module/activedirectory/disable-adaccount).
 
     ```PowerShell
     Disable-ADAccount -Identity johndoe  
     ```
 
-2. Reset the user’s password twice in the Active Directory. Refer to [Set-ADAccountPassword](/powershell/module/activedirectory/set-adaccountpassword?view=win10-ps).
+2. Reset the user's password twice in the Active Directory. Refer to [Set-ADAccountPassword](/powershell/module/activedirectory/set-adaccountpassword).
 
     > [!NOTE]
-    > The reason for changing a user’s password twice is to mitigate the risk of pass-the-hash, especially if there are delays in on-premises password replication. If you can safely assume this account isn't compromised, you may reset the password only once.
+    > The reason for changing a user's password twice is to mitigate the risk of pass-the-hash, especially if there are delays in on-premises password replication. If you can safely assume this account isn't compromised, you may reset the password only once.
 
     > [!IMPORTANT]
     > Don't use the example passwords in the following cmdlets. Be sure to change the passwords to a random string.
@@ -78,19 +79,19 @@ As an admin in the Active Directory, connect to your on-premises network, open P
 
 As an administrator in Azure Active Directory, open PowerShell, run ``Connect-AzureAD``, and take the following actions:
 
-1. Disable the user in Azure AD. Refer to [Set-AzureADUser](/powershell/module/azuread/Set-AzureADUser?view=azureadps-2.0).
+1. Disable the user in Azure AD. Refer to [Set-AzureADUser](/powershell/module/azuread/Set-AzureADUser).
 
     ```PowerShell
     Set-AzureADUser -ObjectId johndoe@contoso.com -AccountEnabled $false
     ```
 
-2. Revoke the user’s Azure AD refresh tokens. Refer to [Revoke-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0).
+2. Revoke the user's Azure AD refresh tokens. Refer to [Revoke-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken).
 
     ```PowerShell
     Revoke-AzureADUserAllRefreshToken -ObjectId johndoe@contoso.com
     ```
 
-3. Disable the user’s devices. Refer to [Get-AzureADUserRegisteredDevice](/powershell/module/azuread/get-azureaduserregistereddevice?view=azureadps-2.0).
+3. Disable the user's devices. Refer to [Get-AzureADUserRegisteredDevice](/powershell/module/azuread/get-azureaduserregistereddevice).
 
     ```PowerShell
     Get-AzureADUserRegisteredDevice -ObjectId johndoe@contoso.com | Set-AzureADDevice -AccountEnabled $false
@@ -101,18 +102,18 @@ Once admins have taken the above steps, the user can't gain new tokens for any a
 
 - For **applications using access tokens**, the user loses access when the access token expires.
 
-- For **applications that use session tokens**, the existing sessions end as soon as the token expires. If the disabled state of the user is synchronized to the application, the application can automatically revoke the user’s existing sessions if it's configured to do so.  The time it takes depends on the frequency of synchronization between the application and Azure AD.
+- For **applications that use session tokens**, the existing sessions end as soon as the token expires. If the disabled state of the user is synchronized to the application, the application can automatically revoke the user's existing sessions if it's configured to do so.  The time it takes depends on the frequency of synchronization between the application and Azure AD.
 
 ## Best practices
 
-- Deploy an automated provisioning and deprovisioning solution. Deprovisioning users from applications is an effective way of revoking access, especially for applications that use sessions tokens. Develop a process to deprovision users to apps that don’t support automatic provisioning and deprovisioning. Ensure applications revoke their own session tokens and stop accepting Azure AD access tokens even if they’re still valid.
+- Deploy an automated provisioning and deprovisioning solution. Deprovisioning users from applications is an effective way of revoking access, especially for applications that use sessions tokens. Develop a process to deprovision users to apps that don't support automatic provisioning and deprovisioning. Ensure applications revoke their own session tokens and stop accepting Azure AD access tokens even if they're still valid.
 
   - Use [Azure AD SaaS App Provisioning](../app-provisioning/user-provisioning.md). Azure AD SaaS App Provisioning typically runs automatically every 20-40 minutes. [Configure Azure AD provisioning](../saas-apps/tutorial-list.md) to deprovision or deactivate disabled users in applications.
   
-  - For applications that don’t use Azure AD SaaS App Provisioning, use [Identity Manager (MIM)](/microsoft-identity-manager/mim-how-provision-users-adds) or a 3rd party solution to automate the deprovisioning of users.  
+  - For applications that don't use Azure AD SaaS App Provisioning, use [Identity Manager (MIM)](/microsoft-identity-manager/mim-how-provision-users-adds) or a 3rd party solution to automate the deprovisioning of users.  
   - Identify and develop a process for applications that requires manual deprovisioning. Ensure admins can quickly run the required manual tasks to deprovision the user from these apps when needed.
   
-- [Manage your devices and applications with Microsoft Intune](/mem/intune/remote-actions/device-management). Intune-managed [devices can be reset to factory settings](/mem/intune/remote-actions/devices-wipe). If the device is unmanaged, you can [wipe the corporate data from managed apps](/mem/intune/apps/apps-selective-wipe). These processes are effective for removing potentially sensitive data from end users’ devices. However, for either process to be triggered, the device must be connected to the internet. If the device is offline, the device will still have access to any locally stored data.
+- [Manage your devices and applications with Microsoft Intune](/mem/intune/remote-actions/device-management). Intune-managed [devices can be reset to factory settings](/mem/intune/remote-actions/devices-wipe). If the device is unmanaged, you can [wipe the corporate data from managed apps](/mem/intune/apps/apps-selective-wipe). These processes are effective for removing potentially sensitive data from end users' devices. However, for either process to be triggered, the device must be connected to the internet. If the device is offline, the device will still have access to any locally stored data.
 
 > [!NOTE]
 > Data on the device cannot be recovered after a wipe.
@@ -125,4 +126,4 @@ Once admins have taken the above steps, the user can't gain new tokens for any a
 
 - [Secure access practices for Azure AD administrators](../roles/security-planning.md)
 - [Add or update user profile information](../fundamentals/active-directory-users-profile-azure-portal.md)
-- [Remove or Delete a former employee](https://docs.microsoft.com/microsoft-365/admin/add-users/remove-former-employee?view=o365-worldwide)
+- [Remove or Delete a former employee](/microsoft-365/admin/add-users/remove-former-employee)

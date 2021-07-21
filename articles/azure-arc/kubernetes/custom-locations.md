@@ -1,8 +1,8 @@
 ---
-title: "Custom locations on Azure Arc enabled Kubernetes"
+title: "Create and manage custom locations on Azure Arc enabled Kubernetes"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 04/05/2021
+ms.date: 05/25/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
@@ -10,11 +10,17 @@ ms.custom: references_regions, devx-track-azurecli
 description: "Use custom locations to deploy Azure PaaS services on Azure Arc enabled Kubernetes clusters"
 ---
 
-# Custom locations on Azure Arc enabled Kubernetes
+# Create and manage custom locations on Azure Arc enabled Kubernetes
 
 As an Azure location extension, *Custom Locations* provides a way for tenant administrators to use their Azure Arc enabled Kubernetes clusters as target locations for deploying Azure services instances. Azure resources examples include Azure Arc enabled SQL Managed Instance and Azure Arc enabled PostgreSQL Hyperscale.
 
 Similar to Azure locations, end users within the tenant with access to Custom Locations can deploy resources there using their company's private compute.
+
+In this article, you learn how to:
+> [!div class="checklist"]
+> * Enable custom locations on your Azure Arc enabled Kubernetes cluster.
+> * Deploy the Azure service cluster extension of the Azure service instance on your cluster.
+> * Create a custom location on your Azure Arc enabled Kubernetes cluster.
 
 A conceptual overview of this feature is available in [Custom locations - Azure Arc enabled Kubernetes](conceptual-custom-locations.md) article.
 
@@ -24,7 +30,10 @@ A conceptual overview of this feature is available in [Custom locations - Azure 
 
 - [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0.
 
-- `connectedk8s` (version >= 1.1.0), `k8s-extension` (version >= 0.2.0), and `customlocation` (version >= 0.1.0) Azure CLI extensions. Install these Azure CLI extensions by running the following commands:
+- Install the following Azure CLI extensions:
+    - `connectedk8s` (version 1.1.0 or later)
+    - `k8s-extension` (version 0.2.0 or later)
+    - `customlocation` (version 0.1.0 or later) 
   
     ```azurecli
     az extension add --name connectedk8s
@@ -32,7 +41,7 @@ A conceptual overview of this feature is available in [Custom locations - Azure 
     az extension add --name customlocation
     ```
     
-    If the `connectedk8s`, `k8s-extension` and `customlocation` extensions are already installed, you can update them to the latest version using the following command:
+    If you've previously installed the `connectedk8s`, `k8s-extension`, and `customlocation` extensions, update to the latest version using the following command:
 
     ```azurecli
     az extension update --name connectedk8s
@@ -40,7 +49,7 @@ A conceptual overview of this feature is available in [Custom locations - Azure 
     az extension update --name customlocation
     ```
 
-- Provider registration is complete for `Microsoft.ExtendedLocation`.
+- Verify completed provider registration for `Microsoft.ExtendedLocation`.
     1. Enter the following commands:
     
     ```azurecli
@@ -53,6 +62,9 @@ A conceptual overview of this feature is available in [Custom locations - Azure 
     az provider show -n Microsoft.ExtendedLocation -o table
     ```
 
+- Verify you have an existing [Azure Arc enabled Kubernetes connected cluster](quickstart-connect-cluster.md).
+    - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version 1.1.0 or later.
+
 >[!NOTE]
 >**Supported regions for custom locations:**
 >* East US
@@ -60,31 +72,43 @@ A conceptual overview of this feature is available in [Custom locations - Azure 
 
 ## Enable custom locations on cluster
 
-To enable this feature on your cluster, execute the following command:
+If you are logged into Azure CLI as a Azure AD user, to enable this feature on your cluster, execute the following command:
 
 ```console
 az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features cluster-connect custom-locations
 ```
 
+If you are logged into Azure CLI using a service principal, to enable this feature on your cluster, execute the following steps:
+
+1. Fetch the Object ID of the Azure AD application used by Azure Arc service:
+
+    ```console
+    az ad sp show --id 'bc313c14-388c-4e7d-a58e-70017303ee3b' --query objectId -o tsv
+    ```
+
+1. Use the `<objectId>` value from above step to enable custom locations feature on the cluster:
+
+    ```console
+    az connectedk8s enable-features -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId> --features cluster-connect custom-locations
+    ```
+
 > [!NOTE]
 > 1. Custom Locations feature is dependent on the Cluster Connect feature. So both features have to be enabled for custom locations to work.
 > 2. `az connectedk8s enable-features` needs to be run on a machine where the `kubeconfig` file is pointing to the cluster on which the features are to be enabled.
-> 3. If you are logged into Azure CLI using a service principal, [additional permissions](troubleshooting.md#enable-custom-locations-using-service-principal) have to be granted to the service principal before enabling the custom location feature.
 
 ## Create custom location
 
-1. Create an Azure Arc enabled Kubernetes cluster.
-    - If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
-    - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version >= 1.1.0.
+1. Deploy the Azure service cluster extension of the Azure service instance you eventually want on your cluster:
 
-1. Deploy the cluster extension of the Azure service whose instance you eventually want on top of the custom location:
+    * [Azure Arc enabled Data Services](../data/create-data-controller-direct-cli.md#create-the-arc-data-services-extension)
 
-    ```azurecli
-    az k8s-extension create --name <extensionInstanceName> --extension-type microsoft.arcdataservices --cluster-type connectedClusters -c <clusterName> -g <resourceGroupName> --scope cluster --release-namespace arc --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper
-    ```
+        > [!NOTE]
+        > Outbound proxy without authentication and outbound proxy with basic authentication are supported by the Arc enabled Data Services cluster extension. Outbound proxy that expects trusted certificates is currently not supported.
 
-    > [!NOTE]
-    > Outbound proxy without authentication and outbound proxy with basic authentication are supported by the Arc enabled Data Services cluster extension. Outbound proxy that expects trusted certificates is currently not supported.
+
+    * [Azure App Service on Azure Arc](../../app-service/manage-create-arc-environment.md#install-the-app-service-extension)
+
+    * [Event Grid on Kubernetes](../../event-grid/kubernetes/install-k8s-extension.md)
 
 1. Get the Azure Resource Manager identifier of the Azure Arc enabled Kubernetes cluster, referenced in later steps as `connectedClusterId`:
 
@@ -106,5 +130,7 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> Securely connect to the cluster using [Cluster Connect](cluster-connect.md)
+- Securely connect to the cluster using [Cluster Connect](cluster-connect.md).
+- Continue with [Azure App Service on Azure Arc](../../app-service/overview-arc-integration.md) for end-to-end instructions on installing extensions, creating custom locations, and creating the App Service Kubernetes environment. 
+- Create an Event Grid topic and an event subscription for [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md).
+- Learn more about currently available [Azure Arc enabled Kubernetes extensions](extensions.md#currently-available-extensions).

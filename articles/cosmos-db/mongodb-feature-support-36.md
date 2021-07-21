@@ -5,8 +5,8 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
 ms.date: 03/02/2021
-author: sivethe
-ms.author: sivethe
+author: gahl-levy
+ms.author: gahllevy
 ---
 
 # Azure Cosmos DB's API for MongoDB (3.6 version): supported features and syntax

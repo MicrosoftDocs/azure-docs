@@ -1,12 +1,12 @@
 ---
 title: Copy data from Concur using Azure Data Factory (Preview) 
 description: Learn how to copy data from Concur to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-author: linda33wj
+author: jianleishen
 
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/25/2020
-ms.author: jingwang
+ms.author: jianleishen
 ---
 # Copy data from Concur using Azure Data Factory (Preview)
 

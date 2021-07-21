@@ -1,8 +1,8 @@
 ---
-title: Data collection and reporting | Azure Arc enabled data services
+title: Data collection and reporting | Azure Arc-enabled data services
 description: Explains the type of data that is transmitted by Arc enabled Data services to Microsoft. 
-author: MikeRayMSFT
-ms.author: mikeray
+author: dnethi
+ms.author: dinethi
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -13,13 +13,13 @@ ms.custom: template-concept
 
 # Azure Arc data services data collection and reporting
 
-This article describes the data that Azure Arc enabled data services transmits to Microsoft. 
+This article describes the data that Azure Arc-enabled data services transmits to Microsoft. 
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Related products
 
-Azure Arc enabled data services may use some or all of the following products:
+Azure Arc-enabled data services may use some or all of the following products:
 
 - SQL MI – Azure Arc 
 - PostgreSQL Hyperscale – Azure Arc
@@ -38,7 +38,7 @@ The following table describes the type of data, how it is sent, and requirement.
 |Operational Data|Metrics and logs|Automatic, when configured to do so|No
 Billing & inventory data|Inventory such as number of instances, and usage such as number of vCores consumed|Automatic |Yes
 Diagnostics|Diagnostic information for troubleshooting purposes|Manually exported and provided to Microsoft Support|Only for the scope of troubleshooting and follows the standard [privacy policies](https://privacy.microsoft.com/privacystatement)
-Customer Experience Improvement Program (CEIP)|[CEIP summary](/sql-server/usage-and-diagnostic-data-configuration-for-sql-server)|Automatic, if allowed|No
+Customer Experience Improvement Program (CEIP)|[CEIP summary](/sql/sql-server/usage-and-diagnostic-data-configuration-for-sql-server)|Automatic, if allowed|No
 
 ## Indirectly connected
 
@@ -51,11 +51,11 @@ The following table describes the type of data, how it is sent, and requirement.
 |Operational Data|Metrics and logs|Manual|No
 Billing & inventory data|Inventory such as number of instances, and usage such as number of vCores consumed|Manual |Yes
 Diagnostics|Diagnostic information for troubleshooting purposes|Manually exported and provided to Microsoft Support|Only for the scope of troubleshooting and follows the standard [privacy policies](https://privacy.microsoft.com/privacystatement)
-Customer Experience Improvement Program (CEIP)|[CEIP summary](/sql-server/usage-and-diagnostic-data-configuration-for-sql-server)|Automatic, if allowed|No
+Customer Experience Improvement Program (CEIP)|[CEIP summary](/sql/sql-server/usage-and-diagnostic-data-configuration-for-sql-server)|Automatic, if allowed|No
 
 ## Detailed description of data
 
-This section provides more details about the information included with the Azure Arc enabled data services transmits to Microsoft.
+This section provides more details about the information included with the Azure Arc-enabled data services transmits to Microsoft.
 
 ### Operational data
 
@@ -81,12 +81,12 @@ There are three resource types:
 
 - Arc enabled SQL Managed Instance 
 - Arc enabled PostgreSQL Hyperscale server group 
-- Arc enabled SQL Server 
+- SQL Server on Azure Arc-enabled servers 
 - Data controller 
 
 The following sections show the properties, types, and descriptions that are collected and stored about each type of resource: 
 
-### Arc enabled SQL Server 
+### SQL Server on Azure Arc-enabled servers 
 - SQL Server edition. 
    - `string: Edition` 
 - Resource ID of the container resource (Azure Arc for Servers). 

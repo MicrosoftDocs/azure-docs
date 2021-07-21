@@ -11,7 +11,7 @@ ms.date: 10/06/2020
 ---
 # Tutorial: Create a video analytics - object and motion detection application in Azure IoT Central (YOLO v3)
 
-As a solution builder, learn how to create a video analytics application with the IoT Central *video analytics - object and motion detection* application template, Azure IoT Edge devices, Azure Media Services, and the YOLO v3 real-time object and motion detection system. The solution uses a retail store to show how to meet the common business need to monitor security cameras. The solution uses automatic object detection in a video feed to quickly identify and locate interesting events.
+Learn how to create a video analytics application with the IoT Central *video analytics - object and motion detection* application template, Azure IoT Edge devices, Azure Media Services, and the YOLO v3 real-time object and motion detection system. The solution uses a retail store to show how to meet the common business need to monitor security cameras. The solution uses automatic object detection in a video feed to quickly identify and locate interesting events.
 
 > [!TIP]
 > To use OpenVINO&trade; instead of YOLO v3 for object an motion detection, see [Tutorial: Create a video analytics - object and motion detection application in Azure IoT Central (OpenVINO&trade;)](tutorial-video-analytics-create-app-openvino.md).

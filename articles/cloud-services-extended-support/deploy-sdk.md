@@ -14,9 +14,6 @@ ms.custom:
 
 This article shows how to use the [Azure SDK](https://azure.microsoft.com/downloads/) to deploy a Cloud Services (extended support) instance that has multiple roles (web role and worker role) and the remote desktop extension. Cloud Services (extended support) is a deployment model of Azure Cloud Services that's based on Azure Resource Manager.
 
-> [!IMPORTANT]
-> Cloud Services (extended support) is currently in public preview. This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Before you begin
 
 Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support) and create associated resources.
@@ -151,7 +148,7 @@ Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services
     m_NrpClient.VirtualNetworks.CreateOrUpdate(resourceGroupName, “ContosoVNet”, vnet);
     ```
 
-7. Create a public IP address and set the DNS label property of the public IP address. Cloud Services (extended support) only supports [Basic] (https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#basic) SKU Public IP addresses. Standard SKU Public IPs do not work with Cloud Services.
+7. Create a public IP address and set the DNS label property of the public IP address. Cloud Services (extended support) only supports [Basic](/azure/virtual-network/public-ip-addresses#basic) SKU Public IP addresses. Standard SKU Public IPs do not work with Cloud Services.
 If you are using a Static IP you need to reference it as a Reserved IP in Service Configuration (.cscfg) file
 
     ```csharp
@@ -334,6 +331,6 @@ If you are using a Static IP you need to reference it as a Reserved IP in Servic
     ```
 
 ## Next steps
-- Review [frequently asked questions](faq.md) for Cloud Services (extended support).
+- Review [frequently asked questions](faq.yml) for Cloud Services (extended support).
 - Deploy Cloud Services (extended support) by using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), a [template](deploy-template.md), or [Visual Studio](deploy-visual-studio.md).
 - Visit the [Samples repository for Cloud Services (extended support)](https://github.com/Azure-Samples/cloud-services-extended-support)

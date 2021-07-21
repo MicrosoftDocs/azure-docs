@@ -1,6 +1,9 @@
 - name: Fundamentals Documentation
   href: index.yml
 
+- name: Recovering from systemic identity compromise
+  href: recover-from-identity-compromise.md
+  
 - name: Overview
   items:
   - name: Introduction to Azure security
@@ -46,6 +49,8 @@
     items:
     - name: Firmware security
       href: firmware.md
+    - name: Code integrity
+      href: code-integrity.md
     - name: Secure Boot
       href: secure-boot.md
     - name: Measured boot & host attestation

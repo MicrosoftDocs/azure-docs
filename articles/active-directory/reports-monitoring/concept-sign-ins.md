@@ -1,6 +1,6 @@
 ---
-title: Sign-ins logs in Azure Active Directory | Microsoft Docs
-description: Overview of the sign-ins logs in Azure Active Directory.  
+title: Sign-in logs in Azure Active Directory | Microsoft Docs
+description: Overview of the sign-in logs in Azure Active Directory.  
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/29/2021
+ms.date: 07/16/2021
 ms.author: markvi
 ms.reviewer: besiler
 
 ms.collection: M365-identity-device-management
 ---
-# Sign-ins logs in Azure Active Directory
+# Sign-in logs in Azure Active Directory
 
 As an IT administrator, you want to know how your IT environment is doing. The information about your system’s health enables you to assess whether and how you need to respond to potential issues. 
 
@@ -35,7 +35,7 @@ This article gives you an overview of the sign-ins report.
 
 ## What can you do with it?
 
-You can use the the sign-ins log to find answers to questions like:
+You can use the sign-ins log to find answers to questions like:
 
 - What is the sign-in pattern of a user?
 
@@ -46,9 +46,9 @@ You can use the the sign-ins log to find answers to questions like:
 
 ## Who can access it?
 
-You can always access your own sign-ins log. 
+You can always access your own sign-ins history using this link: [https://mysignins.microsoft.com](https://mysignins.microsoft.com)
 
-To access the sign-ins log of another user, you need to be:
+To access the sign-ins log, you need to be:
 
 - A global administrator
 
@@ -72,9 +72,9 @@ The sign-in activity report is available in [all editions of Azure AD](reference
 
 The Azure portal provides you with several options to access the log. For example, on the Azure Active Directory menu, you can open the log in the **Monitoring** section.  
 
-![Open sign-ins logs](./media/concept-sign-ins/sign-ins-logs-menu.png)
+![Open sign-in logs](./media/concept-sign-ins/sign-ins-logs-menu.png)
 
-Additionally, you can get directly get to the sign-ins logs using this link: [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)
+Additionally, you can get directly get to the sign-in logs using this link: [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)
 
 
 ## What is the default view?
@@ -161,6 +161,10 @@ The **Location** - The location the connection was initiated from:
 ![Client app filter](./media/concept-sign-ins/client-app-filter.png)
 
 
+> [!NOTE]
+> Due to privacy commitments, Azure AD does not populate this field this field to the home tenant in the case of a cross-tenant scenario.
+
+
 |Name|Modern authentication|Description|
 |---|:-:|---|
 |Authenticated SMTP| |Used by POP and IMAP client's to send email messages.|
@@ -179,6 +183,10 @@ The **Location** - The location the connection was initiated from:
 |POP3| |A legacy mail client using POP3 to retrieve email.|
 |Reporting Web Services| |Used to retrieve report data in Exchange Online.|
 |Other clients| |Shows all sign-in attempts from users where the client app is not included or unknown.|
+
+
+
+
 
 
 
@@ -211,7 +219,7 @@ The **Location** - The location the connection was initiated from:
 
 ## Download sign-in activities
 
-Click the **Download** option to create a CSV or JSON file of the most recent 250,000 records. Start with [download the sign-ins data](quickstart-download-sign-in-report.md) if you want to work with it outside the Azure portal.  
+Click the **Download** option to create a CSV or JSON file of the most recent 250,000 records. Start with [download the sign-ins data](./howto-download-logs.md) if you want to work with it outside the Azure portal.  
 
 ![Download](./media/concept-sign-ins/71.png "Download")
 
@@ -327,7 +335,6 @@ You can also access the Microsoft 365 activity logs programmatically by using th
 
 ## Next steps
 
-* [Sign-in activity report error codes]()
 * [Azure AD data retention policies](reference-reports-data-retention.md)
 * [Azure AD report latencies](reference-reports-latencies.md)
 * [First party Microsoft applications in sign-ins report](/troubleshoot/azure/active-directory/verify-first-party-apps-sign-in#application-ids-for-commonly-used-microsoft-applications)

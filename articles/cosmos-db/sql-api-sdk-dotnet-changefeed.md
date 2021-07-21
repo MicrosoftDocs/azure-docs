@@ -48,6 +48,10 @@ ms.author: anfeldma
 
 ### v2 builds
 
+### <a id="2.4.0"></a>2.4.0
+* Added support for lease collections that can be partitioned with partition key defined as /partitionKey. Prior to this change lease collection's partition key would have to be defined as /id.
+* This release allows using lease collections with Gremlin API, as Gremlin collections cannot have partition key defined as /id.
+
 ### <a id="2.3.2"></a>2.3.2
 * Added lease store compatibility with [V3 SDK that enables hot migration paths. An application can migrate to V3 SDK and migrate back to the Change Feed processor library without losing any state.
 
@@ -194,6 +198,7 @@ Microsoft will provide notification at least **12 months** in advance of retirin
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.4.0](#2.4.0) |May 6, 2021 |--- |
 | [2.3.2](#2.3.2) |August 11, 2020 |--- |
 | [2.3.1](#2.3.1) |July 30, 2020 |--- |
 | [2.3.0](#2.3.0) |April 2, 2020 |--- |
@@ -215,7 +220,7 @@ Microsoft will provide notification at least **12 months** in advance of retirin
 
 ## FAQ
 
-[!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
+[!INCLUDE [cosmos-db-sdk-faq](includes/cosmos-db-sdk-faq.md)]
 
 ## See also
 

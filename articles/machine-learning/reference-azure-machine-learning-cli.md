@@ -14,6 +14,7 @@ ms.custom: seodec18, devx-track-azurecli
 
 # Install & use the CLI extension for Azure Machine Learning
 
+[!INCLUDE [cli-version-info](../../includes/machine-learning-cli-version-1-only.md)]
 
 The Azure Machine Learning CLI is an extension to the [Azure CLI](/cli/azure/), a cross-platform command-line interface for the Azure platform. This extension provides commands for working with Azure Machine Learning. It allows you to automate your machine learning activities. The following list provides some example actions that you can do with the CLI extension:
 
@@ -27,7 +28,7 @@ The CLI is not a replacement for the Azure Machine Learning SDK. It is a complem
 
 ## Prerequisites
 
-* To use the CLI, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+* To use the CLI, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
 * To use the CLI commands in this document from your **local environment**, you need the [Azure CLI](/cli/azure/install-azure-cli).
 
@@ -35,7 +36,7 @@ The CLI is not a replacement for the Azure Machine Learning SDK. It is a complem
 
 ## Full reference docs
 
-Find the [full reference docs for the azure-cli-ml extension of Azure CLI](/cli/azure/ml/).
+Find the [full reference docs for the azure-cli-ml extension of Azure CLI](/cli/azure/ml(v1)/).
 
 ## Connect the CLI to your Azure subscription
 
@@ -100,7 +101,7 @@ The following commands demonstrate how to use the CLI to manage resources used b
 
     This command creates a `.azureml` subdirectory that contains example runconfig and conda environment files. It also contains a `config.json` file that is used to communicate with your Azure Machine Learning workspace.
 
-    For more information, see [az ml folder attach](/cli/azure/ml/folder#az_ml_folder_attach).
+    For more information, see [az ml folder attach](/cli/azure/ml(v1)/folder#az_ml_folder_attach).
 
 + Attach an Azure blob container as a Datastore.
 
@@ -124,7 +125,7 @@ The following commands demonstrate how to use the CLI to manage resources used b
     az ml computetarget attach aks -n myaks -i myaksresourceid -g myresourcegroup -w myworkspace
     ```
 
-    For more information, see [az ml computetarget attach aks](/cli/azure/ml/computetarget/attach#az_ml_computetarget_attach-aks)
+    For more information, see [az ml computetarget attach aks](/cli/azure/ml(v1)/computetarget/attach#az_ml_computetarget_attach-aks)
 
 ### Compute clusters
 
@@ -161,7 +162,7 @@ The following commands demonstrate how to use the CLI to manage resources used b
         az ml computetarget amlcompute identity assign --name cpu-cluster '[system]'
         ```
 
-For more information, see [az ml computetarget create amlcompute](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_amlcompute).
+For more information, see [az ml computetarget create amlcompute](/cli/azure/ml(v1)/computetarget/create#az_ml_computetarget_create_amlcompute).
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-note.md)]
 
@@ -176,7 +177,7 @@ Manage compute instances.  In all the examples below, the name of the compute in
     az ml computetarget create computeinstance -n cpu -s "STANDARD_D3_V2" -v
     ```
 
-    For more information, see [az ml computetarget create computeinstance](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_computeinstance).
+    For more information, see [az ml computetarget create computeinstance](/cli/azure/ml(v1)/computetarget/create#az_ml_computetarget_create_computeinstance).
 
 + Stop a computeinstance.
 
@@ -184,7 +185,7 @@ Manage compute instances.  In all the examples below, the name of the compute in
     az ml computetarget computeinstance stop -n cpu -v
     ```
 
-    For more information, see [az ml computetarget computeinstance stop](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_stop).
+    For more information, see [az ml computetarget computeinstance stop](/cli/azure/ml(v1)/computetarget/computeinstance#az_ml_computetarget_computeinstance_stop).
 
 + Start a computeinstance.
 
@@ -192,7 +193,7 @@ Manage compute instances.  In all the examples below, the name of the compute in
     az ml computetarget computeinstance start -n cpu -v
     ```
 
-    For more information, see [az ml computetarget computeinstance start](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_start).
+    For more information, see [az ml computetarget computeinstance start](/cli/azure/ml(v1)/computetarget/computeinstance#az_ml_computetarget_computeinstance_start).
 
 + Restart a computeinstance.
 
@@ -200,7 +201,7 @@ Manage compute instances.  In all the examples below, the name of the compute in
     az ml computetarget computeinstance restart -n cpu -v
     ```
 
-    For more information, see [az ml computetarget computeinstance restart](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_restart).
+    For more information, see [az ml computetarget computeinstance restart](/cli/azure/ml(v1)/computetarget/computeinstance#az_ml_computetarget_computeinstance_restart).
 
 + Delete a computeinstance.
 
@@ -208,7 +209,7 @@ Manage compute instances.  In all the examples below, the name of the compute in
     az ml computetarget delete -n cpu -v
     ```
 
-    For more information, see [az ml computetarget delete computeinstance](/cli/azure/ml/computetarget#az_ml_computetarget_delete).
+    For more information, see [az ml computetarget delete computeinstance](/cli/azure/ml(v1)/computetarget#az_ml_computetarget_delete).
 
 
 ## <a id="experiments"></a>Run experiments
@@ -226,7 +227,7 @@ Manage compute instances.  In all the examples below, the name of the compute in
     >
     > The full runconfig schema can be found in this [JSON file](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). The schema is self-documenting through the `description` key of each object. Additionally, there are enums for possible values, and a template snippet at the end.
 
-    For more information, see [az ml run submit-script](/cli/azure/ml/run#az_ml_run_submit_script).
+    For more information, see [az ml run submit-script](/cli/azure/ml(v1)/run#az_ml_run_submit_script).
 
 * View a list of experiments:
 
@@ -234,7 +235,7 @@ Manage compute instances.  In all the examples below, the name of the compute in
     az ml experiment list
     ```
 
-    For more information, see [az ml experiment list](/cli/azure/ml/experiment#az_ml_experiment_list).
+    For more information, see [az ml experiment list](/cli/azure/ml(v1)/experiment#az_ml_experiment_list).
 
 ### HyperDrive run
 
@@ -278,7 +279,7 @@ The following commands demonstrate how to work with datasets in Azure Machine Le
 
     For information on the format of the JSON file used to define the dataset, use `az ml dataset register --show-template`.
 
-    For more information, see [az ml dataset register](/cli/azure/ml/dataset#az_ml_dataset_register).
+    For more information, see [az ml dataset register](/cli/azure/ml(v1)/dataset#az_ml_dataset_register).
 
 + List all datasets in a workspace:
 
@@ -286,7 +287,7 @@ The following commands demonstrate how to work with datasets in Azure Machine Le
     az ml dataset list
     ```
 
-    For more information, see [az ml dataset list](/cli/azure/ml/dataset#az_ml_dataset_list).
+    For more information, see [az ml dataset list](/cli/azure/ml(v1)/dataset#az_ml_dataset_list).
 
 + Get details of a dataset:
 
@@ -294,7 +295,7 @@ The following commands demonstrate how to work with datasets in Azure Machine Le
     az ml dataset show -n dataset-name
     ```
 
-    For more information, see [az ml dataset show](/cli/azure/ml/dataset#az_ml_dataset_show).
+    For more information, see [az ml dataset show](/cli/azure/ml(v1)/dataset#az_ml_dataset_show).
 
 + Unregister a dataset:
 
@@ -302,7 +303,7 @@ The following commands demonstrate how to work with datasets in Azure Machine Le
     az ml dataset unregister -n dataset-name
     ```
 
-    For more information, see [az ml dataset unregister](/cli/azure/ml/dataset#az_ml_dataset_archive).
+    For more information, see [az ml dataset unregister](/cli/azure/ml(v1)/dataset#az_ml_dataset_archive).
 
 ## Environment management
 
@@ -409,7 +410,7 @@ The following commands demonstrate how to work with machine learning pipelines:
     az ml pipeline create -n mypipeline -y mypipeline.yml
     ```
 
-    For more information, see [az ml pipeline create](/cli/azure/ml/pipeline#az_ml_pipeline_create).
+    For more information, see [az ml pipeline create](/cli/azure/ml(v1)/pipeline#az_ml_pipeline_create).
 
     For more information on the pipeline YAML file, see [Define machine learning pipelines in YAML](reference-pipeline-yaml.md).
 
@@ -419,17 +420,17 @@ The following commands demonstrate how to work with machine learning pipelines:
     az ml run submit-pipeline -n myexperiment -y mypipeline.yml
     ```
 
-    For more information, see [az ml run submit-pipeline](/cli/azure/ml/run#az_ml_run_submit_pipeline).
+    For more information, see [az ml run submit-pipeline](/cli/azure/ml(v1)/run#az_ml_run_submit_pipeline).
 
     For more information on the pipeline YAML file, see [Define machine learning pipelines in YAML](reference-pipeline-yaml.md).
 
 + Schedule a pipeline:
 
     ```azurecli-interactive
-    az ml pipeline create-schedule -n myschedule -e myexpereiment -i mypipelineid -y myschedule.yml
+    az ml pipeline create-schedule -n myschedule -e myexperiment -i mypipelineid -y myschedule.yml
     ```
 
-    For more information, see [az ml pipeline create-schedule](/cli/azure/ml/pipeline#az_ml_pipeline_create-schedule).
+    For more information, see [az ml pipeline create-schedule](/cli/azure/ml(v1)/pipeline#az_ml_pipeline_create-schedule).
 
     For more information on the pipeline schedule YAML file, see [Define machine learning pipelines in YAML](reference-pipeline-yaml.md#schedules).
 

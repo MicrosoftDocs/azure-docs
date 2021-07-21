@@ -1,16 +1,16 @@
 ---
-title: Create an Azure Image Builder template (preview)
+title: Create an Azure Image Builder template
 description: Learn how to create a template to use with Azure Image Builder.
-author: danielsollondon
-ms.author: danis
-ms.date: 03/02/2021
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
+ms.date: 05/24/2021
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: linux
-ms.reviewer: cynthn
+ms.custom: devx-track-azurepowershell
 ---
-# Preview: Create an Azure Image Builder template 
+# Create an Azure Image Builder template 
 
 Azure Image Builder uses a .json file to pass information into the Image Builder service. In this article we will go over the sections of the json file, so you can build your own. To see examples of full .json files, see the [Azure Image Builder GitHub](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts).
 
@@ -32,6 +32,7 @@ This is the basic template format:
         "vmProfile": 
             {
             "vmSize": "<vmSize>",
+	    "proxyVmSize": "<vmSize>",
             "osDiskSizeGB": <sizeInGB>,
             "vnetConfig": {
                 "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
@@ -48,7 +49,7 @@ This is the basic template format:
 
 ## Type and API version
 
-The `type` is the resource type, which must be `"Microsoft.VirtualMachineImages/imageTemplates"`. The `apiVersion` will change over time as the API changes, but should be `"2020-02-14"` for preview.
+The `type` is the resource type, which must be `"Microsoft.VirtualMachineImages/imageTemplates"`. The `apiVersion` will change over time as the API changes, but should be `"2020-02-14"` for now.
 
 ```json
     "type": "Microsoft.VirtualMachineImages/imageTemplates",
@@ -57,28 +58,42 @@ The `type` is the resource type, which must be `"Microsoft.VirtualMachineImages/
 
 ## Location
 
-The location is the region where the custom image will be created. For the Image Builder preview, the following regions are supported:
+The location is the region where the custom image will be created. The following regions are supported:
 
 - East US
 - East US 2
 - West Central US
 - West US
 - West US 2
+- South Central US
 - North Europe
 - West Europe
-
+- South East Asia
+- Australia Southeast
+- Australia East
+- UK South
+- UK West
 
 ```json
     "location": "<region>",
 ```
-## vmProfile
-By default Image Builder will use a "Standard_D1_v2" build VM, you can override this, for example, if you want to customize an Image for a GPU VM, you need a GPU VM size. This is optional.
 
-```json
- {
-    "vmSize": "Standard_D1_v2"
- },
-```
+### Data Residency
+The Azure VM Image Builder service doesn't store/process customer data outside regions that have strict single region data residency requirements when a customer requests a build in that region. In the event of a service outage for regions that have data residency requirements, you will need to create templates in a different region and geography.
+
+### Zone Redundancy
+Distribution supports zone redundancy, VHDs are distributed to a Zone Redundant Storage account by default and the Shared Image Gallery version will support a [ZRS storage type](../disks-redundancy.md#zone-redundant-storage-for-managed-disks-preview) if specified.
+ 
+## vmProfile
+## buildVM
+By default Image Builder will use a "Standard_D1_v2" build VM, this is built from the image you specify in the `source`. You can override this and may wish to do this for these reasons:
+1. Performing customizations that require increased memory, CPU and handling large files (GBs).
+2. Running Windows builds, you should use "Standard_D2_v2" or equivalent VM size.
+3. Require [VM isolation](../isolation.md).
+4. Customize an Image that require specific hardware, e.g. for a GPU VM, you need a GPU VM size. 
+5. Require end to end encryption at rest of the build VM, you need to specify the support build [VM size](../azure-vms-no-temp-disk.yml) that don't use local temporary disks.
+ 
+This is optional.
 
 ## osDiskSizeGB
 
@@ -111,7 +126,7 @@ This optional section can be used to ensure that dependencies are completed befo
     "dependsOn": [],
 ```
 
-For more information, see [Define resource dependencies](../../azure-resource-manager/templates/define-resource-dependency.md#dependson).
+For more information, see [Define resource dependencies](../../azure-resource-manager/templates/resource-dependency.md#dependson).
 
 ## Identity
 
@@ -146,10 +161,10 @@ The API requires a 'SourceType' that defines the source for the image build, cur
 
 
 > [!NOTE]
-> When using existing Windows custom images, you can run the Sysprep command up to 8 times on a single Windows image, for more information, see the [sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) documentation.
+> When using existing Windows custom images, you can run the Sysprep command up to 3 times on a single Windows 7 or Windows Server 2008 R2 image, or 1001 times on a single Windows image for later versions; for more information, see the [sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) documentation.
 
 ### PlatformImage source 
-Azure Image Builder supports Windows Server and client, and Linux  Azure Marketplace images, see [here](../image-builder-overview.md#os-support) for the full list. 
+Azure Image Builder supports Windows Server and client, and Linux  Azure Marketplace images, see [Learn about Azure Image Builder](../image-builder-overview.md#os-support) for the full list. 
 
 ```json
         "source": {
@@ -272,7 +287,7 @@ The customize section is an array. Azure Image Builder will run through the cust
  
 ### Shell customizer
 
-The shell customizer supports running shell scripts, these must be publicly accessible for the IB to access them.
+The shell customizer supports running shell scripts. The shell scripts must be publicly accessible or you must have configured an [MSI](./image-builder-user-assigned-identity.md) for Image Builder to access them.
 
 ```json
     "customize": [ 
@@ -390,7 +405,7 @@ Customize properties:
 
 ### File customizer
 
-The File customizer lets image builder download a file from a GitHub or Azure storage. If you have an image build pipeline that relies on build artifacts, you can then set the file customizer to download from the build share, and move the artifacts into the image.  
+The File customizer lets Image Builder download a file from a GitHub repo or Azure storage. If you have an image build pipeline that relies on build artifacts, you can set the file customizer to download from the build share, and move the artifacts into the image.  
 
 ```json
      "customize": [ 
@@ -419,14 +434,14 @@ This is supported by Windows directories and Linux paths, but there are some dif
 - Linux OS’s – the only path Image builder can write to is /tmp.
 - Windows – No path restriction, but the path must exist.
  
- 
-If there is an error trying to download the file, or put it in a specified directory, the customize step will fail, and this will be in the customization.log.
+
+If there is an error trying to download the file, or put it in a specified directory, then customize step will fail, and this will be in the customization.log.
 
 > [!NOTE]
-> The file customizer is only suitable for small file downloads, < 20MB. For larger file downloads use a script or inline command, the use code to download files, such as, Linux `wget` or `curl`, Windows, `Invoke-WebRequest`.
+> The file customizer is only suitable for small file downloads, < 20MB. For larger file downloads, use a script or inline command, then use code to download files, such as, Linux `wget` or `curl`, Windows, `Invoke-WebRequest`.
 
 ### Windows Update Customizer
-This customizer is built on the [community Windows Update Provisioner](https://packer.io/docs/provisioners/community-supported.html) for Packer, which is an open source project maintained by the Packer community. Microsoft tests and validate the provisioner with the Image Builder service, and will support investigating issues with it, and work to resolve issues, however the open source project is not officially supported by Microsoft. For detailed documentation on and help with the Windows Update Provisioner please see the project repository.
+This customizer is built on the [community Windows Update Provisioner](https://packer.io/docs/provisioners/community-supported.html) for Packer, which is an open source project maintained by the Packer community. Microsoft tests and validate the provisioner with the Image Builder service, and will support investigating issues with it, and work to resolve issues, however the open source project is not officially supported by Microsoft. For detailed documentation on and help with the Windows Update Provisioner, please see the project repository.
 
 ```json
      "customize": [
@@ -440,10 +455,11 @@ This customizer is built on the [community Windows Update Provisioner](https://p
                 "updateLimit": 20
             }
                ], 
-OS support: Windows
 ```
 
-Customize properties:
+OS support: Windows
+
+Customizer properties:
 - **type**  – WindowsUpdate.
 - **searchCriteria** - Optional, defines which type of updates are installed (Recommended, Important etc.), BrowseOnly=0 and IsInstalled=0 (Recommended) is the default.
 - **filters** – Optional, allows you to specify a filter to include or exclude updates.
@@ -693,3 +709,4 @@ az resource invoke-action \
 ## Next steps
 
 There are sample .json files for different scenarios in the [Azure Image Builder GitHub](https://github.com/azure/azvmimagebuilder).
+

@@ -1,11 +1,11 @@
 ---
 title: "Quickstart - Deploy your first Azure Spring Cloud application"
 description: In this quickstart, we deploy a Spring Cloud application to the Azure Spring Cloud.
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/23/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
 ---
@@ -207,9 +207,9 @@ The following procedure creates an instance of Azure Spring Cloud using the Azur
 
    ![ASC icon start](media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start.png)
 
-1. On the Azure Spring Cloud page, select **+ Add**.
+1. On the Azure Spring Cloud page, select **+ Create**.
 
-   ![ASC icon add](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
+   ![ASC icon add](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-create.png)
 
 1. Fill out the form on the Azure Spring Cloud **Create** page.  Consider the following guidelines:
 
@@ -221,6 +221,8 @@ The following procedure creates an instance of Azure Spring Cloud using the Azur
    ![ASC portal start](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
 
 6. Select **Review and create**.
+
+7. Select **Create**.
 
 ## Build and deploy the app
 
@@ -340,9 +342,9 @@ To complete this quickstart:
 
 ## Generate a Spring Cloud project
 
-Start with [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.10.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client) to generate a sample project with recommended dependencies for Azure Spring Cloud. The following image shows the Initializr set up for this sample project.
+Start with [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.12.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client) to generate a sample project with recommended dependencies for Azure Spring Cloud. The following image shows the Initializr set up for this sample project.
 ```url
-https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.10.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client
+https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.12.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client
 ```
 Note that this example uses Java version 8.  If you want to use Java version 11, change the option under **Project Metadata**.
 
@@ -378,7 +380,7 @@ The following procedure creates an instance of Azure Spring Cloud using the Azur
 
     ![ASC icon start](media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start.png)
 
-4. On the Azure Spring Cloud page, click **+ Add**.
+4. On the Azure Spring Cloud page, click **+ Create**.
 
     ![ASC icon add](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
 
@@ -409,7 +411,7 @@ The following procedure builds and deploys the application using the Azure CLI. 
     az extension add --name spring-cloud
     ```
     
-1. Create the app with public endpoint assigned. If you are using Java 11, include the `--runtime-version=Java_11` switch.
+1. Create the app with public endpoint assigned. If you selected Java version 11 when generating the Spring Cloud project, include the --runtime-version=Java_11 switch.
 
     ```azurecli
     az spring-cloud app create -n hellospring -s <service instance name> -g <resource group name> --assign-endpoint true

@@ -3,9 +3,10 @@ title: Join an Azure-SSIS integration runtime to a virtual network
 description: Learn how to join an Azure-SSIS integration runtime to an Azure virtual network. 
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 11/02/2020
+ms.date: 07/16/2021
 author: swinarko
-ms.author: sawinark
+ms.author: sawinark 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Join an Azure-SSIS integration runtime to a virtual network
@@ -49,7 +50,7 @@ When joining your Azure-SSIS IR to a virtual network, remember these important p
 
 - If a classic virtual network is already connected to your on-premises network in a different location from your Azure-SSIS IR, you can create an [Azure Resource Manager virtual network](../virtual-network/quick-create-portal.md#create-a-virtual-network) for your Azure-SSIS IR to join. Then configure a [classic-to-Azure Resource Manager virtual network](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) connection. 
  
-- If an Azure Resource Manager virtual network is already connected to your on-premises network in a different location from your Azure-SSIS IR, you can first create an [Azure Resource Manager virtual network](../virtual-network/quick-create-portal.md#create-a-virtual-network) for your Azure-SSIS IR to join. Then configure an Azure Resource Manager-to-Azure Resource Manager virtual network connection. 
+- If an Azure Resource Manager virtual network is already connected to your on-premises network in a different location from your Azure-SSIS IR, you can first create an [Azure Resource Manager virtual network](../virtual-network/quick-create-portal.md#create-a-virtual-network) for your Azure-SSIS IR to join. Then configure an [Azure Resource Manager-to-Azure Resource Manager virtual network](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) connection. 
 
 ## Hosting the SSIS catalog in SQL Database
 
@@ -66,7 +67,7 @@ If your SSIS packages access Azure resources that support [virtual network servi
 If your SSIS packages access data stores/resources that allow only specific static public IP addresses and you want to secure access to those resources from Azure-SSIS IR, you can associate [public IP addresses](../virtual-network/virtual-network-public-ip-address.md) with Azure-SSIS IR while joining it to a virtual network and then add an IP firewall rule to the relevant resources to allow access from those IP addresses. There are two alternative ways to do this: 
 
 - When you create Azure-SSIS IR, you can bring your own public IP addresses and specify them via [Data Factory UI or SDK](#join-the-azure-ssis-ir-to-a-virtual-network). Only the outbound internet connectivity of Azure-SSIS IR will use your provided public IP addresses and other devices in the subnet will not use them.
-- You can also setup [Virtual Network NAT](../virtual-network/nat-overview.md) for the subnet that Azure-SSIS IR will join and all outbound connectivity in this subnet will use your specified public IP addresses.
+- You can also setup [Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) for the subnet that Azure-SSIS IR will join and all outbound connectivity in this subnet will use your specified public IP addresses.
 
 In all cases, the virtual network can be deployed only through the Azure Resource Manager deployment model.
 
