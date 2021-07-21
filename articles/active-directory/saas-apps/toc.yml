@@ -2605,6 +2605,8 @@
         href: zapier-provisioning-tutorial.md 
       - name: Zendesk
         href: zendesk-provisioning-tutorial.md
+      - name: Zip
+        href: zip-provisioning-tutorial.md
       - name: Zoom
         href: zoom-provisioning-tutorial.md              
       - name: Zscaler
