@@ -30,8 +30,6 @@ items:
       href: how-to-use-device-mapping-iot.md
     - name: Use FHIR mapping templates
       href: how-to-use-fhir-mapping-iot.md
-    - name: Configure and display metrics
-      href: iot-metrics-display.md 
 
 - name: Resources
   expanded: true
