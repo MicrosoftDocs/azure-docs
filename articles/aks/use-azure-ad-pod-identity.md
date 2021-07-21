@@ -142,8 +142,7 @@ export IDENTITY_RESOURCE_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n
 
 ## Assign permissions for the managed identity
 
-To run the demo, the *IDENTITY_CLIENT_ID* managed identity must have Virtual Machine Contributor permissions in the resource group
-that contains the virtual machine scale set of your AKS cluster.
+To run the demo, the *IDENTITY_CLIENT_ID* managed identity must have Virtual Machine Contributor permissions in the resource group that contains the virtual machine scale set of your AKS cluster.
 
 ```azurecli-interactive
 NODE_GROUP=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
@@ -156,8 +155,9 @@ az role assignment create --role "Virtual Machine Contributor" --assignee "$IDEN
 Create a pod identity for the cluster using `az aks pod-identity add`.
 
 > [!IMPORTANT]
-> You must have the appropriate permissions, such as `Owner`, on your subscription to create the identity and assign role binding to the cluster identity.
-> The cluster identity must have `Managed Identity Operator` permission over the identity to be assigned.
+> You must have the relevant permissions (for example, Owner) on your subscription to create the identity and assign role binding to the cluster identity.
+> 
+> The cluster identity must have Managed Identity Operator permissions for the identity to be assigned.
 
 ```azurecli-interactive
 export POD_IDENTITY_NAME="my-pod-identity"
@@ -169,8 +169,7 @@ az aks pod-identity add --resource-group myResourceGroup --cluster-name myAKSClu
 > When you enable pod-managed identity on your AKS cluster, an AzurePodIdentityException named *aks-addon-exception* is added to the *kube-system* namespace. An AzurePodIdentityException allows pods with certain labels to access the Azure Instance Metadata Service (IMDS) endpoint without being intercepted by the node-managed identity (NMI) server. The *aks-addon-exception* allows AKS first-party addons, such as AAD pod-managed identity, to operate without having to manually configure an AzurePodIdentityException. Optionally, you can add, remove, and update an AzurePodIdentityException using `az aks pod-identity exception add`, `az aks pod-identity exception delete`, `az aks pod-identity exception update`, or `kubectl`.
 
 > [!NOTE]
-> When you assign the pod identity through *pod-identity add*, azcli attempts to grant the *Managed Identity Operator* role over the pod identity (*IDENTITY_RESOURCE_ID*)
-> to the cluster identity.
+> When you assign the pod identity by using `pod-identity add`, Azure CLI attempts to grant the Managed Identity Operator role over the pod identity (*IDENTITY_RESOURCE_ID*) to the cluster identity.
 
 ## Run a sample application
 
