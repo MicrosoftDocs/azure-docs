@@ -30,13 +30,13 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## July 2021
 
-- [Enrich Entities with geolocation data via API](#enrich-entities-with-geolocation-data-via-api)
+- [Enrich Entities with geolocation data via API (Public preview)](#enrich-entities-with-geolocation-data-via-api-public-preview)
 - [Support for ADX cross-resource queries (Public preview)](#support-for-adx-cross-resource-queries-public-preview)
 - [Watchlists are in general availability](#watchlists-are-in-general-availability)
 - [Support for data residency in more geos](#support-for-data-residency-in-more-geos)
 - [Bidirectional sync in Azure Defender connector (Public preview)](#bidirectional-sync-in-azure-defender-connector-public-preview)
 
-### Enrich entities with geolocation data via API
+### Enrich entities with geolocation data via API (Public preview)
 
 Azure Sentinel now offers an API to enrich your data with geolocation information. Geolocation data can then be used to analyze and investigate security incidents.
 
