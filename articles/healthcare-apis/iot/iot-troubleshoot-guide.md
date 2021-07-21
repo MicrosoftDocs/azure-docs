@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 11/13/2020
+ms.date: 07/20/2021
 ms.author: jasteppe
 ---
 # Azure IoT Connector for FHIR (preview) troubleshooting guide
@@ -50,17 +50,24 @@ In this section, you'll learn about the validation process that Azure IoT Connec
 
 ## Error messages and fixes for Azure IoT Connector for FHIR (preview)
 
+### IoT Connector Resource
+
 |Message|Displayed|Condition|Fix| 
 |-------|---------|---------|---|
-|Invalid mapping name, mapping name should be device or FHIR.|API|Mapping type supplied isn't device or FHIR.|Use one of the two supported mapping types (for example: Device or FHIR).|
-|Validation failed. Required information is missing or not valid.|API and Azure portal|Attempting to save a conversion mapping missing needed information or element.|Add missing conversion mapping information or element and attempt to save the conversion mapping again.|
-|Regenerate key parameters not defined.|API|Regenerate key request.|Include the parameters in the regeneration key request.|
-|Reached the maximum number of IoT Connector instances that can be provisioned in this subscription.|API and Azure portal|Azure IoT Connector for FHIR subscription quota reached (Default is (2) per subscription).|Delete one of the existing instances of Azure IoT Connector for FHIR.  Use a different subscription that hasn't reached the subscription quota.  Request a subscription quota increase.|
-|Move resource is not supported for IoT Connector enabled FHIR service resource.|API and Azure portal|Attempting to do a move operation on an FHIR service resource that has one or more instances of the Azure IoT Connector for FHIR.|Delete existing instance(s) of Azure IoT Connector for FHIR to do the move operation.|
-|IoT Connector not provisioned.|API|Attempting to use child services (connections & mappings) when parent (Azure IoT Connector for FHIR) hasn't been provisioned.|Provision an Azure IoT Connector for FHIR.|
-|The request is not supported.|API|Specific API request isn't supported.|Use the correct API request.|
-|Account does not exist.|API|Attempting to add an Azure IoT Connector for FHIR and the FHIR service resource doesn't exist.|Create the FHIR service resource and then reattempt the operation.|
-|FHIR service resource FHIR version is not supported for IoT Connector.|API|Attempting to use an Azure IoT Connector for FHIR with an incompatible version of the FHIR service resource.|Create a new FHIR service resource (version R4) or use an existing FHIR service resource (version R4).
+|The maximum number of resource type `iotconnectors` has been reached.|API and Azure portal|Azure IoT Connector for FHIR subscription quota reached (Default is (10) per subscription).|Delete one of the existing instances of Azure IoT Connector for FHIR. Use a different subscription that hasn't reached the subscription quota. Request a subscription quota increase.
+|Invalid `deviceMapping` mapping. Validation errors: {List of errors}|API and Azure portal|The `properties.deviceMapping` provided in the IoT Connector Resource provisioning request is invalid.|Correct the errors in the mapping JSON provided in the `properties.deviceMapping` property.
+|`fullyQualifiedEventHubNamespace` is null, empty, or formatted incorrectly.|API and Azure portal|The IoT Connector provisioning request `properties.ingestionEndpointConfiguration.fullyQualifiedEventHubNamespace` is not valid.|Update the IoT Connector `properties.ingestionEndpointConfiguration.fullyQualifiedEventHubNamespace` to the correct format. Should be `{YOUR_NAMESPACE}.servicebus.windows.net`.
+|Ancestor resources must be fully provisioned before a child resource can be provisioned.|API|The parent Workspace is still provisioning.|Wait until the parent workspace provisioning has completed and submit the provisioning request again.
+|`Location` property of child resources must match the `Location` property of parent resources.|API|The IoT Connector provisioning request `location` property is different from the parent Workspace `location` property.|Set the `location` property of the IoT Connector in the provisioning request to the same value as the parent Workspace `location` property.
+
+### Destination Resource
+
+|Message|Displayed|Condition|Fix| 
+|-------|---------|---------|---|
+|The maximum number of resource type `iotconnectors/destinations` has been reached.|API and Azure portal|IoT Connector Destination Resource quota reached (Default is (1) per IoT Connector).|Delete the existing instance of IoT Connector Destination. Only 1 Destination is permitted per IoT Connector.
+|The `fhirServiceResourceId` provided is invalid.|API and Azure portal|The `properties.fhirServiceResourceId` provided in the Destination Resource provisioning request is not a valid resource ID for an instance of Azure API for FHIR.|Make sure the resource ID is formatted correctly, and make sure the resource ID is for an Azure API for FHIR instance. The format should be: `/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP_NAME}/providers/Microsoft.HealthcareApis/services/{FHIR_SERVER_NAME} or /subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP_NAME}/providers/Microsoft.HealthcareApis/workspaces/{WORKSPACE_NAME}/`
+|Ancestor resources must be fully provisioned before a child resource can be provisioned.|API|The parent Workspace or the parent IoT Connector is still provisioning.|Wait until the parent Workspace or the parent IoT Connector provisioning has completed and submit the provisioning request again.
+|`Location` property of child resources must match the `Location` property of parent resources.|API|The Destination provisioning request `location` property is different from the parent IoT Connector `location` property.|Set the `location` property of the Destination in the provisioning request to the same value as the parent IoT Connector `location` property.
 
 ## Why is my Azure IoT Connector for FHIR (preview) data not showing up in FHIR service?
 
@@ -75,17 +82,6 @@ In this section, you'll learn about the validation process that Azure IoT Connec
 |The Device.patient reference isn't set, or the reference is invalid (Resolution Type: Lookup only)*.|Make sure the Device Resource contains a valid [Reference](https://www.hl7.org/fhir/device-definitions.html#Device.patient) to a Patient Resource.| 
 
 *Reference [Quickstart: Deploy Azure IoT Connector (preview) using Azure portal](deploy-iot-connector-in-azure.md) for a functional description of the Azure IoT Connector for FHIR resolution types (For example: Lookup or Create).
-
-## Use Metrics to troubleshoot issues in Azure IoT Connector for FHIR (preview)
-
-Azure IoT Connector for FHIR generates multiple metrics to provide insights into the data flow process. One of the supported metrics is called *Total Errors*, which provides the count for all errors that occur within an instance of Azure IoT Connector for FHIR.
-
-Each error gets logged with a number of associated properties. Every property provides a different aspect about the error, which could help you to identify and troubleshoot issues. This section lists different properties captured for each error in the *Total Errors* metric, and possible values for these properties.
-
-> [!NOTE]
-> You can navigate to the *Total Errors* metric for an instance of Azure IoT Connector for FHIR (preview) as described on the [Azure IoT Connector for FHIR (preview) Metrics page](iot-metrics-display.md).
-
-Click on the *Total Errors* graph and then click on *Add filter* button to slice and dice the error metric using any of the properties mentioned below.
 
 ### The operation performed by the Azure IoT Connector for FHIR (preview)
 
