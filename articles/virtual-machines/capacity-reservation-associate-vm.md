@@ -1,12 +1,12 @@
 ---
 title: Associate a virtual machine to a Capacity Reservation group (preview)
 description: Learn how to associate a new or existing virtual machine to a Capacity Reservation group.
-author: ju-shim
+author: vargupt
 ms.author: vargupt
 ms.service: virtual-machines #Required
 ms.topic: how-to
 ms.date: 07/30/2021
-ms.reviewer: cynthn
+ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
 ---
 
