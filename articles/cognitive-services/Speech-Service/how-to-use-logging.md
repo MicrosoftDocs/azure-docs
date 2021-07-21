@@ -63,18 +63,15 @@ StorageFile logFile = await storageFolder.CreateFileAsync("logfile.txt", Creatio
 config.SetProperty(PropertyId.Speech_LogFilename, logFile.Path);
 ```
 
-More about file access permission for UWP applications is available [here](/windows/uwp/files/file-access-permissions).
-
-### Universal Windows Platform (UWP) on Unity
-
-In Unity and UWP application, a log file can be created in the application persistent folder as follows:
+Within a Unity UWP application, a log file can be created using the application persistent data path folder as follows:
 
 ```csharp
 #if ENABLE_WINMD_SUPPORT
-        string logFile = Application.persistentDataPath + "/logFile.txt";
-        config.SetProperty(PropertyId.Speech_LogFilename, logFile);
+    string logFile = Application.persistentDataPath + "/logFile.txt";
+    config.SetProperty(PropertyId.Speech_LogFilename, logFile);
 #endif
 ```
+For more about file access permissions in UWP applications, see [File access permissions](/windows/uwp/files/file-access-permissions).
 
 ### Android
 
@@ -98,11 +95,23 @@ You also need to request `WRITE_EXTERNAL_STORAGE` permission in the manifest fil
 </manifest>
 ```
 
+Within a Unity Android application, the log file can be created using the application persistent data path folder as follows:
+
+```csharp
+string logFile = Application.persistentDataPath + "/logFile.txt";
+config.SetProperty(PropertyId.Speech_LogFilename, logFile);
+```
+In addition, you need to also set write permission in your Unity Player settings for Android to "External (SDCard)". The log will be written 
+to a directory you can get using a tool such as AndroidStudio Device File Explorer. The exact directory path may vary between Android devices, 
+location is typically the `sdcard/Android/data/your-app-packagename/files` directory.
+
 More about data and file storage for Android applications is available [here](https://developer.android.com/guide/topics/data/data-storage.html).
 
 #### iOS
 
-Only directories inside the application sandbox are accessible. Files can be created in the documents, library, and temp directories. Files in the documents directory can be made available to a user. The following code snippet shows creation of a log file in the application document directory:
+Only directories inside the application sandbox are accessible. Files can be created in the documents, library, and temp directories. Files in the documents directory can be made available to a user. 
+
+If you are using Objective-C on iOS, use the following code snippet to create a log file in the application document directory:
 
 ```objc
 NSString *filePath = [
@@ -118,6 +127,14 @@ To access a created file, add the below properties to the `Info.plist` property 
 <true/>
 <key>LSSupportsOpeningDocumentsInPlace</key>
 <true/>
+```
+
+If you are using Swift on iOS, please use the following code snippet to enable logs:
+```swift
+let documentsDirectoryPathString = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+let documentsDirectoryPath = NSURL(string: documentsDirectoryPathString)!
+let logFilePath = documentsDirectoryPath.appendingPathComponent("swift.log")
+self.speechConfig!.setPropertyTo(logFilePath!.absoluteString, by: SPXPropertyId.speechLogFilename)
 ```
 
 More about iOS File System is available [here](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html).

@@ -64,7 +64,7 @@ After a few minutes, the custom image is created and is stored inside the lab’
 
 ## Related blog posts
 
-- [Custom images or formulas?](./devtest-lab-faq.md#blog-post)
+- [Custom images or formulas?](./devtest-lab-faq.yml#blog-post)
 - [Copying Custom Images between Azure DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## Next steps

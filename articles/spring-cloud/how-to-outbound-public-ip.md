@@ -1,8 +1,8 @@
 ---
 title: How - to identify outbound public IP addresses in Azure Spring Cloud 
 description: How to view the static outbound public IP addresses to communicate with external resources, such as Database, Storage, Key Vault, etc.
-author:  MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/17/2020
@@ -34,8 +34,8 @@ To find the outbound public IP addresses currently used by your service instance
 
 You can find the same information by running the following command in the Cloud Shell
 
-```Azure CLI
-az spring-cloud show --resource-group <group_name> --name <service_name> --query properties.networkProfile.outboundIPs.publicIPs --output tsv
+```azurecli
+az spring-cloud show --resource-group <group_name> --name <service_name> --query properties.networkProfile.outboundIps.publicIps --output tsv
 ```
 
 ## Next steps

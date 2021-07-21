@@ -1,11 +1,10 @@
 ---
 title: Azure Functions on Kubernetes with KEDA
 description: Understand how to run Azure Functions in Kubernetes in the cloud or on-premises using KEDA, Kubernetes-based event driven autoscaling.
-author: jeffhollan
-
+author: eamonoreilly
 ms.topic: conceptual
 ms.date: 11/18/2019
-ms.author: jehollan
+ms.author: eamono
 ---
 
 # Azure Functions on Kubernetes with KEDA
@@ -24,7 +23,7 @@ To run Functions on your Kubernetes cluster, you must install the KEDA component
 
 ### Installing with Helm
 
-There are various ways to install KEDA in any Kubernetes cluster including Helm.  Deployment options are documented on the [KEDA site](https://keda.sh/docs/1.4/deploy/).
+There are various ways to install KEDA in any Kubernetes cluster including Helm.  Deployment options are documented on the [KEDA site](https://keda.sh/docs/deploy/).
 
 ## Deploying a function app to Kubernetes
 
@@ -69,7 +68,7 @@ kubectl delete secret <name-of-function-deployment>
 
 ## Uninstalling KEDA from Kubernetes
 
-Steps to uninstall KEDA are documented [on the KEDA site](https://keda.sh/docs/1.4/deploy/).
+Steps to uninstall KEDA are documented [on the KEDA site](https://keda.sh/docs/deploy/).
 
 ## Supported triggers in KEDA
 

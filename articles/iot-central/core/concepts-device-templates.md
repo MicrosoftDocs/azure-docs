@@ -1,6 +1,6 @@
 ---
 title: What are device templates in Azure IoT Central | Microsoft Docs
-description: Azure IoT Central device templates let you specify the behavior of the devices connected to your application. A device template specifies the telemetry, properties, and commands the device must implement. A device template also defines the UI for the device in IoT Central such as the forms and dashboards an operator uses.
+description: Azure IoT Central device templates let you specify the behavior of the devices connected to your application. A device template specifies the telemetry, properties, and commands the device must implement. A device template also defines the UI for the device in IoT Central such as the forms and views an operator uses.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/19/2020
@@ -29,11 +29,13 @@ A device template includes the following sections:
 
 ## Device models
 
-A device model defines how a device interacts with your IoT Central application. The device developer must make sure that the device implements the behaviors defined in the device model so that IoT Central can monitor and manage the device. A device model is made up of one or more _interfaces_, and each interface can define a collection of _telemetry_ types, _device properties_, and _commands_. A solution developer can import a JSON file that defines the device model into a device template, or use the web UI in IoT Central to create or edit a device model. Changes to a device model made using the Web UI require the [device template to be versioned](./howto-version-device-template.md).
+A device model defines how a device interacts with your IoT Central application. The device developer must make sure that the device implements the behaviors defined in the device model so that IoT Central can monitor and manage the device. A device model is made up of one or more _interfaces_, and each interface can define a collection of _telemetry_ types, _device properties_, and _commands_. A solution developer can import a JSON file that defines the device model into a device template, or use the web UI in IoT Central to create or edit a device model.
+
+To learn more about editing a device model, see [Edit an existing device template](howto-edit-device-template.md)
 
 A solution developer can also export a JSON file that contains the device model. A device developer can use this JSON document to understand how the device should communicate with the IoT Central application.
 
-The JSON file that defines the device model uses the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). IoT Central expects the JSON file to contain the device model with the interfaces defined inline, rather than in separate files. To learn more, see [IoT Plug and Play modeling guide](../../iot-pnp/concepts-modeling-guide.md).
+The JSON file that defines the device model uses the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). IoT Central expects the JSON file to contain the device model with the interfaces defined inline, rather than in separate files. To learn more, see [IoT Plug and Play modeling guide](../../iot-develop/concepts-modeling-guide.md).
 
 A typical IoT device is made up of:
 
@@ -289,7 +291,7 @@ For writable properties, the device application returns a desired state status c
 
 ## Telemetry
 
-IoT Central lets you view telemetry on dashboards and charts, and use rules to trigger actions when thresholds are reached. IoT Central uses the information in the device model, such as data types, units and display names, to determine how to display telemetry values.
+IoT Central lets you view telemetry in device views and charts, and use rules to trigger actions when thresholds are reached. IoT Central uses the information in the device model, such as data types, units and display names, to determine how to display telemetry values. You can also display telemetry values on application and personal dashboards.
 
 You can use the IoT Central data export feature to stream telemetry to other destinations such as storage or Event Hubs.
 
@@ -312,7 +314,7 @@ Offline commands are one-way notifications to the device from your solution. Off
 
 Cloud properties are part of the device template, but aren't part of the device model. Cloud properties let the solution developer specify any device metadata to store in the IoT Central application. Cloud properties don't affect the code that a device developer writes to implement the device model.
 
-A solution developer can add cloud properties to dashboards and views alongside device properties to enable an operator to manage the devices connected to the application. A solution developer can also use cloud properties as part of a rule definition to make a threshold value editable by an operator.
+A solution developer can add cloud properties to device views and forms alongside device properties to enable an operator to manage the devices connected to the application. A solution developer can also use cloud properties as part of a rule definition to make a threshold value editable by an operator.
 
 ## Customizations
 

@@ -6,11 +6,11 @@ services: sql-database
 ms.service: sql-db-mi
 ms.subservice: high-availability
 ms.custom: sqldbrb=2, devx-track-azurecli
-ms.devlang: 
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+ms.devlang: 
+author: BustosMSFT
+ms.author: robustos
+ms.reviewer: mathoma
 ms.date: 08/14/2019
 ---
 # Configure a failover group for Azure SQL Database
@@ -78,11 +78,11 @@ Create your failover group and add your database to it using PowerShell.
    # Create a failover group between the servers
    $failovergroup = Write-host "Creating a failover group between the primary and secondary server..."
    New-AzSqlDatabaseFailoverGroup `
-      â€“ResourceGroupName $resourceGroupName `
+      ResourceGroupName $resourceGroupName `
       -ServerName $serverName `
       -PartnerServerName $drServerName  `
-      â€“FailoverGroupName $failoverGroupName `
-      â€“FailoverPolicy Automatic `
+      FailoverGroupName $failoverGroupName `
+      FailoverPolicy Automatic `
       -GracePeriodWithDataLossHours 2
    $failovergroup
 
@@ -242,11 +242,11 @@ Create your failover group and add your elastic pool to it using PowerShell.
    # Create a failover group between the servers
    Write-host "Creating failover group..."
    New-AzSqlDatabaseFailoverGroup `
-       â€“ResourceGroupName $resourceGroupName `
+       ResourceGroupName $resourceGroupName `
        -ServerName $serverName `
        -PartnerServerName $drServerName  `
-       â€“FailoverGroupName $failoverGroupName `
-       â€“FailoverPolicy Automatic `
+       FailoverGroupName $failoverGroupName `
+       FailoverPolicy Automatic `
        -GracePeriodWithDataLossHours 2
    Write-host "Failover group created successfully."
 

@@ -13,6 +13,9 @@ The tables in this article outline the Service Fabric and platform versions that
 
 | Service Fabric runtime |Can upgrade directly from|Can downgrade to|Compatible SDK or NuGet package version|Supported .NET runtimes** |OS Version |End of support |
 | --- | --- | --- | --- | --- | --- | --- |
+| 8.1 RTO | 7.2 CU7 | 8.0 | Less than or equal to version 5.1 | .NET 5.0 (GA), >= .NET Core 2.1, <br>All >= .NET Framework 4.5 | [See supported OS version](#supported-windows-versions-and-support-end-date) | Current version |
+| 8.0 CU3 | 7.1 CU10 | 7.2 | Less than or equal to version 5.0 | .NET 5.0 (GA), >= .NET Core 2.1, <br>All >= .NET Framework 4.5 | [See supported OS version](#supported-windows-versions-and-support-end-date) | Current version |
+| 8.0 CU2 | 7.1 CU10 | 7.2 | Less than or equal to version 5.0 | .NET 5.0 (GA), >= .NET Core 2.1, <br>All >= .NET Framework 4.5 | [See supported OS version](#supported-windows-versions-and-support-end-date) | Current version |
 | 8.0 CU1 | 7.1 CU10 | 7.2 | Less than or equal to version 5.0 | .NET 5.0 (GA), >= .NET Core 2.1, <br>All >= .NET Framework 4.5 | [See supported OS version](#supported-windows-versions-and-support-end-date) | Current version |
 | 8.0 RTO | 7.1 CU10 | 7.2 | Less than or equal to version 5.0 | .NET 5.0 (GA), >= .NET Core 2.1, <br>All >= .NET Framework 4.5 | [See supported OS version](#supported-windows-versions-and-support-end-date) | Current version |
 | 7.2 CU7 | 7.0 CU9 | 7.1 | Less than or equal to version 4.2 | .NET 5.0 (Preview support), >= .NET Core 2.1,<br>All >= .NET Framework 4.5 | [See supported OS version](#supported-windows-versions-and-support-end-date) | November 30, 2021 |
@@ -54,6 +57,8 @@ Support for Service Fabric on a specific OS ends when support for the OS version
 
 | Service Fabric runtime | Can upgrade directly from |Can downgrade to |Compatible SDK or NuGet package version | Supported .NET runtimes** | OS version | End of support |
 | --- | --- | --- | --- | --- | --- | --- |
+| 8.1 RTO | 7.2 CU7 | 8.0 | Less than or equal to version 5.1 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | Current version |
+| 8.0 CU3 | 7.1 CU8 | 7.2 | Less than or equal to version 5.0 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | Current version |
 | 8.0 CU1 | 7.1 CU8 | 7.2 | Less than or equal to version 5.0 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | Current version |
 | 8.0 RTO | 7.1 CU8 | 7.2 | Less than or equal to version 5.0 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | Current version |
 | 7.2 CU7 | 7.0 CU9 | 7.1 | Less than or equal to version  4.2 | >= .NET Core 2.1 | [See supported OS version](#supported-linux-versions-and-support-end-date) | November 30, 2021 |
@@ -71,27 +76,19 @@ Support for Service Fabric on a specific OS ends when support for the OS version
 | Ubuntu 18.04 | April 2028 | <a href="https://wiki.ubuntu.com/Releases">Ubuntu lifecycle</a>|
 | Ubuntu 16.04 | April 2024 | <a href="https://wiki.ubuntu.com/Releases">Ubuntu lifecycle</a>|
 
-<br>
-
 ## Service Fabric version name and number reference
 The following table lists the version names of Service Fabric and their corresponding version numbers.
 
 | Version name | Windows version number | Linux version number |
 | --- | --- | --- |
+| 8.1 RTO | 8.1.316.9590 | 8.1.320.1 |
+| 8.0 CU3 | 8.0.536.9590 | 8.0.527.1 |
+| 8.0 CU2 | 8.0.521.9590 | NA |
 | 8.0 CU1 | 8.0.516.9590 | 8.0.515.1 | 
 | 8.0 RTO | 8.0.514.9590 | 8.0.513.1 | 
 | 7.2 CU7 | 7.2.477.9590 | 7.2.476.1 |
 | 7.2 CU6 | 7.2.457.9590 | 7.2.456.1 |
 | 7.2 CU7 | 7.2.477.9590 | 7.2.476.1 |
-
-## Supported .NET runtimes
-
-The following table lists the .NET runtimes supported by Service Fabric:
-
-| Service Fabric runtime | Supported .NET runtimes for Windows |Supported .NET runtimes for Linux |
-| --- | --- | --- |
-| 8.0 CU1 | .NET 5.0, >= .NET Core 2.1, All >= .NET Framework 4.5 | >= .NET Core 2.1|
-| 8.0 RTO | .NET 5.0, >= .NET Core 2.1, All >= .NET Framework 4.5 | >= .NET Core 2.1|
 | 7.2 CU5 | 7.2.452.9590 | 7.2.454.1 |
 | 7.2 CU4 | 7.2.445.9590 | 7.2.447.1 |
 | 7.2 CU3 | 7.2.433.9590 | NA |

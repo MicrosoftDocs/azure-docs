@@ -163,7 +163,7 @@ LogRhythm, a leader in NextGen SIEM, empowers organizations on six continents to
 
 Microfocus **ArcSight** has a smart connector for Azure Monitor event hubs.
 
-[See the ArcSight documentation](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852)
+[See the ArcSight documentation](https://community.microfocus.com/cyberres/arcsight/f/arcsight-product-announcements/163662/announcing-general-availability-of-arcsight-smart-connectors-7-10-0-8114-0)
 
 Microfocus **Operations Bridge** automatically monitors all Hybrid IT resources – any device, operating system, database, application, or service, regardless of where it runs and applies AIOps to all data types – events, metrics, logs, and dependencies. It provides a unique combination of quality-of-service monitoring, coupled with deep application health analytics, and includes comprehensive performance and availability monitoring of Microsoft Azure services. Operations Bridge enables customers to provide a single pane of glass, available on any device with a browser, in ways both business and IT stakeholders can understand.
 
@@ -194,7 +194,7 @@ Moogsoft runs in your Azure real-estate with integration to monitoring and autom
 
 ![NewRelic Logo](./media/partners/newrelic.png)
 
-[Newrelic documentation](https://newrelic.com/azure)
+[Newrelic documentation](https://newrelic.com/solutions/partners/azure)
 
 ## OpsGenie
 
@@ -351,7 +351,7 @@ Using Azure Monitor to route monitoring data to an Azure Event Hub  allows you t
 |  IBM QRadar | No | The Microsoft Azure DSM and Microsoft Azure Event Hub Protocol are available for download from [the IBM support website](https://www.ibm.com/support). You can learn more about the integration with Azure at [QRadar DSM configuration](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0). |
 | Splunk | No | [Microsoft Azure Add-On for Splunk](https://splunkbase.splunk.com/app/3757/) is an open source project available in Splunkbase. <br><br> If you cannot install an add-on in your Splunk instance, if for example you're using a proxy or running on Splunk Cloud, you can forward these events to the Splunk HTTP Event Collector using [Azure Function For Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS), which is triggered by new messages in the event hub. |
 | SumoLogic | No | Instructions for setting up SumoLogic to consume data from an event hub are available at [Collect Logs for the Azure Audit App from Event Hub](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). |
-| ArcSight | No | The ArcSight Azure Event Hub smart connector is available as part of [the ArcSight smart connector collection](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852). |
+| ArcSight | No | The ArcSight Azure Event Hub smart connector is available as part of [the ArcSight smart connector collection](https://community.microfocus.com/cyberres/arcsight/f/arcsight-product-announcements/163662/announcing-general-availability-of-arcsight-smart-connectors-7-10-0-8114-0). |
 | Syslog server | No | If you want to stream Azure Monitor data directly to a syslog server, you can use a [solution based on an Azure function](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 | LogRhythm | No| Instructions to set up LogRhythm to collect logs from an event hub are available [here](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
 |Logz.io | Yes | For more information, see [Getting started with monitoring and logging using Logz.io for Java apps running on Azure](/azure/developer/java/fundamentals/java-get-started-with-logzio)

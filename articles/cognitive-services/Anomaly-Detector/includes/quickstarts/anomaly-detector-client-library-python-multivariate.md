@@ -18,7 +18,7 @@ Use the Anomaly Detector multivariate client library for Python to:
 * When any individual time series won't tell you much and you have to look at all signals to detect a problem.
 * Predicative maintenance of expensive physical assets with tens to hundreds of different types of sensors measuring various aspects of system health.
 
-[Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/anomalydetector/azure-ai-anomalydetector) | [Package (PyPi)](https://pypi.org/project/azure-ai-anomalydetector/3.0.0b3/) | [Sample code](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_multivariate_detect.py) | [Jupyter Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb)
+[Library reference documentation](/python/api/azure-ai-anomalydetector/azure.ai.anomalydetector) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/anomalydetector/azure-ai-anomalydetector) | [Package (PyPi)](https://pypi.org/project/azure-ai-anomalydetector/3.0.0b3/) | [Sample code](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_multivariate_detect.py)
 
 ## Prerequisites
 
@@ -31,6 +31,15 @@ Use the Anomaly Detector multivariate client library for Python to:
 
 
 ## Setting up
+
+### Install the client library
+
+After installing Python, you can install the client libraries with:
+
+```console
+pip install pandas
+pip install --upgrade azure-ai-anomalydetector
+```
 
 ### Create a new python application
 
@@ -47,20 +56,17 @@ from azure.core.credentials import AzureKeyCredential
 from azure.core.exceptions import HttpResponseError
 ```
 
-Create variables for your key as an environment variable, the path to a time series data file, and the Azure location of your subscription. For example, `westus2`.
+Create variables for your key as an environment variable, the path to a time series data file, and the Azure location of your subscription. 
+
+> [!NOTE]
+> You will always have the option of using one of two keys. This is to allow secure key rotation. For the purposes of this quickstart use the first key. 
 
 ```python
 subscription_key = "ANOMALY_DETECTOR_KEY"
 anomaly_detector_endpoint = "ANOMALY_DETECTOR_ENDPOINT"
 ```
 
-### Install the client library
 
-After installing Python, you can install the client library with:
-
-```console
-pip install --upgrade azure-ai-anomalydetector
-```
 
 ## Code examples
 
@@ -90,6 +96,8 @@ Each time series should be a CSV file with two (and only two) columns, "timestam
 Each CSV file should be named after a different variable that will be used for model training. For example, "temperature.csv" and "humidity.csv". All the CSV files should be zipped into one zip file without any subfolders. The zip file can have whatever name you want. The zip file should be uploaded to Azure Blob storage. Once you generate the blob SAS (Shared access signatures) URL for the zip file, it can be used for training. Refer to this document for how to generate SAS URLs from Azure Blob Storage.
 
 ```python
+class MultivariateSample():
+
 def __init__(self, subscription_key, anomaly_detector_endpoint, data_source=None):
     self.sub_key = subscription_key
     self.end_point = anomaly_detector_endpoint
@@ -100,11 +108,7 @@ def __init__(self, subscription_key, anomaly_detector_endpoint, data_source=None
     self.ad_client = AnomalyDetectorClient(AzureKeyCredential(self.sub_key), self.end_point)
     # </client>
 
-    if not data_source:
-        # Datafeed for test only
-        self.data_source = "YOUR_SAMPLE_ZIP_FILE_LOCATED_IN_AZURE_BLOB_STORAGE_WITH_SAS"
-    else:
-        self.data_source = data_source
+    self.data_source = "YOUR_SAMPLE_ZIP_FILE_LOCATED_IN_AZURE_BLOB_STORAGE_WITH_SAS"
 ```
 
 ## Train the model
@@ -182,6 +186,9 @@ def detect(self, model_id, start_time, end_time, max_tryout=500):
 
 ## Export model
 
+> [!NOTE]
+> The export command is intended to be used to allow running Anomaly Detector multivariate models in a containerized environment. This is not currently not supported for multivariate, but support will be added in the future.
+
 If you want to export a model use `export_model` and pass the model ID of the model you want to export:
 
 ```python
@@ -248,4 +255,14 @@ We also have an [in-depth Jupyter Notebook](https://github.com/Azure-Samples/Ano
 Run the application with the `python` command and your file name.
 
 
-[!INCLUDE [anomaly-detector-next-steps](../quickstart-cleanup-next-steps.md)]
+## Clean up resources
+
+If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with the resource group.
+
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+
+## Next steps
+
+* [What is the Anomaly Detector API?](../../overview-multivariate.md)
+* [Best practices when using the Anomaly Detector API.](../../concepts/best-practices-multivariate.md)

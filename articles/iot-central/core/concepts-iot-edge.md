@@ -44,6 +44,9 @@ There are two gateway patterns:
 
 * In the *transparent gateway* pattern, the IoT Edge hub module behaves like IoT Central and handles connections from devices registered in IoT Central. Messages pass from downstream devices to IoT Central as if there's no gateway between them.
 
+    > [!NOTE]
+    > IoT Central currently doesn't support connecting an IoT Edge device as a downstream device to an IoT Edge transparent gateway. This is because all devices that connect to IoT Central are provisioned using the Device Provisioning Service (DPS) and DPS doesn't support nested IoT Edge scenarios.
+
 * In the *translation gateway* pattern, devices that can't connect to IoT Central on their own, connect to a custom IoT Edge module instead. The module in the IoT Edge device processes incoming downstream device messages and then forwards them to IoT Central.
 
 The transparent and translation gateway patterns aren't mutually exclusive. A single IoT Edge device can function as both a transparent gateway and a translation gateway.
@@ -190,8 +193,6 @@ The deployment manifest doesn't include information about the telemetry the **Si
 To learn more, see [Tutorial: Add an Azure IoT Edge device to your Azure IoT Central application](tutorial-add-edge-as-leaf-device.md).
 
 ### Update a deployment manifest
-
-If you create a new [version](howto-version-device-template.md) of the device template, you can replace the deployment manifest with a new version:
 
 When you replace the deployment manifest, any connected IoT Edge devices download the new manifest and update their modules. However, IoT Central doesn't update the interfaces in the device template with any changes to the module configuration. For example, if you replace the manifest shown in the previous snippet with the following manifest, you don't automatically see the **SendUnits** property in the **management** interface in the device template. Manually add the new property to the **management** interface for IoT Central to recognize it:
 

@@ -10,7 +10,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/08/2021
 ms.author: juergent
-ms.custom: H1Hack27Feb2017, devx-track-azurecli
+ms.custom: H1Hack27Feb2017, devx-track-azurecli, devx-track-azurepowershell
 ---
 # Azure Virtual Machines planning and implementation for SAP NetWeaver
 
@@ -222,12 +222,12 @@ ms.custom: H1Hack27Feb2017, devx-track-azurecli
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-az-ps
+[powershell-install-configure]:/powershell/azure/install-az-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam
-[sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
+[sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
 [sap-templates-2-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
 [sap-templates-3-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image%2Fazuredeploy.json
@@ -241,8 +241,8 @@ ms.custom: H1Hack27Feb2017, devx-track-azurecli
 [storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
-[templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
-[templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
+[templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-simple-windows
+[templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-from-user-image
 [virtual-machines-linux-attach-disk-portal]:../../linux/attach-disk-portal.md
 [virtual-machines-azure-resource-manager-architecture]:../../../resource-manager-deployment-model.md
 [virtual-machines-Az-versus-azuresm]:virtual-machines-linux-compare-deployment-models.md
@@ -343,7 +343,7 @@ Throughout the document, we use the following terms:
 
 
 ### <a name="e55d1e22-c2c8-460b-9897-64622a34fdff"></a>Resources
-The entry point for SAP workload on Azure documentation is found [here](./get-started.md). Starting with this entry point you find many articles that cover the topics of:
+The entry point for SAP workload on Azure documentation is found at [Get started with SAP on Azure VMs](./get-started.md). Starting with this entry point you find many articles that cover the topics of:
 
 - SAP NetWeaver and Business One on Azure
 - SAP DBMS guides for various DBMS systems in Azure
@@ -586,7 +586,7 @@ It is possible to assign fixed or reserved IP addresses to VMs within an Azure V
 
 
 ##### Secondary IP addresses for SAP hostname virtualization
-Each Azure Virtual Machine’s network interface card can have multiple IP addresses assigned to it, this secondary IP can be used for SAP virtual hostnames which is mapped to a DNS A/PTR record if required. The secondary IP addresses must be assigned to Azure vNICs IP config as per [this article](../../../virtual-network/virtual-network-multiple-ip-addresses-portal.md) and also configured within the OS as secondary IPs are not assigned through DHCP. Each secondary IP must be from the same subnet the vNIC is bound to. Use of Azure Load Balancer’s floating IP is [not supported]( https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations) secondary for secondary IP configurations such as Pacemaker clusters, in this case the IP of the Load Balancer enables the SAP virtual hostname(s). See also SAP’s note [#962955](https://launchpad.support.sap.com/#/notes/962955) on general guidance using virtual host names.
+Each Azure Virtual Machine's network interface card can have multiple IP addresses assigned to it, this secondary IP can be used for SAP virtual hostnames which is mapped to a DNS A/PTR record if required. The secondary IP addresses must be assigned to Azure vNICs IP config as per [this article](../../../virtual-network/virtual-network-multiple-ip-addresses-portal.md) and also configured within the OS as secondary IPs are not assigned through DHCP. Each secondary IP must be from the same subnet the vNIC is bound to. Use of Azure Load Balancer's floating IP is [not supported](../../../load-balancer/load-balancer-multivip-overview.md#limitations) secondary for secondary IP configurations such as Pacemaker clusters, in this case the IP of the Load Balancer enables the SAP virtual hostname(s). See also SAP's note [#962955](https://launchpad.support.sap.com/#/notes/962955) on general guidance using virtual host names.
 
 
 ##### Multiple NICs per VM
@@ -682,7 +682,7 @@ As a rough decision tree to decide whether an SAP system fits into Azure Virtual
 
 ![Decision tree to decide ability to deploy SAP on Azure][planning-guide-figure-700]
 
-1. The most important information to start with is the SAPS requirement for a given SAP system. The SAPS requirements need to be separated out into the DBMS part and the SAP application part, even if the SAP system is already deployed on-premises in a 2-tier configuration. For existing systems, the SAPS related to the hardware in use often can be determined or estimated based on existing SAP benchmarks. The results can be found [here](https://sap.com/about/benchmark.html). For newly deployed SAP systems, you should have gone through a sizing exercise, which should determine the SAPS requirements of the system.
+1. The most important information to start with is the SAPS requirement for a given SAP system. The SAPS requirements need to be separated out into the DBMS part and the SAP application part, even if the SAP system is already deployed on-premises in a 2-tier configuration. For existing systems, the SAPS related to the hardware in use often can be determined or estimated based on existing SAP benchmarks. The results can be found  on the [About SAP Standard Application Benchmarks](https://sap.com/about/benchmark.html) page. For newly deployed SAP systems, you should have gone through a sizing exercise, which should determine the SAPS requirements of the system.
 1. For existing systems, the I/O volume and I/O operations per second on the DBMS server should be measured. For newly planned systems, the sizing exercise for the new system also should give rough ideas of the I/O requirements on the DBMS side. If unsure, you eventually need to conduct a Proof of Concept.
 1. Compare the SAPS requirement for the DBMS server with the SAPS the different VM types of Azure can provide. The information on SAPS of the different Azure VM types is documented in SAP Note [1928533]. The focus should be on the DBMS VM first since the database layer is the layer in an SAP NetWeaver system that does not scale out in the majority of deployments. In contrast, the SAP application layer can be scaled out. If none of the SAP supported Azure VM types can deliver the required SAPS, the workload of the planned SAP system can't be run on Azure. You either need to deploy the system on-premises or you need to change the workload volume for the system.
 1. As documented [here (Linux)][virtual-machines-sizes-linux] and [here (Windows)][virtual-machines-sizes-windows], Azure enforces an IOPS quota per disk independent whether you use Standard Storage or Premium Storage. Dependent on the VM type, the number of data disks, which can be mounted varies. As a result, you can calculate a maximum IOPS number that can be achieved with each of the different VM types. Dependent on the database file layout, you can stripe disks to become one volume in the guest OS. However, if the current IOPS volume of a deployed SAP system exceeds the calculated limits of the largest VM type of Azure and if there is no chance to compensate with more memory, the workload of the SAP system can be impacted severely. In such cases, you can hit a point where you should not deploy the system on Azure.
@@ -731,7 +731,7 @@ Deployment of the Azure Extension for SAP (see chapter [Azure Extension for SAP]
 
 As Azure provides more functionality, new PS cmdlets are going to be added that requires an update of the cmdlets. Therefore it makes sense to check the Azure Download site at least once the month <https://azure.microsoft.com/downloads/> for a new version of the cmdlets. The new version is installed on top of the older version.
 
-For a general list of Azure-related PowerShell commands check here: <https://docs.microsoft.com/powershell/azure/>.
+For a general list of Azure-related PowerShell commands check here: </powershell/azure/>.
 
 ### Management via Microsoft Azure CLI commands
 
@@ -779,7 +779,7 @@ Due to specific patch requirements of your OS or DBMS version, the provided imag
 ---
 > ![Windows logo.][Logo_Windows] Windows
 >
-> See more details here: <https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed>
+> See more details here: </azure/virtual-machines/windows/upload-generalized-managed>
 > The Windows settings (like Windows SID and hostname) must be abstracted/generalized on the on-premises VM via the sysprep command.
 >
 >
@@ -875,7 +875,7 @@ If the VM is prepared sufficiently to be generic and eventually independent of a
 ### Transferring VMs and VHDs between on-premises to Azure
 Since uploading VM images and disks to Azure is not possible via the Azure portal, you need to use Azure PowerShell cmdlets or CLI. Another possibility is the use of the tool 'AzCopy'. The tool can copy VHDs between on-premises and Azure (in both directions). It also can copy VHDs between Azure Regions. Consult [this documentation][storage-use-azcopy] for download and usage of AzCopy.
 
-A third alternative would be to use various third-party GUI-oriented tools. However, make sure that these tools are supporting Azure Page Blobs. For our purposes, we need to use Azure Page Blob store (the differences are described here: <https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>). Also the tools provided by Azure are efficient in compressing the VMs and VHDs, which need to be uploaded. This is important because this efficiency in compression reduces the upload time (which varies anyway depending on the upload link to the internet from the on-premises facility and the Azure deployment region targeted). It is a fair assumption that uploading a VM or VHD from European location to the U.S.-based Azure data centers will take longer than uploading the same VMs/VHDs to the European Azure data centers.
+A third alternative would be to use various third-party GUI-oriented tools. However, make sure that these tools are supporting Azure Page Blobs. For our purposes, we need to use Azure Page Blob store (the differences are described here: </rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>). Also the tools provided by Azure are efficient in compressing the VMs and VHDs, which need to be uploaded. This is important because this efficiency in compression reduces the upload time (which varies anyway depending on the upload link to the internet from the on-premises facility and the Azure deployment region targeted). It is a fair assumption that uploading a VM or VHD from European location to the U.S.-based Azure data centers will take longer than uploading the same VMs/VHDs to the European Azure data centers.
 
 #### <a name="a43e40e6-1acc-4633-9816-8f095d5a7b6a"></a>Uploading a VHD from on-premises to Azure
 To upload an existing VM or VHD from the on-premises network such a VM or VHD needs to meet the requirements as listed in chapter [Preparation for moving a VM from on-premises to Azure with a non-generalized disk][planning-guide-5.2.1] of this document.
@@ -888,19 +888,19 @@ In this case we want to upload a VHD, either with or without an OS in it, and mo
 **PowerShell**
 
 * Sign in to your subscription with *Connect-AzAccount*
-* Set the subscription of your context with *Set-AzContext* and parameter SubscriptionId or SubscriptionName - see <https://docs.microsoft.com/powershell/module/az.accounts/set-Azcontext>
-* Upload the VHD with *Add-AzVhd* to an Azure Storage Account - see <https://docs.microsoft.com/powershell/module/az.compute/add-Azvhd>
-* (Optional) Create a Managed Disk from the VHD with *New-AzDisk*  - see <https://docs.microsoft.com/powershell/module/az.compute/new-Azdisk>
-* Set the OS disk of a new VM config to the VHD or Managed Disk with *Set-AzVMOSDisk* - see <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk>
-* Create a new VM from the VM config with *New-AzVM* - see <https://docs.microsoft.com/powershell/module/az.compute/new-Azvm>
-* Add a data disk to a new VM with *Add-AzVMDataDisk* - see <https://docs.microsoft.com/powershell/module/az.compute/add-Azvmdatadisk>
+* Set the subscription of your context with *Set-AzContext* and parameter SubscriptionId or SubscriptionName - see </powershell/module/az.accounts/set-Azcontext>
+* Upload the VHD with *Add-AzVhd* to an Azure Storage Account - see </powershell/module/az.compute/add-Azvhd>
+* (Optional) Create a Managed Disk from the VHD with *New-AzDisk*  - see </powershell/module/az.compute/new-Azdisk>
+* Set the OS disk of a new VM config to the VHD or Managed Disk with *Set-AzVMOSDisk* - see </powershell/module/az.compute/set-Azvmosdisk>
+* Create a new VM from the VM config with *New-AzVM* - see </powershell/module/az.compute/new-Azvm>
+* Add a data disk to a new VM with *Add-AzVMDataDisk* - see </powershell/module/az.compute/add-Azvmdatadisk>
 
 **Azure CLI**
 
 * Sign in to your subscription with *az login*
 * Select your subscription with *az account set --subscription `<subscription name or id`>*
-* Upload the VHD with *az storage blob upload* - see [Using the Azure CLI with Azure Storage][storage-azure-cli]
-* (Optional) Create a Managed Disk from the VHD with *az disk create* - see https://docs.microsoft.com/cli/azure/disk
+* Upload the VHD with *az storage blob upload* - see [Using the Azure CLI with Azure Storage][storage-azure-cli].
+* (Optional) Create a Managed Disk from the VHD with *az disk create* - see [az disk](/cli/azure/disk).
 * Create a new VM specifying the uploaded VHD or Managed Disk as OS disk with *az vm create* and parameter *--attach-os-disk*
 * Add a data disk to a new VM with *az vm disk attach* and parameter *--new*
 
@@ -908,28 +908,28 @@ In this case we want to upload a VHD, either with or without an OS in it, and mo
 
 * Upload the VHD with PowerShell or Azure CLI
 * (Optional) Create a Managed Disk from the VHD with PowerShell, Azure CLI, or the Azure portal
-* Deploy the VM with a JSON template referencing the VHD as shown in [this example JSON template](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json) or using Managed Disks as shown in [this example JSON template](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json).
+* Deploy the VM with a JSON template referencing the VHD as shown in [this example JSON template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json) or using Managed Disks as shown in [this example JSON template](https://github.com/Azure/azure-quickstart-templates/blob/master/application-workloads/sap/sap-2-tier-user-image-md/azuredeploy.json).
 
 #### Deployment of a VM Image
 To upload an existing VM or VHD from the on-premises network, in order to use it as an Azure VM image such a VM or VHD need to meet the requirements listed in chapter [Preparation for deploying a VM with a customer-specific image for SAP][planning-guide-5.2.2] of this document.
 
 * Use *sysprep* on Windows or *waagent -deprovision* on Linux to generalize your VM - see [Sysprep Technical Reference](/previous-versions/windows/it-pro/windows-vista/cc766049(v=ws.10)) for Windows or [How to capture a Linux virtual machine to use as a Resource Manager template][capture-image-linux-step-2-create-vm-image] for Linux
 * Sign in to your subscription with *Connect-AzAccount*
-* Set the subscription of your context with *Set-AzContext* and parameter SubscriptionId or SubscriptionName - see <https://docs.microsoft.com/powershell/module/az.accounts/set-Azcontext>
-* Upload the VHD with *Add-AzVhd* to an Azure Storage Account - see <https://docs.microsoft.com/powershell/module/az.compute/add-Azvhd>
-* (Optional) Create a Managed Disk Image from the VHD with *New-AzImage*  - see <https://docs.microsoft.com/powershell/module/az.compute/new-Azimage>
+* Set the subscription of your context with *Set-AzContext* and parameter SubscriptionId or SubscriptionName - see </powershell/module/az.accounts/set-Azcontext>
+* Upload the VHD with *Add-AzVhd* to an Azure Storage Account - see </powershell/module/az.compute/add-Azvhd>
+* (Optional) Create a Managed Disk Image from the VHD with *New-AzImage*  - see </powershell/module/az.compute/new-Azimage>
 * Set the OS disk of a new VM config to the
-  * VHD with *Set-AzVMOSDisk -SourceImageUri -CreateOption fromImage* - see <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk>
-  * Managed Disk Image *Set-AzVMSourceImage* - see <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmsourceimage>
-* Create a new VM from the VM config with *New-AzVM* - see <https://docs.microsoft.com/powershell/module/az.compute/new-Azvm>
+  * VHD with *Set-AzVMOSDisk -SourceImageUri -CreateOption fromImage* - see </powershell/module/az.compute/set-Azvmosdisk>
+  * Managed Disk Image *Set-AzVMSourceImage* - see </powershell/module/az.compute/set-Azvmsourceimage>
+* Create a new VM from the VM config with *New-AzVM* - see </powershell/module/az.compute/new-Azvm>
 
 **Azure CLI**
 
 * Use *sysprep* on Windows or *waagent -deprovision* on Linux to generalize your VM - see [Sysprep Technical Reference](/previous-versions/windows/it-pro/windows-vista/cc766049(v=ws.10)) for Windows or [How to capture a Linux virtual machine to use as a Resource Manager template][capture-image-linux-step-2-create-vm-image] for Linux
 * Sign in to your subscription with *az login*
 * Select your subscription with *az account set --subscription `<subscription name or id`>*
-* Upload the VHD with *az storage blob upload* - see [Using the Azure CLI with Azure Storage][storage-azure-cli]
-* (Optional) Create a Managed Disk Image from the VHD with *az image create* - see https://docs.microsoft.com/cli/azure/image
+* Upload the VHD with *az storage blob upload* - see [Using the Azure CLI with Azure Storage][storage-azure-cli].
+* (Optional) Create a Managed Disk Image from the VHD with *az image create* - see [az image](/cli/azure/image].
 * Create a new VM specifying the uploaded VHD or Managed Disk Image as OS disk with *az vm create* and parameter *--image*
 
 **Template**
@@ -937,7 +937,7 @@ To upload an existing VM or VHD from the on-premises network, in order to use it
 * Use *sysprep* on Windows or *waagent -deprovision* on Linux to generalize your VM - see [Sysprep Technical Reference](/previous-versions/windows/it-pro/windows-vista/cc766049(v=ws.10)) for Windows or [How to capture a Linux virtual machine to use as a Resource Manager template][capture-image-linux-step-2-create-vm-image] for Linux
 * Upload the VHD with PowerShell or Azure CLI
 * (Optional) Create a Managed Disk Image from the VHD with PowerShell, Azure CLI, or the Azure portal
-* Deploy the VM with a JSON template referencing the image VHD as shown in [this example JSON template](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json) or using the Managed Disk Image as shown in [this example JSON template](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json).
+* Deploy the VM with a JSON template referencing the image VHD as shown in [this example JSON template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json) or using the Managed Disk Image as shown in [this example JSON template](https://github.com/Azure/azure-quickstart-templates/blob/master/application-workloads/sap/sap-2-tier-user-image-md/azuredeploy.json).
 
 #### Downloading VHDs or Managed Disks to on-premises
 Azure Infrastructure as a Service is not a one-way street of only being able to upload VHDs and SAP systems. You can move SAP systems from Azure back into the on-premises world as well.
@@ -970,7 +970,7 @@ During the time of the download the VHDs or Managed Disks can't be active. Even 
   Save-AzVhd -ResourceGroupName <resource group name of storage account> -SourceUri http://<storage account name>.blob.core.windows.net/<container name>/sapidedata.vhd -LocalFilePath E:\Azure_downloads\sapidesdata.vhd
   ```
 
-  For more details of the Save-AzVhd cmdlet, check here <https://docs.microsoft.com/powershell/module/az.compute/save-Azvhd>.
+  For more details of the Save-AzVhd cmdlet, check here </powershell/module/az.compute/save-Azvhd>.
 
 #### Azure CLI
 * Downloading a Managed Disk
@@ -1086,8 +1086,8 @@ You can also copy VHDs between subscriptions. For more information, read [this a
 
 The basic flow of the PS cmdlet logic looks like this:
 
-* Create a storage account context for the **source** storage account with *New-AzStorageContext* - see <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
-* Create a storage account context for the **target** storage account with *New-AzStorageContext* - see <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
+* Create a storage account context for the **source** storage account with *New-AzStorageContext* - see </powershell/module/az.storage/new-AzStoragecontext>
+* Create a storage account context for the **target** storage account with *New-AzStorageContext* - see </powershell/module/az.storage/new-AzStoragecontext>
 * Start the copy with
 
 ```powershell
@@ -1271,7 +1271,7 @@ See the architecture difference between classic model and ARM as described in [t
 
 See this article, which describes details to this topic:
 
-<https://docs.microsoft.com/archive/blogs/saponsqlserver/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure>
+</archive/blogs/saponsqlserver/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure>
 
 #### Changing Firewall Settings within VM
 
@@ -1532,9 +1532,9 @@ az vm disk attach --resource-group $rgName --vm-name SAPERPDemo --size-gb 1023 -
 
 You can use the sample templates on the Azure-quickstart-templates repository on GitHub.
 
-* [Simple Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
-* [Simple Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
-* [VM from image](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
+* [Simple Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-simple-linux)
+* [Simple Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-simple-windows)
+* [VM from image](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-from-user-image)
 
 ### Implement a set of VMs that communicate within Azure
 
@@ -1997,11 +1997,11 @@ Other VMs within the SAP system can be backed up using Azure Virtual Machine Bac
 > recommendation is to perform backups of databases with DBMS functionality instead of relying on Azure VM Backup.
 >
 > To get familiar with Azure Virtual Machine Backup start here:
-> <https://docs.microsoft.com/azure/backup/backup-azure-vms>.
+> </azure/backup/backup-azure-vms>.
 >
 > Other possibilities are to use a combination of Microsoft Data Protection Manager installed in an Azure VM and Azure Backup to
 > backup/restore databases. More information can be found here:
-> <https://docs.microsoft.com/azure/backup/backup-azure-dpm-introduction>.
+> </azure/backup/backup-azure-dpm-introduction>.
 >
 > ![Linux logo.][Logo_Linux] Linux
 >
@@ -2017,7 +2017,7 @@ Other VMs within the SAP system can be backed up using Azure Virtual Machine Bac
 Since Mid 2014, extensions to various components around Hyper-V, System Center, and Azure enable the usage of Azure as DR site for VMs running on-premises based on Hyper-V.
 
 A blog detailing how to deploy this solution is documented here:
-<https://docs.microsoft.com/archive/blogs/saponsqlserver/protecting-sap-solutions-with-azure-site-recovery>.
+</archive/blogs/saponsqlserver/protecting-sap-solutions-with-azure-site-recovery>.
 
 ## Summary for High Availability for SAP systems
 
@@ -2035,6 +2035,7 @@ The key points of High Availability for SAP systems in Azure are:
 * Backing up the VM, which contains the global directory of the SAP system and with it all the profiles of the different instances, does make sense and should be performed with Windows Backup or, for example, tar on Linux. Since there are differences between Windows Server 2008 (R2) and Windows Server 2012 (R2), which make it easier to back up using the more recent Windows Server releases, we recommend running Windows Server 2012 (R2) as Windows guest operating system.
 
 ## Next steps
+
 Read the articles:
 
 - [Azure Virtual Machines deployment for SAP NetWeaver](./deployment-guide.md)

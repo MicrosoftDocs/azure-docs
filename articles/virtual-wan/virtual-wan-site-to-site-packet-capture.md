@@ -64,7 +64,7 @@ Please run the following commands. The Name of the Site-to-site VPN Gateway can 
 :::image type="content" source="./media/virtual-wan-pcap-screenshots/vpn-gateway-name.png" alt-text="Image of Virtual WAN gateway name." lightbox="./media/virtual-wan-pcap-screenshots/vpn-gateway-name.png":::
 
    ```azurepowershell-interactive
-Start-AzVpnGatewayPacketCapture -ResourceGroupName $rg -Name "<name of the Gateway>" -Sasurl $sasurl
+Start-AzVpnGatewayPacketCapture -ResourceGroupName $rg -Name "<name of the Gateway>"
    ```
 
 ### Packet capture on Specific Site-to-site VPN Connections
@@ -82,7 +82,7 @@ The name of the links connected to a specific VPN site can be found by clicking 
 :::image type="content" source="./media/virtual-wan-pcap-screenshots/link-name-sample.png" alt-text="Image of how to find VPN link name." lightbox="./media/virtual-wan-pcap-screenshots/link-name-sample.png":::
 
    ```azurepowershell-interactive
-Start-AzVpnConnectionPacketCapture -ResourceGroupName $rg -Name "<name of the VPN connection>" -ParentResourceName “<name of the Gateway>” -LinkConnection “<comma separated list of links eg. "link1,link2">” -Sasurl $sasurl 
+Start-AzVpnConnectionPacketCapture -ResourceGroupName $rg -Name "<name of the VPN connection>" -ParentResourceName “<name of the Gateway>” -LinkConnection “<comma separated list of links eg. "link1,link2">”
    ```
 
 ## Optional: Specifying filters
@@ -111,7 +111,7 @@ Below is an Example Packet Capture Using a Filter String. You may change the par
 $filter="{`"TracingFlags`":11,`"MaxPacketBufferSize`":120,`"MaxFileSize`":500,`"Filters`":[{`"SourceSubnets`":[`"10.19.0.4/32`",`"10.20.0.4/32`"],`"DestinationSubnets`":[`"10.20.0.4/32`",`"10.19.0.4/32`"],`"TcpFlags`":9,`"CaptureSingleDirectionTrafficOnly`":true}]}"
 Start-AzVpnConnectionPacketCapture -ResourceGroupName $rg -Name "<name of the VPN connection>" -ParentResourceName “<name of the Gateway>” -LinkConnection “<comma separated list of links>” -Sasurl $sasurl -FilterData $filter
 
-Start-AzVpnGatewayPacketCapture -ResourceGroupName $rg -Name "<name of the Gateway>" -Sasurl $sasurl -FilterData $filter
+Start-AzVpnGatewayPacketCapture -ResourceGroupName $rg -Name "<name of the Gateway>" -FilterData $filter
    ```
 
 ## Stopping the packet capture

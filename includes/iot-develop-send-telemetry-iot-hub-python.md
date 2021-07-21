@@ -14,12 +14,12 @@
 - [Git](https://git-scm.com/downloads).
 - [Python](https://www.python.org/downloads/) version 3.7 or later. To check your Python version, run `python --version`.
 - Azure CLI. You have two options for running Azure CLI commands in this quickstart:
-    - Use the Azure Cloud Shell, an interactive shell that runs CLI commands in your browser. This option is recommended because you don't need to install anything. If you're using Cloud Shell for the first time, log into the [Azure portal](https://portal.azure.com). Follow the steps in [Cloud Shell quickstart](/azure/cloud-shell/quickstart) to **Start Cloud Shell** and **Select the Bash environment**.
-    - Optionally, run Azure CLI on your local machine. The quickstart requires Azure CLI version 2.0.76 or later. Run `az --version` to check the version. Follow the steps in [Install Azure CLI]( /cli/azure/install-azure-cli) to install or upgrade Azure CLI, run it, and log in. If you're prompted, install the Azure CLI extensions on first use.
+    - Use the Azure Cloud Shell, an interactive shell that runs CLI commands in your browser. This option is recommended because you don't need to install anything. If you're using Cloud Shell for the first time, log into the [Azure portal](https://portal.azure.com). Follow the steps in [Cloud Shell quickstart](../articles/cloud-shell/quickstart.md) to **Start Cloud Shell** and **Select the Bash environment**.
+    - Optionally, run Azure CLI on your local machine. If Azure CLI is already installed, run `az upgrade` to upgrade the CLI and extensions to the current version. To install Azure CLI, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 [!INCLUDE [iot-hub-include-create-hub-cli](iot-hub-include-create-hub-cli.md)]
 
-## Use the Python SDK to send messages
+## Run a simulated device
 In this section, you use the Python SDK to send messages from your simulated device to your IoT hub.
 
 1. Open a new console window. You will use this console to install the Python SDK and work with Python sample code. You should now have two console windows open: the one you just opened, and the Cloud Shell or CLI console that you used previously to enter CLI commands.
@@ -78,7 +78,7 @@ In this section, you use the Python SDK to send messages from your simulated dev
     python temp_controller_with_thermostats.py
     ```
     > [!NOTE]
-    > This code sample uses Azure IoT Plug and Play, which lets you integrate smart devices into your solutions without any manual configuration.  By default, most samples in this documentation use IoT Plug and Play. To learn more about the advantages of IoT PnP, and cases for using or not using it, see [What is IoT Plug and Play?](../articles/iot-pnp/overview-iot-plug-and-play.md).
+    > This code sample uses Azure IoT Plug and Play, which lets you integrate smart devices into your solutions without any manual configuration.  By default, most samples in this documentation use IoT Plug and Play. To learn more about the advantages of IoT PnP, and cases for using or not using it, see [What is IoT Plug and Play?](../articles/iot-develop/overview-iot-plug-and-play.md).
 
  As the Python code sends a message from your device to the IoT hub, the message appears in your CLI app that is monitoring events:
 
