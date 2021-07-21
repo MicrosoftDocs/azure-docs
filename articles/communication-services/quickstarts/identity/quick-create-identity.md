@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 
 # Quickstart: Quickly create Azure Communication Services access tokens for testing
 
-In the [Azure Portal](https://portal.azure.com) Communication Services extension, you can generate a Communication Services identity and access token. This reduces the time necessary to run one of the sample apps and enables you to skip creating an authentication service for simple samples. Note that this feature is intended for small-scale validation and testing scenarios and should not be used for production scenarios. For production code, please refer to the [creating access tokens quickstart](../access-tokens.md)
+In the [Azure Portal](https://portal.azure.com) Communication Services extension, you can generate a Communication Services identity and access token. This lets you skip creating an authentication service, which makes it easier for you to test the sample apps and simple development scenarios. Note that this feature is intended for small-scale validation and testing and should not be used for production scenarios. For production code, please refer to the [creating access tokens quickstart](../access-tokens.md).
 
 The tool showcases the behavior of the ```Identity SDK``` in a simple user experience. Tokens and identities that are created through this tool follow the same behaviors and rules as if they were created using the ```Identity SDK```.  For example, access tokens expire after 24 hours.
 
