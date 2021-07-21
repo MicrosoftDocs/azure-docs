@@ -204,11 +204,10 @@ The following table shows which redundancy options are supported by each Azure S
 
 | LRS | ZRS | GRS | RA-GRS | GZRS | RA-GZRS |
 |---|---|---|---|---|---|
-| Blob storage <br />Queue storage <br />Table storage <br />Azure Files (standard) <br />Azure Files (premium) <br />Azure managed disks | Blob storage <br />Queue storage <br />Table storage <br />Azure Files (standard) <br />Azure Files (premium) | Blob storage <br />Queue storage <br />Table storage <br />Azure Files (standard) | Blob storage <br />Queue storage <br />Table storage <br /> | Blob storage <br />Queue storage <br />Table storage <br />Azure Files (standard) | Blob storage <br />Queue storage <br />Table storage <br /> |
+| Blob storage <br />Queue storage <br />Table storage <br />Azure Files<sup>1</sup>,<sup>2</sup> <br />Azure managed disks | Blob storage <br />Queue storage <br />Table storage <br />Azure Files<sup>1</sup>,<sup>2</sup> | Blob storage <br />Queue storage <br />Table storage <br />Azure Files<sup>1</sup> | Blob storage <br />Queue storage <br />Table storage <br /> | Blob storage <br />Queue storage <br />Table storage <br />Azure Files<sup>1</sup> | Blob storage <br />Queue storage <br />Table storage <br /> |
 
-| LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
-|:-|:-|:-|:-|
-| Blob storage<br />Queue storage<br />Table storage<br />Azure Files<br />Azure managed disks | Blob storage<br />Queue storage<br />Table storage<br />Azure Files | Blob storage<br />Queue storage<br />Table storage<br />Azure Files<br /> | Blob storage<br />Queue storage<br />Table storage<br />Azure Files<br /> |
+<sup>1</sup> Standard file shares are supported on LRS, ZRS, GRS, and GZRS.
+<sup>2</sup> Premium file shares are supported on LRS and ZRS.
 
 ### Supported storage account types
 
