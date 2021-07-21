@@ -162,7 +162,7 @@ Field order is critical because the semantic ranker limits the amount of content
 
 Several query capabilities in Cognitive Search do not undergo relevance scoring, and some bypass the full text search engine altogether. If your query logic includes the following features, you will not get relevance scores or semantic ranking on your results:
 
-+ filters, fuzzy search queries, and regular expressions iterate over untokenized text, scanning for verbatim matches in the content. Search scores for all of the above query forms are a uniform 1.0, and won't provide meaningful input for semantic ranking.
++ Filters, fuzzy search queries, and regular expressions iterate over untokenized text, scanning for verbatim matches in the content. Search scores for all of the above query forms are a uniform 1.0, and won't provide meaningful input for semantic ranking.
 
 + Sorting (orderBy clauses) on specific fields will also override search scores and semantic score. Given that semantic score is used to order results, including explicit sort logic will case an HTTP 400 error to be returned.
 
