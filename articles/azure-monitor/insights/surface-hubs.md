@@ -39,8 +39,9 @@ Intune is a Microsoft product that allows you to centrally manage the Log Analyt
 3. Create a new Windows 10 profile, and then select **templates**.
 4. In the list of templates, select **Device restrictions (Windows 10 Team)**.
 5. Enter a name and description for the profile.
-6. In the **Azure operational insights** section, enable the setting, and then provide the Log Analytics *Workspace ID* and *Workspace Key* for the policy.
-7. Assign the policy to your group of Surface Hub devices and save the policy.
+6. For **Azure Operational Insights**, select **Enable**.
+7. Enter the Log Analytics **Workspace ID** and enter the **Workspace Key** for the policy.
+8. Assign the policy to your group of Surface Hub devices and save the policy.
 
    ![Screenshot that shows setting an Intune policy.](./media/surface-hubs/intune.png)
 
