@@ -75,11 +75,15 @@ Make sure the required firewall rules are open on the workstation. See [Network 
 
 The following browsers are supported for the sensors and on-premises management console web applications:
 
-- Chrome 32+
+- Microsoft Edge (latest version)
 
-- Microsoft Edge 86+
+- Safari (latest version, Mac only)
 
-- Internet Explorer 10+
+- Chrome (latest version)
+
+- Firefox (latest version)
+
+For more information on supported browsers, see [Recommended browsers](../../azure-portal/azure-portal-supported-browsers-devices.md#recommended-browsers).
 
 ### Network access requirements
 

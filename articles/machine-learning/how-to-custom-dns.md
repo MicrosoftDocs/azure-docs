@@ -505,6 +505,8 @@ If after running through the above steps you are unable to access the workspace 
 
 ## Next steps
 
-For more information on using Azure Machine Learning with a virtual network, see the [virtual network overview](how-to-network-security-overview.md).
+For information on using Azure Machine Learning with a virtual network, see the [virtual network overview](how-to-network-security-overview.md).
 
-For more information on integrating Private Endpoints into your DNS configuration, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).
+For information on integrating Private Endpoints into your DNS configuration, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).
+
+For information on deploying models with a custom DNS name or TLS security, see [Secure web services using TLS](how-to-secure-web-service.md).

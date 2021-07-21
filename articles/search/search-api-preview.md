@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/24/2021
+ms.date: 07/15/2021
 ---
 # Preview features in Azure Cognitive Search
 
@@ -18,6 +18,8 @@ Preview features that transition to general availability are removed from this l
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
 |---------|------------------|-------------|---------------|
+| [**RBAC support**](search-security-rbac.md) | Security | Use new built-in roles to control access to indexes and indexing, eliminating or reducing the dependency on API keys. | Azure portal or [Create or Update Service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) (Management REST API version 2021-04-01-Preview) and authorization request header in Search REST API version 2021-04-30-Preview. |
+| [**Management REST API 2021-04-01-Preview**](/rest/api/searchmanagement/) | Security | Modifies [Create or Update](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) service operations to support new [DataPlaneAuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions). | Public preview, [Management REST API 2021-04-01-Preview](/rest/api/searchmanagement/) |
 | [**Reset Documents**](search-howto-run-reset-indexers.md) | Indexer | Reprocesses individually selected search documents in indexer workloads. | [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) |
 |  [**Power Query connectors**](search-how-to-index-power-query-data-sources.md) | Indexer data source | Indexers can now index from other cloud platforms. If you are using an indexer to crawl external data sources for indexing, you can now use Power Query connectors to connect to Amazon Redshift, Elasticsearch, PostgreSQL, Salesforce Objects, Salesforce Reports, Smartsheet, and Snowflake. | [Sign up](https://aka.ms/azure-cognitive-search/indexer-preview) is required so that support can be enabled for your subscription on the backend. Access this data source using [Create Data Source (REST)](/rest/api/searchservice/create-data-source) with api-version=2020-06-30-Preview or the Azure portal.|
 | [**SharePoint Online Indexer**](search-howto-index-sharepoint-online.md) | Indexer data source | New data source for indexer-based indexing of SharePoint content. | [Search REST API 2020-06-30-Preview](/rest/api/searchservice/preview-api/create-indexer) |
@@ -47,7 +49,7 @@ While some preview features might be available in the portal and .NET SDK, the R
 
 + For search operations, [**`2020-06-30-Preview`**](/rest/api/searchservice/index-preview) is the current preview version.
 
-+ For management operations, [**`2019-10-01-Preview`**](/rest/api/searchmanagement/index-2019-10-01-preview) is the current preview version.
++ For management operations, **`2021-04-01-Preview`** is the current preview version.
 
 Older previews are still operational but become stale over time. If your code calls `api-version=2019-05-06-Preview` or `api-version=2016-09-01-Preview` or `api-version=2017-11-11-Preview`, those calls are still valid. However, only the newest preview version is refreshed with improvements.
 

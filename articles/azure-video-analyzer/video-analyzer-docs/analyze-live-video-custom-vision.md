@@ -110,7 +110,14 @@ After you're finished, you can export the model to a Docker container by using t
       This command checks if the new image is in your local registry.
    
 ## Set up your development environment
+
+::: zone pivot="programming-language-csharp"
 [!INCLUDE [setup development environment](./includes/set-up-dev-environment/csharp/csharp-set-up-dev-env.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [setup development environment](./includes/set-up-dev-environment/python/python-set-up-dev-env.md)]
+::: zone-end
 
 ## Examine the sample files
 
@@ -132,7 +139,7 @@ After you're finished, you can export the model to a Docker container by using t
    1. `"topologyName" : "InferencingWithHttpExtension"`
    2. Add the following to the top of the parameters array: `{"name": "inferencingUrl","value": "http://cv/score"},`
    3. Change the `rtspUrl` parameter value to `"rtsp://rtspsim:554/media/t2.mkv"`.
-4. Under `livePipelineDelete`, ensure `"name": "InferencingWithHttpExtension"`.
+4. Under `pipelineTopologyDelete`, ensure `"name": "InferencingWithHttpExtension"`.
 5. Right-click the src/edge/ deployment.customvision.template.json file, and select **Generate IoT Edge Deployment Manifest**.
 
    ![Screenshot that shows Generate IoT Edge Deployment Manifest.](./media/custom-vision/deployment-template-json.png)

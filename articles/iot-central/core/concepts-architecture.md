@@ -47,7 +47,8 @@ IoT Central enables the following capabilities to for IoT Edge devices:
   - The commands each module responds to.
   - The relationships between an IoT Edge gateway device and downstream device.
   - Cloud properties that aren't stored on the IoT Edge device.
-  - Customizations, dashboards, and forms that are part of your IoT Central application.
+  - Customizations that change how the UI shows device capabilities.
+  - Device views and forms.
 
   For more information, see the [Connect Azure IoT Edge devices to an Azure IoT Central application](./concepts-iot-edge.md) article.
 
@@ -64,6 +65,9 @@ IoT Central classifies IoT Edge device types as follows:
 - Gateway devices with downstream devices. Both gateway device and downstream devices are provisioned in IoT Central
 
 ![IoT Central with IoT Edge Overview](./media/concepts-architecture/gatewayedge.png)
+
+> [!NOTE]
+> IoT Central currently doesn't support connecting an IoT Edge device as a downstream device to an IoT Edge gateway. This is because all devices that connect to IoT Central are provisioned using the Device Provisioning Service (DPS) and DPS doesn't support nested IoT Edge scenarios.
 
 ### IoT Edge patterns
 

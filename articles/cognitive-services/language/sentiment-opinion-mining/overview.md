@@ -1,5 +1,5 @@
 ---
-title: Sentiment Analysis and Opinion mining in Azure Language services
+title: Sentiment analysis and opinion mining in Azure Language services
 titleSuffix: Azure Cognitive Services
 description: Learn about sentiment analysis and opinion mining with Language Services.
 services: cognitive-services
@@ -41,4 +41,3 @@ An AI system includes not only the technology, but also the people who will use 
 * [Transparency note for Sentiment Analysis and Opinion Mining](/legal/cognitive-services/text-analytics/transparency-note-sentiment-analysis)
 * [Integration and responsible use](/legal/cognitive-services/text-analytics/guidance-integration-responsible-use)
 * [Data, privacy and security](/legal/cognitive-services/text-analytics/data-privacy)
-

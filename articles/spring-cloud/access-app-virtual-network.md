@@ -1,8 +1,8 @@
 ---
 title:  "Azure Spring Cloud access app in virtual network"
 description: Access app in an Azure Spring Cloud in virtual network.
-author:  MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/11/2020
