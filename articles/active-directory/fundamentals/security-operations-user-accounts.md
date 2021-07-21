@@ -20,7 +20,7 @@ User identity is one of the most important aspects of protecting your organizati
 
 If you have not yet read the [Azure Active Directory (Azure AD) security operations overview](security-operations-introduction.md), we recommend you do so before proceeding.
 
-This article covers general user accounts. For privileged accounts, see [Security operations – privileged accounts](security-operations-privileged-accounts.md).
+This article covers general user accounts. For privileged accounts, see Security operations – privileged accounts.
 
 ## Define a baseline
 
@@ -80,9 +80,9 @@ The log files you use for investigation and monitoring are:
 
 * [Azure Key Vault logs](../../key-vault/general/logging.md?tabs=Vault)
 
-* Risky Users log
+* .[Risky Users log].(../../identity-protection/howto-identity-protection-investigate-risk.md)
 
-* UserRiskEvents log
+* .[UserRiskEvents log].(../../identity-protection/howto-identity-protection-investigate-risk.md)
 
 From the Azure portal you can view the Azure AD Audit logs and download as comma separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Azure AD logs with other tools that allow for greater automation of monitoring and alerting:
 
@@ -185,6 +185,7 @@ As you design and operationalize a log monitoring and alerting strategy, conside
 | Azure AD Threat Intelligence user risk detection| High| Azure AD Risk Detection logs| UX: Azure AD threat intelligence <br><br>API: See [riskDetection resource type - Microsoft Graph beta](/graph/api/resources/riskdetection?view=graph-rest-beta)| See [What is risk? Azure AD Identity Protection](../identity-protection/concept-identity-protection-risks.md) |
 | Anonymous IP address sign-in risk detection| Varies| Azure AD Risk Detection logs| UX: Anonymous IP address <br><br>API: See [riskDetection resource type - Microsoft Graph beta](/graph/api/resources/riskdetection?view=graph-rest-beta)| See [What is risk? Azure AD Identity Protection](../identity-protection/concept-identity-protection-risks.md) |
 | Atypical travel sign-in risk detection| Varies| Azure AD Risk Detection logs| UX: Atypical travel <br><br>API: See [riskDetection resource type - Microsoft Graph beta](/graph/api/resources/riskdetection?view=graph-rest-beta)| See [What is risk? Azure AD Identity Protection](../identity-protection/concept-identity-protection-risks.md) |
+| Anomalous Token| Varies| Azure AD Risk Detection logs| UX: Anomalous Token <br><br>API: See [riskDetection resource type - Microsoft Graph beta](/graph/api/resources/riskdetection?view=graph-rest-beta)| See [What is risk? Azure AD Identity Protection](../identity-protection/concept-identity-protection-risks.md) |
 | Malware linked IP address sign-in risk detection| Varies| Azure AD Risk Detection logs| UX: Malware linked IP address <br><br>API: See [riskDetection resource type - Microsoft Graph beta](/graph/api/resources/riskdetection?view=graph-rest-beta)| See [What is risk? Azure AD Identity Protection](../identity-protection/concept-identity-protection-risks.md) |
 | Suspicious browser sign-in risk detection| Varies| Azure AD Risk Detection logs| UX: Suspicious browser <br><br>API: See [riskDetection resource type - Microsoft Graph beta](/graph/api/resources/riskdetection?view=graph-rest-beta)| See [What is risk? Azure AD Identity Protection](../identity-protection/concept-identity-protection-risks.md) |
 | Unfamiliar sign-in properties sign-in risk detection| Varies| Azure AD Risk Detection logs| UX: Unfamiliar sign-in properties <br><br>API: See [riskDetection resource type - Microsoft Graph beta](/graph/api/resources/riskdetection?view=graph-rest-beta)| See [What is risk? Azure AD Identity Protection](../identity-protection/concept-identity-protection-risks.md) |
@@ -216,7 +217,7 @@ Configure monitoring on the data within the Azure AD Sign-ins Logs to ensure tha
 
 * **Locations**: Generally, you expect a user account to be in the same geographical location. You also expect sign ins from locations where you have employees or business relations. When the user account comes from a different international location in less time than it would take to travel there, it can indicate the user account is being abused. Note, VPNs can cause false positives, we recommend you monitor for user accounts signing in from geographically distant locations and if possible, use Azure AD Identity Protection to automatically detect and mitigate these risks.
 
-For this risk area we recommend you monitor both standard user accounts and privileged accounts but prioritize investigations of privileged accounts. Privileged accounts are the most important accounts in any Azure AD tenant. For specific guidance for privileged accounts, see [Security operations – privileged accounts](security-operations-privileged-accounts.md). 
+For this risk area we recommend you monitor both standard user accounts and privileged accounts but prioritize investigations of privileged accounts. Privileged accounts are the most important accounts in any Azure AD tenant. For specific guidance for privileged accounts, see Security operations – privileged accounts. 
 
 ### How to detect
 
@@ -265,8 +266,8 @@ The following are listed in order of importance based on the impact and severity
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 | - |- |- |- |- |
-| Multi-factor authentication (MFA) fraud alerts.| High| Azure AD Sign-ins log| Status = failed<br>-and-<br>Details = MFA denied<br>or<br>Details- MFA denied; Fraud Code Entered from Voice Call| Monitor and alert on any entry. |
-| Failed authentications from countries you do not operate out of.| Medium| Azure AD Sign-ins log| Location = <unapproved location><br>| Monitor and alert on any entries. |
+| Multi-factor authentication (MFA) fraud alerts.| High| Azure AD Sign-ins log| Status = failed<br>-and-<br>Details = MFA Denied<br>| Monitor and alert on any entry. |
+| Failed authentications from countries you do not operate out of.| Medium| Azure AD Sign-ins log| Location = <unapproved location>| Monitor and alert on any entries. |
 | Failed authentications for legacy protocols or protocols that are not used .| Medium| Azure AD Sign-ins log| Status = failure<br>-and-<br>Client app = Other Clients, POP, IMAP, MAPI, SMTP, ActiveSync| Monitor and alert on any entries. |
 | Failures blocked by CA.| Medium| Azure AD Sign-ins log| Error code = 53003 <br>-and-<br>Failure reason = blocked by CA| Monitor and alert on any entries. |
 | Increased failed authentications of any type.| Medium| Azure AD Sign-ins log| Capture increases in failures across the board. I.e., total failures for today is >10 % on the same day the previous week.| If you don’t have a set threshold, monitor and alert if failures increase by 10% or greater. |
