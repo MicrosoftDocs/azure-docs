@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/10/2021
+ms.date: 07/21/2021
 ms.author: tamram
 ms.subservice: common
 ---
@@ -23,7 +23,7 @@ When deciding which redundancy option is best for your scenario, consider the tr
 - Whether your application requires read access to the replicated data in the secondary region if the primary region becomes unavailable for any reason
 
 > [!NOTE]
-> The features and regional availability described in this article are also available to accounts that have a hierarchical namespace. 
+> The features and regional availability described in this article are also available to accounts that have a hierarchical namespace.
 
 ## Redundancy in the primary region
 
@@ -201,6 +201,10 @@ The following table indicates whether your data is durable and available in a gi
 ### Supported Azure Storage services
 
 The following table shows which redundancy options are supported by each Azure Storage service.
+
+| LRS | ZRS | GRS | RA-GRS | GZRS | RA-GZRS |
+|---|---|---|---|---|---|
+| Blob storage <br />Queue storage <br />Table storage <br />Azure Files (standard) <br />Azure Files (premium) <br />Azure managed disks | Blob storage <br />Queue storage <br />Table storage <br />Azure Files (standard) <br />Azure Files (premium) | Blob storage <br />Queue storage <br />Table storage <br />Azure Files (standard) | Blob storage <br />Queue storage <br />Table storage <br /> | Blob storage <br />Queue storage <br />Table storage <br />Azure Files (standard) | Blob storage <br />Queue storage <br />Table storage <br /> |
 
 | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|
