@@ -27,26 +27,26 @@ Here are some benefits of adding your Azure AD B2C app to the app gallery:
 - Customers can find your app in the gallery with a quick search.
 - App configuration is simple and minimal.
 - Customers get a step-by-step configuration tutorial.
-- Customers can assign the app to different users and groups within their organization.
+- Customers can assign the app to various users and groups within their organization.
 - The tenant administrator can grant tenant-wide admin consent to your app.
 
 ## Sign-in flow overview
 
-The sign-in flow involves following steps:
+The sign-in flow involves the following steps:
 
-1. Users navigate to the [My Apps portal](https://myapps.microsoft.com/) and select your app, which opens the app sign-in URL.
+1. Users go to the [My Apps portal](https://myapps.microsoft.com/) and select their app, which opens the app sign-in URL.
 1. The app sign-in URL starts an authorization request and redirects users to the Azure AD B2C authorization endpoint.
 1. Users choose to sign in with their Azure AD "Corporate" account. Azure AD B2C takes them to the Azure AD authorization endpoint, where they sign in with their work account.
 1. If the Azure AD SSO session is active, Azure AD issues an access token without prompting users to sign in again. If the Azure AD session expires or becomes invalid, users are prompted to sign in again.
 
 ![Diagram of the sign-in OpenID connect flow.](./media/publish-app-to-azure-ad-app-gallery/app-gallery-sign-in-flow.png)
 
-Depending on users' SSO session and Azure AD identity settings, they might be prompted to:
+Depending on the users' SSO session and Azure AD identity settings, they might be prompted to:
 
 - Provide their email address or phone number.
 - Enter their password or sign in with the [Microsoft authenticator app](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6).
-- Complete multifactor authentication.
-- Accept the consent page. Your customer's tenant administrator can [grant tenant-wide admin consent to an app](../active-directory/manage-apps/grant-admin-consent.md). When consent is granted, the consent page won't be presented to the user.
+- Complete multi-factor authentication.
+- Accept the consent page. Your customer's tenant administrator can [grant tenant-wide admin consent to an app](../active-directory/manage-apps/grant-admin-consent.md). When consent is granted, the consent page won't be presented to users.
 
 Upon successful sign-in, Azure AD returns a token to Azure AD B2C. Azure AD B2C validates and reads the token claims, and then returns a token to your application.
 
@@ -58,7 +58,7 @@ Upon successful sign-in, Azure AD returns a token to Azure AD B2C. Azure AD B2C 
 
 To enable sign-in to your app with Azure AD B2C, register your app in the Azure AD B2C directory. Registering your app establishes a trust relationship between the app and Azure AD B2C. 
 
-If you haven't already done so, [register a web application](tutorial-register-applications.md), and [enable ID token implicit grant](tutorial-register-applications.md#enable-id-token-implicit-grant). Later, you register this app with the Azure app gallery.
+If you haven't already done so, [register a web application](tutorial-register-applications.md), and [enable ID token implicit grant](tutorial-register-applications.md#enable-id-token-implicit-grant). Later, you'll register this app with the Azure app gallery.
 
 ## Step 2: Set up sign-in for multitenant Azure AD
 
@@ -66,7 +66,7 @@ To allow employees and consumers from any Azure AD tenant to sign in by using Az
 
 ## Step 3: Prepare your app
 
-In your app, copy the URL of the sign-in endpoint. If you use the [web application sample](configure-authentication-sample-web-app.md), the sign-in URL is `https://localhost:5001/MicrosoftIdentity/Account/SignIn?`. This URL is where the Azure AD app gallery takes the user to sign in to your app.
+In your app, copy the URL of the sign-in endpoint. If you use the [web application sample](configure-authentication-sample-web-app.md), the sign-in URL is `https://localhost:5001/MicrosoftIdentity/Account/SignIn?`. This URL is where the Azure AD app gallery takes users to sign in to your app.
 
 In production environments, the app registration redirect URI is ordinarily a publicly accessible endpoint where your app is running, such as `https://woodgrovedemo.com/Account/SignIn`. The reply URL must begin with `https`.
 

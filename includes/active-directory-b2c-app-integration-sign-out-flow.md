@@ -7,7 +7,7 @@ ms.date: 07/05/2021
 ms.author: mimart
 # Used by Azure AD B2C app integration articles under "App integration".
 ---
-The sign-out flow involves following steps:
+The sign-out flow involves the following steps:
 
 1. From the app, users sign out.
 1. The app clears its session objects, and the authentication library clears its tokens cache.
