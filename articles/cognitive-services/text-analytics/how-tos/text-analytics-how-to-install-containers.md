@@ -21,7 +21,7 @@ Containers enable you to run the Text Analytic APIs in your own environment and 
 * sentiment analysis
 * language detection
 * key phrase extraction (preview)
-* Text Analytics for health (preview)
+* Text Analytics for health 
 
 > [!NOTE]
 > * Entity linking and NER are not currently available as a container.
@@ -53,8 +53,8 @@ The following table describes the minimum and recommended specifications for the
 | **Language detection**   | 1 core, 2GB memory | 1 core, 4GB memory |15 | 30| 
 | **key phrase extraction (preview)**   | 1 core, 2GB memory | 1 core, 4GB memory |15 | 30| 
 | **Sentiment Analysis**   | 1 core, 2GB memory | 4 cores, 8GB memory |15 | 30|
-| **Text Analytics for health (preview) - 1 document/request**   |  4 core, 10GB memory | 6 core, 12GB memory |15 | 30|
-| **Text Analytics for health (preview) - 10 documents/request**   |  6 core, 16GB memory | 8 core, 20GB memory |15 | 30|
+| **Text Analytics for health - 1 document/request**   |  4 core, 10GB memory | 6 core, 12GB memory |15 | 30|
+| **Text Analytics for health - 10 documents/request**   |  6 core, 16GB memory | 8 core, 20GB memory |15 | 30|
 
 CPU core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
@@ -72,7 +72,7 @@ CPU core and memory correspond to the `--cpus` and `--memory` settings, which ar
 
 [!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
 
-# [Text Analytics for health (preview)](#tab/healthcare)
+# [Text Analytics for health](#tab/healthcare)
 
 [!INCLUDE [docker-pull-health-container](../includes/docker-pull-health-container.md)]
 
@@ -82,7 +82,7 @@ CPU core and memory correspond to the `--cpus` and `--memory` settings, which ar
 
 ## Run the container with `docker run`
 
-Once the container is on the [host computer](#the-host-computer), use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the containers. The container will continue to run until you stop it.
+Once the container is on the host computer, use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the containers. The container will continue to run until you stop it.
 
 > [!IMPORTANT]
 > * The docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements. 
@@ -102,7 +102,7 @@ Once the container is on the [host computer](#the-host-computer), use the [docke
 
 [!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
 
-# [Text Analytics for health (preview)](#tab/healthcare)
+# [Text Analytics for health](#tab/healthcare)
 
 [!INCLUDE [docker-run-health-container](../includes/docker-run-health-container.md)]
 
@@ -146,8 +146,8 @@ In this article, you learned concepts and workflow for downloading, installing, 
    * *Sentiment Analysis*
    * *Key Phrase Extraction (preview)* 
    * *Language Detection*
-   * *Text Analytics for health (preview)*
-* Container images are downloaded from the Microsoft Container Registry (MCR) or preview container repository.
+   * *Text Analytics for health*
+* Container images are downloaded from the Microsoft Container Registry (MCR).
 * Container images run in Docker.
 * You can use either the REST API or SDK to call operations in Text Analytics containers by specifying the host URI of the container.
 * You must specify billing information when instantiating a container.
@@ -157,5 +157,4 @@ In this article, you learned concepts and workflow for downloading, installing, 
 
 ## Next steps
 
-* Review [Configure containers](../text-analytics-resource-container-config.md) for configuration settings
-* Refer to [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md) to resolve issues related to functionality.
+* See [Configure containers](../text-analytics-resource-container-config.md) for configuration settings.
