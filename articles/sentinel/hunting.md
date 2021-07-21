@@ -23,7 +23,7 @@ ms.author: yelevin
 
 > [!IMPORTANT]
 >
-> - The cross-resource query experience and upgrades to the **hunting dashboard** (see marked items below) are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The cross-resource query experience and upgrades to the **hunting dashboard** (see marked items below) are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
@@ -50,7 +50,9 @@ Use queries before, during, and after a compromise to take the following actions
 
     - Modify your existing queries or create new ones to assist with early detection, based on on insights you've gained from your compromise or incident.
 
-    - If you've discovered or created a hunting query that provides high value insights into possible attacks, create custom detection rules based on that query and surface those insights as alerts to your security incident responders. View the query's results, then click the **New alert rule** button at the top of the pane and select **Create Azure Sentinel alert**. Use the **Analytics rule wizard** to create a new rule based on your query. For more information, see [Create custom analytics rules to detect threats](tutorial-detect-threats-custom.md).
+    - If you've discovered or created a hunting query that provides high value insights into possible attacks, create custom detection rules based on that query and surface those insights as alerts to your security incident responders.
+
+        View the query's results, and select **New alert rule** > **Create Azure Sentinel alert**. Use the **Analytics rule wizard** to create a new rule based on your query. For more information, see [Create custom analytics rules to detect threats](tutorial-detect-threats-custom.md).
 
 
 > [!TIP]
@@ -86,26 +88,26 @@ The following table describes detailed actions available from the hunting dashbo
 
 ## Create your own bookmarks
 
-During the hunting and investigating process, you may come across query results that may look unusual or suspicious. Bookmark these items to save them them and put them aside so you can refer back to them in the future.You can use your bookmarked items to create or enrich an incident for investigation.
+During the hunting and investigation process, you may come across query results that may look unusual or suspicious. Bookmark these items refer back to them in the future, such as when creating or enriching an incident for investigation.
 
-- In your results, mark the checkboxes for any rows you want to preserve, and select **Add bookmark**. This creates for each marked row a record - a bookmark - that contains the row results, the query that created the results, and entity mappings to extract users, hosts, and IP addresses. You can add your own tags (see below) and notes to each bookmark.
+- In your results, mark the checkboxes for any rows you want to preserve, and select **Add bookmark**. This creates for a record for each marked row - a bookmark - that contains the row results, the query that created the results, and entity mappings to extract users, hosts, and IP addresses. You can add your own tags and notes to each bookmark.
 
-- View all the bookmarked findings by clicking on the **Bookmarks** tab in the main **Hunting** page. You can add tags to bookmarks to classify them for filtering. For example, if you're investigating an attack campaign, you can create a tag for the campaign, apply the tag to any relevant bookmarks, and then filter all the bookmarks based on the campaign.
+- View all the bookmarked findings by clicking on the **Bookmarks** tab in the main **Hunting** page. Add tags to bookmarks to classify them for filtering. For example, if you're investigating an attack campaign, you can create a tag for the campaign, apply the tag to any relevant bookmarks, and then filter all the bookmarks based on the campaign.
 
 - Investigate a single bookmarked finding by selecting the bookmark and then clicking **Investigate** in the details pane to open the investigation experience.
 
-    You can also create an incident from one or more bookmarks, or add one or more bookmarks to an existing incident, by marking the check boxes to the left of the desired bookmarks and then selecting either **Create new incident** or **Add to existing incident** from the **Incident actions** drop-down menu near the top of the screen. You can then triage and investigate the incident like any other.
+    You can also create an incident from one or more bookmarks or add one or more bookmarks to an existing incident. Select a checkbox to the left of any bookmarks you want to use, and then select **Incident actions** > **Create new incident** or **Add to existing incident**. Triage and investigate the incident like any other.
 
 
 > [!TIP]
-> Bookmarks stand to represent key events that are noteworthy and should be escalated to incidents if they are severe enough that warrant an investigation. Events such as potential root causes, indicators of compromise, or other notable events should be raised as a bookmark.
+> Bookmarks stand to represent key events that are noteworthy and should be escalated to incidents if they are severe enough to warrant an investigation. Events such as potential root causes, indicators of compromise, or other notable events should be raised as a bookmark.
 >
 
 For more information, see [Use bookmarks in hunting](bookmarks.md).
 
 ## Use notebooks to power investigations
 
-Notebooks give you a kind of virtual sandbox environment, complete with its own kernel. You can use notebooks to enhance your hunting and investigations with machine learning, visualization, and data analysis. You can carry out a complete investigation in a notebook, encapsulating the raw data, the code you run on it, the results, and their visualizations, and save the whole thing so that it can be shared with and reused by others in your organization. 
+Notebooks give you a kind of virtual sandbox environment, complete with its own kernel. You can use notebooks to enhance your hunting and investigations with machine learning, visualization, and data analysis. You can carry out a complete investigation in a notebook, encapsulating the raw data, the code you run on it, the results, and their visualizations, and save the whole thing so that it can be shared with and reused by others in your organization.
 
 For more information, see [Use Jupyter Notebook to hunt for security threats](notebooks.md).
 

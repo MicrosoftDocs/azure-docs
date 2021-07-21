@@ -226,11 +226,11 @@ LAQueryLogs
 
 Use Azure Sentinel's own features to monitor events and actions that occur within Azure Sentinel.
 
-- **Monitor with workbooks**. The following workbooks that were built to monitor workspace activity:
+- **Monitor with workbooks**. The following workbooks were built to monitor workspace activity:
 
     - **Workspace Auditing**. Includes information about which users in the environment are performing actions, which actions they have performed, and more.
-    - **Analytic Efficiency**. Provides insight into which analytic rules are being used, which MITRE tactics are most covered, and instances from the rules.
-    - **Security Operations Efficiency**. Presents different metrics regarding SOC team performance, incidents opened, incidents closed, and more. This workbook can be used to show team performance and highlight any areas that might be lacking that require attention.
+    - **Analytics Efficiency**. Provides insight into which analytic rules are being used, which MITRE tactics are most covered, and incidents generated from the rules.
+    - **Security Operations Efficiency**. Presents metrics on SOC team performance, incidents opened, incidents closed, and more. This workbook can be used to show team performance and highlight any areas that might be lacking that require attention.
     - **Data collection health monitoring**. Helps watch for stalled or stopped ingestions. 
 
     For more information, see [Commonly used Azure Sentinel workbooks](top-workbooks.md).

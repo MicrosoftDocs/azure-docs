@@ -20,8 +20,8 @@ The foundation of Azure Sentinel is the data store; it combines high-performance
 
 For example, use notebooks to:
 
-- Perform analytics that aren't built in to Azure Sentinel, such as some Python machine learning features
-- Create data visualizations that aren't built in to Azure Sentinel, such as custom timelines and process tress
+- Perform analytics that aren't built-in to Azure Sentinel, such as some Python machine learning features
+- Create data visualizations that aren't built-in to Azure Sentinel, such as custom timelines and process trees
 - Integrate data sources outside of Azure Sentinel, such as an on-premises data set.
 
 We've integrated the Jupyter experience into the Azure portal, making it easy for you to create and run notebooks to analyze your data. The *Kqlmagic* library provides the glue that lets you take queries from Azure Sentinel and run them directly inside a notebook. Queries use the [Kusto Query Language](https://kusto.azurewebsites.net/docs/kusto/query/index.html). Several notebooks, developed by some of Microsoft's security analysts, are packaged with Azure Sentinel. Some of these notebooks are built for a specific scenario and can be used as-is. Others are intended as samples to illustrate techniques and features that you can copy or adapt for use in your own notebooks. Other notebooks may also be imported from the Azure Sentinel Community GitHub.
