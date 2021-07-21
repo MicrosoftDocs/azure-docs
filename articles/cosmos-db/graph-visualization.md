@@ -73,7 +73,7 @@ Users of all skill levels can take advantage of five unique graph layouts to dis
 ## Graphistry
 :::image type="content" source="./media/graph-visualization/graphistry/graphistry-logo.png" alt-text="Graphistry GPU Based" border="false":::
 
-Graphistry brings a human interface to the age of big and complex data. It automatically transforms your data into interactive, visual investigation maps built for the needs of analysts. Quickly surface relationships between events and entities without writing queries or wrangling data. Harness all of your data without worrying about scale, and pivot on the fly to follow anywhere your investigation leads you. Ideal for everything from security, fraud, and IT investigations to 3600 views of customers and supply chains, Graphistry turns the potential of your data into human insight and value.
+Graphistry automatically transforms your data into interactive, visual investigation maps built for the needs of analysts. It can quickly surface relationships between events and entities without having to write queries or wrangle data. You can harness your data without worrying about scale. You can detect security, fraud, and IT investigations to 3600 views of customers and supply chains, Graphistry turns the potential of your data into human insight and value.
 
 :::image type="content" source="./media/graph-visualization/graphistry/graphistry-demo.png" alt-text="Graphisry demo" border="false":::
 
