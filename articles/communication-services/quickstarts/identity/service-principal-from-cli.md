@@ -17,7 +17,7 @@ The Azure Identity SDK provides Azure Active Directory (Azure AD) token authenti
 
 An advantage of the Azure Identity SDK is that it enables you to use the same code to authenticate across multiple services whether your application is running in the development environment or in Azure. 
 
-The Azure Identity SDK can authenticate with many methods. In Development we'll be using a service principal tied to a registered application, with credentials stored in Environnement Variables this is suitable for testing and development.
+The Azure Identity SDK can authenticate with many methods. In Development we'll be using a service principal tied to a registered application, with credentials stored in Environnment Variables this is suitable for testing and development.
 
 ## Prerequisites
 
