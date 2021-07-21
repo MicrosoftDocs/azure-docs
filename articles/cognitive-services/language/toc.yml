@@ -1,0 +1,28 @@
+items:
+- name: Language services documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What are Language services?
+    href: overview.md
+- name: Sentiment analysis and Opinion mining
+  items:
+  - name: Overview
+    href: sentiment-opinion-mining/overview.md
+  - name: How-to guides
+    items:
+    - name: Call Sentiment Analysis
+      href: sentiment-opinion-mining/how-to-call.md
+- name: Concepts
+  items:
+  - name: Multilingual and emoji support
+    href: concepts/multilingual-emoji-support.md
+- name: Enterprise readiness
+  items:
+    - name: Region support
+      href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+    - name: Compliance and certification
+      href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+
+  
