@@ -103,11 +103,11 @@ Use a DHCP relay for any non-NSX-based DHCP service. For example, a VM running D
 
 1. Select **Tier 1 Gateways**, select the vertical ellipsis on the Tier-1 gateway, and then select **Edit**.
 
-   :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway-relay.png" alt-text="Screenshot showing how to edit the Tier-1 Gateway." border="true":::
+   :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway.png" alt-text="Screenshot showing how to edit the Tier-1 Gateway." border="true":::
 
 1. Select **No IP Allocation Set** to define the IP address allocation.
 
-   :::image type="content" source="./media/manage-dhcp/edit-ip-address-allocation.png" alt-text="Screenshot showing how to add a subnet to the Tier-1 Gateway." border="true":::
+   :::image type="content" source="./media/manage-dhcp/add-subnet.png" alt-text="Screenshot showing how to add a subnet to the Tier-1 Gateway." border="true":::
 
 1. For **Type**, select **DHCP Server**. 
    
