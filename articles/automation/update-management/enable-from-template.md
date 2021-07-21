@@ -299,13 +299,17 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
     **PowerShell**
 
     ```powershell
-    New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deployUMSolutiontemplate.json
+    New-AzResourceGroupDeployment `
+        -Name <deployment-name> `
+        -ResourceGroupName <resource-group-name> `
+        -TemplateFile deployUMSolutiontemplate.json `
+        -_artifactsLocation "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.automation/101-automation/azuredeploy.json"
     ```
 
     **Azure CLI**
 
     ```azurecli
-    az deployment group create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deployUMSolutiontemplate.json
+    az deployment group create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deployUMSolutiontemplate.json --parameters _artifactsLocation="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.automation/101-automation/azuredeploy.json"
     ```
 
     The deployment can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:
