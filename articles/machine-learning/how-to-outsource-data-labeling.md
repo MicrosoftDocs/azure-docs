@@ -1,5 +1,5 @@
 ---
-title: Work with data labeling companies
+title: Work with Microsoft partnered data labeling companies
 titleSuffix: Azure Machine Learning
 description: Use a Microsoft partnered labeling company to help label the data in your data labeling project
 services: machine-learning
@@ -11,10 +11,10 @@ ms.author: vijetaj
 ms.date: 07/21/2021
 ms.topic: how-to
 # As a project manager, I want to hire a company to label the data in my data labeling project
-# Keywords: data labeling companies, volume 170.  No other keywords found. Long tail keyword data labeling companies us.
+# Keywords: data labeling companies, volume 170.  No other keywords found. 
 ---
 
-# Work with a Microsoft partnered data labeling companies
+# Work with a Microsoft partnered data labeling companies (preview)
 
 Learn how to engage a data labeling company to help you label your data. Azure Machine Learning data labeling projects support both in-house and outsourced (vendor) labeling workforces.  
 
