@@ -381,6 +381,8 @@ Finally, we will add the method for querying all accessible messages on the thre
     }
 ```
 
+Display names of the chat thread participants are not set by the Teams client. The names will be returned as null in the API for listing participants, in the `participantsAdded` event and in the `participantsRemoved` event. The display names of the chat participants can be retrieved from the `remoteParticipants` field of the `call` object.
+
 ## Get a Teams meeting chat thread for a Communication Services user
 
 The Teams meeting link and chat can be retrieved using Graph APIs, detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true). The Communication Services Calling SDK accepts a full Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
@@ -398,7 +400,7 @@ To join the Teams meeting and chat, enter your Team's meeting link and the threa
 
 After you join the Team's meeting you will need to admit the user to the meeting in your Team's client. Once the user is admitted and has joined the chat you will be able to send and receive messages.
 
-:::image type="content" source="../join-teams-meeting-chat-quickstart-android.PNG" alt-text="Screenshot of the completed Android Application.":::
+:::image type="content" source="../join-teams-meeting-chat-quickstart-android.png" alt-text="Screenshot of the completed Android Application.":::
 
 > [!NOTE] 
 > Currently only sending, receiving, and editing messages is supported for interoperability scenarios with Teams. Other features like typing indicators and Communication Services users adding or removing other users from the Teams meeting are not yet supported.
