@@ -188,7 +188,7 @@ sections:
         answer: |
           No. Azure AD Domain Services has a single-domain, single-forest design, and you can't create child domains.
 
- - question: |
+     - question: |
           What Azure regions is the service available in?
         answer: |
           Refer to the [Azure Services by region](https://azure.microsoft.com/regions/#services/) page to see a list of the Azure regions where Azure AD Domain Services is available.
