@@ -7,13 +7,15 @@ ms.topic: how-to
 
 # Forward alert information
 
-You can send alert information to partners who are integrating with Azure Defender for IoT, to syslog servers, to email addresses, and more. Working with forwarding rules lets you quickly deliver alert information to security stakeholders.  
+You can send alert information to partners who are integrating with Azure Defender for IoT, to syslog servers, to email addresses, and more. Working with forwarding rules lets you quickly deliver alert information to security stakeholders.
+
+Define criteria by which to trigger a forwarding rule. Working with forwarding rule criteria helps pinpoint and manage the volume of information sent from the sensor to external systems.
 
 Syslog and other default forwarding actions are delivered with your system. More forwarding actions might become available when you integrate with partner vendors, such as Microsoft Azure Sentinel, ServiceNow, or Splunk.
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/alert-information-screen.png" alt-text="Alert information.":::
 
-Defender for IoT administrators have permission to use forwarding rules.
+Defender for IoT administrators has permission to use forwarding rules.
 
 ## About forwarded alert information
 
@@ -46,8 +48,6 @@ Relevant information is sent to partner systems when forwarding rules are create
 1. Select **Create Forwarding Rule**.
 
    :::image type="content" source="media/how-to-work-with-alerts-sensor/create-forwarding-rule-screen.png" alt-text="Create a Forwarding Rule icon.":::
-
-   Define criteria by which to trigger a forwarding rule. Working with forwarding rule criteria helps pinpoint and manage the volume of information sent from the sensor to external systems.
 
 1. Enter a name for the forwarding rule. 
 
@@ -144,7 +144,7 @@ After you enter all the information, select **Submit**.
 
 ### Webhook server action
 
-Send alert information to a webhook server. Working with webhook servers lets you set up integrations that subscribe to alert events with Defender for IoT. When an alert event is triggered, the management console sends a HTTP POST payload to the webhook's configured URL. Webhooks can be used to update an external SIEM system, SOAR systems, Incident management systems, etc.   
+Send alert information to a webhook server. Working with webhook servers lets you set up integrations that subscribe to alert events with Defender for IoT. When an alert event is triggered, the management console sends an HTTP POST payload to the webhook's configured URL. Webhooks can be used to update an external SIEM system, SOAR systems, Incident management systems, etc.   
 
 **To define to a webhook action:**
 
@@ -202,11 +202,11 @@ Test the connection between the sensor and the partner server that's defined in 
 
 ## Edit and delete forwarding rules 
 
-To edit a forwarding rule:
+**To edit a forwarding rule**:
 
 - On the **Forwarding Rule** screen, select **Edit** under the **More** drop-down menu. Make the desired changes and select **Submit**.
 
-To remove a forwarding rule:
+**To remove a forwarding rule**:
 
 - On the **Forwarding Rule** screen, select **Remove** under the **More** drop-down menu. In the **Warning** dialog box, select **OK**.
 

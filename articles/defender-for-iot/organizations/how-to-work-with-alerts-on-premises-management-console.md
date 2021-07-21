@@ -79,7 +79,7 @@ The alert presents the following information:
 
 - A link to the alert in the sensor that detected it.
 
-- An alert UUID. The UUID consists of the alert ID that's associated with the alert event detected on the sensor, separated by a hyphen and followed by a unique system ID number.
+- An alert UUID. The UUID consists of the alert ID that's associated with the alert event detected on the sensor, separated by a hyphen, and followed by a unique system ID number.
 
 **On-premises management console Alert UUID**
 
@@ -118,11 +118,11 @@ Several options are available for managing alert events from the on-premises man
 
 - Mute and unmute alert events.
 
-To learn more about learning, acknowledging and muting alert events, see the sensor [Manage alert events](how-to-manage-the-alert-event.md) article.
+To learn more about learning, acknowledging, and muting alert events, see the sensor [Manage alert events](how-to-manage-the-alert-event.md) article.
 
 ## Export alert information
 
-Export alert information to a .csv file. You can export information of all alerts detected or export information based on the filtered view.The following information is exported:
+Export alert information to a .csv file. You can export information of all alerts detected or export information based on the filtered view. The following information is exported:
 
 - Source Address
 - Destination Address
@@ -181,6 +181,8 @@ Export alert information to a .csv file. You can export information of all alert
 1. Add another action if desired.
 
 1. Select **Save**.
+
+You can learn more [About forwarded alert information](how-to-forward-alert-information-to-partners.md#about-forwarded-alert-information). You can also [Test forwarding rules](how-to-forward-alert-information-to-partners.md#test-forwarding-rules), or [Edit and delete forwarding rules](how-to-forward-alert-information-to-partners.md#edit-and-delete-forwarding-rules). You can also learn more about[Forwarding rules and alert exclusion rules](how-to-forward-alert-information-to-partners.md#forwarding-rules-and-alert-exclusion-rules).
 
 ## Create alert exclusion rules
 
