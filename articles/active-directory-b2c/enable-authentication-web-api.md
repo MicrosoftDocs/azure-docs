@@ -63,25 +63,23 @@ The application registrations and the application architecture are described in 
 
 In the next sections, you'll create a new web API project. Select your programming language, ASP.NET Core or Node.js. Make sure you have a computer that's running either of the following: 
 
-#### [ASP.NET Core](#tab/csharpclient)
+# [ASP.NET Core](#tab/csharpclient)
 
 * [Visual Studio Code](https://code.visualstudio.com/download)
 * [C# for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) (latest version)
 * [.NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet)
 
-#### [Node.js](#tab/nodejsgeneric)
+# [Node.js](#tab/nodejsgeneric)
 
 * [Visual Studio Code](https://code.visualstudio.com/), or another code editor
 * [Node.js runtime](https://nodejs.org/en/download/)
-
----
 
 
 ## Step 1: Create a protected web API
 
 Create a new web API project. First, select the programming language you want to use, **ASP.NET Core** or **Node.js**.
 
-#### For [ASP.NET Core](#tab/csharpclient)
+# [ASP.NET Core](#tab/csharpclient)
 
 Use the [`dotnet new`](/dotnet/core/tools/dotnet-new) command. The `dotnet new` command creates a new folder named *TodoList* with the web API project assets. Open the directory, and then open [Visual Studio Code](https://code.visualstudio.com/). 
 
@@ -93,8 +91,7 @@ code .
 
 When you're prompted to "add required assets to the project," select **Yes**.
 
-
-#### For [Node.js](#tab/nodejsgeneric)
+# [Node.js](#tab/nodejsgeneric)
 
 Use [Express](https://expressjs.com/) for [Node.js](https://nodejs.org/) to build a web API. To create a web API, do the following:
 
@@ -110,7 +107,7 @@ Use [Express](https://expressjs.com/) for [Node.js](https://nodejs.org/) to buil
 Add the authentication library to your web API project. The authentication library parses the HTTP authentication header, validates the token, and extracts claims. For more information, review the documentation for the library.
 
 
-#### For [ASP.NET Core](#tab/csharpclient)
+# [ASP.NET Core](#tab/csharpclient)
 
 To add the authentication library, install the package by running the following command:
 
@@ -118,7 +115,7 @@ To add the authentication library, install the package by running the following 
 dotnet add package Microsoft.Identity.Web
 ```
 
-#### For [Node.js](#tab/nodejsgeneric)
+# [Node.js](#tab/nodejsgeneric)
 
 To add the authentication library, install the packages by running the following command:
 
@@ -136,7 +133,7 @@ The [morgen package](https://www.npmjs.com/package/morgan) is an HTTP request lo
 
 Add the necessary code to initiate the authentication library.
 
-#### For [ASP.NET Core](#tab/csharpclient)
+# [ASP.NET Core](#tab/csharpclient)
 
 Open *Startup.cs* and then, at the beginning of the class, add the following `using` declarations:
 
@@ -200,7 +197,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 }
 ```
 
-#### For [Node.js](#tab/nodejsgeneric)
+# [Node.js](#tab/nodejsgeneric)
 
 Add the following JavaScript code to your *app.js* file.
 
@@ -260,9 +257,9 @@ Add two endpoints to your web API:
 - Anonymous `/public` endpoint. This endpoint returns the current date and time. Use it to debug your web API with anonymous calls.
 - Protected `/hello` endpoint. This endpoint returns the value of the `name` claim within the access token.
 
-**To add the anonymous endpoint, do the following:**
+**To add the anonymous endpoint:**
 
-#### For [ASP.NET Core](#tab/csharpclient)
+# [ASP.NET Core](#tab/csharpclient)
 
 Under the */Controllers* folder, add a *PublicController.cs* file, and then add to it the following code snippet:
 
@@ -293,7 +290,7 @@ namespace TodoList.Controllers
 }
 ```
 
-#### For [Node.js](#tab/nodejsgeneric)
+# [Node.js](#tab/nodejsgeneric)
 
 In the *app.js* file, add the following JavaScript code:
 
@@ -305,9 +302,9 @@ app.get('/public', (req, res) => res.send( {'date': new Date() } ));
 
 --- 
 
-**To add the protected endpoint, do the following:**
+**To add the protected endpoint:**
 
-#### For [ASP.NET Core](#tab/csharpclient)
+# [ASP.NET Core](#tab/csharpclient)
 
 Under the */Controllers* folder, add a *HelloController.cs* file, and then add to it the following code:
 
@@ -349,7 +346,7 @@ The `HelloController` controller is decorated with the [AuthorizeAttribute](/asp
 
 The controller is also decorated with the `[RequiredScope("tasks.read")]`. The [RequiredScopeAttribute](/dotnet/api/microsoft.identity.web.resource.requiredscopeattribute.-ctor) verifies that the web API is called with the right scopes, `tasks.read`. 
 
-#### For [Node.js](#tab/nodejsgeneric)
+# [Node.js](#tab/nodejsgeneric)
 
 In the *app.js* file, add the following JavaScript code: 
 
@@ -368,7 +365,7 @@ app.get('/hello',
 
 The `/hello` endpoint first calls the `passport.authenticate()` function. The authentication function limits access to authenticated users only. 
 
-The authentication function also verifies that the web API is called with the right scopes. The allowed scopes are located in the [configuration file](#configure-the-web-api). 
+The authentication function also verifies that the web API is called with the right scopes. The allowed scopes are located in the [configuration file](#step-6-configure-the-web-api). 
 
 --- 
 
@@ -376,7 +373,7 @@ The authentication function also verifies that the web API is called with the ri
 
 In a development environment, set the web API to listen on an incoming HTTP requests port number. In this example, use HTTP port 6000. The base URI of the web API is `http://localhost:6000`.
 
-#### For [ASP.NET Core](#tab/csharpclient)
+# [ASP.NET Core](#tab/csharpclient)
 
 Add the following JSON snippet to the *appsettings.json* file. 
 
@@ -390,7 +387,7 @@ Add the following JSON snippet to the *appsettings.json* file.
   }
 ```
 
-#### For [Node.js](#tab/nodejsgeneric)
+# [Node.js](#tab/nodejsgeneric)
 
 Add the following JavaScript code to the *app.js* file. 
 
@@ -402,16 +399,14 @@ app.listen(port, () => {
     console.log('Listening on port ' + port);
 });
 ```
---- 
 
 ## Step 6: Configure the web API
 
 Add configurations to a configuration file. The file contains information about your Azure AD B2C identity provider. The web API app uses this information to validate the access token that the web app passes as a bearer token.
 
-#### For [ASP.NET Core](#tab/csharpclient)
+# [ASP.NET Core](#tab/csharpclient)
 
-Under the project root folder, open the *appsettings.json* file.  Add the following settings:
-
+Under the project root folder, open the *appsettings.json* file, and then add the following settings:
 
 ```json
 {
@@ -426,7 +421,7 @@ Under the project root folder, open the *appsettings.json* file.  Add the follow
 }
 ```
 
-Update the following properties of the app settings: 
+In the *appsettings.json* file, update the following properties: 
 
 |Section  |Key  |Value  |
 |---------|---------|---------|
@@ -434,9 +429,8 @@ Update the following properties of the app settings:
 |AzureAdB2C|Domain| Your Azure AD B2C tenant full [tenant name](tenant-management.md#get-your-tenant-name) (for example, `contoso.onmicrosoft.com`).|
 |AzureAdB2C|ClientId| The web API application ID. In the [preceding diagram](#app-registration-overview), it's the application with *App ID: 2*. To learn how to get your web API application registration ID, see [Prerequisites](#prerequisites). |
 |AzureAdB2C|SignUpSignInPolicyId|The user flows, or custom policy. To learn how to get your user flow or policy, see [Prerequisites](#prerequisites).  |
-| | |
 
-#### For [Node.js](#tab/nodejsgeneric)
+# [Node.js](#tab/nodejsgeneric)
 
 Under the project root folder, create a *config.json* file, and then add to it the following JSON snippet:  
 
@@ -466,7 +460,7 @@ Under the project root folder, create a *config.json* file, and then add to it t
 }
 ```
 
-Update the following properties of the app settings:
+In the *config.json* file, update the following properties:
 
 |Section  |Key  |Value  |
 |---------|---------|---------|
@@ -475,13 +469,13 @@ Update the following properties of the app settings:
 | credentials | issuer| The token issuer `iss` claim value. By default, Azure AD B2C returns the token in the following format: `https://<your-tenant-name>.b2clogin.com/<your-tenant-ID>/v2.0/`. Replace `<your-tenant-name>` with the first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name). Replace `<your-tenant-ID>` with your [Azure AD B2C tenant ID](tenant-management.md#get-your-tenant-id). |
 | policies | policyName | The user flows, or custom policy. To learn how to get your user flow or policy, see [Prerequisites](#prerequisites).|
 | resource | scope | The scopes of your web API application registration. To learn how to get your web API scope, see [Prerequisites](#prerequisites).|
-| | | 
+| | | |
 
 ## Step 7: Run and test the web API
 
 Finally, run the web API with your Azure AD B2C environment settings. 
 
-#### For [ASP.NET Core](#tab/csharpclient)
+# [ASP.NET Core](#tab/csharpclient)
 
 In the command shell, start the web app by running the following command:
 
@@ -502,7 +496,7 @@ To stop the program, in the command shell, select Ctrl+C. You can rerun the app 
 
 Open a browser and go to `http://localhost:6000/public`. In the browser window, you should see the following text displayed, along with the current date and time.
 
-#### For [Node.js](#tab/nodejsgeneric)
+# [Node.js](#tab/nodejsgeneric)
 
 In the command shell, start the web app by running the following command:
 
@@ -523,8 +517,6 @@ To stop the program, in the command shell, select Ctrl+C. You can rerun the app 
 
 Open a browser and go to `http://localhost:6000/public`. In the browser window, you should see the following text displayed, along with the current date and time.
 
----
-
 ## Step 8: Call the web API from your app
 
 Try to call the protected web API endpoint without an access token. Open a browser and go to `http://localhost:6000/hello`. The API will return an unauthorized HTTP error message, confirming that web API is protected with a bearer token.
@@ -535,6 +527,8 @@ Continue to configure your app to call the web API. For guidance, see the [Prere
 
 Get the complete example on GitHub:
 
-* For [ASP.NET Core](#tab/csharpclient), get the web API by using the [Microsoft identity library](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/4-WebApp-your-API/4-2-B2C/TodoListService).
+# [ASP.NET Core](#tab/csharpclient)
+* Get the web API by using the [Microsoft identity library](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/4-WebApp-your-API/4-2-B2C/TodoListService).
 
-* For [Node.js](#tab/nodejsgeneric), get the web API by using the [Passport.js library](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi).
+# [Node.js](#tab/nodejsgeneric)
+* Get the web API by using the [Passport.js library](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi).
