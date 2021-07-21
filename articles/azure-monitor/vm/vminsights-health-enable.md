@@ -351,13 +351,13 @@ az deployment group create --name GuestHealthDeployment --resource-group my-reso
         "publisher": "Microsoft.Azure.Monitor", 
         "type": "AzureMonitorWindowsAgent", 
         "typeHandlerVersion": "1.0", 
-        "autoUpgradeMinorVersion": false 
+        "autoUpgradeMinorVersion": true 
       },
       "linux": {
         "publisher": "Microsoft.Azure.Monitor", 
         "type": "AzureMonitorLinuxAgent", 
-        "typeHandlerVersion": "1.5", 
-        "autoUpgradeMinorVersion": false 
+        "typeHandlerVersion": "1.0", 
+        "autoUpgradeMinorVersion": true 
       }
     }
   },
