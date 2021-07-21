@@ -32,7 +32,7 @@ Azure Machine Learning requires both inbound and outbound access to the public i
 > 
 > The IP addresses may change periodically.
 
-You may also need to allow __outbound__ traffic to Visual Studio Code & non-Microsoft sites for the installation of packages required by your machine learning project. The following table lists commonly used repositories for machine learning:
+You may also need to allow __outbound__ traffic to Visual Studio Code and non-Microsoft sites for the installation of packages required by your machine learning project. The following table lists commonly used repositories for machine learning:
 
 | Host name | Purpose |
 | ----- | ----- |
