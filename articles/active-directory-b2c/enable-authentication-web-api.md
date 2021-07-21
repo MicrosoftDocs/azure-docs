@@ -63,13 +63,13 @@ The application registrations and the application architecture are described in 
 
 In the next sections, you'll create a new web API project. Select your programming language, ASP.NET Core or Node.js. Make sure you have a computer that's running either of the following: 
 
-#### [ASP.NET Core](#tab/csharpclient)
+# [ASP.NET Core](#tab/csharpclient)
 
 * [Visual Studio Code](https://code.visualstudio.com/download)
 * [C# for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) (latest version)
 * [.NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet)
 
-#### [Node.js](#tab/nodejsgeneric)
+# [Node.js](#tab/nodejsgeneric)
 
 * [Visual Studio Code](https://code.visualstudio.com/), or another code editor
 * [Node.js runtime](https://nodejs.org/en/download/)
@@ -81,7 +81,7 @@ In the next sections, you'll create a new web API project. Select your programmi
 
 Create a new web API project. First, select the programming language you want to use, **ASP.NET Core** or **Node.js**.
 
-#### For [ASP.NET Core](#tab/csharpclient)
+# [ASP.NET Core](#tab/csharpclient)
 
 Use the [`dotnet new`](/dotnet/core/tools/dotnet-new) command. The `dotnet new` command creates a new folder named *TodoList* with the web API project assets. Open the directory, and then open [Visual Studio Code](https://code.visualstudio.com/). 
 
@@ -94,7 +94,7 @@ code .
 When you're prompted to "add required assets to the project," select **Yes**.
 
 
-#### For [Node.js](#tab/nodejsgeneric)
+# [Node.js](#tab/nodejsgeneric)
 
 Use [Express](https://expressjs.com/) for [Node.js](https://nodejs.org/) to build a web API. To create a web API, do the following:
 
@@ -110,7 +110,7 @@ Use [Express](https://expressjs.com/) for [Node.js](https://nodejs.org/) to buil
 Add the authentication library to your web API project. The authentication library parses the HTTP authentication header, validates the token, and extracts claims. For more information, review the documentation for the library.
 
 
-#### For [ASP.NET Core](#tab/csharpclient)
+# [ASP.NET Core](#tab/csharpclient)
 
 To add the authentication library, install the package by running the following command:
 
@@ -118,7 +118,7 @@ To add the authentication library, install the package by running the following 
 dotnet add package Microsoft.Identity.Web
 ```
 
-#### For [Node.js](#tab/nodejsgeneric)
+# [Node.js](#tab/nodejsgeneric)
 
 To add the authentication library, install the packages by running the following command:
 
@@ -136,7 +136,7 @@ The [morgen package](https://www.npmjs.com/package/morgan) is an HTTP request lo
 
 Add the necessary code to initiate the authentication library.
 
-#### For [ASP.NET Core](#tab/csharpclient)
+# [ASP.NET Core](#tab/csharpclient)
 
 Open *Startup.cs* and then, at the beginning of the class, add the following `using` declarations:
 
@@ -200,7 +200,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 }
 ```
 
-#### For [Node.js](#tab/nodejsgeneric)
+# [Node.js](#tab/nodejsgeneric)
 
 Add the following JavaScript code to your *app.js* file.
 
@@ -262,7 +262,7 @@ Add two endpoints to your web API:
 
 **To add the anonymous endpoint, do the following:**
 
-#### For [ASP.NET Core](#tab/csharpclient)
+# [ASP.NET Core](#tab/csharpclient)
 
 Under the */Controllers* folder, add a *PublicController.cs* file, and then add to it the following code snippet:
 
@@ -293,7 +293,7 @@ namespace TodoList.Controllers
 }
 ```
 
-#### For [Node.js](#tab/nodejsgeneric)
+# [Node.js](#tab/nodejsgeneric)
 
 In the *app.js* file, add the following JavaScript code:
 
@@ -307,7 +307,7 @@ app.get('/public', (req, res) => res.send( {'date': new Date() } ));
 
 **To add the protected endpoint, do the following:**
 
-#### For [ASP.NET Core](#tab/csharpclient)
+# [ASP.NET Core](#tab/csharpclient)
 
 Under the */Controllers* folder, add a *HelloController.cs* file, and then add to it the following code:
 
@@ -349,7 +349,7 @@ The `HelloController` controller is decorated with the [AuthorizeAttribute](/asp
 
 The controller is also decorated with the `[RequiredScope("tasks.read")]`. The [RequiredScopeAttribute](/dotnet/api/microsoft.identity.web.resource.requiredscopeattribute.-ctor) verifies that the web API is called with the right scopes, `tasks.read`. 
 
-#### For [Node.js](#tab/nodejsgeneric)
+# [Node.js](#tab/nodejsgeneric)
 
 In the *app.js* file, add the following JavaScript code: 
 
@@ -376,7 +376,7 @@ The authentication function also verifies that the web API is called with the ri
 
 In a development environment, set the web API to listen on an incoming HTTP requests port number. In this example, use HTTP port 6000. The base URI of the web API is `http://localhost:6000`.
 
-#### For [ASP.NET Core](#tab/csharpclient)
+# [ASP.NET Core](#tab/csharpclient)
 
 Add the following JSON snippet to the *appsettings.json* file. 
 
@@ -390,7 +390,7 @@ Add the following JSON snippet to the *appsettings.json* file.
   }
 ```
 
-#### For [Node.js](#tab/nodejsgeneric)
+# [Node.js](#tab/nodejsgeneric)
 
 Add the following JavaScript code to the *app.js* file. 
 
@@ -408,7 +408,7 @@ app.listen(port, () => {
 
 Add configurations to a configuration file. The file contains information about your Azure AD B2C identity provider. The web API app uses this information to validate the access token that the web app passes as a bearer token.
 
-#### For [ASP.NET Core](#tab/csharpclient)
+# [ASP.NET Core](#tab/csharpclient)
 
 Under the project root folder, open the *appsettings.json* file.  Add the following settings:
 
@@ -436,7 +436,7 @@ Update the following properties of the app settings:
 |AzureAdB2C|SignUpSignInPolicyId|The user flows, or custom policy. To learn how to get your user flow or policy, see [Prerequisites](#prerequisites).  |
 | | |
 
-#### For [Node.js](#tab/nodejsgeneric)
+# [Node.js](#tab/nodejsgeneric)
 
 Under the project root folder, create a *config.json* file, and then add to it the following JSON snippet:  
 
@@ -481,7 +481,7 @@ Update the following properties of the app settings:
 
 Finally, run the web API with your Azure AD B2C environment settings. 
 
-#### For [ASP.NET Core](#tab/csharpclient)
+# [ASP.NET Core](#tab/csharpclient)
 
 In the command shell, start the web app by running the following command:
 
@@ -502,7 +502,7 @@ To stop the program, in the command shell, select Ctrl+C. You can rerun the app 
 
 Open a browser and go to `http://localhost:6000/public`. In the browser window, you should see the following text displayed, along with the current date and time.
 
-#### For [Node.js](#tab/nodejsgeneric)
+# [Node.js](#tab/nodejsgeneric)
 
 In the command shell, start the web app by running the following command:
 
