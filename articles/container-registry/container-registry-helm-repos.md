@@ -17,7 +17,7 @@ To store, manage, and install Helm charts, you use commands in the Helm CLI. Maj
 
 Helm 3 should be used to host Helm charts in Azure Container Registry. With Helm 3, you:
 
-* Can create one or more Helm repositories in an Azure container registry
+* Can store and manage Helm charts in repositories in an Azure container registry
 * Store Helm charts in your registry as [OCI artifacts](container-registry-image-formats.md#oci-artifacts). Azure Container Registry provides GA support for OCI artifacts, including Helm charts.
 * Authenticate with your registry using the `helm registry login` or `az acr login` command.
 * Use `helm chart` commands to push, pull, and manage Helm charts in a registry
@@ -31,7 +31,7 @@ Azure Container Registry supports specific Helm chart management features depend
 | ---- | ---- | ---- |
 | Manage charts using `az acr helm` commands | :heavy_check_mark: | |
 | Store charts as OCI artifacts | | :heavy_check_mark:  |
-| Manage charts using Helm CLI and `az acr repository` commands | | :heavy_check_mark:  |
+| Manage charts using `az acr repository` commands and the **Repositories** blade in Azure portal| | :heavy_check_mark:  |
 
 
 > [!NOTE]
