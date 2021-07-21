@@ -83,6 +83,30 @@ The API returns opinions as a target (noun or verb) and an assessment (adjective
 
 See the [Azure Language Studio](https://language.azure.com/) to see example input and output for this API.
 
+
+## Data limits
+
+> [!NOTE]
+> * If you need to analyze larger documents than the limit allows, you can break the text into smaller chunks of text before sending them to the API. 
+> * A document is a single string of text characters.  
+
+| Limit | Value |
+|------------------------|---------------|
+| Maximum size of a single document | 5,120 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements).  |
+| Maximum size of a single document (`/analyze` endpoint)  | 125K characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements).  |
+| Maximum size of entire request | 1 MB. |
+| Max documents per request | 10 |
+
+If a document exceeds the character limit, the API will behave differently depending on the feature you're using:
+
+* Asynchronous:
+  * The API will reject the entire request and return a `400 bad request` error if any document within it exceeds the maximum size.
+* Synchronous:  
+  * The API won't process a document that exceeds the maximum size, and will return an invalid document error for it. If an API request has multiple documents, the API will continue processing them if they are within the character limit.
+
+Exceeding the maximum number of documents you can send in a single request will generate an HTTP 400 error code.
+
+
 ## Summary
 
 In this article, you learned concepts and workflow for sentiment analysis and opinion mining using Language services. In summary:

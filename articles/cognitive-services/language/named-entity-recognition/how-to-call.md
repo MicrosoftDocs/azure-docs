@@ -38,7 +38,7 @@ See [entity categories](named-entity-types.md) for the full list of entities tha
 
 ## Language and document specifications
 
-Sentiment Analysis and Opinion Mining accept a variety of languages. See [Supported languages](../language-support.md) for more information. The API may return offsets in the response to support different [multilingual and emoji encodings](multilingual-emoji-support.md). 
+Sentiment Analysis and Opinion Mining accept a variety of languages. See Supported languages for more information. The API may return offsets in the response to support different [multilingual and emoji encodings](../concepts/multilingual-emoji-support.md). 
 
 Document size must be under 5,120 characters per document, and you can have up to 1,000 items (IDs) per collection. For the maximum number of documents permitted in a collection, see the [data limits](../overview.md) article. The collection is submitted in the body of the request.
 
@@ -49,7 +49,7 @@ To send an API request, You will need your Language service resource endpoint an
 > [!NOTE]
 > You can find the key and endpoint for your Language service resource on the Azure portal. They will be located on the resource's **Key and endpoint** page, under **resource management**. 
 
-Analysis is performed upon receipt of the request. For information on the size and number of requests you can send per minute and second, see the [data limits](../data-limits.md) section in the overview.
+Analysis is performed upon receipt of the request. For information on the size and number of requests you can send per minute and second, see the [data limits](#data-limits) section.
 
 The NER API is stateless. No data is stored in your account, and results are returned immediately in the response.
 
@@ -60,10 +60,9 @@ The API will attempt to detect the [listed entity categories](named-entity-types
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/recognition/pii?piiCategories=default,FRDriversLicenseNumber`
 
-
 ## Post the request
 
-Analysis is performed upon receipt of the request. See the [data limits](../data-limits.md) article for information on the size and number of requests you can send per minute and second.
+Analysis is performed upon receipt of the request. See [data limits](#data-limits) below for information on the size and number of requests you can send per minute and second.
 
 The Text Analytics API is stateless. No data is stored in your account, and results are returned immediately in the response.
 
@@ -76,6 +75,30 @@ Output is returned immediately. You can stream the results to an application tha
 ### NER and PII responses
 
 The API can return response objects for both NER and PII. The response will contain...
+
+
+## Data limits
+
+> [!NOTE]
+> * If you need to analyze larger documents than the limit allows, you can break the text into smaller chunks of text before sending them to the API. 
+> * A document is a single string of text characters.  
+
+| Limit | Value |
+|------------------------|---------------|
+| Maximum size of a single document | 5,120 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements).  |
+| Maximum size of a single document (`/analyze` endpoint)  | 125K characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements).  |
+| Maximum size of entire request | 1 MB. |
+| Max documents per request | 5 |
+
+If a document exceeds the character limit, the API will behave differently depending on the feature you're using:
+
+* Asynchronous:
+  * The API will reject the entire request and return a `400 bad request` error if any document within it exceeds the maximum size.
+* Synchronous:  
+  * The API won't process a document that exceeds the maximum size, and will return an invalid document error for it. If an API request has multiple documents, the API will continue processing them if they are within the character limit.
+
+Exceeding the maximum number of documents you can send in a single request will generate an HTTP 400 error code.
+
 
 ## Summary
 

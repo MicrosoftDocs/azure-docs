@@ -20,10 +20,8 @@ The NER and PII API is a cloud-based service that provides Natural Language Proc
 The API is a part of [Azure Cognitive Services](../../index.yml), a collection of machine learning and AI algorithms in the cloud for your development projects. You can use these features with the REST API, or the client libraries.
 
 This documentation contains the following types of articles:
-* [Quickstarts](./quickstart.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
+
 * [How-to guides](./how-to-call.md) contain instructions for using the service in more specific or customized ways.
-* [Concepts](overview.md) provide in-depth explanations of the service's functionality and features.
-* [Tutorials](overview.md) are longer guides that show you how to use this service as a component in broader business solutions.
 
 ## Named Entity Recognition (NER)
 
