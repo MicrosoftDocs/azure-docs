@@ -4,13 +4,13 @@ description: In this tutorial, learn how to integrate ServiceNow with Azure Defe
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 07/20/2021
+ms.date: 07/21/2021
 ms.custom: template-tutorial
 ---
 
 # Tutorial: Integrate ServiceNow with Azure Defender for IoT
 
-This tutorial will help you to integrate the ServiceNow 
+This tutorial will help you learn how to integrate, and use ServiceNow with Azure Defender for IoT
 
 <!-- 2. Introductory paragraph 
 Required. Lead with a light intro that describes, in customer-friendly language, 
@@ -38,7 +38,6 @@ are no prerequisites, state that no prerequisites are needed for this tutorial.
 
 ## Prerequisites
 
-
 ### Software RequirementsAccess to ServiceNow and Defender for IoT 
 
 - ServiceNow Service Management version 3.0.2.
@@ -52,6 +51,8 @@ are no prerequisites, state that no prerequisites are needed for this tutorial.
 
 - **On-premises management console architecture**: Set up an on-premises management console to communicate with one instance of ServiceNow. The on-premises management console pushes sensor data to the Defender for IoT application using REST API.
 
+    To set up your system to work with an on-premises management console, you will need to disable the ServiceNow Sync, Forwarding Rules, and Proxy configurations on any sensors where they were set up.
+
 - **Sensor architecture**: If you want to set up your environment to include direct communication between sensors and ServiceNow, for each sensor define the ServiceNow Sync, Forwarding rules, and proxy configuration (if a proxy is needed).
 
 <!-- 5. H2s
@@ -59,18 +60,59 @@ Required. Give each H2 a heading that sets expectations for the content that fol
 Follow the H2 headings with a sentence about how the section contributes to the whole.
 -->
 
-## [Section 1 heading]
-<!-- Introduction paragraph -->
+## Create access tokens in ServiceNow
 
-1. Sign in to the [<service> portal](url).
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+A token is needed in order to allow ServiceNow to communicate with Defender for IoT.
 
-## [Section 2 heading]
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+1. Sign in to the on-premises management console.
+1. Select **Forwarding**.
+1. Select the :::image type="icon" source="media/tutorial-servicenow/plus-icon.png" border="false"::: button.
+1. 
+
+## Set up Defender for IoT to communicate with ServiceNow
+
+Configure Defender for IoT to push alert information to the ServiceNow tables. Defender for IoT alerts will appear in ServiceNow as security incidents. This can be done by defining a Defender for IoT forwarding rule to send alert information to ServiceNow.
+
+1. Sign in to the on-premises management console.
+
+1. Select **Forwarding**, in the left side pane.
+
+1. Select the :::image type="icon" source="media/tutorial-servicenow/plus-icon.png" border="false"::: button.
+
+ :::image type="content" source="media/tutorial-servicenow/forwarding-rule.png" alt-text="Create Forwarding Rule":::
+
+1. Add a rule name.
+
+1. Define criteria under which Defender for IoT will trigger the forwarding rule. Working with Forwarding rule criteria helps pinpoint and manage the volume of information sent from Defender for IoT to ServiceNow. The following options are available:
+
+    - **Severity levels:** This is the minimum-security level incident to forward. For example, if **Minor** is selected, minor alerts, and any alert above this severity level will be forwarded. Levels are pre-defined by Defender for IoT.
+
+    - **Protocols:** Only trigger the forwarding rule if the traffic detected was running over specific protocols. Select the required protocols from the drop-down list or choose them all.
+
+    - **Engines:** Select the required engines or choose them all. Alerts from selected engines will be sent.
+
+1. Verify that **Report Alert Notifications** is selected.
+
+1. In the Actions section, select **Add** and then select **ServiceNow**.
+
+    :::image type="content" source="media/tutorial-servicenow/select-servicenow.png" alt-text="Select ServiceNow from the dropdown options.":::
+
+1. Enter the ServiceNow action parameters:
+
+    :::image type="content" source="media/tutorial-servicenow/parameters.png" alt-text="Fill in the ServiceNow action parameters":::
+
+1. In the **Actions** pane, set the following parameters:
+
+  | Parameter | Description |
+  |--|--|
+  | Domain | Enter the ServiceNow server IP address. |
+  | Username | Enter the ServiceNow server username. |
+  | Password | Enter the ServiceNow server password. |
+  | Client ID | Enter the Client ID you received for Defender for IoT in the **Application Registries** page in ServiceNow. |
+  | Client Secret | Enter the client secret string you created for Defender for IoT in the **Application Registries** page in ServiceNow. |
+  | Report Type | **Incidents**: Forward a list of alerts that are presented in ServiceNow with an incident ID and short description of each alert.<br /><br />**Defender for IoT Application**: Forward full alert information, including the  sensor details, the engine, the source, and destination addresses. The information is forwarded to the Defender for IoT on the ServiceNow application. |
+
+1. Select **SAVE**. Defenders for IoT alerts appear as incidents in ServiceNow.
 
 ## [Section n heading]
 <!-- Introduction paragraph -->
