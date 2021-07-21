@@ -97,7 +97,7 @@ After configuring the schema, select **Verify schema**. Metrics Advisor performs
 
 Metrics Advisor can automatically perform aggregation on each dimension during ingestion. Then the service builds a hierarchy that you can use in root cause analysis and other diagnostic features. For more information, see [Automatic roll up settings](../how-tos/onboard-your-data.md#automatic-roll-up-settings).
 
-Give a custom name for the data feed, which will be displayed in your workspace. Select **Submit**. 
+Give a custom name for the data feed, which will be shown in your workspace. Select **Submit**. 
 
 ## Tune detection configuration
 
@@ -163,7 +163,7 @@ After creating a hook, an alert setting determines how and which alert notificat
 
 ## Next steps
 
-- [Onboard your metric data to Metrics Advisor](../how-tos/onboard-your-data.md)
+- [Add your metric data to Metrics Advisor](../how-tos/onboard-your-data.md)
     - [Manage your data feeds](../how-tos/manage-data-feeds.md)
     - [Connect different data sources](../data-feeds-from-different-sources.md)
 - [Use the client libraries or REST APIs to customize your solution](./rest-api-and-client-library.md)

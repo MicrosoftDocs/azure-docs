@@ -21,7 +21,7 @@ Use this article to find the settings and requirements for connecting different 
 
 | Authentication types | Description |
 | ---------------------|-------------|
-|**Basic** | You need to provide basic parameters for accessing data sources. For example, a connection string or a password. Data feed admins can view these credentials. |
+|**Basic** | You need to provide basic parameters for accessing data sources. For example, you can use a connection string or a password. Data feed admins can view these credentials. |
 | **Azure managed identity** | [Managed identities](../../active-directory/managed-identities-azure-resources/overview.md) for Azure resources is a feature of Azure Active Directory (Azure AD). It provides Azure services with an automatically managed identity in Azure AD. You can use the identity to authenticate to any service that supports Azure AD authentication.|
 | **Azure SQL connection string**| Store your Azure SQL connection string as a credential entity in Metrics Advisor, and use it directly each time you import metrics data. Only admins of the credential entity can view these credentials, but authorized viewers can create data feeds without needing to know details for the credentials. |
 | **Azure Data Lake Storage Gen2 shared key**| Store your data lake account key as a credential entity in Metrics Advisor, and use it directly each time you import metrics data. Only admins of the credential entity can view these credentials, but authorized viewers can create data feeds without needing to know details for the credentials.|
@@ -97,7 +97,7 @@ The following sections specify the parameters required for all authentication ty
         ![Screenshot that shows a managed identity blob.](media/managed-identity-blob.png)
     
 
-* **Container**: Metrics Advisor expects time series data to be stored as Blob files (one Blob per timestamp), under a single container. This is the container name field.
+* **Container**: Metrics Advisor expects time series data to be stored as blob files (one blob per timestamp), under a single container. This is the container name field.
 
 * **Blob template**: Metrics Advisor uses a path to find the JSON file in your Blob storage. This is an example of a Blob file template, which is used to find the JSON file in your Blob storage: `%Y/%m/FileName_%Y-%m-%d-%h-%M.json`. `%Y/%m` is the path, and if you have `%d` in your path, you can add it after `%m`. If your JSON file is named by date, you can also use `%Y-%m-%d-%h-%M.json`.
 
@@ -164,7 +164,7 @@ The following sections specify the parameters required for all authentication ty
 
     * **Service principal**: A service principal is a concrete instance created from the application object. The service principal inherits certain properties from that application object. The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access. To use a service principal in Metrics Advisor:
     
-        1. Create the Azure AD application registration. For more information, see [Create an AAD app registration in Azure Data Explorer](/azure/data-explorer/provision-azure-ad-app).
+        1. Create the Azure AD application registration. For more information, see [Create an Azure AD app registration in Azure Data Explorer](/azure/data-explorer/provision-azure-ad-app).
 
         1. Manage Azure Data Explorer database permissions. For more information, see [Manage Azure Data Explorer database permissions](/azure/data-explorer/manage-database-permissions). 
 
@@ -254,7 +254,7 @@ The following sections specify the parameters required for all authentication ty
    Query sample for an hourly metric: `%Y/%m/%d/%h`.
 
 * **File Template**:
-   Metrics Advisor uses a path to find the JSON file in your blob storage. The following is an example of a blob file template, which is used to find the JSON file in your blob storage: `%Y/%m/FileName_%Y-%m-%d-%h-%M.json`. `%Y/%m` is the path, and if you have `%d` in your path, you can add it after `%m`. 
+   Metrics Advisor uses a path to find the JSON file in your Blob storage. The following is an example of a Blob file template, which is used to find the JSON file in your Blob storage: `%Y/%m/FileName_%Y-%m-%d-%h-%M.json`. `%Y/%m` is the path, and if you have `%d` in your path, you can add it after `%m`. 
    
    The following parameters are supported:
    
@@ -338,7 +338,7 @@ You find this on the **Consumer Groups** menu of an instance of Azure Event Hubs
 
 ## <span id="log">Azure Monitor Logs</span>
 
-Azure Monitor Logs has the following authentication types: basic, service principal and service principal from key vault.
+Azure Monitor Logs has the following authentication types: basic, service principal, and service principal from key vault.
 * **Basic**: You need to fill in **Tenant ID**, **Client ID**, **Client Secret**, and **Workspace ID**.
    To get **Tenant ID**, **Client ID**, and **Client Secret**, see [Register app or web API](../../active-directory/develop/quickstart-register-app.md). You can find **Workspace ID** in the Azure portal.
    
@@ -385,15 +385,15 @@ Azure Monitor Logs has the following authentication types: basic, service princi
         ```
     
     * <span id='jump'>**Managed identity**</span>: Managed identity for Azure resources can authorize access to blob and queue data. It does so by using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identity for Azure resources and Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. To [enable your managed entity](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql.md), follow these steps:
-    1. **Enabling a system-assigned managed identity is a one-click experience.** In the Azure portal, for your Metrics Advisor workspace, go to **Settings** > **Identity** > **System assigned**. Then set the status as **on**. 
+    1. Enabling a system-assigned managed identity is a one-click experience. In the Azure portal, for your Metrics Advisor workspace, go to **Settings** > **Identity** > **System assigned**. Then set the status as **on**. 
     
         ![Screenshot that shows how to set the status as on.](media/datafeeds/set-identity-status.png)
 
-    1. **Enable Azure AD authentication.** In the Azure portal, for your data source, go to **Settings** > **Active Directory admin**. Select **Set admin**, and select an **Azure AD user account** to be made an administrator of the server. Then, choose **Select**.
+    1. Enable Azure AD authentication. In the Azure portal, for your data source, go to **Settings** > **Active Directory admin**. Select **Set admin**, and select an **Azure AD user account** to be made an administrator of the server. Then, choose **Select**.
     
         ![Screenshot that shows how to set the admin.](media/datafeeds/set-admin.png)
 
-    1. **Enable managed identity (MI) in Metrics Advisor.** You can edit a query in the database management tool or in the Azure portal.
+    1. Enable managed identity in Metrics Advisor. You can edit a query in the database management tool or in the Azure portal.
     
         **Management tool**: In your database management tool, select **Active Directory - Universal with MFA support** in the authentication field. In the **User name** field, enter the name of the Azure AD account that you set as the server administrator in step 2. For example, this might be `test@contoso.com`.
     
