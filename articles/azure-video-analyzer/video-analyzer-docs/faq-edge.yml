@@ -212,7 +212,7 @@ sections:
         answer: |
           **How is Azure Video Analyzer billed?**
           
-          For billing details, see [Video Analyzer pricing]()<!--add-valid-link.md)--><!--https://azure.microsoft.com/pricing/details/media-services/-->.
+          For billing details, see [Video Analyzer pricing](https://azure.microsoft.com/pricing/details/video-analyzer/).
           
 additionalContent: |
 
