@@ -59,22 +59,22 @@ Below are the curated outsourcing (vendor) labeling companies who might help in 
 
 ## Engage an outsourced workforce 
 
-Review the listing details of the curated outsourcing companies before you create a labeling project for an outsourced workforce. If the outsourcing company meets your requirements, choose the **Contact Me** option in Azure Marketplace. Azure Marketplace will route your inquiry to the outsourcing company. You can reach to multiple outsourcing companies before choosing the final company.
+1. Review the listing details of the curated outsourcing companies before you create a labeling project for an outsourced workforce. If the outsourcing company meets your requirements, choose the **Contact Me** option in Azure Marketplace. Azure Marketplace will route your inquiry to the outsourcing company. You can reach to multiple outsourcing companies before choosing the final company.
 
-Once finalized, have an established contract (statement of work) with the external outsourcing  company.
+1. Once finalized, have an established contract (statement of work) with the external outsourcing  company.
 
-After the contract has been agreed and signed,  between you and  the Outsourcing labeling company:
-
-* Create the labeling project in Azure ML Studio. 
-
-* Choose the **Outsource** option in the workforce step. 
-
-* Choose the appropriate outsourcing (vendor) company in the project creation step. 
-
-    > [!NOTE]
-    > The outsourcing (vendor) company name cannot be changed after creating the labeling project.
-
-* Enable access (labeler role, techlead role)  to the outsourcing labeling company using Azure Role Based Access (RBAC). This access will allow the outsourcing company resources to annotate your labeling assets.
+1. After the contract has been agreed and signed,  between you and  the Outsourcing labeling company:
+    
+    * Create the labeling project in [Azure Machine Learning studio](https://ml.azure.com). 
+    
+    * Choose the **Outsource** option in the workforce step. 
+    
+    * Choose the appropriate outsourcing (vendor) company in the project creation step. 
+    
+        > [!NOTE]
+        > The outsourcing (vendor) company name cannot be changed after creating the labeling project.
+    
+    * Enable access (labeler role, techlead role)  to the outsourcing labeling company using Azure Role Based Access (RBAC). This access will allow the outsourcing company resources to annotate your labeling assets.
 
 ## Next steps
 
