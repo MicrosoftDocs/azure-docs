@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric Region Move 
-description: Learn how to migrate an Azure Service Fabric cluster and applications to another Region.
+description: How to migrate an Azure Service Fabric cluster and applications to another region.
 ms.topic: conceptual
 ms.date: 07/20/2021
 ms.author: micraft
@@ -13,9 +13,9 @@ Service Fabric Cluster Resources are inherently scoped to a region. This means t
 
 ## Steps to follow for a region migration
 
-Before engaging in any true regional migration, establish a testbed and practice these steps to verify that they work for your workload. 
+Before engaging in any regional migration, we recommend establishing a testbed and practicing these steps. 
 
-1. [Set up a cluster in the new region](./service-fabric-cluster-creation-via-arm.md#use-your-own-custom-template) by repurposing your existing ARM template for your cluster and infrastructure topology. If you do not currently have an ARM template that describes your cluster, then the recommendation is to use [Azure Resource Explorer](https://resources.azure.com/). Azure Resource Explorer can help you discover your current deployed resources and their configuration information that you can use to craft one or more ARM templates that allow you to repeatedly deploy clones of your existing environment. Test and confirm this stage before continuing. 
+1. [Set up a cluster in the new region](./service-fabric-cluster-creation-via-arm.md#use-your-own-custom-template) by repurposing your existing ARM template for your cluster and infrastructure topology. If you do not currently have an ARM template that describes your cluster, then the recommendation is to use [Azure Resource Explorer](https://resources.azure.com/). Azure Resource Explorer can help you discover your current deployed resources and their configuration information that you can use to craft one or more ARM templates that allow you to repeatedly deploy clones of your existing environment. Test and confirm you have working ARM templates that can deploy clones of your existing environment at this stage before continuing. 
 
 2. [Deploy existing applications and services via ARM](service-fabric-application-arm-resource.md). You must take care to preserve any application parameter or configuration customizations you have performed. For example, if your application has a parameter “count” with a default value of 5, but in your source environment you have upgraded that parameter’s value to be 7, you will want to ensure that the application deployment in the new region has the value set to 7. If you do not use ARM to manage your application and service instances, you are responsible for identifying the current set of applications and services running in the current region and their configuration, and duplicating those applications and services in the new region/cluster. 
 
