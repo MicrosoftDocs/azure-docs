@@ -237,7 +237,7 @@ To view the ID token claims under the `Views/Home` folder, add the `Claims.cshtm
 
 In this step, you add the `Claims` action that links the *Claims.cshtml* view to the *Home* controller. It uses the `[Authorize]` attribute, which limits access to the Claims action to authenticated users.
 
-In the `/Controllers/HomeController.cs` controller, add the following action.
+In the */Controllers/HomeController.cs* controller, add the following action:
 
 ```csharp
 [Authorize]
@@ -255,7 +255,7 @@ using Microsoft.AspNetCore.Authorization;
 
 ## Step 6: Add the TodoList.cshtml view
 
-To call the TodoList.cshtml web api, you need to have an access token with the right scopes. In this step, you add an action to the `Home` controller. Under the `Views/Home` folder, add the `TodoList.cshtml` view.
+To call the TodoList.cshtml web API, you need to have an access token with the right scopes. In this step, you add an action to the `Home` controller. Under the `Views/Home` folder, add the `TodoList.cshtml` view.
 
 ```razor
 @{
@@ -271,7 +271,7 @@ To call the TodoList.cshtml web api, you need to have an access token with the r
 
 After you've added the view, you add the `TodoList` action that links the *TodoList.cshtml* view to the *Home* controller. It uses the `[Authorize]` attribute, which limits access to the TodoList action to authenticated users.  
 
-In the `/Controllers/HomeController.cs` controller, add the following action class member and inject the token acquisition service into your controller.
+In the */Controllers/HomeController.cs* controller, add the following action class member and inject the token acquisition service into your controller.
 
 ```csharp
 public class HomeController : Controller
@@ -293,7 +293,7 @@ public class HomeController : Controller
 }
 ```
 
-Now, add the following action. The action shows you how to call a web API along with the bearer token. 
+Now, add the following action, which shows you how to call a web API along with the bearer token. 
 
 ```csharp
 [Authorize]
@@ -318,7 +318,7 @@ public async Task<IActionResult> TodoListAsync()
 
 ## Step 7: Add the app settings
 
-Azure AD B2C identity provider settings are stored in the `appsettings.json` file. Open *appsettings.json*, and add the app settings as described in "Step 5: Configure the sample web app" of [Configure authentication in a sample web app that calls a web API by using Azure AD B2C](configure-authentication-sample-web-app-with-api.md#step-5-configure-the-sample-web-app).
+Azure AD B2C identity provider settings are stored in the *appsettings.json* file. Open *appsettings.json*, and add the app settings, as described in "Step 5: Configure the sample web app" of [Configure authentication in a sample web app that calls a web API by using Azure AD B2C](configure-authentication-sample-web-app-with-api.md#step-5-configure-the-sample-web-app).
 
 ## Step 8: Run your application
 
