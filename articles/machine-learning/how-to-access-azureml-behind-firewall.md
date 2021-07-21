@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 07/20/2021
+ms.date: 07/21/2021
 ms.custom: devx-track-python
 ---
 
@@ -100,8 +100,8 @@ For information on configuring UDR, see [Route network traffic with a routing ta
     | Service tag | Protocol | Port |
     | ----- |:-----:|:-----:|
     | AzureActiveDirectory | TCP | * |
-    | AzureMachineLearning | TCP | * |
-    | AzureResourceManager | TCP | * |
+    | AzureMachineLearning | TCP | 443 |
+    | AzureResourceManager | TCP | 443 |
     | Storage.region       | TCP | 443 |
     | AzureFrontDoor.FirstParty | TCP | 443 | 
     | ContainerRegistry.region  | TCP | 443 |
