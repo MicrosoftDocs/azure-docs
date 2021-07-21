@@ -75,7 +75,7 @@ To add the **Send SMS** action as a new step in your workflow by using the Azure
         
         1. Select Service principal (Azure AD application) Authentication from the drop down options.
         
-        1. Enter Tenant Id, Client Id & Client Secret of your Service Principal.
+        1. Enter the Tenant ID, Client ID & Client Secret of your Service Principal.
         
         1. Enter the Communication Services Endpoint URL value of your Communication Services resource.
         
