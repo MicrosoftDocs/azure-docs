@@ -521,6 +521,8 @@ To stop the program, in the command shell, select Ctrl+C. You can rerun the app 
 
 Open a browser and go to `http://localhost:6000/public`. In the browser window, you should see the following text displayed, along with the current date and time.
 
+---
+
 ## Step 8: Call the web API from your app
 
 Try to call the protected web API endpoint without an access token. Open a browser and go to `http://localhost:6000/hello`. The API will return an unauthorized HTTP error message, confirming that web API is protected with a bearer token.
