@@ -83,6 +83,8 @@ Set the feature flag on the portal URL to work with the preview roles: Search Se
    | Role-based access control | Preview | Requires membership in a role assignment to complete the task, described in the next step. It also requires an authorization header. Choosing this option limits you to clients that support the 2021-04-30-preview REST API. |
    | Both | Preview | Requests are valid using either an API key or an authorization token. |
 
+Once your search service is RBAC-enabled, the portal will require the feature flag in the URL for assigning roles and viewing content. **Content, such as indexes and indexers, will only be visible in the portal if you open it with the feature flag.** If you want to restore the default behavior at a later date, revert the API Keys selection to **API Keys**.
+
 ### [**REST API**](#tab/config-svc-rest)
 
 Use the Management REST API, version 2021-04-01-Preview, to configure your service.
@@ -155,7 +157,9 @@ Depending on your application, additional configuration is required to register 
 
 Alternatively, you can use the Azure portal and the roles assigned to yourself to test:
 
-1. Open the portal with this syntax: [https://ms.portal.azure.com/?feature.enableRbac=true](https://ms.portal.azure.com/?feature.enableRbac=true). Although your service is RBAC-enabled in a previous step, the portal will require the feature flag to invoke RBAC behaviors. **Content, such as indexes and indexers, will only be visible in the portal if you open it with the feature flag.**
+1. Open the portal with this syntax: [https://ms.portal.azure.com/?feature.enableRbac=true](https://ms.portal.azure.com/?feature.enableRbac=true). 
+
+   Although your service is RBAC-enabled in a previous step, the portal will require the feature flag to invoke RBAC behaviors. **Content, such as indexes and indexers, will only be visible in the portal if you open it with the feature flag.** If you want to restore the default behavior, revert the API Keys selection to **API Keys**.
 
 1. Navigate to your search service.
 
