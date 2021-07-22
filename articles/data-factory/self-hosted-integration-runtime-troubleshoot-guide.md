@@ -25,11 +25,11 @@ For failed activities that are running on a self-hosted IR or a shared IR, the s
 
     # [Azure Data Factory](#tab/data-factory)
     
-    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png" alt-text="Screenshot of the "Activity runs" section on the "All pipeline runs" pane.":::
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png" alt-text="Screenshot of the \"Activity runs\" section on the \"All pipeline runs\" pane.":::
     
     # [Synapse Analytics](#tab/synapse-analytics)
     
-    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page-synapse.png" alt-text="Screenshot of the "Activity runs" section on the "All pipeline runs" pane.":::
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page-synapse.png" alt-text="Screenshot of the \"Activity runs\" section on the \"All pipeline runs\" pane.":::
     
     ---
     
