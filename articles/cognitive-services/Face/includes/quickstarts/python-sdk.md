@@ -20,7 +20,7 @@ Use the Face client library for Python to:
 * [Identify a face](#identify-a-face)
 * [Verify faces](#verify-faces)
 
-[Reference documentation](/python/api/azure-cognitiveservices-vision-face/) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [Package (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [Samples](/samples/browse/?products=azure&term=face)
+[Reference documentation](/python/api/overview/azure/cognitiveservices/face-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [Package (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [Samples](/samples/browse/?products=azure&term=face)
 
 ## Prerequisites
 
