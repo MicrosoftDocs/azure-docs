@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: View the list of applications that are using your Azure Active Directory (Azure AD) tenant for identity management'
+title: 'Quickstart: View the list of applications in your tenant'
 description: In this Quickstart, use the Azure portal to view the list of applications that are registered to use your Azure Active Directory (Azure AD) tenant for identity management.
 services: active-directory
 author: davidmu1
@@ -14,7 +14,7 @@ ms.reviewer: arvinh
 ms.custom: it-pro
 ---
 
-# Quickstart: View the list of applications that are using your Azure Active Directory (Azure AD) tenant for identity management
+# Quickstart: View the list of applications in your tenant
 
 Get started using Azure AD as your Identity and Access Management (IAM) system for the applications your organization uses. In this quickstart you will view the applications, also known as apps, that are already set up to use your Azure AD tenant as their Identity Provider (IdP).
 
