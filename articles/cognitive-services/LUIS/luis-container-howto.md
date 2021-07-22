@@ -42,6 +42,12 @@ To run the LUIS container, note the following prerequisites:
 
 You will also need:
 
+### App ID `{APP_ID}`
+
+This ID is used to select the app. You can find the app ID in the LUIS portal by clicking **Manage** at the top of the screen for your app, and then **Settings**.
+
+:::image type="content" source="./media/luis-container-how-to/app-identification.png" alt-text="The screen for finding your app ID." lightbox="./media/luis-container-how-to/app-identification.png":::
+
 ### Authoring key `{AUTHORING_KEY}`
 
 This key is used to get the packaged app from the LUIS service in the cloud and upload the query logs back to the cloud. You will need your authoring key if you [export your app using the REST API](#export-published-apps-package-from-api), described later in the article. 
@@ -49,12 +55,6 @@ This key is used to get the packaged app from the LUIS service in the cloud and 
 You can get your authoring key from the User Settings page on the LUIS portal.
 
 :::image type="content" source="./media/luis-container-how-to/authoring-resource.png" alt-text="The screen for finding your auhtoring resource key." lightbox="./media/luis-container-how-to/authoring-resource.png":::
-
-### App ID `{APP_ID}`
-
-This ID is used to select the app. You can find the app ID in the LUIS portal by clicking **Manage** at the top of the screen for your app, and then **Settings**.
-
-:::image type="content" source="./media/luis-container-how-to/app-identification.png" alt-text="The screen for finding your app ID." lightbox="./media/luis-container-how-to/app-identification.png":::
 
 
 ### Authoring APIs for package file
