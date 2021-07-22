@@ -29,7 +29,7 @@ You can use the script to deploy the Azure Migrate appliance on an existing phys
 - The server that will act as the appliance must be running Windows Server 2016 and meet other requirements for [VMware](migrate-appliance.md#appliance---vmware), [Hyper-V](migrate-appliance.md#appliance---hyper-v), and [physical servers](migrate-appliance.md#appliance---physical).
 - If you run the script on a server with Azure Migrate appliance already set up, you can choose to clean up the existing configuration and set up a fresh appliance of the desired configuration. When you execute the script, you will get a notification as shown below:
   
-    :::image type="content" source="./media/deploy-appliance-script/script-reconfigure-appliance.png" alt-text="Screenshot that shows how to reconfigure an appliance":::
+    :::image type="content" source="./media/deploy-appliance-script/script-reconfigure-appliance.png" alt-text="Screenshot that shows how to reconfigure an appliance.":::
 
 ## Set up the appliance for VMware
 
@@ -75,7 +75,7 @@ Check that the zipped file is secure, before you deploy it.
 
 5. Select from the scenario, cloud and connectivity options to deploy an appliance with the desired configuration. For instance, the selection shown below sets up an appliance to discover, assess and migrate **servers running in your VMware environment** to an Azure Migrate project with **default _(public endpoint)_ connectivity** on **Azure Government cloud**.
 
-    :::image type="content" source="./media/deploy-appliance-script-government/script-vmware-gov.png" alt-text="Screenshot that shows how to set up appliance with desired configuration for Vmware":::
+    :::image type="content" source="./media/deploy-appliance-script-government/script-vmware-gov-inline.png" alt-text="Screenshot that shows how to set up appliance with desired configuration for Vmware." lightbox="./media/deploy-appliance-script-government/script-vmware-gov-expanded.png":::
 
 6. The installer script does the following:
 
@@ -140,7 +140,7 @@ Check that the zipped file is secure, before you deploy it.
 
 5. Select from the scenario, cloud and connectivity options to deploy an appliance with the desired configuration. For instance, the selection shown below sets up an appliance to discover and assess **servers running in your Hyper-V environment** to an Azure Migrate project with **default _(public endpoint)_ connectivity** on **Azure Government cloud**.
 
-    :::image type="content" source="./media/deploy-appliance-script-government/script-hyperv-gov.png" alt-text="Screenshot that shows how to set up appliance with desired configuration for Hyper-V":::
+    :::image type="content" source="./media/deploy-appliance-script-government/script-hyperv-gov-inline.png" alt-text="Screenshot that shows how to set up appliance with desired configuration for Hyper-V." lightbox="./media/deploy-appliance-script-government/script-hyperv-gov-expanded.png":::
 
 6. The installer script does the following:
 
@@ -204,7 +204,7 @@ Check that the zipped file is secure, before you deploy it.
 
 5. Select from the scenario, cloud and connectivity options to deploy an appliance with the desired configuration. For instance, the selection shown below sets up an appliance to discover and assess **physical servers** _(or servers running on other clouds like AWS, GCP, Xen etc.)_ to an Azure Migrate project with **default _(public endpoint)_ connectivity** on **Azure Government cloud**.
 
-    :::image type="content" source="./media/deploy-appliance-script-government/script-physical-gov.png" alt-text="Screenshot that shows how to set up appliance with desired configuration for Physical servers":::
+    :::image type="content" source="./media/deploy-appliance-script-government/script-physical-gov-inline.png" alt-text="Screenshot that shows how to set up appliance with desired configuration for Physical servers." lightbox="./media/deploy-appliance-script-government/script-physical-gov-expanded.png":::
 
 6. The installer script does the following:
 

@@ -30,7 +30,7 @@ Learn more about [assessments](concepts-assessment-calculation.md).
 
 VMware | Details
 --- | ---
-**vCenter Server** | Servers that you want to discover and assess must be managed by vCenter Server version 7.0, 6.7, 6.5, 6.0, or 5.5.<br /><br /> Discovering servers by providing ESXi host details in the appliance currently isn't supported. <br /><br /> IPv6 addresses are not supported for vCenter Server (for discovery and assesment of servers) and ESXi hosts (for replication of servers).
+**vCenter Server** | Servers that you want to discover and assess must be managed by vCenter Server version 7.0, 6.7, 6.5, 6.0, or 5.5.<br /><br /> Discovering servers by providing ESXi host details in the appliance currently isn't supported. <br /><br /> IPv6 addresses are not supported for vCenter Server (for discovery and assessment of servers) and ESXi hosts (for replication of servers).
 **Permissions** | The Azure Migrate: Discovery and assessment tool requires a vCenter Server read-only account.<br /><br /> If you want to use the tool for software inventory and agentless dependency analysis, the account must have privileges for guest operations on VMware VMs.
 
 ## Server requirements

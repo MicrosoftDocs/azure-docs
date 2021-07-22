@@ -80,7 +80,7 @@ In **Download Azure Migrate appliance**, click  **Download**. You need to downlo
 
 5. Select from the scenario, cloud, configuration and connectivity options to deploy the desired appliance. For instance, the selection shown below sets up a **scale-out appliance** to initiate concurrent replications on servers running in your VMware environment to an Azure Migrate project with **default _(public endpoint)_ connectivity** on **Azure public cloud**.
 
-    :::image type="content" source="./media/how-to-scale-out-for-migration/script-vmware-scaleout.png" alt-text="Screenshot that shows how to set up scale-out appliance":::
+    :::image type="content" source="./media/how-to-scale-out-for-migration/script-vmware-scaleout-inline.png" alt-text="Screenshot that shows how to set up scale-out appliance." lightbox="./media/how-to-scale-out-for-migration/script-vmware-scaleout-expanded.png":::
 
 6. The installer script does the following:
 
@@ -121,6 +121,7 @@ Before you begin ensure that the [these Azure endpoints](migrate-appliance.md#pu
 
 1. Paste the **Azure Migrate project key** copied from the portal. If you do not have the key, go to **Server Assessment> Discover> Manage existing appliances**, select the primary appliance name, find the scale-out appliance associated with it and copy the corresponding key.
 1. You will need a device code to authenticate with Azure. Clicking on **Login** will open a modal with the device code as shown below.
+
 :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Modal showing the device code":::
 
 1. Click on **Copy code & Login** to copy the device code and open an Azure Login prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.

@@ -41,7 +41,7 @@ You are getting an error in the connectivity check on the appliance.
 **Remediation**
 
 1. Ensure that you can connect to the required [URLs](/azure/migrate/migrate-appliance#url-access) from the appliance
-1. Check if there is a proxy or firewall blocking access to these URLs. If you are required to create an allow list, make sure that you include all of the URLs.
+1. Check if there is a proxy or firewall blocking access to these URLs. If you are required to create an allowlist, make sure that you include all of the URLs.
 1. If there is a proxy server configured on-premises, make sure that you provide the proxy details correctly by selecting **Setup proxy** in the same step. Make sure that you provide the authorization credentials if the proxy needs them.
 1. Ensure that the server has not been previously used to set up the [replication appliance](/azure/migrate/migrate-replication-appliance) or that you have the mobility service agent installed on the server.
 
@@ -60,8 +60,8 @@ You are getting an error in the connectivity check on the appliance for aka.ms U
 
  If you have enabled the appliance for **private endpoint connectivity**, and don't want to allow access to this URL over internet, you can [disable auto-update](/azure/migrate/migrate-appliance#turn-off-auto-update), as the aka.ms link is required for this service.
 
->Note
->If you disable auto-update service, the services running on the appliance will not get the latest updates automatically. To get around this, [update the appliance services manually](/azure/migrate/migrate-appliance#manually-update-an-older-version).
+ >[!Note]
+ >If you disable auto-update service, the services running on the appliance will not get the latest updates automatically. To get around this, [update the appliance services manually](/azure/migrate/migrate-appliance#manually-update-an-older-version).
 
 ## Auto Update check failing during 'Set up prerequisites'
 
@@ -71,7 +71,7 @@ You are getting an error in the auto update check on the appliance.
 
 **Remediation**
 
-1. Make sure that you created an allow list for the [required URLs](/azure/migrate/migrate-appliance#url-access) and that no proxy or firewall setting is blocking them.
+1. Make sure that you created an allowlist for the [required URLs](/azure/migrate/migrate-appliance#url-access) and that no proxy or firewall setting is blocking them.
 1. If the update of any appliance component is failing, either rerun the prerequisites or [manually update the appliance services](/azure/migrate/migrate-appliance#manually-update-an-older-version).
 
 ## Time sync check failing during 'Set up prerequisites'
@@ -138,7 +138,7 @@ This usually happens when the Azure user account that was used to register the a
 **Remediation**
 
 1. Ensure that the currently logged in user account on the appliance has the required permissions on the Key Vault (mentioned in the error message). The user account needs permissions as mentioned [here](/azure/migrate/tutorial-discover-vmware#prepare-an-azure-user-account).
-2. Go to the Key Vault and ensure that your user account has an access policy with all the _Key, Secret and Certificate_ permissions assigned under Key vault Access Policy. Learn more [https://docs.microsoft.com/en-us/azure/key-vault/general/assign-access-policy-portal]
+2. Go to the Key Vault and ensure that your user account has an access policy with all the _Key, Secret and Certificate_ permissions assigned under Key vault Access Policy. Learn more [/azure/key-vault/general/assign-access-policy-portal]
 3. If you have enabled the appliance for **private endpoint connectivity**, ensure that the appliance is either hosted in the same VNet where the Key Vault has been created or it is connected to the Azure VNet (where Key Vault has been created) over a private link. Make sure that the Key Vault private link is resolvable from the appliance. Go to Azure Migrate: Discovery and assessment> Properties to find the details of private endpoints for resources like the Key Vault created during the Azure Migrate key creation. [Learn more](https://go.microsoft.com/fwlink/?linkid=2162447)
 4. If you have the required permissions and connectivity, re-try the registration on the appliance after some time.
 

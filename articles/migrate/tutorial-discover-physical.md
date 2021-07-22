@@ -95,7 +95,7 @@ Set up an account that the appliance can use to access the physical servers.
     1. Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
     1. Create a registry key ‘isSudo’ with DWORD value of 1.
 
-    :::image type="content" source="./media/tutorial-discover-physical/issudo-reg-key.png" alt-text="Screenshot that shows how to enable sudo support":::
+    :::image type="content" source="./media/tutorial-discover-physical/issudo-reg-key.png" alt-text="Screenshot that shows how to enable sudo support.":::
 
 - To discover the configuration and performance metadata from target server, you need to enable sudo access for the commands listed [here](migrate-appliance.md#linux-server-metadata). Make sure that you have enabled 'NOPASSWD' for the account to run the required commands without prompting for a password every time sudo command is invoked.
 - The following Linux OS distributions are supported for discovery by Azure Migrate using an account with sudo access:
@@ -160,7 +160,7 @@ To set up the appliance you:
 1. After the successful creation of the Azure resources, a **project key** is generated.
 1. Copy the key as you will need it to complete the registration of the appliance during its configuration.
 
-   ![Selections for Generate Key](./media/tutorial-assess-physical/generate-key-physical.png)
+  [ ![Selections for Generate Key.](./media/tutorial-assess-physical/generate-key-physical-inline.png)](./media/tutorial-assess-physical/generate-key-physical-expanded.png#lightbox)
 
 ### 2. Download the installer script
 
@@ -196,15 +196,15 @@ Check that the zipped file is secure, before you deploy it.
 
 5. Select from the scenario, cloud and connectivity options to deploy an appliance with the desired configuration. For instance, the selection shown below sets up an appliance to discover and assess **physical servers** _(or servers running on other clouds like AWS, GCP, Xen etc.)_ to an Azure Migrate project with **default _(public endpoint)_ connectivity** on **Azure public cloud**.
 
-    :::image type="content" source="./media/tutorial-discover-physical/script-physical-default.png" alt-text="Screenshot that shows how to set up appliance with desired configuration":::
+    :::image type="content" source="./media/tutorial-discover-physical/script-physical-default-inline.png" alt-text="Screenshot that shows how to set up appliance with desired configuration" lightbox="./media/tutorial-discover-physical/script-physical-default-expanded.png":::
 
 6. The installer script does the following:
 
-- Installs agents and a web application.
-- Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
-- Download and installs an IIS rewritable module.
-- Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
-- Creates the following files under the path:
+ - Installs agents and a web application.
+ - Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
+ - Download and installs an IIS rewritable module.
+ - Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
+ - Creates the following files under the path:
     - **Config Files**: %Programdata%\Microsoft Azure\Config
     - **Log Files**: %Programdata%\Microsoft Azure\Logs
 
