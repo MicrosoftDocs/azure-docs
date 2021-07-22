@@ -343,28 +343,28 @@
       href: reserved-vm-instance-size-flexibility.md
   - name: Capacity reservation (preview)
     items:
-    - name: Overview
+    - name: Overview (preview)
       displayName: on-demand capacity reservation 
       href: capacity-reservation-overview.md
-    - name: Create a capacity reservation
+    - name: Create a capacity reservation (preview)
       displayName: on-demand capacity reservation
       href: capacity-reservation-create.md
-    - name: Overallocating capacity reservation
+    - name: Overallocating capacity reservation (preview)
       displayName: on-demand capacity reservation
       href: capacity-reservation-overallocate.md
-    - name: Modify a capacity reservation 
+    - name: Modify a capacity reservation (preview)
       displayName: on-demand capacity reservation
       href: capacity-reservation-modify.md
-    - name: Associate a VM
+    - name: Associate a VM (preview)
       displayName: on-demand capacity reservation
       href: capacity-reservation-associate-vm.md
-    - name: Remove a VM
+    - name: Remove a VM (preview)
       displayName: on-demand capacity reservation
       href: capacity-reservation-remove-vm.md
-    - name: Associate a VM scale set 
+    - name: Associate a VM scale set (preview)
       displayName: on-demand capacity reservation
       href: capacity-reservation-associate-vm-scale-set.md
-    - name: Remove a VM scale set
+    - name: Remove a VM scale set (preview)
       displayName: on-demand capacity reservation
       href: capacity-reservation-remove-vm-scale-set.md
   - name: Create Virtual Machines

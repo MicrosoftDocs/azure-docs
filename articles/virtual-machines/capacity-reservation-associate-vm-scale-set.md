@@ -161,7 +161,7 @@ GET Instance View https://management.azure.com/subscriptions/{subscriptionId}/re
 } 
 ```  
 
-## Important notes
+## Important notes on Upgrade Policies 
 
 - **Automatic Upgrade** – In this mode, VMs are automatically associated with the Capacity Reservation Group without any further action from you. When the VMs are reallocated, they start consuming the reserved capacity. 
 - **Rolling Upgrade** – In this mode, VMs are associated with the Capacity Reservation Group without any further action from you. They are updated in batches with an optional pause time between batches. When the VMs are reallocated, they start consuming the reserved capacity. 
