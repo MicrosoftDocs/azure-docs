@@ -50,7 +50,7 @@ This setting can be found in the following place:
 
 ## Eula setting
 
-[!INCLUDE [Container shared configuration eula settings](../../../../../../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
+[!INCLUDE [Container shared configuration eula settings](../../../../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
 
 ## Fluentd settings
 
@@ -70,7 +70,7 @@ Use bind mounts to read and write data to and from the container. You can specif
 
 The health API containers don't use input or output mounts to store training or service data. 
 
-The exact syntax of the host mount location varies depending on the host operating system. Additionally, the [host computer](how-tos/text-analytics-how-to-install-containers.md#the-host-computer)'s mount location may not be accessible due to a conflict between permissions used by the docker service account and the host mount location permissions. 
+The exact syntax of the host mount location varies depending on the host operating system. Additionally, the [host computer](use-containers.md#the-host-computer)'s mount location may not be accessible due to a conflict between permissions used by the docker service account and the host mount location permissions. 
 
 |Optional| Name | Data type | Description |
 |-------|------|-----------|-------------|
@@ -79,5 +79,5 @@ The exact syntax of the host mount location varies depending on the host operati
 
 ## Next steps
 
-* Review [How to install and run containers](how-tos/text-analytics-how-to-install-containers.md)
-* Use more [Cognitive Services Containers](../cognitive-services-container-support.md)
+* Review [How to install and run containers](use-containers.md)
+* Use more [Cognitive Services Containers](../../../cognitive-services-container-support.md)

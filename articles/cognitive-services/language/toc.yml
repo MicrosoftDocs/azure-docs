@@ -8,16 +8,18 @@ items:
     href: overview.md
 - name: Health
   items:
+  - name: Overview
+    href: health/overview.md
   - name: How-to guides
     items:
     - name: How to call the API
-      href: how-to/call-api.md
+      href: health/how-to/call-api.md
     - name: Deploy
       items:
       - name: Use Docker containers
-        href: use-containers.md
+        href: health/how-to/use-containers.md
       - name: Configure Docker containers
-        href: configure-containers.md
+        href: health/how-to/configure-containers.md
   - name: Concepts
     items:
     - name: Recognized entity categories 

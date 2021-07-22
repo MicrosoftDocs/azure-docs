@@ -1,7 +1,7 @@
 ---
-title: How to use Text Analytics for health
+title: How to call the health API
 titleSuffix: Azure Cognitive Services
-description: Learn how to extract and label medical information from unstructured clinical text with Text Analytics for health. 
+description: Learn how to extract and label medical information from unstructured clinical text with the health API. 
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,7 +12,7 @@ ms.date: 06/18/2021
 ms.author: aahi
 ---
 
-# How to: Use Text Analytics for health
+# How to call the health API
 
 > [!IMPORTANT] 
 > Text Analytics for health is a capability provided “AS IS” and “WITH ALL FAULTS.” Text Analytics for health is not intended or made available for use as a medical device, clinical support, diagnostic tool, or other technology intended to be used in the diagnosis, cure, mitigation, treatment, or prevention of disease or other conditions, and no license or right is granted by Microsoft to use this capability for such purposes. This capability is not designed or intended to be implemented or deployed as a substitute for professional medical advice or healthcare opinion, diagnosis, treatment, or the clinical judgment of a healthcare professional, and should not be used as such. The customer is solely responsible for any use of Text Analytics for health. The customer must separately license any and all source vocabularies it intends to use under the terms set for that [UMLS Metathesaurus License Agreement Appendix](https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/release/license_agreement_appendix.html) or any future equivalent link. The customer is responsible for ensuring compliance with those license terms, including any geographic or other applicable restrictions.
@@ -34,14 +34,14 @@ Text Analytics for health performs Named Entity Recognition (NER), relation extr
 Named Entity Recognition detects words and phrases mentioned in unstructured text that can be associated with one or more semantic types, such as diagnosis, medication name, symptom/sign, or age.
 
 > [!div class="mx-imgBorder"]
-> ![Health NER](../media/ta-for-health/health-named-entity-recognition.png)
+> ![Health NER](../media/call-api/health-named-entity-recognition.png)
 
 ### [Relation Extraction](#tab/relation-extraction)
 
 Relation extraction identifies meaningful connections between concepts mentioned in text. For example, a "time of condition" relation is found by associating a condition name with a time or between an abbreviation and the full description.  
 
 > [!div class="mx-imgBorder"]
-> ![Health RE](../media/ta-for-health/health-relation-extraction.png)
+> ![Health RE](../media/call-api/health-relation-extraction.png)
 
 
 ### [Entity Linking](#tab/entity-linking)
@@ -49,7 +49,7 @@ Relation extraction identifies meaningful connections between concepts mentioned
 Entity Linking disambiguates distinct entities by associating named entities mentioned in text to concepts found in a predefined database of concepts including the Unified Medical Language System (UMLS). Medical concepts are also assigned preferred naming, as an additional form of normalization.
 
 > [!div class="mx-imgBorder"]
-> ![Health EL](../media/ta-for-health/health-entity-linking.png)
+> ![Health EL](../media/call-api/health-entity-linking.png)
 
 Text Analytics for health supports linking to the health and biomedical vocabularies found in the Unified Medical Language System ([UMLS](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html)) Metathesaurus Knowledge Source.
 
@@ -62,7 +62,7 @@ The meaning of medical content is highly affected by modifiers, such as negative
 * association
 
 > [!div class="mx-imgBorder"]
-> ![Health NEG](../media/ta-for-health/assertions.png)
+> ![Health NEG](../media/call-api/assertions.png)
 
 ---
 
@@ -74,7 +74,7 @@ Text Analytics for health only supports English language documents.
 
 ## Using the Docker container 
 
-To run the Text Analytics for health container in your own environment, follow these [instructions to download and install the container](../how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare).
+To run the Text Analytics for health container in your own environment, follow these [instructions to download and install the container](use-containers.md).
 
 ## Using the client library
 
@@ -95,7 +95,7 @@ Document size must be under 5,120 characters per document. For the maximum numbe
 
 ### Structure the API request for the hosted asynchronous web API
 
-For both the container and hosted web API, you must create a POST request. You can [use Postman](text-analytics-how-to-call-api.md), a cURL command or the **API testing console** in the [Text Analytics for health hosted API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Health) to quickly construct and send a POST request to the hosted web API in your desired region. In the API v3.1 endpoint, the `loggingOptOut` boolean query parameter can be used to enable logging for troubleshooting purposes.  It's default is TRUE if not specified in the request query.
+For both the container and hosted web API, you must create a POST request. You can use Postman, a cURL command or the **API testing console** in the [Text Analytics for health hosted API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Health) to quickly construct and send a POST request to the hosted web API in your desired region. In the API v3.1 endpoint, the `loggingOptOut` boolean query parameter can be used to enable logging for troubleshooting purposes.  It's default is TRUE if not specified in the request query.
 
 Send the POST request to `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/health/jobs`
 Below is an example of a JSON file attached to the Text Analytics for health API request's POST body:
@@ -276,7 +276,7 @@ The following is an example of the response of a GET request.  The output is ava
 
 ### Structure the API request for the container
 
-You can [use Postman](text-analytics-how-to-call-api.md) or the example cURL request below to submit a query to the container you deployed, replacing the `serverURL` variable with the appropriate value.  Note the version of the API in the URL for the container is different than the hosted API.
+You can use Postman or the example cURL request below to submit a query to the container you deployed, replacing the `serverURL` variable with the appropriate value.  Note the version of the API in the URL for the container is different than the hosted API.
 
 ```bash
 curl -X POST 'http://<serverURL>:5000/text/analytics/v3.1/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
@@ -608,5 +608,4 @@ Relation extraction output contains URI references and assigned roles of the ent
 ## See also
 
 * [Text Analytics overview](../overview.md)
-* [Named Entity categories](../named-entity-types.md)
-* [What's new](../whats-new.md)
+* [health entity categories](../concepts/health-entity-categories.md)
