@@ -11,7 +11,7 @@ ms.author: jasteppe
 ---
 # Azure IoT Connector for FHIR (preview) troubleshooting guide
 
-This article provides steps for troubleshooting common Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;) error messages and conditions. You'll also learn how to create copies of the Azure IoT Connector for FHIR (preview) conversion-mapping JSON templates such as Device and FHIR. Also, you can use the conversion-mapping JSON templates for editing and archiving outside of the Azure portal.  
+This article provides steps for troubleshooting common Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;) error messages and conditions. You'll also learn how to create copies of the Azure IoT Connector for FHIR (preview) Conversion Mapping JSON templates such as Device and FHIR. Also, you can use the Conversion Mapping JSON templates for editing and archiving outside of the Azure portal.  
 
 > [!NOTE]
 > In the remainder of this article, Azure IoT Connector for FHIR (preview) will be referred as IoT Connector.
@@ -19,9 +19,9 @@ This article provides steps for troubleshooting common Azure IoT Connector for F
 > [!TIP]
 > If must open a [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the IoT Connector, ensure to include copies of your conversion mapping JSON to assist with the troubleshooting process.
 
-## Device and FHIR conversion-mapping JSON template validations
+## Device and FHIR Conversion Mapping JSON template validations
 
-This section describes the validation process that the IoT Connector performs. The validation process validates the Device and FHIR conversion-mapping JSON templates before allowing them to be saved for use. These elements are required in the Device and FHIR conversion-mapping JSON.
+This section describes the validation process that the IoT Connector performs. The validation process validates the Device and FHIR Conversion Mapping JSON templates before allowing them to be saved for use. These elements are required in the Device and FHIR Conversion Mapping JSON.
 
 **Device Mapping**
 
@@ -78,7 +78,7 @@ This section describes the validation process that the IoT Connector performs. T
 |Data is still being processed.|Data is egressed to the FHIR service in batches (every ~15 minutes).  It’s possible the data is still being processed and extra time is needed for the data to be persisted in the FHIR service.|
 |Device conversion-mapping JSON hasn't been configured.|Configure and save conforming device conversion-mapping JSON.|
 |FHIR conversion-mapping JSON hasn't been configured.|Configure and save conforming FHIR conversion-mapping JSON.|
-|The device message doesn't contain an expected expression defined in the device mapping.|Verify `JsonPath` expressions defined in the device-mapping match tokens defined in the device message.|
+|The device message doesn't contain an expected expression defined in the device mapping.|Verify `JsonPath` expressions defined in the device mapping match tokens defined in the device message.|
 |A Device Resource hasn't been created in the FHIR service (Resolution Type: Lookup only)*.|Create a valid Device Resource in the FHIR service. Ensure the Device Resource contains an identifier that matches the device identifier provided in the incoming message.|
 |A Patient Resource hasn't been created in the FHIR service (Resolution Type: Lookup only)*.|Create a valid Patient Resource in the FHIR service.|
 |The `Device.patient` reference isn't set, or the reference is invalid (Resolution Type: Lookup only)*.|Make sure the Device Resource contains a valid [Reference](https://www.hl7.org/fhir/device-definitions.html#Device.patient) to a Patient Resource.| 
