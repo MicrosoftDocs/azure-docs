@@ -31,7 +31,7 @@ A portion of the hierarchy looks like the diagram below.
 
 :::image type="content" source="media/concepts-ontologies-extend/real-estate-core-original.png" alt-text="Diagram illustrating part of the RealEstateCore space hierarchy. It shows elements for Space, Room, ConferenceRoom, and Office."::: 
 
-For more information about the RealEstateCore ontology, see [Concepts: Adopting industry-standard ontologies](concepts-ontologies-adopt.md#realestatecore-smart-building-ontology).
+For more information about the RealEstateCore ontology, see [Adopting industry-standard ontologies](concepts-ontologies-adopt.md#realestatecore-smart-building-ontology).
 
 ## Extending the RealEstateCore space hierarchy 
 
