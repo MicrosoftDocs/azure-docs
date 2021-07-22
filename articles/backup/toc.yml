@@ -336,6 +336,8 @@
       items:
       - name: Back up Hyper-V virtual machines
         href: back-up-hyper-v-virtual-machines-mabs.md
+      - name: Back up Azure Stack HCI virtual machines
+        href: back-up-azure-stack-hyperconverged-infrastructure-virtual-machines.md  
       - name: VMware server
         href: backup-azure-backup-server-vmware.md
       - name: Exchange
