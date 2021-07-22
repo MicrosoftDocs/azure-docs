@@ -1,12 +1,13 @@
 ---
 title: Dav4 and Dasv4-series
 description: Specifications for the Dav4 and Dasv4-series VMs.
-author: migerdes
+author: brbell
+ms.author: vmsizespm
 ms.service: virtual-machines
 ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.author: jushiman
+ms.reviewer: jushiman
 ---
 
 # Dav4 and Dasv4-series
