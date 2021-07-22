@@ -1235,16 +1235,15 @@
           href: virtual-machines/windows/azure-key-vault-integration-configure.md
         - name: Migrate storage to UltraSSD
           href: virtual-machines/windows/storage-migrate-to-ultradisk.md
-        - name: Install SQL IaaS Agent extension
+        - name: SQL IaaS Agent extension
           displayName: resource provider, registration, sql vm rp
           items:
           - name: Automatic registration
             href: virtual-machines/windows/sql-agent-extension-automatic-registration-all-vms.md
-          - name: Single VM
+          - name: Register single VM
             href: virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md
           - name: Bulk register multiple VMs
             href: virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk.md
-
       - name: Migrate
         items:
         - name: SQL Server database to VM
