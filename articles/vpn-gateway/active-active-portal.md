@@ -7,7 +7,7 @@ author: JackStromberg
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/21/2021
+ms.date: 07/22/2021
 ms.author: jstrom
 
 ---
@@ -19,7 +19,7 @@ This article helps you create highly available active-active VPN gateways using 
 To achieve high availability for cross-premises and VNet-to-VNet connectivity, you should deploy multiple VPN gateways and establish multiple parallel connections between your networks and Azure. See [Highly Available cross-premises and VNet-to-VNet connectivity](vpn-gateway-highlyavailable.md) for an overview of connectivity options and topology.
 
 > [!IMPORTANT]
-> The active-active mode is available for all SKUs except Basic or Standard.
+> The active-active mode is available for all SKUs except Basic or Standard. For more information, see [Configuration settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 >
 
 The steps in this article help you configure a VPN gateway in active-active mode. There are a few differences between active-active and active-standby modes. The other properties are the same as the non-active-active gateways. 
@@ -32,7 +32,7 @@ If you already have a VPN gateway, you can [Update an existing VPN gateway](#upd
 
 ## <a name="vnet"></a>Create a VNet
 
-Create a VNet using the following values:
+If you don't already have a VNet that you want to use, create a VNet using the following values:
 
 * **Resource group:** TestRG1
 * **Name:** VNet1
@@ -53,8 +53,8 @@ Create a virtual network gateway using the following values:
 * **Region:** East US
 * **Gateway type:** VPN
 * **VPN type:** Route-based
-* **SKU:** VpnGw1
-* **Generation:** Generation1
+* **SKU:** VpnGw2
+* **Generation:** Generation2
 * **Virtual network:** VNet1
 * **Gateway subnet address range:** 10.1.255.0/27
 * **Public IP address:** Create new
@@ -100,7 +100,7 @@ Use the following steps to convert active-active mode gateway to active-standby 
 
 1. On the left menu, select **Configuration**.
 
-1. On the **Configuration** page, change the Active-active mode to **Enabled**.
+1. On the **Configuration** page, change the Active-active mode to **Disabled**.
 
 1. At the top of the **Configuration** page, click **Save**.
 
