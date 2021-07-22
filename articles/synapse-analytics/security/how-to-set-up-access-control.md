@@ -8,7 +8,7 @@ author: RonyMSFT
 ms.service: synapse-analytics 
 ms.topic: how-to 
 ms.subservice: security 
-ms.date: 7/20/2021
+ms.date: 7/22/2021
 ms.author: ronytho
 ms.reviewer: jrasnick, wiassaf
 ms.custom: subject-rbac-steps

@@ -4,7 +4,7 @@ description: An article that teaches you to configure connectivity settings in A
 ms.service: synapse-analytics 
 ms.topic: overview
 ms.subservice: security 
-ms.date: 07/21/2021 
+ms.date: 07/22/2021 
 author: ashinMSFT 
 ms.author: seshin 
 ms.reviewer: jrasnick, wiassaf
@@ -16,7 +16,7 @@ This article will explain connectivity settings in Azure Synapse Analytics and h
 
 ## Public network access 
 
-You can use Public network access to allow the incoming public network connectivity to you Azure Synapse workspace. 
+You can use the public network access feature to allow incoming public network connectivity to you Azure Synapse workspace. 
 
 - When public network access is **disabled**, you can connect to your workspace only using [private endpoints](synapse-workspace-managed-private-endpoints.md). 
 - When public network access is **enabled**, you can connect to your workspace also from public networks. You can manage this feature both during and after your workspace creation. 
