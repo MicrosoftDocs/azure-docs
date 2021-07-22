@@ -1,5 +1,6 @@
 ---
 title: 'Common Key Vault errors in Application Gateway'
+titleSuffix: Azure Application Gateway
 description: This article helps identifying Key Vault-related issues and resolve them for smooth operations of Application Gateway.
 services: application-gateway
 author: jaesoni
