@@ -76,8 +76,6 @@ items:
       href: azure-ad-hcapi-token-validation.md
     - name: Get access token using CLI
       href: get-healthcare-apis-access-token-cli.md
-    - name: Find identity object IDs
-      href: find-identity-object-ids.md
 
 - name: Concepts
   items:

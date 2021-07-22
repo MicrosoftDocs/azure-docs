@@ -23,6 +23,11 @@ items:
   items:
     - name: Deploy Healthcare APIs
       href: healthcare-apis-quickstart.md
+- name: How-to guides
+  expanded: true
+  items:
+    - name: Authentication and Authorization
+      href: authentication-authorization.md
 - name: Resources
   expanded: true
   items:

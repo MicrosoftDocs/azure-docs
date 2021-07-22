@@ -30,6 +30,10 @@ landingContent:
         links:
           - text: Getting started with Healthcare APIs
             url: healthcare-apis-quickstart.md
+      - linkListType: how-to-guide
+        links:
+          - text: Authentication and Authorization
+            url: authentication-aad.md
   
   - title: FAQs
     linkLists:
@@ -43,20 +47,24 @@ landingContent:
             url: ./fhir/fhir-faq.md
           - text: DICOM FAQs
             url: ./dicom/dicom-services-faqs.yml
+          - text: IoT FAQs
+            url: ./iot/iot-faq.md
   
-  - title: Transfer & Transform Data
+  - title: Transfer and Transform Data
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Export data
             url: ./data-transformation/export-data.md
+          - text: Export de-identified data
+            url: ./data-transformation/de-identified-export.md
           - text: Export data to Synapse
             url: ./data-transformation/move-to-synapse.md
       - linkListType: concept
         links:
           - text: Convert data
             url: ./data-transformation/convert-data.md
-
+  
   - title: FHIR service
     linkLists:
       - linkListType: get-started
@@ -71,6 +79,8 @@ landingContent:
         links:
           - text: Interoperability and Patient Access
             url: ./fhir/cms-tutorial-introduction.md
+          - text: FHIR search operation
+            url: ./fhir/overview-of-search.md
 
   - title: DICOM service
     linkLists:
