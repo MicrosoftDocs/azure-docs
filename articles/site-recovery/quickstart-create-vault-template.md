@@ -37,7 +37,7 @@ The template used in this quickstart is from
 Two Azure resources are defined in the template:
 
 - [Microsoft.RecoveryServices vaults](/azure/templates/microsoft.recoveryservices/vaults): creates the vault.
-- [Microsoft.RecoveryServices/vaults/backupstorageconfig](/rest/api/backup/2018-12-20/backup-resource-storage-configs): configures the vault's backup redundancy settings.
+- [Microsoft.RecoveryServices/vaults/backupstorageconfig](/rest/api/backup/backup-resource-storage-configs): configures the vault's backup redundancy settings.
 
 The template includes optional parameters for the vault's backup configuration. The storage
 redundancy settings are locally-redundant storage (LRS) or geo-redundant storage (GRS). For more
