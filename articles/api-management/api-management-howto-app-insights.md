@@ -83,10 +83,6 @@ Before you can use Application Insights, you first need to create an instance of
 > + if they are different loggers, then both of them will be used (multiplexing logs),
 > + if they are the same loggers but have different settings, then the one for single API (more granular level) will override the one for all APIs.
 
-### Availability monitoring
-
-
-
 ## What data is added to Application Insights
 
 Application Insights receives:
