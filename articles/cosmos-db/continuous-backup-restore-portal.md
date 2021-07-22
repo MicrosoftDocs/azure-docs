@@ -4,7 +4,7 @@ description: Learn how to identify the restore point and configure continuous ba
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 07/22/2021
 ms.author: govindk
 ms.reviewer: sngun
 
@@ -98,4 +98,5 @@ After initiating a restore operation, select the **Notification** bell icon at t
 
 * Configure and manage continuous backup using [Azure CLI](continuous-backup-restore-command-line.md), [PowerShell](continuous-backup-restore-powershell.md), or [Azure Resource Manager](continuous-backup-restore-template.md).
 * [Resource model of continuous backup mode](continuous-backup-restore-resource-model.md)
+* [Migrate an existing account to continuous backup mode](migrate-continuous-backup.md).
 * [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.

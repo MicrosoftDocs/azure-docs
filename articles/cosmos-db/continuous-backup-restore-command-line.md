@@ -4,7 +4,7 @@ description: Learn how to provision an account with continuous backup and restor
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/01/2021
+ms.date: 07/22/2021
 ms.author: govindk
 ms.reviewer: sngun
 
@@ -21,16 +21,8 @@ This article describes how to provision an account with continuous backup and re
 
 1. Install the latest version of Azure CLI
 
-   * Install the latest version of [Azure CLI](/cli/azure/install-azure-cli) or version higher than 2.17.1.
+   * Install the latest version of [Azure CLI](/cli/azure/install-azure-cli) or version higher than 2.26.0
    * If you have already installed CLI, run `az upgrade` command to update to the latest version. This command will only work with CLI version higher than 2.11. If you have an earlier version, use the above link to install the latest version.
-
-1. Install the `cosmosdb-preview` CLI extension.
-
-   * The point-in-time restore commands are available under `cosmosdb-preview` extension.
-   * You can install this extension by running the following command:
-     `az extension add --name cosmosdb-preview`
-   * You can uninstall this extension by running the following command:
-     `az extension remove --name cosmosdb-preview`
 
 1. Sign in and select your subscription
 
@@ -69,6 +61,10 @@ az cosmosdb create \
 
 ```
 
+## <a id="migrate-sql-api"></a>Migrate a SQL API account to continuous backup
+
+## <a id="migrate-mongo-api"></a>Migrate an Azure Cosmos DB API for MongoDB account to continuous backup
+
 ## <a id="trigger-restore"></a>Trigger a restore operation with CLI
 
 The simplest way to trigger a restore is by issuing the restore command with name of the target account, source account, location, resource group, timestamp (in UTC), and optionally the database and container names. The following are some examples to trigger the restore operation:
@@ -105,7 +101,7 @@ The simplest way to trigger a restore is by issuing the restore command with nam
 
 The enumeration commands described below help you discover the resources that are available for restore at various timestamps. Additionally, they also provide a feed of key events on the restorable account, database, and container resources.
 
-**List all the accounts that can be restored in the current subscription**
+### List all the accounts that can be restored in the current subscription
 
 Run the following CLI command to list all the accounts that can be restored in the current subscription
 
@@ -140,7 +136,7 @@ The response includes all the database accounts (both live and deleted) that can
 
 Just like the `CreationTime` or `DeletionTime` for the account, there is a `CreationTime` or `DeletionTime` for the region too. These times allow you to choose the right region and a valid time range to restore into that region.
 
-**List all the versions of databases in a live database account**
+### List all the versions of databases in a live database account
 
 Listing all the versions of databases allows you to choose the right database in a scenario where the actual time of existence of database is unknown.
 
@@ -189,7 +185,7 @@ This command output now shows when a database was created and deleted.
 ]
 ```
 
-**List all the versions of SQL containers of a database in a live database account**
+### List all the versions of SQL containers of a database in a live database account
 
 Use the following command to list all the versions of SQL containers. This command only works with live accounts. The `databaseRid` parameter is the `ResourceId` of the database you want to restore. It is the value of `ownerResourceid` attribute found in the response of `az cosmosdb sql restorable-database list` command.
 
@@ -223,7 +219,7 @@ This command output shows includes list of operations performed on all the conta
 ]
 ```
 
-**Find databases or containers that can be restored at any given timestamp**
+### Find databases or containers that can be restored at any given timestamp
 
 Use the following command to get the list of databases or containers that can be restored at any given timestamp. This command only works with live accounts.
 
@@ -260,7 +256,7 @@ az cosmosdb sql restorable-resource list \
 
 The enumeration commands described below help you discover the resources that are available for restore at various timestamps. Additionally, they also provide a feed of key events on the restorable account, database, and container resources. Like with SQL API, you can use the `az cosmosdb` command but with `mongodb` as parameter instead of `sql`. These commands only work for live accounts.
 
-**List all the versions of mongodb databases in a live database account**
+### List all the versions of mongodb databases in a live database account
 
 ```azurecli-interactive
 az cosmosdb mongodb restorable-database list \
@@ -268,16 +264,16 @@ az cosmosdb mongodb restorable-database list \
     --location "West US"
 ```
 
-**List all the versions of mongodb collections of a database in a live database account**
+### List all the versions of mongodb collections of a database in a live database account
 
 ```azurecli-interactive
 az cosmosdb mongodb restorable-collection list \
-    --instance-id "<InstanceID>" \
+    --instance-id "7133a59a-d1c0-4645-a699-6e296d6ac865" \
     --database-rid "AoQ13r==" \
     --location "West US"
 ```
 
-**List all the resources of a mongodb database account that are available to restore at a given timestamp and region**
+### List all the resources of a mongodb database account that are available to restore at a given timestamp and region
 
 ```azurecli-interactive
 az cosmosdb mongodb restorable-resource list \

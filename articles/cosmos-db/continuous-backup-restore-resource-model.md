@@ -4,7 +4,7 @@ description: This article explains the resource model for the Azure Cosmos DB po
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/08/2021
+ms.date: 07/22/2021
 ms.author: govindk
 ms.reviewer: sngun
 
@@ -21,10 +21,10 @@ The database account's resource model is updated with a few extra properties to 
 
 ### BackupPolicy
 
-A new property in the account level backup policy named `Type` under `backuppolicy` parameter enables continuous backup and point-in-time restore functionalities. This mode is called **continuous backup**. Currently, you can only set this mode when creating the account. After it's enabled, all the containers and databases created within this account will have continuous backup and point-in-time restore functionalities enabled by default.
+A new property in the account level backup policy named `Type` under `backuppolicy` parameter enables continuous backup and point-in-time restore functionalities. This mode is called **continuous backup**. Currently, you can only set this mode when creating the account or [migrate](migrate-continuous-backup.md) an account with periodic mode to continuous mode. After it's enabled, all the containers and databases created within this account will have continuous backup and point-in-time restore functionalities enabled by default.
 
 > [!NOTE]
-> Currently the point-in-time restore feature is available for Azure Cosmos DB API for MongoDB, and SQL accounts. After you create an account with continuous mode you can't switch it to a periodic mode.
+> Currently the point-in-time restore feature is available for Azure Cosmos DB API for MongoDB and SQL accounts. After you create an account with continuous mode you can't switch it to a periodic mode.
 
 ### CreateMode
 
@@ -110,13 +110,13 @@ This resource contains a database account instance that can be restored. The dat
 |---------|---------|
 | ID | The unique identifier of the resource. |
 | accountName | The global database account name. |
-| creationTime | The time in UTC when the account was created.  |
+| creationTime | The time in UTC when the account was created. For existing accounts migrated from periodic to continuous mode, it's the migration time.  |
 | deletionTime | The time in UTC when the account was deleted.  This value is empty if the account is live. |
 | apiType | The API type of the Azure Cosmos DB account. |
 | restorableLocations |	The list of locations where the account existed. |
 | restorableLocations: locationName | The region name of the regional account. |
-| restorableLocations: regionalDatabaseAccountInstanceI | The GUID of the regional account. |
-| restorableLocations: creationTime	| The time in UTC when the regional account was created.|
+| restorableLocations: regionalDatabaseAccountInstanceId | The GUID of the regional account. |
+| restorableLocations: creationTime	| The time in UTC when the regional account was created. For existing accounts migrated from periodic to continuous mode, it's the migration time.|
 | restorableLocations: deletionTime	| The time in UTC when the regional account was deleted. This value is empty if the regional account is live.|
 
 To get a list of all restorable accounts, see [Restorable Database Accounts - list](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-database-accounts/list) or [Restorable Database Accounts- list by location](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-database-accounts/list-by-location) articles.

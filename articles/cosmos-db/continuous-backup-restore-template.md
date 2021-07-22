@@ -4,7 +4,7 @@ description: Learn how to provision an account with continuous backup and restor
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/01/2021
+ms.date: 07/22/2021
 ms.author: govindk
 ms.reviewer: sngun
 
@@ -52,6 +52,8 @@ Next deploy the template by using Azure PowerShell or CLI. The following example
 ```azurecli-interactive
 az group deployment create -g <ResourceGroup> --template-file <ProvisionTemplateFilePath>
 ```
+
+## <a id="migration"></a>Migrate an account to continuous backup
 
 ## <a id="restore"></a>Restore using the Resource Manager template
 

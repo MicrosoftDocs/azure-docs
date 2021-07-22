@@ -4,7 +4,7 @@ description: Learn how to isolate and restrict the restore permissions for conti
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/01/2021
+ms.date: 07/22/2021
 ms.author: govindk
 ms.reviewer: sngun
 ---
@@ -55,6 +55,9 @@ Following permissions are required to perform the different activities pertainin
 |`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restore/action` |This permission is required on the source restorable database account scope to allow restore actions to be performed on it.  | The *RestorableDatabaseAccount* resource belonging to the source account being restored. This value is also given by the `ID` property of the restorable database account resource. An example of restorable account is */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/locations/regionName/restorableDatabaseAccounts/<guid-instanceid>* | The subscription containing the restorable database account. The resource group cannot be chosen as scope.  |
 |`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read` |This permission is required on the source restorable database account scope to list the database accounts that can be restored.  | The *RestorableDatabaseAccount* resource belonging to the source account being restored. This value is also given by the `ID` property of the restorable database account resource. An example of restorable account is */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/locations/regionName/restorableDatabaseAccounts/<guid-instanceid>*| The subscription containing the restorable database account. The resource group cannot be chosen as scope.  |
 |`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` | This permission is required on the source restorable account scope to allow reading of restorable resources such as list of databases and containers for a restorable account.  | The *RestorableDatabaseAccount* resource belonging to the source account being restored. This value is also given by the `ID` property of the restorable database account resource. An example of restorable account is */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/locations/regionName/restorableDatabaseAccounts/<guid-instanceid>*| The subscription containing the restorable database account. The resource group cannot be chosen as scope. |
+
+> [!NOTE]
+> Assigning permissions to a resource group scope is not allowed
 
 ## Azure CLI role assignment scenarios to restore at different scopes
 

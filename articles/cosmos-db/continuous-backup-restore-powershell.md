@@ -4,7 +4,7 @@ description: Learn how to provision an account with continuous backup and restor
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/01/2021
+ms.date: 07/22/2021
 ms.author: govindk
 ms.reviewer: sngun 
 ms.custom: devx-track-azurepowershell
@@ -20,13 +20,7 @@ This article describes how to provision an account with continuous backup and re
 
 ## <a id="install-powershell"></a>Install Azure PowerShell
 
-1. Run the following command from Azure PowerShell to install the `Az.CosmosDB` preview module, which contains the commands related to point in time restore:
-
-   ```azurepowershell
-   Install-Module -Name Az.CosmosDB -AllowPrerelease
-   ```
-
-1. After installing the modules, log in to Azure using
+1. Sign into Azure using the following command:
 
    ```azurepowershell
    Connect-AzAccount
@@ -70,6 +64,10 @@ New-AzCosmosDBAccount `
   -ServerVersion "3.6"
 
 ```
+
+## <a id="migrate-sql-api"></a>Migrate a SQL API account to continuous backup
+
+## <a id="migrate-mongodb-api"></a>Migrate an API for MongoDB account to continuous backup
 
 ## <a id="trigger-restore"></a>Trigger a restore operation
 
@@ -139,13 +137,13 @@ The response includes all the database accounts (both live and deleted) that can
       {
         "creationTime": "2020-08-08T01:04:52.945185+00:00",
         "deletionTime": null,
-        "locationName": "West US",
+        "location": "West US",
         "regionalDatabaseAccountInstanceId": "30701557-ecf8-43ce-8810-2c8be01dccf9"
       },
       {
         "creationTime": "2020-08-08T01:15:43.507795+00:00",
         "deletionTime": null,
-        "locationName": "East US",
+        "location": "East US",
         "regionalDatabaseAccountInstanceId": "8283b088-b67d-4975-bfbe-0705e3e7a599"
       }
     ],
@@ -160,27 +158,27 @@ Just like the `CreationTime` or `DeletionTime` for the account, there is a `Crea
 
 Listing all the versions of databases allows you to choose the right database in a scenario where the actual time of existence of database is unknown.
 
-Run the following PowerShell command to list all the versions of databases. This command only works with live accounts. The `DatabaseAccountInstanceId` and the `LocationName` parameters are obtained from the `name` and `location` properties in the response of `Get-AzCosmosDBRestorableDatabaseAccount` cmdlet. The `DatabaseAccountInstanceId` attribute refers to `instanceId` property of source database account being restored:
+Run the following PowerShell command to list all the versions of databases. This command only works with live accounts. The `DatabaseAccountInstanceId` and the `Location` parameters are obtained from the `name` and `location` properties in the response of `Get-AzCosmosDBRestorableDatabaseAccount` cmdlet. The `DatabaseAccountInstanceId` attribute refers to `instanceId` property of source database account being restored:
 
 
 ```azurepowershell
 
 Get-AzCosmosdbSqlRestorableDatabase `
-  -LocationName "East US" `
+  -Location "East US" `
   -DatabaseAccountInstanceId <DatabaseAccountInstanceId>
 
 ```
 
 **List all the versions of SQL containers of a database in a live database account.**
 
-Use the following command to list all the versions of SQL containers. This command only works with live accounts. The `DatabaseRid` parameter is the `ResourceId` of the database you want to restore. It is the value of `ownerResourceid` attribute found in the response of `Get-AzCosmosdbSqlRestorableDatabase` cmdlet. The response also includes a list of operations performed on all the containers inside this database.
+Use the following command to list all the versions of SQL containers. This command only works with live accounts. The `DatabaseRId` parameter is the `ResourceId` of the database you want to restore. It is the value of `ownerResourceid` attribute found in the response of `Get-AzCosmosdbSqlRestorableDatabase` cmdlet. The response also includes a list of operations performed on all the containers inside this database.
 
 ```azurepowershell
 
 Get-AzCosmosdbSqlRestorableContainer `
   -DatabaseAccountInstanceId "d056a4f8-044a-436f-80c8-cd3edbc94c68" `
-  -DatabaseRid "AoQ13r==" `
-  -LocationName "West US"
+  -DatabaseRId "AoQ13r==" `
+  -Location "West US"
 
 ```
 
@@ -192,7 +190,7 @@ Use the following command to get the list of databases or containers that can be
 
 Get-AzCosmosdbSqlRestorableResource `
   -DatabaseAccountInstanceId "d056a4f8-044a-436f-80c8-cd3edbc94c68" `
-  -LocationName "West US" `
+  -Location "West US" `
   -RestoreLocation "East US" `
   -RestoreTimestamp "2020-07-20T16:09:53+0000"
 
@@ -208,7 +206,7 @@ The enumeration commands described below help you discover the resources that ar
 
 Get-AzCosmosdbMongoDBRestorableDatabase `
   -DatabaseAccountInstanceId "d056a4f8-044a-436f-80c8-cd3edbc94c68" `
-  -LocationName "West US"
+  -Location "West US"
 
 ```
 
@@ -218,8 +216,8 @@ Get-AzCosmosdbMongoDBRestorableDatabase `
 
 Get-AzCosmosdbMongoDBRestorableCollection `
   -DatabaseAccountInstanceId "d056a4f8-044a-436f-80c8-cd3edbc94c68" `
-  -DatabaseRid "AoQ13r==" `
-  -LocationName "West US"
+  -DatabaseRId "AoQ13r==" `
+  -Location "West US"
 ```
 
 **List all the resources of a mongodb database account that are available to restore at a given timestamp and region**
@@ -228,7 +226,7 @@ Get-AzCosmosdbMongoDBRestorableCollection `
 
 Get-AzCosmosdbMongoDBRestorableResource `
   -DatabaseAccountInstanceId "d056a4f8-044a-436f-80c8-cd3edbc94c68" `
-  -LocationName "West US" `
+  -Location "West US" `
   -RestoreLocation "West US" `
   -RestoreTimestamp "2020-07-20T16:09:53+0000"
 ```
