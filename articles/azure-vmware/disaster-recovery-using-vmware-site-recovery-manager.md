@@ -2,7 +2,7 @@
 title: Deploy disaster recovery with VMware Site Recovery Manager
 description: Deploy disaster recovery with VMware Site Recovery Manager (SRM) in your Azure VMware Solution private cloud.
 ms.topic: how-to
-ms.date: 07/15/2021
+ms.date: 07/22/2021
 ---
 
 # Deploy disaster recovery with VMware Site Recovery Manager
@@ -81,7 +81,11 @@ The workflow diagram shows the Primary Azure VMware Solution to secondary workfl
 1. In your on-premises datacenter, install VMware SRM and vSphere.
 
    >[!NOTE]
+<<<<<<< HEAD
    >Use the [Two-site Topology with one vCenter Server instance per PSC](https://docs.vmware.com/en/Site-Recovery-Manager/8.4/com.vmware.srm.install_config.doc/GUID-F474543A-88C5-4030-BB86-F7CC51DADE22.html) deployment model.  Also, make sure that the [required vSphere Replication Network ports](https://kb.VMware.com/s/article/2087769) are opened.
+=======
+   >Use the [Two-site Topology with one vCenter Server instance per PSC](https://docs.vmware.com/en/Site-Recovery-Manager/8.4/com.vmware.srm.install_config.doc/GUID-F474543A-88C5-4030-BB86-F7CC51DADE22.html) deployment model. Also, make sure that the [required vSphere Replication Network ports](https://kb.VMware.com/s/article/2087769) are opened.
+>>>>>>> 27d19903c639af96c63ab59bfd2c5f1a11423572
 
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Add-ons** > **Disaster recovery**.
 
