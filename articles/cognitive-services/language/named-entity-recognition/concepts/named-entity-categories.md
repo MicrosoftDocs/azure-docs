@@ -13,7 +13,7 @@ ms.date: 06/08/2021
 ms.author: aahi
 ---
 
-# Supported NER entity categories
+# Supported Named Entity Recognition (NER) entity categories
 
 Use this article to find the entity categories that can be returned by [Named Entity Recognition](../how-to-call.md) (NER). NER runs a predictive model to identify and categorize named entities from an input document.
 
