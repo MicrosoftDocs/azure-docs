@@ -19,7 +19,7 @@ ms.date: 06/15/2021
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use Copy Activity in Azure Data Factory or Synapse Analytics pipelines to copy data from and to Azure SQL Database, and use Data Flow to transform data in Azure SQL Database. To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Synapse Analytics](../overview-what-is.md).
+This article outlines how to use Copy Activity in Azure Data Factory or Synapse Analytics pipelines to copy data from and to Azure SQL Database, and use Data Flow to transform data in Azure SQL Database. To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 ## Supported capabilities
 
