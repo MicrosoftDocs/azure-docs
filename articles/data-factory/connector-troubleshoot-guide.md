@@ -1,6 +1,7 @@
 ---
-title: Troubleshoot Azure Data Factory connectors
-description: Learn how to troubleshoot connector issues in Azure Data Factory. 
+title: Troubleshoot connectors
+titleSuffix: Azure Data Factory & Synapse Analytics
+description: Learn how to troubleshoot connector issues in Azure Data Factory and Azure Synapse Analytics. 
 author: jianleishen
 ms.service: data-factory
 ms.topic: troubleshooting
@@ -9,11 +10,11 @@ ms.author: jianleishen
 ms.custom: has-adal-ref
 ---
 
-# Troubleshoot Azure Data Factory connectors
+# Troubleshoot Azure Data Factory and Synapse Analytics connectors
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article explores common ways to troubleshoot problems with Azure Data Factory connectors.
+This article explores common ways to troubleshoot problems with Azure Data Factory and Synapse Analytics connectors.
 
 ## Azure Blob Storage
 
@@ -81,7 +82,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Symptoms**: When you import a schema for Azure Cosmos DB for column mapping, some columns are missing. 
 
-- **Cause**: Data Factory infers the schema from the first 10 Azure Cosmos DB documents. If some document columns or properties don't contain values, the schema isn't detected by Data Factory and consequently isn't displayed.
+- **Cause**: Data Factory and Synapse pipelines infer the schema from the first 10 Azure Cosmos DB documents. If some document columns or properties don't contain values, the schema isn't detected and consequently isn't displayed.
 
 - **Resolution**: You can tune the query as shown in the following code to force the column values to be displayed in the result set with empty values. Assume that the *impossible* column is missing in the first 10 documents). Alternatively, you can manually add the column for mapping.
 
@@ -497,7 +498,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
   | Cause analysis                                               | Recommendation                                               |
   | :----------------------------------------------------------- | :----------------------------------------------------------- |
   | The problematic row's column count is larger than the first row's column count. It might be caused by a data issue or incorrect column delimiter or quote char settings. | Get the row count from the error message, check the row's column, and fix the data. |
-  | If the expected column count is "1" in an error message, you might have specified wrong compression or format settings, which caused Data Factory to parse your files incorrectly. | Check the format settings to make sure they match your source files. |
+  | If the expected column count is "1" in an error message, you might have specified wrong compression or format settings, which caused the files to be parsed incorrectly. | Check the format settings to make sure they match your source files. |
   | If your source is a folder, the files under the specified folder might have a different schema. | Make sure that the files in the specified folder have an identical schema. |
 
 
@@ -516,7 +517,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Symptoms**: Some columns are missing when you import a schema or preview data. Error message: `The valid structure information (column name and type) are required for Dynamics source.`
 
-- **Cause**: This issue is by design, because Data Factory is unable to show columns that contain no values in the first 10 records. Make sure that the columns you've added are in the correct format. 
+- **Cause**: This issue is by design, because Data Factory and Synapse pipelines are unable to show columns that contain no values in the first 10 records. Make sure that the columns you've added are in the correct format. 
 
 - **Recommendation**: Manually add the columns in the mapping tab.
 
@@ -687,7 +688,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Message**: `Failed to read data from ftp: The remote server returned an error: 227 Entering Passive Mode (*,*,*,*,*,*).`
 
-- **Cause**: Port range between 1024 to 65535 is not open for data transfer under passive mode that ADF supports.
+- **Cause**: Port range between 1024 to 65535 is not open for data transfer under passive mode supported by the data factory or Synapse pipeline.
 
 - **Recommendation**:  Check the firewall settings of the target server. Open port 1024-65535 or port range specified in FTP server to SHIR/Azure IR IP address.
 
@@ -698,7 +699,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Message**: `Failed to read data from http server. Check the error from http server：%message;`
 
-- **Cause**: This error occurs when Azure Data Factory talks to the HTTP server, but the HTTP request operation fails.
+- **Cause**: This error occurs when a data factory or a Synapse pipeline talks to the HTTP server, but the HTTP request operation fails.
 
 - **Recommendation**:  Check the HTTP status code in the error message, and fix the remote server issue.
 
@@ -709,11 +710,11 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Message**: `Hour, Minute, and Second parameters describe an un-representable DateTime.`
 
-- **Cause**: In Data Factory, DateTime values are supported in the range from 0001-01-01 00:00:00 to 9999-12-31 23:59:59. However, Oracle supports a wider range of DateTime values, such as the BC century or min/sec>59, which leads to failure in Data Factory.
+- **Cause**: In Azure Data Factory and Synapse pipelines, DateTime values are supported in the range from 0001-01-01 00:00:00 to 9999-12-31 23:59:59. However, Oracle supports a wider range of DateTime values, such as the BC century or min/sec>59, which leads to failure.
 
 - **Recommendation**: 
 
-    To see whether the value in Oracle is in the range of Data Factory, run `select dump(<column name>)`. 
+    To see whether the value in Oracle is in the supported range of dates, run `select dump(<column name>)`. 
 
     To learn the byte sequence in the result, see [How are dates stored in Oracle?](https://stackoverflow.com/questions/13568193/how-are-dates-stored-in-oracle).
 
@@ -769,7 +770,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Message**: `Unsupported Parquet type. PrimitiveType: %primitiveType; OriginalType: %originalType;.`
 
-- **Cause**: The Parquet format is not supported in Azure Data Factory.
+- **Cause**: The Parquet format is not supported in Azure Data Factory and Synapse pipelines.
 
 - **Recommendation**:  Double-check the source data by going to [Supported file formats and compression codecs by copy activity in Azure Data Factory](./supported-file-formats-and-compression-codecs.md).
 
@@ -914,7 +915,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Message**: `Rest Endpoint responded with Failure from server. Check the error from server:%message;`
 
-- **Cause**: This error occurs when Azure Data Factory talks to the REST endpoint over HTTP protocol, and the request operation fails.
+- **Cause**: This error occurs when a data factory or Synapse pipeline talks to the REST endpoint over HTTP protocol, and the request operation fails.
 
 - **Recommendation**:  Check the HTTP status code or the message in the error message and fix the remote server issue.
 
@@ -933,7 +934,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
       You can also use 'curl--help' for more advanced usage of the command.
 
-    - If only the Data Factory REST connector returns an unexpected response, contact Microsoft support for further troubleshooting.
+    - If only the REST connector returns an unexpected response, contact Microsoft support for further troubleshooting.
     
     - Note that 'curl' might not be suitable to reproduce an SSL certificate validation issue. In some scenarios, the 'curl' command was executed successfully without encountering any SSL certificate validation issues. But when the same URL is executed in a browser, no SSL certificate is actually returned for the client to establish trust with server.
 
@@ -1032,7 +1033,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Recommendation**:  Check the port of the target server. By default, SFTP uses port 22.
 
-- **Cause**: If the error message contains the string "Server response does not contain SSH protocol identification", one possible cause is that the SFTP server throttled the connection. Data Factory will create multiple connections to download from the SFTP server in parallel, and sometimes it will encounter SFTP server throttling. Ordinarily, different servers return different errors when they encounter throttling.
+- **Cause**: If the error message contains the string "Server response does not contain SSH protocol identification", one possible cause is that the SFTP server throttled the connection. Multiple connections are created to download from the SFTP server in parallel, and sometimes it will encounter SFTP server throttling. Ordinarily, different servers return different errors when they encounter throttling.
 
 - **Recommendation**:  
 
@@ -1130,7 +1131,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Resolution**: Learn [why we’re not recommending “FIPS Mode” anymore](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/why-we-8217-re-not-recommending-8220-fips-mode-8221-anymore/ba-p/701037), and evaluate whether you can disable FIPS on your self-hosted IR machine.
 
-    Alternatively, if you only want to let Azure Data Factory bypass FIPS and make the activity runs succeed, do the following:
+    Alternatively, if you only want to bypass FIPS and make the activity runs succeed, do the following:
 
     1. Open the folder where Self-hosted IR is installed. The path is usually *C:\Program Files\Microsoft Integration Runtime \<IR version>\Shared*.
 
