@@ -31,7 +31,6 @@ The device template has the following sections:
 
 To learn more, see [What are device templates?](concepts-device-templates.md).
 
-
 ## Create a device template 
 
 You have several options for creating device templates:
