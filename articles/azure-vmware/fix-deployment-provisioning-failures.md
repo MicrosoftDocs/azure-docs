@@ -103,7 +103,7 @@ To create a support request for an Azure VMware Solution deployment or provision
 
 1. In the Azure portal, select the **Help** icon, and then select **New support request**.
 
-    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Screenshot of the New support request pane in the Azure portal.":::
+    :::image type="content" source="media/fix-deployment-provisioning-failures/open-support-request.png" alt-text="Screenshot of the New support request pane in the Azure portal.":::
 
 1. Enter or select the required information:
 

@@ -209,7 +209,7 @@ The following are links to useful resources:
 
 * Github Azure AD toolkit - [https://github.com/microsoft/AzureADToolkit](https://github.com/microsoft/AzureADToolkit)
 
-* Azure Key Vault security overview and security guidance - [Azure Key Vault security overview](../../key-vault/general/security-overview.md), [Secure access to a key vault](../../key-vault/general/secure-your-key-vault.md)
+* Azure Key Vault security overview and security guidance - [Azure Key Vault security overview](../../key-vault/general/security-features.md)
 
 * Solorgate risk information and tools - [Azure AD workbook to help you access Solorigate risk](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/azure-ad-workbook-to-help-you-assess-solorigate-risk/ba-p/2010718)
 
