@@ -1,5 +1,5 @@
 ---
-title: 'Common Key Vault Errors in Application Gateway'
+title: 'Common Key Vault errors in Application Gateway'
 description: This article helps identifying Key Vault-related issues and resolve them for smooth operations of Application Gateway.
 services: application-gateway
 author: jaesoni
@@ -10,7 +10,7 @@ ms.author: jaysoni
 
 ---
 
-# Common Key Vault Errors in Application Gateway
+# Common Key Vault errors in Application Gateway
 
 This troubleshooting guide will help you to understand the details of the Key Vault error codes, their cause and the associated Key Vault resource which is causing the problem. It also includes step by step guide for the resolution of such misconfigurations.
 
@@ -20,11 +20,10 @@ This troubleshooting guide will help you to understand the details of the Key Va
 > [!TIP]
 > We recommend using a version-less Secret Identifier. This way, Application Gateway will automatically rotate the certificate, if a newer version is available in the Key Vault.  An example of Secret URI without version `https://myvault.vault.azure.net/secrets/mysecret/`.
 
-## List of error codes and their details:
-</br>
+### List of error codes and their details
 
 [comment]: # (Error Code 1)
-#### **Error Code:** UserAssignedIdentityDoesNotHaveGetPermissionOnKeyVault 
+#### **1) Error Code:** UserAssignedIdentityDoesNotHaveGetPermissionOnKeyVault 
 
 **Description:** The associated User-Assigned Managed Identity doesn't have GET permission. 
 
@@ -39,11 +38,11 @@ This troubleshooting guide will help you to understand the details of the Key Va
 
 For complete guide on Key Vault's Access policy, refer to this [article](../key-vault/general/assign-access-policy-portal.md)
 </br></br>
-___
-</br>
+
+
 
 [comment]: # (Error Code 2)
-#### **Error Code:** SecretDisabled 
+#### **2) Error Code:** SecretDisabled 
 
 **Description:** The associated Certificate has been disabled in Key Vault. 
 
@@ -55,11 +54,10 @@ ___
 
 ![Secret Disabled](./media/application-gateway-keyvault-common-errors/secret-disabled.png)
 </br></br>
-___
-</br>
+
 
 [comment]: # (Error Code 3)
-#### **Error Code:** SecretDeletedFromKeyVault 
+#### **3) Error Code:** SecretDeletedFromKeyVault 
 
 **Description:** The associated Certificate has been deleted from Key Vault. 
 
@@ -72,11 +70,10 @@ On the other hand, if a certificate object is permanently deleted, you will need
 
 ![Secret Deleted From Key Vault](./media/application-gateway-keyvault-common-errors/secret-deleted.png)
 </br></br>
-___
-</br>
+
 
 [comment]: # (Error Code 4)
-#### **Error Code:** UserAssignedManagedIdentityNotFound 
+#### **4) Error Code:** UserAssignedManagedIdentityNotFound 
 
 **Description:** The associated User-Assigned Managed Identity has been deleted. 
 
@@ -87,11 +84,9 @@ ___
 
 [More information](./key-vault-certs.md#how-integration-works)
 </br></br>
-___
-</br>
 
 [comment]: # (Error Code 5)
-#### **Error Code:** KeyVaultHasRestrictedAccess
+#### **5) Error Code:** KeyVaultHasRestrictedAccess
 
 **Description:** Restricted Network setting for Key Vault. 
 
@@ -103,12 +98,10 @@ ___
 
 ![Key Vault Has Restricted Access](./media/application-gateway-keyvault-common-errors/key-vault-restricted-access.png)
 </br></br>
-___
 
-</br>
 
-[comment]: # (Error Code 7)
-#### **Error Code:** KeyVaultSoftDeleted 
+[comment]: # (Error Code 6)
+#### **6) Error Code:** KeyVaultSoftDeleted 
 
 **Description:** The associated Key Vault is in soft-delete state. 
 
@@ -118,17 +111,16 @@ ___
 Click on Managed Deleted Vaults tab. From here, you can find the deleted Key Vault resource and recover it.
 ![Recover Deleted Key Vault from Soft Delete](./media/application-gateway-keyvault-common-errors/key-vault-soft-deleted-2.png)
 </br></br>
-___
-</br>
 
-[comment]: # (Error Code 8)
-#### **Error Code:** CustomerKeyVaultSubscriptionDisabled 
+
+[comment]: # (Error Code 7)
+#### **7) Error Code:** CustomerKeyVaultSubscriptionDisabled 
 
 **Description:** The Subscription for Key Vault is disabled. 
 
 **Resolution:** Your Azure subscription can get disabled due to various reasons. Please refer to the guide for [Reactivating a disabled Azure subscription](../cost-management-billing/manage/subscription-disabled.md) and take the necessary action.
 </br></br>
-___
+
 
 
 
