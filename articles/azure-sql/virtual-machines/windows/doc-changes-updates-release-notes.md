@@ -11,7 +11,7 @@ ms.subservice: service-overview
 ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/01/2021
+ms.date: 07/21/2021
 ---
 # Documentation changes for SQL Server on Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

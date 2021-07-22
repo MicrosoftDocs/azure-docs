@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/07/2020
+ms.date: 07/21/2021
 ms.author: mathoma
 ms.reviewer: jroth 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
