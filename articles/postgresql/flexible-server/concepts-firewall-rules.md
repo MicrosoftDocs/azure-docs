@@ -57,15 +57,12 @@ Consider the following points when access to the Microsoft Azure Database for Po
 
   
 
-* **Cannot connect from Azure resource with allowed IP:** Check whether the **Microsoft.Sql** service endpoint is enabled for the subnet you are connecting from. If **Microsoft.Sql** is enabled, it indicates that you only want to use [VNet service endpoint rules](concepts-data-access-and-security-vnet.md) on that subnet.
-
-   For example, you may see the following error if you are connecting from an Azure VM in a subnet that has **Microsoft.Sql** enabled but has no corresponding VNet rule:
-   `FATAL: Client from Azure Virtual Networks is not allowed to access the server`
 
 * **Firewall rule is not available for IPv6 format:** The firewall rules must be in IPv4 format. If you specify firewall rules in IPv6 format, it will show the validation error.
 
 
 ## Next steps
 
-* [Create and manage Azure Database for PostgreSQL firewall rules using the Azure portal](howto-manage-firewall-using-portal.md)
-* [Create and manage Azure Database for PostgreSQL firewall rules using Azure CLI](howto-manage-firewall-using-cli.md)
+* [Create and manage Azure Database for PostgreSQL firewall rules using the Azure portal](how-to-manage-firewall-portal.md)
+* [Create and manage Azure Database for PostgreSQL firewall rules using Azure CLI](how-to-manage-firewall-cli.md)
+* 
