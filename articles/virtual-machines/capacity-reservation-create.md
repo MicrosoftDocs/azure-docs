@@ -29,7 +29,7 @@ A Capacity Reservation creation succeeds or fails in its entirety. For a request
 The Capacity Reservation must meet the following rules: 
 - The location parameter must match the location property for the parent Capacity Reservation Group. A mismatch will result in an error. 
 - The VM size must be available in the target region. Otherwise, the reservation creation will fail. 
-- The subscription must have sufficient approved quota equal to or more than the quantity of VMs being reserved for the VM series and for the region overall. If needed, [request more quota](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
+- The subscription must have sufficient approved quota equal to or more than the quantity of VMs being reserved for the VM series and for the region overall. If needed, [request more quota](../azure-portal/supportability/per-vm-quota-requests.md).
 - Each Capacity Reservation Group can have exactly one reservation for a given VM size. For example, only one Capacity Reservation can be created for the VM size `Standard_D2s_v3`. Attempt to create a second reservation for `Standard_D2s_v3` in the same Capacity Reservation Group will result in an error. However, another reservation can be created in the same group for other VM sizes, such `Standard_D4s_v3`, `Standard_D8s_v3` and so on. 
 - For a group that supports zones, each reservation type is defined by the combination of **VM size** and **zone**. For example, one Capacity Reservation for `Standard_D2s_v3` in `Zone 1`, another Capacity Reservation for `Standard_D2s_v3` in `Zone 2`, and `Standard_D2s_v3` in `Zone 3` is supported. 
 

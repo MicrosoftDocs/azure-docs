@@ -17,7 +17,7 @@ Virtual Machine Scale Sets have two modes:
 1. **Uniform Orchestration Mode:** In this mode, virtual machine scale sets use a VM profile or a template to scale up to the desired capacity. While there's some ability to manage or customize individual VM instances, Uniform uses identical VM instances. These instances are exposed through the virtual machine scale sets VM APIs and aren't compatible with the standard Azure IaaS VM API commands. Since the scale set performs all the actual VM operations, reservations are associated with the virtual machine scale set directly. Once the scale set is associated with the reservation, all the subsequent VM allocations will be done against the reservation. 
 1. **Flexible Orchestration Mode:** In this mode, you get more flexibility managing the individual virtual machine scale set VM instances as they can use the standard Azure IaaS VM APIs instead of using the scale set interface. This mode won't work with Capacity Reservation during public preview.
 
-To learn more about these modes, go to [Virtual Machine Scale Sets Orchestration Modes](./virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md). The rest of this article will cover how to associate a Uniform virtual machine scale set to a Capacity Reservation Group. 
+To learn more about these modes, go to [Virtual Machine Scale Sets Orchestration Modes](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md). The rest of this article will cover how to associate a Uniform virtual machine scale set to a Capacity Reservation Group. 
 
 > [!IMPORTANT]
 > Capacity Reservation is currently in public preview.
@@ -27,7 +27,7 @@ To learn more about these modes, go to [Virtual Machine Scale Sets Orchestration
 
 ## Region and Availability Zones considerations 
 
-Virtual machine scale sets can be created regionally or in one or more Availability Zones to protect them from data-center-level failure. Learn more about multi-zonal virtual machine scale sets, refer to [Virtual Machine Scale Sets that use Availability Zones](./virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones).  
+Virtual machine scale sets can be created regionally or in one or more Availability Zones to protect them from data-center-level failure. Learn more about multi-zonal virtual machine scale sets, refer to [Virtual Machine Scale Sets that use Availability Zones](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones).  
 
  
 >[!IMPORTANT]
@@ -165,7 +165,7 @@ GET Instance View https://management.azure.com/subscriptions/{subscriptionId}/re
 
 - **Automatic Upgrade** – In this mode, VMs are automatically associated with the Capacity Reservation Group without any further action from you. When the VMs are reallocated, they start consuming the reserved capacity. 
 - **Rolling Upgrade** – In this mode, VMs are associated with the Capacity Reservation Group without any further action from you. They're updated in batches with an optional pause time between batches. When the VMs are reallocated, they start consuming the reserved capacity. 
-- **Manual Upgrade** – In this mode, nothing happens to the VM when the virtual machine scale set is updated. You'll need to do individual updates to each VM by [upgrading them with the latest Scale Set model](./virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md).  
+- **Manual Upgrade** – In this mode, nothing happens to the VM when the virtual machine scale set is updated. You'll need to do individual updates to each VM by [upgrading them with the latest Scale Set model](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md).  
 
 
 ## Next steps
