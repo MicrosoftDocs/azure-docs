@@ -75,11 +75,11 @@ Azure Defender for IoT ensures quick and frictionless deployment of network sens
 
 Open the following ports in your firewall:
 
-- HTTPS - 443
+- HTTPS - 443 TCP
 
-- DNS - 53
+- DNS - 53 TCP
 
-- AMQP - 5671, 5672 
+- AMQP - 5671, 5672 TCP
 
 ### Create a new subscription
 
