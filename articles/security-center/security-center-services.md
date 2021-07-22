@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 07/19/2021
+ms.date: 07/21/2021
 ms.custom: references_regions
 ms.author: memildin
 ---
@@ -83,16 +83,13 @@ For information about when recommendations are generated for each of these prote
 | Solution                                                  | Supported platforms                                    | Security Center installation | Security Center discovery |
 |-----------------------------------------------------------|--------------------------------------------------------|------------------------------|---------------------------|
 | Microsoft Defender Antivirus                              | Windows Server 2016 or later                           | No (built into OS)           | Yes                       |
-| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (see note below) | Via extension                | Yes                       |
+| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2                                 | Via extension                | Yes                       |
 | Trend Micro – Deep Security                               | Windows Server (all)                                   | No                           | Yes                       |
 | Symantec v12.1.1100+                                      | Windows Server (all)                                   | No                           | Yes                       |
 | McAfee v10+                                               | Windows Server (all)                                   | No                           | Yes                       |
 | McAfee v10+                                               | Linux (preview)                                        | No                           | Yes                       |
 | Sophos V9+                                                | Linux (preview)                                        | No                           | Yes                       |
 |                                                           |                                                        |                              |                           |
-
-> [!NOTE]
-> Detection of System Center Endpoint Protection (SCEP) on a Windows Server 2008 R2 virtual machine requires SCEP to be installed after PowerShell (v3.0 or newer).
 
 
 
