@@ -28,6 +28,7 @@ Minimizing the size of data types shortens the row length, which leads to better
 - Avoid defining character columns with a large default length. For example, if the longest value is 25 characters, then define your column as VARCHAR(25).
 - Avoid using [NVARCHAR][NVARCHAR] when you only need VARCHAR.
 - When possible, use NVARCHAR(4000) or VARCHAR(8000) instead of NVARCHAR(MAX) or VARCHAR(MAX).
+- Avoid using floats and decimals with 0 (zero) scale.  These should be TINYINT, SMALLINT, INT or BIGINT.
 
 > [!NOTE]
 > If you are using PolyBase external tables to load your Synapse SQL tables, the defined length of the table row cannot exceed 1 MB. When a row with variable-length data exceeds 1 MB, you can load the row with BCP, but not with PolyBase.
