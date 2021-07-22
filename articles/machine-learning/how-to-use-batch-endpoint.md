@@ -10,7 +10,7 @@ author: tracych
 ms.author: tracych
 ms.reviewer: laobri
 ms.date: 5/25/2021
-ms.custom: how-to
+ms.custom: how-to, devplatv2
 
 # Customer intent: As an ML engineer or data scientist, I want to create an endpoint to host my models for batch scoring, so that I can use the same endpoint continuously for different large datasets on-demand or on-schedule.
 ---
@@ -75,7 +75,7 @@ Batch scoring runs only on cloud computing resources, not locally. The cloud com
 Run the following code to create a general purpose [`AmlCompute`](/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py&preserve-view=true) target. For more information about compute targets, see [What are compute targets in Azure Machine Learning?](./concept-compute-target.md).
 
 ```azurecli
-az ml compute create --name cpu-cluster --type AmlCompute --min-instances 0 --max-instances 5
+az ml compute create --name cpu-cluster --type amlcompute --min-instances 0 --max-instances 5
 ```
 
 ## Create a batch endpoint

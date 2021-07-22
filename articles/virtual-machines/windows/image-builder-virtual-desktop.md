@@ -18,7 +18,7 @@ This article shows you how to create a Windows Virtual Desktop image with these 
 
 * Installing [FsLogix](https://github.com/DeanCefola/Azure-WVD/blob/master/PowerShell/FSLogixSetup.ps1).
 * Running a [Windows Virtual Desktop Optimization script](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) from the community repo.
-* Install [Microsoft Teams](../../virtual-desktop/teams-on-wvd.md).
+* Install [Microsoft Teams](../../virtual-desktop/teams-on-avd.md).
 * [Restart](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-restart-customizer)
 * Run [Windows Update](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-update-customizer)
 
@@ -69,7 +69,7 @@ This article is intended to be a copy and paste exercise.
 
 ## Prerequisites
 
-You must have the latest Azure PowerShell CmdLets installed, see [here](/powershell/azure/overview) for install details.
+You must have the latest Azure PowerShell CmdLets installed, see [Overview of Azure PowerShell](/powershell/azure/overview) for install details.
 
 ```PowerShell
 # check you are registered for the providers, ensure RegistrationState is set to 'Registered'.
@@ -267,7 +267,7 @@ $getStatus.LastRunStatusMessage
 $getStatus.LastRunStatusRunSubState
 ```
 ## Create a VM
-Now the build is finished you can build a VM from the image, use the examples from [here](/powershell/module/az.compute/new-azvm#examples).
+Now the build is finished you can build a VM from the image, use the examples from [New-AzVM (Az.Compute)](/powershell/module/az.compute/new-azvm#examples).
 
 ## Clean up
 
@@ -300,3 +300,4 @@ Remove-AzResourceGroup $imageResourceGroup -Force
 ## Next steps
 
 You can try more examples [on GitHub](https://github.com/azure/azvmimagebuilder/tree/master/quickquickstarts).
+
