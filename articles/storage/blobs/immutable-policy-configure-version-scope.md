@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/19/2021
+ms.date: 07/22/2021
 ms.author: tamram
 ms.subservice: blobs 
 ---
@@ -79,7 +79,7 @@ To apply a default version-level immutability policy to a container in the Azure
 1. Select the **More** button to the right of the container name, and choose **Access policy**.
 1. In the **Access policy** dialog, under the **Immutable blob storage** section, choose **Add policy**.
 1. Select **Time-based retention policy** and specify the retention interval.
-1. If desired, select **Allow additional protected appends** to enable ???
+1. If desired, select **Allow additional protected appends** to enable writes to append blobs that are protected by an immutability policy. For more information, see [Allow protected append blobs writes](immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes).
 1. Select **OK** to apply the default policy to the container.
 
     :::image type="content" source="media/immutable-policy-configure-version-scope/configure-default-retention-policy-container.png" alt-text="Screenshot showing how to configure a default version-level retention policy for a container":::
@@ -151,7 +151,11 @@ When you use the Azure portal to upload a blob to a container that supports vers
 
 To configure a time-based retention policy when you upload a blob, follow these steps:
 
-???Portal is down right now - will add steps and images when it's back up???
+1. Navigate to the desired container, and select **Upload**.
+1. In the **Upload** blob dialog, expand the **Advanced** section.
+1. Configure the time-based retention policy for the new blob in the **Retention policy** field. If there is a default policy configured for the container, that policy is selected by default. You can also specify a custom policy for the blob.
+
+    :::image type="content" source="media/immutable-policy-configure-version-scope/configure-retention-policy-blob-upload.png" alt-text="Screenshot showing options for configuring retention policy on blob upload in Azure portal":::
 
 ## Modify an unlocked retention policy
 
