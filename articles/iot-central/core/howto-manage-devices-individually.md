@@ -48,6 +48,8 @@ To add a device to your Azure IoT Central application:
 
 1. Choose + **New**.
 
+1. Enter a device name and ID or accept the default. The maximum length of a device name is 148 characters. The maximum length of a device ID is 128 characters.
+
 1. Turn the **Simulated** toggle to **On** or **Off**. A real device is for a physical device that you connect to your Azure IoT Central application. A simulated device has sample data generated for you by Azure IoT Central.
 
 1. If your application uses organizations, choose the organization the device belongs to.

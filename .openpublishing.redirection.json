@@ -48133,13 +48133,13 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-linkedinlearning-provisioning-tutorial.md",
-      "redirect_url": "/azure/active-directory/saas-apps/linkedinlearning-tutorial",
+      "redirect_url": "/azure/active-directory/saas-apps/linkedinlearning-provisioning-tutorial",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/saas-apps/linkedinlearning-provisioning-tutorial.md",
-      "redirect_url": "/azure",
-      "redirect_document_id": false
+      "source_path_from_root": "/articles/active-directory/active-directory-saas-linkedin-learning-provisioning-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/linkedin-learning-provisioning-tutorial",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-linkedinlearning-tutorial.md",
