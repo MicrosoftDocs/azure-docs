@@ -40,27 +40,48 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 
 The storage you provision is the amount of storage capacity available to your Azure Database for MySQL server. The storage is used for the database files, temporary files, transaction logs, and the MySQL server logs. The total amount of storage you provision also defines the I/O capacity available to your server.
 
-| Storage attribute   | Basic | General purpose | Memory optimized |
-|:---|:----------|:--------------------|:---------------------|
-| Storage type | Basic Storage | General Purpose Storage | General Purpose Storage |
-| Storage size | 5 GB to 1 TB | 5 GB to 16 TB | 5 GB to 16 TB |
-| Storage increment size | 1 GB | 1 GB | 1 GB |
-| IOPS | Variable |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS |
+Azure Database for MySQL – Single Server supports the following the backend storage for the servers. 
 
-> [!NOTE]
-> Storage up to 16TB and 20,000 IOPS is supported in the following regions: East US, East US 2, Central US, Brazil South, West US, North Central US, South Central US, North Europe, West Europe, UK South, UK West, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South, Australia East, Australia South East, West US 2, West Central US, Canada East, and Canada Central.
->
-> All other regions support up to 4TB of storage and up to 6000 IOPS.
->
+### Basic storage 
+Basic storage is the backend storage supporting Basic pricing tier servers. Basic storage leverages Azure standard storage in the backend where iops provisioned are not guaranteed and latency is variable. Basic tier is best suited for workloads that require light compute, low cost and I/O performance for development or small-scale infrequently used applications.
+
+### General purpose storage 
+General purpose storage is the backend storage supporting General Purpose and Memory Optimized tier server. There are two generations of general purpose storage which are described below:
+
+#### General purpose storage v1 (Supports up to 4-TB)
+General purpose storage v1 is based on the legacy storage technology which can support up to 4-TB storage and 6000 IOPs per server. General purpose storage v1 is optimized to leverage memory from the compute nodes running MySQL engine for local caching and backups. The backup process on general purpose storage v1 reads from the data and log files in the memory of the compute nodes and copies it to the target backup storage for retention up to 35 days. As a result, the memory and io consumption of storage during backups is relatively higher. 
+
+For General Purpose or Memory Optimized server on general purpose storage v1, we recommend you consider
+
+*	Plan for compute sku tier accounting for 10-30% excess memory for storage caching and backup buffers 
+*	Provision 10% higher IOPs than required by the database workload to account for backup IOs 
+*	Alternatively, migrate to general purpose storage v2 described below that supports up to 16-TB storage if the underlying storage infrastructure is available in your preferred Azure regions shared below. 
+
+#### General purpose storage v2 (Supports up to 16-TB storage)
+General purpose storage v2 is based on the latest storage infrastructure which can support up to 16-TB and 20000 IOPs. In a subset of Azure regions where the infrastructure is available, all newly provisioned servers land on general purpose storage v2 by default. General purpose storage v2 does not consume any memory from the compute node of MySQL and provides better predictable IO latencies compared to general purpose v1 storage. Backups on the general purpose v2 storage servers are snapshot-based with no additional IO overhead. On general purpose v2 storage, the MySQL server performance is expected to higher compared to general purpose storage v1 for the same storage and iops provisioned.There is no additional cost for general purpose storage that supports up to 16-TB storage. For assistance with migration to 16-TB storage, please open a support ticket from Azure portal.
+
+General purpose storage v2 is supported in the following Azure regions: 
+East US, East US 2, Central US, Brazil South, West US, North Central US, South Central US, North Europe, West Europe, UK South, UK West, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South, Australia East, Australia South East, West US 2, West Central US, Canada East, and Canada Central.
+
+All other regions General purpose storage v1 support up to 4TB of storage and up to 6000 IOPS.
+
+
+| Storage type   | Basic | General purpose v1 | General purpose v2 |
+|:---|:----------|:--------------------|:---------------------|
+| Storage size | 5 GB to 1 TB | 5 GB to 4 TB | 5 GB to 16 TB |
+| Storage increment size | 1 GB | 1 GB | 1 GB |
+| IOPS | Variable |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 6000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS |
+
+>[!NOTE]
+> Basic storage does not provide an IOPS guarantee. In General Purpose storage, the IOPS scale with the provisioned storage size in a 3:1 ratio.
+
+You can monitor your I/O consumption in the Azure portal or by using Azure CLI commands. The relevant metrics to monitor are [storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md).The monitoring metrics for the MySQL server with general purpose storage v1 reports the memory and IO consumed by the MySQL engine but may not capture the memory and IO consumption of the storage layer which is a limitation.
 
 You can add additional storage capacity during and after the creation of the server, and allow the system to grow storage automatically based on the storage consumption of your workload. 
 
->[!NOTE]
+>[!IMPORTANT]
 > Storage can only be scaled up, not down.
 
-The Basic tier does not provide an IOPS guarantee. In the General Purpose and Memory Optimized pricing tiers, the IOPS scale with the provisioned storage size in a 3:1 ratio.
-
-You can monitor your I/O consumption in the Azure portal or by using Azure CLI commands. The relevant metrics to monitor are [storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md).
 
 ### Reaching the storage limit
 
