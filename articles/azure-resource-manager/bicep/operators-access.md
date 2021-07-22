@@ -20,7 +20,7 @@ The access operators are used to access properties of objects and resources. To 
 
 `<resource-symbolic-name>.properties.<property-name>`
 
-Nested resource accessors are used to access resources that are declared inside another resource. The symbolic name declared by a nested resource can normally only be referenced within the body of the containing resource. To reference a nested resource outside the containing resource, it must be qualified with the containing resource name and the [::](./child-resource-name-type.md) operator. Other resources declared within the same containing resource may used the name without qualification.
+Nested resource accessors are used to access resources that are declared inside another resource. The symbolic name declared by a nested resource can normally only be referenced within the body of the containing resource. To reference a nested resource outside the containing resource, it must be qualified with the containing resource name and the [::](./child-resource-name-type.md) operator. Other resources declared within the same containing resource can use the name without qualification.
 
 ### Example
 
@@ -52,17 +52,15 @@ resource myParent 'My.Rp/parentType@2020-01-01' = {
 output displayName string = myParent::myChild.properties.displayName
 ```
 
-Because the declaration of `myChild` is contained within `myParent` the access to `myChild`'s properties must be qualified with `myParent::`.
+Because the declaration of `myChild` is contained within `myParent`, the access to `myChild`'s properties must be qualified with `myParent::`.
 
 ## Property accessor
 
 `<object-name>.<property-name>`
 
-Property accessors are used to access properties of an object. They are constructed using the `.` operator. Property accessors can be used with any object. This includes parameters and variables of object types and object literals. Using a property accessor on an expression of non-object type is an error.
+Property accessors are used to access properties of an object. They are constructed using the `.` operator. Property accessors can be used with any object, including parameters and variables of object types and object literals. Using a property accessor on an expression of non-object type is an error.
 
 ### Example
-
-Consider the following:
 
 ```bicep
 var x = {

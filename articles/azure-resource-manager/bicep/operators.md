@@ -70,7 +70,7 @@ The access operators are used to access properties of objects and resources.
 | Operator | Name | Description |
 | ---- | ---- | ---- |
 | `.` | [Nested resource accessor](./operators-access.md#nested-resource-accessor) | Access properties of an object. |
-| `.` | [Property accessor](./operators-acdess.md#property-accessor) | Access properties of a nested resource. |
+| `.` | [Property accessor](./operators-access.md#property-accessor) | Access properties of a nested resource. |
 
 ## Operator precedence and associativity
 
