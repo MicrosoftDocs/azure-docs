@@ -32,6 +32,21 @@ When working through this article, replace the resource names where needed.
 
 ## Get information about the VM
 
+To create am image of a VM, you need XXXXXXXXXXXX. 
+
+Choose an option below for creating your getting information about the VM:
+
+### [Portal](#tab/portal)
+
+The following example creates a gallery named *myGallery* in the *myGalleryRG* resource group.
+
+1. Sign in to the Azure portal at https://portal.azure.com.
+1. Type **Virtual machines** in the search box and select **Virtual machines** in the results.
+1. Select the VM from the list.
+1. On the **Overview** page for the VM, note the XXXXXXXXXXXX
+
+### [CLI](#tab/cli)
+
 You can see a list of VMs that are available using [az vm list](/cli/azure/vm#az_vm_list). 
 
 ```azurecli-interactive
@@ -44,10 +59,9 @@ Once you know the VM name and what resource group it is in, get the ID of the VM
 az vm get-instance-view -g MyResourceGroup -n MyVm --query id
 ```
 
+**Create an image definition**
 
-## Create an image definition
-
-Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them. 
+Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them.
 
 Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes, and periods. 
 
@@ -75,7 +89,7 @@ az sig image-definition create \
 > For image definitions that will contain images descended from third-party images, the plan information must match exactly the plan information from the third-party image. Include the plan information in the image definition by adding `--plan-name`, `--plan-product`, and `--plan-publisher` when you create the image definition.
 >
 
-## Create the image version
+**Create the image version**
 
 Create an image version from the VM using [az image gallery create-image-version](/cli/azure/sig/image-version#az_sig_image_version_create).  
 
@@ -100,6 +114,36 @@ az sig image-version create \
 > You need to wait for the image version to completely finish being built and replicated before you can use the same managed image to create another image version.
 >
 > You can also store your image in Premium storage by adding `--storage-account-type  premium_lrs`, or [Zone Redundant Storage](../storage/common/storage-redundancy.md) by adding `--storage-account-type  standard_zrs` when you create the image version.
+
+### [PowerShell](#tab/powershell)
+
+Create an image gallery using [New-AzGallery](/powershell/module/az.compute/new-azgallery). The following example creates a gallery named *myGallery* in the *myGalleryRG* resource group.
+
+```azurepowershell-interactive
+$resourceGroup = New-AzResourceGroup `
+   -Name 'myGalleryRG' `
+   -Location 'West Central US'	
+$gallery = New-AzGallery `
+   -GalleryName 'myGallery' `
+   -ResourceGroupName $resourceGroup.ResourceGroupName `
+   -Location $resourceGroup.Location `
+   -Description 'Shared Image Gallery for my organization'	
+```
+
+
+### [REST](#tab/rest)
+
+You can use the [REST API](/rest/api/compute/galleries/create-or-update) to create a gallery.
+
+```rest
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}?api-version=2019-12-01
+```
+
+---
+
+---------------------------------------------------------------------------------------------------------------------
+
+
 >
 
 ## Next steps

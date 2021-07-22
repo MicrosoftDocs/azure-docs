@@ -84,7 +84,7 @@ To create a managed image from a snapshot, use Azure command-line tools such as 
 
 ### Create a Shared Image Gallery
 
-Once you have successfully created your managed image, you need to create a Shared Image Gallery to make your custom image available. To learn how to create a Shared Image Gallery for your images, see [Create a Shared Image Gallery](../virtual-machines/share-gallery.md).
+Once you have successfully created your managed image, you need to create a Shared Image Gallery to make your custom image available. To learn how to create a Shared Image Gallery for your images, see [Create a Shared Image Gallery](../virtual-machines/create-gallery.md).
 
 ## Create a pool from a Shared Image using the Azure CLI
 

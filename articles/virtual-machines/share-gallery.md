@@ -52,7 +52,7 @@ az role assignment create \
    --scope <gallery ID>
 ```
 
-For more information about how to share resources using RBAC, see [Manage access using RBAC and Azure CLI](../articles/role-based-access-control/role-assignments-cli.md).
+For more information about how to share resources using RBAC, see [Manage access using RBAC and Azure CLI](../role-based-access-control/role-assignments-cli.md).
 
 ### [PowerShell](#tab/powershell)
 

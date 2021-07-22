@@ -20,7 +20,7 @@ Here are the couple of scenarios supported by this feature:
     When an image is saved to a shared image gallery, Azure Lab Services replicates the saved image to other regions available in the same [geography](https://azure.microsoft.com/global-infrastructure/geographies/). It ensures that the image is available for labs created in other regions in the same geography. Saving images to a shared image gallery incurs an additional cost, which includes cost for all replicated images. This cost is separate from the Azure Lab Services usage cost. For more information about Shared Image Gallery pricing, see [Shared Image Gallery – Billing](../virtual-machines/shared-image-galleries.md#billing).
     
 ## Prerequisites
-- Create a [shared image gallery](../virtual-machines/share-gallery.md).
+- Create a [shared image gallery](../virtual-machines/create-gallery.md).
 - You have attached the shared image gallery to the lab account. For step-by-step instructions, see [How to attach or detach shared image gallery](how-to-attach-detach-shared-image-gallery.md).
 
 

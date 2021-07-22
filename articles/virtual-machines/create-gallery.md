@@ -83,8 +83,6 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ---
 
-
-
 ## Next steps
 
 Create an image from a [VM](image-version-vm-powershell.md), a [managed image](image-version-managed-image-powershell.md), or an [image in another gallery](image-version-another-gallery-powershell.md).

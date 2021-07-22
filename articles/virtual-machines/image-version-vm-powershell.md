@@ -16,7 +16,6 @@ ms.custom: devx-track-azurepowershell
 
 If you have an existing VM that you would like to use to make multiple, identical VMs, you can use that VM to create an image in a Shared Image Gallery using Azure PowerShell. You can also create an image from a VM using the [Azure CLI](image-version-vm-cli.md).
 
-You can capture an image from both [specialized and generalized](./shared-image-galleries.md#generalized-and-specialized-images) VMs using Azure PowerShell. 
 
 Images in an image gallery have two components, which we will create in this example:
 - An **Image definition** carries information about the image and requirements for using it. This includes whether the image is Windows or Linux, specialized or generalized, release notes, and minimum and maximum memory requirements. It is a definition of a type of image. 
@@ -25,9 +24,14 @@ Images in an image gallery have two components, which we will create in this exa
 
 ## Before you begin
 
-To complete this article, you must have an existing Shared Image Gallery, and an existing VM in Azure to use as the source. 
+To complete this article, you must have an existing Shared Image Gallery, and an existing source available in Azure. Image sources can be:
+- A VM in your subscription. You can capture an image from both [specialized and generalized](./shared-image-galleries.md#generalized-and-specialized-images) VMs. 
+- A Managed image,
+- Managed OS and data disks.
+- OS and data disks as VHDs in a storage account.
+- Other image versions either in the same gallery or another gallery in the same subscription.
 
-If the VM has a data disk attached, the data disk size cannot be more than 1 TB.
+If the the image will contain data disks, the data disk size cannot be more than 1 TB.
 
 When working through this article, replace the resource names where needed.
 
