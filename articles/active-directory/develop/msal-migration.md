@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/13/2021
+ms.date: 07/22/2021
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
