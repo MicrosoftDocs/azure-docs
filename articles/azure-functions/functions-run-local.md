@@ -522,6 +522,8 @@ To learn more, see the [`func deploy` command](functions-core-tools-reference.md
 
 ---
 
+To learn how to publish a custom container to Azure without Kubernetes, see [Create a function on Linux using a custom container](functions-create-function-linux-custom-image.md).
+
 ## Monitoring functions
 
 The recommended way to monitor the execution of your functions is by integrating with Azure Application Insights. You can also stream execution logs to your local computer. To learn more, see [Monitor Azure Functions](functions-monitoring.md).
