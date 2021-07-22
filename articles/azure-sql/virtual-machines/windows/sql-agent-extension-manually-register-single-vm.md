@@ -273,7 +273,7 @@ It's possible for your SQL IaaS agent extension to be in a failed state. Use the
 1. Select your SQL Server VM from the list. If your SQL Server VM is not listed here, it likely hasn't been registered with the SQL IaaS Agent extension.
 1. Select **Repair** under **Support + Troubleshooting** in the **SQL virtual machine** resource page. 
 
-   ![Select **Repair** under **Support + Troubleshooting** in the **SQL virtual machine** resource page](./media/sql-agent-extension-manually-register-single-vm/repair-extension.png)
+   :::image type="content" source="media/sql-agent-extension-manually-register-single-vm/repair-extension.png" alt-text="Select **Repair** under **Support + Troubleshooting** in the **SQL virtual machine** resource page":::   
 
 1. If your provisioning state shows as **Failed**, choose **Repair** to repair the extension. If your state is **Succeeded** you can check the box next to **Force repair** to repair the extension regardless of state. 
 
