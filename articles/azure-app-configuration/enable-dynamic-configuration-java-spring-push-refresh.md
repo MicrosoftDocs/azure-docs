@@ -126,19 +126,19 @@ Event Grid Web Hooks require validation on creation. You can validate by followi
     mvn spring-boot:deploy
     ```
 
-## Set up an Event subscription
+## Set up an event subscription
 
 1. Open the App Configuration resource in the Azure portal, then click on `+ Event Subscription` in the `Events` pane.
 
-    ![App Configuration Events](./media/events-pane.png)
+    :::image type="content" source="./media/events-pane.png" alt-text="The events pane has an option to create new Subscriptions." :::
 
 1. Enter a name for the `Event Subscription` and the `System Topic`. By default the Event Types Key-Value modified and Key-Value deleted are set, this can be changed along with using the Filters tab to choose the exact reasons a Push Event will be sent.
 
-    ![Create event subscription](./media/create-event-subscription.png)
+    :::image type="content" source="./media/create-event-subscription.png" alt-text="Events require a name, topic, and filters." :::
 
 1. Select the `Endpoint Type` as `Web Hook`, select `Select an endpoint`.
 
-    ![Event subscription service bus endpoint](./media/event-subscription-webhook-endpoint.png)
+    :::image type="content" source="./media/event-subscription-webhook-endpoint.png" alt-text="Selecting Endpoint creates a new blade to enter the endpoint URI." :::
 
 1. The endpoint is the URI of the application + "/actuator/appconfiguration-refresh?{your-token-name}={your-token-secret}". For example `https://my-azure-webapp.azurewebsites.net/actuator/appconfiguration-refresh?myToken=myTokenSecret`
 
@@ -146,12 +146,12 @@ Event Grid Web Hooks require validation on creation. You can validate by followi
 
 1. Click on `Event Subscriptions` in the `Events` pane to validated that the subscription was created successfully.
 
-    ![App Configuration event subscriptions](./media/event-subscription-view-webhook.png)
+    :::image type="content" source="./media/event-subscription-view-webhook.png" alt-text="Web Hook shows up in a table on the bottom of the page." :::
 
 > [!NOTE]
 > When subscribing for configuration changes, one or more filters can be used to reduce the number of events sent to your application. These can be configured either as [Event Grid subscription filters](/azure/event-grid/event-filtering.md) or [Service Bus subscription filters](/azure/service-bus-messaging/topic-filters.md). For example, a subscription filter can be used to only subscribe to events for changes in a key that starts with a specific string.
 
-## Verify and Test Application
+## Verify and test application
 
 1. After your application is running, use *curl* to test your application, for example:
 
