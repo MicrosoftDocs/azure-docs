@@ -195,7 +195,7 @@ A [skillset object](/rest/api/searchservice/create-skillset) is a set of enrichm
       "skills":
       [
         {
-          "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+          "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
           "categories": [ "Person", "Organization", "Location" ],
           "defaultLanguageCode": "en",
           "inputs": [
