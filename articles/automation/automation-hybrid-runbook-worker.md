@@ -3,10 +3,11 @@ title: Azure Automation Hybrid Runbook Worker overview
 description: This article provides an overview of the Hybrid Runbook Worker, which you can use to run runbooks on machines in your local datacenter or cloud provider.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/22/2021
+ms.date: 07/22/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
+
 # Hybrid Runbook Worker overview
 
 Runbooks in Azure Automation might not have access to resources in other clouds or in your on-premises environment because they run on the Azure cloud platform. You can use the Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the machine that's hosting the role and against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more assigned machines.
@@ -92,7 +93,12 @@ You can run [Azure Automation State Configuration](automation-dsc-overview.md) o
 
 ## Runbook Worker limits
 
-The maximum number of Hybrid Worker groups per Automation Account is 4000, and is applicable for both system & user hybrid workers. If you have more than 4,000 machines to manage, we recommend creating another Automation account.
+If you have more than 4,000 machines to manage, we recommend creating another Automation account.
+
+|Worker type| Maximum number supported per Automation Account.|
+|---|---|
+|System|4000|
+|User |4000|
 
 ## Runbooks on a Hybrid Runbook Worker
 
