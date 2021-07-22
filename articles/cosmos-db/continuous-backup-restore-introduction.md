@@ -110,7 +110,7 @@ Currently the point in time restore functionality is in public preview and it ha
 
 * Multi-regions write accounts are not supported.
 
-* Accounts with Synapse Link enabled are not supported.
+* For Azure Synapse Link enabled accounts, analytical store data isn't included in the backups and restores. When Synapse Link is enabled, Azure Cosmos DB will continue to automatically take backups of your data in the transactional store at a scheduled backup interval. Automatic backup and restore of your data in the analytical store is not supported at this time.
 
 * The restored account is created in the same region where your source account exists. You can't restore an account into a region where the source account did not exist.
 
