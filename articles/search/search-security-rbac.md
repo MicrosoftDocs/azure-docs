@@ -67,6 +67,8 @@ You can skip this step if you are using API keys only.
 
 ### [**Azure portal**](#tab/config-svc-portal)
 
+Set the feature flag on the portal URL to work with the preview roles: Search Service Contributor, Search Index Data Contributor, and Search Index Data Reader.
+
 1. Open the portal with this syntax: [https://ms.portal.azure.com/?feature.enableRbac=true](https://ms.portal.azure.com/?feature.enableRbac=true).
 
 1. Navigate to your search service.
@@ -83,7 +85,9 @@ You can skip this step if you are using API keys only.
 
 ### [**REST API**](#tab/config-svc-rest)
 
-1. Use [Create or Update Service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) in the Management REST API version 2021-04-01-Preview.
+Use the Management REST API, version 2021-04-01-Preview, to configure your service.
+
+1. Call [Create or Update Service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).
 
 1. Set [DataPlaneAuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to `aadOrApiKey`. See [this example](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchcreateorupdateserviceauthoptions) for syntax.
 
@@ -99,7 +103,7 @@ You must be an Owner or have [Microsoft.Authorization/roleAssignments/write](/az
 
 ### [**Azure portal**](#tab/rbac-portal)
 
-Set features on the portal URL to work with the preview roles: Search Service Contributor, Search Index Data Contributor, and Search Index Data Reader.
+Set the feature flag on the portal URL to work with the preview roles: Search Service Contributor, Search Index Data Contributor, and Search Index Data Reader.
 
 1. Open the portal with this syntax: [https://ms.portal.azure.com/?feature.enableRbac=true](https://ms.portal.azure.com/?feature.enableRbac=true). You should see `feature.enableRbac=true` in the URL.
 
@@ -115,7 +119,7 @@ Set features on the portal URL to work with the preview roles: Search Service Co
 
 When [using PowerShell to assign roles](/role-based-access-control/role-assignments-powershell), call [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment), providing the Azure user or group name, and the scope of the assignment.
 
-Make sure you load the Azure and AzureAD modules and connect to Azure:
+Before you start, make sure you load the Azure and AzureAD modules and connect to Azure:
 
 ```powershell
 Import-Module -Name Az
@@ -151,7 +155,7 @@ Depending on your application, additional configuration is required to register 
 
 Alternatively, you can use the Azure portal and the roles assigned to yourself to test:
 
-1. Open the portal with this syntax: [https://ms.portal.azure.com/?feature.enableRbac=true](https://ms.portal.azure.com/?feature.enableRbac=true). Although your service is RBAC-enabled in a previous step, the portal will require the feature flag to invoke RBAC behaviors. **Content, such as indexes and indexers, is only visible in the portal if you open it with the feature flag.**
+1. Open the portal with this syntax: [https://ms.portal.azure.com/?feature.enableRbac=true](https://ms.portal.azure.com/?feature.enableRbac=true). Although your service is RBAC-enabled in a previous step, the portal will require the feature flag to invoke RBAC behaviors. **Content, such as indexes and indexers, will only be visible in the portal if you open it with the feature flag.**
 
 1. Navigate to your search service.
 
@@ -171,4 +175,4 @@ If you are using Search Index Data Contributor and Search Index Data Reader role
 
 1. Set `disableLocalAuth` to **True**.
 
-If you revert the last step later, setting `disableLocalAuth` to **False**, the search service will resume acceptance of API keys on the request automatically (assuming they exist and are specified).
+If you revert the last step, setting `disableLocalAuth` to **False**, the search service will resume acceptance of API keys on the request automatically (assuming they exist and are specified).
