@@ -37,7 +37,7 @@ You have several options for creating device templates:
 
 - Design the device template in the IoT Central GUI.
 - Import a device template from the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat). Optionally, customize the device template to your requirements in IoT Central.
-- When the device connects to IoT Central, have it send the model Id of the model it implements. IoT Central uses the model Id to retrieve the model from the model repository and to create a device template. Add any cloud properties, customizations, and views your IoT Central application needs to the device template.
+- When the device connects to IoT Central, have it send the model ID of the model it implements. IoT Central uses the model ID to retrieve the model from the model repository and to create a device template. Add any cloud properties, customizations, and views your IoT Central application needs to the device template.
 - Author a device model using the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Manually import the device model into your IoT Central application, and then add any cloud properties, customizations, and views your IoT Central application needs.
 - You can also add device templates to an IoT Central application using the [REST API](/learn/modules/manage-iot-central-apps-with-rest-api/) or the [CLI](howto-manage-iot-central-from-cli.md).
 
@@ -246,7 +246,7 @@ To add a view to a device template:
 1. Go to your device template, and select **Views**.
 1. Select **Visualizing the Device**.
 1. Enter a name for your view in **View name**.
-1. Select **Start with a visual** under add tiles and choose the type of visual for your tile. Then either select **Add tile** or drag and drop the visual onto the canvas. To configure the tile, select the gear icon.**
+1. Select **Start with a visual** under add tiles and choose the type of visual for your tile. Then either select **Add tile** or drag and drop the visual onto the canvas. To configure the tile, select the gear icon.
 
 :::image type="content" source="media/howto-set-up-template/start-visual.png" alt-text="How to start with a visual"::: 
 
