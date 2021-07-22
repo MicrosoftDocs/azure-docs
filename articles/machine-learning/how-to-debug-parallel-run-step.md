@@ -385,7 +385,7 @@ ParallelRunStep will set the current attempt to process the mini-batch to failur
 ### Why do I have a lot of processNNN files?
 ParallelRunStep will start new worker processes in replace of the ones exited abnormally, and each process will generate a `processNNN` file as log. However, if the process failed because of exception during the `init` function of user script, and that the error repeated continuously for `3 * process_count_per_node` times, no new worker process will be started.
 
-## References
+## Next steps
 
 * See these [Jupyter notebooks demonstrating Azure Machine Learning pipelines](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 
