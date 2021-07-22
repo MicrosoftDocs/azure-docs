@@ -6,7 +6,7 @@ ms.service: api-management
 author: v-hhunter
 ms.author: v-hhunter
 ms.topic: how-to
-ms.date: 06/02/2021
+ms.date: 07/22/2021
 ms.custom: template-how-to 
 ---
 
@@ -94,6 +94,14 @@ Per the [WebSocket protocol](https://tools.ietf.org/html/rfc6455), when a client
 1. View received messages in **Output**.
 1. Repeat preceding steps to test different payloads.
 1. When testing is complete, select **Disconnect**.
+
+## View metrics and logs
+
+Use standard API Management and Azure Monitor features to [monitor](api-management-howto-use-azure-monitor.md) WebSocket APIs. View API metrics in Azure Monitor, and optionally enable diagnostic settings to collect and view API Management gateway logs, which include WebSocket API operations.
+
+For example, the following screenshot shows query results from the ApiManagementGatewayLogs table of recent WebSocket API responses with code 101. These results indicate the successful switch of the requests from TCP to the WebSocket protocol.
+
+:::image type="content" source="./media/websocket-api/query-gateway-log.png" alt-text="Query logs for WebSocket API requests":::
 
 ## Limitations
 
