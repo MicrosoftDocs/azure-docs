@@ -43,7 +43,7 @@ You must meet the following prerequisites before using Speech service containers
     * You should have a basic understanding of [Docker concepts](https://docs.docker.com/get-started/overview/). 
 * A <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices"  title="Create a Speech service resource"  target="_blank">Speech service resource </a> with the free (F0) or standard (S) [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-[!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
+[!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
 
 
 ## Host computer requirements and recommendations
@@ -249,7 +249,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/language-d
 
 ## How to use the container
 
-Once the container is on the [host computer](#the-host-computer), use the following process to work with the container.
+Once the container is on the [host computer](#host-computer-requirements-and-recommendations), use the following process to work with the container.
 
 1. [Run the container](#run-the-container-with-docker-run), with the required billing settings. More [examples](speech-container-configuration.md#example-docker-run-commands) of the `docker run` command are available.
 1. [Query the container's prediction endpoint](#query-the-containers-prediction-endpoint).
