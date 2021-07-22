@@ -10,7 +10,7 @@ ms.custom: template-tutorial
 
 # Tutorial: Integrate ServiceNow with Azure Defender for IoT
 
-This tutorial will help you learn how to integrate, and use ServiceNow with Azure Defender for IoT
+This tutorial will help you learn how to integrate, and use ServiceNow with Azure Defender for IoT.
 
 <!-- 2. Introductory paragraph 
 Required. Lead with a light intro that describes, in customer-friendly language, 
@@ -18,11 +18,9 @@ what the customer will learn, or do, or accomplish. Answer the fundamental “wh
 would I want to do this?” question. Keep it short.
 -->
 
-[Add your introductory paragraph]
+The Defender for IoT integration with ServiceNow provides a new level of centralized visibility, monitoring, and control for the IoT and OT landscape. These bridged platforms enable automated device visibility and threat management to previously unreachable ICS & IoT devices.
 
-<!-- 3. Tutorial outline 
-Required. Use the format provided in the list below.
--->
+The ServiceNow Configuration Management Database (CMDB) is enriched, and supplemented with a rich set of device attributes that are pushed by the Defender for IoT platform. This ensures a comprehensive, and continuous visibility into the device landscape. This visibility lets you monitor, and respond from a single-pane-of-glass. 
 
 In this tutorial, you learn how to:
 
@@ -53,11 +51,6 @@ In this tutorial, you learn how to:
     To set up your system to work with an on-premises management console, you will need to disable the ServiceNow Sync, Forwarding Rules, and Proxy configurations on any sensors where they were set up.
 
 - **Sensor architecture**: If you want to set up your environment to include direct communication between sensors and ServiceNow, for each sensor define the ServiceNow Sync, Forwarding rules, and proxy configuration (if a proxy is needed).
-
-<!-- 5. H2s
-Required. Give each H2 a heading that sets expectations for the content that follows. 
-Follow the H2 headings with a sentence about how the section contributes to the whole.
--->
 
 ## Download the Defender for IoT application in ServiceNow
 
