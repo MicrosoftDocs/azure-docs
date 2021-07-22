@@ -63,11 +63,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.PartnerCenterIngestion
 ```
 
 > [!NOTE]
-> If you are publishing using APIs, you would need to generate SAS URIs instead of using Shared image 
-> gallery (SIG), see [How to generate a SAS URI for a VM image](azure-vm-get-sas-uri.md).
-
-> [!NOTE]
-> You don’t need to generate SAS URIs as you can now publish a SIG Image on Partner Center, without using  APIs.
+> You don’t need to generate SAS URIs as you can now publish a Shared image gallery (SIG) Image on Partner  Center, without using APIs. <br/> <br/>If you *are* publishing using APIs, you would need to generate SAS URIs instead of using a SIG, see [How to generate a SAS URI for a VM image](azure-vm-get-sas-uri.md).
 
 ## Next steps
 
