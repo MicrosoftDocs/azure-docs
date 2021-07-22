@@ -56,7 +56,7 @@ On the details page of the maintenance configuration, select **Assignments** and
 
 ![Screenshot showing how to assign a resource](media/virtual-machine-scale-sets-maintenance-control-portal/maintenance-configurations-add-assignment.png)
 
-Select the resources that you want the maintenance configuration assigned to and select **Ok**. The **Type** column shows whether the resource is an isolated VM or Azure dedicated host. The VM needs to be running to assign the configuration. An error occurs if you try to assign a configuration to a VM that is stopped. 
+Select the virtual machine scale set resources that you want the maintenance configuration assigned to and select **Ok**.  
 
 
 ## Next steps

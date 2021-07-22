@@ -67,6 +67,8 @@
     items:
     - name: Single-tenant overview
       href: single-tenant-overview-compare.md
+    - name: About the workflow designer (single-tenant)
+      href: designer-overview.md
     - name: Create single-tenant workflows - Portal
       href: create-single-tenant-workflows-azure-portal.md
     - name: Create single-tenant workflows - Visual Studio Code
@@ -177,57 +179,70 @@
       href: logic-apps-gateway-connection.md
   - name: Develop for B2B scenarios
     items: 
-    - name: Create integration account
-      href: logic-apps-enterprise-integration-create-integration-account.md
-      displayName: Azure CLI, az logic integration-account create, integration-account
-    - name: Trading partners
-      href: logic-apps-enterprise-integration-partners.md
-    - name: Agreements
-      href: logic-apps-enterprise-integration-agreements.md
-    - name: Schemas for XML validation
-      href: logic-apps-enterprise-integration-schemas.md
-    - name: Maps for XML transform
-      href: logic-apps-enterprise-integration-maps.md
-    - name: Certificates
-      href: logic-apps-enterprise-integration-certificates.md
-    - name: Artifact metadata
-      href: logic-apps-enterprise-integration-metadata.md
+    - name: Integration account and artifacts
+      items:
+      - name: Create integration account
+        href: logic-apps-enterprise-integration-create-integration-account.md
+      - name: Trading partners
+        href: logic-apps-enterprise-integration-partners.md
+      - name: Agreements
+        href: logic-apps-enterprise-integration-agreements.md
+      - name: Schemas for XML validation
+        href: logic-apps-enterprise-integration-schemas.md
+      - name: Maps for XML transform
+        href: logic-apps-enterprise-integration-maps.md
+      - name: Certificates
+        href: logic-apps-enterprise-integration-certificates.md
+      - name: Artifact metadata
+        href: logic-apps-enterprise-integration-metadata.md
     - name: Receive and send B2B messages
       href: logic-apps-enterprise-integration-b2b.md
-    - name: Exchange AS2 messages
-      href: logic-apps-enterprise-integration-as2.md
-    - name: AS2 message settings
-      href: logic-apps-enterprise-integration-as2-message-settings.md
-    - name: Exchange EDIFACT messages
-      href: logic-apps-enterprise-integration-edifact.md
+    - name: AS2 messaging
+      items:
+      - name: Exchange AS2 messages
+        href: logic-apps-enterprise-integration-as2.md
+      - name: AS2 message settings
+        href: logic-apps-enterprise-integration-as2-message-settings.md
+    - name: EDIFACT messaging
       items: 
+      - name: Exchange EDIFACT messages
+        href: logic-apps-enterprise-integration-edifact.md
       - name: EDIFACT encoding
         href: logic-apps-enterprise-integration-edifact-encode.md
       - name: EDIFACT decoding
         href: logic-apps-enterprise-integration-edifact-decode.md
       - name: Handle EDIFACT files with UNH2.5 segment
         href: logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md
+    - name: RosettaNet messaging
+      items: 
       - name: Exchange RosettaNet messages
         href: logic-apps-enterprise-integration-rosettanet.md
-    - name: Exchange X12 messages
-      href: logic-apps-enterprise-integration-x12.md
+    - name: X12 messaging
       items: 
+      - name: Exchange X12 messages
+        href: logic-apps-enterprise-integration-x12.md
       - name: X12 encoding
         href: logic-apps-enterprise-integration-x12-encode.md
       - name: X12 decoding
         href: logic-apps-enterprise-integration-x12-decode.md
+      - name: X12 TA1 acknowledgment
+        href: logic-apps-enterprise-integration-x12-ta1-acknowledgment.md
+      - name: X12 997 acknowledgment
+        href: logic-apps-enterprise-integration-x12-997-acknowledgment.md
     - name: Batch and send EDI messages
       href: logic-apps-scenario-edi-send-batch-messages.md
     - name: Process flat files
       href: logic-apps-enterprise-integration-flatfile.md
-    - name: Transform XML
-      href: logic-apps-enterprise-integration-transform.md
-    - name: Process XML
-      href: logic-apps-enterprise-integration-xml.md
-    - name: Validate XML
-      href: logic-apps-enterprise-integration-xml-validation.md
-    - name: Transform JSON
-      href: logic-apps-enterprise-integration-liquid-transform.md
+    - name: XML and JSON transforms
+      items: 
+      - name: Transform XML
+        href: logic-apps-enterprise-integration-transform.md
+      - name: Process XML
+        href: logic-apps-enterprise-integration-xml.md
+      - name: Validate XML
+        href: logic-apps-enterprise-integration-xml-validation.md
+      - name: Transform JSON
+        href: logic-apps-enterprise-integration-liquid-transform.md
     - name: Troubleshoot B2B errors
       href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
     - name: Build a disaster recovery plan
@@ -391,14 +406,16 @@
         href: logic-apps-data-operations-code-samples.md
       - name: Monitor social media
         href: logic-apps-scenario-social-serverless.md
-      - name: Build a serverless app - Visual Studio
-        href: logic-apps-serverless-get-started-vs.md        
+      - name: Create a serverless app - Visual Studio
+        href: create-serverless-apps-visual-studio.md
       - name: Add error and exception handling
         href: logic-apps-scenario-error-and-exception-handling.md
       - name: B2B processing
         href: logic-apps-enterprise-integration-b2b.md
 - name: Reference
   items:
+  - name: Billing and pricing models
+    href: logic-apps-pricing.md
   - name: Architecture patterns
     items:
     - name: Basic enterprise integration
@@ -409,8 +426,6 @@
     href: /connectors/
   - name: Service limits and configuration
     href: logic-apps-limits-and-config.md
-  - name: Pricing model & usage metering
-    href: logic-apps-pricing.md
   - name: Azure CLI
     href: /cli/azure/logic
   - name: Azure PowerShell
@@ -447,7 +462,7 @@
     href: https://aka.ms/logicappsroadmap/  
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Pricing
+  - name: Pricing for Azure Logic Apps
     href: https://azure.microsoft.com/pricing/details/logic-apps/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/

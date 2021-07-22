@@ -45,31 +45,28 @@ For more information on the specifications of each VM type, see the following do
 > [!Note]
 > To get the SKU identifier for use in powershell and other scripts, add `Standard_` to the beginning of all of the VM SKUs in the tables below. For example, `D12_v2` would become `Standard_D12_v2`.
 
-| Cluster type | Hadoop | HBase | Interactive Query | Storm | Spark | ML Server | Kafka |
-|---|---|---|---|---|---|---|---|
-| Head: default VM size | D12_v2 | D12_v2 | D13_v2 | A4_v2 | D12_v2, <br/>D13_v2* | D12_v2 | D3_v2 |
-| Head: minimum recommended VM sizes | D5_v2 | D3_v2 | D13_v2 | A4_v2 | D12_v2, <br/>D13_v2* | D12_v2 | D3_v2 |
-| Worker: default VM size | D4_v2 | D4_v2 | D14_v2 | D3_v2 | D13_v2 | D4_v2 | 4 D12_v2 with 2 S30 disks per broker |
-| Worker: minimum recommended VM sizes | D5_v2 | D3_v2 | D13_v2 | D3_v2 | D12_v2 | D4_v2 | D3_v2 |
-| ZooKeeper: default VM size |  | A4_v2 | A4_v2 | A4_v2 |  | A2_v2 | A4_v2 |
-| ZooKeeper: minimum recommended VM sizes |  | A4_v2 | A4_v2 | A2_v2 |  | A2_v2 | A4_v2 |
-| ML Services: default VM size |  |  |  |  |  | D4_v2 |  |
-| ML Services: minimum recommended VM size |  |  |  |  |  | D4_v2 |  |
+| Cluster type                            | Hadoop | HBase  | Interactive Query | Storm | Spark                | Kafka                                |
+|-----------------------------------------|--------|--------|-------------------|-------|----------------------|--------------------------------------|
+| Head: default VM size                   | D12_v2 | D12_v2 | D13_v2            | A4_v2 | D12_v2, <br/>D13_v2* | D3_v2                                |
+| Head: minimum recommended VM sizes      | D5_v2  | D3_v2  | D13_v2            | A4_v2 | D12_v2, <br/>D13_v2* | D3_v2                                |
+| Worker: default VM size                 | D4_v2  | D4_v2  | D14_v2            | D3_v2 | D13_v2               | 4 D12_v2 with 2 S30 disks per broker |
+| Worker: minimum recommended VM sizes    | D5_v2  | D3_v2  | D13_v2            | D3_v2 | D12_v2               | D3_v2                                |
+| ZooKeeper: default VM size              |        | A4_v2  | A4_v2             | A4_v2 |                      | A4_v2                                |
+| ZooKeeper: minimum recommended VM sizes |        | A4_v2  | A4_v2             | A2_v2 |                      | A4_v2                                |
 
 \* = VM Sizes for Spark Enterprise Security Package (ESP) clusters
 
 ### Brazil south and Japan west only
 
-| Cluster type | Hadoop | HBase | Interactive Query | Storm | Spark | ML Services |
-|---|---|---|---|---|---|---|
-| Head: default VM size | D12 | D12 | D13 | A4_v2 | D12 | D12 |
-| Head: minimum recommended VM sizes | D5_v2 | D3_v2 | D13_v2 | A4_v2 | D12_v2 | D12_v2 |
-| Worker: default VM size | D4 | D4 | D14 | D3 | D13 | D4 |
-| Worker: minimum recommended VM sizes | D5_v2 | D3_v2 | D13_v2 | D3_v2 | D12_v2 | D4_v2 |
-| ZooKeeper: default VM size |  | A4_v2 | A4_v2 | A4_v2 |  | A2_v2 |
-| ZooKeeper: minimum recommended VM sizes |  | A4_v2 | A4_v2 | A4_v2 |  | A2_v2 |
-| ML Services: default VM sizes |  |  |  |  |  | D4 |
-| ML Services: minimum recommended VM sizes |  |  |  |  |  | D4_v2 |
+| Cluster type                            | Hadoop | HBase | Interactive Query | Storm | Spark  |
+|-----------------------------------------|--------|-------|-------------------|-------|--------|
+| Head: default VM size                   | D12    | D12   | D13               | A4_v2 | D12    |
+| Head: minimum recommended VM sizes      | D5_v2  | D3_v2 | D13_v2            | A4_v2 | D12_v2 |
+| Worker: default VM size                 | D4     | D4    | D14               | D3    | D13    |
+| Worker: minimum recommended VM sizes    | D5_v2  | D3_v2 | D13_v2            | D3_v2 | D12_v2 |
+| ZooKeeper: default VM size              |        | A4_v2 | A4_v2             | A4_v2 |        |
+| ZooKeeper: minimum recommended VM sizes |        | A4_v2 | A4_v2             | A4_v2 |        |
+
 
 > [!NOTE]
 > - Head is known as *Nimbus* for the Storm cluster type.

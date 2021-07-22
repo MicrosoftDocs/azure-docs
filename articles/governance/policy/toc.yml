@@ -66,6 +66,8 @@
     href: ./samples/built-in-policies.md
   - name: Built-in initiatives
     href: ./samples/built-in-initiatives.md
+  - name: Azure Resource Graph queries
+    href: ./samples/resource-graph-samples.md
   - name: Patterns of use
     items:
     - name: Logical operators
@@ -108,6 +110,8 @@
       href: ./samples/iso-27001.md
     - name: New Zealand ISM Restricted
       href: ./samples/new-zealand-ism.md
+    - name: NIST SP 800-53 R5
+      href: ./samples/nist-sp-800-53-r5.md
     - name: NIST SP 800-53 R4
       href: ./samples/nist-sp-800-53-r4.md
     - name: NIST SP 800-171 R2
@@ -333,7 +337,7 @@
     items:
     - name: Governance YouTube Channel
       href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/

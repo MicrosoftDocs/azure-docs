@@ -7,7 +7,7 @@ author: vladvino
 
 ms.service: api-management
 ms.topic: article
-ms.date: 06/02/2021
+ms.date: 06/22/2021
 ms.author: apimpm
 ---
 
@@ -597,42 +597,42 @@ For more information about custom CA certificates and certificate authorities, s
 ### Policy statement
 
 ```xml
-<validate-client-certificate> 
-    validate-revocation="true|false" 
-    validate-trust="true|false" 
-    validate-not-before="true|false" 
-    validate-not-after="true|false" 
-    ignore-error="true|false"> 
-    <identities> 
-        <identity  
-            thumbprint="certificate thumbprint"  
-            serial-number="certificate serial number" 
-            common-name="certificate common name"  
-            subject="certificate subject string"  
-            dns-name="certificate DNS name" 
-            issuer="certificate issuer" 
-            issuer-thumbprint="certificate issuer thumbprint"  
-            issuer-certificate-id="certificate identifier" /> 
-    </identities> 
+<validate-client-certificate 
+    validate-revocation="true|false"
+    validate-trust="true|false" 
+    validate-not-before="true|false" 
+    validate-not-after="true|false" 
+    ignore-error="true|false">
+    <identities>
+        <identity 
+            thumbprint="certificate thumbprint"
+            serial-number="certificate serial number"
+            common-name="certificate common name"
+            subject="certificate subject string"
+            dns-name="certificate DNS name"
+            issuer-subject="certificate issuer"
+            issuer-thumbprint="certificate issuer thumbprint"
+            issuer-certificate-id="certificate identifier" />
+    </identities>
 </validate-client-certificate> 
 ```
 
 ### Example
 
-The following example validates a client certificate to match the policy's default validation rules and checks whether the subject and issuer match specified values.
+The following example validates a client certificate to match the policy's default validation rules and checks whether the subject and issuer name match specified values.
 
 ```xml
-<validate-client-certificate> 
-    validate-revocation="true" 
-    validate-trust="true" 
-    validate-not-before="true" 
-    validate-not-after="true" 
-    ignore-error="false"
-    <identities> 
-        <identity 
+<validate-client-certificate 
+    validate-revocation="true" 
+    validate-trust="true" 
+    validate-not-before="true" 
+    validate-not-after="true" 
+    ignore-error="false">
+    <identities>
+        <identity
             subject="C=US, ST=Illinois, L=Chicago, O=Contoso Corp., CN=*.contoso.com"
-            issuer="C=BE, O=FabrikamSign nv-sa, OU=Root CA, CN=FabrikamSign Root CA" />
-    </identities> 
+            issuer-subject="C=BE, O=FabrikamSign nv-sa, OU=Root CA, CN=FabrikamSign Root CA" />
+    </identities>
 </validate-client-certificate> 
 ```
 
@@ -658,9 +658,9 @@ The following example validates a client certificate to match the policy's defau
 | common-name | Certificate common name (part of Subject string). | no | N/A |
 | subject | Subject string. Must follow format of Distinguished Name. | no | N/A |
 | dns-name | Value of dnsName entry inside Subject Alternative Name claim. | no | N/A | 
-| issuer | Issuer’s subject. Must follow format of Distinguished Name. | no | N/A | 
+| issuer-subject | Issuer’s subject. Must follow format of Distinguished Name. | no | N/A | 
 | issuer-thumbprint | Issuer thumbprint. | no | N/A | 
-| issuer-certificate-id | Identifier of existing Certificate entity representing Issuer’s public key. | no | N/A | 
+| issuer-certificate-id | Identifier of existing certificate entity representing the issuer’s public key. Mutually exclusive with other issuer attributes.  | no | N/A | 
 
 ### Usage
 

@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.author: peterlu
-author: peterclu
-ms.date: 05/14/2021
+ms.author: jhirono
+author: jhirono
+ms.date: 07/13/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
 
 ---
@@ -44,15 +44,21 @@ In this article you learn how to secure the following inferencing resources in a
 
     For more information on Azure RBAC with networking, see the [Networking built-in roles](../role-based-access-control/built-in-roles.md#networking)
 
+## Limitations
+
+### Azure Container Instances
+
+* When using Azure Container Instances in a virtual network, the virtual network must be in the same resource group as your Azure Machine Learning workspace.
+* If your workspace has a __private endpoint__, the virtual network used for Azure Container Instances must be the same as the one used by the workspace private endpoint.
+* When using Azure Container Instances inside the virtual network, the Azure Container Registry (ACR) for your workspace can't be in the virtual network.
+
 <a id="aksvnet"></a>
 
 ## Azure Kubernetes Service
 
-To use an AKS cluster in a virtual network, the following network requirements must be met:
+> [!IMPORTANT]
+> To use an AKS cluster in a virtual network, first follow the prerequisites in [Configure advanced networking in Azure Kubernetes Service (AKS)](../aks/configure-azure-cni.md#prerequisites).
 
-> [!div class="checklist"]
-> * Follow the prerequisites in [Configure advanced networking in Azure Kubernetes Service (AKS)](../aks/configure-azure-cni.md#prerequisites).
-> * The AKS instance and the virtual network must be in the same region. If you secure the Azure Storage Account(s) used by the workspace in a virtual network, they must be in the same virtual network as the AKS instance too.
 
 To add AKS in a virtual network to your workspace, use the following steps:
 
@@ -160,9 +166,6 @@ By default, AKS clusters have a control plane, or API server, with public IP add
 
 After you create the private AKS cluster, [attach the cluster to the virtual network](how-to-create-attach-kubernetes.md) to use with Azure Machine Learning.
 
-> [!IMPORTANT]
-> Before using a private link enabled AKS cluster with Azure Machine Learning, you must open a support incident to enable this functionality. For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
-
 ### Internal AKS load balancer
 
 By default, AKS deployments use a [public load balancer](../aks/load-balancer-standard.md). In this section, you learn how to configure AKS to use an internal load balancer. An internal (or private) load balancer is used where only private IPs are allowed as frontend. Internal load balancers are used to load balance traffic inside a virtual network
@@ -226,7 +229,8 @@ az ml computetarget update aks \
                            -g myresourcegroup
 ```
 
-For more information, see the [az ml computetarget create aks](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_aks) and [az ml computetarget update aks](/cli/azure/ml/computetarget/update#az_ml_computetarget_update_aks) reference.
+
+For more information, see the [az ml computetarget create aks](/cli/azure/ml(v1)/computetarget/create#az_ml_computetarget_create_aks) and [az ml computetarget update aks](/cli/azure/ml(v1)/computetarget/update#az_ml_computetarget_update_aks) reference.
 
 ---
 
@@ -253,16 +257,7 @@ aks_target.wait_for_completion(show_output = True)
 
 ## Enable Azure Container Instances (ACI)
 
-Azure Container Instances are dynamically created when deploying a model. To enable Azure Machine Learning to create ACI inside the virtual network, you must enable __subnet delegation__ for the subnet used by the deployment.
-
-> [!WARNING]
-> When using Azure Container Instances in a virtual network, the virtual network must be:
-> * In the same resource group as your Azure Machine Learning workspace.
-> * If your workspace has a __private endpoint__, the virtual network used for Azure Container Instances must be the same as the one used by the workspace private endpoint.
->
-> When using Azure Container Instances inside the virtual network, the Azure Container Registry (ACR) for your workspace cannot be in the virtual network.
-
-To use ACI in a virtual network to your workspace, use the following steps:
+Azure Container Instances are dynamically created when deploying a model. To enable Azure Machine Learning to create ACI inside the virtual network, you must enable __subnet delegation__ for the subnet used by the deployment. To use ACI in a virtual network to your workspace, use the following steps:
 
 1. To enable subnet delegation on your virtual network, use the information in the [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md) article. You can enable delegation when creating a virtual network, or add it to an existing network.
 

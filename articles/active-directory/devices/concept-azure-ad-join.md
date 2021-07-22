@@ -1,12 +1,12 @@
 ---
 title: What is an Azure AD joined device?
-description: Learn about Azure AD joined devices, and how device identity management can help you to manage devices that are accessing resources in your environment.
+description: Azure AD joined devices can help you to manage devices accessing resources in your environment.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 06/10/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Azure AD joined devices
 
-Azure AD join is intended for organizations that want to be cloud-first or cloud-only. Any organization can deploy Azure AD joined devices no matter the size or industry. Azure AD join works even in a hybrid environment, enabling access to both cloud and on-premises apps and resources.
+Any organization can deploy Azure AD joined devices no matter the size or industry. Azure AD join works even in hybrid environments, enabling access to both cloud and on-premises apps and resources.
 
 | Azure AD Join | Description |
 | --- | --- |
@@ -26,8 +26,8 @@ Azure AD join is intended for organizations that want to be cloud-first or cloud
 |   | Applicable to all users in an organization |
 | **Device ownership** | Organization |
 | **Operating Systems** | All Windows 10 devices except Windows 10 Home |
-|   | [Windows Server 2019 Virtual Machines running in Azure](howto-vm-sign-in-azure-ad-windows.md) (Server core is not supported) |
-| **Provisioning** | Self-service: Windows OOBE or Settings |
+|   | [Windows Server 2019 Virtual Machines running in Azure](howto-vm-sign-in-azure-ad-windows.md) (Server core isn't supported) |
+| **Provisioning** | Self-service: Windows Out of Box Experience (OOBE) or Settings |
 |   | Bulk enrollment |
 |   | Windows Autopilot |
 | **Device sign in options** | Organizational accounts using: |
@@ -59,7 +59,7 @@ While Azure AD join is primarily intended for organizations that do not have an 
 - You want to manage a group of users in Azure AD instead of in Active Directory. This scenario can apply, for example, to seasonal workers, contractors, or students.
 - You want to provide joining capabilities to workers in remote branch offices with limited on-premises infrastructure.
 
-You can configure Azure AD joined devices for all Windows 10 devices with the exception of Windows 10 Home.
+You can configure Azure AD joined devices for all Windows 10 devices except for Windows 10 Home.
 
 The goal of Azure AD joined devices is to simplify:
 
