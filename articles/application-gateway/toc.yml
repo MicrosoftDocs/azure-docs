@@ -285,7 +285,7 @@
 - name: Reference
   items:
   - name: Common Key Vault errors
-    href: application-gateway-keyvault-common-errors.md
+    href: application-gateway-key-vault-common-errors.md
   - name: Monitoring data
     href: monitor-application-gateway-reference.md
   - name: Ingress for AKS annotations
