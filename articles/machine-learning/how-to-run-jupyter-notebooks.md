@@ -92,7 +92,8 @@ Whether the comments pane is visible or not, you can add a comment into any code
 
 Text that has been commented will appear with a purple highlight in the code. When you select a comment in the comments pane, your notebook will scroll to the cell that contains the highlighted text.
 
-Comments are saved into the code cell's metadata.
+> [!NOTE]
+> Comments are saved into the code cell's metadata.
 
 ## Clean your notebook (preview)
 
