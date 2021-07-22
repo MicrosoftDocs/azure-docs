@@ -37,11 +37,11 @@ Assign one of the Azure Relay roles to the application's service principal at th
 
 ## Run the sample
 
-1. Download the console application sample from [here](https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections/dotnet) for Hybrid Connections.
-1. Run the application locally on your computer per the instructions from the [README article]().
+1. Download the console application sample from [GitHub](https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections/dotnet/rolebasedaccesscontrol).
+1. Run the application locally on your computer per the instructions from the [README article](https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections/dotnet/rolebasedaccesscontrol#rolebasedaccesscontrol-hybrid-connection-sample).
 
     > [!NOTE]
-    > Follow the same steps above to run the [sample console application for WCF Relay](https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay). 
+    > Follow the same steps above to run the [sample console application for WCF Relay](https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay/RoleBasedAccessControl). 
 
 #### Highlighted code from the sample
 Here's the code from the sample that shows how to use Azure AD authentication to connect to the Azure Relay service.  
