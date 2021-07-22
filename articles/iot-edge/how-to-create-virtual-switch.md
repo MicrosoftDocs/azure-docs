@@ -20,11 +20,11 @@ This article shows you how to create a virtual switch on a Windows device to ins
 - Create a NAT table
 - Install and set up a DHCP server
 
-# Prerequisites
+## Prerequisites
 - A Windows device. For supported Windows versions, see [Operating Systems](support.md#operating-systems).
 - Hyper-V role installed on the Windows device. For more information on how to enable Hyper-V, see [Install and provision Azure IoT Edge for Linux on a Windows device](/azure/iot-edge/how-to-install-iot-edge-on-windows?tabs=powershell#prerequisites).
 
-# Create virtual switch 
+## Create virtual switch 
 The following steps in this section are a generic guide for a virtual switch creation. Ensure that the virtual switch configuration aligns with your networking environment.
 
 1. Open PowerShell in an elevated session.
@@ -61,7 +61,7 @@ New-NetNat -Name "{switchName}" -InternalIPInterfaceAddressPrefix "{natIp}/24"
 ```
 <br/>
 
-# Create DHCP Server 
+## Create DHCP Server 
 
 >[!WARNING]
 >Authorization might be required to deploy a DHCP server in a corporate network environment. Check if the virtual switch configuration complies with your corporate network's policies. For further information, check the  [Deploy DHCP Using Windows PowerShell](/windows-server/networking/technologies/dhcp/dhcp-deploy-wps) guide. 
