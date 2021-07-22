@@ -4,7 +4,7 @@ description: In this tutorial, learn how to integrate ServiceNow with Azure Defe
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 07/21/2021
+ms.date: 07/22/2021
 ms.custom: template-tutorial
 ---
 
@@ -27,14 +27,13 @@ Required. Use the format provided in the list below.
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * All tutorials include a list summarizing the steps to completion
-> * Each of these bullet points align to a key H2
-> * Use these green checkboxes in a tutorial
-
-<!-- 4. Prerequisites 
-Required. First prerequisite is a link to a free trial account if one exists. If there 
-are no prerequisites, state that no prerequisites are needed for this tutorial.
--->
+> * Download the Defender for IoT application in ServiceNow
+> * Set up Defender for IoT to communicate with ServiceNow
+> * Create access tokens in ServiceNow
+> * Send Defender for IoT device attributes to ServiceNow
+> * Set up the integration using a HTTPS proxy
+> * View Defender for IoT detections in ServiceNow
+> * View connected devices
 
 ## Prerequisites
 
@@ -60,14 +59,27 @@ Required. Give each H2 a heading that sets expectations for the content that fol
 Follow the H2 headings with a sentence about how the section contributes to the whole.
 -->
 
-## Create access tokens in ServiceNow
+## Download the Defender for IoT application in ServiceNow
 
-A token is needed in order to allow ServiceNow to communicate with Defender for IoT.
+To access the Defender for IoT application within ServiceNow, you will need to download the application form the ServiceNow application store. 
 
-1. Sign in to the on-premises management console.
-1. Select **Forwarding**.
-1. Select the :::image type="icon" source="media/tutorial-servicenow/plus-icon.png" border="false"::: button.
-1. 
+**To access the Defender for IoT application in ServiceNow**:
+
+1. Navigate to the [ServiceNow application store](https://store.servicenow.com/).
+
+2. Search for `Defender for IoT` or `CyberX IoT/ICS Management`.
+
+   :::image type="content" source="media/tutorial-servicenow/search-results.png" alt-text="Search for CyberX in the search bar.":::
+
+3. Select the application.
+
+   :::image type="content" source="media/tutorial-servicenow/cyberx-app.png" alt-text="Select the application from the list.":::
+
+4. Select **Request App.**
+
+   :::image type="content" source="media/tutorial-servicenow/sign-in.png" alt-text="Sign in to the application with your credentials.":::
+
+5. Sign in, and download the application.
 
 ## Set up Defender for IoT to communicate with ServiceNow
 
@@ -117,6 +129,12 @@ Configure Defender for IoT to push alert information to the ServiceNow tables. D
 1. Select **SAVE**. 
 
 Defender for IoT alerts will now appear as incidents in ServiceNow.
+
+## Create access tokens in ServiceNow
+
+A token is needed in order to allow ServiceNow to communicate with Defender for IoT.
+
+You will need the `Client ID` and `Client Secret` when creating the Defender for IoT Forwarding rules. The Forwarding rules forward alert information to ServiceNow, and when configuring Defender for IoT to push device attributes to ServiceNow tables.
 
 ## Send Defender for IoT device attributes to ServiceNow
 
@@ -182,28 +200,6 @@ Defender for IoT supports an HTTPS proxy in the ServiceNow integration by enabli
 
 After the configurations are set, all the ServiceNow data is forwarded using the configured proxy.
 
-## Download the Defender for IoT application in ServiceNow
-
-To access the Defender for IoT application within ServiceNow, you will need to download the application form the ServiceNow application store. 
-
-**To access the Defender for IoT application in ServiceNow**:
-
-1. Navigate to the [ServiceNow application store](https://store.servicenow.com/).
-
-2. Search for `Defender for IoT` or `CyberX IoT/ICS Management`.
-
-   :::image type="content" source="media/tutorial-servicenow/search-results.png" alt-text="Search for CyberX in the search bar.":::
-
-3. Select the application.
-
-   :::image type="content" source="media/tutorial-servicenow/cyberx-app.png" alt-text="Select the application from the list.":::
-
-4. Select **Request App.**
-
-   :::image type="content" source="media/tutorial-servicenow/sign-in.png" alt-text="Sign in to the application with your credentials.":::
-
-5. Sign in, and download the application.
-
 ## View Defender for IoT detections in ServiceNow
 
 This article describes the device attributes and alert information presented in ServiceNow.
@@ -227,28 +223,13 @@ To view connected devices:
     :::image type="content" source="media/tutorial-servicenow/appliance.png" alt-text="Select the desired appliance from the list.":::
 
 1. In the **Device Details** dialog box, select **Connected Devices**.
-<!-- 6. Clean up resources
-Required. If resources were created during the tutorial. If no resources were created, 
-state that there are no resources to clean up in this section.
--->
 
 ## Clean up resources
 
-There are no resources to clean up
-
-<!-- 7. Next steps
-Required: A single link in the blue box format. Point to the next logical tutorial 
-in a series, or, if there are no other tutorials, to some other cool thing the 
-customer can do. 
--->
+There are no resources to clean up.
 
 ## Next steps
 
-Advance to the next article to learn how to create...
+In this tutorial, you learned how to get started with the ServiceNow integration. Continue on to learn about the XXXXXXXX integration.
 > [!div class="nextstepaction"]
-> [Next steps button](contribute-how-to-mvc-tutorial.md)
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+> [Next steps button]()
