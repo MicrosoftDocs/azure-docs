@@ -1,9 +1,9 @@
 ---
 title: 'Deploy Fusion Core on an Azure Stack Edge device'
 description: Learn how to deploy cloud solutions from Microsoft Azure and Metaswitch Networks that can help future-proof your network, drive down costs, and create new business models and revenue streams.
-services: vnf-manager
+
 author: djrmetaswitch
-ms.service: vnf-manager
+ms.service: private-multi-access-edge-compute-mec
 ms.topic: how-to
 ms.date: 06/16/2021
 ms.author: drichards
@@ -21,7 +21,7 @@ You must have the following:
 
   - Port 5 - LAN
   - Port 6 - WAN
-  - One port connected to your management network. You can choose any port from 1 to 4. You must have enabled your chosen port for compute, as described in the Enable compute network step of [Tutorial: Configure network for Azure Stack Edge Pro with GPU](/azure/databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy).
+  - One port connected to your management network. You can choose any port from 1 to 4. You must have enabled your chosen port for compute, as described in the Enable compute network step of [Tutorial: Configure network for Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 - An Azure account with an active subscription and access to the following.
 
   - The Azure Network Function Manager service. This has the resource provider namespace Microsoft.HybridNetwork. For more information, see [What is Azure Network Function Manager?](../network-function-manager/overview.md).
@@ -53,6 +53,3 @@ In addition to coordinating the installation of Fusion Core, the Metaswitch Serv
 ## Next steps
 - For step-by-step instructions about deploying Fusion Core on an Azure Stack Edge device, [Download the Private 5G Edge Fusion Core Solution Guide](https://go.microsoft.com/fwlink/?linkid=2165096).
 - Learn more about [Private 5G Edge Fusion Core](metaswitch-fusion-core-overview.md)
-
-
-

@@ -13,7 +13,7 @@ ms.date: 03/08/2021
 
 # Rebuild a Studio (classic) experiment in Azure Machine Learning
 
-In this article, you learn how to rebuild a Studio (classic) experiment in Azure Machine Learning. For more information on migrating from Studio (classic), see [the migration overview article](migrate-overview.md).
+In this article, you learn how to rebuild a Studio (classic) experiment in [Azure Machine Learning](../index.yml). For more information on migrating from Studio (classic), see [the migration overview article](migrate-overview.md).
 
 Studio (classic) **experiments** are similar to **pipelines** in Azure Machine Learning. However, in Azure Machine Learning pipelines are built on the same back-end that powers the SDK. This means that you have two options for machine learning development: the drag-and-drop designer or code-first SDKs.
 

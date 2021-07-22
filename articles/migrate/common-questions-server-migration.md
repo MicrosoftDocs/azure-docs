@@ -152,8 +152,8 @@ Migrating your applications to Azure instances running a newer version of Window
 However, if you still choose to migrate your Windows Server 2003 to Azure, you can use the Azure Migrate: Server Migration tool if your Windows Server is a VM running on VMware or Hyper-V
 Review this article to [prepare your Windows Server 2003 machines for migration](./prepare-windows-server-2003-migration.md).
 
-## Agentless VMware Migration
-### How does Agentless Migration work?
+## Agentless VMware migration
+### How does agentless migration work?
 
 Azure Migrate: Server Migration provides agentless replication options for the migration of VMware virtual machines and Hyper-V virtual machines running Windows or Linux. The tool also provides another agent-based replication option for Windows and Linux servers that can be used to migrate physical servers, and x86/x64 virtual machines on VMware, Hyper-V, AWS, GCP, etc. The agent-based replication option requires the installation of agent software on the server/virtual machine that’s being migrated, whereas in the agentless option no software needs to be installed on the virtual machines themselves, thus offering more convenience and simplicity over the agent-based replication option.
 
@@ -255,7 +255,7 @@ Agentless replication results in some performance impact on VMware vCenter Serve
 
 Review the [article](./tutorial-migrate-aws-virtual-machines.md) to discover, assess, and migrate your AWS EC2 instances to Azure.
 
-### How does agent-based Migration work?
+### How does agent-based migration work?
 
 In addition to agentless migration options for VMware virtual machines and Hyper-V virtual machines, the Server Migration tool provides an agent-based migration option to migrate Windows and Linux servers running on physical servers, or running as x86/x64 virtual machines on VMware, Hyper-V, AWS, Google Cloud Platform, etc.
 
@@ -280,9 +280,9 @@ When replication starts for a VM, an initial replication cycle occurs in which f
 
 For an agent-based method of replication, the Deployment Planner can help profile the environment for the data churn and help predict the necessary bandwidth requirement. To learn more, view this [article](./agent-based-migration-architecture.md#plan-vmware-deployment)
 
-## Agentless Hyper-V Migration
+## Agentless Hyper-V migration
 
-### How does Agentless Migration work?
+### How does agentless migration work?
 
 Azure Migrate: Server Migration provides agentless replication options for the migration of VMware virtual machines and Hyper-V virtual machines running Windows or Linux. The tool also provides an additional agent-based replication option for Windows and Linux servers that can be used to migrate physical servers, as well as x86/x64 virtual machines on VMware, Hyper-V, AWS, GCP, etc. The agent-based replication option requires the installation of agent software on the server/virtual machine that’s being migrated, whereas in the agentless option no software needs to be installed on the virtual machines themselves, thus offering additional convenience and simplicity over the agent-based replication option.
 

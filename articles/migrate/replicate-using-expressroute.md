@@ -158,7 +158,7 @@ An illustrative example for DNS resolution of the cache storage account.
 
    ![DNS resolution example](./media/how-to-use-azure-migrate-with-private-endpoints/dns-resolution-example.png)
 
-- A private IP address of 10.1.0.5 is returned for the storage account. This address should belongs to the private endpoint of the storage account. 
+- A private IP address of 10.1.0.5 is returned for the storage account. This address should belong to the private endpoint of the storage account. 
 
 If the DNS resolution is incorrect, follow these steps:  
 
@@ -166,48 +166,67 @@ If the DNS resolution is incorrect, follow these steps:
 - If you use a custom DNS, review your custom DNS settings, and validate that the DNS configuration is correct. For guidance, see [private endpoint overview: DNS configuration](../private-link/private-endpoint-overview.md#dns-configuration). 
 - If you use Azure-provided DNS servers, use this guide as a reference for further troubleshooting [for further troubleshooting.](./troubleshoot-network-connectivity.md#validate-the-private-dns-zone)   
 
+### Configure proxy bypass rules on the Azure Migrate appliance (for ExpressRoute private peering connectivity) 
+For proxy bypass, you can add a proxy bypass rule for the cache storage account as follows 
+- _storageaccountname_.blob.core.windows.net.
+
+> [!Important]
+>  Do not bypass *.blob.core.windows.net as Azure Migrate makes use of another storage account, which needs internet access. This storage account, gateway storage account, is only used to store state information about the VMs being replicated. You can locate the gateway storage account by identifying the prefix _**gwsa**_ in the storage account name in the Azure Migrate project resource group. 
+
 ## Replicate data by using an ExpressRoute circuit with Microsoft peering
 
 You can use Microsoft peering or an existing public peering domain (deprecated for new ExpressRoute connections) to route your replication traffic through an ExpressRoute circuit.
 
 ![Diagram that shows replication with Microsoft peering.](./media/replicate-using-expressroute/replication-with-microsoft-peering.png)
 
-Even with replication data going over the Microsoft peered circuit, you still need internet connectivity from the on-premises site for other communication (control plane) with Azure Migrate. Some other URLs aren't reachable over ExpressRoute. The replication appliance or Hyper-V host needs access to the URLs to orchestrate the replication process. Review the URL requirements based on the migration scenario, either [VMware agentless migrations](./migrate-appliance.md#public-cloud-urls) or [agent-based migrations](./migrate-replication-appliance.md).
+Even with replication data going over the Microsoft peered circuit, you still need internet connectivity from the on-premises site for control plane traffic and other URLs that aren't reachable over ExpressRoute. The replication appliance or Hyper-V host needs access to the URLs to orchestrate the replication process. Review the URL requirements based on the migration scenario, either [VMware agentless migrations](./migrate-appliance.md#public-cloud-urls) or [agent-based migrations](./migrate-replication-appliance.md). 
 
-If you use a proxy at your on-premises site and want to use ExpressRoute for the replication traffic, configure a proxy bypass for relevant URLs on the on-premises appliance.
-
-### Configure proxy bypass rules on the Azure Migrate appliance (for VMware agentless migrations)
-
-1. Sign in via Remote Desktop to the Azure Migrate appliance.
-1. Open the file *C:/ProgramData/MicrosoftAzure/Config/appliance.json* by using Notepad.
-1. In the file, change the line that says `"EnableProxyBypassList": "false"` to `"EnableProxyBypassList": "true"`. Save the changes, and restart the appliance.
-1. After you restart, when you open the appliance configuration manager, you'll see the proxy bypass option in the web app UI. Add the following URLs to the proxy bypass list:
-
-    - .*.vault.azure.net
-    - .*.servicebus.windows.net
-    - .*.discoverysrv.windowsazure.com
-    - .*.migration.windowsazure.com
-    - .*.hypervrecoverymanager.windowsazure.com
-    - .*.blob.core.windows.net
-
-### Configure proxy bypass rules on the replication appliance (for agent-based migrations)
-
-To configure the proxy bypass list on the configuration server and process servers:
-
-1. Download the [PsExec tool](/sysinternals/downloads/psexec) to access system user context.
-1. Open Internet Explorer in system user context by running the following command line: `psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"`.
-1. Add proxy settings in Internet Explorer.
-1. In the bypass list, add the URLs: *.blob.core.windows.net,  *.hypervrecoverymanager.windowsazure.com, and *.backup.windowsazure.com. 
-
-The preceding bypass rules ensure that the replication traffic can flow through ExpressRoute while the management communication can go through the proxy for the internet.
-
-You also must advertise routes in the route filter for the following BGP communities to make your Azure Migrate replication traffic traverse an ExpressRoute circuit instead of the internet:
+ For replication data transfer over Microsoft peering, configure route filters to advertise routes for the Azure Storage endpoints. This would be the regional BGP communities for the target Azure region (region for migration). To route control plane traffic over Microsoft peering, configure route filters to advertise routes for other public endpoints as required.  
 
 - Regional BGP community for the source Azure region (Azure Migrate Project region)
 - Regional BGP community for the target Azure region (region for migration)
 - BGP community for Azure Active Directory (12076:5060)
 
 Learn more about [route filters](../expressroute/how-to-routefilter-portal.md) and the list of [BGP communities for ExpressRoute](../expressroute/expressroute-routing.md#bgp).
+
+### Proxy configuration for ExpressRoute Microsoft peering
+
+If the appliance uses a proxy for internet connectivity, you may need to configure proxy bypass for certain URLs to route them via the Microsoft peering circuit. 
+
+#### Configure proxy bypass rules for ExpressRoute Microsoft peering on the Azure Migrate appliance (for VMware agentless migrations)
+
+1. Sign in via Remote Desktop to the Azure Migrate appliance.
+2.  Open the file *C:/ProgramData/MicrosoftAzure/Config/appliance.json* by using Notepad.
+3. In the file, change the line that says `"EnableProxyBypassList": "false"` to `"EnableProxyBypassList": "true"`. Save the changes, and restart the appliance.
+4. After you restart, when you open the appliance configuration manager, you'll see the proxy bypass option in the web app UI. 
+5. For replication traffic, you can configure a proxy bypass rule for “.*.blob.core.windows.net”. You can configure proxy bypass rules for other control plane endpoints as required. These endpoints include: 
+
+    - .*.vault.azure.net
+    - .*.servicebus.windows.net
+    - .*.discoverysrv.windowsazure.com
+    - .*.migration.windowsazure.com
+    - .*.hypervrecoverymanager.windowsazure.com
+
+> [!Note]
+> Following URLs are not accessible over ExpressRoute and require Internet connectivity: *.portal.azure.com, *.windows.net, *.msftauth.net, *.msauth.net, *.microsoft.com, *.live.com, *.office.com, *.microsoftonline.com, *.microsoftonline-p.com, *.microsoftazuread-sso.com, management.azure.com, *.services.visualstudio.com (optional), aka.ms/* (optional), download.microsoft.com/download.
+
+
+#### Configure proxy bypass rules ExpressRoute Microsoft peering on the replication appliance (for agent-based migrations)
+
+To configure the proxy bypass list on the configuration server and process servers:
+
+1. Download the [PsExec tool](/sysinternals/downloads/psexec) to access system user context.
+2. Open Internet Explorer in system user context by running the following command line: `psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"`.
+3. Add proxy settings in Internet Explorer.
+4. For replication traffic, you can configure a proxy bypass rule for ".*.blob.core.windows.net". You can configure proxy bypass rules for other control plane endpoints as required. These endpoints include: 
+
+    - .*.backup.windowsazure.com
+    - .*.hypervrecoverymanager.windowsazure.com
+
+The bypass rules for the Azure Storage endpoint will ensure that the replication traffic can flow through ExpressRoute while the control plane communication can go through the proxy for the internet. 
+
+> [!Note]
+> Following URLs are not accessible over ExpressRoute and require Internet connectivity: *.portal.azure.com, *.windows.net, *.msftauth.net, *.msauth.net, *.microsoft.com, *.live.com, *.office.com, *.microsoftonline.com, *.microsoftonline-p.com, *.microsoftazuread-sso.com, management.azure.com, *.services.visualstudio.com (optional), aka.ms/* (optional), download.microsoft.com/download, dev.mysql.com.
 
 ## Next steps
 
