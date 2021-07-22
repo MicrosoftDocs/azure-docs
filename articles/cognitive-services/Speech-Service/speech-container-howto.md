@@ -22,7 +22,7 @@ Speech containers enable customers to build a speech application architecture th
 
 
 > [!IMPORTANT]
-> To use the speech containers you must submit an online request, and have it approved. See the **Request approval to the run the container** section below for more information.
+> We are retiring the standard speech synthesis voices and text-to-speech container on August 31st 2024. Starting September 1st 2024, the container will no longer be available, and you will need to use the Neural text-to-speech container. [Follow these steps](aka.ms/sttsretirement) for more information on updating your application.
 
 | Container | Features | Latest | Release status |
 |--|--|--|--|
@@ -35,6 +35,9 @@ Speech containers enable customers to build a speech application architecture th
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
+
+> [!IMPORTANT]
+> To use the speech containers you must submit an online request, and have it approved. See the **Request approval to the run the container** section below for more information.
 
 You must meet the following prerequisites before using Speech service containers. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
