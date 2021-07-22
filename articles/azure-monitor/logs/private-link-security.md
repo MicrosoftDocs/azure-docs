@@ -53,7 +53,7 @@ Traffic to Application Insights resource not added to your AMPLS will not pass t
 #### Resource-specific endpoints
 All Log Analytics endpoints except the Query endpoint, are workspace-specific. So, creating a Private Link to a specific Log Analytics workspace won't affect ingestion (or other) traffic to other workspaces, which will continue to use the public Log Analytics endpoints. All queries, however, will be sent through the Private Link.
 
-[Data Collection Endpoints (preview)](../agents/data-collection-endpoint-overview.md) are also resource-specific, and allow you to uniquely configure ingestion settings for your machines when using the new [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) and [Data Collection Rules](../agents/data-collection-rule-overview.md)
+[Data Collection Endpoints (preview)](../agents/data-collection-endpoint-overview.md) are also resource-specific, and allow you to uniquely configure ingestion settings for collecting guest OS telemetry data from your machines (or set of machines) when using the new [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) and [Data Collection Rules](../agents/data-collection-rule-overview.md). Configuring a data collection endpoint for a set of machines does not affect ingestion of guest telemetry from other machines using the new agent.
 
 
 ### Azure Monitor Private Link applies to all networks that share the same DNS
