@@ -70,7 +70,7 @@ From the snippets panel, you can also submit a request to add new snippets.
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/propose-new-snippet.png" alt-text="Snippet panel allows you to propose a new snippet":::
 
-### Collaborate with notebook comments (preview)
+## Collaborate with notebook comments (preview)
 
 Use a notebook comment to collaborate with others who have access to your notebook.
 
