@@ -35,7 +35,8 @@ This troubleshooting guide will help you to understand the details of the Key Va
 4. Select "Get" permission for Secret for the given User-Assigned Managed Identity
 5. Save the configuration
 
-![User-Assigned Identity does not have Get permission on Key Vault.](./media/application-gateway-keyvault-common-errors/no-get-permssion-for-managed-identity.png)
+
+![User-Assigned Identity does not have Get permission on Key Vault.](./media/application-gateway-key-vault-common-errors/no-get-permssion-for-managed-identity.png)
 
 For complete guide on Key Vault's Access policy, refer to this [article](../key-vault/general/assign-access-policy-portal.md)
 </br></br>
@@ -53,7 +54,7 @@ For complete guide on Key Vault's Access policy, refer to this [article](../key-
 3. Click on the required certificate name, and then the disabled version
 4. Use the toggle on the management page to enable that certificate version
 
-![Re-enable a Secret.](./media/application-gateway-keyvault-common-errors/secret-disabled.png)
+![Re-enable a Secret.](./media/application-gateway-key-vault-common-errors/secret-disabled.png)
 </br></br>
 
 
@@ -69,7 +70,7 @@ For complete guide on Key Vault's Access policy, refer to this [article](../key-
 
 On the other hand, if a certificate object is permanently deleted, you will need to create a new certificate and update the Application Gateway with the new certificate details. When configuring through Azure CLI or Azure PowerShell, it is recommended to use a version-less secret identifier URI to allow instances to retrieve a renewed version of the certificate, if it exists.
 
-![Recover a deleted certificate in Key Vault.](./media/application-gateway-keyvault-common-errors/secret-deleted.png)
+![Recover a deleted certificate in Key Vault.](./media/application-gateway-key-vault-common-errors/secret-deleted.png)
 </br></br>
 
 
@@ -97,7 +98,7 @@ On the other hand, if a certificate object is permanently deleted, you will need
 3. Then using Virtual Networks, add your Application Gateway’s virtual network and Subnet. During the process also configure ‘Microsoft.KeyVault' service endpoint by selecting its checkbox.
 4. Finally, select “Yes” to allow Trusted Services to bypass Key Vault’s firewall.
 
-![Key Vault Has Restricted Access.](./media/application-gateway-keyvault-common-errors/key-vault-restricted-access.png)
+![Key Vault Has Restricted Access.](./media/application-gateway-key-vault-common-errors/key-vault-restricted-access.png)
 </br></br>
 
 
@@ -108,9 +109,9 @@ On the other hand, if a certificate object is permanently deleted, you will need
 
 **Resolution:** Recovering a soft-deleted Key Vault is quite easy. In Azure portal, go to Key Vaults service page.
 
-![Search for Key Vault service.](./media/application-gateway-keyvault-common-errors/key-vault-soft-deleted-1.png)</br></br>
+![Search for Key Vault service.](./media/application-gateway-key-vault-common-errors/key-vault-soft-deleted-1.png)</br></br>
 Click on Managed Deleted Vaults tab. From here, you can find the deleted Key Vault resource and recover it.
-![Recover a deleted Key Vault using Soft Delete.](./media/application-gateway-keyvault-common-errors/key-vault-soft-deleted-2.png)
+![Recover a deleted Key Vault using Soft Delete.](./media/application-gateway-key-vault-common-errors/key-vault-soft-deleted-2.png)
 </br></br>
 
 
