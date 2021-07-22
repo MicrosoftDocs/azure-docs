@@ -4,7 +4,7 @@ titleSuffix:
 description: Learn how API Management supports WebSocket, add a WebSocket API, and WebSocket limitations.
 ms.service: api-management
 author: dlepow
-ms.author: dlepow
+ms.author: danlep
 ms.topic: how-to
 ms.date: 07/22/2021
 ms.custom: template-how-to 
