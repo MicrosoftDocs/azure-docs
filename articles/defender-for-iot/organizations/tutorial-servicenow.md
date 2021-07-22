@@ -216,9 +216,17 @@ This article describes the device attributes and alert information presented in 
 
 3. Navigate to **Inventory**, or **Alert**.
 
-   [:::image type="content" source="media/integration-servicenow/alert-list.png" alt-text="Inventory or Alert":::](media/integration-servicenow/alert-list.png#lightbox)
+   [:::image type="content" source="media/tutorial-servicenow/alert-list.png" alt-text="Inventory or Alert":::](media/tutorial-servicenow/alert-list.png#lightbox)
 
+## View connected devices
 
+To view connected devices:
+
+1. Select a device, and then select the **Appliance** listed in for that device.
+
+    :::image type="content" source="media/tutorial-servicenow/appliance.png" alt-text="Select the desired appliance from the list.":::
+
+1. In the **Device Details** dialog box, select **Connected Devices**.
 <!-- 6. Clean up resources
 Required. If resources were created during the tutorial. If no resources were created, 
 state that there are no resources to clean up in this section.
@@ -226,11 +234,7 @@ state that there are no resources to clean up in this section.
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete
-<resources> with the following steps:
-
-1. From the left-hand menu...
-1. ...click Delete, type...and then click Delete
+There are no resources to clean up
 
 <!-- 7. Next steps
 Required: A single link in the blue box format. Point to the next logical tutorial 
