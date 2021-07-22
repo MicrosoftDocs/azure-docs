@@ -18,7 +18,7 @@ Multilingual and emoji support has led to Unicode encodings that use more than o
 
 Because of the different lengths of possible multilingual and emoji encodings, Language Services may return offsets in the response.
 
-## Offsets in the API response. 
+## Offsets in the API response
 
 Whenever offsets are returned the API response, remember:
 
@@ -34,7 +34,7 @@ In .NET, consider using the [StringInfo](/dotnet/api/system.globalization.string
 
 The Language Services returns these textual elements as well, for convenience.
 
- endpoints that return an offset will support the `stringIndexType` parameter. This parameter adjusts the `offset` and `length` attributes in the API output to match the requested string iteration scheme. Currently, we support three types:
+Endpoints that return an offset will support the `stringIndexType` parameter. This parameter adjusts the `offset` and `length` attributes in the API output to match the requested string iteration scheme. Currently, we support three types:
 
 - `textElement_v8` (default): iterates over graphemes as defined by the [Unicode 8.0.0](https://unicode.org/versions/Unicode8.0.0) standard
 - `unicodeCodePoint`: iterates over [Unicode Code Points](http://www.unicode.org/versions/Unicode13.0.0/ch02.pdf#G25564), the default scheme for Python 3
