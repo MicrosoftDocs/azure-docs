@@ -68,8 +68,8 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     </dependency>
     ```
 
-> [!NOTE]
-> If you need to support an older version of Spring Boot see our [old library](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-starter-azure-appconfiguration-config_1.2.9/sdk/appconfiguration/spring-cloud-starter-azure-appconfiguration-config/README.md).
+   > [!NOTE]
+   > If you need to support an older version of Spring Boot see our [old library](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-starter-azure-appconfiguration-config_1.2.9/sdk/appconfiguration/spring-cloud-starter-azure-appconfiguration-config/README.md).
 
 1. Create a new Java file named *MessageProperties.java* in the package directory of your app. Add the following lines:
 
