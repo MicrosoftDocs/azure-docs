@@ -4,16 +4,17 @@ description: Describes the Bicep operators available for Azure Resource Manager 
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/23/2021
+ms.date: 07/22/2021
 ---
 
 # Bicep operators
 
-This article describes the Bicep operators that are available when you create a Bicep template and use Azure Resource Manager to deploy resources. Operators are used to calculate values, compare values, or evaluate conditions. There are three types of Bicep operators:
+This article describes the Bicep operators that are available when you create a Bicep template and use Azure Resource Manager to deploy resources. Operators are used to calculate values, compare values, or evaluate conditions. There are four types of Bicep operators:
 
 - [comparison](#comparison)
 - [logical](#logical)
 - [numeric](#numeric)
+- [access](#access)
 
 Enclosing an expression between `(` and `)` allows you to override the default Bicep operator precedence. For example, the expression x + y / z evaluates the division first and then the addition. However, the expression (x + y) / z evaluates the addition first and division second.
 
@@ -62,6 +63,15 @@ The numeric operators use integers to do calculations and return integer values.
 > [!NOTE]
 > Subtract and minus use the same operator. The functionality is different because subtract uses two
 > operands and minus uses one operand.
+
+## Access
+
+The access operators are used to access properties of objects and resources.
+
+| Operator | Name | Description |
+| ---- | ---- | ---- |
+| `.` | [Nested resource accessor](./operators-access.md#nested-resource-accessor) | Access properties of a nested resource. |
+| `.` | [Property accessor](./operators-access.md#property-accessor) | Access properties of an object. |
 
 ## Operator precedence and associativity
 
