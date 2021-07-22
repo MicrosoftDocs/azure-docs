@@ -10,7 +10,7 @@ ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
 ---
 
-# Associate a VM to a Capacity Reservation group
+# Associate a VM to a Capacity Reservation group (preview) 
 
 This article walks you through the steps of associating a new or existing virtual machine to a Capacity Reservation Group. To learn more about capacity reservations, see the [overview article](capacity-reservation-overview.md). 
 
@@ -24,7 +24,7 @@ This article walks you through the steps of associating a new or existing virtua
 
 To associate a new VM to the Capacity Reservation Group, the group must be explicitly referenced as a property of the virtual machine you are trying to associate. This protects the matching reservation in the group from accidental consumption by less critical applications and workloads that are not intended to use it.  
 
-## [API](#tab/api)
+### [API](#tab/api)
 
 To add the `capacityReservationGroup` property to a VM, construct the following PUT request to the *Microsoft.Compute* provider:
 
@@ -59,7 +59,7 @@ In the request body, include the `capacityReservationGroup` property as shown be
 } 
 ```
 
-## [Portal](#tab/portal)
+### [Portal](#tab/portal)
 
 <!-- no images necessary if steps are straightforward --> 
 
@@ -71,7 +71,15 @@ In the request body, include the `capacityReservationGroup` property as shown be
 --- 
 <!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
 
-### View VM associated with Instance View 
+
+## Associate an existing VM 
+
+While Capacity Reservation is in preview, in order to associate an existing VM to a Capacity Reservation Group, it is required to first deallocate the VM and then do the association at the time of reallocation. This ensures that the VM consumes one of the empty spots in the reservation. 
+
+Refer to the steps above on how to associate a VM to a Capacity Reservation Group.
+
+
+## View VM associated with Instance View 
 
 Once the `capacityReservationGroup` property is set, an association now exists between the VM and the group. Azure automatically finds the matching capacity reservation in the group and consumes a reserved slot. The Capacity Reservation’s *Instance View* will reflect the new VM in the `virtualMachinesAllocated` property as shown below: 
 
@@ -115,13 +123,7 @@ GET Instance View https://management.azure.com/subscriptions/{subscriptionId}/re
         } 
     } 
 } 
-```
-
-## Associate an existing VM 
-
-While Capacity Reservation is in preview, in order to associate an existing VM to a Capacity Reservation Group, it is required to first deallocate the VM and then do the association at the time of reallocation. This ensures that the VM consumes one of the empty spots in the reservation. 
-
-Refer to the steps above on how to associate a VM to a Capacity Reservation Group. 
+``` 
 
 
 ## Next steps
