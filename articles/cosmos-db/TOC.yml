@@ -1275,7 +1275,7 @@
         - name: Access system document properties
           href: how-to-access-system-properties-gremlin.md
         - name: Visualize graph data
-          href: graph-visualization.md
+          href: graph-visualization-partners.md
         - name: Monitor using Diagnostics Logs
           href: queries-gremlin.md
         - name: Store and manage Spring Data
