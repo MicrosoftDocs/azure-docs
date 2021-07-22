@@ -10,7 +10,7 @@ ms.date: 9/23/2020
 
 # Connectivity and networking concepts for Azure Database for MySQL - Flexible Server (Preview)
 
-[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 This article describes public and private connectivity options for your server. You will learn in detail the networking concepts for Azure Database for MySQL Flexible server to create a server securely in Azure.
 
@@ -95,7 +95,6 @@ You can then use the flexible servername (FQDN) to connect from the client appli
 * Public endpoint (or public IP or DNS) - A flexible server deployed to a virtual network cannot have a public endpoint
 * After the flexible server is deployed to a virtual network and subnet, you cannot move it to another virtual network or subnet. You cannot move the virtual network into another resource group or subscription.
 * Subnet size (address spaces) cannot be increased once resources exist in the subnet
-* Peering VNets across regions is not supported
 
 Learn how to enable private access (vnet integration) using the [Azure portal](how-to-manage-virtual-network-portal.md) or [Azure CLI](how-to-manage-virtual-network-cli.md).
 

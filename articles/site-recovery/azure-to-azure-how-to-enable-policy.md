@@ -45,7 +45,7 @@ Zone to Zone DR  | Supported
 Interoperability with other policies applied as default by Azure (if any) | Supported
 
 >[!NOTE]
->In the following cases, Site Recovery will not be enabled for them. However, they wil reflect as _Non-complaint_ in Resource Compliance: 
+>In the following cases, Site Recovery will not be enabled for them. However, they will reflect as _Non-compliant_ in Resource Compliance: 
 >1. If a not-supported VM is created within the scope of policy.
 >1. If a VM is a part of both an Availability Set as well as PPG.
 

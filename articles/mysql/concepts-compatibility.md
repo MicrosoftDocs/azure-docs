@@ -9,7 +9,7 @@ ms.date: 3/18/2020
 ---
 # MySQL drivers and management tools compatible with Azure Database for MySQL
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 This article describes the drivers and management tools that are compatible with Azure Database for MySQL Single Server.
 

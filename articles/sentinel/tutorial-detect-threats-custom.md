@@ -285,6 +285,10 @@ SOC managers should be sure to check the rule list regularly for the presence of
 
 In this tutorial, you learned how to get started detecting threats using Azure Sentinel.
 
-- Learn how to [investigate incidents in Azure Sentinel](tutorial-investigate-cases.md).
-- Learn about [entities in Azure Sentinel](entities-in-azure-sentinel.md).
-- Learn how to [set up automated threat responses in Azure Sentinel](tutorial-respond-threats-playbook.md).
+For more information, see:
+
+- [Tutorial: Investigate incidents with Azure Sentinel](tutorial-investigate-cases.md)
+- [Classify and analyze data using entities in Azure Sentinel](entities-in-azure-sentinel.md)
+- [Tutorial: Use playbooks with automation rules in Azure Sentinel](tutorial-respond-threats-playbook.md)
+
+Also, learn from an example of using custom analytics rules when [monitoring Zoom](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516) with a [custom connector](create-custom-connector.md).
