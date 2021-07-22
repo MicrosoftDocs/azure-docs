@@ -90,10 +90,11 @@ Select **Create** unless you want to configure advanced settings for the compute
 
 Select **Next: Advanced Settings** if you want to:
 
-* Enable SSH access.  Follow the [detailed instructions](#enable-ssh) below.
+* Enable SSH access.  Follow the [detailed SSH access instructions](#enable-ssh) below.
 * Enable virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). For more information, see these [network requirements](./how-to-secure-training-vnet.md) for vnet. 
 * Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](how-to-create-manage-compute-instance.md#on-behalf).
 * Provision with a setup script - for more details about how to create and use a setup script, see [Customize the compute instance with a script](how-to-create-manage-compute-instance.md#setup-script).
+* Add schedule. Schedule times for the compute instance to automatically start and/or shutdown. See [schedule details](#schedule) below.
 
 ### <a name="enable-ssh"></a> Enable SSH access
 
@@ -111,6 +112,21 @@ After you have selected **Next: Advanced Settings**:
     * If you select **Use existing public key**, provide an RSA public key in the single-line format (starting with "ssh-rsa") or the multi-line PEM format. You can generate SSH keys using ssh-keygen on Linux and OS X, or PuTTYGen on Windows.
 
 Once the compute instance is created and running, see [Connect with SSH access](#ssh-access).
+
+### <a name ="schedule"></a> Add a start or shutdown schedule
+
+Define multiple schedules for auto-shutdown and auto-start. For instance, create a schedule to start at 9 AM and stop at 6 PM from Monday-Thursday, and a second schedule to start at 9 AM and stop at 4 PM for Friday.
+
+After you have selected **Next: Advanced Settings**:
+
+1. Select **Add schedule** to add a new schedule.
+1. Select **Start compute instance** or **Stop compute instance**.
+1. Select the **Time zone**.
+1. Select the **Startup time** or **Shutdown time**.
+1. Select the days when this schedule is active.
+1. Select **Add schedule** again if you want to create another schedule.
+
+Once the compute instance is created, you can view, edit, or add new schedules from the compute instance details section.
 
 ## <a name="amlcompute"></a> Create compute clusters
 
