@@ -88,7 +88,7 @@ Alternatively, if you don't want to use customer-managed keys, you can use platf
 1. On the **Disks** pane, select **Encryption at host**.
 1. Make the remaining selections as you like.
 
-    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="Screenshot of the virtual mahine creation disks pane, encryption at host highlighted.":::
+    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/host-based-encryption-platform-keys.png" alt-text="Screenshot of the virtual mahine creation disks pane, encryption at host highlighted.":::
 
 1. Finish the VM deployment process, make selections that fit your environment.
 
