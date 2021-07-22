@@ -22,7 +22,7 @@ ms.custom: seodec18
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-As a developer, you can use client libraries for (.Net, Python, Node.js, Java, Go, and Ruby) that allow you to interact with the REST API to easily create, manage, and maintain custom media workflows. The [Media Services v3](https://aka.ms/ams-v3-rest-sdk) API is based on the OpenAPI specification (formerly known as a Swagger).
+As a developer, you can use client libraries for (.NET, Python, Node.js, Java, Go, and Ruby) that allow you to interact with the REST API to easily create, manage, and maintain custom media workflows. The [Media Services v3](https://aka.ms/ams-v3-rest-sdk) API is based on the OpenAPI specification (formerly known as a Swagger).
 
 This article discusses rules that apply to entities and APIs when you develop with Media Services v3.
 
