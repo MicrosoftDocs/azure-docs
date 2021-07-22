@@ -1,6 +1,7 @@
 ---
 title: 'Quickstart: View the list of applications in your tenant'
-description: In this Quickstart, use the Azure portal to view the list of applications that are registered to use your Azure Active Directory (Azure AD) tenant for identity management.
+titleSuffix: Azure AD
+description: In this quickstart, use the Azure portal to view the list of applications that are registered to use your Azure Active Directory (Azure AD) tenant for identity management.
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -10,7 +11,7 @@ ms.workload: identity
 ms.topic: quickstart
 ms.date: 07/22/2021
 ms.author: davidmu
-ms.reviewer: arvinh
+ms.reviewer: alamaral
 ms.custom: it-pro
 ---
 
