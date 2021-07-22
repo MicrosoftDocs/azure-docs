@@ -258,7 +258,7 @@ We know that compliance isn’t just an annual requirement, and organizations mu
 - Features over 75 control cards, aligned to the TIC 3.0 security capabilities, with selectable GUI buttons for navigation.
 - Is designed to augment staffing through automation, artificial intelligence, machine learning, query/alerting generation, visualizations, tailored recommendations, and respective documentation references.
 
-For more information, see [Tutorial: Visualize and monitor your data](tutorial-monitor-your-data.md).
+For more information, see [Visualize and monitor your data](tutorial-monitor-your-data.md).
 
 ## April 2021
 
@@ -310,7 +310,7 @@ In each workbook or workbook template, select :::image type="icon" source="media
 
     Intervals are also restarted if you manually refresh the workbook by selecting the :::image type="icon" source="media/whats-new/manual-refresh-button.png" border="false"::: **Refresh** button.
 
-For more information, see [Tutorial: Visualize and monitor your data](tutorial-monitor-your-data.md) and the [Azure Monitor documentation](../azure-monitor/visualize/workbooks-overview.md).
+For more information, see [Visualize and monitor your data](tutorial-monitor-your-data.md) and the [Azure Monitor documentation](../azure-monitor/visualize/workbooks-overview.md).
 
 ### New detections for Azure Firewall
 
@@ -364,7 +364,7 @@ In your workbook, select the options menu > :::image type="icon" source="media/w
 
 :::image type="content" source="media/whats-new/print-workbook.png" alt-text="Print your workbook or save as PDF.":::
 
-For more information, see [Tutorial: Visualize and monitor your data](tutorial-monitor-your-data.md).
+For more information, see [Visualize and monitor your data](tutorial-monitor-your-data.md).
 
 ### Incident filters and sort preferences now saved in your session (Public preview)
 
@@ -418,7 +418,7 @@ Access the CMMC workbook in the Azure Sentinel **Workbooks** area. Select **Temp
 For more information, see:
 
 - [Azure Sentinel Cybersecurity Maturity Model Certification (CMMC) Workbook](https://techcommunity.microsoft.com/t5/public-sector-blog/azure-sentinel-cybersecurity-maturity-model-certification-cmmc/ba-p/2110524)
-- [Tutorial: Visualize and monitor your data](tutorial-monitor-your-data.md)
+- [Visualize and monitor your data](tutorial-monitor-your-data.md)
 
 
 ### Third-party data connectors
@@ -503,7 +503,7 @@ The Azure Sentinel Scheduled analytics rule wizard now provides the following en
 -	Expanded autocomplete support.
 -	Real-time query validations. Errors in your query now show as a red block in the scroll bar, and as a red dot in the **Set rule logic** tab name. Additionally, a query with errors cannot be saved.
 
-For more information, see [Tutorial: Create custom analytics rules to detect threats](tutorial-detect-threats-custom.md).
+For more information, see [Create custom analytics rules to detect threats](tutorial-detect-threats-custom.md).
 ### Az.SecurityInsights PowerShell module (Public preview)
 
 Azure Sentinel now supports the new [Az.SecurityInsights](https://www.powershellgallery.com/packages/Az.SecurityInsights/) PowerShell module.
