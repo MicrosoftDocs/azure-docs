@@ -56,7 +56,7 @@ You can use MSAL.NET to get tokens from AD FS 2019 or later. Earlier versions of
 Before starting the migration, first you need to identify which of your apps are using ADAL for authentication. Follow the steps in this article to get a list by using the Azure portal:
 - [How to: Get a complete list of apps using ADAL in your tenant](howto-get-list-of-all-active-directory-auth-library-apps.md)
 
-After identifying your apps that use ADAL, you can migrate them to MSAL depending on your application type as illustrated below.
+After identifying your apps that use ADAL, migrate them to MSAL depending on your application type as illustrated below.
 
 [!INCLUDE [application type](includes/adal-msal-migration.md)]
 
