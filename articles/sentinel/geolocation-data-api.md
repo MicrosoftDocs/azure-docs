@@ -46,7 +46,6 @@ The following are the common URI parameters for the geolocation API:
 This command retrieves geolocation data for a given IP Address.
 
 ### Request URI
-(URI is a single line, broken up for easy readability)
 
 | Method | Request URI |
 |-|-|
