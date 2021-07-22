@@ -75,21 +75,28 @@ Choosing a maintenance window other than the default is currently available in t
 - Australia SouthEast
 - Brazil South
 - Canada Central
+- Canada East
+- Central India
 - Central US
 - East US
 - East US2
 - East Asia
+- France South
 - Germany West Central
 - Japan East
+- Korea Central*
 - NorthCentral US
 - North Europe
 - SouthCentral US
 - SouthEast Asia
 - UK South
 - UK West
+- West Central US
 - West Europe
 - West US
 - West US2
+
+*Available only for Azure SQL Managed Instance
 
 ## Gateway maintenance for Azure SQL Database
 
