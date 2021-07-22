@@ -9,9 +9,9 @@ ms.date: 07/19/2021
 ms.author: ginle
 ---
 
-# Authentication and Authorization Process for Healthcare APIs
+# Authentication & Authorization for the Healthcare APIs
 
-This article provides an overview of the authentication and authorization of the Healthcare APIs.
+This article provides an overview of the authentication and authorization process for accessing the Healthcare APIs services.
 
 ## Authentication
 
