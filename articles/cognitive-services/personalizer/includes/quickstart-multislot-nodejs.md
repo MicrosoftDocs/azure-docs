@@ -14,7 +14,7 @@ ms.date: 03/23/2021
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* The current version of [Node.js](https://nodejs.org) and NPM.
+* Install [Node.js](https://nodejs.org) and NPM (verified with Node.js v14.16.0 and NPM 6.14.11).
 * Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer"  title="Create a Personalizer resource"  target="_blank">create a Personalizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Personalizer API. Paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
@@ -24,6 +24,8 @@ ms.date: 03/23/2021
 [!INCLUDE [Upgrade Personalizer instance to Multi-Slot](upgrade-personalizer-multi-slot.md)]
 
 [!INCLUDE [Change model frequency](change-model-frequency.md)]
+
+[!INCLUDE [Change reward wait time](change-reward-wait-time.md)]
 
 ### Create a new Node.js application
 
@@ -49,7 +51,7 @@ const { v4: uuidv4 } = require('uuid');
 const readline = require('readline-sync');
 // The endpoint specific to your personalization service instance; 
 // e.g. https://<your-resource-name>.cognitiveservices.azure.com
-const PersonalizationBaseUrl = 'https://<REPLACE-WITH-YOUR-PERSONALIZER-ENDPOINT>.cognitiveservices.azure.com';
+const PersonalizationBaseUrl = '<REPLACE-WITH-YOUR-PERSONALIZER-ENDPOINT>';
 // The key specific to your personalization service instance; e.g. "0123456789abcdef0123456789ABCDEF"
 const ResourceKey = '<REPLACE-WITH-YOUR-PERSONALIZER-KEY>';
 ```
@@ -57,14 +59,14 @@ const ResourceKey = '<REPLACE-WITH-YOUR-PERSONALIZER-KEY>';
 ### Install the NPM packages for quickstart
 
 ```console
-npm install @azure/ms-rest-azure-js @azure/ms-rest-js readline-sync uuid axios --save
+npm install readline-sync uuid axios --save
 ```
 
 ## Object model
 
-To ask for the single best item of the content for each slot, create a [rankRequest], then send a post request to the [multislot/rank] endpoint (https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api-v1-1-preview-1/operations/Rank). The response is then parsed into a [rankResponse].
+To ask for the single best item of the content for each slot, create a **rankRequest**, then send a post request to [multislot/rank](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api-v1-1-preview-1/operations/MultiSlot_Rank). The response is then parsed into a **rankResponse**.
 
-To send a reward score to Personalizer, create a [rewards], then send a post request to [multislot/events/{eventId}/reward](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api-v1-1-preview-1/operations/Events_Reward).
+To send a reward score to Personalizer, create a **rewards**, then send a post request to [multislot/events/{eventId}/reward](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api-v1-1-preview-1/operations/MultiSlot_Events_Reward).
 
 Determining the reward score, in this quickstart is trivial. In a production system, the determination of what impacts the [reward score](../concept-rewards.md) and by how much can be a complex process, that you may decide to change over time. This design decision should be one of the primary decisions in your Personalizer architecture.
 
@@ -79,11 +81,7 @@ These code snippets show you how to do the following tasks by sending HTTP reque
 
 ## Create base URLs
 
-In this section you'll do two things:
-* Construct the Rank and Reward URLs
-* Construct the rank/reward request headers
-
-Construct the Rank / Reward URLs using the base url and the request headers using the resource key.
+In this section you'll construct the Rank / Reward URLs using the base url and the request headers using the resource key.
 
 ```javascript
 const MultiSlotRankUrl = PersonalizationBaseUrl.concat('personalizer/v1.1-preview.1/multislot/rank');
@@ -215,7 +213,7 @@ function getSlots() {
 
 ## Make HTTP requests
 
-Send post requests to the Personalizer endpoint for multi-slot rank and reward calls.
+Add these functions to send post requests to the Personalizer endpoint for multi-slot rank and reward calls.
 
 ```javascript
 async function sendMultiSlotRank(rankRequest) {
@@ -224,7 +222,12 @@ async function sendMultiSlotRank(rankRequest) {
         return response.data;
     }
     catch (err) {
-        console.log(err);
+        if(err.response)
+        {
+            throw err.response.data
+        }
+        console.log(err)
+        throw err;
     }
 }
 ```
@@ -237,6 +240,7 @@ async function sendMultiSlotReward(rewardRequest, eventId) {
     }
     catch (err) {
         console.log(err);
+        throw err;
     }
 }
 ```
@@ -269,7 +273,7 @@ The Personalizer learning loop is a cycle of [Rank](#request-the-best-action) an
 The following code loops through a cycle of asking the user their preferences through the command line, sending that information to Personalizer to select the best action for each slot, presenting the selection to the customer to choose from among the list, then sending a reward score to Personalizer signaling how well the service did in its selection.
 
 ```javascript
-runLoop = true;
+let runLoop = true;
 
 (async () => {
     do {
@@ -290,39 +294,36 @@ runLoop = true;
 
         multiSlotRankRequest.deferActivation = false;
 
-        //Rank the actions for each slot
         try {
-            var multiSlotRankResponse = await sendMultiSlotRank(multiSlotRankRequest);
-        }
-        catch (err) {
-            console.log(err);
-        }
-
-        let multiSlotrewards = {};
-        multiSlotrewards.reward = [];
-
-        for (i = 0; i < multiSlotRankResponse.slots.length; i++) {
-            console.log('\nPersonalizer service decided you should display: '.concat(multiSlotRankResponse.slots[i].rewardActionId, ' in slot ', multiSlotRankResponse.slots[i].id, '\n'));
-
-            let slotReward = {};
-            slotReward.slotId = multiSlotRankResponse.slots[i].id;
-            // User agrees or disagrees with Personalizer decision for slot
-            slotReward.value = getRewardForSlot();
-            multiSlotrewards.reward.push(slotReward);
-        }
-
-        // Send the rewards for the event
-        try {
+            //Rank the actions for each slot
+            let multiSlotRankResponse = await sendMultiSlotRank(multiSlotRankRequest);
+            let multiSlotrewards = {};
+            multiSlotrewards.reward = [];
+    
+            for (let i = 0; i < multiSlotRankResponse.slots.length; i++) {
+                console.log('\nPersonalizer service decided you should display: '.concat(multiSlotRankResponse.slots[i].rewardActionId, ' in slot ', multiSlotRankResponse.slots[i].id, '\n'));
+    
+                let slotReward = {};
+                slotReward.slotId = multiSlotRankResponse.slots[i].id;
+                // User agrees or disagrees with Personalizer decision for slot
+                slotReward.value = getRewardForSlot();
+                multiSlotrewards.reward.push(slotReward);
+            }
+    
+            // Send the rewards for the event
             await sendMultiSlotReward(multiSlotrewards, multiSlotRankResponse.eventId);
+    
+            let answer = readline.question('\nPress q to break, any other key to continue:\n').toUpperCase();
+            if (answer === 'Q') {
+                runLoop = false;
+            }
         }
         catch (err) {
             console.log(err);
+            throw err;
         }
 
-        let answer = readline.question('\nPress q to break, any other key to continue:\n').toUpperCase();
-        if (answer === 'Q') {
-            runLoop = false;
-        }
+
 
     } while (runLoop);
 })()
@@ -341,7 +342,7 @@ Add the following methods, which [get the content choices](#get-content-choices-
 
 ## Request the best action
 
-To complete the Rank request, the program asks the user's preferences to create content choices. The request body contains the context features, actions and their features, slots and their features, and a unique event ID, to receive the response. The `sendMultiSlotRank` method needs the rankRequest to send the multi-slot rank request.
+To complete the Rank request, the program asks the user's preferences to create content choices. The request body contains the context, actions and slots with their respective features. The `sendMultiSlotRank` method takes in a rankRequest and executes the multi-slot rank request.
 
 This quickstart has simple context features of time of day and user device. In production systems, determining and [evaluating](../concept-feature-evaluation.md) [actions and features](../concepts-features.md) can be a non-trivial matter.
 
@@ -364,16 +365,17 @@ multiSlotRankRequest.deferActivation = false;
 
 //Rank the actions for each slot
 try {
-    var multiSlotRankResponse = await sendMultiSlotRank(multiSlotRankRequest);
+    let multiSlotRankResponse = await sendMultiSlotRank(multiSlotRankRequest);
 }
 catch (err) {
     console.log(err);
+    throw err;
 }
 ```
 
 ## Send a reward
 
-To get the reward score to send in the Reward request, the program gets the user's selection for each slot through the command line, assigns a numeric value to the selection, then sends the unique event ID, slot ID, and the reward score for each slot as the numeric value to the `sendMultiSlotReward` method. A reward does not need to be defined for each slot.
+To get the reward score for the Reward request, the program gets the user's selection for each slot through the command line, assigns a numeric value (reward score) to the selection, then sends the unique event ID, slot ID, and the reward score for each slot to the `sendMultiSlotReward` method. A reward does not need to be defined for each slot.
 
 This quickstart assigns a simple number as a reward score, either a zero or a 1. In production systems, determining when and what to send to the [Reward](../concept-rewards.md) call can be a non-trivial matter, depending on your specific needs.
 
@@ -392,12 +394,7 @@ for (i = 0; i < multiSlotRankResponse.slots.length; i++) {
 }
 
 // Send the rewards for the event
-try {
-    await sendMultiSlotReward(multiSlotrewards, multiSlotRankResponse.eventId);
-}
-catch (err) {
-    console.log(err);
-}
+await sendMultiSlotReward(multiSlotrewards, multiSlotRankResponse.eventId);
 ```
 
 ## Run the program
@@ -411,4 +408,4 @@ node sample.js
 ![The quickstart program asks a couple of questions to gather user preferences, known as features, then provides the top action.](../media/csharp-quickstart-commandline-feedback-loop/multislot-quickstart-program-feedback-loop-example-1.png)
 
 
-The [source code for this quickstart](https://aka.ms/personalizer/ms-nodejs) is available.
+The [source code for this quickstart](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/Personalizer/multislot-quickstart) is available.

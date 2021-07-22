@@ -25,7 +25,7 @@ The following table provides a map of Azure regions to ExpressRoute locations wi
 | **South Korea** | Korea Central, Korea South |Busan, Seoul|
 | **UAE** | UAE Central, UAE North | Dubai, Dubai2 |
 | **South Africa** | South Africa West, South Africa North |Cape Town, Johannesburg |
-| **South America** | Brazil South |Bogota, Rio de Janeiro, Sao Paulo |
+| **South America** | Brazil South |Bogota, Campinas, Rio de Janeiro, Sao Paulo |
 
 
 ## Azure regions and geopolitical boundaries for national clouds

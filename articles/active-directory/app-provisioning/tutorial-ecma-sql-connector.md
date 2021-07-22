@@ -3,11 +3,11 @@ title:  Azure AD ECMA Connector Host Generic SQL Connector tutorial
 description: This tutorial describes how to use the On-premises application provisioning generic SQL connector.
 services: active-directory
 author: billmath
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/04/2021
+ms.date: 07/13/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.reviewer: arvinh
@@ -23,17 +23,7 @@ ms.collection: M365-identity-device-management
 
 This tutorial describes the steps you need to perform to automatically provision and deprovision users from Azure AD into a SQL DB.  For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 
-This tutorial covers how to setup and use the generic SQL connector with the Azure AD ECMA Connector Host. Your test environment should mirror the environment presented below before attempting this tutorial.
-
-![Architecure](.\media\tutorial-ecma-sql-connector\sql-1.png)
-
-- SQL Server 2019 and SQL Server Management Studio is installed on APP1.  
-- Both VMs have connectivity to the internet.
-- SQL Server Agent has been started
-- You have an Azure AD tenant to test with.  This tutorial uses ecmabmcontoso.onmicrosoft.com.  Substitute your tenant with this one.
-- You have 3 or 4 users created in your tenant for testing.
-
-For additional information on setting up this environment, see [Tutorial: Basic Active Directory environment](../../active directory/cloud sync/tutorial-basic-ad-azure.md)
+This tutorial covers how to setup and use the generic SQL connector with the Azure AD ECMA Connector Host. 
 
 ## Step 1 - Prepare the sample database
 On a server running SQL Server, run the SQL script found in [Appendix A](#appendix-a). This script creates a sample database with the name CONTOSO.  This is the database that we will be provisioning users in to.
@@ -205,8 +195,7 @@ The Generic SQL Connector is a DSN file to connect to the SQL server. First we n
 2. In the portal, navigate to Azure Active Directory, **Enterprise Applications**.
 3. Click on **New Application**.
  ![Add new application](.\media\on-premises-ecma-configure\configure-4.png)
-4. Search the gallery for the test application **on-premises provisioning** and click **Create**.
- ![Create new application](.\media\tutorial-ecma-sql-connector\app-1.png)
+4. Search the gallery for **On-premises ECMA app** and click **Create**.
 
 ## Step 8 - Configure the application and test
 1. Once it has been created, click he **Provisioning page**.
@@ -221,11 +210,11 @@ The Generic SQL Connector is a DSN file to connect to the SQL server. First we n
      >Alternatively, you can force the agent registration to complete by restarting the provisioning agent on your server. Navigating to your server > search for services in the windows search bar > identify the Azure AD Connect Provisioning Agent Service > right click on the service and restart.
    
      ![Restart an agent](.\media\on-premises-ecma-configure\configure-8.png)
-5.  After 10 minutes, under the **Admin credentials** section, enter the following URL, replacing "connectorName" portion with the name of the connector on the ECMA Host.
+5.  After 10 minutes, under the **Admin credentials** section, enter the following URL, replacing "connectorName" portion with the name of the connector on the ECMA Host. You may also replace localhost with the host name. 
 
      |Property|Value|
      |-----|-----|
-     |Tenant URL|https://localhost:8585/ecma2host_SQL/scim|
+     |Tenant URL|https://localhost:8585/ecma2host_connectorName/scim|
 
 6. Enter the secret token value that you defined when creating the connector.
 7. Click Test Connection and wait one minute.
@@ -331,4 +320,7 @@ GO
 
 ## Next Steps
 
-- [App provisioning](user-provisioning.md)
+- [Troubleshoot on-premises application provisioning](on-premises-ecma-troubleshoot.md)
+- [Review known limitations](known-issues.md)
+- [On-premises provisioning prerequisites](on-premises-ecma-prerequisites.md)
+- [Review prerequisites for on-premises provisioning](on-premises-ecma-prerequisites.md)

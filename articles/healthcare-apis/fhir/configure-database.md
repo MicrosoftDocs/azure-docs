@@ -6,7 +6,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference 
 ms.date: 11/15/2019
-ms.author: matjazl
+ms.author: zxue
 ---
 # Configure database settings 
 

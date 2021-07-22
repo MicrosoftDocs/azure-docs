@@ -4,7 +4,7 @@ description: This article describes pricing, billing, invoicing, and payout cons
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 07/12/2021
 ms.author: mingshen
 author: mingshen-ms
 ---
@@ -37,7 +37,7 @@ The transact publishing option is currently supported for the following offer ty
 
 | Offer type | Billing cadence | Metered billing | Pricing model |
 | ------------ | ------------- | ------------- | ------------- |
-| Azure Application<br>(Managed application) | Monthly | Yes | Usage-based |
+| Azure Application <br>(Managed application) | Monthly | Yes | Usage-based |
 | Azure Virtual Machine | Monthly * | No | Usage-based, BYOL |
 | Software as a service (SaaS) | Monthly and annual | Yes | Flat rate, per user, usage-based. |
 |||||
@@ -46,7 +46,7 @@ The transact publishing option is currently supported for the following offer ty
 
 ### Metered billing
 
-The _Marketplace metering service_ lets you specify pay-as-you-go (consumption-based) charges in addition to monthly or annual charges included in the contract (entitlement). You can charge usage costs for marketplace metering service dimensions that you specify such as bandwidth, tickets, or emails processed. For more information about metered billing for SaaS offers, see [Metered billing for SaaS using the commercial marketplace metering service](./partner-center-portal/saas-metered-billing.md). For more information about metered billing for Azure Application offers, see [Managed application metered billing](./partner-center-portal/azure-app-metered-billing.md).
+The _Marketplace metering service_ lets you specify pay-as-you-go (consumption-based) charges in addition to monthly or annual charges included in the contract (entitlement). You can charge usage costs for marketplace metering service dimensions that you specify such as bandwidth, tickets, or emails processed. For more information about metered billing for SaaS offers, see [Metered billing for SaaS using the commercial marketplace metering service](./partner-center-portal/saas-metered-billing.md). For more information about metered billing for Azure Application offers, see [Managed application metered billing](marketplace-metering-service-apis.md).
 
 ### Billing infrastructure costs
 
@@ -62,13 +62,13 @@ Depending on the transaction option used, subscription charges are as follows:
 - **Bring your own license** (BYOL): If an offer is listed in the commercial marketplace, any applicable charges for software licenses are managed directly between the publisher and customer. Microsoft only charges applicable Azure infrastructure usage fees to the customer’s Azure subscription account.
 - **Subscription pricing**: Software license fees are presented as a monthly or annual, recurring subscription fee billed as a flat rate or per-seat. Recurrent subscription fees are not prorated for mid-term customer cancellations, or unused services. Recurrent subscription fees may be prorated if the customer upgrades or downgrades their subscription in the middle of the subscription term.
 - **Usage-based pricing**: For Azure Virtual Machine offers, customers are charged based on the extent of their use of the offer. For Virtual Machine images, customers are charged an hourly Azure Marketplace fee, as set by the publisher, for use of virtual machines deployed from the VM images. The hourly fee may be uniform or varied across virtual machine sizes. Partial hours are charged by the minute. Plans are billed monthly.
-- **Metered pricing**: For Azure Application offers and SaaS offers, publishers can use the [Marketplace metering service](./partner-center-portal/marketplace-metering-service-apis.md) to bill for consumption based on the custom meter dimensions they configure. These changes are in addition to monthly or annual charges included in the contract (entitlement). Examples of custom meter dimensions are bandwidth, tickets, or emails processed. Publishers can define one or more metered dimensions for each plan but a maximum of 30 per offer. Publishers are responsible for tracking individual customer usage, with each meter defined in the offer. Events should be reported to Microsoft within an hour. Microsoft charges customers based on the usage information reported by publishers for the applicable billing period.
+- **Metered pricing**: For Azure Application offers and SaaS offers, publishers can use the [Marketplace metering service](marketplace-metering-service-apis.md) to bill for consumption based on the custom meter dimensions they configure. These changes are in addition to monthly or annual charges included in the contract (entitlement). Examples of custom meter dimensions are bandwidth, tickets, or emails processed. Publishers can define one or more metered dimensions for each plan but a maximum of 30 per offer. Publishers are responsible for tracking individual customer usage, with each meter defined in the offer. Events should be reported to Microsoft within an hour. Microsoft charges customers based on the usage information reported by publishers for the applicable billing period.
 - **Free trial**: No charge for software licenses that range from 30 days up to six months, depending on the offer type. If publishers provide a free trial on multiple plans within the same offer, customers can switch to a free trial on another plan, but the trial period does not restart. For virtual machine offers, customers are charged Azure infrastructure costs for using the offer during a trial period. Upon expiration of the trial period, customers are automatically charged for the last plan they tried based on standard rates unless they cancel before the end of the trial period.
 
 > [!NOTE]
 > Offers that are billed according to consumption after a solution has been used are not eligible for refunds.
 
-Publishers who want to change the usage fees associated with an offer, should first remove the offer (or the specific plan within the offer) from the commercial marketplace. Removal should be done in accordance with the requirements of the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement). Then the publisher can publish a new offer (or plan within an offer) that includes the new usage fees. For information, about removing an offer or plan, see [Stop selling an offer or plan](./update-existing-offer.md#stop-selling-an-offer-or-plan).
+Publishers who want to change the usage fees associated with an offer, should first remove the offer (or the specific plan within the offer) from the commercial marketplace. Removal should be done in accordance with the requirements of the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement). Then the publisher can publish a new offer (or plan within an offer) that includes the new usage fees. For information, about removing an offer or plan, see [Stop distribution of an offer or plan](./update-existing-offer.md#stop-distribution-of-an-offer-or-plan).
 
 ### Free, Contact me, and bring-your-own-license (BYOL) pricing
 
@@ -100,8 +100,8 @@ In this scenario, Microsoft bills $1.14 per hour for use of your published VM im
 
 | **Microsoft bills** | **$1.14 per hour**  |
 |---------|---------|
-| Microsoft pays you 80% of your license cost | $0.80 per hour |
-| Microsoft keeps 20% of your license cost  |  $0.20 per hour |
+| Microsoft pays you 97% of your license cost | $0.97 per hour |
+| Microsoft keeps 3% of your license cost  |  $0.03 per hour |
 | Microsoft keeps 100% of the Azure usage cost | $0.14 per hour |
 ||
 
@@ -133,20 +133,16 @@ SaaS subscriptions can be priced at a flat rate or per user on a monthly or annu
 | _Customer is billed by Microsoft_ | _$100.00 per month (publisher must account for any incurred or pass-through infrastructure costs in the license fee)_ |
 ||
 
-In this scenario, Microsoft bills $100.00 for your software license and pays out $80.00 or $90.00 to you depending on whether the offer qualifies for a reduced store service fee.
+In this scenario, Microsoft bills $100.00 for your software license and pays out $97.00.
 
 | **Microsoft bills** | **$100.00 per month** |
 |---------|---------|
-| Microsoft pays you 80% of your license cost <br> \* Microsoft pays you 90% of your license cost for any qualified SaaS apps | $80.00 per month <br> \* $90.00 per month |
-| Microsoft keeps 20% of your license cost <br> \* Microsoft keeps 10% of your license cost for any qualified SaaS apps. | $20.00 per month <br> \* $10.00 |
+| Microsoft pays you 97% of your license cost  | $97.00 per month |
+| Microsoft keeps 3% of your license cost | $3.00 per month |
 
 ### Commercial marketplace service fees
 
-We charge a 20% standard store service fee when customers purchase your transact offer from the commercial marketplace. For details of this fee, see section 5c of the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement).
-
-For certain transact offers that you publish to the commercial marketplace, you may qualify for a reduced store service fee of 10%. For an offer to qualify, it must have been designated by Microsoft as _Azure IP Co-sell incentivized_. Eligibility must be met at least five business days before the end of each calendar month to receive the Reduced Marketplace Service Fee. Once eligibility is met, the reduced service fee is awarded to all transactions effective the first day of the following month until _Azure IP Co-sell incentivized_ status is lost. For details about IP co-sell eligibility, see [Requirements for co-sell status](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
-
-The Reduced Marketplace Service Fee applies to Azure IP Co-sell incentivized SaaS, VMs, Managed apps, and any other qualified transactable IaaS solutions made available through the commercial marketplace. Paid SaaS offers associated with one Microsoft Teams app or at least two Microsoft 365 add-ins (Excel, PowerPoint, Word, Outlook, and SharePoint) and published to Microsoft AppSource can also qualify for this discount.
+We charge a 3% standard store service fee when customers purchase your transact offer from the commercial marketplace.
 
 ### Customer invoicing, payment, billing, and collections
 
@@ -164,7 +160,7 @@ When subscription or Pay-as-You-Go (also called usage-based) pricing models are 
 
 ### Publisher payout and reporting
 
-Any software licensing fees collected by Microsoft as an agent are subject to a 20% transaction fee unless otherwise specified and are deducted at the time of publisher payout.
+Any software licensing fees collected by Microsoft as an agent are subject to a 3% store service fee unless otherwise specified and are deducted at the time of publisher payout.
 
 Customers typically purchase using the Enterprise Agreement or a credit-card enabled pay-as-you-go agreement. The agreement type determines billing, invoicing, collection, and payout timing.
 
@@ -173,7 +169,7 @@ Customers typically purchase using the Enterprise Agreement or a credit-card ena
 
 #### Billing questions and support
 
-For more information and legal policies, see the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement). For help with billing questions, contact [commercial marketplace publisher support](https://aka.ms/marketplacepublishersupport).
+For more information and legal policies, see the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement). For help with billing questions, contact [commercial marketplace publisher support](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 ## Transact requirements
 

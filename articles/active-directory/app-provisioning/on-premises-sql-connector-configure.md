@@ -3,12 +3,12 @@ title: Azure AD ECMA Connector Host generic SQL connector configuration
 description: This document describes how to configure the Azure AD ECMA Connector Host generic SQL connector.
 services: active-directory
 author: billmath
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/28/2021
+ms.date: 06/06/2021
 ms.author: billmath
 ms.reviewer: arvinh
 ---
@@ -35,7 +35,13 @@ For more installation and configuration information see:
 
 Depending on the options you select, some of the wizard screens may or may not be available and the information may be slightly different.  For purposes of this configuration, the user object type is used. Use the information below to guide you in your configuration.
 
-
+**Supported systems**
+* Microsoft SQL Server & SQL Azure
+* IBM DB2 10.x
+* IBM DB2 9.x
+* Oracle 10 & 11g
+* Oracle 12c and 18c
+* MySQL 5.x
 ## Create a generic SQL connector
 
 To create a generic SQL connector use the following steps:
@@ -80,7 +86,7 @@ To create a generic SQL connector use the following steps:
      |Property|Description|
      |-----|-----|
      |User:Attribute Detection|This should be set to Table.|
-     |User:Table/View/SP|his should contain Employees.|
+     |User:Table/View/SP|This should contain Employees.|
      |User:Name of Multi-Values Table/Views||
      |User:Stored Procedure Parameters||
      |User:Provide SQL query for detecting object types||
@@ -141,7 +147,7 @@ To create a generic SQL connector use the following steps:
  14. The ECMA host discovers the attributes supported by the target system. You can choose which of those attributes you would like to expose to Azure AD. These attributes can then be configured in the Azure portal for provisioning.  On the **Select Attributes** page, select attributes from the drop-down to add. 
      ![Enter attributes](.\media\on-premises-sql-connector-configure\sql-13.png)
 
-15. On the **Deprovisioning** page, review the deprovisioning information and make adjustments as necessary. Click Finish.
+15. On the **Deprovisioning** page, review the deprovisioning information and make adjustments as necessary. Attributes selected in the previous page will not be available to select in the deprovisioning page. Click Finish.
      ![Enter deprovisioning information](.\media\on-premises-sql-connector-configure\sql-14.png)
 
 

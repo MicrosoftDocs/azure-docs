@@ -3,13 +3,13 @@ title: Deploy a Spatial Analysis web app
 titleSuffix: Azure Cognitive Services
 description: Learn how to use Spatial Analysis in a web application.
 services: cognitive-services
-author: aahill
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/12/2021
-ms.author: aahi
+ms.date: 06/08/2021
+ms.author: pafarley
 ---
 
 # How to: Deploy a Spatial Analysis web application

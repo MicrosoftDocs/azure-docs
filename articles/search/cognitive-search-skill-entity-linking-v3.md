@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 05/19/2021
 ---
 
-#    Entity Linking cognitive skill
+# Entity Linking cognitive skill
 
 The **Entity Linking** skill extracts linked entities from text. This skill uses the machine learning models provided by [Text Analytics](../cognitive-services/text-analytics/overview.md) in Cognitive Services.
 

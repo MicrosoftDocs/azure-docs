@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/13/2021
+ms.date: 07/02/2021
 ms.author: aahi
 keywords: on-premises, Docker, container, Kubernetes
 #Customer intent: As a potential customer, I want to know more about how Cognitive Services provides and supports Docker containers for each service.
@@ -49,7 +49,7 @@ Azure Cognitive Services containers provide the following set of Docker containe
 | [Text Analytics][ta-containers-keyphrase] | **Key Phrase Extraction** ([image](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | Extracts key phrases to identify the main points. For example, for the input text "The food was delicious and there were wonderful staff", the API returns the main talking points: "food" and "wonderful staff". | Preview |
 | [Text Analytics][ta-containers-language] |  **Text Language Detection** ([image](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | For up to 120 languages, detects which language the input text is written in and report a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the score. | Generally available |
 | [Text Analytics][ta-containers-sentiment] | **Sentiment Analysis v3** ([image](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analyzes raw text for clues about positive or negative sentiment. This version of sentiment analysis returns sentiment labels (for example *positive* or *negative*) for each document and sentence within it. |  Generally available |
-| [Text Analytics][ta-containers-health] |  **Text Analytics for health** | Extract and label medical information from unstructured clinical text. | Gated preview. [Request access][request-access]. |
+| [Text Analytics][ta-containers-health] |  **Text Analytics for health** | Extract and label medical information from unstructured clinical text. | Preview |
 | [Translator][tr-containers] | **Translator** | Translate text in several languages and dialects. | Gated preview. [Request access][request-access]. | 
 
 ### Speech containers
@@ -74,9 +74,9 @@ Azure Cognitive Services containers provide the following set of Docker containe
 | Service |  Container | Description | Availability |
 |--|--|--|--|
 | [Computer Vision][cv-containers] | **Read OCR** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | The Read OCR container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API documentation](./computer-vision/overview-ocr.md). | Gated preview. [Request access][request-access]. |
-| [Spatial Analysis][spa-containers] | **Spatial analysis** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-spatial-analysis)) | Analyzes real-time streaming video to understand spatial relationships between people, their movement, and interactions with objects in physical environments. | Gated preview. [Request access][request-access]. |
+| [Spatial Analysis][spa-containers] | **Spatial analysis** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-spatial-analysis)) | Analyzes real-time streaming video to understand spatial relationships between people, their movement, and interactions with objects in physical environments. | Preview |
 | [Face][fa-containers] | **Face** | Detects human faces in images, and identifies attributes, including face landmarks (such as noses and eyes), gender, age, and other machine-predicted facial features. In addition to detection, Face can check if two faces in the same image or different images are the same by using a confidence score, or compare faces against a database to see if a similar-looking or identical face already exists. It can also organize similar faces into groups, using shared visual traits. | Unavailable |
-| [Form Recognizer][fr-containers] | **Form Recognizer** | Form Understanding applies machine learning technology to identify and extract key-value pairs and tables from forms. | Unavailable | 
+| [Form Recognizer][fr-containers] | **Form Recognizer** | Form Understanding applies machine learning technology to identify and extract key-value pairs and tables from forms. | Gated preview. [Request access][request-access]. | 
 
 
 <!--
@@ -131,7 +131,7 @@ Install and explore the functionality provided by containers in Azure Cognitive 
 [ad-containers]: anomaly-Detector/anomaly-detector-container-howto.md
 [cv-containers]: computer-vision/computer-vision-how-to-install-containers.md
 [fa-containers]: face/face-how-to-install-containers.md
-[fr-containers]: form-recognizer/form-recognizer-container-howto.md
+[fr-containers]: ./form-recognizer/containers/form-recognizer-container-install-run.md
 [lu-containers]: luis/luis-container-howto.md
 [sp-containers]: speech-service/speech-container-howto.md
 [spa-containers]: ./computer-vision/spatial-analysis-container.md
