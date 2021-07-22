@@ -53,7 +53,7 @@ Set the URI values as follows:
 * {protectedItemName}: *azurefileshare;azurefiles*
 * {ResourceGroupName}: *azurefiles*
 
-The GET URI has all the required parameters. There's no need for an additional request body.
+The GET URI has all the required parameters. There's no need for another request body.
 
 ```http
 GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;azurefiles;afsaccount/protectedItems/AzureFileShare;azurefiles/recoveryPoints?api-version=2019-05-13
