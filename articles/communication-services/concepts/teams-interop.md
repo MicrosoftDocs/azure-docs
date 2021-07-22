@@ -31,24 +31,24 @@ Azure Communication Services supports two types of Teams interoperability depend
 Applications can implement both authentication schemes and leave the choice of authentication up to the end user.
 
 ## Bring your own identity
-Bring your own identity (BYOI) is the common model for using Azure Communication Services and Teams interoperability. It supports any identity provider and authentication scheme. Your app can join Microsoft Teams meetings, and Teams will treat these users as anonymous external accounts. The name of ACS users displayed in Teams is configurable via Calling SDK.
+Bring your own identity (BYOI) is the common model for using Azure Communication Services and Teams interoperability. It supports any identity provider and authentication scheme. Your app can join Microsoft Teams meetings, and Teams will treat these users as anonymous external accounts. The name of Communication Services users displayed in Teams is configurable via the Communication Services Calling SDK.
 
-This capability is ideal for business-to-consumer applications that bring together employees (familiar with Teams) and external users (using a custom application experience) into a meeting experience. Meeting details need to be shared with external users using your application. The details can be retrieved via Graph API or from the calendar in Microsoft Teams.
+This capability is ideal for business-to-consumer applications that bring together employees (familiar with Teams) and external users (using a custom application experience) into a meeting experience. Meeting details that need to be shared with external users of your application can be retrieved via the Graph API or from the calendar in Microsoft Teams.
 
-External users have available core audio, video, screen sharing, and chat functionality via Azure Communication Services SDKs. Features such as raised hand, together mode, and breakout rooms will only be available for Teams users. Communication Services users can send and receive messages only while present in the Teams meeting and if the meeting is not scheduled for a channel.
+External users will be able to use core audio, video, screen sharing, and chat functionality via Azure Communication Services SDKs. Features such as raised hand, together mode, and breakout rooms will only be available for Teams users. Communication Services users can send and receive messages only while present in the Teams meeting and if the meeting is not scheduled for a channel.
 
 Your custom application should consider user authentication and other security measures to protect Teams meetings. Be mindful of the security implications of enabling anonymous users to join meetings, and use the [Teams security guide](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) to configure capabilities available to anonymous users.
 
-Additional information on required dataflows for joining Teams meetings is available at the [client and server architecture page](client-and-server-architecture.md). The [Group Calling Hero Sample](../samples/calling-hero-sample.md) provides an example code for joining a Teams meeting from a Web application.
+Additional information on required dataflows for joining Teams meetings is available at the [client and server architecture page](client-and-server-architecture.md). The [Group Calling Hero Sample](../samples/calling-hero-sample.md) provides example code for joining a Teams meeting from a web application.
 
 ## Microsoft 365 Teams identity
-Azure Communication Services calling SDK can be used with Microsoft 365 Teams identities to support Teams-like experience for Teams interoperability. Microsoft 365 Teams identities are provided authenticated by Azure Active Directory. Your app can make or accept calls with a regular Microsoft 365 identity. All attributes and details about the user are bound to the Azure Active Directory user.
+The Azure Communication Services Calling SDK can be used with Microsoft 365 Teams identities to support Teams-like experiences for Teams interoperability. Microsoft 365 Teams identities are provided and authenticated by Azure Active Directory. Your app can make or accept calls with a regular Microsoft 365 identity. All attributes and details about the user are bound to the Azure Active Directory user.
 
-This identity model is ideal for use cases where a custom user interface is needed, the Teams client is not available for your platform, or the Teams client does not support a sufficient level of customization. For example, an application can be used to answer phone calls on behalf of the end user's Teams provisioned PSTN number and have a user interface optimized for a receptionist or call center business process.  
+This identity model is ideal for use cases where a custom user interface is needed, where the Teams client is not available for your platform, or where the Teams client does not support a sufficient level of customization. For example, an application can be used to answer phone calls on behalf of the end user's Teams provisioned PSTN number and have a user interface optimized for a receptionist or call center business process.  
 
-Calling and screen sharing functionality is available via Communication Service calling SDK. Calling management is available via Graph API, a configuration in Teams client or Teams Admin Portal. Chat functionality is available via Graph API.
+Calling and screen sharing functionality is available via the Communication Services Calling SDK. Calling management is available via Graph API, configuration in the Teams client or Teams Admin Portal. Chat functionality is available via Graph API.
 
-Teams user is authenticated via MSAL library against Azure Active Directory in the client application. Authentication tokens are exchanged for Microsoft 365 Teams token via Communication Services identity SDK. You are encouraged to implement an exhange of tokens in your backend services as exchange requests are signed by credentials for Azure Communication Services. In your backend services, you can require any additional authentication.
+Teams users are authenticated via the MSAL library against Azure Active Directory in the client application. Authentication tokens are exchanged for Microsoft 365 Teams token via the Communication Services Identity SDK. You are encouraged to implement an exchange of tokens in your backend services as exchange requests are signed by credentials for Azure Communication Services. In your backend services, you can require any additional authentication.
 
 To learn more about the functionality, join our TAP program for early access by completing [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8MfnD7fOYZEompFbYDoD4JUMkdYT0xKUUJLR001ODdQRk1ITTdOMlRZNSQlQCN0PWcu).
 
@@ -59,8 +59,8 @@ To learn more about the functionality, join our TAP program for early access by 
 |Applicable| In business-to-consumer scenarios for consumer applications | In business-to-business or business-to-consumer scenarios on business applications |
 |Identity provider|Any|Azure Active Directory|
 |Authentication & authorization|Custom*| Azure Active Directory and custom*|
-|Calling available via|ACS calling SDKs| ACS calling SDKs |
-|Chat available via|ACS chat SDKs| Graph API |
+|Calling available via | Communication Services Calling SDKs | Communication Services Calling SDKs |
+|Chat available via | Communication Services Chat SDKs | Graph API |
 |PSTN support| outbound voice call, outbound direct routing, [details](./telephony-sms/telephony-concept) | inbound call assigned to Teams identity, outbound call using calling plan|
 
 \* Server logic issuing access tokens can perform any custom authentication and authorization of the request.
