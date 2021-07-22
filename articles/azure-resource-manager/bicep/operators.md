@@ -9,11 +9,12 @@ ms.date: 07/22/2021
 
 # Bicep operators
 
-This article describes the Bicep operators that are available when you create a Bicep template and use Azure Resource Manager to deploy resources. Operators are used to calculate values, compare values, or evaluate conditions. There are three types of Bicep operators:
+This article describes the Bicep operators that are available when you create a Bicep template and use Azure Resource Manager to deploy resources. Operators are used to calculate values, compare values, or evaluate conditions. There are four types of Bicep operators:
 
 - [comparison](#comparison)
 - [logical](#logical)
 - [numeric](#numeric)
+- [access](#access)
 
 Enclosing an expression between `(` and `)` allows you to override the default Bicep operator precedence. For example, the expression x + y / z evaluates the division first and then the addition. However, the expression (x + y) / z evaluates the addition first and division second.
 

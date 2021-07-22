@@ -4,7 +4,7 @@ description: Describes Bicep resource access operator and property access operat
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/21/2021
+ms.date: 07/22/2021
 ---
 
 # Bicep access operators
@@ -18,7 +18,7 @@ The access operators are used to access properties of objects and resources. To 
 
 ## Nested resource accessor
 
-`<resource-symbolic-name>.properties.<property-name>`
+`<resource-symbolic-name>.<property-name>`
 
 Nested resource accessors are used to access resources that are declared inside another resource. The symbolic name declared by a nested resource can normally only be referenced within the body of the containing resource. To reference a nested resource outside the containing resource, it must be qualified with the containing resource name and the [::](./child-resource-name-type.md) operator. Other resources declared within the same containing resource can use the name without qualification.
 
