@@ -92,7 +92,7 @@ A random delay is added before the cached value is marked as dirty to reduce pot
 
 ## Build and run the app locally
 
-Event Grid Web Hooks requires validation on creation. This can be done by following this [guide](/azure/event-grid/webhook-event-delivery), or by starting your application with Azure App Configuration Spring Web Library configured and it will register it for you. The next two sections walk through registering the event subscription.
+Event Grid Web Hooks require validation on creation. You can validate by following this [guide](/azure/event-grid/webhook-event-delivery) or by starting your application with Azure App Configuration Spring Web Library already configured, which will register your application for you. To use an event subscription, follow the steps in the next two sections.
 
 1. Set the environment variable to your App Configuration instance's connection string:
 
