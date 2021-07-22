@@ -22,7 +22,7 @@ To learn more about these capabilities and evaluate the impact of this upgrade o
 
 To upgrade your account, you must register the `HnsOnMigration` feature with your subscription. Once you've verified that the feature is registered, you must register the Azure Storage resource provider. 
 
-### Step 1: Register the feature
+### Register the feature
 
 #### [PowerShell](#tab/powershell)
 
@@ -49,6 +49,9 @@ To upgrade your account, you must register the `HnsOnMigration` feature with you
    Register-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName HnsOnMigration
    ```
 
+   > [!NOTE]
+   > The registration process might not complete immediately. Make sure to verify that the feature is registered before using it.
+
 #### [Azure CLI](#tab/azure-cli)
 
 1. Open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
@@ -67,9 +70,12 @@ To upgrade your account, you must register the `HnsOnMigration` feature with you
    az feature register --namespace Microsoft.Storage --name HnsOnMigration
    ```
 
+   > [!NOTE]
+   > The registration process might not complete immediately. Make sure to verify that the feature is registered before using it.
+
 ---
 
-### Step 2: Verify that the feature is registered
+### Verify that the feature is registered
 
 #### [PowerShell](#tab/powershell)
 
@@ -85,28 +91,6 @@ To verify that the registration is complete, use the [az feature](/cli/azure/fea
 
 ```azurecli
 az feature show --namespace Microsoft.Storage --name HnsOnMigration
-```
-
----
-
-### Step 3: Register the Azure Storage resource provider
-
-After your registration is approved, you must re-register the Azure Storage resource provider. 
-
-#### [PowerShell](#tab/powershell)
-
-To register the resource provider, use the [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) command.
-
-```powershell
-Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
-```
-
-#### [Azure CLI](#tab/azure-cli)
-
-To register the resource provider, use the [az provider register](/cli/azure/provider#az_provider_register) command.
-
-```azurecli
-az provider register --namespace 'Microsoft.Storage'
 ```
 
 ---
