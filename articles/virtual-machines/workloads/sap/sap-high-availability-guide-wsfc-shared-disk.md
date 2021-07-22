@@ -190,11 +190,15 @@ _Windows failover clustering configuration in Azure with SIOS DataKeeper_
 >
 ## Optional configurations
 
-The following describes how to install multiple SAP instances on Azure VMs running Microsoft Windows Failover Cluster to reduce the total number of VMs. The focus is on small instances like SAP ASCS/SCS in combination with larger instances like an SAP Application Server or a Microsoft SQL Server database.
+The following diagrams show multiple SAP instances on Azure VMs running Microsoft Windows Failover Cluster to reduce the total number of VMs.
+
+This can either be local SAP Application Servers on a SAP ASCS/SCS cluster or a SAP ASCS/SCS Cluster Role on Microsoft SQL Server Always On nodes.
+
+> [!IMPORTANT]
+> Installing a local SAP Application Server on a SQL Server Always On node is not supported.
+>
 
 Both, SAP ASCS/SCS and the Microsoft SQL Server database, are single points of failure (SPOF). To protect these SPOFs in a Windows environment WSFC is used.
-
-By installing an SAP Application Server or SAP ASCS/SCS locally on each cluster node, the total number of VMs can be reduced.
 
 While the resource consumption of the SAP ASCS/SCS is fairly small, a reduction of the memory configuration for either SQL Server or the SAP Application Server by 2 GB is recommended.
 
@@ -210,11 +214,8 @@ While the resource consumption of the SAP ASCS/SCS is fairly small, a reduction 
 ![Figure 7: SAP ASCS/SCS on SQL Server Always On nodes using SIOS DataKeeper][sap-ha-guide-figure-1005]
 
 [Optional configuration for SAP Application Servers on WSFC nodes using Windows SOFS][optional-fileshare]
-
 [Optional configuration for SAP Application Servers on WSFC nodes using NetApp Files SMB][optional-smb]
-
 [Optional configuration for SAP ASCS/SCS on SQL Server Always On nodes using Windows SOFS][optional-fileshare-sql]
-
 [Optional configuration for SAP ASCS/SCS on SQL Server Always On nodes using NetApp Files SMB][optional-smb-sql]
 
 ## Next steps

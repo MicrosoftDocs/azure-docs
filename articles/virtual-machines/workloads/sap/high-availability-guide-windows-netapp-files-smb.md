@@ -213,18 +213,19 @@ For more information, see [Troubleshooting for Enqueue Failover in ASCS with ERS
 
 ## Optional configurations
 
-The following describes how to install multiple SAP instances on Azure VMs running Microsoft Windows Failover Cluster to reduce the total number of VMs. The focus is on small instances like SAP ASCS/SCS in combination with larger instances like an SAP Application Server or a Microsoft SQL Server database.
+The following diagrams show multiple SAP instances on Azure VMs running Microsoft Windows Failover Cluster to reduce the total number of VMs.
 
-Both, SAP ASCS/SCS and the Microsoft SQL Server database, are single points of failure (SPOF). To protect these SPOFs in a Windows environment WSFC is used.
+This can either be local SAP Application Servers on a SAP ASCS/SCS cluster or a SAP ASCS/SCS Cluster Role on Microsoft SQL Server Always On nodes.
 
-By installing an SAP Application Server or SAP ASCS/SCS locally on each cluster node, the total number of VMs can be reduced.
+> [!IMPORTANT]
+> Installing a local SAP Application Server on a SQL Server Always On node is not supported.
+>
+
+Both, SAP ASCS/SCS and the Microsoft SQL Server database, are single points of failure (SPOF). To protect these SPOFs in a Windows environment Azure NetApp Files SMB is used.
 
 While the resource consumption of the SAP ASCS/SCS is fairly small, a reduction of the memory configuration for either SQL Server or the SAP Application Server by 2 GB is recommended.
 
 ### <a name="5121771a-7618-4f36-ae14-ccf9ee5f2031"></a>SAP Application Servers on WSFC nodes using NetApp Files SMB
-
-
-The following shows an example based on Windows NetApp Files SMB. 
 
 ![Figure 4: Windows Server failover clustering configuration in Azure with Windows NetApp Files SMB and locally installed SAP Application Server][sap-ha-guide-figure-8007A]
 
@@ -233,11 +234,16 @@ The following shows an example based on Windows NetApp Files SMB.
 >
 ### <a name="01541cf2-0a03-48e3-971e-e03575fa7b4f"></a> SAP ASCS/SCS on SQL Server Always On nodes using Azure NetApp Files SMB
 
+> [!IMPORTANT]
+> Using Azure NetApp Files SMB for any SQL Server volume is not supported.
+> 
+
 ![Figure : SAP ASCS/SCS on SQL Server Always On nodes using Azure NetApp Files SMB][sap-ha-guide-figure-8007B]
 
 > [!NOTE]
 > The picture shows the use of additional local disks. This is optional for customers who will not install application software on the OS drive (C:\)
 >
+
 ## Next steps
 
 * [Azure Virtual Machines planning and implementation for SAP][planning-guide]

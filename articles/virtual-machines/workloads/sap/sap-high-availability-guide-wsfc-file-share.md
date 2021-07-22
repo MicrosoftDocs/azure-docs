@@ -150,11 +150,10 @@ To use a scale-out file share, your system must meet the following requirements:
 * We recommend that you reserve some unallocated capacity in the storage pool. Leaving some unallocated capacity in the storage pool gives volumes space to repair "in place" if a drive fails. This improves data safety and performance.  For more information, see [Choosing volume size][choosing-the-size-of-volumes-s2d].
 * You don't need to configure the Azure internal load balancer for the scale-out file share network name, such as for \<SAP global host\>. This is done for the \<ASCS/SCS virtual host name\> of the SAP ASCS/SCS instance or for the DBMS. A scale-out file share scales out the load across all cluster nodes. \<SAP global host\> uses the local IP address for all cluster nodes.
 
-
 > [!IMPORTANT]
 > You cannot rename the SAPMNT file share, which points to \<SAP global host\>. SAP supports only the share name "sapmnt."
 >
-> For more information, see [SAP Note 2492395 - Can the share name sapmnt be changed?][2492395]
+For more information, see [SAP Note 2492395 - Can the share name sapmnt be changed?][2492395]
 
 ### Configure SAP ASCS/SCS instances and a scale-out file share in two clusters
 
@@ -174,11 +173,15 @@ _**Figure 5:** An SAP ASCS/SCS instance and a scale-out file share deployed in t
 
 ## Optional configurations
 
-The following describes how to install multiple SAP instances on Azure VMs running Microsoft Windows Failover Cluster to reduce the total number of VMs. The focus is on small instances like SAP ASCS/SCS in combination with larger instances like an SAP Application Server or a Microsoft SQL Server database.
+The following diagrams show multiple SAP instances on Azure VMs running Microsoft Windows Failover Cluster to reduce the total number of VMs.
+
+This can either be local SAP Application Servers on a SAP ASCS/SCS cluster or a SAP ASCS/SCS Cluster Role on Microsoft SQL Server Always On nodes.
+
+> [!IMPORTANT]
+> Installing a local SAP Application Server on a SQL Server Always On node is not supported.
+>
 
 Both, SAP ASCS/SCS and the Microsoft SQL Server database, are single points of failure (SPOF). To protect these SPOFs in a Windows environment WSFC is used.
-
-By installing an SAP Application Server or SAP ASCS/SCS locally on each cluster node, the total number of VMs can be reduced.
 
 While the resource consumption of the SAP ASCS/SCS is fairly small, a reduction of the memory configuration for either SQL Server or the SAP Application Server by 2 GB is recommended.
 
@@ -254,7 +257,7 @@ In this case, you can use a third-party SIOS solution as a cluster shared disk.
 [sap-hana-ha]:sap-hana-high-availability.md
 [sap-suse-ascs-ha]:high-availability-guide-suse.md
 
-[planning-volumes-s2d-choosing-filesystem]:https://docs.microsoft.com/windows-server/storage/storage-spaces/plan-volumes#choosing-the-filesystem
+[planning-volumes-s2d-choosing-filesystem]:windows-server/storage/storage-spaces/plan-volumes#choosing-the-filesystem
 [choosing-the-size-of-volumes-s2d]:https://docs.microsoft.com/windows-server/storage/storage-spaces/plan-volumes#choosing-the-size-of-volumes
 [deploy-sofs-s2d-in-azure]:https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment
 [s2d-in-win-2016]:https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview
