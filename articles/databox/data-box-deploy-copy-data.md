@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 05/17/2021
+ms.date: 07/16/2021
 ms.author: alkohli
 ms.localizationpriority: high
 
@@ -212,6 +212,8 @@ C:\Users>Robocopy C:\Git\azure-docs-pr\contributor-guide \\10.126.76.172\devicem
     Bytes :     3.9 k     3.9 k         0         0         0         0
 C:\Users>
 ```
+
+For more specific scenarios such as using `robocopy` to list, copy, or delete files on Data Box, see [Use robocopy to list, copy, modify files on Data Box](data-box-file-acls-preservation.md#use-robocopy-to-list-copy-modify-files-on-data-box).
 
 To optimize the performance, use the following robocopy parameters when copying the data.
 
