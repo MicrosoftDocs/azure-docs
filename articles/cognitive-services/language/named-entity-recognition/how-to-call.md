@@ -74,7 +74,7 @@ Output is returned immediately. You can stream the results to an application tha
 
 ### NER and PII responses
 
-The API can return response objects for both NER and PII. The response will contain...
+The API response objects will include [recognized entities](concepts/named-entity-categories.md), including their categories and sub-categories, and confidence scores.
 
 
 ## Data limits
@@ -110,4 +110,4 @@ In this article, you learned concepts and workflow for entity linking using Text
 
 ## Next steps
 
-TBD
+[Named Entity Recognition overview](overview.md)

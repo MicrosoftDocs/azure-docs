@@ -1,5 +1,5 @@
 ---
-title: Supported Categories for Named Entity Recognition in Azure Language Services
+title: Supported categories for Named Entity Recognition in Azure Language Services
 titleSuffix: Azure Cognitive Services
 description: Learn about the supported entity categories in the Azure Language Services.
 services: cognitive-services

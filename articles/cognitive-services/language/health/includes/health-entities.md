@@ -142,10 +142,10 @@ See more information and examples below.
 
 **CONDITION_QUALIFIER** - Qualitative terms that are used to describe a medical condition. All the following subcategories are considered qualifiers:
 
-1.	Time-related expressions: those are terms that describe the time dimension qualitatively, such as sudden, acute, chronic, longstanding. 
-2.	Quality expressions:  Those are terms that describe the “nature” of the medical condition, such as burning, sharp.
-3.	Severity expressions: severe, mild, a bit, uncontrolled.
-4.	Extensivity expressions: local, focal, diffuse.
+* Time-related expressions: those are terms that describe the time dimension qualitatively, such as sudden, acute, chronic, longstanding. 
+* Quality expressions:  Those are terms that describe the “nature” of the medical condition, such as burning, sharp.
+* Severity expressions: severe, mild, a bit, uncontrolled.
+* Extensivity expressions: local, focal, diffuse.
 
 :::image type="content" source="../media/entities/condition-qualifier-diagnosis-3.png" alt-text="This screenshot shows another example of a condition qualifier attribute with a diagnosis entity." lightbox="../media/entities/condition-qualifier-diagnosis-3.png" :::
 

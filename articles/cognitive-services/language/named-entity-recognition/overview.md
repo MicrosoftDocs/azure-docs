@@ -29,7 +29,7 @@ Named Entity Recognition (NER) can Identify and categorize entities in your text
 
 ## Personally Identifying Information (PII)
 
-TBD
+Identify, and redact Personally Identifying Information (PII) that occurs in text, such as phone numbers, email addresses and other identification information. 
 
 ## Responsible AI 
 
