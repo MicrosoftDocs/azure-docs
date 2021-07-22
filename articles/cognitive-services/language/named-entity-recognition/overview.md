@@ -13,11 +13,11 @@ ms.author: aahi
 keywords: text mining, sentiment analysis, text analytics
 ---
 
-# What is the Named Entity Recognition (NER) and Personally Identifiable Information (PII) API?
+# What is the Named Entity Recognition and Personally Identifiable Information API?
 
-The NER and PII API is a cloud-based service that provides Natural Language Processing (NLP) features for text mining and text analysis.
+This API is a cloud-based service that provides Natural Language Processing (NLP) features for text mining and text analysis.
 
-The API is a part of [Azure Cognitive Services](../../index.yml), a collection of machine learning and AI algorithms in the cloud for your development projects. You can use these features with the REST API, or the client libraries.
+The API is a part of [Azure Cognitive Services](../../index.yml), a collection of cloud-based machine learning and AI algorithms for your development projects. You can use these features with the REST API, or the client libraries.
 
 This documentation contains the following types of articles:
 
@@ -29,16 +29,16 @@ Named Entity Recognition (NER) can Identify and categorize entities in your text
 
 ## Personally Identifying Information (PII)
 
-Identify, and redact Personally Identifying Information (PII) that occurs in text, such as phone numbers, email addresses and other identification information. 
+Identify, and redact PII that occurs in text, such as phone numbers, email addresses, and other identification information. 
 
 ## Responsible AI 
 
-An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the following articles to learn about responsible AI use and deployment in your systems:
+An AI system includes not only the technology, but also: the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the following articles to learn about responsible AI use and deployment in your systems:
 
 * [Transparency note for Language services](../overview.md)
 * [Transparency note for NER and PII](../overview.md)
 * [Integration and responsible use](../overview.md)
-* [Data, privacy and security](../overview.md)
+* [Data, privacy, and security](../overview.md)
 
 ## Next steps
 

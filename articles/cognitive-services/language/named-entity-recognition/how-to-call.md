@@ -44,7 +44,7 @@ Document size must be under 5,120 characters per document, and you can have up t
 
 ## Submit data to the service
 
-To send an API request, You will need your Language service resource endpoint and key.
+To send an API request you will need your Language Services resource endpoint and key.
 
 > [!NOTE]
 > You can find the key and endpoint for your Language service resource on the Azure portal. They will be located on the resource's **Key and endpoint** page, under **resource management**. 
