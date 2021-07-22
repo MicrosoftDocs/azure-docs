@@ -42,7 +42,7 @@ This article lists the steps to set up IoT Edge on a Windows device. These steps
     * On Windows Server, install the Hyper-V role and create a default network switch. For more information, see [Nested virtualization for Azure IoT Edge for Linux on Windows](nested-virtualization.md).
     * On a virtual machine, configure nested virtualization. For more information, see [nested virtualization](nested-virtualization.md).
   * Networking support
-      * Windows Server does not come with a default switch. Before you can deploy EFLOW to a Windows Server device, you need to create a virtual switch.  For more information, see [Create virtual switch for Linux on Windows](virtual-switch-creation.md).
+      * Windows Server does not come with a default switch. Before you can deploy EFLOW to a Windows Server device, you need to create a virtual switch.  For more information, see [Create virtual switch for Linux on Windows](how-to-create-virtual-switch.md).
       * Windows Desktop versions come with a default switch that can be used for EFLOW installation. If needed, you can create your own custom virtual switch.     
 
 * If you want to install and manage IoT Edge device using Windows Admin Center, make sure you have access to Windows Admin Center and have the Azure IoT Edge extension installed:

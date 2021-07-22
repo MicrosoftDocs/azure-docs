@@ -26,7 +26,7 @@ If you are using Windows Server, make sure you [install the Hyper-V role](/windo
 
 ## Deployment on Azure VMs
 
-Azure IoT Edge for Linux on Windows is not compatible on an Azure VM running the Server SKU unless a script is executed that brings up a default switch. For more information on how to bring up a default switch, see the [Windows Server section](#windows-server) below.
+Azure IoT Edge for Linux on Windows is not compatible on an Azure VM running the Server SKU unless a script is executed that brings up a default switch. For more information on how to bring up a default switch, see [Create virtual switch for Linux on Windows](how-to-create-virtual-switch.md).
 
 > [!NOTE]
 >

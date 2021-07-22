@@ -33,7 +33,7 @@ The following steps in this section are a generic guide for a virtual switch cre
  ```powershell
 Get-VMSwitch
 ```
-If a virtual switch named **Default Switch** is already created and you don't need a custom virtual switch, you should be able to install IoT Edge for Linux on Windows without following the rest of the steps in this guide.
+   If a virtual switch named **Default Switch** is already created and you don't need a custom virtual switch, you should be able to install IoT Edge for Linux on Windows without following the rest of the steps in this guide.
 
 3. Create a new VM switch with a name and type **Internal** or **Private**. To create an **External** virtual switch, specify either the **NetAdapterInterfaceDescription** or the **NetAdapterName** parameter, which implicitly set the type of the virtual switch to **External**. Check [New-VMSwitch (Hyper-V)](/powershell/module/hyper-v/new-vmswitch) and [Create a virtual switch for Hyper-V virtual machines](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) for full details and further instructions.
  ```powershell
@@ -66,29 +66,32 @@ New-NetNat -Name "{switchName}" -InternalIPInterfaceAddressPrefix "{natIp}/24"
 >[!WARNING]
 >Authorization might be required to deploy a DHCP server in a corporate network environment. Check if the virtual switch configuration complies with your corporate network's policies. For further information, check the  [Deploy DHCP Using Windows PowerShell](/windows-server/networking/technologies/dhcp/dhcp-deploy-wps) guide. 
 
-8.	Check if the DHCP Server feature is installed in the device. Look for the **Install State** column.
+1.	Check if the DHCP Server feature is installed in the device. Look for the **Install State** column.
  ```powershell
 Get-WindowsFeature -Name 'DHCP'
 ```
 
-9.	If not installed, install it by using the following command:
+2.	If not installed, install it by using the following command:
  ```powershell
 Install-WindowsFeature -Name 'DHCP' -IncludeManagementTools
 ```
 
-10.	Add the DHCP Server to the default local security groups and restart the server.
+3.	Add the DHCP Server to the default local security groups and restart the server.
  ```powershell
 netsh dhcp add securitygroups
 Restart-Service dhcpserver
 ```
 
-11.	Configure the DHCP Server scope. Check [Add-DhcpServerv4Scope (DhcpServer)](/powershell/module/dhcpserver/add-dhcpserverv4scope) for full details.  The DHCP server range of IPs is determined by the **startIp** and the **endIp**. For example,  if 100 addresses want to be available, following the xxx.xxx.xxx.yyy IPv4 address of the virtual network switch adapter from Step 5, startIp = xxx.xxx.xxx.100, endIp = xxx.xxx.xxx.200 and subnetMask = 255.255.255.0.
+4.	Configure the DHCP Server scope. Check [Add-DhcpServerv4Scope (DhcpServer)](/powershell/module/dhcpserver/add-dhcpserverv4scope) for full details.  The DHCP server range of IPs is determined by the **startIp** and the **endIp**. For example,  if 100 addresses want to be available, following the xxx.xxx.xxx.yyy IPv4 address of the virtual network switch adapter from Step 5, startIp = xxx.xxx.xxx.100, endIp = xxx.xxx.xxx.200 and subnetMask = 255.255.255.0.
  ```powershell
 Add-DhcpServerV4Scope -Name "AzureIoTEdgeScope" -StartRange {startIp} -EndRange {endIp} -SubnetMask {subnetMask} -State Active
 ```
 
-12.	 Finally, assign the NAT object and gatewayIp to the DHCP server, and restart the server to load the configuration.
+5.	 Finally, assign the NAT object and gatewayIp to the DHCP server, and restart the server to load the configuration.
  ```powershell
 Set-DhcpServerV4OptionValue -ScopeID {natIp} -Router {gatewayIp}
 Restart-service dhcpserver
 ```
+
+## Next steps
+Follow the steps in [Install and provision Azure IoT Edge for Linux on a Windows device](how-to-install-iot-edge-on-windows.md) to set up a device with IoT Edge for Linux on Windows.
