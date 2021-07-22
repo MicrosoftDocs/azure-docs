@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2021
+ms.date: 07/21/2021
 ms.author: allensu
 ms.custom: mvc
 ---
@@ -35,10 +35,6 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads.  For more information about SKUs, see **[Azure Load Balancer SKUs](skus.md)**.
-
-:::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/resources-diagram.png" alt-text="Standard load balancer resources created for quickstart." border="false":::
-
-*Figure: Resources created in quickstart.*
 
 In this section, you create a load balancer that load balances virtual machines. 
 
