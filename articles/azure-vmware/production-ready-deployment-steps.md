@@ -87,10 +87,10 @@ This network segment is used primarily for testing purposes during the initial d
 
 ## Define the virtual network gateway
 
->[!IMPORTANT]
->You can connect to a virtual network gateway in an Azure Virtual WAN, but it is out of scope for this quick start.
+An Azure VMware Solution private cloud requires an Azure Virtual Network and an ExpressRoute circuit. 
 
-An Azure VMware Solution private cloud requires an Azure Virtual Network and an ExpressRoute circuit.  
+>[!IMPORTANT]
+>[!INCLUDE [disk-pool-planning-note](includes/disk-pool-planning-note.md)] You can connect to a virtual network gateway in an Azure Virtual WAN, but it is out of scope for this quick start.
 
 Define whether you want to use an *existing* OR *new* ExpressRoute virtual network gateway.  If you decide to use a *new* virtual network gateway, you'll create it after you create your private cloud. It's acceptable to use an existing ExpressRoute virtual network gateway, and for planning purposes, make note of which ExpressRoute virtual network gateway you'll use. 
 

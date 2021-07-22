@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to create, edit, and delete a model within Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 4/07/2021
+ms.date: 7/13/2021
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -89,17 +89,36 @@ Models aren't necessarily returned in exactly the document form they were upload
 
 ## Update models
 
+This section describes considerations and strategies for updating your models.
+
+### Before updating: Think in the context of your entire solution
+
+Before making updates to your models, it's recommended to think holistically about your entire solution and the impact of the model changes you're about to make. Models in an Azure Digital Twins solution are often interconnected, so it's important to be aware of cascading changes where updating one model requires updating several others. Updating models will impact the twins that use the models, and can also affect ingress and processing code, client applications, and automated reports.
+
+Here are some recommendations to help you manage your model transitions smoothly:
+* Instead of thinking in terms of individual models, consider evolving your entire model set when appropriate to keep models and their relationships up-to-date together.
+* Treat models like source code and manage them in source control. Apply the same rigor and attention to models and model changes that you apply to other code in your solution.
+
+When you're ready to proceed with updating your models, the rest of this section describes the strategies you can use to implement the updates.
+
+### Strategies for updating models
+
 Once a model is uploaded to your Azure Digital Twins instance, the model interface is immutable, which means there's no traditional "editing" of models. Azure Digital Twins also doesn't allow reupload of the same exact model while a matching model is already present in the instance.
 
-Instead, if you want to make changes to a model—such as updating `displayName` or `description`, or adding and removing properties—you'll need to replace the original model. 
+Instead, if you want to make changes to a model—such as updating `displayName` or `description`, or adding and removing properties—you'll need to replace the original model.
 
 There are two strategies to choose from when replacing a model:
-* [Option 1: Upload new model version](#option-1-upload-new-model-version): Upload the model, with a new version number, and update your twins to use that new model. Both the new and old versions of the model will exist in your instance until you delete one.
-    - **Use this strategy when** you want to make sure twins stay valid constantly through the model transition, or you want to keep a record of what versions a model has gone through. This strategy is also a good choice if you have many models that depend on the model you want to update.
-* [Option 2: Delete old model and reupload](#option-2-delete-old-model-and-reupload): Delete the original model and upload the new model with the same name and ID (DTMI value) in its place. Completely replaces the old model with the new one. 
-    - **Use this strategy when** you want to remove all record of the older model. Twins will be invalid for a short time while you're transitioning them from the old model to the new one, meaning that they won't be able to take any updates until the new model is uploaded and the twins conform to it.
+* [Strategy 1: Upload new model version](#strategy-1-upload-new-model-version): Upload the model, with a new version number, and update your twins to use that new model. Both the new and old versions of the model will exist in your instance until you delete one.
+    - **Use this strategy when** you want to update only some of your twins that use the model, or when you want to make sure twins stay conformant with their models and writable through the model transition.
+* [Strategy 2: Delete old model and reupload](#strategy-2-delete-old-model-and-reupload): Delete the original model and upload the new model with the same name and ID (DTMI value) in its place. Completely replaces the old model with the new one. 
+    - **Use this strategy when** you want to update all twins that use this model at once, as well as all code reacting to the models. If your model update contains a breaking change with the model update, twins will be nonconformant with their models for a short time while you're transitioning them from the old model to the new one, meaning that they won't be able to take any updates until the new model is uploaded and the twins conform to it.
 
-### Option 1: Upload new model version
+>[!NOTE]
+> Making breaking changes to your models is discouraged outside of development.
+
+Continue to the next sections to read more about each strategy option in detail.
+
+### Strategy 1: Upload new model version
 
 This option involves creating a new version of the model and uploading it to your instance.
 
@@ -131,7 +150,9 @@ This version of the model will then be available in your instance to use for dig
 
 #### 2. Update graph elements as needed
 
-Next, update the **twins and relationships** in your instance to use the new model version instead of the old. You can use the following instructions to [update twins](how-to-manage-twin.md#update-a-digital-twins-model) and [update relationships](how-to-manage-graph.md#update-relationships). The patch operation to update a twin's model will look something like this:
+Next, update the **twins and relationships** in your instance to use the new model version instead of the old.
+
+You can use the following instructions to [update twins](how-to-manage-twin.md#update-a-digital-twins-model) and [update relationships](how-to-manage-graph.md#update-relationships). The patch operation to update a twin's model will look something like this:
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch-model-1.json":::
 
@@ -148,7 +169,7 @@ You can also [delete](#deletion) the old model completely if you don't want it i
 
 The sections linked above contain example code and considerations for decommissioning and deleting models.
 
-### Option 2: Delete old model and reupload
+### Strategy 2: Delete old model and reupload
 
 Instead of incrementing the version of a model, you can delete a model completely and reupload an edited model to the instance.
 
@@ -178,7 +199,9 @@ Now that your new model has been uploaded in place of the old one, the twins in 
 >[!NOTE]
 > If you removed other dependent models earlier in order to delete the original model, reupload them now after the cache has reset. If you updated the dependent models to temporarily remove references to the original model, you can update them again to put the reference back.
 
-Next, update the **twins and relationships** in your instance so their properties match the properties defined by the new model. There are two ways to achieve this purpose:
+Next, update the **twins and relationships** in your instance so their properties match the properties defined by the new model. Before this step is completed, the twins that don't match their model can still be read, but cannot be written to. For more information on the state of twins without a valid model, see [Twins without models](#after-deletion-twins-without-models).
+
+There are two ways to update twins and relationships for the new model so that they're writable again:
 * Patch the twins and relationships as needed so they fit the new model. You can use the following instructions to [update twins](how-to-manage-twin.md#update-a-digital-twin) and [update relationships](how-to-manage-graph.md#update-relationships).
     - **If you've added properties**: Updating twins and relationships to have the new values isn't required, since twins missing the new values will still be valid twins. You can patch them however you want to add values for the new properties.
     - **If you've removed properties**: It's required to patch twins to remove the properties that are now invalid with the new model.
@@ -268,4 +291,4 @@ Azure Digital Twins doesn't prevent this state, so be careful to patch twins app
 ## Next steps
 
 See how to create and manage digital twins based on your models:
-* [How-to: Manage digital twins](how-to-manage-twin.md)
+* [Manage digital twins](how-to-manage-twin.md)
