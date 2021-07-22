@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/13/2021
+ms.date: 07/22/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with 360 Online
