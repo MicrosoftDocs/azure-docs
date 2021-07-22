@@ -11,7 +11,7 @@ ms.author: jasteppe
 ---
 # Azure IoT Connector for FHIR (preview) troubleshooting guide
 
-This article provides steps for troubleshooting common Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;) error messages and conditions. You'll also learn how to create copies of the Azure IoT Connector for FHIR (preview) conversion mapping JSON templates such as Device and FHIR. Also, you can use the conversion mapping JSON templates for editing and archiving outside of the Azure portal.  
+This article provides steps for troubleshooting common Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;) error messages and conditions. You'll also learn how to create copies of the Azure IoT Connector for FHIR (preview) conversion-mapping JSON templates such as Device and FHIR. Also, you can use the conversion-mapping JSON templates for editing and archiving outside of the Azure portal.  
 
 > [!NOTE]
 > In the remainder of this article, Azure IoT Connector for FHIR (preview) will be referred as IoT Connector.
@@ -19,9 +19,9 @@ This article provides steps for troubleshooting common Azure IoT Connector for F
 > [!TIP]
 > If must open a [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the IoT Connector, ensure to include copies of your conversion mapping JSON to assist with the troubleshooting process.
 
-## Device and FHIR conversion mapping JSON template validations
+## Device and FHIR conversion-mapping JSON template validations
 
-This section describes the validation process that the IoT Connector performs. The validation process validates the Device and FHIR conversion mapping JSON templates before allowing them to be saved for use. These elements are required in the Device and FHIR conversion mapping JSON.
+This section describes the validation process that the IoT Connector performs. The validation process validates the Device and FHIR conversion-mapping JSON templates before allowing them to be saved for use. These elements are required in the Device and FHIR conversion-mapping JSON.
 
 **Device Mapping**
 
@@ -76,9 +76,9 @@ This section describes the validation process that the IoT Connector performs. T
 |Potential issues|Fixes|
 |----------------|-----|
 |Data is still being processed.|Data is egressed to the FHIR service in batches (every ~15 minutes).  It’s possible the data is still being processed and extra time is needed for the data to be persisted in the FHIR service.|
-|Device conversion mapping JSON hasn't been configured.|Configure and save conforming device conversion mapping JSON.|
-|FHIR conversion mapping JSON hasn't been configured.|Configure and save conforming FHIR conversion mapping JSON.|
-|The device message doesn't contain an expected expression defined in the device mapping.|Verify `JsonPath` expressions defined in the device mapping match tokens defined in the device message.|
+|Device conversion-mapping JSON hasn't been configured.|Configure and save conforming device conversion-mapping JSON.|
+|FHIR conversion-mapping JSON hasn't been configured.|Configure and save conforming FHIR conversion-mapping JSON.|
+|The device message doesn't contain an expected expression defined in the device mapping.|Verify `JsonPath` expressions defined in the device-mapping match tokens defined in the device message.|
 |A Device Resource hasn't been created in the FHIR service (Resolution Type: Lookup only)*.|Create a valid Device Resource in the FHIR service. Ensure the Device Resource contains an identifier that matches the device identifier provided in the incoming message.|
 |A Patient Resource hasn't been created in the FHIR service (Resolution Type: Lookup only)*.|Create a valid Patient Resource in the FHIR service.|
 |The `Device.patient` reference isn't set, or the reference is invalid (Resolution Type: Lookup only)*.|Make sure the Device Resource contains a valid [Reference](https://www.hl7.org/fhir/device-definitions.html#Device.patient) to a Patient Resource.| 
@@ -94,11 +94,11 @@ This property represents the operation being performed by the IoT Connector when
 
 |Data flow stage|Description|
 |---------------|-----------|
-|Setup|This is the operation specific to setting up your instance of the IoT Connector.|
-|Normalization|This is the data flow stage where the device data gets normalized.|
-|Grouping|This the data flow stage where the normalized data gets grouped.|
-|FHIRConversion|This is the data flow stage where the grouped-normalized data is transformed into a FHIR resource.|
-|Unknown|This is operation type that's unknown when error occurred.|
+|Setup|The setup data flow stage is the operation specific to setting up your instance of the IoT Connector.|
+|Normalization|Normalization is the data flow stage where the device data gets normalized.|
+|Grouping|The grouping data flow stage where the normalized data gets grouped.|
+|FHIRConversion|FHIRConversion is the data flow stage where the grouped-normalized data is transformed into a FHIR resource.|
+|Unknown|Unknown is the operation type that's unknown when an error occurs.|
 
 ### The severity of the error
 
@@ -107,8 +107,8 @@ This property represents the severity of the occurred error. Below is a list of 
 |Severity|Description|
 |---------------|-----------|
 |Warning|Some minor issue exists in the data flow process, but processing of the device message doesn't stop.|
-|Error|This is when the processing of a specific device message has run into an error and other messages may continue to execute as expected.|
-|Critical|This is when some system level issue exists with the IoT Connector, and no messages are expected to process.|
+|Error|This message occurs when the processing of a specific device message has run into an error and other messages may continue to execute as expected.|
+|Critical|This error is when some system level issue exists with the IoT Connector, and no messages are expected to process.|
 
 ### The type of the error
 
@@ -116,13 +116,13 @@ This property signifies a category for a given error, which it basically represe
 
 |Error type|Description|
 |----------|-----------|
-|`DeviceTemplateError`|These are errors related to the device mapping templates.|
-|`DeviceMessageError`|Errors occurred when processing a specific device message.|
-|`FHIRTemplateError`|These are errors related to the FHIR mapping templates.|
-|`FHIRConversionError`|Errors occurred when transforming a message into a FHIR resource.|
-|`FHIRResourceError`|These are errors related to existing resources in the FHIR server that are referenced by the IoT Connector.|
-|`FHIRServerError`|These are errors that occur when communicating with the FHIR server.|
-|`GeneralError`|These are all other types of errors.|
+|`DeviceTemplateError`|This error type is related to the Device Mapping templates.|
+|`DeviceMessageError`|This error type occurs when processing a specific device message.|
+|`FHIRTemplateError`|This error type is related to the FHIR Mapping templates.|
+|`FHIRConversionError`|This error type occurs when transforming a message into a FHIR resource.|
+|`FHIRResourceError`|This error type is related to existing resources in the FHIR server that are referenced by the IoT Connector.|
+|`FHIRServerError`|This error type occurs when communicating with the FHIR server.|
+|`GeneralError`|This error type is about all other types of errors.|
 
 ### The name of the error
 
@@ -132,12 +132,12 @@ This property provides the name for a specific error. Below is the list of all e
 |----------|-----------|-------------|--------------|------------------|
 |`MultipleResourceFoundException`|This error occurs when multiple patient or device resources are found in the FHIR server for the respective identifiers present in the device message.|`FHIRResourceError`|Error|`FHIRConversion`|
 |`TemplateNotFoundException`|A device or FHIR mapping template that isn't configured with the instance of IoT Connector.|`DeviceTemplateError`, `FHIRTemplateError`|`Critical|Normalization`, `FHIRConversion`|
-|`CorrelationIdNotDefinedException`|The correlation ID isn't specified in the device mapping template. `CorrelationIdNotDefinedException` is a conditional error that occurs only when the FHIR Observation must group device measurements using a correlation ID because it's not configured correctly.|`DeviceMessageError`|Error|Normalization|
-|`PatientDeviceMismatchException`|This error occurs when the device resource on the FHIR server has a reference to a patient resource, which it doesn't match with the patient identifier present in the message.|`FHIRResourceError`|Error|`FHIRConversionError`|
+|`CorrelationIdNotDefinedException`|The correlation ID isn't specified in the Device Mapping template. `CorrelationIdNotDefinedException` is a conditional error that occurs only when the FHIR Observation must group device measurements using a correlation ID because it's not configured correctly.|`DeviceMessageError`|Error|Normalization|
+|`PatientDeviceMismatchException`|This error occurs when the device resource on the FHIR server has a reference to a patient resource. This error type means it doesn't match with the patient identifier present in the message.|`FHIRResourceError`|Error|`FHIRConversionError`|
 |`PatientNotFoundException`|No Patient FHIR resource is referenced by the Device FHIR resource associated with the device identifier present in the device message. Note this error will only occur when the IoT Connector instance is configured with the *Lookup* resolution type.|`FHIRConversionError`|Error|`FHIRConversion`|
 |`DeviceNotFoundException`|No device resource exists on the FHIR Server associated with the device identifier present in the device message.|`DeviceMessageError`|Error|Normalization|
 |`PatientIdentityNotDefinedException`|This error occurs when expression to parse patient identifier from the device message isn't configured on the device mapping template or patient identifer isn't present in the device message. Note this error occurs only when IoT Connector's resolution type is set to *Create*.|`DeviceTemplateError`|Critical|Normalization|
-|`DeviceIdentityNotDefinedException`|This error occurs when the expression to parse device identifier from the device message isn't configured on the device mapping template or device identifer isn't present in the device message.|`DeviceTemplateError`|Critical|Normalization|
+|`DeviceIdentityNotDefinedException`|This error occurs when the expression to parse device identifier from the device message isn't configured on the Device Mapping template or device identifer isn't present in the device message.|`DeviceTemplateError`|Critical|Normalization|
 |`NotSupportedException`|Error occurred when device message with unsupported format is received.|`DeviceMessageError`|Error|Normalization|
 
 ## Creating copies of the IoT Connector conversion mapping JSON
