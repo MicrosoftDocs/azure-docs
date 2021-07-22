@@ -48,3 +48,5 @@ This quickstart shows you how to authorize access to the Identity and SMS SDKs f
 - [Creating user access tokens](../../quickstarts/access-tokens.md)
 - [Send an SMS message](../../quickstarts/telephony-sms/send.md)
 - [Learn more about SMS](../../concepts/telephony-sms/concepts.md)
+- [Quickly create an identity for testing](./quick-create-identity.md).
+
