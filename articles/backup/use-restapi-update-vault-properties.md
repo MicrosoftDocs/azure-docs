@@ -73,7 +73,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 #### Create the request body
 
-THe following common definitions are used to create a request body
+The following common definitions are used to create a request body
 
 For more details, refer to [the REST API documentation](/rest/api/backup/backup-resource-vault-configs/update#request-body)
 
