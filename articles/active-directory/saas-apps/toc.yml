@@ -2415,6 +2415,8 @@
         href: limblecmms-provisioning-tutorial.md
       - name: LinkedIn Elevate
         href: linkedinelevate-provisioning-tutorial.md
+      - name: LinkedIn Learning
+        href: linkedin-learning-provisioning-tutorial.md
       - name: LinkedIn Sales Navigator
         href: linkedinsalesnavigator-provisioning-tutorial.md
       - name: Lucidchart
@@ -2551,6 +2553,8 @@
       items:
       - name: Tableau Online
         href: tableau-online-provisioning-tutorial.md
+      - name: Talentech
+        href: talentech-provisioning-tutorial.md
       - name: TeamViewer
         href: teamviewer-provisioning-tutorial.md
       - name: ThousandEyes
@@ -2563,6 +2567,8 @@
         href: templafy-openid-connect-provisioning-tutorial.md
       - name: TheOrgWiki
         href: theorgwiki-provisioning-tutorial.md
+      - name: Thrive LXP
+        href: thrive-lxp-provisioning-tutorial.md
       - name: TravelPerk
         href: travelperk-provisioning-tutorial.md
       - name: Tribeloo
@@ -2601,6 +2607,8 @@
         href: zapier-provisioning-tutorial.md 
       - name: Zendesk
         href: zendesk-provisioning-tutorial.md
+      - name: Zip
+        href: zip-provisioning-tutorial.md
       - name: Zoom
         href: zoom-provisioning-tutorial.md              
       - name: Zscaler

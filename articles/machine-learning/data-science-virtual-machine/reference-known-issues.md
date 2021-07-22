@@ -38,15 +38,14 @@ authentication), you will not be given a password. However, in some scenarios, s
 a password. Run `sudo passwd <user_name>` to create a new password for a certain user. With `sudo passwd`, you can
 create a new password for the root user.
 
-Running these command will not change the configuration of SSH, and allowed login mechanisms will be kept the same. 
+Running these command will not change the configuration of SSH, and allowed sign-in mechanisms will be kept the same. 
 
 ### Prompted for password when running sudo command
 
 When running a `sudo` command on an Ubuntu machine, you might be asked to enter your password again and again to confirm
-that you are really the user who is logged in. This is expected behavior and the default in Linux systems such as
-Ubuntu. However, in some scenarios, a repeated authentication is not necessary and rather annoying.
+that you are really the user who is logged in. This behavior is expected, and it is the default in Ubuntu. However, in some scenarios, a repeated authentication is not necessary and rather annoying.
 
-To disable re-authentication for most cases, you can run the following command in a terminal.
+To disable reauthentication for most cases, you can run the following command in a terminal.
 
  `echo -e "\n$USER ALL=(ALL) NOPASSWD: ALL\n" | sudo tee -a /etc/sudoers`
 
@@ -62,29 +61,38 @@ In order to use docker as a non-root user, your user needs to be member of the d
 ### Docker containers cannot interact with the outside via network
 
 By default, docker adds new containers to the so-called "bridge network", which is `172.17.0.0/16`. If the subnet of
-that bridge network overlaps with the subnet the DSVM is in, no network communication between the host and the container
-is possible. In that case, for instance, web applications running in the container cannot be reached, and the container
-cannot update packages from apt.
+that bridge network overlaps with the subnet of your DSVM or with another private subnet you have in your subscription,
+no network communication between the host and the container is possible. In that case, web applications running in the container cannot be reached, and the container cannot update packages from apt.
 
-To fix the issue, you can change the default subnet for containers in the bridge network. By adding
+To fix the issue, you need to reconfigure docker to use an IP address space for its bridge network that does not overlap
+with other networks of your subscription. For example, by adding
 
 ```json
 "default-address-pools": [
         {
-            "base": "172.18.0.0/16",
-            "size": 24
+            "base": "10.255.248.0/21",
+            "size": 21
         }
     ]
 ```
 
 to the JSON document contained in file `/etc/docker/daemon.json`, docker will assign another subnet to the bridge
-network, and the conflict should be resolved. (The file needs to be edited using sudo, eg. by running
-`sudo nano /etc/docker/daemon.json`.)
+network. (The file needs to be edited using sudo, for example by running `sudo nano /etc/docker/daemon.json`.)
 
 After the change, the docker service needs to be restarted by running `service docker restart`.
 
 To check if your changes have taken effect, you can run `docker network inspect bridge`. The value under
 *IPAM.Config.Subnet* should correspond to the address pool specified above.
+
+### GPU(s) not available in docker container
+
+The docker installed on the DSVM supports GPUs by default. However, there is a few prerequisite that must be met.
+
+* Obviously, the VM size of the DSVM has to include at least one GPU.
+* When starting your docker container with `docker run`, you need to add a *--gpus* parameter, for example, `--gpus all`.
+* VM sizes that include NVIDIA A100 GPUs need additional software packages installed, esp. the
+[NVIDIA Fabric Manager](https://docs.nvidia.com/datacenter/tesla/pdf/fabric-manager-user-guide.pdf). These packages
+might not be pre-installed in your image yet.
 
 
 ## Windows
@@ -92,7 +100,7 @@ To check if your changes have taken effect, you can run `docker network inspect 
 ### Accessing SQL Server
 
 When you try to connect to the pre-installed SQL Server instance, you might encounter a "login failed" error. To
-successfully connect to the SQL Server instance, you need to run the program you are connecting with, eg. SQL Server
+successfully connect to the SQL Server instance, you need to run the program you are connecting with, for example, SQL Server
 Management Studio (SSMS), in administrator mode. The administrator mode is required because by DSVM's default, only
 administrators are allowed to connect.
 
