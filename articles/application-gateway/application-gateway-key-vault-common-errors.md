@@ -29,7 +29,7 @@ This troubleshooting guide will help you to understand the details of the Key Va
 **Description:** The associated User-Assigned Managed Identity doesn't have GET permission. 
 
 **Resolution:** Configure Key Vault's Access Policy to grant the associated User-Assigned Managed Identity GET permissions on Secrets. 
-1. Navigate to the linked Key Vault in Azure Portal
+1. Navigate to the linked Key Vault in Azure portal
 2. Open the Access Policies blade
 3. Select "Vault Access policy" for Permission model
 4. Select "Get" permission for Secret for the given User-Assigned Managed Identity
@@ -49,7 +49,7 @@ For complete guide on Key Vault's Access policy, refer to this [article](../key-
 **Description:** The associated Certificate has been disabled in Key Vault. 
 
 **Resolution:** Re-enable the certificate version that is currently in use for Application Gateway.
-1. Navigate to the linked Key Vault in Azure Portal
+1. Navigate to the linked Key Vault in Azure portal
 2. Open the Certificates blade
 3. Click on the required certificate name, and then the disabled version
 4. Use the toggle on the management page to enable that certificate version
@@ -64,7 +64,7 @@ For complete guide on Key Vault's Access policy, refer to this [article](../key-
 **Description:** The associated Certificate has been deleted from Key Vault. 
 
 **Resolution:** The deleted certificate object within a Key Vault can be restored using its Soft-Delete recovery feature. To recovery a deleted certificate, 
-1. Navigate to the linked Key Vault in Azure Portal
+1. Navigate to the linked Key Vault in Azure portal
 2. Open the Certificates blade
 3. Use "Managed Deleted Certificates" tab to recover a deleted certificate.
 
@@ -123,7 +123,6 @@ Click on Managed Deleted Vaults tab. From here, you can find the deleted Key Vau
 
 **Resolution:** Your Azure subscription can get disabled due to various reasons. Please refer to the guide for [Reactivating a disabled Azure subscription](../cost-management-billing/manage/subscription-disabled.md) and take the necessary action.
 </br></br>
-
 
 
 
