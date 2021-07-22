@@ -80,7 +80,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<SUBDOMAIN>.walkme.com/ic/idp/p/saml/callback`
 
     c. In the **Relay State** textbox, type the value:
-    { "loginType": "azureSAMLApp"}
+    `{ "loginType": "azureSAMLApp"}`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [WalkMe SAML2.0 Client support team](mailto:support@walkme.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
