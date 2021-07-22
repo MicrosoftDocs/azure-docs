@@ -27,7 +27,7 @@ To learn more about these modes, go to [Virtual Machine Scale Sets Orchestration
 
 ## Region and Availability Zones considerations 
 
-Virtual machine scale sets can be created regionally or in one or more Availability Zones to protect them from data-center-level failure. Learn more about multi-zonal virtual machine scale sets, refer to [Virtual Machine Scale Sets that use Availability Zones](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones).  
+Virtual machine scale sets can be created regionally or in one or more Availability Zones to protect them from data-center-level failure. Learn more about multi-zonal virtual machine scale sets, refer to [Virtual Machine Scale Sets that use Availability Zones](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md).  
 
  
 >[!IMPORTANT]
