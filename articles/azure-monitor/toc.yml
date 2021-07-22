@@ -807,9 +807,11 @@
       items:
       - name: Overview
         href: app/availability-overview.md
-      - name: URL tests
+      - name: URL ping tests
         displayname: ping, ping tests, availability, GSM, up/down
         href: app/monitor-web-app-availability.md
+      - name: Standard tests
+        href: app/availability-standard-tests.md
       - name: Multi-step tests
         displayname: availability, GSM, visual studio web test, web test
         href: app/availability-multistep.md
@@ -1223,7 +1225,7 @@
             - name: ExpressRoute
               href: insights/network-performance-monitor-expressroute.md
             - name: Pricing
-              href: insights/network-performance-monitor-pricing-faq.md
+              href: insights/network-performance-monitor-pricing-faq.yml
             - name: FAQ
               href: insights/network-performance-monitor-faq.yml
         - name: Office 365
@@ -1492,13 +1494,11 @@
         href: visualize/view-designer-filters.md
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+  - name: Azure updates
+    href: https://azure.microsoft.com/en-us/updates/?category=management-tools
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/log-analytics/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
-  - name: News
-    href: https://azure.microsoft.com/updates/?product=monitor
