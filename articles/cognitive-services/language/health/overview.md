@@ -1,0 +1,60 @@
+---
+title: Health API
+titleSuffix: Azure Cognitive Services
+description: Learn how to use the health API, which is a part of the Language Services.
+services: cognitive-services
+author: aahill
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: text-analytics
+ms.topic: overview
+ms.date: 07/15/2021
+ms.author: aahi
+---
+
+# What is the health API?
+
+The health API is a feature of Language Services that extracts and labels relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records.  
+
+The API is a part of [Azure Cognitive Services](../../index.yml), a collection of cloud-based machine learning and AI algorithms for your development projects. You can use these features with the REST API, or the client libraries.
+
+This documentation contains the following types of articles:
+
+* [How-to guides](./how-to/call-api.md) contain instructions for using the service in more specific or customized ways.
+
+## Named Entity Recognition
+
+Named Entity Recognition detects words and phrases mentioned in unstructured text that can be associated with one or more semantic types, such as diagnosis, medication name, symptom/sign, or age.
+
+## Relation Extraction
+
+Relation extraction identifies meaningful connections between concepts mentioned in text. For example, a "time of condition" relation is found by associating a condition name with a time or between an abbreviation and the full description.  
+
+## Entity Linking
+
+Entity Linking disambiguates distinct entities by associating named entities mentioned in text to concepts found in a predefined database of concepts including the Unified Medical Language System (UMLS). Medical concepts are also assigned preferred naming, as an additional form of normalization.
+
+The health API supports linking to the health and biomedical vocabularies found in the Unified Medical Language System ([UMLS](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html)) Metathesaurus Knowledge Source.
+
+## Assertion Detection
+
+The meaning of medical content is highly affected by modifiers, such as negative or conditional assertions which can have critical implications if misrepresented. The health API supports three categories of assertion detection for entities in the text: 
+
+* certainty
+* conditional
+* association
+
+## Responsible AI 
+
+An AI system includes not only the technology, but also: the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the following articles to learn about responsible AI use and deployment in your systems:
+
+* [Transparency note for Language services](../overview.md)
+* [Transparency note for NER and PII](../overview.md)
+* [Integration and responsible use](../overview.md)
+* [Data, privacy, and security](../overview.md)
+
+## Next steps
+
+Follow a quickstart to implement and run a service in your preferred development language.
+
+* [Quickstart: Sentiment Analysis and opinion mining](../overview.md)
