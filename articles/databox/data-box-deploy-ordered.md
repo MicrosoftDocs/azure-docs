@@ -24,6 +24,9 @@ This tutorial describes how you can order an Azure Data Box. In this tutorial, y
 > * Track the order
 > * Cancel the order
 
+> [!NOTE]
+> To get answers to frequently asked questions about Data Box orders and shipments, see the [Data Box FAQ](data-box-faq.md).
+
 ## Prerequisites
 
 # [Portal](#tab/portal)
