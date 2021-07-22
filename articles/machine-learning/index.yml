@@ -1,13 +1,12 @@
 ### YamlMime:Hub
 
-title: Azure Machine Learning documentation 
-summary: Learn how to train and deploy models and manage the ML lifecycle (MLOps) with Azure Machine Learning. Tutorials, code examples, API references, and more.
-# brand: aspnet | azure | dotnet | dynamics | m365 | ms-graph | office | power-apps | power-automate | power-bi | power-platform | power-virtual-agents | sql | sql-server | vs | visual-studio | windows | xamarin
-brand: azure ## Used for color theming of icons and hero area
+title: Azure Machine Learning documentation
+summary: Learn how to train and deploy models and manage the ML lifecycle (MLOps) with Azure Machine Learning. Tutorials, code examples, API references, and more. 
 
 metadata:
-  title: Azure Machine Learning documentation - code examples, tutorials 
-  description: Learn how to train and deploy models and manage the ML lifecycle (MLOps) with Azure Machine Learning. Tutorials, code examples, API references, and more.
+  title: Azure Machine Learning documentation
+  description: Learn how to train and deploy models and manage the ML lifecycle (MLOps) with Azure Machine Learning. Tutorials, code examples, API references, and more. 
+ 
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
@@ -15,8 +14,8 @@ metadata:
   ms.collection: collection
   ms.author: sgilley
   author: sdgilley
-  ms.date: 06/25/2021
-  ms.custom: jordan-changes; hub-option
+  ms.date: 07/21/21
+  ms.custom: jordan-changes
 
 # highlightedContent section 
 highlightedContent:
@@ -124,3 +123,6 @@ conceptualContent:
         - url: https://github.com/Azure/azureml-examples/blob/main/cli/README.md
           itemType: sample
           text: v2 CLI code examples (preview)
+        - url: /azure/machine-learning/classic/
+          itemType: overview
+          text: ML Studio (classic) documentation  

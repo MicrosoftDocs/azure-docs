@@ -85,6 +85,9 @@ $domain = "contoso.corp.com"
 # Enter an Azure Active Directory global administrator username and password.
 $cloudCred = Get-Credential
 
+If you have MFA enabled for Global administrator, Please remove "-Cloudcredential $cloudCred"
+you will see web-based popup and complete the U/P and MFA there
+
 # Enter a domain administrator username and password.
 $domainCred = Get-Credential
 
