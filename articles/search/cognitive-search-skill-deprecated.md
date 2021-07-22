@@ -13,11 +13,11 @@ ms.date: 11/04/2019
 
 # Deprecated cognitive skills in Azure Cognitive Search
 
-If you're using [Named Entity Recognition skill](#Microsoft.Skills.Text.NamedEntityRecognitionSkill), this article will help you upgrade your skillset to use [Microsoft.Skills.Text.V3.EntityRecognitionSkill](cognitive-search-skill-entity-recognition-v3.md) which is generally available and introduce new features.
+If you're using [Named Entity Recognition skill](#microsoftskillstextnamedentityrecognitionskill), this article will help you upgrade your skillset to use [Microsoft.Skills.Text.V3.EntityRecognitionSkill](cognitive-search-skill-entity-recognition-v3.md) which is generally available and introduce new features.
 
-If you're using [Entity Recognition skill](#Microsoft.Skills.Text.EntityRecognitionSkill), this article will help you upgrade your skillset to use [Microsoft.Skills.Text.V3.EntityRecognitionSkill](cognitive-search-skill-entity-recognition-v3.md) which is generally available and introduce new features. 
+If you're using [Entity Recognition skill](#microsoftskillstextentityrecognitionskill), this article will help you upgrade your skillset to use [Microsoft.Skills.Text.V3.EntityRecognitionSkill](cognitive-search-skill-entity-recognition-v3.md) which is generally available and introduce new features. 
 
-If you're using [Sentiment Analysis skill](#Microsoft.Skills.Text.SentimentSkill), this article will help you upgrade your skillset to use [Microsoft.Skills.Text.V3.SentimentSkill](cognitive-search-skill-sentiment-v3.md) which is generally available and introduce new features. 
+If you're using [Sentiment Analysis skill](#microsoftskillstextsentimentskill), this article will help you upgrade your skillset to use [Microsoft.Skills.Text.V3.SentimentSkill](cognitive-search-skill-sentiment-v3.md) which is generally available and introduce new features. 
 
 
 This document describes cognitive skills that are considered deprecated. Use the following guide for the contents:
