@@ -55,7 +55,7 @@ Once the feature is enabled, you'll need to set up an Azure Key Vault and a disk
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-portal](../../includes/virtual-machines-disks-encryption-create-key-vault-portal.md)]
 
-## Deploy a VM
+## Deploy a VM with platform-managed keys
 
 Now that you've setup an Azure Key Vault and disk encryption set, you can deploy a VM and it will use encryption at host.
 
