@@ -15,19 +15,19 @@ ms.custom:
 
 # Create an image definition and an image version 
 
-A [Shared Image Gallery](../shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap deployment tasks like preloading applications, application configurations, and other OS configurations. 
+A [Shared Image Gallery](shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap deployment tasks like preloading applications, application configurations, and other OS configurations. 
 
 The Shared Image Gallery lets you share your custom VM images with others in your organization, within or across regions, within an AAD tenant. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. You can create multiple galleries so that you can logically group shared images. 
 
 The Shared Image Gallery feature has multiple resource types:
 
-[!INCLUDE [virtual-machines-shared-image-gallery-resources](../includes/virtual-machines-shared-image-gallery-resources.md)]
+[!INCLUDE [virtual-machines-shared-image-gallery-resources](./includes/virtual-machines-shared-image-gallery-resources.md)]
 
 
 ## Before you begin
 
 To complete this article, you must have an existing Shared Image Gallery, and a source for your image available in Azure. Image sources can be:
-- A VM in your subscription. You can capture an image from both [specialized and generalized](./shared-image-galleries.md#generalized-and-specialized-images) VMs. 
+- A VM in your subscription. You can capture an image from both [specialized and generalized](shared-image-galleries.md#generalized-and-specialized-images) VMs. 
 - A Managed image,
 - Managed OS and data disks.
 - OS and data disks as VHDs in a storage account.
@@ -35,7 +35,7 @@ To complete this article, you must have an existing Shared Image Gallery, and a 
 
 If the the image will contain data disks, the data disk size cannot be more than 1 TB.
 
-Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes and periods. For more information about the values you can specify for an image definition, see [Image definitions](../articles/virtual-machines/shared-image-galleries.md#image-definitions).
+Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes and periods. For more information about the values you can specify for an image definition, see [Image definitions](shared-image-galleries.md#image-definitions).
 
 Allowed characters for the image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
@@ -57,8 +57,8 @@ To create an image using a source other than a VM, follow these steps.
 1. on the **Add new image definition to shared image gallery** page, in the **Basics** tab, select a **Region**. 
 1. For **Image definition name**, type a name like *myImageDefinition*.
 1. For **Operating system**, select the correct option based on your source.  
-1. For **VM generation**, select the option based on your source. In most cases, this will be *Gen 1*. For more information, see [Support for generation 2 VMs](../articles/virtual-machines/generation-2.md).
-1. For **Operating system state**, select the option based on your source. For more information, see [Generalized and specialized](../articles/virtual-machines/shared-image-galleries.md#generalized-and-specialized-images).
+1. For **VM generation**, select the option based on your source. In most cases, this will be *Gen 1*. For more information, see [Support for generation 2 VMs](generation-2.md).
+1. For **Operating system state**, select the option based on your source. For more information, see [Generalized and specialized](shared-image-galleries.md#generalized-and-specialized-images).
 1. For **Publisher**, type a unique name like *myPublisher*. 
 1. For **Offer**, type a unique name like *myOffer*.
 1. For **SKU**, type a unique name like *mySKU*.
@@ -88,7 +88,7 @@ To create an image using a source other than a VM, follow these steps.
 
 It can take a while to replicate the image to all of the target regions.
 
-You can also capture an existing VM as an image, from the portal. For more information, see [Create an image of a VM in the portal](../articles/virtual-machines/capture-image-portal.md).
+You can also capture an existing VM as an image, from the portal. For more information, see [Create an image of a VM in the portal](capture-image-portal.md).
 
 ### [CLI](#tab/cli)
 
@@ -112,11 +112,11 @@ Image definition names can be made up of uppercase or lowercase letters, digits,
 
 Make sure your image definition is the right type. If you have generalized the VM (using Sysprep for Windows, or waagent -deprovision for Linux) then you should create a generalized image definition using `--os-state generalized`. If you want to use the VM without removing existing user accounts, create a specialized image definition using `--os-state specialized`.
 
-For more information about the values you can specify for an image definition, see [Image definitions](./shared-image-galleries.md#image-definitions).
+For more information about the values you can specify for an image definition, see [Image definitions](shared-image-galleries.md#image-definitions).
 
 Create an image definition in the gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az_sig_image_definition_create).
 
-In this example, the image definition is named *myImageDefinition*, and is for a [specialized](./shared-image-galleries.md#generalized-and-specialized-images) Linux OS image. To create a definition for images using a Windows OS, use `--os-type Windows`. 
+In this example, the image definition is named *myImageDefinition*, and is for a [specialized](shared-image-galleries.md#generalized-and-specialized-images) Linux OS image. To create a definition for images using a Windows OS, use `--os-type Windows`. 
 
 ```azurecli-interactive 
 az sig image-definition create \
