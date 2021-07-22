@@ -21,7 +21,7 @@ Azure provides a global [role-based access control (RBAC) authorization system](
 
 + Allow outbound indexer connections to be made [using a managed identity](search-howto-managed-identities-data-sources.md). For a search service that has a managed identity assigned to it, you can create roles assignments that extend external data services, such as Azure Blob Storage, to allow read access on blobs by your trusted search service.
 
-This article focuses on roles for control plane and data plane operations. For more information about outbound indexer calls, start with [Configure a managed identity](search-howto-managed-identities-data-sources.md).
+This article focuses on the first two bullets, roles for control plane and data plane operations. For more information about outbound indexer calls, start with [Configure a managed identity](search-howto-managed-identities-data-sources.md).
 
 A few RBAC scenarios are **not** directly supported, and these include:
 
@@ -45,7 +45,7 @@ There are no regional, tier, or pricing restrictions for using RBAC on Azure Cog
 | ---- | -------| ---------- | ----------- |
 | [Owner](../role-based-access-control/built-in-roles.md#owner) | Stable | Control plane | Full access to the resource, including the ability to assign Azure roles. Subscription administrators are members by default. |
 | [Contributor](../role-based-access-control/built-in-roles.md#contributor) | Stable | Control plane | Same level of access as Owner, minus the ability to assign roles. |
-| [Reader](../role-based-access-control/built-in-roles.md#reader) | Stable | Control plane | Limited access to partial service information. In the portal, the Reader role can access information in the service Overview page, in the Essentials section and under the Monitoring tab. All other tabs and pages are off limits. </br></br>This role has access to service information: resource group, service status, location, subscription name and ID, tags, URL, pricing tier, replicas, partitions, and search units. </br></br>This role also has access to service metrics: search latency, percentage of throttled requests, average queries per second. </br></br>There is no access to content (indexes or synonym maps) or content metrics (storage consumed, number of objects). |
+| [Reader](../role-based-access-control/built-in-roles.md#reader) | Stable | Control plane | Limited access to partial service information. In the portal, the Reader role can access information in the service Overview page, in the Essentials section and under the Monitoring tab. All other tabs and pages are off limits. </br></br>This role has access to service information: resource group, service status, location, subscription name and ID, tags, URL, pricing tier, replicas, partitions, and search units. </br></br>This role also has access to service metrics: search latency, percentage of throttled requests, average queries per second. </br></br>There is no access to API keys, role assignments, content (indexes or synonym maps), or content metrics (storage consumed, number of objects). |
 | [Search Service Contributor](../role-based-access-control/built-in-roles.md#search-service-contributor) | Preview | Control plane | Provides full access to search service and object definitions, but no access to indexed data. This role is intended for service administrators who need more information than what the Reader role provides, but who should not have access to index or synonym map content.|
 | [Search Index Data Contributor](../role-based-access-control/built-in-roles.md#search-index-data-contributor) | Preview | Data plane | Provides full access to index data, but nothing else. This role is for developers or index owners who are responsible for creating and loading content, but who should not have access to search service information. The scope is all top-level resources (indexers, synonym maps, indexers, data sources, skillsets) on the search service. |
 | [Search Index Data Reader](../role-based-access-control/built-in-roles.md#search-index-data-reader) | Preview | Data plane | Provides read-only access to index data. This role is for users who run queries against an index. The scope is all top-level resources (indexers, synonym maps, indexers, data sources, skillsets) on the search service. |
@@ -95,15 +95,17 @@ You can skip this step if you are using API keys only.
 
 Roles can be assigned using any of the [supported approaches](../role-based-access-control/role-assignments-steps.md) described in Azure role-based access control documentation.
 
-You must be an Owner or have Microsoft.Authorization/roleAssignments/write permissions to manage role assignments.
+You must be an Owner or have [Microsoft.Authorization/roleAssignments/write](/azure/templates/microsoft.authorization/roleassignments) permissions to manage role assignments.
 
 ### [**Azure portal**](#tab/rbac-portal)
 
-1. Make sure the portal has been opened with this syntax: [https://ms.portal.azure.com/?feature.enableRbac=true](https://ms.portal.azure.com/?feature.enableRbac=true). You should see `feature.enableRbac=true` in the URL.
+Set features on the portal URL to work with the preview roles: Search Service Contributor, Search Index Data Contributor, and Search Index Data Reader.
+
+1. Open the portal with this syntax: [https://ms.portal.azure.com/?feature.enableRbac=true](https://ms.portal.azure.com/?feature.enableRbac=true). You should see `feature.enableRbac=true` in the URL.
 
 1. Navigate to your search service.
 
-1. Select **Access Control** in the left navigation pane.
+1. Select **Access Control (IAM)** in the left navigation pane.
 
 1. On the right side, under **Grant access to this resource**, select **Add role assignment**.
 
@@ -139,7 +141,7 @@ New-AzRoleAssignment -SignInName <email> `
 
 Recall that you can only scope access to top-level resources, such as indexes, synonym maps, indexers, data sources, and skillsets. You can't control access to search documents (index content) with Azure roles.
 
---
+---
 
 ## Configure requests and test
 
@@ -149,7 +151,7 @@ Depending on your application, additional configuration is required to register 
 
 Alternatively, you can use the Azure portal and the roles assigned to yourself to test:
 
-1. Open the portal with this syntax: [https://ms.portal.azure.com/?feature.enableRbac=true](https://ms.portal.azure.com/?feature.enableRbac=true). Although your service is RBAC-enabled in a previous step, the portal will require the feature flag to invoke RBAC behaviors.
+1. Open the portal with this syntax: [https://ms.portal.azure.com/?feature.enableRbac=true](https://ms.portal.azure.com/?feature.enableRbac=true). Although your service is RBAC-enabled in a previous step, the portal will require the feature flag to invoke RBAC behaviors. **Content, such as indexes and indexers, is only visible in the portal if you open it with the feature flag.**
 
 1. Navigate to your search service.
 
@@ -168,3 +170,5 @@ If you are using Search Index Data Contributor and Search Index Data Reader role
 1. Assign roles and verify they are working correctly.
 
 1. Set `disableLocalAuth` to **True**.
+
+If you revert the last step later, setting `disableLocalAuth` to **False**, the search service will resume acceptance of API keys on the request automatically (assuming they exist and are specified).
