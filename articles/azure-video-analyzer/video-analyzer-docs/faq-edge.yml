@@ -175,7 +175,7 @@ sections:
           
           **How can I ensure that I'm using the latest protocol buffer files?** 
           
-          You can obtain the latest protocol buffer files on the [contract files site]()<!--add-valid-link.md)--><!--https://github.com/Azure/azree-video-analyzer/tree/master/contracts/grpc-->. Whenever we update the contract files, they'll be in this location. There's no immediate plan to update the protocol files, so look for the package name at the top of the files to know the version. It should read: 
+          You can obtain the latest protocol buffer files on the [contract files site](https://github.com/Azure/video-analyzer/tree/main/contracts/grpc). Whenever we update the contract files, they'll be in this location. There's no immediate plan to update the protocol files, so look for the package name at the top of the files to know the version. It should read: 
           
           ```
           microsoft.azure.media.live_video_analytics.extensibility.grpc.v1
