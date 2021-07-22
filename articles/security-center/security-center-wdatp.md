@@ -127,7 +127,7 @@ If you're already an Azure Defender customer with Microsoft Defender for Endpoin
 
 1. In the confirmation prompt, verify the information and select **Enable** if you're happy to proceed. 
 
-    :::image type="content" source="./media/security-center-wdatp/enable-for-linux-result.png" alt-text="Enable the integration between Azure Security Center and Microsoft's EDR solution, Microsoft Defender for Endpoint for Linux":::
+    :::image type="content" source="./media/security-center-wdatp/enable-for-linux-result.png" alt-text="Confirming the integration between Security Center and Microsoft's EDR solution, Microsoft Defender for Endpoint for Linux":::
 
     Onboarding might take up to 24 hours.
 
