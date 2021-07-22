@@ -118,6 +118,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 |     [App Service Environments](../app-service/environment/zone-redundancy.md)                                    | :large_blue_diamond:  |
 |     [Azure Active Directory Domain Services](../active-directory-domain-services/overview.md)                      | :large_blue_diamond:  |
 |     [Azure API Management](../api-management/zone-redundancy.md)                      | :large_blue_diamond:  |
+|     [Azure App Configuration](../azure-app-configuration/faq.yml#how-does-app-configuration-ensure-high-data-availability)   | :large_blue_diamond:  |    
 |     [Azure Bastion](../bastion/bastion-overview.md)                                               | :large_blue_diamond:  |
 |     [Azure Cache for Redis](../azure-cache-for-redis/cache-high-availability.md)                              | :large_blue_diamond:  |
 |     [Azure Cognitive Search](../search/search-performance-optimization.md#availability-zones)               | :large_blue_diamond:  |
