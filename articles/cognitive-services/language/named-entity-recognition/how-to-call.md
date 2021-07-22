@@ -34,7 +34,7 @@ The PII feature is part of NER and it can identify and redact sensitive entities
 | Recognition of personal (`PII`) and health (`PHI`) information entities        |        | X        |
 | Redaction of `PII`        |        | X        |
 
-See [entity categories](named-entity-types.md) for the full list of entities that can be identified.
+See [entity categories](concepts/named-entity-categories.md) for the full list of entities that can be identified.
 
 ## Language and document specifications
 
@@ -53,7 +53,7 @@ Analysis is performed upon receipt of the request. For information on the size a
 
 The NER API is stateless. No data is stored in your account, and results are returned immediately in the response.
 
-The API will attempt to detect the [listed entity categories](named-entity-types.md) for a given document language. If you want to specify which entities will be detected and returned, use the optional `piiCategories` parameter with the appropriate entity categories. This parameter can also let you detect entities that aren't enabled by default for your document language. The following URL example would detect a French driver's license number that might occur in English text, along with the default English entities.
+The API will attempt to detect the [listed entity categories](concepts/named-entity-categories.md) for a given document language. If you want to specify which entities will be detected and returned, use the optional `piiCategories` parameter with the appropriate entity categories. This parameter can also let you detect entities that aren't enabled by default for your document language. The following URL example would detect a French driver's license number that might occur in English text, along with the default English entities.
 
 > [!TIP]
 > If you don't include `default` when specifying entity categories, The API will only return the entity categories you specify.
