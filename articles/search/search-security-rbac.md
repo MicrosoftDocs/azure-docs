@@ -111,14 +111,22 @@ You must be an Owner or have Microsoft.Authorization/roleAssignments/write permi
 
 ### [**PowerShell**](#tab/rbac-powershell)
 
-When [using PowerShell to assign roles](/role-based-access-control/role-assignments-powershell), call [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment), providing the Azure user or group name, and the scope of the assignment. 
+When [using PowerShell to assign roles](/role-based-access-control/role-assignments-powershell), call [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment), providing the Azure user or group name, and the scope of the assignment.
+
+Make sure you load the Azure and AzureAD modules and connect to Azure:
+
+```powershell
+Import-Module -Name Az
+Import-Module -Name AzureAD
+Connect-AzAccount
+```
 
 Scoped to the service, your syntax should look similar to the following example:
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
     -RoleDefinitionName "Search Index Data Contributor" `
-    -Scope  "/subscriptions/<subscription>/resourceGroups/sample-resource-group/providers/Microsoft.Search/searchServices/mysearchservice?"
+    -Scope  "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Search/searchServices/<search-service>"
 ```
 
 Scoped to an individual index:
@@ -126,8 +134,10 @@ Scoped to an individual index:
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
     -RoleDefinitionName "Search Index Data Contributor" `
-    -Scope  "/subscriptions/<subscription>/resourceGroups/sample-resource-group/providers/Microsoft.Search/searchServices/mysearchservice/indexes/myhotelsindex?"
+    -Scope  "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Search/searchServices/<search-service>/indexes/<index-name>"
 ```
+
+Recall that you can only scope access to top-level resources, such as indexes, synonym maps, indexers, data sources, and skillsets. You can't control access to search documents (index content) with Azure roles.
 
 --
 
