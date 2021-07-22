@@ -61,7 +61,7 @@ To learn more about the functionality, join our TAP program for early access by 
 |Authentication & authorization|Custom*| Azure Active Directory and custom*|
 |Calling available via | Communication Services Calling SDKs | Communication Services Calling SDKs |
 |Chat available via | Communication Services Chat SDKs | Graph API |
-|PSTN support| outbound voice call, outbound direct routing, [details](./telephony-sms/telephony-concept) | inbound call assigned to Teams identity, outbound call using calling plan|
+|PSTN support| outbound voice call, outbound direct routing, [details](./telephony-sms/telephony-concept.md) | inbound call assigned to Teams identity, outbound call using calling plan|
 
 \* Server logic issuing access tokens can perform any custom authentication and authorization of the request.
 
