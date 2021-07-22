@@ -5,6 +5,8 @@ ms.topic: conceptual
 author: normesta
 ms.author: normesta
 ms.date: 07/11/2021
+ms.service: storage
+ms.subservice: common
 
 ---
 
@@ -220,7 +222,7 @@ In this example, we are working with the storage account capacity workbook and d
 
 ## Troubleshooting
 
-For general troubleshooting guidance, refer to the dedicated workbook-based insights [troubleshooting article](troubleshoot-workbooks.md).
+For general troubleshooting guidance, refer to the dedicated workbook-based insights [troubleshooting article](../../azure-monitor/insights/troubleshoot-workbooks.md).
 
 This section will help you with the diagnosis and troubleshooting of some of the common issues you may encounter when using Storage insights. Use the list below to locate the information relevant to your specific issue.
 

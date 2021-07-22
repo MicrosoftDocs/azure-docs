@@ -523,7 +523,7 @@ items:
     - name: Monitor
       items:
       - name: Use Storage insights
-        href: storage-insights-overview.md
+        href: ../common/storage-insights-overview.md
       - name: Monitor (classic)
         items:
         - name: Enable and manage metrics (classic)
