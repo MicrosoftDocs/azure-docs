@@ -101,7 +101,7 @@ Use standard API Management and Azure Monitor features to [monitor](api-manageme
 
 For example, the following screenshot shows query results from the ApiManagementGatewayLogs table of recent WebSocket API responses with code 101. These results indicate the successful switch of the requests from TCP to the WebSocket protocol.
 
-:::image type="content" source="./media/websocket-api/query-gateway-log.png" alt-text="Query logs for WebSocket API requests":::
+:::image type="content" source="./media/websocket-api/query-gateway-logs.png" alt-text="Query logs for WebSocket API requests":::
 
 ## Limitations
 
