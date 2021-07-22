@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 * [Automation account](../index.yml) with an [Azure Run as account](../create-run-as-account.md) to hold the runbook and authenticate to Azure resources. This account must have permission to start and stop the virtual machine.
 * PowerShell modules **Az.Accounts** and **Az.Compute** for the Automation Account. For more information, see [Manage modules in Azure Automation](../shared-resources/modules.md).
-* An [Azure virtual machine](/virtual-machines/windows/quick-create-portal.md) (VM). Since you stop and start this machine, it shouldn't be a production VM. Begin with the VM **stopped**.
+* An [Azure virtual machine](../../virtual-machines/windows/quick-create-portal.md) (VM). Since you stop and start this machine, it shouldn't be a production VM. Begin with the VM **stopped**.
 
 ## Create runbook
 
