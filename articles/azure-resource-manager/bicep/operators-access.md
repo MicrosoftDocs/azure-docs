@@ -14,7 +14,7 @@ The access operators are used to access properties of objects and resources. To 
 | Operator | Name |
 | ---- | ---- |
 | `.` | [Nested resource accessor](#nested-resource-accessor) |
-| `.`  | [Greater than](#property-accessor) |
+| `.`  | [Property accessor](#property-accessor) |
 
 ## Nested resource accessor
 
@@ -23,8 +23,6 @@ The access operators are used to access properties of objects and resources. To 
 Nested resource accessors are used to access resources that are declared inside another resource. The symbolic name declared by a nested resource can normally only be referenced within the body of the containing resource. To reference a nested resource outside the containing resource, it must be qualified with the containing resource name and the [::](./child-resource-name-type.md) operator. Other resources declared within the same containing resource can use the name without qualification.
 
 ### Example
-
-Evaluates a set of parameter values and a set of expressions.
 
 ```bicep
 resource myParent 'My.Rp/parentType@2020-01-01' = {
@@ -58,7 +56,7 @@ Because the declaration of `myChild` is contained within `myParent`, the access 
 
 `<object-name>.<property-name>`
 
-Property accessors are used to access properties of an object. They are constructed using the `.` operator. Property accessors can be used with any object, including parameters and variables of object types and object literals. Using a property accessor on an expression of non-object type is an error.
+Property accessors are used to access properties of an object. Property accessors can be used with any object, including parameters and variables of object types and object literals. Using a property accessor on an expression of non-object type is an error.
 
 ### Example
 

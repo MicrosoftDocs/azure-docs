@@ -4,7 +4,7 @@ description: Describes the Bicep operators available for Azure Resource Manager 
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/23/2021
+ms.date: 07/22/2021
 ---
 
 # Bicep operators
@@ -69,8 +69,8 @@ The access operators are used to access properties of objects and resources.
 
 | Operator | Name | Description |
 | ---- | ---- | ---- |
-| `.` | [Nested resource accessor](./operators-access.md#nested-resource-accessor) | Access properties of an object. |
-| `.` | [Property accessor](./operators-access.md#property-accessor) | Access properties of a nested resource. |
+| `.` | [Nested resource accessor](./operators-access.md#nested-resource-accessor) | Access properties of a nested resource. |
+| `.` | [Property accessor](./operators-access.md#property-accessor) | Access properties of an object. |
 
 ## Operator precedence and associativity
 
