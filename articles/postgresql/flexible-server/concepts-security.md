@@ -60,4 +60,4 @@ You can also connect to the server using [Azure Active Directory (AAD) authentic
 ## Next steps
   - Enable firewall rules for [IPs](concepts-firewall-rules.md) for public access networking
   - Learn about [private access networking with Azure Database for PostgreSQL - Flexible Server](concepts-networking.md)
-  - Learn about [Azure Active Directory authentication](concepts-aad-authentication.md) in Azure Database for PostgreSQL
+  - Learn about [Azure Active Directory authentication](../concepts-aad-authentication.md) in Azure Database for PostgreSQL

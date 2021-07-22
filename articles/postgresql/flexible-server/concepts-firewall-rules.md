@@ -17,7 +17,7 @@ To configure your firewall, you create firewall rules that specify ranges of acc
 All access to your Azure Database for PostgreSQL server is blocked by the firewall by default. To access your server from another computer/client or application, you need to specify one or more server-level firewall rules to enable access to your server. Use the firewall rules to specify allowed public IP address ranges. Access to the Azure portal website itself is not impacted by the firewall rules.
 Connection attempts from the internet and Azure must first pass through the firewall before they can reach your PostgreSQL Database, as shown in the following diagram:
 
-:::image type="content" source="media/concepts-firewall-rules/1-firewall-concept.png" alt-text="Example flow of how the firewall works":::
+:::image type="content" source="../media/concepts-firewall-rules/1-firewall-concept.png" alt-text="Example flow of how the firewall works":::
 
 ## Connecting from the Internet
 Server-level firewall rules apply to all databases on the same Azure Database for PostgreSQL server. 
@@ -34,7 +34,7 @@ If a fixed outgoing IP address isn't available for your Azure service, you can c
 > The **Allow access to Azure services** option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
 > 
 
-:::image type="content" source="media/concepts-firewall-rules/allow-azure-services.png" alt-text="Configure Allow access to Azure services in the portal":::
+:::image type="content" source="../media/concepts-firewall-rules/allow-azure-services.png" alt-text="Configure Allow access to Azure services in the portal":::
 ## Programmatically managing firewall rules
 In addition to the Azure portal, firewall rules can be managed programmatically using Azure CLI.
 
