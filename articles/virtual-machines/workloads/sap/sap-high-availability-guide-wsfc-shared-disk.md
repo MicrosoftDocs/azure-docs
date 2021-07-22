@@ -214,8 +214,11 @@ While the resource consumption of the SAP ASCS/SCS is fairly small, a reduction 
 ![Figure 7: SAP ASCS/SCS on SQL Server Always On nodes using SIOS DataKeeper][sap-ha-guide-figure-1005]
 
 [Optional configuration for SAP Application Servers on WSFC nodes using Windows SOFS][optional-fileshare]
+
 [Optional configuration for SAP Application Servers on WSFC nodes using NetApp Files SMB][optional-smb]
+
 [Optional configuration for SAP ASCS/SCS on SQL Server Always On nodes using Windows SOFS][optional-fileshare-sql]
+
 [Optional configuration for SAP ASCS/SCS on SQL Server Always On nodes using NetApp Files SMB][optional-smb-sql]
 
 ## Next steps

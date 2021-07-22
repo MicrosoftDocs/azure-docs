@@ -257,7 +257,7 @@ In this case, you can use a third-party SIOS solution as a cluster shared disk.
 [sap-hana-ha]:sap-hana-high-availability.md
 [sap-suse-ascs-ha]:high-availability-guide-suse.md
 
-[planning-volumes-s2d-choosing-filesystem]:windows-server/storage/storage-spaces/plan-volumes#choosing-the-filesystem
+[planning-volumes-s2d-choosing-filesystem]:(../../windows-server/storage/storage-spaces/plan-volumes.md#choosing-the-filesystem)
 [choosing-the-size-of-volumes-s2d]:https://docs.microsoft.com/windows-server/storage/storage-spaces/plan-volumes#choosing-the-size-of-volumes
 [deploy-sofs-s2d-in-azure]:https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment
 [s2d-in-win-2016]:https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview
