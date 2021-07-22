@@ -17,9 +17,11 @@ Jupyter is an interactive development and data manipulation environment hosted i
 
 Jupyter Notebook is an open-source web application that lets you create and share notebooks. Notebooks can contain live code, equations, visualizations, and narrative text. The Jupyter experience and many Jupyter notebooks are now integrated into the Azure Sentinel portal. This integration makes it easy to create and run notebooks for security investigations.
 
-For more information about Jupyter, and sample notebooks, see [jupyter.org](https://jupyter.org) and the [Jupyter introductory documentation](https://jupyter.readthedocs.io/en/latest/tryjupyter.html). For more information about creating and running Jupyter notebooks in Azure Sentinel, see [Use Jupyter Notebook to hunt for security threats](notebooks.md).
+For more information about Jupyter, and sample notebooks, see [jupyter.org](https://jupyter.org) and the [Jupyter introductory documentation](https://jupyter.readthedocs.io/en/latest/tryjupyter.html).
 
-## Why use Jupyter in Azure Sentinel
+For more information about creating and running Jupyter notebooks in Azure Sentinel, see [Use Jupyter Notebook to hunt for security threats](notebooks.md).
+
+## Jupyter in Azure Sentinel
 
 Built-in Azure Sentinel query and investigation tools are usually sufficient to investigate incoming data. Graphical investigation tools, Log Analytics queries, and case features like Bookmarks can handle most scenarios and data investigations.
 
@@ -37,9 +39,9 @@ One of the difficulties of complex security investigations is keeping track of w
 
 With most data-querying environments, these tasks require manual work and reliance on short-term memory. Jupyter gives you a linear progression through the investigation, and saves queries and data as you go. You can use variables like time ranges, account names, and IP addresses in the query progression. Variables make it much easier to backtrack, rerun queries, and reuse the entire workflow in future investigations.
 
-### Scripting and programming environment
+### Scripting and programming
 
-Jupyter doesn't limit you to querying and viewing results, but gives you the full power of a programming language. A *declarative* language encodes your logic in a single, possibly complex, statement. *Procedural* languages execute logic in a series of steps. You can do a lot in a flexible declarative language like KQL or SQL, but splitting your logic into procedural chunks can be helpful and sometimes essential. Procedural code lets you:
+Jupyter doesn't limit you to querying and viewing results, but gives you the full power of a programming language. A *declarative* language like Kusto Query Language (KQL) or SQL encodes your logic in a single, possibly complex, statement. *Procedural* programming languages execute logic in a series of steps. You can do a lot in a flexible declarative language, but splitting your logic into procedural steps can be helpful and sometimes essential. Procedural code lets you:
 
 - See and debug intermediate results.
 - Add functionality like decoding fields and parsing data that might not be available in the query language.
@@ -55,9 +57,9 @@ Azure Sentinel workspace tables have most telemetry and event data, but exceptio
 
 Python and Jupyter can link any data to Azure Sentinel that's accessible over your network or from a file.
 
-### Access to specialized data processing, machine learning, and visualization tools
+### Specialized data processing, machine learning, and visualization tools
 
-Azure Sentinel and its underlying Kusto Log Analytics data store have many options for visualization and advanced data processing. Capabilities include clustering, windowed statistics, and machine learning functions. However, sometimes you need specialized visualizations, machine learning libraries, or data processing and transformation facilities that aren't available in Azure Sentinel.
+Azure Sentinel and its underlying Kusto Log Analytics data store have many options for visualization and advanced data processing. Capabilities include clustering, windowed statistics, and machine learning functions. However, you might need specialized visualizations, machine learning libraries, or data processing and transformation capabilities that aren't available in Azure Sentinel.
 
 Some well-known specialized Python capabilities are:
 
@@ -67,7 +69,7 @@ Some well-known specialized Python capabilities are:
 - *scikit-learn* for machine learning
 - *tensorflow*, *pytorch*, and *keras* for deep learning
 
-## Use Python with Jupyter
+## Python with Jupyter
 
 You can use Jupyter with many different languages. Python language is a good choice for the following reasons:
 
@@ -81,13 +83,13 @@ You probably already have Python coders in your organization. Python is now the 
 
 ### Ecosystem
 
-There is a vast repository of Python libraries available on [PyPi](https://pypi.org), and nearly 1 million Python repos on [GitHub](https://github.com/search?q=python). No other language ecosystem has comparable tools that security investigators need for data manipulation, data analysis, visualization, machine learning, and statistical analysis. Almost every major Python package and the core language itself are open source, and are written and maintained by volunteers.
+There is a vast repository of Python libraries available on [PyPi](https://pypi.org), and nearly 1 million Python repos on [GitHub](https://github.com/search?q=python). No other language ecosystem has comparable tools for data manipulation, data analysis, visualization, machine learning, and statistical analysis. Almost every major Python package and the core language itself are open source, and are written and maintained by volunteers.
 
 ### Alternatives to Python
 
-You can use other language kernels with Juypter. You can mix languages within the same notebook to a degree by using *magics*, which allow execution of individual cells using another language. For example, you could retrieve data using a PowerShell script cell, process the data in Python, and use JavaScript to render a visualization.
+You can use other language kernels with Juypter. You can mix languages within the same notebook to a degree by using *magics*, which allow execution of individual cells using another language. For example, it's possible to retrieve data using a PowerShell script cell, process the data in Python, and use JavaScript to render a visualization.
 
-## Use MSTIC Jupyter and Python security tools
+## MSTIC Jupyter and Python security tools
 
 MSTIC is the Microsoft Threat Intelligence Center. MSTIC security analysts and engineers author security detections for several Microsoft platforms, and work on threat identification and investigation. MSTIC built *MSTICPy*, a library for information security investigations and hunting in Jupyter Notebook. MSTICPy can:
 
@@ -103,15 +105,15 @@ MCTICPy also includes some time-saving notebook tools, such as widgets that set 
 
 Most of the MSTICPy package started out as inline code in a notebook. However, having a lot of code in notebooks makes it difficult to see results and text. Large blocks of code make a notebook especially intimidating for non-programmers, and make code reuse difficult. The philosophy behind MSTICPy was to create a repository for reusable functionality that makes notebooks faster to author and easier to read.
 
-MSTIC originally built the MSTICPy package for authoring notebooks in [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel), but the data query and acquisition components can also pull log data from other sources like Microsoft Defender and Microsoft Graph. You can use most of the components with data from any source. Almost all components use *pandas* dataframes as the ubiquitous input and output format.
+MSTIC originally built the MSTICPy package for authoring notebooks in Azure Sentinel, but the data query and acquisition components can also pull log data from other sources like Microsoft Defender and Microsoft Graph. You can use most of the components with data from any source. Almost all components use *pandas* dataframes as the ubiquitous input and output format.
 
 ## Related resources
 
 - [Jupyter.org](https://jupyter.org)
 - [Python](https://python.org)
 - [PyPi](https://pypi.org)
-- [Github](https://github.com/search?q=python)
-- [Kusto Query Language](https://docs.microsoft.com/en-us/azure/kusto/query/)
+- [GitHub](https://github.com/search?q=python)
+- [Kusto Query Language](/azure/kusto/query/)
 - [pandas](https://pandas.pydata.org/)
 - [matplotlib](https://matplotlib.org)
 - [holoviews](https://holoviews.org)
