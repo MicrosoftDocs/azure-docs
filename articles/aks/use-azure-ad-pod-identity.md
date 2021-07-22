@@ -50,7 +50,7 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-## Create an AKS cluster with Azure CNI
+## Create an AKS cluster with Azure Container Networking Interface (CNI)
 
 > [!NOTE]
 > This is the default recommended configuration

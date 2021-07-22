@@ -1,13 +1,13 @@
 ---
 title: Monitor the health of App Service instances
 description: Learn how to monitor the health of App Service instances using Health check.
-keywords: azure app service, web app, health check, route traffic, healthy instances, path, monitoring,
+keywords: azure app service, web app, health check, route traffic, healthy instances, path, monitoring, remove faulty instances, unhealthy instances, remove workers
 author: msangapu-msft
 
 ms.topic: article
-ms.date: 12/03/2020
+ms.date: 07/19/2021
 ms.author: msangapu
-
+ms.custom: contperf-fy22q1
 ---
 
 # Monitor App Service instances using Health check
