@@ -79,7 +79,7 @@ While Capacity Reservation is in preview, in order to associate an existing VM t
 Refer to the steps above on how to associate a VM to a Capacity Reservation Group.
 
 
-## View VM associated with Instance View 
+## View VM association with Instance View 
 
 Once the `capacityReservationGroup` property is set, an association now exists between the VM and the group. Azure automatically finds the matching capacity reservation in the group and consumes a reserved slot. The Capacity Reservation’s *Instance View* will reflect the new VM in the `virtualMachinesAllocated` property as shown below: 
 
