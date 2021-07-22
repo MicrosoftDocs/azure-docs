@@ -24,6 +24,7 @@ When using the cluster start/stop feature, the following restrictions apply:
 - This feature is only supported for Virtual Machine Scale Sets backed clusters.
 - The cluster state of a stopped AKS cluster is preserved for up to 12 months. If your cluster is stopped for more than 12 months, the cluster state cannot be recovered. For more information, see the [AKS Support Policies](support-policies.md).
 - You can only start or delete a stopped AKS cluster. To perform any operation like scale or upgrade, start your cluster first.
+- The customer provisioned PrivateEndpoints linked to private cluster need to be deleted and recreated again when you start a stopped AKS cluster.
 
 ## Stop an AKS Cluster
 
@@ -82,7 +83,10 @@ You can verify when your cluster has started by using the [az aks show][az-aks-s
 If the `provisioningState` shows `Starting` that means your cluster hasn't fully started yet.
 
 > [!NOTE]
-> If you are using cluster autoscaler, when you start your cluster back up your current node count may not be between the min and max range values you set. This behavior is expected. The cluster starts with the number of nodes it needs to run its workloads, which isn't impacted by your autoscaler settings. When your cluster performs scaling operations, the min and max values will impact your current node count and your cluster will eventually enter and remain in that desired range until you stop your cluster.
+> When you start your cluster back up, the following is expected behavior:
+> 
+> * The IP address of your API server may change.
+> * If you are using cluster autoscaler, when you start your cluster back up your current node count may not be between the min and max range values you set. The cluster starts with the number of nodes it needs to run its workloads, which isn't impacted by your autoscaler settings. When your cluster performs scaling operations, the min and max values will impact your current node count and your cluster will eventually enter and remain in that desired range until you stop your cluster.
 
 ## Next steps
 

@@ -1,8 +1,8 @@
 ---
 title:  "Quickstart - Integrate with Azure Database for MySQL"
 description: Explains how to provision and prepare an Azure Database for MySQL instance, and then configure Pet Clinic on Azure Spring Cloud to use it as a persistent database with only one command.
-author:  MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 05/13/2021
@@ -157,4 +157,4 @@ az spring-cloud app update --name visits-service \
 
 ## Next steps
 * [Bind an Azure Database for MySQL instance to your Azure Spring Cloud application](how-to-bind-mysql.md)
-* [Use a managed identity to connect Azure SQL Database to an Azure Spring Cloud app](/azure/spring-cloud/connect-managed-identity-to-azure-sql)
+* [Use a managed identity to connect Azure SQL Database to an Azure Spring Cloud app](./connect-managed-identity-to-azure-sql.md)

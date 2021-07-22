@@ -27,7 +27,7 @@ For this article, we'll use the following resources:
 
 ### Discover storage accounts with unprotected Azure file shares
 
-The vault needs to discover all Azure storage accounts in the subscription with file shares that can be backed up to the Recovery Services vault. This is triggered using the [refresh operation](/rest/api/backup/protectioncontainers/refresh). It's an asynchronous *POST* operation that ensures the vault gets the latest list of all unprotected Azure File shares in the current subscription and 'caches' them. Once the file share is 'cached', Recovery services can access the file share and protect it.
+The vault needs to discover all Azure storage accounts in the subscription with file shares that can be backed up to the Recovery Services vault. This is triggered using the [refresh operation](/rest/api/backup/protection-containers/refresh). It's an asynchronous *POST* operation that ensures the vault gets the latest list of all unprotected Azure File shares in the current subscription and 'caches' them. Once the file share is 'cached', Recovery services can access the file share and protect it.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01&$filter={$filter}
@@ -103,7 +103,7 @@ Date   : Mon, 27 Jan 2020 10:53:04 GMT
 
 ### Get List of storage accounts with file shares that can be backed up with Recovery Services vault
 
-To confirm that “caching” is done, list all the storage accounts in the subscription with file shares that can be backed up with the Recovery Services vault. Then locate the desired storage account in the response. This is done using the [GET ProtectableContainers](/rest/api/backup/protectablecontainers/list) operation.
+To confirm that “caching” is done, list all the storage accounts in the subscription with file shares that can be backed up with the Recovery Services vault. Then locate the desired storage account in the response. This is done using the [GET ProtectableContainers](/rest/api/backup/protectable-containers/list) operation.
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectableContainers?api-version=2016-12-01&$filter=backupManagementType eq 'AzureStorage'
@@ -155,7 +155,7 @@ Since we can locate the *testvault2* storage account in the response body with t
 
 ### Register storage account with Recovery Services vault
 
-This step is only needed if you didn't register the storage account with the vault earlier. You can register the vault via the [ProtectionContainers-Register operation](/rest/api/backup/protectioncontainers/register).
+This step is only needed if you didn't register the storage account with the vault earlier. You can register the vault via the [ProtectionContainers-Register operation](/rest/api/backup/protection-containers/register).
 
 ```http
 PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}?api-version=2016-12-01
@@ -200,11 +200,11 @@ The create request body is as follows:
 
   "backupManagementType": "AzureStorage"
 
-
  }
+}
 ```
 
-For the complete list of definitions of the request body and other details, refer to [ProtectionContainers-Register](/rest/api/backup/protectioncontainers/register#azurestoragecontainer).
+For the complete list of definitions of the request body and other details, refer to [ProtectionContainers-Register](/rest/api/backup/protection-containers/register#azurestoragecontainer).
 
 This is an asynchronous operation and returns two responses: "202 Accepted" when the operation is accepted and "200 OK" when the operation is complete.  To track the operation status, use the location header to get the latest status of the operation.
 
@@ -236,7 +236,7 @@ You can verify if the registration was successful from the value of the *registr
 
 ### Inquire all unprotected files shares under a storage account
 
-You can inquire about protectable items in a storage account using the [Protection Containers-Inquire](/rest/api/backup/protectioncontainers/inquire) operation. It's an asynchronous operation and the results should be tracked using the location header.
+You can inquire about protectable items in a storage account using the [Protection Containers-Inquire](/rest/api/backup/protection-containers/inquire) operation. It's an asynchronous operation and the results should be tracked using the location header.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/inquire?api-version=2016-12-01
@@ -271,7 +271,7 @@ Date  : Mon, 27 Jan 2020 10:53:05 GMT
 
 ### Select the file share you want to back up
 
-You can list all protectable items under the subscription and locate the desired file share to be backed up using the [GET backupprotectableItems](/rest/api/backup/backupprotectableitems/list) operation.
+You can list all protectable items under the subscription and locate the desired file share to be backed up using the [GET backupprotectableItems](/rest/api/backup/backup-protectable-items/list) operation.
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupProtectableItems?api-version=2016-12-01&$filter={$filter}
@@ -346,7 +346,7 @@ The response contains the list of all unprotected file shares and contains all t
 
 ### Enable backup for the file share
 
-After the relevant file share is "identified" with the friendly name, select the policy to protect. To learn more about existing policies in the vault, refer to [list Policy API](/rest/api/backup/backuppolicies/list). Then select the [relevant policy](/rest/api/backup/protectionpolicies/get) by referring to the policy name. To create policies, refer to [create policy tutorial](./backup-azure-arm-userestapi-createorupdatepolicy.md).
+After the relevant file share is "identified" with the friendly name, select the policy to protect. To learn more about existing policies in the vault, refer to [list Policy API](/rest/api/backup/backup-policies/list). Then select the [relevant policy](/rest/api/backup/protection-policies/get) by referring to the policy name. To create policies, refer to [create policy tutorial](./backup-azure-arm-userestapi-createorupdatepolicy.md).
 
 Enabling protection is an asynchronous *PUT* operation that creates a "protected item".
 

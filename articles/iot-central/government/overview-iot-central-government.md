@@ -22,7 +22,7 @@ Water Quality Monitoring app is an IoT Central app template to help you kickstar
 ![Water Quality Monitoring App template](./media/overview-iotcentral-government/waterqualitymonitoring-dashboard-full.png)
 
 The App template consists of:
-* Sample operator dashboards
+* Sample dashboards
 * Sample water quality monitor device templates
 * Simulated water quality monitor devices
 * Pre-configured rules and jobs
@@ -40,7 +40,7 @@ Water Consumption Monitoring app is an IoT Central app template to help you kick
   ![Water Consumption Monitoring App template](./media/overview-iotcentral-government/waterconsumptionmonitoring-dashboardfull.png)
 
 The Water Consumption Monitoring app template consists of pre-configured:
-* Sample operator dashboards
+* Sample dashboards
 * Sample water quality monitor device templates
 * Simulated water quality monitor devices
 * Pre-configured rules and jobs
@@ -56,7 +56,7 @@ Connected Waste Management app is an IoT Central app template to help you kickst
 
 
 The Connected Waste Management app template consist of pre-configured:
-* Sample operator dashboards
+* Sample dashboards
 * Sample connected waste bin device templates
 * Simulated connected waste bin devices
 * Pre-configured rules and jobs
