@@ -22,9 +22,9 @@ ms.author: mametcal
 
 The App Configuration Java Spring client library supports updating configuration on demand without causing an application to restart. An application can be configured to detect changes in App Configuration using one or both of the following two approaches.
 
-1. Poll Model: This is the default behavior that uses polling to detect changes in configuration. Once the cached value of a setting expires, the next call to `AppConfigurationRefresh`'s `refreshConfigurations` sends a request to the server to check if the configuration has changed, and pulls the updated configuration if needed.
+- Poll Model: This is the default behavior that uses polling to detect changes in configuration. Once the cached value of a setting expires, the next call to `AppConfigurationRefresh`'s `refreshConfigurations` sends a request to the server to check if the configuration has changed, and pulls the updated configuration if needed.
 
-1. Push Model: This uses [App Configuration events](./concept-app-configuration-event.md) to detect changes in configuration. Once App Configuration is set up to send key value change events with Event Grid, with a [Web Hook](/azure/event-grid/handler-event-hubs), the application can use these events to optimize the total number of requests needed to keep the configuration updated.
+- Push Model: This uses [App Configuration events](./concept-app-configuration-event.md) to detect changes in configuration. Once App Configuration is set up to send key value change events with Event Grid, with a [Web Hook](/azure/event-grid/handler-event-hubs), the application can use these events to optimize the total number of requests needed to keep the configuration updated.
 
 This tutorial shows how you can implement dynamic configuration updates in your code using push refresh. It builds on the app introduced in the quickstarts. Before you continue, finish [Create a Java Spring app with App Configuration](./quickstart-java-spring-app.md) first.
 
@@ -51,39 +51,36 @@ In this tutorial, you learn how to:
 
 1. Open *pom.xml* and update the file with the following dependencies.
 
-```xml
-        <dependency>
-            <groupId>com.azure.spring</groupId>
-            <artifactId>azure-spring-cloud-appconfiguration-config-web</artifactId>
-            <version>2.0.0</version>
-        </dependency>
-
-        <!-- Adds the Ability to Push Refresh -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-```
+   ```xml
+           <dependency>
+               <groupId>com.azure.spring</groupId>
+               <artifactId>azure-spring-cloud-appconfiguration-config-web</artifactId>
+               <version>2.0.0</version>
+           </dependency>
+   
+           <!-- Adds the Ability to Push Refresh -->
+           <dependency>
+               <groupId>org.springframework.boot</groupId>
+               <artifactId>spring-boot-starter-actuator</artifactId>
+           </dependency>
 
 1. Setup [Maven App Service Deployment](/azure/app-service/quickstart-java?tabs=javase) so the application can be deployed to Azure App Service via Maven.
 
-```console
-mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
-```
+   ```console
+   mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 
 1. Open bootstrap.properties and configure Azure App Configuration Push Refresh and Azure Service Bus
 
-```properties
-# Azure App Configuration Properties
-spring.cloud.azure.appconfiguration.stores[0].connection-string= ${AppConfigurationConnectionString}
-spring.cloud.azure.appconfiguration.stores[0].monitoring.enabled= true
-spring.cloud.azure.appconfiguration.stores[0].monitoring.cacheExpiration= 30d
-spring.cloud.azure.appconfiguration.stores[0].monitoring.triggers[0].key= sentinel
-spring.cloud.azure.appconfiguration.stores[0].monitoring.push-notification.primary-token.name= myToken
-spring.cloud.azure.appconfiguration.stores[0].monitoring.push-notification.primary-token.secret= myTokenSecret
-
-management.endpoints.web.exposure.include= "appconfiguration-refresh"
-```
+   ```properties
+   # Azure App Configuration Properties
+   spring.cloud.azure.appconfiguration.stores[0].connection-string= ${AppConfigurationConnectionString}
+   spring.cloud.azure.appconfiguration.stores[0].monitoring.enabled= true
+   spring.cloud.azure.appconfiguration.stores[0].monitoring.cacheExpiration= 30d
+   spring.cloud.azure.appconfiguration.stores[0].monitoring.triggers[0].key= sentinel
+   spring.cloud.azure.appconfiguration.stores[0].monitoring.push-notification.primary-token.name= myToken
+   spring.cloud.azure.appconfiguration.stores[0].monitoring.push-notification.primary-token.secret= myTokenSecret
+   
+   management.endpoints.web.exposure.include= "appconfiguration-refresh"
 
 A random delay is added before the cached value is marked as dirty to reduce potential throttling. The default maximum delay before the cached value is marked as dirty is 30 seconds.
 
@@ -155,9 +152,8 @@ Event Grid Web Hooks require validation on creation. You can validate by followi
 
 1. After your application is running, use *curl* to test your application, for example:
 
-```cmd
-curl -X GET http://localhost:8080
-```
+   ```cmd
+   curl -X GET http://localhost:8080
 
 1. Open the **Azure Portal** and navigate to your App Configuration resource associated with your application. Select **Configuration Explorer** under **Operations** and update the values of the following keys:
 
