@@ -3,8 +3,8 @@ title: Import a WebSocket API using the Azure portal | Microsoft Docs
 titleSuffix: 
 description: Learn how API Management supports WebSocket, add a WebSocket API, and WebSocket limitations.
 ms.service: api-management
-author: v-hhunter
-ms.author: v-hhunter
+author: dlepow
+ms.author: dlepow
 ms.topic: how-to
 ms.date: 07/22/2021
 ms.custom: template-how-to 
