@@ -4,7 +4,7 @@ description: This article describes how to configure Azure Cosmos DB accounts wi
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 07/21/2021
 ms.author: govindk
 ms.reviewer: sngun
 
@@ -28,7 +28,7 @@ Azure Cosmos DB automatically takes backups of your data at regular intervals. T
 * The backups are taken without affecting the performance or availability of your application. Azure Cosmos DB performs data backup in the background without consuming any extra provisioned throughput (RUs) or affecting the performance and availability of your database.
 
 > [!Note]
-> Accounts with Synapse Link enabled are not supported.
+> For Azure Synapse Link enabled accounts, analytical store data isn't included in the backups and restores. When Synapse Link is enabled, Azure Cosmos DB will continue to automatically take backups of your data in the transactional store at a scheduled backup interval. Automatic backup and restore of your data in the analytical store is not supported at this time.
 
 ## <a id="backup-storage-redundancy"></a>Backup storage redundancy
 

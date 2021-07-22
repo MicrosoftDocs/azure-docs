@@ -82,7 +82,7 @@ Basic SKU addresses:
 - Don't support [routing preference](routing-preference-overview.md) or [cross-region load balancers](../load-balancer/cross-region-overview.md) functionality.
 
 > [!NOTE]
-> Basic SKU IPv4 addresses can be upgraded after creation to standard SKU.  To learn about SKU upgrade, refer to [Public IP upgrade](../virtual-network/virtual-network-public-ip-address-upgrade.md).
+> Basic SKU IPv4 addresses can be upgraded after creation to standard SKU.  To learn about SKU upgrade, refer to [Public IP upgrade](./public-ip-upgrade-portal.md).
 
 >[!IMPORTANT]
 > Matching SKUs are required for load balancer and public IP resources. You can't have a mixture of basic SKU resources and standard SKU resources. You can't attach standalone virtual machines, virtual machines in an availability set resource, or a virtual machine scale set resources to both SKUs simultaneously.  New designs should consider using Standard SKU resources.  Please review [Standard Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for details.

@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 07/11/2021
+ms.date: 07/22/2021
 ms.author: memildin
 
 ---
@@ -25,7 +25,50 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 
 Updates in July include:
 
+- [Enhancements to recommendation to enable Azure Disk Encryption (ADE)](#enhancements-to-recommendation-to-enable-azure-disk-encryption-ade)                                     
+- [Continuous export of secure score and regulatory compliance data released for General Availability (GA)](#continuous-export-of-secure-score-and-regulatory-compliance-data-released-for-general-availability-ga)
+- [Workflow automations can be triggered by changes to regulatory compliance assessments (GA)](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-ga)
 - [Assessments API field 'FirstEvaluationDate' and 'StatusChangeDate' now available in workspace schemas and logic apps](#assessments-api-field-firstevaluationdate-and-statuschangedate-now-available-in-workspace-schemas-and-logic-apps)
+- ['Compliance over time' workbook template added to Azure Monitor Workbooks gallery](#compliance-over-time-workbook-template-added-to-azure-monitor-workbooks-gallery)
+
+### Enhancements to recommendation to enable Azure Disk Encryption (ADE)
+
+Following user feedback, we've renamed the recommendation **Disk encryption should be applied on virtual machines**.
+
+The new recommendation uses the same assessment ID and is called **Virtual machines should encrypt temp disks, caches, and data flows between Compute and Storage resources**.
+
+The description has also been updated to better explain the purpose of this hardening recommendation:
+
+| Recommendation                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Severity |
+|--------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------:|
+| **Virtual machines should encrypt temp disks, caches, and data flows between Compute and Storage resources** | By default, a virtual machine’s OS and data disks are encrypted-at-rest using platform-managed keys; temp disks and data caches aren’t encrypted, and data isn’t encrypted when flowing between compute and storage resources. For a comparison of different disk encryption technologies in Azure, see https://aka.ms/diskencryptioncomparison.<br>Use Azure Disk Encryption to encrypt all this data. Disregard this recommendation if: (1) you’re using the encryption-at-host feature, or (2) server-side encryption on Managed Disks meets your security requirements. Learn more in Server-side encryption of Azure Disk Storage. | High     |
+|                                                                                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |          |
+
+
+### Continuous export of secure score and regulatory compliance data released for General Availability (GA)
+
+[Continuous export](continuous-export.md) provides the mechanism for exporting your security alerts and recommendations for tracking with other monitoring tools in your environment.
+
+When you set up your continuous export, you configure what is exported, and where it will go. Learn more in the [overview of continuous export](continuous-export.md).
+
+We've enhanced and expanded this feature over time:
+
+- In November 2020, we added the **preview** option to stream changes to your **secure score**.<br/>For full details, see [Secure score is now available in continuous export (preview)](release-notes-archive.md#secure-score-is-now-available-in-continuous-export-preview).
+
+- In December 2020, we added the **preview** option to stream changes to your **regulatory compliance assessment data**.<br/>For full details, see [Continuous export gets new data types (preview)](release-notes-archive.md#continuous-export-gets-new-data-types-and-improved-deployifnotexist-policies).
+
+With this update, these two options are released for General Availability (GA). 
+
+
+### Workflow automations can be triggered by changes to regulatory compliance assessments (GA)
+
+In February 2021, we added a **preview** third data type to the trigger options for your workflow automations: changes to regulatory compliance assessments. Learn more in [Workflow automations can be triggered by changes to regulatory compliance assessments](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-in-preview).
+
+With this update, this trigger option is released for General Availability (GA).
+
+Learn how to use the workflow automation tools in [Automate responses to Security Center triggers](workflow-automation.md).
+
+:::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Using changes to regulatory compliance assessments to trigger a workflow automation." lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
 
 ### Assessments API field 'FirstEvaluationDate' and 'StatusChangeDate' now available in workspace schemas and logic apps
 
@@ -34,6 +77,19 @@ In May 2021, we updated the Assessment API with two new fields, **FirstEvaluatio
 Those fields were accessible through the REST API, Azure Resource Graph, continuous export, and in CSV exports.
 
 With this change, we're making the information available in the Log Analytics workspace schema and from logic apps.
+
+
+### 'Compliance over time' workbook template added to Azure Monitor Workbooks gallery
+
+In March, we announced the integrated Azure Monitor Workbooks experience in Security Center (see [Azure Monitor Workbooks integrated into Security Center and three templates provided](#azure-monitor-workbooks-integrated-into-security-center-and-three-templates-provided)).
+
+The initial release included three templates to build dynamic and visual reports about your organization's security posture.
+
+We've now added a workbook dedicated to tracking a subscription's compliance with the regulatory or industry standards applied to it. 
+
+Learn about using these reports or building your own in [Create rich, interactive reports of Security Center data](custom-dashboards-azure-workbooks.md).
+
+:::image type="content" source="media/custom-dashboards-azure-workbooks/compliance-over-time-details.png" alt-text="Azure Security Center's compliance over time workbook":::
 
 
 ## June 2021
@@ -547,7 +603,7 @@ Three templates reports are provided:
 - **System Updates** - View missing system updates by resources, OS, severity, and more
 - **Vulnerability Assessment Findings** - View the findings of vulnerability scans of your Azure resources
 
-Learn about using these reports or building your own [Create rich, interactive reports of Security Center data](custom-dashboards-azure-workbooks.md).
+Learn about using these reports or building your own in [Create rich, interactive reports of Security Center data](custom-dashboards-azure-workbooks.md).
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-snip.png" alt-text="Secure score over time report.":::
 
@@ -703,6 +759,7 @@ If you're reviewing the list of recommendations on our [Security recommendations
 The recommendation **Sensitive data in your SQL databases should be classified** no longer affects your secure score. This is the only recommendation in the **Apply data classification** security control, so that control now has a secure score value of 0.
 
 For a full list of all security controls in Security Center, together with their scores and a list of the recommendations in each, see [Security controls and their recommendations](secure-score-security-controls.md#security-controls-and-their-recommendations).
+
 
 ### Workflow automations can be triggered by changes to regulatory compliance assessments (in preview)
 We've added a third data type to the trigger options for your workflow automations: changes to regulatory compliance assessments.

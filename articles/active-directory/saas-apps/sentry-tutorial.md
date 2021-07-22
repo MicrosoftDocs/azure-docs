@@ -85,14 +85,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://sentry.io/organizations/<ORGANIZATION_SLUG>/`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Sentry Client support team](mailto:support@sentry.io) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual values Identifier, Reply URL, and Sign-on URL. For more information about finding these values, see the [Sentry documentation](https://docs.sentry.io/product/accounts/sso/azure-sso/#installation). You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, click the copy icon to copy the **App 
+Metadata Url** value, and then save it on your computer.
 
-	![The Certificate download link](common/copy-metadataurl.png)
+   ![The Certificate download link](common/copy-metadataurl.png)
+	
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon in the Azure portal.
 
 1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
@@ -116,11 +118,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Sentry SSO
 
-To configure single sign-on on **Sentry** side, you need to send the **App Federation Metadata Url** to [Sentry support team](mailto:support@sentry.io). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on the **Sentry** side, go to **Org Settings** > **Auth** (or go to `https://sentry.io/settings/<YOUR_ORG_SLUG>/auth/`) and select **Configure** for Active Directory. Paste the App Federation Metadata URL from your Azure SAML configuration.
 
 ### Create Sentry test user
 
-In this section, a user called Britta Simon is created in Sentry. Sentry supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Sentry, a new one is created after authentication.
+In this section, a user called B.Simon is created in Sentry. Sentry supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Sentry, a new one is created after authentication.
 
 ## Test SSO 
 
@@ -128,15 +130,17 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-1. Click on **Test this application** in Azure portal. This will redirect to Sentry Sign on URL where you can initiate the login flow.  
+1. In the Azure portal, select **Test this application**. You're redirected to the Sentry sign-on URL, where you can initiate the sign-in flow.  
 
-1. Go to Sentry Sign-on URL directly and initiate the login flow from there.
+1. Go to Sentry sign-on URL directly and initiate the sign-in flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Sentry for which you set up the SSO 
+* In the Azure portal, select **Test this application**. You should be automatically signed in to the Sentry application for which you set up the SSO. 
 
-You can also use Microsoft Access Panel to test the application in any mode. When you click the Sentry tile in the Access Panel, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Sentry for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+#### Either mode:
+
+You can use the My Apps portal to test the application in any mode. When you click the Sentry tile in the My Apps portal, if configured in SP mode, you are redirected to the application sign-on page to initiate the sign-in flow. If configured in IDP mode, you should be automatically signed in to the Sentry application for which you set up the SSO. For more information about the My Apps portal, see [Sign in and start apps from the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
