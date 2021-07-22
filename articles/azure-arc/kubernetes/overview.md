@@ -63,6 +63,7 @@ Azure Arc enabled Kubernetes is currently supported in these regions:
 * Australia East
 * East US 2
 * North Europe
+* France Central
 
 ## Next steps
 
