@@ -66,7 +66,7 @@ Now that you've setup an Azure Key Vault and disk encryption set, you can deploy
     :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-basic-blade.png" alt-text="Screenshot of the virtual machine creation basics pane, region and V M size are highlighted.":::
 
 1. On the **Disks** pane, select **Encryption at-rest for customer-managed key** for **SSE encryption type** and select your disk encryption set.
-1. Select **Yes** for **Encryption at host**.
+1. Select **Encryption at host**.
 1. Make the remaining selections as you like.
 
     :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-host-based-encryption-customer-managed-keys.png" alt-text="Screenshot of the virtual machine creation disks pane, encryption at host is highlighted, customer-managed keys selected.":::
@@ -85,7 +85,7 @@ Alternatively, if you don't want to use customer-managed keys, you can use platf
 
     :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-basic-blade.png" alt-text="Screenshot of the virtual machine creation basics pane, region and V M size are highlighted.":::
 
-1. On the **Disks** pane, select **Yes** for **Encryption at host**.
+1. On the **Disks** pane, select **Encryption at host**.
 1. Make the remaining selections as you like.
 
     :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="Screenshot of the virtual mahine creation disks pane, encryption at host highlighted.":::
