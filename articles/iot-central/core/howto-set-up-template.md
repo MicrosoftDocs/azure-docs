@@ -37,7 +37,7 @@ You have several options for creating device templates:
 
 - Design the device template in the IoT Central GUI.
 - Import a device template from the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat). Optionally, customize the device template to your requirements in IoT Central.
-- Use a model stored in a model repository to implement your device code. Have the the device send the model Id when it connects to IoT Central. IoT Central uses the model Id to retrieve the model from the model repository and to create a device template. Add any cloud properties, customizations, and views your IoT Central application needs to the device template.
+- When the device connects to IoT Central, have it send the model Id of the model it implements. IoT Central uses the model Id to retrieve the model from the model repository and to create a device template. Add any cloud properties, customizations, and views your IoT Central application needs to the device template.
 - Author a device model using the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Manually import the device model into your IoT Central application, and then add any cloud properties, customizations, and views your IoT Central application needs.
 - You can also add device templates to an IoT Central application using the [REST API](/learn/modules/manage-iot-central-apps-with-rest-api/) or the [CLI](howto-manage-iot-central-from-cli.md).
 
@@ -72,10 +72,6 @@ To create a device model, you can:
 - Import a DTDL model from a JSON file. A device builder might have used Visual Studio Code to author a device model for your application.
 - Select one of the devices from the Device Catalog. This option imports the device model that the manufacturer has published for this device. A device model imported like this is automatically published.
 
-### Interfaces and components
-
-1. To view the model ID, go to the **Device Templates** page and select the device template you created.
-
 1. To view the model ID, select the root interface in the model and select **Edit identity**:
 
     :::image type="content" source="media/howto-set-up-template/view-id.png" alt-text="Screenshot that shows model id for device template root interface.":::
@@ -83,6 +79,8 @@ To create a device model, you can:
 1. To view the component ID, select **Edit Identity** on any of the component interfaces in the model.
 
 To learn more, see the [IoT Plug and Play modeling guide](../../iot-pnp/concepts-modeling-guide.md).
+
+### Interfaces and components
 
 To view and manage the interfaces in your device model:
 
