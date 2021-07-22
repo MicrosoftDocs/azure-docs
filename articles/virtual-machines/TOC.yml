@@ -70,31 +70,31 @@
 - name: Develop
   items:
   - name: REST API
-    href: /rest/api/compute/virtual-machines
+    href: /rest/api/compute/virtual-machines?context=/azure/virtual-machines/context/context
   - name: Python
     items: 
     - name: Python SDK
       href: https://github.com/Azure/azure-sdk-for-python
     - name: Samples
-      href: /samples/azure-samples/virtual-machines-python-manage/azure-virtual-machines-management-samples---python/
+      href: /samples/azure-samples/virtual-machines-python-manage/azure-virtual-machines-management-samples---python/?context=/azure/virtual-machines/context/context
   - name: .NET 
     items:
     - name: .NET SDK
       href: https://github.com/Azure/azure-sdk-for-net
     - name: Reference
-      href: /dotnet/api/overview/azure/virtualmachines?view=azure-dotnet
+      href: /dotnet/api/overview/azure/virtualmachines?view=azure-dotnet?context=/azure/virtual-machines/context/context
   - name: Java 
     items:
     - name: Java SDK
       href: https://github.com/Azure/azure-sdk-for-java
     - name: Reference
-      href: /java/api/com.azure.resourcemanager.compute?view=azure-java-stable
+      href: /java/api/com.azure.resourcemanager.compute?view=azure-java-stable?context=/azure/virtual-machines/context/context
   - name: Go 
     items:
     - name: Go SDK
       href: https://github.com/Azure/azure-sdk-for-go
     - name: Reference
-      href: /developer/go/azure-sdk-qs-vm
+      href: /developer/go/azure-sdk-qs-vm?context=/azure/virtual-machines/context/context
   - name: Azure CLI samples repo
     href: https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine
   - name: PowerShell samples repo
