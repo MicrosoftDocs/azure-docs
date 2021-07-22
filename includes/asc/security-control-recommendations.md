@@ -69,7 +69,7 @@ ms.custom: generated
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">2</p></strong></td>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Protect your applications with Azure advanced networking solutions</p></strong></td>
-    <td class="tg-lboi"; width=55%>- Azure DDoS Protection Standard should be enabled<br />- Azure Policy Add-on for Kubernetes should be installed and enabled on your clusters<br />- Container CPU and memory limits should be enforced<br />- Web Application Firewall (WAF) should be enabled for Application Gateway<br />- Web Application Firewall (WAF) should be enabled for Azure Front Door Service service</td>
+    <td class="tg-lboi"; width=55%>- Azure DDoS Protection Standard should be enabled<br />- Azure Policy Add-on for Kubernetes should be installed and enabled on your clusters<br />- Container CPU and memory limits should be enforced<br />- Web Application Firewall (WAF) should be enabled for Application Gateway<br />- Web Application Firewall (WAF) should be enabled for Azure Front Door service</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">2</p></strong></td>

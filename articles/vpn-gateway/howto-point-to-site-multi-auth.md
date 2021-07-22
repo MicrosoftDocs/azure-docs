@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/21/2021
+ms.date: 02/22/2021
 ms.author: cherylmc
 
 ---
@@ -37,8 +37,7 @@ You can use the following values to create a test environment, or refer to these
 * **Resource Group:** TestRG1
 * **Location:** East US
 * **GatewaySubnet:** 10.1.255.0/27<br>
-* **SKU:** VpnGw2
-* **Generation:** Generation 2
+* **Virtual network gateway name:** VNet1GW
 * **Gateway type:** VPN
 * **VPN type:** Route-based
 * **Public IP address name:** VNet1GWpip

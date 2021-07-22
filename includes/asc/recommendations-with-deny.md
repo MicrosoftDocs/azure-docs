@@ -42,5 +42,4 @@ ms.custom: generated
 - Validity period of certificates stored in Azure Key Vault should not exceed 12 months
 - Virtual machines should be migrated to new Azure Resource Manager resources
 - Web Application Firewall (WAF) should be enabled for Application Gateway
-- Web Application Firewall (WAF) should be enabled for Azure Front Door Service service
-
+- Web Application Firewall (WAF) should be enabled for Azure Front Door service

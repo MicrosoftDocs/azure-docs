@@ -6,7 +6,7 @@ ms.author: mathoma
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.subservice: management
-ms.topic: how-to
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/07/2020 

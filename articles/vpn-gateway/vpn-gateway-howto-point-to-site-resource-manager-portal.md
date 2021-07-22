@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/21/2021
+ms.date: 06/03/2021
 ms.author: cherylmc
 
 ---
@@ -40,8 +40,6 @@ You can use the following values to create a test environment, or refer to these
 * **Virtual network gateway name:** VNet1GW
 * **Gateway type:** VPN
 * **VPN type:** Route-based
-* **SKU:** VpnGw2
-* **Generation:** Generation 2
 * **Public IP address name:** VNet1GWpip
 * **Connection type:** Point-to-site
 * **Client address pool:** 172.16.201.0/24<br>VPN clients that connect to the VNet using this Point-to-Site connection receive an IP address from the client address pool.
