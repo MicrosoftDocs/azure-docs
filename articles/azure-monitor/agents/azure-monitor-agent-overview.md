@@ -92,10 +92,11 @@ The Azure Monitor agent sends data to Azure Monitor Metrics or a Log Analytics w
 
 | Data Source | Destinations | Description |
 |:---|:---|:---|
-| Performance        | Azure Monitor Metrics<br>Log Analytics workspace | Numerical values measuring performance of different aspects of operating system and workloads. |
+| Performance        | Azure Monitor Metrics<sup>1</sup><br>Log Analytics workspace | Numerical values measuring performance of different aspects of operating system and workloads. |
 | Windows Event logs | Log Analytics workspace | Information sent to the Windows event logging system. |
 | Syslog             | Log Analytics workspace | Information sent to the Linux event logging system. |
 
+<sup>1</sup> There's a limitation today on Azure Monitor Agent for Linux wherein using Azure Monitor Metrics as the *only* destination is not supported. Using it alongwith Azure Monitor Logs works. This limitation will be addressed in the next extension update.
 
 ## Supported operating systems
 See [Supported operating systems](agents-overview.md#supported-operating-systems) for a list of the Windows and Linux operating system versions that are currently supported by the Azure Monitor agent.
