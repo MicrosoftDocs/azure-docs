@@ -24,7 +24,7 @@
     href: tutorial-configure-networking.md
   - name: Create a private cloud
     href: tutorial-create-private-cloud.md
-  - name: Create an NSX-T network segment
+  - name: Create a network segment
     href: tutorial-nsx-t-network-segment.md
   - name: Delete a private cloud
     href: tutorial-delete-private-cloud.md
@@ -64,10 +64,12 @@
     items:
     - name: Configure DHCP  
       href: configure-dhcp-azure-vmware-solution.md
-    - name: Configure DHCP on L2 stretched VMware HCX networks
+    - name: Configure DHCP on L2 stretched networks
       href: configure-l2-stretched-vmware-hcx-networks.md
-    - name: Configure NSX components using Azure 
-      href: configure-nsx-network-components-azure-portal.md
+    - name: Configure DNS forwarder 
+      href: configure-dns-azure-vmware-solution.md
+    - name: Configure port mirroring  
+      href: configure-port-mirroring-azure-vmware-solution.md
     - name: Configure GitHub Enterprise Server
       href: ./configure-github-enterprise-server.md
     - name: Enable public internet access
@@ -161,7 +163,7 @@
   - name: FAQ
     items:
     - name: General
-      href: ./faq.yml
+      href: /azure/azure-vmware/faq
     - name: Customer communication
       href: /azure/azure-vmware/faq#customer-communication
     - name: Configuration and setup 
