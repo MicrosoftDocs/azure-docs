@@ -1931,8 +1931,6 @@
     href: /azure/developer/jenkins/
   - name: Azure DevOps
     href: ./linux/tutorial-azure-devops-blue-green-strategy.md
-- name: Support and troubleshooting
-  href: vm-support-help.md
 - name: Resources
   items:
   - name: Cloud adoption framework
@@ -1975,3 +1973,5 @@
       href: ./linux/faq.yml
     - name: Windows
       href: ./windows/faq.yml
+- name: Support and troubleshooting
+  href: vm-support-help.md
