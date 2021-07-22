@@ -16,12 +16,6 @@ ms.author: inhenkel
 
 This article contains a list of all the samples available for Media Services organized by method and SDK.  Samples include .NET, Node.JS (Typescript), Python and Java as well as REST with Postman.
 
-## REST Postman collection
-
-The [REST Postman](https://github.com/Azure-Samples/media-services-v3-rest-postman) samples includes a Postman environment and collection for you to import into the Postman client. The Postman collection samples are recommended for getting familiar with the API structure and how it works with Azure Resource Management (ARM), as well as the structure of calls from the client SDKs. 
-
-For production workloads you should be using the client SDKs that wrap this REST API as they support retry policies defined by the Azure Resource Management gateway. If you choose to implement REST API calls directly you should be aware that there are cases where retries are required to achieve higher SLAs.
-
 ## Samples by SDK
 
 You'll find description and links to the samples you may be looking for in each of the tabs.
@@ -87,3 +81,9 @@ You'll find description and links to the samples you may be looking for in each 
 |[EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-java/tree/master/VideoEncoding/EncodingWithMESPredefinedPreset)|How to submit a job using a built-in preset and an HTTP URL input, publish output asset for streaming, and download results for verification.|
 
 ---
+
+## REST Postman collection
+
+The [REST Postman](https://github.com/Azure-Samples/media-services-v3-rest-postman) samples includes a Postman environment and collection for you to import into the Postman client. The Postman collection samples are recommended for getting familiar with the API structure and how it works with Azure Resource Management (ARM), as well as the structure of calls from the client SDKs. 
+
+[!INCLUDE [warning-rest-api-retry-policy.md](./includes/warning-rest-api-retry-policy.md)]
