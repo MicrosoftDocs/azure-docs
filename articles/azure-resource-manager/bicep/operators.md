@@ -63,6 +63,15 @@ The numeric operators use integers to do calculations and return integer values.
 > Subtract and minus use the same operator. The functionality is different because subtract uses two
 > operands and minus uses one operand.
 
+## Access
+
+The access operators are used to access properties of objects and resources.
+
+| Operator | Name | Description |
+| ---- | ---- | ---- |
+| `.` | [Nested resource accessor](./operators-access.md#nested-resource-accessor) | Access properties of an object. |
+| `.` | [Property accessor](./operators-acdess.md#property-accessor) | Access properties of a nested resource. |
+
 ## Operator precedence and associativity
 
 The operators below are listed in descending order of precedence (the higher the position the higher the precedence). Operators listed at the same level have equal precedence.
