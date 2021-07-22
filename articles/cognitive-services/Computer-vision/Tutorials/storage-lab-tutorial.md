@@ -319,9 +319,9 @@ The app doesn't yet offer a way to view the original images that you uploaded. I
 In this section, you'll use a free, open-source JavaScript library to add a lightbox viewer that enables users to see the original images they've uploaded (rather than just the image thumbnails). The files are provided for you. All you have to do is integrate them into the project and make a minor modification to *Index.cshtml*.
 
 1. Download the _lightbox.css_ and _lightbox.js_ files from the [GitHub code repository](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/ComputerVision/storage-lab-tutorial).
-1. In Solution Explorer, right-click your project's **Scripts** folder and use the **Add -> Existing Item...** command to import *lightbox.js*.
+1. In Solution Explorer, right-click your project's **Scripts** folder and use the **Add -> New Item...** command to create a *lightbox.js* file. Paste in the contents from the example file in the [GitHub code repository](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/storage-lab-tutorial/scripts/lightbox.js).
 
-1. Right-click the project's "Content" folder and use the **Add -> Existing Item...** command to import *lightbox.css*.
+1. Right-click the project's "Content" folder and use the **Add -> New Item...** command create a *lightbox.css* file. Paste in the contents from the example file in the [GitHub code repository](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/storage-lab-tutorial/css/lightbox.css).
 1. Download and unzip the _buttons.zip_ file from the GitHub data files repository: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/ComputerVision/storage-lab-tutorial. You should have four button images.
 
 1. Right-click the Intellipix project in Solution Explorer and use the **Add -> New Folder** command to add a folder named "Images" to the project.
@@ -344,13 +344,13 @@ In this section, you'll use a free, open-source JavaScript library to add a ligh
               "~/Content/lightbox.css"));
 	```
 
-1. Open *_Layout.cshtml* in the project's "Views/Shared" folder and add the following statement just before the ```@RenderSection``` statement near the bottom:
+1. Open *_Layout.cshtml* in the project's **Views/Shared** folder and add the following statement just before the ```@RenderSection``` statement near the bottom:
 
 	```C#
 	@Scripts.Render("~/bundles/lightbox")
 	```
 
-1. The final task is to incorporate the lightbox viewer into the home page. To do that, open *Index.cshtml* (it's in the project's "Views/Home" folder) and replace the ```@foreach``` loop with this one:
+1. The final task is to incorporate the lightbox viewer into the home page. To do that, open *Index.cshtml* (it's in the project's **Views/Home** folder) and replace the ```@foreach``` loop with this one:
 
 	```HTML
 	@foreach (BlobInfo blob in ViewBag.Blobs)
@@ -393,7 +393,7 @@ You'll need to create a Computer Vision resource for your Azure account; this re
 
 Next, you'll add the required credentials to your app so that it can access Computer Vision resources.
 
-Open your ASP.NET web application in Visual Studio and navigate to the **Web.config** file at the root of the project. Add the following statements to the `<appSettings>` section of the file, replacing `VISION_KEY` with the key you copied in the previous step, and `VISION_ENDPOINT` with the URL you saved in the step before.
+Navigate to the *Web.config* file at the root of the project. Add the following statements to the `<appSettings>` section of the file, replacing `VISION_KEY` with the key you copied in the previous step, and `VISION_ENDPOINT` with the URL you saved in the step before.
 
 ```xml
 <add key="SubscriptionKey" value="VISION_KEY" />
@@ -422,7 +422,7 @@ Next, you'll add the code that actually uses the Computer Vision service to crea
         new System.Net.Http.DelegatingHandler[] { });
     vision.Endpoint = ConfigurationManager.AppSettings["VisionEndpoint"];
 
-    VisualFeatureTypes[] features = new VisualFeatureTypes[] { VisualFeatureTypes.Description };
+    List<VisualFeatureTypes?> features = new List<VisualFeatureTypes?>() { VisualFeatureTypes.Description };
     var result = await vision.AnalyzeImageAsync(photo.Uri.ToString(), features);
 
     // Record the image description and tags in blob metadata
@@ -461,7 +461,7 @@ Next, you'll add the code that actually uses the Computer Vision service to crea
 
 ### Test the app
 
-Save your changes in Visual Studio and press **Ctrl+F5** to launch the application in your browser. Use the app to upload a few images, either from the photo set you downloaded or from your own folder. When you hover the cursor over one of the images in the view, a tooltip window should appear and display the computer-generated caption for the image.
+Save your changes in Visual Studio and press **Ctrl+F5** to launch the application in your browser. Use the app to upload a few more images, either from the photo set you downloaded or from your own folder. When you hover the cursor over one of the new images in the view, a tooltip window should appear and display the computer-generated caption for the image.
 
 ![The computer-generated caption](Images/thumbnail-with-tooltip.png)
 
