@@ -10,6 +10,8 @@ items:
   items:
   - name: Overview
     href: health/overview.md
+  - name: Language support
+    href: language-support.md 
   - name: How-to guides
     items:
     - name: How to call the API
@@ -24,6 +26,10 @@ items:
     items:
     - name: Recognized entity categories 
       href: health/concepts/health-entity-categories.md
+    - name: Relation extraction
+      href: health/concepts/relation-extraction.md
+    - name: Assertion detection
+      href: health/concepts/assertion-detection.md
 - name: Named Entity Recognition (NER) and Personally Identifying Information (PII)
   items:
   - name: Overview

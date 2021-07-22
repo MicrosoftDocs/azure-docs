@@ -22,27 +22,49 @@ This documentation contains the following types of articles:
 
 * [How-to guides](./how-to/call-api.md) contain instructions for using the service in more specific or customized ways.
 
-## Named Entity Recognition
+
+> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Introducing-Text-Analytics-for-Health/player]
+
+## Features
+
+The health API performs Named Entity Recognition (NER), relation extraction, entity negation and entity linking on English-language text to uncover insights in unstructured clinical and biomedical text.
+
+### [Named Entity Recognition](#tab/ner)
 
 Named Entity Recognition detects words and phrases mentioned in unstructured text that can be associated with one or more semantic types, such as diagnosis, medication name, symptom/sign, or age.
 
-## Relation Extraction
+> [!div class="mx-imgBorder"]
+> ![Health NER](./media/call-api/health-named-entity-recognition.png)
+
+### [Relation Extraction](#tab/relation-extraction)
 
 Relation extraction identifies meaningful connections between concepts mentioned in text. For example, a "time of condition" relation is found by associating a condition name with a time or between an abbreviation and the full description.  
 
-## Entity Linking
+> [!div class="mx-imgBorder"]
+> ![Health RE](./media/call-api/health-relation-extraction.png)
+
+
+### [Entity Linking](#tab/entity-linking)
 
 Entity Linking disambiguates distinct entities by associating named entities mentioned in text to concepts found in a predefined database of concepts including the Unified Medical Language System (UMLS). Medical concepts are also assigned preferred naming, as an additional form of normalization.
 
+> [!div class="mx-imgBorder"]
+> ![Health EL](./media/call-api/health-entity-linking.png)
+
 The health API supports linking to the health and biomedical vocabularies found in the Unified Medical Language System ([UMLS](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html)) Metathesaurus Knowledge Source.
 
-## Assertion Detection
+### [Assertion Detection](#tab/assertion-detection) 
 
 The meaning of medical content is highly affected by modifiers, such as negative or conditional assertions which can have critical implications if misrepresented. The health API supports three categories of assertion detection for entities in the text: 
 
 * certainty
 * conditional
 * association
+
+> [!div class="mx-imgBorder"]
+> ![Health NEG](./media/call-api/assertions.png)
+
+---
 
 ## Responsible AI 
 

@@ -255,6 +255,180 @@ Use the host, `http://localhost:5000`, for container APIs.
 
 [!INCLUDE [Container's API documentation](../../../../../includes/cognitive-services-containers-api-documentation.md)]
 
+
+### Structure the API request for the container
+
+You can use Postman or the example cURL request below to submit a query to the container you deployed, replacing the `serverURL` variable with the appropriate value.  Note the version of the API in the URL for the container is different than the hosted API.
+
+```bash
+curl -X POST 'http://<serverURL>:5000/text/analytics/v3.1/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
+
+```
+
+The following JSON is an example of a JSON file attached to the Text Analytics for health API request's POST body:
+
+```json
+example.json
+
+{
+  "documents": [
+    {
+      "language": "en",
+      "id": "1",
+      "text": "Patient reported itchy sores after swimming in the lake."
+    },
+    {
+      "language": "en",
+      "id": "2",
+      "text": "Prescribed 50mg benadryl, taken twice daily."
+    }
+  ]
+}
+```
+
+### Container response body
+
+The following JSON is an example of the Text Analytics for health API response body from the containerized synchronous call:
+
+```json
+{
+    "documents": [
+        {
+            "id": "1",
+            "entities": [
+                {
+                    "offset": 25,
+                    "length": 5,
+                    "text": "100mg",
+                    "category": "Dosage",
+                    "confidenceScore": 1.0
+                },
+                {
+                    "offset": 31,
+                    "length": 10,
+                    "text": "remdesivir",
+                    "category": "MedicationName",
+                    "confidenceScore": 1.0,
+                    "name": "remdesivir",
+                    "links": [
+                        {
+                            "dataSource": "UMLS",
+                            "id": "C4726677"
+                        },
+                        {
+                            "dataSource": "DRUGBANK",
+                            "id": "DB14761"
+                        },
+                        {
+                            "dataSource": "GS",
+                            "id": "6192"
+                        },
+                        {
+                            "dataSource": "MEDCIN",
+                            "id": "398132"
+                        },
+                        {
+                            "dataSource": "MMSL",
+                            "id": "d09540"
+                        },
+                        {
+                            "dataSource": "MSH",
+                            "id": "C000606551"
+                        },
+                        {
+                            "dataSource": "MTHSPL",
+                            "id": "3QKI37EEHE"
+                        },
+                        {
+                            "dataSource": "NCI",
+                            "id": "C152185"
+                        },
+                        {
+                            "dataSource": "NCI_FDA",
+                            "id": "3QKI37EEHE"
+                        },
+                        {
+                            "dataSource": "NDDF",
+                            "id": "018308"
+                        },
+                        {
+                            "dataSource": "RXNORM",
+                            "id": "2284718"
+                        },
+                        {
+                            "dataSource": "SNOMEDCT_US",
+                            "id": "870592005"
+                        },
+                        {
+                            "dataSource": "VANDF",
+                            "id": "4039395"
+                        }
+                    ]
+                },
+                {
+                    "offset": 42,
+                    "length": 13,
+                    "text": "intravenously",
+                    "category": "MedicationRoute",
+                    "confidenceScore": 1.0
+                },
+                {
+                    "offset": 73,
+                    "length": 7,
+                    "text": "120 min",
+                    "category": "Time",
+                    "confidenceScore": 0.94
+                }
+            ],
+            "relations": [
+                {
+                    "relationType": "DosageOfMedication",
+                    "entities": [
+                        {
+                            "ref": "#/documents/0/entities/0",
+                            "role": "Dosage"
+                        },
+                        {
+                            "ref": "#/documents/0/entities/1",
+                            "role": "Medication"
+                        }
+                    ]
+                },
+                {
+                    "relationType": "RouteOfMedication",
+                    "entities": [
+                        {
+                            "ref": "#/documents/0/entities/1",
+                            "role": "Medication"
+                        },
+                        {
+                            "ref": "#/documents/0/entities/2",
+                            "role": "Route"
+                        }
+                    ]
+                },
+                {
+                    "relationType": "TimeOfMedication",
+                    "entities": [
+                        {
+                            "ref": "#/documents/0/entities/1",
+                            "role": "Medication"
+                        },
+                        {
+                            "ref": "#/documents/0/entities/3",
+                            "role": "Time"
+                        }
+                    ]
+                }
+            ],
+            "warnings": []
+        }
+    ],
+    "errors": [],
+    "modelVersion": "2021-03-01"
+}
+```
+
 ## Stop the container
 
 [!INCLUDE [How to stop the container](../../../../../includes/cognitive-services-containers-stop.md)]
