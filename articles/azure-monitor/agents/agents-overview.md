@@ -6,7 +6,7 @@ services: azure-monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/12/2021
+ms.date: 07/22/2021
 ---
 
 # Overview of Azure Monitor agents

@@ -4,7 +4,7 @@ description: Overview of the Azure Monitor agent (AMA), which collects monitorin
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/25/2021
+ms.date: 07/22/2021
 ms.custom: references_regions
 ---
 
