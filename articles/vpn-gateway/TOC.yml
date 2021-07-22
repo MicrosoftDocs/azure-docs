@@ -245,10 +245,6 @@
       href: vpn-gateway-download-vpndevicescript.md
     - name: 'Sample: Cisco ASA device (IKEv2/no BGP)'
       href: vpn-gateway-3rdparty-device-config-cisco-asa.md
-  - name: Zone redundant gateways
-    items:
-    - name: Create a zone-redundant gateway
-      href: create-zone-redundant-vnet-gateway.md
   - name: Configure IPsec/IKE policies on connections
     items:
     - name: Azure portal
