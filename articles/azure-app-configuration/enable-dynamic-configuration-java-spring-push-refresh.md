@@ -63,11 +63,13 @@ In this tutorial, you learn how to:
                <groupId>org.springframework.boot</groupId>
                <artifactId>spring-boot-starter-actuator</artifactId>
            </dependency>
+   ```
 
 1. Setup [Maven App Service Deployment](/azure/app-service/quickstart-java?tabs=javase) so the application can be deployed to Azure App Service via Maven.
 
    ```console
    mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
+   ```
 
 1. Open bootstrap.properties and configure Azure App Configuration Push Refresh and Azure Service Bus
 
@@ -81,6 +83,7 @@ In this tutorial, you learn how to:
    spring.cloud.azure.appconfiguration.stores[0].monitoring.push-notification.primary-token.secret= myTokenSecret
    
    management.endpoints.web.exposure.include= "appconfiguration-refresh"
+   ```
 
 A random delay is added before the cached value is marked as dirty to reduce potential throttling. The default maximum delay before the cached value is marked as dirty is 30 seconds.
 
@@ -115,7 +118,7 @@ Event Grid Web Hooks require validation on creation. You can validate by followi
 
    ```shell
     mvn package
-    ```
+   ```
 
 1. After the build successfully completes, run the following command to run the app locally:
 
@@ -154,6 +157,7 @@ Event Grid Web Hooks require validation on creation. You can validate by followi
 
    ```cmd
    curl -X GET http://localhost:8080
+   ```
 
 1. Open the **Azure Portal** and navigate to your App Configuration resource associated with your application. Select **Configuration Explorer** under **Operations** and update the values of the following keys:
 
