@@ -8,22 +8,22 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 07/23/2021
 ---
 
 # Use role-based authorization in Azure Cognitive Search
 
 Azure provides a global [role-based access control (RBAC) authorization system](../role-based-access-control/role-assignments-portal.md) for all services running on the platform. In Cognitive Search, you can use role authorization in the following ways:
 
-+ Grant permissions for control plane operations on the search service itself through Owner, Contributor, and Reader roles.
++ Allow access to control plane operations on the search service itself through Owner, Contributor, and Reader roles.
 
-+ Grant permissions for data plane operations, such as creating or querying indexes. This capability is currently in public preview.
++ Allow access to data plane operations, such as creating or querying indexes. This capability is currently in public preview.
 
-+ Grant outbound indexer access to external Azure data sources, applicable when you [configure a managed identity](search-howto-managed-identities-data-sources.md) to run the search service under. For a search service that is assigned to a managed identity, you can create roles assignments that extend external data services, such as Azure Blob Storage, to allow read access on blobs by your trusted search service.
++ Allow outbound indexer connections to be made [using a managed identity](search-howto-managed-identities-data-sources.md). For a search service that has a managed identity assigned to it, you can create roles assignments that extend external data services, such as Azure Blob Storage, to allow read access on blobs by your trusted search service.
 
 This article focuses on roles for control plane and data plane operations. For more information about outbound indexer calls, start with [Configure a managed identity](search-howto-managed-identities-data-sources.md).
 
-A few RBAC scenarios are **not** supported, and these include:
+A few RBAC scenarios are **not** directly supported, and these include:
 
 + [Custom roles](../role-based-access-control/custom-roles.md)
 
@@ -33,11 +33,13 @@ A few RBAC scenarios are **not** supported, and these include:
   > For document-level security, a workaround is to use [security filters](search-security-trimming-for-azure-search.md) to trim results by user identity, removing documents for which the requestor should not have access.
   >
 
-## Azure roles used in Search
+## Roles used in Search
 
-Built-in roles include generally available and preview roles, whose assigned membership consists of Azure Active Directory users and groups under the same tenant.
+Built-in roles include generally available and preview roles, whose assigned membership consists of Azure Active Directory users and groups.
 
 Role assignments are cumulative and pervasive across all tools and client libraries used to create or manage a search service. Clients include the Azure portal, Management REST API, Azure PowerShell, Azure CLI, and the management client library of Azure SDKs. 
+
+There are no regional, tier, or pricing restrictions for using RBAC on Azure Cognitive Search.
 
 | Role | Status | Applies to | Description |
 | ---- | -------| ---------- | ----------- |
@@ -57,37 +59,13 @@ Azure resources have the concept of [control plane and data plane](../azure-reso
 | Control plane | Operations include create, update, and delete services, manage API keys, adjust partitions and replicas, and so forth. The [Management REST API](/rest/api/searchmanagement/) and equivalent client libraries define the operations applicable to the control plane. |
 | Data plane | Operations against the search service endpoint, encompassing all objects and data hosted on the service. Indexing, querying, and all associated actions target the data plane, which is accessed via the [Search REST API](/rest/api/searchservice/) and equivalent client libraries. </br></br>Currently, you cannot use role assignments to restrict access to individual indexes, synonym maps, indexers, data sources, or skillsets. |
 
-## How to assign roles
+## Configure Search for data plane authentication
 
-Roles can be assigned using any of the [supported approaches](../role-based-access-control/role-assignments-steps.md) described in role-based access control documentation.
+If you are using any of the preview data plane roles (Search Index Data Contributor or Search Index Data Reader) and Azure AD authentication, your search service must be configured to recognize an **authorization** header on data requests that provides an OAuth2 access token.
 
-For just the preview roles described above, you will need to also configure your search service to support authorization, and modify code to use an authorization header in requests.
+You can skip this step if you are using API keys only.
 
-### [**Stable roles**](#tab/rbac-ga)
-
-Stable roles refer to those that are generally available. Currently, these roles grant access to *service* information and admin operations. None of these roles will grant access rights to the search service endpoint itself or to content and operations on the service. Authentication to the endpoint is through [API keys](search-security-api-keys.md).
-
-A role assignment for search service administration is required. If you manage a search service, you are either an Owner or a Contributor. If you created a search service, you are automatically an Owner.
-
-+ Stable roles: [Owner](../role-based-access-control/built-in-roles.md#owner), [Contributor](../role-based-access-control/built-in-roles.md#contributor), [Reader](../role-based-access-control/built-in-roles.md#reader)
-+ Applies to: Control plane (or service administration)
-
-No service configuration is required. To assign roles, use one of the [approaches supported for Azure role assignments](../role-based-access-control/role-assignments-steps.md).
-
-### [**Preview roles**](#tab/rbac-preview)
-
-Several new roles are now in public preview that extend Azure roles to the search endpoint, which means you can disable or limit the dependency on API keys for authentication to search content and operations.
-
-+ Preview roles: [Search Service Contributor](../role-based-access-control/built-in-roles.md#search-service-contributor), [Search Index Data Contributor](../role-based-access-control/built-in-roles.md#search-index-data-contributor), [Search Index Data Reader](../role-based-access-control/built-in-roles.md#search-index-data-reader)
-+ Applies to: Control plane and data plane operations
-
-There are no regional, tier, or pricing restrictions for using RBAC on Azure Cognitive Search.
-
-#### Step 1: Configure the search service
-
-A search service must be configured to support role-based authentication on the endpoint. Use [Create or Update](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) to set [DataPlaneAuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions). You'll use the Management REST API version 2021-04-01-Preview to enable role-based authorization for data plane operations.
-
-Alternatively, you can use the Azure portal to update an existing search service.
+### [**Azure portal**](#tab/config-svc-portal)
 
 1. Open the portal with this syntax: [https://ms.portal.azure.com/?feature.enableRbac=true](https://ms.portal.azure.com/?feature.enableRbac=true).
 
@@ -103,11 +81,23 @@ Alternatively, you can use the Azure portal to update an existing search service
    | Role-based access control | Preview | Requires membership in a role assignment to complete the task, described in the next step. It also requires an authorization header. Choosing this option limits you to clients that support the 2021-04-30-preview REST API. |
    | Both | Preview | Requests are valid using either an API key or an authorization token. |
 
-#### Step 2: Assign users or groups
+### [**REST API**](#tab/config-svc-rest)
 
-Use one of the [supported approaches](../role-based-access-control/role-assignments-steps.md) for assigning Azure Active Directory users or groups to any of the preview roles: Search Service Contributor, Search Index Data Contributor, Search Index Data Reader.
+1. Use [Create or Update Service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) in the Management REST API version 2021-04-01-Preview.
 
-Alternatively, you can use the Azure portal:
+1. Set [DataPlaneAuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to `aadOrApiKey`. See [this example](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchcreateorupdateserviceauthoptions) for syntax.
+
+1. Set [AadAuthFailureMode](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#aadauthfailuremode) to specify whether 401 or 403 errors are returned when authentication fails.
+
+---
+
+## Assign roles
+
+Roles can be assigned using any of the [supported approaches](../role-based-access-control/role-assignments-steps.md) described in Azure role-based access control documentation.
+
+You must be an Owner or have Microsoft.Authorization/roleAssignments/write permissions to manage role assignments.
+
+### [**Azure portal**](#tab/rbac-portal)
 
 1. Make sure the portal has been opened with this syntax: [https://ms.portal.azure.com/?feature.enableRbac=true](https://ms.portal.azure.com/?feature.enableRbac=true). You should see `feature.enableRbac=true` in the URL.
 
@@ -117,17 +107,35 @@ Alternatively, you can use the Azure portal:
 
 1. On the right side, under **Grant access to this resource**, select **Add role assignment**.
 
-1. Find an applicable role (Search Service Contributor, Search Index Data Contributor, Search Index Data Reader), and then assign an Azure Active Directory user or group identity.
+1. Find an applicable role (Owner, Contributor, Reader, Search Service Contributor, Search Index Data Contributor, Search Index Data Reader), and then assign an Azure Active Directory user or group identity.
 
-#### Step 3: Configure requests
+### [**PowerShell**](#tab/rbac-powershell)
 
-To test programmatically, revise your code to use a Search REST API (any supported version) and set the authorization header on requests. If you are using the Azure SDKs, check their beta releases to see if the authorization header is available. Depending on your application, additional configuration is required to register it with Azure Active Directory or to determine how to get and pass an authorization token.
+When [using PowerShell to assign roles](/role-based-access-control/role-assignments-powershell), call [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment), providing the Azure user or group name, and the scope of the assignment. 
 
-If you are using the portal, you can skip application configuration. The portal is updated to support the new Search Index Data roles.
+Scoped to the service, your syntax should look similar to the following example:
 
-#### Step 4: Test
+```powershell
+New-AzRoleAssignment -SignInName <email> `
+    -RoleDefinitionName "Search Index Data Contributor" `
+    -Scope  "/subscriptions/<subscription>/resourceGroups/sample-resource-group/providers/Microsoft.Search/searchServices/mysearchservice?"
+```
 
-Send requests to the reconfigured search service to verify role-based authorization for indexing and query tasks.
+Scoped to an individual index:
+
+```powershell
+New-AzRoleAssignment -SignInName <email> `
+    -RoleDefinitionName "Search Index Data Contributor" `
+    -Scope  "/subscriptions/<subscription>/resourceGroups/sample-resource-group/providers/Microsoft.Search/searchServices/mysearchservice/indexes/myhotelsindex?"
+```
+
+--
+
+## Configure requests and test
+
+To test programmatically, revise your code to use a Search REST API (any supported version) and set the authorization header on requests. If you are using one of the Azure SDKs, check their beta releases to see if the authorization header is available. 
+
+Depending on your application, additional configuration is required to register an application with Azure Active Directory or to obtain and pass authorization tokens.
 
 Alternatively, you can use the Azure portal and the roles assigned to yourself to test:
 
@@ -141,4 +149,12 @@ Alternatively, you can use the Azure portal and the roles assigned to yourself t
 
    + For Search Index Data Contributor, select **New Index** to create a new index. Saving a new index will verify write access on the service.
 
----
+## Disable API key authentication
+
+If you are using Search Index Data Contributor and Search Index Data Reader roles and Azure AD authentication, you can disable API keys, causing the search service to refuse all data-related requests providing a key.
+
+1. Set [DataPlaneAuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to `aadOrApiKey`.
+
+1. Assign roles and verify they are working correctly.
+
+1. Set `disableLocalAuth` to **True**.
