@@ -72,7 +72,7 @@ Ensure the following pre-requisites across storage and networking are met:
 
 10. Create a new replication policy if needed. After choosing the replication policy, select **Next**. Review the Source and Target properties. Select **Enable Replication** to initiate the operation.
 
-  ![Site recovery](./media/vmware-azure-set-up-replication-tutorial-preview/appvault-site-recovery.png)
+     ![Site recovery](./media/vmware-azure-set-up-replication-tutorial-preview/appvault-site-recovery.png)
 
   A job is created to enable replication of the selected machines. To track the progress, navigate to Site Recovery jobs in the recovery services vault.
 
