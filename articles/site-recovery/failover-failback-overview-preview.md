@@ -142,15 +142,15 @@ If your on-premises environment is not ready or if you face any challenges, you 
 Once you have initiated the planned failover and it completes successfully, your on-premises environment becomes  available for usage. But after the completion of the operation, if you want to fail over to a different recovery point, then you can cancel the failover.
 
 
-1. Only planned failover can be cancelled.
+- Only planned failover can be canceled.
 
-2. You can cancel a planned failover from the **Replicated items** page in your Recovery Services vault.
+- You can cancel a planned failover from the **Replicated items** page in your Recovery Services vault.
 
-3. Once the failover is cancelled, your machines in Azure are tuned back on, and replication once again starts from Azure to on-premises.
+- After the failover is canceled, your machines in Azure are turned back on, and replication once again starts from Azure to on-premises.
 
 
 ## Next steps
-1. [Failover VMware VMs to Azure (preview)](vmware-azure-tutorial-failover-failback-preview.md#run-a-failover-to-azure)
-2. [Planned failover (preview)](vmware-azure-tutorial-failover-failback-preview.md#planned-failover-from-azure-to-on-premises)
-3. [Re-protect (preview)](vmware-azure-tutorial-failover-failback-preview.md#re-protect-the-on-premises-machine-to-azure-after-successful-planned-failover)
-4. [Cancel failover (preview)](vmware-azure-tutorial-failover-failback-preview.md#cancel-planned-failover)
+- [Failover VMware VMs to Azure (preview)](vmware-azure-tutorial-failover-failback-preview.md#run-a-failover-to-azure)
+- [Planned failover (preview)](vmware-azure-tutorial-failover-failback-preview.md#planned-failover-from-azure-to-on-premises)
+- [Re-protect (preview)](vmware-azure-tutorial-failover-failback-preview.md#re-protect-the-on-premises-machine-to-azure-after-successful-planned-failover)
+- [Cancel failover (preview)](vmware-azure-tutorial-failover-failback-preview.md#cancel-planned-failover)

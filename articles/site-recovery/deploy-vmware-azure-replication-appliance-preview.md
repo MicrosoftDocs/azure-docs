@@ -66,7 +66,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 **Here are the required key vault permissions**:
 
-- Microosoft.OffAzure/*
+- Microsoft.OffAzure/*
 - Microsoft.KeyVault/register/action
 - Microsoft.KeyVault/vaults/read
 - Microsoft.KeyVault/vaults/keys/read
