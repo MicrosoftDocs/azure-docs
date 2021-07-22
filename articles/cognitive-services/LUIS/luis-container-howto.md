@@ -35,7 +35,7 @@ To run the LUIS container, note the following prerequisites:
 * [Docker](https://docs.docker.com/) installed on a host computer. Docker must be configured to allow the containers to connect with and send billing data to Azure. 
     * On Windows, Docker must also be configured to support Linux containers.
     * You should have a basic understanding of [Docker concepts](https://docs.docker.com/get-started/overview/). 
-* A <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices"  title="Create a Speech service resource"  target="_blank">Speech service resource </a> with the free (F0) or standard (S) [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+* A <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne"  title="Create a LUIS resource"  target="_blank">LUIS resource </a> with the free (F0) or standard (S) [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/).
 * A trained or published app packaged as a mounted input to the container with its associated App ID. You can get the packaged file from the LUIS portal or the Authoring APIs. If you are getting LUIS packaged app from the [authoring APIs](#authoring-apis-for-package-file), you will also need your _Authoring Key_.
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
@@ -52,9 +52,9 @@ This ID is used to select the app. You can find the app ID in the LUIS portal by
 
 This key is used to get the packaged app from the LUIS service in the cloud and upload the query logs back to the cloud. You will need your authoring key if you [export your app using the REST API](#export-published-apps-package-from-api), described later in the article. 
 
-You can get your authoring key from the User Settings page on the LUIS portal.
+You can get your authoring key from the LUIS portal by clicking **Manage** at the top of the screen for your app, and then **Azure Resources**..
 
-:::image type="content" source="./media/luis-container-how-to/authoring-resource.png" alt-text="The screen for finding your auhtoring resource key." lightbox="./media/luis-container-how-to/authoring-resource.png":::
+:::image type="content" source="./media/luis-container-how-to/authoring-resource.png" alt-text="The screen for finding your authoring resource key." lightbox="./media/luis-container-how-to/authoring-resource.png":::
 
 
 ### Authoring APIs for package file
