@@ -21,8 +21,8 @@ This article shows you how to create a virtual switch on a Windows device to ins
 - Install and set up a DHCP server
 
 # Prerequisites
-- A Windows device. For supported Windows versions, see [Operating Systems](support.md#operating-systems) 
-- Hyper-V role installed on the Windows device. For more information on how to enable Hyper-V, see [Install and provision Azure IoT Edge for Linux on a Windows device](/azure/iot-edge/how-to-install-iot-edge-on-windows?tabs=powershell#prerequisites)
+- A Windows device. For supported Windows versions, see [Operating Systems](support.md#operating-systems).
+- Hyper-V role installed on the Windows device. For more information on how to enable Hyper-V, see [Install and provision Azure IoT Edge for Linux on a Windows device](/azure/iot-edge/how-to-install-iot-edge-on-windows?tabs=powershell#prerequisites).
 
 # Create virtual switch 
 The following steps in this section are a generic guide for a virtual switch creation. Ensure that the virtual switch configuration aligns with your networking environment.
@@ -59,6 +59,7 @@ New-NetIPAddress -IPAddress {gatewayIp} -PrefixLength 24 -InterfaceIndex {ifInde
  ```powershell
 New-NetNat -Name "{switchName}" -InternalIPInterfaceAddressPrefix "{natIp}/24"
 ```
+<br/>
 
 # Create DHCP Server 
 
