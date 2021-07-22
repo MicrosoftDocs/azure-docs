@@ -66,7 +66,7 @@ Ensure the following pre-requisites across storage and networking are met:
 
 6. Select **Next** to provide target region properties. By default, Vault subscription and Vault resource group are selected. You can choose a subscription and resource group of your choice. Your source machines will be deployed in this subscription and resource group when you failover in the future.
 
-  Later, you can choose an Azure network or create a new target network to be used during Failover. If you select **Create new**, you will be redirected to create virtual network context blade and asked to provide address space and subnet details. This network will be created in the target subscription and target resource group selected in the previous step.
+   Later, you can choose an Azure network or create a new target network to be used during Failover. If you select **Create new**, you will be redirected to create virtual network context blade and asked to provide address space and subnet details. This network will be created in the target subscription and target resource group selected in the previous step.
 
 8. Then, provide the test failover network details and select the storage.
 
@@ -76,7 +76,7 @@ Ensure the following pre-requisites across storage and networking are met:
 
   A job is created to enable replication of the selected machines. To track the progress, navigate to Site Recovery jobs in the recovery services vault.
 
-For detailed information on enabling replication [see this article](vmware-azure-set-up-replication-tutorial-preview.md).
+  For detailed information on enabling replication [see this article](vmware-azure-set-up-replication-tutorial-preview.md).
 
 ## Next steps
 
