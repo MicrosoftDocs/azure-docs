@@ -115,7 +115,7 @@ A typical import flow includes the following steps:
 
 1. **Order** - Create an order in the Azure portal, provide shipping information, and the destination Azure storage account for your data. If the device is available, Azure prepares and ships the device with a shipment tracking ID.
 
-2. **Receive** - Once the device is delivered, cable the device for network and power using the specified cables. (You'll need to procure the data cables.) Turn on and connect to the device. Configure the device network and mount shares on the host computer from where you want to copy the data.
+2. **Receive** - Once the device is delivered, cable the device for network and power using the specified cables. (The power cable is included with the device. You'll need to procure the data cables.) Turn on and connect to the device. Configure the device network and mount shares on the host computer from where you want to copy the data.
 
 3. **Copy data** - Copy data to Data Box shares.
 
@@ -130,7 +130,7 @@ A typical export flow includes the following steps:
 
 1. **Order** - Create an export order in the Azure portal, provide shipping information, and the source Azure storage account for your data. If the device is available, Azure prepares a device. Data is copied from your Azure Storage account to the Data Box. Once the data copy is complete, Microsoft ships the device with a shipment tracking ID.
 
-2. **Receive** - Once the device is delivered, cable the device for network and power using the specified cables. (You'll need to procure the data cables.) Turn on and connect to the device. Configure the device network and mount shares on the host computer to which you want to copy the data.
+2. **Receive** - Once the device is delivered, cable the device for network and power using the specified cables. (The power cable is included with the device. You'll need to procure the data cables.) Turn on and connect to the device. Configure the device network and mount shares on the host computer to which you want to copy the data.
 
 3. **Copy data** - Copy data from Data Box shares to the on-premises data servers.
 
