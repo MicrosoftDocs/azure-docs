@@ -284,7 +284,7 @@
     href: migrate-v1-v2.md
 - name: Reference
   items:
-  - name: Common Key Vault Errors
+  - name: Common Key Vault errors
     href: application-gateway-keyvault-common-errors.md
   - name: Monitoring data
     href: monitor-application-gateway-reference.md
