@@ -144,16 +144,6 @@ public class Main {
         UUID jobId = SubmitJobByScript(script, "testJob", creds);
         WaitForNewline("Job submitted.", "Getting job status.");
 
-//         // ----------------------------------------
-//         // Wait for job completion and output job status
-//         // DataLake analytics resource manager does not support analytics job
-//         // ----------------------------------------
-//         System.out.println(String.format("Job status: %s", GetJobStatus(jobId)));
-//         System.out.println("Waiting for job completion.");
-//         WaitForJob(jobId);
-//         System.out.println(String.format("Job status: %s", GetJobStatus(jobId)));
-//         WaitForNewline("Job completed.", "Downloading job output.");
-
         // ----------------------------------------
         // Download job output from Data Lake Store
         // ----------------------------------------
@@ -231,39 +221,7 @@ public class Main {
         fileClient.read(outputStream);
         outputStream.close();
     }
-
-//    // Submit a U-SQL job
-//    // DataLake analytics resource manager does not support analytics job
-//    private static UUID SubmitJobByScript(String script, String jobName, TokenCredential creds) throws IOException, CloudException {
-//        UUID jobId = java.util.UUID.randomUUID();
-//        CreateJobProperties properties = new CreateUSqlJobProperties();
-//        properties.withScript(script);
-//        CreateJobParameters parameters = new CreateJobParameters();
-//        parameters.withName(jobName);
-//        parameters.withType(JobType.USQL);
-//        parameters.withProperties(properties);
-//
-//        JobInformation jobInfo = _adlaJobClient.jobs().create(_adlaAccountName, jobId, parameters);
-//
-//        return jobInfo.jobId();
-//    }
-//
-//    // Wait for job completion
-//    // DataLake analytics resource manager does not support analytics job
-//    private static JobResult WaitForJob(UUID jobId) throws IOException, CloudException {
-//        JobInformation jobInfo = _adlaJobClient.jobs().get(_adlaAccountName, jobId);
-//        while (jobInfo.state() != JobState.ENDED) {
-//            jobInfo = _adlaJobClient.jobs().get(_adlaAccountName, jobId);
-//        }
-//        return jobInfo.result();
-//    }
-//
-//    // Retrieve job status
-//    // DataLake analytics resource manager does not support analytics job
-//    private static String GetJobStatus(UUID jobId) throws IOException, CloudException {
-//        JobInformation jobInfo = _adlaJobClient.jobs().get(_adlaAccountName, jobId);
-//        return jobInfo.state().toString();
-//    }
+    
 }
 ```
 
