@@ -2,9 +2,9 @@
 title: Monitor Azure Storage services with Azure Monitor Storage insights | Microsoft Docs
 description: This article describes the Storage insights feature of Azure Monitor that provides storage admins with a quick understanding of performance and utilization issues with their Azure Storage accounts.
 ms.topic: conceptual
-author: lgayhardt
-ms.author: lagayhar
-ms.date: 05/11/2020
+author: normesta
+ms.author: normesta
+ms.date: 07/11/2021
 
 ---
 
@@ -26,7 +26,7 @@ Combined it delivers:
 
 * **Customizable** where you can change which metrics you want to see, modify or set thresholds that align with your limits, and save as your own workbook. Charts in the workbook can be pinned to Azure dashboard.  
 
-This feature does not require you to enable or configure anything, the storage metrics from your storage accounts are collected by default. If you are unfamiliar with metrics available on Azure Storage, view the description and definition in Azure Storage metrics by reviewing [Azure storage metrics](../../storage/blobs/monitor-blob-storage.md).
+This feature does not require you to enable or configure anything, the storage metrics from your storage accounts are collected by default. If you are unfamiliar with metrics available on Azure Storage, view the description and definition in Azure Storage metrics by reviewing [Azure storage metrics](../blobs/monitor-blob-storage.md).
 
 >[!NOTE]
 >There is no charge to access this feature and you will only be charged for the Azure Monitor essential features you configure or enable, as described on the [Azure Monitor pricing details](https://azure.microsoft.com/pricing/details/monitor/) page.
@@ -59,7 +59,7 @@ The counter tile under the drop-down lists rolls-up the total number of storage 
 Select a value in the columns **Availability**, **E2E Latency**, **Server Latency**, and **transaction error type/Errors** directs you to a report tailored to the specific type of storage metrics that match the column selected for that storage account. For more information about the workbooks for each category, see the [Detailed storage workbooks](#detailed-storage-workbooks) section below. 
 
 >[!NOTE]
->For details on which errors can be shown in the report, see [Response Type schema](../../storage/blobs/monitor-blob-storage-reference.md#metrics-dimensions) and look for response types such as **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. Depending on the storage accounts selected, if there are more than three types of errors reported, all other errors are represented under the category of **Other**.
+>For details on which errors can be shown in the report, see [Response Type schema](../blobs/monitor-blob-storage-reference.md#metrics-dimensions) and look for response types such as **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. Depending on the storage accounts selected, if there are more than three types of errors reported, all other errors are represented under the category of **Other**.
 
 The default **Availability** threshold is:
 
@@ -226,7 +226,7 @@ This section will help you with the diagnosis and troubleshooting of some of the
 
 ### Resolving performance, capacity, or availability issues
 
-To help troubleshoot any storage-related issues you identify with Storage insights, see the Azure Storage [troubleshooting guidance](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance).  
+To help troubleshoot any storage-related issues you identify with Storage insights, see the Azure Storage [troubleshooting guidance](storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance).  
 
 ### Why can I only see 200 storage accounts?
 
@@ -239,7 +239,7 @@ section for the detailed steps on how to change the coloring and thresholds for 
 
 ### How to analyze and troubleshoot the data shown in Storage insights?
 
- Refer to the [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md) article for details on how to analyze and troubleshoot the Azure Storage data shown in Storage insights.
+ Refer to the [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md) article for details on how to analyze and troubleshoot the Azure Storage data shown in Storage insights.
 
 ### Why don’t I see all the types of errors in metrics?
 
@@ -262,8 +262,8 @@ Each workbook is saved in the storage account that you saved it in. Try to find 
 
 ## Next steps
 
-* Configure [metric alerts](../alerts/alerts-metric.md) and [service health notifications](../../service-health/alerts-activity-log-service-notifications-portal.md) to set up automated alerting to aid in detecting issues.
+* Configure [metric alerts](../../azure-monitor/alerts/alerts-metric.md) and [service health notifications](../../service-health/alerts-activity-log-service-notifications-portal.md) to set up automated alerting to aid in detecting issues.
 
-* Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../visualize/workbooks-overview.md).
+* Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md).
 
-* For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
+* For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
