@@ -24,9 +24,9 @@ The following screenshot shows an example of a device template:
 
 The device template has the following sections:
 
-- Model - Use the model to define how your device interacts with your IoT Central application. Each model has a unique model ID and you can customize it with additional capabilities, add interfaces to inherit capabilities, or add new components that are based on other interfaces.
+- Model - Use the model to define how your device interacts with your IoT Central application. Each model has a unique model ID and defines the capabilities of the device. Capabilities are grouped into interfaces that let you reuse components across models or use inheritance to extend the set of capabilities.
 - Cloud properties - Use cloud properties to define information that your IoT Central application stores about your devices. For example, a cloud property might record the date a device was last serviced.
-- Customize - Use customizations to add interface capabilities such as specifying the minimum and maximum temperature ranges.
+- Customize - Use customizations to modify capabilities. For example, specify the minimum and maximum temperature values for a property.
 - Views - Use views to visualize the data from the device, and forms to manage and control a device.
 
 To learn more, see [What are device templates?](concepts-device-templates.md).
@@ -36,15 +36,16 @@ To learn more, see [What are device templates?](concepts-device-templates.md).
 
 You have several options for creating device templates:
 
-- Design the device template in the IoT Central GUI, and then [implement its device model in your device code](tutorial-connect-device.md).
-- Import a device template from the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat). Customize the device template to your requirements in IoT Central.
-- Use a model stored in a model repository to implement your device code. Have the the device send the model Id when it connects to IoT Central. IoT Central uses the model Id to retrieve the model from the repository and create a device template. You can then add any cloud properties, customizations, and views your IoT Central application needs to the device template.
-- Author a device model using the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Implement your device code from the model. Manually import the device model into your IoT Central application, and then add any cloud properties, customizations, and views your IoT Central application needs.
+- Design the device template in the IoT Central GUI.
+- Import a device template from the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat). Optionally, customize the device template to your requirements in IoT Central.
+- Use a model stored in a model repository to implement your device code. Have the the device send the model Id when it connects to IoT Central. IoT Central uses the model Id to retrieve the model from the model repository and to create a device template. Add any cloud properties, customizations, and views your IoT Central application needs to the device template.
+- Author a device model using the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Manually import the device model into your IoT Central application, and then add any cloud properties, customizations, and views your IoT Central application needs.
 - You can also add device templates to an IoT Central application using the [REST API](/learn/modules/manage-iot-central-apps-with-rest-api/) or the [CLI](howto-manage-iot-central-from-cli.md).
 
-This section shows you how to import a device template from the catalog and how to customize it using the IoT Central GUI.
+> [!NOTE]
+> In each case, the device code must implement the capabilities defined in the model. The device code implementation isn't affected by the cloud properties, customizations and views sections of the device template.
 
-This example uses the **ESP32-Azure IoT Kit** device template from the device catalog:
+This section shows you how to import a device template from the catalog and how to customize it using the IoT Central GUI. This example uses the **ESP32-Azure IoT Kit** device template from the device catalog:
 
 1. To add a new device template, select **+ New** on the **Device templates** page.
 1. On the **Select type** page, scroll down until you find the **ESP32-Azure IoT Kit** tile in the **Use a pre-configured device template** section.
@@ -80,7 +81,7 @@ To create a device model, you can:
 
     :::image type="content" source="media/howto-set-up-template/view-id.png" alt-text="Screenshot that shows model id for device template root interface.":::
 
-1. To view the component ID, select **Edit identity** on any of the component interfaces in the model.
+1. To view the component ID, select **Edit Identity** on any of the component interfaces in the model.
 
 To learn more, see the [IoT Plug and Play modeling guide](../../iot-pnp/concepts-modeling-guide.md).
 
@@ -96,11 +97,7 @@ To view and manage the interfaces in your device model:
 
 1. To export a model or interface select **Export**.
 
-    :::image type="content" source="media/howto-set-up-template/export.png" alt-text="How to export":::
-
-1. To view or edit DTDL for an interface, or a capability select **Edit DTDL**.
-
-    :::image type="content" source="media/howto-set-up-template/edit-interface.png" alt-text="How to view or edit"::: 
+1. To view or edit DTDL for an interface, or a capability select **Edit DTDL**. 
 
 ### Capabilities
 
@@ -133,7 +130,7 @@ The following table shows the configuration settings for a telemetry capability:
 #### Properties
 
 Properties represent point-in-time values. You can set writable properties from IoT Central.
-For example, a device can use a property to report the target temperature it's trying to reach as shown below:
+For example, a device can use a writable property to let an operator set the target temperature as shown below:
 
 :::image type="content" source="media/howto-set-up-template/property.png" alt-text="How to add property":::
 
@@ -192,7 +189,6 @@ Cloud-to-device messages:
 > [!NOTE]
 > This option is only available in the IoT Central web UI. This setting isn't included if you export a model or component from the device template.
 
-
 ## Cloud properties
 
 Use cloud properties to store information about devices in IoT Central. Cloud properties are never sent to a device. For example, you can use cloud properties to store the name of the customer who has installed the device, or the device's last service date.
@@ -210,11 +206,29 @@ The following table shows the configuration settings for a cloud property:
 
 ## Customizations
 
-Use customizations when you need to modify an imported component or add IoT Central-specific features to a capability. You can customize any part of an existing device template's capabilities. For example, you can specify minimum and maximum temperature ranges as shown below:
+Use customizations when you need to modify an imported component or add IoT Central-specific features to a capability. For example, you can change the display name and units of a property as shown below:
 
 :::image type="content" source="media/howto-set-up-template/customize.png" alt-text="How to do customizations":::
 
+The following table shows the configuration settings for customizations:
+
+| Field | Description |
+| ----- | ----------- |
+|Display name | Override display name from model. |
+|Semantic type | Override semantic type from model. |
+|Unit | Override unit from model. |
+|Display unit | Override from model. |
+|Comment | Override from model. |
+|Description | Override from model. |
+|Color | IoT Central specific option. |
+|Min value | Set minimum value - IoT Central specific option. |
+|Max value | Set maximum value - IoT Central specific option. |
+|Decimal places | IoT Central specific option. |
+|Initial value | Commands only IoT Central specific value - default parameter value. |
+
 ## Views
+
+Views let you define views and forms that let an operator monitor and interact with a device. Views use visualizations such as charts to show telemetry and property values.
 
 Generating default views is a quick way to visualize your important device information. The three default views are:
 
