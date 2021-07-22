@@ -67,6 +67,38 @@
       href: ./windows/tutorial-load-balancer.md
     - name: 8 - Manage networking
       href: ./windows/tutorial-virtual-network.md
+- name: Develop
+  items:
+  - name: REST API
+    href: /rest/api/compute/virtual-machines
+  - name: Python
+    items: 
+    - name: Python SDK
+      href: https://github.com/Azure/azure-sdk-for-python
+    -name: Samples
+     href: /samples/azure-samples/virtual-machines-python-manage/azure-virtual-machines-management-samples---python/
+  - name: .NET 
+    items:
+    - name: .NET SDK
+      href: https://github.com/Azure/azure-sdk-for-net
+    - name: Reference
+      href: /dotnet/api/overview/azure/virtualmachines?view=azure-dotnet
+  - name: Java 
+    items:
+    - name: Java SDK
+      href: https://github.com/Azure/azure-sdk-for-java
+    - name: Reference
+      href: /java/api/com.azure.resourcemanager.compute?view=azure-java-stable
+  - name: Go 
+    items:
+    - name: Go SDK
+      href: https://github.com/Azure/azure-sdk-for-go
+    - name: Reference
+      href: /developer/go/azure-sdk-qs-vm
+  - name: Azure CLI samples repo
+    href: https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine
+  - name: PowerShell samples repo
+    href: https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine
 - name: Workloads
   items:
   - name: Red Hat
@@ -1923,12 +1955,6 @@
     href: https://azure.microsoft.com/roadmap/?category=compute
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: Samples
-    items:
-    - name: Azure CLI samples repo
-      href: https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine
-    - name: PowerShell samples repo
-      href: https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine
   - name: Common CLI commands
     href: ./linux/cli-manage.md
   - name: Common PowerShell commands
