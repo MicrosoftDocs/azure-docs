@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 03/05/2021
+ms.date: 07/22/2021
 ms.author: alkohli
 ms.localizationpriority: high
 #Customer intent: As an IT admin, I need to quickly deploy Data Box so as to import data into Azure.
@@ -99,9 +99,9 @@ When you receive the Data Box, do the following steps to cable, connect to and t
 2. Before you cable your device, ensure that you have the following cables:
     
     - (Included) grounded power cord rated at 10 A or greater with an IEC60320 C-13 connector at one end to connect to the device.
-    - One RJ-45 CAT 6 network cable (use with MGMT network interface)
-    - Two 10 GbE SFP+ Twinax copper cables (use with 10 Gbps DATA 1, DATA 2 network interfaces)
-    - One RJ-45 CAT 6A OR one RJ-45 CAT 6 network cable (use with DATA 3 network interface configured as 10 Gbps or 1 Gbps respectively)
+    - (Not included) One RJ-45 CAT 6 network cable (use with MGMT network interface)
+    - (Not included) Two 10 GbE SFP+ Twinax copper cables (use with 10 Gbps DATA 1, DATA 2 network interfaces)
+    - (Not included) One RJ-45 CAT 6A OR one RJ-45 CAT 6 network cable (use with DATA 3 network interface configured as 10 Gbps or 1 Gbps respectively)
 
 3. Remove and place the device on a flat surface. 
 	
