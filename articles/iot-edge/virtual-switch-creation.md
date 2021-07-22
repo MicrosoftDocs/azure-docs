@@ -20,7 +20,7 @@ This article shows you how to create a virtual switch on a Windows device to ins
 - Create a NAT table
 - Install and set up a DHCP server
 
-# Prerequisites
+## Prerequisites
 - A Windows device. For supported Windows versions, see [Operating Systems](support.md#operating-systems).
 - Hyper-V role installed on the Windows device. For more information on how to enable Hyper-V, see [Install and provision Azure IoT Edge for Linux on a Windows device](/azure/iot-edge/how-to-install-iot-edge-on-windows?tabs=powershell#prerequisites).
 
