@@ -16,7 +16,12 @@ Azure permits association of additional VMs beyond the reserved count of a Capac
 
 The Instance View of a Capacity Reservation Group provides a snapshot of utilization for each member Capacity Reservation. You can use the Instance View to see how overallocation works. 
 
-This article assumes you have created a Capacity Reservation Group (`myCapacityReservationGroup`), a member Capacity Reservation (`myCapacityReservation`), and a virtual machine (*myVM1*) that is associated to the group. Go to [Create a Capacity Reservation](capacity-reservation-create.md) and [Associate a VM to a Capacity Reservation](capacity-reservation-associate-vm.md) for more details. 
+This article assumes you have created a Capacity Reservation Group (`myCapacityReservationGroup`), a member Capacity Reservation (`myCapacityReservation`), and a virtual machine (*myVM1*) that is associated to the group. Go to [Create a Capacity Reservation](capacity-reservation-create.md) and [Associate a VM to a Capacity Reservation](capacity-reservation-associate-vm.md) for more details.
+
+> [!IMPORTANT]
+> Capacity Reservation is currently in public preview.
+> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 
 ## Instance View for Capacity Reservation Group 

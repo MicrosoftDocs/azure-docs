@@ -125,8 +125,7 @@ ARM templates let you deploy groups of related resources. In a single template, 
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal. 
 
-<!-- REPLACE THE PORTAL URL HERE BEFORE PUBLISHING -->
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.compute%2fvm-simple-linux%2fazuredeploy.json)
+<!-- button here -->
 
 --- 
 <!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
