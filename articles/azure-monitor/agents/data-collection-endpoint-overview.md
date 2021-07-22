@@ -93,7 +93,7 @@ You can use data collection endpoints to enable the Azure Monitor agent to commu
 - Add the data collection endpoints to an [Azure Monitor Private Link Scopes (AMPLS)](../logs/private-link-security.md#connect-azure-monitor-resources) resource.
 - Ensure **Allow public network access for ingestion** option is set to **No** under the 'Network Isolation' tab of your data collection endpoint resource, as shown below (set to 'No' by default)
 
-![Data collection endpoint network isolation](media/private-link-security/ampls-data-collection-endpoint-network-isolation.png)
+![Data collection endpoint network isolation](media/data-collection-endpoint-overview/data-collection-endpoint-basics/data-collection-endpoint-network-isolation.png)
 
 ## Next steps
 - [Associate endpoint to machines](data-collection-rule-azure-monitor-agent.md#create-rule-and-association-in-azure-portal)
