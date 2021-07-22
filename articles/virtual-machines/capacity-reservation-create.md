@@ -12,9 +12,9 @@ ms.custom: template-how-to
 
 # Create a Capacity Reservation (preview)
 
-Capacity Reservation is always created as part of a Capacity Reservation Group. Therefore, the first step is to create a group, if a suitable one doesn’t exist already, and then create reservations. Once successfully created, reservations are immediately available for use with virtual machines. The capacity is reserved for your use as long as the reservation is not deleted.     
+Capacity Reservation is always created as part of a Capacity Reservation Group. The first step is to create a group, if a suitable one doesn’t exist already, and then create reservations. Once successfully created, reservations are immediately available for use with virtual machines. The capacity is reserved for your use as long as the reservation isn't deleted.     
 
-A well-formed request for capacity reservation group should always succeed as it does not reserve any capacity. It just acts as a container for reservations. However, a request for capacity reservation could fail if you do not have the required quota for the VM series or if Azure doesn’t have enough capacity to fulfill the request. Either request more quota or try a different VM size, location, or zone combination. 
+A well-formed request for capacity reservation group should always succeed as it doesn't reserve any capacity. It just acts as a container for reservations. However, a request for capacity reservation could fail if you don't have the required quota for the VM series or if Azure doesn’t have enough capacity to fulfill the request. Either request more quota or try a different VM size, location, or zone combination. 
 
 A Capacity Reservation creation succeeds or fails in its entirety. For a request to reserve 10 instances, success is returned only if all 10 could be allocated. Otherwise, the capacity reservation creation will fail. 
 
@@ -29,8 +29,8 @@ A Capacity Reservation creation succeeds or fails in its entirety. For a request
 The Capacity Reservation must meet the following rules: 
 - The location parameter must match the location property for the parent Capacity Reservation Group. A mismatch will result in an error. 
 - The VM size must be available in the target region. Otherwise, the reservation creation will fail. 
-- The subscription must have sufficient approved quota equal or more than the quantity of VMs being reserved for the VM series and for the region overall. If needed, [request additional quota](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
-- Each Capacity Reservation Group can have exactly one reservation for a given VM size. For example, only one Capacity Reservation can be created for the VM size `Standard_D2s_v3`. Attempt to create a second reservation for `Standard_D2s_v3` in the same Capacity Reservation Group will result in an error. However, another reservation can be created in the same group for other VM sizes such `Standard_D4s_v3`, `Standard_D8s_v3` and so on. 
+- The subscription must have sufficient approved quota equal to or more than the quantity of VMs being reserved for the VM series and for the region overall. If needed, [request more quota](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
+- Each Capacity Reservation Group can have exactly one reservation for a given VM size. For example, only one Capacity Reservation can be created for the VM size `Standard_D2s_v3`. Attempt to create a second reservation for `Standard_D2s_v3` in the same Capacity Reservation Group will result in an error. However, another reservation can be created in the same group for other VM sizes, such `Standard_D4s_v3`, `Standard_D8s_v3` and so on. 
 - For a group that supports zones, each reservation type is defined by the combination of **VM size** and **zone**. For example, one Capacity Reservation for `Standard_D2s_v3` in `Zone 1`, another Capacity Reservation for `Standard_D2s_v3` in `Zone 2`, and `Standard_D2s_v3` in `Zone 3` is supported. 
 
 
@@ -54,7 +54,7 @@ The Capacity Reservation must meet the following rules:
     
     This group is created to contain reservations for the US East location. 
     
-    In this example, the group will support only regional reservations because zones were not specified at the time of creation. In order to create a zonal group, pass an additional parameter *zones* in the request body as shown below: 
+    In this example, the group will support only regional reservations because zones weren't specified at the time of creation. To create a zonal group, pass an extra parameter *zones* in the request body as shown below: 
     
     ```json
     { 

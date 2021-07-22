@@ -59,11 +59,11 @@ The first option is to deallocate the Virtual Machine, change the Capacity Reser
 1. Open [Azure portal](https://portal.azure.com)
 1. Go to your Virtual Machine and select **Overview**
 1. Select **Stop** 
-    1. You will know your VM is deallocated when the status changes to *Stopped (deallocated)*
-    1. Note that at this point in the process, the VM is still associated with the Capacity Reservation Group and this is reflected in the `virtualMachinesAssociated` property of the Capacity Reservation 
+    1. You'll know your VM is deallocated when the status changes to *Stopped (deallocated)*
+    1. At this point in the process, the VM is still associated with the Capacity Reservation Group, which is reflected in the `virtualMachinesAssociated` property of the Capacity Reservation 
 1. Select **Configuration**
 1. Set the **Capacity Reservation Group** value to *None*
-    1. Note that the VM is no longer associated with the Capacity Reservation Group 
+    1. The VM is no longer associated with the Capacity Reservation Group 
 
 --- 
 <!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
@@ -91,7 +91,7 @@ This option works well when the virtual machine can’t be deallocated and when 
     } 
     ```
     
-    Please note that capacity property is set to 0 above.
+    Note that `capacity` property is set to 0 above.
 
 1. Update the VM to remove the association with the Capacity Reservation Group
 

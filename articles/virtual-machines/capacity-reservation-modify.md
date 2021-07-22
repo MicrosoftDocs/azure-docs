@@ -30,7 +30,7 @@ After creating a Capacity Reservation Group and Capacity Reservation, you may wa
 Update the number of virtual machine instances reserved in a capacity reservation.  
 
 > [!IMPORTANT]
-> In rare cases when Azure cannot fulfill additional capacity requests, it is possible that the reservation goes into a *Failed* state and becomes unavailable until the [quantity is restored to the original amount](#restore-instance-quantity).
+> In rare cases when Azure cannot fulfill additional capacity requests, it's possible the reservation goes into a *Failed* state and becomes unavailable until the [quantity is restored to the original amount](#restore-instance-quantity).
 
 
 ### [API](#tab/api)
@@ -47,7 +47,7 @@ In the request body, update the `capacity` property to the new count that you wa
 } 
 ```
 
-Please note that `capacity` property is set to 5 now in this example.
+Note that the `capacity` property is set to 5 now in this example.
 
 
 ### [Portal](#tab/portal) 
@@ -66,9 +66,9 @@ Please note that `capacity` property is set to 5 now in this example.
 
 ## Resizing VMs associated with a Capacity Reservation Group 
 
-You can resize virtual machines already associated with a capacity reservation group. Once the virtual machine is resized to the target size, in order to get capacity SLAs, a capacity reservation group must be explicitly referenced as a property of the virtual machine.  
+You can resize virtual machines already associated with a capacity reservation group. Once the virtual machine is resized to the target size, to get capacity SLAs, a capacity reservation group must be explicitly referenced as a property of the virtual machine.  
 
-If the virtual machine being resized is currently attached to a capacity reservation group and that group doesn’t have a reservation for the target size, then either create a new reservation for that size or remove the virtual machine from the reservation group before resizing. 
+If the virtual machine being resized is currently attached to a capacity reservation group and that group doesn’t have a reservation for the target size, then create a new reservation for that size or remove the virtual machine from the reservation group before resizing. 
 
 Check if the target size is part of the reservation group: 
 
@@ -136,7 +136,7 @@ Next, find out the VM size reserved for each reservation. The following example 
 1. Select **Overview** 
 1. Select **Reservations** 
 1. Look at the *VM size* reserved for each reservation 
-    1. If the target VM size is not part of the group, [create a new capacity reservation](capacity-reservation-create.md) for the target VM 
+    1. If the target VM size isn't part of the group, [create a new capacity reservation](capacity-reservation-create.md) for the target VM 
     1. If the target VM size already exists in the group, [resize the virtual machine](\windows\resize-vm.md) 
 
 --- 
@@ -147,7 +147,7 @@ Next, find out the VM size reserved for each reservation. The following example 
 
 Azure allows a Capacity Reservation Group to be deleted when all the member Capacity Reservations have been deleted and no virtual machines are associated to the group.  
 
-In order to delete a capacity reservation, first find out all of the virtual machines that are associated to it. The list of virtual machines is available under `virtualMachinesAssociated` property. 
+To delete a capacity reservation, first find out all of the virtual machines that are associated to it. The list of virtual machines is available under `virtualMachinesAssociated` property. 
 
 ### [API](#tab/api)
 
@@ -238,14 +238,14 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
 
 ## Restore instance quantity 
 
-A well-formed request for reducing the quantity reserved should always succeed irrespective of the number of virtual machines associated with the reservation. However, increasing the quantity reserved may require additional quota and for Azure to fulfill the additional capacity request. In a rare scenario in which Azure can’t fulfill the additional capacity request, it is possible that the reservation goes into a *Failed* state and becomes unavailable until the quantity reserved is restored to the original amount.  
+A well-formed request for reducing the quantity reserved should always succeed no matter the number of virtual machines associated with the reservation. However, increasing the quantity reserved may require more quota and for Azure to fulfill the additional capacity request. In a rare scenario in which Azure can’t fulfill the  request, it's possible that the reservation goes into a *Failed* state and becomes unavailable until the quantity reserved is restored to the original amount.  
 
 > [!NOTE]
 > If a reservation is in a *Failed* state, all the VMs that are associated with the reservation will continue to work as normal.  
 
-For example, let’s say `myCapacityReservation` has a quantity reservation of 5. You request 5 additional instances, making the total quantity reserved equal 10. However, due to a constrained capacity situation in the region, Azure can’t fulfill the additional 5 quantity requested. In this case, `myCapacityReservation` will fail to meet its intended state of 10 quantity reserved and will go into a *Failed* state. 
+For example, let’s say `myCapacityReservation` has a quantity reservation of 5. You request 5 extra instances, making the total quantity reserved equal 10. However, because of a constrained capacity situation in the region, Azure can’t fulfill the additional 5 quantity requested. In this case, `myCapacityReservation` will fail to meet its intended state of 10 quantity reserved and will go into a *Failed* state. 
 
-In order to resolve this failure, take the following steps to locate the old quantity reserved value:  
+To resolve this failure, take the following steps to locate the old quantity reserved value:  
 
 1. Go to [Application Change Analysis](https://ms.portal.azure.com/#blade/Microsoft_Azure_ChangeAnalysis/ChangeAnalysisBaseBlade) in the Azure portal 
 1. Select the applicable **Subscription**, **Resource group**, and **Time range** in the filters

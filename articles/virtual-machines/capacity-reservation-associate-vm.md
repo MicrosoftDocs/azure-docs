@@ -22,7 +22,7 @@ This article walks you through the steps of associating a new or existing virtua
 
 ## Associate a new VM
 
-To associate a new VM to the Capacity Reservation Group, the group must be explicitly referenced as a property of the virtual machine you are trying to associate. This protects the matching reservation in the group from accidental consumption by less critical applications and workloads that are not intended to use it.  
+To associate a new VM to the Capacity Reservation Group, the group must be explicitly referenced as a property of the virtual machine you're trying to associate. This reference protects the matching reservation in the group from accidental consumption by less critical applications and workloads that aren't intended to use it.  
 
 ### [API](#tab/api)
 
@@ -74,7 +74,7 @@ In the request body, include the `capacityReservationGroup` property as shown be
 
 ## Associate an existing VM 
 
-While Capacity Reservation is in preview, in order to associate an existing VM to a Capacity Reservation Group, it is required to first deallocate the VM and then do the association at the time of reallocation. This ensures that the VM consumes one of the empty spots in the reservation. 
+While Capacity Reservation is in preview, to associate an existing VM to a Capacity Reservation Group, it is required to first deallocate the VM and then do the association at the time of reallocation. This process ensures the VM consumes one of the empty spots in the reservation. 
 
 Refer to the steps above on how to associate a VM to a Capacity Reservation Group.
 
