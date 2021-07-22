@@ -44,7 +44,7 @@ You will also need:
 
 ### Authoring key `{AUTHORING_KEY}`
 
-This key is used to get the packaged app from the LUIS service in the cloud and upload the query logs back to the cloud.
+This key is used to get the packaged app from the LUIS service in the cloud and upload the query logs back to the cloud. You will need your authoring key if you [export your app using the REST API](#export-published-apps-package-from-api), described later in the article. 
 
 You can get your authoring key from the User Settings page on the LUIS portal.
 
