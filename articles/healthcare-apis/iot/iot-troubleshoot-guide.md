@@ -174,9 +174,7 @@ The mapping file copies should be provided to Azure Technical Support when openi
 
 ## Next steps
 
-For information about the frequently asked questions of the IoT Connector, see
-
 >[!div class="nextstepaction"]
->[Azure IoT Connector for FHIR FAQs](iot-faq.md)
+>[Azure IoT Connector Overview](iot-connector-overview.md)
 
 FHIR is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
