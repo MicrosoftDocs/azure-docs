@@ -4,7 +4,7 @@ description: Use encryption at host to enable end-to-end encryption on your Azur
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/15/2021
+ms.date: 07/22/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
@@ -55,9 +55,29 @@ Once the feature is enabled, you'll need to set up an Azure Key Vault and a disk
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-portal](../../includes/virtual-machines-disks-encryption-create-key-vault-portal.md)]
 
-## Deploy a VM with platform-managed keys
+## Deploy a VM with customer-managed keys
 
 Now that you've setup an Azure Key Vault and disk encryption set, you can deploy a VM and it will use encryption at host.
+
+1. Search for **Virtual Machines** and select **+ Add** to create a VM.
+1. Create a new virtual machine, select an appropriate region and a supported VM size.
+1. Fill in the other values on the **Basic** pane as you like, then proceed to the **Disks** pane.
+
+    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-basic-blade.png" alt-text="Screenshot of the virtual machine creation basics pane, region and V M size are highlighted.":::
+
+1. On the **Disks** pane, select **Encryption at-rest for customer-managed key** for **SSE encryption type** and select your disk encryption set.
+1. Select **Yes** for **Encryption at host**.
+1. Make the remaining selections as you like.
+
+    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-host-based-encryption-customer-managed-keys.png" alt-text="Screenshot of the virtual machine creation disks pane, encryption at host is highlighted, customer-managed keys selected.":::
+
+1. Finish the VM deployment process, make selections that fit your environment.
+
+You have now deployed a VM with encryption at host enabled.
+
+## Deploy a VM with platform-managed keys
+
+Alternatively, if you don't want to use customer-managed keys, you can use platform-managed keys. With platform-managed keys, an Azure Key Vault and a disk encryption set aren't required.
 
 1. Search for **Virtual Machines** and select **+ Add** to create a VM.
 1. Create a new virtual machine, select an appropriate region and a supported VM size.
@@ -68,11 +88,11 @@ Now that you've setup an Azure Key Vault and disk encryption set, you can deploy
 1. On the **Disks** pane, select **Yes** for **Encryption at host**.
 1. Make the remaining selections as you like.
 
-    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="Screenshot of the virtual machine creation disks pane, encryption at host is highlighted.":::
+    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="Screenshot of the virtual mahine creation disks pane, encryption at host highlighted.":::
 
 1. Finish the VM deployment process, make selections that fit your environment.
 
-You have now deployed a VM with encryption at host enabled, all its associated disks will be encrypted using encryption at host.
+You have now deployed a VM with encryption at host enabled.
 
 ## Disable host based encryption
 
