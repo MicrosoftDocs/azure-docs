@@ -165,7 +165,7 @@ Classic:
     <LoadUri>~/tenant/default/idpSelector.cshtml</LoadUri>
   </ContentDefinition>
   <ContentDefinition Id="api.signuporsignin">
-    <LoadUri>~/tenant/templates/AzureBlue/unified.cshtml</LoadUri>
+    <LoadUri>~/tenant/default/unified.cshtml</LoadUri>
   </ContentDefinition>
   <ContentDefinition Id="api.selfasserted">
     <LoadUri>~/tenant/default/selfAsserted.cshtml</LoadUri>
@@ -174,7 +174,7 @@ Classic:
     <LoadUri>~/tenant/default/selfAsserted.cshtml</LoadUri>
   </ContentDefinition>
   <ContentDefinition Id="api.localaccountsignup">
-    <LoadUri>~/tenant/templates/default/selfAsserted.cshtml</LoadUri>
+    <LoadUri>~/tenant/default/selfAsserted.cshtml</LoadUri>
   </ContentDefinition>
   <ContentDefinition Id="api.localaccountpasswordreset">
     <LoadUri>~/tenant/default/selfAsserted.cshtml</LoadUri>
