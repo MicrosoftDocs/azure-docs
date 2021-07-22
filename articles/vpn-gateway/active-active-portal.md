@@ -1,37 +1,36 @@
 ---
-title: 'Configure active-active S2S VPN connections'
+title: 'Configure active-active VPN gateways: Azure portal'
 titleSuffix: Azure VPN Gateway
-description: Learn how to configure active-active connections with VPN gateways using the Azure portal.
+description: Learn how to configure active-active virtual network gateways using the Azure portal.
 services: vpn-gateway
-author: jstrom
+author: JackStromberg
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 07/21/2021
 ms.author: jstrom
 
-# Configure active-active S2S VPN connections for Azure VPN gateways
 ---
 
-# Tutorial: Create and manage a VPN gateway using Azure portal
+# Configure active-active VPN gateways using the portal
 
-This article helps you create highly available active-active cross-premises and VNet-to-VNet connections using the Resource Manager deployment model and Azure portal. You can also configure an active-active gateway using PowerShell.
-
-## About highly available cross-premises connections
+This article helps you create highly available active-active VPN gateways using the Resource Manager deployment model and Azure portal. You can also configure an active-active gateway using [PowerShell](vpn-gateway-activeactive-rm-powershell.md).
 
 To achieve high availability for cross-premises and VNet-to-VNet connectivity, you should deploy multiple VPN gateways and establish multiple parallel connections between your networks and Azure. See [Highly Available cross-premises and VNet-to-VNet connectivity](vpn-gateway-highlyavailable.md) for an overview of connectivity options and topology.
 
-If you already have a VPN gateway, you can [Update an existing VPN gateway from active-standby to active-active, or vice versa](#active).
-
 > [!IMPORTANT]
-> The active-active mode is available for all SKUs except Basic.
+> The active-active mode is available for all SKUs except Basic or Standard.
 >
 
-## Prerequisites
+The steps in this article help you configure a VPN gateway in active-active mode. There are a few differences between active-active and active-standby modes. The other properties are the same as the non-active-active gateways. 
 
-An Azure account with an active subscription. If you don't have one, [create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* Active-active gateways have two Gateway IP configurations and two public IP addresses.
+* Active-active gateways have active-active setting enabled.
+* The virtual network gateway SKU can't be Basic or Standard.
 
-## <a name="vnet"></a>Create a virtual network
+If you already have a VPN gateway, you can [Update an existing VPN gateway](#update) from active-standby to active-active mode, or from active-active to active-standby mode.
+
+## <a name="vnet"></a>Create a VNet
 
 Create a VNet using the following values:
 
@@ -44,9 +43,9 @@ Create a VNet using the following values:
 
 [!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
-## <a name="gateway"></a>Create a VPN gateway
+## <a name="gateway"></a>Create an active-active VPN gateway
 
-In this step, you create the virtual network gateway (VPN gateway) for your VNet. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
+In this step, you create an active-active virtual network gateway (VPN gateway) for your VNet. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
 
 Create a virtual network gateway using the following values:
 
@@ -68,30 +67,46 @@ A gateway can take up to 45 minutes to fully create and deploy. You can see the 
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
-## <a name ="active"></a> Change an active-standby gateway to active-active
+## <a name ="update"></a> Update an existing VPN gateway
 
-1. Click the top left menu icon and select *All services*
-1. Search for *Virtual Network Gateways*
-   :::image type="content" source="./media/active-active-portal/allservices-virtualnetworkgateway.png" alt-text="All Services - Virtual Network Gateways" lightbox="./media/active-active-portal/allservices-virtualnetworkgateway.png":::
-1. Select the virtual network gateway that you want to make Active/Active.
-1. Click Configuration on the left menu
-   :::image type="content" source="./media/active-active-portal/virtualnetworkgateway-configuration.png" alt-text="Virtual Network Gateway - Configuration Menu" lightbox="./media/active-active-portal/virtualnetworkgateway-configuration.png":::
-1. Change Active/active mode to *Enabled* and click on the Second Public IP address option.
-   :::image type="content" source="./media/active-active-portal/virtualnetworkgateway-configuration-activeactive.png" alt-text="Enable Active/Active mode" lightbox="./media/active-active-portal/virtualnetworkgateway-configuration-activeactive.png":::
-1. Specify an existing or define a new public IP address to use for the second VPN Gateway instance.
-   :::image type="content" source="./media/active-active-portal/virtualnetworkgateway-configuration-secondpublicip-save.png" alt-text="Select a secondary Public IP page." lightbox="./media/active-active-portal/virtualnetworkgateway-configuration-secondpublicip-save.png":::
-1. Click *Save*
-   :::image type="content" source="./media/active-active-portal/virtualnetworkgateway-configuration-save.png" alt-text="Save configuration page." lightbox="./media/active-active-portal/virtualnetworkgateway-configuration-save.png":::
+This section helps you change an existing Azure VPN gateway from active-standby to active-active mode, and from active-active to active-standby mode. When you change an active-standby gateway to active-active, you create another public IP address, then add a second gateway IP configuration. 
 
->[!NOTE]
->This update can take up to 30 to 45 minutes.
+### Change active-standby to active-active
+
+Use the following steps to convert active-standby mode gateway to active-active mode. If your gateway was created using the Resource Manager deployment model, you can also upgrade the SKU on this page.
+
+1. Navigate to the page for your virtual network gateway.
+
+1. On the left menu, select **Configuration**.
+
+1. On the **Configuration** page, configure the following settings: 
+
+   * Change the Active-active mode to **Enabled**.
+   * Click **Create another gateway IP configuration**.
+
+   :::image type="content" source="./media/active-active-portal/configuration.png" alt-text="Screenshot shows the Configuration page.":::
+
+1. On the **Choose public IP address** page and either specify an existing public IP address that meets the criteria, or select **+Create new** to create a new public IP address to use for the second VPN gateway instance.
+
+1. On the **Create public IP address** page, select the **Basic** SKU, then click **OK**.
+
+1. At the top of the **Configuration** page, click **Save**. This update can take about 30-45 minutes to complete.
+
+### Change active-active to active-standby
+
+Use the following steps to convert active-active mode gateway to active-standby mode.
+
+1. Navigate to the page for your virtual network gateway.
+
+1. On the left menu, select **Configuration**.
+
+1. On the **Configuration** page, change the Active-active mode to **Enabled**.
+
+1. At the top of the **Configuration** page, click **Save**.
 
 ## Next steps
 
-Once you have a VPN gateway, you can configure connections. The articles below will help you create a few of the most common configurations:
+To configure connections, see the following articles:
 
-> [!div class="nextstepaction"]
-> [Site-to-Site VPN connections](./tutorial-site-to-site-portal.md)
-
-> [!div class="nextstepaction"]
-> [Point-to-Site VPN connections](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+* [Site-to-Site VPN connections](./tutorial-site-to-site-portal.md)
+* [VNet-to-VNet connections](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md#configure-the-vnet1-gateway-connection)
