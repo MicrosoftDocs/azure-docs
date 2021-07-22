@@ -22,7 +22,7 @@ Services where Azure NetApp Files are used:
 
 The diagram shows a connection through Azure ExpressRoute to an Azure VMware Solution private cloud. The Azure VMware Solution environment accesses the Azure NetApp Files share mounted on Azure VMware Solution VMs.
 
-:::image type="content" source="media/net-app-files/netapp-files-topology.png" alt-text="Diagram showing NetApp Files for Azure VMware Solution architecture." border="false":::
+:::image type="content" source="media/netapp-files/netapp-files-topology.png" alt-text="Diagram showing NetApp Files for Azure VMware Solution architecture." border="false":::
 
 
 ## Prerequisites 
