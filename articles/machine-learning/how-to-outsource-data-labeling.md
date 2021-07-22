@@ -22,6 +22,11 @@ Learn how to engage a data labeling company to help you label your data. Azure M
 
 * Outsourced workforce: Externally managed labeling vendor resources from Microsoft curated vendor companies.
 
+> [!IMPORTANT]
+> Features described in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Review outsourced workforces
 
 Microsoft has partnered with some data labeling companies (curated) who have extensive knowledge and experience in annotating images and text documents. These companies will use Azure Machine Learning data labeling services in labeling the assets.  
