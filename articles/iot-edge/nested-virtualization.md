@@ -31,12 +31,3 @@ Azure IoT Edge for Linux on Windows is not compatible on an Azure VM running the
 > [!NOTE]
 >
 > Any Azure VMs that is supposed to host EFLOW must be a VM that [supports nested virtualization](../virtual-machines/acu.md)
-
-## Windows Server
-
-For Windows Server users, note that Azure IoT Edge for Linux on Windows does not automatically support the default switch. Before you can deploy IoT Edge for Linux on Windows you must set up an internal switch on the server.
-
-Our deployment functionality does not create the default switch automatically because that requires IP configuration for the internal switch, a NAT configuration, and installing and configuring a DHCP server. Our deployment functionality states that it does not fiddle around with these settings in order to not affect network configurations on productive deployments.
-
-* For information about setting up the default switch manually, see [How to enable nested virtualization in Azure Virtual Machines](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)
-* For information about setting up a DHCP server for this scenario, see [Deploy DHCP using Windows PowerShell](/windows-server/networking/technologies/dhcp/dhcp-deploy-wps)
