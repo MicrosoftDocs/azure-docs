@@ -6,7 +6,7 @@ author:  timmitchell
 services: azure-communication-services
 
 ms.author: timmitchell
-ms.date: 0722/2021
+ms.date: 07/22/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
@@ -122,7 +122,7 @@ The `participantEndReason` will contain a value from the set of Calling SDK erro
 ## Call Examples and Sample Data
 ### P2P Call
 
-:::image type="content" source="media\ppcalllogs-images\ppcalllogs_img5_p2p_sample.png" alt-text="image alt text blah":::
+:::image type="content" source="media\ppcalllogs-images\ppcalllogs_img5_p2p_sample.png" alt-text="P2P Sample Log Example":::
 
 Shared fields for all logs in the call:
 
@@ -240,7 +240,7 @@ Diagnostic log for video stream from VoIP user 1 to VoIP user 2
 ### Group Call
 In the following example, there are 3 users in a Group call, 2 connected via VOIP, and 1 connected via PSTN. All are using only Audio. 
 
-:::image type="content" source="media\ppcalllogs-images\ppcalllogs_img6_group_sample.png" alt-text="image alt text blah":::
+:::image type="content" source="media\ppcalllogs-images\ppcalllogs_img6_group_sample.png" alt-text="Group Call Sample Log Example":::
 
 The data would be generated in 3 Call Summary logs and 6 Call Diagnostic logs.
 
