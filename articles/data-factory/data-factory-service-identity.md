@@ -261,18 +261,19 @@ We are introducing Credentials which can contain user-assigned managed identitie
 Below are the generic steps for using a **user-assigned managed identity** in the linked services for authentication. 
 
 1. Associate a user-assigned managed identity to the data factory instance using Azure portal, SDK, PowerShell, REST API. 
-   Below screenshot used Azure Portal (data factory blade) to associate the user-assigned managed identity. 
-   ![Associate an user-assigned managed identity](media/managed-identities/UAMI_azure_portal.jpg)
+   Below screenshot used Azure portal (data factory blade) to associate the user-assigned managed identity. 
+
+   :::image type="content" source="media/managed-identities/uami-azure-portal.jpg" alt-text="Screenshot showing how to use Azure portal to associate an user-assigned managed identity." lightbox="media/managed-identities/uami-azure-portal.jpg":::
 
 2. Create a 'Credential' in data factory user interface interactively. You can select the user-assigned managed identity associated with the data factory in Step 1. 
 
-   ![Create new credentials](media/managed-identities/credential_adf_ui_create_new_1.png)
+   :::image type="content" source="media/managed-identities/credential-adf-ui-create-new-1.png" alt-text="Screenshot showing the first step of creating new credentials." lightbox="media/managed-identities/credential-adf-ui-create-new-1.png":::
 
-   ![Create new credential 2](media/managed-identities/credential_adf_ui_create_new_2a.png)
+   :::image type="content" source="media/managed-identities/credential-adf-ui-create-new-2a.png" alt-text="Screenshot showing the second step of creating new credentials." lightbox="media/managed-identities/credential-adf-ui-create-new-2a.png":::
 
 3. Create a new linked service and select 'user-assigned managed identity' under authentication
 
-   ![new linked service with user-assigned managed identity authentication](media/managed-identities/credential_adf_ui_create_new_linkedService.png)
+   :::image type="content" source="media/managed-identities/credential-adf-ui-create-new-linked-service.png" alt-text="Screenshot showing the new linked service with user-assigned managed identity authentication." lightbox="media/managed-identities/credential-adf-ui-create-new-linked-service.png":::
 
 > [!NOTE] 
 > You can use SDK/ PowerShell/ REST APIs for the above actions.
