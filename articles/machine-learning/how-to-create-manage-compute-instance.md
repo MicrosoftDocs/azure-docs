@@ -182,6 +182,8 @@ You can also use the following environment variables in your script:
 3. CI_NAME
 4. CI_LOCAL_UBUNTU_USER. This points to azureuser
 
+You can use setup script in conjunction with Azure policy to either enforce or default a setup script for every compute instance creation.
+
 ### Use the script in the studio
 
 Once you store the script, specify it during creation of your compute instance:

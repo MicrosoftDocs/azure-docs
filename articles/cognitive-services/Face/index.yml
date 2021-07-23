@@ -102,11 +102,11 @@ landingContent:
           - text: .NET SDK
             url: /dotnet/api/overview/azure/cognitiveservices/face-readme
           - text: Python SDK
-            url: /python/api/azure-cognitiveservices-vision-face/
+            url: /python/api/overview/azure/cognitiveservices/face-readme
           - text: Java SDK
             url: /java/api/overview/azure/cognitiveservices/client/faceapi
           - text: Node.js SDK
-            url: /javascript/api/@azure/cognitiveservices-face
+            url: /javascript/api/overview/azure/cognitive-services/face-readme
           - text: Go SDK
             url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face
           - text: Azure PowerShell

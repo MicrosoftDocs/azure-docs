@@ -2,7 +2,7 @@
 title: Continuous video recording and playback tutorial - Azure Video Analyzer
 description: In this tutorial, you'll learn how to use Azure Video Analyzer to continuously record video to the cloud and play back that recording.
 ms.topic: tutorial
-ms.date: 04/01/2021
+ms.date: 06/01/2021
 
 ---
 # Tutorial: Continuous video recording and playback
