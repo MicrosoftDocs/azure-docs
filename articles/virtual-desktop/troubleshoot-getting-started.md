@@ -3,16 +3,16 @@ title: Troubleshoot getting started feature Azure Virtual Desktop
 description: How to troubleshoot issues with the Azure Virtual Desktop getting started feature.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 07/16/2021
+ms.date: 07/26/2021
 ms.author: helohr
 manager: femila
 ---
 
 # Troubleshoot the Azure Virtual Desktop getting started feature
 
-The Azure Virtual Desktop getting started feature uses nested templates to deploy Azure resources for validation and automation in Azure Virtual Desktop. The getting started feature creates either two or three resource groups based on whether the subscription it's running on has either non-Azure or Azure Active Directory Domain Services (Azure AD DS) or not. All resource groups start with the same user-defined prefix.
+The Azure Virtual Desktop getting started feature uses nested templates to deploy Azure resources for validation and automation in Azure Virtual Desktop. The getting started feature creates either two or three resource groups based on whether the subscription it's running on has existing Active Directory Domain Services (AD DS) or Azure Active Directory Domain Services (Azure AD DS) or not. All resource groups start with the same user-defined prefix.
 
-There are currently three resource groups that run nested templates. The following lists show each resource group and the templates they run.
+When you run the nested templates, they create three resource groups and a template that provisions Azure Resource Manager resources. The following lists show each resource group and the templates they run.
 
 The resource group that ends in "-deployment" runs these templates:
 
