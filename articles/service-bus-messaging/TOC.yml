@@ -80,8 +80,8 @@
       href: service-bus-to-event-grid-integration-example.md      
     - name: Azure Functions
       href: service-bus-to-event-grid-integration-function.md
-  - name: Solve complex problems with NServiceBus
-    href: solve-complex-problems-with-nservicebus.md
+  - name: Build message-driven business applications with NServiceBus
+    href: build-message-driven-apps-nservicebus.md
 - name: Samples
   items:
   - name: Service Bus samples
