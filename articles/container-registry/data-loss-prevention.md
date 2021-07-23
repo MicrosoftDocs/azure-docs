@@ -2,20 +2,20 @@
 title: Disable image export from a registry
 description: Set a registry property to prevent data exfiltration from a Premium Azure container registry.
 ms.topic: how-to
-ms.date: 07/21/2021
+ms.date: 07/22/2021
 ---
 
 # Disable export of artifacts from an Azure container registry 
 
 To prevent registry users in an organization from maliciously or accidentally leaking artifacts outside a virtual network, you can configure the registry's *export policy* to disable export.
 
-Export policy is a policy property introduced in API version **2021-06-01-preview** for Premium container registries. The `exportPolicy` property, when its status is set to `disabled`, blocks export from a network-restricted registry when attempted in the following scenarios:
+Export policy is a property introduced in API version **2021-06-01-preview** for Premium container registries. The `exportPolicy` property, when its status is set to `disabled`, blocks export from a network-restricted registry when a user attempts to:
 
-* [Import](container-registry-import-images.md) of the registry's artifacts to another Azure container registry outside the network.
-* Configuring a registry [export pipeline](container-registry-transfer-images.md) to transfer artifacts to another registry outside the network.
+* [Import](container-registry-import-images.md) the registry's artifacts to another Azure container registry
+* Create a registry [export pipeline](container-registry-transfer-images.md) to transfer artifacts to another container registry
 
 > [!NOTE]
-> Disabling artifact export does not prevent authorized users' access to the registry within the virtual network to pull artifacts or perform other operations. To audit this use, we recommend that you configure diagnostic settings to [monitor](monitor-service.md) registry operations. 
+> Disabling artifact export does not prevent authorized users' access to the registry within the virtual network to pull artifacts or perform other data-plane operations. To audit this use, we recommend that you configure diagnostic settings to [monitor](monitor-service.md) registry operations. 
 
 ## Prerequisites
 
@@ -25,14 +25,11 @@ Export policy is a policy property introduced in API version **2021-06-01-previe
 
 ## Other requirements to disable export
 
-* When setting the registry's `exportPolicy` status to `disabled`, also set the `publicNetworkAccess` property to `disabled`.
+* **Disable public network access** - To disable export, public access to the registry must also be disabled (the registry's `publicNetworkAccess` property must be set to `disabled`). You can disable public network access to the registry before disabling export or disable it at the same time.
 
     By disabling access to the registry's public endpoint, you ensure that registry operations are permitted only within the virtual network. Public access to the registry to pull artifacts and perform other operations is prohibited. 
 
-*  Before setting the registry's `exportPolicy` status to `disabled`, delete any existing export pipelines configured on the registry.
-
-    When you disable export from a registry, creation of a new export pipeline is prevented, but it doesn't block existing pipelines.
-
+*  **Remove export pipelines** - Before setting the registry's `exportPolicy` status to `disabled`, delete any existing export pipelines configured on the registry. If a pipeline is configured, you can't change the `exportPolicy` status.
 
 ## Disable exportPolicy for an existing registry
 
@@ -43,6 +40,7 @@ When you create a registry, the `exportPolicy` status is set to `enabled` by def
 Include the following JSON to update the `exportPolicy` status and set the `publicNetworkAccess` property to `disabled`. Learn more about [deploying resources with ARM templates](../azure-resource-manager/templates/deploy-cli.md).
 
 ```json
+{
 [...]
 "resources": [
     {
@@ -61,9 +59,11 @@ Include the following JSON to update the `exportPolicy` status and set the `publ
     }
 ]
 [...]
+}
 ```
 
 ### Azure CLI
+
 Run [az resource update](/cli/azure/resource/#az_resource_update) to set the `exportPolicy` status in an existing registry to `disabled`. Substitute the names of your registry and resource group.
 
 As shown in this example, when disabling the `exportPolicy` property, also set the `publicNetworkAccess` property to `disabled`.
@@ -80,7 +80,7 @@ az resource update --resource-group myResourceGroup \
 The output shows that the export policy status is disabled.
 
 ```json
-
+{
   "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myregistry",
   "identity": null,
   "kind": null,
@@ -111,6 +111,7 @@ The output shows that the export policy status is disabled.
     "publicNetworkAccess": "Disabled",
     "zoneRedundancy": "Disabled"
 [...]
+}
 ```
 
 ## Enable exportPolicy 
@@ -122,6 +123,7 @@ After disabling the `exportPolicy` status in a registry, you can re-enable it at
 Include the following JSON to update the `exportPolicy` status to `enabled`. Learn more about [deploying resources with ARM templates](../azure-resource-manager/templates/deploy-cli.md)
 
 ```json
+{
 [...]
 "resources": [
     {
@@ -139,9 +141,11 @@ Include the following JSON to update the `exportPolicy` status to `enabled`. Lea
     }
 ]
 [...]
+}
 ```
 
 ### Azure CLI
+
 Run [az resource update](/cli/azure/resource/#az_resource_update) to set the `exportPolicy` status to `enabled`. Substitute the names of your registry and resource group.
 
 ```azurecli
@@ -156,6 +160,3 @@ az resource update --resource-group myResourceGroup \
 
 * Learn about [Azure Container Registry roles and permissions](container-registry-roles.md).
 * If you want to prevent accidental deletion of registry artifacts, see [Lock container images](container-registry-image-lock.md).
-
-
-
