@@ -31,7 +31,7 @@ The extractive summarization feature in Text Analytics uses natural language pro
 
 Extractive summarization returns a rank score as a part of the system response along with extracted sentences and their position in the original documents, which is unlike some other Text Analytics features. A rank score is an indicator of how relevant one sentence the model determines is important or relevant to the main idea of a document. The model gives a score between 0 and 1 (inclusive) to each sentence and returns the highest scored sentences per request. If you request a three-sentence summary, the service returns the three highest scored sentences.
 
-There is another feature in Text Analytics, [key phrases extraction](./text-analytics-how-to-keyword-extraction), that can extract key information. When you consider between key phrase extraction and extractive summarization, the following may help you make decision:
+There is another feature in Text Analytics, [key phrases extraction](./text-analytics-how-to-keyword-extraction.md), that can extract key information. When you consider between key phrase extraction and extractive summarization, the following may help you make decision:
 * key phrase extraction returns phrases while extractive summarization returns sentences
 * extractive summarization returns sentences together with a rank score. Top ranked sentences will be returned per request
 
@@ -39,7 +39,7 @@ There is another feature in Text Analytics, [key phrases extraction](./text-anal
 
 ### Preparation
 
-Unlike other Text Analytics features, the extractive summarization feature is an asynchronous-only operation, and can be accessed through the /analyze endpoint. JSON request data should follow the format outlined in [Asynchronous requests to the /analyze endpoint](./text-analytics-how-to-call-api?tabs=asynchronous#api-request-formats).
+Unlike other Text Analytics features, the extractive summarization feature is an asynchronous-only operation, and can be accessed through the /analyze endpoint. JSON request data should follow the format outlined in [Asynchronous requests to the /analyze endpoint](./text-analytics-how-to-call-api.md?tabs=asynchronous#api-request-formats).
 
 Extractive summarization supports a wide range of languages for document input. For more information, see [Supported languages](../language-support.md).
 
@@ -74,7 +74,7 @@ Each document has the following parameters
 * `text` to attach the document text.
 
 All documents in one request share the following parameters. These parameters can be specified in the `tasks` definition in the request.
-* `model-version` to specify which version of the model to use, with `latest` being the default. For more information, see [Model version](../concepts/model-versioning) 
+* `model-version` to specify which version of the model to use, with `latest` being the default. For more information, see [Model version](../concepts/model-versioning.md) 
 * `sentenceCount` to specify how many sentences will be returned, with `3` being the default. The range is from 1 to 20.
 * `sortyby` to specify in what order the extracted sentences will be returned. The accepted values for `sortBy` are `Offset` and `Rank`, with `Offset` being the default. The value `Offset` is the start position of a sentence in the original document.    
 
