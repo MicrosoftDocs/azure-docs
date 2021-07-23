@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 
 # Call Summary and Call Diagnostic Logs
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Private Preview Notice](../includes/private-preview-include.md)]
 
 ## Data Concepts
 
