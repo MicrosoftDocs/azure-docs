@@ -51,9 +51,9 @@ Before you begin, make sure that:
 
 * Your Microsoft Azure subscription is enabled for an Azure Stack Edge resource. Make sure that you used a supported subscription such as [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](/partner-center/azure-plan-lp), or [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Pay-as-you-go subscriptions aren't supported.
 
-* You have the following role assignments in Azure role-based access control (RBAC):
+* RBAC roles: You have the following role assignments in Azure role-based access control (RBAC):
 
-  * To create Azure Stack Edge/Data Box Gateway and IoT Hub resources, you must have the Contributor or Owner role at the Resource Group scope.
+  * To create Azure Stack Edge/Data Box Gateway, IoT Hub, and Azure storage resources, you must have the Contributor or Owner role at the Resource Group scope.
 
   * To create a Storage account resource, you must have the Contributor or Owner role at the Resource Group scope.
 
@@ -61,7 +61,7 @@ Before you begin, make sure that:
 
   For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-* The following resource providers are registered. **To register a resource provider, you must have been assigned the related RBAC role (above).**
+* Resource providers: The following resource providers are registered. **To register a resource provider, you must have been assigned the related RBAC role (above).**
 
   * To create an Azure Stack Edge/Data Box Gateway resource, make sure the `Microsoft.DataBoxEdge`provider is registered.
 
@@ -69,9 +69,7 @@ Before you begin, make sure that:
 
   * To create a Storage account resource, make sure Azure Storage is registered. The Azure Storage Resource Provider (SRP) is by default a registered resource provider, but in some cases registration may be needed.
 
-  **You must assign the related RBAC role before you can register the resource provider.**
-
-  For information on how to register, go to [Register resource provider](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+  For information on how to register, see [Register resource provider](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
 
 <!--REPLACED TEXT:
 
