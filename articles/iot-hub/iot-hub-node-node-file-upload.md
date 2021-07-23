@@ -160,7 +160,7 @@ In this section, you create a device app to upload a file to IoT hub. The code i
 
 1. Copy an image file to the `fileupload` folder and give it a name such as `myimage.png`.
 
-1. Add environment variables for your device connection string and the path to the file that you want to upload. You got the device connection string when you [registered the device with your IoT hub](#register-a-new-device-in-the-IoT-hub).
+1. Add environment variables for your device connection string and the path to the file that you want to upload. You got the device connection string when you [registered the device with your IoT hub](#register-a-new-device-in-the-iot-hub).
     
     - For Windows:
 
@@ -274,23 +274,19 @@ At a command prompt in the `fileupload` folder, run the following command:
 node FileUpload.js
 ```
 
-The following screenshot shows the output from the **FileUpload** app:
-
-![Output from simulated-device app](./media/iot-hub-node-node-file-upload/simulated-device.png)
+The following output shows the output from the **FileUpload** app after the upload has completed:
 
 ```output
 uploadStreamToBlockBlob success
 notifyBlobUploadStatus success
 ```
 
-The following screenshot shows the output from the **FileUploadNotification** app:
-
-![Output from read-file-upload-notification app](./media/iot-hub-node-node-file-upload/read-file-upload-notification.png)
+The following output shows sample output from the **FileUploadNotification** app after the upload has completed:
 
 ```output
 Service client connected
 File upload from device:
-{"deviceId":"myDeviceId","blobUri":"https://contosostorageaccount.blob.core.windows.net/device-upload-container/myDeviceId/image.png","blobName":"myDeviceId/image.png","lastUpdatedTime":"2021-07-23T23:27:06+00:00","blobSizeInBytes":26214,"enqueuedTimeUtc":"2021-07-23T23:27:07.2580791Z"}
+{"deviceId":"myDeviceId","blobUri":"https://{your storage account name}.blob.core.windows.net/device-upload-container/myDeviceId/image.png","blobName":"myDeviceId/image.png","lastUpdatedTime":"2021-07-23T23:27:06+00:00","blobSizeInBytes":26214,"enqueuedTimeUtc":"2021-07-23T23:27:07.2580791Z"}
 ```
 
 You can use the portal to view the uploaded file in the storage container you configured:
