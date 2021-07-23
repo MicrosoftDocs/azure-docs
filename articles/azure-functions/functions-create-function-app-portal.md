@@ -19,6 +19,10 @@ Use one of the following links to get started with your chosen local development
 | --- | --- | --- |
 |  &bull;&nbsp;[Get started with C#](./create-first-function-vs-code-csharp.md)<br/>&bull;&nbsp;[Get started with Java](./create-first-function-vs-code-java.md)<br/>&bull;&nbsp;[Get started with JavaScript](./create-first-function-vs-code-node.md)<br/>&bull;&nbsp;[Get started with PowerShell](./create-first-function-vs-code-powershell.md)<br/>&bull;&nbsp;[Get started with Python](./create-first-function-vs-code-python.md) |&bull;&nbsp;[Get started with C#](./create-first-function-cli-csharp.md)<br/>&bull;&nbsp;[Get started with Java](./create-first-function-cli-java.md)<br/>&bull;&nbsp;[Get started with JavaScript](./create-first-function-cli-node.md)<br/>&bull;&nbsp;[Get started with PowerShell](./create-first-function-cli-powershell.md)<br/>&bull;&nbsp;[Get started with Python](./create-first-function-cli-python.md) | [Get started with C#](functions-create-your-first-function-visual-studio.md) |
 
+[!INCLUDE [functions-portal-language-support](../../includes/functions-portal-language-support.md)]
+
+## Prerequisites 
+
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Sign in to Azure
@@ -30,19 +34,6 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 You must have a function app to host the execution of your functions. A function app lets you group functions as a logical unit for easier management, deployment, scaling, and sharing of resources.
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
-
-## Supported Runtime stacks 
-
-The following table explains the Runtime stacks that Azure Function supports and the coressponding Operating system recommended for the stack.
-
-| Runtime stack | Linux | Windows 
-|:--- |:--- |:--- |
-| .Net |✓ |✓ |
-| Node.js |✓ |✓ |
-| Python |✓ | |
-| Java |✓ |✓ |
-| PowerShell Core | |✓ |
-| Custom Handler |✓ |✓ |
 
 Next, create a function in the new function app.
 
