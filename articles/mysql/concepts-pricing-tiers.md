@@ -55,7 +55,7 @@ Azure Database for MySQL – Single Server supports the following the backend st
 Basic storage is the backend storage supporting Basic pricing tier servers. Basic storage leverages Azure standard storage in the backend where iops provisioned are not guaranteed and latency is variable. Basic tier is best suited for workloads that require light compute, low cost and I/O performance for development or small-scale infrequently used applications.
 
 ### General purpose storage 
-General purpose storage is the backend storage supporting General Purpose and Memory Optimized tier server. In General Purpose storage, the IOPS scale with the provisioned storage size in a 3:1 ratio. There are two generations of general purpose storage, v1 which supports up to 4-TB, 6000 IOPs and v2 which supports upto 16-TB, 20000 IOPs both of which are described below
+General purpose storage is the backend storage supporting General Purpose and Memory Optimized tier server. In General Purpose storage, the IOPS scale with the provisioned storage size in a 3:1 ratio. There are two generations of general purpose storage as described below:
 
 #### General purpose storage v1 (Supports up to 4-TB)
 General purpose storage v1 is based on the legacy storage technology which can support up to 4-TB storage and 6000 IOPs per server. General purpose storage v1 is optimized to leverage memory from the compute nodes running MySQL engine for local caching and backups. The backup process on general purpose storage v1 reads from the data and log files in the memory of the compute nodes and copies it to the target backup storage for retention up to 35 days. As a result, the memory and io consumption of storage during backups is relatively higher. 
@@ -99,7 +99,6 @@ General purpose storage v2 is supported in the following Azure regions:
 | West US 2 | :heavy_check_mark: | 
 | West Europe | :heavy_check_mark: | 
 
-
 ### How can I determine which storage type my server is running on?
 
 You can find the storage type of your server by going in the Pricing tier blade in portal. 
@@ -111,12 +110,14 @@ You can find the storage type of your server by going in the Pricing tier blade 
 ### Can I move from general purpose storage v1 to general purpose storage v2? if yes, how and is there any additional cost?
 Yes, migration to general purpose storage v2 from v1 is supported if the underlying storage infrastructure is available in the Azure region of the source server. The migration and v2 storage is available at no additional cost.
 
-You can monitor your I/O consumption in the Azure portal or by using Azure CLI commands. The relevant metrics to monitor are [storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md).The monitoring metrics for the MySQL server with general purpose storage v1 reports the memory and IO consumed by the MySQL engine but may not capture the memory and IO consumption of the storage layer which is a limitation.
-
+### Can I grow storage size after server is provisioned?
 You can add additional storage capacity during and after the creation of the server, and allow the system to grow storage automatically based on the storage consumption of your workload. 
 
 >[!IMPORTANT]
 > Storage can only be scaled up, not down.
+
+### Monitoring IO consumption
+You can monitor your I/O consumption in the Azure portal or by using Azure CLI commands. The relevant metrics to monitor are [storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md).The monitoring metrics for the MySQL server with general purpose storage v1 reports the memory and IO consumed by the MySQL engine but may not capture the memory and IO consumption of the storage layer which is a limitation.
 
 ### Reaching the storage limit
 
