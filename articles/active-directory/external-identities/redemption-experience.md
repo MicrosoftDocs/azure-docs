@@ -133,6 +133,7 @@ When a guest signs in to access resources in a partner organization for the firs
 > - The admin [grants tenant-wide admin consent to an application](/azure/active-directory/manage-apps/grant-admin-consent)
 
 In your directory, the guest's **Invitation accepted** value changes to **Yes**. If an MSA was created, the guest’s **Source** shows **Microsoft Account**. For more information about guest user account properties, see [Properties of an Azure AD B2B collaboration user](user-properties.md). 
+If you see an error that requires admin consent while accessing an application, see [how to grant admin consent to apps](../develop/v2-admin-consent.md).
 
 ## Next steps
 
