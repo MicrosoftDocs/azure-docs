@@ -125,10 +125,11 @@ The `participantEndReason` will contain a value from the set of Calling SDK erro
 |     487                        |     Call canceled, locally declined, ended due to an endpoint   mismatch issue, or failed to generate media offer.    |     Expected behavior.                                                                                                                                                                                                                                                         |
 |     490, 491, 496, 487, 498    |     Local endpoint network issues.                                                                                    |     Check your network.                                                                                                                                                                                                                                                        |
 |     500, 503, 504              |     Communication Services infrastructure error.                                                                      |     File a support request through the Azure portal.                                                                                                                                                                                                                           |
-|     603                        |     Call globally declined by remote Communication   Services participant                                             |     Expected behavior.                                                                                                                                                                                                                                                         |
+|     603                        |     Call globally declined by remote Communication Services participant                                             |     Expected behavior.                                                                                                                                                                                                                                                         |
 |     Unknown                    |     Non-standard end reason (not part of the standard SIP codes)                                                      |                                                                                                                                                                                                                                                                                |
 
 ## Call Examples and Sample Data
+
 ### P2P Call
 
 :::image type="content" source="media\ppcalllogs-images\ppcalllogs_img5_p2p_sample.png" alt-text="P2P Sample Log Example":::
@@ -140,6 +141,7 @@ Shared fields for all logs in the call:
 "resourceId":               "SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/ACS-PROD-CCTS-TESTS/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-PROD-CCTS-TESTS",
 "correlationId":            "8d1a8374-344d-4502-b54b-ba2d6daaf0ae",
 ```
+
 #### Call Summary Logs
 Call summary logs have shared operation and category information:
 
