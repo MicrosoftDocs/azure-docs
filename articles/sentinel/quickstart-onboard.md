@@ -21,7 +21,7 @@ To on-board Azure Sentinel, you first need to enable Azure Sentinel, and then co
 After you connect your data sources, choose from a gallery of expertly created workbooks that surface insights based on your data. These workbooks can be easily customized to your needs.
 
 >[!IMPORTANT] 
-> For information about the charges incurred when using Azure Sentinel, see [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel/).
+> For information about the charges incurred when using Azure Sentinel, see [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel/) and [Azure Sentinel costs and billing](azure-sentinel-billing.md).
 
 ## Global prerequisites
 
@@ -105,7 +105,17 @@ For example, if you select the **Azure Active Directory** data source, which let
 After your data sources are connected, your data starts streaming into Azure Sentinel and is ready for you to start working with. You can view the logs in the [built-in workbooks](quickstart-get-visibility.md) and start building queries in Log Analytics to [investigate the data](tutorial-investigate-cases.md).
 
 ## Next steps
-In this document, you learned about onboarding and connecting data sources to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
-- Stream data from [Common Event Format appliances](connect-common-event-format.md) into Azure Sentinel.
+
+For more information, see:
+
+- **Alternate deployment options**:
+
+    - [Deploy Azure Sentinel via API](/rest/api/securityinsights/)
+    - [Deploy Azure Sentinel via PowerShell](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0)
+    - [Deploy Azure Sentinel via ARM template](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-all-in-one-accelerator/ba-p/1807933)
+
+- **Get started**:
+    - [Get started with Azure Sentinel](quickstart-get-visibility.md)
+    - [Create custom analytics rules to detect threats](tutorial-detect-threats-custom.md)
+    - [Connect your external solution using Common Event Format](connect-common-event-format.md)
+
