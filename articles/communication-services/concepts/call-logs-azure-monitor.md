@@ -13,13 +13,14 @@ ms.service: azure-communication-services
 # Azure Communication Services: Call Summary and Call Diagnostic Logs
 
 ## Data Concepts
-### Entities and Ids
+### Entities and IDs
 A *Call*, as it relates to the entities represented in the data, is an abstraction represented by the `correlationId` (unique per call), time-bound by `callStartTime` and `callDuration`. It is an event that contains data from two or more *Endpoints*, which represent the various human, bot, or server participants in the call.
 
 A *Participant* (`participantId`) is present only when the call is a *Group* call, as it represents the connection between an endpoint and the server. 
 
-An *Endpoint* is the most unique entity, represented by `endpointId`. `endpointType` tells you whether the endpoint represents a human user (PSTN, VoIP), a Bot (Bot), or the server that is managing multiple Participants within a Call.  `endpointType` = “Server” will not be assigned a unique ID. By looking at endpointType and the number of endpointId, you can always determine how many users and other non-human participants (bots, servers) are on the call. Native SDKs can (e.g., Android app) reuse the same `endpointId` for a user across multiple calls, thus enabling an understanding of experience across sessions; however, web-based endpoints will always generate a new endpointId each new Call. 
-A Stream is the most granular entity, as there is one stream per direction (inbound/outbound) and `mediaType` (e.g. audio, video).  
+An *Endpoint* is the most unique entity, represented by `endpointId`. `endpointType` tells you whether the endpoint represents a human user (PSTN, VoIP), a Bot (Bot), or the server that is managing multiple Participants within a Call.  `endpointType` = “Server” will not be assigned a unique ID. By looking at endpointType and the number of endpointId, you can always determine how many users and other non-human participants (bots, servers) are on the call. Native SDKs can (e.g., Android app) reuse the same `endpointId` for a user across multiple calls, thus enabling an understanding of experience across sessions; however, web-based endpoints will always generate a new endpointId each new Call.
+
+A *Stream* is the most granular entity, as there is one stream per direction (inbound/outbound) and `mediaType` (e.g. audio, video).  
 
 ### P2P vs. Group Calls
 
