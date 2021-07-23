@@ -410,7 +410,7 @@ Arc enabled Open Service Mesh will have deep integrations into both of these Azu
     kubectl apply -f container-azm-ms-osmconfig.yaml
     ```
 
-It may take upto 15 minutes for the metrics to show up in Log Analytics. You can try querying the InsightsMetrics table.
+It may take up to 15 minutes for the metrics to show up in Log Analytics. You can try querying the InsightsMetrics table.
 
 ```azurecli-interactive
 InsightsMetrics
