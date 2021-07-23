@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 07/21/2021
 ms.author: jeedes
 ---
 
@@ -32,9 +32,9 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* zeroheight supports **SP** initiated SSO
+* zeroheight supports **SP** initiated SSO.
 
-## Adding zeroheight from the gallery
+## Add zeroheight from the gallery
 
 To configure the integration of zeroheight into Azure AD, you need to add zeroheight from the gallery to your list of managed SaaS apps.
 
@@ -45,12 +45,11 @@ To configure the integration of zeroheight into Azure AD, you need to add zerohe
 1. In the **Add from the gallery** section, type **zeroheight** in the search box.
 1. Select **zeroheight** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-
 ## Configure and test Azure AD SSO for zeroheight
 
 Configure and test Azure AD SSO with zeroheight using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in zeroheight.
 
-To configure and test Azure AD SSO with zeroheight, complete the following building blocks:
+To configure and test Azure AD SSO with zeroheight, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
@@ -65,20 +64,20 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **zeroheight** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
-	a. In the **Sign on URL** text box, type the URL:
-    `https://zeroheight.com/sso`
-
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    a. In the **Identifier (Entity ID)** text box, type a value using the following pattern:
     `zeroheight:<CUSTOM_ID>`
 
-    c. In the **Reply URL** text box, type a URL using the following pattern:
+    b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://zeroheight.com/sso/acs/<CUSTOM_ID>`
+
+    c. In the **Sign on URL** text box, type the URL:
+    `https://zeroheight.com/sso`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [zeroheight Client support team](mailto:support@zeroheight.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -133,11 +132,11 @@ In this section, you create a user called Britta Simon in zeroheight. Work withÂ
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-1. Click on **Test this application** in Azure portal. This will redirect to zeroheight Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application** in Azure portal. This will redirect to zeroheight Sign-on URL where you can initiate the login flow. 
 
-2. Go to zeroheight Sign-on URL directly and initiate the login flow from there.
+* Go to zeroheight Sign-on URL directly and initiate the login flow from there.
 
-3. You can use Microsoft Access Panel. When you click the zeroheight tile in the Access Panel, this will redirect to zeroheight Sign-on URL. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the zeroheight tile in the My Apps, this will redirect to zeroheight Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next Steps
 
