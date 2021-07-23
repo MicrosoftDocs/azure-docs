@@ -3,7 +3,7 @@ title: Set up managed identities
 description: How to set up managed identities for your customers in Azure Virtual Desktop with Azure AD, Azure AD DS, or AD DS.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/16/2021
+ms.date: 07/26/2021
 ms.author: helohr
 manager: femila
 ---
@@ -16,13 +16,10 @@ In this article, we'll explain how you can manage user identities to provide a s
 
 ## Requirements
 
-The identities you create should be ,
-meaning they have a presence in both  (AD) and  (Azure AD). This can be achieved by leveraging either  (AD DS) or  (AAD DS). These two identity services differ in cost and [functionality].
-
 The identities you create need to follow these guidelines:
 
 - Identities must be [hybrid identities](../../active-directory-b2c/active-directory-technical-profile.md/active-directory/hybrid/whatis-hybrid-identity.md), which means they exist in both the [Active Directory (AD)](/previous-versions/windows/it-pro/windows-server-2003/cc781408(v=ws.10)) and [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md). You can use either [Active Directory Domain Services (AD DS)](windows-server/identity/ad-ds/active-directory-domain-services) or [Azure Active Directory Domain Services (Azure AD DS)](https://azure.microsoft.com/services/active-directory-ds) to create these identities. To learn more about each method, see [Compare identity solutions](../../active-directory-domain-services/compare-identity-solutions.md).
-- You should keep users from different organizations in separate Azure AD tenants to prevent security breaches. We recommend creating one tenant per customer using the customer's own Azure subscription and dedicated identity.
+- You should keep users from different organizations in separate Azure AD tenants to prevent security breaches. We recommend creating one tenant per customer. That tenant should have its own associated Azure AD DS or AD DS subscription dedicated to that customer.
 
 The following two sections will tell you how to create identities with AD DS and Azure AD DS. To follow [the security guidelines for cross-organizational apps](security.md), you'll need to repeat the process for each customer.
 
@@ -46,11 +43,11 @@ To set up an identity in AD DS:
 
 6. When deploying session hosts in your host pool, use the Active Directory domain name to join the VMs and ensure the session hosts have line-of-sight to the domain controller.
 
-This configuration will give you more control over your environment, but its complexity can make it less easy to manage. However, this option lets you provide your users with a single-sign on experience for Azure AD-based apps. It also lets you manage your users' VMs with Intune.
+This configuration will give you more control over your environment, but its complexity can make it less easy to manage. However, this option lets you provide your users with Azure AD-based apps. It also lets you manage your users' VMs with Intune.
 
 ## Managing users with Azure Active Directory Domain Services
 
-Azure AD DS identities use Azure AD DS as the domain controller, which lets you create and manage users directly in Azure AD. In this configuration, users are synced between Azure AD and Azure AD DS, and the session hosts are joined to the Azure AD DS domain. Azure AD DS identities are easier to manage, but don't offer as much control as regular AD DS identities. You can only join the identities' VMs to Active Directory and you can't manage them with Intune.
+Azure AD DS identities are stored in a Microsoft managed Active Directory platform as a service (PaaS) where Microsoft manages two AD domain controllers that lets users use AD DS within their Azure subscriptions. In this configuration, users are synced from Azure AD to Azure AD DS, and the session hosts are joined to the Azure AD DS domain. Azure AD DS identities are easier to manage, but don't offer as much control as regular AD DS identities. You can only join the Azure Virtual Desktop VMs to the Azure AD DS domain, and you can't manage them with Intune.
 
 To create an identity with Azure AD DS:
 
