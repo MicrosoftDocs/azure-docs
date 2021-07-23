@@ -21,9 +21,11 @@ ms.service: azure-communication-services
 >
 > Preview APIs and SDKs are provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Communication Services can be used to build custom applications that interact with Microsoft Teams. End users of your Communication Services application can interact with Teams participants over voice, video, chat, and screen sharing.
+Azure Communication Services can be used to build custom applications that interact with Microsoft Teams. End users of your Communication Services application can interact with Teams participants over voice, video, chat, and screen sharing. The following video demonstrates this capability:
+
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWGTqQ]
+
 
 Azure Communication Services supports two types of Teams interoperability depending on the identity of the end user:
 
