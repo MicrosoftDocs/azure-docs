@@ -119,7 +119,8 @@ sections:
              >If you are updating a forest, other than the Azure AD Connect one, make sure connectivity to the global catalog server (TCP 3268 and TCP 3269) is available.
           
              >[!IMPORTANT]
-             >Ensure that you _don't_ run the `Update-AzureADSSOForest` command more than once. Otherwise, the feature stops working until the time your users' Kerberos tickets expire and are reissued by your on-premises Active Directory.
+             >This does not need to be done on servers running Azure AD Connect in staging mode.
+             >Ensure that you _don't_ run the `Update-AzureADSSOForest` command more than once per forest. Otherwise, the feature stops working until the time your users' Kerberos tickets expire and are reissued by your on-premises Active Directory.
           
       - question: |
           How can I disable Seamless SSO?

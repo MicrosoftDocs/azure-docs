@@ -1,8 +1,8 @@
 ---
 title: "How to self-diagnose Azure Spring Cloud VNET"
 description: Learn how to self-diagnose and solve problems in Azure Spring Cloud running in VNET.
-author: brendm
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/25/2021

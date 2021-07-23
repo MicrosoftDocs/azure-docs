@@ -8,7 +8,7 @@ metadata:
   manager: nitinme
   ms.service: cognitive-services
   ms.topic: conceptual
-  ms.date: 03/02/2021
+  ms.date: 07/21/2021
   ms.author: aahi
     
 title: Azure Cognitive Services containers frequently asked questions (FAQ)
@@ -142,7 +142,7 @@ sections:
           * [Form Recognizer](../form-recognizer/containers/form-recognizer-container-install-run.md#container-requirements-and-recommendations)
           * [Language Understanding (LUIS)](../luis/luis-container-howto.md#container-requirements-and-recommendations)
           * [Speech Service API](../speech-service/speech-container-howto.md#container-requirements-and-recommendations)
-          * [Text Analytics](../text-analytics/how-tos/text-analytics-how-to-install-containers.md#container-requirements-and-recommendations)
+          * [Text Analytics](../text-analytics/how-tos/text-analytics-how-to-install-containers.md#host-computer-requirements-and-recommendations)
 
       - question: Are these containers currently supported on Windows?
         answer: | 
