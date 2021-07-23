@@ -55,11 +55,7 @@ Clone a GitHub repository that has the streaming .NET sample to your machine usi
 
 The sample is located in the [UploadEncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/main/AMSV3Tutorials/UploadEncodeAndStreamFiles) folder.
 
-Open [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/UploadEncodeAndStreamFiles/appsettings.json) in your downloaded project. Replace the values with credentials that you got from [accessing APIs](./access-api-howto.md).
-
-Note that you can also use the *.env* file format at the root of the project to set your environment variables only once for all projects in the .NET samples repository. Just copy the *sample.env* file, and then fill out the information that you got from the Media Services **API Access** page in the Azure portal or from the Azure CLI. Rename the *sample.env* file to just *.env* to use it across all projects.
-
-The *.gitignore* file is already configured to prevent publishing this file into your forked repository.
+[!INCLUDE [appsettings or .env file](./includes/note-appsettings-or-env-file.md)]
 
 ## Examine the code that uploads, encodes, and streams
 
