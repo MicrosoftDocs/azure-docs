@@ -162,9 +162,9 @@ To enable Azure AD users sign in to Appraisd, they must be provisioned into Appr
 
 1. Sign in to Appraisd as a Security Administrator.
 
-2. On the top right of the page, click on **Settings** icon, then navigate to **Administration centre**.
+2. On the top right of the page, click on **Settings** icon, then navigate to **Administration center**.
 
-	![Screenshot shows the Settings options where you can select Administration centre.](./media/appraisd-tutorial/admin.png)
+	![Screenshot shows the Settings options where you can select Administration center.](./media/appraisd-tutorial/admin.png)
 
 3. In the toolbar at the top of the page, click **People**, then navigate to **Add a new user**.
 
