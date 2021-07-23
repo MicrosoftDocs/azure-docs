@@ -58,7 +58,7 @@ This defines an Entity with the id "floorName" which is case sensitive.
 
 All other special characters and punctuation will be ignored.
 
-Intents will be added using the IntentRecognizer->AddIntent() API call.
+Intents will be added using calls to the IntentRecognizer->AddIntent() API.
 
 ## Create a speech project in Visual Studio
 
