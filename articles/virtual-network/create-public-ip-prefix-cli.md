@@ -47,7 +47,7 @@ The prefixes in the examples are:
 
 For more information on available prefix sizes, see [Prefix sizes](public-ip-address-prefix.md#prefix-sizes).
 
-Create a public IP prefix with [az network public-ip prefix create](/cli/azure/network/public-ip/prefix?view=azure-cli-latest#az_network_public_ip_prefix_create) named **myPublicIpPrefix** in the **eastus2** location.
+Create a public IP prefix with [az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az_network_public_ip_prefix_create) named **myPublicIpPrefix** in the **eastus2** location.
 
 ### Zone redundant IPv4 prefix
 
