@@ -57,7 +57,7 @@ The below diagram represents two endpoints connected directly in a P2P Call. In 
 
 The below diagram represents a Group Call example with three `particpantIds`, which means three `endpointIds` (`endpointIds` can potentially appear in multiple Participants, e.g. when rejoining a Call from the same device) and a Server Endpoint. For `participantId` 1, two Call Summary Logs would be created: one for for `endpointId`, and another for the server. Four Call Diagnostic Logs would be created relating to `participantId` 1, one for each media stream. The three logs with `endpointId` 1 would contain data relating to the outbound media streams, and the one log with `endpointId = null, endpointType = "Server"` would contain data relating to the inbound stream.
 
-:::image type="content" source="media\call-logs-images\group-call-endpoint-detail.png" alt-text="group Call detail":::
+:::image type="content" source="media\call-logs-images\call-logs-concepts-group-call-endpoint-detail.png" alt-text="group Call detail":::
 
 ## Data Definitions
 
