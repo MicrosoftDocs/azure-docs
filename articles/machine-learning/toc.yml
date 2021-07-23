@@ -591,9 +591,6 @@
           href: how-to-enable-app-insights.md
       - name: High-performance serving with Triton
         href: how-to-deploy-with-triton.md
-      - name: Continuously deploy models
-        displayName: ci cd azure devops models
-        href: how-to-deploy-continuously-deploy.md
       - name: Deploy encrypted inferencing service
         displayName: homomorhic,encryption,deployment
         href: how-to-homomorphic-encryption-seal.md
