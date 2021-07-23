@@ -592,7 +592,7 @@ The following table applies to Azure Batch.
 
 - **Cause**: HDInsight cluster or service has issues.
 
-- **Recommendation**: This error occurs when ADF doesn't receive a response from HDInsight cluster when attempting to request the status of the running job. This issue might be on the cluster itself, or HDInsight service might have an outage.
+- **Recommendation**: This error occurs when the service doesn't receive a response from HDInsight cluster when attempting to request the status of the running job. This issue might be on the cluster itself, or HDInsight service might have an outage.
 
    Refer to [HDInsight troubleshooting documentation](../hdinsight/hdinsight-troubleshoot-guide.md), or contact Microsoft support for further assistance.
 
@@ -652,7 +652,7 @@ The following table applies to Azure Batch.
 
 - **Message**: `Failed to initialize the HDInsight client for the cluster '%cluster;'. Error: '%message;'`
 
-- **Cause**: The connection information for the HDI cluster is incorrect, the provided user doesn't have permissions to perform the required action, or the HDInsight service has issues responding to requests from ADF.
+- **Cause**: The connection information for the HDI cluster is incorrect, the provided user doesn't have permissions to perform the required action, or the HDInsight service has issues responding to requests from the service.
 
 - **Recommendation**: Verify that the user information is correct, and that the Ambari UI for the HDI cluster can be opened in a browser from the VM where the IR is installed (for a self-hosted IR), or can be opened from any machine (for Azure IR).
 
@@ -670,19 +670,19 @@ The following table applies to Azure Batch.
 
 - **Message**: `Failed to submit Spark job. Error: '%message;'`
 
-- **Cause**: ADF tried to create a batch on a Spark cluster using Livy API (livy/batch), but received an error.
+- **Cause**: The service tried to create a batch on a Spark cluster using Livy API (livy/batch), but received an error.
 
-- **Recommendation**: Follow the error message to fix the issue. If there isn't enough information to get it resolved, contact the HDI team and provide them the batch ID and job ID, which can be found in the activity run Output in ADF Monitoring page. To troubleshoot further, collect the full log of the batch job.
+- **Recommendation**: Follow the error message to fix the issue. If there isn't enough information to get it resolved, contact the HDI team and provide them the batch ID and job ID, which can be found in the activity run Output in the service Monitoring page. To troubleshoot further, collect the full log of the batch job.
 
    For more information on how to collect the full log, see [Get the full log of a batch job](/rest/api/hdinsightspark/hdinsight-spark-batch-job#get-the-full-log-of-a-batch-job).
 
 ### Error code: 2312
 
-- **Message**: `Spark job failed, batch id:%batchId;. Please follow the links in the activity run Output from ADF Monitoring page to troubleshoot the run on HDInsight Spark cluster. Please contact HDInsight support team for further assistance.`
+- **Message**: `Spark job failed, batch id:%batchId;. Please follow the links in the activity run Output from the service Monitoring page to troubleshoot the run on HDInsight Spark cluster. Please contact HDInsight support team for further assistance.`
 
 - **Cause**: The job failed on the HDInsight Spark cluster.
 
-- **Recommendation**: Follow the links in the activity run Output in ADF Monitoring page to troubleshoot the run on HDInsight Spark cluster. Contact HDInsight support team for further assistance.
+- **Recommendation**: Follow the links in the activity run Output in the service Monitoring page to troubleshoot the run on HDInsight Spark cluster. Contact HDInsight support team for further assistance.
 
    For more information on how to collect the full log, see [Get the full log of a batch job](/rest/api/hdinsightspark/hdinsight-spark-batch-job#get-the-full-log-of-a-batch-job).
 
@@ -752,7 +752,7 @@ The following table applies to Azure Batch.
        Connect to the VM where the IR is installed and open the Ambari UI in a browser. Use the private URL for the cluster. This connection should work from the browser. If it doesn't, contact HDInsight support team for further assistance.
     1. If self-hosted IR isn't being used, then the HDI cluster should be accessible publicly. Open the Ambari UI in a browser and check that it opens up. If there are any issues with the cluster or the services on it, contact HDInsight support team for assistance.
 
-       The HDI cluster URL used in ADF linked service must be accessible for ADF IR (self-hosted or Azure) in order for the test connection to pass, and for runs to work. This state can be verified by opening the URL from a browser either from VM, or from any public machine.
+       The HDI cluster URL used in the linked service must be accessible for the IR (self-hosted or Azure) in order for the test connection to pass, and for runs to work. This state can be verified by opening the URL from a browser either from VM, or from any public machine.
 
 ### Error code: 2343
 
@@ -766,7 +766,7 @@ The following table applies to Azure Batch.
 
 - **Message**: `Failed to read the content of the hive script. Error: '%message;'`
 
-- **Cause**: The script file doesn't exist or ADF couldn't connect to the location of the script.
+- **Cause**: The script file doesn't exist or the service couldn't connect to the location of the script.
 
 - **Recommendation**: Verify that the script exists, and that the associated linked service has the proper credentials for a connection.
 
@@ -774,7 +774,7 @@ The following table applies to Azure Batch.
 
 - **Message**: `Failed to create ODBC connection to the HDI cluster with error message '%message;'.`
 
-- **Cause**: ADF tried to establish an Open Database Connectivity (ODBC) connection to the HDI cluster, and it failed with an error.
+- **Cause**: The service tried to establish an Open Database Connectivity (ODBC) connection to the HDI cluster, and it failed with an error.
 
 - **Recommendation**: 
 
@@ -795,7 +795,7 @@ The following table applies to Azure Batch.
 
 - **Message**: `Hive execution through ODBC failed with error message '%message;'.`
 
-- **Cause**: ADF submitted the hive script for execution to the HDI cluster via ODBC connection, and the script has failed on HDI.
+- **Cause**: The service submitted the hive script for execution to the HDI cluster via ODBC connection, and the script has failed on HDI.
 
 - **Recommendation**: 
 
@@ -826,7 +826,7 @@ The following table applies to Azure Batch.
 
 - **Cause**: The credentials provided to connect to the storage where the files should be located are incorrect, or the files do not exist there.
 
-- **Recommendation**: This error occurs when ADF prepares for HDI activities, and tries to copy files to the main storage before submitting the job to HDI. Check that files exist in the provided location, and that the storage connection is correct. As ADF HDI activities do not support MSI authentication on storage accounts related to HDI activities, verify that those linked services have full keys or are using Azure Key Vault.
+- **Recommendation**: This error occurs when the service prepares for HDI activities, and tries to copy files to the main storage before submitting the job to HDI. Check that files exist in the provided location, and that the storage connection is correct. As HDI activities do not support MSI authentication on storage accounts related to HDI activities, verify that those linked services have full keys or are using Azure Key Vault.
 
 ### Error code: 2351
 
@@ -928,7 +928,7 @@ The following table applies to Azure Batch.
 
 - **Message**: `Failed to create on demand HDI cluster. Cluster name is '%clusterName;'.`
 
-- **Cause**: The cluster creation failed, and ADF did not get an error back from HDInsight service.
+- **Cause**: The cluster creation failed, and the service did not get an error back from HDInsight service.
 
 - **Recommendation**: Open the Azure portal and try to find the HDI resource with provided name, then check the provisioning status. Contact HDInsight support team for further assistance.
 
@@ -940,7 +940,7 @@ The following table applies to Azure Batch.
 
 - **Recommendation**: Provide an Azure Blob storage account as an additional storage for HDInsight on-demand linked service.
 
-### SSL error when ADF linked service using HDInsight ESP cluster
+### SSL error when linked service using HDInsight ESP cluster
 
 - **Message**: `Failed to connect to HDInsight cluster: 'ERROR [HY000] [Microsoft][DriverSupport] (1100) SSL certificate verification failed because the certificate is missing or incorrect.`
 
