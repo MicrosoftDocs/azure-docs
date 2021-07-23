@@ -117,6 +117,7 @@ Returns True if both attributes have the same value.
 The CDate function returns a UTC DateTime from a string. DateTime is not a native attribute type but it is used by some Date functions.
 
 **Parameters:** 
+
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
 | **expression** |Required | expression | Any valid string that represents a date/time. For supported formats, refer to [.NET custom date and time format strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
