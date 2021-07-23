@@ -62,8 +62,10 @@ items:
       href: tutorial-member-match.md
 
   - name: Configure settings
-    expanded: false
+    expanded: true
     items:
+    - name: Configure RBAC
+      href: configure-azure-rbac-for-fhir.md
     - name: Configure CORS
       href: configure-cross-origin-resource-sharing.md
   
