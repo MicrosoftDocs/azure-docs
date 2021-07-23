@@ -6,7 +6,7 @@ author: vladvino
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 06/08/2021
+ms.date: 07/23/2021
 ms.author: apimpm
 ms.custom: references_regions, devx-track-azurepowershell
 ---
