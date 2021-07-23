@@ -42,9 +42,8 @@ Please refer to the [Products by region](https://azure.microsoft.com/en-us/globa
 Health data can be sent to Event Hubs, Azure IoT Hub or Azure IoT Central, and is converted to FHIR resources, which enables care teams to view patient data captured from IoT devices in context with clinical records in FHIR.
 
 ## More frequently asked questions
-[FAQs about Azure Healthcare APIs FHIR Service](./fhir/fhir-faq.md)
+[FAQs about Azure Healthcare APIs FHIR service](./fhir/fhir-faq.md)
 
-[FAQs about Azure Healthcare APIs DICOM Service](./dicom/dicom-services-faqs.yml)
+[FAQs about Azure Healthcare APIs DICOM service](./dicom/dicom-services-faqs.yml)
 
-[FAQs about Azure Healthcare APIs IoT Connector](./iot/iot-faq.md)
 
