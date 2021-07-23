@@ -23,6 +23,8 @@ ms.service: azure-communication-services
 
 Azure Communication Services can be used to build custom applications that interact with Microsoft Teams. End users of your Communication Services application can interact with Teams participants over voice, video, chat, and screen sharing.
 
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWGTqQ]
+
 Azure Communication Services supports two types of Teams interoperability depending on the identity of the end user:
 
 - **Bring your own identity.** You control user authentication and users of your custom applications don't need to have Azure Active Directory identities or Teams licenses to join Teams meetings. Teams treats your application as anonymous external user.
