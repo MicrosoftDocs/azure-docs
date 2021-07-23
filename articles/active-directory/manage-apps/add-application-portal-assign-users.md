@@ -14,7 +14,7 @@ ms.author: davidmu
 ms.reviewer: alamaral
 ---
 
-# Quickstart: Assign users to an app
+# Quickstart: Assign users to an application
 
 In the previous quickstart, you configured the properties for an app. When you set the properties you configured the experience for both assigned and unassigned users. This quickstart walks through the process of assigning users to the app.
 
