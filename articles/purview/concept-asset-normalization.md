@@ -73,5 +73,4 @@ Before: `https://mystore.azuredatalakestore.net/folderA/folderB/abc.csv`
 After: 	`adl://mystore.azuredatalakestore.net/folderA/folderB/abc.csv`
 
 ## Next steps
-
 [Scan in an Azure Blob Storage](register-scan-azure-blob-storage-source.md) account into the Azure Purview data map. 
