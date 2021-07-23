@@ -1,13 +1,13 @@
 ---
 title: Convert JSON and XML with Liquid templates
-description: Transform JSON and XML by using Liquid templates as maps in Azure Logic Apps
+description: Transform JSON and XML by using Liquid templates as maps in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 07/31/2020
+ms.date: 07/25/2021
 
 # Customer intent: As a developer, I want to convert JSON and XML by using Liquid templates as maps in Azure Logic Apps
 ---
@@ -131,7 +131,18 @@ This article shows you how to complete these tasks:
 
 ## Test your logic app
 
-By using [Postman](https://www.getpostman.com/postman) or a similar tool, post JSON input to your logic app. The transformed JSON output from your logic app looks like this example:
+By using [Postman](https://www.getpostman.com/postman) or a similar tool, post JSON input to your logic app, for example:
+
+```json
+{
+   "devices": "Surface, Windows Phone, Desktop computer, Monitors",
+   "firstName": "Dan",
+   "lastName": "Budimir",
+   "phone": "(999)9999999"
+}
+```
+
+The transformed JSON output from your logic app looks like this example:
 
 ![Example output](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontojson.png)
 
