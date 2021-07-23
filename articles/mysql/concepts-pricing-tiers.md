@@ -46,7 +46,7 @@ Azure Database for MySQL – Single Server supports the following the backend st
 Basic storage is the backend storage supporting Basic pricing tier servers. Basic storage leverages Azure standard storage in the backend where iops provisioned are not guaranteed and latency is variable. Basic tier is best suited for workloads that require light compute, low cost and I/O performance for development or small-scale infrequently used applications.
 
 ### General purpose storage 
-General purpose storage is the backend storage supporting General Purpose and Memory Optimized tier server. There are two generations of general purpose storage which are described below:
+General purpose storage is the backend storage supporting General Purpose and Memory Optimized tier server. There are two generations of general purpose storage, v1 which supports up to 4-TB, 6000 IOPs and v2 which supports upto 16-TB, 20000 IOPs both of which are described below
 
 #### General purpose storage v1 (Supports up to 4-TB)
 General purpose storage v1 is based on the legacy storage technology which can support up to 4-TB storage and 6000 IOPs per server. General purpose storage v1 is optimized to leverage memory from the compute nodes running MySQL engine for local caching and backups. The backup process on general purpose storage v1 reads from the data and log files in the memory of the compute nodes and copies it to the target backup storage for retention up to 35 days. As a result, the memory and io consumption of storage during backups is relatively higher. 
