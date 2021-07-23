@@ -148,7 +148,8 @@ Call Summary for VoIP user 1
     "callDuration":             6,
     "callType":                 "P2P",
     "teamsThreadId":            "null",
-    "participantId":            "null",    "participantStartTime":     "2021-07-19T17:54:06.758Z",
+    "participantId":            "null",    
+    "participantStartTime":     "2021-07-19T17:54:06.758Z",
     "participantDuration":      "5",
     "participantEndReason":     "0",
     "endpointId":               "570ea078-74e9-4430-9c67-464ba1fa5859",
@@ -183,7 +184,7 @@ Call diagnostics logs share operation information:
 "operationVersion":         "1.0",
 "category":                 "CallDiagnosticsPRIVATEPREVIEW",
 ```
-Diagnostic log for audio stream from VoIP user 1 to VoIP user 2
+Diagnostic log for audio stream from VoIP Endpoint 1 to VoIP Endpoint 2
 ```
 "properties": {
     "identifier":           "acs:61fddbe3-0003-4066-97bc-6aaf143bbb84_0000000b-4fee-66cf-ac00-343a0d003158",
@@ -201,7 +202,7 @@ Diagnostic log for audio stream from VoIP user 1 to VoIP user 2
     "packetLossRateMax":    "0"
 }
 ```
-Diagnostic log for audio stream from VoIP user 2 to VoIP user 1
+Diagnostic log for audio stream from VoIP Endpoint 2 to VoIP Endpoint 1
 ```
 "properties": {
     "identifier":           "acs:7af14122-9ac7-4b81-80a8-4bf3582b42d0_06f9276d-8efe-4bdd-8c22-ebc5434903f0",
@@ -219,7 +220,7 @@ Diagnostic log for audio stream from VoIP user 2 to VoIP user 1
     "packetLossRateMax":    "0"
 }
 ```
-Diagnostic log for video stream from VoIP user 1 to VoIP user 2
+Diagnostic log for video stream from VoIP Endpoint 1 to VoIP Endpoint 2
 ```
 "properties": {
     "identifier":           "acs:61fddbe3-0003-4066-97bc-6aaf143bbb84_0000000b-4fee-66cf-ac00-343a0d003158",
@@ -380,7 +381,8 @@ Diagnostic log for audio stream from Server Endpoint to VoIP Endpoint 3
     "identifier":           "null",
     "participantId":        "1a9cb3d1-7898-4063-b3d2-26c1630ecf03",
     "endpointId":           null,
-    "endpointType":         "Server"    "mediaType":            "Audio",
+    "endpointType":         "Server"    
+    "mediaType":            "Audio",
     "streamId":             "1000",
     "transportType":        "UDP",
     "roundTripTimeAvg":     "45",
