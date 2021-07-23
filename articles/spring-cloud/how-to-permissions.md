@@ -20,6 +20,10 @@ We'll implement the following custom roles.
     * Restart apps
     * Apply and make changes to app configurations in the Git repository
     * Get log streams
+* **DevOps Engineer role**:
+    * Deploy
+    * Test
+    * Restart apps
 * **Ops - Site Reliability Engineering role**: 
     * Restart apps
     * Get log streams
