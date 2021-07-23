@@ -13,7 +13,7 @@ ms.custom: template-how-to
 
 The Azure Percept DK allows you to control various networking components on the dev kit. This is done via the Advanced Networking Settings in the setup experience. To access these settings, you must [start the setup experience](./quickstart-percept-dk-set-up.md) and select **Access advanced network settings** on the **Network connection** page.
 
-:::image type="content" source="media/how-to-set-up-advanced-network-settings/advanced-nws-entry.png" alt-text="Launch the advanced network settings from the Network connections page":::
+:::image type="content" source="media/how-to-set-up-advanced-network-settings/advanced-ns-entry.png" alt-text="Launch the advanced network settings from the Network connections page":::
 
 ## Select the security setting
 IPv4 and IPv6 are both supported on the Azure Percept DK for local connectivity.
@@ -24,7 +24,7 @@ IPv4 and IPv6 are both supported on the Azure Percept DK for local connectivity.
 1. Select the IPv6 radio button and then select an item under Network Settings to change its IPv6 settings
 1. The **Network setting** options may change depending on your selection
 
-:::image type="content" source="media/how-to-set-up-advanced-network-settings/advanced-nws-security.png" alt-text="Select a security protocol to see the list of network options":::
+:::image type="content" source="media/how-to-set-up-advanced-network-settings/advanced-ns-security.png" alt-text="Select a security protocol to see the list of network options":::
 
 ## Define a Static IP Address
 
