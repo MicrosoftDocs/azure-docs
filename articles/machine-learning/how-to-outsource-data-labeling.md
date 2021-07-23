@@ -56,17 +56,17 @@ Microsoft has partnered with some data labeling companies (curated) who have ext
 > [!NOTE]
 > The services of these companies are made available via [Azure Marketplace](https://azure.microsoft.com/). The details of these labeling companies are in their listing page in Azure Marketplace. Use this information to determine if the outsourcing company meets your project requirements. Once you've identified the outsourcing company, contact them using the **Contact me** option in Azure Marketplace. The contacted outsourcing company will contact you within three days. Azure Machine Learning data labeling services and Azure Marketplace act only as a routing platform in connecting you with the outsourcing company.
 
-Microsoft periodically reviews the partnership with these outsourcing companies. Microsoft may add or remove curated outsourcing companies at any time without any prior notification sent to the labeling project owners. 
+Microsoft periodically reviews the partnership with these outsourcing companies. Microsoft may add or remove curated outsourcing companies at any time without any prior notification sent to the labeling project owners.
 
 You can engage multiple outsourcing companies for various labeling project needs. Each project will be linked to one outsourcing company. 
 
 Below are the curated outsourcing (vendor) labeling companies who might help in getting your data labeled using AzureML Data Labeling services. View the [listing of curated vendor companies]().
 
-* [iSoftStone]() 
+* [iSoftStone](https://azuremarketplace.microsoft.com/marketplace/consulting-services/isoftstoneinc1614950352893.20210527) 
 
 * [Quadrant Resource]()
 
-* [KarmaHub]()
+* [KarmaHub](https://azuremarketplace.microsoft.com/marketplace/apps/karmahubinc1606552536587.labelling_tool?tab=Overview)
 
 ## Engage a vendor
 
