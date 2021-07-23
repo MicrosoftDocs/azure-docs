@@ -100,7 +100,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 |  Rel 21-06 |  [4052623]  |  Update for Microsoft Defender antimalware platform | [6.32], [5.56] | May 13, 2021 |
 
 [5003646]: https://support.microsoft.com/kb/5003646
-[4580325]: https://support.microsoft.com/kb/4580325
+
 [5003636]: https://support.microsoft.com/kb/5003636
 [5003638]: https://support.microsoft.com/kb/5003638
 [4578952]: https://support.microsoft.com/kb/4578952
@@ -157,7 +157,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 |  Rel 21-05 |  [4494174]  |  Microcode  | [6.31] | Sep 1, 2020 |
 
 [5003171]: https://support.microsoft.com/kb/5003171
-[4580325]: https://support.microsoft.com/kb/4580325
+
 [5003165]: https://support.microsoft.com/kb/5003165
 [5003197]: https://support.microsoft.com/kb/5003197
 [4578952]: https://support.microsoft.com/kb/4578952
@@ -213,7 +213,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 |  Rel 21-04 |  [4494174]  |  Microcode  | [6.30] | Sep 1, 2020 |
 
 [5001342]: https://support.microsoft.com/kb/5001342
-[4580325]: https://support.microsoft.com/kb/4580325
+
 [5000800]: https://support.microsoft.com/kb/5000800
 [5001347]: https://support.microsoft.com/kb/5001347
 [4578952]: https://support.microsoft.com/kb/4578952
@@ -268,7 +268,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 |  Rel 21-03 |  [4494174]  |  Microcode  | [6.29] | Sep 1, 2020 |
 
 [5000822]: https://support.microsoft.com/kb/5000822
-[4580325]: https://support.microsoft.com/kb/4580325
+
 [5000800]: https://support.microsoft.com/kb/5000800
 [5000803]: https://support.microsoft.com/kb/5000803
 [4578952]: https://support.microsoft.com/kb/4578952
@@ -323,7 +323,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 |  Rel 21-02 |  [4494174]  |  Microcode | [6.28] | Sep 1, 2020 |
 
 [4601345]: https://support.microsoft.com/kb/4601345
-[4580325]: https://support.microsoft.com/kb/4580325
+
 [4586768]: https://support.microsoft.com/kb/4586768
 [4601318]: https://support.microsoft.com/kb/4601318
 [4578952]: https://support.microsoft.com/kb/4578952
@@ -379,7 +379,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 |  Rel 21-01 |  [4494174]  |  Microcode | [6.27] | Sep 3, 2020 |
 
 [4598230]: https://support.microsoft.com/kb/4598230
-[4580325]: https://support.microsoft.com/kb/4580325
+
 [4586768]: https://support.microsoft.com/kb/4586768
 [4598243]: https://support.microsoft.com/kb/4598243
 [4578952]: https://support.microsoft.com/kb/4578952
@@ -435,7 +435,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 |  Rel 20-12 |  [4494174]  |  Microcode | [6.26] | Sep 3, 2020 |
 
 [4592440]: https://support.microsoft.com/kb/4592440
-[4580325]: https://support.microsoft.com/kb/4580325
+
 [4586768]: https://support.microsoft.com/kb/4586768
 [4593226]: https://support.microsoft.com/kb/4593226
 [4052623]: https://support.microsoft.com/kb/4052623
@@ -492,7 +492,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 [4594442]: https://support.microsoft.com/kb/4594442
 [4594441]: https://support.microsoft.com/kb/4594441
-[4580325]: https://support.microsoft.com/kb/4580325
+
 [4586768]: https://support.microsoft.com/kb/4586768
 [4578952]: https://support.microsoft.com/kb/4578952
 [4578955]: https://support.microsoft.com/kb/4578955
@@ -549,7 +549,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 
 [4577010]: https://support.microsoft.com/kb/4577010
-[4580325]: https://support.microsoft.com/kb/4580325
+
 [4577668]: https://support.microsoft.com/kb/4577668
 [4580346]: https://support.microsoft.com/kb/4580346
 [4580970]: https://support.microsoft.com/kb/4580970
