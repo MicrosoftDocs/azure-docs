@@ -29032,6 +29032,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-monitor/insights/storage-insights-overview.md",
+      "redirect_url": "/azure/storage/common/storage-insights-overview?toc=/azure/azure-monitor/toc.json",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/storage/storage-nodejs-how-to-use-blob-storage.md",
       "redirect_url": "/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage",
       "redirect_document_id": true
