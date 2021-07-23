@@ -29,7 +29,10 @@ In this guide, you use the Speech SDK to develop a C++ console application that 
 
 ## When should you use this?
 
-If you are only interested in matching very strictly what the user said. These patterns match more aggressively than LUIS.
+Use this sample code if: 
+* You are only interested in matching very strictly what the user said. These patterns match more aggressively than LUIS.
+* You do not have access to a LUIS app, but still want intents. This can be helpful since it is embedded within the SDK.
+* You cannot or do not want to create a LUIS app but you still want some voice commanding capability.
 
 If you do not have access to a LUIS app, but still want intents, this can be helpful since it is embedded within the SDK.
 
