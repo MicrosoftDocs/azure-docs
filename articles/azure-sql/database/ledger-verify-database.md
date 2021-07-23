@@ -9,6 +9,7 @@ author: JasonMAnderson
 ms.author: janders
 ms.reviewer: vanto
 ms.date: "07/23/2021"
+ms.custom: references_regions
 ---
 
 # Verify a ledger table to detect tampering

@@ -1,7 +1,7 @@
 ---
 title: "Limitations for Azure SQL Database ledger"
 description: Limitations of the ledger feature in Azure SQL Database
-ms.custom: ""
+ms.custom: references_regions
 ms.date: "07/23/2021"
 ms.service: sql-database
 ms.subservice: security

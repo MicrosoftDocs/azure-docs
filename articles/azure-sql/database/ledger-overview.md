@@ -1,7 +1,7 @@
 ---
 title: "Azure SQL Database ledger overview"
 description: Learn the basics of the Azure SQL Database ledger feature.
-ms.custom: ""
+ms.custom: references_regions
 ms.date: "07/23/2021"
 ms.service: sql-database
 ms.subservice: security

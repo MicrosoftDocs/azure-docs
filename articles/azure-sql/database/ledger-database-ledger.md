@@ -1,7 +1,7 @@
 ---
 title: "Database ledger"
 description: This article provides information on ledger database tables and associated views in Azure SQL Database.
-ms.custom: ""
+ms.custom: references_regions
 ms.date: "07/23/2021"
 ms.service: sql-database
 ms.subservice: security

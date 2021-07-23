@@ -1,7 +1,7 @@
 ---
 title: "Azure SQL Database append-only ledger tables"
 description: This article provides information on append-only ledger table schema and views in Azure SQL Database.
-ms.custom: ""
+ms.custom: references_regions
 ms.date: "07/23/2021"
 ms.service: sql-database
 ms.subservice: security

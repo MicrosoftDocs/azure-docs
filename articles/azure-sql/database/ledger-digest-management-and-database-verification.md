@@ -1,7 +1,7 @@
 ---
 title: "Digest management and database verification"
 description: This article provides information on digest management and database verification for a ledger database in Azure SQL Database.
-ms.custom: ""
+ms.custom: references_regions
 ms.date: "07/23/2021" 
 ms.service: sql-database
 ms.subservice: security

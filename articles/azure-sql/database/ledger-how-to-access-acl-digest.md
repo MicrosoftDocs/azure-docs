@@ -1,7 +1,7 @@
 ---
 title: "Access the digests stored in Azure Confidential Ledger"
 description: Access the digests stored in Azure Confidential Ledger with an Azure SQL Database ledger.
-ms.custom: ""
+ms.custom: references_regions
 ms.date: "07/23/2021"
 ms.service: sql-database
 ms.subservice: security

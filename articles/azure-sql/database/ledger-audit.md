@@ -1,7 +1,7 @@
 ---
 title: "Azure SQL Database audit events with ledger-enabled tables"
 description: Overview of Azure SQL Database ledger auditing capabilities
-ms.custom: ""
+ms.custom: references_regions
 ms.date: "07/23/2021"
 ms.service: sql-database
 ms.subservice: security

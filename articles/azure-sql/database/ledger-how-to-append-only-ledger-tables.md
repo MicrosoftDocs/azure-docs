@@ -1,7 +1,7 @@
 ---
 title: "Create and use append-only ledger tables"
 description: Learn how to create and use append-only ledger tables in Azure SQL Database.
-ms.custom: ""
+ms.custom: references_regions
 ms.date: "07/23/2021"
 ms.service: sql-database
 ms.subservice: security

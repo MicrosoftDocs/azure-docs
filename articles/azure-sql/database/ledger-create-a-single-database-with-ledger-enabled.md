@@ -9,6 +9,7 @@ author: JasonMAnderson
 ms.author: janders
 ms.reviewer: vanto
 ms.date: "07/23/2021"
+ms.custom: references_regions
 ---
 
 # Quickstart: Create a database in Azure SQL Database with ledger enabled
