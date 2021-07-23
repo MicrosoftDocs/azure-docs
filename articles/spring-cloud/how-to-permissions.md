@@ -21,9 +21,7 @@ We'll implement the following custom roles.
     * Apply and make changes to app configurations in the Git repository
     * Get log streams
 * **DevOps Engineer role**:
-    * Deploy
-    * Test
-    * Restart apps
+    * Create, read, update and delete everything in Azure Spring Cloud
 * **Ops - Site Reliability Engineering role**: 
     * Restart apps
     * Get log streams
