@@ -38,8 +38,8 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 **Update** | **Details**
 --- | ---
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
-**Issue fixes/improvements** | A number of fixes and improvements as detailed in the rollup KB article.
-**Azure Site Recovery Service** | Made improvements so that enabling replication and re-protect operations are faster by 46%. <br/><br/> (Portal) - Replication can now be enabled between any two Azure regions around the world. Customers are no longer limited to enabling replication within their continent.
+**Issue fixes/improvements** | A number of fixes and improvement as detailed in the rollup KB article.
+**Azure Site Recovery Service** | Made improvements so that enabling replication and re-protect operations are faster by 46%.
 
 ## Updates (April 2021)
 
