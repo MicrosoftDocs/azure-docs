@@ -137,7 +137,7 @@ To add the overrides for both full import and full synchronization on an arbitra
 
 ## Upgrading the server Operating System
 
-If you need to upgrade the operating system of your Azure AD Connect server, do not use an in place upgrade of the OS. Instead, prepare a new server with the desired operating system and perform [a swing migration](how-to-connect-sync-staging-server.md#Swing-migration).
+If you need to upgrade the operating system of your Azure AD Connect server, do not use an in place upgrade of the OS. Instead, prepare a new server with the desired operating system and perform [a swing migration](#swing-migration).
 
 ## Troubleshooting
 The following section contains troubleshooting and information that you can use if you encounter an issue upgrading Azure AD Connect.
