@@ -66,7 +66,7 @@ landingContent:
             url: ./fhir/overview.md
       - linkListType: deploy
         links:
-          - text: Deploy FHIR service using Portal
+          - text: Deploy FHIR service using portal
             url: ./fhir/fhir-portal-quickstart.md
       - linkListType: tutorial
         links:
@@ -83,18 +83,20 @@ landingContent:
             url: ./dicom/dicom-services-overview.md
       - linkListType: deploy
         links:
-          - text: Deploy DICOM Services using the Azure portal
+          - text: Deploy DICOM service using portal
             url: ./dicom/deploy-dicom-services-in-azure.md
       - linkListType: tutorial
         links:
-          - text: Using DICOMweb Standard APIs with Python
-            url: ./dicom/dicomweb-standard-apis-python.md
+          - text: DICOMweb Standard APIs
+            url: ./dicom/dicomweb-standard-apis-with-dicom-services.md
+          - text: DICOM change feed
+            url: ./dicom/pull-dicom-changes-from-change-feed.md
   
-  - title: IoT connector
+  - title: IoT Connector
     linkLists:
       - linkListType: get-started
         links:
-          - text: About IoT connector
+          - text: About IoT Connector
             url: ./iot/iot-connector-overview.md
       - linkListType: deploy
         links:

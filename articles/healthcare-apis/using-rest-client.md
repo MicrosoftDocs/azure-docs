@@ -29,8 +29,8 @@ Create a new file in Visual Studio Code. Enter a `GET` request command line in t
 
 ## Get client application values
 
->[!Important]
-Before making RESTful API calls to the FHIR server (other than getting the metadata), you must complete **[application registration](register-application.md)**. Make a note of your Azure **tenant ID**, **client ID**, **client secret** and the **service URL**.
+> [!Important]
+> Before making RESTful API calls to the FHIR server (other than getting the metadata), you must complete **[application registration](register-application.md)**. Make a note of your Azure **tenant ID**, **client ID**, **client secret** and the **service URL**.
 
 While you can use values such as the client ID directly in the RESTful API calls, it is a good practice that you define a few variables for these values and use the variables instead.
 
@@ -48,14 +48,14 @@ In your `test.http` file, include the following information obtained from regist
 
 After including the information below in your `test.http` file, hit `Send Request`. You will see an HTTP response that contains your access token.
 
-The line starting with `#` contains a variable that captures the HTTP response containing the access token. The variable, `@token`, is used to store the access token.
+The line starting with `@name` contains a variable that captures the HTTP response containing the access token. The variable, `@token`, is used to store the access token.
 
 >[!Note] 
 >The `grant_type` of `client_credentials` is used to obtain an access token.
 
 ```
 ### Get access token 
-# @name getAADToken 
+@name getAADToken 
 POST https://login.microsoftonline.com/{{tenantid}}/oauth2/token
 Content-Type: application/x-www-form-urlencoded
 
@@ -76,8 +76,7 @@ You can now get a list of patients or a specific patient with the `GET` request.
 
 ```
 ### GET Patient 
-#Get {{fhirurl}}/Patient
-Get {{fhirurl}}/Patient/<patientid>
+GET {{fhirurl}}/Patient/<patientid>
 Authorization: Bearer {{token}}
 ```
 

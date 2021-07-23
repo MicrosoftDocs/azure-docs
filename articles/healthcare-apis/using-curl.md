@@ -126,8 +126,3 @@ To learn about how to access the Healthcare APIs data using REST Client extensio
 
 >[!div class="nextstepaction"]
 >[Access the Healthcare APIs using REST Client](using-rest-client.md)
-
-To learn about how to access the Healthcare APIs data using Postman, see
-
->[!div class="nextstepaction"]
->[Access the Healthcare APIs using Postman](using-postman.md)

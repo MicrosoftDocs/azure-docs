@@ -40,7 +40,6 @@ landingContent:
             url: azure-ad-hcapi.md
           - text: Access token validation
             url: azure-ad-hcapi-token-validation.md
-    linkLists:
       - linkListType: learn
         links:
           - text: Access FHIR service using Postman
