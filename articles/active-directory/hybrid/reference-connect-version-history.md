@@ -67,7 +67,7 @@ Please follow this link to read more about [auto upgrade](how-to-connect-install
  -	This release uses the MSAL library for authentication, and we have removed the older ADAL library, which will be retired in 2022.	
  -	We no longer apply permissions on the AdminSDHolders, following Windows security guidance. We changed the parameter "SkipAdminSdHolders" to "IncludeAdminSdHolders" in the ADSyncConfig.psm1 module.
  -	Passwords will now be reevaluated when an expired password is "unexpired", regardless of whether the password itself is changed. If for a user the password is set to “Must change password at next logon”, and this flag is cleared (thus "unexpiring" the password) then the "unexpired" status and the password hash are synced to Azure AD, and when the user attempts to sign in in Azure AD they can use the unexpired password.
-To sync an expired password from Active Directory to Azure Active Directory please use the [Synchronizing temporary passwords](how-to-connect-password-hash-synchronization.md#synchronizing-temporary-passwords-and-force-password-change-on-next-logon.)	feature in Azure AD Connect.
+To sync an expired password from Active Directory to Azure Active Directory please use the [Synchronizing temporary passwords](how-to-connect-password-hash-synchronization.md#synchronizing-temporary-passwords-and-force-password-change-on-next-logon)	feature in Azure AD Connect.
  - We have added two new cmdlets to the ADSyncTools module to enable or retrieve TLS 1.2 settings from the Windows Server. 
    - Get-ADSyncToolsTls12
    - Set-ADSyncToolsTls12
