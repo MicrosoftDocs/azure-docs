@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/19/2021
+ms.date: 07/23/2021
 ms.author: jeedes
 
 ---
@@ -118,7 +118,11 @@ To configure single sign-on on **True Office Learning - LIO** side, you need to 
 
 ### Create True Office Learning - LIO test user
 
-In this section, you create a user called Britta Simon in True Office Learning - LIO. Work with [True Office Learning - LIO support team](mailto:service@trueoffice.com) to add the users in the True Office Learning - LIO platform. Users must be created and activated before you use single sign-on.
+Please contact [True Office Learning - LIO support team](mailto:service@trueoffice.com) with configuration questions and/or to request a copy of the metadata. 
+In your request please provide the following information:
+* Company Name
+* CompanyID (if known)
+* Existing or new configuration
 
 ## Test SSO 
 
