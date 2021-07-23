@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Assign users to an app'
+title: 'Quickstart: Assign users to an application'
 titleSuffix: Azure AD
 description: This quickstart walks through the process of allowing users to use an app that you have setup to use Azure AD as an identity provider.
 services: active-directory
