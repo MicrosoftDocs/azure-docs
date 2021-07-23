@@ -3,7 +3,7 @@ title: Azure Virtual Desktop host pool service updates - Azure
 description: How to create a validation host pool to monitor service updates before rolling out updates to production.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 06/24/2021
+ms.date: 07/23/2021
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
 manager: femila
