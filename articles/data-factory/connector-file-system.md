@@ -1,6 +1,7 @@
 ---
-title: Copy data from/to a file system by using Azure Data Factory 
-description: Learn how to copy data from file system to supported sink data stores (or) from supported source data stores to file system by using Azure Data Factory.
+title: Copy data from/to a file system
+titleSuffix: Azure Data Factory & Synapse Analytics
+description: Learn how to copy data from file system to supported sink data stores (or) from supported source data stores to file system using Azure Data Factory or Synapse Analytics pipelines.
 author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
@@ -8,13 +9,13 @@ ms.date: 03/29/2021
 ms.author: jianleishen
 ---
 
-# Copy data to or from a file system by using Azure Data Factory
+# Copy data to or from a file system by using Azure Data Factory or Synapse Analytics
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-onprem-file-system-connector.md)
 > * [Current version](connector-file-system.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to copy data to and from file system. To learn about Azure Data Factory, read the [introductory article](introduction.md).
+This article outlines how to copy data to and from file system. To learn more read the introductory article for [Azure Data Factory](introduction.md) or [Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 ## Supported capabilities
 
@@ -42,7 +43,7 @@ Specifically, this file system connector supports:
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties that are used to define Data Factory entities specific to file system.
+The following sections provide details about properties that are used to define Data Factory and Synapse pipeline entities specific to file system.
 
 ## Linked service properties
 
@@ -53,7 +54,7 @@ The following properties are supported for file system linked service:
 | type | The type property must be set to: **FileServer**. | Yes |
 | host | Specifies the root path of the folder that you want to copy. Use the escape character "\" for special characters in the string. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples. | Yes |
 | userId | Specify the ID of the user who has access to the server. | Yes |
-| password | Specify the password for the user (userId). Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| password | Specify the password for the user (userId). Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
 
 ### Sample linked service and dataset definitions
@@ -425,4 +426,4 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 ```
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
