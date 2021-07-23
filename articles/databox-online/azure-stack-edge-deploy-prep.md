@@ -65,7 +65,7 @@ Before you begin, make sure that:
 
   * To create an IoT Hub resource, make sure the `Microsoft.Devices` provider is registered.
 
-  * To create a Storage account resource, make sure Azure Storage is registered. The Azure Storage Resource Provider (SRP) is by default a registered resource provider, but in some cases registration may be needed.
+  * To create an Azure Storage resource, make sure Azure Storage is registered. The Azure Storage Resource Provider (SRP) is by default a registered resource provider, but in some cases registration may be needed.
 
   **To register a resource provider, you must have been assigned the related RBAC role, above.**
 
