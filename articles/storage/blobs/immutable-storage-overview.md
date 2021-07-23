@@ -112,7 +112,7 @@ All blob access tiers support immutable storage. You can change the access tier 
 
 All redundancy configurations support immutable storage. For geo-redundant configurations, customer-managed failover is not supported. For more information about redundancy configurations, see [Azure Storage redundancy](../common/storage-redundancy.md).
 
-Immutable storage support for accounts with a hierarchical namespace is in preview. To enroll in the preview, see [this form](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u).
+Immutable storage support for accounts with a hierarchical namespace is in preview. To enroll in the preview, see [Preview Features on Azure Data Lake Storage](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u).
 
 Keep in mind that you cannot rename or move a blob when the blob is in the immutable state and the account has a hierarchical namespace enabled. Both the blob name and the directory structure provide essential container-level data that cannot be modified once the immutable policy is in place.
 
