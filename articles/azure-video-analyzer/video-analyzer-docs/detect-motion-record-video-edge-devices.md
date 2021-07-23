@@ -2,7 +2,7 @@
 title: Detect motion and record video on edge devices - Azure
 description: Use Azure Video Analyzer to analyze the live video feed from a (simulated) IP camera. It shows how to detect if any motion is present, and if so, record an MP4 video clip to the local file system on the edge device. The quickstart uses an Azure VM as an IoT Edge device and also uses a simulated live video stream.
 ms.topic: quickstart
-ms.date: 04/01/2021
+ms.date: 06/01/2021
 zone_pivot_groups: video-analyzer-programming-languages
 ---
 
@@ -63,7 +63,13 @@ Complete the following steps to use Video Analyzer to detect the motion of the c
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/vscode-common-screenshots/verbose-message.png" alt-text= "Show Verbose Message":::
 
-1. Start a debugging session by selecting the F5 key. The **TERMINAL** window prints some messages.
+1.  ::: zone pivot="programming-language-csharp"
+    [!INCLUDE [header](includes/common-includes/csharp-run-program.md)]
+    ::: zone-end
+
+    ::: zone pivot="programming-language-python"
+    [!INCLUDE [header](includes/common-includes/python-run-program.md)]
+    ::: zone-end
 1. The _operations.json_ code calls the direct methods `pipelineTopologyList` and `livePipelineList`. If you cleaned up resources after previous quickstarts, then this process will return empty lists and then pause. Press the Enter key.
 
    ```

@@ -80,9 +80,9 @@ items:
   - name: Java
     href: /java/api/overview/azure/cognitiveservices/client/faceapi
   - name: Node.js
-    href: /javascript/api/@azure/cognitiveservices-face
+    href: /javascript/api/overview/azure/cognitive-services/face-readme
   - name: Python
-    href: /python/api/azure-cognitiveservices-vision-face/
+    href: /python/api/overview/azure/cognitiveservices/face-readme
   - name: Go
     href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face
 - name: Resources

@@ -2,7 +2,7 @@
 author: DCtheGeek
 ms.service: resource-graph
 ms.topic: include
-ms.date: 07/07/2021
+ms.date: 07/21/2021
 ms.author: dacoulte
 ms.custom: generated
 ---
@@ -380,9 +380,9 @@ Search-AzGraph -Query "Resources | join kind=leftouter (ResourceContainers | whe
 
 ---
 
-### List all Azure Arc enabled Kubernetes clusters without Azure Monitor extension
+### List all Azure Arc-enabled Kubernetes clusters without Azure Monitor extension
 
-Returns the connected cluster ID of each Azure Arc enabled Kubernetes cluster that is missing the Azure Monitor extension.
+Returns the connected cluster ID of each Azure Arc-enabled Kubernetes cluster that is missing the Azure Monitor extension.
 
 ```kusto
 Resources
@@ -420,9 +420,9 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Kubernetes/connected
 
 ---
 
-### List all Azure Arc enabled Kubernetes resources
+### List all Azure Arc-enabled Kubernetes resources
 
-Returns a list of each Azure Arc enabled Kubernetes cluster and relevant metadata for each cluster.
+Returns a list of each Azure Arc-enabled Kubernetes cluster and relevant metadata for each cluster.
 
 ```kusto
 Resources
@@ -639,9 +639,9 @@ Search-AzGraph -Query "ResourceContainers | where isnotempty(tags) | project tag
 
 ---
 
-### List Azure Arc enabled custom locations with VMware or SCVMM enabled
+### List Azure Arc-enabled custom locations with VMware or SCVMM enabled
 
-Provides a list of all Azure Arc enabled custom locations that have either VMware or SCVMM resource types enabled.
+Provides a list of all Azure Arc-enabled custom locations that have either VMware or SCVMM resource types enabled.
 
 ```kusto
 Resources
