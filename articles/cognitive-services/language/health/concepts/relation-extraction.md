@@ -13,7 +13,7 @@ ms.date: 11/19/2020
 ms.author: aahi
 ---
 
-## Relation extraction
+# Relation extraction
 
 Relation extraction identifies meaningful connections between concepts mentioned in text. For example, a "time of condition" relation is found by associating a condition name with a time or between an abbreviation and the full description.  
 
@@ -21,6 +21,48 @@ Relation extraction identifies meaningful connections between concepts mentioned
 ## Relation extraction output
 
 Text Analytics for Health recognizes relations between different concepts, including relations between attribute and entity (for example, direction of body structure, dosage of medication) and between entities (for example, abbreviation detection).
+
+> [!NOTE]
+> * Relations referring to CONDITION may refer to either the DIAGNOSIS entity type or the SYMPTOM_OR_SIGN entity type.
+> * Relations referring to MEDICATION may refer to either the MEDICATION_NAME entity type or the MEDICATION_CLASS entity type.
+> * Relations referring to TIME may refer to either the TIME entity type or the DATE entity type.
+
+Relation extraction output contains URI references and assigned roles of the entities of the relation type. For example, in the following JSON:
+
+```json
+                "relations": [
+                    {
+                        "relationType": "DosageOfMedication",
+                        "entities": [
+                            {
+                                "ref": "#/results/documents/0/entities/0",
+                                "role": "Dosage"
+                            },
+                            {
+                                "ref": "#/results/documents/0/entities/1",
+                                "role": "Medication"
+                            }
+                        ]
+                    },
+                    {
+                        "relationType": "RouteOfMedication",
+                        "entities": [
+                            {
+                                "ref": "#/results/documents/0/entities/1",
+                                "role": "Medication"
+                            },
+                            {
+                                "ref": "#/results/documents/0/entities/2",
+                                "role": "Route"
+                            }
+                        ]
+...
+]
+```
+
+## Recognized relations
+
+The following relations can be returned by the API. 
 
 **ABBREVIATION**
 
@@ -91,41 +133,3 @@ Text Analytics for Health recognizes relations between different concepts, inclu
 **VALUE_OF_EXAMINATION**
 
 **VARIANT_OF_GENE**
-
-> [!NOTE]
-> * Relations referring to CONDITION may refer to either the DIAGNOSIS entity type or the SYMPTOM_OR_SIGN entity type.
-> * Relations referring to MEDICATION may refer to either the MEDICATION_NAME entity type or the MEDICATION_CLASS entity type.
-> * Relations referring to TIME may refer to either the TIME entity type or the DATE entity type.
-
-Relation extraction output contains URI references and assigned roles of the entities of the relation type. For example:
-
-```json
-                "relations": [
-                    {
-                        "relationType": "DosageOfMedication",
-                        "entities": [
-                            {
-                                "ref": "#/results/documents/0/entities/0",
-                                "role": "Dosage"
-                            },
-                            {
-                                "ref": "#/results/documents/0/entities/1",
-                                "role": "Medication"
-                            }
-                        ]
-                    },
-                    {
-                        "relationType": "RouteOfMedication",
-                        "entities": [
-                            {
-                                "ref": "#/results/documents/0/entities/1",
-                                "role": "Medication"
-                            },
-                            {
-                                "ref": "#/results/documents/0/entities/2",
-                                "role": "Route"
-                            }
-                        ]
-...
-]
-```

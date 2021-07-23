@@ -11,12 +11,12 @@ items:
   - name: Overview
     href: health/overview.md
   - name: Language support
-    href: health/concepts/language-support.md 
+    href: health/language-support.md 
   - name: How-to guides
     items:
     - name: How to call the API
       href: health/how-to/call-api.md
-    - name: Deploy
+    - name: Use containers
       items:
       - name: Use Docker containers
         href: health/how-to/use-containers.md
@@ -30,6 +30,8 @@ items:
       href: health/concepts/relation-extraction.md
     - name: Assertion detection
       href: health/concepts/assertion-detection.md
+    - name: Model versioning
+      href: concepts/model-versioning.md
 - name: Named Entity Recognition (NER) and Personally Identifying Information (PII)
   items:
   - name: Overview

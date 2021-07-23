@@ -20,13 +20,13 @@ ms.author: aahi
 
 The health API is a feature of the Language Services that extracts and labels relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records.  There are two ways to utilize this service: 
 
-* [The web-based API and client libraries (asynchronous)](#structure-the-api-request-for-the-hosted-asynchronous-web-api)
-* [A Docker container (synchronous)](#hosted-asynchronous-web-api-response)   
+* The web-based API and client libraries (asynchronous)
+* A Docker container (synchronous)
 
 ## Features
 
 The health API performs Named Entity Recognition (NER), relation extraction, entity negation and entity linking on English-language text to uncover insights in unstructured clinical and biomedical text. 
-See the [entity categories](../named-entity-categories.md) returned by Text Analytics for health for a full list of supported entities. For information on confidence scores, see the [Text Analytics transparency note](/legal/cognitive-services/text-analytics/transparency-note#general-guidelines-to-understand-and-improve-performance?context=/azure/cognitive-services/text-analytics/context/context). 
+See the [entity categories](../concepts/health-entity-categories.md) returned by Text Analytics for health for a full list of supported entities. For information on confidence scores, see the [Text Analytics transparency note](/legal/cognitive-services/text-analytics/transparency-note#general-guidelines-to-understand-and-improve-performance?context=/azure/cognitive-services/text-analytics/context/context). 
 
 
 
@@ -38,29 +38,6 @@ See the [entity categories](../named-entity-categories.md) returned by Text Anal
 > To run the Text Analytics for health container in your own environment, follow these [instructions to download and install the container](use-containers.md).
 
 You submit text to the health API.  Document size must be under 5,120 characters per document. For the maximum number of documents permitted in a collection, see the data limits article. The collection is submitted in the body of the request. If your text exceeds this limit, consider splitting the text into separate requests. For best results, split text between sentences.
-
-## Data limits
-
-> [!NOTE]
-> * If you need to analyze larger documents than the limit allows, you can break the text into smaller chunks of text before sending them to the API. For best results, split text between sentences.
-> * A document is a single string of text characters.  
-
-| Limit | Value |
-|------------------------|---------------|
-| Maximum size of a single document | 5,120 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
-| Maximum size of entire request | 1 MB |
-| Max Documents Per Request | 10 for the web-based API, 1000 for the container. |
-
-If a document exceeds the character limit, the API won't process a document that exceeds the maximum size, and will return an invalid document error for it. If an API request has multiple documents, the API will continue processing them if they are within the character limit.
-
-### Rate limits
-
-Your rate limit will vary with your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). These limits are the same for both versions of the API. These rate limits don't apply to the Text Analytics for health container, which does not have a set rate limit.
-
-| Tier          | Requests per second | Requests per minute |
-|---------------|---------------------|---------------------|
-| S / Multi-service | 1000                | 1000                |
-| F0         | 100                 | 300                 |
 
 
 ## Get results from the service
@@ -88,6 +65,30 @@ The meaning of medical content is highly affected by modifiers, such as negative
 * certainty
 * conditional
 * association
+
+
+## Data limits
+
+> [!NOTE]
+> * If you need to analyze larger documents than the limit allows, you can break the text into smaller chunks of text before sending them to the API. For best results, split text between sentences.
+> * A document is a single string of text characters.  
+
+| Limit | Value |
+|------------------------|---------------|
+| Maximum size of a single document | 5,120 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
+| Maximum size of entire request | 1 MB |
+| Max Documents Per Request | 10 for the web-based API, 1000 for the container. |
+
+If a document exceeds the character limit, the API won't process a document that exceeds the maximum size, and will return an invalid document error for it. If an API request has multiple documents, the API will continue processing them if they are within the character limit.
+
+### Rate limits
+
+Your rate limit will vary with your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). These limits are the same for both versions of the API. These rate limits don't apply to the Text Analytics for health container, which does not have a set rate limit.
+
+| Tier          | Requests per second | Requests per minute |
+|---------------|---------------------|---------------------|
+| S / Multi-service | 1000                | 1000                |
+| F0         | 100                 | 300                 |
 
 ## See also
 
