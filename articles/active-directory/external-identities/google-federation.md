@@ -86,7 +86,7 @@ Modify your apps to use the system browser for sign-in. For details, see [Embedd
 Before Google puts these changes into place on September 30, 2021, Microsoft will deploy a workaround for apps still using embedded web-views to ensure that authentication isn't blocked. Users who sign in with a Gmail account in an embedded web-view will be prompted to enter a code in a separate browser to finish signing in.
 
 Alternatively, you can have your existing and new Gmail users sign in with email one-time passcode. To have your Gmail users use email one-time passcode:
-1. [Enable email one-time passcode](https://docs.microsoft.com/en-us/azure/active-directory/external-identities/one-time-passcode#enable-email-one-time-passcode)
+1. [Enable email one-time passcode](one-time-passcode.md#enable-email-one-time-passcode)
 2. [Remove Google Federation](https://docs.microsoft.com/en-us/azure/active-directory/external-identities/google-federation#how-do-i-remove-google-federation)
 3. [Reset redemption status](https://docs.microsoft.com/en-us/azure/active-directory/external-identities/reset-redemption-status) of your Gmail users so they can use email one-time passcode instead.
 
