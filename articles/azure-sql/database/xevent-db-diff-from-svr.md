@@ -10,7 +10,7 @@ ms.topic: reference
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: 
-ms.date: 07/15/2021
+ms.date: 07/23/2021
 ---
 # Extended events in Azure SQL Database 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
