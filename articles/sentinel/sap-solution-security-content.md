@@ -30,7 +30,7 @@ For example:
 
 :::image type="content" source="media/sap/sap-workbook.png" alt-text="SAP - System Applications and Products workbook.":::
 
-For more information, see [Tutorial: Visualize and monitor your data](tutorial-monitor-your-data.md).
+For more information, see [Visualize and monitor your data](tutorial-monitor-your-data.md).
 
 ## Built-in analytics rules
 

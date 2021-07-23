@@ -14,7 +14,7 @@ ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4
 
 # What is Azure Machine Learning designer? 
 
-Azure Machine Learning designer is a drag-and-drop interface used to train and deploy models in Azure Machine Learning. 
+Azure Machine Learning designer is a drag-and-drop interface used to train and deploy models in Azure Machine Learning. This article describes the tasks you can do in the designer.
 
 To get started with the designer, see [Tutorial: Train a no-code regression model](tutorial-designer-automobile-price-train-score.md)
 
@@ -101,6 +101,8 @@ To perform real-time inferencing, you must deploy a pipeline as a **real-time en
 Real-time endpoints must be deployed to an Azure Kubernetes Service cluster.
 
 To learn how to deploy your model, see [Tutorial: Deploy a machine learning model with the designer](tutorial-designer-automobile-price-deploy.md).
+
+[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
 
 ## Publish
 

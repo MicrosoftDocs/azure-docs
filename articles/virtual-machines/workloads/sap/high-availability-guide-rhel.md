@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/12/2021
+ms.date: 07/22/2021
 ms.author: radeltch
 
 ---
@@ -554,7 +554,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo pcs resource create rsc_sap_<b>NW1</b>_ASCS00 SAPInstance \
     InstanceName=<b>NW1</b>_ASCS00_<b>nw1-ascs</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ASCS00_<b>nw1-ascs</b>" \
     AUTOMATIC_RECOVER=false \
-    meta resource-stickiness=5000 migration-threshold=1 failure-timeout=60 \
+    meta resource-stickiness=5000 migration-threshold=1 \
     op monitor interval=20 on-fail=restart timeout=60 \
     op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-<b>NW1</b>_ASCS
