@@ -29,7 +29,7 @@ All tasks that you create against resources using Azure Resource Manager and the
 
 ## Managed identities (preview)
 
-A managed identity from Azure Active Directory (Azure AD) allows your runbook to easily access other Azure AD-protected resources. The identity is managed by the Azure platform and doesn't require you to provision or rotate any secrets. For more information about managed identities in Azure AD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+A managed identity from Azure Active Directory (Azure AD) allows your runbook to easily access other Azure AD-protected resources. The identity is managed by the Azure platform and doesn't require you to provision or rotate any secrets. For more information about managed identities in Azure AD, see [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview).
 
 Here are some of the benefits of using managed identities:
 
@@ -48,7 +48,7 @@ An Automation account can be granted two types of identities:
 - A user-assigned identity is a standalone Azure resource that can be assigned to your app. An app can have multiple user-assigned identities.
 
 > [!NOTE]
-> User assigned identities are supported for cloud jobs only. To learn more about the different managed identities, see [Manage identity types](/active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
+> User assigned identities are supported for cloud jobs only. To learn more about the different managed identities, see [Manage identity types](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types).
 
 For details on using managed identities, see [Enable managed identity for Azure Automation (preview)](enable-managed-identity-for-automation.md).
 
