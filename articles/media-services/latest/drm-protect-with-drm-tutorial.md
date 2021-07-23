@@ -54,7 +54,7 @@ The following items are required to complete the tutorial:
 * Get credentials needed to use Media Services APIs by following [Access APIs](./access-api-howto.md)
 * Set the appropriate values in the app configuration file (appsettings.json or .env file).
 
-## Download code and configure the sample
+## Download the code and configure the sample
 
 Clone a GitHub repository that contains the full .NET sample discussed in this article to your machine using the following command:
 

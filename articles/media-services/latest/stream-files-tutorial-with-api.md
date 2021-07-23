@@ -45,7 +45,7 @@ This tutorial shows you how to:
 - [Create a Media Services account](./account-create-how-to.md). Be sure to copy the **API Access** details in JSON format or store the values needed to connect to the Media Services account in the *.env* file format used in this sample.
 - Follow the steps in [Access the Azure Media Services API with the Azure CLI](./access-api-howto.md) and save the credentials. You'll need to use them to access the API in this sample, or enter them into the *.env* file format.
 
-## Download and set up the sample
+## Download and configure the sample
 
 Clone a GitHub repository that has the streaming .NET sample to your machine using the following command:  
 
