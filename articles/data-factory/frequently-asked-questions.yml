@@ -118,7 +118,7 @@ sections:
           An integration runtime provides the bridge between the activity and linked Services. It's referenced by the linked service or activity, and provides the compute environment where the activity either runs on or gets dispatched from. This way, the activity can be performed in the region closest possible to the target data store or compute service in the most performant way while meeting security and compliance needs.
 
           Integration runtimes can be created in the Azure Data Factory UX via the management hub and any activities, datasets, or data flows that reference them.
-          For more information, see [Integration runtime in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtim).
+          For more information, see [Integration runtime in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime).
           
       - question: |
           What is the limit on the number of integration runtimes?
@@ -136,9 +136,10 @@ sections:
           
           ### Data flows
           
-          Data flows are objects that you build visually in Data Factory which transform data at scale on backend Spark services. You do not need to understand programming or Spark internals. Just design your data transformation intent using graphs (Mapping) or spreadsheets (Wrangling).
+          Data flows are objects that you build visually in Data Factory which transform data at scale on backend Spark services. You do not need to understand programming or Spark internals. 
+          Just design your data transformation intent using graphs (Mapping) or spreadsheets (Power query activity).
           
-          ### Activities
+           ### Activities
           
           Activities represent a processing step in a pipeline. For example, you can use a Copy activity to copy data from one data store to another data store. Similarly, you can use a Hive activity, which runs a Hive query on an Azure HDInsight cluster to transform or analyze your data. Data Factory supports three types of activities: data movement activities, data transformation activities, and control activities.
           
@@ -278,7 +279,7 @@ sections:
           Data factory is available in following [regions.](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory)
           Power query feature is being rolled out to all regions. If the feature is not available in your region, please check with support.
           
-          ### What are the limitations and constraints with wrangling data flow?
+          ### What are the limitations and constraints with Power Query actvity?
           
           Dataset names can only contain alpha-numeric characters. The following data stores are supported:
           
@@ -289,7 +290,7 @@ sections:
           
           At this time, linked service Key Vault integration is not supported in wrangling data flows.
           
-          ### What is the difference between mapping and wrangling data flows?
+          ### What is the difference between mapping data flow and Power query actvity (wrangling data flow)?
           
           Mapping data flows provide a way to transform data at scale without any coding required. You can design a data transformation job in the data flow canvas by constructing a series of transformations. Start with any number of source transformations followed by data transformation steps. Complete your data flow with a sink to land your results in a destination. Mapping data flow is great at mapping and transforming data with both known and unknown schemas in the sinks and sources.
           
