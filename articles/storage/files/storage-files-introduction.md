@@ -1,6 +1,6 @@
 ---
 title: Introduction to Azure Files | Microsoft Docs
-description: An overview of Azure Files, a service that enables you to create and use network file shares in the cloud using the industry standard SMB protocol.
+description: An overview of Azure Files, a service that enables you to create and use network file shares in the cloud using either SMB or NFS protocols.
 author: roygara
 ms.service: storage
 ms.topic: overview
@@ -10,7 +10,7 @@ ms.subservice: files
 ---
 
 # What is Azure Files?
-Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) or [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System). Azure file shares can be mounted concurrently by cloud or on-premises deployments. SMB Azure file shares are accessible from Windows, Linux, and macOS clients. NFS Azure Files shares are accessible from Linux or macOS clients. Additionally, SMB Azure file shares can be cached on Windows Servers with [Azure File Sync](../file-sync/file-sync-introduction.md) for fast access near where the data is being used.
+Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) or [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System). Azure Files file shares can be mounted concurrently by cloud or on-premises deployments. SMB Azure file shares are accessible from Windows, Linux, and macOS clients. NFS Azure Files shares are accessible from Linux or macOS clients. Additionally, SMB Azure file shares can be cached on Windows Servers with [Azure File Sync](../file-sync/file-sync-introduction.md) for fast access near where the data is being used.
 
 Here are some videos on the common use cases of Azure Files:
 * [Replace your file server with a serverless Azure file share](https://sec.ch9.ms/ch9/3358/0addac01-3606-4e30-ad7b-f195f3ab3358/ITOpsTalkAzureFiles_high.mp4)
