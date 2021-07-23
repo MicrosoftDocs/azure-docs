@@ -18,7 +18,7 @@ Cognitive Search uses API keys as its primary authentication methodology. For in
 API keys are generated when the service created. Passing a valid API key on the request is considered proof that the request is from an authorized client. There are two kinds of keys. *Admin keys* convey write permissions on the service and also grant rights to query system information. *Query keys* convey read permissions and can be used by apps to query a specific index. 
 
 > [!NOTE]
-> Authorization for data plane operations using Azure role-based access control (RBAC) is now in preview. You can use this preview capability if you want to [use role assignments instead of API keys](search-security-rbac.md).
+> Authorization for data plane operations using Azure role-based access control (RBAC) is now in preview. You can use this preview capability to supplement or replace API keys [with Azure roles for Search](search-security-rbac.md). 
 
 ## Using API keys in search
 
