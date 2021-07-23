@@ -4,6 +4,7 @@ description: Learn how to copy data from Salesforce Service Cloud to supported s
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: datamovement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021

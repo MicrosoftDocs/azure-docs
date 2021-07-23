@@ -4,6 +4,7 @@ description: Learn how to create a predictive pipeline by using Azure Machine Le
 author: nabhishek
 ms.author: abnarain
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/16/2020

@@ -4,6 +4,7 @@ description: Learn how to set up a source transformation in mapping data flow.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: dataflows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/10/2021

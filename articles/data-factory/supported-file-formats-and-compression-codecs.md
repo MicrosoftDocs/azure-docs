@@ -3,6 +3,7 @@ title: Supported file formats by copy activity in Azure Data Factory
 description: 'This topic describes the file formats and compression codes that are supported by copy activity in Azure Data Factory.'
 author: jianleishen
 ms.service: data-factory
+ms.subservice: datamovement
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: jianleishen

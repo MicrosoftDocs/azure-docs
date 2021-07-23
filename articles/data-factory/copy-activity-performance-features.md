@@ -4,6 +4,7 @@ description: Learn about the key features that help you optimize the copy activi
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: datamovement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/24/2020

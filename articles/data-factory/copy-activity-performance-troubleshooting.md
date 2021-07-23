@@ -4,6 +4,7 @@ description: Learn about how to troubleshoot copy activity performance in Azure 
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: datamovement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/07/2021

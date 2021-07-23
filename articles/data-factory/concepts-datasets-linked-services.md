@@ -5,6 +5,7 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: datamovement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/24/2020

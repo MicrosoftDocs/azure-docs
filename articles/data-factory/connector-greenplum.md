@@ -3,6 +3,7 @@ title: Copy data from Greenplum using Azure Data Factory
 description: Learn how to copy data from Greenplum to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: datamovement
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jianleishen

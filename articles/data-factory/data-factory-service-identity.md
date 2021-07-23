@@ -1,11 +1,12 @@
 ---
 title: Managed identity for Data Factory 
 description: Learn about managed identity for Azure Data Factory. 
-author: nabhishek
+author: chugu
+ms.author: chugugrace 
 ms.service: data-factory
+ms.subservice: security
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.author: abnarain 
 ms.custom: devx-track-azurepowershell
 ---
 

@@ -3,6 +3,7 @@ title: Azure Data Factory connector overview
 description: Learn the supported connectors in Data Factory.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: datamovement
 ms.topic: conceptual
 ms.date: 05/26/2021
 ms.author: jianleishen

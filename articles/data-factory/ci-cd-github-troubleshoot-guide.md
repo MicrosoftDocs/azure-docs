@@ -5,6 +5,7 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: susabat
 ms.service: data-factory
+ms.subservice: ci-cd
 ms.topic: troubleshooting
 ms.date: 06/27/2021
 ---

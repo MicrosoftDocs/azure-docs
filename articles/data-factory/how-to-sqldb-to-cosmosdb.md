@@ -4,6 +4,7 @@ description: Take an existing normalized database schema from Azure SQL Database
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.date: 04/29/2020
 ---

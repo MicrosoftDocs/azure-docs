@@ -4,6 +4,7 @@ description: Start an interactive debug session when building data flows
 ms.author: makromer
 author: kromerm
 ms.service: data-factory
+ms.subservice: dataflows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/16/2021

@@ -4,6 +4,7 @@ description: Learn how to copy data from SAP ECC to supported sink data stores b
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
+ms.subservice: datamovement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/28/2020

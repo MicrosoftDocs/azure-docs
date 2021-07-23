@@ -4,6 +4,7 @@ description: Learn how to copy data from an on-premises data store to the Azure 
 author: nabhishek
 ms.author: abnarain
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019, devx-track-azurepowershell
 ms.date: 02/18/2021

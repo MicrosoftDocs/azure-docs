@@ -4,6 +4,7 @@ description: Learn how to copy data from Spark to supported sink data stores by 
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: datamovement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019

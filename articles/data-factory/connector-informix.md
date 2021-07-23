@@ -3,6 +3,7 @@ title: Copy data from and to IBM Informix using Azure Data Factory
 description: Learn how to copy data from and to IBM Informix by using a copy activity in an Azure Data Factory pipeline.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: datamovement
 ms.topic: conceptual
 ms.date: 03/17/2021
 ms.author: jianleishen

@@ -3,6 +3,7 @@ title: Copy data from and to a REST endpoint by using Azure Data Factory
 description: Learn how to copy data from a cloud or on-premises REST source to supported sink data stores, or from supported source data store to a REST sink by using a copy activity in an Azure Data Factory pipeline.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: datamovement
 ms.topic: conceptual
 ms.date: 03/16/2021
 ms.author: jianleishen

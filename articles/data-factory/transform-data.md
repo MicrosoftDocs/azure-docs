@@ -2,6 +2,7 @@
 title: Transform data
 description: Transform data or process data in Azure Data Factory using Hadoop, Azure Machine Learning Studio (classic), or Azure Data Lake Analytics.
 ms.service: data-factory
+ms.subservice: data flow
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain

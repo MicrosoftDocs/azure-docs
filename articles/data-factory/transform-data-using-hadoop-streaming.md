@@ -4,6 +4,7 @@ description: Explains how to use Hadoop Streaming Activity in Azure Data Factory
 author: nabhishek
 ms.author: abnarain
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/08/2020

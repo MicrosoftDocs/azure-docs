@@ -4,6 +4,7 @@ description: How to visually monitor mapping data flows in Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: dataflows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/18/2021

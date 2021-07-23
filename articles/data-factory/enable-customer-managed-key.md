@@ -1,11 +1,12 @@
 ---
 title: Encrypt Azure Data Factory with customer-managed key
 description: Enhance Data Factory security with Bring Your Own Key (BYOK)
-author: chez-charlie
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
+ms.subservice: security
 ms.topic: quickstart
 ms.date: 05/08/2020
-ms.author: chez
 ms.reviewer: mariozi
 ---
 # Encrypt Azure Data Factory with customer-managed keys

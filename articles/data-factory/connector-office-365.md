@@ -3,6 +3,7 @@ title: Copy data from Office 365 using Azure Data Factory
 description: Learn how to copy data from Office 365 to supported sink data stores by using copy activity in an Azure Data Factory pipeline.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: datamovement
 ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jianleishen

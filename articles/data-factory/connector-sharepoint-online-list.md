@@ -3,6 +3,7 @@ title: Copy data from SharePoint Online List by using Azure Data Factory
 description: Learn how to copy data from SharePoint Online List to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: datamovement
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: jianleishen

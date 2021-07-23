@@ -2,6 +2,7 @@
 title: Parameterize linked services in Azure Data Factory 
 description: Learn how to parameterize linked services in Azure Data Factory and pass dynamic values at run time.
 ms.service: data-factory
+ms.subservice: datamovement
 ms.topic: conceptual
 ms.date: 06/01/2021
 author: chez-charlie

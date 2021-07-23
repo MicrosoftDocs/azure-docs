@@ -4,6 +4,7 @@ description: Azure Data Factory mapping data flow Select Transformation
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: dataflows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/02/2020

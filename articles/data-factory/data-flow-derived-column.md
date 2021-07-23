@@ -4,6 +4,7 @@ description: Learn how to transform data at scale in Azure Data Factory with the
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: dataflows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/14/2020
