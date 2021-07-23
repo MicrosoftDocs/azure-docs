@@ -7,11 +7,11 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 07/22/2021
+ms.date: 07/23/2021
 ms.author: alkohli
 ---
 
-# Troubleshoot network connection to Azure Data Box
+# Troubleshoot lost connection to Azure Data Box
 
 <!--[!INCLUDE [<title>](<filepath>)] - Will a SKU tag be needed?-->
 
@@ -21,30 +21,27 @@ This article describes how to troubleshoot network issues when you can't connect
 
 ### Possible causes
 
-A failed connection to a Data Box device may be caused by any of the following issues:
+The most common causes of a lost connection to a Data Box include:
 
-- domain issue
+- a domain issue
 - a group policy is preventing a connection
-- permissions issue<!--What about certificates?-->
+- a permissions issue<!--What about certificates?-->
 
 
 ### Check for a domain issue
 
-1. To check for a domain issue, try to sign on to the device using one of the following credentials:
+1. Check for a domain issue. Use one of the following formats to sign in to your device:<!--1) Step 1 is to open the device by typing "https://<device IP>" in their browser? Use RDC? Or do we assume -->
 
-   - `<device IP address>\<username>`
-   - `\<username>`
+   - `<device IP address>\<user name>`
+   - `\<user name>`
 
-   If you can't connect with either of the credentials, the issue is not a domain issue.
+   If the credentials don't work in either format, the problem isn't a domain issue.
 
-1. To find out whether a group policy is preventing the connection:
-    1. Move the client/host machine to an organizational unit (OU) that does not have any group policies applied. LINK TO INSTRUCTIONS.
+1. To check whether a group policy is preventing the connection, move the client/host machine to an organizational unit (OU) that doesn't have any group policies applied if possible. LINK TO INSTRUCTIONS.
 
-   1. Connect to your Data Box. 
+1. If you can't connect to the device in the new OU, you need to run diagnostics:
 
-1. If you can't connect to the device in the new OU, run diagnostics:
-
-   1. Run diagnostics to identify other issues that might be preventing a connection: LINK TO PORTAL INSTRUCTIONS.
+   1. [Run diagnostics and collect device logs](azure-stack-edge-gpu-troubleshoot.md) to identify other issues that might be preventing a connection:
 
    1. Review the `Smbserver.Security` event logs in the `etw` folder for an error similar to one of the errors identified (in bold) in the following sample entry.<!--Different format to get bold or highlights?-->
    
