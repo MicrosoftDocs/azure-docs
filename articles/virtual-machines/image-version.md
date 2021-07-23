@@ -92,29 +92,11 @@ You can also capture an existing VM as an image, from the portal. For more infor
 
 ### [CLI](#tab/cli)
 
-You can see a list of VMs that are available using [az vm list](/cli/azure/vm#az_vm_list). 
-
-```azurecli-interactive
-az vm list --output table
-```
-
-Once you know the VM name and what resource group it is in, get the ID of the VM using [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view). 
-
-```azurecli-interactive
-az vm get-instance-view -g MyResourceGroup -n MyVm --query id
-```
-
-**Create an image definition**
-
-Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them.
-
-Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes, and periods. 
+Create an image definition in the gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az_sig_image_definition_create). Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them.
 
 Make sure your image definition is the right type. If you have generalized the VM (using Sysprep for Windows, or waagent -deprovision for Linux) then you should create a generalized image definition using `--os-state generalized`. If you want to use the VM without removing existing user accounts, create a specialized image definition using `--os-state specialized`.
 
 For more information about the values you can specify for an image definition, see [Image definitions](shared-image-galleries.md#image-definitions).
-
-Create an image definition in the gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az_sig_image_definition_create).
 
 In this example, the image definition is named *myImageDefinition*, and is for a [specialized](shared-image-galleries.md#generalized-and-specialized-images) Linux OS image. To create a definition for images using a Windows OS, use `--os-type Windows`. 
 
