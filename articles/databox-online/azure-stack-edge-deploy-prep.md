@@ -53,15 +53,13 @@ Before you begin, make sure that:
 
 * RBAC roles: You have the following role assignments in Azure role-based access control (RBAC):
 
-  * To create Azure Stack Edge/Data Box Gateway, IoT Hub, and Azure storage resources, you must have the Contributor or Owner role at the Resource Group scope.
+  * To create Azure Stack Edge, IoT Hub, and Azure storage resources, you must have the Contributor or Owner role at resource group scope.
 
-  * To create a Storage account resource, you must have the Contributor or Owner role at the Resource Group scope.
-
-  * To assign the Contributor role to users at the Resource Group scope, you must have the Owner role at the Subscription scope.
+  * To assign the Contributor role to a user at resource group scope, you must have the Owner role at subscription scope.
 
   For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-* Resource providers: The following resource providers are registered. **To register a resource provider, you must have been assigned the related RBAC role (above).**
+* Resource providers: The following resource providers are registered: 
 
   * To create an Azure Stack Edge/Data Box Gateway resource, make sure the `Microsoft.DataBoxEdge`provider is registered.
 
@@ -69,17 +67,9 @@ Before you begin, make sure that:
 
   * To create a Storage account resource, make sure Azure Storage is registered. The Azure Storage Resource Provider (SRP) is by default a registered resource provider, but in some cases registration may be needed.
 
+  **To register a resource provider, you must have been assigned the related RBAC role, above.**
+
   For information on how to register, see [Register resource provider](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
-
-<!--REPLACED TEXT:
-
-  * You have owner or contributor access at resource group level for the Azure Stack Edge / Data Box Gateway, IoT Hub, and Azure Storage resources.
-
-  * You should be an **Owner** at the subscription level to grant contributor access. To give contributor access to someone else, in Azure portal, go to **All Services** > **Subscriptions** > **Access control (IAM)** > **+Add** > **Add role assignment**. For more information, see [Tutorial: Grant a user access to Azure resources using the Azure portal](../role-based-access-control/quickstart-assign-role-user-portal.md).
-
-  * To create any Azure Stack Edge / Data Box Gateway resource, you should have permissions as a contributor (or higher) scoped at resource group level. You also need to make sure that the `Microsoft.DataBoxEdge` resource provider is registered. For information on how to register a resource provider, see [Register resource provider](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
-  * To create any IoT Hub resource, make sure that the Microsoft.Devices provider is registered. For information on how to register, go to [Register resource provider](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
-  * To create a Storage account resource, again you need contributor or higher access scoped at the resource group level. Azure Storage is by default a registered resource provider.-->
 
 * You have admin or user access to Azure Active Directory Graph API. For more information, see [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 
