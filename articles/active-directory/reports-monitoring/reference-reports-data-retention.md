@@ -43,7 +43,7 @@ In this article, you learn about the data retention policies for the different a
 
 ### How soon can I see activities data after getting a premium license?
 
-If you already have activities data with your free license, then you can see it immediately on upgrade. If you don’t have any data, then it will take up to three days for the data to show up in the reports after you upgrade to a premium license.
+If you upgrade to a premium license, it will take up to three days until the change takes effect on activity reports. After up to three days, Azure AD will start to store the activity data for 30 days. If you already have activities data with your free license, then you can see it immediately. The activities will be stored for 7 days until the upgrade to a premium license completes.
 
 ---
 
