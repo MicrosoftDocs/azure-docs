@@ -164,8 +164,9 @@ The SAS token you generate for your Azure Storage container must specify **rwl**
 There are scenarios where intensive use of extended events can accumulate more active memory than is healthy for the overall system. Therefore Azure SQL Database dynamically sets and adjusts limits on the amount of active memory that can be accumulated by an event session. Many factors go into the dynamic calculation.
 
 There is a cap on memory available to XEvent sessions in Azure SQL Database:
-  - In single Azure SQL Database, each database can use up to 128 MB in General Purpose tier and 256 MB in Business Critical tier.
-  - In elastic pool, each database can use up to 128 MB, but in total they cannot exceed 512 MB.
+  - In single Azure SQL Database in the DTU purchasing model, each database can use up to 128 MB. This is raised to 256 MB only in the Premium tier.
+  - In single Azure SQL Database in the vCore purchasing model, each database can use up to 128 MB.
+  - In an elastic pool, each database can use up to 128 MB, but in total they cannot exceed 512 MB.
 
 If you receive an error message that says a memory maximum was enforced, some corrective actions you can take are:
 
