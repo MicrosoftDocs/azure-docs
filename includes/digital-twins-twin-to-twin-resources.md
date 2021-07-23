@@ -9,7 +9,7 @@ ms.author: baanders
 
 ### Create the event grid topic
 
-[Event Grid](../articles/event-grid/overview.md) is an Azure service that helps you route and deliver events coming from Azure Services to other places within Azure. You can create an [event grid topic](../articles/event-grid/concepts.md) to collect certain events from a source, and then subscribers can listen on the topic to receive the events as they come through.
+[Event Grid](../articles/event-grid/overview.md) is an Azure service that helps route and deliver events from Azure Services to other places within Azure. You can create an [event grid topic](../articles/event-grid/concepts.md) to collect certain events from a source, and then subscribers can listen on the topic to receive the events as they come through.
 
 In Azure Cloud Shell, run the following command to create an event grid topic:
 
@@ -17,11 +17,11 @@ In Azure Cloud Shell, run the following command to create an event grid topic:
 az eventgrid topic create --resource-group <your-resource-group> --name <name-for-your-event-grid-topic> --location <region>
 ```
 
-The output from this command is information about the event grid topic you've created.
+The output from this command is information about the event grid topic you've created. Save the **name** that you gave to your event grid topic, because you'll use it later.
 
 ### Create the endpoint
 
-Next, create an Event Grid endpoint in Azure Digital Twins, which will connect your instance to your event grid topic. Use the command below, filling in the placeholder fields as necessary:
+Next, create an Event Grid endpoint in Azure Digital Twins, which will connect your instance to your event grid topic. Use the command below, filling in the name of your event grid topic and the other placeholder fields as needed.
 
 ```azurecli-interactive
 az dt endpoint create eventgrid --dt-name <Azure-Digital-Twins-instance> --eventgrid-resource-group <your-resource-group> --eventgrid-topic <your-event-grid-topic> --endpoint-name <name-for-your-Azure-Digital-Twins-endpoint>
@@ -33,17 +33,17 @@ Look for the `provisioningState` field in the output, and check that the value i
 
 :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/output-endpoints.png" alt-text="Screenshot of the result of the endpoint query in the Cloud Shell of the Azure portal, showing the endpoint with a provisioningState of Succeeded.":::
 
-It may also say "Provisioning", meaning that the endpoint is still being created. In this case, wait a few seconds and run the following command again to check the status of the endpoint. Repeat until the `provisioningState` shows "Succeeded."
+It may also say "Provisioning", meaning that the endpoint is still being created. If so, wait a few seconds and run the following command to check the status of the endpoint. Repeat until the `provisioningState` shows "Succeeded."
 
 ```azurecli-interactive
 az dt endpoint show --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> 
 ```
 
-Save the names that you gave to your **event grid topic** and your Event Grid **endpoint** in Azure Digital Twins. You will use them later.
+Save the **name** of your endpoint, because you'll use it later.
 
 ### Create the route
 
-Next, create an Azure Digital Twins route that sends events to the Event Grid endpoint you just created.
+Next, create an Azure Digital Twins route that sends events to the Event Grid endpoint you just created. Use the following command, filling in the name of your endpoint and the other placeholder fields as needed.
 
 ```azurecli-interactive
 az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> --route-name <name-for-your-Azure-Digital-Twins-route>

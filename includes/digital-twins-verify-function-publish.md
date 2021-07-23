@@ -9,14 +9,16 @@ ms.author: baanders
 
 ### Verify the publication of your function
 
-1. Sign in by using your credentials in the [Azure portal](https://portal.azure.com/).
+Once the function publish is complete, you can use these steps to verify that the publish was successful.
+ 
+1. Navigate to the [Azure portal](https://portal.azure.com/) and sign in with your credentials.
 2. In the search box at the top of the window, search for your function app name and then select it.
 
     :::image type="content" source="../articles/digital-twins/media/how-to-create-azure-function/search-function-app.png" alt-text="Screenshot showing the Azure portal. In the search field, enter the function app name." lightbox="../articles/digital-twins/media/how-to-create-azure-function/search-function-app.png":::
 
-3. On the **Function app** page that opens, in the menu on the left, choose **Functions**. If your function is successfully published, its name appears in the list.
-
-    > [!Note] 
-    > You might have to wait a few minutes or refresh the page couple of times before your function appears in the list of published functions.
+3. On the **Function app** page that opens, select **Functions** from the left menu. Look for the name of your function in the list to verify that it was published successfully.
 
     :::image type="content" source="../articles/digital-twins/media/how-to-create-azure-function/view-published-functions.png" alt-text="Screenshot showing published functions in the Azure portal." lightbox="../articles/digital-twins/media/how-to-create-azure-function/view-published-functions.png":::
+
+    > [!Note] 
+    > You might have to wait a few minutes or refresh the page before your function appears in the list of published functions.
