@@ -255,10 +255,21 @@ Returns a date/time string representing a date to which a specified time interva
 **Parameters:** 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **interval** |Required | String | Interval of time you want to add. The string must have one of the following values: <br> * yyyy Year  <br> * q Quarter <br>  * m Month <br> * y Day of year <br> * d Day <br> * w Weekday <br> * ww Week <br> * h Hour <br> * n Minute <br> * s Second |
+| **interval** |Required | String | Interval of time you want to add. See accepted values below this table. |
 | **value** |Required | Number | The number of units you want to add. It can be positive (to get dates in the future) or negative (to get dates in the past). |
 | **dateTime** |Required | DateTime | DateTime representing date to which the interval is added. |
 
+The **interval** string must have one of the following values: 
+ * yyyy Year 
+ * q Quarter
+ * m Month
+ * y Day of year
+ * d Day
+ * w Weekday
+ * ww Week
+ * h Hour
+ * n Minute
+ * s Second
 
 **Example 1: Add 7 days to hire date**  
 `DateAdd("d", 7, CDate([StatusHireDate]))`
