@@ -94,8 +94,6 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 >    We recommend extracting the archive into a directory near the root of your drive to avoid errors caused by path length limitations on Windows.
 > 1. Open the solution in Visual Studio 2019.
 > 1. Open the *appsettings.json* file and modify the following code:
->
->
 
 ```json
 "Domain": "[Enter the domain of your tenant, e.g. contoso.onmicrosoft.com]",
@@ -154,7 +152,6 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-
 The `AddAuthentication()` method configures the service to add cookie-based authentication. This authentication is used in browser scenarios and to set the challenge to OpenID Connect.
 
 The line that contains `.AddMicrosoftIdentityWebApp` adds Microsoft identity platform authentication to your application. The application is then configured to sign in users based on the following information in the `AzureAD` section of the *appsettings.json* configuration file:
@@ -179,7 +176,6 @@ app.UseEndpoints(endpoints =>
     endpoints.MapRazorPages();
 });
 ```
-
 
 ### Attribute for protecting a controller or methods
 
