@@ -131,20 +131,20 @@ This article shows you how to complete these tasks:
 
 ## Test your logic app
 
-By using [Postman](https://www.getpostman.com/postman) or a similar tool, post JSON input to your logic app, for example:
+1. By using [Postman](https://www.getpostman.com/postman) or a similar tool and the `POST` method, send a call to the Request trigger's URL and include the JSON input to transform, for example:
 
-```json
-{
-   "devices": "Surface, Windows Phone, Desktop computer, Monitors",
-   "firstName": "Dan",
-   "lastName": "Budimir",
-   "phone": "(999)9999999"
-}
-```
+   ```json
+   {
+      "devices": "Surface, Windows Phone, Desktop computer, Monitors",
+      "firstName": "Dean",
+      "lastName": "Ledet",
+      "phone": "(111)5551111"
+   }
+   ```
 
-The transformed JSON output from your logic app looks like this example:
+1. After your workflow finishes running, go to the workflow's run history, and examine the **Transform JSON to JSON** action's inputs and outputs, for example:
 
-![Example output](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontojson.png)
+   ![Example output](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontojson.png)
 
 <a name="template-considerations"></a>
 
