@@ -15,21 +15,21 @@ ms.author: davidmu
 
 # What is single sign-on?
 
-This article provides you with a information about what single sign-on (SSO) is in relation to your applications and Azure Active Directory (Azure AD). Using SSO means a user doesn't have to sign into every application they use. The user logs in once and that credential is used for other apps too. With SSO, users can access all needed applications without being required to authenticate a second time. 
+This article provides you with information about what single sign-on (SSO) is in relation to your applications and Azure Active Directory (Azure AD). Using SSO means a user doesn't have to sign into every application they use. The user logs in once and that credential is used for other apps too. With SSO, users can access all needed applications without being required to authenticate a second time. 
 
 Many applications already exist in Azure Active Directory (Azure AD) that you can use with SSO. You have several options for SSO depending on the needs of the application and how it is implemented. Take time to plan your SSO deployment before you create applications in Azure AD. The management of applications can be made easier by using the MyApps portal.
 
 ## SSO options
 
-Choosing a SSO method depends on how the application is configured for authentication. Cloud applications can use federation-based options, such as OpenID Connect, OAuth, and SAML, or password-based, linked, or disabled methods.
+Choosing an SSO method depends on how the application is configured for authentication. Cloud applications can use federation-based options, such as OpenID Connect, OAuth, and SAML, or password-based, linked, or disabled methods.
 
 - **Federation** - When you set up SSO to work between multiple identity providers, it's called federation. An SSO implementation based on federation protocols improves security, reliability, end-user experiences, and implementation. 
 
-With federated single sign-on, Azure AD authenticates the user to the application by using their Azure AD account. This method is supported for [SAML 2.0](../develop/single-sign-on-saml-protocol.md), WS-Federation, or [OpenID Connect](../develop/active-directory-v2-protocols.md) applications. Federated SSO is the richest mode of SSO. Use federated SSO with Azure AD when an application supports it, instead of password-based SSO and Active Directory Federation Serices (AD FS).
+With federated single sign-on, Azure AD authenticates the user to the application by using their Azure AD account. This method is supported for [SAML 2.0](../develop/single-sign-on-saml-protocol.md), WS-Federation, or [OpenID Connect](../develop/active-directory-v2-protocols.md) applications. Federated SSO is the richest mode of SSO. Use federated SSO with Azure AD when an application supports it, instead of password-based SSO and Active Directory Federation Services (AD FS).
 
 There are some scenarios where the single sign-on option is not present for an enterprise application. If the application was registered using **App registrations** in the portal, then the single sign-on capability is configured to use OpenID Connect and OAuth by default. In this case, the single sign-on option won't appear in the navigation under enterprise applications.
 
-Other scenarios where single sign-on is not available include when an application is hosted in another tenant, or if your account does not have the required permissions (Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal). Permissions can also cause a scenario where you can open single sign-on but won't be able to save.
+Single sign-on is not available when an application is hosted in another tenant. Single sign-on is also not available if your account doesn't have the required permissions (Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal). Permissions can also cause a scenario where you can open single sign-on but won't be able to save.
 
 Authentication fundamentals: Federation | Azure Active Directory
 
@@ -43,9 +43,9 @@ With password-based single sign-on, users sign in to the application with a user
 
 Web applications are hosted by various companies and made available as a service. Some popular examples of web applications include Microsoft 365, GitHub, and Salesforce, and there are thousands of others. People access web applications using a web browser on their computer. Single sign-on makes it possible for people to navigate between the various web applications without having to sign in multiple times.
 
-How you implement single sign-on depends on where the application is hosted. Hosting matters because of the way network traffic is routed to access the application. If an application is hosted and accessed over your local network, called an on-premises application, then there is no need for users to access the Internet to use it. If the application is hosted somewhere else, called a cloud hosted application, then users need to access the Internet in order to use it. Cloud hosted applicaitons are also called Software as a Service (SaaS) applications.
+How you implement single sign-on depends on where the application is hosted. Hosting matters because of the way network traffic is routed to access the application. Users don't need to use the Internet to access on-premises applications (hosted on a local network). If the application is hosted in the cloud, users need the Internet to use it. Cloud hosted applications are also called Software as a Service (SaaS) applications.
 
-You can also use single sign-on for on-premises based applications. You let the identity provider know it's being used for the application, and then you configure the application using Application Proxy to trust the identity provider. 
+For cloud applications, federation protocols are used. You can also use single sign-on for on-premises-based applications. You let the identity provider know it's being used for the application, and then you configure the application using Application Proxy to trust the identity provider. 
 
 ## MyApps
 
