@@ -40,13 +40,15 @@ The following database solutions are supported with backup feature:
 
 ## Requirements and restrictions
 
-* The Backup and Restore feature requires the App Service plan to be in the **Standard**, **Premium** or **Isolated** tier. For more information about scaling your App Service plan to use a higher tier, see [Scale up an app in Azure](manage-scale-up.md). **Premium** and **Isolated** tiers allow a greater number of daily back ups than **Standard** tier.
+* The Backup and Restore feature requires the App Service plan to be in the **Standard**, **Premium**, or **Isolated** tier. For more information about scaling your App Service plan to use a higher tier, see [Scale up an app in Azure](manage-scale-up.md). **Premium** and **Isolated** tiers allow a greater number of daily back ups than **Standard** tier.
 * You need an Azure storage account and container in the same subscription as the app that you want to back up. For more information on Azure storage accounts, see [Azure storage account overview](../storage/common/storage-account-overview.md).
 * Backups can be up to 10 GB of app and database content. If the backup size exceeds this limit, you get an error.
 * Backups of TLS enabled Azure Database for MySQL is not supported. If a backup is configured, you will encounter backup failures.
 * Backups of TLS enabled Azure Database for PostgreSQL is not supported. If a backup is configured, you will encounter backup failures.
 * In-app MySQL databases are automatically backed up without any configuration. If you make manually settings for in-app MySQL databases, such as adding connection strings, the backups may not work correctly.
 * Using a firewall enabled storage account as the destination for your backups is not supported. If a backup is configured, you will encounter backup failures.
+* Currently, you can't use the Backup and Restore feature with the Azure App Service VNet Integration feature. 
+* Currently, you can't use the Backup and Restore feature with Azure storage accounts that are configured to use Private Endpoint.
 
 <a name="manualbackup"></a>
 
@@ -156,6 +158,24 @@ The database backup for the app is stored in the root of the .zip file. For SQL 
 
 > [!WARNING]
 > Altering any of the files in your **websitebackups** container can cause the backup to become invalid and therefore non-restorable.
+
+## Troubleshooting
+
+The **Backups** page shows you the status of each backup. If you click on a failed backup, you can get log details regarding the failure. Use the following table to help you troubleshoot your backup. If the failure isn't documented in the table, open a support ticket.
+
+| Error | Fix |
+| - | - |
+| Storage access failed. | Delete backup schedule and reconfigure it. Or, reconfigure the backup storage. |
+| The website + database size exceeds the {0} GB limit for backups. Your content size is {1} GB. | [Exclude some files](#configure-partial-backups) from the backup, or remove the database portion of the backup and use externally offered backups instead. |
+| Error occurred while connecting to the database {0} on server {1}: Authentication to host '{1}' for user '\<username>' using method 'mysql_native_password' failed with message: Unknown database '\<db-name>' | Update database connection string. |
+| Cannot resolve {0}. {1} (CannotResolveStorageAccount) | Delete the backup schedule and reconfigure it. |
+| Login failed for user '{0}'. | Update the database connection string. |
+| Create Database copy of {0} ({1}) threw an exception. Could not create Database copy. | Use an administrative user in the connection string. |
+| The server principal "\<name>" is not able to access the database "master" under the current security context. Cannot open database "master" requested by the login. The login failed. Login failed for user '\<name>'. | Use an administrative user in the connection string. |
+| A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server). | Check that the connection string is valid. Allow the app's [outbound IPs](overview-inbound-outbound-ips.md) in the database server settings. |
+| Cannot open server "\<name>" requested by the login. The login failed. | Check that the connection string is valid. |
+| Missing mandatory parameters for valid Shared Access Signature. | Delete the backup schedule and reconfigure it. |
+| SSL connection is required. Please specify SSL options and retry. when trying to connect. | Use the built-in backup feature in Azure MySQL or Azure Postgressql instead. |
 
 ## Automate with scripts
 

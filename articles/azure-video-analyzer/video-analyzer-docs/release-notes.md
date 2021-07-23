@@ -2,7 +2,7 @@
 title: Azure Video Analyzer release notes - Azure
 description: This topic provides release notes of Azure Video Analyzer releases, improvements, bug fixes, and known issues.
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 06/01/2021
 
 ---
 # Azure Video Analyzer release notes
@@ -18,13 +18,30 @@ This article provides you with information about:
 
 <hr width=100%>
 
+## June 3, 2021
+
+The release tag for the June 2021 refresh of the module is
+
+```
+     mcr.microsoft.com/media/video-analyzer:1.0.1
+```
+> [!NOTE]
+> In the quickstarts and tutorials, the deployment manifests use a tag of 1 (video-analyzer:1). So simply redeploying such manifests should update the module on your edge  devices when newer tags are released.
+
+### Module updates
+* Supports unicode characters in the credentials for connecting to an RTSP camera
+* Updates to enable detailed logs in debug mode
+
+<hr width=100%>
+
 ## May 25, 2021
 
 This release is the first public preview release of Azure Video Analyzer. The release tag is
 
 ```
-     mcr.microsoft.com/media/video-analyzer:1.0.0
+mcr.microsoft.com/media/video-analyzer:1.0.0
 ```
+
 > [!NOTE]
 > In the quickstarts and tutorials, the deployment manifests use a tag of 1 (video-analyzer:1). So simply redeploying such manifests should update the module on your edge  devices when newer tags are released.
 

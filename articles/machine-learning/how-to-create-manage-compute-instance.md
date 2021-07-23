@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli, references_regions
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
-ms.date: 10/02/2020
+ms.date: 07/16/2021
 ---
 
 # Create and manage an Azure Machine Learning compute instance
@@ -93,7 +93,7 @@ For more information on the classes, methods, and parameters used in this exampl
 az ml computetarget create computeinstance  -n instance -s "STANDARD_D3_V2" -v
 ```
 
-For more information, see the [az ml computetarget create computeinstance](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_computeinstance) reference.
+For more information, see the [az ml computetarget create computeinstance](/cli/azure/ml(v1)/computetarget/create#az_ml_computetarget_create_computeinstance) reference.
 
 # [Studio](#tab/azure-studio)
 
@@ -143,7 +143,7 @@ Some examples of what you can do in a setup script:
 
 ### Create the setup script
 
-The setup script is a shell script which runs as *rootuser*.  Create or upload the script into your **Notebooks** files:
+The setup script is a shell script, which runs as *rootuser*.  Create or upload the script into your **Notebooks** files:
 
 1. Sign into the [studio](https://ml.azure.com) and select your workspace.
 2. On the left, select **Notebooks**
@@ -155,7 +155,7 @@ When the script runs, the current working directory of the script is the directo
 
 Script arguments can be referred to in the script as $1, $2, etc.
 
-If your script was doing something specific to azureuser such as installing conda environment or jupyter kernel you will have to put it within *sudo -u azureuser* block like this
+If your script was doing something specific to azureuser such as installing conda environment or jupyter kernel, you will have to put it within *sudo -u azureuser* block like this
 
 ```shell
 #!/bin/bash
@@ -173,7 +173,7 @@ pip install "$PACKAGE"
 conda deactivate
 EOF
 ```
-Please note *sudo -u azureuser* does change the current working directory to */home/azureuser*. You also can't access the script arguments in this block.
+The command *sudo -u azureuser* changes the current working directory to */home/azureuser*. You also can't access the script arguments in this block.
 
 You can also use the following environment variables in your script:
 
@@ -181,6 +181,8 @@ You can also use the following environment variables in your script:
 2. CI_WORKSPACE
 3. CI_NAME
 4. CI_LOCAL_UBUNTU_USER. This points to azureuser
+
+You can use setup script in conjunction with Azure policy to either enforce or default a setup script for every compute instance creation.
 
 ### Use the script in the studio
 
@@ -197,7 +199,7 @@ Once you store the script, specify it during creation of your compute instance:
 
 :::image type="content" source="media/how-to-create-manage-compute-instance/setup-script.png" alt-text="Provisiona compute instance with a setup script in the studio.":::
 
-Please note that if workspace storage is attached to a virtual network you might not be able to access the setup script file unless you are accessing the Studio from within virtual network.
+If workspace storage is attached to a virtual network you might not be able to access the setup script file unless you are accessing the Studio from within virtual network.
 
 ### Use script in a Resource Manager template
 
@@ -214,6 +216,8 @@ In a Resource Manager [template](https://github.com/Azure/azure-quickstart-templ
     }
 }
 ```
+*scriptData* above specifies the location of the creation script in the notebooks file share such as *Users/admin/testscript.sh*.
+*scriptArguments* is optional above and specifies the arguments for the creation script.
 
 You could instead provide the script inline for a Resource Manager template.  The shell command can refer to any dependencies uploaded into the notebooks file share.  When you use an inline string, the working directory for the script is */mnt/batch/tasks/shared/LS_root/mounts/clusters/**ciname**/code/Users*.
 
@@ -237,10 +241,10 @@ Logs from the setup script execution appear in the logs folder in the compute in
 
 ## Manage
 
-Start, stop, restart, and delete a compute instance. A compute instance does not automatically scale down, so make sure to stop the resource to prevent ongoing charges. Stopping a compute instance deallocates it. Then start it again when you need it. While stopping the compute instance stops the billing for compute hours, you will still be billed for disk, public IP, and standard load balancer.
+Start, stop, restart, and delete a compute instance. A compute instance does not automatically scale down, so make sure to stop the resource to prevent ongoing charges. Stopping a compute instance deallocates it. Then start it again when you need it. While stopping the compute instance stops the billing for compute hours, you will still be billed for disk, public IP, and standard load balancer. 
 
 > [!TIP]
-> The compute instance has 120GB OS disk. If you run out of disk space, [use the terminal](how-to-access-terminal.md) to clear at least 1-2 GB before you stop or restart the compute instance.
+> The compute instance has 120GB OS disk. If you run out of disk space, [use the terminal](how-to-access-terminal.md) to clear at least 1-2 GB before you stop or restart the compute instance. Please do not stop the compute instance by issuing sudo shutdown from the terminal.
 
 # [Python](#tab/python)
 
@@ -293,7 +297,7 @@ In the examples below, the name of the compute instance is **instance**
     az ml computetarget stop computeinstance -n instance -v
     ```
 
-    For more information, see [az ml computetarget stop computeinstance](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_stop).
+    For more information, see [az ml computetarget stop computeinstance](/cli/azure/ml(v1)/computetarget/computeinstance#az_ml_computetarget_computeinstance_stop).
 
 * Start
 
@@ -301,7 +305,7 @@ In the examples below, the name of the compute instance is **instance**
     az ml computetarget start computeinstance -n instance -v
     ```
 
-    For more information, see [az ml computetarget start computeinstance](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_start).
+    For more information, see [az ml computetarget start computeinstance](/cli/azure/ml(v1)/computetarget/computeinstance#az_ml_computetarget_computeinstance_start).
 
 * Restart
 
@@ -309,7 +313,7 @@ In the examples below, the name of the compute instance is **instance**
     az ml computetarget restart computeinstance -n instance -v
     ```
 
-    For more information, see [az ml computetarget restart computeinstance](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_restart).
+    For more information, see [az ml computetarget restart computeinstance](/cli/azure/ml(v1)/computetarget/computeinstance#az_ml_computetarget_computeinstance_restart).
 
 * Delete
 
@@ -317,7 +321,7 @@ In the examples below, the name of the compute instance is **instance**
     az ml computetarget delete -n instance -v
     ```
 
-    For more information, see [az ml computetarget delete computeinstance](/cli/azure/ml/computetarget#az_ml_computetarget_delete).
+    For more information, see [az ml computetarget delete computeinstance](/cli/azure/ml(v1)/computetarget#az_ml_computetarget_delete).
 
 # [Studio](#tab/azure-studio)
 
@@ -336,7 +340,7 @@ You can perform the following actions:
 For each compute instance in your workspace that you created (or that was created for you), you can:
 
 * Access Jupyter, JupyterLab, RStudio on the compute instance
-* SSH into compute instance. SSH access is disabled by default but can be enabled at compute instance creation time. SSH access is through public/private key mechanism. The tab will give you details for SSH connection such as IP address, username, and port number.
+* SSH into compute instance. SSH access is disabled by default but can be enabled at compute instance creation time. SSH access is through public/private key mechanism. The tab will give you details for SSH connection such as IP address, username, and port number. In a virtual network deployment, disabling SSH prevents SSH access from public internet, you can still SSH from within virtual network using private IP address of compute instance node and port 22.
 * Get details about a specific compute instance such as IP address, and region.
 
 ---
@@ -351,7 +355,7 @@ These actions can be controlled by Azure RBAC:
 * *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
 
-To create a compute instance you need to have permissions for the following actions:
+To create a compute instance you'll need permissions for the following actions:
 * *Microsoft.MachineLearningServices/workspaces/computes/write*
 * *Microsoft.MachineLearningServices/workspaces/checkComputeNameAvailability/action*
 

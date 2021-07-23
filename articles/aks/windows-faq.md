@@ -178,7 +178,7 @@ Yes, you can use the [Kubernetes Web Dashboard][kubernetes-dashboard] to access 
 To change the time zone of a running Windows Server container, connect to the running container with a PowerShell session. For example:
     
 ```azurecli-interactive
-kubectl exec -it CONTAINER-NAME – powershell
+kubectl exec -it CONTAINER-NAME -- powershell
 ```
 
 In the running container, use [Set-TimeZone](/powershell/module/microsoft.powershell.management/set-timezone) to set the time zone of the running container. For example:

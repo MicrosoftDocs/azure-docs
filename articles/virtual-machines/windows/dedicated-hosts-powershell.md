@@ -8,7 +8,8 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 11/12/2020
 ms.author: cynthn
-ms.reviewer: zivr
+ms.reviewer: zivr 
+ms.custom: devx-track-azurepowershell
 
 #Customer intent: As an IT administrator, I want to learn about more about using a dedicated host for my Azure virtual machines
 ---
@@ -264,6 +265,6 @@ Remove-AzResourceGroup -Name $rgName
 
 ## Next steps
 
-- There is sample template, found [here](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md), that uses both zones and fault domains for maximum resiliency in a region.
+- There is sample template, available at [Azure quickstart templates](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md), that uses both zones and fault domains for maximum resiliency in a region.
 
 - You can also deploy dedicated hosts using the [Azure portal](../dedicated-hosts-portal.md).

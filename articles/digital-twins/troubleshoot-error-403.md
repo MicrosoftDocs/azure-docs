@@ -24,7 +24,7 @@ Most often, this error indicates that your Azure role-based access control (Azur
 
 ### Cause #2
 
-If you are using a client app to communicate with Azure Digital Twins that is authenticating with an [app registration](how-to-create-app-registration.md), this error may happen because your app registration does not have permissions set up for the Azure Digital Twins service.
+If you are using a client app to communicate with Azure Digital Twins that is authenticating with an [app registration](./how-to-create-app-registration-portal.md), this error may happen because your app registration does not have permissions set up for the Azure Digital Twins service.
 
 The app registration must have access permissions configured for the Azure Digital Twins APIs. Then, when your client app authenticates against the app registration, it will be granted the permissions that the app registration has configured.
 
@@ -69,24 +69,24 @@ Switch to the *All applications* tab to see all the app registrations that have 
 
 You should see the app registration you just created in the list. Select it to open up its details.
 
-:::image type="content" source="media/troubleshoot-error-403/app-registrations.png" alt-text="App registrations page in the Azure portal":::
+:::image type="content" source="media/troubleshoot-error-403/app-registrations.png" alt-text="Screenshot of the app registrations page in the Azure portal.":::
 
 First, verify that the Azure Digital Twins permissions settings were properly set on the registration. To do this, select *Manifest* from the menu bar to view the app registration's manifest code. Scroll to the bottom of the code window and look for these fields under `requiredResourceAccess`. The values should match those in the screenshot below:
 
-:::image type="content" source="media/troubleshoot-error-403/verify-manifest.png" alt-text="Portal view of the manifest for the Azure AD app registration":::
+:::image type="content" source="media/troubleshoot-error-403/verify-manifest.png" alt-text="Screenshot of the manifest for the Azure AD app registration in the Azure portal.":::
 
 Next, select *API permissions* from the menu bar to verify that this app registration contains Read/Write permissions for Azure Digital Twins. You should see an entry like this:
 
-:::image type="content" source="media/troubleshoot-error-403/verify-api-permissions.png" alt-text="Portal view of the API permissions for the Azure AD app registration, showing 'Read/Write Access' for Azure Digital Twins":::
+:::image type="content" source="media/troubleshoot-error-403/verify-api-permissions.png" alt-text="Screenshot of the API permissions for the Azure AD app registration in the Azure portal, showing 'Read/Write Access' for Azure Digital Twins.":::
 
 #### Fix issues
 
-If any of this appears differently than described, follow the instructions on how to set up an app registration in [How-to: Create an app registration](how-to-create-app-registration.md).
+If any of this appears differently than described, follow the instructions on how to set up an app registration in [Create an app registration](./how-to-create-app-registration-portal.md).
 
 ## Next steps
 
 Read the setup steps for creating and authenticating a new Azure Digital Twins instance:
-* [How-to: Set up an instance and authentication (CLI)](how-to-set-up-instance-cli.md)
+* [Set up an instance and authentication (CLI)](how-to-set-up-instance-cli.md)
 
 Read more about security and permissions on Azure Digital Twins:
-* [Concepts: Security for Azure Digital Twins solutions](concepts-security.md)
+* [Security for Azure Digital Twins solutions](concepts-security.md)

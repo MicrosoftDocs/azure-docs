@@ -20,8 +20,8 @@ ms.custom: references_regions
 # Azure CDN POP locations by abbreviation
 > [!div class="op_single_selector"]
 > * [POP locations by region](cdn-pop-locations.md)
-> * [Verizon POP locations by abbreviation](cdn-pop-abbreviations.md)
 > * [Microsoft POP locations by abbreviation](microsoft-pop-abbreviations.md)
+> * [Verizon POP locations by abbreviation](cdn-pop-abbreviations.md)
 > 
 
 
@@ -46,7 +46,7 @@ BDC | Ashburn, Virginia, USA | North America: East US
 BKK | Thailand (TIG) | Asia
 BLR | Bengaluru (Bangalore), India | Asia
 BNJ | Newark, New Jersey, USA | North America: East US
-BOG | Bogota, Columbia | Latin America
+BOG | Bogota, Colombia | Latin America
 BSA | Boston, Massachusetts, USA | North America: East US
 BSM | Boston, Massachusetts, USA | North America: East US
 BSN | Boston, Massachusetts, USA | North America: East US
@@ -106,7 +106,7 @@ LIS | Lisbon, Portugal | Europe
 LPL | Manchester, UK | Europe
 LSV | Las Vegas, Nevada, USA | North America: West US
 MBW | Melbourne, Australia | Asia
-MDE | Medellin, Columbia | Latin America
+MDE | Medellin, Colombia | Latin America
 MDR | Madrid, Spain | Europe
 MDW | Chicago, Illinois, USA | North America: Central US
 MEX | Mexico City, Mexico | North America

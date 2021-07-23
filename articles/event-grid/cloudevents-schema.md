@@ -2,8 +2,8 @@
 title: Use Azure Event Grid with events in CloudEvents schema
 description: Describes how to use the CloudEvents schema for events in Azure Event Grid. The service supports events in the JSON implementation of CloudEvents. 
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
+ms.date: 07/22/2021
+ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Use CloudEvents v1.0 schema with Event Grid

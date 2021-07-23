@@ -37,7 +37,7 @@ As a first step, you need to configure data source and specify file format of re
 
 Data sources represent connection string information that describes where your data is placed and how to authenticate to your data source.
 
-One example of data source definition that references public [ECDC COVID 19 Azure Open Data Set](https://azure.microsoft.com/services/open-datasets/catalog/ecdc-covid-19-cases/) is shown in the following example:
+One example of data source definition that references public [ECDC COVID 19 Azure Open Data Set](/azure/open-datasets/dataset-ecdc-covid-cases) is shown in the following example:
 
 ```sql
 CREATE EXTERNAL DATA SOURCE ecdc_cases WITH (
@@ -106,7 +106,7 @@ your external tables and views.
 
 ## Create external tables on Azure storage
 
-Once you discover the schema, you can create external tables and views on top of yu=our external data sources. The good practice is to organize
+Once you discover the schema, you can create external tables and views on top of your external data sources. The good practice is to organize
 your tables and views in databases schemas. In the following query you can create a schema where you will place all objects that are accessing
 ECDC COVID data set in Azure data Lake storage:
 
@@ -247,4 +247,3 @@ This role-based security access control might simplify management of your securi
 
 - To learn how to connect serverless SQL pool to Power BI Desktop and create reports, see [Connect serverless SQL pool to Power BI Desktop and create reports](tutorial-connect-power-bi-desktop.md).
 - To learn how to use External tables in serverless SQL pool see [Use external tables with Synapse SQL](develop-tables-external-tables.md?tabs=sql-pool)
-

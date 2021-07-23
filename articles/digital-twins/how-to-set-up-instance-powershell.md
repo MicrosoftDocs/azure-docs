@@ -25,8 +25,8 @@ Digital Twins instance ready to start programming against.
 
 This version of this article goes through these steps manually, one by one, using [Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
-* To go through these steps manually using the Azure portal, see the portal version of this article: [How-to: Set up an instance and authentication (portal)](how-to-set-up-instance-portal.md).
-* To run through an automated setup using a deployment script sample, see the scripted version of this article: [How-to: Set up an instance and authentication (scripted)](how-to-set-up-instance-scripted.md).
+* To go through these steps manually using the Azure portal, see the portal version of this article in [Set up an instance and authentication (portal)](how-to-set-up-instance-portal.md).
+* To run through an automated setup using a deployment script sample, see the scripted version of this article in [Set up an instance and authentication (scripted)](how-to-set-up-instance-scripted.md).
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
 
@@ -39,10 +39,10 @@ This version of this article goes through these steps manually, one by one, usin
        1. Connect to your Azure account using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
     * If you choose to use Azure Cloud Shell:
         1. See [Overview of Azure Cloud Shell](../cloud-shell/overview.md) for more information about Cloud Shell.
-        1. Open a Cloud Shell window by following [this link](https://shell.azure.com) in your browser.
+        1. [Open a Cloud Shell window in your browser](https://shell.azure.com).
         1. In the Cloud Shell icon bar, make sure your Cloud Shell is set to run the PowerShell version.
     
-            :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Cloud Shell window showing selection of the PowerShell version":::
+            :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Screenshot of the Cloud Shell window in the Azure portal showing selection of the PowerShell version.":::
     
 1. If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources should be billed. Select a specific subscription using the
    [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
@@ -145,9 +145,9 @@ Azure Digital Twins instance name that you chose earlier when creating the insta
 
 ```azurepowershell-interactive
 $Params = @{
-  ObjectId = '<Azure-AD-user-object-id-of-user-to-assign>'
+  ObjectId = '<Azure-AD-user-object-ID-of-user-to-assign>'
   RoleDefinitionName = 'Azure Digital Twins Data Owner'
-  Scope = '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DigitalTwins/digitalTwinsInstances/<name-for-your-Azure-Digital-Twins-instance>'
+  Scope = '/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.DigitalTwins/digitalTwinsInstances/<name-for-your-Azure-Digital-Twins-instance>'
 }
 New-AzRoleAssignment @Params
 ```
@@ -163,4 +163,4 @@ You now have an Azure Digital Twins instance ready to go, and have assigned perm
 ## Next steps
 
 See how to connect a client application to your instance with authentication code:
-* [How-to: Write app authentication code](how-to-authenticate-client.md)
+* [Write app authentication code](how-to-authenticate-client.md)

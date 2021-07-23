@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: Juliako #Required; your GitHub user alias, with correct capitalization.
   ms.author:  juliako #Required; microsoft alias of author; optional team alias.
-  ms.date: 03/11/2021 #Required; mm/dd/yyyy format.
+  ms.date: 06/01/2021 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -30,8 +30,10 @@ landingContent:
             url: ../video-analyzer-for-media-docs/video-indexer-overview.md            
       - linkListType: quickstart
         links:
-          - text: Get started with Azure Video Analyzer 
+          - text: Get started using an ARM template
             url: get-started-detect-motion-emit-events.md
+          - text: Get started using the Portal
+            url: get-started-detect-motion-emit-events-portal.md
         
   - title: Record video based on events
     linkLists:
@@ -78,7 +80,7 @@ landingContent:
     - linkListType: reference
       links:
         - text: FAQs
-          url: faq-edge.md 
+          url: faq-edge.yml 
         - text: SDKs
           url: sdk.md
         - text: Pipeline extension

@@ -23,11 +23,15 @@ The following table illustrates the allowed maximum values for `maxShares` by pr
 
 |Disk sizes  |maxShares limit  |
 |---------|---------|
-|P15, P20     |2         |
+|P1,P2,P3,P4,P6,P10,P15,P20     |3         |
 |P30, P40, P50     |5         |
 |P60, P70, P80     |10         |
 
 The IOPS and bandwidth limits for a disk are not affected by the `maxShares` value. For example, the max IOPS of a P15 disk is 1100 whether maxShares = 1 or maxShares > 1.
+
+### Standard SSD ranges
+
+All standard SSD sizes are supported.
 
 ### Ultra disk ranges
 

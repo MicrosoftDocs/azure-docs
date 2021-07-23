@@ -12,10 +12,12 @@ ms.author: azfuncdf
 
 Durable Functions automatically persists function parameters, return values, and other state to durable storage to guarantee reliable execution. The default configuration for Durable Functions stores this runtime state in an Azure Storage (classic) account. However, it's possible to configure Durable Functions v2.0 and above to use an alternate durable storage provider.
 
-Durable Functions is a set of Azure Functions triggers and bindings that are internally powered by the [Durable Task Framework](https://github.com/Azure/durabletask) (DTFx). DTFx supports various backend storage providers, including the Azure Storage provider used by Durable Functions. Starting in Durable Functions **v2.4.3**, users can configure their function apps to use DTFx storage providers other than the Azure Storage provider.
+Durable Functions is a set of Azure Functions triggers and bindings that are internally powered by the [Durable Task Framework](https://github.com/Azure/durabletask) (DTFx). DTFx supports various backend storage providers, including the Azure Storage provider used by Durable Functions. Starting in Durable Functions **v2.5.0**, users can configure their function apps to use DTFx storage providers other than the Azure Storage provider.
 
 > [!NOTE]
 > The choice to use storage providers other than Azure Storage should be made carefully. Most function apps running in Azure should use the default Azure Storage provider for Durable Functions. However, there are important cost, scalability, and data management tradeoffs that should be considered when deciding whether to use an alternate storage provider. This article describes many of these tradeoffs in detail.
+>
+> Also note that it's not currently possible to migrate data from one storage provider to another. If you want to use a new storage provider, you should create a new app configured with the new storage provider.
 
 Two alternate DTFx storage providers were developed for use with Durable Functions, the _Netherite_ storage provider and the _Microsoft SQL Server (MSSQL)_ storage provider. This article describes all three supported providers, compares them against each other, and provides basic information about how to get started using them.
 
@@ -35,7 +37,7 @@ The source code for the DTFx components of the Azure Storage storage provider ca
 > [!NOTE]
 > Standard general purpose Azure Storage accounts are required when using the Azure Storage provider. All other storage account types are not supported. We highly recommend using legacy v1 general purpose storage accounts because the newer v2 storage accounts can be significantly more expensive for Durable Functions workloads. For more information on Azure Storage account types, see the [Storage account overview](../../storage/common/storage-account-overview.md) documentation.
 
-## <a name="netherite">Netherite (preview)</a>
+## <a name="netherite"></a>Netherite (preview)
 
 The Netherite storage backend was designed and developed by [Microsoft Research](https://www.microsoft.com/research). It uses [Azure Event Hubs](../../event-hubs/event-hubs-about.md) and the [FASTER](https://www.microsoft.com/research/project/faster/) database technology on top of [Azure Page Blobs](../../storage/blobs/storage-blob-pageblob-overview.md). The design of Netherite enables significantly higher-throughput processing of orchestrations and entities compared to other providers. In some benchmark scenarios, throughput was shown to increase by more than an order of magnitude when compared to the default Azure Storage provider.
 
@@ -51,7 +53,7 @@ You can learn more about the technical details of the Netherite storage provider
 > [!NOTE]
 > The _Netherite_ name originates from the world of [Minecraft](https://minecraft.fandom.com/wiki/Netherite).
 
-## <a name="mssql">Microsoft SQL Server (MSSQL) (preview)</a>
+## <a name="mssql"></a>Microsoft SQL Server (MSSQL) (preview)
 
 The Microsoft SQL Server (MSSQL) storage provider persists all state into a Microsoft SQL Server database. It's compatible with both on-premise and cloud-hosted deployments of SQL Server, including [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md).
 

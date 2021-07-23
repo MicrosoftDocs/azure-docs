@@ -39,10 +39,29 @@
     href: ../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Other languages
     href: ../common/storage-samples.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+  - name: Azure Resource Graph queries
+    href: ../common/resource-graph-samples.md
 - name: Concepts
   items:
   - name: Storage accounts
     href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+  - name: Authorization
+    href: ../common/authorize-data-access.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    items:
+    - name: Authenticate and authorize with Azure AD
+      href: authorize-access-azure-active-directory.md
+    - name: Authorize with Shared Key
+      items:
+      - name: View and manage account keys
+        href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: Configure connection strings
+        href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: Use the Azure Storage REST API
+        href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Authorize with SAS
+      href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+  - name: Authorizing management operations
+    href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Security
     items:
     - name: Azure Storage encryption at rest
@@ -50,25 +69,6 @@
       items:
       - name: Encryption with customer-managed keys
         href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Authorizing data operations
-      href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      items:
-      - name: Authenticate and authorize with Azure AD
-        href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Authorize with Shared Key
-        items:
-        - name: View and manage account keys
-          href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: Configure connection strings
-          href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: Prevent authorization with Shared Key
-          href: ../common/shared-key-authorization-prevent.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: Use the Azure Storage REST API
-          href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Authorize with SAS
-        href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Authorizing management operations
-      href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Use Azure Private Endpoints
       href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json  
     - name: Security controls by Azure Policy
@@ -119,6 +119,8 @@
       href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Recover a deleted storage account
       href: ../common/storage-account-recover.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Get account configuration properties
+      href: ../common/storage-account-get-info.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Secure queue data
     items:
     - name: Authorize access to queue data
@@ -132,13 +134,7 @@
         - name: Azure CLI
           href: authorize-data-operations-cli.md
       - name: Manage access rights with Azure RBAC
-        items:
-        - name: Portal
-          href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: PowerShell
-          href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: Azure CLI
-          href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        href: assign-azure-role-data-access.md
       - name: Authenticate and authorize with Azure AD
         items:
           - name: Authorize with a managed identity
@@ -207,7 +203,7 @@
     items:
     - name: Use the Azurite open-source emulator
       href: ../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Use the Azure Storage emulator
+    - name: Use the Azure Storage emulator (deprecated)
       href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Develop with queues
     items:

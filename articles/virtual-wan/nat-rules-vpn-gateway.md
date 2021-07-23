@@ -1,7 +1,7 @@
 ---
 title: 'Configure VPN NAT rules for your gateway'
 titleSuffix: Azure Virtual WAN
-description: Learn how to configure NAT rules for your VWAN VPN gateway
+description: Learn how to configure NAT rules for your VWAN VPN gateway.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -11,18 +11,15 @@ ms.author: cherylmc
 
 ---
 
-# Configure NAT Rules for your Virtual WAN VPN gateway - Preview
-
-> [!IMPORTANT]
-> NAT rules are currently in public preview.
-> This preview version is provided without a service level agreement and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Configure NAT Rules for your Virtual WAN VPN gateway
 
 You can configure your Virtual WAN VPN gateway with static one-to-one NAT rules. A NAT rule provides a mechanism to set up one-to-one translation of IP addresses. NAT can be used to interconnect two IP networks that have incompatible or overlapping IP addresses. A typical scenario is branches with overlapping IPs that want to access Azure VNet resources.
 
 This configuration uses a flow table to route traffic from an external (host) IP Address to an internal IP address associated with an endpoint inside a virtual network (virtual machine, computer, container, etc.).
 
    :::image type="content" source="./media/nat-rules-vpn-gateway/diagram.png" alt-text="Diagram showing architecture.":::
+   
+In order to use NAT, VPN devices need to use any-to-any (wildcard) traffic selectors. Policy Based (narrow) traffic selectors are not supported in conjunction with NAT configuration.
 
 ## <a name="rules"></a>Configure NAT rules
 
@@ -133,7 +130,7 @@ In this example, we will NAT VPN site 1 to 127.30.0.0.0/24. However, because the
 
 ### Packet flow
 
-In the preceding examples an on-premises device wants to reach a resource in a Spoke Virtual Network. The packet flow is as follows, with the NAT translations in bold.
+In the preceding examples, an on-premises device wants to reach a resource in a Spoke Virtual Network. The packet flow is as follows, with the NAT translations in bold.
 
 1. Traffic from on-premises is initiated.
    * Source IP Address: **10.30.0.4**

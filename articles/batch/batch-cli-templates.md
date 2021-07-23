@@ -2,7 +2,7 @@
 title: Run jobs end-to-end using templates
 description: With only CLI commands, you can create a pool, upload input data, create jobs and associated tasks, and download the resulting output data.
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 06/14/2021
 ms.custom: seodec18, devx-track-azurecli
 ---
 # Use Azure Batch CLI templates and file transfer
@@ -14,7 +14,7 @@ pools, jobs, and tasks. Use CLI extension commands to easily upload job input fi
 the storage account associated with the Batch account, and download job output files.
 
 > [!NOTE]
-> JSON files don't support the same functionality as [Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md). They are meant to be formatted like the raw REST request body. The CLI extension doesn't change any existing commands, but it does have a similar template option that adds partial Azure Resource Manager template functionality. See [Azure Batch CLI Extensions for Windows, Mac and Linux](https://github.com/Azure/azure-batch-cli-extensions).
+> JSON files don't support the same functionality as [Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md). They are meant to be formatted like the raw REST request body. The CLI extension doesn't change any existing commands, but it does have a similar template option that adds partial Azure Resource Manager template functionality. See [Azure Batch CLI Extensions for Windows, Mac and Linux](https://github.com/Azure/azure-batch-cli-extensions).
 
 ## Overview
 
@@ -173,7 +173,7 @@ ffmpeg installed. To use it, supply only a pool ID string and the number of VMs 
             "vmSize": "STANDARD_D3_V2",
             "targetDedicatedNodes": "[parameters('nodeCount')]",
             "enableAutoScale": false,
-            "taskSlotsPerNode": 1,
+            "maxTasksPerNode": 1,
             "packageReferences": [
                 {
                     "type": "aptPackage",

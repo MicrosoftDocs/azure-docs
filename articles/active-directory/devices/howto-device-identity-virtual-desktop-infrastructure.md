@@ -34,10 +34,10 @@ Persistent versions use a unique desktop image for each user or a pool of users.
 
 Non-persistent versions use a collection of desktops that users can access on an as needed basis. These non-persistent desktops are reverted to their original state, in case of Windows current<sup>1</sup> this happens when a virtual machine goes through a shutdown/restart/OS reset process and in case of Windows down-level<sup>2</sup> this happens when a user signs out.
 
-There has been a rise in non-persistent VDI deployments as remote work continues to be the new norm. As customers deploy non-persistent VDI, it is important to ensure that you manage device churn that could be caused due to frequent device registration without having a proper strategy for device lifecycle management.
+There has been a rise in non-persistent VDI deployments as remote work continues to be the new norm. As customers deploy non-persistent VDI, it is important to ensure that you manage stale devices that are created as a result of frequent device registration without having a proper strategy for device lifecycle management.
 
 > [!IMPORTANT]
-> Failure to manage device churn, can lead to pressure increase on your tenant quota usage consumption and potential risk of service interruption, if you run out of tenant quota. You should follow the guidance documented below when deploying non persistent VDI environments to avoid this situation.
+> Failure to manage stale devices can lead to pressure increase on your tenant quota usage consumption and potential risk of service interruption, if you run out of tenant quota. You should follow the guidance documented below when deploying non persistent VDI environments to avoid this situation.
 
 This article will cover Microsoft's guidance to administrators on support for device identity and VDI. For more information about device identity, see the article [What is a device identity](overview.md).
 
@@ -95,7 +95,7 @@ When deploying non-persistent VDI, Microsoft recommends that IT administrators i
    - For non-persistent VDI deployments on Windows current and down-level, you should delete devices that have **ApproximateLastLogonTimestamp** of older than 15 days.
 
 > [!NOTE]
-> When using non-persistent VDI, if you want to prevent a device join state ensure the following registry key is set:  
+> When using non-persistent VDI, if you want to prevent adding a work or school account ensure the following registry key is set:  
 > `HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin: "BlockAADWorkplaceJoin"=dword:00000001`    
 >
 > Ensure you are running Windows 10, version 1803 or higher.  
@@ -108,7 +108,9 @@ When deploying non-persistent VDI, Microsoft recommends that IT administrators i
 > * `%localappdata%\Microsoft\TokenBroker`
 > * `HKEY_CURRENT_USER\SOFTWARE\Microsoft\IdentityCRL`
 > * `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\AAD`
+> * `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WorkplaceJoin`
 >
+> Romaing of the work account's device certificate is not supported. The certificate, issued by "MS-Organization-Access", is stored in the Personal (MY) certificate store of the current user.
 
 
 ### Persistent VDI

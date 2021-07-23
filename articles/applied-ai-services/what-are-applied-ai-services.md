@@ -2,7 +2,7 @@
 title: What are Azure Applied AI Services?
 titleSuffix: Azure Applied AI Services
 description: Applied AI Services description.
-keywords: applied ai services, artifical intelligence, applied ai, ai services, cognitive search, applied ai features
+keywords: applied ai services, artificial intelligence, applied ai, ai services, cognitive search, applied ai features
 author: jeffme
 manager: nitinme
 ms.service: applied-ai-services
@@ -18,7 +18,7 @@ Azure Applied AI Services are high-level services focused on empowering develope
 
 ## Azure Form Recognizer
 
-Enabling organizations in all industries to consume information hidden within documents to increase productivity, automate business process and generate knowledge and insights.  Azure Form Recognizer is a service that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, tables, and structure from your documents. The service outputs structured data that includes the relationships in the original file, bounding boxes, confidence and more. You quickly get accurate results that are tailored to your specific content without heavy manual intervention or extensive data science expertise. Use Form Recognizer to automate data entry in your applications and enrich your documents' search capabilities.  Azure Form Recognizer is built using OCR, Text Analytics and Custom Text from Azure Cognitive Services.
+Enabling organizations in all industries to consume information hidden within documents to increase productivity, automate business processes and generate knowledge and insights.  Azure Form Recognizer is a service that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, tables, and structure from your documents. The service outputs structured data that includes the relationships in the original file, bounding boxes, confidence and more. You quickly get accurate results that are tailored to your specific content without heavy manual intervention or extensive data science expertise. Use Form Recognizer to automate data entry in your applications and enrich your documents' search capabilities.  Azure Form Recognizer is built using OCR, Text Analytics and Custom Text from Azure Cognitive Services.
 
 Form Recognizer is composed of custom document processing models, prebuilt models for invoices, receipts, IDs and business cards, and the layout model. 
 
@@ -26,9 +26,9 @@ Form Recognizer is composed of custom document processing models, prebuilt model
 
 ## Azure Metrics Advisor
 
-Protecting organization’s growth by enabling them to make the right decision based on intelligence from metrics of businesses, services and physical assets.  Azure Metrics Advisor uses AI to perform data monitoring and anomaly detection in time series data. The service automates the process of applying models to your data, and provides a set of APIs and a web-based workspace for data ingestion, anomaly detection, and diagnostics - without needing to know machine learning. Developers can build AIOps, predicative maintenance, and business monitoring applications on top of the service.  Azure Metrics Advisor is built using Anomaly Detector from Azure Cognitive Services.​
+Protecting organization’s growth by enabling them to make the right decision based on intelligence from metrics of businesses, services and physical assets.  Azure Metrics Advisor uses AI to perform data monitoring and anomaly detection in time series data. The service automates the process of applying models to your data, and provides a set of APIs and a web-based workspace for data ingestion, anomaly detection, and diagnostics - without needing to know machine learning. Developers can build AIOps, predictive maintenance, and business monitoring applications on top of the service.  Azure Metrics Advisor is built using Anomaly Detector from Azure Cognitive Services.​
 
-[Learn more about Azure Metrics Advisor](../cognitive-services/metrics-advisor/index.yml)
+[Learn more about Azure Metrics Advisor](./metrics-advisor/index.yml)
 
 ## Azure Cognitive Search
 
@@ -46,17 +46,17 @@ Enhance reading comprehension and achievement with AI. Azure Immersive Reader is
 
 Enable rapid creation of customizable, sophisticated, conversational experiences with pre-built conversational components enabling business value right out of the box.  Azure Bot Service Composer is an open-source visual authoring canvas for developers and multidisciplinary teams to build bots. Composer integrates language understanding services such as LUIS and QnA Maker and allows sophisticated composition of bot replies using language generation. Azure Bot Service is built using Speech/Telephony, LUIS, and QnA Maker from Azure Cognitive Services.
 
-[Learn more about Azure Bot Service](https://docs.microsoft.com/composer/)​
+[Learn more about Azure Bot Service](/composer/)​
 
 ## Azure Video Analyzer 
 
 Enabling businesses to build automated apps powered by video intelligence without being a video or AI expert.  Azure Video Analyzer is a service for building AI-based video solutions and applications. You can generate real-time business insights from video streams, processing data near the source and applying the AI of your choice. Record videos of interest on the edge or in the cloud and combine them with other data to power your business decisions.  Azure Video Analyzer is built using Spatial Analysis from Azure Cognitive Services.  Azure Video Analyzer for Media is built using Face, Speech, Translation, Text analytics, Custom vision, and textual content moderation from Azure Cognitive Services.  
 
-[Learn more about Azure Video Analytics](https://aka.ms/video-analyzer-hub)​​
+[Learn more about Azure Video Analytics](../azure-video-analyzer/index.yml)​​
 
 ## Certifications and compliance
 
-Applied AI Services has been awarded certifications such as CSA STAR Certification, FedRAMP Moderate, and HIPAA BAA. You can [download](https://aka.ms/applied-ai-download-certifications "download") certifications for your own audits and security reviews.
+Applied AI Services has been awarded certifications such as CSA STAR Certification, FedRAMP Moderate, and HIPAA BAA. You can [download](/samples/browse/?redirectedfrom=TechNet-Gallery "download") certifications for your own audits and security reviews.
 
 To understand privacy and data management, go to the [Trust Center](https://servicetrust.microsoft.com/ "Trust Center").
 
@@ -65,5 +65,5 @@ To understand privacy and data management, go to the [Trust Center](https://serv
 Applied AI Services provides several support options to help you move forward with creating intelligent applications. Applied AI Services also has a strong community of developers that can help answer your specific questions. For a full list of options available to you, see:
 
 - [Submit Feedback on UserVoice](https://aka.ms/AppliedAIUserVoice)
-- [Ask Questions on Microsoft Q&A](https://aka.ms/AppliedAIMSFTQandA)
+- [Ask Questions on Microsoft Q&A](/answers/topics/azure-applied-ai-services.html)
 - [Troubleshoot on StackOverflow](https://aka.ms/AppliedAIStackOverflow)

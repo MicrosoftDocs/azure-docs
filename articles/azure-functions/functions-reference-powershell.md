@@ -393,6 +393,8 @@ The following table shows the PowerShell versions available to each major versio
 
 You can see the current version by printing `$PSVersionTable` from any function.
 
+To learn more about Azure Functions runtime support policy, please refer to this [article](./language-support-policy.md)
+
 ### Running local on a specific version
 
 When running locally the Azure Functions runtime defaults to using PowerShell Core 6. To instead use PowerShell 7 when running locally, you need to add the setting `"FUNCTIONS_WORKER_RUNTIME_VERSION" : "~7"` to the `Values` array in the local.setting.json file in the project root. When running locally on PowerShell 7, your local.settings.json file looks like the following example: 
@@ -411,6 +413,7 @@ When running locally the Azure Functions runtime defaults to using PowerShell Co
 ### Changing the PowerShell version
 
 Your function app must be running on version 3.x to be able to upgrade from PowerShell Core 6 to PowerShell 7. To learn how to do this, see [View and update the current runtime version](set-runtime-version.md#view-and-update-the-current-runtime-version).
+
 
 Use the following steps to change the PowerShell version used by your function app. You can do this either in the Azure portal or by using PowerShell.
 
@@ -468,7 +471,7 @@ You may want to target a specific version of a module in your requirements.psd1 
 
 ```powershell
 @{
-	Az.Accounts = '1.9.5'
+	'Az.Accounts' = '1.9.5'
 }
 ```
 

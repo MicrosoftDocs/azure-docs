@@ -2,13 +2,18 @@
 title: Tutorial - Configure networking for your VMware private cloud in Azure
 description: Learn to create and configure the networking needed to deploy your private cloud in Azure
 ms.topic: tutorial
-ms.custom: contperf-fy21q4
+ms.custom: contperf-fy22q1
 ms.date: 04/23/2021
+
+#Customer intent: As a < type of user >, I want < what? > so that < why? >.
+
 ---
 
 # Tutorial: Configure networking for your VMware private cloud in Azure
 
-An Azure VMware Solution private cloud requires an Azure Virtual Network. Because Azure VMware Solution doesn't support your on-premises vCenter, extra steps for integration with your on-premises environment are needed. Setting up an ExpressRoute circuit and a virtual network gateway is also required.
+An Azure VMware Solution private cloud requires an Azure Virtual Network. Because Azure VMware Solution doesn't support your on-premises vCenter, extra steps are needed for integration with your on-premises environment. Setting up an ExpressRoute circuit and a virtual network gateway is also required.
+
+[!INCLUDE [disk-pool-planning-note](includes/disk-pool-planning-note.md)]
 
 In this tutorial, you learn how to:
 
@@ -41,7 +46,7 @@ In this tutorial, you learn how to:
 
 1. Select **Review + create**.
 
-   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network.png" alt-text="Select Review + create." border="true":::
+   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network.png" alt-text="Screenshot showing the settings for the new virtual network." border="true":::
 
 1. Verify the information and select **Create**. Once the deployment is complete, you'll see your virtual network in the resource group.
 
@@ -69,7 +74,7 @@ Now that you've created a virtual network, you'll create a virtual network gatew
    | **Gateway subnet address range** | This value is populated when you select the virtual network. Don't change the default value. |
    | **Public IP address** | Select **Create new**. |
 
-   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="Provide values for the fields and then select Review + create." border="true":::
+   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="Screenshot showing the details for the virtual network gateway." border="true":::
 
 1. Verify that the details are correct, and select **Create** to start the deployment of your virtual network gateway. 
 1. Once the deployment completes, move to the next section to connect your ExpressRoute connection to the virtual network gateway containing your Azure VMware Solution private cloud.
@@ -94,4 +99,4 @@ In this tutorial, you learned how to:
 Continue to the next tutorial to learn how to create the NSX-T network segments that are used for VMs in vCenter.
 
 > [!div class="nextstepaction"]
-> [Create an NSX-T network segment](tutorial-nsx-t-network-segment.md)
+> [Create an NSX-T network segment](./tutorial-nsx-t-network-segment.md)

@@ -2,7 +2,7 @@
 title: Detect when objects cross a virtual line in a live video with Azure Video Analyzer
 description: This quickstart shows you how to use Azure Video Analyzer to detect when objects cross a line in a live video feed from a (simulated) IP camera.
 ms.topic: tutorial
-ms.date: 05/18/2021
+ms.date: 06/01/2021
 ---
 
 # Tutorial: Detect when objects cross a virtual line in a live video
@@ -93,11 +93,11 @@ In Visual Studio Code, browse to the src/cloud-to-device-console-app folder. Her
 1. Edit the operations.json file:
     
     * Change the link to the pipeline topology:
-    * "pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/azure-video-analyzer/main//pipelines/live/topologies/line-crossing/topology.json"
-    * Under livePipelineSet, edit the name of the topology to match the value in the preceding link:
-    * "topologyName" : "LineCrossingWithHttpExtension"
+    * `"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/line-crossing/topology.json"`
+    * Under `livePipelineSet`, edit the name of the topology to match the value in the preceding link:
+    * `"topologyName" : "LineCrossingWithHttpExtension"`
     * Under `pipelineTopologyDelete`, edit the name:
-    * "name" : "LineCrossingWithHttpExtension"
+    * `"name" : "LineCrossingWithHttpExtension"`
     
 Open the URL for the pipeline topology in a browser, and examine the settings for the HTTP extension node.
 
@@ -108,7 +108,7 @@ Open the URL for the pipeline topology in a browser, and examine the settings fo
    }
 ```
 
-Here, `skipSamplesWithoutAnnotation` is set to `false` because the extension node needs to pass through all frames, whether or not they have inference results, to the downstream object tracker node. The object tracker is capable of tracking objects over 15 frames, approximately. If the live video is at a frame rate of 30 frames/sec, that means at least two frames in every second should be sent to the HTTP server for inferencing - hence `maximumSamplesPerSecond` is set to 2. This will effectively be 15 frames/sec.
+Here, `skipSamplesWithoutAnnotation` is set to `false` because the extension node needs to pass through all frames, whether or not they have inference results, to the downstream object tracker node. The object tracker is capable of tracking objects over 15 frames, approximately. If the live video is at a frame rate of 30 frames/sec, that means at least two frames in every second should be sent to the HTTP server for inferencing. Your AI model has a maximum FPS for processing, which is the highest value that `maximumSamplesPerSecond` should be set to.
 
 Also look at the line crossing node parameter placeholders `linecrossingName` and `lineCoordinates`. We have provided default values for these parameters but you overwrite them using the operations.json file. Look at how we pass other parameters from the operations.json file to a topology (i.e. rtsp url).  
 
