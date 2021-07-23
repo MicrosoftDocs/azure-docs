@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Configure properties for an application in your tenant'
+title: 'Quickstart: Configure properties for an application
 titleSuffix: Azure AD
 description: This quickstart uses the Azure portal to configure an application that has been registered with your Azure Active Directory (Azure AD) tenant.
 services: active-directory
