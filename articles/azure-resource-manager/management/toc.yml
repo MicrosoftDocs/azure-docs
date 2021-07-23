@@ -99,6 +99,8 @@
             href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Site Recovery (Recovery Services vaults)
           href: ../../site-recovery/move-vaults-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
+        - name: Backup (Recovery Services vault)
+          href: ../../backup/azure-backup-move-vaults-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Database for PostgreSQL Server
           href: ../../postgresql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Database for MariaDB Server
