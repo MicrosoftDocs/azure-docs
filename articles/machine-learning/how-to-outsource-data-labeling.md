@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: sgilley
-author: vkann
-ms.author: sdgilley
+author: k_vijaykannan
+ms.author: vkann
 ms.date: 07/21/2021
 ms.topic: how-to
 # As a project manager, I want to hire a company to label the data in my data labeling project
