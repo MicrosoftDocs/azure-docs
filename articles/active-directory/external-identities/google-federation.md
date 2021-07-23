@@ -88,7 +88,7 @@ Before Google puts these changes into place on September 30, 2021, Microsoft wil
 Alternatively, you can have your existing and new Gmail users sign in with email one-time passcode. To have your Gmail users use email one-time passcode:
 1. [Enable email one-time passcode](one-time-passcode.md#enable-email-one-time-passcode)
 2. [Remove Google Federation](google-federation.md#how-do-i-remove-google-federation)
-3. [Reset redemption status](https://docs.microsoft.com/en-us/azure/active-directory/external-identities/reset-redemption-status) of your Gmail users so they can use email one-time passcode instead.
+3. [Reset redemption status](reset-redemption-status.md) of your Gmail users so they can use email one-time passcode instead.
 
 Applications that are migrated to an allowed web-view for authentication won't be affected, and users will be allowed to authenticate via Google as usual.
 
