@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 07/21/2021
 ms.author: cherylmc
 
 ---
@@ -83,10 +83,10 @@ This article shows you how to connect VNets by using the VNet-to-VNet connection
 * **Virtual network gateway settings**
   * **Name**: VNet1GW
   * **Resource group**: East US
-  * **Generation**: Generation 1
+  * **Generation**: Generation 2
   * **Gateway type**: Select **VPN**.
-  * **VPN type**: Select **Route*based**.
-  * **SKU**: VpnGw1
+  * **VPN type**: Select **Route-based**.
+  * **SKU**: VpnGw2
   * **Virtual network**: VNet1
   * **Gateway subnet address range**: 10.1.255.0/27
   * **Public IP address**: Create new
@@ -111,10 +111,10 @@ This article shows you how to connect VNets by using the VNet-to-VNet connection
 * **Virtual network gateway settings**
   * **Name**: VNet4GW
   * **Resource group**: West US
-  * **Generation**: Generation 1
+  * **Generation**: Generation 2
   * **Gateway type**: Select **VPN**.
   * **VPN type**: Select **Route-based**.
-  * **SKU**: VpnGw1
+  * **SKU**: VpnGw2
   * **Virtual network**: VNet4
   * **Gateway subnet address range**: 10.41.255.0/27
   * **Public IP address**: Create new
