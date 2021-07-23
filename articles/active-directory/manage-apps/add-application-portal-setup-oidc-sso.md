@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Set up OIDC-based single sign-on (SSO) for an application in your tenant'
+title: 'Quickstart: Set up OIDC-based single sign-on for an application'
 titleSuffix: Azure AD
 description: This quickstart walks through the process of setting up OIDC-based single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant.
 services: active-directory
