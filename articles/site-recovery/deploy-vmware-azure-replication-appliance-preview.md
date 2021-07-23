@@ -174,14 +174,14 @@ In case of any organizational restrictions, you can manually set up the Site Rec
   - CheckCommandPromptPolicy - Prevents access to the command prompt.
 
       - Key: HKLM\SOFTWARE\Policies\Microsoft\Windows\System
-      - DisableCMD value should not be equal 0
+      - DisableCMD value should not be equal 0.
 
   - CheckTrustLogicAttachmentsPolicy - Trust logic for file attachments.
 
       - Key: HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments
-      - UseTrustedHandlers value should not be equal 3
+      - UseTrustedHandlers value should not be equal 3.
 
-  - CheckPowershellExecutionPolicy - Turn on Script Execution
+  - CheckPowershellExecutionPolicy - Turn on Script Execution.
 
       - PowerShell execution policy shouldn't be AllSigned or Restricted
       - Ensure the group policy 'Turn on Script Execution Attachment Manager' is not set to Disabled or 'Allow only signed scripts'
@@ -193,7 +193,7 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 
     All Azure Site Recovery services will use these settings to connect to the internet. Only HTTP proxy is supported.
 
-2. Ensure the [required URLs](#whitelist-urls) are whitelisted and are reachable from the Azure Site Recovery replication appliance for continuous connectivity:
+2. Ensure the [required URLs](#whitelist-urls) are whitelisted and are reachable from the Azure Site Recovery replication appliance for continuous connectivity.
 
 3. After saving the details, proceed to choose the appliance connectivity. Leave the default selection as FDQN for this preview.
 
