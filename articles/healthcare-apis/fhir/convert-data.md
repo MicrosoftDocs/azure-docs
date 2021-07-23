@@ -23,7 +23,7 @@ The $convert-data custom endpoint in the FHIR service is meant for data conversi
 
 ## Use the $convert-data endpoint
 
-The `$convert-data` operation is integrated into the FHIR service to run as part of the service. You need to enable `$convert-data` while deploying FHIR Server, by setting the `FhirServer__Operations__ConvertData__Enabled` setting in the FHIR server to "true". You also need to make sure you have enabled Managed Identity, as described later in this article. Then, you can make API calls to the server to convert your data into FHIR:
+The `$convert-data` operation is integrated into the FHIR service to run as part of the service. You can make API calls to the server to convert your data into FHIR:
 
 `https://<<FHIR service base URL>>/$convert-data`
 
