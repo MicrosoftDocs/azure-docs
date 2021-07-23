@@ -187,7 +187,7 @@ In case of any organizational restrictions, you can manually set up the Site Rec
       - Ensure the group policy 'Turn on Script Execution Attachment Manager' is not set to Disabled or 'Allow only signed scripts'
 
 
-  Use the following steps to register the appliance.
+  **Use the following steps to register the appliance**:.
 
 1. Configure the proxy settings by toggling on the **use proxy to connect to internet** option.
 
@@ -203,16 +203,16 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 
   ![Register appliance](./media/deploy-vmware-azure-replication-appliance-preview/app-setup-register.png)
 
-    - **Friendly name of appliance** : Provide a friendly name with which you want to track this appliance in the Azure portal under recovery services vault infrastructure.
+  - **Friendly name of appliance** : Provide a friendly name with which you want to track this appliance in the Azure portal under recovery services vault infrastructure.
 
-    - **Azure Site Recovery replication appliance key** : Copy the key from the portal by navigating to **Recovery Services vault** > **Getting started** > **VMware to Azure Prepare Infrastructure**.
+  - **Azure Site Recovery replication appliance key** : Copy the key from the portal by navigating to **Recovery Services vault** > **Getting started** > **VMware to Azure Prepare Infrastructure**.
 
-    - After pasting the key, select **Login.**
+  - After pasting the key, select **Login.**
     You will be redirected to a new authentication tab.
 
       By default, an authentication code will be generated as highlighted below, in the authentication manager page. Use this code in the authentication tab.
 
-    - Enter your Microsoft Azure credentials to complete registration.
+  - Enter your Microsoft Azure credentials to complete registration.
 
       After successful registration, you can close the tab and move to configuration manager to continue the set up.
 
