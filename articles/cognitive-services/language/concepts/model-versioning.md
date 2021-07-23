@@ -31,12 +31,9 @@ Use the table below to find which model versions are supported by each hosted en
 | Health API              | `2021-05-15`                           | `2021-05-15`   |
 | Key Phrase Extraction                   | `2019-10-01`, `2020-07-01`, `2021-06-01`  | `2021-06-01`   |
 
-
-You can find details about the updates for these models in [What's new](../whats-new.md).
-
 ## Health API container
 
-The [health API container](../health/how-to/use-container.md) uses separate model versioning than the above API endpoints.  Please note that only one model version is available per container image.
+The [health API container](../health/how-to/use-containers.md) uses separate model versioning than the above API endpoints.  Please note that only one model version is available per container image.
 
 | Endpoint                        | Container Image Tag                     | Model version |
 |---------------------------------|-----------------------------------------|---------------|
