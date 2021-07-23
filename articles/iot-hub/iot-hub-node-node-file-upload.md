@@ -38,7 +38,7 @@ At the end of this article, you run two Node.js console apps:
 * **FileUploadNotification.js**, which receives file upload notifications from your IoT hub.
 
 > [!NOTE]
-> IoT Hub supports many device platforms and languages (including C, .NET, Javascript, Python, and Java) through Azure IoT device SDKs. Refer to the [Azure IoT Developer Center] for step-by-step instructions on how to connect your device to Azure IoT Hub.
+> IoT Hub supports many device platforms and languages, including C, Java, Python, and JavaScript, through Azure IoT device SDKs. Refer to the [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot) for step-by-step instructions on how to connect your device to Azure IoT Hub.
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
