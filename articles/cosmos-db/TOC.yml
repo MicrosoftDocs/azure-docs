@@ -1382,7 +1382,11 @@
         - name: Table storage REST APIs
           href: /rest/api/storageservices/table-service-rest-api
         - name: Azure CLI
-          href: /cli/azure/azure-cli-reference-for-cosmos-db          
+          href: /cli/azure/azure-cli-reference-for-cosmos-db
+- name: Samples
+  items:
+    - name: Azure Resource Graph queries
+      href: ./resource-graph-samples.md
 - name: How-to guides
   items:
     - name: Free tier
