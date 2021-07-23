@@ -16,7 +16,7 @@
     href: getting-started-feature.md
 - name: Tutorials
   items:
-  - name: 1. Create a host pool with the Azure portal
+  - name: 1. Create a host pool
     href: create-host-pools-azure-marketplace.md
   - name: 2. Manage app groups
     href: manage-app-groups.md
@@ -50,7 +50,7 @@
     href: powershell-module.md
   - name: Create a host pool and session hosts
     items:
-      - name: PowerShell
+      - name: Create a host pool with PowerShell or Azure CLI
         href: create-host-pools-powershell.md
       - name: Deploy an Azure AD joined session host
         href: deploy-azure-ad-joined-vm.md
@@ -60,7 +60,7 @@
         href: configure-vm-gpu.md
       - name: Expand an existing host pool
         href: expand-existing-host-pool.md
-      - name: Manage app groups with PowerShell
+      - name: Manage app groups with PowerShell or Azure CLI
         href: manage-app-groups-powershell.md
   - name: Delete a host pool
     href: delete-host-pool.md

@@ -1,19 +1,10 @@
 ---
-<<<<<<< HEAD
-title: Azure Virtual Desktop create host pool - Azure
-description: How to create an Azure Virtual Desktop host pool by using the Azure portal or the Azure CLI.
-author: Heidilohr
-ms.topic: tutorial
-ms.custom: references_regions
-ms.date: 06/24/2021
-=======
 title: Azure Virtual Desktop host pool Azure portal - Azure
 description: How to create an Azure Virtual Desktop host pool by using the Azure portal.
 author: Heidilohr
 ms.topic: tutorial
 ms.custom: references_regions
 ms.date: 07/20/2021
->>>>>>> 76736a412e6f58afbf0b09fbe7ace8ca9517278d
 ms.author: helohr
 manager: femila
 ---
@@ -249,12 +240,10 @@ With that, we're ready to start the next phase of setting up your host pool: reg
 
 The host pool setup process creates a desktop application group by default. For the host pool to work as intended, you'll need to publish this app group to users or user groups, and you must register the app group to a workspace.
 
-<<<<<<< HEAD
-### [Portal](#tab/azure-portal)
-=======
 >[!NOTE]
 >If you're an app developer trying to publish your organization’s apps, you can dynamically attach MSIX apps to user sessions or add your app packages to a custom VM image. See How to serve your custom app with Azure Virtual Desktop for more information.
->>>>>>> 76736a412e6f58afbf0b09fbe7ace8ca9517278d
+
+### [Portal](#tab/azure-portal)
 
 To register the desktop app group to a workspace:
 
@@ -292,21 +281,12 @@ az desktopvirtualization workspace create --name "MyWorkspace" \
 
 This starts the deployment process, which creates the following objects:
 
-<<<<<<< HEAD
 - Your new host pool.
 - A desktop app group.
 - A workspace, if you chose to create it.
 - If you chose to register the desktop app group, the registration will be completed.
 - Virtual machines, if you chose to create them, which are joined to the domain and registered with the new host pool.
 - A download link for an Azure Resource Management template based on your configuration.
-=======
-     - Your new host pool.
-     - A desktop app group.
-     - A workspace, if you chose to create it.
-     - If you chose to register the desktop app group, the registration will be completed.
-     - Virtual machines, if you chose to create them, which are joined to the domain and registered with the new host pool.
-     - A download link for an Azure Resource Manager template based on your configuration.
->>>>>>> 76736a412e6f58afbf0b09fbe7ace8ca9517278d
 
 After that, you're all done!
 
