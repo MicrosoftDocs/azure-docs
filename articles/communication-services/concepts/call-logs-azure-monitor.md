@@ -1,4 +1,17 @@
+---
+title: Azure Communication Services - Call Summary and Call Diagnostic Logs
+titleSuffix: An Azure Communication Services concept document
+description: Learn about Call SUmmary and Call Diagnostic logs in Azure Monitor
+author:  timmitchell
+services: azure-communication-services
+
+ms.author: timmitchell
+ms.date: 0722/2021
+ms.topic: overview
+ms.service: azure-communication-services
+---
 # Azure Communication Services: Call Summary and Call Diagnostic Logs
+
 ## Data Concepts
 ### Entities and Ids
 A *Call*, as it relates to the entities represented in the data, is an abstraction represented by the `correlationId` (unique per call), time-bound by `callStartTime` and `callDuration`. It is an event that contains data from two or more *Endpoints*, which represent the various human, bot, or server participants in the call.
@@ -28,14 +41,14 @@ Call Diagnostic logs contain information about the stream as well as a set of me
 *Example1: P2P Call*
 
 The diagram represents two endpoints connected directly in a P2P call. In this example, 2 Call Summary logs would be created (1 per `endpointId`) and 4 Call Diagnostic logs would be created (1 per media stream). Each log will contain data relating to the outbound stream of the `endpointId`.
-:::image type="content" source="media\ppcalllogs-images\ppcalllogs_img3_p2p-streams.png" alt-text="image alt text blah":::
+:::image type="content" source="media\ppcalllogs-images\ppcalllogs_img3_p2p-streams.png" alt-text="p2p call streams":::
 
 
 *Example2: Group Call*
 
 The diagram represents a Group call example with 3 `particpantIds`, which means 3 `endpointIds` (`endpointIds` can potentially appear in multiple participants, e.g. when rejoining a call from the same device) and a Server endpoint. For `participantId` 1, 2 Call Summary logs would be created for endpointId and the Server. 4 Call Diagnostic logs would be created relating to `participantId` 1, one for each media stream. The 3 logs with endpointId 1 would contain data relating to the outbound media streams, and the 1 log with `endpointId` =“null”, `endpointType`=”Server” would contain data relating to the inbound stream.
 
-:::image type="content" source="media\ppcalllogs-images\group-call-endpoint-detail.png" alt-text="image alt text blah":::
+:::image type="content" source="media\ppcalllogs-images\group-call-endpoint-detail.png" alt-text="group call detail":::
 
 ## Data Definitions
 
