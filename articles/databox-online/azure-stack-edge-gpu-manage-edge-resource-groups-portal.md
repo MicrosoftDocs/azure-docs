@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/07/2021
+ms.date: 07/23/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need a quick way to get rid of resource groups no longer in use that were created for VMs on my Azure Stack Edge Pro GPU devices.
 ---
@@ -16,7 +16,7 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-Edge resource groups contain resources that are created on the device via the local Azure Resource Manager during virtual machine creation and deployment. These local resources can include virtual machines, VM images, disks, network interfaces, and other resource types. 
+Edge resource groups contain resources that are created on the device via the local Azure Resource Manager during virtual machine creation and deployment. These local resources can include virtual machines, VM images, disks, network interfaces, and other resource types such as Edge storage accounts.
 
 This article describes how to view and delete Edge resource groups on an Azure Stack Edge Pro GPU device.
 
@@ -50,7 +50,7 @@ Follow these steps to delete an Edge resource group that's no longer in use.
 
     ![Screenshot showing an Edge resource group with the delete icon selected.](media/azure-stack-edge-gpu-manage-edge-resource-groups-portal/edge-resource-groups-02.png)
 
-1. You'll see a message asking you to confirm that you want to delete the disk. The operation can't be reversed. Select **Yes**.
+1. You'll see a message asking you to confirm that you want to delete the Edge resource group. The operation can't be reversed. Select **Yes**.
 
     ![To delete an Edge resource group, select the trashcan icon to the right of the entry in the list of resource groups](./media/azure-stack-edge-gpu-manage-edge-resource-groups-portal/edge-resource-groups-03.png)
 
