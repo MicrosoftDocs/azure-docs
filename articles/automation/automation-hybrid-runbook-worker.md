@@ -25,6 +25,15 @@ A Hybrid Runbook Worker can run on either the Windows or the Linux operating sys
 
 When Azure Automation [Update Management](./update-management/overview.md) is enabled, any machine connected to your Log Analytics workspace is automatically configured as a system Hybrid Runbook Worker. To configure it as a user Windows Hybrid Runbook Worker, see [Deploy a Windows Hybrid Runbook Worker](automation-windows-hrw-install.md) and for Linux, see [Deploy a Linux Hybrid Runbook Worker](automation-linux-hrw-install.md).
 
+## Runbook Worker limits
+
+The following table shows the maximum number of system and user hybrid runbook workers in an Automation account. If you have more than 4,000 machines to manage, we recommend creating another Automation account.
+
+|Worker type| Maximum number supported per Automation Account.|
+|---|---|
+|System|4000|
+|User |4000|
+
 ## How does it work?
 
 ![Hybrid Runbook Worker overview](media/automation-hybrid-runbook-worker/automation.png)
@@ -90,15 +99,6 @@ In addition to the standard addresses and ports required for the Hybrid Runbook 
 ## Azure Automation State Configuration on a Hybrid Runbook Worker
 
 You can run [Azure Automation State Configuration](automation-dsc-overview.md) on a Hybrid Runbook Worker. To manage the configuration of servers that support the Hybrid Runbook Worker, you must add the servers as DSC nodes. See [Enable machines for management by Azure Automation State Configuration](automation-dsc-onboarding.md).
-
-## Runbook Worker limits
-
-If you have more than 4,000 machines to manage, we recommend creating another Automation account.
-
-|Worker type| Maximum number supported per Automation Account.|
-|---|---|
-|System|4000|
-|User |4000|
 
 ## Runbooks on a Hybrid Runbook Worker
 
