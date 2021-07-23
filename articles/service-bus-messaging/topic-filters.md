@@ -2,7 +2,7 @@
 title: Azure Service Bus topic filters | Microsoft Docs
 description: This article explains how subscribers can define which messages they want to receive from a topic by specifying filters. 
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 07/19/2021
 ---
 
 # Topic filters and actions
@@ -47,7 +47,7 @@ Complex filter rules require processing capacity. In particular, the use of SQL 
 
 ## Actions
 
-With SQL filter conditions, you can define an action that can annotate the message by adding, removing, or replacing properties and their values. The action [uses a SQL-like expression](service-bus-messaging-sql-filter.md) that loosely leans on the SQL UPDATE statement syntax. The action is done on the message after it has been matched and before the message is selected into the subscription. The changes to the message properties are private to the message copied into the subscription.
+With SQL filter conditions, you can define an action that can annotate the message by adding, removing, or replacing properties and their values. The action [uses a SQL-like expression](service-bus-messaging-sql-rule-action.md) that loosely leans on the SQL UPDATE statement syntax. The action is done on the message after it has been matched and before the message is selected into the subscription. The changes to the message properties are private to the message copied into the subscription.
 
 ## Usage patterns
 
