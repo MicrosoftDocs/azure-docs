@@ -228,7 +228,7 @@ az vm create --name "MyVMName" \
 For additional information on using the Azure CLI to create Azure virtual machines, see:
 - Windows
     - [Create a Windows VM using the Azure CLI]( /azure/virtual-machines/windows/quick-create-cli)
-    - [Tutorial: Create and Manage Windows VMs with the Azure CLI[(/cli/azure/azure-cli-vm-tutorial)
+    - [Tutorial: Create and Manage Windows VMs with the Azure CLI](/cli/azure/azure-cli-vm-tutorial)
 - Linux
     - [Create a Linux VM using the Azure CLI]( /virtual-machines/linux/quick-create-cli)
     - [Tutorial: Create and Manage Linux VMs with the Azure CLI]( /azure/virtual-machines/linux/tutorial-manage-vm) 

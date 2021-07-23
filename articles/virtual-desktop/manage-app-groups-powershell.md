@@ -109,6 +109,9 @@ To create a RemoteApp group with PowerShell:
 
 ### [Azure CLI](#tab/azure-cli)
 
+> [!NOTE]
+> Azure CLI currently does not provide commands to get Start Menu apps, nor to create a new RemoteApp program or publish it to the application group. Use Azure PowerShell.
+
 To create a RemoteApp group with the Azure CLI:
 
 1. Use the [az desktopvirtualization applicationgroup create](/cli/azure/desktopvirtualization##az_desktopvirtualization_applicationgroup_create) command to create a new remote application group:

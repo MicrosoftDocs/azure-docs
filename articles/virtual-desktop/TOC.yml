@@ -50,7 +50,7 @@
     href: powershell-module.md
   - name: Create a host pool and session hosts
     items:
-      - name: Create a host pool with PowerShell or Azure CLI
+      - name: Create a host pool using PowerShell or the Azure CLI
         href: create-host-pools-powershell.md
       - name: Deploy an Azure AD joined session host
         href: deploy-azure-ad-joined-vm.md
@@ -60,7 +60,7 @@
         href: configure-vm-gpu.md
       - name: Expand an existing host pool
         href: expand-existing-host-pool.md
-      - name: Manage app groups with PowerShell or Azure CLI
+      - name: Manage app groups using PowerShell or the Azure CLI
         href: manage-app-groups-powershell.md
   - name: Delete a host pool
     href: delete-host-pool.md
