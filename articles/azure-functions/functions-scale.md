@@ -44,7 +44,7 @@ The remaining tables in this article compare the plans on various features and b
 
 ## Operating system/runtime
 
-The following table shows supported operating system and language runtime support for the hosting plans.
+The following table shows operating system and language support for the hosting plans.
 
 | | Linux<sup>1</sup><br/>Code-only | Windows<sup>2</sup><br/>Code-only | Linux<sup>1,3</sup><br/>Docker container |
 | --- | --- | --- | --- |
