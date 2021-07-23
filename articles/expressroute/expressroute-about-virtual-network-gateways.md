@@ -27,7 +27,7 @@ Each virtual network can have only one virtual network gateway per gateway type.
 ## <a name="gwsku"></a>Gateway SKUs
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-If you want to upgrade your gateway to a more powerful gateway SKU, in most cases you can use the 'Resize-AzVirtualNetworkGateway' PowerShell cmdlet. This will work for upgrades to Standard and HighPerformance SKUs. However, to upgrade to the UltraPerformance SKU, you will need to recreate the gateway. Recreating a gateway incurs downtime.
+If you want to upgrade your gateway to a more powerful gateway SKU, in most cases you can use the 'Resize-AzVirtualNetworkGateway' PowerShell cmdlet. This will work for upgrades to Standard and HighPerformance SKUs. However, to upgrade a non Availability Zone (AZ) gateway to the UltraPerformance SKU, you will need to recreate the gateway. Recreating a gateway incurs downtime. You do not need to delete and recreate the gateway to upgrade an AZ-enabled SKU.
 ### <a name="gatewayfeaturesupport"></a>Feature support by gateway SKU
 The following table shows the features supported across each gateway type.
 
