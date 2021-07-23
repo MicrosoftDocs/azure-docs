@@ -1,17 +1,18 @@
 ---
-title: Enable public internet access in Azure VMware Solution
+title: Enable public internet for Azure VMware Solution workloads
 description: This article explains how to use the public IP functionality in Azure Virtual WAN.
 ms.topic: how-to
-ms.date: 02/04/2021
+ms.date: 06/25/2021
 ---
-# How to use the public IP functionality in Azure VMware Solution
+# Enable public internet for Azure VMware Solution workloads
 
-Public IP is a new feature in Azure VMware Solution connectivity. It makes resources, such as web servers, virtual machines (VMs), and hosts accessible through a public network. 
+Public IP is a feature in Azure VMware Solution connectivity. It makes resources, such as web servers, virtual machines (VMs), and hosts accessible through a public network. 
 
 You enable public internet access in two ways. 
 
-- Applications can be hosted and published under the Application Gateway load balancer for HTTP/HTTPS traffic.
-- Published through public IP features in Azure Virtual WAN.
+- Host and publish applications under the Application Gateway load balancer for HTTP/HTTPS traffic.
+
+- Publish through public IP features in Azure Virtual WAN.
 
 As a part of Azure VMware Solution private cloud deployment, upon enabling public IP functionality, the required components with automation get created and enabled:
 
@@ -26,12 +27,14 @@ This article details how you can use the public IP functionality in Virtual WAN.
 ## Prerequisites
 
 - Azure VMware Solution environment
+
 - A webserver running in Azure VMware Solution environment.
+
 - A new non-overlapping IP range for the Virtual WAN hub deployment, typically a `/24`.
 
 ## Reference architecture
 
-:::image type="content" source="media/public-ip-usage/public-ip-architecture-diagram.png" alt-text="Public IP architecture diagram" border="false" lightbox="media/public-ip-usage/public-ip-architecture-diagram.png":::
+:::image type="content" source="media/public-ip-usage/public-ip-architecture-diagram.png" alt-text="Diagram showing the public IP architecture for Azure VMware Solution." border="false" lightbox="media/public-ip-usage/public-ip-architecture-diagram.png":::
 
 The architecture diagram shows a web server hosted in the Azure VMware Solution environment and configured with RFC1918 private IP addresses.  The web service is made available to the internet through Virtual WAN public IP functionality.  Public IP is typically a destination NAT translated in Azure Firewall. With DNAT rules, firewall policy translates public IP address requests to a private address (webserver) with a port.
 
@@ -51,15 +54,15 @@ In this scenario, you'll publish the IIS webserver to the internet. Use the publ
 
 1. Select the Azure VMware Solution private cloud.
 
-   :::image type="content" source="media/public-ip-usage/avs-private-cloud-resource.png" alt-text="Screenshot of the Azure VMware Solution private cloud." border="true" lightbox="media/public-ip-usage/avs-private-cloud-resource.png":::
+   :::image type="content" source="media/public-ip-usage/avs-private-cloud-resource.png" alt-text="Screenshot of the Azure VMware Solution private cloud." lightbox="media/public-ip-usage/avs-private-cloud-resource.png":::
 
 1. Under **Manage**, select **Connectivity**.
 
-   :::image type="content" source="media/public-ip-usage/avs-private-cloud-manage-menu.png" alt-text="Screenshot of the Connectivity section." border="true" lightbox="media/public-ip-usage/avs-private-cloud-manage-menu.png":::
+   :::image type="content" source="media/public-ip-usage/avs-private-cloud-manage-menu.png" alt-text="Screenshot of the Connectivity section." lightbox="media/public-ip-usage/avs-private-cloud-manage-menu.png":::
 
 1. Select the **Public IP** tab and then select **Configure**.
 
-   :::image type="content" source="media/public-ip-usage/connectivity-public-ip-tab.png" alt-text="Screenshot that shows where to begin to configure the public IP" border="true" lightbox="media/public-ip-usage/connectivity-public-ip-tab.png":::
+   :::image type="content" source="media/public-ip-usage/connectivity-public-ip-tab.png" alt-text="Screenshot that shows where to begin to configure the public IP." lightbox="media/public-ip-usage/connectivity-public-ip-tab.png":::
 
 1. Accept the default values or change them, and then select **Create**.
 
@@ -84,19 +87,19 @@ We can check and add more public IP addresses by following the below steps.
 
 1. Select a deployed firewall and then select **Visit Azure Firewall Manager to configure and manage this firewall**.
 
-   :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="Screenshot that shows the option to configure and manage the firewall" border="true" lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
+   :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="Screenshot that shows the option to configure and manage the firewall." lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
 
 1. Select **Secured virtual hubs** and, from the list, select a virtual hub.
 
-   :::image type="content" source="media/public-ip-usage/select-virtual-hub.png" alt-text="Screenshot of Firewall Manager" lightbox="media/public-ip-usage/select-virtual-hub.png":::
+   :::image type="content" source="media/public-ip-usage/select-virtual-hub.png" alt-text="Screenshot of Firewall Manager." lightbox="media/public-ip-usage/select-virtual-hub.png":::
 
 1. On the virtual hub page, select **Public IP configuration**, and to add more public IP address, then select **Add**. 
 
-   :::image type="content" source="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png" alt-text="Screenshot of how to add a public IP configuration in Firewall Manager" border="true" lightbox="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png":::
+   :::image type="content" source="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png" alt-text="Screenshot of how to add a public IP configuration in Firewall Manager." lightbox="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png":::
 
 1. Provide the number of IPs required and select **Add**.
 
-   :::image type="content" source="media/public-ip-usage/add-number-of-ip-addresses-required.png" alt-text="Screenshot to add a specified number of public IP configurations" border="true":::
+   :::image type="content" source="media/public-ip-usage/add-number-of-ip-addresses-required.png" alt-text="Screenshot to add a specified number of public IP configurations.":::
 
 
 ## Create firewall policies
@@ -107,11 +110,11 @@ Once all components are deployed, you can see them in the added Resource group. 
 
 1. Select a deployed firewall and then select **Visit Azure Firewall Manager to configure and manage this firewall**.
 
-   :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="Screenshot that shows the option to configure and manage the firewall" border="true" lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
+   :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="Screenshot that shows the option to configure and manage the firewall." lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
 
 1. Select **Azure Firewall Policies** and then select **Create Azure Firewall Policy**.
 
-   :::image type="content" source="media/public-ip-usage/create-firewall-policy.png" alt-text="Screenshot of how to create a firewall policy in Firewall Manager" border="true" lightbox="media/public-ip-usage/create-firewall-policy.png":::
+   :::image type="content" source="media/public-ip-usage/create-firewall-policy.png" alt-text="Screenshot of how to create a firewall policy in Firewall Manager." lightbox="media/public-ip-usage/create-firewall-policy.png":::
 
 1. Under the **Basics** tab, provide the required details and select **Next: DNS Settings**. 
 
@@ -139,7 +142,7 @@ Once all components are deployed, you can see them in the added Resource group. 
 
 1. Select a hub from the list and select **Add**.
 
-   :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="Screenshot that shows the selected hubs that will be converted to Secured Virtual Hubs." border="true" lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::
+   :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="Screenshot that shows the selected hubs that will be converted to Secured Virtual Hubs." lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::
 
 1. Select **Next: Tags**. 
 
@@ -156,4 +159,4 @@ You can have 100 public IPs per private cloud.
 Now that you've covered how to use the public IP functionality in Azure VMware Solution, you may want to learn about:
 
 - Using public IP addresses with [Azure Virtual WAN](../virtual-wan/virtual-wan-about.md).
-- [Creating an IPSec tunnel into Azure VMware Solution](create-ipsec-tunnel.md).
+- [Creating an IPSec tunnel into Azure VMware Solution](./configure-site-to-site-vpn-gateway.md).

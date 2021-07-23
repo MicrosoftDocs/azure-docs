@@ -17,7 +17,7 @@
   - name: Capacity limits
     href: sql-data-warehouse-service-capacity-limits.md
   - name: FAQ
-    href: sql-data-warehouse-overview-faq.md
+    href: sql-data-warehouse-overview-faq.yml
   - name: Release notes
     items:
     - name: Recent Release
@@ -38,6 +38,8 @@
     - name: ARM template
       displayName: Resource Manager
       href: quickstart-arm-template.md
+    - name: Partner solutions 
+      href: sql-data-warehouse-partner-browse-partners.md
   - name: Load data
     items: 
     - name: COPY statement
@@ -368,6 +370,8 @@
       href: sql-data-warehouse-restore-from-geo-backup.md 
     - name: Disable geo-backups
       href: disable-geo-backup.md
+    - name: Configure single region residency
+      href: single-region-residency.md
   - name: Integrate
     items:
     - name: Use machine learning

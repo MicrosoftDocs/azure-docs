@@ -12,26 +12,27 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/12/2021
+ms.date: 07/13/2021
 ms.author: yelevin
 
 ---
 # Threat intelligence integration in Azure Sentinel
 
-> [!IMPORTANT]
-> The Threat Intelligence data connectors in Azure Sentinel are currently in public preview.
-> This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Azure Sentinel gives you a few different ways to [use threat intelligence feeds](work-with-threat-indicators.md) to enhance your security analysts' ability to detect and prioritize known threats. 
 
-Azure Sentinel gives you a few different ways to [use threat intelligence feeds](import-threat-intelligence.md) to enhance your security analysts' ability to detect and prioritize known threats. 
-
-You can use one of many available integrated threat intelligence platform (TIP) products, you can connect to TAXII servers to take advantage of any STIX-compatible threat intelligence source, and you can also make use of any custom solutions that can communicate directly with the [Microsoft Graph Security tiIndicators API](/graph/api/resources/tiindicator).
+You can use one of many available integrated [threat intelligence platform (TIP) products](connect-threat-intelligence-tip.md), you can [connect to TAXII servers](connect-threat-intelligence-taxii.md) to take advantage of any STIX-compatible threat intelligence source, and you can also make use of any custom solutions that can communicate directly with the [Microsoft Graph Security tiIndicators API](/graph/api/resources/tiindicator). 
 
 You can also connect to threat intelligence sources from playbooks, in order to enrich incidents with TI information that can help direct investigation and response actions.
 
+> [!TIP]
+> If you have multiple workspaces in the same tenant, such as for [Managed Service Providers (MSSPs)](mssp-protect-intellectual-property.md), it may be more cost effective to connect threat indicators only to the centralized workspace.
+>
+> When you have the same set of threat indicators imported into each separate workspace, you can run cross-workspace queries to aggregate threat indicators across your workspaces. Correlate them within your MSSP incident detection, investigation, and hunting experience.
+>
+
 ## TAXII threat intelligence feeds
 
-To connect to TAXII threat intelligence feeds, use the [Threat intelligence - TAXII](connect-threat-intelligence.md#connect-azure-sentinel-to-taxii-servers) data connector, together with the data supplied by each vendor linked below. You may need to contact the vendor directly to obtain the necessary data to use with the connector.
+To connect to TAXII threat intelligence feeds, follow the instructions to [connect Azure Sentinel to STIX/TAXII threat intelligence feeds](connect-threat-intelligence-taxii.md), together with the data supplied by each vendor linked below. You may need to contact the vendor directly to obtain the necessary data to use with the connector.
 
 ### Anomali Limo
 
@@ -42,9 +43,9 @@ To connect to TAXII threat intelligence feeds, use the [Threat intelligence - TA
 - [Learn about Cybersixgill integration with Azure Sentinel @Cybersixgill](https://www.cybersixgill.com/partners/azure-sentinel/)
 - To connect Azure Sentinel to Cybersixgill TAXII Server and get access to Darkfeed, [contact Cybersixgill](mailto://azuresentinel@cybersixgill.com) to obtain the API Root, Collection ID, Username and Password.
 
-### Financial services intelligence sharing community (FS-ISAC)
+### Financial Services Information Sharing and Analysis Center (FS-ISAC)
 
-- [Join the FS-ISAC](https://www.fsisac.com/intelligenceexchange) to get the credentials to access this feed.
+- Join [FS-ISAC](https://www.fsisac.com/membership?utm_campaign=ThirdParty&utm_source=MSFT&utm_medium=ThreatFeed-Join) to get the credentials to access this feed.
 
 ### Health intelligence sharing community (H-ISAC)
 
@@ -66,7 +67,7 @@ To connect to TAXII threat intelligence feeds, use the [Threat intelligence - TA
 
 ## Integrated threat intelligence platform products
 
-To connect to Threat Intelligence Platform (TIP) feeds, follow the instructions to [connect Threat Intelligence Platform](connect-threat-intelligence.md#connect-azure-sentinel-to-your-threat-intelligence-platform) feeds to Azure Sentinel. The second part of these instructions calls for you to enter information into your TIP solution. See the links below for more information.
+To connect to Threat Intelligence Platform (TIP) feeds, follow the instructions to [connect Threat Intelligence platforms to Azure Sentinel](connect-threat-intelligence-tip.md). The second part of these instructions calls for you to enter information into your TIP solution. See the links below for more information.
 
 ### Agari Phishing Defense and Brand Protection
 
@@ -82,7 +83,7 @@ To connect to Threat Intelligence Platform (TIP) feeds, follow the instructions 
 
 ### EclecticIQ Platform
 
-- Learn more about the [EclecticIQ Platform](https://www.eclecticiq.com/platform/).
+- EclecticIQ Platform integrates with Azure Sentinel to enhance threat detection, hunting and response. Learn more about the [benefits and use cases](https://www.eclecticiq.com/resources/azure-sentinel-and-eclecticiq-intelligence-center) of this two-way integration.
 
 ### GroupIB Threat Intelligence and Attribution
 
@@ -125,7 +126,7 @@ Besides being used to import threat indicators, threat intelligence feeds can al
 
 ### ReversingLabs TitaniumCloud
 
-- Find and enable incident enrichment playbooks for [ReversingLabs](https://www.reversinglabs.com/products/file-reputation-service) in the Azure Sentinel [GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Enrich-SentinelIncident-ReversingLabs-File-Information).
+- Find and enable incident enrichment playbooks for [ReversingLabs](https://www.reversinglabs.com/products/file-reputation-service) in the Azure Sentinel [GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/ReversingLabs/Playbooks/Enrich-SentinelIncident-ReversingLabs-File-Information).
 - See the ReversingLabs Intelligence Logic App [connector documentation](/connectors/reversinglabsintelligence/).
 
 ### RiskIQ Passive Total

@@ -156,13 +156,13 @@ conceptualContent:
       links:
         - url: ../sentinel/overview.md
           itemType: overview
-          text:  What is Azure Sentinel preview?
+          text:  What is Azure Sentinel?
         - url: ../sentinel/quickstart-onboard.md
           itemType: quickstart
-          text:  Onboard Azure Sentinel preview
+          text:  Onboard Azure Sentinel
         - url: ../sentinel/quickstart-get-visibility.md
           itemType: quickstart
-          text:  Get started with Azure Sentinel preview
+          text:  Get started with Azure Sentinel
       footerLink:
         url: ../sentinel/index.yml
         text: See more

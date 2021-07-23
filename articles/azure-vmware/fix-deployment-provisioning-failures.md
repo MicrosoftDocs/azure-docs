@@ -83,7 +83,7 @@ To copy the ExpressRoute ID:
 1. In the right pane, select the **ExpressRoute** tab.
 1. Select the copy icon for **ExpressRoute ID** and save the value to use in your support request.
  
-:::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Copy the ExpressRoute ID to the clipboard."::: 
+:::image type="content" source="media/expressroute-global-reach/expressroute-id.png" alt-text="Screenshot that shows the ExpressRoute ID to copy to the clipboard."::: 
  
 ## Pre-validation failures
 
@@ -103,7 +103,7 @@ To create a support request for an Azure VMware Solution deployment or provision
 
 1. In the Azure portal, select the **Help** icon, and then select **New support request**.
 
-    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Screenshot of the New support request pane in the Azure portal.":::
+    :::image type="content" source="media/fix-deployment-provisioning-failures/open-support-request.png" alt-text="Screenshot of the New support request pane in the Azure portal.":::
 
 1. Enter or select the required information:
 

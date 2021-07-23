@@ -43,7 +43,7 @@ Here is an example that populates the marker `tags` for three twins:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesMarker":::
 
-Here is a code example on how to set the marker `tags` for a twin using the [.NET SDK](/dotnet/api/overview/azure/digitaltwins/client):
+Here is a code example on how to set the marker `tags` for a twin using the [.NET SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true):
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesCsharp":::
 
@@ -96,7 +96,7 @@ Here is a query to get all entities that are small (value tag), and not red:
 ## Next steps
 
 Read more about designing and managing digital twin models:
-* [How-to: Manage DTDL models](how-to-manage-model.md)
+* [Manage DTDL models](how-to-manage-model.md)
 
 Read more about querying the twin graph:
-* [How-to: Query the twin graph](how-to-query-graph.md)
+* [Query the twin graph](how-to-query-graph.md)

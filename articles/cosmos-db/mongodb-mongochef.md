@@ -5,8 +5,8 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/20/2020
-author: timsander1
-ms.author: tisande
+author: gahl-levy
+ms.author: gahllevy
 ms.custom: seodec18
 ---
 # Connect to an Azure Cosmos account using Studio 3T

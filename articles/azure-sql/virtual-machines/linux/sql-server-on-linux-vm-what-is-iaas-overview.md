@@ -85,4 +85,4 @@ Get started with SQL Server on Linux virtual machines:
 
 Get answers to commonly asked questions about SQL Server VMs on Linux:
 
-* [SQL Server on Azure Virtual Machines FAQ](frequently-asked-questions-faq.md)
+* [SQL Server on Azure Virtual Machines FAQ](frequently-asked-questions-faq.yml)

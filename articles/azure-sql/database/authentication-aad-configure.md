@@ -5,13 +5,13 @@ description: Learn how to connect to SQL Database, SQL Managed Instance, and Azu
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
-ms.custom: azure-synapse, has-adal-ref, sqldbrb=2
+ms.custom: azure-synapse, has-adal-ref, sqldbrb=2, devx-track-azurepowershell
 ms.devlang: 
 ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto, sstein
-ms.date: 05/11/2021
+ms.reviewer: vanto
+ms.date: 07/07/2021
 ---
 
 # Configure and manage Azure AD authentication with Azure SQL
@@ -43,7 +43,13 @@ For more information on Azure AD hybrid identities, setup, and synchronization, 
 
 Create an Azure AD instance and populate it with users and groups. Azure AD can be the initial Azure AD managed domain. Azure AD can also be an on-premises Active Directory Domain Services that is federated with the Azure AD.
 
-For more information, see [Integrating your on-premises identities with Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md), [Add your own domain name to Azure AD](../../active-directory/fundamentals/add-custom-domain.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administering your Azure AD directory](../../active-directory/fundamentals/active-directory-whatis.md), [Manage Azure AD using Windows PowerShell](/powershell/azure/), and [Hybrid Identity Required Ports and Protocols](../../active-directory/hybrid/reference-connect-ports.md).
+For more information, see:
+- [Integrating your on-premises identities with Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md)
+- [Add your own domain name to Azure AD](../../active-directory/fundamentals/add-custom-domain.md)
+- [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/windows-azure-now-supports-federation-with-windows-server-active-directory/)
+- [What is Azure Active Directory?](../../active-directory/fundamentals/active-directory-whatis.md)
+- [Manage Azure AD using Windows PowerShell](/powershell/module/azuread)
+- [Hybrid Identity Required Ports and Protocols](../../active-directory/hybrid/reference-connect-ports.md).
 
 ## Associate or add an Azure subscription to Azure Active Directory
 
@@ -375,6 +381,10 @@ However, using Azure Active Directory authentication with SQL Database and Azure
 > [!WARNING]
 > Special characters like  colon `:` or ampersand `&` when included as user names in the T-SQL `CREATE LOGIN` and `CREATE USER` statements are not supported.
 
+> [!IMPORTANT]
+> Azure AD users and service principals (Azure AD applications) that are members of more than 2048 Azure AD security groups are not supported to login into the database via Security Groups in SQL Database, Managed Instance, or Azure Synapse.
+
+
 To create an Azure AD-based contained database user (other than the server administrator that owns the database), connect to the database with an Azure AD identity, as a user with at least the **ALTER ANY USER** permission. Then use the following Transact-SQL syntax:
 
 ```sql
@@ -430,7 +440,7 @@ To confirm the Azure AD administrator is properly set up, connect to the **maste
 To provision an Azure AD-based contained database user (other than the server administrator that owns the database), connect to the database with an Azure AD identity that has access to the database.
 
 > [!IMPORTANT]
-> Support for Azure Active Directory authentication is available with [SQL Server 2016 Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) and [SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt) in Visual Studio 2015. The August 2016 release of SSMS also includes support for Active Directory Universal Authentication, which allows administrators to require Multi-Factor Authentication using a phone call, text message, smart cards with pin, or mobile app notification.
+> Support for Azure Active Directory authentication is available with [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) starting in 2016 and [SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt) starting in 2015. The August 2016 release of SSMS also includes support for Active Directory Universal Authentication, which allows administrators to require Multi-Factor Authentication using a phone call, text message, smart cards with pin, or mobile app notification.
 
 ## Using an Azure AD identity to connect using SSMS or SSDT
 

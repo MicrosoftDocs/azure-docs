@@ -13,13 +13,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 04/21/2021
+ms.date: 05/17/2021
 ms.author: phjensen
 ---
 
 # Troubleshoot Azure Application Consistent Snapshot tool
 
-This article provides troubleshooting content for using the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
+This article provides troubleshooting content for using the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files and Azure Large Instance.
 
 The following are common issues that you may encounter while running the commands. Follow the resolution instructions mentioned to fix the issue. If you still encounter an issue, open a Service Request from Azure portal and assign the request into the SAP HANA Large Instance queue for Microsoft Support to respond.
 
@@ -58,7 +58,9 @@ When validating communication with Azure NetApp Files, communication might fail 
 - (https://)management.azure.com:443
 - (https://)login.microsoftonline.com:443 
 
-## Failed communication with SAP HANA
+## Problems with SAP HANA
+
+### Running the test command fails
 
 When validating communication with SAP HANA by running a test with `azacsnap -c test --test hana` and it provides the following error:
 
@@ -95,7 +97,7 @@ Cannot get SAP HANA version, exiting with error: 127
     In this example, the `hdbsql` command isn't in the users `$PATH`.
 
     ```bash
-    hdbsql -n 172.18.18.50 - i 00 -U SCADMIN "select version from sys.m_database"
+    hdbsql -n 172.18.18.50 - i 00 -U AZACSNAP "select version from sys.m_database"
     ```
 
     ```output
@@ -110,17 +112,45 @@ Cannot get SAP HANA version, exiting with error: 127
     ```
 
     ```bash
-    hdbsql -n 172.18.18.50 -i 00 -U SCADMIN "select version from sys.m_database"
+    hdbsql -n 172.18.18.50 -i 00 -U AZACSNAP "select version from sys.m_database"
     ```
 
     ```output
-    * -10104: Invalid value for KEY (SCADMIN)
+    * -10104: Invalid value for KEY (AZACSNAP)
     ```
 
     > [!NOTE]
     > To permanently add to the user's `$PATH`, update the user's `$HOME/.profile` file
 
-## The `hdbuserstore` location
+### Insufficient privilege
+
+If running `azacsnap` presents an error such as `* 258: insufficient privilege`, check to ensure the appropriate privilege has been asssigned to the "AZACSNAP" database user (assuming this is the user created per the [installation guide](azacsnap-installation.md#enable-communication-with-sap-hana)).  Verify the user's current privilege with the following command:
+
+```bash
+hdbsql -U AZACSNAP "select GRANTEE,GRANTEE_TYPE,PRIVILEGE,IS_VALID,IS_GRANTABLE from sys.granted_privileges "' | grep -i -e GRANTEE -e azacsnap
+```
+
+```output
+GRANTEE,GRANTEE_TYPE,PRIVILEGE,IS_VALID,IS_GRANTABLE
+"AZACSNAP","USER","BACKUP ADMIN","TRUE","FALSE"
+"AZACSNAP","USER","CATALOG READ","TRUE","FALSE"
+"AZACSNAP","USER","CREATE ANY","TRUE","TRUE"
+```
+
+The error might also provide further information to help determine the required SAP HANA privileges, such as the output of `Detailed info for this error can be found with guid '99X9999X99X9999X99X99XX999XXX999' SQLSTATE: HY000`.  In this case follow SAP's instructions at [SAP Help Portal - GET_INSUFFICIENT_PRIVILEGE_ERROR_DETAILS](https://help.sap.com/viewer/b3ee5778bc2e4a089d3299b82ec762a7/2.0.05/en-US/9a73c4c017744288b8d6f3b9bc0db043.html) which recommends using the following SQL query to determine the detail on the required privilege.
+
+```sql
+CALL SYS.GET_INSUFFICIENT_PRIVILEGE_ERROR_DETAILS ('99X9999X99X9999X99X99XX999XXX999', ?)
+```
+
+```output
+GUID,CREATE_TIME,CONNECTION_ID,SESSION_USER_NAME,CHECKED_USER_NAME,PRIVILEGE,IS_MISSING_ANALYTIC_PRIVILEGE,IS_MISSING_GRANT_OPTION,DATABASE_NAME,SCHEMA_NAME,OBJECT_NAME,OBJECT_TYPE
+"99X9999X99X9999X99X99XX999XXX999","2021-01-01 01:00:00.180000000",120212,"AZACSNAP","AZACSNAP","DATABASE ADMIN or DATABASE BACKUP ADMIN","FALSE","FALSE","","","",""
+```
+
+In the example above, adding the 'DATABASE BACKUP ADMIN' privilege to the SYSTEMDB's AZACSNAP user, should resolve the insufficient privilege error.
+
+### The `hdbuserstore` location
 
 When setting up communication with SAP HANA, the `hdbuserstore` program is used to create the secure communication settings.  The `hdbuserstore` program is usually found under `/usr/sap/<SID>/SYS/exe/hdb/` or `/usr/sap/hdbclient`.  Normally the installer adds the correct location to the `azacsnap` user's `$PATH`.
 

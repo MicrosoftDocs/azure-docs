@@ -1,8 +1,8 @@
 ---
 title: How to use Application Insights Java In-Process Agent in Azure Spring Cloud 
 description: How to monitor apps and microservices using Application Insights Java In-Process Agent in Azure Spring Cloud.
-author:  MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/04/2020
@@ -30,6 +30,9 @@ Application Insights provide many observable perspectives, including:
 * Metrics
 * Live Metrics
 * Availability
+
+> [!NOTE]
+> This preview feature is not supported in Mooncake and new regions like UAE yet.
 
 ## Enable Java In-Process Agent for Application Insights
 
@@ -123,21 +126,21 @@ Apply ARM template with the CLI command:
 * For an existing Azure Spring Cloud instance:
 
 ```azurecli
-az spring-cloud app-insights update [--app-insights/--app-insights-key] "assignedName" [--sampling-rate] "samplingRate" â€“name "assignedName" â€“resource-group "resourceGroupName"
+az spring-cloud app-insights update [--app-insights/--app-insights-key] "assignedName" [--sampling-rate] "samplingRate" --name "assignedName" --resource-group "resourceGroupName"
 ```
 * For a newly created Azure Spring Cloud instance:
 
 ```azurecli
-az spring-cloud create/update [--app-insights]/[--app-insights-key] "assignedName" --disable-app-insights false --enable-java-agent true --name "assignedName" â€“resource-group "resourceGroupName"
+az spring-cloud create/update [--app-insights]/[--app-insights-key] "assignedName" --disable-app-insights false --enable-java-agent true --name "assignedName" --resource-group "resourceGroupName"
 ```
 * To disable app-insight:
 
 ```azurecli
-az spring-cloud app-insights update --disable â€“name "assignedName" â€“resource-group "resourceGroupName"
+az spring-cloud app-insights update --disable --name "assignedName" --resource-group "resourceGroupName"
 
 ```
 
-## Java Agent Update/Upgrade
+## Java agent update/upgrade
 
 The Java agent will be updated/upgraded regularly with the JDK, which may impact the following scenarios.
 
@@ -148,7 +151,7 @@ The Java agent will be updated/upgraded regularly with the JDK, which may impact
 * Applications created after updating/upgrading will leverage the new version of the Java agent.
 * Existing applications that did not previsously use the Java agent will require restart or redeployment to leverage the new version of the Java agent.
 
-## Java Agent Configuration Hot-Loading
+## Java agent configuration hot-loading
 
 Azure Spring Cloud has enabled a hot-loading mechanism to adjust the settings of agent configuration without restart of applications.
 
@@ -159,7 +162,34 @@ Azure Spring Cloud has enabled a hot-loading mechanism to adjust the settings of
 * If you enable the Java agent, then you must restart applications.
 * When you disable the Java agent, applications will stop to send all monitoring data after a delay in minutes. You can restart applications to remove the agent from the Java runtime environment.
 
+## Concept matching between Azure Spring Cloud and Application Insights
+
+| Azure Spring Cloud | Application Insights                                         |
+| ------------------ | ------------------------------------------------------------ |
+| `App`              | * __Application Map__/Role<br />* __Live Metrics__/Role<br />* __Failures__/Roles/Cloud Role<br />* __Performance__/Roles/Could Role |
+| `App Instance`     | * __Application Map__/Role Instance<br />* __Live Metrics__/Service Name<br />* __Failures__/Roles/Cloud Instance<br />* __Performance__/Roles/Could Instance |
+
+The name `App Instance` from Azure Spring Cloud will be changed or generated in the following scenarios:
+
+* You create a new application.
+* You deploy a JAR file or source code to an existing application.
+* You initiate a blue/green deployment.
+* You restart the application.
+* You stop the deployment of an application, and then restart it. 
+
+When data is stored in Application Insights, it contains the history of Azure Spring Cloud app instances created or deployed since the Java agent was enabled. This means that, in the Application Insights portal, you can see application data created yesterday, but then deleted within a specific time range, like the last 24 hours. The following scenarios show how this works:
+
+* You created an application around 8:00 AM today from Azure Spring Cloud with the Java agent enabled, and then you deployed a JAR file to this application around 8:10 AM today. After some testing, you change the code and deploy a new JAR file to this application at 8:30 AM today. Then, you take a break, and when you come back around 11:00 AM, you check some data from Application Insights. You will see:
+  * Three instances in Application Map with time ranges in the last 24 hours, as well as Failures, Performance, and Metrics.
+  * One instance in Application Map with a time range in the last hour, as well as Failures, Performance, and Metrics.
+  * One instance in Live Metrics.
+* You created an application around 8:00 AM today from Azure Spring Cloud with the Java agent enabled, and then you deployed a JAR file to this application around 8:10 AM today. Around 8:30 AM today, you try a blue/green deployment with another JAR file. Currently, you have two deployments for this application. After a break around 11:00 AM today, you want to check some data from Application Insights. You will see:
+  * Three instances in Application Map with time ranges in the last 24 hours, as well as Failures, Performance, and Metrics.
+  * Two instances in Application Map with time ranges in last hour, as well as Failures, Performance, and Metrics.
+  * Two instances in Live Metrics.
+
 ## See also
+
 * [Use distributed tracing with Azure Spring Cloud](./how-to-distributed-tracing.md)
 * [Analyze logs and metrics](diagnostic-services.md)
 * [Stream logs in real time](./how-to-log-streaming.md)

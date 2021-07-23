@@ -27,17 +27,16 @@ A solution builder:
 An IoT Central application can have one or more dashboards that operators use to view and interact with the application. As a solution builder, you can customize the default dashboard and create specialized dashboards:
 
 - To view some examples of customized dashboards, see [Industry focused templates](concepts-app-templates.md#industry-focused-templates).
-- To learn more about dashboards, see [Create and manage multiple dashboards](howto-create-personal-dashboards.md) and [Configure the application dashboard](howto-add-tiles-to-your-dashboard.md).
+- To learn more about dashboards, see [Create and manage multiple dashboards](howto-manage-dashboards.md) and [Configure the application dashboard](howto-manage-dashboards.md).
 
-When a device connects to an IoT Central, the device is associated with a device template for the device type. A device template has customizable views that an operator uses to manage individual devices. As a solution developer, you can create and customize the available views for a device type. To learn more, see [Add views](howto-set-up-template.md#add-views).
+When a device connects to an IoT Central, the device is associated with a device template for the device type. A device template has customizable views that an operator uses to manage individual devices. As a solution developer, you can create and customize the available views for a device type. To learn more, see [Add views](howto-set-up-template.md#views).
 
 ## Use built-in rules and analytics
 
 A solution developer can add rules to an IoT Central application that run customizable actions. Rules evaluate conditions, based on data coming from a device, to determine when to run an action. To learn more about rules, see:
 
 - [Tutorial: Create a rule and set up notifications in your Azure IoT Central application](tutorial-create-telemetry-rules.md)
-- [Create webhook actions on rules in Azure IoT Central](howto-create-webhooks.md)
-- [Group multiple actions to run from one or more rules](howto-use-action-groups.md)
+- [Configure rules](howto-configure-rules.md)
 
 IoT Central has built-in analytics capabilities that an operator can use to analyze the data flowing from the connected devices. To learn more, see [How to use analytics to analyze device data](howto-create-analytics.md).
 

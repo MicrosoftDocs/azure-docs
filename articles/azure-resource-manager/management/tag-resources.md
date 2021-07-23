@@ -2,7 +2,7 @@
 title: Tag resources, resource groups, and subscriptions for logical organization
 description: Shows how to apply tags to organize Azure resources for billing and managing.
 ms.topic: conceptual
-ms.date: 05/05/2021
+ms.date: 07/15/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -809,6 +809,8 @@ resource applyTags 'Microsoft.Resources/tags@2021-04-01' = {
 
 [!INCLUDE [resource-manager-tag-resource](../../../includes/resource-manager-tag-resources.md)]
 
+Some resources, such [IP Groups in Azure Firewall](../../firewall/ip-groups.md), don't currently support updating tags through the portal. Instead, use the update commands for those resources. For example, you can update tags for an IP group with the [az network ip-group update](/cli/azure/network/ip-group#az_network_ip_group_update) command. 
+
 ## REST API
 
 To work with tags through the Azure REST API, use:
@@ -826,7 +828,7 @@ Tags applied to the resource group or subscription aren't inherited by the resou
 
 You can use tags to group your billing data. For example, if you're running multiple VMs for different organizations, use the tags to group usage by cost center. You can also use tags to categorize costs by runtime environment, such as the billing usage for VMs running in the production environment.
 
-You can retrieve information about tags by downloading  the usage file, a comma-separated values (CSV) file available from the Azure portal. For more information, see [Download or view your Azure billing invoice and daily usage data](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). When downloading the usage file from the Azure Account Center, select **Version 2**. For services that support tags with billing, the tags appear in the **Tags** column.
+You can retrieve information about tags by downloading  the usage file, a comma-separated values (CSV) file available from the Azure portal. For more information, see [Download or view your Azure billing invoice and daily usage data](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). For services that support tags with billing, the tags appear in the **Tags** column.
 
 For REST API operations, see [Azure Billing REST API Reference](/rest/api/billing/).
 
@@ -843,9 +845,13 @@ The following limitations apply to tags:
    > [!NOTE]
    > * Azure DNS zones and Traffic Manager doesn't support the use of spaces in the tag or a tag that starts with a number.
    >
-   > * Azure Front Door doesn't support the use of `#` in the tag name.
+   > * Azure Front Door doesn't support the use of `#` or `:` in the tag name.
    >
-   > * Azure Automation and Azure CDN only support 15 tags on resources.
+   > * The following Azure resources only support 15 tags:
+   >     * Azure Automation 
+   >     * Azure CDN
+   >     * Azure DNS (Zone and A records)
+   >     * Azure Private DNS (Zone, A records, and virtual network link)
 
 ## Next steps
 

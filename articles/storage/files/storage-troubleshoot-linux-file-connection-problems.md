@@ -17,29 +17,26 @@ In addition to the troubleshooting steps in this article, you can use [AzFileDia
 > [!IMPORTANT]
 > The content of this article only applies to SMB shares. For details on NFS shares, see [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md).
 
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+
 ## Cannot connect to or mount an Azure file share
 
 ### Cause
 
 Common causes for this problem are:
 
-- You're using an incompatible Linux distribution client. We recommend that you use the following Linux distributions to connect to an Azure file share:
-
-|   | SMB 2.1 <br>(Mounts on VMs within the same Azure region) | SMB 3.0 <br>(Mounts from on-premises and cross-region) |
-| --- | :---: | :---: |
-| **Ubuntu Server** | 14.04+ | 16.04+ |
-| **RHEL** | 7+ | 7.5+ |
-| **CentOS** | 7+ |  7.5+ |
-| **Debian** | 8+ |   |
-| **openSUSE** | 13.2+ | 42.3+ |
-| **SUSE Linux Enterprise Server** | 12 | 12 SP3+ |
-
-- CIFS utilities (cifs-utils) are not installed on the client.
-- The minimum SMB/CIFS version, 2.1, is not installed on the client.
-- SMB 3.0 encryption is not supported on the client. The preceding table provides a list of Linux distributions that support mounting from on-premises and cross-region using encryption. Other distributions require kernel 4.11 and later versions.
+- You're using an Linux distribution with an outdated SMB client, see [Use Azure Files with Linux](storage-how-to-use-files-linux.md) for more information on common Linux distributions available in Azure that have compatible clients.
+- SMB utilities (cifs-utils) are not installed on the client.
+- The minimum SMB version, 2.1, is not available on the client.
+- SMB 3.x encryption is not supported on the client. The preceding table provides a list of Linux distributions that support mounting from on-premises and cross-region using encryption. Other distributions require kernel 4.11 and later versions.
 - You're trying to connect to a storage account over TCP port 445, which is not supported.
 - You're trying to connect to an Azure file share from an Azure VM, and the VM is not in the same region as the storage account.
-- If the [Secure transfer required]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) setting is enabled on the storage account, Azure Files will allow only connections that use SMB 3.0 with encryption.
+- If the [Secure transfer required](../common/storage-require-secure-transfer.md) setting is enabled on the storage account, Azure Files will allow only connections that use SMB 3.x with encryption.
 
 ### Solution
 
@@ -115,17 +112,17 @@ To close open handles for a file share, directory or file, use the [Close-AzStor
     - and then - copy files without extending writes in parallel: `$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
 
 <a id="error115"></a>
-## "Mount error(115): Operation now in progress" when you mount Azure Files by using SMB 3.0
+## "Mount error(115): Operation now in progress" when you mount Azure Files by using SMB 3.x
 
 ### Cause
 
-Some Linux distributions don't yet support encryption features in SMB 3.0. Users might receive a "115" error message if they try to mount Azure Files by using SMB 3.0 because of a missing feature. SMB 3.0 with full encryption is supported only when you're using Ubuntu 16.04 or later.
+Some Linux distributions don't yet support encryption features in SMB 3.x. Users might receive a "115" error message if they try to mount Azure Files by using SMB 3.x because of a missing feature. SMB 3.x with full encryption is supported only when you're using Ubuntu 16.04 or later.
 
 ### Solution
 
-The encryption feature for SMB 3.0 for Linux was introduced in the 4.11 kernel. This feature enables mounting of an Azure file share from on-premises or from a different Azure region. Some Linux distributions may have backported changes from the 4.11 kernel to older versions of the Linux kernel which they maintain. To assist in determining if your version of Linux supports SMB 3.0 with encryption, consult with [Use Azure Files with Linux](storage-how-to-use-files-linux.md). 
+The encryption feature for SMB 3.x for Linux was introduced in the 4.11 kernel. This feature enables mounting of an Azure file share from on-premises or from a different Azure region. Some Linux distributions may have backported changes from the 4.11 kernel to older versions of the Linux kernel which they maintain. To assist in determining if your version of Linux supports SMB 3.x with encryption, consult with [Use Azure Files with Linux](storage-how-to-use-files-linux.md). 
 
-If your Linux SMB client doesn't support encryption, mount Azure Files by using SMB 2.1 from an Azure Linux VM that's in the same datacenter as the file share. Verify that the [Secure transfer required]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) setting is disabled on the storage account. 
+If your Linux SMB client doesn't support encryption, mount Azure Files by using SMB 2.1 from an Azure Linux VM that's in the same datacenter as the file share. Verify that the [Secure transfer required](../common/storage-require-secure-transfer.md) setting is disabled on the storage account. 
 
 <a id="noaaccessfailureportal"></a>
 ## Error "No access" when you try to access or delete an Azure File Share  
@@ -285,7 +282,7 @@ You can work around this problem by specifying a hard mount. A hard mount forces
 
 If you can't upgrade to the latest kernel versions, you can work around this problem by keeping a file in the Azure file share that you write to every 30 seconds or less. This must be a write operation, such as rewriting the created or modified date on the file. Otherwise, you might get cached results, and your operation might not trigger the reconnection.
 
-## "CIFS VFS: error -22 on ioctl to get interface list" when you mount an Azure file share by using SMB 3.0
+## "CIFS VFS: error -22 on ioctl to get interface list" when you mount an Azure file share by using SMB 3.x
 
 ### Cause
 This error is logged because Azure Files [does not currently support SMB multichannel](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).

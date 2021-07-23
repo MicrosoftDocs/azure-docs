@@ -11,25 +11,12 @@ ms.author: cshoe
 
 # Bring your own functions to Azure Static Web Apps
 
-Azure Static Web Apps APIs are supported by two possible configurations:
+Azure Static Web Apps APIs are supported by two possible configurations: managed functions and bring your own functions. See the [API reference](apis.md) for details between the two configurations.
 
-- **Managed functions**:  By default, the API of a static web app is an Azure Functions application managed and deployed by Azure Static Web Apps associated with some restrictions.
+This article demonstrates how to link an existing Azure Functions app to an Azure Static Web Apps resource.
 
-- **Bring your own functions**: Optionally, you can provide an existing Azure Functions application, which is accompanied by all the features of Azure Functions. With this configuration, you're responsible to handle a separate deployment for the Functions app.
-
-The following table contrasts the differences between using managed and existing functions.
-
-| Feature | Managed Functions | Bring your own Functions |
-| --- | --- | --- |
-| Access to Azure Functions triggers | Http only | [All](../azure-functions/functions-triggers-bindings.md#supported-bindings) |
-| Supported runtimes | Node.js<br>.NET<br>Python | [All](../azure-functions/supported-languages.md#languages-by-runtime-version) |
-| [Integrated security](user-information.md) with direct access to user authentication and role-based authorization data | ✔ | ✔ |
-| [Routing integration](./configuration.md?#routes) that makes the _api_ route available to the web app securely without requiring custom CORS rules. | ✔ | ✔ |
-| [Azure Functions Premium plan](../azure-functions/functions-premium-plan.md) | | ✔ |
-| [Durable Functions](../azure-functions/durable/durable-functions-overview.md) programming model | | ✔ |
-| [Managed identity](../app-service/overview-managed-identity.md) | | ✔ |
-| [Azure App Service Authentication and Authorization](../app-service/configure-authentication-provider-aad.md) token management | | ✔ |
-| API functions available outside Azure Static Web Apps |  | ✔ |
+> [!NOTE]
+> Bring your own functions is only available in the Azure Static Web Apps Standard plan.
 
 ## Example
 
@@ -51,7 +38,7 @@ https://red-sea-123.azurestaticapps.net/api/getProducts
 
 Before you associate an existing Functions app, you first need to adjust to configuration of your static web app.
 
-1. Blank out the `api_location` value in the [workflow configuration](./github-actions-workflow.md) file.
+1. Set `api_location` value to an empty string (`""`) in the [workflow configuration](./github-actions-workflow.md) file.
 
 1. Open your Static Web Apps instance in the [Azure portal](https://portal.azure.com).
 
@@ -70,7 +57,7 @@ Before you associate an existing Functions app, you first need to adjust to conf
     :::image type="content" source="media/functions-bring-your-own/azure-static-web-apps-link-existing-functions-app.png" alt-text="Link an existing Functions app":::
 
 > [!IMPORTANT]
-> Make sure you blank out the `api_location` value in the [workflow configuration](./github-actions-workflow.md) file before you link an existing Functions application.
+> Make sure to set the `api_location` value to an empty string (`""`) in the [workflow configuration](./github-actions-workflow.md) file before you link an existing Functions application.
 
 ## Deployment
 
@@ -92,7 +79,7 @@ You're responsible for setting up a [deployment workflow](../azure-functions/fun
 ## Restrictions
 
 - Only one Azure Functions app is available to a single static web app.
-- The `api_location` value in the [workflow configuration](./github-actions-workflow.md) must be blank.
+- The `api_location` value in the [workflow configuration](./github-actions-workflow.md) must be set to an empty string.
 - Only supported in the Static Web Apps production environment.
 - While your Azure Functions app may respond to various triggers, the static web app can only access functions via Http endpoints.
 

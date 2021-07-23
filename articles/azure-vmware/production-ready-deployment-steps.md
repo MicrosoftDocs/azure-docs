@@ -3,7 +3,7 @@ title: Plan the Azure VMware Solution deployment
 description: This article outlines an Azure VMware Solution deployment workflow.  The final result is an environment ready for virtual machine (VM) creation and migration.
 ms.topic: tutorial
 ms.custom: contperf-fy21q4
-ms.date: 04/27/2021
+ms.date: 06/21/2021
 ---
 
 # Plan the Azure VMware Solution deployment
@@ -18,16 +18,20 @@ The steps outlined give you a production-ready environment for creating virtual 
 
 ## Request a host quota 
 
-It's important to request a host quota early as you prepare to create your Azure VMware Solution resource. You can request a host quota now, so when the planning process is finished, you're ready to deploy the Azure VMware Solution private cloud. After the support team receives your request for a host quota, it takes up to five business days to confirm your request and allocate your hosts. If you have an existing Azure VMware Solution private cloud and want more hosts allocated, you complete the same process. For more information, see the following links, depending on the type of subscription you have:
-- [EA customers](enable-azure-vmware-solution.md?tabs=azure-portal#request-host-quota-for-ea-customers)
-- [CSP customers](enable-azure-vmware-solution.md?tabs=azure-portal#request-host-quota-for-csp-customers)
+It's important to request a host quota early, so when the planning process is finished, you're ready to deploy your Azure VMware Solution private cloud. 
+
+- [EA customers](request-host-quota-azure-vmware-solution.md#request-host-quota-for-ea-customers)
+- [CSP customers](request-host-quota-azure-vmware-solution.md#request-host-quota-for-csp-customers)
+
+After the support team receives your request for a host quota, it takes up to five business days to confirm your request and allocate your hosts. 
+
 
 ## Identify the subscription
 
 Identify the subscription you plan to use to deploy Azure VMware Solution.  You can either create a new subscription or reuse an existing one.
 
 >[!NOTE]
->The subscription must be associated with a Microsoft Enterprise Agreement or a Cloud Solution Provider Azure plan. For more information, see [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md).
+>The subscription must be associated with a Microsoft Enterprise Agreement or a Cloud Solution Provider Azure plan. For more information, see [Eligibility criteria](request-host-quota-azure-vmware-solution.md#eligibility-criteria).
 
 ## Identify the resource group
 
@@ -66,7 +70,7 @@ This /22 CIDR network address block shouldn't overlap with any existing network 
 
 For a detailed breakdown of how the /22 CIDR network is broken down per private cloud [Network planning checklist](tutorial-network-checklist.md#routing-and-subnet-considerations).
 
-:::image type="content" source="media/pre-deployment/management-vmotion-vsan-network-ip-diagram.png" alt-text="Identify - IP address segment" border="false":::  
+:::image type="content" source="media/pre-deployment/management-vmotion-vsan-network-ip-diagram.png" alt-text="Diagram showing the IP IP address segment for the Azure VMware Solution deployment." border="false":::  
 
 ## Define the IP address segment for VM workloads
 
@@ -79,18 +83,18 @@ This network segment is used primarily for testing purposes during the initial d
   
 **Example:** 10.0.4.0/24
 
-:::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="Identify - IP address segment for virtual machine workloads" border="false":::     
+:::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="Diagram showing the address segment for virtual machine workloads." border="false":::     
 
 ## Define the virtual network gateway
 
->[!IMPORTANT]
->You can connect to a virtual network gateway in an Azure Virtual WAN, but it is out of scope for this quick start.
+An Azure VMware Solution private cloud requires an Azure Virtual Network and an ExpressRoute circuit. 
 
-An Azure VMware Solution private cloud requires an Azure Virtual Network and an ExpressRoute circuit.  
+>[!IMPORTANT]
+>[!INCLUDE [disk-pool-planning-note](includes/disk-pool-planning-note.md)] You can connect to a virtual network gateway in an Azure Virtual WAN, but it is out of scope for this quick start.
 
 Define whether you want to use an *existing* OR *new* ExpressRoute virtual network gateway.  If you decide to use a *new* virtual network gateway, you'll create it after you create your private cloud. It's acceptable to use an existing ExpressRoute virtual network gateway, and for planning purposes, make note of which ExpressRoute virtual network gateway you'll use. 
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Diagram that shows the Azure Virtual Network attached to Azure VMware Solution" border="false":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Diagram that shows the Azure Virtual Network attached to Azure VMware Solution." border="false":::
 
 
 

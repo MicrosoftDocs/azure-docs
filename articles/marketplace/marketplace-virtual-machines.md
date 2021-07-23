@@ -18,7 +18,7 @@ Before you start, [Create a commercial marketplace account in Partner Center](cr
 
 ### Technical fundamentals
 
-The process of designing, building, and testing offers takes time and requires expertise in both the Azure platform and the technologies used to build your offer. Your engineering team should have a working knowledge of [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage), and [Azure Networking](https://azure.microsoft.com/services/?filter=networking#networking), as well as proficiency with the [design and architecture of Azure applications](https://azure.microsoft.com/solutions/architecture/). See these additional technical resources: 
+The process of designing, building, and testing offers takes time and requires expertise in both the Azure platform and the technologies used to build your offer. Your engineering team should have a working knowledge of [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage), and [Azure Networking](https://azure.microsoft.com/services/?filter=networking#networking), as well as proficiency with the [design and architecture of Azure applications](https://azure.microsoft.com/solutions/architecture/). See these additional technical resources:
 
 - Tutorials
   - [Linux VMs](../virtual-machines/linux/tutorial-manage-vm.md)
@@ -54,12 +54,7 @@ For detailed instructions on preparing your technical assets, see [Create a virt
 
 ## Preview audience
 
-A preview audience can access your VM offer prior to being published live in Azure Marketplace in order to test the end-to-end functionality before you publish it live. On the **Preview audience** page, you can define a limited preview audience. 
-
-> [!NOTE]
-> A preview audience differs from a private plan. A private plan is one you make available only to a specific audience you choose. This enables you to negotiate a custom plan with specific customers. For more information, see the next section: Plans.
-
-You can send invites to Microsoft Account (MSA) or Azure Active Directory (Azure AD) email addresses. Add up to 10 email addresses manually or import up to 20 with a .csv file. If your offer is already live, you can still define a preview audience for testing any changes or updates to your offer.
+[!INCLUDE [Test drives section](includes/preview-audience.md)]
 
 ## Plans and pricing
 
@@ -72,7 +67,7 @@ VMs are fully commerce-enabled, using pay-as-you-go or bring-your-own-license (B
 
 ### Licensing options
 
-As you prepare to publish a new VM offer, you need to decide which licensing option to choose. This will determine what additional information you'll need to provide later as you create your offer in Partner Center.
+As you prepare to publish a new offer, you need to decide which licensing option to choose. This will determine what additional information you'll need to provide later as you create the offer in Partner Center.
 
 These are the available licensing options for VM offers:
 
@@ -101,24 +96,16 @@ For more information, see [Plans and pricing for commercial marketplace offers](
 
 You can choose to enable a test drive for your VM. Test drives give customers access to a preconfigured environment for a fixed number of hours. You can enable test drives for any publishing option, however this feature has additional requirements. To learn more about test drives, see [What is a test drive?](what-is-test-drive.md). For information about configuring different kinds of test drives, see [Test drive technical configuration](test-drive-technical-configuration.md).
 
-> [!TIP]
-> A test drive is different from a [free trial](plans-pricing.md#free-trials). You can offer a test drive, free trial, or both. They both provide your customers with your solution for a fixed period-of-time. But, a test drive also includes a hands-on, self-guided tour of your product’s key features and benefits being demonstrated in a real-world implementation scenario.
+[!INCLUDE [Test drives section](includes/test-drives.md)]
 
 ## Customer leads
 
-You must connect your offer to your customer relationship management (CRM) system to collect customer information. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and online store where they found your offer, will be sent to the CRM system that you've configured. The commercial marketplace supports a variety of CRM systems, along with the option to use an Azure table or configure an HTTPS endpoint using Power Automate.
-
-You can add or modify a CRM connection at any time during or after offer creation. For detailed guidance, see
-[Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
+[!INCLUDE [Customer leads section](includes/customer-leads.md)]
 
 ## Legal contracts
 
-To simplify the procurement process for customers and reduce legal complexity for software vendors, Microsoft offers a standard contract you can use for your offers in the commercial marketplace. When you offer your software under the standard contract, customers only need to read and accept it one time, and you don't have to create custom terms and conditions.
-
-If you choose to use the standard contract, you have the option to add universal amendment terms and up to 10 custom amendments to the standard contract. You can also use your own terms and conditions instead of the standard contract. You will manage these details in the **Properties** page. For detailed information, see [Standard contract for Microsoft commercial marketplace](standard-contract.md).
-
-> [!NOTE]
-> After you publish an offer using the standard contract for the commercial marketplace, you cannot use your own custom terms and conditions. It is an "or" scenario. You either offer your solution under the standard contract or your own terms and conditions. If you want to modify the terms of the standard contract you can do so through Standard Contract Amendments.
+[!INCLUDE [Legal contracts section](includes/legal-contracts-intro.md)]
+[!INCLUDE [Legal section for Standard contracts](includes/legal-contracts-standard.md)]
 
 ## Cloud Solution Providers
 

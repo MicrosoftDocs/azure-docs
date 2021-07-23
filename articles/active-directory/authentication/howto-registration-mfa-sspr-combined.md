@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 06/28/2021
 
 ms.author: justinha
 author: justinha
@@ -44,6 +44,7 @@ To enable combined registration, complete these steps:
 If you have configured the *Site to Zone Assignment List* in Internet Explorer, the following sites have to be in the same zone:
 
 * *[https://login.microsoftonline.com](https://login.microsoftonline.com)*
+* *[https://Login.windows.net](https://login.windows.net)*
 * *[https://mysignins.microsoft.com](https://mysignins.microsoft.com)*
 * *[https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)*
 

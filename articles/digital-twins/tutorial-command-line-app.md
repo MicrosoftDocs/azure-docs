@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 [!INCLUDE [digital-twins-tutorial-selector.md](../../includes/digital-twins-tutorial-selector.md)]
 
-In this tutorial, you'll build a graph in Azure Digital Twins using models, twins, and relationships. The tool for this tutorial is the a **sample command-line client application** for interacting with an Azure Digital Twins instance. The client app is similar to the one written in [Tutorial: Code a client app](tutorial-code.md).
+In this tutorial, you'll build a graph in Azure Digital Twins using models, twins, and relationships. The tool for this tutorial is the **sample command-line client application** for interacting with an Azure Digital Twins instance. The client app is similar to the one written in [Code a client app](tutorial-code.md).
 
 You can use this sample to perform essential Azure Digital Twins actions such as uploading models, creating and modifying twins, and creating relationships. You can also look at the [code of the sample](https://github.com/Azure-Samples/digital-twins-samples/tree/master/) to learn about the Azure Digital Twins APIs, and practice implementing your own commands by modifying the sample project however you want.
 
@@ -41,7 +41,6 @@ Now that the app and authentication are set up, run the project with this button
 :::image type="content" source="media/tutorial-command-line/app/start-button-sample.png" alt-text="Screenshot of the Visual Studio start button (SampleClientApp project)." lightbox="media/tutorial-command-line/app/start-button-sample.png":::
 
 A console window will open, carry out authentication, and wait for a command. 
-* Authentication is handled through the browser: your default web browser will open with an authentication prompt. Use this prompt to sign in with your Azure credentials. You can then close the browser tab or window.
 
 Here is a screenshot of what the project console looks like:
 
@@ -50,7 +49,7 @@ Here is a screenshot of what the project console looks like:
 > [!TIP]
 > For a list of all the possible commands you can use with this project, enter `help` in the project console and press return.
 
-Keep the project console running for the rest of the steps in this tutorial.
+Once you've confirmed the app is running successfully, close the console window to stop running the app for now. You'll run it again later in the article.
 
 ## Model a physical environment with DTDL
 
@@ -72,6 +71,8 @@ Select *Room.json* to open it in the editing window, and change it in the follow
 ### Upload models to Azure Digital Twins
 
 After designing models, you need to upload them to your Azure Digital Twins instance. This configures your Azure Digital Twins service instance with your own custom domain vocabulary. Once you have uploaded the models, you can create twin instances that use them.
+
+1. After editing the Room.json file in the previous section, start running the console app again.
 
 1. In the project console window, run the following command to upload your updated Room model, as well as a Floor model that you'll also use in the next section to create different types of twins.
 
@@ -96,7 +97,7 @@ CreateModels Room
 ```
 
 As models cannot be overwritten, this will now return a service error.
-For the details on how to delete existing models, see [How-to: Manage DTDL models](how-to-manage-model.md).
+For the details on how to delete existing models, see [Manage DTDL models](how-to-manage-model.md).
 ```cmd/sh
 Response 409: Service request failed.
 Status: 409 (Conflict)
@@ -220,7 +221,7 @@ Run the following commands in the running project console to answer some questio
     :::image type="content" source="media/tutorial-command-line/app/output-query-all.png" alt-text="Screenshot showing a partial result from the twin query, including room0 and floor1.":::
 
     >[!NOTE]
-    >In the sample project, the command `Query` without any additional arguments is the equivalent of `Query SELECT * FROM DIGITALTWINS`. To query all the twins in your instance using the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](concepts-cli.md), use the longer (complete) query.
+    >In the sample project, the command `Query` without any additional arguments is the equivalent of `Query SELECT * FROM DIGITALTWINS`. To query all the twins in your instance using the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](/cli/azure/dt?view=azure-cli-latest&preserve-view=true), use the longer (complete) query.
 
 1. **What are all the rooms in my environment?** (query by model)
 
@@ -280,4 +281,4 @@ In this tutorial, you got started with Azure Digital Twins by building a graph i
 
 Continue to the next tutorial to combine Azure Digital Twins with other Azure services to complete a data-driven, end-to-end scenario:
 > [!div class="nextstepaction"]
-> [Tutorial: Connect an end-to-end solution](tutorial-end-to-end.md)
+> [Connect an end-to-end solution](tutorial-end-to-end.md)

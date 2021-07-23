@@ -29,9 +29,9 @@ In the DTDL-based RealEstateCore ontology, the Space hierarchy is used to define
 
 A portion of the hierarchy looks like the diagram below. 
 
-:::image type="content" source="media/concepts-ontologies-extend/real-estate-core-original.png" alt-text="Flow diagram illustrating part of the RealEstateCore space hierarchy. At the top level, there's an element called Space; it is connected by an 'extends' arrow down a level to Room; Room is connected by two 'extends' arrows down a level to ConferenceRoom and Office."::: 
+:::image type="content" source="media/concepts-ontologies-extend/real-estate-core-original.png" alt-text="Diagram illustrating part of the RealEstateCore space hierarchy. It shows elements for Space, Room, ConferenceRoom, and Office."::: 
 
-For more information about the RealEstateCore ontology, see [Concepts: Adopting industry-standard ontologies](concepts-ontologies-adopt.md#realestatecore-smart-building-ontology).
+For more information about the RealEstateCore ontology, see [Adopting industry-standard ontologies](concepts-ontologies-adopt.md#realestatecore-smart-building-ontology).
 
 ## Extending the RealEstateCore space hierarchy 
 
@@ -52,7 +52,7 @@ To extend the industry ontology with this new concept, create a new interface th
 
 After adding the focus room interface, the extended hierarchy shows the new room type. 
 
-:::image type="content" source="media/concepts-ontologies-extend/real-estate-core-extended-1.png" alt-text="Flow diagram illustrating the RealEstateCore space hierarchy from above, with a new addition. At the bottom level with ConferenceRoom and Office, there is a new element called FocusRoom (also connected via an 'extends' arrow from Room)"::: 
+:::image type="content" source="media/concepts-ontologies-extend/real-estate-core-extended-1.png" alt-text="Diagram illustrating part of the RealEstateCore space hierarchy, including the new addition."::: 
 
 ### Add additional capabilities to existing interfaces 
 
@@ -70,7 +70,7 @@ To extend the industry ontology, you create your own interfaces that extend from
 
 After extending the portion of the hierarchy shown above, the extended hierarchy looks like the diagram below. Here the extended Space interface adds the `drawingId` property that will contain an ID that associates the digital twin with the 3D drawing. Additionally, the ConferenceRoom interface adds an "online" property that will contain the online status of the conference room. Through inheritance, the ConferenceRoom interface contains all capabilities from the RealEstateCore ConferenceRoom interface, as well as all capabilities from the extended Space interface. 
 
-:::image type="content" source="media/concepts-ontologies-extend/real-estate-core-extended-2.png" alt-text="Flow diagram illustrating the extended RealEstateCore space hierarchy from above, with more new additions. Room now shares its level with a Space element, which connects with an 'extends' arrow down a level to a new Room element next to ConferenceRoom and Office.  The new elements are connected to the existing ontology with more 'extends' relationships."::: 
+:::image type="content" source="media/concepts-ontologies-extend/real-estate-core-extended-2.png" alt-text="Diagram illustrating the extended RealEstateCore space hierarchy, with more new additions as described."::: 
 
 ## Using the extended space hierarchy 
 
@@ -78,7 +78,7 @@ When you create digital twins using the extended Space hierarchy, each digital t
 
 Each digital twin's model will be an interface from the extended hierarchy, shown in the diagram below. 
  
-:::image type="content" source="media/concepts-ontologies-extend/ontology-with-models.png" alt-text="An excerpt from the extended RealEstateCore space hierarchy, including Space (top level), one Room (middle level), and ConferenceRoom, Office, and FocusRoom (lower level). Names of models are connected to each element (for instance, Room is connected to a model called Room101)."::: 
+:::image type="content" source="media/concepts-ontologies-extend/ontology-with-models.png" alt-text="Diagram illustrating the extended RealEstateCore space hierarchy, including the connected models Space, Room, ConferenceRoom, Office, and FocusRoom."::: 
 
 When querying for digital twins using the model ID (the `IS_OF_MODEL` operator), the model IDs from the extended hierarchy should be used. For example, `SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:com:example:Office;1')`. 
 

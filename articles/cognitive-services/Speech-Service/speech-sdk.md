@@ -64,15 +64,14 @@ The Speech SDK exposes many features from the Speech service, but not all of the
 
 #### Keyword recognition
 
-The concept of [keyword recognition](./custom-keyword-basics.md) is supported in the Speech SDK. Keyword recognition is the act of identifying a keyword in speech, followed by an action upon hearing the keyword. For example, "Hey Cortana" would activate the Cortana assistant.
+The concept of [keyword recognition](custom-keyword-basics.md) is supported in the Speech SDK. Keyword recognition is the act of identifying a keyword in speech, followed by an action upon hearing the keyword. For example, "Hey Cortana" would activate the Cortana assistant.
 
 **Keyword recognition** is available on the following platforms:
 
   - C++/Windows & Linux
   - C#/Windows & Linux
   - Python/Windows & Linux
-  - Java/Windows & Linux & Android (Speech Devices SDK)
-  - Keyword recognition functionality might work with any microphone type, official keyword recognition support, however, is currently limited to the microphone arrays found in the Azure Kinect DK hardware or the Speech Devices SDK
+  - Java/Windows & Linux & Android
 
 ### Meeting scenarios
 
@@ -131,7 +130,7 @@ The Speech Service delivers great functionality with its default models across s
 
 ### Custom Speech-to-text
 
-When using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models to address ambient noise or industry-specific vocabulary. The creation and management of no-code Custom Speech models is available through the [Custom Speech Portal](https://aka.ms/customspeech). Once the Custom Speech model is published, it can be consumed by the Speech SDK.
+When using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models to address ambient noise or industry-specific vocabulary. The creation and management of no-code Custom Speech models is available through the [Custom Speech Portal](./custom-speech-overview.md). Once the Custom Speech model is published, it can be consumed by the Speech SDK.
 
 ### Custom Text-to-speech
 

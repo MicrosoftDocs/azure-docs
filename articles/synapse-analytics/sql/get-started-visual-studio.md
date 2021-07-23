@@ -31,9 +31,10 @@ Use Visual Studio to query dedicated SQL pool using Azure Synapse Analytics. Thi
 
 To use this tutorial, you need to have the following components:
 
-* An existing dedicated SQL pool. If you do not have one, see [Create a dedicated SQL pool](../sql-data-warehouse/create-data-warehouse-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) to complete this prerequisite.
-* SSDT for Visual Studio. If you have Visual Studio, you probably already have this component. For installation instructions and options, see [Installing Visual Studio and SSDT](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
-* The fully qualified SQL server name. To find this server name, see [Connect to a dedicated SQL pool](connect-overview.md).
+- An existing Synapse workspace, If you need to create one see [Creating a Synapse workspace](../get-started-create-workspace.md)
+- A dedicated SQL pool. If you do not have one, see [Create a dedicated SQL pool](../get-started-analyze-sql-pool.md#create-a-dedicated-sql-pool).
+- SSDT for Visual Studio. If you have Visual Studio, you probably already have this component. For installation instructions and options, see [Installing Visual Studio and SSDT](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+- The fully qualified SQL server name. To find this server name, see [Connect to a dedicated SQL pool](connect-overview.md).
 
 ## 1. Connect to a dedicated SQL pool
 1. Open Visual Studio 2019.
@@ -76,5 +77,5 @@ Now that a connection has been established to your database, you'll write a quer
 
 ## Next steps
 Now that you can connect and query, try [visualizing the data with Power BI](get-started-power-bi-professional.md).
-To configure your environment for Azure Active Directory authentication, see [Authenticate to dedicated SQL pool](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+To configure your environment for Azure Active Directory authentication, see [Authenticate to dedicated SQL pool](sql-authentication.md?tabs=provisioned).
  
