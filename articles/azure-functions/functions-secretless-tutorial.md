@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 3/13/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
- 
+
 # Creating a Function App with Identity Based Connections
 
 This article shows you how to configure a secretless function app using identity based connections instead of connection strings. To learn more about identity based connections, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
@@ -199,6 +199,121 @@ Some of the next steps cover using identity based connections for triggers. For 
 ## Optional Step A: Use Managed Identity to access Key Vault
 
 There's one more key-like setting in your Function App, and that’s your App Insights connection string. This is not technically a secret as it contains the instrumentation key, which is not always protectable. However, you can configure this setting using Key Vault and use managed identity to access it.
+
+1. Create a Key Vault, and add a secret. I call the secret "AppInsights" and paste in the connection string for the value.
+
+![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624644364950.png)
+
+I then switch the Key Vault over to use Azure role-based access control:
+
+![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624644413549.png)
+
+I then add a role assignment in my Function App to give it Key Vault Secrets User:
+
+![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624644434000.png)
+
+Now I can use a Key Vault reference in my application settings. Documentation for that is [here](https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references).
+
+![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624644494384.png)
+
+I switch over to App Insights, open live metrics, and confirm that my Key Vault reference is working and my data is still flowing. Everything seems to be working fine:
+
+![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624644527788.png)
+
+The Function App is now fully secretless, but it currently only has a timer trigger i.e. its not being triggered by an external source. That’s what I'll cover next. But first, a screenshot of the appsettings in my app with nothing redacted, because there's no secrets:
+
+![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624644561613.png)
+
+## Optional Step B: Add a Storage Queue Trigger
+
+Add a storage queue trigger. A prerequisite of this tutorial is having existing queue data, so I'm going to create a new storage account to represent that. I then go into the role assignments for the function app and add the Storage Queue Data Contributor role for this new storage account:
+
+![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624644797808.png)
+
+Next, reference the new extensions. For .NET, see the next paragraph. For other languages see the [extension bundle section](#step-5-update-the-extension-bundle) above.
+
+I make sure to update my storage extension to 5.x. This is the new storage extension for functions that uses the newest version of the Azure Storage SDK for .NET. There was a blog post about that here. At the time of writing, the newest version of the library is 5.0.0-beta4:
+
+![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624644809684.png)
+
+
+This queue trigger uses a connection called "QueueConnection", so I need to configure the function app with the account name, similar to what I did above for AzureWebJobsStorage:
+
+![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624644829790.png)
+
+I'm also using an environment variable for the name of the queue within the account (InputQueueName in the above screenshot), but its just a convenience and not necessary.
+
+For every connection that is used as a trigger, I must also add the credential setting that specifies that managed identity is used. So I add a `QueueConnection_credential` setting with value `managedIdentity`.
+
+![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624658524131.png)
+
+A future update to Azure Functions will remove this requirement when using system assigned identities. Once this update is live, simply setting __accountName would be enough.
+
+My function app has been updated to have the necessary role to access the queue using managed identity, and its been configured to know what account to access, and it has a queue triggered function that uses the new extension that has support for managed identity. The only remaining step is to publish the changes. I repeat the folder publishing step, zip the content, upload it to storage calling it "queue.zip" and update my run from package URL:
+
+![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624644849689.png)
+
+Now I go to the queue in the portal, and I add a message:
+
+![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624644858600.png)
+
+![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624644866344.png)
+
+I wait a bit and then refresh and the message has been read:
+
+![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624644879341.png)
+
+## Optional Step C: Add a Service Bus Queue Trigger
+
+Again I start with role assignments, adding the function app as a Azure Service Bus Data Owner:
+
+![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624644967309.png)
+
+I have to configure the function app with the details of the namespace. My connection is going to be called ServiceBusConnection so I add a ServiceBusConnection__fullyQualifiedNamespace setting:
+
+![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624645004512.png)
+
+For every connection that is used as a trigger, I must also add the credential setting that specifies that managed identity is used. So I add a `ServiceBusConnection_credential` setting with value `managedIdentity`.
+
+![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624659002007.png)
+
+I add a service bus queue triggered function, again making sure to use the newest extension which is Microsoft.Azure.WebJobs.Extensions.ServiceBus version 5.0.0-beta4 at time of writing:
+
+![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624645067952.png)
+
+I go through similar publish steps as before. Here's my appsettings now:
+
+![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624645077874.png)
+
+## Optional Step D: Use Managed Identity for local development
+
+To test the service bus trigger I added above, I need to drop a message in the service bus queue, but the portal won't let me do that. There are plenty of other ways to write a message to a service bus queue, but this seems like a good opportunity to try using managed identity locally. First I go into VS and make sure that its configured to use my account:
+
+![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624645133535.png)
+
+Next I go into the portal and give myself the Azure Service Bus Data Owner role - the same as what I did for my function app above:
+![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624645150828.png)
+
+Now I make a separate function app that is going to host a HTTP triggered function that uses an output binding to write to the queue. Again, making sure to use the newest extension package:
+![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624645164664.png)
+
+I modify my local.settings.json so that my local environment knows which namespace and queue the message has to be written to:
+
+![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624645198975.png)
+
+I then set this function app as my startup project and hit F5. It outputs the URL for my function, and I call it using my browser:
+
+![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624645244319.png)
+
+Without configuring any connection string, my local debug session is able to write the message to the queue, and then I check app insights and I see my function ran and picked up the message:
+
+![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624645272006.png)
+
+This concludes the walkthrough.
+
+## Notes on Event Hubs and Blob Trigger
+
+You can follow similar steps for Event Hubs and Blob trigger. Event Hubs would follow the same patterns as Service Bus, while blob is a little more complicated. The functions host uses queues internally to run the blob trigger, so you would need to make sure that the function app has both blob and queue role assignments, for both the account that is configured for AzureWebJobsStorage, and the account that contains the blobs you're triggering on.
 
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
