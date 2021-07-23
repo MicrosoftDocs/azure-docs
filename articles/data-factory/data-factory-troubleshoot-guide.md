@@ -1,6 +1,7 @@
 ---
-title: Troubleshoot Azure Data Factory | Microsoft Docs
-description: Learn how to troubleshoot external control activities in Azure Data Factory.
+title: General Troubleshooting
+titleSuffix: Azure Data Factory & Synapse Analytics
+description: Learn how to troubleshoot external control activities in Azure Data Factory and Azure Synapse Analytics pipelines.
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
@@ -8,15 +9,15 @@ ms.date: 06/18/2021
 ms.author: abnarain
 ---
 
-# Troubleshoot Azure Data Factory
+# Troubleshoot Azure Data Factory and Synapse Analytics pipelines
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article explores common troubleshooting methods for external control activities in Azure Data Factory.
+This article explores common troubleshooting methods for external control activities in Azure Data Factory and Synapse Analytics pipelines.
 
 ## Connector and copy activity
 
-For connector issues such as an encounter error using the copy activity, refer to [Troubleshoot Azure Data Factory Connectors](connector-troubleshoot-guide.md).
+For connector issues such as an encounter error using the copy activity, refer to the [Troubleshoot Connectors](connector-troubleshoot-guide.md) article.
 
 ## Azure Databricks
 
@@ -152,7 +153,7 @@ The following table applies to U-SQL.
 
 - **Cause**: This error is caused by throttling on Data Lake Analytics.
 
-- **Recommendation**: Reduce the number of submitted jobs to Data Lake Analytics. Either change Data Factory triggers and concurrency settings on activities, or increase the limits on Data Lake Analytics.
+- **Recommendation**: Reduce the number of submitted jobs to Data Lake Analytics. Either change triggers and concurrency settings on activities, or increase the limits on Data Lake Analytics.
 
 <br/> 
 
@@ -160,7 +161,7 @@ The following table applies to U-SQL.
 
 - **Cause**: This error is caused by throttling on Data Lake Analytics.
 
-- **Recommendation**: Reduce the number of submitted jobs to Data Lake Analytics. Either change Data Factory triggers and concurrency settings on activities, or increase the limits on Data Lake Analytics.
+- **Recommendation**: Reduce the number of submitted jobs to Data Lake Analytics. Either change triggers and concurrency settings on activities, or increase the limits on Data Lake Analytics.
 
 ### Error code: 2705
 
@@ -226,7 +227,7 @@ The following table applies to U-SQL.
 
 - **Message**: `Response Content is not a valid JObject.`
 
-- **Cause**: The Azure function that was called didn't return a JSON Payload in the response. Azure Data Factory (ADF) Azure function activity only supports JSON response content.
+- **Cause**: The Azure function that was called didn't return a JSON Payload in the response. Azure Data Factory and Synapse pipeline Azure function activity only support JSON response content.
 
 - **Recommendation**: Update the Azure function to return a valid JSON Payload such as a C# function may return `(ActionResult)new OkObjectResult("{\"Id\":\"123\"}");`
 
@@ -548,7 +549,7 @@ The following table applies to Azure Batch.
 
 - **Recommendation**: The problem could be either general HDInsight connectivity or network connectivity. First confirm that the HDInsight Ambari UI is available from any browser. Then check that your credentials are still valid.
    
-   If you're using a self-hosted integrated runtime (IR), perform this step from the VM or machine where the self-hosted IR is installed. Then try submitting the job from Data Factory again.
+   If you're using a self-hosted integrated runtime (IR), perform this step from the VM or machine where the self-hosted IR is installed. Then try submitting the job again.
 
    For more information, read [Ambari Web UI](../hdinsight/hdinsight-hadoop-manage-ambari.md#ambari-web-ui).
 
@@ -581,7 +582,7 @@ The following table applies to Azure Batch.
 
 - **Cause**: When the error message contains a message similar to `Unable to service the submit job request as templeton service is busy with too many submit job requests` or `Queue root.joblauncher already has 500 applications, cannot accept submission of application`, too many jobs are being submitted to HDInsight at the same time.
 
-- **Recommendation**: Limit the number of concurrent jobs submitted to HDInsight. Refer to Data Factory activity concurrency if the jobs are being submitted by the same activity. Change the triggers so the concurrent pipeline runs are spread out over time.
+- **Recommendation**: Limit the number of concurrent jobs submitted to HDInsight. Refer to activity concurrency if the jobs are being submitted by the same activity. Change the triggers so the concurrent pipeline runs are spread out over time.
 
    Refer to [HDInsight documentation](../hdinsight/hdinsight-hadoop-templeton-webhcat-debug-errors.md) to adjust `templeton.parallellism.job.submit` as the error suggests.
 
@@ -1012,7 +1013,7 @@ When you observe that the activity is running much longer than your normal runs 
 
 **Error message:** `The payload including configurations on activity/dataSet/linked service is too large. Please check if you have settings with very large value and try to reduce its size.`
 
-**Cause:** The payload for each activity run includes the activity configuration, the associated dataset(s), and linked service(s) configurations if any, and a small portion of system properties generated per activity type. The limit of such payload size is 896 KB as mentioned in [Data Factory limits](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) section.
+**Cause:** The payload for each activity run includes the activity configuration, the associated dataset(s), and linked service(s) configurations if any, and a small portion of system properties generated per activity type. The limit of such payload size is 896 KB as mentioned in the Azure limits documentation for [Data Factory](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) and [Synapse Analytics](../azure-resource-manager/management/azure-subscription-service-limits.md#synapse-analytics-limits).
 
 **Recommendation:** You hit this limit likely because you pass in one or more large parameter values from either upstream activity output or external, especially if you pass actual data across activities in control flow. Check if you can reduce the size of large parameter values, or tune your pipeline logic to avoid passing such values across activities and handle it inside the activity instead.
 
