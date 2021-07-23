@@ -767,7 +767,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Audit|Audit|Yes|
+|Audit|Audit|No|
 
 
 ## Microsoft.PowerBI/tenants
@@ -863,6 +863,35 @@ If you think there is something is missing, you can open a GitHub comment at the
 |ResourceUsageStats|Resource Usage Statistics|No|
 |SQLSecurityAuditEvents|SQL Security Audit Event|No|
 
+## Microsoft.Sql/managedInstances/databases
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Errors|Errors|No|
+|QueryStoreRuntimeStatistics|Query Store Runtime Statistics|No|
+|QueryStoreWaitStatistics|Query Store Wait Statistics|No|
+|SQLInsights|SQL Insights|No|
+
+## Microsoft.Sql/servers/databases
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AutomaticTuning|Automatic tuning|No|
+|Blocks|Blocks|No|
+|DatabaseWaitStatistics|Database Wait Statistics|No|
+|Deadlocks|Deadlocks|No|
+|DevOpsOperationsAudit|Devops operations Audit Logs|No|
+|DmsWorkers|Dms Workers|No|
+|Errors|Errors|No|
+|ExecRequests|Exec Requests|No|
+|QueryStoreRuntimeStatistics|Query Store Runtime Statistics|No|
+|QueryStoreWaitStatistics|Query Store Wait Statistics|No|
+|RequestSteps|Request Steps|No|
+|SQLInsights|SQL Insights|No|
+|SqlRequests|Sql Requests|No|
+|SQLSecurityAuditEvents|SQL Security Audit Event|No|
+|Timeouts|Timeouts|No|
+|Waits|Waits|No|
 
 ## Microsoft.Storage/storageAccounts/blobServices
 
@@ -926,20 +955,6 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |BigDataPoolAppsEnded|Big Data Pool Applications Ended|No|
-
-
-## Microsoft.Synapse/workspaces/kustoPools
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|Command|Command|Yes|
-|FailedIngestion|Failed ingest operations|Yes|
-|IngestionBatching|Ingestion batching|Yes|
-|Query|Query|Yes|
-|SucceededIngestion|Successful ingest operations|Yes|
-|TableDetails|Table details|Yes|
-|TableUsageStatistics|Table usage statistics|Yes|
-
 
 ## Microsoft.Synapse/workspaces/sqlPools
 
