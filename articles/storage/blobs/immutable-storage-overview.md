@@ -129,6 +129,14 @@ When blob soft delete is configured for a storage account, it applies to all blo
 
 If you enable blob soft delete and then configure an immutability policy, any blobs that have already been soft deleted will be permanently deleted once the soft delete retention policy has expired. Soft-deleted blobs can be restored during the soft delete retention period. A blob or version that has not yet been soft deleted is protected by the immutability policy and cannot be soft deleted until after the time-based retention policy has expired or the legal hold has been removed.
 
+## Use blob inventory to track immutability policies
+
+Azure Storage blob inventory provides an overview of the containers in your storage accounts and the blobs, snapshots, and blob versions within them. You can use the blob inventory report to understand the attributes of blobs and containers, including whether a resource has an immutability policy configured.
+
+When you enable blob inventory, Azure Storage generates an inventory report on a daily basis. The report provides an overview of your data for business and compliance requirements.
+
+For more information about blob inventory, see [Azure Storage blob inventory (preview)](blob-inventory.md).
+
 ## Pricing
 
 There is no additional charge for using immutable storage. Immutable data is priced in the same way as mutable data. For pricing details on Azure Blob storage, see the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
