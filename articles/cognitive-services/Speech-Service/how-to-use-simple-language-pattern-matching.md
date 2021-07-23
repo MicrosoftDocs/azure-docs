@@ -126,7 +126,8 @@ We will add 2 intents with the same ID for changing floors. And another intent w
     intentRecognizer->AddIntent("{action} the door.", "OpenCloseDoor");
 ```
 
-NOTE: There is no limit to the number of entities you may declare but they will be loosely matched. If you were to add a phrase such as "{action} door" it will match any time there is text before the word "door". Currently Intents are evaluated based on their number of entities i.e. if two patterns would match, the one with more defined entities will be returned. Explicit Intent priorities will be supported in a later update.
+> [!NOTE]
+> There is no limit to the number of entities you can declare, but they will be loosely matched. If you add a phrase like "{action} door" it will match any time there is text before the word "door". Intents are evaluated based on their number of entities. If two patterns would match, the one with more defined entities is returned.
 
 ## Recognize an intent
 
