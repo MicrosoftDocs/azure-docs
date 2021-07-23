@@ -109,7 +109,7 @@ This sample uses the `FromSubscription()` method to build the `SpeechConfig`. Fo
 
 ## Initialize an IntentRecognizer
 
-Now, let's create an `IntentRecognizer`. Insert this code right below your Speech configuration.
+Now create an `IntentRecognizer`. Insert this code right below your Speech configuration.
 
 ```cpp
     auto intentRecognizer = IntentRecognizer::FromConfig(config);
