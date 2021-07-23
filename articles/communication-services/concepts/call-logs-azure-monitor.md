@@ -7,45 +7,50 @@ services: azure-communication-services
 
 ms.author: timmitchell
 ms.date: 07/22/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
 ---
-# Azure Communication Services: Call Summary and Call Diagnostic Logs
+
+# Call Summary and Call Diagnostic Logs
 
 ## Data Concepts
+
 ### Entities and IDs
-A *Call*, as it relates to the entities represented in the data, is an abstraction represented by the `correlationId` (unique per call), time-bound by `callStartTime` and `callDuration`. It is an event that contains data from two or more *Endpoints*, which represent the various human, bot, or server participants in the call.
 
-A *Participant* (`participantId`) is present only when the call is a *Group* call, as it represents the connection between an endpoint and the server. 
+A *Call*, as it relates to the entities represented in the data, is an abstraction represented by the `correlationId`. `CorrelationId`s are unique per Call, and are time-bound by `callStartTime` and `callDuration`. Every Call is an event that contains data from two or more *Endpoints*, which represent the various human, bot, or server participants in the Call.
 
-An *Endpoint* is the most unique entity, represented by `endpointId`. `endpointType` tells you whether the endpoint represents a human user (PSTN, VoIP), a Bot (Bot), or the server that is managing multiple Participants within a Call.  `endpointType` = “Server” will not be assigned a unique ID. By looking at endpointType and the number of endpointId, you can always determine how many users and other non-human participants (bots, servers) are on the call. Native SDKs can (e.g., Android app) reuse the same `endpointId` for a user across multiple calls, thus enabling an understanding of experience across sessions; however, web-based endpoints will always generate a new endpointId each new Call.
+A *Participant* (`participantId`) is present only when the Call is a *Group* Call, as it represents the connection between an Endpoint and the server. 
 
-A *Stream* is the most granular entity, as there is one stream per direction (inbound/outbound) and `mediaType` (e.g. audio, video).  
+An *Endpoint* is the most unique entity, represented by `endpointId`. `EndpointType` tells you whether the Endpoint represents a human user (PSTN, VoIP), a Bot (Bot), or the server that is managing multiple Participants within a Call. When an `endpointType` is `"Server"`, the Endpoint will not be assigned a unique ID. By looking at `endpointType` and the number of `endpointId`s, you can always determine how many users and other non-human Participants (bots, servers) are on the Call. Native SDKs (like the Android calling SDK) reuse the same `endpointId` for a user across multiple Calls, thus enabling an understanding of experience across sessions. This differs from web-based Endpoints, which will always generate a new `endpointId` for each new Call.
+
+A *Stream* is the most granular entity, as there is one Stream per direction (inbound/outbound) and `mediaType` (e.g. audio, video).  
 
 ### P2P vs. Group Calls
 
-There are two types of calls (`callType`): P2P and Group. 
+There are two types of Calls (represented by `callType`): P2P and Group. 
 
-**P2P** calls are a connection between only two endpoints, with no Server endpoint. P2P calls are initiated as a call between those endpoints and are not created as a Group call event prior to the connection.
+**P2P** calls are a connection between only two Endpoints, with no server Endpoint. P2P calls are initiated as a Call between those Endpoints and are not created as a group Call event prior to the connection.
 
 :::image type="content" source="media\ppcalllogs-images\ppcalllogs_img1_p2p.png" alt-text="p2p call":::
 
-**Group** calls include any call that is created ahead of time as a meeting/calendar event and any call that has more than 2 Endpoints connected. Group calls will include a Server endpoint, and the connection between each Endpoint and the Server constitutes a Participant. P2P calls that add an additional endpoint during the call cease to be P2P, and they become a Group call. By viewing the `participantStartTime` and `participantDuration`, the timeline of when each Endpoint joined the call can be known.
+**Group** Calls include any Call that's created ahead of time as a meeting/calendar event and any Call that has more than 2 Endpoints connected. Group Calls will include a server Endpoint, and the connection between each Endpoint and the server constitutes a Participant. P2P Calls that add an additional Endpoint during the Call cease to be P2P, and they become a Group Call. By viewing the `participantStartTime` and `participantDuration`, the timeline of when each Endpoint joined the Call can be determined.
 
 :::image type="content" source="media\ppcalllogs-images\ppcalllogs_img2_group.png" alt-text="Group Call":::
 
 ## Log Structure
 Two types of logs are created: **Call Summary** logs and **Call Diagnostic** logs. 
-Call Summary logs contain basic information about the call, including all the relevant IDs, timestamps,  Endpoint and SDK information. For each Endpoint within a call (not counting the Server), a distinct Call Summary log will be created.
-Call Diagnostic logs contain information about the stream as well as a set of metrics that indicate quality of experience measurements. For each Endpoint within a call (including the Server), a distinct Call Diagnostic log is created for each data stream (audio, video, etc.) between endpoints. In a P2P call, each log contains data relating to each of the outbound stream(s) associated with each Endpoint. In a Group call, each stream associated with `endpointType`=“Server” will create a log containing data for the inbound streams, and all other streams will create logs containing data for the outbound streams for all non-sever endpoints. In Group calls, use the `participantId` as the key to join the related inbound/outbound logs into a distinct participant connection.
 
-*Example1: P2P Call*
+Call Summary logs contain basic information about the Call, including all the relevant IDs, timestamps, Endpoint and SDK information. For each Endpoint within a Call (not counting the Server), a distinct Call Summary log will be created.
+
+Call Diagnostic logs contain information about the Stream as well as a set of metrics that indicate quality of experience measurements. For each Endpoint within a Call (including the server), a distinct Call Diagnostic log is created for each data stream (audio, video, etc.) between Endpoints. In a P2P Call, each log contains data relating to each of the outbound stream(s) associated with each Endpoint. In a Group Call, each stream associated with `endpointType`= `"Server"` will create a log containing data for the inbound streams, and all other streams will create logs containing data for the outbound streams for all non-sever endpoints. In Group Calls, use the `participantId` as the key to join the related inbound/outbound logs into a distinct participant connection.
+
+*Example 1: P2P Call*
 
 The diagram represents two endpoints connected directly in a P2P call. In this example, 2 Call Summary logs would be created (1 per `endpointId`) and 4 Call Diagnostic logs would be created (1 per media stream). Each log will contain data relating to the outbound stream of the `endpointId`.
 :::image type="content" source="media\ppcalllogs-images\ppcalllogs_img3_p2p-streams.png" alt-text="p2p call streams":::
 
 
-*Example2: Group Call*
+*Example 2: Group Call*
 
 The diagram represents a Group call example with 3 `particpantIds`, which means 3 `endpointIds` (`endpointIds` can potentially appear in multiple participants, e.g. when rejoining a call from the same device) and a Server endpoint. For `participantId` 1, 2 Call Summary logs would be created for endpointId and the Server. 4 Call Diagnostic logs would be created relating to `participantId` 1, one for each media stream. The 3 logs with endpointId 1 would contain data relating to the outbound media streams, and the 1 log with `endpointId` =“null”, `endpointType`=”Server” would contain data relating to the inbound stream.
 
