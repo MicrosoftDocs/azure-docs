@@ -48,7 +48,7 @@ In this article we will summarize migration details for:
 Azure Migrate offers a unified platform to assess and migrate to Azure on-premises servers, infrastructure, applications, and data. For AKS, you can use Azure Migrate for the following tasks:
 
 * [Containerize ASP.NET applications and migrate to AKS](../migrate/tutorial-app-containerization-aspnet-kubernetes.md)
-* [Containerize Java web applications and migrate to AKS](/azure/aks/tutorial-app-containerization-java-kubernetes)
+* [Containerize Java web applications and migrate to AKS](/azure/migrate/tutorial-app-containerization-java-kubernetes)
 
 ## AKS with Standard Load Balancer and Virtual Machine Scale Sets
 
