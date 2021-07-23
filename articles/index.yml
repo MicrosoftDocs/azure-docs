@@ -641,7 +641,7 @@ productDirectory:
     # Card
     - title: Azure Virtual Desktop
       summary: The best virtual desktop experience, delivered on Azure
-      imageSrc: https://static.docs.com/ui/media/product/azure/azure-virtual-desktop.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/virtual-desktop.svg
       azureCategories:
         - featured
         - compute
