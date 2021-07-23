@@ -127,6 +127,7 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
 * Entity Linking
 * Sentiment Analysis
 * Opinion Mining
+* Text summarization
 
 | Element | Valid values | Required? | Usage |
 |---------|--------------|-----------|-------|
