@@ -36,7 +36,6 @@ Use this sample code if:
 
 If you do not have access to a LUIS app, but still want intents, this can be helpful since it is embedded within the SDK.
 
-If you cannot or do not want to create a LUIS app but you still want some voice commanding capability, this will be useful.
 
 ## Prerequisites
 
