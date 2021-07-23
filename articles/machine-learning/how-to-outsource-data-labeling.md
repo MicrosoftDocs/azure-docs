@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: sgilley
-author: k_vijaykannan
+author: kvijaykannan
 ms.author: vkann
 ms.date: 07/21/2021
 ms.topic: how-to
