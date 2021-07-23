@@ -16,8 +16,6 @@ items:
       items:
         - name: Using portal
           href: deploy-iot-connector-in-azure.md
-        - name: Using ARM template
-          href: iot-fhir-arm-template-quickstart.md
 
 - name: How-to guides
   expanded: true
@@ -30,13 +28,9 @@ items:
       href: how-to-use-device-mapping-iot.md
     - name: Use FHIR mapping templates
       href: how-to-use-fhir-mapping-iot.md
-    - name: Configure and display metrics
-      href: iot-metrics-display.md 
 
 - name: Resources
   expanded: true
   items:
     - name: Troubleshooting guide
       href: iot-troubleshoot-guide.md
-    - name: FAQs 
-      href: iot-faq.md

@@ -25,8 +25,6 @@ landingContent:
         links:
           - text: Deploy IoT Connector Using Portal
             url: deploy-iot-connector-in-azure.md
-          - text: Deploy IoT Connector Using ARM template
-            url: iot-fhir-arm-template-quickstart.md
             
   - title: Using IoT Connector
     linkLists:
