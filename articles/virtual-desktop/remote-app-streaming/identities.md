@@ -10,7 +10,7 @@ manager: femila
 
 # Set up managed identities
 
-Because Azure Virtual Desktop doesn't currently support external profiles, or "identities," your users won't be able to acces the apps you host with their own coprorate credentials. Instead, you'll need to create identities for them in Azure.
+Because Azure Virtual Desktop doesn't currently support external profiles, or "identities," your users won't be able to access the apps you host with their own corporate credentials. Instead, you'll need to create identities for them in Azure.
 
 In this article, we'll explain how you can manage user identities to provide a secure environment for your customers. We'll also talk about the different parts that make up an identity.
 
@@ -24,17 +24,17 @@ The identities you create need to follow these guidelines:
 - Identities must be [hybrid identities](../../active-directory-b2c/active-directory-technical-profile.md/active-directory/hybrid/whatis-hybrid-identity.md), which means they exist in both the [Active Directory (AD)](/previous-versions/windows/it-pro/windows-server-2003/cc781408(v=ws.10)) and [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md). You can use either [Active Directory Domain Services (AD DS)](windows-server/identity/ad-ds/active-directory-domain-services) or [Azure Active Directory Domain Services (Azure AD DS)](https://azure.microsoft.com/services/active-directory-ds) to create these identities. To learn more about each method, see [Compare identity solutions](../../active-directory-domain-services/compare-identity-solutions.md).
 - You should keep users from different organizations in separate Azure AD tenants to prevent security breaches. We recommend creating one tenant per customer using the customer's own Azure subscription and dedicated identity.
 
-The following two sections will tell you how to create identities with AD DS and Azure AD DS. To follow [the security guidelines for cross-organizational apps](security.md), you'll need to repeat the process for each user.
+The following two sections will tell you how to create identities with AD DS and Azure AD DS. To follow [the security guidelines for cross-organizational apps](security.md), you'll need to repeat the process for each customer.
 
 ## Managing users with Active Directory Domain Services
 
-In this method, you'll set up hybrid identitiews using an Active Directory Domain Controller to manage user identities and sync them to Azure AD.
+In this method, you'll set up hybrid identities using an Active Directory Domain Controller to manage user identities and sync them to Azure AD.
 
 This method involves setting up Active Directory Domain Controllers to manage the user identities and syncing the users to Azure AD to create hybrid identities. These identities can then be used to access hosted applications in Azure Virtual Desktop. In this configuration, users are synced from Active Directory to Azure AD and the session host VMs are joined to the AD DS domain.
 
 To set up an identity in AD DS:
 
-1. [Create an Azure AD tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) and a subscription for your user.
+1. [Create an Azure AD tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) and a subscription for your customer.
 
 2. [Install Active Directory Domain Services](/windows-server/identity/ad-ds/deploy/install-active-directory-domain-services--level-100-) on the Windows Server virtual machine (VM) you're using for the customer.
 
@@ -54,11 +54,11 @@ Azure AD DS identities use Azure AD DS as the domain controller, which lets you 
 
 To create an identity with Azure AD DS:
 
-1. [Create an Azure AD tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) and subscription for your user.
+1. [Create an Azure AD tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) and subscription for your customer.
 
 2. [Deploy Azure AD Directory Services](../active-directory-domain-services/tutorial-create-instance.md) in the user’s subscription.
 
-3. Once you've finished configuring the environment, [create new users](../active-directory/fundamentals/add-users-azure-active-directory.md) in Azure Active Directory. These user profiles will automatically sync with Azure AD DS.
+3. Once you've finished configuring the environment, [create new users](../active-directory/fundamentals/add-users-azure-active-directory.md) in Azure Active Directory. These user objects will automatically sync with Azure AD DS.
 
 4. When deploying session hosts in a host pool, use the Azure AD DS domain name to join the VMs.
 
