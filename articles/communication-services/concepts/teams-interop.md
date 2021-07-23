@@ -24,6 +24,10 @@ ms.service: azure-communication-services
 Azure Communication Services can be used to build custom applications that interact with Microsoft Teams. End users of your Communication Services application can interact with Teams participants over voice, video, chat, and screen sharing. The following video demonstrates this capability:
 
 
+<br>
+<br>
+
+
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWGTqQ]
 
 
