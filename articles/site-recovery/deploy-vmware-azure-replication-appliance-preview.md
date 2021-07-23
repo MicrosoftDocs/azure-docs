@@ -201,7 +201,7 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 
 5. Ensure the [prerequisites](#prerequisites) are met, proceed with registration.
 
-  ![Register appliance](./media/deploy-vmware-azure-replication-appliance-preview/app-setup-register.png)
+    ![Register appliance](./media/deploy-vmware-azure-replication-appliance-preview/app-setup-register.png)
 
   - **Friendly name of appliance** : Provide a friendly name with which you want to track this appliance in the Azure portal under recovery services vault infrastructure.
 
