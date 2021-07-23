@@ -157,21 +157,6 @@ Connect to Cosmos DB through the Gremlin API to extract items from a container, 
 
 ---
 
-### Cosmos DB (Cassandra API)
-
-by [Cognitive Search](search-what-is-azure-search.md)
-
-Connect to Cosmos DB through the Cassandra API to extract items from a container, serialized into JSON documents, and imported into a search index as search documents. Configure change tracking to refresh the search index with the latest changes in your database.
-
-[More details](search-howto-index-cosmosdb.md)
-
-:::image type="icon" source="media/search-data-sources-gallery/azure_cosmos_db_logo_small.png":::
-
-:::column-end:::
-:::column span="":::
-
----
-
 ### Cosmos DB (Mongo API)
 
 by [Cognitive Search](search-what-is-azure-search.md)
