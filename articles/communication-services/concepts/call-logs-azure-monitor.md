@@ -33,11 +33,11 @@ There are two types of Calls (represented by `callType`): P2P and Group.
 
 **P2P** calls are a connection between only two Endpoints, with no server Endpoint. P2P calls are initiated as a Call between those Endpoints and are not created as a group Call event prior to the connection.
 
-:::image type="content" source="media\ppcalllogs-images\ppcalllogs_img1_p2p.png" alt-text="p2p call":::
+:::image type="content" source="media\call-logs-images\call-logs-concepts-p2p.png" alt-text="p2p call":::
 
 **Group** Calls include any Call that's created ahead of time as a meeting/calendar event and any Call that has more than 2 Endpoints connected. Group Calls will include a server Endpoint, and the connection between each Endpoint and the server constitutes a Participant. P2P Calls that add an additional Endpoint during the Call cease to be P2P, and they become a Group Call. By viewing the `participantStartTime` and `participantDuration`, the timeline of when each Endpoint joined the Call can be determined.
 
-:::image type="content" source="media\ppcalllogs-images\ppcalllogs_img2_group.png" alt-text="Group Call":::
+:::image type="content" source="media\call-logs-images\call-logs-concepts-group.png" alt-text="Group Call":::
 
 ## Log Structure
 Two types of logs are created: **Call Summary** logs and **Call Diagnostic** logs. 
@@ -50,14 +50,14 @@ Call Diagnostic Logs contain information about the Stream as well as a set of me
 
 The below diagram represents two endpoints connected directly in a P2P Call. In this example, 2 Call Summary Logs would be created (1 per `endpointId`) and 4 Call Diagnostic Logs would be created (1 per media stream). Each log will contain data relating to the outbound stream of the `endpointId`.
 
-:::image type="content" source="media\ppcalllogs-images\ppcalllogs_img3_p2p-streams.png" alt-text="p2p Call streams":::
+:::image type="content" source="media\call-logs-images\call-logs-p2p-streams.png" alt-text="p2p Call streams":::
 
 
 ### Example 2: Group Call
 
 The below diagram represents a Group Call example with three `particpantIds`, which means three `endpointIds` (`endpointIds` can potentially appear in multiple Participants, e.g. when rejoining a Call from the same device) and a Server Endpoint. For `participantId` 1, two Call Summary Logs would be created: one for for `endpointId`, and another for the server. Four Call Diagnostic Logs would be created relating to `participantId` 1, one for each media stream. The three logs with `endpointId` 1 would contain data relating to the outbound media streams, and the one log with `endpointId = null, endpointType = "Server"` would contain data relating to the inbound stream.
 
-:::image type="content" source="media\ppcalllogs-images\group-call-endpoint-detail.png" alt-text="group Call detail":::
+:::image type="content" source="media\call-logs-images\call-logs-concepts-group-call-endpoint-detail.png" alt-text="group Call detail":::
 
 ## Data Definitions
 
@@ -132,7 +132,7 @@ The `participantEndReason` will contain a value from the set of Calling SDK erro
 
 ### P2P Call
 
-:::image type="content" source="media\ppcalllogs-images\ppcalllogs_img5_p2p_sample.png" alt-text="P2P Sample Log Example":::
+:::image type="content" source="media\call-logs-images\call-logs-concepts-p2p-sample.png" alt-text="P2P Sample Log Example":::
 
 Shared fields for all logs in the call:
 
@@ -252,7 +252,7 @@ Diagnostic log for video stream from VoIP Endpoint 1 to VoIP Endpoint 2:
 ### Group Call
 In the following example, there are three users in a Group Call, two connected via VOIP, and one connected via PSTN. All are using only Audio. 
 
-:::image type="content" source="media\ppcalllogs-images\ppcalllogs_img6_group_sample.png" alt-text="Group Call Sample Log Example":::
+:::image type="content" source="media\call-logs-images\call-logs-concepts-group-sample.png" alt-text="Group Call Sample Log Example":::
 
 The data would be generated in three Call Summary Logs and 6 Call Diagnostic Logs.
 
