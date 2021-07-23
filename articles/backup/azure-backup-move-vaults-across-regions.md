@@ -1,32 +1,30 @@
 ---
-title: Move Azure Resources across regions
+title: Move Azure Recovery Services vault to another region
 description: In this article, you'll learn how to ensure continued backups after moving the resources across regions.
 ms.topic: conceptual
 ms.date: 07/23/2021
-ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
+ms.custom: references_regions 
 ---
-# Move Azure Backup resources and protect workloads
+# Move Azure Recovery Services vault to another region
 
 Azure Resource Mover supports the movement of multiple resources across regions and Azure Backup can protect several workloads.
 
-The following steps helps you ensure continued backups after moving the resources across regions.  
+This article describes how to ensure continued backups after moving the resources across regions.  
 
 ## Azure Virtual Machine 
 
-When an Azure Virtual Machine is backed up in a Recovery Services Vault and moved from one region to another: 
+When an Azure Virtual Machine is backed up in a Recovery Services vault and moved from one region to another: 
 
-- The backups in the old Recovery Services Vault start failing with the error **BCMV2VMNotFound** or **ResourceNotFound**. 
+- The backups in the old Recovery Services vault start failing with the error **BCMV2VMNotFound** or **ResourceNotFound**. 
 - The existing recovery points remain in the vault and are deleted as per the policy. 
 - No new backups happen in the earlier region.  
 
 So, to ensure that backups are continued in the new region as well, follow these steps: 
 
-1. Before moving the Virtual Machine, use stop protection and retain/delete data. When the protection for a Virtual Machine is stopped with retain data, the recovery points remain forever and do not adhere to any policy. 
+1. Before moving the Virtual Machine, use **Stop protection** and retain/delete data. When the protection for a Virtual Machine is stopped with retain data, the recovery points remain forever and do not adhere to any policy. 
 1. Move your Virtual Machine to the new region. 
-1. Start protecting the Virtual Machine in any Recovery Services Vault in the new region. You can also create a new Recovery Services Vault and modify the settings as required. 
+1. Start protecting the Virtual Machine in any Recovery Services vault in the new region. You can also create a new Recovery Services vault and modify the settings as required. 
 1. You can restore from recovery points in the earlier region.  
-
- 
 
 ## Azure File Share 
 
