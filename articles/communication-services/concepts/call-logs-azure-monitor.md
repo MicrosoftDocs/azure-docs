@@ -46,14 +46,14 @@ Call Summary Logs contain basic information about the Call, including all the re
 
 Call Diagnostic Logs contain information about the Stream as well as a set of metrics that indicate quality of experience measurements. For each Endpoint within a Call (including the server), a distinct Call Diagnostic Log is created for each data stream (audio, video, etc.) between Endpoints. In a P2P Call, each log contains data relating to each of the outbound stream(s) associated with each Endpoint. In a Group Call, each stream associated with `endpointType`= `"Server"` will create a log containing data for the inbound streams, and all other streams will create logs containing data for the outbound streams for all non-sever endpoints. In Group Calls, use the `participantId` as the key to join the related inbound/outbound logs into a distinct Participant connection.
 
-*Example 1: P2P Call*
+### Example 1: P2P Call
 
 The below diagram represents two endpoints connected directly in a P2P Call. In this example, 2 Call Summary Logs would be created (1 per `endpointId`) and 4 Call Diagnostic Logs would be created (1 per media stream). Each log will contain data relating to the outbound stream of the `endpointId`.
 
 :::image type="content" source="media\ppcalllogs-images\ppcalllogs_img3_p2p-streams.png" alt-text="p2p Call streams":::
 
 
-*Example 2: Group Call*
+### Example 2: Group Call
 
 The below diagram represents a Group Call example with three `particpantIds`, which means three `endpointIds` (`endpointIds` can potentially appear in multiple Participants, e.g. when rejoining a Call from the same device) and a Server Endpoint. For `participantId` 1, two Call Summary Logs would be created: one for for `endpointId`, and another for the server. Four Call Diagnostic Logs would be created relating to `participantId` 1, one for each media stream. The three logs with `endpointId` 1 would contain data relating to the outbound media streams, and the one log with `endpointId = null, endpointType = "Server"` would contain data relating to the inbound stream.
 
