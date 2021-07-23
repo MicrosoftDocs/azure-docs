@@ -1,7 +1,7 @@
 ---
 title: Create a self-hosted integration runtime
 titleSuffix: Azure Data Factory & Synapse Analytics
-description: Learn how to create a self-hosted integration runtime in Azure Data Factory and Azure Synapse Analytics, which lets data factories and Synapse pipelines access data stores in a private network.
+description: Learn how to create a self-hosted integration runtime in Azure Data Factory and Azure Synapse Analytics, which lets pipelines access data stores in a private network.
 ms.service: data-factory
 ms.topic: conceptual
 author: lrtoyou1223
@@ -45,7 +45,7 @@ Here is a high-level summary of the data-flow steps for copying with a self-host
 
 2. The self-hosted integration runtime node encrypts the credentials by using Windows Data Protection Application Programming Interface (DPAPI) and saves the credentials locally. If multiple nodes are set for high availability, the credentials are further synchronized across other nodes. Each node encrypts the credentials by using DPAPI and stores them locally. Credential synchronization is transparent to the data developer and is handled by the self-hosted IR.
 
-3. Azure Data Factory and Azure Synapse communicate with the self-hosted integration runtime to schedule and manage jobs. Communication is via a control channel that uses a shared [Azure Relay](../azure-relay/relay-what-is-it.md#wcf-relay) connection. When an activity job needs to be run, the service queues the request along with any credential information. It does so in case credentials aren't already stored on the self-hosted integration runtime. The self-hosted integration runtime starts the job after it polls the queue.
+3. Azure Data Factory and Synapse pipelines communicate with the self-hosted integration runtime to schedule and manage jobs. Communication is via a control channel that uses a shared [Azure Relay](../azure-relay/relay-what-is-it.md#wcf-relay) connection. When an activity job needs to be run, the service queues the request along with any credential information. It does so in case credentials aren't already stored on the self-hosted integration runtime. The self-hosted integration runtime starts the job after it polls the queue.
 
 4. The self-hosted integration runtime copies data between an on-premises store and cloud storage. The direction of the copy depends on how the copy activity is configured in the data pipeline. For this step, the self-hosted integration runtime directly communicates with cloud-based storage services like Azure Blob storage over a secure HTTPS channel.
 
