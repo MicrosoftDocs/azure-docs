@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 06/10/2021
+ms.date: 07/01/2021
 ---
 
 # Configure a private endpoint for an Azure Machine Learning workspace
@@ -179,7 +179,9 @@ For information on Azure Virtual Machines, see the [Virtual Machines documentati
 In some situations, you may want to allow someone to connect to your secured workspace over a public endpoint, instead of through the VNet. After configuring a workspace with a private endpoint, you can optionally enable public access to the workspace. Doing so does not remove the private endpoint. All communications between components behind the VNet is still secured. It enables public access only to the workspace, in addition to the private access through the VNet.
 
 > [!WARNING]
-> When connecting over the public endpoint, some features of studio will fail to access your data. This problem happens when the data is stored on a service that is secured behind the VNet. For example, an Azure Storage Account. Also please note compute instance Jupyter/JupyterLab/RStudio functionality and running notebooks is not supported.
+> When connecting over the public endpoint:
+> * __Some features of studio will fail to access your data__. This problem happens when the _data is stored on a service that is secured behind the VNet_. For example, an Azure Storage Account. 
+> * Using Jupyter, JupyterLab, and RStudio on a compute instance, including running notebooks, __is not supported__.
 
 To enable public access to a private endpoint-enabled workspace, use the following steps:
 

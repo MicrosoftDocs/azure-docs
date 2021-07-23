@@ -1,8 +1,8 @@
 ---
 title:  "Azure Spring Cloud access app in virtual network"
 description: Access app in an Azure Spring Cloud in virtual network.
-author:  MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/11/2020
@@ -24,6 +24,9 @@ The following procedure creates a private DNS zone for an application in the pri
 2. On the **Private DNS zones** page, select **+ Add**.
 
 3. Fill out the form on the **Create Private DNS zone** page. Enter **<span>private.azuremicroservices.io</span>** as the **Name** of the zone.
+
+>[!NOTE]
+> If you are using Azure China, please replace `private.azuremicroservices.io` with `private.microservices.azure.cn` for the whole documentation, [learn more](/azure/china/resources-developer-guide#check-endpoints-in-azure).
 
 4. Select **Review + Create**.
 

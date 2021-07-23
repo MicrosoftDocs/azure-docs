@@ -11,7 +11,7 @@ tags: connectors
 
 # Create and manage blobs in Azure Blob Storage by using Azure Logic Apps
 
-You can access and manage files stored as blobs in your Azure storage account within Azure Logic Apps using the [Azure Blob Storage connector](/connectors/azureblobconnector/). This connector provides triggers and actions for blob operations within your logic app workflows. You can use these operations to automate tasks and workflows for managing the files in your storage account. [Available connector actions](/connectors/azureblobconnector/#actions) include checking, deleting, reading, and uploading blobs. The [available trigger](/azureblobconnector/#triggers) fires when a blob is added or modified. 
+You can access and manage files stored as blobs in your Azure storage account within Azure Logic Apps using the [Azure Blob Storage connector](/connectors/azureblobconnector/). This connector provides triggers and actions for blob operations within your logic app workflows. You can use these operations to automate tasks and workflows for managing the files in your storage account. [Available connector actions](/connectors/azureblobconnector/#actions) include checking, deleting, reading, and uploading blobs. The [available trigger](/connectors/azureblobconnector/#triggers) fires when a blob is added or modified. 
 
 You can connect to Blob Storage from both Standard and Consumption logic app resource types. You can use the connector with logic apps in a single-tenant, multi-tenant, or integration service environment (ISE). For logic apps in a single-tenant environment, Blob Storage provides built-in operations and also managed connector operations.
 
@@ -256,7 +256,7 @@ Next, [enable managed identity support](../logic-apps/create-managed-service-ide
 
 ### Enable support for managed identity in logic app
 
-Next, add an [HTTP trigger or action](/connectors/connectors-native-http) in your workflow. Make sure to [set the authentication type to use the managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). 
+Next, add an [HTTP trigger or action](connectors-native-http.md) in your workflow. Make sure to [set the authentication type to use the managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). 
 
 The steps are the same for logic apps in both single-tenant and multi-tenant environments.
 

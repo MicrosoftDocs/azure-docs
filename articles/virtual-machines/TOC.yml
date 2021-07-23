@@ -67,6 +67,38 @@
       href: ./windows/tutorial-load-balancer.md
     - name: 8 - Manage networking
       href: ./windows/tutorial-virtual-network.md
+- name: Develop
+  items:
+  - name: REST API
+    href: /rest/api/compute/virtual-machines?context=/azure/virtual-machines/context/context
+  - name: Python
+    items: 
+    - name: Python SDK
+      href: https://github.com/Azure/azure-sdk-for-python
+    - name: Samples
+      href: /samples/azure-samples/virtual-machines-python-manage/azure-virtual-machines-management-samples---python/?context=/azure/virtual-machines/context/context
+  - name: .NET 
+    items:
+    - name: .NET SDK
+      href: https://github.com/Azure/azure-sdk-for-net
+    - name: Reference
+      href: /dotnet/api/overview/azure/virtualmachines?view=azure-dotnet?context=/azure/virtual-machines/context/context
+  - name: Java 
+    items:
+    - name: Java SDK
+      href: https://github.com/Azure/azure-sdk-for-java
+    - name: Reference
+      href: /java/api/com.azure.resourcemanager.compute?view=azure-java-stable?context=/azure/virtual-machines/context/context
+  - name: Go 
+    items:
+    - name: Go SDK
+      href: https://github.com/Azure/azure-sdk-for-go
+    - name: Reference
+      href: /developer/go/azure-sdk-qs-vm?context=/azure/virtual-machines/context/context
+  - name: Azure CLI samples repo
+    href: https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine
+  - name: PowerShell samples repo
+    href: https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine
 - name: Workloads
   items:
   - name: Red Hat
@@ -800,8 +832,6 @@
         href: https://azure.microsoft.com/resources/templates/sig-image-definition-create/
       - name: Create an Image Version in a Shared Image Gallery
         href: https://azure.microsoft.com/resources/templates/sig-image-version-create/
-      - name: Create a VM from Image Version
-        href: https://azure.microsoft.com/resources/templates/vm-from-sig/
     - name: Ansible
       href: /azure/developer/ansible/vm-configure-from-azure-shared-image-gallery?tabs=ansible
     - name: Troubleshoot shared images
@@ -964,10 +994,29 @@
     href: disks-types.md
   - name: Disk redundancy options
     href: disks-redundancy.md
+  - name: Deploy a ZRS disk
+    href: disks-deploy-zrs.md
   - name: Shared disks
     href: disks-shared.md
   - name: Enable shared disks
     href: disks-shared-enable.md
+  - name: Disk pools
+    items:
+    - name: Overview
+      displayName: Disk pools overview
+      href: disks-pools.md
+    - name: Plan for disk pools
+      href: disks-pools-planning.md
+    - name: Deploy a disk pool
+      href: disks-pools-deploy.md
+    - name: Move a disk pool to a different subscription
+      href: disks-pools-move-resource.md
+    - name: Manage a disk pool
+      href: disks-pools-manage.md
+    - name: Deprovision a disk pool
+      href: disks-pools-deprovision.md
+    - name: Troubleshoot a disk pool
+      href: disks-pools-troubleshoot.md
   - name: Encryption
     items:
     - name: Disk encryption overview
@@ -1306,7 +1355,7 @@
   - name: Optimize network throughput
     href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?context=/azure/virtual-machines/context/context
   - name: Best practices
-    href: /virtual-network/concepts-and-best-practices.md?context=/azure/virtual-machines/context/context
+    href: ../virtual-network/concepts-and-best-practices.md
   - name: Create virtual network
     href: ../virtual-network/quick-create-cli.md?context=/azure/virtual-machines/context/context
   - name: Filter network traffic
@@ -1711,7 +1760,7 @@
         href: ../azure-monitor/vm/vminsights-ga-release-faq.yml?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: FAQ
         displayName: Azure monitor for VMs
-        href: /azure/azure-monitor/faq?context=/azure/virtual-machines/context/context
+        href: ../azure-monitor/faq.yml?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: Enable monitoring
         items:
         - name: Enable monitoring overview
@@ -1743,7 +1792,7 @@
         href: ../azure-monitor/vm/vminsights-workbooks.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: Create alert rules
         displayName: Azure monitor, monitoring
-        href: ../azure-monitor/vm/vminsights-alerts.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
+        href: ../azure-monitor/vm/monitor-virtual-machine-alerts.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: Upgrade Dependency agent
         displayName: Azure monitor, monitoring
         href: ../azure-monitor/vm/vminsights-dependency-agent-maintenance.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
@@ -1882,8 +1931,6 @@
     href: /azure/developer/jenkins/
   - name: Azure DevOps
     href: ./linux/tutorial-azure-devops-blue-green-strategy.md
-- name: Support and troubleshooting
-  href: vm-support-help.md
 - name: Resources
   items:
   - name: Cloud adoption framework
@@ -1906,12 +1953,6 @@
     href: https://azure.microsoft.com/roadmap/?category=compute
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: Samples
-    items:
-    - name: Azure CLI samples repo
-      href: https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine
-    - name: PowerShell samples repo
-      href: https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine
   - name: Common CLI commands
     href: ./linux/cli-manage.md
   - name: Common PowerShell commands
@@ -1932,4 +1973,5 @@
       href: ./linux/faq.yml
     - name: Windows
       href: ./windows/faq.yml
-
+- name: Support and troubleshooting
+  href: vm-support-help.md
