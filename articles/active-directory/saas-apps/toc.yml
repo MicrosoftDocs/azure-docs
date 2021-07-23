@@ -2561,6 +2561,8 @@
         href: thousandeyes-provisioning-tutorial.md
       - name: Tic-Tac Mobile
         href: tic-tac-mobile-provisioning-tutorial.md
+      - name: TimeClock 365
+        href: timeclock-365-provisioning-tutorial.md
       - name: Templafy SAML2
         href: templafy-saml-2-provisioning-tutorial.md
       - name: Templafy OpenID Connect
