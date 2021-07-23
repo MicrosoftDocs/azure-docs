@@ -66,7 +66,7 @@ Follow these steps to list Azure AD roles using PowerShell.
     Get-AzureADMSRoleDefinition
     ```
 
-4. To view the list of permission of a role, use the following cmdlet.
+4. To view the list of permissions of a role, use the following cmdlet.
     
     ```powershell
     $FormatEnumerationLimit = -1
@@ -75,7 +75,7 @@ Follow these steps to list Azure AD roles using PowerShell.
 
 ## Microsoft Graph API
 
-Follow these instructions to assign a role using the Microsoft Graph API in [Graph Explorer](https://aka.ms/ge).
+Follow these instructions to list Azure AD roles using the Microsoft Graph API in [Graph Explorer](https://aka.ms/ge).
 
 1. Sign in to the [Graph Explorer](https://aka.ms/ge).
 2. Select **GET** as the HTTP method from the dropdown. 
