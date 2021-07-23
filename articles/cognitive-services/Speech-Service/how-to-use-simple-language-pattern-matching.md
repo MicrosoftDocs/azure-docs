@@ -54,7 +54,7 @@ A pattern is a phrase that includes an Entity somewhere within it. An Entity is 
     Take me to the {floorName}
 ```
 
-This would define an Entitiy with the id "floorName" which is case sensitive.
+This defines an Entity with the id "floorName" which is case sensitive.
 
 All other special characters and punctuation will be ignored.
 
