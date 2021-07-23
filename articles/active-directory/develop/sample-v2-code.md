@@ -70,7 +70,7 @@ The following samples show public client desktop applications that access the Mi
 
 
 > [!div class="mx-tdCol2BreakAll"]
->| Language/Platform     | Code sample |Description |Auth libraries |Auth flow |
+>| Language/<br/>Platform     | Code sample |Description |Auth libraries |Auth flow |
 >| ----------- | ----------- |----------- |----------- |----------- |
 >| Java   | [GitHub repo](https://github.com/Azure-Samples/ms-identity-java-desktop/)         | [Call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-java-desktop/)      |      MSAL Java  |  Integrated Windows Authentication (IWA)      |
 >|  .NET Core  |    [GitHub repo](https://github.com/azure-samples/ms-identity-dotnet-desktop-tutorial)     | &#8226; [Call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-dotnet-desktop-tutorial/tree/master/1-Calling-MSGraph/1-1-AzureAD) <br/> &#8226; [Call Microsoft Graph with token cache](https://github.com/Azure-Samples/ms-identity-dotnet-desktop-tutorial/tree/master/2-TokenCache) <br/> &#8226; [Call Micrsoft Graph with custom web UI HTML](https://github.com/Azure-Samples/ms-identity-dotnet-desktop-tutorial/tree/master/3-CustomWebUI/3-1-CustomHTML)  <br/> &#8226; [Call Microsoft Graph with custom web browser](https://github.com/Azure-Samples/ms-identity-dotnet-desktop-tutorial/tree/master/3-CustomWebUI/3-2-CustomBrowser) <br/> &#8226; [Sign in users with device code flow](https://github.com/Azure-Samples/ms-identity-dotnet-desktop-tutorial/tree/master/4-DeviceCodeFlow)   |    MSAL.NET    | Auth code flow (with PKCE)    |
@@ -92,13 +92,13 @@ The following samples show public client mobile applications that access the Mic
 
 
 > [!div class="mx-tdCol2BreakAll"]
->| Language/Platform     | Code sample |Description |Auth libraries |Auth flow |
+>| Language/<br/>Platform     | Code sample |Description |Auth libraries |Auth flow |
 >| ----------- | ----------- |----------- |----------- |----------- |
 >| iOS   |   [GitHub repo](https://github.com/Azure-Samples/ms-identity-mobile-apple-swift-objc) |  [Call Microsoft Graph native](https://github.com/Azure-Samples/ms-identity-mobile-apple-swift-objc)      |   MSAL iOS   |   Auth code flow (with PKCE)      |
 >|  iOS  |   [GitHub repo](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2)| [Call Microsoft Graph with Azure AD nxoauth](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |  MSAL iOS  |   Auth code flow (with PKCE)  |
->|   Java |     [GitHub repo](https://github.com/Azure-Samples/ms-identity-android-java)    |   [Sign in user and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-android-java)     |     MSAL android   |   Auth code flow (with PKCE)     |
->|   Kotlin |  [GitHub repo](https://github.com/Azure-Samples/ms-identity-android-kotlin)       | [Sign in user and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-android-kotlin)       |  MSAL android     |   Auth code flow (with PKCE)     |
->|  Xamarin  |     [GitHub repo](https://github.com/azure-samples/active-directory-xamarin-native-v2)    | &#8226;   [Sign in user and call call Microsoft Graph](https://github.com/Azure-Samples/active-directory-xamarin-native-v2/tree/main/1-Basic)  <br/>&#8226; [Sign in user with broker and call call Microsoft Graph](https://github.com/Azure-Samples/active-directory-xamarin-native-v2/tree/main/2-With-broker)  |    MSAL.NET    |     Auth code flow (with PKCE)   |
+>|   Java |     [GitHub repo](https://github.com/Azure-Samples/ms-identity-android-java)    |   [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-android-java)     |     MSAL Android   |   Auth code flow (with PKCE)     |
+>|   Kotlin |  [GitHub repo](https://github.com/Azure-Samples/ms-identity-android-kotlin)       | [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-android-kotlin)       |  MSAL Android     |   Auth code flow (with PKCE)     |
+>|  Xamarin  |     [GitHub repo](https://github.com/azure-samples/active-directory-xamarin-native-v2)    | &#8226;   [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/active-directory-xamarin-native-v2/tree/main/1-Basic)  <br/>&#8226; [Sign in users with broker and call Microsoft Graph](https://github.com/Azure-Samples/active-directory-xamarin-native-v2/tree/main/2-With-broker)  |    MSAL.NET    |     Auth code flow (with PKCE)   |
 
 
 
