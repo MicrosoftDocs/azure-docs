@@ -33,5 +33,3 @@ To access your logs, go to the storage account you designated in Step 3 above by
 From there, you can download all logs or individual logs.
 
 :::image type="content" source="media\call-logs-images\call-logs-access-storage-resource.png" alt-text="Azure Portal Storage Download":::
-
-:::image type="content" source="media\call-logs-images\call-logs-access-diagnostic-setting.png" alt-text="Azure Monitor Diagnostic setting":::
