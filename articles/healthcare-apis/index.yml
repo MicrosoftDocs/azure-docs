@@ -30,25 +30,20 @@ landingContent:
         links:
           - text: Getting started with Healthcare APIs
             url: healthcare-apis-quickstart.md
+  
+  - title: Using Healthcare APIs
+    linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Authentication and Authorization
-            url: authentication-aad.md
-  
-  - title: FAQs
-    linkLists:
+          - text: Authentication & Authorization
+            url: authentication-authorization.md
+          - text: Access using REST Client
+            url: using-rest-client.md
       - linkListType: reference
         links:
           - text: Healthcare APIs FAQs
-            url: healthcare-apis-faqs.yml
-      - linkListType: reference
-        links:
-          - text: FHIR FAQs
-            url: ./fhir/fhir-faq.md
-          - text: DICOM FAQs
-            url: ./dicom/dicom-services-faqs.yml
-          - text: IoT FAQs
-            url: ./iot/iot-faq.md
+            url: healthcare-apis-faqs.md
+
   
   - title: Transfer and Transform Data
     linkLists:
@@ -56,8 +51,6 @@ landingContent:
         links:
           - text: Export data
             url: ./data-transformation/export-data.md
-          - text: Export de-identified data
-            url: ./data-transformation/de-identified-export.md
           - text: Export data to Synapse
             url: ./data-transformation/move-to-synapse.md
       - linkListType: concept
