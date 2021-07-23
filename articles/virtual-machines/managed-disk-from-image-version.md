@@ -1,6 +1,6 @@
 ---
-title: Create a managed disk from an image version
-description: Create a managed disk from an image version in a shared image gallery.
+title: Export an image version to a managed disk
+description: Export an image version from a shared image gallery to a managed disk.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell
 
 # Create a managed disk from an image version
 
-If needed, you can export the OS or a single data disk from an image version as a managed disk from an image version stored in a Shared Image Gallery.
+You can export the OS or a single data disk from an image version as a managed disk from an image version stored in a Shared Image Gallery.
 
 
 ## CLI
