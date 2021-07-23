@@ -117,7 +117,7 @@ Now create an `IntentRecognizer`. Insert this code right below your Speech confi
 
 ## Add some Intents
 
-You need to associate some patterns with the `IntentRecognizer`. To do this simple make calls to `AddIntent()`.
+You need to associate some patterns with the `IntentRecognizer` by calling `AddIntent()`.
 We will add 2 intents with the same ID for changing floors. And another intent with a separate ID for opening and closing doors.
 
 ```cpp
