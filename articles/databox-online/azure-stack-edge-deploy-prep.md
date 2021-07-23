@@ -53,7 +53,7 @@ Before you begin, make sure that:
 
 * RBAC roles: You have the following role assignments in Azure role-based access control (RBAC):
 
-  * To create Azure Stack Edge, IoT Hub, and Azure storage resources, you must have the Contributor or Owner role at resource group scope.
+  * To create Azure Stack Edge, IoT Hub, and Azure storage resources, a user must have the Contributor or Owner role at resource group scope.
 
   * To assign the Contributor role to a user at resource group scope, you must have the Owner role at subscription scope.
 
