@@ -400,11 +400,11 @@ http {
 
 * Gather a set of at least six forms of the same type. You'll use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*). Download the training files to the **shared** folder you created above.
 
-* If you want to label your data, download the [Form OCR Test Tool (FOTT) for Windows](https://github.com/microsoft/OCR-Form-Tools/releases/tag/v2.1-ga). The download will import the labeling tool .exe file that you'll use to label the data present on your local file system. You can ignore any warnings that occur during the download process.
+* If you want to label your data, download the [Form Recognizer sample labeling tool for Windows](https://github.com/microsoft/OCR-Form-Tools/releases/tag/v2.1-ga). The download will import the labeling tool .exe file that you'll use to label the data present on your local file system. You can ignore any warnings that occur during the download process.
 
-#### Create a new FOTT project
+#### Create a new sample labeling tool project
 
-* Open the labeling tool but double-clicking on the FOTT .exe file.
+* Open the labeling tool but double-clicking on the sample labeling tool .exe file.
 * On the left pane of the tool, select the connections tab.
 * Select to create a new project and give it a name and description.
 * For the provider, choose the local file system option. For the local folder, make sure you enter the path to the folder where you stored the sample data files.

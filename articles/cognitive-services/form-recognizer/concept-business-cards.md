@@ -38,7 +38,7 @@ To try out the Form Recognizer receipt service, go to the online Sample UI Tool:
 
 The prebuilt Business Card API extracts key fields from business cards and returns them in an organized JSON response.
 
-![Contoso itemized image from FOTT + JSON output](./media/business-card-example.jpg)
+![Contoso itemized image from sample labeling tool + JSON output](./media/business-card-example.jpg)
 
 ### Fields extracted:
 

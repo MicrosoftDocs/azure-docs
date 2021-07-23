@@ -107,7 +107,7 @@ Extract text, tables and key value pairs from invoices, sales receipts, identity
     * The "pageResults" section includes the tables extracted. For each table, the text, row, and column index, row and column spanning, bounding box, and more are extracted.
     * The "documentResults" field contains key/value pairs information and line items information for the most relevant parts of the document.
 
-## Train & Analyze a custom Form
+## Train a custom form model
 
 Train a custom form model tailored to your documents. Extract text, tables, selection marks and key value pairs from your documents with Form Recognizer Custom.
 
@@ -126,7 +126,7 @@ Enable CORS on your storage account. Select your storage account in the Azure po
 > [!div class="mx-imgBorder"]
 > ![CORS setup in the Azure portal](../media/label-tool/cors-setup.png)
 
-## Train a custom form model
+### Use the sample labeling tool
 
 1. Go to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/)
 
