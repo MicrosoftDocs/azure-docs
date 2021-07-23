@@ -1,6 +1,7 @@
 ---
-title: Add password-based single sign-on to an application in Azure Active Directory
+title: Add password-based single sign-on to an application
 description: Add of password-based single sign-on to an application in Azure Active Directory.
+titleSuffix: Azure Active Directory
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -15,7 +16,7 @@ ms.author: davidmu
 
 # Add password-based single sign-on to an application in Azure Active Directory
 
-This article provides steps for you to follow to implement password-based single sign-on (SSO). With password-based sign-on, users sign on to the application with a username and password the first time they access it. After the first sign-on, Azure Active Directory (Azure AD) supplies the username and password to the application. 
+This article provides steps for you to set up password-based single sign-on (SSO). With password-based sign-on, a user signs in to the application with a username and password the first time it's accessed. After the first sign-on, Azure Active Directory (Azure AD) sends the username and password to the application. 
 
 Password-based single sign-on uses the existing authentication process provided by the application. When you enable password single sign-on for an application, Azure AD collects and securely stores usernames and passwords for the application. User credentials are stored in an encrypted state in the directory. Password-based single sign-on is supported for any cloud-based application that has an HTML-based sign-in page.
 
@@ -48,7 +49,7 @@ Azure AD parses the HTML of the sign-in page for username and password input fie
 If Azure AD's parsing attempt fails, you can configure sign-on manually.
 
 1. Under <application name> Configuration, select **Configure <application name> Password Single Sign-on Settings** to display the Configure sign-on page.
-2. Select **Manually detect sign-in fields**. Additional instructions describing the manual detection of sign-in fields appear.
+2. Select **Manually detect sign-in fields**. More instructions that describe manual detection of sign-in fields appear.
 3. Select **Capture sign-in fields**. A capture status page opens in a new tab, showing the message metadata capture is currently in progress.
 4. If the **My Apps Extension Required** box appears in a new tab, select **Install Now** to install the My Apps Secure Sign-in Extension browser extension. (The browser extension requires Microsoft Edge, Chrome, or Firefox.) Then install, launch, and enable the extension, and refresh the capture status page. The browser extension then opens another tab that displays the entered URL.
 5. In the tab with the entered URL, go through the sign-in process. Fill in the username and password fields, and try to sign in. (You don't have to provide the correct password.) A prompt asks you to save the captured sign-in fields.

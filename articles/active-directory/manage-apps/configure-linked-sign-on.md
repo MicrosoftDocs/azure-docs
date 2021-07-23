@@ -1,6 +1,7 @@
 ---
-title: Add linked single sign-on to an application in Azure Active Directory
+title: Add linked single sign-on to an application
 description: Add of linked single sign-on to an application in Azure Active Directory.
+titleSuffix: Azure Active Directory
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -17,9 +18,7 @@ ms.author: davidmu
 
 This article provides steps for you to follow to implement linked single sign-on (SSO). Linked sign-on enables Azure AD to provide single sign-on to an application that is already configured for single sign-on in another service. The linked option lets you configure the target location when a user selects the application in your organization's My Apps or Microsoft 365 portal.
 
-The linked option doesn't provide sign-on functionality through Azure Active Directory (Azure AD). The option simply sets the location users are sent when they select the application on My Apps or Microsoft 365. Because the sign-in doesn't provide sign-on functionality through Azure AD, conditional access is not available for applications configured with linked single sign-on.
-
-For example, a user can launch an application that is configured for single sign-on in Active Directory Federation Services 2.0 (AD FS) from the Office 365 portal. Additional reporting is also available for linked applications that are launched from the Office 365 portal or the Azure AD MyApps portal.
+The linked option doesn't provide sign-on functionality through Azure Active Directory (Azure AD). The option simply sets the location users are sent when they select the application on My Apps or Microsoft 365. Because the sign-in doesn't happen through Azure AD, conditional access isn't available for applications configured with linked single sign-on.
 
 Some common scenarios where the link option is valuable include:
 - Add a link to a custom web application that currently uses federation, such as Active Directory Federation Services (AD FS).

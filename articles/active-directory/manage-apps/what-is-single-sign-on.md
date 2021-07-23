@@ -1,6 +1,7 @@
 ---
 title: What is Azure single sign-on?
 description: Learn about single sign-on in Azure Active Directory.
+titleSuffix: Azure Active Directory
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -16,7 +17,7 @@ ms.author: davidmu
 
 This article provides you with a information about what single sign-on (SSO) is in relation to your applications and Azure Active Directory (Azure AD). Using SSO means a user doesn't have to sign into every application they use. The user logs in once and that credential is used for other apps too. With SSO, users can access all needed applications without being required to authenticate a second time. 
 
-Many applications already exist in Azure Active Directory (Azure AD) that you can use with SSO. You have several options for SSO depending on the needs of the application and how it is implemented. You should take time to plan your SSO deployment before you create applications in Azure AD. You can also make the management of applications easier by using the MyApps portal.
+Many applications already exist in Azure Active Directory (Azure AD) that you can use with SSO. You have several options for SSO depending on the needs of the application and how it is implemented. Take time to plan your SSO deployment before you create applications in Azure AD. The management of applications can be made easier by using the MyApps portal.
 
 ## SSO options
 
@@ -24,7 +25,7 @@ Choosing a SSO method depends on how the application is configured for authentic
 
 - **Federation** - When you set up SSO to work between multiple identity providers, it's called federation. An SSO implementation based on federation protocols improves security, reliability, end-user experiences, and implementation. 
 
-With federated single sign-on, Azure AD authenticates the user to the application by using their Azure AD account. This method is supported for applications that support protocols such as SAML 2.0, WS-Federation, or OpenID Connect, and is the richest mode of SSO. You should use federated SSO with Azure AD when an application supports it, instead of password-based SSO and Active Directory Federation Serices (AD FS).
+With federated single sign-on, Azure AD authenticates the user to the application by using their Azure AD account. This method is supported for [SAML 2.0](../develop/single-sign-on-saml-protocol.md), WS-Federation, or [OpenID Connect](../develop/active-directory-v2-protocols.md) applications. Federated SSO is the richest mode of SSO. Use federated SSO with Azure AD when an application supports it, instead of password-based SSO and Active Directory Federation Serices (AD FS).
 
 There are some scenarios where the single sign-on option is not present for an enterprise application. If the application was registered using **App registrations** in the portal, then the single sign-on capability is configured to use OpenID Connect and OAuth by default. In this case, the single sign-on option won't appear in the navigation under enterprise applications.
 
@@ -34,9 +35,9 @@ Authentication fundamentals: Federation | Azure Active Directory
 
 > [!VIDEO https://www.youtube.com/embed/CjarTgjKcX8]
 
-- **Password-based** - On-premises applications can use password-based, Integrated Windows Authentication, header-based, linked, or disabled methods for single sign-on. The on-premises choices work when applications are configured for [Application Proxy](../app-proxy/what-is-application-proxy).
+- **Password-based** - On-premises applications can use password-based, Integrated Windows Authentication, header-based, linked, or disabled methods for single sign-on. The on-premises choices work when applications are configured for [Application Proxy](../app-proxy/what-is-application-proxy.md).
 
-With password-based single sign-on, users sign in to the application with a username and password the first time they access it. After the first sign-on, Azure AD supplies the username and password to the application. Password-based single sign-on enables secure application password storage and replay using a web browser extension or mobile app. This option leverages the existing sign-in process provided by the application, enables an administrator to manage the passwords, and doesn't require the user to know the password.
+With password-based single sign-on, users sign in to the application with a username and password the first time they access it. After the first sign-on, Azure AD supplies the username and password to the application. Password-based single sign-on enables secure application password storage and replay using a web browser extension or mobile app. This option uses the existing sign-in process provided by the application, enables an administrator to manage the passwords, and doesn't require the user to know the password.
 
 ## Plan SSO deployment
 
