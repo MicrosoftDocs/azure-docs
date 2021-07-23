@@ -35,7 +35,7 @@ SAP IQ supports two type of architecture - simplex and multiplex. In simplex arc
 > [!Important]
 > For SAP-NLS solution, only simplex architecture is available/evaluated by SAP.
 
-<img src="media\sap-iq-deployment-guide\sap-iq-solution-overview.png"/>
+![SAP IQ solution overview](media/sap-iq-deployment-guide/sap-iq-solution-overview.png)
 
 In Azure, SAP IQ server must be implemented on a separate virtual machine (VM). It's not recommended to install SAP IQ software on an existing server that already has other database instance running, as SAP IQ uses complete CPU and memory for its own usage. One SAP IQ server can be used for multiple SAP-NLS implementations. 
 
@@ -101,7 +101,7 @@ The following table lists the recommendation of each storage type based on the o
 
 ### Networking
 
-Azure provides a network infrastructure, which allows the mapping of all scenarios that can be realized for SAP BW system that use SAP IQ as near-line storage like connecting to on-premise system, systems in different virtual network and others. For more information, see [Microsoft Azure Networking for SAP Workload](planning-guide.md#microsoft-azure-networking).
+Azure provides a network infrastructure, which allows the mapping of all scenarios that can be realized for SAP BW system that use SAP IQ as near-line storage like connecting to on-premise system, systems in different virtual network and others. For more information, see [Microsoft Azure Networking for SAP Workload](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/workloads/sap/planning-guide.md#microsoft-azure-networking).
 
 ## Deploy SAP IQ on Windows
 
