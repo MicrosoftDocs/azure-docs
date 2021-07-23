@@ -38,7 +38,7 @@ To configure a time-based retention policy on a container with the Azure portal,
 
 After you've configured the immutability policy, you will see that it is scoped to the container:
 
-    :::image type="content" source="media/immutable-policy-configure-container-scope/view-retention-policy-container-scope.png" alt-text="Screenshot showing an existing immutability policy that is scoped to the container":::
+:::image type="content" source="media/immutable-policy-configure-container-scope/view-retention-policy-container-scope.png" alt-text="Screenshot showing an existing immutability policy that is scoped to the container":::
 
 ### [PowerShell](#tab/azure-powershell)
 
