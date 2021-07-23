@@ -79,11 +79,15 @@ For example, if you use Visual Studio Code as your local development tool to run
 
 1. When you're done, close the **Parameters** pane, which automatically saves your parameter definition.
 
-1. To reference the parameter from a trigger or action that's in any workflow within the same logic app, expand that trigger or action.
+1. To reference the parameter from a trigger or action that's in any workflow within the same logic app, follow these steps:
 
-1. Find the property where you want to use the parameter, and click inside that property's edit box.
+   1. In the designer, open the workflow that you want, and expand the trigger or action.
 
-1. From the dynamic content list that opens, under **Parameters**, select you previously created parameter, for example:
+   1. In the property where you want to use the parameter, click inside that property's edit box.
+
+   1. From the dynamic content list that opens, under **Parameters**, select you previously created parameter, for example:
+
+      ![Screenshot showing expanded example action with the cursor inside property edit box, the expanded dynamic content list, and the previously created parameter selected.](./media/parameterize-workflow-app/reference-parameter.png)
 
 ### Visual Studio Code
 
