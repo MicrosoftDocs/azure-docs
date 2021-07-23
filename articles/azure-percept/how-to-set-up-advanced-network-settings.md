@@ -74,7 +74,7 @@ This option allows you to define a proxy server.
 ## Setup Zero Touch Provisioning
 
 > [!IMPORTANT]
-> The **Setup Zero Touch Provisioning** setting are not currently functional. This feature will be enabled in a future update.
+> The **Setup Zero Touch Provisioning** setting are not currently functional
 
 This option allows you to turn your Azure Percept DK into a [Wi-Fi Easy Connect<sup>TM</sup> Bulk Configurator](https://techcommunity.microsoft.com/t5/internet-of-things/simplify-wi-fi-iot-device-onboarding-with-zero-touch/ba-p/2161129#:~:text=A%20Wi-Fi%20Easy%20Connect%E2%84%A2%20Configurator%2C%20paired%20with%20the,device%20to%20any%20WPA2-Personal%20or%20WPA3-Personal%20wireless%20LAN.) for onboarding multiple devices at once to your Wi-Fi infrastructure.  
 
