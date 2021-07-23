@@ -4,7 +4,7 @@ description: Pivot data from rows to columns using Azure Data Factory mapping da
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
-ms.subservice: dataflows
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/17/2020

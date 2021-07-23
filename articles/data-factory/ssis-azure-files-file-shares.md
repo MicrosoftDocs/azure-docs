@@ -4,7 +4,7 @@ description: Learn how to open and save files on premises and in Azure when you 
 ms.date: "06/27/2018"
 ms.topic: conceptual
 ms.service: data-factory
-ms.subservice: ssis
+ms.subservice: integration-services
 author: swinarko
 ms.author: sawinark
 ms.reviewer: jburchel

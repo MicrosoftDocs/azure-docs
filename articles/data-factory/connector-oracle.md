@@ -3,7 +3,7 @@ title: Copy data to and from Oracle by using Azure Data Factory
 description: Learn how to copy data from supported source stores to an Oracle database, or from Oracle to supported sink stores, by using Data Factory.
 author: jianleishen
 ms.service: data-factory
-ms.subservice: datamovement
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.date: 03/17/2021
 ms.author: jianleishen

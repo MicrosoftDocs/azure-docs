@@ -4,7 +4,7 @@ description: earn how to copy and transform data in Azure Database for MySQL by 
 ms.author: susabot
 author: ssabat
 ms.service: data-factory
-ms.subservice: datamovement
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/10/2021

@@ -4,7 +4,7 @@ description: Learn how to copy data from SAP Cloud for Customer to supported sin
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
-ms.subservice: datamovement
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021

@@ -4,7 +4,7 @@ description: Learn how to copy data to and from Blob storage, and transform data
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
-ms.subservice: datamovement
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/17/2021

@@ -4,7 +4,7 @@ description: Learn how to copy and transform data in Snowflake by using Data Fac
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
-ms.subservice: datamovement
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/16/2021

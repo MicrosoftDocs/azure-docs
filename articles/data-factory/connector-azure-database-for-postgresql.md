@@ -4,7 +4,7 @@ description: Learn how to copy and transform data in Azure Database for PostgreS
 ms.author: susabat
 author: ssabat
 ms.service: data-factory
-ms.subservice: datamovement
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/16/2021

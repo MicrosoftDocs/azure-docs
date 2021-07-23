@@ -4,7 +4,7 @@ description: Learn how to copy data from an SAP table to supported sink data sto
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
-ms.subservice: datamovement
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/26/2021

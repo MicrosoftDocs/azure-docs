@@ -4,7 +4,7 @@ description: A list of video tutorials explaining mapping data flow concepts
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
-ms.subservice: dataflows
+ms.subservice: data-flows
 ms.topic: tutorial
 ms.date: 05/18/2021
 ---

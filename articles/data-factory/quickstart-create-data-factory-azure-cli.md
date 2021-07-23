@@ -4,7 +4,7 @@ description: This quickstart creates an Azure Data Factory, including a linked s
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
-ms.subservice: datamovement
+ms.subservice: data-movement
 ms.topic: quickstart
 ms.date: 03/24/2021
 ms.custom:

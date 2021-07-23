@@ -4,7 +4,7 @@ description: Learn how to configure SSIS catalog in Azure SQL Database and Azure
 ms.date: "10/27/2020"
 ms.topic: conceptual
 ms.service: data-factory
-ms.subservice: ssis
+ms.subservice: integration-services
 author: swinarko
 ms.author: sawinark
 ms.reviewer: jburchel

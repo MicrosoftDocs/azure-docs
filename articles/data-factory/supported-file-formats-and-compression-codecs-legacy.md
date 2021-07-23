@@ -4,7 +4,7 @@ description: 'This topic describes the file formats and compression codes that a
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
-ms.subservice: datamovement
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.date: 12/10/2019
 ---

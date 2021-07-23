@@ -4,7 +4,7 @@ description: Learn how to copy data from Azure File Storage to supported sink da
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
-ms.subservice: datamovement
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021

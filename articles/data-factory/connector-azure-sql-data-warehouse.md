@@ -4,7 +4,7 @@ description: Learn how to copy data to and from Azure Synapse Analytics, and tra
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
-ms.subservice: datamovement
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.date: 05/10/2021
 ---

@@ -3,7 +3,7 @@ title: Data Flow activity
 description: How to execute data flows from inside a data factory pipeline. 
 author: kromerm
 ms.service: data-factory
-ms.subservice: dataflows
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 05/20/2021
