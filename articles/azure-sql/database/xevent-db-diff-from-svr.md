@@ -166,7 +166,7 @@ There are scenarios where intensive use of extended events can accumulate more a
 There is a cap on memory available to XEvent sessions in Azure SQL Database:
   - In single Azure SQL Database in the DTU purchasing model, each database can use up to 128 MB. This is raised to 256 MB only in the Premium tier.
   - In single Azure SQL Database in the vCore purchasing model, each database can use up to 128 MB.
-  - In an elastic pool, each database can use up to 128 MB, but in total they cannot exceed 512 MB.
+  - In an elastic pool, individual databases are limited by the single database limits, and in total they cannot exceed 512 MB.
 
 If you receive an error message that says a memory maximum was enforced, some corrective actions you can take are:
 
