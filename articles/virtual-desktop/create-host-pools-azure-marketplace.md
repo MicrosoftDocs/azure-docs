@@ -1,14 +1,23 @@
 ---
+<<<<<<< HEAD
+title: Azure Virtual Desktop create host pool - Azure
+description: How to create an Azure Virtual Desktop host pool by using the Azure portal or the Azure CLI.
+author: Heidilohr
+ms.topic: tutorial
+ms.custom: references_regions
+ms.date: 06/24/2021
+=======
 title: Azure Virtual Desktop host pool Azure portal - Azure
 description: How to create an Azure Virtual Desktop host pool by using the Azure portal.
 author: Heidilohr
 ms.topic: tutorial
 ms.custom: references_regions
 ms.date: 07/20/2021
+>>>>>>> 76736a412e6f58afbf0b09fbe7ace8ca9517278d
 ms.author: helohr
 manager: femila
 ---
-# Tutorial: Create a host pool with the Azure portal
+# Tutorial: Create a host pool
 
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md). Any objects you create with Azure Virtual Desktop (classic) can't be managed with the Azure portal.
@@ -55,6 +64,8 @@ If you're an IT professional creating a network, when you create a Azure Virtual
 Last but not least, if you don't have an Azure subscription already, make sure to [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you start following these instructions.
 
 ## Begin the host pool setup process
+
+### [Portal](#tab/azure-portal)
 
 To start creating your new host pool:
 
@@ -104,13 +115,42 @@ To start creating your new host pool:
 
 11. If you've already created virtual machines and want to use them with the new host pool, select **No**, select **Next: Workspace >** and jump to the [Workspace information](#workspace-information) section. If you want to create new virtual machines and register them to the new host pool, select **Yes**.
 
-Now that you've completed the first part, let's move on to the next part of the setup process where we create the VM.
+### [Azure CLI](#tab/azure-cli)
+
+Start by preparing your environment for the Azure CLI:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+After you sign in, use the [az desktopvirtualization hostpool create](/cli/azure/desktopvirtualization#az_desktopvirtualization_hostpool_create) command to create the new host pool, optionally creating a registration token for session hosts to join the host pool:
+
+```azurecli
+az desktopvirtualization hostpool create --name "MyHostPool" \
+    --resource-group "MyResourceGroup" \
+    --location "MyLocation" \
+    --host-pool-type "Pooled" \
+    --load-balancer-type "BreadthFirst" \
+    --personal-desktop-assignment-type "Automatic" \
+    --max-session-limit 999999 \
+    --registration-info expiration-time="2022-03-22T14:01:54.9571247Z" registration-token-operation="Update" \
+    --sso-context "KeyVaultPath" \
+    --tags tag1="value1" tag2="value2" \
+    --friendly-name "friendly name of this hostpool" \
+    --description "description of this hostpool" 
+```
+
+If you want to create new virtual machines and register them to the new host pool, continue with the following section. If you've already created virtual machines and want to use them with the new host pool, jump to the [Workspace information](#workspace-information) section. 
+
+---
+
+Now that you've created a host pool, let's move on to the next part of the setup process where we create the VM.
 
 ## Virtual machine details
 
 Now that we're through the first part, you'll have to set up your VM.
 
-To set up your virtual machine within the host pool setup process:
+### [Portal](#tab/azure-portal)
+
+To set up your virtual machine within the Azure portal host pool setup process:
 
 1. Under **Resource group**, choose the resource group where you want to create the virtual machines. This can be a different resource group than the one you used for the host pool.
 
@@ -184,14 +224,37 @@ To set up your virtual machine within the host pool setup process:
 
 13. Select **Next: Workspace >**.
 
+### [Azure CLI](#tab/azure-cli)
+
+Use the [az vm create](/cli/azure/vm#az_vm_create) command to create one or more new Azure virtual machines:
+
+```azurecli
+az vm create --name "MyVMName" \
+    --resource-group "MyResourceGroup" \
+    --count 3
+```
+
+For additional information on using the Azure CLI to create Azure virtual machines, see:
+- Windows
+    - [Create a Windows VM using the Azure CLI]( /azure/virtual-machines/windows/quick-create-cli)
+    - [Tutorial: Create and Manage Windows VMs with the Azure CLI[(/cli/azure/azure-cli-vm-tutorial)
+- Linux
+    - [Create a Linux VM using the Azure CLI]( /virtual-machines/linux/quick-create-cli)
+    - [Tutorial: Create and Manage Linux VMs with the Azure CLI]( /azure/virtual-machines/linux/tutorial-manage-vm) 
+---
+
 With that, we're ready to start the next phase of setting up your host pool: registering your app group to a workspace.
 
 ## Workspace information
 
 The host pool setup process creates a desktop application group by default. For the host pool to work as intended, you'll need to publish this app group to users or user groups, and you must register the app group to a workspace.
 
+<<<<<<< HEAD
+### [Portal](#tab/azure-portal)
+=======
 >[!NOTE]
 >If you're an app developer trying to publish your organization’s apps, you can dynamically attach MSIX apps to user sessions or add your app packages to a custom VM image. See How to serve your custom app with Azure Virtual Desktop for more information.
+>>>>>>> 76736a412e6f58afbf0b09fbe7ace8ca9517278d
 
 To register the desktop app group to a workspace:
 
@@ -210,14 +273,40 @@ To register the desktop app group to a workspace:
      >[!NOTE]
      >The review + create validation process doesn't check if your password meets security standards or if your architecture is correct, so you'll need to check for any problems with either of those things yourself.
 
-5. Review the information about your deployment to make sure everything looks correct. When you're done, select **Create**. This starts the deployment process, which creates the following objects:
+5. Review the information about your deployment to make sure everything looks correct. When you're done, select **Create**. 
 
+### [Azure CLI](#tab/azure-cli)
+
+Use the [az desktopvirtualization workspace create](/cli/azure/desktopvirtualization#az_desktopvirtualization_workspace_create) command to create the new workspace:
+
+```azurecli
+az desktopvirtualization workspace create --name "MyWorkspace" \
+    --resource-group "MyResourceGroup" \
+    --location "MyLocation" \
+    --application-group-references MyApplicationGroupID1 MyApplicationGroupID2 \
+    --tags tag1="value1" tag2="value2" \
+    --friendly-name "friendly name of this workspace" \
+    --description "description of this workspace" 
+```
+---
+
+This starts the deployment process, which creates the following objects:
+
+<<<<<<< HEAD
+- Your new host pool.
+- A desktop app group.
+- A workspace, if you chose to create it.
+- If you chose to register the desktop app group, the registration will be completed.
+- Virtual machines, if you chose to create them, which are joined to the domain and registered with the new host pool.
+- A download link for an Azure Resource Management template based on your configuration.
+=======
      - Your new host pool.
      - A desktop app group.
      - A workspace, if you chose to create it.
      - If you chose to register the desktop app group, the registration will be completed.
      - Virtual machines, if you chose to create them, which are joined to the domain and registered with the new host pool.
      - A download link for an Azure Resource Manager template based on your configuration.
+>>>>>>> 76736a412e6f58afbf0b09fbe7ace8ca9517278d
 
 After that, you're all done!
 
