@@ -89,9 +89,12 @@ The sample data collection endpoint below is for virtual machines with Azure Mon
 
 ## Enable network isolation for the Azure Monitor Agent
 You can use data collection endpoints to enable the Azure Monitor agent to communicate to the internet via private links. To do so, you must:
-- Configure the data collection endpoints for the target resources, as part of the data collection rules. This results in the agent using the configured the data collection endpoint for network communications. See [Configure data collection for the Azure Monitor agent](../agents/data-collection-rule-azure-monitor-agent.md).
-- Add the data collection endpoints to an [Azure Monitor Private Link Scopes (AMPLS)](../logs/private-link-security.md#connect-azure-monitor-resources) resource.
-- Ensure **Allow public network access for ingestion** option is set to **No** under the 'Network Isolation' tab of your data collection endpoint resource, as shown below (set to 'No' by default)
+- Create data collection endpoint(s), at least one per region, as shown above
+- Add the data collection endpoints to an [Azure Monitor Private Link Scopes (AMPLS)](../logs/private-link-security.md#connect-azure-monitor-resources) resource. This adds the DCE endpoints to your private DNS and allows communication via private links.
+	> [!NOTE]
+	> Other Azure Monitor resources like the Log Analytics workspace(s) you wish to send data to, must be part of this same AMPLS resource.
+- Ensure **Allow public network access for ingestion** option is set to **No** under the 'Network Isolation' tab of your data collection endpoint resource. This ensures that public internet access is disabled and network communication only happen via private links.
+- Configure the data collection endpoints for the target resources, as part of the data collection rules. This results in the agent using the configured the data collection endpoint(s) for network communications. See [Configure data collection for the Azure Monitor agent](../agents/data-collection-rule-azure-monitor-agent.md).
 
 ![Data collection endpoint network isolation](media/data-collection-endpoint-overview/data-collection-endpoint-network-isolation.png)
 
