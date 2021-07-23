@@ -186,7 +186,7 @@ To create a IPv6 public IP prefix, enter **IPv6** in the **IpAddressVersion** pa
 
 In this section, you'll learn how to delete a prefix.
 
-To delete a public IP prefix, use [az network public-ip prefix delete](/cli/azure/network/public-ip/prefix?view=azure-cli-latest#az_network_public_ip_prefix_delete).
+To delete a public IP prefix, use [az network public-ip prefix delete](/cli/azure/network/public-ip/prefix#az_network_public_ip_prefix_delete).
 
 ```azurecli-interactive
   az network public-ip prefix delete \
