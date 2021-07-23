@@ -65,9 +65,9 @@ Before you begin, make sure that:
 
   * To create an Azure Stack Edge/Data Box Gateway resource, make sure the `Microsoft.DataBoxEdge`provider is registered.
 
-  * To create an IoT Hub resource, make sure that the `Microsoft.Devices` provider is registered.
+  * To create an IoT Hub resource, make sure the `Microsoft.Devices` provider is registered.
 
-  * To create a Storage account resource, Azure Storage must be a registered resource provider. The Azure Storage Resource Provider (SRP) is by default a registered resource provider, but in some cases registration may be needed.
+  * To create a Storage account resource, make sure Azure Storage is registered. The Azure Storage Resource Provider (SRP) is by default a registered resource provider, but in some cases registration may be needed.
 
   **You must assign the related RBAC role before you can register the resource provider.**
 
