@@ -253,6 +253,7 @@ Returns "cn=Joe,dc=contoso,dc=com"
 Returns a date/time string representing a date to which a specified time interval has been added. The returned date is in the format: **M/d/yyyy h:mm:ss tt**.
 
 **Parameters:** 
+
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
 | **interval** |Required | String | Interval of time you want to add. See accepted values below this table. |
