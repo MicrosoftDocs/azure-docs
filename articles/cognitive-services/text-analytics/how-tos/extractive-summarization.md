@@ -1,7 +1,7 @@
 ---
-title: Summarize text with the Text Analytics Extractive Summarization API
+title: Summarize text with the Text Analytics extractive summarization API
 titleSuffix: Azure Cognitive Services
-description: This article will show you how to summarize text with the Azure Cognitive Services Text Analytics Extractive Summarization API.
+description: This article will show you how to summarize text with the Azure Cognitive Services Text Analytics extractive summarization API.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,12 +12,12 @@ ms.date: 06/16/2021
 ms.author: aahi
 ---
 
-# How to: Use Text Analytics summarization (preview)
+# How to: summarize text with Text Analytics (preview)
 
 > [!IMPORTANT] 
 > Text Analytics extractive summarization is a preview capability provided “AS IS” and “WITH ALL FAULTS.” As such, Text Analytics extractive summarization (preview) should not be implemented or deployed in any production use. The customer is solely responsible for any use of Text Analytics extractive summarization. 
 
-In general, there are two apparches for automatic text summarization: extractive and abstractive. Today  extractive summarization is supported with this preview.
+In general, there are two approaches for automatic text summarization: extractive and abstractive. Today extractive summarization is supported with this preview.
 
 Extractive summarization is a feature in Azure Text Analytics that produces a summary by extracting sentences that collectively represent the most important or relevant information within the original content.
 
@@ -25,7 +25,7 @@ This feature is designed to help address the problem with content that users thi
 
 The AI models used by the API are provided by the service, you just have to send content for analysis.
 
-## Text summarization and features
+## Extractive summarization and features
 
 The extractive summarization feature in Text Analytics uses natural language processing techniques to locate key sentences in an unstructured text document. These sentences collectively convey the main idea of the document. This feature is provided as an API for developers. They can use it to build intelligent solutions based on the relevant information extracted to support various use cases.
 
@@ -33,7 +33,7 @@ Extractive summarization returns a rank score as a part of the system response a
 
 There is another feature in Text Analytics, [key phrases extraction](../text-analytics-how-to-keyword-extraction), that can extract key information. When you consider between key phrase extraction and extractive summarization, the following may help you make decision:
 * key phrase extraction returns phrases while extractive summarization returns sentences
-* extractive summarization returns sentences together with a rank score. Top ranked sentences will be returned per reqeust
+* extractive summarization returns sentences together with a rank score. Top ranked sentences will be returned per request
 
 ## Sending a REST API request 
 
@@ -64,9 +64,9 @@ Set a request header to include your Text Analytics API key. In the request body
 
 ### Example request 
 
-The following is an example of content you might submit for summarization, which is extracted from [A holistic representation toward integrative AI](https://www.microsoft.com/en-us/research/blog/a-holistic-representation-toward-integrative-ai/) for demostration purpose. The extractive summarization API can accept much longer input text. Please see [Data limits](../Concepts/data-limits.md) for more information on Text Analytics API's data limits.
+The following is an example of content you might submit for summarization, which is extracted using [a holistic representation toward integrative AI](https://www.microsoft.com/research/blog/a-holistic-representation-toward-integrative-ai/) for demonstration purpose. The extractive summarization API can accept much longer input text. See [Data limits](../Concepts/data-limits.md) for more information on Text Analytics API's data limits.
 
-One request can inlcude multiple documents. 
+One request can include multiple documents. 
 
 Each document has the following parameters
 * `id` to identify a document, 
@@ -74,9 +74,9 @@ Each document has the following parameters
 * `text` to attach the document text.
 
 All documents in one request share the following parameters. These parameters can be specified in the `tasks` definition in the request.
-* `model-version` to specify which version of the model to use, with `latest` being the default. For more informaiton, see [Model version](../../concepts/model-versioning) 
-* `sentenceCount` to speficy how many sentences will be returned, with `3` being the default. The range is from 1 to 20.
-* `sortyby` to specify in what oder the extracted sentences will be returnes. The accepted values for `sortBy` are `Offset` and `Rank`, with `Offset` being the default. The value `Offset` is the start position of a sentence in the original document.    
+* `model-version` to specify which version of the model to use, with `latest` being the default. For more information, see [Model version](../../concepts/model-versioning) 
+* `sentenceCount` to specify how many sentences will be returned, with `3` being the default. The range is from 1 to 20.
+* `sortyby` to specify in what order the extracted sentences will be returned. The accepted values for `sortBy` are `Offset` and `Rank`, with `Offset` being the default. The value `Offset` is the start position of a sentence in the original document.    
 
 ```json
 {
@@ -95,7 +95,7 @@ All documents in one request share the following parameters. These parameters ca
         "parameters": {
           "model-version": "latest",
           "sentenceCount": 3,
-          "sortBy": "offset"
+          "sortBy": "Offset"
         }
       }
     ]
@@ -138,19 +138,19 @@ The extractive summarization feature returns
                     {
                         "text": "At Microsoft, we have been on a quest to advance AI beyond existing techniques, by taking a more holistic, human-centric approach to learning and understanding.",
                         "rankScore": 0.7673416137695312,
-                        "offset": 0,
+                        "Offset": 0,
                         "length": 160
                     },
                     {
                         "text": "In my role, I enjoy a unique perspective in viewing the relationship among three attributes of human cognition: monolingual text (X), audio or visual sensory signals, (Y) and multilingual (Z).",
                         "rankScore": 0.7644073963165283,
-                        "offset": 324,
+                        "Offset": 324,
                         "length": 192
                     },
                     {
                         "text": "At the intersection of all three, there’s magic—what we call XYZ-code as illustrated in Figure 1—a joint representation to create more powerful AI that can speak, hear, see, and understand humans better.",
                         "rankScore": 0.7623870968818665,
-                        "offset": 517,
+                        "Offset": 517,
                         "length": 203
                     }    
                 ],

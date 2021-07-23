@@ -71,6 +71,7 @@ See the table below to see which features can be used asynchronously. Note that 
 | Entity linking | ✔ | ✔* |
 | Text Analytics for health (container) | ✔ |  |
 | Text Analytics for health (API) |  | ✔  |
+| Text summarization |  | ✔  |
 
 `*` - Called asynchronously through the `/analyze` endpoint.
 
