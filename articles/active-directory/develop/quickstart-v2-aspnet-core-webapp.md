@@ -95,11 +95,11 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 > 1. Open the solution in Visual Studio 2019.
 > 1. Open the *appsettings.json* file and modify the following code:
 
-```json
-"Domain": "[Enter the domain of your tenant, e.g. contoso.onmicrosoft.com]",
-"ClientId": "Enter_the_Application_Id_here",
-"TenantId": "common",
-```
+      ```json
+      "Domain": "[Enter the domain of your tenant, e.g. contoso.onmicrosoft.com]",
+      "ClientId": "Enter_the_Application_Id_here",
+      "TenantId": "common",
+       ```
 
 >    - Replace `Enter_the_Application_Id_here` with the application (client) ID of the application that you registered in the Azure portal. You can find the **Application (client) ID** value on the app's **Overview** page.
 >    - Replace `common` with one of the following:
