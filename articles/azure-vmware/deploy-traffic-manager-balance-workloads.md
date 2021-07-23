@@ -9,7 +9,7 @@ ms.date: 02/08/2021
 
 This article walks through the steps of how to integrate [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) with Azure VMware Solution. The integration balances application workloads across multiple endpoints. This article also walks through the steps of how to configure Traffic Manager to direct traffic between three [Azure Application Gateway](../application-gateway/overview.md) spanning several Azure VMware Solution regions. 
 
-The gateways have Azure VMware Solution virtual machines (VMs) configured as backend pool members to load balance the incoming layer 7 requests. For more information, see [Use Azure Application Gateway to protect your web apps on Azure VMware Solution](application-gateway.md)
+The gateways have Azure VMware Solution virtual machines (VMs) configured as backend pool members to load balance the incoming layer 7 requests. For more information, see [Use Azure Application Gateway to protect your web apps on Azure VMware Solution](protect-azure-vmware-solution-with-application-gateway.md)
 
 The diagram shows how Traffic Manager provides load balancing for the applications at the DNS level between regional endpoints. The gateways have backend pool members configured as IIS Servers and referenced as Azure VMware Solution external endpoints. Connection over the virtual network between the two private cloud regions uses an ExpressRoute gateway.   
 
@@ -127,7 +127,7 @@ The following steps verify the configuration of the NSX-T segment in the Azure V
 
 Now that you've covered integrating Azure Traffic Manager with Azure VMware Solution, you may want to learn about:
 
-- [Using Azure Application Gateway on Azure VMware Solution](application-gateway.md)
+- [Using Azure Application Gateway on Azure VMware Solution](protect-azure-vmware-solution-with-application-gateway.md)
 - [Traffic Manager routing methods](../traffic-manager/traffic-manager-routing-methods.md)
 - [Combining load-balancing services in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md)
 - [Measuring Traffic Manager performance](../traffic-manager/traffic-manager-performance-considerations.md)
