@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 07/21/2021
+ms.date: 07/23/2021
 ms.author: alkohli
 ms.custom: subject-rbac-steps
 # Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro FPGA so I can use it to transfer data to Azure. 
@@ -53,19 +53,23 @@ Before you begin, make sure that:
 
 * You have the following role assignments in Azure role-based access control (RBAC):
 
-  * To create Azure Stack Edge / Data Box Gateway, IoT Hub, and Azure storage resources, you must have the Contributor or Owner role at the Resource Group scope.<!--Verify: 1) Azure storage resources seem to have their own roles, more articulated than the general roles. 2) Are "Azure storage resources" the same as "Azure storage account resources" in the sub-bullet below?-->
+  * To create Azure Stack Edge/Data Box Gateway and IoT Hub resources, you must have the Contributor or Owner role at the Resource Group scope.
+
+  * To create a Storage account resource, you must have the Contributor or Owner role at the Resource Group scope.
 
   * To assign the Contributor role to users at the Resource Group scope, you must have the Owner role at the Subscription scope.
 
   For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-* The following resource providers are registered. (Azure Storage Resource Provider (SRP) is by default a registered resource provider.)
+* The following resource providers are registered. **Before you register a resource provider, you must have the related RBAC role (above).**
 
-  * To create an Azure Stack Edge / Data Box Gateway resource, make sure the `Microsoft.DataBoxEdge`provider is registered.
+  * To create an Azure Stack Edge/Data Box Gateway resource, make sure the `Microsoft.DataBoxEdge`provider is registered.
 
   * To create an IoT Hub resource, make sure that the `Microsoft.Devices` provider is registered.
 
-  You must assign the RBAC role for that resource type before you can register the resource provider.
+  * To create a Storage account resource, Azure Storage must be a registered resource provider. The Azure Storage Resource Provider (SRP) is by default a registered resource provider, but in some cases registration may be needed.
+
+  **You must assign the related RBAC role before you can register the resource provider.**
 
   For information on how to register, go to [Register resource provider](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
 
