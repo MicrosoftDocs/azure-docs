@@ -38,8 +38,8 @@ Before you create your data labeling project:
 After the contract has been agreed and signed between you and the Outsourcing labeling company:
 
 1. Create the labeling project in [Azure Machine Learning studio](https://ml.azure.com). For more details on creating a project, see [Create a data labeling project and export labels](how-to-create-labeling-projects.md).
-2. Choose the **Outsource** option in the workforce step.
-3.Choose the appropriate outsourcing (vendor) company in the project creation step.
+1. Choose the **Outsource** option in the workforce step.
+1. Choose the appropriate outsourcing (vendor) company in the project creation step.
 
     > [!NOTE]
     > The outsourcing (vendor) company name cannot be changed after creating the labeling project.
