@@ -402,3 +402,7 @@ Diagnostic log for audio stream from Server Endpoint to VoIP Endpoint 3
     "jitterMax":            "4",
     "packetLossRateAvg":    "0",
 ```
+
+## Next Steps
+
+- Learn more about [Logging and Diagnostics](./logging-and-diagnostics.md)
