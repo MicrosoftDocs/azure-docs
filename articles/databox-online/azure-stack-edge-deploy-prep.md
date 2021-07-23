@@ -61,7 +61,7 @@ Before you begin, make sure that:
 
   For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-* The following resource providers are registered. **Before you register a resource provider, you must have the related RBAC role (above).**
+* The following resource providers are registered. **To register a resource provider, you must have been assigned the related RBAC role (above).**
 
   * To create an Azure Stack Edge/Data Box Gateway resource, make sure the `Microsoft.DataBoxEdge`provider is registered.
 
