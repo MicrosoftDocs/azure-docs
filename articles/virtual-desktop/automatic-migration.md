@@ -78,8 +78,6 @@ To prepare your PowerShell environment:
     Get-Module Microsoft.RDInfra.RDPowershell
     ```
 
-    ![Graphical user interface, text Description automatically generated](media/dbac6c7de0318a265fbaf9fdeee62d9c.jpg)
-
 5. Now, let's import the migration module by running this cmdlet:
 
     ```powershell
