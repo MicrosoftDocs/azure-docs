@@ -4,8 +4,8 @@ description: Create plans for a virtual machine offer on Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: mingshen-ms
-ms.author: mingshen
+author: iqshahmicrosoft
+ms.author: iqshah
 ms.date: 07/05/2021
 ---
 
