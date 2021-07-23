@@ -4,6 +4,7 @@ description: How to register a client application in the Azure AD and how to add
 services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
+ms.topic: tutorial
 ms.date: 07/19/2021
 ms.author: ginle
 ---
@@ -13,7 +14,7 @@ ms.author: ginle
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-In this article, you will learn how to register a client application in Azure Active Directory (Azure AD) in order to access the Healthcare APIs. You can find more information on [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app).
+In this article, you will learn how to register a client application in Azure Active Directory (Azure AD) in order to access the Healthcare APIs. You can find more information on [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
 
 ## Register a new application
 
@@ -45,17 +46,18 @@ If you change the default value to "Yes", the application registration is a **pu
 
 For tools that require redirect url, click on “Add a platform” to configure the platform.
 
-[ ![Confidential client application](media/register-application-5a.png) ](media/register-application-5a.png#lightbox)
+[ ![Add a platform](media/register-application-5a.png) ](media/register-application-5a.png#lightbox)
 
 For Postman, select Mobile and desktop applications. Enter “https://www.getpostman.com/oauth2/callback” in the Custom redirect URIs section. Click on the “Configure” button to save the setting.
 
-[ ![Confidential client application](media/register-application-5b.png) ](media/register-application-5b.png#lightbox)
+[ ![Configure other services](media/register-application-5b.png) ](media/register-application-5b.png#lightbox)
 
 ## Certificates & secrets
 
 Select **Certificates & Secrets** and click on “New Client Secret”. Select “Recommended 6 months” in the Expires field. This new secret will be valid for 6 months. You can also choose different values, 3 months, 12 months, 24 months, or a custom start date and end date.
 
->[!NOTE] It is important that you save the secret value, not the secret ID.
+>[!NOTE]
+>It is important that you save the secret value, not the secret ID.
 
 [ ![Certificates and secrets](media/register-application-6.png) ](media/register-application-6.png#lightbox)
 
@@ -69,6 +71,6 @@ Select which API permissions option. Click on “Add a permission”. From the R
 
 The search result for Azure Healthcare APIs will return if you've already deployed the Azure Healthcare APIs in the tenant. Select “Azure Healthcare APIs”, check “user impersonation” and click on the “Add permissions”.
 
-[ ![API permissions](media/register-application-8.png) ](media/register-application-8.png#lightbox)
+[ ![Add permissions](media/register-application-8.png) ](media/register-application-8.png#lightbox)
 
 Your application registration is now complete.

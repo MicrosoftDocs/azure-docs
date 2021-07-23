@@ -53,8 +53,6 @@ Deploy a DICOM service to bring medical imaging data into the cloud from any DIC
 ## IoT Connector
 
 The IoT Connector service enables you to ingest high-frequency IoT device data into the FHIR Service in a scalable, secure, and compliant manner. For more information, see [the IoT connector documentation page](./iot/index.yml).
-For instructions on how to deploy an IoT Connector using a scripted template, see [Deploy an IoT Connector using an ARM template](./iot/iot-fhir-arm-template-quickstart.md)
-
  
 ## Workspace configuration settings
 

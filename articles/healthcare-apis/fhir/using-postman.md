@@ -4,6 +4,7 @@ description: This article describes how to access the Azure Healthcare APIs FHIR
 services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
+ms.topic: tutorial
 ms.date: 07/19/2021
 ms.author: ginle
 ---
@@ -25,15 +26,15 @@ If you are new to Postman, follow the steps below. Otherwise, you can skip this 
  
 Postman introduces the workspace concept to enable you and your team to share APIs, collections, environments, and other components. You can use the default “My workspace” or “Team workspace” or create a new workspace for you or your team.
  
-[ ![Create a new workspace in Postman.](media/postman/postman-create-new-workspace.png) ](postman-create-new-workspace.png#lightbox)
+[ ![Create a new workspace in Postman.](media/postman/postman-create-new-workspace.png) ](media/postman/postman-create-new-workspace.png#lightbox)
 
 Next, create a new collection where you can group all related REST API requests. In the workspace, select **Create Collections**. You can keep the default name **New collection** or rename it. The change is saved automatically.
 
-[ ![Create a new collection.](media/postman/postman-create-a-new-collection.png) ](postman-create-a-new-collection.png#lightbox)
+[ ![Create a new collection.](media/postman/postman-create-a-new-collection.png) ](media/postman/postman-create-a-new-collection.png#lightbox)
 
 You can also import and export Postman collections. For more information, see [the Postman documentation](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/).
 
-[ ![Import data.](media/postman/postman-import-data.png) ](postman-import-data.png#lightbox)
+[ ![Import data.](media/postman/postman-import-data.png) ](media/postman/postman-import-data.png#lightbox)
 
 ## Create or update environment variables
 
@@ -51,21 +52,21 @@ To access the FHIR service, we'll need to create or update the following variabl
 > [!NOTE]
 > Ensure that you've configured the redirect URL, [https://www.getpostman.com/oauth2/callback](https://www.getpostman.com/oauth2/callback), in the client application registration.
 
-[ ![Environments variable.](media/postman/postman-environments-variable.png) ](postman-environments-variable.png#lightbox)
+[ ![Environments variable.](media/postman/postman-environments-variable.png) ](media/postman/postman-environments-variable.png#lightbox)
 
 ## Connect to the FHIR server
 
 Open Postman, select the **workspace**, **collection**, and **environment** you want to use. Select the `+` icon to create a new request. 
 
-[ ![Create a new request.](media/postman/postman-create-new-request.png) ](postman-create-new-request.png#lightbox)
+[ ![Create a new request.](media/postman/postman-create-new-request.png) ](media/postman/postman-create-new-request.png#lightbox)
 
 ## Get capability statement
 
 Enter `{{fhirurl}}/metadata` in the `GET`request, and hit `Send`. You should see the capability statement of the FHIR service.
 
-[ ![Capability statement parameters.](media/postman/postman-capability-statement-params.png) ](postman-capability-statement-params.png#lightbox)
+[ ![Capability statement parameters.](media/postman/postman-capability-statement-params.png) ](media/postman/postman-capability-statement-params.png#lightbox)
 
-[ ![Save request.](media/postman/postman-save-request.png) ](postman-save-request.png#lightbox)
+[ ![Save request.](media/postman/postman-save-request.png) ](media/postman/postman-save-request.png#lightbox)
 
 ## Get Azure AD access token
 
@@ -86,11 +87,11 @@ Create a new `POST` request:
 4. Select **Save** to save the settings.
 5. Hit **Send**. You should see a response with the Azure AD access token, which is saved to the variable `accessToken` automatically. You can then use it in all FHIR service API requests.
 
-  [ ![Send button.](media/postman/postman-send-button.png) ](postman-send-button.png#lightbox)
+  [ ![Send button.](media/postman/postman-send-button.png) ](media/postman/postman-send-button.png#lightbox)
 
 You can examine the access token using online tools such as [https://jwt.ms](https://jwt.ms). Select the **Claims** tab to see detailed descriptions for each claim in the token.
 
-[ ![Access token claims.](media/postman/postman-access-token-claims.png) ](postman-access-token-claims.png#lightbox)
+[ ![Access token claims.](media/postman/postman-access-token-claims.png) ](media/postman/postman-access-token-claims.png#lightbox)
 
 ## Get a FHIR resource
 
@@ -98,7 +99,7 @@ After you've obtained an Azure AD access token, you can access the FHIR data. In
 
 Select **Bearer Token** as authroization type.  Enter `{{bearerToken}}` in the **Token** section. Select **Send**. As a response, you should see a list of patients in your FHIR resource.
 
-[ ![Select bearer token.](media/postman/postman-select-bearer-token.png) ](postman-select-bearer-token.png#lightbox)
+[ ![Select bearer token.](media/postman/postman-select-bearer-token.png) ](media/postman/postman-select-bearer-token.png#lightbox)
 
 ## Create or update a FHIR resource
 
@@ -137,7 +138,7 @@ Select **Bearer Token** as the authroization type.  Enter `{{bearerToken}}` in t
 ```
 Select **Send**. You should see a new patient in the JSON response.
 
-[ ![Send button to create a new patient.](media/postman/postman-send-create-new-patient.png) ](postman-send-create-new-patient.png#lightbox)
+[ ![Send button to create a new patient.](media/postman/postman-send-create-new-patient.png) ](media/postman/postman-send-create-new-patient.png#lightbox)
 
 ## Export FHIR data
 
@@ -152,4 +153,4 @@ Select **Bearer Token** as authorization type.  Enter `{{bearerToken}}` in the *
 
 Hit **Send**. You should notice a `202 Accepted` response. Select the **Headers** tab of the response and make a note of the value in the **Content-Location**. You can use the value to query the export job status.
 
-[ ![Post to create a new patient 202 accepted response.](media/postman/postman-202-accepted-response.png) ](postman-202-accepted-response.png#lightbox)
+[ ![Post to create a new patient 202 accepted response.](media/postman/postman-202-accepted-response.png) ](media/postman/postman-202-accepted-response.png#lightbox)

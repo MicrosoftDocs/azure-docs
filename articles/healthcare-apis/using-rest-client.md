@@ -4,6 +4,7 @@ description: This article explains how to access the Healthcare APIs using the R
 services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
+ms.topic: tutorial
 ms.date: 07/19/2021
 ms.author: ginle
 ---
@@ -90,7 +91,7 @@ You can run PowerShell or CLI scripts within Visual Studio Code. Press `CTRL` an
 [ ![running PowerShell](media/restclient-vspowershell.png) ](media/restclient-vspowershell.png#lightbox)
 
 ### CLI in Visual Studio Code
-[ ![running PowerShell](media/restclient-vscli.png) ](media/restclient-vscli.png#lightbox)
+[ ![running CLI](media/restclient-vscli.png) ](media/restclient-vscli.png#lightbox)
 
 ## Troubleshooting
 

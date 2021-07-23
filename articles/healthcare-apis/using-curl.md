@@ -4,6 +4,7 @@ description: This article explains how to access the Healthcare APIs with cURL
 services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
+ms.topic: tutorial
 ms.date: 07/19/2021
 ms.author: ginle
 ---
@@ -20,21 +21,21 @@ In this article, you will learn how to access the Azure Healthcare APIs with cUR
 ### PowerShell
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-* If you want to run the code locally, install [PowerShell](https://docs.microsoft.com/en-us/powershell/module/powershellget/) and [Azure Az PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps).
-* Optionally, you can run the scripts in Visual Studio Code with the Rest Client extension. For more information, see [Make a link to the Rest Client doc](rest-client.md).
+* If you want to run the code locally, install [PowerShell](https://docs.microsoft.com/powershell/module/powershellget/) and [Azure Az PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+* Optionally, you can run the scripts in Visual Studio Code with the Rest Client extension. For more information, see [Make a link to the Rest Client doc](using-rest-client.md).
 * Download and install [cURL](https://curl.se/download.html).
 
 ### CLI
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-* If you want to run the code locally, install [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). 
+* If you want to run the code locally, install [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 * Optionally, install a Bash shell, such as Git Bash, which it is included in [Git for Windows](https://gitforwindows.org/).
-* Optionally, run the scripts in Visual Studio Code with the Rest Client extension. For more information, see [Make a link to the Rest Client doc](rest-client.md).
+* Optionally, run the scripts in Visual Studio Code with the Rest Client extension. For more information, see [Make a link to the Rest Client doc](using-rest-client.md).
 * Download and install [cURL](https://curl.se/download.html).
 
 ## Obtain Azure Access Token
 
-Before accessing the Healthcare APIs, you must grant the user or client app with proper permissions. For more information on how to grant permissions, see [Healthcare APIs authorization](authentication-authorization.md#Authorization).
+Before accessing the Healthcare APIs, you must grant the user or client app with proper permissions. For more information on how to grant permissions, see [Healthcare APIs authorization](authentication-authorization.md).
 
 There are several different ways to obtain an Azure access token for the Healthcare APIs. 
 

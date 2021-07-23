@@ -31,4 +31,4 @@ curl -X GET --header "Authorization: Bearer $token" https://<FHIR ACCOUNT NAME>.
 ```
 
 >[!div class="nextstepaction"]
->[Access FHIR API using Postman](access-fhir-postman-tutorial.md)
+>[Access FHIR API using Postman](using-postman.md)

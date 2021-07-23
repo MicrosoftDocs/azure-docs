@@ -18,7 +18,7 @@ This article provides an overview of the authentication and authorization proces
 
 ## Authentication
 
-The Healthcare APIs is a collection of secured managed services using [Azure Active Directory (Azure AD)](https://review.docs.microsoft.com/en-us/azure/active-directory/), a global identity provider that supports [OAuth 2.0](https://oauth.net/2/).
+The Healthcare APIs is a collection of secured managed services using [Azure Active Directory (Azure AD)](https://review.docs.microsoft.com/azure/active-directory/), a global identity provider that supports [OAuth 2.0](https://oauth.net/2/).
 
 For the Healthcare APIs services to access Azure resources, such as storage accounts and event hubs, you must **enable the system managed identity**, and **grant proper permissions** to the managed identity. For more information, see [Azure managed identities](../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -80,7 +80,7 @@ The access token is a signed, [Base64](https://en.wikipedia.org/wiki/Base64) enc
 The Healthcare APIs typically expect a [JSON Web Token](https://en.wikipedia.org/wiki/JSON_Web_Token). It consists of three parts: 
 * Header
 * Payload (the claims)
-* Signature, as shown in the image below. For more information, see [Azure access tokens](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-configurable-token-lifetimes).
+* Signature, as shown in the image below. For more information, see [Azure access tokens](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
 
 [ ![JASON web token signature.](media/azureaccesstoken.png) ](media/azureaccesstoken.png#lightbox)
 
@@ -106,7 +106,7 @@ You can use online tools such as [https://jwt.ms](https://jwt.ms/) or [https://j
  
 **The access token is valid for one hour by default. You can obtain a new token or renew it using the refresh token before it expires.**
 
-To obtain an access token, you can use tools such as Postman, the Rest Client extension in Visual Studio Code, PowerShell, CLI, curl and the [Azure AD authentication libraries](https://docs.microsoft.com/en-us/azure/active-directory/develop/reference-v2-libraries).
+To obtain an access token, you can use tools such as Postman, the Rest Client extension in Visual Studio Code, PowerShell, CLI, curl and the [Azure AD authentication libraries](../active-directory/develop/reference-v2-libraries.md).
 
 ## Next steps
 
