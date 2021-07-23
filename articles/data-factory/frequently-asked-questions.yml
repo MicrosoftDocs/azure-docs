@@ -6,7 +6,7 @@ metadata:
   ms.author: susabat
   ms.service: data-factory
   ms.topic: conceptual
-  ms.date: 05/11/2021
+  ms.date: 07/23/2021
     
 title: Azure Data Factory FAQ
 summary: |
@@ -109,11 +109,14 @@ sections:
           The integration runtime is the compute infrastructure that Azure Data Factory uses to provide the following data integration capabilities across various network environments:
           
           - **Data movement**: For data movement, the integration runtime moves the data between the source and destination data stores, while providing support for built-in connectors, format conversion, column mapping, and performant and scalable data transfer.
+          - **Data flow**: For data flow, Execute a [Data Flow](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview) in managed Azure compute environment.
           - **Dispatch activities**: For transformation, the integration runtime provides capability to natively execute SSIS packages.
           - **Execute SSIS packages**: The integration runtime natively executes SSIS packages in a managed Azure compute environment. The integration runtime also supports dispatching and monitoring transformation activities running on a variety of compute services, such as Azure HDInsight, Azure Machine Learning, SQL Database, and SQL Server.
           
           You can deploy one or many instances of the integration runtime as required to move and transform data. The integration runtime can run on an Azure public network or on a private network (on-premises, Azure Virtual Network, or Amazon Web Services virtual private cloud [VPC]).
-          
+          In Data Factory, an activity defines the action to be performed. A linked service defines a target data store or a compute service. An integration runtime provides the bridge between the activity and linked Services. It's referenced by the linked service or activity, and provides the compute environment where the activity either runs on or gets dispatched from. This way, the activity can be performed in the region closest possible to the target data store or compute service in the most performant way while meeting security and compliance needs.
+
+Integration runtimes can be created in the Azure Data Factory UX via the management hub and any activities, datasets, or data flows that reference them.
           For more information, see [Integration runtime in Azure Data Factory](concepts-integration-runtime.md).
           
       - question: |
@@ -224,7 +227,8 @@ sections:
         answer: |
           ### I need help troubleshooting my data flow logic. What info do I need to provide to get help?
           
-          When Microsoft provides help or troubleshooting with data flows, please provide the Data Flow Script. This is the code-behind script from your data flow graph. From the ADF UI, open your data flow, then click the "Script" button at the top-right corner. Copy and paste this script or save it in a text file.
+          When Microsoft provides help or troubleshooting with data flows, please provide the ADF pipeline support files.
+          This Zip file contains the code-behind script from your data flow graph. From the ADF UI, click **...** next to pipeline, and then click **Download support files**.
           
           ### How do I access data by using the other 90 dataset types in Data Factory?
           
