@@ -57,11 +57,11 @@ Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from P
 
    1. In **Partner Center**, select **CSP** to access the **Customers** area.
    
-      :::image type="content" source="media/enable-azure-vmware-solution/csp-customers-screen.png" alt-text="Screenshot showing the Microsoft Partner Center customer area." lightbox="media/enable-azure-vmware-solution/csp-customers-screen.png":::
+      :::image type="content" source="media/pre-deployment/csp-customers-screen.png" alt-text="Screenshot showing the Microsoft Partner Center customer area." lightbox="media/pre-deployment/csp-customers-screen.png":::
    
    1. Select your customer and then select **Add products**.
    
-      :::image type="content" source="media/enable-azure-vmware-solution/csp-partner-center.png" alt-text="Screenshot showing Azure plan selected in the Microsoft Partner Center." lightbox="media/enable-azure-vmware-solution/csp-partner-center.png":::
+      :::image type="content" source="media/pre-deployment/csp-partner-center.png" alt-text="Screenshot showing Azure plan selected in the Microsoft Partner Center." lightbox="media/pre-deployment/csp-partner-center.png":::
    
    1. Select **Azure plan** and then select **Add to cart**. 
    

@@ -87,7 +87,7 @@
     - name: Move Azure VMware Solution subscriptions
       href: move-ea-csp-subscriptions.md
     - name: Move Azure VMware Solution resources across regions
-      href: move-azure-vmware-solution-across-regions.md
+      href: move-across-regions.md
   - name: Azure native integration
     items:
     - name: Protect, monitor, and manage VMs
@@ -97,7 +97,7 @@
     - name: Integrate Azure NetApp Files
       href: netapp-files-with-azure-vmware-solution.md
     - name: Protect web apps with Azure Application Gateway
-      href: protect-azure-vmware-solution-with-application-gateway.md
+      href: application-gateway.md
     - name: Deploy Traffic Manager to balance workloads
       href: deploy-traffic-manager-balance-workloads.md
     - name: Configure alerts and work with metrics 
@@ -157,7 +157,7 @@
   - name: Troubleshooting
     items:
     - name: Open a support request for deployment failures
-      href: fix-deployment-provisioning-failures.md
+      href: fix-deployment-failures.md
     - name: VMware tools vix error code = 21009
       href: https://kb.vmware.com/s/article/2129927
   - name: FAQ

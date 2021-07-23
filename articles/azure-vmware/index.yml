@@ -153,7 +153,7 @@ landingContent:
           - text: Integrate Azure NetApp Files
             url: netapp-files-with-azure-vmware-solution.md
           - text: Protect web apps with Azure Application Gateway
-            url: protect-azure-vmware-solution-with-application-gateway.md
+            url: application-gateway.md
           - text: Deploy Traffic Manager to balance workloads
             url: deploy-traffic-manager-balance-workloads.md
           - text: Configure alerts and work with metrics 
@@ -233,7 +233,7 @@ landingContent:
         - text: Move Azure VMware Solution subscriptions
           url: move-ea-csp-subscriptions.md
         - text: Move Azure VMware Solution across regions
-          url: move-azure-vmware-solution-across-regions.md
+          url: move-across-regions.md
 
 
 
@@ -243,6 +243,6 @@ landingContent:
       - linkListType: reference
         links:
           - text: Open a support request for deployment failures
-            url: fix-deployment-provisioning-failures.md
+            url: fix-deployment-failures.md
           - text: VMware tools vix error code = 21009
             url: https://kb.vmware.com/s/article/2129927
