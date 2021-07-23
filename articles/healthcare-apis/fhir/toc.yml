@@ -16,11 +16,12 @@ items:
       href: fhir-portal-quickstart.md
     - name: Using ARM template
       href: fhir-arm-template-quickstart.md
+  - name: Access FHIR service using Postman
+    href: using-postman.md
 
 - name: Tutorials
   expanded: true
   items:
-
   - name: Interoperability and Patient Access
     expanded: true
     items:
@@ -38,7 +39,6 @@ items:
 - name: How-to guides
   expanded: true
   items:
-  
   - name: Search
     expanded: true
     items:

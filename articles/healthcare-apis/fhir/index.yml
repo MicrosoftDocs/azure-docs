@@ -27,8 +27,10 @@ landingContent:
             url: overview.md
       - linkListType: quickstart
         links:
-          - text: Deploy FHIR service
+          - text: Deploy FHIR service using portal
             url: fhir-portal-quickstart.md
+          - text: Deploy FHIR service using ARM template
+            url: fhir-arm-template-quickstart.md
 
   - title: Accessing FHIR service
     linkLists:
@@ -38,13 +40,21 @@ landingContent:
             url: azure-ad-hcapi.md
           - text: Access token validation
             url: azure-ad-hcapi-token-validation.md
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Access FHIR service using Postman
+            url: using-postman.md
+      
 
   - title: FHIR Search Capabilities
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: overview
         links:
           - text: Overview of FHIR search
             url: overview-of-search.md
+      - linkListType: how-to-guide
+        links:
           - text: Defining custom search parameters
             url: how-to-do-custom-search.md
           - text: How to run a reindex job
