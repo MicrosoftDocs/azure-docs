@@ -58,10 +58,6 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. `https://live.timeclock365.com/scim` will be entered in the **Tenant URL** field in the Provisioning tab of your TimeClock 365 application in the Azure portal.
 
-## Step 3. Add Lucidchart from the Azure AD application gallery
-
-Add Lucidchart from the Azure AD application gallery to start managing provisioning to Lucidchart. If you have previously setup Lucidchart for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
-
 ## Step 3. Add TimeClock 365 from the Azure AD application gallery
 
 Add TimeClock 365 from the Azure AD application gallery to start managing provisioning to TimeClock 365. If you have previously setup TimeClock 365 for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
