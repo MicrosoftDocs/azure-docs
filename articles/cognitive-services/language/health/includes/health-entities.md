@@ -13,7 +13,7 @@ ms.author: aahi
 
 The health feature of Language Services processes and extracts insights from unstructured medical data. The service detects and surfaces medical concepts, assigns assertions to concepts, infers semantic relations between concepts and links them to common medical ontologies.
 
-Text Analytics for health detects medical concepts in the following categories. Only English text is currently supported.
+Health API detects medical concepts in the following categories. Only English text is currently supported.
 
 | Category  | Description  |
 |---------|---------|

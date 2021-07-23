@@ -20,7 +20,7 @@ Relation extraction identifies meaningful connections between concepts mentioned
 
 ## Relation extraction output
 
-Text Analytics for Health recognizes relations between different concepts, including relations between attribute and entity (for example, direction of body structure, dosage of medication) and between entities (for example, abbreviation detection).
+The health API recognizes relations between different concepts, including relations between attribute and entity (for example, direction of body structure, dosage of medication) and between entities (for example, abbreviation detection).
 
 > [!NOTE]
 > * Relations referring to CONDITION may refer to either the DIAGNOSIS entity type or the SYMPTOM_OR_SIGN entity type.

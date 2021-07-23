@@ -26,7 +26,7 @@ The health API provides each container with a common configuration framework, so
 
 ## ApiKey configuration setting
 
-The `ApiKey` setting specifies the Azure resource key used to track billing information for the container. You must specify a value for the ApiKey and the value must be a valid key for the _Text Analytics_ resource specified for the [`Billing`](#billing-configuration-setting) configuration setting.
+The `ApiKey` setting specifies the Azure resource key used to track billing information for the container. You must specify a value for the ApiKey and the value must be a valid key for the _Language Services_ resource specified for the [`Billing`](#billing-configuration-setting) configuration setting.
 
 This setting can be found in the following place:
 

@@ -26,7 +26,7 @@ The health API is a feature of the Language Services that extracts and labels re
 ## Features
 
 The health API performs Named Entity Recognition (NER), relation extraction, entity negation and entity linking on English-language text to uncover insights in unstructured clinical and biomedical text. 
-See the [entity categories](../concepts/health-entity-categories.md) returned by Text Analytics for health for a full list of supported entities. For information on confidence scores, see the [Text Analytics transparency note](/legal/cognitive-services/text-analytics/transparency-note#general-guidelines-to-understand-and-improve-performance?context=/azure/cognitive-services/text-analytics/context/context). 
+See the [entity categories](../concepts/health-entity-categories.md) returned by the health API for a full list of supported entities. For information on confidence scores, see the [transparency note](/legal/cognitive-services/text-analytics/transparency-note#general-guidelines-to-understand-and-improve-performance?context=/azure/cognitive-services/text-analytics/context/context). 
 
 
 
@@ -35,7 +35,7 @@ See the [entity categories](../concepts/health-entity-categories.md) returned by
 > [!TIP]
 > There are examples of how to use the REST API and client libraries for this feature in the quickstart article. You can also make example requests and see the JSON output using [Language Studio](https://language.azure.com/tryout/sentiment) 
 > 
-> To run the Text Analytics for health container in your own environment, follow these [instructions to download and install the container](use-containers.md).
+> To run the health API container in your own environment, follow these [instructions to download and install the container](use-containers.md).
 
 You submit text to the health API.  Document size must be under 5,120 characters per document. For the maximum number of documents permitted in a collection, see the data limits article. The collection is submitted in the body of the request. If your text exceeds this limit, consider splitting the text into separate requests. For best results, split text between sentences.
 
@@ -83,7 +83,7 @@ If a document exceeds the character limit, the API won't process a document that
 
 ### Rate limits
 
-Your rate limit will vary with your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). These limits are the same for both versions of the API. These rate limits don't apply to the Text Analytics for health container, which does not have a set rate limit.
+Your rate limit will vary with your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). These limits are the same for both versions of the API. These rate limits don't apply to the health API container, which does not have a set rate limit.
 
 | Tier          | Requests per second | Requests per minute |
 |---------------|---------------------|---------------------|
@@ -92,5 +92,5 @@ Your rate limit will vary with your [pricing tier](https://azure.microsoft.com/p
 
 ## See also
 
-* [Text Analytics overview](../overview.md)
+* [health API overview](../overview.md)
 * [health entity categories](../concepts/health-entity-categories.md)

@@ -265,7 +265,7 @@ curl -X POST 'http://<serverURL>:5000/text/analytics/v3.1/entities/health' --hea
 
 ```
 
-The following JSON is an example of a JSON file attached to the Text Analytics for health API request's POST body:
+The following JSON is an example of a JSON file attached to the health API request's POST body:
 
 ```json
 example.json
@@ -288,7 +288,7 @@ example.json
 
 ### Container response body
 
-The following JSON is an example of the Text Analytics for health API response body from the containerized synchronous call:
+The following JSON is an example of the health API response body from the containerized synchronous call:
 
 ```json
 {
