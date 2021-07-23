@@ -6,9 +6,9 @@ author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 04/26/2021
+ms.date: 07/23/2021
 ms.author: jrasnick
-ms.reviewer: jrasnick
+ms.reviewer: wiassaf
 ---
 
 # Use external tables with Synapse SQL
@@ -25,7 +25,7 @@ The key differences between Hadoop and native external tables are presented in t
 | --- | --- | --- |
 | Dedicated SQL pool | Available | Parquet tables are available in **gated preview** - contact your Microsoft Technical Account Manager or Cloud Solution Architect to check if you can add your dedicated SQL pool to the gated preview. |
 | Serverless SQL pool | Not available | Available |
-| Supported formats | Delimited/CSV, Parquet, ORC, Hive RC, and RC | Serverless SQL pool: Delimited/CSV, Parquet, and Delta Lake(preview)<br/>Dedicated SQL pool: Parquet |
+| Supported formats | Delimited/CSV, Parquet, ORC, Hive RC, and RC | Serverless SQL pool: Delimited/CSV, Parquet, and [Delta Lake (preview)](query-delta-lake-format.md)<br/>Dedicated SQL pool: Parquet |
 | Folder partition elimination | No | Only for partitioned tables synchronized from Apache Spark pools in Synapse workspace to serverless SQL pools |
 | Custom format for location | Yes | Yes, using wildcards like `/year=*/month=*/day=*` |
 | Recursive folder scan | No | Only in serverless SQL pools when specified `/**` at the end of the location path |
@@ -33,14 +33,14 @@ The key differences between Hadoop and native external tables are presented in t
 | Storage authentication | Storage Access Key(SAK), AAD passthrough, Managed identity, Custom application Azure AD identity | Shared Access Signature(SAS), AAD passthrough, Managed identity |
 
 > [!NOTE]
-> Native external tables on Delta Lake format are in public preview. [CETAS](develop-tables-cetas.md) does not support exporting content in Delta Lake format.
+> Native external tables on Delta Lake format are in public preview. For more information, see [Query Delta Lake files (preview)](query-delta-lake-format.md). [CETAS](develop-tables-cetas.md) does not support exporting content in Delta Lake format.
 
 ## External tables in dedicated SQL pool and serverless SQL pool
 
 You can use external tables to:
 
 - Query Azure Blob Storage and Azure Data Lake Gen2 with Transact-SQL statements.
-- Store query results to files in Azure Blob Storage or Azure Data Lake Storage using [CETAS](develop-tables-cetas.md)
+- Store query results to files in Azure Blob Storage or Azure Data Lake Storage using [CETAS](develop-tables-cetas.md).
 - Import data from Azure Blob Storage and Azure Data Lake Storage and store it in a dedicated SQL pool (only Hadoop tables in dedicated pool).
 
 > [!NOTE]
