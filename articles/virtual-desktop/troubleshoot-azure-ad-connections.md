@@ -49,7 +49,7 @@ If you come across an error saying **Oops, we couldn't connect to NAME. Sign in 
 
 ### We couldn't connect to the remote PC because of a security error
 
-If you come across an error saying **Oops, we couldn't connect to NAME. We couldn't connect to the remote PC because of a security error. If this keeps happening, ask your admin or tech support for help.**, you have Conditional Access policies restricting the type of credentials that can be used to sign in to the VMs. This isn't supported for this client. Follow the instructions to [enable multifactor authentication](deploy-azure-ad-joined-vm.md#enabling_mfa_for_azure_ad_joined_vms) for Azure AD joined VMs.
+If you come across an error saying **Oops, we couldn't connect to NAME. We couldn't connect to the remote PC because of a security error. If this keeps happening, ask your admin or tech support for help.**, you have Conditional Access policies restricting the type of credentials that can be used to sign in to the VMs. This isn't supported for this client. Follow the instructions to [enable multifactor authentication](deploy-azure-ad-joined-vm.md#enabling-mfa-for-azure-ad-joined-vms) for Azure AD joined VMs.
 
 ## Android client
 
