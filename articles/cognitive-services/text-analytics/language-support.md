@@ -260,7 +260,7 @@ If you have content expressed in a less frequently used language, you can try La
 
 | Language | Language code |  v3 support | Starting with v3 model version: | Notes |
 |:---------|:-------------:|:----------:|:-----------------------------------------:|:-----:|
-| English  |     `en`      |     ✓      |                2021-08-01                 |       |
+| English  |     `en`      |     ✓      |                2021-06-01                 |       |
 
 ---
 
