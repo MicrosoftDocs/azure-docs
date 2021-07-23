@@ -14,6 +14,12 @@ ms.date: 10/01/2020
 
 Azure Files supports full and incremental scans to capture the metadata and apply classifications on the metadata, based on system and customer classifications.
 
+For file types such as csv, tsv, psv, ssv, the schema is extracted when the following logics are in place:
+
+1. First row values are non-empty
+2. First row values are unique
+3. First row values are neither a date and nor a number
+
 ## Prerequisites
 
 - Before registering data sources, create an Azure Purview account. For more information on creating a Purview account, see [Quickstart: Create an Azure Purview account](create-catalog-portal.md).
