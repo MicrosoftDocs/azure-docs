@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 07/22/2021
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -50,7 +50,7 @@ Audit logs are available on the container for both version-level and container-l
 
 To configure version-level retention policies, you must first enable version-level immutability on the parent container. Version-level immutability cannot be disabled after it is enabled, although unlocked policies can be deleted. For more information, see [Enable support for version-level immutability on a container](immutable-policy-configure-version-scope.md#enable-support-for-version-level-immutability-on-a-container).
 
-You can enable support for version-level immutability at the time that you create a container. Existing containers can also support version-level immutability, but must undergo a migration process first. This process may take some time and is not reversible..
+You can enable support for version-level immutability at the time that you create a container. Existing containers can also support version-level immutability, but must undergo a migration process first. This process may take some time and is not reversible. For more information about migrating a container to support version-level immutability, see [Migrate an existing container to support version-level immutability](immutable-policy-configure-version-scope.md#migrate-an-existing-container-to-support-version-level-immutability).
 
 Version-level time-based retention policies require that [blob versioning](versioning-overview.md) is enabled for the storage account. To learn how to enable blob versioning, see [Enable and manage blob versioning](versioning-enable.md). Keep in mind that enabling versioning may have a billing impact. For more information, see the **Pricing and billing** section in [Blob versioning](versioning-overview.md#pricing-and-billing).
 
@@ -134,6 +134,8 @@ Changes to time-based retention policies at the version level are not audited.
 
 ## Next steps
 
+- [Data protection overview](data-protection-overview.md)
 - [Store business-critical blob data with immutable storage](immutable-storage-overview.md)
 - [Legal holds for immutable blob data](immutable-legal-hold-overview.md)
-- [Data protection overview](data-protection-overview.md)
+- [Configure immutability policies for blob versions (preview)](immutable-policy-configure-version-scope.md)
+- [Configure immutability policies for containers](immutable-policy-configure-container-scope.md)

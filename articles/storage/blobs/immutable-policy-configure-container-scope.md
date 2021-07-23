@@ -51,15 +51,6 @@ Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group> `
     -ImmutabilityPeriod 10
 ```
 
-To retrieve an existing immutability policy, call the [Get-AzRmStorageContainerImmutabilityPolicy](/powershell/module/az.storage/get-azrmstoragecontainerimmutabilitypolicy) command. Remember to replace placeholder values in angle brackets with your own values:
-
-```powershell
-# Get an immutability policy
-Get-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group> `
-    -StorageAccountName <storage-account> `
-    -ContainerName <container>
-```
-
 ### [Azure CLI](#tab/azure-cli)
 
 To configure a time-based retention policy on a container with Azure CLI, call the [az storage container immutability-policy create](/cli/azure/storage/container/immutability-policy#az_storage_container_immutability_policy_create) command, providing the retention interval in days. Remember to replace placeholder values in angle brackets with your own values:
@@ -71,10 +62,6 @@ az storage container immutability-policy \
     --container-name <container> \
     --period 10
 ```
-
-### [Azure CLI](#tab/azure-cli)
-
-TBD
 
 ---
 
@@ -100,11 +87,52 @@ To delete an unlocked policy, select the **More** button, then **Delete**.
 
 ### [PowerShell](#tab/azure-powershell)
 
-TBD
+To modify an unlocked policy, first retrieve the policy by calling the [Get-AzRmStorageContainerImmutabilityPolicy](/powershell/module/az.storage/get-azrmstoragecontainerimmutabilitypolicy) command. Next, call the [Set-AzRmStorageContainerImmutabilityPolicy](/powershell/module/az.storage/set-azrmstoragecontainerimmutabilitypolicy) command to update the policy. Include the new retention interval in days and the `-ExtendPolicy` parameter. Remember to replace placeholder values in angle brackets with your own values:
+
+```azurepowershell
+$policy = Get-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group> `
+    -AccountName <storage-account> `
+    -ContainerName <container>
+
+Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group> `
+    -StorageAccountName <storage-account> `
+    -ContainerName <container> `
+    -ImmutabilityPeriod 21 `
+    -AllowProtectedAppendWrite true `
+    -Etag $policy.Etag `
+    -ExtendPolicy
+```
+
+To delete an unlocked policy, call the [Remove-AzRmStorageContainerImmutabilityPolicy](/powershell/module/az.storage/remove-azrmstoragecontainerimmutabilitypolicy) command.
+
+```azurepowershell
+Remove-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group> `
+    -AccountName <storage-account> `
+    -ContainerName <container> 
+    -Etag $policy.Etag
+```
 
 ### [Azure CLI](#tab/azure-cli)
 
-TBD
+To modify an unlocked time-based retention policy with Azure CLI, call the [az storage container immutability-policy extend](/cli/azure/storage/container/immutability-policy#az_storage_container_immutability_policy_extend) command, providing the new retention interval in days. Remember to replace placeholder values in angle brackets with your own values:
+
+```azurecli
+$etag=$(az storage container immutability-policy show /
+        --account-name <storage-account> /
+        --container-name <container> /
+        --query etag /
+        --output tsv) 
+
+az storage container immutability-policy \
+    --resource-group <resource-group>
+    --account-name <storage-account> \
+    --container-name <container> \
+    --period 21 \
+    --if-match $etag \
+    --allow-protected-append-writes true 
+```
+
+To delete an unlocked policy, call the [az storage container immutability-policy delete](/cli/azure/storage/container/immutability-policy#az_storage_container_immutability_policy_delete) command.
 
 ---
 
@@ -165,35 +193,60 @@ A legal hold stores immutable data until the legal hold is explicitly cleared. T
 
 ### [Portal](#tab/azure-portal)
 
-To configure a legal hold on a blob version, follow these steps:
+To configure a legal hold on a container with the Azure portal, follow these steps:
 
-1. Locate the target version, which may be the current version or a previous version of a blob. Select the **More** button and choose **Access policy**.
+1. Navigate to the desired container.
+1. Select the **More** button and choose **Access policy**.
 1. Under the **Immutable blob versions** section, select **Add policy**.
 1. Choose **Legal hold** as the policy type, and select **OK** to apply it.
 
-The following image shows a current version of a blob with both a time-based retention policy and legal hold configured.
+The following image shows a container with both a time-based retention policy and legal hold configured.
 
-:::image type="content" source="media/immutable-policy-configure-version-scope/configure-legal-hold-blob-version.png" alt-text="Screenshot showing legal hold configured for blob version":::
+:::image type="content" source="media/immutable-policy-configure-container-scope/retention-policy-legal-hold-container-scope.png" alt-text="Screenshot showing a container with both a time-based retention policy and legal hold configured":::
 
 To clear a legal hold, navigate to the **Access policy** dialog, select the **More** button, and choose **Delete**.
 
 ### [PowerShell](#tab/azure-powershell)
 
-Set and clear legal holds:
+To configure a legal hold on a container with PowerShell, call the [Add-AzRmStorageContainerLegalHold](/powershell/module/az.storage/add-azrmstoragecontainerlegalhold) command. Remember to replace placeholder values in angle brackets with your own values:
 
-```powershell
-# Set a legal hold
-Add-AzRmStorageContainerLegalHold -ResourceGroupName $resourceGroup `
-    -StorageAccountName $storageAccount -Name $container -Tag <tag1>,<tag2>,...
+```azurepowershell
+Add-AzRmStorageContainerLegalHold -ResourceGroupName <resource-group> `
+    -StorageAccountName <storage-account> `
+    -Name <container> `
+    -Tag <tag1>,<tag2>,...
+```
 
-# Clear a legal hold
-Remove-AzRmStorageContainerLegalHold -ResourceGroupName $resourceGroup `
-    -StorageAccountName $storageAccount -Name $container -Tag <tag3>
+To clear a legal hold, call the [Remove-AzRmStorageContainerLegalHold](/powershell/module/az.storage/remove-azrmstoragecontainerlegalhold) command:
+
+```azurepowershell
+Remove-AzRmStorageContainerLegalHold -ResourceGroupName <resource-group> `
+    -StorageAccountName <storage-account> `
+    -Name <container> ` 
+    -Tag <tag1>,<tag2>,...
 ```
 
 ### [Azure CLI](#tab/azure-cli)
 
-TBD
+To configure a legal hold on a container with PowerShell, call the [az storage container legal-hold set](/cli/azure/storage/container/legal-hold#az_storage_container_legal_hold_set) command. Remember to replace placeholder values in angle brackets with your own values:
+
+```azurecli
+az storage container legal-hold set /
+    --tags tag1 tag2 /
+    --container-name <container> /
+    --account-name <storage-account> /
+    --resource-group <resource-group>
+```
+
+To clear a legal hold, call the [az storage container legal-hold clear](/cli/azure/storage/container/legal-hold#az_storage_container_legal_hold_clear) command:
+
+```azurecli
+az storage container legal-hold clear /
+    --tags tag1 tag2 /
+    --container-name <container> /
+    --account-name <storage-account> /
+    --resource-group <resource-group>
+```
 
 ---
 
@@ -202,3 +255,4 @@ TBD
 - [Store business-critical blob data with immutable storage](immutable-storage-overview.md)
 - [Time-based retention policies for immutable blob data](immutable-time-based-retention-policy-overview.md)
 - [Legal holds for immutable blob data](immutable-legal-hold-overview.md)
+- [Configure immutability policies for blob versions (preview)](immutable-policy-configure-version-scope.md)

@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 07/22/2021
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -41,6 +41,8 @@ When you configure a legal hold for a container, that hold applies to all object
 
 When a legal hold is applied to a container, all existing blobs move into an immutable WORM state in less than 30 seconds. All new blobs that are uploaded to that policy-protected container will also move into an immutable state. Once all blobs are in an immutable state, overwrite or delete operations in the immutable container are not allowed. In the case of an account with a hierarchical namespace, blobs cannot be renamed or moved to a different directory.
 
+To learn how to configure a legal hold with container-level scope, see [Configure or clear a legal hold](immutable-policy-configure-container-scope.md#configure-or-clear-a-legal-hold).
+
 #### Legal hold tags
 
 A container-level legal hold must be associated with one or more user-defined alphanumeric tags that serve as identifier strings. For example, a tag may include a case ID or event name.
@@ -62,6 +64,8 @@ The following limits apply to container-level legal holds:
 
 ## Next steps
 
+- [Data protection overview](data-protection-overview.md)
 - [Store business-critical blob data with immutable storage](immutable-storage-overview.md)
 - [Time-based retention policies for immutable blob data](immutable-time-based-retention-policy-overview.md)
-- [Data protection overview](data-protection-overview.md)
+- [Configure immutability policies for blob versions (preview)](immutable-policy-configure-version-scope.md)
+- [Configure immutability policies for containers](immutable-policy-configure-container-scope.md)
