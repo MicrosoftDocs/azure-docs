@@ -11,7 +11,7 @@ items:
   - name: Overview
     href: health/overview.md
   - name: Language support
-    href: language-support.md 
+    href: health/concepts/language-support.md 
   - name: How-to guides
     items:
     - name: How to call the API
