@@ -56,7 +56,7 @@ Start by creating the `TextDependentVerification` function.
 
 :::code language="cpp" source="~/cognitive-services-quickstart-code/cpp/speech/speaker-recognition.cpp" id="text_dependent_verification":::
 
-This function creates a [VoiceProfile](/en-us/cpp/cognitive-services/speech/speaker-voiceprofile) object with the [CreateProfileAsync](/cpp/cognitive-services/speech/speaker-voiceprofileclient#createprofileasync) method. Note there are three [types](/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#enum-voiceprofiletype) of `VoiceProfile`:
+This function creates a [VoiceProfile](/cpp/cognitive-services/speech/speaker-voiceprofile) object with the [CreateProfileAsync](/cpp/cognitive-services/speech/speaker-voiceprofileclient#createprofileasync) method. Note there are three [types](/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#enum-voiceprofiletype) of `VoiceProfile`:
 
 - TextIndependentIdentification
 - TextDependentVerification
