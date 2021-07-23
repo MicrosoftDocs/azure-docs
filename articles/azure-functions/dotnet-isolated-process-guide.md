@@ -143,6 +143,8 @@ To write to an output binding, you must apply an output binding attribute to the
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding" :::
 
+You can also write multiple messages to the queue by returning a `string[]` from the function instead of a single `string`.
+ 
 ### Multiple output bindings
 
 The data written to an output binding is always the return value of the function. If you need to write to more than one output binding, you must create a custom return type. This return type must have the output binding attribute applied to one or more properties of the class. The following example from an HTTP trigger writes to both the HTTP response and a queue output binding:
