@@ -1,5 +1,5 @@
 ---
-title: How to use simple language pattern matching with the Speech SDK C++
+title: How to use simple language pattern matching with the C++ Speech SDK
 titleSuffix: Azure Cognitive Services
 description: In this guide, you learn how to recognize intents and entities from simple patterns.
 services: cognitive-services
