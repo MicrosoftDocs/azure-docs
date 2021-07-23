@@ -195,7 +195,7 @@ Call diagnostics logs share operation information:
 "operationVersion":         "1.0",
 "category":                 "CallDiagnosticsPRIVATEPREVIEW",
 ```
-Diagnostic log for audio stream from VoIP Endpoint 1 to VoIP Endpoint 2
+Diagnostic log for audio stream from VoIP Endpoint 1 to VoIP Endpoint 2:
 ```
 "properties": {
     "identifier":           "acs:61fddbe3-0003-4066-97bc-6aaf143bbb84_0000000b-4fee-66cf-ac00-343a0d003158",
@@ -213,7 +213,7 @@ Diagnostic log for audio stream from VoIP Endpoint 1 to VoIP Endpoint 2
     "packetLossRateMax":    "0"
 }
 ```
-Diagnostic log for audio stream from VoIP Endpoint 2 to VoIP Endpoint 1
+Diagnostic log for audio stream from VoIP Endpoint 2 to VoIP Endpoint 1:
 ```
 "properties": {
     "identifier":           "acs:7af14122-9ac7-4b81-80a8-4bf3582b42d0_06f9276d-8efe-4bdd-8c22-ebc5434903f0",
@@ -231,7 +231,7 @@ Diagnostic log for audio stream from VoIP Endpoint 2 to VoIP Endpoint 1
     "packetLossRateMax":    "0"
 }
 ```
-Diagnostic log for video stream from VoIP Endpoint 1 to VoIP Endpoint 2
+Diagnostic log for video stream from VoIP Endpoint 1 to VoIP Endpoint 2:
 ```
 "properties": {
     "identifier":           "acs:61fddbe3-0003-4066-97bc-6aaf143bbb84_0000000b-4fee-66cf-ac00-343a0d003158",
@@ -271,7 +271,7 @@ Call Summary Logs have shared operation and category information:
 "category":                 "CallSummaryPRIVATEPREVIEW",
 ```
 
-Call summary for VoIP Endpoint 1
+Call summary for VoIP Endpoint 1:
 ```
 "properties": {
     "identifier":               "acs:1797dbb3-f982-47b0-b98e-6a76084454f1_0000000b-1531-729f-ac00-343a0d00d975",
@@ -289,7 +289,7 @@ Call summary for VoIP Endpoint 1
     "osVersion":                "Darwin Kernel Version 18.7.0: Mon Nov 9 15:07:15 PST 2020; root:xnu-4903.272.3~3/RELEASE_ARM64_S5L8960X"
 }
 ```
-Call summary for VoIP Endpoint 3
+Call summary for VoIP Endpoint 3:
 ```
 "properties": {
     "identifier":               "acs:1797dbb3-f982-47b0-b98e-6a76084454f1_0000000b-1531-57c6-ac00-343a0d00d972",
@@ -307,7 +307,7 @@ Call summary for VoIP Endpoint 3
     "osVersion":                "Android 11.0; Manufacturer: Google; Product: redfin; Model: Pixel 5; Hardware: redfin"
 }
 ```
-Call summary for PSTN Endpoint 2
+Call summary for PSTN Endpoint 2:
 ```
 "properties": {
     "identifier":               "null",
@@ -332,7 +332,7 @@ Call diagnostics logs share operation information:
 "operationVersion":         "1.0",
 "category":                 "CallDiagnosticsPRIVATEPREVIEW",
 ```
-Diagnostic log for audio stream from VoIP Endpoint 1 to Server Endpoint
+Diagnostic log for audio stream from VoIP Endpoint 1 to Server Endpoint:
 ```
 "properties": {
     "identifier":           "acs:1797dbb3-f982-47b0-b98e-6a76084454f1_0000000b-1531-729f-ac00-343a0d00d975",
@@ -350,7 +350,7 @@ Diagnostic log for audio stream from VoIP Endpoint 1 to Server Endpoint
     "packetLossRateMax":    "0"
 }
 ```
-Diagnostic log for audio stream from Server Endpoint to VoIP Endpoint 1
+Diagnostic log for audio stream from Server Endpoint to VoIP Endpoint 1:
 ```
 "properties": {
     "identifier":           null,
@@ -368,7 +368,7 @@ Diagnostic log for audio stream from Server Endpoint to VoIP Endpoint 1
     "packetLossRateMax":    "0"
 }
 ```
-Diagnostic log for audio stream from VoIP Endpoint 3 to Server Endpoint
+Diagnostic log for audio stream from VoIP Endpoint 3 to Server Endpoint:
 ```
 "properties": {
     "identifier":           "acs:1797dbb3-f982-47b0-b98e-6a76084454f1_0000000b-1531-57c6-ac00-343a0d00d972",
@@ -386,7 +386,7 @@ Diagnostic log for audio stream from VoIP Endpoint 3 to Server Endpoint
     "packetLossRateMax":    "0"
 }
 ```
-Diagnostic log for audio stream from Server Endpoint to VoIP Endpoint 3
+Diagnostic log for audio stream from Server Endpoint to VoIP Endpoint 3:
 ```
 "properties": {
     "identifier":           "null",
