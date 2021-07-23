@@ -24,15 +24,21 @@ While a blob is in the archive access tier, it's considered offline and can't be
 
 ## Rehydrate an archived blob to an online tier
 
-[!INCLUDE [storage-blob-rehydration](../../../includes/storage-blob-rehydrate-include.md)]
+To read data in archive storage, you must first change the tier of the blob to hot or cool. This process is known as rehydration and can take hours to complete. We recommend large blob sizes for optimal rehydration performance. Rehydrating several small blobs concurrently may add additional time. There are currently two rehydrate priorities, High and Standard, which can be set via the optional *x-ms-rehydrate-priority* property on a [Set Blob Tier](/rest/api/storageservices/set-blob-tier) or [Copy Blob](/rest/api/storageservices/copy-blob) operation.
+
+* **Standard priority**: The rehydration request will be processed in the order it was received and may take up to 15 hours.
+* **High priority**: The rehydration request will be prioritized over Standard requests and may finish in under 1 hour for objects under ten GB in size.
+
+> [!NOTE]
+> Standard priority is the default rehydration option for archive. High priority is a faster option that will cost more than Standard priority rehydration and is usually reserved for use in emergency data restoration situations.
+>
+> High priority may take longer than 1 hour, depending on blob size and current demand. High priority requests are guaranteed to be prioritized over Standard priority requests.
+
+Once a rehydration request is initiated, it cannot be canceled. During the rehydration process, the *x-ms-access-tier* blob property will continue to show as archive until rehydration is completed to an online tier. To confirm rehydration status and progress, you may call [Get Blob Properties](/rest/api/storageservices/get-blob-properties) to check the *x-ms-archive-status* and the *x-ms-rehydrate-priority* blob properties. The archive status can read "rehydrate-pending-to-hot" or "rehydrate-pending-to-cool" depending on the rehydrate destination tier. The rehydrate priority will indicate the speed of "High" or "Standard". Upon completion, the archive status and rehydrate priority properties are removed, and the access tier blob property will update to reflect the selected hot or cool tier.
 
 ### Lifecycle management
 
 Rehydrating a blob doesn't change it's `Last-Modified` time. Using the [lifecycle management](storage-lifecycle-management-concepts.md) feature can create a scenario where a blob is rehydrated, then a lifecycle management policy moves the blob back to archive because the `Last-Modified` time is beyond the threshold set for the policy. To avoid this scenario, use the *[Copy an archived blob to an online tier](#copy-an-archived-blob-to-an-online-tier)* method. The copy method creates a new instance of the blob with an updated `Last-Modified` time and won't trigger the lifecycle management policy.
-
-## Monitor rehydration progress
-
-During rehydration, use the get blob properties operation to check the **Archive Status** attribute and confirm when the tier change is complete. The status reads "rehydrate-pending-to-hot" or "rehydrate-pending-to-cool" depending on the destination tier. Upon completion, the archive status property is removed, and the **Access Tier** blob property reflects the new hot or cool tier.
 
 ## Copy an archived blob to an online tier
 
