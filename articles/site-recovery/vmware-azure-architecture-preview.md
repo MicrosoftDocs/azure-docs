@@ -3,7 +3,7 @@ title: VMware VM disaster recovery architecture in Azure Site Recovery - Preview
 description: This article provides an overview of components and architecture used when setting up disaster recovery of on-premises VMware VMs to Azure with Azure Site Recovery - Preview
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/30/2021
+ms.date: 07/23/2021
 ---
 
 # VMware to Azure disaster recovery architecture - Preview
@@ -20,9 +20,9 @@ The following table and graphic provide a high-level view of the components used
 **Component** | **Requirement** | **Details**
 --- | --- | ---
 **Azure** | An Azure subscription, Azure Storage account for cache, Managed Disk, and Azure network. | Replicated data from on-premises VMs is stored in Azure storage. Azure VMs are created with the replicated data when you run a failover from on-premises to Azure. The Azure VMs connect to the Azure virtual network when they're created.
-**Azure Site Recovery replication appliance** | 	This is the basic building block of the entire Azure Site Recovery on-premises infrastructure. <br/><br/> All components in the appliance coordinate with the replication appliance. This service oversees all end-to-end Site Recovery activities including monitoring the health of protected machines, data replication, automatic updates, etc. | The appliance hosts various crucial components like:<br/><br/>**Azure Site Recovery proxy server:** This component acts as a proxy channel between mobility agent and Site Recovery  services in the cloud. It ensures there is no additional internet connectivity required from production workloads to generate recovery points.<br/><br/>**Discovered items:** This component gathers information of vCenter and coordinates with Azure Site Recovery management service in the cloud.<br/><br/>**Re-protection server:** This component coordinates between Azure and on-premises machines during reprotect and failback operations.<br/><br/>**Azure Site Recovery process server:** This component is used for caching, compression of data before being sent to Azure. <br/><br/> 	Learn more about replication appliance and how to use multiple replication appliance.<add applicable link here>
+**Azure Site Recovery replication appliance** | 	This is the basic building block of the entire Azure Site Recovery on-premises infrastructure. <br/><br/> All components in the appliance coordinate with the replication appliance. This service oversees all end-to-end Site Recovery activities including monitoring the health of protected machines, data replication, automatic updates, etc. | The appliance hosts various crucial components like:<br/><br/>**Azure Site Recovery Proxy server:** This component acts as a proxy channel between mobility agent and Site Recovery  services in the cloud. It ensures there is no additional internet connectivity required from production workloads to generate recovery points.<br/><br/>**Discovered items:** This component gathers information of vCenter and coordinates with Azure Site Recovery management service in the cloud.<br/><br/>**Re-protection server:** This component coordinates between Azure and on-premises machines during reprotect and failback operations.<br/><br/>**Azure Site Recovery Process server:** This component is used for caching, compression of data before being sent to Azure. <br/><br/> 	Learn more about replication appliance and how to use multiple replication appliance.<add applicable link here>
 **VMware servers** | VMware VMs are hosted on on-premises vSphere ESXi servers. We recommend a vCenter server to manage the hosts. | During Site Recovery deployment, you add VMware servers to the Recovery Services vault.
-**Replicated machines** | Mobility Service is installed on each VMware VM that you replicate. | We recommend that you allow automatic installation of the Mobility Service. Alternatively, you can install the service manually.
+**Replicated machines** | Mobility Service is installed on each VMware VM that you replicate. | We recommend that you allow automatic installation of the Mobility Service. Alternatively, you can install the [service manually](vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui).
 
 ## Set up outbound network connectivity
 
@@ -66,9 +66,9 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
 3. Initial replication operation ensures that entire data on the machine at the time of enable replication is sent to Azure. After initial replication finishes, replication of delta changes to Azure begins. Tracked changes for a machine are sent to the process server.
 4. Communication happens as follows:
 
-    - VMs communicate with the on-premises configuration server on port HTTPS 443 inbound, for replication management.
-    - The configuration server orchestrates replication with Azure over port HTTPS 443 outbound.
-    - VMs send replication data to the process server (running on the configuration server machine) on port HTTPS 9443 inbound. This port can be modified.
+    - VMs communicate with the on-premises appliance on port HTTPS 443 inbound, for replication management.
+    - The appliance orchestrates replication with Azure over port HTTPS 443 outbound.
+    - VMs send replication data to the process server on port HTTPS 9443 inbound. This port can be modified.
     - The process server receives replication data, optimizes, and encrypts it, and sends it to Azure storage over port 443 outbound.
 5. The replication data logs first land in a cache storage account in Azure. These logs are processed and the data is stored in an Azure Managed Disk (called as *asrseeddisk*). The recovery points are created on this disk.
 
@@ -91,7 +91,7 @@ When you enable Azure VM replication, by default Site Recovery creates a new rep
 **Policy setting** | **Details** | **Default**
 --- | --- | ---
 **Recovery point retention** | Specifies how long Site Recovery keeps recovery points | 72 hours
-**App-consistent snapshot frequency** | How often Site Recovery takes an app-consistent snapshot. | Every four hours
+**App-consistent snapshot frequency** | How often Site Recovery takes an app-consistent snapshot. | Every 4 hours
 
 ### Managing replication policies
 
@@ -101,7 +101,7 @@ You can manage and modify the default replication policies settings as follows:
 
 ### Multi-VM consistency
 
-If you want VMs to replicate together, and have shared crash-consistent and app-consistent recovery points at failover, you can gather them together into a replication group. Multi-VM consistency impacts workload performance, and should only be used for VMs running workloads that need consistency across all machines.
+If you want VMs to replicate together, and have shared crash-consistent and app-consistent recovery points at failover, you can gather them together into a replication group. Multi-VM consistency impacts workload performance, and should only be used for VMs 4 workloads that need consistency across all machines.
 
 
 
