@@ -71,4 +71,4 @@ You may need to configure additional firewall rules, depending on your requireme
 
 ## Next steps
 
-- Learn more about Azure Virtual Desktop: [What is Windows Virtual Desktop?](../virtual-desktop/overview.md)
+- Learn more about Azure Virtual Desktop: [What is Azure Virtual Desktop?](../virtual-desktop/overview.md)
