@@ -114,10 +114,11 @@ sections:
           - **Execute SSIS packages**: The integration runtime natively executes SSIS packages in a managed Azure compute environment. The integration runtime also supports dispatching and monitoring transformation activities running on a variety of compute services, such as Azure HDInsight, Azure Machine Learning, SQL Database, and SQL Server.
           
           You can deploy one or many instances of the integration runtime as required to move and transform data. The integration runtime can run on an Azure public network or on a private network (on-premises, Azure Virtual Network, or Amazon Web Services virtual private cloud [VPC]).
-          In Data Factory, an activity defines the action to be performed. A linked service defines a target data store or a compute service. An integration runtime provides the bridge between the activity and linked Services. It's referenced by the linked service or activity, and provides the compute environment where the activity either runs on or gets dispatched from. This way, the activity can be performed in the region closest possible to the target data store or compute service in the most performant way while meeting security and compliance needs.
+          In Data Factory, an activity defines the action to be performed. A linked service defines a target data store or a compute service.
+          An integration runtime provides the bridge between the activity and linked Services. It's referenced by the linked service or activity, and provides the compute environment where the activity either runs on or gets dispatched from. This way, the activity can be performed in the region closest possible to the target data store or compute service in the most performant way while meeting security and compliance needs.
 
-Integration runtimes can be created in the Azure Data Factory UX via the management hub and any activities, datasets, or data flows that reference them.
-          For more information, see [Integration runtime in Azure Data Factory](concepts-integration-runtime.md).
+          Integration runtimes can be created in the Azure Data Factory UX via the management hub and any activities, datasets, or data flows that reference them.
+          For more information, see [Integration runtime in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtim).
           
       - question: |
           What is the limit on the number of integration runtimes?
