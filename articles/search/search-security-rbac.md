@@ -15,7 +15,7 @@ ms.date: 07/23/2021
 
 Azure provides a global [role-based access control (RBAC) authorization system](../role-based-access-control/role-assignments-portal.md) for all services running on the platform. In Cognitive Search, you can use role authorization in the following ways:
 
-+ Allow access to control plane operations on the search service itself through Owner, Contributor, and Reader roles.
++ Allow access to control plane operations, such as adding capacity or rotating keys, on the search service itself through Owner, Contributor, and Reader roles.
 
 + Allow access to data plane operations, such as creating or querying indexes. This capability is currently in public preview.
 

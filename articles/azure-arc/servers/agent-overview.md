@@ -323,7 +323,7 @@ Arc-enabled servers Connected Machine agent is designed to manage agent and syst
 - The Extension Service agent is limited to use up to 5% of the CPU.
 
    - This only applies to install/uninstall/upgrade operations. Once installed, extensions are responsible for their own resource utilization and the 5% CPU limit does not apply.
-   - The Log Analytics agent and Azure Monitor Agent is allowed to use up to 60% of the CPU during their install/upgrade/uninstall operations on Red Hat Linux, CentOS, and other enterprise Linux variants. The limit is higher for this combination of extensions and operating systems to accommodate the performance impact of [SELinux](https://www.redhat.com/topics/linux/what-is-selinux) on these systems.
+   - The Log Analytics agent and Azure Monitor Agent is allowed to use up to 60% of the CPU during their install/upgrade/uninstall operations on Red Hat Linux, CentOS, and other enterprise Linux variants. The limit is higher for this combination of extensions and operating systems to accommodate the performance impact of [SELinux](https://www.redhat.com/en/topics/linux/what-is-selinux) on these systems.
 
 ## Next steps
 
