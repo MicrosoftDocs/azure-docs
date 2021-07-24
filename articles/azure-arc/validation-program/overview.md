@@ -17,7 +17,7 @@ Azure Arc-enabled Kubernetes works with any Cloud Native Computing Foundation (C
 
 ## Data services
 
-We have also partnered with original equipment manufacturer (OEM) partners and storage providers to validate [Azure Arc-enabled data services](../data/validation-program) solutions.
+We have also partnered with original equipment manufacturer (OEM) partners and storage providers to validate [Azure Arc-enabled data services](../data/validation-program.md) solutions.
 
 ## Next steps
 
