@@ -181,6 +181,12 @@ Azure HDInsight supports Impact Level 5 workloads in Azure Government with these
 
 For Compute services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud,azure-vmware,cloud-services,batch,app-service,service-fabric,functions,virtual-machine-scale-sets,virtual-machines&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
 
+### [Azure Functions](https://azure.microsoft.com/services/functions/)
+
+Azure Functions supports Impact Level 5 workloads in Azure Government with this configuration:
+
+- To accommodate proper network and workload isolation, deploy your Azure functions on App Service plans configured to use the Isolated SKU. For more information, see the [App Service plan documentation](../app-service/overview-hosting-plans.md).
+
 ### [Batch](https://azure.microsoft.com/services/batch/)
 
 Azure Batch supports Impact Level 5 workloads in Azure Government with this configuration:
@@ -372,78 +378,6 @@ Azure Data Box supports Impact Level 5 workloads in Azure Government with this c
 Azure Migrate supports Impact Level 5 workloads in Azure Government with this configuration:
 
 - Configure encryption at rest of content in Azure Migrate by [using customer-managed keys in Azure Key Vault](../migrate/how-to-migrate-vmware-vms-with-cmk-disks.md).
-
-### [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/)
-
-Azure Database Migration Service supports Impact Level 5 workloads in Azure Government with no extra configuration required.
-
-## Networking
-
-For Networking services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=internet-analyzer,private-link,azure-bastion,frontdoor,virtual-wan,dns,ddos-protection,cdn,azure-firewall,network-watcher,load-balancer,vpn-gateway,expressroute,application-gateway,virtual-network&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
-
-### [Application Gateway](https://azure.microsoft.com/services/application-gateway/)
-
-Azure Application Gateway supports Impact Level 5 workloads in Azure Government with no extra configuration required.
-
-### [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/)
-
-Azure Bastion supports Impact Level 5 workloads in Azure Government with no extra configuration required.
-
-### [Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection/)
-
-Azure DDoS Protection supports Impact Level 5 workloads in Azure Government with no extra configuration required.
-
-### [Azure DNS](https://azure.microsoft.com/services/dns/)
-
-Azure DNS supports Impact Level 5 workloads in Azure Government with no extra configuration required.
-
-### [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/)
-
-ExpressRoute supports Impact Level 5 workloads in Azure Government with no extra configuration required.
-
-### [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/)
-
-Azure Firewall supports Impact Level 5 workloads in Azure Government with no extra configuration required.
-
-### [Azure Front Door](https://azure.microsoft.com/services/frontdoor/)
-
-Azure Front Door supports Impact Level 5 workloads in Azure Government with no extra configuration required.
-
-### [Azure Peering Service](../peering-service/about.md)
-
-Microsoft Peering Service supports Impact Level 5 workloads in Azure Government with no extra configuration required.
-
-### [Azure Private Link](https://azure.microsoft.com/services/private-link/)
-
-Azure Private Link supports Impact Level 5 workloads in Azure Government with no extra configuration required.
-
-### [Load Balancer](https://azure.microsoft.com/services/load-balancer/)
-
-Azure Load Balancer supports Impact Level 5 workloads in Azure Government with no extra configuration required.
-
-### [Network Watcher](https://azure.microsoft.com/services/network-watcher/)
-
-Azure Network Watcher and Network Watcher traffic analytics support Impact Level 5 workloads in Azure Government with no extra configuration required.
-
-### [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)
-
-Azure Traffic Manager supports Impact Level 5 workloads in Azure Government with no extra configuration required.
-
-### [Virtual Network](https://azure.microsoft.com/services/virtual-network/)
-
-Azure Virtual Network supports Impact Level 5 workloads in Azure Government with no extra configuration required.
-
-### [Virtual NAT](../virtual-network/nat-overview.md) 
-
-Virtual NAT supports Impact Level 5 workloads in Azure Government with no extra configuration required.
-
-### [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/)
-
-Azure VPN Gateway supports Impact Level 5 workloads in Azure Government with no extra configuration required.
-
-### [Web Application Firewall](https://azure.microsoft.com/services/web-application-firewall/)
-
-Web Application Firewall supports Impact Level 5 workloads in Azure Government with no extra configuration required.
 
 
 ## Security
