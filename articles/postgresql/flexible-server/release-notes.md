@@ -6,7 +6,7 @@ ms.author: srranga
 ms.custom: references_regions
 ms.service: postgresql
 ms.topic: overview
-ms.date: 07/21/2021
+ms.date: 07/30/2021
 
 ---
 
@@ -20,7 +20,7 @@ This page provides latest news and updates regarding feature additions, engine v
 ## Release: July 2021
 
 * Support for [pglogical extension](concepts-logical.md) v2.3.2 with PostgreSQL 11,12, and 13.<sup>$</sup>
-* PgBouncer now has `ignore_startup_parameters` to ignore certain client-side driver's parameters including `extra_float_digits` <sup>$</sup>.
+* PgBouncer now includes `ignore_startup_parameters` to ignore certain client-side driver's parameters including `extra_float_digits`, and `pgbouncer.query_wait_timeout` parameters.  <sup>$</sup>.
 * Support for `pg_stat_reset_shared('bgwriter');` and `pg_stat_reset_shared('archiver');` to reset the counters shown in the `pg_stat_bgwriter` and `pg_stat_archiver` views <sup>$</sup>.
 * * Several bug fixes, stability, and performance improvements<sup>$</sup>.
 

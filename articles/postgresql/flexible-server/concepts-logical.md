@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/21/2021
+ms.date: 07/30/2021
 ---
 
 # Logical replication and logical decoding in Azure Database for PostgreSQL - Flexible Server
@@ -36,6 +36,9 @@ Logical replication
 Logical decoding 
 * extracts changes across all tables in a database 
 * cannot directly send data between PostgreSQL instances.
+
+>[!NOTE]
+> As at this time, Flexible server does not support cross-region read replicas. Depending on the type of workload, you may choose to use logical replication feature for cross-region disaster recovery (DR) purpose.
 
 ## Pre-requisites for logical replication and logical decoding
 
@@ -223,7 +226,6 @@ The 'active' column in the pg_replication_slots view will indicate whether there
 ```SQL
 SELECT * FROM pg_replication_slots;
 ```
-
 [Set alerts](howto-alert-on-metrics.md) on the **Maximum Used Transaction IDs** and **Storage Used** flexible server metrics to notify you when the values increase past normal thresholds. 
 
 ## Limitations
