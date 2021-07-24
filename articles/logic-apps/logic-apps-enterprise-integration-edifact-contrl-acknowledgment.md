@@ -136,7 +136,14 @@ Based on whether the received interchange includes one or more groups, the struc
 
   As with interchanges that include groups, the SG tags don't exist in the native ACK format.
 
-By default and industry usage, SG1/SG4 loops aren't expected for accepted transaction sets. However, to support compliance with standards, you can force generation of SG1/SG4 loops by selecting the **Generate SG1/SG4 loop for accepted transaction sets** checkbox in the **Acknowledgements** page of the Agreement Properties dialog box for an agreement between two business profiles (or the **Acknowledgements** page of the EDI Settings tab for a business profile). If this checkbox is selected, the receive pipeline will generate SG1/SG4 loops whether the transaction set is accepted or rejected. Otherwise, these loops will be generated only for erroneous transaction sets (for which UCM5 != 7).
+By default and industry usage, SG1/SG4 loops aren't expected for accepted transaction sets. However, to support compliance with standards, you can force generation of SG1/SG4 loops by following these steps:
+ 
+1. In the [Azure portal](https://portal.azurecom), open your integration account.
+1. On the integration account menu, under **Settings**, select **Agreements**.
+1. Open your EDIFACT agreement, and select **Send Settings**.
+1. Under **Acknowledgement**, select **Acknowledgement (CONTRL)**. You can now select **Generate SG1/SG4 loop for accepted transaction sets**.
+
+   If this checkbox is selected, the receive pipeline generates SG1/SG4 loops whether the transaction set is accepted or rejected. Otherwise, these loops are generated only for erroneous transaction sets where UCM5 is not equal to `7`.
 
 ### CONTRL functional ACK data elements
 
