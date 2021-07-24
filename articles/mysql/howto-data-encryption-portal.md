@@ -107,4 +107,6 @@ After Azure Database for MySQL is encrypted with a customer's managed key stored
 
 ## Next steps
 
- To learn more about data encryption, see [Azure Database for MySQL data encryption with customer-managed key](concepts-data-encryption-mysql.md).
+* [Validating data encryption for Azure Database for MySQL](howto-data-encryption-validation.md)
+* [Troubleshoot data encryption in Azure Database for MySQL](howto-data-encryption-troubleshoot.md)
+* [Data encryption with customer-managed key concepts](concepts-data-encryption-mysql.md).
