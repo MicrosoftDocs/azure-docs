@@ -274,14 +274,14 @@ At a command prompt in the `fileupload` folder, run the following command:
 node FileUpload.js
 ```
 
-The following output shows the output from the **FileUpload** app after the upload has completed:
+The following output is from the **FileUpload** app after the upload has completed:
 
 ```output
 uploadStreamToBlockBlob success
 notifyBlobUploadStatus success
 ```
 
-The following output shows sample output from the **FileUploadNotification** app after the upload has completed:
+The following sample output is from the **FileUploadNotification** app after the upload has completed:
 
 ```output
 Service client connected
