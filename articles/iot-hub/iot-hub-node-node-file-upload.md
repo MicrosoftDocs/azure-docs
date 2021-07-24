@@ -76,7 +76,7 @@ In this section, you create a device app to upload a file to IoT hub. The code i
     npm install azure-iot-device azure-iot-device-mqtt @azure/storage-blob --save
     ```
 
-1. Using a text editor, create a **FileUpload.js** file in the `fileupload` folder, and copy the sample into it.
+1. Using a text editor, create a **FileUpload.js** file in the `fileupload` folder, and copy the following code into it.
 
     ```javascript
     'use strict';
@@ -291,7 +291,15 @@ File upload from device:
 
 You can use the portal to view the uploaded file in the storage container you configured:
 
-![Uploaded file](./media/iot-hub-node-node-file-upload/uploaded-file.png)
+1. Navigate to your storage account in Azure portal.
+1. On the left pane of your storage account, select **Containers**.
+1. Select the container you uploaded the file to.
+1. Select the folder named after your device.
+1. Select the blob that corresponds to your file. 
+
+    :::image type="content" source="./media/iot-hub-node-node-file-upload/view-uploaded-file.png" alt-text="View the uploaded file in the Azure portal":::
+
+1. View the blob properties on the page that opens. You can select **Download** to download the file and view its contents locally.
 
 ## Next steps
 
