@@ -7,7 +7,7 @@ manager: lizross
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 07/14/2021
+ms.date: 07/23/2021
 ms.author: helohr
 ---
 # Deploy Azure AD joined virtual machines in Azure Virtual Desktop
@@ -27,10 +27,10 @@ This article will walk you through the process of deploying and accessing Azure 
 The following configurations are currently supported with Azure AD-joined VMs:
 
 - Personal desktops with local user profiles.
-- Pooled desktops used as a jump box. In this configuration, users first access the Azure Virtual Desktop VM before connecting to a different PC on the network. Users should not save data on the VM.
+- Pooled desktops used as a jump box. In this configuration, users first access the Azure Virtual Desktop VM before connecting to a different PC on the network. Users shouldn't save data on the VM.
 - Pooled desktops or apps where users don't need to save data on the VM. For example, for applications that save data online or connect to a remote database.
 
-User accounts can be cloud-only or hybrid users from the same Azure AD tenant. External users are not supported at this time.
+User accounts can be cloud-only or hybrid users from the same Azure AD tenant. External users aren't supported at this time.
 
 ## Deploy Azure AD-joined VMs
 
@@ -69,6 +69,10 @@ To enable access from Windows devices not joined to Azure AD, add **targetisaadj
 ### Connect using the other clients
 
 To access Azure AD-joined VMs using the web, Android, macOS, iOS, and Microsoft Store clients, you must add **targetisaadjoined:i:1** as a [custom RDP property](customize-rdp-properties.md) to the host pool. These connections are restricted to entering user name and password credentials when signing in to the session host.
+
+### Enabling MFA for Azure AD joined VMs
+
+You can enable [multifactor authentication](set-up-mfa.md) for Azure AD joined VMs by setting a Conditional Access policy on the "Windows Virtual Desktop" app. Unless you want to restrict sign in to strong authentication methods like Windows Hello, you should exclude the "Azure Windows VM Sign-In" app from the list of cloud apps as described in the [MFA sign-in method requirements](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#mfa-sign-in-method-required) for Azure AD joined VMs. If you are using non-Windows clients, you must disable the MFA policy on "Azure Windows VM Sign-In".
 
 ## User profiles
 
