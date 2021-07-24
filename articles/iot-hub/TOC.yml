@@ -56,7 +56,7 @@
       href: tutorial-firmware-update.md
     - name: Test device connectivity
       href: tutorial-connectivity.md
-    - name: Data Visualization in Power BI
+    - name: Data visualization in Power BI
       href: iot-hub-live-data-visualization-in-power-bi.md
     - name: Using X.509 certificates
       items:
