@@ -181,7 +181,7 @@ The CONTRL functional ACK includes the following data elements:
 
 These errors apply at the interchange, group, message, and data level. When a supported error is found, the entire interchange, group, or transaction set is rejected. EDIFACT-encoded interchanges don't have an `Accepted with errors` condition as X12-encoded messages do.
 
-### Standard EDIFACT error codes
+### Standard EDIFACT CONTRL ACK error codes
 
 The following table lists the supported and supported error codes, as defined by the EDIFACT specification, that are used in the UCI5 field of the CONTRL ACK for EDIFACT message processing in Azure Logic Apps.
 
@@ -227,7 +227,7 @@ The following table lists the supported and supported error codes, as defined by
 | 48 | Dependency Notes condition violated | Notification that an error condition has occurred as the result of a dependency condition violation. | No |
 |||||
 
-### Logic App EDIFACT error codes**
+### Azure Logic Apps CONTRL ACK error codes
 
 The following table lists custom error codes that aren't defined by the EDIFACT specification, but are used in the UCI5 field of the CONTRL ACK for EDIFACT message processing and are specific to Azure Logic Apps.
 
