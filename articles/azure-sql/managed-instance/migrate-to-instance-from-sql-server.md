@@ -7,8 +7,8 @@ ms.subservice: migration
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: danimir
-ms.author: danil
+author: cawrites
+ms.author: chadam
 ms.reviewer: cawrites
 ms.date: 06/23/2021
 ---
