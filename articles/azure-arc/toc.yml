@@ -23,8 +23,6 @@
    - name: Validation test process
      href: validation-program/test-process.md
    - name: Validated K8s distributions
-     href: validation-program/validated-k8s-distributions.md
+     href: kubernetes/validation-program.md?toc=/azure/azure-arc/toc.json&bc=/azure/azure-arc/breadcrumb/toc.json
    - name: Validated data services
-     href: validation-program/validated-data-services.md
-   - name: Validated extensions
-     href: validation-program/validated-extensions.md
+     href: data/validation-program.md?toc=/azure/azure-arc/toc.json&bc=/azure/azure-arc/breadcrumb/toc.json
