@@ -1,7 +1,7 @@
 ---
 title: Azure Communication Services - Call Summary and Call Diagnostic Logs
 titleSuffix: An Azure Communication Services concept document
-description: Learn about Call SUmmary and Call Diagnostic Logs in Azure Monitor
+description: Learn about Call Summary and Call Diagnostic Logs in Azure Monitor
 author:  timmitchell
 services: azure-communication-services
 
