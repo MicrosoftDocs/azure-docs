@@ -127,19 +127,7 @@ GROUP BY SchemaName
 
 Run the generated drop trigger query (DropQuery column) in the result to drop triggers in the target database. The add trigger query can be saved, to be used post data migration completion.
 
-## Register the Microsoft.DataMigration resource provider
-
-Registration of the resource provider needs to be done on each Azure subscription only once. Without the registration, you will not be able to create an instance of **Azure Database Migration Service**.
-
-1. Sign in to the Azure portal, select **All services**, and then select **Subscriptions**.
-
-   ![Show portal subscriptions](media/tutorial-mysql-to-azure-mysql-offline-portal/01-dms-portal-select-subscription.png)
-
-2. Select the subscription in which you want to create the instance of Azure Database Migration Service, and then select **Resource providers**.
-
-3. Search for migration, and then to the right of **Microsoft.DataMigration**, select **Register**.
-
-    ![Register resource provider](media/tutorial-mysql-to-azure-mysql-offline-portal/02-dms-portal-register-rp.png)
+[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]
 
 ## Create a Database Migration Service instance
 

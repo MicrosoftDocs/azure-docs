@@ -87,19 +87,7 @@ And if it is *Disabled*, then we recommend you enable it as shown below
 
 ![Screenshot of MongoDB Server-Side Retry enable.](media/tutorial-mongodb-to-cosmosdb-online/mongo-server-side-retry-enable.png)
 
-## Register the Microsoft.DataMigration resource provider
-
-1. Sign in to the Azure portal, select **All services**, and then select **Subscriptions**.
-
-   ![Show portal subscriptions](media/tutorial-mongodb-to-cosmosdb-online/portal-select-subscription1.png)
-
-2. Select the subscription in which you want to create the instance of Azure Database Migration Service, and then select **Resource providers**.
-
-    ![Show resource providers](media/tutorial-mongodb-to-cosmosdb-online/portal-select-resource-provider.png)
-
-3. Search for migration, and then to the right of **Microsoft.DataMigration**, select **Register**.
-
-    ![Register resource provider](media/tutorial-mongodb-to-cosmosdb-online/portal-register-resource-provider.png)    
+[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)] 
 
 ## Create an instance
 
