@@ -92,6 +92,18 @@ sections:
           
           ID or the `instanceId` is a property of an instance of an account and it is used to disambiguate across multiple accounts (live and deleted) if they have same name for restore. You can get the instance ID by running the `Get-AzCosmosDBRestorableDatabaseAccount` or  `az cosmosdb restorable-database-account` commands. The name attribute value denotes the "InstanceID".
           
+      - question: |
+          Is backup and restore supported for Azure Synapse Link enabled accounts?
+        answer: |
+
+          Yes. However, analytical store data isn't included in backups and restores. When Synapse Link is enabled on a database account, Azure Cosmos DB will continue to automatically take backups of your data in the transactional store at scheduled backup interval, as always.
+
+      - question: |
+          Is backup and restore supported for analytical store enabled containers?
+        answer: |
+
+          Yes, but only for the regular transactional data. Automatic backup and restore of your data in the analytical store is not supported at this time.
+
 
 additionalContent: |
 

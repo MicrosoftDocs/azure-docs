@@ -170,7 +170,6 @@ The `facility` feature class defines the area of the site, building footprint, a
 |`categoryId`        | [category.Id](#category)      |true      | The ID of a [`category`](#category) feature.|
 |`occupants`         | array of [directoryInfo.Id](#directoryinfo) |    false |    The IDs of [directoryInfo](#directoryinfo) features. Used to represent one or many occupants in the feature. |
 |`addressId`         | [directoryInfo.Id](#directoryinfo)  | true     | The ID of a [directoryInfo](#directoryinfo) feature. Used to represent the address of the feature.|
-|`addressRoomNumber`         |  [directoryInfo.Id](#directoryinfo)| true     | Room/Unit/Apartment/Suite number of the unit.|
 |`name` |    string |    false |    Name of the feature in local language. Maximum length allowed is 1000. |
 |`nameSubtitle` |    string |    false |   Subtitle that shows up under the `name` of the feature. Can be used to display the name in a different language, and so on. Maximum length allowed is 1000. |
 |`nameAlt` |    string |    false |   Alternate name used for the feature.  Maximum length allowed is 1000.|
@@ -267,13 +266,13 @@ The `directoryInfo` object class feature defines the name, address, phone number
 |`externalId`        | string     |true      | An ID used by the client to associate the feature with another feature in a different dataset, such as in an internal database. Maximum length allowed is 1000.|
 |`streetAddress`        |string    |false    |Street address part of the address.  Maximum length allowed is 1000. |
 |`unit`        |string    |false    |Unit number part of the address.  Maximum length allowed is 1000. |
-|`locality`|    string|    false    |The locality of the address. For example: city, municipality, village). Maximum length allowed is 1000.|
+|`locality`|    string|    false    |The locality of the address. For example: city, municipality, village. Maximum length allowed is 1000.|
 |`adminDivisions`|    string|    false    |Administrative division part of the address, from smallest to largest (County, State, Country). For example: ["King", "Washington", "USA" ] or ["West Godavari", "Andhra Pradesh", "IND" ]. Maximum length allowed is 1000.|
 |`postalCode`|    string |    false    |Postal code part of the address. Maximum length allowed is 1000.|
 |`name` |    string |    false |    Name of the feature in local language.  Maximum length allowed is 1000.|
 |`nameSubtitle` |    string |    false |   Subtitle that shows up under the `name` of the feature. Can be used to display the name in a different language, and so on. Maximum length allowed is 1000. |
 |`nameAlt` |    string |    false |   Alternate name used for the feature. Maximum length allowed is 1000. |
-|`phoneNumber` |    string |    false |    Phone number. |
+|`phoneNumber` |    string |    false |    Phone number. Maximum length allowed is 1000. |
 |`website` |    string |    false |  Website URL. Maximum length allowed is 1000. |
 |`hoursOfOperation` |    string |    false |   Hours of operation as text, following the [Open Street Map specification](https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification). Maximum length allowed is 1000. |
 

@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/08/2021
+ms.date: 07/13/2021
 
 ms.author: mimart
 author: msmimart
@@ -26,10 +26,12 @@ After you've added Google as one of your application's sign-in options, on the *
 ![Sign in options for Google users](media/google-federation/sign-in-with-google-overview.png)
 
 > [!NOTE]
-> Google federation is designed specifically for Gmail users. To federate with G Suite domains, use [SAML/WS-Fed identity provider federation](direct-federation.md).
+> Google federation is designed specifically for Gmail users. To federate with Google Workspace domains, use [SAML/WS-Fed identity provider federation](direct-federation.md).
 
 > [!IMPORTANT]
-> **Starting in the second half of 2021**, Google is [deprecating web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If you’re using Google federation for B2B invitations or [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), or if you're using self-service sign-up with Gmail, Google Gmail users won't be able to sign in if your apps authenticate users with an embedded web-view. [Learn more](#deprecation-of-web-view-sign-in-support).
+>
+> - **Starting July 12, 2021**, if Azure AD B2B customers set up new Google integrations for use with self-service sign-up or for inviting external users for their custom or line-of-business applications, authentication could be blocked for Gmail users (with the error screen shown below in [What to expect](#what-to-expect)). This issue occurs only if you create Google integration for self-service sign-up user flows or invitations after July 12, 2021 and Gmail authentications in your custom or line-of-business applications haven’t been moved to system web-views. Because system web-views are enabled by default, most apps will not be affected. To avoid the issue, we strongly advise you to move Gmail authentications to system browsers before creating any new Google integrations for self-service sign-up. Please refer to [Action needed for embedded web-views](#action-needed-for-embedded-frameworks).
+> - **Starting September 30, 2021**, Google is [deprecating web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) or Azure AD B2B for external user invitations or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate. [Learn more](#deprecation-of-web-view-sign-in-support).
 
 ## What is the experience for the Google user?
 
@@ -56,29 +58,37 @@ You can also give Google guest users a direct link to an application or resource
 
 ## Deprecation of web-view sign-in support
 
-Starting in the second half of 2021, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If you’re using Google federation for B2B or [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), or if you're using [self-service sign-up with Gmail](identity-providers.md), if your apps authenticate users with an embedded web-view, Google Gmail users won't be able to authenticate.
+Starting September 30, 2021, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) or Azure AD B2B for [external user invitations](google-federation.md) or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate.
 
 The following are known scenarios that will impact Gmail users:
+- Microsoft apps (e.g. Teams and PowerApps) on Windows 
 - Windows apps that use the [WebView](/windows/communitytoolkit/controls/wpf-winforms/webview) control, [WebView2](/microsoft-edge/webview2/), or the older WebBrowser control, for authentication. These apps should migrate to using the Web Account Manager (WAM) flow.
 - Android applications using the WebView UI element 
 - iOS applications using UIWebView/WKWebview 
-- Apps using ADAL
+- [Apps using ADAL](../develop/howto-get-list-of-all-active-directory-auth-library-apps.md)
 
 This change does not affect:
-
-- Microsoft apps on Windows
 - Web apps
 - Mobile apps using system web-views for authentication ([SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) on iOS, [Custom Tabs](https://developer.chrome.com/docs/android/custom-tabs/overview/) on Android).  
-- G Suite identities, for example when you’re using [SAML-based federation](direct-federation.md) with G Suite
+- Google Workspace identities, for example when you’re using [SAML-based federation](direct-federation.md) with Google Workspace
 
 We’re confirming with Google whether this change affects the following:
 - Windows apps that use the Web Account Manager (WAM) or Web Authentication Broker (WAB).  
 
 We’re continuing to test various platforms and scenarios, and will update this article accordingly.
+
 ### Action needed for embedded web-views
+
 Modify your apps to use the system browser for sign-in. For details, see [Embedded vs System Web UI](../develop/msal-net-web-browsers.md#embedded-vs-system-web-ui) in the MSAL.NET documentation. All MSAL SDKs use the system web-view by default.
+
 ### What to expect
-Before Google puts these changes into place in the second half of 2021, Microsoft will deploy a workaround for apps still using embedded web-views to ensure that authentication isn't blocked.
+
+Before Google puts these changes into place on September 30, 2021, Microsoft will deploy a workaround for apps still using embedded web-views to ensure that authentication isn't blocked. Users who sign in with a Gmail account in an embedded web-view will be prompted to enter a code in a separate browser to finish signing in.
+
+Alternatively, you can have your existing and new Gmail users sign in with email one-time passcode. To have your Gmail users use email one-time passcode:
+1. [Enable email one-time passcode](one-time-passcode.md#enable-email-one-time-passcode)
+2. [Remove Google Federation](google-federation.md#how-do-i-remove-google-federation)
+3. [Reset redemption status](reset-redemption-status.md) of your Gmail users so they can use email one-time passcode going forward.
 
 Applications that are migrated to an allowed web-view for authentication won't be affected, and users will be allowed to authenticate via Google as usual.
 
@@ -89,12 +99,15 @@ If applications are not migrated to an allowed web-view for authentication, then
 We will update this document as dates and further details are shared by Google.
 
 ### Distinguishing between CEF/Electron and embedded web-views
-In addition to the [deprecation of embedded web-view and framework sign-in support](#deprecation-of-web-view-sign-in-support), Google is also [deprecating Chromium Embedded Framework (CEF) based Gmail authentication](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). For applications built on CEF, such as Electron apps, Google will disable authentication on June 30, 2021. Impacted applications have received notice from Google directly, and are not covered in this documentation.  This document pertains to the embedded web-views described above, which Google will restrict at a separate date later in 2021.
+
+In addition to the [deprecation of embedded web-view and framework sign-in support](#deprecation-of-web-view-sign-in-support), Google is also [deprecating Chromium Embedded Framework (CEF) based Gmail authentication](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). For applications built on CEF, such as Electron apps, Google will disable authentication on June 30, 2021. Impacted applications have received notice from Google directly, and are not covered in this documentation.  This document pertains to the embedded web-views described above, which Google will restrict at a separate date on September 30, 2021.
 
 ### Action needed for embedded frameworks
+
 Follow [Google’s guidance](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html) to determine if your apps are affected.
 
 ## Step 1: Configure a Google developer project
+
 First, create a new project in the Google Developers Console to obtain a client ID and a client secret that you can later add to Azure Active Directory (Azure AD). 
 1. Go to the Google APIs at https://console.developers.google.com, and sign in with your Google account. We recommend that you use a shared team Google account.
 2. Accept the terms of service if you're prompted to do so.
@@ -137,6 +150,7 @@ First, create a new project in the Google Developers Console to obtain a client 
     ![Screenshot that shows the OAuth client ID and client secret.](media/google-federation/google-auth-client-id-secret.png)
 
 ## Step 2: Configure Google federation in Azure AD 
+
 You'll now set the Google client ID and client secret. You can use the Azure portal or PowerShell to do so. Be sure to test your Google federation configuration by inviting yourself. Use a Gmail address and try to redeem the invitation with your invited Google account. 
 
 **To configure Google federation in the Azure portal** 
@@ -160,6 +174,7 @@ You'll now set the Google client ID and client secret. You can use the Azure por
    > Use the client ID and client secret from the app you created in "Step 1: Configure a Google developer project." For more information, see [New-AzureADMSIdentityProvider](/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview&preserve-view=true). 
  
 ## How do I remove Google federation?
+
 You can delete your Google federation setup. If you do so, Google guest users who have already redeemed their invitation won't be able to sign in. But you can give them access to your resources again by [resetting their redemption status](reset-redemption-status.md).
  
 **To delete Google federation in the Azure AD portal**

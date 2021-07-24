@@ -71,6 +71,10 @@
   - name: Investigate the health of your resources
     href: investigate-resource-health.md
 
+- name: Samples
+  items:
+  - name: Azure Resource Graph queries
+    href: ./resource-graph-samples.md
 
 - name: Concepts
   items:
@@ -179,8 +183,11 @@
       href: defender-for-sql-usage.md
       displayName: hybrid, arc, Azure Defender
     - name: Overview of Azure Defender for open-source relational databases
-      displayName: PG, PostgreSQL, MySQL, MariaDB
+      displayName: PG, PostgreSQL, MySQL, MariaDB, Azure Defender, OS RDBs, OSRDB
       href: defender-for-databases-introduction.md
+    - name: Enable Defender for OS RDBs and respond to alerts
+      displayName: PG, PostgreSQL, MySQL, MariaDB, open-source relational databases, Azure Defender, OS RDBs, OSRDB
+      href: defender-for-databases-usage.md
     - name: Scan your SQL resources for vulnerabilities
       href: defender-for-sql-on-machines-vulnerability-assessment.md
       displayName: hybrid, arc, Azure Defender, VA, registry, vulnerabilities

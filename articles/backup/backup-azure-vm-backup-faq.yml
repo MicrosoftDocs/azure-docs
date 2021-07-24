@@ -220,7 +220,7 @@ sections:
 
       - question: How can I disable the File Recovery option?
         answer: |
-          [This API](/rest/api/backup/itemlevelrecoveryconnections/provision) provisions a script for invoking an **iSCSI connection** for file recovery from Azure Backup.
+          [This API](/rest/api/backup/item-level-recovery-connections/provision) provisions a script for invoking an **iSCSI connection** for file recovery from Azure Backup.
           - You can disable this option using **custom role-definitions** by excluding API action.
           - You can also use the [private endpoints](private-endpoints.md) to restrict access to the iSCSI server from within the private network.
           - You can also disable this option across an organization using the [deny assignment](../role-based-access-control/deny-assignments.md) feature.

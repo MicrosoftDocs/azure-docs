@@ -2,7 +2,7 @@
 title: Monitoring and logging - Azure
 description: This article provides an overview of monitoring and logging in Azure Video Analyzer.
 ms.topic: how-to
-ms.date: 04/27/2020
+ms.date: 06/01/2021
 
 ---
 # Monitor and log on IoT Edge
@@ -387,31 +387,40 @@ As with other IoT Edge modules, you can also [examine the container logs](../../
    * `MediaPipeline`: Low-level logs that might offer insight when you're troubleshooting problems, like difficulties establishing a connection with an RTSP-capable camera.
    
 ### Generating debug logs
+In certain cases, to help Azure support resolve a problem, you might need to generate more detailed logs than the ones described previously. To generate these logs:  
 
-In certain cases, to help Azure support resolve a problem, you might need to generate more detailed logs than the ones described previously. To generate these logs:
+1. Sign in to the [Azure portal](https://portal.azure.com), and go to your IoT hub.
+1. On the left pane, select **IoT Edge**.
+1. In the list of devices, select the ID of the target device.
+1. At the top of the pane, select **Set Modules**.
 
-1. [Link the module storage to the device storage](../../iot-edge/how-to-access-host-storage-from-module.md#link-module-storage-to-device-storage) via `createOptions`. If you look at a [deployment manifest template](https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp/blob/master/src/edge/deployment.template.json) from the quickstarts, you'll see this code:
+   ![Screenshot of the "Set Modules" button in the Azure portal.](media/troubleshoot/set-modules.png)
 
-   ```json
-   "createOptions": {
-     …
-     "Binds": [
-       "/var/local/videoAnalyzer/:/var/lib/videoAnalyzer/"
-     ]
-    }
-   ```
+1. In the **IoT Edge Modules** section, look for and select **avaedge**.
+1. Select **Module Identity Twin**. An editable pane opens.
+1. Under **desired key**, add the following key/value pair:
 
-   This code lets the Edge module write logs to the device storage path `/var/local/videoAnalyzer/`. 
+   `"DebugLogsDirectory": "/var/lib/videoanalyzer/logs"`
 
- 1. Add the following `desired` property to the module:
+   > [!NOTE]
+   > This command binds the logs folders between the Edge device and the container. If you want to collect the logs in a different location on the device:
+   >
+   > 1. Create a binding for the Debug Log location in the **Binds** section, replacing the **$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE** and **$DEBUG_LOG_LOCATION** with the location you want:
+   >    `/var/$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE:/var/$DEBUG_LOG_LOCATION`
+   > 2. Use the following command, replacing **$DEBUG_LOG_LOCATION** with the location used in the previous step:
+   >    `"DebugLogsDirectory": "/var/$DEBUG_LOG_LOCATION"`
 
-    `"debugLogsDirectory": "/var/lib/videoAnalyzer/debuglogs/"`
+1. Select **Save**
 
-The module will now write debug logs in a binary format to the device storage path `/var/local/videoAnalyzer/debuglogs/`. You can share these logs with Azure support.
+The module will now write debug logs in a binary format to the device storage path `/var/local/videoAnalyzer/debuglogs/`. You can share these logs with Azure support.  
+
+You can stop log collection by setting the value in **Module Identity Twin** to _null_. Go back to the **Module Identity Twin** page and update the following parameter as:
+
+   `"DebugLogsDirectory": ""`
 
 ## FAQ
 
-If you have questions, see the [monitoring and metrics FAQ](faq-edge.md#monitoring-and-metrics).
+If you have questions, see the [monitoring and metrics FAQ](faq-edge.yml#monitoring-and-metrics).
 
 ## Next steps
 

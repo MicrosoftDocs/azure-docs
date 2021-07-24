@@ -21,7 +21,7 @@ An event domain is a management tool for large numbers of Event Grid topics rela
 Event domains provide you the same architecture used by Azure services like Storage and IoT Hub to publish their events. They allow you to publish events to thousands of topics. Domains also give you authorization and authentication control over each topic so you can partition your tenants.
 
 ## Example use case
-[!INCLUDE [event-grid-domain-example-use-case.md](../../includes/event-grid-domain-example-use-case.md)]
+[!INCLUDE [event-grid-domain-example-use-case.md](./includes/event-grid-domain-example-use-case.md)]
 
 ## Access management
 

@@ -17,13 +17,13 @@ By default IP addresses are temporarily collected, but not stored in Application
 When telemetry is sent to Azure, the IP address is used to do a geolocation lookup using [GeoLite2 from MaxMind](https://dev.maxmind.com/geoip/geoip2/geolite2/). The results of this lookup are used to populate the fields `client_City`, `client_StateOrProvince`, and `client_CountryOrRegion`. The address is then discarded and `0.0.0.0` is written to the `client_IP` field.
 
 * Browser telemetry: We temporarily collect the sender's IP address. IP address is calculated by the ingestion endpoint.
-* Server telemetry: The Application Insights telemetry module temporarily collects the client IP address. IP address isn't collected locally when the `X-Forwarded-For` header is set.
+* Server telemetry: The Application Insights telemetry module temporarily collects the client IP address. IP address isn't collected locally when the `X-Forwarded-For` header is set. When the incoming list of IPs has more than one IP address, the last IP is used to populate geolocation fields.
 
 This behavior is by design to help avoid unnecessary collection of personal data. Whenever possible, we recommend avoiding the collection of personal data. 
 
 ## Overriding default behavior
 
-While the default is to not collect IP addresses. We still offer the flexibility to override this behavior. However, we recommend verifying that collection doesn't break any compliance requirements or local regulations. 
+While the default is to not collect IP addresses, we still offer the flexibility to override this behavior. However, we recommend verifying that collection doesn't break any compliance requirements or local regulations. 
 
 To learn more about personal data handling in Application Insights, consult the [guidance for personal data](../logs/personal-data-mgmt.md).
 

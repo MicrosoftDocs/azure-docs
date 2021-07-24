@@ -21,9 +21,9 @@ This information can help decision-makers and citizens understand governmental r
 ## Datasets
 
 Modified versions of the dataset are available in CSV, JSON, JSON-Lines, and Parquet, updated daily:
-- https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/covid_policy_tracker/latest/- covid_policy_tracker.csv
-- https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/covid_policy_tracker/latest/- covid_policy_tracker.json
-- https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/covid_policy_tracker/latest/- covid_policy_tracker.jsonl
+- https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/covid_policy_tracker/latest/covid_policy_tracker.csv
+- https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/covid_policy_tracker/latest/covid_policy_tracker.json
+- https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/covid_policy_tracker/latest/covid_policy_tracker.jsonl
 - https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/covid_policy_tracker/latest/covid_policy_tracker.parquet
 
 All modified versions have iso_country codes and load times added, and use lower case column names with underscore separators.
@@ -140,7 +140,6 @@ https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_parquet.h
 
 https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html
 
-https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_json.html (use lines=True for json lines)
 
 Start by loading the dataset file into a pandas dataframe and view some sample rows
 
