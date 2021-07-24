@@ -15,6 +15,8 @@ keywords: "Kubernetes, Arc, Azure, K8s, validation, data services, SQL Managed I
 
 Azure Arc-enabled data services team has worked with industry partners to validate specific distributions and solutions to host Azure Arc-enabled data services. This validation extends the [Azure Arc-enabled Kubernetes validation](../kubernetes/validation-program.md) for the data services. This article identifies partner solutions, versions, Kubernetes versions, SQL Server versions, and PostgreSQL Hyperscale versions that have been verified to support the data services. 
 
+To see how all Azure Arc-enabled components are validated, see [Validation program overview](../validation-program/overview.md)
+
 > [!NOTE]
 > At the current time, Azure Arc-enabled SQL Managed Instance is generally available in select regions.
 >
