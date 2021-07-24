@@ -297,7 +297,7 @@ You can use the portal to view the uploaded file in the storage container you co
 1. On the left pane of your storage account, select **Containers**.
 1. Select the container you uploaded the file to.
 1. Select the folder named after your device.
-1. Select the blob that corresponds to your file. 
+1. Select the blob that you uploaded your file to. In this article, it's the blob with the same name as your file.  
 
     :::image type="content" source="./media/iot-hub-node-node-file-upload/view-uploaded-file.png" alt-text="View the uploaded file in the Azure portal":::
 
