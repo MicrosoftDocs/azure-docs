@@ -36,6 +36,38 @@ The following table describes the events that are raised when you change the tie
 
 a blob is rehydrated
 
+## Select an event handler
+
+Azure Event Grid directs an event that is raised by a source such as Blob Storage to an event handler. Your application can integrate with the event handler to process and respond to the event. To handle the event raised on blob rehydration, you must first decide which event handler you want to use. To learn about supported event handlers, see **Event handlers** in [What is Azure Event Grid?](../../event-grid/overview.md#event-handlers)
+
+The Azure Event Grid documentation provides guidance for setting up an event handler for Blob Storage events. Use the following links to learn how to configure event handling in the Azure portal, PowerShell, Azure CLI, or with an Azure Resource Manager template.
+
+# [Azure portal](#tab/portal)
+
+- [Web hook](../../event-grid/handler-webhooks.md): A web endpoint can serve as an event handler. To learn about using a web endpoint to handle Blob storage events, see [Use Azure Event Grid to route Blob storage events to web endpoint (Azure portal)](../../event-grid/blob-event-quickstart-portal.md).
+- [Azure Function](../../event-grid/handler-functions.md): Azure Functions are automatically configured to handle events. To learn about using the Azure portal to configure an Azure Function to handle an event, see [Send custom events to Azure Function](../../event-grid/custom-event-to-function.md).
+
+# [PowerShell](#tab/powershell)
+
+- [Send Azure Blob storage events to web endpoint \- PowerShell \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=/azure/event-grid/toc.json)
+
+# [Azure CLI](#tab/azure-cli)
+
+- [Send Azure Blob storage events to web endpoint \- Azure CLI \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-event-quickstart?toc=/azure/event-grid/toc.json)
+- [Azure Queue Storage](../../event-grid/handler-storage-queues.md): Azure Storage queues are automatically configured to handle events. To learn about using Queue Storage with Azure CLI to handle an event, see [Send custom events to storage queue](../../event-grid/custom-event-to-queue-storage.md).
+- [Azure Event Hubs](../../event-grid/handler-event-hubs.md): Azure Event Hubs are  are automatically configured to handle events. To learn about using Event Hubs with Azure CLI to handle an event, see [Send custom events to Event Hubs](../../event-grid/custom-event-to-eventhub.md)
+
+# [Template](#tab/template)
+
+[Send Blob storage events to web endpoint \- template \- Azure Event Grid \| Microsoft Docs](https://docs.microsoft.com/en-us/azure/event-grid/blob-event-quickstart-template)
+
+---
+
+
+
+
+To handle an event raised by 
+
 ## See also
 
 TBD

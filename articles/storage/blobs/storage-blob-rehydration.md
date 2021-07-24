@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.author: tamram
-ms.date: 03/11/2021
+ms.date: 07/23/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -38,24 +38,42 @@ Once a rehydration request is initiated, it cannot be canceled. During the rehyd
 
 ### Lifecycle management
 
-Rehydrating a blob doesn't change it's `Last-Modified` time. Using the [lifecycle management](storage-lifecycle-management-concepts.md) feature can create a scenario where a blob is rehydrated, then a lifecycle management policy moves the blob back to archive because the `Last-Modified` time is beyond the threshold set for the policy. To avoid this scenario, use the *[Copy an archived blob to an online tier](#copy-an-archived-blob-to-an-online-tier)* method. The copy method creates a new instance of the blob with an updated `Last-Modified` time and won't trigger the lifecycle management policy.
+Rehydrating a blob doesn't change its last modified time. Using the [lifecycle management](storage-lifecycle-management-concepts.md) feature can result in a scenario where a blob is rehydrated and then a lifecycle management policy moves the blob back to the archive tier because the last modified time is beyond the threshold set for the policy. To avoid this scenario, use the process outlined in the [Copy an archived blob to an online tier](#copy-an-archived-blob-to-an-online-tier) section. Performing a copy operation creates a new instance of the blob with an updated last modified time and and doesn't trigger the lifecycle management policy.
 
 ## Copy an archived blob to an online tier
 
-If you don't want to rehydrate your archive blob, you can choose to do a [Copy Blob](/rest/api/storageservices/copy-blob) operation. Your original blob will remain unmodified in archive while a new blob is created in the online hot or cool tier for you to work on. In the **Copy Blob** operation, you may also set the optional *x-ms-rehydrate-priority* property to Standard or High to specify the priority at which you want your blob copy created.
+If you don't want to rehydrate your archived blob, you can choose perform a [Copy Blob](/rest/api/storageservices/copy-blob) operation to copy the blob to an online tier. The original source blob remains unmodified in the archive tier, while the new destination blob is created in the online hot or cool tier. You can set the optional `x-ms-rehydrate-priority` property on the **Copy Blob** operation to *Standard* or *High* to specify the priority for creating the destination blob.
 
-Copying a blob from archive can take hours to complete depending on the rehydrate priority selected. Behind the scenes, the **Copy Blob** operation reads your archive source blob to create a new online blob in the selected destination tier. The new blob may be visible when you list blobs but the data is not available until the read from the source archive blob is complete and data is written to the new online destination blob. The new blob is as an independent copy and any modification or deletion to it does not affect the source archive blob.
+Copying a blob from archive can take hours to complete depending on the rehydration priority selected. Behind the scenes, the **Copy Blob** operation reads your archive source blob to create a new online blob in the selected destination tier. The new blob may be visible when you list the blobs in the parent container, but the data is not available until the read operation from the source blob in the archive tier is complete and the data has been written to the new destination blob in an online tier. The new blob is an independent copy, so modifying or deleting it does not affect the source blob in the archive tier.
 
 > [!IMPORTANT]
 > Do not delete the the source blob until the copy is completed successfully at the destination. If the source blob is deleted then the destination blob may not complete copying and will be empty. You may check the *x-ms-copy-status* to determine the state of the copy operation.
 
-Archive blobs can only be copied to online destination tiers within the same storage account. Copying an archive blob to another archive blob is not supported. The following table shows the capabilities of a **Copy Blob** operation.
+Archive blobs can only be copied to online destination tiers within the same storage account. Copying an archive blob to a destination blob in the archive tier is not supported. The following table shows the behavior of the **Copy Blob** operation, depending on the tier of the source and destination blob.
 
 |                                           | **Hot tier source**   | **Cool tier source** | **Archive tier source**    |
 | ----------------------------------------- | --------------------- | -------------------- | ------------------- |
 | **Hot tier destination**                  | Supported             | Supported            | Supported within the same account; pending rehydrate               |
 | **Cool tier destination**                 | Supported             | Supported            | Supported within the same account; pending rehydrate               |
 | **Archive tier destination**              | Supported             | Supported            | Unsupported         |
+
+## Handle events on blob rehydration
+
+As discussed in the previous sections, you can rehydrate a blob by calling one of the following operations:
+
+* [Set Blob Tier](/rest/api/storageservices/set-blob-tier) changes the blob tier.
+* [Copy Blob](/rest/api/storageservices/copy-blob)/[Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url) can create a destination blob in a new tier.
+
+Rehydrating a blob can take up to 15 hours for a standard priority rehydration, and up to one hour for a high priority rehydration. Azure Storage raises an event through Azure Event Grid when the rehydration is initiated, and again when it is complete. You can subscribe to these events so that your application is notified when the blob is rehydrated.
+
+The following table describes the events that are raised when you change the tier of a blob with one of these operations:
+
+| Operation status | Set Blob Tier | Copy Blob or Copy Blob from URL |
+|--|--|--|
+| When operation initiates | Microsoft.Storage.AsyncOperationInitiated | Microsoft.Storage.AsyncOperationInitiated |
+| When operation completes | Microsoft.Storage.BlobTierChanged | Microsoft.Storage.BlobCreated |
+
+For more information on handling events in Blob Storage, see [Reacting to Azure Blob storage events](storage-blob-event-overview.md).
 
 ## Pricing and billing
 
