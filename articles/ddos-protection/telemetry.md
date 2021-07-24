@@ -75,7 +75,7 @@ Telemetry for an attack is provided through Azure Monitor in real time. While [m
 
 You can view DDoS telemetry for a protected public IP address through three different resource types: DDoS protection plan, virtual network, and public IP address.
 
-### DDoS Protection Plan
+### DDoS protection plan
 1. Sign in to the [Azure portal](https://portal.azure.com/) and browse to your DDoS protection plan.
 2. Under **Monitoring**, select **Metrics**.
 3. Select **Scope**. Select the **Subscription** that contains the public IP address you want to log, select **Public IP Address** for **Resource type**, then select the specific public IP address you want to log metrics for, and then select **Apply**.
