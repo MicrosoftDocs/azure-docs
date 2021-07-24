@@ -79,7 +79,7 @@ You can view DDoS telemetry for a protected public IP address through three diff
 1. Sign in to the [Azure portal](https://portal.azure.com/) and browse to your DDoS protection plan.
 2. Under **Monitoring**, select **Metrics**.
 3. Select **Scope**. Select the **Subscription** that contains the public IP address you want to log, select **Public IP Address** for **Resource type**, then select the specific public IP address you want to log metrics for, and then select **Apply**.
-4. Select the **Aggregation** type as **Max**.
+4. Select the **Aggregation** type as **Max**. 
 
 ### Virtual network
 1. Sign in to the [Azure portal](https://portal.azure.com/) and browse to your virtual network that has DDoS protection enabled.
@@ -89,8 +89,6 @@ You can view DDoS telemetry for a protected public IP address through three diff
 5. Select **Add filter**. Under **Property**, select **Protected IP Address**, and the operator should be set to **=**. Under **Values**, you will see a dropdown of public IP addresses, associated with the the virtual network, that are protected by DDoS protection enabled. 
 
 ![DDoS Diagnostic Settings](./media/ddos-attack-telemetry/vnet-ddos-metrics.png)
-
-Refer [here](https://docs.microsoft.com/azure/azure-monitor/essentials/metrics-supported#microsoftnetworkvirtualnetworks) for more details. 
 
 ### Public IP address
 1. Sign in to the [Azure portal](https://portal.azure.com/) and browse to your public IP address.
@@ -102,8 +100,6 @@ Refer [here](https://docs.microsoft.com/azure/azure-monitor/essentials/metrics-s
 DDoS Protection Standard applies three auto-tuned mitigation policies (TCP SYN, TCP & UDP) for each public IP address of the protected resource, in the virtual network that has DDoS protection enabled. You can view the policy thresholds by selecting the  **Inbound TCP packets to trigger DDoS mitigation** and **Inbound UDP packets to trigger DDoS mitigation** metrics with **aggregation** type as 'Max', as shown in the following picture:
 
 ![View mitigation policies](./media/manage-ddos-protection/view-mitigation-policies.png)
-
-Policy thresholds are auto-configured via Azure machine learning-based network traffic profiling. Only when the policy threshold is breached does DDoS mitigation occur for the IP address under attack.
 
 ## Validate and test
 
