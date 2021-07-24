@@ -85,3 +85,9 @@ For updates to partner offerings, you needs to notify Microsoft that a new versi
 For updates to the Arc platform or cluster extension, Microsoft notifies you. Based on our testing recommendations, you run the tests according to the strategy and notify Microsoft.
 
 ## Next steps
+
+See validated solutions:
+
+* [Validated Kubernetes distributions](../kubernetes/validation-program.md)
+
+* [Validated Kubernetes distributions for data services](../data/validation-program.md)
