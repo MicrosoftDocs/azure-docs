@@ -289,6 +289,8 @@ File upload from device:
 {"deviceId":"myDeviceId","blobUri":"https://{your storage account name}.blob.core.windows.net/device-upload-container/myDeviceId/image.png","blobName":"myDeviceId/image.png","lastUpdatedTime":"2021-07-23T23:27:06+00:00","blobSizeInBytes":26214,"enqueuedTimeUtc":"2021-07-23T23:27:07.2580791Z"}
 ```
 
+## Verify the file upload
+
 You can use the portal to view the uploaded file in the storage container you configured:
 
 1. Navigate to your storage account in Azure portal.
