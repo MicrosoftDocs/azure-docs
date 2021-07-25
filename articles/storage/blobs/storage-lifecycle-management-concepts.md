@@ -335,7 +335,7 @@ Lifecycle management supports tiering and deletion of blobs, previous blob versi
 >[!NOTE]
 >If you define more than one action on the same blob, lifecycle management applies the least expensive action to the blob. For example, action `delete` is cheaper than action `tierToArchive`. Action `tierToArchive` is cheaper than action `tierToCool`.
 
-The run conditions are based on age. Base blobs use the last modified time, blob versions use the version creation time, and blob snapshots use the snapshot creation time to track age.
+The run conditions are based on age (maximum supported age would be nice to know). Base blobs use the last modified time, blob versions use the version creation time, and blob snapshots use the snapshot creation time to track age. 
 
 | Action run condition               | Condition value                          | Description                                                                      |
 |------------------------------------|------------------------------------------|----------------------------------------------------------------------------------|
