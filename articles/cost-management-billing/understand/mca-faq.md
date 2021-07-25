@@ -17,7 +17,7 @@ ms.subservice: cost-management
 -   The Microsoft Customer Agreement is also available through Cloud Solution Providers (CSP) around the world. You can find a partner in the CSP program [**here**](https://www.microsoft.com/solution-providers/home).
 -   **For new customers purchasing Azure services directly from Azure.com,** today the Microsoft Customer Agreement is available in the countries below all of which we transact in the US Dollar. In 2021 we began the rollout for the new customers in other regions with the goal of making Microsoft Customer Agreement available worldwide.
 
-| Countries               | Countries (cont.)   | Countries (cont.)      | Countries (cont.)                    |
+| Countries/regions       | Countries/regions   | Countries/regions      | Countries/regions                    |
 |-------------------------|---------------------|------------------------|--------------------------------------|
 | Afghanistan             | Côte d'Ivoire       | Moldova                | Sri Lanka                            |
 | Albania                 | Curaçao             | Mongolia               | Tajikistan                           |
