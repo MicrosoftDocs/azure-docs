@@ -18,7 +18,7 @@ To grant users, service principals, or groups access to the FHIR data plane, sel
  
 If the role assignment option is grayed out, ask your Azure subscription administrator to grant you with the permissions to the subscription or the resource group, for example, “User Access Administrator”. For more information about the Azure built-in roles, see [Azure built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
-[ ![Access control role assignment.](media/rbac/configurefhirrbac-role-assignment.png) ](media/rbac/configurefhirrbac-role-assignment.png#lightbox)
+[ ![Access control role assignment.](media/rbac/role-assignment.png) ](media/rbac/role-assignment.png#lightbox)
 
 In the Role selection, search for one of the built-in roles for the FHIR data plane, for example, “FHIR Data Contributor”. You can choose other roles below.
 
@@ -33,7 +33,7 @@ In the **Select** section, type the client application registration name. If the
 If the client application is not found, check your application registration, to ensure that the name is correct. Ensure that the client application is created in the same tenant where the FHIR service is deployed in.
 
 
-[ ![Select role assignment.](media/rbac/configurefhirrbac-select-role-assignment.png) ](media/rbac/configurefhirrbac-select-role-assignment.png#lightbox)
+[ ![Select role assignment.](media/rbac/select-role-assignment.png) ](media/rbac/select-role-assignment.png#lightbox)
 
 You can verify the role assignment by selecting the **Role assignments** tab from the **Access control (IAM)** menu option.
  

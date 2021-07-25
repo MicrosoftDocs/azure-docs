@@ -20,13 +20,13 @@ In this article, you will learn how to access the Healthcare APIs using [REST Cl
 
 Select the Extensions icon on the left side panel of your Visual Studio Code, and search for "REST Client". Find the [REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) and install.
 
-[ ![REST Client VSCode extension](media/restclient-install.png) ](media/restclient-install.png#lightbox)
+[ ![REST Client VSCode extension](media/rest-install.png) ](media/rest-install.png#lightbox)
 
 ## Create a `.http` file and define variables
 
 Create a new file in Visual Studio Code. Enter a `GET` request command line in the file, and save it as `test.http`. The file suffix `.http` automatically activates the REST Client environment. Click on `Send Request` to get the metadata. 
 
-[ ![Send Request](media/restclient-sendrequest.png) ](media/restclient-sendrequest.png#lightbox)
+[ ![Send Request](media/rest-send-request.png) ](media/rest-send-request.png#lightbox)
 
 ## Get client application values
 
@@ -69,7 +69,7 @@ grant_type=client_credentials
 @token = {{getAADToken.response.body.access_token}}
 ```
 
-[ ![Get access token](media/restclient-config.png) ](media/restclient-config.png#lightbox)
+[ ![Get access token](media/rest-config.png) ](media/rest-config.png#lightbox)
 
 ## `GET` FHIR Patient data
 
@@ -81,17 +81,17 @@ GET {{fhirurl}}/Patient/<patientid>
 Authorization: Bearer {{token}}
 ```
 
-[ ![GET Patient](media/restclient-getpatient.png) ](media/restclient-getpatient.png#lightbox)
+[ ![GET Patient](media/rest-patient.png) ](media/rest-patient.png#lightbox)
 
 ## Run PowerShell or CLI
 
 You can run PowerShell or CLI scripts within Visual Studio Code. Press `CTRL` and the `~` key and select PowerShell or Bash. You can find more details on [Integrated Terminal](https://code.visualstudio.com/docs/editor/integrated-terminal).
 
 ### PowerShell in Visual Studio Code
-[ ![running PowerShell](media/restclient-vspowershell.png) ](media/restclient-vspowershell.png#lightbox)
+[ ![running PowerShell](media/rest-powershell.png) ](media/rest-powershell.png#lightbox)
 
 ### CLI in Visual Studio Code
-[ ![running CLI](media/restclient-vscli.png) ](media/restclient-vscli.png#lightbox)
+[ ![running CLI](media/rest-cli.png) ](media/rest-cli.png#lightbox)
 
 ## Troubleshooting
 

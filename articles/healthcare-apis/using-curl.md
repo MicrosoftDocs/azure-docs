@@ -99,7 +99,7 @@ fhirservice="https://<fhirservice>.fhir.azurehealthcareapis.com"
 
 `curl -X GET --header "Authorization: Bearer $token" $fhirservice/Patient`
 
-[ ![Access data in the FHIR service with curl script.](media/curl1.png) ](media/curl1.png#lightbox)
+[ ![Access data in the FHIR service with curl script.](media/curl-fhir.png) ](media/curl-fhir.png#lightbox)
 
 ## Access data in the DICOM service
 
@@ -117,7 +117,7 @@ dicomservice="https://<dicomservice>.dicom.azurehealthcareapis.com"
 
 `curl -X GET --header "Authorization: Bearer $token" $dicomservice/changefeed?includemetadata=false`
 
-[ ![Access data in the DICOM service with curl script.](media/curl2.png) ](media/curl2.png#lightbox)
+[ ![Access data in the DICOM service with curl script.](media/curl-dicom.png) ](media/curl-dicom.png#lightbox)
 
 ## Next steps
 

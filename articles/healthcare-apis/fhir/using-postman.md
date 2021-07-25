@@ -64,7 +64,7 @@ Open Postman, select the **workspace**, **collection**, and **environment** you 
 
 Enter `{{fhirurl}}/metadata` in the `GET`request, and hit `Send`. You should see the capability statement of the FHIR service.
 
-[ ![Capability statement parameters.](media/postman/postman-capability-statement-params.png) ](media/postman/postman-capability-statement-params.png#lightbox)
+[ ![Capability statement parameters.](media/postman/postman-capability-statement.png) ](media/postman/postman-capability-statement.png#lightbox)
 
 [ ![Save request.](media/postman/postman-save-request.png) ](media/postman/postman-save-request.png#lightbox)
 
@@ -93,23 +93,23 @@ You can examine the access token using online tools such as [https://jwt.ms](htt
 
 [ ![Access token claims.](media/postman/postman-access-token-claims.png) ](media/postman/postman-access-token-claims.png#lightbox)
 
-## Get a FHIR resource
+## Get FHIR resource
 
 After you've obtained an Azure AD access token, you can access the FHIR data. In a new `GET` request, enter `{{fhirurl}}/Patient`.
 
-Select **Bearer Token** as authroization type.  Enter `{{bearerToken}}` in the **Token** section. Select **Send**. As a response, you should see a list of patients in your FHIR resource.
+Select **Bearer Token** as authorization type.  Enter `{{bearerToken}}` in the **Token** section. Select **Send**. As a response, you should see a list of patients in your FHIR resource.
 
 [ ![Select bearer token.](media/postman/postman-select-bearer-token.png) ](media/postman/postman-select-bearer-token.png#lightbox)
 
-## Create or update a FHIR resource
+## Create or update your FHIR resource
 
 After you've obtained an Azure AD access token, you can create or update the FHIR data. For example, you can create a new patient or update an existing patient.
  
-Create a new request, change the methond to “Post”, and enter the value in the request section.
+Create a new request, change the method to “Post”, and enter the value in the request section.
 
 `{{fhirurl}}/Patient`
 
-Select **Bearer Token** as the authroization type.  Enter `{{bearerToken}}` in the **Token** section. Select the **Body** tab. Select the **raw** option and **JSON** as body text format. Copy and paste the text to the body section. 
+Select **Bearer Token** as the authorization type.  Enter `{{bearerToken}}` in the **Token** section. Select the **Body** tab. Select the **raw** option and **JSON** as body text format. Copy and paste the text to the body section. 
 
 
 ```

@@ -82,7 +82,7 @@ The Healthcare APIs typically expect a [JSON Web Token](https://en.wikipedia.org
 * Payload (the claims)
 * Signature, as shown in the image below. For more information, see [Azure access tokens](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
 
-[ ![JASON web token signature.](media/azureaccesstoken.png) ](media/azureaccesstoken.png#lightbox)
+[ ![JASON web token signature.](media/azure-access-token.png) ](media/azure-access-token.png#lightbox)
 
 You can use online tools such as [https://jwt.ms](https://jwt.ms/) or [https://jwt.io](https://jwt.io/) to view the token content. For example, you can view the claims details.
 
