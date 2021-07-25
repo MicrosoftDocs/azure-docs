@@ -234,8 +234,8 @@ If you purchase Azure services through a Microsoft partner, contact them for que
 
 ## How will I get my invoice?
 
--   If you’re buying directly from Azure.com, you will find your invoice details in the Azure Cost Management and Billing blade in the Azure Portal.
--   If you are buying through a Microsoft sales representative, you will receive your invoices from Microsoft. You can also access your invoices in the Azure Cost Management and Billing blade in Azure Portal.
+-   If you’re buying directly from Azure.com, you will find your invoice details in the **Cost Management and Billing** service in the [Azure portal](https://portal.azure.com).
+-   If you are buying through a Microsoft sales representative, you will receive your invoices from Microsoft. You can also access your invoices in the **Cost Management and Billing** service in the [Azure portal](https://portal.azure.com).
 -   If you are purchasing through a cloud solution provider under the Microsoft Customer Agreement, you will receive your invoice from the partner.
 
 ## Where can I review the Microsoft Customer Agreement?
