@@ -75,7 +75,7 @@ Confirm that your machine meets the necessary requirements for Defender for Endp
     |Environment                                                | Required steps  |
     |-----------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     |Windows (all)                                              | Configure the network settings described in [Configure device proxy and Internet connectivity settings](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet).         |
-    |Linux                                                      | Confirm that your machines have the MicrosoftMonitoringAgent extension.                                                                                                                               |
+    |Linux                                                      | Confirm that your machines have the MicrosoftMonitoringAgent extension.<br>Ensure your machine is connected to the internet.                                                                          |
     |Windows Server 2019                                        | Confirm that your machines have the MicrosoftMonitoringAgent extension.                                                                                                                               |
     |[Windows Virtual Desktop](../virtual-desktop/overview.md)  | Confirm that your machines have the MicrosoftMonitoringAgent extension.                                                                                                                               |
     |On-premises machines                                       | 1. Connect them to Azure Arc as explained in [Connect hybrid machines with Azure Arc enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).<br>2. Use the relevant Security Center recommendation to deploy the Log Analytics agent:<br>[Log Analytics agent should be installed on your **Linux-based** Azure Arc machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/720a3e77-0b9a-4fa9-98b6-ddf0fd7e32c1)<br>[Log Analytics agent should be installed on your **Windows-based** Azure Arc machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/27ac71b1-75c5-41c2-adc2-858f5db45b08)        |
@@ -285,7 +285,6 @@ The discount will be effective starting from the approval date, and will not tak
 
 ### How do I switch from a third-party EDR tool?
 Full instructions for switching from a non-Microsoft endpoint solution are available in the Microsoft Defender for Endpoint documentation: [Migration overview](/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).
-  
 
 
 ## Next steps
