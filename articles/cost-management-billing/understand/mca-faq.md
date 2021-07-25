@@ -56,14 +56,24 @@ Azure is priced in US dollars (USD) worldwide under the Microsoft Customer Agree
 
 If you transact in one of the other supported currencies listed below, your monthly cost is first calculated in US dollars. For payment, the total is then converted to local currency.
 
-| **AUD** | Australian Dollar | **JPY** | Japanese Yen       |
-| **BRL** | Brazilian Real    | **KRW** | Korean Won         |
-| **GBP** | British Pound     | **NZD** | New Zealand Dollar |
-| **CAD** | Canadian Dollar   | **NOK** | Norwegian Krone    |
-| **CNY** | Chinese Yuan      | **RUB** | Russian Ruble      |
-| **DKK** | Danish Krone      | **SEK** | Swedish Krona      |
-| **EUR** | Euro              | **CHF** | Swiss Franc        |
-| **INR** | Indian Rupee      | **TWD** | Taiwan Dollar      |
+| Code    | Currency       |
+|---------|----------------|
+| AUD | Australian Dollar  |
+| BRL | Brazilian Real     |
+| GBP | British Pound      |
+| CAD | Canadian Dollar    |
+| CNY | Chinese Yuan       |
+| DKK | Danish Krone       |
+| EUR | Euro               |
+| INR | Indian Rupee       |
+| JPY | Japanese Yen       |
+| KRW | Korean Won         |
+| NZD | New Zealand Dollar |
+| NOK | Norwegian Krone    |
+| RUB | Russian Ruble      |
+| SEK | Swedish Krona      |
+| CHF | Swiss Franc        |
+| TWD | Taiwan Dollar      |
 
 ## What exchange rate will be used and how does it work with my bill?
 
