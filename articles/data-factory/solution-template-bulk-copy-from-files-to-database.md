@@ -1,9 +1,11 @@
 ---
 title: Bulk copy from files to database
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to use a solution template to copy data in bulk from Azure Data Lake Storage Gen2 to Azure Synapse Analytics / Azure SQL Database.
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 12/09/2020
 ---

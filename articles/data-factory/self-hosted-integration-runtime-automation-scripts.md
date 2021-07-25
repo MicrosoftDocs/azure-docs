@@ -1,11 +1,12 @@
 ---
 title: Automating self-hosted integration runtime installation using local PowerShell scripts
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: To automate installation of Self-hosted Integration Runtime on local machines.
 ms.service: data-factory
 ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, synapse
 ms.date: 05/09/2020
 ---
 

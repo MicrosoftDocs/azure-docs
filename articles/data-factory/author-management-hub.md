@@ -1,7 +1,9 @@
 ---
 title: Management hub
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Manage your connections, source control configuration and global authoring properties in the Azure Data Factory management hub
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: conceptual
 author: minhe-msft
 ms.author: hemin

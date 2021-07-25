@@ -1,11 +1,12 @@
 ---
 title: Data tool to copy new and updated files incrementally 
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Create an Azure data factory and then use the Copy Data tool to incrementally load new files based on LastModifiedDate.
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, synapse
 ms.date: 07/12/2021
 ---
 

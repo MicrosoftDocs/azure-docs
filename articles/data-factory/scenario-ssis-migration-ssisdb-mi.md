@@ -1,9 +1,11 @@
 ---
 title: SSIS migration with Azure SQL Managed Instance as the database workload destination 
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: SSIS migration with Azure SQL Managed Instance as the database workload destination.
 author: chugugrace
 ms.author: chugu
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 9/12/2019
 ---

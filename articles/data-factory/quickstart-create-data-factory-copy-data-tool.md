@@ -1,9 +1,11 @@
 ---
 title: Copy data by using the Azure Copy Data tool 
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Create an Azure Data Factory and then use the Copy Data tool to copy data from one location in Azure Blob storage to another location.
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: quickstart
 ms.date: 07/05/2021
 ---

@@ -1,11 +1,12 @@
 ---
 title: Managed virtual network & managed private endpoints
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn about managed virtual network and managed private endpoints in Azure Data Factory.
 ms.author: lle
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: [seo-lt-2019, references_regions, devx-track-azurepowershell]
+ms.custom: [seo-lt-2019, references_regions, devx-track-azurepowershell], synapse
 ms.date: 06/16/2021
 ---
 

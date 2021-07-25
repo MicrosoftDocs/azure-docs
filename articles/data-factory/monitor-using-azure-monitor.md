@@ -1,10 +1,12 @@
 ---
 title: Monitor data factories using Azure Monitor 
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to use Azure Monitor to monitor /Azure Data Factory pipelines by enabling diagnostic logs with information from Data Factory.
 author: minhe-msft
 ms.author: hemin
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 07/13/2020
 ---

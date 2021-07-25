@@ -1,11 +1,12 @@
 ---
 title: Copy data in the cloud using PowerShell
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: This PowerShell script copies data from one location in an Azure Blob Storage to another location in the same Blob Storage.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.topic: article
-ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.custom: seo-lt-2019, devx-track-azurepowershell, synapse
 ms.date: 03/12/2020
 ---
 

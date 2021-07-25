@@ -1,11 +1,12 @@
 ---
 title: Copy data in bulk with PowerShell
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Use Azure Data Factory with Copy Activity to copy data from a source data store to a destination data store in bulk.
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
 ms.topic: tutorial
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, synapse
 ms.date: 02/18/2021
 ---
 

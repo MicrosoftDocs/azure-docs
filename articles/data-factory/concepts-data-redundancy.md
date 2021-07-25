@@ -1,9 +1,11 @@
 ---
 title: Data redundancy in Azure Data Factory | Microsoft Docs
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: 'Learn about meta-data redundancy mechanisms in Azure Data Factory'
 author: nabhishek
 ms.reviewer: abnarain
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.author: abnarain

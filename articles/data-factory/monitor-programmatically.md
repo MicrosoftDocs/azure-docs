@@ -1,12 +1,13 @@
 ---
 title: Programmatically monitor an Azure data factory 
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to monitor a pipeline in a data factory by using different software development kits (SDKs).
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/16/2018
 author: minhe-msft
 ms.author: hemin
-ms.custom: devx-track-python
+ms.custom: devx-track-python, synapse
 ---
 # Programmatically monitor an Azure data factory
 

@@ -1,7 +1,9 @@
 ---
 title: Use the diagnose connectivity feature in the SSIS integration runtime
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Troubleshoot connection issues in the SSIS integration runtime by using the diagnose connectivity feature. 
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: conceptual
 ms.author: meiyl
 author: meiyl

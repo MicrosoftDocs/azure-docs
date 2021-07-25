@@ -1,9 +1,11 @@
 ---
 title: Azure Data Factory tutorials
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: A list of tutorials demonstrating Azure Data Factory concepts
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: tutorial
 ms.date: 03/16/2021
 ---

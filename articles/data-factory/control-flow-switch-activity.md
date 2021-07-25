@@ -1,5 +1,6 @@
 ---
 title: Switch activity in Azure Data Factory 
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: The Switch activity allows you to control the processing flow based on a condition.
 author: chez-charlie
 ms.author: chez
@@ -7,7 +8,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/23/2021 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, synapse
 ---
 
 # Switch activity in Azure Data Factory

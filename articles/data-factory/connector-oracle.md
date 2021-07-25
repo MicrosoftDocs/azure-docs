@@ -4,6 +4,7 @@ titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to copy data from supported source stores to an Oracle database, or from Oracle to supported sink stores, using Data Factory or Synapse Analytics pipelines.
 author: jianleishen
 ms.service: data-factory
+ms.custom: synapse, synapse
 ms.topic: conceptual
 ms.date: 03/17/2021
 ms.author: jianleishen

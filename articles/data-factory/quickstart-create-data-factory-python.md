@@ -1,5 +1,6 @@
 ---
 title: 'Quickstart: Create an Azure Data Factory using Python'
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Use a data factory to copy data from one location in Azure Blob storage to another location.
 author: ssabat
 ms.author: susabat
@@ -8,7 +9,7 @@ ms.service: data-factory
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/27/2021
-ms.custom: seo-python-october2019, devx-track-python
+ms.custom: seo-python-october2019, devx-track-python, synapse
 ---
 
 # Quickstart: Create a data factory and pipeline using Python

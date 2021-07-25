@@ -4,6 +4,7 @@ titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to copy data from SharePoint Online List to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 author: jianleishen
 ms.service: data-factory
+ms.custom: synapse, synapse
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: jianleishen

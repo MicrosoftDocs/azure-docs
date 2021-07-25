@@ -1,9 +1,11 @@
 ---
 title: Power Query activity in Azure Data Factory 
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to use the Power Query activity for data wrangling features in a Data Factory pipeline
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 01/18/2021
 ---

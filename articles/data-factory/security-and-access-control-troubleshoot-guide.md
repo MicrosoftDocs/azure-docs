@@ -1,8 +1,10 @@
 ---
 title: Troubleshoot security and access control issues
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to troubleshoot security and access control issues in Azure Data Factory. 
 author: lrtoyou1223
 ms.service: data-factory
+ms.custom: synapse, synapse
 ms.topic: troubleshooting
 ms.date: 05/31/2021
 ms.author: lle

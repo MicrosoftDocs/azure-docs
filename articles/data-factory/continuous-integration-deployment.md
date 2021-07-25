@@ -1,5 +1,6 @@
 ---
 title: Continuous integration and delivery in Azure Data Factory 
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to use continuous integration and delivery to move Data Factory pipelines from one environment (development, test, production) to another.
 ms.service: data-factory
 author: nabhishek
@@ -7,7 +8,7 @@ ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 05/12/2021 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, synapse
 ---
 
 # Continuous integration and delivery in Azure Data Factory
