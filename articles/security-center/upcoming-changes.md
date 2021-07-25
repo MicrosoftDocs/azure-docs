@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 07/22/2021
+ms.date: 07/25/2021
 ms.author: memildin
 
 ---
@@ -28,9 +28,8 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)                                            | July 2021                 |
 | [Deprecating recommendation 'Log Analytics agent health issues should be resolved on your machines'](#deprecating-recommendation-log-analytics-agent-health-issues-should-be-resolved-on-your-machines) | July 2021                 |
 | [Logical reorganization of Azure Defender for Resource Manager alerts](#logical-reorganization-of-azure-defender-for-resource-manager-alerts)                                                           | August 2021               |
-| [Enhancements to recommendation to classify sensitive data in SQL databases](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)                                               | Q3 2021                   |
 | [Enable Azure Defender security control to be included in secure score](#enable-azure-defender-security-control-to-be-included-in-secure-score)                                                         | Q3 2021                   |
-|                                                                                                                                                                                                         |                           |
+| [Enhancements to recommendation to classify sensitive data in SQL databases](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)                                               | Q1 2022                   ||                                                                                                                                                                                                         |                           |
 
 
 ### CSV exports to be limited to 20 MB
@@ -115,12 +114,6 @@ These are the alerts that are currently part of Azure Defender for Resource Mana
 Learn more about the [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) and [Azure Defender for servers](defender-for-servers-introduction.md).
 
 
-### Enhancements to recommendation to classify sensitive data in SQL databases
-
-**Estimated date for change:** Q3 2021
-
-The recommendation **Sensitive data in your SQL databases should be classified** in the **Apply data classification** security control will be replaced with a new version that's better aligned with Microsoft's data classification strategy. As a result the recommendation's ID will also change (currently, it's b0df6f56-862d-4730-8597-38c0fd4ebd59).
-
 ### Enable Azure Defender security control to be included in secure score
 
 **Estimated date for change:** Q3 2021
@@ -134,6 +127,12 @@ When you enable Azure Defender you'll extend the capabilities of Security Center
 With this change, there will be an impact on the secure score of any subscriptions that aren't protected by Azure Defender. We suggest you enable Azure Defender before this change occurs to ensure there is no impact on your scores. 
 
 Learn more in [Quickstart: Enable Azure Defender](enable-azure-defender.md).
+
+### Enhancements to recommendation to classify sensitive data in SQL databases
+
+**Estimated date for change:** Q1 2022
+
+The recommendation **Sensitive data in your SQL databases should be classified** in the **Apply data classification** security control will be replaced with a new version that's better aligned with Microsoft's data classification strategy. As a result the recommendation's ID will also change (currently, it's b0df6f56-862d-4730-8597-38c0fd4ebd59).
 
 
 ## Next steps
