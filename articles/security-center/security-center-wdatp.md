@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 07/25/2021
+ms.date: 07/27/2021
 ms.author: memildin
 ---
 
@@ -120,28 +120,29 @@ If you're already an Azure Defender customer with Microsoft Defender for Endpoin
 
     :::image type="content" source="./media/security-center-wdatp/enable-for-linux.png" alt-text="Enable the integration between Security Center and Microsoft Defender for Endpoint for Linux":::
 
-    Azure Security Center will automatically onboard your Linux machines to Microsoft Defender for Endpoint.
-
-    > [!NOTE]
-    > Azure Security Center will detect any previous installations of Microsoft Defender for Endpoint and reconfigure it to integrated mode.
-
 1. In the confirmation prompt, verify the information and select **Enable** if you're happy to proceed. 
 
     :::image type="content" source="./media/security-center-wdatp/enable-for-linux-result.png" alt-text="Confirming the integration between Security Center and Microsoft's EDR solution, Microsoft Defender for Endpoint for Linux":::
+
+    Azure Security Center will:
+
+    - Automatically onboard your Linux machines to Defender for Endpoint
+    - Ignore any machines that are running other fanotify-based solutions (see details of the `fanotify` kernel option required in [Linux system requirements](https://docs.microsoft.com/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#system-requirements))
+    - Detect any previous installations of Defender for Endpoint and reconfigure them to integrated mode
 
     Onboarding might take up to 24 hours.
 
 1. To verify installation of Defender for Endpoint on a Linux machine, run the following shell command on your servers:
 
-    ``mdatp health``
+    `mdatp health`
 
     If Microsoft Defender for Endpoint is installed, you'll see its health status:
 
-    ``healthy : true``
+    `healthy : true`
 
-    ``licensed: true``
+    `licensed: true`
 
-    In addition, in the Azure portal you'll see a new Azure extension on your machines called MDE.Linux.
+    In addition, in the Azure portal you'll see a new Azure extension on your machines called `MDE.Linux`.
 
 > [!NOTE]
 > The next time you return to this page of the Azure portal, the **Enable for Linux machines** button won't be shown. To disable the integration for Linux, you'll need to disable it for Windows too by clearing the checkbox for **Allow Microsoft Defender for Endpoint to access my data**, and selecting **Save**.
@@ -164,28 +165,29 @@ If you're already an Azure Defender customer with Microsoft Defender for Endpoin
 
     :::image type="content" source="./media/security-center-wdatp/enable-for-linux.png" alt-text="Enable the integration between Security Center and Defender for Endpoint for Linux":::
 
-    Azure Security Center will automatically onboard your Linux machines to Microsoft Defender for Endpoint.
-
-    > [!NOTE]
-    > Azure Security Center will detect any previous installations of Microsoft Defender for Endpoint and reconfigure it to integrated mode.
-
 1. In the confirmation prompt, verify the information and select **Enable** if you're happy to proceed. 
 
     :::image type="content" source="./media/security-center-wdatp/enable-for-linux-result.png" alt-text="Confirmation of the results of adding Linux machines":::
+
+    Azure Security Center will:
+
+    - Automatically onboard your Linux machines to Defender for Endpoint
+    - Ignore any machines that are running other fanotify-based solutions (see details of the `fanotify` kernel option required in [Linux system requirements](https://docs.microsoft.com/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#system-requirements))
+    - Detect any previous installations of Defender for Endpoint and reconfigure them to integrated mode
 
     Onboarding might take up to 24 hours.
 
 1. To verify installation of Defender for Endpoint on a Linux machine, run the following shell command on your servers:
 
-    ``mdatp health``
+    `mdatp health`
 
     If Microsoft Defender for Endpoint is installed, you'll see its health status:
 
-    ``healthy : true``
+    `healthy : true`
 
-    ``licensed: true``
+    `licensed: true`
 
-    In addition, in the Azure portal you'll see a new Azure extension on your machines called MDE.Linux.
+    In addition, in the Azure portal you'll see a new Azure extension on your machines called `MDE.Linux`.
 
 > [!NOTE]
 > The next time you return to this page of the Azure portal, the **Enable for Linux machines** button won't be shown. To disable the integration for Linux, you'll need to disable it for Windows too by clearing the checkbox for **Allow Microsoft Defender for Endpoint to access my data**, and selecting **Save**.
@@ -216,7 +218,7 @@ For endpoints running Windows:
 1. Create a folder 'C:\test-MDATP-test'.
 1. Use Remote Desktop to access your machine.
 1. Open a command-line window.
-1. At the prompt, copy and run the following command. The Command Prompt window will close automatically.
+1. At the prompt, copy and run the following command. The command prompt window will close automatically.
 
     ```powershell
     powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden (New-Object System.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe', 'C:\\test-MDATP-test\\invoice.exe'); Start-Process 'C:\\test-MDATP-test\\invoice.exe'
