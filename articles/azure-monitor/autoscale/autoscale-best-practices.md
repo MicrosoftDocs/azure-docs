@@ -30,6 +30,8 @@ If you manually update the instance count to a value above or below the maximum,
 ### Always use a scale-out and scale-in rule combination that performs an increase and decrease
 If you use only one part of the combination, autoscale will only take action in a single direction (scale out, or in) until it reaches the maximum, or minimum instance counts, as defined in the profile. This is not optimal, ideally you want your resource to scale up at times of high usage to ensure availability. Similarly, at times of low usage you want your resource to scale down, so you can realize cost savings.
 
+Another reason for using both a scale-out and a scale-in rule is that, otherwise, the autoscale engine might get stuck in a flapping state because it sometimes meets both a scale-out and a scale-in condition (using different metrics) at the same time.
+
 ### Choose the appropriate statistic for your diagnostics metric
 For diagnostics metrics, you can choose among *Average*, *Minimum*, *Maximum* and *Total* as a metric to scale by. The most common statistic is *Average*.
 
