@@ -12602,7 +12602,7 @@
     {
       "source_path_from_root": "/articles/sql-database/sql-database-managed-instance-migrate.md",
       "redirect_url": "/azure/azure-sql/managed-instance/migrate-to-instance-from-sql-server",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/azure/azure-sql/managed-instance/migrate-to-instance-from-sql-server.md",
