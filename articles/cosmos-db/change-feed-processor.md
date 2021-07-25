@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 06/09/2021
+ms.date: 07/20/2021
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ---
@@ -111,6 +111,9 @@ It's possible to initialize the change feed processor to read changes starting a
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=TimeInitialization)]
 
 The change feed processor will be initialized for that specific date and time and start reading the changes that happened after.
+
+> [!NOTE]
+> Starting the change feed processor at a specific date and time is not supported in multi-region write accounts.
 
 ### Reading from the beginning
 

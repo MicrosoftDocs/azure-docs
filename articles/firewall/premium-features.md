@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 07/15/2021
+ms.date: 07/19/2021
 ms.author: victorh
 ms.custom: references_regions
 ---
@@ -20,9 +20,6 @@ ms.custom: references_regions
 :::image type="content" source="media/premium-features/premium-overview.png" alt-text="Azure Firewall Premium overview diagram":::
 
 Azure Firewall Premium uses Firewall Policy, a global resource that can be used to centrally manage your firewalls using Azure Firewall Manager. Starting this release, all new features are configurable via Firewall Policy only. Firewall Rules (classic) continue to be supported and can be used to configure existing Standard Firewall features.  Firewall Policy can be managed independently or with Azure Firewall Manager. A firewall policy associated with a single firewall has no charge.
-
-> [!IMPORTANT]
-> Currently the Firewall Premium SKU is  not supported in Secure Hub deployments and forced tunnel configurations. 
 
 Azure Firewall Premium includes the following features:
 
@@ -77,7 +74,10 @@ For example, if Azure Firewall intercepts an HTTPS request for `www.google.com/n
 
 - Firewall Premium – the complete URL will be examined, so `www.google.com/news` will be categorized as *News*.
 
-The categories are organized based on severity under **Liability**, **High-Bandwidth**, **Business Use**, **Productivity Loss**, **General Surfing**, and **Uncategorized**.
+The categories are organized based on severity under **Liability**, **High-Bandwidth**, **Business Use**, **Productivity Loss**, **General Surfing**, and **Uncategorized**. For a detailed description of the web categories, see [Azure Firewall web categories](web-categories.md).
+
+### Web category logging
+You can view traffic that has been filtered by **Web categories** in the Application logs. **Web categories** field is only displayed if it has been explicitly configured in your firewall policy application rules. For example, if you do not have a rule that explicitly denies *Search Engines*, and a user requests to go to www.bing.com, only a default deny message is displayed as opposed to a Web categories message. This is because the web category was not explicitly configured.
 
 ### Category exceptions
 
