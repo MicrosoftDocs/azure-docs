@@ -644,7 +644,7 @@ An overview of the industrial network diagram will allow you to define the prope
     | Default gateway |  |  |  |
     | DNS |  |  |  |
 
-1. **On-premises management console ** 
+1. **On-premises management console** 
 
     | Item | Active | Passive (when using HA) |
     |--|--|--|
