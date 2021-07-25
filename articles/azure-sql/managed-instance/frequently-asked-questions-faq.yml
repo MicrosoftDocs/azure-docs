@@ -264,8 +264,7 @@ sections:
           
           ### Is native restore (from .bak files) to Managed Instance supported?
           
-          Yes, it is supported and available for SQL Server 2005+ versions.  To use native restore, upload your .bak file to Azure blob storage and execute T-SQL commands. For more details, see [Native restore from URL](.../migration-guides/managed-instance/
-sql-server-to-managed-instance-guide.md).
+          Yes, it is supported and available for SQL Server 2005+ versions.  To use native restore, upload your .bak file to Azure blob storage and execute T-SQL commands. For more details, see [Native restore from URL](.../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md).
           
       - question: |
           Business continuity
