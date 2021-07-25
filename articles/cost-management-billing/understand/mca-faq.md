@@ -1,6 +1,6 @@
 ---
 title: Microsoft Customer Agreement FAQ
-description: This article answers common questions for partners signing the Microsoft Customer Agreement
+description: Get answers to frequently asked questions about signing the Microsoft Customer Agreement.
 author: bandersmsft
 ms.author: banders
 ms.date: 07/26/2021
