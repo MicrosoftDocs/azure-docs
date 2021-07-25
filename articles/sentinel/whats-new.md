@@ -47,7 +47,8 @@ The **Microsoft Threat Intelligence Matching Analytics** rule currently matches 
 - [DNS](connect-dns.md)
 - [Syslog](connect-syslog.md)
 
-For more information, see [Configure a rule to generate security alerts](work-with-threat-indicators.md#configure-a-rule-to-generate-security-alerts) and [Use Microsoft matched threat intelligence (Public preview)](work-with-threat-indicators.md#use-microsoft-matched-threat-intelligence-public-preview).
+For more information, see [Detect threats using matching analytics (Public preview)](work-with-threat-indicators.md#detect-threats-using-matching-analytics-public-preview).
+
 ### Enrich entities with geolocation data via API (Public preview)
 
 Azure Sentinel now offers an API to enrich your data with geolocation information. Geolocation data can then be used to analyze and investigate security incidents.
