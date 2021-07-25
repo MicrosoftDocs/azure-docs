@@ -1,7 +1,7 @@
 ---
 title: Set up your network
 description: Learn about solution architecture, network preparation, prerequisites, and other information needed to ensure that you successfully set up your network to work with Azure Defender for IoT appliances.
-ms.date: 02/18/2021
+ms.date: 07/25/2021
 ms.topic: how-to
 ---
 
@@ -51,7 +51,7 @@ Record site information such as:
 
 - DNS servers (optional). Prepare your DNS server's IP and host name.
 
-For a detailed list and description of important site information, see [Example site book](#example-site-book).
+For a detailed list and description of important site information, see [Predeployment checklist](#predeployment-checklist).
 
 #### Successful monitoring guidelines
 
@@ -623,74 +623,80 @@ An overview of the industrial network diagram will allow you to define the prope
 
 1.  **Sensor** - Specifications for site equipment
 
-#### Network  
-
 The sensor appliance is connected to switch SPAN port through a network adapter. It's connected to the customer's corporate network for management through another dedicated network adapter.
 
 Provide address details for the sensor NIC that will be connected in the corporate network: 
 
-|  Item               | Appliance 1 | Appliance 2 | Appliance 3 |
-| --------------- | ------------- | ------------- | ------------- |
-| Appliance IP address    |               |               |               |
-| Subnet          |               |               |               |
-| Default gateway |               |               |               |
-| DNS             |               |               |               |
-| Host name       |               |               |               |
+| Item | Appliance 1 | Appliance 2 | Appliance 3 |
+|--|--|--|--|
+| Appliance IP address |  |  |  |
+| Subnet |  |  |  |
+| Default gateway |  |  |  |
+| DNS |  |  |  |
+| Host name |  |  |  |
 
-#### iDRAC/iLO/Server management
+1.  **iDRAC/iLO/Server management**
 
-|       Item          | Appliance 1 | Appliance 2 | Appliance 3 |
-| --------------- | ------------- | ------------- | ------------- |
-| Appliance IP address     |               |               |               |
-| Subnet          |               |               |               |
-| Default gateway |               |               |               |
-| DNS             |               |               |               |
+| Item | Appliance 1 | Appliance 2 | Appliance 3 |
+|--|--|--|--|
+| Appliance IP address |  |  |  |
+| Subnet |  |  |  |
+| Default gateway |  |  |  |
+| DNS |  |  |  |
 
-#### On-premises management console  
+1. **On-premises management console ** 
 
-|       Item          | Active | Passive (when using HA) |
-| --------------- | ------ | ----------------------- |
-| IP address             |        |                         |
-| Subnet          |        |                         |
-| Default gateway |        |                         |
-| DNS             |        |                         |
+| Item | Active | Passive (when using HA) |
+|--|--|--|
+| IP address |  |  |
+| Subnet |  |  |
+| Default gateway |  |  |
+| DNS |  |  |
 
-#### SNMP  
+1. **SNMP**  
 
-|   Item              | Details |
-| --------------- | ------ |
-| IP              |        |
-| IP address | |
-| Username | |
-| Password | |
+| Item | Details |
+|--|--|
+| IP |  |
+| IP address |  |
+| Username |  |
+| Password |  |
 | Authentication type | MD5 or SHA |
 | Encryption | DES or AES |
-| Secret key | |
+| Secret key |  |
 | SNMP v2 community string |
 
-### On-premises management console SSL certificate
+1. **On-premises management console SSL certificate**
 
 Are you planning to use an SSL certificate? Yes or No
 
 If yes, what service will you use to generate it? What attributes will you include in the certificate (for example, domain or IP address)?
 
-### SMTP authentication
+1. **SMTP authentication**
 
 Are you planning to use SMTP to forward alerts to an email server? Yes or No
 
 If yes, what authentication method you will use?  
 
-### Active Directory or local users
+1. **Active Directory or local users**
 
 Contact an Active Directory administrator to create an Active Directory site user group or create local users. Be sure to have your users ready for the deployment day. 
 
-### IoT device types in the network
+1. IoT device types in the network
 
 | Device type | Number of devices in the network | Average bandwidth |
 | --------------- | ------ | ----------------------- |
 | Camera | |
 | X-ray machine | |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
 
-## See also
+## Next steps
 
 [About the Defender for IoT installation](how-to-install-software.md)
