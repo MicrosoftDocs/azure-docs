@@ -15,7 +15,7 @@ ms.subservice: cost-management
 
 -   **If you work through a Microsoft seller**, the Microsoft Customer Agreement is currently available in Argentina, Australia, Austria, Canada, Chile, Finland, France, Germany, Greece, Iceland, Ireland, Italy, Luxembourg, Netherlands, Norway, Portugal, Puerto Rico, South Africa, Spain, Sweden, Switzerland, United Kingdom, United States, and Uruguay.
 -   The Microsoft Customer Agreement is also available through Cloud Solution Providers (CSP) around the world. You can find a partner in the CSP program [**here**](https://www.microsoft.com/solution-providers/home).
--   **For new customers purchasing Azure services directly from Azure.com,** today the Microsoft Customer Agreement is available in the countries below all of which we transact in the US Dollar. In 2021 we began the rollout for the new customers in other regions with the goal of making Microsoft Customer Agreement available worldwide.
+-   **For new customers purchasing Azure services directly from Azure.com,** today the Microsoft Customer Agreement is available in the countries below all of which we transact in the US Dollar. In 2021, we began the rollout for the new customers in other regions with the goal of making Microsoft Customer Agreement available worldwide.
 
 | Countries/regions       | Countries/regions   | Countries/regions      | Countries/regions                    |
 |-------------------------|---------------------|------------------------|--------------------------------------|
@@ -48,7 +48,7 @@ Microsoft will share a notice directly with you at least 30 days before the tran
 
 ## Which Azure Services are available through the Microsoft Customer Agreement?
 
-All Azure services are available through Microsoft Customer Agreement. Once you accept the Microsoft Customer Agreement, you get the benefit of additional free enterprise grade management tools including new invoice and cost management capabilities. All in the same portal where you manage your Azure services.
+All Azure services are available through Microsoft Customer Agreement. Once you accept the Microsoft Customer Agreement, you get the benefit of more free enterprise-grade management tools including new invoice and cost management capabilities. All in the same portal where you manage your Azure services.
 
 ## How is Azure priced under the Microsoft Customer Agreement?
 
@@ -79,7 +79,7 @@ If you transact in one of the other supported currencies listed below, your mont
 
 We use Thomson Reuters benchmark rates that are captured at the end of the previous month and go into effect on the first day of the next calendar month. This rate applies to all transactions during the upcoming month.
 
-For example, the exchange rate for January transactions is first captured in the final days of December. This rate will be applied to all Azure purchases made in January and all Azure consumption in January. The January exchange rate and local currency billed amount will appear in the January invoice which is available at the beginning of February.
+For example, the exchange rate for January transactions is first captured in the final days of December. This rate will be applied to all Azure purchases made in January and all Azure consumption in January. The January exchange rate and local currency billed amount will appear in the January invoice, which is available at the beginning of February.
 
 ## Under the Microsoft Customer Agreement, in which currency will my payment be processed?
 
@@ -230,7 +230,7 @@ The legal address you provide at the time of signing will determine your billing
 | Zambia                              | US Dollar (\$)          |
 | Zimbabwe                            | US Dollar (\$)          |
 
-If you purchase Azure services through a Microsoft partner, please contact them for questions regarding your payment currency.
+If you purchase Azure services through a Microsoft partner, contact them for questions regarding your payment currency.
 
 ## How will I get my invoice?
 
@@ -242,6 +242,6 @@ If you purchase Azure services through a Microsoft partner, please contact them 
 
 You can review the Microsoft Customer Agreement [**here**](https://www.microsoft.com/licensing/docs/customeragreement).
 
-## How does this affect my organization if we already have a Microsoft Enterprise Agreement?
+## How does these changes affect my organization if we already have a Microsoft Enterprise Agreement?
 
 Azure usage and purchases made under an existing Enterprise Agreement are not affected by this change.
