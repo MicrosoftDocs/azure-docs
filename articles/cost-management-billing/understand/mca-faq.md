@@ -13,34 +13,34 @@ ms.subservice: cost-management
 
 ## Can I sign the Microsoft Customer Agreement today?
 
--   **If you work through a Microsoft seller**, the Microsoft Customer Agreement is currently available in Argentina, Australia, Austria, Canada, Chile, Finland, France, Germany, Greece, Iceland, Ireland, Italy, Luxembourg, Netherlands, Norway, Portugal, Puerto Rico, South Africa, Spain, Sweden, Switzerland, United Kingdom, United States, and Uruguay.
--   The Microsoft Customer Agreement is also available through Cloud Solution Providers (CSP) around the world. You can find a partner in the CSP program [**here**](https://www.microsoft.com/solution-providers/home).
--   **For new customers purchasing Azure services directly from Azure.com,** today the Microsoft Customer Agreement is available in the countries below all of which we transact in the US Dollar. In 2021, we began the rollout for the new customers in other regions with the goal of making Microsoft Customer Agreement available worldwide.
+- **If you work through a Microsoft seller**, the Microsoft Customer Agreement is currently available in Argentina, Australia, Austria, Canada, Chile, Finland, France, Germany, Greece, Iceland, Ireland, Italy, Luxembourg, Netherlands, Norway, Portugal, Puerto Rico, South Africa, Spain, Sweden, Switzerland, United Kingdom, United States, and Uruguay.
+- **If you are a new customer purchasing Azure services directly from Azure.com,** today the Microsoft Customer Agreement is available in the countries below all of which are transacted in US dollars (USD). In 2021, we began the rollout for the new customers in other regions with the goal of making Microsoft Customer Agreement available worldwide.
+- The Microsoft Customer Agreement is also available through Cloud Solution Providers (CSP) around the world. You can find a partner in the CSP program [**here**](https://www.microsoft.com/solution-providers/home).
 
-| Countries/regions       | Countries/regions   | Countries/regions      | Countries/regions                    |
-|-------------------------|---------------------|------------------------|--------------------------------------|
-| Afghanistan             | Côte d'Ivoire       | Moldova                | Sri Lanka                            |
-| Albania                 | Curaçao             | Mongolia               | Tajikistan                           |
-| Algeria                 | Dominican Republic  | Montenegro             | Tanzania                             |
-| Angola                  | Egypt               | Morocco                | Thailand                             |
-| Armenia                 | Ethiopia            | Namibia                | Trinidad and Tobago                  |
-| Azerbaijan              | Georgia             | Nepal                  | Tunisia                              |
-| Bahrain                 | Ghana               | Nicaragua              | Turkmenistan                         |
-| Bangladesh              | Guatemala           | Nigeria                | Virgin Islands of the United States  |
-| Barbados                | Honduras            | Oman                   | Uganda                               |
-| Belarus                 | Iraq                | Pakistan               | Ukraine                              |
-| Belize                  | Israel              | Palestinian Authority  | United Arab Emirates                 |
-| Bermuda                 | Jamaica             | Panama                 | United States                        |
-| Bolivia                 | Jordan              | Paraguay               | Uruguay                              |
-| Bosnia and Herzegovina  | Kazakhstan          | Peru                   | Uzbekistan                           |
-| Botswana                | Kenya               | Philippines            | Venezuela                            |
-| Brunei Darussalam       | Kuwait              | Puerto Rico            | Vietnam                              |
-| Cameroon                | Kyrgyzstan          | Qatar                  | Yemen                                |
-| Cabo Verde              | Lebanon             | Rwanda                 | Zambia                               |
-| Cayman Islands          | Libya               | Saint Kitts and Nevis  | Zimbabwe                             |
-| Chile                   | Macao               | Senegal                | Ecuador                              |
-| Colombia                | Macedonia (FYRO)    | Serbia                 | El Salvador                          |
-| Costa Rica              | Mauritius           | Singapore              |                                      |
+   | Countries/regions       | Countries/regions   | Countries/regions      | Countries/regions                    |
+   |-------------------------|---------------------|------------------------|--------------------------------------|
+   | Afghanistan             | Côte d'Ivoire       | Moldova                | Sri Lanka                            |
+   | Albania                 | Curaçao             | Mongolia               | Tajikistan                           |
+   | Algeria                 | Dominican Republic  | Montenegro             | Tanzania                             |
+   | Angola                  | Egypt               | Morocco                | Thailand                             |
+   | Armenia                 | Ethiopia            | Namibia                | Trinidad and Tobago                  |
+   | Azerbaijan              | Georgia             | Nepal                  | Tunisia                              |
+   | Bahrain                 | Ghana               | Nicaragua              | Turkmenistan                         |
+   | Bangladesh              | Guatemala           | Nigeria                | Virgin Islands of the United States  |
+   | Barbados                | Honduras            | Oman                   | Uganda                               |
+   | Belarus                 | Iraq                | Pakistan               | Ukraine                              |
+   | Belize                  | Israel              | Palestinian Authority  | United Arab Emirates                 |
+   | Bermuda                 | Jamaica             | Panama                 | United States                        |
+   | Bolivia                 | Jordan              | Paraguay               | Uruguay                              |
+   | Bosnia and Herzegovina  | Kazakhstan          | Peru                   | Uzbekistan                           |
+   | Botswana                | Kenya               | Philippines            | Venezuela                            |
+   | Brunei Darussalam       | Kuwait              | Puerto Rico            | Vietnam                              |
+   | Cameroon                | Kyrgyzstan          | Qatar                  | Yemen                                |
+   | Cabo Verde              | Lebanon             | Rwanda                 | Zambia                               |
+   | Cayman Islands          | Libya               | Saint Kitts and Nevis  | Zimbabwe                             |
+   | Chile                   | Macao               | Senegal                | Ecuador                              |
+   | Colombia                | Macedonia (FYRO)    | Serbia                 | El Salvador                          |
+   | Costa Rica              | Mauritius           | Singapore              |                                      |
 
 ## What if I am an existing customer purchasing Azure directly from Azure.com?
 
@@ -48,7 +48,7 @@ Microsoft will share a notice directly with you at least 30 days before the tran
 
 ## Which Azure Services are available through the Microsoft Customer Agreement?
 
-All Azure services are available through Microsoft Customer Agreement. Once you accept the Microsoft Customer Agreement, you get the benefit of more free enterprise-grade management tools including new invoice and cost management capabilities. All in the same portal where you manage your Azure services.
+All Azure services are available through Microsoft Customer Agreement. Once you accept the Microsoft Customer Agreement, you get the benefit of more free enterprise-grade management tools including new invoice and cost management capabilities through the same portal where you manage your Azure services.
 
 ## How is Azure priced under the Microsoft Customer Agreement?
 
@@ -240,7 +240,7 @@ If you purchase Azure services through a Microsoft partner, contact them for que
 
 ## Where can I review the Microsoft Customer Agreement?
 
-You can review the Microsoft Customer Agreement [**here**](https://www.microsoft.com/licensing/docs/customeragreement).
+You can review the Microsoft Customer Agreement at [Microsoft Licensing](https://www.microsoft.com/licensing/docs/customeragreement).
 
 ## How does these changes affect my organization if we already have a Microsoft Enterprise Agreement?
 
