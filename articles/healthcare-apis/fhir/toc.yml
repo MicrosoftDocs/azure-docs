@@ -16,25 +16,12 @@ items:
       href: fhir-portal-quickstart.md
     - name: Using ARM template
       href: fhir-arm-template-quickstart.md
+  - name: Access FHIR service using Postman
+    href: using-postman.md
 
 - name: Tutorials
   expanded: true
   items:
-
-  - name: Access FHIR API with Postman
-    href: access-fhir-postman-tutorial.md
-  - name: Deploy JavaScript application
-    expanded: false
-    items:
-    - name: 1. Initial setup and FHIR deployment
-      href: tutorial-web-app-fhir-server.md
-    - name: 2. Register public client application
-      href: tutorial-web-app-public-app-reg.md
-    - name: 3. Test setup with Postman
-      href: tutorial-web-app-test-postman.md
-    - name: 4. Write web application
-      href: tutorial-web-app-write-web-app.md
-  
   - name: Interoperability and Patient Access
     expanded: true
     items:
@@ -52,20 +39,6 @@ items:
 - name: How-to guides
   expanded: true
   items:
-  - name: Registering applications
-    expanded: false
-    items:
-    - name: Register applications for FHIR service
-      href: fhir-app-registration.md
-    - name: Resource application
-      href: register-resource-azure-ad-client-app.md
-    - name: Confidential client application
-      href: register-confidential-azure-ad-client-app.md
-    - name: Public client application
-      href: register-public-azure-ad-client-app.md
-    - name: Service client application
-      href: register-service-azure-ad-client-app.md
-
   - name: Search
     expanded: true
     items:
@@ -89,8 +62,10 @@ items:
       href: tutorial-member-match.md
 
   - name: Configure settings
-    expanded: false
+    expanded: true
     items:
+    - name: Configure RBAC
+      href: configure-azure-rbac-for-fhir.md
     - name: Configure CORS
       href: configure-cross-origin-resource-sharing.md
   
@@ -103,8 +78,6 @@ items:
       href: azure-ad-hcapi-token-validation.md
     - name: Get access token using CLI
       href: get-healthcare-apis-access-token-cli.md
-    - name: Find identity object IDs
-      href: find-identity-object-ids.md
 
 - name: Concepts
   items:
@@ -117,8 +90,6 @@ items:
     href: fhir-faq.md
   - name: Supported features
     href: fhir-features-supported.md
-  - name: GitHub Projects
-    href: fhir-github-projects.md
     
 - name: Reference
   items:

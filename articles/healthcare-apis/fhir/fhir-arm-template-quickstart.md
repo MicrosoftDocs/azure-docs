@@ -1,35 +1,26 @@
 ---
-title: 'Quickstart: Deploy FHIR service using an ARM template'
-description: In this quickstart, learn how to deploy FHIR service by using an Azure Resource Manager template (ARM template).
-author: matjazl
+title: Deploy Azure Healthcare APIs FHIR service using ARM template
+description: Learn how to deploy the FHIR service by using an Azure Resource Manager template (ARM template)
+author: ginalee-dotcom
 ms.service: healthcare-apis
-ms.subservice: fhir
-ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell
+ms.topic: tutorial
 ms.author: zxue
-ms.date: 05/10/2021
+ms.date: 07/22/2021
 ---
 
-# Quickstart: Use an ARM template to deploy FHIR service
+# Deploy a FHIR service within Azure Healthcare APIs - using ARM template
 
-In this quickstart, you'll learn how to use an Azure Resource Manager template (ARM template) to deploy Azure API for Fast Healthcare Interoperability Resources (FHIR®). You can deploy FHIR service through the Azure portal, PowerShell, or CLI.
+In this article, you will learn how to deploy the FHIR service within the Azure Healthcare APIs using the Azure Resource Manager template (ARM template). We provide you two options, using PowerShell or using CLI.
 
-[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
-
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal once you sign in.
-
-[:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure an FHIR service using an ARM template in the Azure portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.healthcareapis%2fazure-api-for-fhir%2fazuredeploy.json)
+An [ARM template](../../azure-resource-manager/templates/overview.md) is a JSON file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment.
 
 ## Prerequisites
-
-# [Portal](#tab/azure-portal)
-
-An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 
 # [PowerShell](#tab/PowerShell)
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-* If you want to run the code locally, [Azure PowerShell](/powershell/azure/install-az-ps).
+* If you want to run the code locally:
+    * [Azure PowerShell](https://review.docs.microsoft.com/en-us/powershell/azure/install-az-ps).
 
 # [CLI](#tab/CLI)
 
@@ -40,190 +31,246 @@ An Azure account with an active subscription. [Create one for free](https://azur
 
 ---
 
-## Review the template
+## Review the ARM template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azure-api-for-fhir/).
+The template used in this article is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azure-api-for-fhir/).
 
-:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.healthcareapis/azure-api-for-fhir/azuredeploy.json":::
+The template defines three Azure resources:
+- Microsoft.HealthcareApis/workspaces
+- Microsoft.HealthcareApis/workspaces/fhirservices      
+- Microsoft.Storage/storageAccounts
 
-The template defines one Azure resource:
+You can deploy the FHIR service resource by **removing** the workspaces resource, the storage resource, and the `dependsOn` property in the “Microsoft.HealthcareApis/workspaces/fhirservices” resource.
 
-* **Microsoft.HealthcareApis/services**
 
-<!--
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "authorityurl": {
+            "type": "string",
+            "defaultValue": "https://login.microsoftonline.com"
+        },
+        "tagName": {
+            "type": "string",
+            "defaultValue": "My Deployment"
+        },
+        "region": {
+            "type": "string",
+                  "allowedValues": [
+                "australiaeast",
+                "canadacentral",
+                "eastus",
+                "eastus2",
+                "germanywestcentral",
+                "japaneast",
+                "northcentralus",
+                "northeurope",
+                "southafricanorth",
+                "southcentralus",
+                "southeastasia",
+                "switzerlandnorth",
+                "uksouth",
+                "ukwest",
+                "westcentralus",
+                "westeurope",
+                "westus2"
+            ]
+        },
+        "workspaceName": {
+            "type": "string"
+        },
+        "fhirServiceName": {
+            "type": "string"
+        },
+        "tenantid": {
+            "type": "string"
+        },
+        "storageAccountName": {
+            "type": "string"
+        },
+        "storageAccountConfirm": {
+            "type": "bool",
+            "defaultValue": true
+        },
+        "AccessPolicies": {
+            "type": "array",
+            "defaultValue": []
+        },
+        "smartProxyEnabled": {
+            "type": "bool",
+            "defaultValue": false
+        }
+    },
+    "variables": { 
+        "authority": "[Concat(parameters('authorityurl'), '/', parameters('tenantid'))]",
+        "createManagedIdentity": true,
+        "managedIdentityType": {
+            "type": "SystemAssigned"
+        },
+        "storageBlobDataContributerRoleId": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'ba92f5b4-2d11-453d-a403-e96b0029c9fe')]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.HealthcareApis/workspaces",
+            "name": "[parameters('workspaceName')]",
+            "apiVersion": "2020-11-01-preview",
+            "location": "[parameters('region')]",
+            "properties": {}
+        },
+       {          
+            "type": "Microsoft.HealthcareApis/workspaces/fhirservices",
+            "kind": "fhir-R4",
+            "name": "[concat(parameters('workspaceName'), '/', parameters('fhirServiceName'))]",
+            "apiVersion": "2020-11-01-preview",
+            "location": "[parameters('region')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.HealthcareApis/workspaces', parameters('workspaceName'))]"
+            ],
+            "tags": {
+                "environmentName": "[parameters('tagName')]"
+            },
+            "properties": {
+                "accessPolicies": "[parameters('AccessPolicies')]",
+                "authenticationConfiguration": {
+                    "authority": "[variables('Authority')]",
+                    "audience": "[concat('https//', parameters('workspaceName'), '-', parameters('fhirServiceName'), '.fhir.azurehealthcareapis.com')]",
+                    "smartProxyEnabled": "[parameters('smartProxyEnabled')]"
+                },
+                "corsConfiguration": {
+                    "allowCredentials": false,
+                    "headers": ["*"],
+                    "maxAge": 1440,
+                    "methods": ["DELETE", "GET", "OPTIONS", "PATCH", "POST", "PUT"],
+                    "origins": ["https://localhost:6001"]
+                },
+                "exportConfiguration": {
+                    "storageAccountName": "[parameters('storageAccountName')]"
+                }
+            },
+            "identity": "[if(variables('createManagedIdentity'), variables('managedIdentityType'), json('null'))]"
+        },
+        {
+            "name": "[parameters('storageAccountName')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-06-01",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "supportsHttpsTrafficOnly": "true"
+            },
+            "condition": "[parameters('storageAccountConfirm')]",
+            "dependsOn": [
+                "[parameters('fhirServiceName')]"
+            ],
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "tags": {
+                "environmentName": "[parameters('tagName')]",
+                "test-account-rg": "true"
+            }
+        }
+    ],
+    "outputs": {
+    }
+}
+```
 
-Replace the line above with the following line once https://docs.microsoft.com/azure/templates/microsoft.healthcareapis/services goes live:
+## Deploy ARM template
 
-* [**Microsoft.HealthcareApis/services**](/azure/templates/microsoft.healthcareapis/services)
+You can deploy the ARM template using two options: PowerShell or CLI.
 
--->
+The sample code provided below uses the template in the “templates” subfolder of the subfolder “src”. You may want to change the location path to reference the template file properly.
 
-## Deploy the template
-
-# [Portal](#tab/azure-portal)
-
-Select the following link to deploy the FHIR service using the ARM template in the Azure portal:
-
-[:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure an FHIR service using the ARM template in the Azure portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.healthcareapis%2fazure-api-for-fhir%2fazuredeploy.json)
-
-On the **Deploy FHIR service** page:
-
-1. If you want, change the **Subscription** from the default to a different subscription.
-
-2. For **Resource group**, select **Create new**, enter a name for the new resource group, and select **OK**.
-
-3. If you created a new resource group, select a **Region** for the resource group.
-
-4. Enter a new **Service Name** and choose the **Location** of the FHIR service. The location can be the same as or different from the region of the resource group.
-
-    :::image type="content" source="./media/fhir-paas-arm-template-quickstart/deploy-azure-api-fhir.png" alt-text="Deploy the FHIR service using the ARM template in the Azure portal.":::
-
-5. Select **Review + create**.
-
-6. Read the terms and conditions, and then select **Create**.
+The deployment process takes a few minutes to complete. Take a note of the names for the FHIR service and the resource group, which you will use later.
 
 # [PowerShell](#tab/PowerShell)
 
-> [!NOTE]
-> If you want to run the PowerShell scripts locally, first enter `Connect-AzAccount` to set up your Azure credentials.
+### Deploy the template: using PowerShell
 
-If the `Microsoft.HealthcareApis` resource provider isn't already registered for your subscription, you can register it with the following interactive code. To run the code in Azure Cloud Shell, select **Try it** at the upper corner of any code block.
+Run the code in PowerShell locally, in Visual Studio Code, or in Azure Cloud Shell, to deploy the FHIR service. 
 
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.HealthcareApis
+If you haven’t logged in to Azure, use “Connect-AzAccount” to log in. Once you have logged in, use “Get-AzContext” to verify the subscription and tenant you want to use. You can change the subscription and tenant if needed.
+
+You can create a new resource group, or use an existing one by skipping the step or commenting out the line starting with “New-AzResourceGroup”.
+
+```powershell-interactive
+### variables
+$resourcegroupname="your resource group"
+$location="South Central US"
+$workspacename="your workspace name"
+$servicename="your fhir service name"
+$tenantid="xxx"
+$subscriptionid="xxx"
+$storageaccountname="storage account name"
+$storageaccountconfirm=1
+
+### login to azure
+Connect-AzAccount 
+#Connect-AzAccount SubscriptionId $subscriptionid
+Set-AzContext -Subscription $subscriptionid
+Connect-AzAccount -Tenant $tenantid -SubscriptionId $subscriptionid
+#Get-AzContext 
+
+### create resource group
+New-AzResourceGroup -Name $resourcegroupname -Location $location
+
+### deploy the resource
+New-AzResourceGroupDeployment -ResourceGroupName $resourcegroupname -TemplateFile "src/templates/fhirtemplate.json" -region $location -workspaceName $workspacename -fhirServiceName $fhirservicename -tenantid $tenantid -storageAccountName $storageaccountname -storageAccountConfirm $storageaccountconfirm
 ```
-
-Use the following code to deploy the FHIR service using the ARM template. The code prompts you for the new FHIR service name, the name of a new resource group, and the locations for each of them.
-
-```azurepowershell-interactive
-$serviceName = Read-Host -Prompt "Enter a name for the new FHIR service"
-$serviceLocation = Read-Host -Prompt "Enter an Azure region (for example, westus2) for the service"
-$resourceGroupName = Read-Host -Prompt "Enter a name for the new resource group to contain the service"
-$resourceGroupRegion = Read-Host -Prompt "Enter an Azure region (for example, centralus) for the resource group"
-
-Write-Verbose "New-AzResourceGroup -Name $resourceGroupName -Location $resourceGroupRegion" -Verbose
-New-AzResourceGroup -Name $resourceGroupName -Location $resourceGroupRegion
-Write-Verbose "Run New-AzResourceGroupDeployment to create an FHIR service using an ARM template" -Verbose
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
-    -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.healthcareapis/azure-api-for-fhir/azuredeploy.json `
-    -serviceName $serviceName `
-    -location $serviceLocation
-Read-Host "Press [ENTER] to continue"
-```
-
 # [CLI](#tab/CLI)
 
-If the `Microsoft.HealthcareApis` resource provider isn't already registered for your subscription, you can register it with the following interactive code. To run the code in Azure Cloud Shell, select **Try it** at the upper corner of any code block.
+### Deploy the template: using CLI
+
+Run the code locally, in Visual Studio Code or in Azure Cloud Shell, to deploy the FHIR service. 
+
+If you haven’t logged in to Azure, use “az login” to log in. Once you have logged in, use “az account show --output table” to verify the subscription and tenant you want to use. You can change the subscription and tenant if needed.
+
+You can create a new resource group, or use an existing one by skipping the step or commenting out the line starting with “az group create”.
 
 ```azurecli-interactive
-az extension add --name healthcareapis
-```
+### variables
+resourcegroupname=your resource group name
+location=southcentralus
+workspacename=your workspace name
+fhirservicename=your fhir service name
+tenantid=xxx
+subscriptionid=xxx
+storageaccountname=your storage account name
+storageaccountconfirm=true
 
-Use the following code to deploy the FHIR service using the ARM template. The code prompts you for the new FHIR service name, the name of a new resource group, and the locations for each of them.
+### login to azure
+az login
+az account show --output table
+az account set --subscription $subscriptionid
 
-```azurecli-interactive
-read -p "Enter a name for the new FHIR service: " serviceName &&
-read -p "Enter an Azure region (for example, westus2) for the service: " serviceLocation &&
-read -p "Enter a name for the new resource group to contain the service: " resourceGroupName &&
-read -p "Enter an Azure region (for example, centralus) for the resource group: " resourceGroupRegion &&
-params='serviceName='$serviceName' location='$serviceLocation &&
-echo "CREATE RESOURCE GROUP:  az group create --name $resourceGroupName --location $resourceGroupRegion" &&
-az group create --name $resourceGroupName --location $resourceGroupRegion &&
-echo "RUN az deployment group create, which creates an FHIR service using an ARM template" &&
-az deployment group create --resource-group $resourceGroupName --parameters $params --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.healthcareapis/azure-api-for-fhir/azuredeploy.json &&
-read -p "Press [ENTER] to continue: "
+### create resource group
+az group create --name $resourcegroupname --location $location
+
+### deploy the resource
+az deployment group create --resource-group $resourcegroupname --template-file 'src\\templates\\fhirtemplate.json' --parameters region=$location workspaceName=$workspacename fhirServiceName=$fhirservicename tenantid=$tenantid storageAccountName=$storageaccountname storageAccountConfirm=$storageaccountconfirm
 ```
 
 ---
 
-> [!NOTE]
-> The deployment takes a few minutes to complete. Note the names for the FHIR service and the resource group, which you use to review the deployed resources later.
+## Review the deployed resources
 
-## Review deployed resources
+You can verify that the FHIR service is up and running by opening the browser and navigating to `https://<yourfhir servic>.azurehealthcareapis.com/metadata`. If the capability statement is displayed or downloaded automatically, your deployment is successful. 
 
-# [Portal](#tab/azure-portal)
+## Clean up the resources
 
-Follow these steps to see an overview of your new FHIR service:
-
-1. In the [Azure portal](https://portal.azure.com), search for and select **FHIR service**.
-
-2. In the FHIR list, select your new service. The **Overview** page for the new FHIR service appears.
-
-3. To validate that the new FHIR API account is provisioned, select the link next to **FHIR metadata endpoint** to fetch the FHIR API capability statement. The link has a format of `https://<service-name>.azurehealthcareapis.com/metadata`. If the account is provisioned, a large JSON file is displayed.
+When the resource is no longer needed, run the code below to delete the resource group.
 
 # [PowerShell](#tab/PowerShell)
-
-Run the following interactive code to view details about your FHIR service. You'll have to enter the name of the new service and the resource group.
-
-```azurepowershell-interactive
-$serviceName = Read-Host -Prompt "Enter the name of your FHIR service"
-$resourceGroupName = Read-Host -Prompt "Enter the resource group name"
-Write-Verbose "Get-AzHealthcareApisService -ResourceGroupName $resourceGroupName -Name $serviceName" -Verbose
-Get-AzHealthcareApisService -ResourceGroupName $resourceGroupName -Name $serviceName
-Read-Host "Press [ENTER] to fetch the FHIR API capability statement, which shows that the new service has been provisioned"
-
-$requestUri="https://" + $serviceName + ".azurehealthcareapis.com/metadata"
-$metadata = Invoke-WebRequest -Uri $requestUri
-$metadata.RawContent
-Read-Host "Press [ENTER] to continue"
-```
-
-# [CLI](#tab/CLI)
-
-Run the following interactive code to view details about your FHIR service. You'll have to enter the name of the new service and the resource group.
-
-```azurecli-interactive
-read -p "Enter the name of your FHIR service: " serviceName &&
-read -p "Enter the resource group name: " resourceGroupName &&
-echo "SHOW SERVICE DETAILS:  az healthcareapis service show --resource-group $resourceGroupName --resource-name $serviceName" &&
-az healthcareapis service show --resource-group $resourceGroupName --resource-name $serviceName &&
-read -p "Press [ENTER] to fetch the FHIR API capability statement, which shows that the new service has been provisioned: " &&
-requestUrl='https://'$serviceName'.azurehealthcareapis.com/metadata' &&
-curl --url $requestUrl &&
-read -p "Press [ENTER] to continue: "
-```
-
----
-
-## Clean up resources
-
-When it's no longer needed, delete the resource group, which deletes the resources in the resource group.
-
-# [Portal](#tab/azure-portal)
-
-1. In the [Azure portal](https://portal.azure.com), search for and select **Resource groups**.
-
-2. In the resource group list, choose the name of your resource group.
-
-3. In the **Overview** page of your resource group, select **Delete resource group**.
-
-4. In the confirmation dialog box, type the name of your resource group, and then select **Delete**.
-
-# [PowerShell](#tab/PowerShell)
-
-```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the name of the resource group to delete"
-Write-Verbose "Remove-AzResourceGroup -Name $resourceGroupName" -Verbose
+```powershell-interactive
+$resourceGroupName = “your resource group name”
 Remove-AzResourceGroup -Name $resourceGroupName
-Read-Host "Press [ENTER] to continue"
 ```
-
 # [CLI](#tab/CLI)
-
 ```azurecli-interactive
-read -p "Enter the name of the resource group to delete: " resourceGroupName &&
-echo "DELETE A RESOURCE GROUP (AND ITS RESOURCES):  az group delete --name $resourceGroupName" &&
-az group delete --name $resourceGroupName &&
-read -p "Press [ENTER] to continue: "
+resourceGroupName = “your resource group name”
+az group delete --name $resourceGroupName
 ```
-
 ---
-
-For a step-by-step tutorial that guides you through the process of creating an ARM template, see the [tutorial to create and deploy your first ARM template](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
-
-## Next steps
-
-In this quickstart guide, you've deployed the FHIR service into your subscription. If you are ready to start using the FHIR service, read more on how to register applications.
-
->[!div class="nextstepaction"]
->[Register Applications Overview](fhir-app-registration.md)
