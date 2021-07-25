@@ -558,13 +558,13 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 ## Sample applications
 
-[.NET Core Console Application](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/ConsoleAppWithApplicationInsights)
+[.NET Core Console Application](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/ConsoleApp)
 Use this sample if you are using a Console Application written in either .NET Core (2.0 or higher) or .NET Framework (4.7.2 or higher)
 
-[ASP.NET Core background tasks with HostedServices](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/BackgroundTasksWithHostedService)
+[ASP.NET Core background tasks with HostedServices](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/BackgroundTasksWithHostedService)
 Use this sample if you are in ASP.NET Core 2.1/2.2, and creating background tasks as per official guidance [here](/aspnet/core/fundamentals/host/hosted-services)
 
-[.NET Core 3.0 Worker Service](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights)
+[.NET Core 3.0 Worker Service](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerService)
 Use this sample if you have a .NET Core 3.0 Worker Service application as per official guidance [here](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio#worker-service-template)
 
 ## Open-source SDK

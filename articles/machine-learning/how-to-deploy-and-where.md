@@ -33,6 +33,8 @@ The workflow is similar no matter where you deploy your model:
 
 For more information on the concepts involved in the machine learning deployment workflow, see [Manage, deploy, and monitor models with Azure Machine Learning](concept-model-management-and-deployment.md).
 
+[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
+
 ## Prerequisites
 
 # [Azure CLI](#tab/azcli)
