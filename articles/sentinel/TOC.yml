@@ -275,6 +275,8 @@
             href: connect-zscaler.md
         - name: STEP 3 Validate connectivity
           href: connect-cef-verify.md
+      - name: CEF and Syslog troubleshooting
+        href: troubleshooting-cef-syslog.md
     - name: Create a custom connector
       href: create-custom-connector.md
     - name: Connect Azure Stack VMs
