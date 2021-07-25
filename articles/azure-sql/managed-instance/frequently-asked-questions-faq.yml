@@ -148,8 +148,7 @@ sections:
           
           ### How can I migrate my SQL Server instance to SQL Managed Instance?
           
-          To migrate your SQL Server instance, see [SQL Server to Azure SQL Managed Instance Guide](../migration-guides/managed-instance/
-sql-server-to-managed-instance-guide.md).
+          To migrate your SQL Server instance, see [SQL Server to Azure SQL Managed Instance Guide](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md).
           
           ### How can I migrate from other platforms to SQL Managed Instance?
           
