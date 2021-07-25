@@ -201,4 +201,4 @@ When leads are generated, Microsoft sends leads to the Azure table. If you confi
 
 ## Next steps
 
-- [Lead management FAQ and troubleshooting](../lead-management-faq.md)
+- [Lead management FAQ and troubleshooting](../lead-management-faq.yml)

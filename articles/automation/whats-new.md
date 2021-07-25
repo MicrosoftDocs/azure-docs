@@ -20,12 +20,6 @@ This page is updated monthly, so revisit it regularly.
 
 ## June 2021
 
-### Hybrid Runbook Worker support for Ubuntu 20.04 LTS
-
-**Type:** New feature
-
-See [Supported Linux operating systems](./automation-linux-hrw-install.md#supported-linux-operating-systems) for a complete list.
-
 ### Security update for Log Analytics Contributor role
 
 **Type:** Plan for change
@@ -112,7 +106,7 @@ Two new scripts have been added to the Azure Automation [GitHub repository](http
 
 **Type:** New feature
 
-For more information, see [Use a webhook from an ARM template](./automation-webhooks.md#use-a-webhook-from-an-arm-template).
+For more information, see [Use a webhook from an ARM template](./automation-webhooks.md#create-runbook-and-webhook-with-arm-template).
 
 ### Azure Update Management now supports Centos 8.x, Red Hat Enterprise Linux Server 8.x, and SUSE Linux Enterprise Server 15
 

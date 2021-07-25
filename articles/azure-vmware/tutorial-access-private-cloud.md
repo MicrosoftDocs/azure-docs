@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 
 1. In the resource group, select **+ Add** then search and select **Microsoft Windows 10**, and then select **Create**.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss8-azure-w10vm-create.png" alt-text="Screenshot of how to add a new Windows 10 VM for a jump box." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss8-azure-w10vm-create.png" alt-text="Screenshot of how to add a new Windows 10 VM for a jump box.":::
 
 1. Enter the required information in the fields, and then select **Review + create**. 
 
@@ -53,7 +53,7 @@ In this tutorial, you learn how to:
 
    The URLs and user credentials for private cloud vCenter and NSX-T Manager display.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Screenshot showing the private cloud vCenter and NSX Manager URLs and credentials." border="true" lightbox="media/tutorial-access-private-cloud/ss4-display-identity.png":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Screenshot showing the private cloud vCenter and NSX Manager URLs and credentials." lightbox="media/tutorial-access-private-cloud/ss4-display-identity.png":::
 
 1. Navigate to the VM you created in the preceding step and connect to the virtual machine. 
 

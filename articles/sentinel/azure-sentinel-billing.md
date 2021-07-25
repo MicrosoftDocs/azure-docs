@@ -21,11 +21,15 @@ Costs for Azure Sentinel are only a portion of the monthly costs in your Azure b
 
 ## Prerequisites
 
-- Cost analysis in Cost Management supports most Azure account types, but not all of them. To view the full list of supported account types, see [Understand Cost Management data](../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). To view cost data, you need at least read access for an Azure account. For information about assigning access to Azure Cost Management data, see [Assign access to data](../cost-management/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- To view cost data and perform cost analysis in Cost Management, you must have a supported Azure account type, with at least read access.
+
+    While cost analysis in Cost Management supports most Azure account types, not all are supported. To view the full list of supported account types, see [Understand Cost Management data](../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+
+    For information about assigning access to Azure Cost Management data, see [Assign access to data](../cost-management/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
 - Azure Sentinel requires an Azure Monitor Log Analytics workspace to store its data for analysis. When enabled on a Log Analytics workspace, Azure Sentinel automatically analyzes all the data that workspace ingests, and bills on the volume of data that workspace ingests and stores.
 
-- Azure Sentinel gets its data from one or more data sources. Some of these data sources are free, and others incur charges.
+- You must have details about your data sources. Azure Sentinel gets its data from one or more data sources. Some of these data sources are free, and others incur charges. For more information, see [Free data sources](#free-data-sources).
 
 ## Estimate costs before using Azure Sentinel
 
@@ -159,9 +163,29 @@ For data connectors that include both free and paid data types, you can select w
 
 For more information about free and paid data sources and connectors, see [Connect data sources](connect-data-sources.md).
 
+> [!NOTE]
+> Data connectors listed as Public Preview do not generate cost. Data connectors generate cost only once becoming Generally Available (GA).
+>
+
+## Estimate Azure Sentinel costs
+
+If you're not yet using Azure Sentinel, you can use the [Azure Sentinel pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=azure-sentinel) to estimate the potential cost of using Azure Sentinel. Enter *Azure Sentinel* in the Search box and select the resulting Azure Sentinel tile. The pricing calculator helps you estimate your likely costs based on your expected data ingestion and retention.
+
+For example, you can enter the GB of daily data you expect to ingest in Azure Sentinel, and the region for your workspace. The calculator provides the aggregate monthly cost across these components:
+
+- Log Analytics data ingestion
+- Azure Sentinel data analysis
+- Log Analytics data retention
+
+## Manage Azure Sentinel costs
+
+There are several ways to understand and manage Azure Sentinel usage and costs.
+
+Manage data ingestion and retention:
+
 ### Using Azure Prepayment with Azure Sentinel
 
-You can pay for Azure Sentinel charges with your Azure Prepayment credit. However, you can't use Azure Prepayment credit to pay for third-party products and services, such as paid data connectors and sources, or products from the Azure Marketplace.
+You can pay for Azure Sentinel charges with your Azure Prepayment credit. However, you can't use Azure Prepayment credit to pay bills to third party organizations for their products and services, or for products from the Azure Marketplace.
 
 ## Monitor costs
 
@@ -180,6 +204,70 @@ For example, to see charts of your daily costs for a certain time frame:
 
 > [!NOTE]
 > The costs shown in this image are for example purposes only. They're not intended to reflect actual costs.
+> Azure Sentinel data ingestion volumes appear under **Security Insights** in some portal Usage Charts.
+
+The Azure Sentinel pricing tiers don't include Log Analytics charges. To change your pricing tier commitment for Log Analytics, see [Changing pricing tier](../azure-monitor/logs/manage-cost-storage.md#changing-pricing-tier).
+
+#### Define a data volume cap in Log Analytics
+
+In Log Analytics, you can enable a daily volume cap that limits the daily ingestion for your workspace. The daily cap can help you manage unexpected increases in data volume, stay within your limit, and limit unplanned charges.
+
+To define a daily volume cap, select **Usage and estimated costs** in the left navigation of your Log Analytics workspace, and then select **Daily cap**. Select **On**, enter a daily volume cap amount, and then select **OK**.
+
+![Screenshot showing the Usage and estimated costs screen and the Daily cap window.](media/billing/daily-cap.png)
+
+The **Usage and estimated costs** screen also shows your ingested data volume trend in the past 31 days, and the total retained data volume.
+
+> [!IMPORTANT]
+> The daily cap doesn't limit collection of all data types. For more information about managing the daily cap in Log Analytics, see [Manage your maximum daily data volume](../azure-monitor/logs/manage-cost-storage.md#manage-your-maximum-daily-data-volume).
+
+#### Optimize Log Analytics costs with dedicated clusters
+
+If you ingest at least 1TB/day into your Azure Sentinel workspace or workspaces in the same region, consider moving to a Log Analytics dedicated cluster to decrease costs. A Log Analytics dedicated cluster Commitment Tier aggregates data volume across workspaces that collectively ingest a total of 1TB/day or more.
+
+Log Analytics dedicated clusters don't apply to Azure Sentinel Commitment Tiers. Azure Sentinel costs still apply per workspace in the dedicated cluster.
+
+You can add multiple Azure Sentinel workspaces to a Log Analytics dedicated cluster. There are a couple of advantages to using a Log Analytics dedicated cluster for Azure Sentinel:
+
+- Cross-workspace queries run faster if all the workspaces involved in the query are in the dedicated cluster. It's still best to have as few workspaces as possible in your environment, and a dedicated cluster still retains the [100 workspace limit](../azure-monitor/logs/cross-workspace-query.md) for inclusion in a single cross-workspace query.
+
+- All workspaces in the dedicated cluster can share the Log Analytics Commitment Tier set on the cluster. Not having to commit to separate Log Analytics Commitment Tiers for each workspace can allow for cost savings and efficiencies. By enabling a dedicated cluster, you commit to a minimum Log Analytics Commitment Tier of 1 TB ingestion per day.
+
+Here are some other considerations for moving to a dedicated cluster for cost optimization:
+
+- The maximum number of clusters per region and subscription is two.
+- All workspaces linked to a cluster must be in the same region.
+- The maximum of workspaces linked to a cluster is 1000.
+- You can unlink a linked workspace from your cluster. The number of link operations on a particular workspace is limited to two in a period of 30 days.
+- You can't move an existing workspace to a customer-managed  key (CMK) cluster. You need to create the workspace in the cluster.
+- Moving a cluster to another resource group or subscription isn't currently supported.
+- A workspace link to a cluster fails if the workspace is linked to another cluster.
+
+For more information about dedicated clusters, see [Log Analytics dedicated clusters](../azure-monitor/logs/manage-cost-storage.md#log-analytics-dedicated-clusters).
+
+#### Separate non-security data in a different workspace
+
+Azure Sentinel analyzes all the data ingested into Azure Sentinel-enabled Log Analytics workspaces. It's best to have a separate workspace for non-security operations data, to ensure it doesn't incur Azure Sentinel costs.
+
+When hunting or investigating threats in Azure Sentinel, you might need to access operational data stored in these standalone Azure Log Analytics workspaces. You can access this data by using cross-workspace querying in the log exploration experience and workbooks. However, you can't use cross-workspace analytics rules and hunting queries unless Azure Sentinel is enabled on all workspaces.
+
+#### Reduce long-term data retention costs with ADX
+
+Azure Sentinel data retention is free for the first 90 days. To adjust the data retention time period in Log Analytics, select **Usage and estimated costs** in the left navigation, then select **Data retention**, and then adjust the slider.
+
+Azure Sentinel security data might lose some of its value after a few months. Security operations center (SOC) users might not need to access older data as frequently as newer data, but still might need to access the data for sporadic investigations or audit purposes. To reduce Azure Sentinel data retention costs, you can use Azure Data Explorer for long-term data retention at lower cost. ADX provides the right balance of cost and usability for aged data that no longer needs Azure Sentinel security intelligence.
+
+With ADX, you can store data at a lower price, but still explore the data using the same Kusto Query Language (KQL) queries as in Azure Sentinel. You can also use the ADX proxy feature to do cross-platform queries. These queries aggregate and correlate data spread across ADX, Application Insights, Azure Sentinel, and Log Analytics.
+
+For more information, see [Integrate Azure Data Explorer for long-term log retention](store-logs-in-azure-data-explorer.md).
+
+#### Use data collection rules for your Windows Security Events
+
+The [Windows Security Events connector](connect-windows-security-events.md?tabs=LAA) enables you to stream security events from any computer running Windows Server that's connected to your Azure Sentinel workspace, including physical, virtual, or on-premises servers, or in any cloud. This connector includes support for the Azure Monitor agent, which uses data collection rules to define the data to collect from each agent. 
+
+Data collection rules enable you to manage collection settings at scale, while still allowing unique, scoped configurations for subsets of machines. For more information, see [Configure data collection for the Azure Monitor agent](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md).
+
+Besides for the predefined sets of events that you can select to ingest, such as All events, Minimal, or Common, data collection rules enable you to build custom filters and select specific events to ingest. The Azure Monitor Agent uses these rules to filter the data at the source, and then ingest only the events you've selected, while leaving everything else behind. Selecting specific events to ingest can help you optimize your costs and save more.
 
 ![Screenshot showing a Cost Management + Billing Cost analysis screen.](media/billing/cost-management.png)
 

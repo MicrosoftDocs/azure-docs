@@ -202,6 +202,8 @@
         href: map-add-drawing-toolbar.md
       - name: Get shape data
         href: map-get-shape-data.md
+      - name: Add a snap grid
+        href: map-add-snap-grid.md
       - name: React to drawing events
         href: drawing-tools-events.md
       - name: Interaction types and keyboard shortcuts
@@ -397,7 +399,7 @@
     - name: IoT solution accelerators
       href: ../iot-accelerators/index.yml
     - name: IoT Plug and Play
-      href: ../iot-pnp/index.yml
+      href: ../iot-develop/index.yml
     - name: Azure Maps
       href: ./index.yml
     - name: Time Series Insights

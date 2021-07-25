@@ -14,6 +14,7 @@ ms.service: azure-communication-services
 ---
 # Calling Recording overview
 
+[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
 > [!NOTE]
 > Call Recording is currently only available for Communication Services resources created in the US region.

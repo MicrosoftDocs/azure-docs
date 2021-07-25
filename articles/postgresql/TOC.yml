@@ -645,6 +645,8 @@
         href: concepts-hyperscale-high-availability.md
     - name: Replication
       href: concepts-hyperscale-read-replicas.md
+    - name: Connection pooling
+      href: concepts-hyperscale-connection-pool.md
     - name: Monitor and tune
       items:
       - name: Monitor and tune

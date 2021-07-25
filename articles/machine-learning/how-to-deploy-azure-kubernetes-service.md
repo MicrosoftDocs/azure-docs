@@ -32,6 +32,8 @@ When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is
 >
 > You can also refer to Azure Machine Learning - [Deploy to Local Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
+[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
+
 ## Prerequisites
 
 - An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
@@ -65,7 +67,7 @@ In Azure Machine Learning, "deployment" is used in the more general sense of mak
 1. Building or downloading the dockerfile to the compute node (Relates to Kubernetes)
     1. The system calculates a hash of: 
         - The base image 
-        - Custom docker steps (see [Deploy a model using a custom Docker base image](./how-to-deploy-custom-docker-image.md))
+        - Custom docker steps (see [Deploy a model using a custom Docker base image](./how-to-deploy-custom-container.md))
         - The conda definition YAML (see [Create & use software environments in Azure Machine Learning](./how-to-use-environments.md))
     1. The system uses this hash as the key in a lookup of the workspace Azure Container Registry (ACR)
     1. If it is not found, it looks for a match in the global ACR
@@ -378,7 +380,7 @@ Azure Security Center provides unified security management and advanced threat p
 
 * [Use Azure RBAC for Kubernetes authorization](../aks/manage-azure-rbac.md)
 * [Secure inferencing environment with Azure Virtual Network](how-to-secure-inferencing-vnet.md)
-* [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
+* [How to deploy a model using a custom Docker image](./how-to-deploy-custom-container.md)
 * [Deployment troubleshooting](how-to-troubleshoot-deployment.md)
 * [Update web service](how-to-deploy-update-web-service.md)
 * [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)

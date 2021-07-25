@@ -6,7 +6,7 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 07/01/2021
+ms.date: 07/15/2021
 ms.author: victorh
 # Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
@@ -23,14 +23,14 @@ You can centrally create, enforce, and log application and network connectivity 
 
 To learn about Azure Firewall features, see [Azure Firewall features](features.md).
 
-## Azure Firewall Premium Preview
+## Azure Firewall Premium
 
-Azure Firewall Premium Preview is a next generation firewall with capabilities that are required for highly sensitive and regulated environments. These capabilities include TLS inspection, IDPS, URL filtering, and Web categories.
+Azure Firewall Premium is a next generation firewall with capabilities that are required for highly sensitive and regulated environments. These capabilities include TLS inspection, IDPS, URL filtering, and Web categories.
 
-To learn about Azure Firewall Premium Preview features, see [Azure Firewall Premium Preview features](premium-features.md).
+To learn about Azure Firewall Premium features, see [Azure Firewall Premium features](premium-features.md).
 
 
-To see how the Firewall Premium Preview is configured in the Azure portal, see [Azure Firewall Premium Preview in the Azure portal](premium-portal.md).
+To see how the Firewall Premium is configured in the Azure portal, see [Azure Firewall Premium in the Azure portal](premium-portal.md).
 
 
 ## Pricing and SLA
@@ -77,7 +77,7 @@ Azure Firewall has the following known issues:
 |Removing RuleCollectionGroups using ARM templates not supported.|Removing a RuleCollectionGroup using ARM templates is not supported and results in failure.|This is not a supported operation.|
 |DNAT rule for allow *any* (*) will SNAT traffic.|If a DNAT rule allows *any* (*) as the Source IP address, then an implicit Network rule will match VNet-VNet traffic and will always SNAT the traffic.|This is a current limitation.|
 |Adding a DNAT rule to a secured virtual hub with a security provider is not supported.|This results in an asynchronous route for the returning DNAT traffic, which goes to the security provider.|Not supported.|
-
+| Error encountered when creating more than 2000 rule collections. | The maximal number of NAT/Application or Network rule collections is 2000 (Resource manager limit). | This is a current limitation. |
 
 ## Next steps
 
