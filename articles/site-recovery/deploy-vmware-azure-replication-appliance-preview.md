@@ -120,7 +120,7 @@ You need to set up an Azure Site Recovery replication appliance in the on-premis
 Go to **Recovery Services Vault** > **Getting Started**. In VMware machines to Azure, select
 **Prepare Infrastructure** and proceed with the sections detailed below:
 
-![Recovery Services Vault](./media/deploy-vmware-azure-replication-appliance-preview/vault.png)
+[![Recovery Services Vault](./media/deploy-vmware-azure-replication-appliance-preview/vault-inline.png)](./media/deploy-vmware-azure-replication-appliance-preview/vault-expanded.png#lighbox)
 
 To set up a new appliance, you can use an OVF template (recommended) or PowerShell.
 
@@ -248,7 +248,7 @@ Select **Prepare infrastructure** under **Getting started**, you can see that an
 
 Select  *1 appliance(s)*, you will be re-directed to Azure Site Recovery replication appliance view, where the list of appliances registered to this vault, is displayed.
 
-![appliance created](./media/deploy-vmware-azure-replication-appliance-preview/asr-replication-appliance.png)
+[![appliance created](./media/deploy-vmware-azure-replication-appliance-preview/asr-replication-appliance-inline.png)](./media/deploy-vmware-azure-replication-appliance-preview/asr-replication-appliance-expanded.png#lightbox)
 
 ## Sizing and capacity
 You can create and use multiple replication appliances in a vault.
