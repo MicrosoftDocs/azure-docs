@@ -1,7 +1,7 @@
 ---
 title:  "Summarize Data"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Summarize Data module in Azure Machine Learning to generate a basic descriptive statistics report for the columns in a dataset.
+description: Learn how to use the Summarize Data component in Azure Machine Learning to generate a basic descriptive statistics report for the columns in a dataset.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,9 +14,9 @@ ms.date: 01/27/2020
 
 # Summarize Data
 
-This article describes a module of Azure Machine Learning designer.
+This article describes a component of Azure Machine Learning designer.
 
-Use the Summarize Data module to create a set of standard statistical measures that describe each column in the input table.
+Use the Summarize Data component to create a set of standard statistical measures that describe each column in the input table.
 
 Summary statistics are useful when you want to understand the characteristics of the complete dataset. For example, you might need to know:
 
@@ -24,23 +24,23 @@ Summary statistics are useful when you want to understand the characteristics of
 - How many unique values are there in a feature column?
 - What is the mean and standard deviation for each column?
 
-The module calculates the important scores for each column, and returns a row of summary statistics for each variable (data column) provided as input.
+The component calculates the important scores for each column, and returns a row of summary statistics for each variable (data column) provided as input.
 
 ## How to configure Summarize Data  
 
-1. Add the **Summarize Data** module to your pipeline. You can find this module in the **Statistical Functions** category in the designer.
+1. Add the **Summarize Data** component to your pipeline. You can find this component in the **Statistical Functions** category in the designer.
 
 1. Connect the dataset for which you want to generate a report.
 
-    If you want to report on only some columns, use the [Select Columns in Dataset](select-columns-in-dataset.md) module to project a subset of columns to work with.
+    If you want to report on only some columns, use the [Select Columns in Dataset](select-columns-in-dataset.md) component to project a subset of columns to work with.
 
-1. No additional parameters are required. By default, the module analyzes all columns that are provided as input, and depending on the type of values in the columns, outputs a relevant set of statistics as described in the [Results](#results) section.
+1. No additional parameters are required. By default, the component analyzes all columns that are provided as input, and depending on the type of values in the columns, outputs a relevant set of statistics as described in the [Results](#results) section.
 
 1. Submit the pipeline.
 
 ## Results
 
-The report from the module can include the following statistics. 
+The report from the component can include the following statistics. 
 
 |Column name|Description|
 |------|------|  
@@ -77,10 +77,10 @@ The report from the module can include the following statistics.
     
     - When calculating Max, a logical OR is applied
     
-    - When computing Range, the module first checks whether the number of unique values in the column equals 2.
+    - When computing Range, the component first checks whether the number of unique values in the column equals 2.
     
     - When computing any statistic that requires floating-point calculations, values of True are treated as 1.0, and values of False are treated as 0.0.
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning.  
+See the [set of components available](module-reference.md) to Azure Machine Learning.  

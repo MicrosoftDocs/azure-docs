@@ -35,7 +35,7 @@ Forecasts or predictions from machine learning can make apps and devices smarter
 ## Machine learning tools to fit each task 
 
 Azure Machine Learning provides all the tools developers and data scientists need for their machine learning workflows, including:
-+ The [Azure Machine Learning designer](tutorial-designer-automobile-price-train-score.md): drag-n-drop modules to build your experiments and then deploy pipelines in a low-code environment.
++ The [Azure Machine Learning designer](tutorial-designer-automobile-price-train-score.md): drag-n-drop components to build your experiments and then deploy pipelines in a low-code environment.
 
 + Jupyter notebooks: use our [example notebooks](https://github.com/Azure/MachineLearningNotebooks) or create your own notebooks to leverage our <a href="/python/api/overview/azure/ml/intro" target="_blank">SDK for Python</a> samples for your machine learning. 
 

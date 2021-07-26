@@ -1,7 +1,7 @@
 ---
 title:  "Apply Math Operation"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Apply Math Operation module in Azure Machine Learning to apply a mathematical operation to column values in a pipeline.
+description: Learn how to use the Apply Math Operation component in Azure Machine Learning to apply a mathematical operation to column values in a pipeline.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,13 +14,13 @@ ms.date: 09/09/2019
 
 # Apply Math Operation
 
-This article describes a module of Azure Machine Learning designer.
+This article describes a component of Azure Machine Learning designer.
 
 Use the Apply Math Operation to create calculations that are applied to numeric columns in the input dataset. 
 
 Math operations include arithmetic functions, trigonometric functions, rounding functions, and special functions used in data science such as gamma and error functions.  
 
-After you define an operation and run the pipeline, the values are added to your dataset. Depending on how you configure the module, you can:
+After you define an operation and run the pipeline, the values are added to your dataset. Depending on how you configure the component, you can:
 
 + Append the results to your dataset (useful when verifying the result of the operation).
 + Replace columns values with the new, computed values.
@@ -55,13 +55,13 @@ Look for the operation you need in these categories:
 
 ## How to configure Apply Math Operation  
 
-The **Apply Math Operation** module requires a dataset that contains at least one column containing only numbers. The numbers can be discrete or continuous but must be of a numeric data type, not a string.
+The **Apply Math Operation** component requires a dataset that contains at least one column containing only numbers. The numbers can be discrete or continuous but must be of a numeric data type, not a string.
 
 You can apply the same operation to multiple numeric columns, but all columns must be in the same dataset. 
 
-Each instance of this module can perform only one type of operation at a time. To perform complex math operations, you might need to chain together several instances of the **Apply Math Operation** module.  
+Each instance of this component can perform only one type of operation at a time. To perform complex math operations, you might need to chain together several instances of the **Apply Math Operation** component.  
   
-1.  Add the **Apply Math Operation** module to your pipeline.
+1.  Add the **Apply Math Operation** component to your pipeline.
 
 1. Connect a dataset that contains at least one numeric column.  
 
@@ -91,7 +91,7 @@ If you generate the results using the **Append** or **ResultOnly** options, the 
 -   **Equals(Col2_Col1)**,  indicating that you tested Col2 against Col1.  
 -   **Equals(Col2_$10)**, indicating that you compared column 2 to the constant 10.  
 
-Even if you use the **In place** option, the source data is not deleted or changed; the column in the original dataset is still available in the designer. To view the original data, you can connect the [Add Columns](add-columns.md) module and join it to the output of **Apply Math Operation**.  
+Even if you use the **In place** option, the source data is not deleted or changed; the column in the original dataset is still available in the designer. To view the original data, you can connect the [Add Columns](add-columns.md) component and join it to the output of **Apply Math Operation**.  
     
 ## Basic math operations 
 
@@ -282,7 +282,7 @@ Specify the column of values to operate on (the *minuend*), by choosing a differ
 
 Azure Machine Learning designer supports a variety of rounding operations. For many operations, you must specify the amount of  precision to use when rounding. You can use either a static precision level, specified as a constant, or you can apply a dynamic precision value obtained from a column of values.  
 
-- If you use a constant, set **Precision Type** to **Constant** and then type the number of digits as an integer in the **Constant Precision** text box. If you type a non-integer, the module does not raise an error, but results can be unexpected.  
+- If you use a constant, set **Precision Type** to **Constant** and then type the number of digits as an integer in the **Constant Precision** text box. If you type a non-integer, the component does not raise an error, but results can be unexpected.  
 
 - To use a different precision value for each row in your dataset, set **Precision Type** to **ColumnSet**, and then choose the column that contains appropriate precision values.  
 
@@ -582,7 +582,7 @@ Assume your dataset has multiple columns, and you add the dataset to itself. In 
 
 If you need to perform more complex calculations, you can chain multiple instances of **Apply Math Operation**. For example, you might add two columns by using one instance of **Apply Math Operation**, and then use another instance of **Apply Math Operation** to divide the sum by a constant to obtain the mean.  
   
-Alternatively, use one of the following modules to do all the calculations at once, using SQL, R, or Python script:
+Alternatively, use one of the following components to do all the calculations at once, using SQL, R, or Python script:
  
 + [Execute R Script](execute-r-script.md)
 + [Execute Python Script](execute-python-script.md)
@@ -590,4 +590,4 @@ Alternatively, use one of the following modules to do all the calculations at on
   
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](module-reference.md) to Azure Machine Learning. 

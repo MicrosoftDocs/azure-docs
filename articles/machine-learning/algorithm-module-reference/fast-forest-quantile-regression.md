@@ -1,7 +1,7 @@
 ---
 title: "Fast Forest Quantile Regression: Module reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Fast Forest Quantile Regression module to create a regression model that can predict values for a specified number of quantiles.
+description: Learn how to use the Fast Forest Quantile Regression component to create a regression model that can predict values for a specified number of quantiles.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -15,7 +15,7 @@ ms.date: 07/13/2020
 
 This article describes a module in Azure Machine Learning designer.
 
-Use this module to create a fast forest quantile regression model in a pipeline. Fast forest quantile regression is useful if you want to understand more about the distribution of the predicted value, rather than get a single mean prediction value. This method has many applications, including:  
+Use this component to create a fast forest quantile regression model in a pipeline. Fast forest quantile regression is useful if you want to understand more about the distribution of the predicted value, rather than get a single mean prediction value. This method has many applications, including:  
   
 - Predicting prices  
   
@@ -33,18 +33,18 @@ The simplest definition of *quantile* is a value that divides a set of data into
 
 Whereas linear regression models attempt to predict the value of a numeric variable using a single estimate, the *mean*, sometimes you need to predict the range or entire distribution of the target variable. Techniques such as Bayesian regression and quantile regression have been developed for this purpose.
 
-Quantile regression helps you understand the distribution of the predicted value. Tree-based quantile regression models, such as the one used in this module, have the additional advantage that they can be used to predict non-parametric distributions.
+Quantile regression helps you understand the distribution of the predicted value. Tree-based quantile regression models, such as the one used in this component, have the additional advantage that they can be used to predict non-parametric distributions.
 
   
 ## How to configure Fast Forest Quantile Regression
 
-1. Add the **Fast Forest Quantile Regression** module to your pipeline in the designer. You can find this module under **Machine Learning Algorithms**, in the **Regression** category.
+1. Add the **Fast Forest Quantile Regression** component to your pipeline in the designer. You can find this component under **Machine Learning Algorithms**, in the **Regression** category.
 
-2. In the right pane of the **Fast Forest Quantile Regression** module, specify how you want the model to be trained, by setting the **Create trainer mode** option.  
+2. In the right pane of the **Fast Forest Quantile Regression** component, specify how you want the model to be trained, by setting the **Create trainer mode** option.  
   
     - **Single Parameter**: If you know how you want to configure the model, provide a specific set of values as arguments. When you train the model, use [Train Model](train-model.md).
   
-    - **Parameter Range**: If you are not sure of the best parameters, do a parameter sweep using the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module. The trainer iterates over multiple values you specify to find the optimal configuration.
+    - **Parameter Range**: If you are not sure of the best parameters, do a parameter sweep using the [Tune Model Hyperparameters](tune-model-hyperparameters.md) component. The trainer iterates over multiple values you specify to find the optimal configuration.
 
 3. **Number of Trees**, type the maximum number of trees that can be created in the ensemble. If you create more trees, it generally leads to greater accuracy, but at the cost of longer training time.  
 
@@ -66,17 +66,17 @@ Quantile regression helps you understand the distribution of the predicted value
   
      You should provide a value if you need to reproduce results across successive runs on the same data.  
 
-10. Connect the training dataset and the untrained model to one of the training modules: 
+10. Connect the training dataset and the untrained model to one of the training components: 
 
-    - If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](train-model.md) module.
+    - If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](train-model.md) component.
 
-    - If you set **Create trainer mode** to **Parameter Range**, use the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module.
+    - If you set **Create trainer mode** to **Parameter Range**, use the [Tune Model Hyperparameters](tune-model-hyperparameters.md) component.
 
     > [!WARNING]
     > 
     > - If you pass a parameter range to [Train Model](train-model.md), it uses only the first value in the parameter range list.
     > 
-    > - If you pass a single set of parameter values to the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module, when it expects a range of settings for each parameter, it ignores the values and uses the default values for the learner.
+    > - If you pass a single set of parameter values to the [Tune Model Hyperparameters](tune-model-hyperparameters.md) component, when it expects a range of settings for each parameter, it ignores the values and uses the default values for the learner.
     > 
     > - If you select the **Parameter Range** option and enter a single value for any parameter, that single value you specified is used throughout the sweep, even if other parameters change across a range of values.
 
@@ -86,8 +86,8 @@ Quantile regression helps you understand the distribution of the predicted value
 
 After training is complete:
 
-+ To save a snapshot of the trained model, select the training module, then switch to **Outputs+logs** tab in the right panel. Click on the icon **Register dataset**.  You can find the saved model as a module in the module tree.
++ To save a snapshot of the trained model, select the training component, then switch to **Outputs+logs** tab in the right panel. Click on the icon **Register dataset**.  You can find the saved model as a component in the component tree.
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning.
+See the [set of components available](module-reference.md) to Azure Machine Learning.

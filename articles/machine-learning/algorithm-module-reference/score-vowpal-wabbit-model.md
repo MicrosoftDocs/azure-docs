@@ -1,7 +1,7 @@
 ---
 title: "Score Vowpal Wabbit Model"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Score Vowpal Wabbit Model module to generate scores for a set of input data, using an existing trained Vowpal Wabbit model.  
+description: Learn how to use the Score Vowpal Wabbit Model component to generate scores for a set of input data, using an existing trained Vowpal Wabbit model.  
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
@@ -11,13 +11,13 @@ ms.author: keli19
 ms.date: 07/02/2020
 ---
 # Score Vowpal Wabbit Model
-This article describes how to use the **Score Vowpal Wabbit Model** module in Azure Machine Learning designer, to generate scores for a set of input data, using an existing trained Vowpal Wabbit model.  
+This article describes how to use the **Score Vowpal Wabbit Model** component in Azure Machine Learning designer, to generate scores for a set of input data, using an existing trained Vowpal Wabbit model.  
 
-This module provides the latest version of the Vowpal Wabbit framework, version 8.8.1. Use this module to score data using a trained model saved in the VW version 8 format.  
+This component provides the latest version of the Vowpal Wabbit framework, version 8.8.1. Use this component to score data using a trained model saved in the VW version 8 format.  
 
 ## How to configure Score Vowpal Wabbit Model
 
-1.  Add the **Score Vowpal Wabbit Model** module to your experiment.  
+1.  Add the **Score Vowpal Wabbit Model** component to your experiment.  
   
 2.  Add a trained Vowpal Wabbit model and connect it to the left-hand input port. You can use a trained model created in the same experiment, or locate a saved model in the **Datasets** category of designer’s left navigation pane. However, the model must be available in Azure Machine Learning Designer.  
   
@@ -49,15 +49,15 @@ This module provides the latest version of the Vowpal Wabbit framework, version 
 
 After training is complete:
 
-+ To visualize the results, right-click the output of the [Score Vowpal Wabbit Model](score-vowpal-wabbit-model.md) module. The output indicates a prediction score normalized from 0 to 1. 
++ To visualize the results, right-click the output of the [Score Vowpal Wabbit Model](score-vowpal-wabbit-model.md) component. The output indicates a prediction score normalized from 0 to 1. 
 
-+ To evaluate the results, the output dataset should contain specific score column names, which meet Evaluate Model module requirements.
++ To evaluate the results, the output dataset should contain specific score column names, which meet Evaluate Model component requirements.
 
   + For regression task, the dataset to evaluate must has one column, named `Regression Scored Labels`, which represents scored labels.
   + For binary classification task, the dataset to evaluate must has two columns, named `Binary Class Scored Labels`,`Binary Class Scored Probabilities`, which represent scored labels, and probabilities respectively.
   + For multi classification task, the dataset to evaluate must has one column, named `Multi Class Scored Labels`, which represents scored labels.
 
-  Note that the results of the Score Vowpal Wabbit Model module cannot be evaluated directly. Before evaluating, the dataset should be modified according to the requirements above.
+  Note that the results of the Score Vowpal Wabbit Model component cannot be evaluated directly. Before evaluating, the dataset should be modified according to the requirements above.
 
 ##  Technical notes
 
@@ -71,7 +71,7 @@ The following parameters are not supported in Azure Machine Learning Studio (cla
 
 -   The input/output options specified in [https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments)  
   
-     These properties are already configured automatically by the module.  
+     These properties are already configured automatically by the component.  
   
 -   Additionally, any option that generates multiple outputs or takes multiple inputs is disallowed. These include *`--cbt`*, *`--lda`*, and *`--wap`*.  
   
@@ -81,4 +81,4 @@ All arguments other than those described above are allowed.
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](module-reference.md) to Azure Machine Learning. 

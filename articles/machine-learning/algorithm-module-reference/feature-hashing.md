@@ -1,7 +1,7 @@
 ---
-title: "Feature Hashing module reference"
+title: "Feature Hashing component reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Feature Hashing module in the Azure Machine Learning designer to featurize text data.
+description: Learn how to use the Feature Hashing component in the Azure Machine Learning designer to featurize text data.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,13 +11,13 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ---
-# Feature Hashing module reference
+# Feature Hashing component reference
 
-This article describes a module included in Azure Machine Learning designer.
+This article describes a component included in Azure Machine Learning designer.
 
-Use the Feature Hashing module to transform a stream of English text into a set of integer features. You can then pass this hashed feature set to a machine learning algorithm to train a text analytics model.
+Use the Feature Hashing component to transform a stream of English text into a set of integer features. You can then pass this hashed feature set to a machine learning algorithm to train a text analytics model.
 
-The feature hashing functionality provided in this module is based on the nimbusml framework. For more information, see [NgramHash class](/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest&preserve-view=true).
+The feature hashing functionality provided in this component is based on the nimbusml framework. For more information, see [NgramHash class](/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest&preserve-view=true).
 
 ## What is feature hashing?
 
@@ -32,7 +32,7 @@ For example, take a set of simple sentences like these, followed by a sentiment 
 |This book was great|3|
 |I love books|2|
 
-Internally, the Feature Hashing module creates a dictionary of n-grams. For example, the list of bigrams for this dataset would be something like this:
+Internally, the Feature Hashing component creates a dictionary of n-grams. For example, the list of bigrams for this dataset would be something like this:
 
 |Term (bigrams)|Frequency|
 |------------|---------------|
@@ -50,7 +50,7 @@ You can control the size of the n-grams by using the **N-grams** property. If yo
 |books|1|
 |was|1|
 
-After the dictionary is built, the Feature Hashing module converts the dictionary terms into hash values. It then computes whether a feature was used in each case. For each row of text data, the module outputs a set of columns, one column for each hashed feature.
+After the dictionary is built, the Feature Hashing component converts the dictionary terms into hash values. It then computes whether a feature was used in each case. For each row of text data, the component outputs a set of columns, one column for each hashed feature.
 
 For example, after hashing, the feature columns might look something like this:
 
@@ -66,9 +66,9 @@ Feature hashing lets you represent text documents of variable length as numeric 
 
 Numeric outputs also make it possible to use common machine learning methods, including classification, clustering, and information retrieval. Because lookup operations can use integer hashes rather than string comparisons, getting the feature weights is also much faster.
 
-## Configure the Feature Hashing module
+## Configure the Feature Hashing component
 
-1.  Add the Feature Hashing module to your pipeline in the designer.
+1.  Add the Feature Hashing component to your pipeline in the designer.
 
 1. Connect the dataset that contains the text you want to analyze.
 
@@ -93,7 +93,7 @@ Numeric outputs also make it possible to use common machine learning methods, in
 
 ## Results
 
-After processing is complete, the module outputs a transformed dataset in which the original text column has been converted to multiple columns. Each column represents a feature in the text. Depending on how significant the dictionary is, the resulting dataset can be large:
+After processing is complete, the component outputs a transformed dataset in which the original text column has been converted to multiple columns. Each column represents a feature in the text. Depending on how significant the dictionary is, the resulting dataset can be large:
 
 |Column name 1|Column type 2|
 |-------------------|-------------------|
@@ -104,15 +104,15 @@ After processing is complete, the module outputs a transformed dataset in which 
 |USERTEXT - Hashing feature n|Hashed feature column|
 |USERTEXT - Hashing feature 1024|Hashed feature column|
 
-After you create the transformed dataset, you can use it as the input to the Train Model module.
+After you create the transformed dataset, you can use it as the input to the Train Model component.
  
 ## Best practices
 
-The following best practices can help you get the most out of the Feature Hashing module:
+The following best practices can help you get the most out of the Feature Hashing component:
 
-* Add a Preprocess Text module before using Feature Hashing to preprocess the input text. 
+* Add a Preprocess Text component before using Feature Hashing to preprocess the input text. 
 
-* Add a Select Columns module after the Feature Hashing module to remove the text columns from the output dataset. You don't need the text columns after the hashing features have been generated.
+* Add a Select Columns component after the Feature Hashing component to remove the text columns from the output dataset. You don't need the text columns after the hashing features have been generated.
     
 * Consider using these text preprocessing options, to simplify results and improve accuracy:
 
@@ -126,4 +126,4 @@ The optimal set of preprocessing methods to apply in any solution depends on dom
 
 ## Next steps
 			
-See the [set of modules available](module-reference.md) to Azure Machine Learning
+See the [set of components available](module-reference.md) to Azure Machine Learning
