@@ -14,17 +14,9 @@
     - name: Send telemetry using SDK
       href: ../iot-develop/quickstart-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Control a device
-      items:
-        - name: Node.js
-          href: quickstart-control-device-node.md
-        - name: .NET
-          href: quickstart-control-device-dotnet.md
-        - name: Java
-          href: quickstart-control-device-java.md
-        - name: Python
-          href: quickstart-control-device-python.md
-        - name: Android
-          href: quickstart-control-device-android.md
+      href: quickstart-control-device.md
+    - name: Control a device on Android
+      href: quickstart-control-device-android.md
     - name: Auto-route messages using an ARM template
       displayName: Resource Manager
       href: horizontal-arm-route-messages.md
