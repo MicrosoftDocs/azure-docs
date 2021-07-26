@@ -104,6 +104,8 @@
       href: configure-alerts-for-azure-vmware-solution.md
     - name: Attach disk pools to Azure VMware Solution hosts
       href: attach-disk-pools-to-azure-vmware-solution-hosts.md
+    - name: Create a Placement policy
+      href: create-placement-policy.md
     - name: Backup with Azure Backup Server
       items:
       - name: Set up Backup Server
