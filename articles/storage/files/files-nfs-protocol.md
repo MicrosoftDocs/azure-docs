@@ -81,6 +81,19 @@ The status of items that appear in this tables may change over time as support c
 
 [!INCLUDE [files-nfs-regional-availability](../../../includes/files-nfs-regional-availability.md)]
 
+## Known workloads validated during preview
+At the time of publishing this, following is the list of workloads that have been validated to fully work with the NFS Preview. This list will be periodically refreshed until GA.
+- Highly Available shared storage for self-deployed Redis cache
+- Machine Learning Home Directories
+- Home Directoriess for HPC
+
+Following workloads are known to have open issues
+- Locking issues with IBM MQ
+- High latency with metadata heavy workloads like untar
+- Incompatibility with dNFS from Oracle
+
+Reach out to azurefilesnfs@microsoft.com to work with us cosely to validate workloads not in the above list or to share more successful workloads stories.  
+
 ## Next steps
 - [Create an NFS file share](storage-files-how-to-create-nfs-shares.md)
 - [Compare access to Azure Files, Blob Storage, and Azure NetApp Files with NFS](../common/nfs-comparison.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
