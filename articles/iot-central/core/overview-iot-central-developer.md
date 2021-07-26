@@ -95,8 +95,8 @@ A device model is defined using the [DTDL](https://github.com/Azure/opendigitalt
 
 A DTDL model can be a _no-component_ or a _multi-component_ model:
 
-- No-component model: A simple model doesn't use embedded or cascaded components. All the telemetry, properties, and commands are defined a single _default component_. For an example, see the [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) model.
-- Multi-component model. A more complex model that includes two or more components. These components include a single default component, and one or more additional nested components. For an example, see the [Temperature Controller](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) model.
+- No-component model: A simple model doesn't use embedded or cascaded components. All the telemetry, properties, and commands are defined a single _root component_. For an example, see the [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) model.
+- Multi-component model. A more complex model that includes two or more components. These components include a single root component, and one or more additional nested components. For an example, see the [Temperature Controller](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) model.
 
 To learn more, see [IoT Plug and Play modeling guide](../../iot-develop/concepts-modeling-guide.md)
 

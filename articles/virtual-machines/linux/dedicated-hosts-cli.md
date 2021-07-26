@@ -304,4 +304,4 @@ az group delete -n myDHResourceGroup
 
 - You can also create dedicated hosts using the [Azure portal](../dedicated-hosts-portal.md).
 
-- There is sample template, found [here](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md), that uses both zones and fault domains for maximum resiliency in a region.
+- There is sample template, available at [Azure quickstart templates](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md), that uses both zones and fault domains for maximum resiliency in a region.
