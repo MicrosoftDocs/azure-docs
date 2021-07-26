@@ -25,6 +25,6 @@ We have also partnered with original equipment manufacturer (OEM) partners and s
 
 ## Next steps
 
-* [Validated Kubernetes distributions](validated-k8s-distributions.md)
+* [Validated Kubernetes distributions](../kubernetes/validation-program.md?toc=/azure/azure-arc/toc.json&bc=/azure/azure-arc/breadcrumb/toc.json)
 
 * [Validated Kubernetes distributions for data services](../data/validation-program.md?toc=/azure/azure-arc/toc.json&bc=/azure/azure-arc/breadcrumb/toc.json)
