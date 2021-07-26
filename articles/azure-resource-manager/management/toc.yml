@@ -77,6 +77,8 @@
           href: ../../iot-hub/iot-hub-how-to-clone.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Resource Manager
           href: microsoft-resources-move-regions.md
+        - name: Azure Backup (Recovery Services vault)
+          href: ../../backup/azure-backup-move-vaults-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Storage
           href: ../../storage/common/storage-account-move.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure SQL
@@ -99,8 +101,6 @@
             href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Site Recovery (Recovery Services vaults)
           href: ../../site-recovery/move-vaults-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
-        - name: Backup (Recovery Services vault)
-          href: ../../backup/azure-backup-move-vaults-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Database for PostgreSQL Server
           href: ../../postgresql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Database for MariaDB Server

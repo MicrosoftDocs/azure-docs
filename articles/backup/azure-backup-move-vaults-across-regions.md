@@ -2,10 +2,10 @@
 title: Move Azure Recovery Services vault to another region
 description: In this article, you'll learn how to ensure continued backups after moving the resources across regions.
 ms.topic: conceptual
-ms.date: 07/23/2021
+ms.date: 07/26/2021
 ms.custom: references_regions 
 ---
-# Move Azure Recovery Services vault to another region
+# Continue backups in Azure Recovery Services vault after moving resources across regions
 
 Azure Resource Mover supports the movement of multiple resources across regions and Azure Backup can protect several workloads.
 
