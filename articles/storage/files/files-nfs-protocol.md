@@ -89,7 +89,7 @@ At the time of publishing this section, following is the list of workloads that 
 
 The following workloads have open issues:
 - Locking issues with IBM MQ
-- High latency with metadata heavy workloads like untar
+- Metadata heavy workloads such as untar may experience high latency
 - Incompatibility with dNFS from Oracle
 
 Reach out to azurefilesnfs@microsoft.com to work with us cosely to validate workloads not in the above list or to share more successful workloads stories.  
