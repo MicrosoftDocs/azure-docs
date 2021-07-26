@@ -101,7 +101,7 @@ Ensure your client meets the following requirements:
 - SSH client must support OpenSSH based certificates for authentication. You can use Az CLI (2.21.1 or higher) with OpenSSH (included in Windows 10 version 1803 or hiher) or Azure Cloud Shell to meet this requirement. 
 - SSH extension for Az CLI. You can install this using `az extension add --name ssh`. You do not need to install this extension when using Azure Cloud Shell as it comes pre-installed.
 - If you are using any other SSH client other than Az CLI or Azure Cloud Shell that supports OpenSSH certificates, you will still need to use Az CLI with SSH extension to retrieve ephemeral SSH cert and optionally a config file and then use the config file with your SSH client.
-- TCP connectivity from the client to either the public or private IP of the VM (ProxyCommand or ssh forwarding to a machine with connectivity also works)
+- TCP connectivity from the client to either the public or private IP of the VM (ProxyCommand or SSH forwarding to a machine with connectivity also works).
 
 ## Enabling Azure AD login in for Linux VM in Azure
 
