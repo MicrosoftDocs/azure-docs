@@ -29,7 +29,7 @@ Before reading through this article, it's recommended that you go through the fo
 
 ## Refresh token lifetime
 
-Refresh tokens have a significantly longer lifetime than access tokens. The default lifetime for the tokens is 90 days and they replace themselves with a fresh token upon every use. This means that whenever a refresh token is used to acquire a new access token, a new refresh token is also issued. The Microsoft identity platform doesn't revoke old refresh tokens when used to fetch new access tokens. Securely delete the old refresh token after acquiring a new one. Refresh tokens need to be stored safely like access tokens or application credentials. 
+Refresh tokens have a longer lifetime than access tokens. The default lifetime for the tokens is 90 days and they replace themselves with a fresh token upon every use. This means that whenever a refresh token is used to acquire a new access token, a new refresh token is also issued. The Microsoft identity platform doesn't revoke old refresh tokens when used to fetch new access tokens. Securely delete the old refresh token after acquiring a new one. Refresh tokens need to be stored safely like access tokens or application credentials. 
 
 ## Refresh token expiration
 
@@ -37,7 +37,7 @@ Refresh tokens can be revoked at any time, because of timeouts and revocations. 
 
 ### Token timeouts
 
-Token lifetimes can't be configured. The lifetime of refresh tokens can't be reduced or lengthened. Configure sign-in frequency in Conditional Access to define the time periods before a user is required to sign in again. Ypu can learn more about [Configuring authentication session management with Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md).
+You can't configure the lifetime of a refresh token. You can't reduce or lengthen their lifetime. Configure sign-in frequency in Conditional Access to define the time periods before a user is required to sign in again. Learn more about [Configuring authentication session management with Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md).
 
 Not all refresh tokens follow the rules set in the token lifetime policy. Specifically, refresh tokens used in [single page apps](reference-third-party-cookies-spas.md) are always fixed to 24 hours of activity, as if they have a `MaxAgeSessionSingleFactor` policy of 24 hours applied to them. 
 
