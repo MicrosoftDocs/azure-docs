@@ -60,13 +60,14 @@ Please follow this link to read more about [auto upgrade](how-to-connect-install
 7/20/2021: Released for download only, not available for auto upgrade
 ### Functional changes
  - We have upgraded the LocalDB components of SQL Server to SQL 2019. 
- - This release requires Windows Server 2016 or newer, due to the requirements of SQL Server 2019.
+ - This release requires Windows Server 2016 or newer, due to the requirements of SQL Server 2019. Note that an in-place upgrade of Windows Server on an Azure AD Connect server is not supported, so you may need to use a [swing migration](how-to-upgrade-previous-version.md#swing-migration).
  -	In this release we enforce the use of TLS 1.2. If you have enabled your Windows Server for TLS 1.2, AADConnect will use this protocol. If TLS 1.2 is not enabled on the server you will see an error message when attempting to install AADConnect and the installation will not continue until you have enabled TLS 1.2. Note that you can use the new “Set-ADSyncToolsTls12” cmdlets to enable TLS 1.2 on your server.
  -	With this release, you can use a user with the user role “Hybrid Identity Administrator” to authenticate when you install Azure AD Connect. You no longer need the Global Administrator role for this.
  - We have upgraded the Visual C++ runtime library to version 14 as a prerequisite for SQL Server 2019	
  -	This release uses the MSAL library for authentication, and we have removed the older ADAL library, which will be retired in 2022.	
  -	We no longer apply permissions on the AdminSDHolders, following Windows security guidance. We changed the parameter "SkipAdminSdHolders" to "IncludeAdminSdHolders" in the ADSyncConfig.psm1 module.
- -	Passwords will now be reevaluated when the password last set value is changed, regardless of whether the password itself is changed. If for a user the password is set to “Must change password” then this status is synced to Azure AD, and when the user attempts to sign in in Azure AD they will be prompted to reset their password.	
+ -	Passwords will now be reevaluated when an expired password is "unexpired", regardless of whether the password itself is changed. If for a user the password is set to “Must change password at next logon”, and this flag is cleared (thus "unexpiring" the password) then the "unexpired" status and the password hash are synced to Azure AD, and when the user attempts to sign in in Azure AD they can use the unexpired password.
+To sync an expired password from Active Directory to Azure Active Directory please use the [Synchronizing temporary passwords](how-to-connect-password-hash-synchronization.md#synchronizing-temporary-passwords-and-force-password-change-on-next-logon)	feature in Azure AD Connect. Note that you will need to enable password writeback to use this feature, so the password the use updates is written back to Active Directory too.
  - We have added two new cmdlets to the ADSyncTools module to enable or retrieve TLS 1.2 settings from the Windows Server. 
    - Get-ADSyncToolsTls12
    - Set-ADSyncToolsTls12
