@@ -22,13 +22,15 @@ This release is published July 30, 2021.
 
 The current release announces general availability for the following services:
 - Azure Arc-enabled data controller
-- Azure Arc-enabled SQL Managed Instance
+- Azure Arc-enabled SQL Managed Instance general purpose service tier.
 
    > [!NOTE]
    > The services above are generally available in disconnected mode. 
    >
    > These services are also available in connected mode, for preview.
    >
+   > Azure SQL Managed Instance business critical service tier is available in preview.
+   > 
    > Azure Arc-enabled PostgreSQL Hyperscale continues to be available in preview.
 
 ### Breaking changes
@@ -61,7 +63,7 @@ The current release announces general availability for the following services:
 
 Direct connected mode is in preview. 
 
-Direct connected mode is only available in the following Azure regions for the GA release:
+Direct connected mode (preview) is only available in the following Azure regions for this release:
 - East US
 - East US 2
 - West US 2
