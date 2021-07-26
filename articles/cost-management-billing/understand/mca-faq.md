@@ -1,15 +1,19 @@
 ---
-title: Microsoft Customer Agreement FAQ
+title: Microsoft Customer Agreement FAQ - Azure
 description: Get answers to frequently asked questions about signing the Microsoft Customer Agreement.
 author: bandersmsft
 ms.author: banders
+tags: billing
 ms.date: 07/26/2021
 ms.topic: conceptual
+ms.custom: references_regions
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ---
 
 # Microsoft Customer Agreement frequently asked questions (FAQ)
+
+This article provides answers to frequently asked questions about the Microsoft Customer Agreement.
 
 ## Can I sign the Microsoft Customer Agreement today?
 
@@ -242,6 +246,6 @@ If you purchase Azure services through a Microsoft partner, contact them for que
 
 You can review the Microsoft Customer Agreement at [Microsoft Licensing](https://www.microsoft.com/licensing/docs/customeragreement).
 
-## How does these changes affect my organization if we already have a Microsoft Enterprise Agreement?
+## How do these changes affect my organization if we already have a Microsoft Enterprise Agreement?
 
 Azure usage and purchases made under an existing Enterprise Agreement are not affected by this change.
