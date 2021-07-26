@@ -12547,7 +12547,7 @@
     {
       "source_path_from_root": "/articles/sql-database/sql-database-managed-instance-faq.md",
       "redirect_url": "/azure/azure-sql/managed-instance/frequently-asked-questions-faq",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/sql-database/sql-database-howto-managed-instance.md",
@@ -12602,6 +12602,11 @@
     {
       "source_path_from_root": "/articles/sql-database/sql-database-managed-instance-migrate.md",
       "redirect_url": "/azure/azure-sql/managed-instance/migrate-to-instance-from-sql-server",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/azure/azure-sql/managed-instance/migrate-to-instance-from-sql-server.md",
+      "redirect_url": "/azure/azure-sql/migration-guides/managed-instance/sql-server-to-managed-instance-guide",
       "redirect_document_id": true
     },
     {
