@@ -10,7 +10,7 @@ ms.date: 07/25/2021
 ms.custom: how-to
 ---
 
-# Export DNS records for a private endpoint using the Azure portal.
+# Export DNS records for a private endpoint using the Azure portal
 
 A private endpoint in Azure requires DNS records for name resolution of the endpoint. The DNS record resolves the private IP address of the endpoint for the configured resource. To export the DNS records of the endpoint, use the Private Link center in the portal.
 
