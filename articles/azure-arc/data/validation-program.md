@@ -34,12 +34,6 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 | PowerStore X|1.20.6|20.3.3|SQL Server 2019 (15.0.4123) |postgres 12.3 (Ubuntu 12.3-1) |
 | Powerstore T|1.20.6|20.3.3|SQL Server 2019 (15.0.4123) |postgres 12.3 (Ubuntu 12.3-1)|
 
-### Red Hat
-
-|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL Server version | PostgreSQL Hyperscale version
-|-----|-----|-----|-----|-----|
-| OpenShift v.7.13 | 1.20.0 | 20.3.5 | SQL Server 2019 (15.0.4138)|postgres 12.3 (Ubuntu 12.3-1)|
-
 ### Nutanix
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL Server version | PostgreSQL Hyperscale version
@@ -51,6 +45,12 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL Server version | PostgreSQL Hyperscale version
 |-----|-----|-----|-----|-----|
 | Portworx Enterprise 2.7 | 1.20.7 | 20.3.5 | SQL Server 2019 (15.0.4138)||
+
+### Red Hat
+
+|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL Server version | PostgreSQL Hyperscale version
+|-----|-----|-----|-----|-----|
+| OpenShift 7.13 | 1.20.0 | 20.3.5 | SQL Server 2019 (15.0.4138)|postgres 12.3 (Ubuntu 12.3-1)|
 
 ### VMware
 
