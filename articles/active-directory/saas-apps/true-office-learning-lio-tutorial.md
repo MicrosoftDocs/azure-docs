@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/23/2021
+ms.date: 07/26/2021
 ms.author: jeedes
 
 ---
@@ -114,15 +114,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure True Office Learning - LIO SSO
 
-To configure single sign-on on **True Office Learning - LIO** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [True Office Learning - LIO support team](mailto:service@trueoffice.com). They set this setting to have the SAML SSO connection set properly on both sides.
+Please contact [True Office Learning - LIO support team](mailto:service@trueoffice.com) with configuration questions and/or to request a copy of the metadata. 
+In your request please provide the following information:
+* Company Name.
+* CompanyID (if known).
+* Existing or new configuration.
 
 ### Create True Office Learning - LIO test user
 
-Please contact [True Office Learning - LIO support team](mailto:service@trueoffice.com) with configuration questions and/or to request a copy of the metadata. 
-In your request please provide the following information:
-* Company Name
-* CompanyID (if known)
-* Existing or new configuration
+In this section, you create a user called Britta Simon in Brushup. Work with [True Office Learning - LIO support team](mailto:service@trueoffice.com) to add the users in the Brushup platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
