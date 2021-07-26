@@ -100,7 +100,7 @@ The first snapshot backup is scheduled immediately after a server is created. Sn
 All Azure Database for MySQL data, backups and temporary files created during query execution are encrypted using AES 256-bit encryption. The storage encryption is always on and cannot be disabled. 
 
 - **Can I restore a single/few database(s)?**
-Restoring a single/few database(s) or tables is not supported. You need to restore the entire server and then extract the table(s) or database(s) needed.
+Restoring a single/few database(s) or tables is not supported. In case you want to restore specific databases, perform a Point in Time Restore and then use client tools like mysqldump or myDumper to take the backup of specific databases and restore them.
 
 - **Is my server available during the backup window?**
 Yes. Backups are online operations and are snapshot-based. The snapshot operation only takes few seconds and doesn’t interfere with production workloads ensuring high availability of the server.
