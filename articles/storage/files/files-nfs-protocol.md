@@ -90,7 +90,7 @@ The following is a list of workloads that have been validated to fully work with
 The following workloads have open issues:
 - IBM MQ may experience locking issues
 - Metadata heavy workloads such as untar may experience high latency
-- Incompatibility with dNFS from Oracle
+- dNFS from Oracle is not compatible
 
 Reach out to azurefilesnfs@microsoft .com to validate workloads not in the prior list or to share more successful workloads stories.  
 
