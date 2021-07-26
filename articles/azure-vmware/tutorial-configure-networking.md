@@ -15,9 +15,6 @@ An Azure VMware Solution private cloud requires an Azure Virtual Network. Becaus
 
 [!INCLUDE [disk-pool-planning-note](includes/disk-pool-planning-note.md)]
 
-<!--
-If you plan to scale your Azure VMware Solution hosts using [Azure disk pools](../../virtual-machines/disks-pools.md), it's crucial to deploy the vNet close to your hosts with an ExpressRoute virtual network gateway.  The closer the storage is to your hosts, the better the performance.
--->
 
 In this tutorial, you learn how to:
 
@@ -41,7 +38,7 @@ You can use the **Azure vNet connect** feature to use an existing vNet or create
 
 ### Select an existing vNet
 
-When you select an existing vNet, the Azure Resource Manager (ARM) template that creates the vNet and other resources gets redeployed. The resources in this case are the public IP, gateway, gateway connection, and ExpressRoute authorization key. If everything is set up, the deployment won't change anything. If anything is missing, on the other hand, it gets created.  For example, if the GatewaySubnet is missing, then it gets added during the deployment.
+When you select an existing vNet, the Azure Resource Manager (ARM) template that creates the vNet and other resources gets redeployed. The resources in this case are the public IP, gateway, gateway connection, and ExpressRoute authorization key. If everything is set up, the deployment won't change anything. However, if anything is missing, it gets created automatically.  For example, if the GatewaySubnet is missing, then it gets added during the deployment.
 
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Connectivity**.
 
