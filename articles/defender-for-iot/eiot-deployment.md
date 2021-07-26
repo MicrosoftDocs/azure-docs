@@ -2,7 +2,7 @@
 title: EIoT deployment guide
 description: Learn how to deploy EIoT for your Defender for IoT service.
 ms.topic: how-to
-ms.date: 07/05/2021
+ms.date: 07/26/2021
 ---
 
 # Deploy EIoT 
@@ -63,10 +63,16 @@ Azure Defender for IoT ensures quick and frictionless deployment of network sens
     
     - **VM** - Connect a vNIC to a vSwitch in promiscuous mode.
     
+1. Run the following command to enable the network adapter in promiscuous mode. 
+
+    ```bash
+    ifconfig <monitoring port> up promisc
+    ```
+
 1. Validate incoming traffic to the monitoring port with the following command:
 
     ```bash
-    ifconfig <moinitoring interface>
+    ifconfig <monitoring interface>
     ```
 
     If the number of RX packets increases each time, the interface is receiving incoming traffic. Repeat this step for each interface you have. 
@@ -81,51 +87,28 @@ Open the following ports in your firewall:
 
 - AMQP - 5671, 5672 TCP
 
-### Create a new subscription
+**Prepare an Azure instance**
 
-If you already have a subscription that is onboarded for Azure Defender for IoT for OT environments, you would need to choose an alternate, or create a new subscription. 
+- If you already have a subscription that is onboarded for Azure Defender for IoT for OT environments, you would need to choose an alternate, or create a new subscription. 
+
+- You must have a minimum of Security Owner to create a subscription, and Security Reader level permissions to access the Defender for IoT user interface.
+
+- Create an IoT Hub. 
+
+    - Due to GDPR regulations, EU customers must set their instances to the EU **Europe West** cloud. Any customer outside of the EU, should set their instance to US **US East** cloud.
+
+### Create a new subscription 
 
 Onboard a new subscription, and provide the subscription ID to your Azure Defender for IoT contact to ensure you will not be billed.
 
 To create a new subscription.
 
-1. Navigate to the [Azure portal](https://ms.portal.azure.com/).
+**xxxxxxxxxxx FOLLOW THIS LINK TO CREATE A SUBSCRIPTION INSERT LINK HERE  xxxxxxxxxxxxx REMOVE EVERYTHING BELOW THIS**
 
-1. Select **Subscriptions**.
-
-1. Select **Add**.
-
-   :::image type="content" source="../cost-management-billing/manage/media/create-subscription/subscription-add.png" alt-text="Screenshot that shows adding a subscription.":::
-
-1. Select the billing account for which you want to create the subscription.
-
-1. Fill in the form and click **Create**. The tables below list the fields on the form for each type of billing account.
-
-    **Enterprise Agreement**
+> [!Note]
+> You must have a minimum of Security Owner to create a subscription, and Security Reader level permissions to access the Defender for IoT user interface. 
     
-    | Field | Definition |
-    |--|--|
-    | Name | The display name that helps you easily identify the subscription in the Azure portal. |
-    | Offer | Select EA Dev/Test, if you plan to use this subscription for development or testing workloads else use Microsoft Azure Enterprise. DevTest offer must be enabled for your enrollment account to create EA Dev/Test subscriptions. |
-
-    **Microsoft Customer Agreement**
-    
-    | Field | Definition |
-    |--|--|
-    | Billing profile | The charges for your subscription will be billed to the billing profile that you select. If you have access to only one billing profile, the selection will be greyed out. |
-    | Invoice section | The charges for your subscription will appear on this section of the billing profile's invoice. If you have access to only one invoice section, the selection will be greyed out. |
-    | Plan | Select Microsoft Azure Plan for DevTest, if you plan to use this subscription for development or testing workloads else use Microsoft Azure Plan. If only one plan is enabled for the billing profile, the selection will be greyed out. |
-    | Name | The display name that helps you easily identify the subscription in the Azure portal. |
-
-    **Microsoft Partner Agreement**
-    
-    | Field | Definition |
-    |--|--|
-    | Customer | The subscription is created for the customer that you select. If you have only one customer, the selection will be greyed out. |
-    | Reseller | The reseller that will provide services to the customer. This is an optional field, which is only applicable to Indirect providers in the CSP two-tier model. |
-    | Name | The display name that helps you easily identify the subscription in the Azure portal. |
-    
-1. Copy the subscription ID, and send a copy to your Azure Defender for IoT contact to ensure you will not be billed.
+**Copy the subscription ID, and send a copy to your Azure Defender for IoT contact to ensure you will not be _billed_.**
  
 ## Onboard a new subscription
 
@@ -133,10 +116,16 @@ Create, and onboard a new subscription, even if you already have a current subsc
 
 **To onboard a new subscription**:
 
-1. Navigate to the [Home - Microsoft Azure](https://ms.portal.azure.com/) located at `https://ms.portal.azure.com/?enterpriseiot=true#home`.
+1. Navigate to the **https://ms.portal.azure.com/?enterpriseiot=true#home**.
 
     > [!Note]
-    > You must select the specific link provided in step #1 or you will not be able to compete the process listed below.
+    > **You must select the specific link provided in step #1 or you will not be able to compete the process listed below**.
+
+1. Search for `Azure Defender for IoT` in the search bar.
+
+    :::image type="content" source="media/eiot-deployment/search-for-defender.png" alt-text="Enter Azure Defender for IoT in the Ssearch bar and select it.":::
+
+1. Select Azure Defender for IoT.
 
 1. On the getting started page, Select **Onboard a subscription**.
 
@@ -152,7 +141,7 @@ Create, and onboard a new subscription, even if you already have a current subsc
 
 **To configure an IoTHub**:
 
-1. Navigate to the [Azure portal](https://ms.portal.azure.com/?enterpriseiot=true#home) located at `https://ms.portal.azure.com/?enterpriseiot=true#home`.
+1. Navigate to `https://ms.portal.azure.com/?enterpriseiot=true#home`.
 
 1. Create a new IoTHub.
 
@@ -171,6 +160,12 @@ Create, and onboard a new subscription, even if you already have a current subsc
 
     :::image type="content" source="media/eiot-deployment/public-endpoint.png" alt-text="Select Public Endpoint in the Networking tab.":::
 
+1. Select the **Management** tab.
+
+1. Change the Pricing and scale tier to **F1: Free tier**.
+
+    :::image type="content" source="media/eiot-deployment/free-tier.png" alt-text="Select F1: Free tier.":::
+
 1. Select **Review & create**.
 
 ## Onboard a sensor
@@ -179,7 +174,7 @@ Onboard a new sensor for this scenario.
 
 **To onboard a sensor**:
 
-1. Navigate to the [Home - Microsoft Azure](https://ms.portal.azure.com/?enterpriseiot=true#home) located at `https://ms.portal.azure.com/?enterpriseiot=true#home`.
+1. Navigate to the https://ms.portal.azure.com/?enterpriseiot=true#home`.
 
 1. Select **Onboard sensor**.
 
@@ -187,9 +182,13 @@ Onboard a new sensor for this scenario.
 
 1. Enter a name for the sensor.
 
+    :::image type="content" source="media/eiot-deployment/onboard-sensor-screen.png" alt-text="Enter the following information into the onboarding screen.":::
+
 1. Select a subscription.
 
 1. In the Deploy for field, select **An enterprise network**.
+
+    :::image type="content" source="media/eiot-deployment/enterprise-network.png" alt-text="Ensure An enterprise network is selected on your screen.":::
 
 1. Select an IoTHub.
 
@@ -201,6 +200,8 @@ Onboard a new sensor for this scenario.
 
 1. On the Download activation file tab, select **Download activation file**.
 
+1. Use WinSCP or similar to copy the file to the sensor.
+
 1. Select **Finish**.
 
 1. (Optional) If you are using a proxy environment, enter your credentials, and set the proxy to allow a connection to Azure. **Proxies without passwords are not supported**.
@@ -211,11 +212,11 @@ You will need to download a package, and move it, and your activation file to th
 
 **To install the sensor**:
 
-1. Download the [package](https://aka.ms/iot-security-enterprise-package-latest) located at `https://aka.ms/iot-security-enterprise-package-latest`.
+1. Run the following command to download the installation package to your sensor.
 
-1. Locate the package and rename it to `eiot.deb`.
-
-1. Place the activation file you downloaded in the previous steps, and the package in the home directory.
+    ```bash
+    wget -O eiot.deb "<https://aka.ms/iot-security-enterprise-package-latest>"
+    ```
 
 1. Update APT using the following command:
 
