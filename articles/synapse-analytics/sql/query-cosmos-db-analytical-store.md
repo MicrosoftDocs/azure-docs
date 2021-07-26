@@ -102,7 +102,7 @@ Database account master key is placed in server-level credential or database sco
 
 ## Sample dataset
 
-The examples in this article are based on data from the [European Centre for Disease Prevention and Control (ECDC) COVID-19 Cases](https://azure.microsoft.com/services/open-datasets/catalog/ecdc-covid-19-cases/) and [COVID-19 Open Research Dataset (CORD-19), doi:10.5281/zenodo.3715505](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/).
+The examples in this article are based on data from the [European Centre for Disease Prevention and Control (ECDC) COVID-19 Cases](/azure/open-datasets/dataset-ecdc-covid-cases) and [COVID-19 Open Research Dataset (CORD-19), doi:10.5281/zenodo.3715505](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/).
 
 You can see the license and the structure of data on these pages. You can also download sample data for the [ECDC](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.json) and [CORD-19](https://azureopendatastorage.blob.core.windows.net/covid19temp/comm_use_subset/pdf_json/000b7d1517ceebb34e1e3e817695b6de03e2fa78.json) datasets.
 
@@ -172,7 +172,7 @@ While automatic schema inference capability in `OPENROWSET` provides a simple, e
 
 The `OPENROWSET` function enables you to explicitly specify what properties you want to read from the data in the container and to specify their data types.
 
-Let's imagine that we've imported some data from the [ECDC COVID dataset](https://azure.microsoft.com/services/open-datasets/catalog/ecdc-covid-19-cases/) with the following structure into Azure Cosmos DB:
+Let's imagine that we've imported some data from the [ECDC COVID dataset](/azure/open-datasets/dataset-ecdc-covid-cases) with the following structure into Azure Cosmos DB:
 
 ```json
 {"date_rep":"2020-08-13","cases":254,"countries_and_territories":"Serbia","geo_id":"RS"}

@@ -5,7 +5,7 @@ author: harelbr
 ms.author: harelbr
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 10/7/2020 
+ms.date: 7/21/2021 
 ms.custom: devx-track-azurepowershell
 ---
 # Create a metric alert with a Resource Manager template
@@ -89,7 +89,6 @@ Save the json below as simplestaticmetricalert.json for the purpose of this walk
             "defaultValue": "GreaterThan",
             "allowedValues": [
                 "Equals",
-                "NotEquals",
                 "GreaterThan",
                 "GreaterThanOrEqual",
                 "LessThan",
@@ -1313,7 +1312,6 @@ Save the json below as customstaticmetricalert.json for the purpose of this walk
             "defaultValue": "GreaterThan",
             "allowedValues": [
                 "Equals",
-                "NotEquals",
                 "GreaterThan",
                 "GreaterThanOrEqual",
                 "LessThan",
@@ -1644,7 +1642,6 @@ Save the json below as all-vms-in-resource-group-static.json for the purpose of 
             "defaultValue": "GreaterThan",
             "allowedValues": [
                 "Equals",
-                "NotEquals",
                 "GreaterThan",
                 "GreaterThanOrEqual",
                 "LessThan",
@@ -2291,7 +2288,6 @@ Save the json below as all-vms-in-subscription-static.json for the purpose of th
             "defaultValue": "GreaterThan",
             "allowedValues": [
                 "Equals",
-                "NotEquals",
                 "GreaterThan",
                 "GreaterThanOrEqual",
                 "LessThan",
@@ -2933,7 +2929,6 @@ Save the json below as list-of-vms-static.json for the purpose of this walk-thro
             "defaultValue": "GreaterThan",
             "allowedValues": [
                 "Equals",
-                "NotEquals",
                 "GreaterThan",
                 "GreaterThanOrEqual",
                 "LessThan",
