@@ -3,12 +3,12 @@ title: 'Scenario: Custom isolation for virtual networks and branches'
 titleSuffix: Azure Virtual WAN
 description: Learn about Virtual WAN routing scenarios to prevent selected VNets and branches from being able to reach each other.
 services: virtual-wan
-author: wellee
+author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 04/27/2021
-ms.author: wellee
+ms.author: cherylmc
 
 ---
 # Scenario: Custom Isolation for Virtual Networks and Branches
