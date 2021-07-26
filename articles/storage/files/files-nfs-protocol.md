@@ -83,7 +83,7 @@ The status of items that appear in this tables may change over time as support c
 
 ## Validated workloads
 The following is a list of workloads that have been validated to fully work with the NFS in its preview, at the time of publishing this section. This list may change over time.
-- Highly Available shared storage for self-deployed Redis cache
+- Highly available shared storage for self-deployed Redis cache
 - Machine learning home directories
 - Home directories for high-performance computing
 
