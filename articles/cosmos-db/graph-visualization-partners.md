@@ -56,7 +56,7 @@ These toolkits let you design high-performance graph visualization and analysis 
 
 Perspectives enables developers to quickly develop production-quality, data-oriented visualization applications. Two graphic modules, the "Designer" and the "Previewer" are used to build applications to visualize and analyze the specific data that drives each project. When used together, the Designer and Previewer provide an efficient round-trip process that dramatically speeds up application development. To visualize Azure Cosmos DB graph and data using this platform, request a [free 60-day evaluation](https://www.tomsawyer.com/get-started) of this tool. The following is an illustration of how Tom Sawyer works:
 
-:::image type="content" source="./media/graph-visualization-partners/tomsawyer/tomsawyer-perspectives.gif" alt-text="Tomsawyer Perspectives demo" border="false":::
+:::image type="content" source="./media/graph-visualization-partners/tomsawyer/tomsawyer-perspective.gif" alt-text="Tomsawyer Perspectives demo" border="false":::
 
 [Tom Sawyer Graph Database Browser](https://www.tomsawyer.com/graph-database-browser/) makes it easy to visualize and analyze data in Azure Cosmos DB Gremlin API. The Graph Database Browser helps you see and understand connections in your data without extensive knowledge of the query language or the schema. You can manually define the schema for your project or use schema extraction to create it. So, even less technical users can interact with the data by loading the neighbors of selected nodes and building the visualization in whatever direction they need. Advanced users can run queries using Gremlin, Cypher, or SPARQL to gain other insights. After you define the schema you can load the Azure Cosmos DB data into the Perspectives model. With the help of integrator definition, you can specify the location and configuration for the Gremlin endpoint. Later you can bind elements from the Azure Cosmos DB data source to elements in the Perspectives model and visualize your data.
 
@@ -82,7 +82,7 @@ Graphistry automatically transforms your data into interactive, visual investiga
 
 With the Graphistry's GPU client/cloud technology you can do interactive visualization. By using their standard browser and the cloud, you can use all the data you want, and still remain fast, responsive, and interactive. If you want to run the browser on your hardware, it’s as easy as installing a Docker. That way you get the analytical power of GPUs without having to think about GPUs.
 
-:::image type="content" source="./media/graph-visualization-partners/graphistry/graphistry-demo1.webp" alt-text="Graphisry demo1" border="false":::
+:::image type="content" source="./media/graph-visualization-partners/graphistry/graphistry-demo1.gif" alt-text="Graphisry demo1" border="false":::
 
 ### Useful links
 
