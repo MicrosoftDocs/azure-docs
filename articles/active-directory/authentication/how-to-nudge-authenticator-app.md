@@ -69,7 +69,7 @@ In addition to choosing who can be nudged, you can define how many days a user c
 
 ## Enable the nudge policy
 
-To enable the nudge, you must use the Authentication Methods Policy using Graph APIs or PowerShell commands. **Global administrators** and **Authentication Method Policy administrators** can update the policy. 
+To enable the nudge, you must use the Authentication Methods Policy using Graph APIs. **Global administrators** and **Authentication Method Policy administrators** can update the policy. 
 
 To configure the policy using Graph Explorer:
 
