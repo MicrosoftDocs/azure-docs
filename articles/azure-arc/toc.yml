@@ -20,7 +20,7 @@
   items:
    - name: Program overview
      href: validation-program/overview.md
-   - name: Kubernetes distribution validation
+   - name: Validated Kubernetes partners
      href: kubernetes/validation-program.md?toc=/azure/azure-arc/toc.json&bc=/azure/azure-arc/breadcrumb/toc.json
-   - name: Data services validation
+   - name: Validated data services partners
      href: data/validation-program.md?toc=/azure/azure-arc/toc.json&bc=/azure/azure-arc/breadcrumb/toc.json

@@ -58,46 +58,11 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 |-----|-----|-----|-----|-----|
 | TKGm v1.3.1 | 1.20.5 | 20.3.3 | SQL Server 2019 (15.0.4123)|postgres 12.3 (Ubuntu 12.3-1)|
 
-## Validated distributions
+## Additional information
 
-!!!!!(This section is copied from [Azure Arc-enabled Kubernetes validation](../kubernetes/validation-program.md)) REPLACE!!!!
-
-The following Microsoft provided Kubernetes distributions and infrastructure providers have successfully passed the conformance tests for Azure Arc-enabled data services:
-
-| Distribution and infrastructure provider | Version |
-| ---------------------------------------- | ------- |
-| Cluster API Provider on Azure            | Release version: [0.4.12](https://github.com/kubernetes-sigs/cluster-api-provider-azure/releases/tag/v0.4.12); Kubernetes version: [1.18.2](https://github.com/kubernetes/kubernetes/releases/tag/v1.18.2) |
-| AKS on Azure Stack HCI                   | Release version: [December 2020 Update](https://github.com/Azure/aks-hci/releases/tag/AKS-HCI-2012); Kubernetes version: [1.18.8](https://github.com/kubernetes/kubernetes/releases/tag/v1.18.8) |
-
-The following providers and their corresponding Kubernetes distributions have successfully passed the conformance tests for Azure Arc-enabled Kubernetes:
-
-| Provider name | Distribution name | Version |
-| ------------ | ----------------- | ------- |
-| RedHat       | [OpenShift Container Platform](https://www.openshift.com/products/container-platform) | [4.7.13](https://docs.openshift.com/container-platform/4.7/release_notes/ocp-4-7-release-notes.html) |
-| Nutanix      | [Karbon](https://www.nutanix.com/products/karbon)    | Version 2.2.1 |
-
-The Azure Arc team also ran the conformance tests and validated Azure Arc-enabled Kubernetes scenarios on the following public cloud providers:
-
-| Public cloud provider name | Distribution name | Version |
-| -------------------------- | ----------------- | ------- |
-| Amazon Web Services        | Elastic Kubernetes Service (EKS) | v1.18.9  |
-| Google Cloud Platform      | Google Kubernetes Engine (GKE) | v1.17.15 |
-
-## Scenarios validated
-
-!!!!!(This section is copied from [Azure Arc-enabled Kubernetes validation](../kubernetes/validation-program.md)) REPLACE!!!!
-
-The conformance tests run as part of the Azure Arc-enabled Kubernetes validation cover the following scenarios:
-
-1. Connect Kubernetes clusters to Azure Arc: 
-    * Deploy Azure Arc-enabled Kubernetes agent Helm chart on cluster.
-    * Set up Managed System Identity (MSI) certificate on cluster.
-    * Agents send cluster metadata to Azure.
-
-2. Configuration: 
-    * Create configuration on top of Azure Arc-enabled Kubernetes resource.
-    * [Flux](https://docs.fluxcd.io/), needed for setting up GitOps workflow, is deployed on the cluster.
-    * Flux pulls manifests and Helm charts from demo Git repo and deploys to cluster.
+- [Validation program overview](../validation-program/overview.md)
+- [Azure Arc-enabled Kubernetes validation](../kubernetes/validation-program.md)
+- [Azure Arc validation program - GitHub project](https://github.com/Azure/azure-arc-validation/)
 
 ## Next steps
 
