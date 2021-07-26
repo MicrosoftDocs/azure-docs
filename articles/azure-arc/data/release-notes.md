@@ -28,9 +28,14 @@ The current release announces general availability for the following services:
    > The services above are generally available in disconnected mode. 
    >
    > These services are also available in connected mode, for preview.
+   >
    > Azure Arc-enabled PostgreSQL Hyperscale continues to be available in preview.
 
 ### Breaking changes
+
+#### Data controller
+
+- `az arcdata dc create` parameter named `--azure-subscription` has been changed to use the standard `--subscription` parameter.
 
 ### What's new
 
@@ -54,7 +59,37 @@ The current release announces general availability for the following services:
 
 #### Data controller
 
-Deleting the data controller does not in all cases delete the monitor custom resource. You can delete it manually by running the command `kubectl delete monitor monitoringstack -n <namespace>`.
+Direct connected mode is in preview. 
+
+Direct connected mode is only available in the following Azure regions for the GA release:
+- East US
+- East US 2
+- West US 2
+- South Central US
+- UK South
+- West Europe
+- North Europe
+- Southeast Asia
+- Australia East
+- Central US
+- Korea Central
+
+Currently, additional basic authentication users can be added to Grafana using the Grafana administrative experience. Customizing Grafana by modifying the Grafana .ini files is not supported.
+
+Currently, modifying the configuration of ElasticSearch and Kibana is not supported beyond what is available through the Kibana administrative experience. Only basic authentication with a single user is supported.
+	
+Custom metrics in Azure Portal is in preview.
+
+#### Azure Arc-enabled SQL Managed Instance
+
+- Backup/point in time restore is in preview. [Add more guidance here!]
+- Agent transaction replication is currently not supported.
+- Supports point-in-time restore from an existing database in an Azure Arc-enabled SQL managed instance to a new database within the same instance.
+- If the current datetime is given as point-in-time in UTC format, it resolves to the latest valid restore time and restores the given database until last valid transaction.
+- We can restore a database to any point-in-time where the transactions took place.
+- Supports restoring a deleted database within an Azure Arc-enabled managed instance to a given point-in-time.
+- To set a specific recovery point objective for an Azure Arc-enabled SQL Managed Instance, edit the SQL managed instance CRD to set the `recoveryPointObjectiveInSeconds` property. Supported values are from 300 to 600.
+- To disable the automated backups, edit the SQL instance CRD and set the `recoveryPointObjectiveInSeconds` property to 0.
 
 #### Azure Arc-enabled PostgreSQL Hyperscale
 
@@ -79,10 +114,6 @@ Deleting the data controller does not in all cases delete the monitor custom res
 - Passing an invalid value to the `--extensions` parameter when editing the configuration of a server group to enable additional extensions incorrectly resets the list of enabled extensions to what it was at the create time of the server group and prevents user from creating additional extensions. The only workaround available when that happens is to delete the server group and redeploy it.
 
 - Point in time restore is not supported for now on NFS storage.
-
-#### Azure Arc-enabled SQL Managed Instance
-
-Some limitations for the automated backup service. Refer to the Point-In-Time restore article to learn more.
 
 ## June 2021
 
@@ -110,7 +141,7 @@ To update your scripts for managed instance, replace `azdata arc sql mi...` with
 
 For Azure Arc-enabled PostgreSQL Hyperscale, replace `azdata arc sql postgres...` with `az postgres arc-server...`.
 
-In addition to the parameters that have historically existed on the azdata commands, the same commands in the `arcdata` Azure CLI extension have some new parameters such as `--namespace` and `--use-k8s` are now required.  The `--use-k8s` parameter will be used to differentiate when the command should be sent to the Kubernetes API or to the ARM API.  For now all Azure CLI commands for Arc enabled data services target only the Kubernetes API.
+In addition to the parameters that have historically existed on the azdata commands, the same commands in the `arcdata` Azure CLI extension have some new parameters such as `--namespace` and `--use-k8s` are now required. The `--use-k8s` parameter will be used to differentiate when the command should be sent to the Kubernetes API or to the ARM API. For now all Azure CLI commands for Arc-enabled data services target only the Kubernetes API.
 
 Some of the short forms of the parameter names (e.g. `--core-limit` as `-cl`) have either been removed or changed. Use the new parameter short names or the long name.
 
@@ -118,15 +149,15 @@ The `azdata arc dc export` command is no longer functional. Use `az arcdata dc e
 
 #### Required property: `infrastructure`
 
-The `infrastructure` property is a new required property when deploying a data controller.  Adjust your yaml files, azdata/az scripts, and ARM templates to account for specifying this property value.  Allowed values are `alibaba`, `aws`, `azure`, `gpc`, `onpremises`, `other`.
+The `infrastructure` property is a new required property when deploying a data controller. Adjust your yaml files, azdata/az scripts, and ARM templates to account for specifying this property value. Allowed values are `alibaba`, `aws`, `azure`, `gpc`, `onpremises`, `other`.
 
 #### Kibana login
 
-The OpenDistro security pack has been removed.  Log in to Kibana is now done through a generic browser username/password prompt.  More information will be provided later how to configure additional authentication/authorization options.
+The OpenDistro security pack has been removed. Log in to Kibana is now done through a generic browser username/password prompt. More information will be provided later how to configure additional authentication/authorization options.
 
 #### CRD version bump to `v1beta1`
 
-All CRDs have had the version bumped from `v1alpha1` to `v1beta1` for this release.  Be sure to delete all CRDs as part of the uninstall process if you have deployed a version of Arc enabled data services prior to the June 2021 release.  The new CRDs deployed with the June 2021 release will have v1beta1 as the version.
+All CRDs have had the version bumped from `v1alpha1` to `v1beta1` for this release. Be sure to delete all CRDs as part of the uninstall process if you have deployed a version of Arc-enabled data services prior to the June 2021 release. The new CRDs deployed with the June 2021 release will have v1beta1 as the version.
 
 #### Azure Arc-enabled SQL Managed Instance
 
