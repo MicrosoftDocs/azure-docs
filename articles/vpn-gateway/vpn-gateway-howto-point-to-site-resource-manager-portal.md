@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 06/03/2021
+ms.date: 07/21/2021
 ms.author: cherylmc
 
 ---
@@ -40,6 +40,8 @@ You can use the following values to create a test environment, or refer to these
 * **Virtual network gateway name:** VNet1GW
 * **Gateway type:** VPN
 * **VPN type:** Route-based
+* **SKU:** VpnGw2
+* **Generation:** Generation 2
 * **Public IP address name:** VNet1GWpip
 * **Connection type:** Point-to-site
 * **Client address pool:** 172.16.201.0/24<br>VPN clients that connect to the VNet using this Point-to-Site connection receive an IP address from the client address pool.
@@ -62,7 +64,12 @@ In this step, you create the virtual network gateway for your VNet. Creating a g
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
 
-[!INCLUDE [Create a gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-portal-include.md)]
+[!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-gw-pip-portal-include.md)]
+
+You can see the deployment status on the Overview page for your gateway. A gateway can take up to 45 minutes to fully create and deploy. After the gateway is created, you can view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device.
+
+[!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="generatecert"></a>Generate certificates
 

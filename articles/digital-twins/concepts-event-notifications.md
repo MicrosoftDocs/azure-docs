@@ -313,4 +313,4 @@ Here is an example telemetry message body:
 ## Next steps
 
 Learn about delivering events to different destinations, using endpoints and routes:
-* [Concepts: Event routes](concepts-route-events.md)
+* [Event routes](concepts-route-events.md)

@@ -185,6 +185,9 @@ To install the Azure AD Password Protection proxy service, complete the followin
     ```powershell
     Import-Module AzureADPasswordProtection
     ```
+    
+    > [!WARNING]
+    > The 64 bit version of PowerShell must be used. Certain cmdlets may not work with PowerShell (x86).
 
 1. To check that the Azure AD Password Protection proxy service is running, use the following PowerShell command:
 

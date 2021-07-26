@@ -211,16 +211,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
       ```sql
       CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
       ```
-
-2. Set up filtering.
-
-   If you want to skip replicating some tables from your master, update the `replicate_wild_ignore_table` server parameter on your replica server. You can provide more than one table pattern using a comma-separated list.
-
-   Review the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table) to learn more about this parameter.
-
-   To update the parameter, you can use the [Azure portal](how-to-configure-server-parameters-portal.md) or [Azure CLI](how-to-configure-server-parameters-cli.md).
-
-3. Start replication.
+2. Start replication.
 
    Call the `mysql.az_replication_start` stored procedure to start replication.
 
@@ -228,7 +219,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    CALL mysql.az_replication_start;
    ```
 
-4. Check replication status.
+3. Check replication status.
 
    Call the [`show slave status`](https://dev.mysql.com/doc/refman/5.7/en/show-slave-status.html) command on the replica server to view the replication status.
 
