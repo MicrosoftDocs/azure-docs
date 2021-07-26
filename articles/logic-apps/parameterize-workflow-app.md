@@ -30,7 +30,9 @@ For example, you can use app settings to integrate with Azure Key Vault and [dir
 
 However, app settings have size limits and can't be referenced from certain areas in Azure Logic Apps. Parameters offers a wider range of use cases than app settings, such as support for large value sizes and complex objects.
 
-For example, if you use Visual Studio Code as your local development tool to run workflows locally, in your logic app project, you can define parameters using the **parameters.json** file. You can then reference any parameter in the **parameters.json** file from any workflow in your project's **workflow.json** file or from any connection object in your project's **connections.json** file. The following list describes a couple common use cases:
+For example, if you use Visual Studio Code as your local development tool to run workflows locally, in your logic app project, you can define parameters using the **parameters.json** file. You can then reference any parameter in this parameters file from any workflow in your project's **workflow.json** file or from any connection object in your project's **connections.json** file. The following list describes a couple common use cases:
+
+* Have a test parameters file that includes all the values that you use during testing. At deployment, you can replace your test parameters file with your production parameters file.
 
 * Parameterize different parts of your **connections.json** file. You can then check your **connections.json** file into source control, and then manage any connections through your **parameters.json** file.
 
@@ -70,7 +72,7 @@ For example, if you use Visual Studio Code as your local development tool to run
    |----------|----------|-------------|
    | **Name** | Yes | The name for the parameter to create. |
    | **Type** | Yes | The data type for the parameter, such as **Array**, **Bool**, **Float**, **Int**, **Object**, and **String**. |
-   | **Value** | Yes | The default value for the parameter. |
+   | **Value** | Yes | The value for the parameter. <p><p>In single-tenant Azure Logic Apps, you have to specify the parameter value because the the workflow logic, connection information, and parameter values don't exist in a single location. The designer must be able to resolve parameter value before loading. |
    |||
 
    The following example shows a definition for a string parameter:
@@ -91,9 +93,11 @@ For example, if you use Visual Studio Code as your local development tool to run
 
 ### Visual Studio Code
 
-1. In a project root-level JSON file named **parameters.json**, define *all* the parameters and their values. Make sure that the **parameters.json** file always defines any parameter that you reference from elsewhere in your project.
+1. In a project root-level JSON file named **parameters.json**, define *all* the parameters and their values. This file has an object that includes *key-value* pairs. Each *key* is the name for each parameter, while each *value* is the structure for each parameter. Each structure needs to include both a `type` and `value` declaration.
 
-   This file contains an object that contains *key-value* pairs. Each *key* is the name for each parameter, while each *value* is the structure for each parameter. Each structure needs to include both a `type` and `value` declaration.
+   > [!IMPORTANT]
+   > Your **parameters.json** file must define and include all the parameters and their values that you 
+   > reference or use elsewhere in your project, for example, in workflow definitions or connections.
 
    The following example shows a basic parameters file:
 
