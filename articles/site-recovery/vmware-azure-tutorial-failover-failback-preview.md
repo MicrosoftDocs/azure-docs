@@ -3,7 +3,7 @@ title: Fail over VMware VMs to Azure with Site Recovery - Preview
 description: Learn how to fail over VMware VMs to Azure in Azure Site Recovery - Preview
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 06/29/2021
+ms.date: 07/26/2021
 ms.custom: MVC
 ---
 # Fail over VMware VMs - Preview
@@ -27,9 +27,9 @@ In this tutorial, you learn how to:
 
 Complete the previous tutorials:
 
-1. Make sure you've [set up Azure](tutorial-prepare-azure.md) for on-premises disaster recovery of VMware VMs, Hyper-V VMs, and physical machines to Azure.
+1. Make sure you've [set up Azure](tutorial-prepare-azure.md) for on-premises disaster recovery of VMware VMs.
 2. Prepare your on-premises [VMware](vmware-azure-tutorial-prepare-on-premises.md) environment for disaster recovery.
-3. Set up disaster recovery for [VMware VMs](vmware-azure-tutorial.md).
+3. Set up disaster recovery for [VMware VMs](vmware-to-azure-quickstart.md).
 4. Run a [disaster recovery drill](tutorial-dr-drill-azure.md) to make sure that everything's working as expected.
 
 ## Verify VM properties
@@ -47,7 +47,6 @@ Verify properties as follows:
     * Azure name
     * Resource group
     * Target size
-    * [Availability set](../virtual-machines/windows/tutorial-availability-sets.md)
     * Managed disk settings
 
 4. You can view and modify network settings, including:
@@ -70,10 +69,7 @@ Verify properties as follows:
 
   In some scenarios, failover requires additional processing that takes around 8 to 10 minutes to complete. You might notice longer test failover times for:
 
-  * VMware VMs running a Mobility service version older than 9.8.
-  * Physical servers.
   * VMware Linux VMs.
-  * Hyper-V VMs protected as physical servers.
   * VMware VMs that don't have the DHCP service enabled.
   * VMware VMs that don't have the following boot drivers: storvsc, vmbus, storflt, intelide, atapi.
 
@@ -96,7 +92,7 @@ Verify properties as follows:
 You can perform a planned failover from Azure to on-premises. Since it is a planned failover activity, the recovery point is generated after the planned failover job is triggered.
 
 >[!NOTE]
->Before proceeding, ensure that replication health of the machine is healthy, and all prerequisites stated below are met. << we need to include and  add a link to health monitoring content >>
+> Before proceeding, ensure that the replication health of the machine is healthy. Also ensure that the appliance and all its components are healthy too.
 
 When the planned failover is triggered, pending changes are copied to on-premises, a latest recovery point of the VM is generated and Azure VM is shut down. Post this, on-premises machine is turned on.
 
@@ -121,7 +117,8 @@ If your on-premises environment is not ready or in case of any challenges, you c
 To cancel a planned failover:
 
 1. Navigate to the machine in recovery services vault and select **Cancel Failover**.
-2. Click **OK** << is there a prompt after step one for which user confirms and says OK?>>
+2. Click **OK**.
+3. Ensure that you read the details about how cancel failover proceeds.
 
 If there are any issues preventing Azure Site Recovery from successfully canceling the failed job, follow the recommended steps provided in the job. After following the recommended action, retry the cancel job.
 
@@ -136,7 +133,7 @@ You can perform a planned failover  any time later, once your on-premises condit
 
 If the planned failover fails, Azure Site Recovery automatically initiates a job to cancel the failed job and retrieves the state of the machine that was just before the planned failover.
 
-In case cancellation of last planned failover job fails, Azure Site Recovery prompts you to initiate the cancellation manually. <<reinitiate? >>
+In case cancellation of last planned failover job fails, Azure Site Recovery prompts you to initiate the cancellation manually.
 
 This information is provided as part of failed planned failover operation and as a health issue of the replicated item.
 
@@ -146,7 +143,7 @@ If issue persists, contact Microsoft support. **Do not** disable replication.
 
 After successful planned failover, the machine is active in your on-premises. To protect your machine  in the future, ensure that the machine is replicated to Azure (re-protected).
 
-To do this, go to the machine >  **Re-protect** > select the appliance of your choice, select the replication policy and proceed.
+To do this, go to the machine > **Re-protect**, select the appliance of your choice, select the replication policy and proceed.
 
 After successfully enabling replication and initial replication, recovery points will be generated to offer business continuity from unwanted disruptions.
 
