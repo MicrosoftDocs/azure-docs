@@ -17,7 +17,7 @@ Azure provides a global [role-based access control (RBAC) authorization system](
 
 + Allow access to control plane operations, such as adding capacity or rotating keys, on the search service itself through Owner, Contributor, and Reader roles.
 
-+ Allow access to data plane operations, such as creating or querying indexes. This capability is currently in public preview. [Sign up](SIGN-UP-URL-HERE) is required so that support can be enabled for your subscription on the backend, after which you can follow the instructions in this article to use the feature.
++ Allow access to data plane operations, such as creating or querying indexes. This capability is currently in public preview. Sign up is required. Check back for a sign up link in the next few days.
 
 + Allow outbound indexer connections to be made [using a managed identity](search-howto-managed-identities-data-sources.md). For a search service that has a managed identity assigned to it, you can create roles assignments that extend external data services, such as Azure Blob Storage, to allow read access on blobs by your trusted search service.
 
