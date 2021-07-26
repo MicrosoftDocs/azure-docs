@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 07/21/2021
+ms.date: 07/25/2021
 ms.custom: references_regions
 ms.author: memildin
 ---
@@ -98,18 +98,18 @@ For information about when recommendations are generated for each of these prote
 | Feature/Service                                                                                                                                                             | Azure          | Azure Government               | Azure China   |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|--------------------------------|---------------|
 | **Security Center free features**                                                                                                                                           |                |                                |               |
-| - [Continuous export](./continuous-export.md)                                                                                                             | GA             | GA                             | GA            |
-| - [Workflow automation](./continuous-export.md)                                                                                                           | GA             | GA                             | GA            |
-| - [Recommendation exemption rules](./exempt-resource.md)                                                                                                  | Public Preview | Not Available                  | Not Available |
-| - [Alert suppression rules](./alerts-suppression-rules.md)                                                                                                | GA             | GA                             | GA            |
-| - [Email notifications for security alerts](./security-center-provide-security-contact-details.md)                                                        | GA             | GA                             | GA            |
-| - [Auto provisioning for agents and extensions](./security-center-enable-data-collection.md)                                                              | GA             | GA                             | GA            |
-| - [Asset inventory](./asset-inventory.md)                                                                                                                 | GA             | GA                             | GA            |
-| - [Azure Monitor Workbooks reports in Azure Security Center's workbooks gallery](./custom-dashboards-azure-workbooks.md)                                  | GA             | GA                             | GA            |
+| - [Continuous export](./continuous-export.md)                                                                                                                               | GA             | GA                             | GA            |
+| - [Workflow automation](./continuous-export.md)                                                                                                                             | GA             | GA                             | GA            |
+| - [Recommendation exemption rules](./exempt-resource.md)                                                                                                                    | Public Preview | Not Available                  | Not Available |
+| - [Alert suppression rules](./alerts-suppression-rules.md)                                                                                                                  | GA             | GA                             | GA            |
+| - [Email notifications for security alerts](./security-center-provide-security-contact-details.md)                                                                          | GA             | GA                             | GA            |
+| - [Auto provisioning for agents and extensions](./security-center-enable-data-collection.md)                                                                                | GA             | GA                             | GA            |
+| - [Asset inventory](./asset-inventory.md)                                                                                                                                   | GA             | GA                             | GA            |
+| - [Azure Monitor Workbooks reports in Azure Security Center's workbooks gallery](./custom-dashboards-azure-workbooks.md)                                                    | GA             | GA                             | GA            |
 | **Azure Defender plans and extensions**                                                                                                                                     |                |                                |               |
 | - [Azure Defender for servers](/azure/security-center/defender-for-servers-introduction)                                                                                    | GA             | GA                             | GA            |
 | - [Azure Defender for App Service](/azure/security-center/defender-for-app-service-introduction)                                                                            | GA             | Not Available                  | Not Available |
-| - [Azure Defender for DNS](/azure/security-center/defender-for-dns-introduction)                                                                                            | GA             | Not Available                  | Not Available |
+| - [Azure Defender for DNS](/azure/security-center/defender-for-dns-introduction)                                                                                            | GA             | Not Available                  | GA            |
 | - [Azure Defender for container registries](/azure/security-center/defender-for-container-registries-introduction) <sup>[1](#footnote1)</sup>                               | GA             | GA  <sup>[2](#footnote2)</sup> | GA  <sup>[2](#footnote2)</sup> |
 | - [Azure Defender for container registries scanning of images in CI/CD workflows](/azure/security-center/defender-for-container-registries-cicd) <sup>[3](#footnote3)</sup> | Public Preview | Not Available                  | Not Available |
 | - [Azure Defender for Kubernetes](/azure/security-center/defender-for-kubernetes-introduction) <sup>[4](#footnote4)</sup>                                                   | GA             | GA                             | GA            |
