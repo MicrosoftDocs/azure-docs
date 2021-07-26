@@ -59,7 +59,7 @@ The following table lists the latest versions of the WebSocket Service:
 
 #### Updates for version 1.0.2106.14001
 
-Increased the reliability of the connection between the WebRTC redirector service and the WebRTC client plugin.
+Increased the connection reliability between the WebRTC redirector service and the WebRTC client plugin.
 
 #### Updates for version 1.0.2006.11001
 
