@@ -54,13 +54,13 @@ For SaaS deployments, use the following command. Be sure to replace the placehol
 curl https://<DT_TENANT>.live.dynatrace.com/api/v1/deployment/installer/agent/connectioninfo?Api-Token=<your_PaaS_token>
 ```
 
-For Managed deployments, use the following command. Replace *\<your-domain>* with your Managed deployment domain and *\<your-environment-id>* with your [Dynatrace environment ID](https://www.dynatrace.com/support/help/reference/dynatrace/concepts/environment-id/).
+For Managed deployments, use the following command. Replace *\<your-domain>* with your Managed deployment domain and *\<your-environment-id>* with your [Dynatrace environment ID](https://www.dynatrace.com/support/help/get-started/monitoring-environment/environment-id/).
 
 ```
 curl https://<your-domain>/e/<your-environment-id>/api/v1/deployment/installer/agent/connectioninfo?Api-Token=<your_PaaS_token>
 ```
 
-For environment ActiveGates, use the following command. Replace *\<your-activegate-domain>* with your ActiveGate domain and *\<your-environment-id>* with your [Dynatrace environment ID](https://www.dynatrace.com/support/help/reference/dynatrace/concepts/environment-id/).
+For environment ActiveGates, use the following command. Replace *\<your-activegate-domain>* with your ActiveGate domain and *\<your-environment-id>* with your [Dynatrace environment ID](https://www.dynatrace.com/support/help/get-started/monitoring-environment/environment-id/).
 
 ```
 curl https://<your-activegate-domain>/e/<your-environment-id>/api/v1/deployment/installer/agent/connectioninfo?Api-Token=<your_PaaS_token>
