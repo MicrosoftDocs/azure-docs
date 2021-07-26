@@ -1,97 +1,57 @@
 ---
-title: #Required; page title is displayed in search results. Include the brand.
-description: #Required; article description that is displayed in search results. 
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; microsoft alias of author; optional team alias.
-ms.service: #Required; service per approved list. slug assigned by ACOM.
-ms.topic: tutorial #Required; leave this attribute/value as-is.
-ms.date: #Required; mm/dd/yyyy format.
-ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+title: Export DNS records for a private endpoint using the Azure portal.
+titleSuffix: Azure Private Link
+description: In this tutorial, learn how to export the DNS records for a private endpoint in the Azure portal. 
+author: asudbring
+ms.author: allensu
+ms.service: private-link
+ms.topic: how-to 
+ms.date: 07/25/2021
+ms.custom: how-to
 ---
 
-# Tutorial: <do something with X> 
+# Export DNS records for a private endpoint using the Azure portal.
 
-<!-- 2. Introductory paragraph 
-Required. Lead with a light intro that describes, in customer-friendly language, 
-what the customer will learn, or do, or accomplish. Answer the fundamental “why 
-would I want to do this?” question. Keep it short.
--->
-
-[Add your introductory paragraph]
-
-<!-- 3. Tutorial outline 
-Required. Use the format provided in the list below.
--->
-
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
-> * All tutorials include a list summarizing the steps to completion
-> * Each of these bullet points align to a key H2
-> * Use these green checkboxes in a tutorial
-
-<!-- 4. Prerequisites 
-Required. First prerequisite is a link to a free trial account if one exists. If there 
-are no prerequisites, state that no prerequisites are needed for this tutorial.
--->
+A private endpoint in Azure requires DNS records for name resolution of the endpoint. The DNS record resolves the private IP address of the endpoint for the configured resource. To export the DNS records of the endpoint to a file, use the Azure portal in the Private Link center.
 
 ## Prerequisites
 
-- <!-- An Azure account with an active subscription. [Create an account for free]
-  (https://azure.microsoft.com/free/?WT.mc_id=A261C142F). -->
-- <!-- prerequisite 2 -->
-- <!-- prerequisite n -->
+- An Azure account with an active subscription. [Create an account for free ](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A private endpoint configured in your subscription. For the example in this article, a private endpoint to a Azure Web App is used. For more information on creating a private endpoint for a web app, see [Tutorial: Connect to a web app using an Azure Private endpoint](tutorial-private-endpoint-webapp-portal.md).
 
-<!-- 5. H2s
-Required. Give each H2 a heading that sets expectations for the content that follows. 
-Follow the H2 headings with a sentence about how the section contributes to the whole.
--->
+## Export endpoint DNS records
 
-## [Section 1 heading]
-<!-- Introduction paragraph -->
+In this section, you'll sign in to the Azure portal and search for the private link center.
 
-1. Sign in to the [<service> portal](url).
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-## [Section 2 heading]
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+2. In the search box at the top of the portal, enter **Private Link**.
 
-## [Section n heading]
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+3. Select **Private link**.
 
-<!-- 6. Clean up resources
-Required. If resources were created during the tutorial. If no resources were created, 
-state that there are no resources to clean up in this section.
--->
+4. In the Private Link center, select **Private endpoints**.
 
-## Clean up resources
+    :::image type="content" source="./media/tutorial-private-endpoint-export-dns/private-link-center.png" alt-text="Select private endpoints in Private Link center":::
 
-If you're not going to continue to use this application, delete
-<resources> with the following steps:
+5. In **Private endpoints**, select the endpoint you want to export the DNS records for. Select **Download hostfile** to download the endpoint DNS records in a hostfile format.
+    
+    :::image type="content" source="./media/tutorial-private-endpoint-export-dns/download-hostfile.png" alt-text="Download endpoint DNS records":::
 
-1. From the left-hand menu...
-1. ...click Delete, type...and then click Delete
+6. The downloaded hostfile records will look similar to below:
 
-<!-- 7. Next steps
-Required: A single link in the blue box format. Point to the next logical tutorial 
-in a series, or, if there are no other tutorials, to some other cool thing the 
-customer can do. 
--->
+```text
+# Exported from the Azure portal "2021-07-26 11:26:03Z"
+# Private IP    FQDN    Private Endpoint Id
+10.1.0.4    mywebapp8675.scm.azurewebsites.net    #/subscriptions/7cc654c6-760b-442f-bd02-1a8a64b17413/resourceGroups/myResourceGroup/providers/Microsoft.Network/privateEndpoints/mywebappendpoint
+10.1.0.4    mywebapp8675.azurewebsites.net    #/subscriptions/7cc654c6-760b-442f-bd02-1a8a64b17413/resourceGroups/myResourceGroup/providers/Microsoft.Network/privateEndpoints/mywebappendpoint
+```
 
 ## Next steps
 
-Advance to the next article to learn how to create...
-> [!div class="nextstepaction"]
-> [Next steps button](contribute-how-to-mvc-tutorial.md)
+To learn more about Azure Private link and DNS, see [Azure Private Endpoint DNS configuration](private.endpoint-dns.md).
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+For further information on Azure Private link, see:
+
+* [What is Azure Private Link?](private-link-overview.md).
+* [What is Azure Private Link service?](private-link-service-overview.md).
+* [Azure Private Link frequently asked questions (FAQ)](private-link-faq.yml).
