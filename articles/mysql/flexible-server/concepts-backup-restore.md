@@ -25,9 +25,7 @@ These backup files cannot be exported. The backups can only be used for restore 
 
 ## Backup frequency
 
-Backups on flexible servers are snapshot-based. The first full snapshot backup is scheduled immediately after a server is created. That first full snapshot backup is retained as the server's base backup. Subsequent snapshot backups are differential backups only.
-
-Differential snapshot backups occur at least once a day. Differential snapshot backups do not occur on a fixed schedule. Differential snapshot backups occur every 24 hours unless the binary logs in MySQL exceeds 50-GB since the last differential backup. In a day, a maximum of six differential snapshots are allowed. Transaction log backups occur every five minutes.
+Backups on flexible servers are snapshot-based. The first snapshot backup is scheduled immediately after a server is created. Snapshot backups are taken daily once. Transaction log backups occur every five minutes.
 
 ## Backup retention
 
@@ -84,6 +82,66 @@ After a restore from either **latest restore point** or **custom restore point**
 -   Ensure appropriate server-level firewall and virtual network rules are in place for users to connect.
 -   Ensure appropriate logins and database level permissions are in place.
 -   Configure alerts, as appropriate.
+
+## Frequently Asked Questions (FAQs)
+
+### Backup related questions
+
+- **How do I backup my server?**
+By default, Azure Database for MySQL enables automated backups of your entire server (encompassing all databases created) with a default 7 day retention period. The only way to manually take a backup is by using community tools such as mysqldump as documented [here](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore?WT.mc_id=Portal-Microsoft_Azure_Support#create-a-backup-file-from-the-command-line-using-mysqldump) or mydumper as documented [here](https://docs.microsoft.com/azure/mysql/concepts-migrate-mydumper-myloader#create-a-backup-using-mydumper). If you wish to backup Azure Database for MySQL to a Blob storage, refer to our tech community blog [Backup Azure Database for MySQL to a Blob Storage](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/backup-azure-database-for-mysql-to-a-blob-storage/ba-p/803830). 
+
+- **Can I configure automatic backups to be retained for long term?**
+No, currently we only support a maximum of 35 days of automated backup retention. You can take manual backups and use that for long-term retention requirement.
+
+- **What are the backup windows for my server? Can I customize it?**
+The first snapshot backup is scheduled immediately after a server is created. Snapshot backups are taken daily once. Transaction log backups occur every five minutes. Backup windows are inherently managed by Azure and cannot be customized.
+
+- **Are my backups encrypted?**
+All Azure Database for MySQL data, backups and temporary files created during query execution are encrypted using AES 256-bit encryption. The storage encryption is always on and cannot be disabled. 
+
+- **Can I restore a single/few database(s)?**
+Restoring a single/few database(s) or tables is not supported. You need to restore the entire server and then extract the table(s) or database(s) needed.
+
+- **Is my server available during the backup window?**
+Yes. Backups are online operations and are snapshot-based. The snapshot operation only takes few seconds and doesn’t interfere with production workloads ensuring high availability of the server.
+
+- **When setting up the maintenance window for the server do we need to account for backup window?**
+No, backups are triggered internally as part of the managed service and have no bearing to the Managed Maintenance Window.
+
+- **Where are my automated backups stored and how do I manage their retention?**
+Azure Database for MySQL automatically creates server backups and stores them in user-configured, locally redundant storage or in geo-redundant storage. These backup files can't be exported. The default backup retention period is seven days. You can optionally configure the database backup from 1 to 35 days.
+
+- **How can I validate backups are performed on my server?**
+The best way to validate availability of valid backups is performing periodic point in time restores and ensuring backups are valid and restorable. Backup operations or files are not exposed to the end users.
+
+- **Where can I see the backup usage?**
+In the Azure Portal, under Monitoring tab - Metrics section, you can find “Backup Storage Used" metric which can help you monitor the total backup usage.
+
+- **What happens to my backups if I delete my server?**
+If you delete the server, all backups that belong to the server are also deleted and cannot be recovered. To protect server resources, post deployment, from accidental deletion or unexpected changes, administrators can leverage management locks.
+
+- **How will I be charged and billed for my use of backups?**
+Flexible server provides up to 100% of your provisioned server storage as backup storage at no additional cost. Any additional backup storage used is charged in GB per month as per the [pricing model](https://azure.microsoft.com/pricing/details/mysql/server/). Backup storage billing is also governed by the backup retention period selected and backup redundancy option chosen apart from the transactional activity on the server which impacts the total backup storage used directly.
+
+- **How are backups retained for stopped servers?**
+No new backups are performed for stopped servers. All older backups (within the retention window) at the time of stopping the server are retained until the server is restarted post which backup retention for the active server is governed by it’s backup retention window.
+
+- **How will I be billed for backups for a stopped server?**
+While your server instance is stopped, you are charged for provisioned storage (including Provisioned IOPS) and backup storage (backups stored within your specified retention window). Free backup storage is limited to the size of your provisioned database and only applies to active servers. 
+
+### Restore related questions
+
+- **How do I restore my server?**
+Azure Portal supports Point In Time Restore (for all servers) allowing users to restore to latest or custom restore point. To manually restore your server from the backups taken by mysqldump/myDumper read [Restore your database using myLoader](https://docs.microsoft.com/azure/mysql/concepts-migrate-mydumper-myloader#restore-your-database-using-myloader).
+
+- **Why is my restore taking so much time?**
+The estimated time for the recovery of the server depends on several factors: 
+1. The size of the databases. As a part of the recovery process, the database needs to be hydrated from the last physical backup and hence the time taken to recover will be proportional to the size of the database.
+2. The active portion of transaction activity that needs to be replayed to recover. Recovery can take longer depending on the additional transaction activity from the last successful checkpoint.
+3. The network bandwidth if the restore is to a different region 
+4. The number of concurrent restore requests being processed in the target region 
+5. The presence of primary key in the tables in the database. For faster recovery, consider adding primary key for all the tables in your database.  
+
 
 ## Next steps
 
