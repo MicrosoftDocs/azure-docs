@@ -11,7 +11,7 @@ ms.date: 07/13/2021
 ms.topic: how-to
 ---
 
-# Create SQL Managed iInstance - Azure Arc using Azure Data Studio
+# Create SQL Managed Instance - Azure Arc using Azure Data Studio
 
 This document walks you through the steps for installing Azure SQL Managed Instance - Azure Arc using Azure Data Studio
 

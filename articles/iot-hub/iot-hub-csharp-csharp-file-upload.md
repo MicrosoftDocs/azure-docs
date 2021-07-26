@@ -67,7 +67,7 @@ These files are typically batch processed in the cloud using tools such as [Azur
 
 ## Examine the application
 
-Navigate to the *FileUploadSample* folder in your .NET samples download. Open the folder in Visual Studio Code. The folder contains a file named *parameters.cs*. If you open that file, you'll see that the parameter *p* is required and contains the device connection string. You copied and saved this connection string when you registered the device. The parameter *t* can be specified if you want to change the transport protocol. The default protocol is mqtt. The file *program.cs* contains the *main* function. The *FileUploadSample.cs* file contains the primary sample logic. *TestPayload.txt* is the file to be uploaded to your blob container.
+In Visual Studio Code, open the *azure-iot-samples-csharp-master\iot-hub\Samples\device\FileUploadSample* folder in your .NET samples download. The folder contains a file named *parameters.cs*. If you open that file, you'll see that the parameter *p* is required and contains the device connection string. You copied and saved this connection string when you registered the device. The parameter *t* can be specified if you want to change the transport protocol. The default protocol is mqtt. The file *program.cs* contains the *main* function. The *FileUploadSample.cs* file contains the primary sample logic. *TestPayload.txt* is the file to be uploaded to your blob container.
 
 ## Run the application
 
