@@ -60,7 +60,7 @@ Your Azure Stack Edge Pro device has six network interfaces, PORT1- PORT6.
 
 Your Azure Stack Edge Pro device has the following network hardware:
 
-* **Custom Microsoft `Qlogic` Cavium 25G NDC adapter** - Port 1 through port 4.
+* **Custom Microsoft `Qlogic` Cavium 25G NDC adapter** - Port 3 through port 4.
 * **Mellanox dual port 25G ConnectX-4 channel network adapter** - Port 5 and port 6.
 
 Here are the details for the Mellanox card:
