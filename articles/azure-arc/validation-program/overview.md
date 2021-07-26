@@ -13,7 +13,7 @@ Currently, validated solutions are available from partners for Kubernetes and da
 
 ## Validation program
 
-The Azure Arc validation program is available in GitHub. Get details about the test harness, how to run the tests, the testing strategy, and so on, at [Azure Arc validation program](https://github.com/Azure/azure-arc-validation/).
+The Azure Arc validation program is available in GitHub. To find out more details on how to validate your offering with Azure Arc, the test harness and strategy, please refer to the [Azure Arc validation program](https://github.com/Azure/azure-arc-validation/) in GitHub.
 
 ## Kubernetes
 
