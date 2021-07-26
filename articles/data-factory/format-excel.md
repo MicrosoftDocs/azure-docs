@@ -1,7 +1,7 @@
 ---
-title: Excel format in Azure Data Factory 
+title: Excel file format
 titleSuffix: Azure Data Factory & Synapse Analytics
-description: 'This topic describes how to deal with Excel format in Azure Data Factory.'
+description: This topic describes how to deal with the Excel file format in Azure Data Factory and Synapse Analytics pipelines.
 author: jianleishen
 ms.service: data-factory
 ms.custom: synapse
@@ -10,10 +10,10 @@ ms.date: 12/08/2020
 ms.author: jianleishen
 ---
 
-# Excel format in Azure Data Factory
+# Excel file format in Azure Data Factory and Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Follow this article when you want to **parse the Excel files**. Azure Data Factory supports both ".xls" and ".xlsx".
+Follow this article when you want to **parse the Excel files**. The service supports both ".xls" and ".xlsx".
 
 Excel format is supported for the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) and [SFTP](connector-sftp.md). It is supported as source but not sink. 
 
