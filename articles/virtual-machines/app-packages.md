@@ -16,11 +16,9 @@ ms.custom:
 # VM Applications (preview)
 
 
-VM Applications are a new resource type in Azure Compute Gallery
-(currently known as Shared Image Gallery) that simplifies management,
-sharing and global distribution of application packages.
+VM Applications are a new resource type in Azure Compute Gallery (currently known as Shared Image Gallery) that simplifies management,sharing and global distribution of application packages.
 
-**Why use VM Applications instead of baking all the application packages
+**Why use VM Applications instead of including all of the application packages
 into a custom image?**
 
 -   VM Applications help decouple the VM image, application, and code
@@ -40,7 +38,7 @@ accounts?**
     machine, downloading the packages from an internet repository
     wouldn’t be possible.
 
--   With storage accounts too, downloading packages onto NSG locked-down
+-   With storage accounts, downloading packages onto NSG locked-down
     VMs would require setting up private links.
 
 **What are the key benefits of using VM Applications?**
@@ -1197,9 +1195,9 @@ this directory is deleted.
 -   Linux:
     /var/lib/waagent/Microsoft.CPlat.Core.VMApplicationManagerLinux-1.0.3/config/applicationRegistry.active
 
-Not to be confused with windows registry, this file keeps track of all
+Not to be confused with Windows registry, this file keeps track of all
 the VMApps that are currently installed, and VMApps whose installation
-was attempted on the VM/VM scale set instance.
+was attempted on the VM or scale set instance.
 
 ## Appendix – Sample ARM template
 
