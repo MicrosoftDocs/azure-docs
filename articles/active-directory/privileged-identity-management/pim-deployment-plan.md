@@ -70,7 +70,6 @@ You can assign the following to these roles or groups:
 You assign users the role with the [least privileges necessary to perform their tasks](../roles/delegate-by-task.md). This practice minimizes the number of Global Administrators and instead uses specific administrator roles for certain scenarios.
 
 > [!NOTE] 
-
 > Microsoft has very few Global Administrators. Learn more at [how Microsoft uses Privileged Identity Management](https://www.microsoft.com/itshowcase/Article/Content/887/Using-Azure-AD-Privileged-Identity-Management-for-elevated-access).
 
 ### Type of assignments 
@@ -233,7 +232,7 @@ The following table shows example settings:
 | Role| Require MFA| Notification| Require approval| Approver| Activation duration| Active admin| Active expiration| Eligible expiration|
 | --- | --- | --- |--- |--- |--- |--- |---|---|
 | Owner of critical subscriptions| :heavy_check_mark:| :heavy_check_mark:| :heavy_check_mark:| Other owners of the subscription| 1 Hour| None| n/a| 3 months |
-| User Access Administrator of less critical subscriptions| : heavy_check_mark:| :heavy_check_mark:| :x:| None| 1 Hour| None| n/a| 3 months |
+| User Access Administrator of less critical subscriptions| :heavy_check_mark:| :heavy_check_mark:| :x:| None| 1 Hour| None| n/a| 3 months |
 
 ### Assign and activate Azure Resource role
 
@@ -250,7 +249,7 @@ When privileged role assignment nears its expiration, [use PIM to extend or rene
 When these important events occur in Azure resource roles, PIM sends [email notifications](pim-email-notifications.md) to Owners and Users Access Administrators. These emails might also include links to relevant tasks, such activating or renewing a role.
 
 >[!NOTE]
->You can also perform these PIM tasks [using the Microsoft ARM APIs for Azure resource roles](pim-apis.md). 
+>You can also perform these PIM tasks [using the Microsoft Azure Resource Manager APIs for Azure resource roles](pim-apis.md). 
 
 ### Approve or deny PIM activation requests
 
@@ -292,7 +291,6 @@ The following table shows example settings:
 You can [assign eligibility to members or owners of the privileged access groups.](groups-assign-member-owner.md) With just one activation, they will have access to all the linked resources. 
 
 >[!NOTE] 
-
 >You can assign the privileged group to one or more Azure AD and Azure resource roles in the same way as you assign roles to users. A maximum of 250 role-assignable groups can be created in a single Azure AD organization (tenant).
 
 ![Assign eligibility for privileged access groups](media/pim-deployment-plan/privileged-access-groups.png)
