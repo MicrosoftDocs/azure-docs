@@ -88,7 +88,7 @@ The following is a list of workloads that have been validated to fully work with
 - Home directories for high-performance computing
 
 The following workloads have open issues:
-- Locking issues with IBM MQ
+- IBM MQ may experience locking issues
 - Metadata heavy workloads such as untar may experience high latency
 - Incompatibility with dNFS from Oracle
 
