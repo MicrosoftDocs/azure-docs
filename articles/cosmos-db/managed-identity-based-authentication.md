@@ -124,7 +124,6 @@ namespace Monitor
         public string id { get; set; } = Guid.NewGuid().ToString();
         public DateTime RecordTime { get; set; }
         public int Temperature { get; set; }
-
     }
 }
 ```
