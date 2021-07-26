@@ -49,9 +49,9 @@ FIPS (Federal Information Processing Standards) | Do not enable FIPS mode|
 |https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | To complete MySQL download. </br> In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also approved, if necessary.|
 
 
-### Whitelist URLs
+### Allow URLs
 
-Ensure the following URLs are whitelisted and reachable from the Azure Site Recovery replication appliance for continuous connectivity:
+Ensure the following URLs are allowed and reachable from the Azure Site Recovery replication appliance for continuous connectivity:
 
   | **URL**                  | **Details**                             |
   | ------------------------- | -------------------------------------------|
@@ -193,7 +193,7 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 
     All Azure Site Recovery services will use these settings to connect to the internet. Only HTTP proxy is supported.
 
-2. Ensure the [required URLs](#whitelist-urls) are whitelisted and are reachable from the Azure Site Recovery replication appliance for continuous connectivity.
+2. Ensure the [required URLs](#allow-urls) are allowed and are reachable from the Azure Site Recovery replication appliance for continuous connectivity.
 
 3. After saving the details, proceed to choose the appliance connectivity. Leave the default selection as FDQN for this preview.
 
