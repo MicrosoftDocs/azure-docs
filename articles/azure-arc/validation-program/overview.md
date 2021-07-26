@@ -11,6 +11,10 @@ Microsoft recommends running Azure Arc-enabled services on validated platforms. 
 
 Currently, validated solutions are available from partners for Kubernetes and data services.
 
+## Validation program
+
+The Azure Arc validation program is available in GitHub. Get details about the test harness, how to run the tests, the testing strategy, and so on, at [Azure Arc validation program](https://github.com/Azure/azure-arc-validation/).
+
 ## Kubernetes
 
 Azure Arc-enabled Kubernetes works with any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters. The Azure Arc team has worked with key industry Kubernetes offering providers to validate Azure Arc-enabled Kubernetes with their [Kubernetes distributions](../kubernetes/validation-program.md). Future major and minor versions of Kubernetes distributions released by these providers will be validated for compatibility with Azure Arc enabled Kubernetes.
