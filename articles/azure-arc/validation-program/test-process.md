@@ -88,6 +88,6 @@ For updates to the Arc platform or cluster extension, Microsoft notifies you. Ba
 
 See validated solutions:
 
-* [Validated Kubernetes distributions](../kubernetes/validation-program.md?toc=/azure/azure-arc/toc.json&bc=/azure/azure-arc/breadcrumb/toc.json)
+* [Validated Kubernetes distributions](validated-k8s-distributions.md)
 
 * [Validated Kubernetes distributions for data services](../data/validation-program.md?toc=/azure/azure-arc/toc.json&bc=/azure/azure-arc/breadcrumb/toc.json)
