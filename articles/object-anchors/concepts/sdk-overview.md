@@ -180,11 +180,39 @@ The application creates a query to detect instances of that model within a space
 ```cs
 using Microsoft.Azure.ObjectAnchors;
 using Microsoft.Azure.ObjectAnchors.SpatialGraph;
+using Microsoft.Azure.ObjectAnchors.Unity;
+using UnityEngine;
 
-SpatialGraphCoordinateSystem coordinateSystem = default;
-ObjectSearchArea searchAreaAsBox = ObjectSearchArea.FromOrientedBox(
-    coordinateSystem,
-    default(SpatialOrientedBox));
+// Get the coordinate system.
+SpatialGraphCoordinateSystem? coordinateSystem = null;
+
+#if WINDOWS_UWP
+SpatialCoordinateSystem worldOrigin = ObjectAnchorsWorldManager.WorldOrigin;
+if (worldOrigin != null)
+{
+    coordinateSystem = await Task.Run(() => worldOrigin.TryToSpatialGraph());
+}
+#endif
+
+if (!coordinateSystem.HasValue)
+{
+    Debug.LogError("no coordinate system?");
+    return;
+}
+
+// Get the search area.
+SpatialFieldOfView fieldOfView = new SpatialFieldOfView
+{
+    Position = Camera.main.transform.position.ToSystem(),
+    Orientation = Camera.main.transform.rotation.ToSystem(),
+    FarDistance = 4.0f, // Far distance in meters of object search frustum.
+    HorizontalFieldOfViewInDegrees = 75.0f, // Horizontal field of view in
+                                            // degrees of object search frustum.
+    AspectRatio = 1.0f // Aspect ratio (horizontal / vertical) of object search
+                       // frustum.
+};
+
+ObjectSearchArea searchArea = ObjectSearchArea.FromFieldOfView(coordinateSystem.Value, fieldOfView);
 
 // Optionally change the parameters, otherwise use the default values embedded
 // in the model.
@@ -192,9 +220,9 @@ ObjectQuery query = new ObjectQuery(model);
 query.MinSurfaceCoverage = 0.2f;
 query.ExpectedMaxVerticalOrientationInDegrees = 1.5f;
 query.MaxScaleChange = 0.1f;
-query.SearchAreas.Add(searchAreaAsBox);
+query.SearchAreas.Add(searchArea);
 
-// Detection could take long, run in a background thread.
+// Detection could take a while, so we run it in a background thread.
 IList<ObjectInstance> detectedObjects = await observer.DetectAsync(query);
 ```
 
