@@ -1186,7 +1186,7 @@
         href: insights/sql-insights-troubleshoot.md
     - name: Storage
       displayname: storage, monitor, insights, storage accounts, azure storage
-      href: insights/storage-insights-overview.md
+      href: ../storage/common/storage-insights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Resource groups
       href: insights/resource-group-insights.md
     - name: Troubleshoot insights
