@@ -122,7 +122,7 @@ In your request please provide the following information:
 
 ### Create True Office Learning - LIO test user
 
-In this section, you create a user called Britta Simon in Brushup. Work with [True Office Learning - LIO support team](mailto:service@trueoffice.com) to add the users in the Brushup platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in True Office Learning - LIO. Work with [True Office Learning - LIO support team](mailto:service@trueoffice.com) to add the users in the True Office Learning - LIO platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
