@@ -19,7 +19,7 @@ Microsoft Azure Storage Explorer is a standalone app that makes it easy to work 
 
 In this article, you'll learn several ways of connecting to and managing your Azure storage accounts.
 
-:::image type="content" alt-text="Microsoft Azure Storage Explorer" source="./vs-storage-explorer-overview.png":::
+:::image type="content" alt-text="Microsoft Azure Storage Explorer" source="./media/vs-azure-tools-storage-manage-with-storage-explorer/vs-storage-explorer-overview.png":::
 
 ## Prerequisites
 
@@ -82,17 +82,17 @@ Storage Explorer provides several ways to connect to Azure resources:
 
 1. In Storage Explorer, select **View** > **Account Management** or select the **Manage Accounts** button.
 
-    :::image type="content" alt-text="Manage Accounts" source ="./vs-storage-explorer-manage-accounts.png":::
+    :::image type="content" alt-text="Manage Accounts" source ="./media/vs-azure-tools-storage-manage-with-storage-explorer/vs-storage-explorer-manage-accounts.png":::
 
 1. **ACCOUNT MANAGEMENT** now displays all the Azure accounts you're signed in to. To connect to another account, select **Add an account...**.
 
 1. The **Connect to Azure Storage** dialog opens. In the **Select Resource** panel, select **Subscription**.
 
-    :::image type="content" alt-text="Connect dialog" source="./vs-storage-explorer-connect-dialog.png":::
+    :::image type="content" alt-text="Connect dialog" source="./media/vs-azure-tools-storage-manage-with-storage-explorer/vs-storage-explorer-connect-dialog.png":::
 
 1. In the **Select Azure Environment** panel, select an Azure environment to sign in to. You can sign in to global Azure, a national cloud or an Azure Stack instance. Then select **Next**.
 
-    :::image type="content" alt-text="Option to sign in" source="./vs-storage-explorer-connect-environment.png":::
+    :::image type="content" alt-text="Option to sign in" source="./media/vs-azure-tools-storage-manage-with-storage-explorer/vs-storage-explorer-connect-environment.png":::
 
     > [!TIP]
     > For more information about Azure Stack, see [Connect Storage Explorer to an Azure Stack subscription or storage account](/azure-stack/user/azure-stack-storage-connect-se).
@@ -101,11 +101,11 @@ Storage Explorer provides several ways to connect to Azure resources:
 
 1. After you successfully sign in with an Azure account, the account and the Azure subscriptions associated with that account appear under **ACCOUNT MANAGEMENT**. Select the Azure subscriptions that you want to work with, and then select **Apply**.
 
-    :::image type="content" alt-text="Select Azure subscriptions" source="./vs-storage-explorer-account-panel.png":::
+    :::image type="content" alt-text="Select Azure subscriptions" source="./media/vs-azure-tools-storage-manage-with-storage-explorer/vs-storage-explorer-account-panel.png":::
 
 1. **EXPLORER** displays the storage accounts associated with the selected Azure subscriptions.
 
-    :::image type="content" alt-text="Selected Azure subscriptions" source="./vs-storage-explorer-subscription-node.png":::
+    :::image type="content" alt-text="Selected Azure subscriptions" source="./media/vs-azure-tools-storage-manage-with-storage-explorer/vs-storage-explorer-subscription-node.png":::
 
 ### Attach to an individual resource
 
@@ -125,7 +125,7 @@ Storage Explorer can also connect to a [local storage emulator](#local-storage-e
 
 To connect to an individual resource, select the **Connect** button in the left-hand toolbar. Then follow the instructions for the resource type you want to connect to.
 
-:::image type="content" alt-text="Connect to Azure storage option" source="./vs-storage-explorer-connect-button.png":::
+:::image type="content" alt-text="Connect to Azure storage option" source="./media/vs-azure-tools-storage-manage-with-storage-explorer/vs-storage-explorer-connect-button.png":::
 
 When a connection to a storage account is successfully added, a new tree node will appear under **Local & Attached** > **Storage Accounts**.
 

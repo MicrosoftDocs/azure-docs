@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 07/14/2021
+ms.date: 07/25/2021
 ms.custom: references_regions
 ms.author: memildin
 ---
@@ -80,19 +80,16 @@ The following table provides a matrix of:
 
 For information about when recommendations are generated for each of these protections, see [Endpoint Protection Assessment and Recommendations](security-center-endpoint-protection.md).
 
-| Endpoint Protection                                       | Platforms                                              | Security Center Installation | Security Center Discovery |
+| Solution                                                  | Supported platforms                                    | Security Center installation | Security Center discovery |
 |-----------------------------------------------------------|--------------------------------------------------------|------------------------------|---------------------------|
-| Microsoft Defender Antivirus                              | Windows Server 2016 or later                           | No, Built in to OS           | Yes                       |
-| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (see note below) | Via Extension                | Yes                       |
-| Trend Micro – Deep Security                               | Windows Server Family                                  | No                           | Yes                       |
-| Symantec v12.1.1100+                                      | Windows Server Family                                  | No                           | Yes                       |
-| McAfee v10+                                               | Windows Server Family                                  | No                           | Yes                       |
-| McAfee v10+                                               | Linux Server Family                                    | No                           | Yes                       |
-| Sophos V9+                                                | Linux Server Family                                    | No                           | Yes                       |
+| Microsoft Defender Antivirus                              | Windows Server 2016 or later                           | No (built into OS)           | Yes                       |
+| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2                                 | Via extension                | Yes                       |
+| Trend Micro – Deep Security                               | Windows Server (all)                                   | No                           | Yes                       |
+| Symantec v12.1.1100+                                      | Windows Server (all)                                   | No                           | Yes                       |
+| McAfee v10+                                               | Windows Server (all)                                   | No                           | Yes                       |
+| McAfee v10+                                               | Linux (preview)                                        | No                           | Yes                       |
+| Sophos V9+                                                | Linux (preview)                                        | No                           | Yes                       |
 |                                                           |                                                        |                              |                           |
-
-> [!NOTE]
-> Detection of System Center Endpoint Protection (SCEP) on a Windows Server 2008 R2 virtual machine requires SCEP to be installed after PowerShell (v3.0 or newer).
 
 
 
@@ -101,18 +98,18 @@ For information about when recommendations are generated for each of these prote
 | Feature/Service                                                                                                                                                             | Azure          | Azure Government               | Azure China   |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|--------------------------------|---------------|
 | **Security Center free features**                                                                                                                                           |                |                                |               |
-| - [Continuous export](./continuous-export.md)                                                                                                             | GA             | GA                             | GA            |
-| - [Workflow automation](./continuous-export.md)                                                                                                           | GA             | GA                             | GA            |
-| - [Recommendation exemption rules](./exempt-resource.md)                                                                                                  | Public Preview | Not Available                  | Not Available |
-| - [Alert suppression rules](./alerts-suppression-rules.md)                                                                                                | GA             | GA                             | GA            |
-| - [Email notifications for security alerts](./security-center-provide-security-contact-details.md)                                                        | GA             | GA                             | GA            |
-| - [Auto provisioning for agents and extensions](./security-center-enable-data-collection.md)                                                              | GA             | GA                             | GA            |
-| - [Asset inventory](./asset-inventory.md)                                                                                                                 | GA             | GA                             | GA            |
-| - [Azure Monitor Workbooks reports in Azure Security Center's workbooks gallery](./custom-dashboards-azure-workbooks.md)                                  | GA             | GA                             | GA            |
+| - [Continuous export](./continuous-export.md)                                                                                                                               | GA             | GA                             | GA            |
+| - [Workflow automation](./continuous-export.md)                                                                                                                             | GA             | GA                             | GA            |
+| - [Recommendation exemption rules](./exempt-resource.md)                                                                                                                    | Public Preview | Not Available                  | Not Available |
+| - [Alert suppression rules](./alerts-suppression-rules.md)                                                                                                                  | GA             | GA                             | GA            |
+| - [Email notifications for security alerts](./security-center-provide-security-contact-details.md)                                                                          | GA             | GA                             | GA            |
+| - [Auto provisioning for agents and extensions](./security-center-enable-data-collection.md)                                                                                | GA             | GA                             | GA            |
+| - [Asset inventory](./asset-inventory.md)                                                                                                                                   | GA             | GA                             | GA            |
+| - [Azure Monitor Workbooks reports in Azure Security Center's workbooks gallery](./custom-dashboards-azure-workbooks.md)                                                    | GA             | GA                             | GA            |
 | **Azure Defender plans and extensions**                                                                                                                                     |                |                                |               |
 | - [Azure Defender for servers](/azure/security-center/defender-for-servers-introduction)                                                                                    | GA             | GA                             | GA            |
 | - [Azure Defender for App Service](/azure/security-center/defender-for-app-service-introduction)                                                                            | GA             | Not Available                  | Not Available |
-| - [Azure Defender for DNS](/azure/security-center/defender-for-dns-introduction)                                                                                            | GA             | Not Available                  | Not Available |
+| - [Azure Defender for DNS](/azure/security-center/defender-for-dns-introduction)                                                                                            | GA             | Not Available                  | GA            |
 | - [Azure Defender for container registries](/azure/security-center/defender-for-container-registries-introduction) <sup>[1](#footnote1)</sup>                               | GA             | GA  <sup>[2](#footnote2)</sup> | GA  <sup>[2](#footnote2)</sup> |
 | - [Azure Defender for container registries scanning of images in CI/CD workflows](/azure/security-center/defender-for-container-registries-cicd) <sup>[3](#footnote3)</sup> | Public Preview | Not Available                  | Not Available |
 | - [Azure Defender for Kubernetes](/azure/security-center/defender-for-kubernetes-introduction) <sup>[4](#footnote4)</sup>                                                   | GA             | GA                             | GA            |

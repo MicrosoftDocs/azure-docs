@@ -4,7 +4,7 @@ description: Learn how to troubleshoot connector issues in Azure Data Factory.
 author: jianleishen
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 07/12/2021
+ms.date: 07/16/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref
 ---
@@ -445,6 +445,12 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
     2. Double-check the redirected data against the SQL table schema column length to see which columns need to be updated.
 
     3. Update the table schema accordingly.
+
+### Error code: FailedDbOperation
+
+- **Message**: `User does not have permission to perform this action.`
+
+- **Recommendation**: Make sure the user configured in the Azure Synapse Analytics connector must have 'CONTROL' permission on the target database while using PolyBase to load data. For more detailed information, refer to this [document](./connector-azure-sql-data-warehouse.md#required-database-permission).
 
 
 ## Azure Table Storage

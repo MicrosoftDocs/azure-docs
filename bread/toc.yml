@@ -140,10 +140,10 @@
     tocHref: /azure/azure-arc/
     topicHref: /azure/azure-arc/
     items:
-      - name: Arc enabled Kubernetes
+      - name: Arc-enabled Kubernetes
         tocHref: /azure/azure-arc/kubernetes/
         topicHref: /azure/azure-arc/kubernetes/
-      - name: Arc enabled servers
+      - name: Arc-enabled servers
         tocHref: /azure/azure-arc/servers/
         topicHref: /azure/azure-arc/servers/
   - name: Automation
@@ -237,6 +237,9 @@
       - name: Azure Percept
         tocHref: /azure/azure-percept/
         topicHref: /azure/azure-percept/
+      - name: Device Development
+        tocHref: /azure/iot-develop/
+        topicHref: /azure/iot-develop/
       - name: Device Update for IoT Hub
         tocHref: /azure/iot-hub-device-update/
         topicHref: /azure/iot-hub-device-update/            
@@ -249,9 +252,6 @@
       - name: IoT Edge
         tocHref: /azure/iot-edge/
         topicHref: /azure/iot-edge/
-      - name: IoT Plug and Play
-        tocHref: /azure/iot-pnp/
-        topicHref: /azure/iot-pnp/
       - name: Azure Digital Twins
         tocHref: /azure/digital-twins/
         topicHref: /azure/digital-twins/
