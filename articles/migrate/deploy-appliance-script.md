@@ -74,15 +74,15 @@ Check that the zipped file is secure, before you deploy it.
 
 5. Select from the scenario, cloud and connectivity options to deploy an appliance with the desired configuration. For instance, the selection shown below sets up an appliance to discover, assess and migrate **servers running in your VMware environment** to an Azure Migrate project with **default _(public endpoint)_ connectivity** on **Azure public cloud**.
 
-    :::image type="content" source="./media/deploy-appliance-script/script-vmware-default.png" alt-text="Screenshot that shows how to set up Vmware appliance with desired configuration":::
+    :::image type="content" source="./media/deploy-appliance-script/script-vmware-default-inline.png" alt-text="Screenshot that shows how to set up Vmware appliance with desired configuration." lightbox="./media/deploy-appliance-script/script-vmware-default-expanded.png":::
 
 6. The installer script does the following:
 
-- Installs agents and a web application.
-- Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
-- Download and installs an IIS rewritable module.
-- Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
-- Creates the following files under the path:
+ - Installs agents and a web application.
+ - Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
+ - Download and installs an IIS rewritable module.
+ - Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
+ - Creates the following files under the path:
     - **Config Files**: %Programdata%\Microsoft Azure\Config
     - **Log Files**: %Programdata%\Microsoft Azure\Logs
 
@@ -131,7 +131,7 @@ Check that the zipped file is secure, before you deploy it.
 
 5. Select from the scenario, cloud and connectivity options to deploy an appliance with the desired configuration. For instance, the selection shown below sets up an appliance to discover and assess **servers running in your Hyper-V environment** to an Azure Migrate project with **default _(public endpoint)_ connectivity** on **Azure public cloud**.
 
-    :::image type="content" source="./media/deploy-appliance-script/script-hyperv-default.png" alt-text="Screenshot that shows how to set up Hyper-V appliance with desired configuration":::
+    :::image type="content" source="./media/deploy-appliance-script/script-hyperv-default-inline.png" alt-text="Screenshot that shows how to set up Hyper-V appliance with desired configuration." lightbox="./media/deploy-appliance-script/script-hyperv-default-expanded.png":::
 
 6. The installer script does the following:
 

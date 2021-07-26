@@ -40,7 +40,7 @@ To set up the appliance you:
 1. After the successful creation of the Azure resources, a **project key** is generated.
 1. Copy the key as you will need it to complete the registration of the appliance during its configuration.
 
-   ![Selections for Generate Key](./media/tutorial-assess-physical/generate-key-physical.png)
+   ![Selections for Generate Key](./media/tutorial-assess-physical/generate-key-physical-1.png)
 
 ### Download the installer script
 
@@ -75,7 +75,7 @@ Check that the zipped file is secure, before you deploy it.
 
 5. Select from the scenario, cloud and connectivity options to deploy an appliance with the desired configuration. For instance, the selection shown below sets up an appliance to discover and assess **physical servers** _(or servers running on other clouds like AWS, GCP, Xen etc.)_ to an Azure Migrate project with **default _(public endpoint)_ connectivity** on **Azure public cloud**.
 
-    :::image type="content" source="./media/tutorial-discover-physical/script-physical-default.png" alt-text="Screenshot that shows how to set up appliance with desired configuration":::
+    :::image type="content" source="./media/tutorial-discover-physical/script-physical-default-1.png" alt-text="Screenshot that shows how to set up appliance with desired configuration.":::
 
 6. The installer script does the following:
 

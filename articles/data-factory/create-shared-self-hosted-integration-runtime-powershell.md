@@ -215,7 +215,6 @@ Remove-AzDataFactoryV2IntegrationRuntime `
     -ResourceGroupName $ResourceGroupName `
     -DataFactoryName $SharedDataFactoryName `
     -Name $SharedIntegrationRuntimeName `
-    -Links `
     -LinkedDataFactoryName $LinkedDataFactoryName
 ```
 

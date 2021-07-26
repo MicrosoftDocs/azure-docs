@@ -89,7 +89,7 @@ landingContent:
             url: tutorial-access-private-cloud.md
           - text: Configure networking
             url: tutorial-configure-networking.md
-          - text: Create an NSX-T network segment 
+          - text: Create a network segment 
             url: tutorial-nsx-t-network-segment.md
           - text: Peer on-premises to private cloud 
             url: tutorial-expressroute-global-reach-private-cloud.md
@@ -122,7 +122,7 @@ landingContent:
             url: reserved-instance.md
       - linkListType: how-to-guide
         links:
-          - text: Configure DHCP 
+          - text: Configure DHCP server or relay 
             url: configure-dhcp-azure-vmware-solution.md
           - text: Configure DHCP on L2 stretched networks
             url: configure-l2-stretched-vmware-hcx-networks.md
@@ -243,6 +243,6 @@ landingContent:
       - linkListType: reference
         links:
           - text: Open a support request for deployment failures
-            url: fix-deployment-provisioning-failures.md
+            url: fix-deployment-failures.md
           - text: VMware tools vix error code = 21009
             url: https://kb.vmware.com/s/article/2129927

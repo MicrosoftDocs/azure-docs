@@ -4,7 +4,7 @@ description: This article describes how automatic backup, on-demand data restore
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 10/13/2020
+ms.date: 07/21/2021
 ms.author: govindk
 ms.reviewer: sngun
 
@@ -21,6 +21,8 @@ Azure Cosmos DB automatically takes backups of your data at regular intervals. T
 
   > [!NOTE]
   > If you configure a new account with continuous backup, you can do self-service restore via Azure portal, PowerShell, or CLI. If your account is configured in continuous mode, you can’t switch it back to periodic mode. Currently existing accounts with periodic backup mode can’t be changed into continuous mode.  
+
+For Azure Synapse Link enabled accounts, analytical store data isn't included in the backups and restores. When Synapse Link is enabled, Azure Cosmos DB will continue to automatically take backups of your data in the transactional store at a scheduled backup interval. Automatic backup and restore of your data in the analytical store is not supported at this time.
 
 ## Next steps
 

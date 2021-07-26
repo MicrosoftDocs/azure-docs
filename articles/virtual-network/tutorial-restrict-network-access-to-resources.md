@@ -329,11 +329,11 @@ To test network access to a storage account, deploy a VM to each subnet.
   
 1. Open the downloaded rdp file. When prompted, select **Connect**. 
 
-    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/rdp-connect.png" alt-text="Screenshot of connection screen for private virtual machine":::
+    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/rdp-connect.png" alt-text="Screenshot of connection screen for private virtual machine.":::
 
 1. Enter the user name and password you specified when creating the VM. You may need to select **More choices**, then **Use a different account** to specify the credentials you entered when you created the VM. For the email field, enter the "Administrator account: username" credentials you specified earlier. Select **OK** to sign into the VM.
 
-    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/credential-screen.png" alt-text="Screenshot of credential screen for private virtual machine":::
+    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/credential-screen.png" alt-text="Screenshot of credential screen for private virtual machine.":::
 
     > [!NOTE] 
     > You may receive a certificate warning during the sign-in process. If you receive the warning, select **Yes** or **Continue**, to proceed with the connection.
@@ -388,8 +388,8 @@ To test network access to a storage account, deploy a VM to each subnet.
 
 1. You should receive the following error message:
 
-   ![Access denied error](./media/tutorial-restrict-network-access-to-resources/access-denied-error.png)
-   
+    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/access-denied-error.png" alt-text="Screenshot of access denied error message.":::
+
 >[!NOTE] 
 > The access is denied because your computer is not in the *Private* subnet of the *MyVirtualNetwork* virtual network.
 

@@ -15,7 +15,7 @@ ms.author: justinha
 ---
 # Administer Group Policy in an Azure Active Directory Domain Services managed domain
 
-Settings for user and computer objects in Azure Active Directory Domain Services (Azure AD DS) are often managed using Group Policy Objects (GPOs). Azure AD DS includes built-in GPOs for the *AADDC Users* and *AADDC Computers* containers. You can customize these built-in GPOs to configure Group Policy as needed for your environment. Members of the *Azure AD DC administrators* group have Group Policy administration privileges in the Azure AD DS domain, and can also create custom GPOs and organizational units (OUs). More more information on what Group Policy is and how it works, see [Group Policy overview][group-policy-overview].
+Settings for user and computer objects in Azure Active Directory Domain Services (Azure AD DS) are often managed using Group Policy Objects (GPOs). Azure AD DS includes built-in GPOs for the *AADDC Users* and *AADDC Computers* containers. You can customize these built-in GPOs to configure Group Policy as needed for your environment. Members of the *Azure AD DC administrators* group have Group Policy administration privileges in the Azure AD DS domain, and can also create custom GPOs and organizational units (OUs). For more information on what Group Policy is and how it works, see [Group Policy overview][group-policy-overview].
 
 In a hybrid environment, group policies configured in an on-premises AD DS environment aren't synchronized to Azure AD DS. To define configuration settings for users or computers in Azure AD DS, edit one of the default GPOs or create a custom GPO.
 

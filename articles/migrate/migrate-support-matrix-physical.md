@@ -55,7 +55,7 @@ Set up an account that the appliance can use to access the physical servers.
     1. Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
     1. Create a registry key ‘isSudo’ with DWORD value of 1.
 
-    :::image type="content" source="./media/tutorial-discover-physical/issudo-reg-key.png" alt-text="Screenshot that shows how to enable sudo support":::
+    :::image type="content" source="./media/tutorial-discover-physical/issudo-reg-key.png" alt-text="Screenshot that shows how to enable sudo support.":::
 
 - To discover the configuration and performance metadata from target server, you need to enable sudo access for the commands listed [here](migrate-appliance.md#linux-server-metadata). Make sure that you have enabled 'NOPASSWD' for the account to run the required commands without prompting for a password every time sudo command is invoked.
 - The following Linux OS distributions are supported for discovery by Azure Migrate using an account with sudo access:

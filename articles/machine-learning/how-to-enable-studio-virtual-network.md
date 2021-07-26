@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 06/11/2021
+ms.date: 07/13/2021
 ms.custom: contperf-fy20q4, tracking-python, security
 
 ---
@@ -42,15 +42,16 @@ In this article, you learn how to:
 > - Access the studio from a resource inside of a virtual network.
 > - Understand how the studio impacts storage security.
 
-This article is part five of a five-part series that walks you through securing an Azure Machine Learning workflow. We highly recommend that you read through the previous parts to set up a virtual network environment.
+> [!TIP]
+> This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
+>
+> * [Virtual network overview](how-to-network-security-overview.md)
+> * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
+> * [Secure the training environment](how-to-secure-training-vnet.md)
+> * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+> * [Use custom DNS](how-to-custom-dns.md)
+> * [Use a firewall](how-to-access-azureml-behind-firewall.md)
 
-See the other articles in this series:
-
-[1. VNet overview](how-to-network-security-overview.md) > [2. Secure the workspace](how-to-secure-workspace-vnet.md) > [3. Secure the training environment](how-to-secure-training-vnet.md) > [4. Secure the inferencing environment](how-to-secure-inferencing-vnet.md) > **5. Enable studio functionality**
-
-
-> [!IMPORTANT]
-> If your workspace is in a __sovereign cloud__, such as Azure Government or Azure China 21Vianet, integrated notebooks _do not_ support using storage that is in a virtual network. Instead, you can use Jupyter Notebooks from a compute instance. For more information, see the [Access data in a Compute Instance notebook](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) section.
 
 ## Prerequisites
 
@@ -62,6 +63,15 @@ See the other articles in this series:
 
 + An existing [Azure storage account added your virtual network](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints).
 
+## Limitations
+
+### Azure Storage Account
+
+There's a known issue where the default file store does not automatically create the `azureml-filestore` folder, which is required to submit AutoML experiments. This occurs when users bring an existing filestore to set as the default filestore during workspace creation.
+
+To avoid this issue, you have two options: 1) Use the default filestore which is automatically created for you doing workspace creation. 2) To bring your own filestore, make sure the filestore is outside of the VNet during workspace creation. After the workspace is created, add the storage account to the virtual network.
+
+To resolve this issue, remove the filestore account from the virtual network then add it back to the virtual network.
 ## Datastore: Azure Storage Account
 
 Use the following steps to enable access to data stored in Azure Blob and File storage:
@@ -69,7 +79,7 @@ Use the following steps to enable access to data stored in Azure Blob and File s
 > [!TIP]
 > The first step is not required for the default storage account for the workspace. All other steps are required for *any* storage account behind the VNet and used by the workspace, including the default storage account.
 
-1. **If the storage account is the *default* storage for your workspace, skip this step**. If it is not the default, **Grant the workspace managed identity the 'Blob Data Reader' role** for the Azure storage account so that it can read data from blob storage.
+1. **If the storage account is the *default* storage for your workspace, skip this step**. If it is not the default, **Grant the workspace managed identity the 'Storage Blob Data Reader' role** for the Azure storage account so that it can read data from blob storage.
 
     For more information, see the [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) built-in role.
 
@@ -91,13 +101,6 @@ Use the following steps to enable access to data stored in Azure Blob and File s
     |---------|---------|
     |Workspace default blob storage| Stores model assets from the designer. Enable managed identity authentication on this storage account to deploy models in the designer. <br> <br> You can visualize and run a designer pipeline if it uses a non-default datastore that has been configured to use managed identity. However, if you try to deploy a trained model without managed identity enabled on the default datastore, deployment will fail regardless of any other datastores in use.|
     |Workspace default file store| Stores AutoML experiment assets. Enable managed identity authentication on this storage account to submit AutoML experiments. |
-
-    > [!WARNING]
-    > There's a known issue where the default file store does not automatically create the `azureml-filestore` folder, which is required to submit AutoML experiments. This occurs when users bring an existing filestore to set as the default filestore during workspace creation.
-    > 
-    > To avoid this issue, you have two options: 1) Use the default filestore which is automatically created for you doing workspace creation. 2) To bring your own filestore, make sure the filestore is outside of the VNet during workspace creation. After the workspace is created, add the storage account to the virtual network.
-    >
-    > To resolve this issue, remove the filestore account from the virtual network then add it back to the virtual network.
 
 1. **Configure datastores to use managed identity authentication**. After you add an Azure storage account to your virtual network with a either a [service endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) or [private endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints), you must configure your datastore to use [managed identity](../active-directory/managed-identities-azure-resources/overview.md) authentication. Doing so lets the studio access data in your storage account.
 
@@ -158,11 +161,11 @@ Some storage services, such as Azure Storage Account, have firewall settings tha
 > Azure Machine Learning studio is supported when using the Azure Firewall service. For more information, see [Use your workspace behind a firewall](how-to-access-azureml-behind-firewall.md).
 ## Next steps
 
-This article is part five of a five-part virtual network series. See the rest of the articles to learn how to secure a virtual network:
+This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 
-* [Part 1: Virtual network overview](how-to-network-security-overview.md)
-* [Part 2: Secure the workspace resources](how-to-secure-workspace-vnet.md)
-* [Part 3: Secure the training environment](how-to-secure-training-vnet.md)
-* [Part 4: Secure the inferencing environment](how-to-secure-inferencing-vnet.md)
-
-Also see the article on using [custom DNS](how-to-custom-dns.md) for name resolution.
+* [Virtual network overview](how-to-network-security-overview.md)
+* [Secure the workspace resources](how-to-secure-workspace-vnet.md)
+* [Secure the training environment](how-to-secure-training-vnet.md)
+* [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+* [Use custom DNS](how-to-custom-dns.md)
+* [Use a firewall](how-to-access-azureml-behind-firewall.md)

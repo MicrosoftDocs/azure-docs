@@ -48,7 +48,11 @@
   - name: Clean up and delete tenant
     href: tutorial-delete-tenant.md
 - name: Samples
-  href: code-samples.md
+  items:
+  - name: Integrate Azure AD B2C with your applications
+    href: integrate-with-app-code-samples.md
+  - name: Use API connectors to modify your user flows
+    href: api-connector-samples.md
 - name: Concepts
   items:
   - name: Compare solutions for External Identities
