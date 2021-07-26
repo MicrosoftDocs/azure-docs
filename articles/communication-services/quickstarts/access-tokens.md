@@ -6,7 +6,7 @@ author: tomaschladek
 manager: nmurav
 services: azure-communication-services
 ms.author: tchladek
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
@@ -39,9 +39,14 @@ The output of the app describes each action that is completed:
 ```console
 Azure Communication Services - Access Tokens Quickstart
 
-Created an identity: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
+Created an identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
 
-Issued an access token with 'voip' scope that expires at Fri Nov 27 2020 16:47:05 GMT-0800 (Pacific Standard Time):
+Issued an access token with 'voip' scope that expires at 30/03/21 08:09 09 AM:
+<token signature here>
+
+Created an identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-1ce9-31b4-54b7-a43a0d006a52
+
+Issued an access token with 'voip' scope that expires at 30/03/21 08:09 09 AM:
 <token signature here>
 
 Successfully revoked all access tokens for identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
@@ -53,7 +58,6 @@ Deleted the identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_0000000
 ## Clean up resources
 
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](./create-communication-resource.md#clean-up-resources).
-
 
 ## Next Steps
 

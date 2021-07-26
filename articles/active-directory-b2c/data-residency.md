@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/20/2020
+ms.date: 07/14/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: references_regions
@@ -17,9 +17,11 @@ ms.custom: references_regions
 
 # Azure Active Directory B2C: Region availability & data residency
 
-Region availability and data residency are two very different concepts that apply differently to Azure AD B2C from the rest of Azure. This article explains the differences between these two concepts, and compares how they apply to Azure versus Azure AD B2C.
+Azure AD B2C identity data is stored in a geographical location based on the country/region provided when you create the tenant.
 
-Azure AD B2C is **generally available worldwide** with the option for **data residency** in the **United States, Europe, or Asia Pacific**.
+Region availability and data residency are two different concepts that apply to Azure AD B2C. This article explains the differences between these two concepts, and compares how they apply to Azure versus Azure AD B2C.
+
+Azure AD B2C is **generally available worldwide** with the option for **data residency** in the **United States, Europe, Asia Pacific, or Australia**.
 
 [Region availability](#region-availability) refers to where a service is available for use.
 
@@ -27,9 +29,7 @@ Azure AD B2C is **generally available worldwide** with the option for **data res
 
 ## Region availability
 
-Azure AD B2C is available worldwide via the Azure public cloud.
-
-This differs from the model followed by most other Azure services, which typically couple *availability* with *data residency*. You can see examples of this in both Azure's [Products Available By Region](https://azure.microsoft.com/regions/services/) page and the [Active Directory B2C pricing calculator](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+Azure AD B2C is available worldwide via the Azure public cloud. You can see examples of this feature in both Azure's [Products Available By Region](https://azure.microsoft.com/regions/services/) page and the [Active Directory B2C pricing calculator](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
 ## Data residency
 
@@ -49,31 +49,23 @@ Data resides in **Europe** for the following countries/regions:
 
 Data resides in **Asia Pacific** for the following countries/regions:
 
-> Afghanistan (AF), Hong Kong SAR (HK), India (IN), Indonesia (ID), Japan (JP), Korea (KR), Malaysia (MY), Philippines (PH), Singapore (SG), Sri Lanka (LK), Taiwan (TW), and Thailand (TH).
+> Afghanistan (AF), Hong Kong SAR (HK), India (IN), Indonesia (ID), Japan (JP), Korea (KR), Malaysia (MY), Philippines (PH), Singapore (SG), Sri Lanka (LK), Taiwan (TW), and Thailand (TH)
+
+Data resides in **Australia** for the following countries/regions:
+
+> Australia and New Zealand
 
 The following countries/regions are in the process of being added to the list. For now, you can still use Azure AD B2C by picking any of the countries/regions above.
 
-> Argentina, Australia, Brazil, Chile, Colombia, Ecuador, Iraq, New Zealand, Paraguay, Peru, Uruguay, and Venezuela.
+> Argentina, Brazil, Chile, Colombia, Ecuador, Iraq, Paraguay, Peru, Uruguay, and Venezuela
 
 ## Remote profile solution
 
-With Azure AD B2C [custom policies](custom-policy-overview.md), you can integrate with [RESTful API services](custom-policy-rest-api-intro.md), which allow you to store and read user profiles from a remote database (such as a marketing database, CRM system, or any line-of-business application).  
+With Azure AD B2C [custom policies](custom-policy-overview.md), you can integrate with [RESTful API services](api-connectors-overview.md), which allow you to store and read user profiles from a remote database (such as a marketing database, CRM system, or any line-of-business application).  
 - During the sign-up and profile editing flows, Azure AD B2C calls a custom REST API to persist the user profile to the remote data source. The user's credentials are stored in Azure AD B2C directory. 
 - Upon sign-in, after credentials validation with a local or social account, Azure AD B2C invokes the REST API, which sends the user's unique identifier as a user primary key (email address or user objectId). The REST API reads the data from the remote database and returns the user profile.  
 
 After sign-up, profile editing, or sign-in is complete, Azure AD B2C includes the user profile in the access token that is returned to the application. For more information, see the [Azure AD B2C Remote profile sample solution](https://github.com/azure-ad-b2c/samples/tree/master/policies/remote-profile) in GitHub.
-
-## Preview tenant
-
-If you had created a B2C tenant during Azure AD B2C's preview period, it's likely that your **Tenant type** says **Preview tenant**.
-
-If this is the case, you must use your tenant ONLY for development and testing purposes. DO NOT use a preview tenant for production applications.
-
-**There is no migration path** from a preview B2C tenant to a production-scale B2C tenant. You must create a new B2C tenant for your production applications.
-
-There are known issues when you delete a preview B2C tenant and create a production-scale B2C tenant with the same domain name. *You must create a production-scale B2C tenant with a different domain name*.
-
-![Screenshot of a tenant type, as preview tenant.](./media/data-residency/preview-b2c-tenant.png)
 
 ## Next steps
 

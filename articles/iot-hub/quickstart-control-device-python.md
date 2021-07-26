@@ -10,7 +10,7 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: [mvc, mqtt, devx-track-python, devx-track-azurecli]
 ms.date: 09/14/2020
-# As a developer new to IoT Hub, I need to see how to use a back-end application to control a device connected to the hub.
+#Customer intent: As a developer new to IoT Hub, I need to see how to use a back-end application to control a device connected to the hub.
 ---
 
 # Quickstart: Control a device connected to an IoT hub (Python)
@@ -25,7 +25,7 @@ In this quickstart, you use a direct method to control a simulated device connec
 
 * [Python 3.7+](https://www.python.org/downloads/). For other versions of Python supported, see [Azure IoT Device Features](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device#azure-iot-device-features).
 
-* [A sample Python project](https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip).
+* [A sample Python project](https://github.com/Azure-Samples/azure-iot-samples-python/) from github. Download or clone the samples by using the **Code** button in the github repository.
 
 * Port 8883 open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
@@ -35,13 +35,13 @@ In this quickstart, you use a direct method to control a simulated device connec
 
 ## Create an IoT hub
 
-If you completed the previous [Quickstart: Send telemetry from a device to an IoT hub](quickstart-send-telemetry-python.md), you can skip this step.
+If you completed the previous [Quickstart: Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python), you can skip this step.
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## Register a device
 
-If you completed the previous [Quickstart: Send telemetry from a device to an IoT hub](quickstart-send-telemetry-python.md), you can skip this step.
+If you completed the previous [Quickstart: Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python), you can skip this step.
 
 A device must be registered with your IoT hub before it can connect. In this quickstart, you use the Azure Cloud Shell to register a simulated device.
 
@@ -76,7 +76,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
     ```azurecli-interactive
     az iot hub connection-string show \
       --policy-name service \
-      --name {YourIoTHubName} \
+      --hub-name {YourIoTHubName} \
       --output table
     ```
 

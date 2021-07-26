@@ -4,8 +4,8 @@ description: Learn how to process or transform data by running a Databricks Pyth
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/15/2018
-author: dcstwh
-ms.author: weetok
+author: nabhishek
+ms.author: abnarain
 ms.custom: devx-track-python
 ---
 # Transform data by running a Python activity in Azure Databricks

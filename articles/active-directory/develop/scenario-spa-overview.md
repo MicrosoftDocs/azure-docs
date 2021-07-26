@@ -1,9 +1,9 @@
 ---
-title: JavaScript single-page app scenario 
+title: JavaScript single-page app scenario
 titleSuffix: Microsoft identity platform
 description: Learn how to build a single-page application (scenario overview) by using the Microsoft identity platform.
 services: active-directory
-author: navyasric
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: nacanuma
+ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
 #Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform.
 ---
@@ -24,7 +24,7 @@ Learn all you need to build a single-page application (SPA).
 
 If you haven't already,  create your first app by completing the JavaScript SPA quickstart:
 
-[Quickstart: Single-page application](./quickstart-v2-javascript.md)
+[Quickstart: Single-page application](./quickstart-v2-javascript-auth-code.md)
 
 ## Overview
 

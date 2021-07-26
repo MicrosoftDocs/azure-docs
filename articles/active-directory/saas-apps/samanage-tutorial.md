@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 06/09/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with SolarWinds Service Desk (previously Samanage)
@@ -26,6 +26,9 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * SolarWinds single sign-on (SSO) enabled subscription.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
@@ -130,7 +133,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
  
     a. Click **Enable Single Sign-On with SAML**.  
  
-    b. In the **Identity Provider URL** textbox, paste the value of **Azure Ad Identifier** which you have copied from Azure portal.    
+    b. In the **Identity Provider URL** textbox, enter the value like `https://YourAccountName.samanage.com`.
  
     c. Confirm the **Login URL** matches the **Sign On URL** of **Basic SAML Configuration** section in Azure portal.
  

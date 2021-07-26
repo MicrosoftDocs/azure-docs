@@ -1,11 +1,11 @@
 ---
 title: Metrics for Azure Spring Cloud
 description: Learn how to review metrics in Azure Spring Cloud
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
 ---
 
@@ -166,7 +166,7 @@ For more information, see [dotnet counters](/dotnet/core/diagnostics/dotnet-coun
 
 ## See also
 
-* [Quickstart: Monitoring Azure Spring Cloud apps with logs, metrics, and tracing](spring-cloud-quickstart-logs-metrics-tracing.md)
+* [Quickstart: Monitoring Azure Spring Cloud apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md)
 
 * [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md)
 
@@ -174,6 +174,6 @@ For more information, see [dotnet counters](/dotnet/core/diagnostics/dotnet-coun
 
 ## Next steps
 
-* [Tutorial: Monitor Spring Cloud resources using alerts and action groups](./spring-cloud-tutorial-alerts-action-groups.md)
+* [Tutorial: Monitor Spring Cloud resources using alerts and action groups](./tutorial-alerts-action-groups.md)
 
-* [Quotas and Service Plans for Azure Spring Cloud](./spring-cloud-quotas.md)
+* [Quotas and Service Plans for Azure Spring Cloud](./quotas.md)

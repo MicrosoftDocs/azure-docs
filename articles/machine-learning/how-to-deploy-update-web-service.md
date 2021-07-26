@@ -5,7 +5,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to refresh a web service that is already deployed in Azure Machine Learning. You can update settings such as model, environment, and entry script.
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: gopalv
 author: gvashishtha
@@ -82,14 +82,14 @@ az ml service update -n myservice --model-metadata-file modelinfo.json
 >
 > To update the service to use a new entry script or environment, create an [inference configuration file](./reference-azure-machine-learning-cli.md#inference-configuration-schema) and specify it with the `ic` parameter.
 
-For more information, see the [az ml service update](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-update) documentation.
+For more information, see the [az ml service update](/cli/azure/ml(v1)/computetarget/create#az_ml_service_update) documentation.
 
 ## Next steps
 
 * [Troubleshoot a failed deployment](how-to-troubleshoot-deployment.md)
 * [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Create client applications to consume web services](how-to-consume-web-service.md)
-* [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
+* [How to deploy a model using a custom Docker image](./how-to-deploy-custom-container.md)
 * [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
 * [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
 * [Collect data for models in production](how-to-enable-data-collection.md)

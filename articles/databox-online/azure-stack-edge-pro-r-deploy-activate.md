@@ -9,7 +9,7 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 02/23/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge Pro R device so I can use it to transfer data to Azure. 
+# Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge Pro R device so I can use it to transfer data to Azure. 
 ---
 # Tutorial: Activate Azure Stack Edge Pro R device
 

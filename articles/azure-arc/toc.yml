@@ -4,11 +4,15 @@
   items:
   - name: About Azure Arc
     href: overview.md
-- name: Arc enabled servers >
+- name: Samples
+  items:
+  - name: Azure Resource Graph queries
+    href: ./resource-graph-samples.md
+- name: Arc-enabled servers >
   href: ./servers/overview.md
-- name: Arc enabled Kubernetes >
+- name: Arc-enabled Kubernetes >
   href: ./kubernetes/overview.md
-- name: Arc enabled data services (preview) >
+- name: Arc-enabled data services (preview) >
   href: ./data/overview.md
-- name: Arc enabled SQL Server (preview) >
+- name: SQL Server on Azure Arc-enabled servers (preview) >
   href: https://docs.microsoft.com/sql/sql-server/azure-arc/overview

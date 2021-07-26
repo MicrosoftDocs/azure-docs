@@ -142,7 +142,7 @@ The `json_tuple` UDF uses the [lateral view](https://cwiki.apache.org/confluence
 
 ### Use a custom SerDe
 
-SerDe is the best choice for parsing nested JSON documents. It lets you define the JSON schema, and then you can use the schema to parse the documents. For instructions, see [How to use a custom JSON SerDe with Microsoft Azure HDInsight](https://web.archive.org/web/20190217104719/https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/).
+SerDe is the best choice for parsing nested JSON documents. It lets you define the JSON schema, and then you can use the schema to parse the documents. For instructions, see [How to use a custom JSON SerDe with Microsoft Azure HDInsight](/archive/blogs/bigdatasupport/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight).
 
 ## Summary
 

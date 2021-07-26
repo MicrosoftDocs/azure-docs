@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/18/2020
+ms.date: 04/21/2021
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -48,7 +48,7 @@ Install-WindowsFeature RSAT-AD-Tools
 ![Configure](media/how-to-connect-configure-ad-ds-connector-account/configure2.png)
 
 >[!NOTE]
->You can also copy the file **C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** to a Domain Controller which already has RSAT for AD DS installed and use this PowerShell module from there.
+>You can also copy the file **C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** to a Domain Controller which already has RSAT for AD DS installed and use this PowerShell module from there.  Be aware that some of the cmdlets can only be run on the computer that is hosting Azure AD Connect.
 
 To start using the ADSyncConfig you need to load the module in a Windows PowerShell window: 
 
@@ -80,7 +80,7 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <ADAccountDN>
 
 Make sure to replace `<ADAccountName>`, `<ADDomainName>` and `<ADAccountDN>` with the proper values for your environment.
 
-In case you don’t want to modify permissions on the AdminSDHolder container, use the switch `-SkipAdminSdHolders`. 
+In case you want to modify permissions on the AdminSDHolder container, use the switch `-IncludeAdminSdHolders`. Note that this is not recommended.
 
 By default, all the set permissions cmdlets will try to set AD DS permissions on the root of each Domain in the Forest, meaning that the user running the PowerShell session requires Domain Administrator rights on each domain in the Forest.  Because of this requirement, it is recommended to use an Enterprise Administrator from the Forest root. If your Azure AD Connect deployment has multiple AD DS Connectors, it will be required to run the same cmdlet on each forest that has an AD DS Connector. 
 

@@ -1,28 +1,32 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
-ms.date: 11/25/2020
+ms.date: 03/31/2021
 ---
+
+[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/device/PnpDeviceSamples/Thermostat)
 
 ## Prerequisites
 
-To complete the steps in this article, you need the following:
+To complete the steps in this article, you need the following resources:
 
-* An Azure IoT Central application created using the **Custom application** template. For more information, see the [create an application quickstart](../articles/iot-central/core/quick-deploy-iot-central.md). The application must have been created on or after 14 July 2020.
-* A development machine with [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/).
-* A local copy of the [Microsoft Azure IoT Samples for C# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository that contains the sample code. Use this link to download a copy of the repository: [Download ZIP](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Then unzip the file to a suitable location on your local machine.
+[!INCLUDE [iot-central-prerequisites-basic](iot-central-prerequisites-basic.md)]
+
+- A development machine with [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/).
+
+- A local copy of the [Microsoft Azure IoT Samples for C# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository that contains the sample code. Use this link to download a copy of the repository: [Download ZIP](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Then unzip the file to a suitable location on your local machine.
 
 ## Review the code
 
-In the copy of the Microsoft Azure IoT Samples for C# repository you downloaded previously, open the *azure-iot-samples-csharp-master\iot-hub\Samples\device\PnpDeviceSamples\Thermostat\Thermostat.csproj* project file in Visual Studio. In the **Thermostat** project, open the *Program.cs* and *ThermostatSample.cs* files to view the code for this sample.
+In the copy of the Microsoft Azure IoT Samples for C# repository you downloaded previously, open the *azure-iot-samples-csharp-master\iot-hub\Samples\device\IoTHubDeviceSamples.sln"* solution file in Visual Studio. In **Solution Explorer**, expand the *PnpDeviceSamples > TemperatureController* folder and open the *Program.cs* and *TemperatureControllerSample.cs* files to view the code for this sample.
 
 When you run the sample to connect to IoT Central, it uses the Device Provisioning Service (DPS) to register the device and generate a connection string. The sample retrieves the DPS connection information it needs from the environment.
 
-In *Program.cs*, the `main` method calls `SetupDeviceClientAsync` to:
+In *Program.cs*, the `Main` method calls `SetupDeviceClientAsync` to:
 
-* Use the model ID `dtmi:com:example:Thermostat;1` when it provisions the device with DPS. IoT Central uses the model ID to identify or generate the device template for this device. To learn more, see [Associate a device with a device template](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template).
+* Use the model ID `dtmi:com:example:TemperatureController;2` when it provisions the device with DPS. IoT Central uses the model ID to identify or generate the device template for this device. To learn more, see [Associate a device with a device template](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template).
 * Create a **DeviceClient** instance to connect to IoT Central.
 
 ```csharp
@@ -32,156 +36,214 @@ private static async Task<DeviceClient> SetupDeviceClientAsync(Parameters parame
   switch (parameters.DeviceSecurityType.ToLowerInvariant())
   {
     case "dps":
-      s_logger.LogDebug($"Initializing via DPS");
       DeviceRegistrationResult dpsRegistrationResult = await ProvisionDeviceAsync(parameters, cancellationToken);
       var authMethod = new DeviceAuthenticationWithRegistrySymmetricKey(dpsRegistrationResult.DeviceId, parameters.DeviceSymmetricKey);
       deviceClient = InitializeDeviceClient(dpsRegistrationResult.AssignedHub, authMethod);
       break;
 
     case "connectionstring":
-        // ...
-        break;
+      // ...
 
     default:
-        // ...
+      // ...
   }
-
   return deviceClient;
 }
 ```
 
-The main method then creates a **ThermostatSample** instance and calls the `PerformOperationsAsync` method to handle the interactions with IoT Central.
+The main method then creates a **TemperatureControllerSample** instance and calls the `PerformOperationsAsync` method to handle the interactions with IoT Central.
 
-In *ThermostatSample.cs*, the `PerformOperationsAsync` method:
+In *TemperatureControllerSample.cs*, the `PerformOperationsAsync` method:
 
-* Sets a handler to receive target temperature desired property updates.
-* Sets a handler for the **getMaxMinReport** command.
-* Periodically sends temperature telemetry.
-* Sends the maximum temperature since the last reboot whenever a new maximum temperature is reached.
+* Sets a handler for the **reboot** command on the default component.
+* Sets handlers for the **getMaxMinReport** commands on the two thermostat components.
+* Sets handlers to receive target temperature property updates on the two thermostat components.
+* Sends initial device information property updates.
+* Periodically sends temperature telemetry from the two thermostat components.
+* Periodically sends working set telemetry from the default component.
+* Sends the maximum temperature since the last reboot whenever a new maximum temperature is reached in the two thermostat components.
 
 ```csharp
 public async Task PerformOperationsAsync(CancellationToken cancellationToken)
 {
-  await _deviceClient.SetDesiredPropertyUpdateCallbackAsync(TargetTemperatureUpdateCallbackAsync, _deviceClient, cancellationToken);
+  await _deviceClient.SetMethodHandlerAsync("reboot", HandleRebootCommandAsync, _deviceClient, cancellationToken);
 
-  await _deviceClient.SetMethodHandlerAsync("getMaxMinReport", HandleMaxMinReportCommand, _deviceClient, cancellationToken);
+  // For a component-level command, the command name is in the format "<component-name>*<command-name>".
+  await _deviceClient.SetMethodHandlerAsync("thermostat1*getMaxMinReport", HandleMaxMinReportCommand, Thermostat1, cancellationToken);
+  await _deviceClient.SetMethodHandlerAsync("thermostat2*getMaxMinReport", HandleMaxMinReportCommand, Thermostat2, cancellationToken);
+
+  await _deviceClient.SetDesiredPropertyUpdateCallbackAsync(SetDesiredPropertyUpdateCallback, null, cancellationToken);
+  _desiredPropertyUpdateCallbacks.Add(Thermostat1, TargetTemperatureUpdateCallbackAsync);
+  _desiredPropertyUpdateCallbacks.Add(Thermostat2, TargetTemperatureUpdateCallbackAsync);
+
+  await UpdateDeviceInformationAsync(cancellationToken);
+  await SendDeviceSerialNumberAsync(cancellationToken);
 
   bool temperatureReset = true;
+  _maxTemp[Thermostat1] = 0d;
+  _maxTemp[Thermostat2] = 0d;
+
   while (!cancellationToken.IsCancellationRequested)
   {
     if (temperatureReset)
     {
-      // Generate a random value between 5.0°C and 45.0°C for the current temperature reading.
-      _temperature = Math.Round(_random.NextDouble() * 40.0 + 5.0, 1);
-      temperatureReset = false;
+      // Generate a random value between 5.0°C and 45.0°C for the current temperature reading for each "Thermostat" component.
+      _temperature[Thermostat1] = Math.Round(s_random.NextDouble() * 40.0 + 5.0, 1);
+      _temperature[Thermostat2] = Math.Round(s_random.NextDouble() * 40.0 + 5.0, 1);
     }
 
-    await SendTemperatureAsync();
+    await SendTemperatureAsync(Thermostat1, cancellationToken);
+    await SendTemperatureAsync(Thermostat2, cancellationToken);
+    await SendDeviceMemoryAsync(cancellationToken);
+
+    temperatureReset = _temperature[Thermostat1] == 0 && _temperature[Thermostat2] == 0;
     await Task.Delay(5 * 1000);
   }
 }
 ```
 
-The `SendTemperatureAsync` method shows how the device sends the temperature telemetry to IoT Central:
+The `SendTemperatureAsync` method shows how the device sends the temperature telemetry from a component to IoT Central. The `SendTemperatureTelemetryAsync` method uses the `PnpConvention` class to build the message:
 
 ```csharp
-private async Task SendTemperatureAsync()
+private async Task SendTemperatureAsync(string componentName, CancellationToken cancellationToken)
 {
-  await SendTemperatureTelemetryAsync();
+  await SendTemperatureTelemetryAsync(componentName, cancellationToken);
 
-  double maxTemp = _temperatureReadingsDateTimeOffset.Values.Max<double>();
-  if (maxTemp > _maxTemp)
+  double maxTemp = _temperatureReadingsDateTimeOffset[componentName].Values.Max<double>();
+  if (maxTemp > _maxTemp[componentName])
   {
-    _maxTemp = maxTemp;
-    await UpdateMaxTemperatureSinceLastRebootAsync();
+    _maxTemp[componentName] = maxTemp;
+    await UpdateMaxTemperatureSinceLastRebootAsync(componentName, cancellationToken);
+  }
+}
+
+private async Task SendTemperatureTelemetryAsync(string componentName, CancellationToken cancellationToken)
+{
+  const string telemetryName = "temperature";
+  double currentTemperature = _temperature[componentName];
+  using Message msg = PnpConvention.CreateMessage(telemetryName, currentTemperature, componentName);
+
+  await _deviceClient.SendEventAsync(msg, cancellationToken);
+
+  if (_temperatureReadingsDateTimeOffset.ContainsKey(componentName))
+  {
+    _temperatureReadingsDateTimeOffset[componentName].TryAdd(DateTimeOffset.UtcNow, currentTemperature);
+  }
+  else
+  {
+    _temperatureReadingsDateTimeOffset.TryAdd(
+      componentName,
+      new Dictionary<DateTimeOffset, double>
+      {
+        { DateTimeOffset.UtcNow, currentTemperature },
+      });
   }
 }
 ```
 
-The `UpdateMaxTemperatureSinceLastRebootAsync` method sends a `maxTempSinceLastReboot` property update to IoT Central:
+The `UpdateMaxTemperatureSinceLastRebootAsync` method sends a `maxTempSinceLastReboot` property update to IoT Central. This method uses the `PnpConvention` class to create the patch:
 
 ```csharp
-private async Task UpdateMaxTemperatureSinceLastRebootAsync()
+private async Task UpdateMaxTemperatureSinceLastRebootAsync(string componentName, CancellationToken cancellationToken)
 {
   const string propertyName = "maxTempSinceLastReboot";
+  double maxTemp = _maxTemp[componentName];
+  TwinCollection reportedProperties = PnpConvention.CreateComponentPropertyPatch(componentName, propertyName, maxTemp);
 
-  var reportedProperties = new TwinCollection();
-  reportedProperties[propertyName] = _maxTemp;
-
-  await _deviceClient.UpdateReportedPropertiesAsync(reportedProperties);
+  await _deviceClient.UpdateReportedPropertiesAsync(reportedProperties, cancellationToken);
 }
 ```
 
-The `TargetTemperatureUpdateCallbackAsync` method handles the writable target temperature property update from IoT Central:
+The `TargetTemperatureUpdateCallbackAsync` method handles the writable target temperature property update from IoT Central. This method uses the `PnpConvention` class to read the property update message and construct the response:
 
 ```csharp
 private async Task TargetTemperatureUpdateCallbackAsync(TwinCollection desiredProperties, object userContext)
 {
-    const string propertyName = "targetTemperature";
+  const string propertyName = "targetTemperature";
+  string componentName = (string)userContext;
 
-    (bool targetTempUpdateReceived, double targetTemperature) = GetPropertyFromTwin<double>(desiredProperties, propertyName);
-    if (targetTempUpdateReceived)
-    {
-      string jsonPropertyPending = $"{{ \"{propertyName}\": {{ \"value\": {_temperature}, \"ac\": {(int)StatusCode.InProgress}, " +
-          $"\"av\": {desiredProperties.Version} }} }}";
-      var reportedPropertyPending = new TwinCollection(jsonPropertyPending);
-      await _deviceClient.UpdateReportedPropertiesAsync(reportedPropertyPending);
-
-      // Update Temperature in 2 steps
-      double step = (targetTemperature - _temperature) / 2d;
-      for (int i = 1; i <= 2; i++)
-      {
-        _temperature = Math.Round(_temperature + step, 1);
-        await Task.Delay(6 * 1000);
-      }
-
-      string jsonProperty = $"{{ \"{propertyName}\": {{ \"value\": {_temperature}, \"ac\": {(int)StatusCode.Completed}, " +
-        $"\"av\": {desiredProperties.Version}, \"ad\": \"Successfully updated target temperature\" }} }}";
-      var reportedProperty = new TwinCollection(jsonProperty);
-      await _deviceClient.UpdateReportedPropertiesAsync(reportedProperty);
-  }
-  else
+  bool targetTempUpdateReceived = PnpConvention.TryGetPropertyFromTwin(
+    desiredProperties,
+    propertyName,
+    out double targetTemperature,
+    componentName);
+  if (!targetTempUpdateReceived)
   {
-    // ...
+      return;
   }
+
+  TwinCollection pendingReportedProperty = PnpConvention.CreateComponentWritablePropertyResponse(
+      componentName,
+      propertyName,
+      targetTemperature,
+      (int)StatusCode.InProgress,
+      desiredProperties.Version);
+
+  await _deviceClient.UpdateReportedPropertiesAsync(pendingReportedProperty);
+
+  // Update Temperature in 2 steps
+  double step = (targetTemperature - _temperature[componentName]) / 2d;
+  for (int i = 1; i <= 2; i++)
+  {
+      _temperature[componentName] = Math.Round(_temperature[componentName] + step, 1);
+      await Task.Delay(6 * 1000);
+  }
+
+  TwinCollection completedReportedProperty = PnpConvention.CreateComponentWritablePropertyResponse(
+      componentName,
+      propertyName,
+      _temperature[componentName],
+      (int)StatusCode.Completed,
+      desiredProperties.Version,
+      "Successfully updated target temperature");
+
+  await _deviceClient.UpdateReportedPropertiesAsync(completedReportedProperty);
 }
+
 ```
 
-The `HandleMaxMinReportCommand` method handles the command called from IoT Central:
+The `HandleMaxMinReportCommand` method handles the commands for the components called from IoT Central:
 
 ```csharp
 private Task<MethodResponse> HandleMaxMinReportCommand(MethodRequest request, object userContext)
 {
-  try
-  {
-    DateTime sinceInUtc = JsonConvert.DeserializeObject<DateTime>(request.DataAsJson);
-    var sinceInDateTimeOffset = new DateTimeOffset(sinceInUtc);
-
-    Dictionary<DateTimeOffset, double> filteredReadings = _temperatureReadingsDateTimeOffset
-      .Where(i => i.Key > sinceInDateTimeOffset)
-      .ToDictionary(i => i.Key, i => i.Value);
-
-    if (filteredReadings != null && filteredReadings.Any())
+    try
     {
-      var report = new
-      {
-        maxTemp = filteredReadings.Values.Max<double>(),
-        minTemp = filteredReadings.Values.Min<double>(),
-        avgTemp = filteredReadings.Values.Average(),
-        startTime = filteredReadings.Keys.Min(),
-        endTime = filteredReadings.Keys.Max(),
-      };
+        string componentName = (string)userContext;
+        DateTime sinceInUtc = JsonConvert.DeserializeObject<DateTime>(request.DataAsJson);
+        var sinceInDateTimeOffset = new DateTimeOffset(sinceInUtc);
 
-      byte[] responsePayload = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(report));
-      return Task.FromResult(new MethodResponse(responsePayload, (int)StatusCode.Completed));
+        if (_temperatureReadingsDateTimeOffset.ContainsKey(componentName))
+        {
+
+            Dictionary<DateTimeOffset, double> allReadings = _temperatureReadingsDateTimeOffset[componentName];
+            Dictionary<DateTimeOffset, double> filteredReadings = allReadings.Where(i => i.Key > sinceInDateTimeOffset)
+                .ToDictionary(i => i.Key, i => i.Value);
+
+            if (filteredReadings != null && filteredReadings.Any())
+            {
+                var report = new
+                {
+                    maxTemp = filteredReadings.Values.Max<double>(),
+                    minTemp = filteredReadings.Values.Min<double>(),
+                    avgTemp = filteredReadings.Values.Average(),
+                    startTime = filteredReadings.Keys.Min(),
+                    endTime = filteredReadings.Keys.Max(),
+                };
+
+                byte[] responsePayload = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(report));
+                return Task.FromResult(new MethodResponse(responsePayload, (int)StatusCode.Completed));
+            }
+
+            return Task.FromResult(new MethodResponse((int)StatusCode.NotFound));
+        }
+
+        return Task.FromResult(new MethodResponse((int)StatusCode.NotFound));
     }
-
-    return Task.FromResult(new MethodResponse((int)StatusCode.NotFound));
-  }
-  catch (JsonReaderException ex)
-  {
-    // ...
-  }
+    catch (JsonReaderException ex)
+    {
+        // ...
+    }
 }
 ```
 
@@ -191,11 +253,11 @@ private Task<MethodResponse> HandleMaxMinReportCommand(MethodRequest request, ob
 
 ## Run the code
 
-To run the sample application:
+To run the sample application in Visual Studio:
 
-1. Open the *azure-iot-samples-csharp-master/iot-hub/Samples/device/PnpDeviceSamples/Thermostat/Thermostat.csproj* project file in Visual Studio.
+1. In **Solution Explorer**, select the **PnpDeviceSamples > TemperatureController** project file.
 
-1. In Visual Studio, navigate to **Project > Thermostat Properties > Debug**. Then add the following environment variables to the project:
+1. Navigate to **Project > TemperatureController Properties > Debug**. Then add the following environment variables to the project:
 
     | Name | Value |
     | ---- | ----- |
@@ -210,28 +272,34 @@ You can now run and debug the sample in Visual Studio.
 The following output shows the device registering and connecting to IoT Central. The sample starts sending telemetry:
 
 ```output
-[11/25/2020 11:07:58]info: Microsoft.Azure.Devices.Client.Samples.ThermostatSample[0]
+[03/31/2021 14:43:17]info: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
       Press Control+C to quit the sample.
-[11/25/2020 11:07:58]dbug: Microsoft.Azure.Devices.Client.Samples.ThermostatSample[0]
+[03/31/2021 14:43:17]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
       Set up the device client.
-[11/25/2020 11:07:58]dbug: Microsoft.Azure.Devices.Client.Samples.ThermostatSample[0]
+[03/31/2021 14:43:18]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
       Initializing via DPS
-[11/25/2020 11:08:11]dbug: Microsoft.Azure.Devices.Client.Samples.ThermostatSample[0]
-      Set handler to receive "targetTemperature" updates.
-[11/25/2020 11:08:12]dbug: Microsoft.Azure.Devices.Client.Samples.ThermostatSample[0]
+[03/31/2021 14:43:27]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+      Set handler for 'reboot' command.
+[03/31/2021 14:43:27]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
       Connection status change registered - status=Connected, reason=Connection_Ok.
-[11/25/2020 11:08:12]dbug: Microsoft.Azure.Devices.Client.Samples.ThermostatSample[0]
+[03/31/2021 14:43:28]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
       Set handler for "getMaxMinReport" command.
-[11/25/2020 11:08:13]dbug: Microsoft.Azure.Devices.Client.Samples.ThermostatSample[0]
-      Telemetry: Sent - { "temperature": 36.5°C }.
-[11/25/2020 11:08:13]dbug: Microsoft.Azure.Devices.Client.Samples.ThermostatSample[0]
-      Property: Update - { "maxTempSinceLastReboot": 36.5°C } is Completed.
-[11/25/2020 11:08:18]dbug: Microsoft.Azure.Devices.Client.Samples.ThermostatSample[0]
-      Telemetry: Sent - { "temperature": 36.5°C }.
-[11/25/2020 11:08:23]dbug: Microsoft.Azure.Devices.Client.Samples.ThermostatSample[0]
-      Telemetry: Sent - { "temperature": 36.5°C }.
-[11/25/2020 11:08:29]dbug: Microsoft.Azure.Devices.Client.Samples.ThermostatSample[0]
-      Telemetry: Sent - { "temperature": 36.5°C }.
+[03/31/2021 14:43:28]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+      Set handler to receive 'targetTemperature' updates.
+[03/31/2021 14:43:28]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+      Property: Update - component = 'deviceInformation', properties update is complete.
+[03/31/2021 14:43:28]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+      Property: Update - { "serialNumber": "SR-123456" } is complete.
+[03/31/2021 14:43:29]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+      Telemetry: Sent - component="thermostat1", { "temperature": 34.2 } in °C.
+[03/31/2021 14:43:29]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+      Property: Update - component="thermostat1", { "maxTempSinceLastReboot": 34.2 } in °C is complete.
+[03/31/2021 14:43:29]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+      Telemetry: Sent - component="thermostat2", { "temperature": 25.1 } in °C.
+[03/31/2021 14:43:29]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+      Property: Update - component="thermostat2", { "maxTempSinceLastReboot": 25.1 } in °C is complete.
+[03/31/2021 14:43:29]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+      Telemetry: Sent - {"workingSet":31412} in KB.
 ```
 
 [!INCLUDE [iot-central-monitor-thermostat](iot-central-monitor-thermostat.md)]
@@ -239,19 +307,19 @@ The following output shows the device registering and connecting to IoT Central.
 You can see how the device responds to commands and property updates:
 
 ```output
-[11/25/2020 11:09:56]dbug: Microsoft.Azure.Devices.Client.Samples.ThermostatSample[0]
-      Command: Received - Generating max, min and avg temperature report since 19/11/2020 06:30:00.
-[11/25/2020 11:09:56]dbug: Microsoft.Azure.Devices.Client.Samples.ThermostatSample[0]
-      Command: MaxMinReport since 19/11/2020 06:30:00: maxTemp=36.5, minTemp=36.5, avgTemp=36.5, startTime=25/11/2020 11:08:13, endTime=25/11/2020 11:09:51
+[03/31/2021 14:47:00]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+      Command: Received - component="thermostat2", generating max, min and avg temperature report since 31/03/2021 06:00:00.
+[03/31/2021 14:47:00]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+      Command: component="thermostat2", MaxMinReport since 31/03/2021 06:00:00: maxTemp=36.4, minTemp=36.4, avgTemp=36.4, startTime=31/03/2021 14:46:33, endTime=31/03/2021 14:46:55
 
 ...
 
-[11/25/2020 11:14:31]dbug: Microsoft.Azure.Devices.Client.Samples.ThermostatSample[0]
-      Property: Received - { "targetTemperature": 56°C }.
-[11/25/2020 11:14:31]dbug: Microsoft.Azure.Devices.Client.Samples.ThermostatSample[0]
-      Property: Update - {"targetTemperature": 56°C } is InProgress.
-[11/25/2020 11:14:40]dbug: Microsoft.Azure.Devices.Client.Samples.ThermostatSample[0]
-      Property: Update - { "maxTempSinceLastReboot": 56°C } is Completed.
-[11/25/2020 11:14:43]dbug: Microsoft.Azure.Devices.Client.Samples.ThermostatSample[0]
-      Property: Update - {"targetTemperature": 56°C } is Completed.
+[03/31/2021 14:46:36]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+      Property: Received - component="thermostat1", { "targetTemperature": 67°C }.
+[03/31/2021 14:46:36]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+      Property: Update - component="thermostat1", {"targetTemperature": 67 } in °C is InProgress.
+[03/31/2021 14:46:49]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+      Property: Update - component="thermostat1", {"targetTemperature": 67 } in °C is Completed
+[03/31/2021 14:46:49]dbug: Microsoft.Azure.Devices.Client.Samples.TemperatureControllerSample[0]
+      Telemetry: Sent - component="thermostat1", { "temperature": 67 } in °C.
 ```

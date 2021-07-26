@@ -12,7 +12,13 @@ ms.custom:
 
 # Extensions for Cloud Services (extended support)
 
-Extensions are small applications that provide post-deployment configuration and automation tasks on roles. For example, You can enable a Remote Desktop connection in your role during cloud service (extended support) deployment by using Remote Desktop Extension.  
+Extensions are small applications that provide post-deployment configuration and automation tasks on roles. For example, You can enable a Remote Desktop connection in your role during cloud service (extended support) deployment by using Remote Desktop Extension. 
+
+## Key Vault Extension
+
+The Key Vault VM extension provides automatic refresh of certificates stored in an Azure Key Vault. Specifically, the extension monitors a list of observed certificates stored in key vaults, and upon detecting a change, retrieves, and installs the corresponding certificates. It also allows cross region/cross subscription reference of certificates for Cloud Service (extended support).
+
+For more information, see [Configure key vault extension for Cloud Service (extended support)](./enable-key-vault-virtual-machine.md)
 
 ## Remote Desktop extension
 
@@ -32,8 +38,16 @@ With advanced monitoring, additional metrics are sampled and collected at interv
 
 For more information, see [Apply the Windows Azure diagnostics extension in Cloud Services (extended support)](enable-wad.md)
 
+## Anti Malware Extension
+An Azure application or service can enable and configure Microsoft Antimalware for Azure Cloud Services using PowerShell cmdlets. Note that Microsoft Antimalware is installed in a disabled state in the Cloud Services platform running Windows Server 2012 R2 and older which requires an action by an Azure application to enable it. For Windows Server 2016 and above, Windows Defender is enabled by default, hence these cmdlets can be used for configuring Antimalware.
+
+For more information, see [Add Microsoft Antimalware to Azure Cloud Service using Extended Support(CS-ES)](../security/fundamentals/antimalware-code-samples.md#add-microsoft-antimalware-to-azure-cloud-service-using-extended-support)
+
+To know more about Azure Antimalware, please visit [here](../security/fundamentals/antimalware.md)
+
+
 
 ## Next steps 
 - Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).
-- Review [frequently asked questions](faq.md) for Cloud Services (extended support).
+- Review [frequently asked questions](faq.yml) for Cloud Services (extended support).
 - Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md).

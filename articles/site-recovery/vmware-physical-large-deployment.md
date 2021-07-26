@@ -1,12 +1,9 @@
 ---
 title: Scale VMware/physical disaster recovery with Azure Site Recovery 
 description: Learn how to set up disaster recovery to Azure for large numbers of on-premises VMware VMs or physical servers with Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.author: raynew
 
 
 ---

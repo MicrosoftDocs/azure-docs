@@ -1,7 +1,7 @@
 ---
 title: "Pattern: Parameters in a policy definition"
-description: This Azure Policy pattern provides an example of how to use string and array parameters in a policy definition, as well as how to parameterize the effect.
-ms.date: 08/17/2020
+description: This Azure Policy pattern provides an example of how to use string and array parameters in a policy definition, and how to parameterize the effect.
+ms.date: 03/31/2021
 ms.topic: sample
 ---
 # Azure Policy pattern: parameters
@@ -13,7 +13,7 @@ parameter and how it's used.
 
 ## Sample 1: String parameters
 
-This policy definition uses two parameters, **tagName** and **tagValue** to set what the policy
+This policy definition uses two parameters, **tagName** and **tagValue**, to set what the policy
 assignment is looking for on resources. This format allows the policy definition to be used for any
 number of tag name and tag value combinations, but only maintain a single policy definition.
 

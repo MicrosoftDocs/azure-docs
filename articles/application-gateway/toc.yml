@@ -83,19 +83,23 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/application-gateway-security-baseline?toc=/azure/application-gateway/toc.json
   - name: SSL
     items:
     - name: SSL termination and end to end SSL
       href: ssl-overview.md
     - name: SSL policy overview
       href: application-gateway-ssl-policy-overview.md
+    - name: Mutual authentication
+      href: mutual-authentication-overview.md
     - name: Using Key Vault
       href: key-vault-certs.md
   - name: Ingress for AKS
     href: ingress-controller-overview.md
   - name: Health monitoring
     items:
+    - name: Monitor Azure Application Gateway
+      href: monitor-application-gateway.md
     - name: Health probe
       href: application-gateway-probe-overview.md
     - name: Diagnostic logs and backend health
@@ -140,18 +144,28 @@
         href: end-to-end-ssl-portal.md
       - name: End-to-end SSL - PowerShell
         href: application-gateway-end-to-end-ssl-powershell.md
+    - name: Mutual authentication
+      items:
+      - name: Mutual authentication - Portal 
+        href: mutual-authentication-portal.md
+      - name: Mutual authentication - PowerShell
+        href: mutual-authentication-powershell.md
     - name: Manage certificates
       items:             
       - name: Certificates for the backend
         href: certificates-for-backend-authentication.md
       - name: Renew certificates
         href: renew-certificates.md
-      - name: Generate self-signed certificates
+      - name: Generate self-signed certificates for backend
         href: self-signed-certificates.md
+      - name: Trusted client certificates
+        href: mutual-authentication-certificate-management.md
     - name: SSL policy
       items:
       - name: Configure SSL policy
         href: application-gateway-configure-ssl-policy-powershell.md
+      - name: Listener specific SSL policy 
+        href: application-gateway-configure-listener-specific-ssl-policy.md
   - name: Ingress for AKS 
     items:
     - name: Ingress for AKS via Helm (Brownfield)
@@ -254,6 +268,8 @@
         href: how-to-troubleshoot-application-gateway-session-affinity-issues.md
       - name: Bad Gateway (502) errors
         href: application-gateway-troubleshooting-502.md
+      - name: Mutual authentication
+        href: mutual-authentication-troubleshooting.md
       - name: Ingress for AKS 
         href: ingress-controller-troubleshoot.md
       - name: Resource Health
@@ -268,6 +284,10 @@
     href: migrate-v1-v2.md
 - name: Reference
   items:
+  - name: Common Key Vault errors
+    href: application-gateway-key-vault-common-errors.md
+  - name: Monitoring data
+    href: monitor-application-gateway-reference.md
   - name: Ingress for AKS annotations
     href: ingress-controller-annotations.md
   - name: Azure CLI
@@ -294,7 +314,7 @@
   items:
   - name: Author templates
     displayName: ARM
-    href: ../azure-resource-manager/templates/template-syntax.md
+    href: ../azure-resource-manager/templates/syntax.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Community templates

@@ -1,7 +1,7 @@
 ---
 title:  "Tutorial: Managed identity to invoke Azure Functions"
 description: Use managed identity to invoke Azure Functions from an Azure Spring Cloud app
-author:  MarkGardner
+author:  markjgardner
 ms.author: margard
 ms.service: spring-cloud
 ms.topic: tutorial
@@ -24,7 +24,7 @@ Both Azure Functions and App Services have built in support for Azure Active Dir
 
 
 ## Create a resource group
-A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group to contain both the Function app and Spring Cloud using the command [az group create](/cli/azure/group#az-group-create):
+A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group to contain both the Function app and Spring Cloud using the command [az group create](/cli/azure/group#az_group_create):
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -32,7 +32,7 @@ az group create --name myResourceGroup --location eastus
 
 
 ## Create a Function App
-To create a Function app you must first create a backing storage account, use the command [az storage account create](/cli/azure/storage/account#az-storage-account-create):
+To create a Function app you must first create a backing storage account, use the command [az storage account create](/cli/azure/storage/account#az_storage_account_create):
 
 > [!Important]
 > Each Function app and Storage Account must have a unique name. Replace <your-functionapp-name> with the name of your Function app and <your-storageaccount-name> with the name of your Storage Account in the following examples.
@@ -168,6 +168,6 @@ This sample will invoke the Http triggered function by first requesting an acces
 
 ## Next steps
 
-* [How to enable system-assigned managed identity for Azure Spring Cloud application](./spring-cloud-howto-enable-system-assigned-managed-identity.md)
+* [How to enable system-assigned managed identity for Azure Spring Cloud application](./how-to-enable-system-assigned-managed-identity.md)
 * [Learn more about managed identities for Azure resources](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
 * [Configure client apps to access your App Service](../app-service/configure-authentication-provider-aad.md#configure-client-apps-to-access-your-app-service)

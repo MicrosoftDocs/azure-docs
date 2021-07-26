@@ -6,8 +6,8 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: quickstart 
-ms.date: 11/13/2020
-ms.author: punagpal
+ms.date: 04/05/2021
+ms.author: rabhaiya
 ---
 
 # Quickstart: Deploy Azure IoT Connector for FHIR (preview) using Azure portal
@@ -166,6 +166,11 @@ Deploy the [Continuous patient monitoring application template](../../iot-centra
 ## Connect your IoT data with the Azure IoT Connector for FHIR (preview)
 
 Once you've deployed your IoT Central application, your two out-of-the-box simulated devices will start generating telemetry. For this tutorial, we'll ingest the telemetry from *Smart Vitals Patch* simulator into FHIR via the Azure IoT Connector for FHIR. To export your IoT data to the Azure IoT Connector for FHIR, we'll want to [set up a continuous data export within IoT Central](../../iot-central/core/howto-export-data.md). We'll first need to create a connection to the destination, and then we'll create a data export job to continuously run: 
+
+> [!NOTE]
+> You will want to select **Data export** vs. **Data export (legacy)** within the IoT Central App settings for this section.
+
+[![IoT Central Data Export Settings](media/quickstart-iot-fhir-portal/iot-central-data-export-dashboard.png)](media/quickstart-iot-fhir-portal/iot-central-data-export-dashboard.png#lightbox)
 
 Create a new destination:
 - Go to the **Destinations** tab and create a new destination.

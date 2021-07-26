@@ -1,8 +1,8 @@
 ---
 title: Mapping data flow transformation overview
 description: An overview of the different transformations available in mapping data flow
-author: dcstwh
-ms.author: weetok
+author: kromerm
+ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/27/2020
@@ -37,3 +37,4 @@ Below is a list of the transformations currently supported in mapping data flow.
 | [Union](data-flow-union.md) | Multiple inputs/outputs | Combine multiple data streams vertically |
 | [Unpivot](data-flow-unpivot.md) | Schema modifier | Pivot columns into row values |
 | [Window](data-flow-window.md) | Schema modifier |  Define window-based aggregations of columns in your data streams. |
+| [Parse](data-flow-parse.md) | Schema modifier |  Parse column data to Json or delimited text |

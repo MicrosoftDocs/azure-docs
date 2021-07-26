@@ -1,13 +1,13 @@
 ---
 title: 'About virtual hub routing'
 titleSuffix: Azure Virtual WAN
-description: This article describes virtual hub routing
+description: Learn about Virtual WAN virtual hub routing.
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 
@@ -24,7 +24,7 @@ The following sections describe the key concepts in virtual hub routing.
 
 ### <a name="hub-route"></a>Hub route table
 
-A virtual hub route table can contain one or more routes. A route includes its name, a label, a destination type, a list of destination prefixes, and next hop information for a packet to be routed. A **Connection** typically will have a routing configuration that associated or propagates to a route table.
+A virtual hub route table can contain one or more routes. A route includes its name, a label, a destination type, a list of destination prefixes, and next hop information for a packet to be routed. A **Connection** typically will have a routing configuration that associates or propagates to a route table.
 
 ### <a name="connection"></a>Connections
 
@@ -86,7 +86,7 @@ Consider the following when configuring Virtual WAN routing:
 * Branch-to-branch via Azure Firewall is currently not supported.
 * When using Azure Firewall in multiple regions, all spoke virtual networks must be associated to the same route table. For example, having a subset of the VNets going through the Azure Firewall while other VNets bypass the Azure Firewall in the same virtual hub is not possible.
 * A single next hop IP can be configured per VNet connection.
-
+* All information pertaining to 0.0.0.0/0 route is confined to a local hub's route table. This route does not propagate across hubs.
 ## Next steps
 
 * To configure routing, see [How to configure virtual hub routing](how-to-virtual-hub-routing.md).

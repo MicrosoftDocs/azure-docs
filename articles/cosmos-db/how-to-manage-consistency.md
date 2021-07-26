@@ -1,13 +1,13 @@
 ---
 title: Manage consistency in Azure Cosmos DB
 description: Learn how to configure and manage consistency levels in Azure Cosmos DB using Azure portal, .NET SDK, Java SDK and various other SDKs
-author: anfeldma-ms
+author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 06/10/2020
-ms.author: anfeldma
-ms.custom: devx-track-js, devx-track-csharp
+ms.date: 07/02/2021
+ms.author: mjbrown
+ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Manage consistency levels in Azure Cosmos DB
@@ -60,7 +60,10 @@ Update-AzCosmosDBAccount -ResourceGroupName $resourceGroupName `
 Clients can override the default consistency level that is set by the service. Consistency level can be set on a per request, which overrides the default consistency level set at the account level.
 
 > [!TIP]
-> Consistency can only be **relaxed** at the request level. To move from weaker to stronger consistency, update the default consistency for the Cosmos account.
+> Consistency can only be **relaxed** at the SDK instance or request level. To move from weaker to stronger consistency, update the default consistency for the Cosmos account.
+
+> [!TIP]
+> Overriding the default consistency level only applies to reads within the SDK client. An account configured for strong consistency by default will still write and replicate data synchronously to every region in the account. When the SDK client instance or request overrides this with Session or weaker consistency, reads will be performed using a single replica. See [Consistency levels and throughput](consistency-levels.md#consistency-levels-and-throughput) for more details.
 
 ### <a id="override-default-consistency-dotnet"></a>.NET SDK
 
@@ -110,7 +113,7 @@ var response = await client.GetContainer(databaseName, containerName)
 
 # [Async](#tab/api-async)
 
-Async Java V2 SDK (Maven com.microsoft.azure::azure-cosmosdb)
+AsyncÂ JavaÂ V2Â SDKÂ (MavenÂ com.microsoft.azure::azure-cosmosdb)
 
 ```java
 // Override consistency at the client level
@@ -126,7 +129,7 @@ AsyncDocumentClient client =
 
 # [Sync](#tab/api-sync)
 
-Sync Java V2 SDK (Maven com.microsoft.azure::azure-documentdb)
+SyncÂ JavaÂ V2Â SDKÂ (MavenÂ com.microsoft.azure::azure-documentdb)
 
 ```java
 // Override consistency at the client level
@@ -211,7 +214,7 @@ ItemResponse<SalesOrder> response = await container.ReadItemAsync<SalesOrder>(sa
 
 # [Async](#tab/api-async)
 
-Async Java V2 SDK (Maven com.microsoft.azure::azure-cosmosdb)
+AsyncÂ JavaÂ V2Â SDKÂ (MavenÂ com.microsoft.azure::azure-cosmosdb)
 
 ```java
 // Get session token from response
@@ -235,7 +238,7 @@ Observable<ResourceResponse<Document>> readObservable = client.readDocument(docu
 
 # [Sync](#tab/api-sync)
 
-Sync Java V2 SDK (Maven com.microsoft.azure::azure-documentdb)
+SyncÂ JavaÂ V2Â SDKÂ (MavenÂ com.microsoft.azure::azure-documentdb)
 
 ```java
 // Get session token from response

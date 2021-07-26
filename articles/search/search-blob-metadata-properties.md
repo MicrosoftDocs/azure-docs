@@ -13,7 +13,7 @@ ms.date: 02/22/2021
 
 # Content metadata properties used in Azure Cognitive Search
 
-SharePoint Online and Azure blob storage can contain various content, and many of those content types have metadata properties that can be useful to index. Just as you can create search fields for standard blob properties like **`metadata_storage_name`**, you can create fields for metadata properties that are specific to a document format.
+SharePoint Online and Azure Blob Storage can contain various content, and many of those content types have metadata properties that can be useful to index. Just as you can create search fields for standard blob properties like **`metadata_storage_name`**, you can create fields for metadata properties that are specific to a document format.
 
 ## Supported document formats
 
@@ -27,8 +27,8 @@ The following table summarizes processing done for each document format, and des
 
 | Document format / content type | Extracted metadata | Processing details |
 | --- | --- | --- |
-| HTML (text/html) |`metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` |Strip HTML markup and extract text |
-| PDF (application/pdf) |`metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title` |Extract text, including embedded documents (excluding images) |
+| HTML (text/html or application/xhtml+xml) |`metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` |Strip HTML markup and extract text |
+| PDF (application/pdf) |`metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title`<br/>`metadata_creation_date` |Extract text, including embedded documents (excluding images) |
 | DOCX (application/vnd.openxmlformats-officedocument.wordprocessingml.document) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Extract text, including embedded documents |
 | DOC (application/msword) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Extract text, including embedded documents |
 | DOCM (application/vnd.ms-word.document.macroenabled.12) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Extract text, including embedded documents |
@@ -43,15 +43,17 @@ The following table summarizes processing done for each document format, and des
 | MSG (application/vnd.ms-outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_from_email`<br/>`metadata_message_to`<br/>`metadata_message_to_email`<br/>`metadata_message_cc`<br/>`metadata_message_cc_email`<br/>`metadata_message_bcc`<br/>`metadata_message_bcc_email`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |Extract text, including text extracted from attachments. `metadata_message_to_email`, `metadata_message_cc_email` and `metadata_message_bcc_email` are string collections, the rest of the fields are strings.|
 | ODT (application/vnd.oasis.opendocument.text) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Extract text, including embedded documents |
 | ODS (application/vnd.oasis.opendocument.spreadsheet) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Extract text, including embedded documents |
-| ODP (application/vnd.oasis.opendocument.presentation) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`title` |Extract text, including embedded documents |
+| ODP (application/vnd.oasis.opendocument.presentation) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_title` |Extract text, including embedded documents |
 | ZIP (application/zip) |`metadata_content_type` |Extract text from all documents in the archive |
 | GZ (application/gzip) |`metadata_content_type` |Extract text from all documents in the archive |
 | EPUB (application/epub+zip) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_title`<br/>`metadata_description`<br/>`metadata_language`<br/>`metadata_keywords`<br/>`metadata_identifier`<br/>`metadata_publisher` |Extract text from all documents in the archive |
-| XML (application/xml) |`metadata_content_type`<br/>`metadata_content_encoding`<br/> |Strip XML markup and extract text |
+| XML (application/xml) |`metadata_content_type`<br/>`metadata_content_encoding`<br/>`metadata_language`<br/> |Strip XML markup and extract text |
+| KML (application/vnd.google-earth.kml+xml) |`metadata_content_type`<br/>`metadata_content_encoding`<br/>`metadata_language`<br/> |Strip XML markup and extract text |
 | JSON (application/json) |`metadata_content_type`<br/>`metadata_content_encoding` |Extract text<br/>NOTE: If you need to extract multiple document fields from a JSON blob, see [Indexing JSON blobs](search-howto-index-json-blobs.md) for details |
 | EML (message/rfc822) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` |Extract text, including attachments |
-| RTF (application/rtf) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_page_count`<br/>`metadata_word_count`<br/> | Extract text|
-| Plain text (text/plain) |`metadata_content_type`<br/>`metadata_content_encoding`<br/> | Extract text|
+| RTF (application/rtf) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count`<br/> | Extract text|
+| Plain text (text/plain) |`metadata_content_type`<br/>`metadata_content_encoding`<br/>`metadata_language`<br/> | Extract text|
+| CSV (text/csv) |`metadata_content_type`<br/>`metadata_content_encoding`<br/> | Extract text<br/>NOTE: If you need to extract multiple document fields from a CSV blob, see [Indexing CSV blobs](search-howto-index-csv-blobs.md) for details |
 
 ## See also
 

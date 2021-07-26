@@ -1,11 +1,11 @@
 ---
 title: Azure Spring Cloud geo-disaster recovery | Microsoft Docs
 description: Learn how to protect your Spring Cloud application from regional outages
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/24/2019
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
 ---
 
@@ -44,7 +44,7 @@ You will need two service instances of Azure Spring Cloud deployed in two differ
 | service-sample-b | West Europe | gateway / auth-service / account-service |
 
 2. Set up Custom Domain for Service
-Follow [Custom Domain Document](spring-cloud-tutorial-custom-domain.md) to set up custom domain for these two existing service instances. After successful set up, both service instances will bind to custom domain: bcdr-test.contoso.com
+Follow [Custom Domain Document](./tutorial-custom-domain.md) to set up custom domain for these two existing service instances. After successful set up, both service instances will bind to custom domain: bcdr-test.contoso.com
 
 3. Create a traffic manager and two endpoints: [Create a Traffic Manager profile using the Azure portal](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 
@@ -63,4 +63,4 @@ Here is the traffic manager profile:
 
 ## Next steps
 
-* [Quickstart: Deploy your first Azure Spring Cloud application](spring-cloud-quickstart.md)
+* [Quickstart: Deploy your first Azure Spring Cloud application](./quickstart.md)

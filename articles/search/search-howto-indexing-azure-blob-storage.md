@@ -1,22 +1,34 @@
 ---
-title: Configure a Blob indexer
+title: Index data from Azure Blob Storage
 titleSuffix: Azure Cognitive Search
-description: Set up an Azure Blob indexer to automate indexing of blob content for full text search operations in Azure Cognitive Search.
+description: Set up an Azure Blob indexer to automate indexing of blob content for full text search operations and knowledge mining in Azure Cognitive Search.
 
 manager: nitinme
 author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/22/2021
+ms.date: 05/14/2021
 ms.custom: contperf-fy21q3
 ---
 
-# How to configure blob indexing in Cognitive Search
+# Index data from Azure Blob Storage
 
-A blob indexer is used for ingesting content from Azure Blob storage into a Cognitive Search index. Blob indexers are frequently used in [AI enrichment](cognitive-search-concept-intro.md), where an attached [skillset](cognitive-search-working-with-skillsets.md) adds image and natural language processing to create searchable content. But you can also use blob indexers without AI enrichment, to ingest content from text-based documents such as PDFs, Microsoft Office documents, and file formats.
+This article shows you how to configure an Azure blob indexer to extract content and make it searchable in Azure Cognitive Search. This workflow creates a search index on Azure Cognitive Search and loads it with existing content and metadata extracted from Azure Blob Storage.
 
-This article shows you how to configure a blob indexer for either scenario. If you're unfamiliar with indexer concepts, start with [Indexers in Azure Cognitive Search](search-indexer-overview.md) and [Create a search indexer](search-howto-create-indexers.md) before diving into blob indexing.
+Blob indexers are frequently used in [AI enrichment](cognitive-search-concept-intro.md), where an attached [skillset](cognitive-search-working-with-skillsets.md) adds image and natural language processing to create searchable content out of non-searchable content types in blob containers.
+
+This article shows you how to configure an Azure blob indexer for text-focused indexing. You can set up an Azure Blob Storage indexer by using any of these clients:
+
+* [Azure portal](https://ms.portal.azure.com)
+* Azure Cognitive Search [REST API](/rest/api/searchservice/Indexer-operations)
+* Azure Cognitive Search [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
+
+This article uses the REST APIs. 
+
+## Supported access tiers
+
+Blob storage [access tiers](../storage/blobs/storage-blob-storage-tiers.md) include hot, cool, and archive. Only hot and cool can be accessed by indexers. 
 
 <a name="SupportedFormats"></a>
 
@@ -57,7 +69,7 @@ This connection string does not require an account key, but you must follow the 
 **Full access storage account connection string**: 
 `{ "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>;" }`
 
-You can get the connection string from the Azure portal by navigating to the storage account blade > Settings > Keys (for Classic storage accounts) or Settings > Access keys (for Azure Resource Manager storage accounts).
+You can get the connection string from the Azure portal by navigating to the storage account blade > Settings > Keys (for Classic storage accounts) or Security + networking  > Access keys (for Azure Resource Manager storage accounts).
 
 **Storage account shared access signature** (SAS) connection string: 
 `{ "connectionString" : "BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl;" }`
@@ -113,6 +125,7 @@ In a search index, the document key uniquely identifies each document. The field
 > [!IMPORTANT]
 > If there is no explicit mapping for the key field in the index, Azure Cognitive Search automatically uses `metadata_storage_path` as the key and base-64 encodes key values (the second option above).
 >
+> If you use a custom metadata property as a key, avoid making changes to that property. Indexers will add duplicate documents for the same blob if the key property changes.
 
 #### Example
 
@@ -294,7 +307,7 @@ Indexing blobs can be a time-consuming process. In cases where you have millions
 
 Errors that commonly occur during indexing include unsupported content types, missing content, or oversized blobs.
 
-By default, the blob indexer stops as soon as it encounters a blob with an unsupported content type (for example, an image). You could use the `excludedFileNameExtensions` parameter to skip certain content types. However, you might want to indexing to proceed even if errors occur, and then debug individual documents later. For more information about indexer errors, see [Troubleshooting common indexer issues](search-indexer-troubleshooting.md) and [Indexer errors and warnings](cognitive-search-common-errors-warnings.md).
+By default, the blob indexer stops as soon as it encounters a blob with an unsupported content type (for example, an image). You could use the `excludedFileNameExtensions` parameter to skip certain content types. However, you might want to indexing to proceed even if errors occur, and then debug individual documents later. For more information about indexer errors, see [Indexer troubleshooting guidance](search-indexer-troubleshooting.md) and [Indexer errors and warnings](cognitive-search-common-errors-warnings.md).
 
 ### Respond to errors
 

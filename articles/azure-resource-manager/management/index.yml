@@ -41,7 +41,7 @@ landingContent:
             url: resource-providers-and-types.md
           - text: Resource providers for each Azure service
             url: azure-services-resource-providers.md
-      
+
   # Card
   - title: Manage resources
     linkLists:
@@ -50,7 +50,7 @@ landingContent:
           - text: Move across resource group and subscriptions
             url: move-resource-group-and-subscription.md
           - text: Move across regions
-            url: move-region.md
+            url: move-resources-overview.md
           - text: Tag resources
             url: tag-resources.md
           - text: Lock resources

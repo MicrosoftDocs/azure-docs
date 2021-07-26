@@ -4,8 +4,8 @@ description: Get started with Azure App Service by deploying your first Ruby app
 keywords: azure app service, linux, oss, ruby, rails
 ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.topic: quickstart
-ms.date: 07/11/2019
-ms.custom: mvc, cli-validate, seodec18
+ms.date: 04/27/2021
+ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
 ---
 
 # Create a Ruby on Rails App in App Service

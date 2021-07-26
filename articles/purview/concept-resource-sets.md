@@ -6,7 +6,7 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 02/03/2021
+ms.date: 07/23/2021
 ---
 
 # Understanding resource sets
@@ -22,7 +22,7 @@ To address the challenge of mapping large numbers of data assets to a single log
 
 ## How Azure Purview detects resource sets
 
-Azure Purview supports detecting resource sets in Azure Blob Storage, ADLS Gen1, and ADLS Gen2.
+Azure Purview supports detecting resource sets in Azure Blob Storage, ADLS Gen1, ADLS Gen2, Azure Files, and Amazon S3.
 
 Azure Purview automatically detects resource sets when scanning. This feature looks at all of the data that's ingested via scanning and compares it to a set of defined patterns.
 
@@ -97,14 +97,15 @@ Qualified name: `https://myblob.blob.core.windows.net/sample-data/data{N}.csv`
 
 Display name: "data"
 
-## Known Issues with resource sets
+## Customizing resource set grouping using pattern rules
 
-Although resource sets work well in most cases, you might encounter the following issues, in which Azure Purview:
+When scanning a storage account, Azure Purview uses a set of defined patterns to determine if a group of assets is a resource set. In some cases, Azure Purview's resource set grouping may not accurately reflect your data estate. These issues can include:
 
-- Incorrectly marks an asset as a resource set
-- Puts an asset into the wrong resource set
-- Incorrectly marks an asset as not being a resource set
+- Incorrectly marking an asset as a resource set
+- Putting an asset into the wrong resource set
+- Incorrectly marking an asset as not being a resource set
 
+To customize or override how Azure Purview detects which assets are grouped as resource sets and how they are displayed within the catalog, you can define pattern rules in the management center. For step-by-step instructions and syntax, please see [resource set pattern rules](how-to-resource-set-pattern-rules.md).
 ## Next steps
 
 To get started with Azure Purview, see [Quickstart: Create an Azure Purview account](create-catalog-portal.md).

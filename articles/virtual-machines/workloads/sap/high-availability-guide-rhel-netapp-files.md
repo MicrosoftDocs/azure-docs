@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/11/2021
+ms.date: 07/22/2021
 ms.author: radeltch
 
 ---
@@ -23,9 +23,9 @@ ms.author: radeltch
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[anf-azure-doc]:https://docs.microsoft.com/azure/azure-netapp-files/
+[anf-azure-doc]:../../../azure-netapp-files/azure-netapp-files-introduction.md
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=storage&regions=all
-[anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
+[anf-register]:../../../azure-netapp-files/azure-netapp-files-register.md
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2002167]:https://launchpad.support.sap.com/#/notes/2002167
@@ -40,7 +40,7 @@ ms.author: radeltch
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
 
-[template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
+[template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
 
 [sap-hana-ha]:sap-hana-high-availability-rhel.md
 [glusterfs-ha]:high-availability-guide-rhel-glusterfs.md
@@ -206,7 +206,6 @@ First you need to create the Azure NetApp Files volumes. Deploy the VMs. Afterwa
          1. Enter the name of the new load balancer rule (for example **lb.QAS.ASCS**)
          1. Select the frontend IP address for ASCS, backend pool, and health probe you created earlier (for example **frontend.QAS.ASCS**, **backend.QAS** and **health.QAS.ASCS**)
          1. Select **HA ports**
-         1. Increase idle timeout to 30 minutes
          1. **Make sure to enable Floating IP**
          1. Click OK
          * Repeat the steps above to create load balancing rules for ERS (for example **lb.QAS.ERS**)
@@ -671,7 +670,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     sudo pcs resource create rsc_sap_QAS_ASCS00 SAPInstance \
     InstanceName=QAS_ASCS00_anftstsapvh START_PROFILE="/sapmnt/QAS/profile/QAS_ASCS00_anftstsapvh" \
     AUTOMATIC_RECOVER=false \
-    meta resource-stickiness=5000 migration-threshold=1 failure-timeout=60 \
+    meta resource-stickiness=5000 migration-threshold=1 \
     op monitor interval=20 on-fail=restart timeout=60 \
     op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-QAS_ASCS

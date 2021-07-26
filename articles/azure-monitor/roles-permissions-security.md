@@ -1,12 +1,10 @@
 ---
 title: Roles, permissions, and security in Azure Monitor
 description: Learn how to use Azure Monitor's built-in roles and permissions to restrict access to monitoring resources.
-author: johnkemnetz
 services: azure-monitor
-
 ms.topic: conceptual
-ms.date: 11/27/2017
-ms.author: johnkem
+ms.date: 11/27/2017 
+ms.custom: devx-track-azurepowershell
 ---
 # Roles, permissions, and security in Azure Monitor
 
@@ -20,7 +18,7 @@ Azure Monitor’s built-in roles are designed to help limit access to resources 
 ### Monitoring Reader
 People assigned the Monitoring Reader role can view all monitoring data in a subscription but cannot modify any resource or edit any settings related to monitoring resources. This role is appropriate for users in an organization, such as support or operations engineers, who need to be able to:
 
-* View monitoring dashboards in the portal and create their own private monitoring dashboards.
+* View monitoring dashboards in the portal.
 * View alert rules defined in [Azure Alerts](alerts/alerts-overview.md)
 * Query for metrics using the [Azure Monitor REST API](/rest/api/monitor/metrics), [PowerShell cmdlets](powershell-samples.md), or [cross-platform CLI](cli-samples.md).
 * Query the Activity Log using the portal, Azure Monitor REST API, PowerShell cmdlets, or cross-platform CLI.
@@ -44,7 +42,7 @@ People assigned the Monitoring Reader role can view all monitoring data in a sub
 ### Monitoring Contributor
 People assigned the Monitoring Contributor role can view all monitoring data in a subscription and create or modify monitoring settings, but cannot modify any other resources. This role is a superset of the Monitoring Reader role, and is appropriate for members of an organization’s monitoring team or managed service providers who, in addition to the permissions above, also need to be able to:
 
-* Publish monitoring dashboards as a shared dashboard.
+* View monitoring dashboards in the portal and create their own private monitoring dashboards.
 * Set [diagnostic settings](essentials/diagnostic-settings.md) for a resource.\*
 * Set the [log profile](essentials/activity-log.md#legacy-collection-methods) for a subscription.\*
 * Set alert rules activity and settings via [Azure Alerts](alerts/alerts-overview.md).

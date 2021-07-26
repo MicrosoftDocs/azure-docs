@@ -2,14 +2,14 @@
 title: Configure group owner consent to apps accessing group data using Azure AD
 description: Learn manage whether group and team owners can consent to applications that will have access to the group or team's data.
 services: active-directory
-author: kenwith
-manager: daveba
+author: davidmu1
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.author: kenwith
+ms.author: davidmu
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
 ---
@@ -108,6 +108,9 @@ You can use the Azure AD PowerShell Preview module, [AzureADPreview](/powershell
 
 ---
 
+> [!NOTE]
+> "User can consent to apps accessing company data on their behalf" setting, when turned off, does not disable the "Users can consent to apps accessing company data for groups they own" option
+
 ## Next steps
 
 To learn more:
@@ -119,4 +122,5 @@ To learn more:
 * [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
 
 To get help or find answers to your questions:
-* [Azure AD on Microsoft Q&A ](/answers/topics/azure-active-directory.html)
+
+* [Azure AD on Microsoft Q&A](/answers/topics/azure-active-directory.html)

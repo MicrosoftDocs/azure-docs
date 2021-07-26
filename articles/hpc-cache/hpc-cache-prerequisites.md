@@ -4,7 +4,7 @@ description: Prerequisites for using Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 05/06/2021
 ms.author: v-erkel
 ---
 
@@ -54,7 +54,7 @@ The best practice is to create a new subnet for each cache. You can create a new
 The cache needs DNS to access resources outside of its virtual network. Depending on which resources you are using, you might need to set up a customized DNS server and configure forwarding between that server and Azure DNS servers:
 
 * To access Azure Blob storage endpoints and other internal resources, you need the Azure-based DNS server.
-* To access on-premises storage, you need to configure a custom DNS server that can resolve your storage hostnames. You must do this **before** you create the cache.
+* To access on-premises storage, you need to configure a custom DNS server that can resolve your storage hostnames. You must do this before you create the cache.
 
 If you only use Blob storage, you can use the default Azure-provided DNS server for your cache. However, if you need access to storage or other resources outside of Azure, you should create a custom DNS server and configure it to forward any Azure-specific resolution requests to the Azure DNS server.
 
@@ -67,8 +67,8 @@ To use a custom DNS server, you need to do these setup steps before you create y
   Follow these steps to add the DNS server to the virtual network in the Azure portal:
 
   1. Open the virtual network in the Azure portal.
-  1. Choose **DNS servers** from the **Settings** menu in the sidebar.
-  1. Select **Custom**
+  1. Choose DNS servers from the Settings menu in the sidebar.
+  1. Select Custom
   1. Enter the DNS server's IP address in the field.
 
 A simple DNS server also can be used to load balance client connections among all the available cache mount points.
@@ -88,7 +88,9 @@ Check these permission-related prerequisites before starting to create your cach
 ## Storage infrastructure
 <!-- heading is linked in create storage target GUI as aka.ms/hpc-cache-prereq#storage-infrastructure - make sure to fix that if you change the wording of this heading -->
 
-The cache supports Azure Blob containers, NFS hardware storage exports, and NFS-mounted ADLS blob containers (currently in preview). Add storage targets after you create the cache.
+The cache supports Azure Blob containers, NFS hardware storage exports, and NFS-mounted ADLS blob containers. Add storage targets after you create the cache.
+
+The size of your cache determines how many storage targets it can support - up to 10 storage targets for most caches, or up to 20 for the largest sizes. Read [Size your cache correctly to support your storage targets](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets) for details.
 
 Each storage type has specific prerequisites.
 
@@ -97,23 +99,25 @@ Each storage type has specific prerequisites.
 If you want to use Azure Blob storage with your cache, you need a compatible storage account and either an empty Blob container or a container that is populated with Azure HPC Cache formatted data as described in [Move data to Azure Blob storage](hpc-cache-ingest.md).
 
 > [!NOTE]
-> Different requirements apply to NFS-mounted blob storage. Read [ADLS-NFS storage requirements](#nfs-mounted-blob-adls-nfs-storage-requirements-preview) for details.
+> Different requirements apply to NFS-mounted blob storage. Read [ADLS-NFS storage requirements](#nfs-mounted-blob-adls-nfs-storage-requirements) for details.
 
 Create the account before attempting to add a storage target. You can create a new container when you add the target.
 
-To create a compatible storage account, use these settings:
+To create a compatible storage account, use one of these combinations:
 
-* Performance: **Standard**
-* Account kind: **StorageV2 (general purpose v2)**
-* Replication: **Locally redundant storage (LRS)**
-* Access tier (default): **Hot**
+| Performance | Type | Replication | Access tier |
+|--|--|--|--|
+| Standard | StorageV2 (general purpose v2)| Locally redundant storage (LRS) or Zone-redundant storage (ZRS) | Hot |
+| Premium | Block blobs | Locally redundant storage (LRS) | Hot |
 
-It's a good practice to use a storage account in the same location as your cache.
+The storage account must be accessible from your cache's private subnet. If your account uses a private endpoint or a public endpoint that is restricted to specific virtual networks, make sure to enable access from the cache's subnet. (An open public endpoint is not recommended.)
+
+It's a good practice to use a storage account in the same Azure region as your cache.
 
 You also must give the cache application access to your Azure storage account as mentioned in [Permissions](#permissions), above. Follow the procedure in [Add storage targets](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) to give the cache the required access roles. If you are not the storage account owner, have the owner do this step.
 
 ### NFS storage requirements
-<!-- linked from configuration.md -->
+<!-- linked from configuration.md and add storage -->
 
 If using an NFS storage system (for example, an on-premises hardware NAS system), make sure it meets these requirements. You might need to work with the network administrators or firewall managers for your storage system (or data center) to verify these settings.
 
@@ -122,9 +126,9 @@ If using an NFS storage system (for example, an on-premises hardware NAS system)
 
 More information is included in [Troubleshoot NAS configuration and NFS storage target issues](troubleshoot-nas.md).
 
-* **Network connectivity:** The Azure HPC Cache needs high-bandwidth network access between the cache subnet and the NFS system's data center. [ExpressRoute](../expressroute/index.yml) or similar access is recommended. If using a VPN, you might need to configure it to clamp TCP MSS at 1350 to make sure large packets are not blocked. Read [VPN packet size restrictions](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) for additional help troubleshooting VPN settings.
+* Network connectivity: The Azure HPC Cache needs high-bandwidth network access between the cache subnet and the NFS system's data center. [ExpressRoute](../expressroute/index.yml) or similar access is recommended. If using a VPN, you might need to configure it to clamp TCP MSS at 1350 to make sure large packets are not blocked. Read [VPN packet size restrictions](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) for more help troubleshooting VPN settings.
 
-* **Port access:** The cache needs access to specific TCP/UDP ports on your storage system. Different types of storage have different port requirements.
+* Port access: The cache needs access to specific TCP/UDP ports on your storage system. Different types of storage have different port requirements.
 
   To check your storage system's settings, follow this procedure.
 
@@ -152,7 +156,7 @@ More information is included in [Troubleshoot NAS configuration and NFS storage 
 
   * Check firewall settings to be sure that they allow traffic on all of these required ports. Be sure to check firewalls used in Azure as well as on-premises firewalls in your data center.
 
-* **Root access** (read/write): The cache connects to the back-end system as user ID 0. Check these settings on your storage system:
+* Root access (read/write): The cache connects to the back-end system as user ID 0. Check these settings on your storage system:
   
   * Enable `no_root_squash`. This option ensures that the remote root user can access files owned by root.
 
@@ -162,14 +166,11 @@ More information is included in [Troubleshoot NAS configuration and NFS storage 
 
 * NFS back-end storage must be a compatible hardware/software platform. Contact the Azure HPC Cache team for details.
 
-### NFS-mounted blob (ADLS-NFS) storage requirements (PREVIEW)
+### NFS-mounted blob (ADLS-NFS) storage requirements
 
 Azure HPC Cache also can use a blob container mounted with the NFS protocol as a storage target.
 
-> [!NOTE]
-> NFS 3.0 protocol support for Azure Blob storage is in public preview. Availability is restricted, and features might change between now and when the feature becomes generally available. Do not use preview technology in production systems.
->
-> Read more about this preview feature in [NFS 3.0 protocol support in Azure Blob storage](../storage/blobs/network-file-system-protocol-support.md).
+Read more about this feature in [NFS 3.0 protocol support in Azure Blob storage](../storage/blobs/network-file-system-protocol-support.md).
 
 The storage account requirements are different for an ADLS-NFS blob storage target and for a standard blob storage target. Follow the instructions in [Mount Blob storage by using the Network File System (NFS) 3.0 protocol](../storage/blobs/network-file-system-protocol-support-how-to.md) carefully to create and configure the NFS-enabled storage account.
 
@@ -185,13 +186,15 @@ This is a general overview of the steps. These steps might change, so always ref
 
    * Instead of the using the storage account settings for a standard blob storage account, follow the instructions in the [how-to document](../storage/blobs/network-file-system-protocol-support-how-to.md). The type of storage account supported might vary by Azure region.
 
-   * In the **Networking** section, choose a private endpoint in the secure virtual network you created (recommended), or choose a public endpoint with restricted access from the secure VNet.
+   * In the Networking section, choose a private endpoint in the secure virtual network you created (recommended), or choose a public endpoint with restricted access from the secure VNet.
 
-   * Do not forget to complete the **Advanced** section, where you enable NFS access.
+   * Do not forget to complete the Advanced section, where you enable NFS access.
 
    * Give the cache application access to your Azure storage account as mentioned in [Permissions](#permissions), above. You can do this the first time you create a storage target. Follow the procedure in [Add storage targets](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) to give the cache the required access roles.
 
      If you are not the storage account owner, have the owner do this step.
+
+Learn more about using ADLS-NFS storage targets with Azure HPC Cache in [Use NFS-mounted blob storage with Azure HPC Cache](nfs-blob-considerations.md).
 
 ## Set up Azure CLI access (optional)
 

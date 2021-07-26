@@ -1,8 +1,8 @@
 ---
 title: Security controls for Azure Spring Cloud Service
 description: Use security controls built in into Azure Spring Cloud Service.
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/23/2020
@@ -29,8 +29,8 @@ A security control is a quality or feature of an Azure service that contributes 
 
 | Security control | Yes/No | Notes | Documentation |
 |:-------------|:-------|:-------------------------------|:----------------------|
-| Service Tag | Yes | Use **AzureSpringCloud** service tag to define outbound network access controls on [network security groups](../virtual-network/network-security-groups-overview.md#security-rules) or [Azure Firewall](../firewall/service-tags.md), to allow traffic to Azure Spring Cloud applications.<br><br>*Note:* Currently only new Azure Spring Cloud service instance created after 2020/07/14 supports **AzureSpringCloud** service tag. | [Service tags](../virtual-network/service-tags-overview.md) |
+| Service Tag | Yes | Use **AzureSpringCloud** service tag to define outbound network access controls on [network security groups](../virtual-network/network-security-groups-overview.md#security-rules) or [Azure Firewall](../firewall/service-tags.md), to allow traffic to Azure Spring Cloud applications. | [Service tags](../virtual-network/service-tags-overview.md) |
 
 ## Next steps
 
-* [Quickstart: Deploy your first Azure Spring Cloud application](spring-cloud-quickstart.md)
+* [Quickstart: Deploy your first Azure Spring Cloud application](./quickstart.md)

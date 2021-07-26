@@ -3,11 +3,11 @@ title: Request a quota increase
 description: This page describes how to create a support request to increase the quotas for Azure SQL Database and Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: deployment-configuration
 ms.topic: how-to
 author: sachinpMSFT
 ms.author: sachinp
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 06/04/2020
 ---
 
@@ -49,7 +49,7 @@ Use the following steps to create a new support request from the Azure portal fo
 
    ![Enter details link](./media/quota-increase-request/provide-details-link.png)
 
-Clicking **Enter details** displays the **Quota details** window that allows you to add additional information. The following sections describe the different options for **SQL Database** and **SQL Database Managed Instance** quota types.
+Clicking **Enter details** displays the **Quota details** window that allows you to add additional information. The following sections describe the different options for **SQL Database** and **SQL Managed Instance** quota types.
 
 ## <a id="sqldbquota"></a> SQL Database quota types
 
@@ -105,7 +105,7 @@ If your subscription needs access in a particular region, select the **Region ac
 
 ### Request enabling specific hardware in a region
 
-If a [hardware generation](service-tiers-vcore.md#hardware-generations) you want to use is not available in your region (see [Hardware availability](service-tiers-vcore.md#hardware-availability)), you may request it using the following steps.
+If a hardware generation you want to use is not available in your region, you may request it using the following steps. For more information on hardware generations and regional availability, see [Hardware generations for SQL Database](./service-tiers-sql-database-vcore.md#hardware-generations) or [Hardware generations for SQL Managed Instance](../managed-instance/service-tiers-managed-instance-vcore.md#hardware-generations).
 
 1. Select the **Other quota request** quota type.
 

@@ -94,19 +94,19 @@ There are two types of workbook resources that can be managed programmatically:
 
 ### Galleries
 
-| Gallery                                        | Resource type                                      | Workbook type |
-| :--------------------------------------------- |:---------------------------------------------------|:--------------|
-| Workbooks in Azure Monitor                     | `Azure Monitor`                                    | `workbook`    |
-| VM Insights in Azure Monitor                   | `Azure Monitor`                                    | `vm-insights` |
-| Workbooks in Log analytics workspace           | `microsoft.operationalinsights/workspaces`         | `workbook`    |
-| Workbooks in Application Insights              | `microsoft.insights/component`                     | `workbook`    |
-| Troubleshooting guides in Application Insights | `microsoft.insights/component`                     | `tsg`         |
-| Usage in Application Insights                  | `microsoft.insights/component`                     | `usage`       |
-| Workbooks in Kubernetes service                | `Microsoft.ContainerService/managedClusters`       | `workbook`    |
-| Workbooks in Resource groups                   | `microsoft.resources/subscriptions/resourcegroups` | `workbook`    |
-| Workbooks in Azure Active Directory            | `microsoft.aadiam/tenant`                          | `workbook`    |
-| VM Insights in Virtual machines                | `microsoft.compute/virtualmachines`                | `insights`    |
-| VM Insights in virtual machine scale sets      | `microsoft.compute/virtualmachinescalesets`        | `insights`    |
+| Gallery                                        | Resource type                                       | Workbook type |
+|:-----------------------------------------------|:----------------------------------------------------|:--------------|
+| Workbooks in Azure Monitor                     | `Azure Monitor`                                     | `workbook`    |
+| VM Insights in Azure Monitor                   | `Azure Monitor`                                     | `vm-insights` |
+| Workbooks in Log analytics workspace           | `microsoft.operationalinsights/workspaces`          | `workbook`    |
+| Workbooks in Application Insights              | `microsoft.insights/components`                     | `workbook`    |
+| Troubleshooting guides in Application Insights | `microsoft.insights/components`                     | `tsg`         |
+| Usage in Application Insights                  | `microsoft.insights/components`                     | `usage`       |
+| Workbooks in Kubernetes service                | `Microsoft.ContainerService/managedClusters`        | `workbook`    |
+| Workbooks in Resource groups                   | `microsoft.resources/subscriptions/resourcegroups`  | `workbook`    |
+| Workbooks in Azure Active Directory            | `microsoft.aadiam/tenant`                           | `workbook`    |
+| VM Insights in Virtual machines                | `microsoft.compute/virtualmachines`                 | `insights`    |
+| VM Insights in virtual machine scale sets      | `microsoft.compute/virtualmachinescalesets`         | `insights`    |
 
 ## Azure Resource Manager template for deploying a workbook instance
 
@@ -188,7 +188,7 @@ This template shows how to deploy a simple workbook that displays a 'Hello World
 | `workbookType` | The gallery that the workbook will be shown under. Supported values include workbook, `tsg`, Azure Monitor, etc. |
 | `workbookSourceId` | The ID of the resource instance to which the workbook will be associated. The new workbook will show up related to this resource instance - for example in the resource's table of content under _Workbook_. If you want your workbook to show up in the workbook gallery in Azure Monitor, use the string _Azure Monitor_ instead of a resource ID. |
 | `workbookId` | The unique guid for this workbook instance. Use _[newGuid()]_ to automatically create a new guid. |
-| `kind` | Used to specify if the created workbook is shared or private. Use value _shared_ for shared workbooks and _user_ for private ones. |
+| `kind` | Used to specify if the created workbook is shared. All new workbooks will use the value _shared_. |
 | `location` | The Azure location where the workbook will be created. Use _[resourceGroup().location]_ to create it in the same location as the resource group |
 | `serializedData` | Contains the content or payload to be used in the workbook. Use the Resource Manager template from the workbooks UI to get the value |
 
@@ -201,9 +201,105 @@ Workbook types specify which workbook gallery type the new workbook instance wil
 | `tsg` | The Troubleshooting Guides gallery in Application Insights |
 | `usage` | The _More_ gallery under _Usage_ in Application Insights |
 
+### Working with JSON formatted Workbook data in the serializedData Template parameter
+
+When exporting an Azure Resource Manager template for an Azure Workbook, there are often fixed resource links embedded within the exported `serializedData` template parameter. These include potentially sensitive values such as Subscription ID and Resource Group name, and other types of resource IDs.
+
+The example below demonstrates the customization of an exported Workbook Azure Resource Manager Template, without resorting to string manipulation. The pattern shown in this example is intended to work with the unaltered data as exported from the Azure portal. It is also a best practice to mask out any embedded sensitive values when managing workbooks programmatically, therefore the Subscription ID and Resource Group have been masked here. No other modifications were made to the raw incoming `serializedData` value.
+
+```json
+{
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "workbookDisplayName": {
+      "type": "string"
+    },
+    "workbookSourceId": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().id]"
+    },
+    "workbookId": {
+      "type": "string",
+      "defaultValue": "[newGuid()]"
+    }
+  },
+  "variables": {
+    // serializedData from original exported Azure Resource Manager template
+    "serializedData": "{\"version\":\"Notebook/1.0\",\"items\":[{\"type\":1,\"content\":{\"json\":\"Replace with Title\"},\"name\":\"text - 0\"},{\"type\":3,\"content\":{\"version\":\"KqlItem/1.0\",\"query\":\"{\\\"version\\\":\\\"ARMEndpoint/1.0\\\",\\\"data\\\":null,\\\"headers\\\":[],\\\"method\\\":\\\"GET\\\",\\\"path\\\":\\\"/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups\\\",\\\"urlParams\\\":[{\\\"key\\\":\\\"api-version\\\",\\\"value\\\":\\\"2019-06-01\\\"}],\\\"batchDisabled\\\":false,\\\"transformers\\\":[{\\\"type\\\":\\\"jsonpath\\\",\\\"settings\\\":{\\\"tablePath\\\":\\\"$..*\\\",\\\"columns\\\":[]}}]}\",\"size\":0,\"queryType\":12,\"visualization\":\"map\",\"tileSettings\":{\"showBorder\":false},\"graphSettings\":{\"type\":0},\"mapSettings\":{\"locInfo\":\"AzureLoc\",\"locInfoColumn\":\"location\",\"sizeSettings\":\"location\",\"sizeAggregation\":\"Count\",\"opacity\":0.5,\"legendAggregation\":\"Count\",\"itemColorSettings\":null}},\"name\":\"query - 1\"}],\"isLocked\":false,\"fallbackResourceIds\":[\"/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/XXXXXXX\"]}",
+
+    // parse the original into a JSON object, so that it can be manipulated
+    "parsedData": "[json(variables('serializedData'))]",
+
+    // create new JSON objects that represent only the items/properties to be modified
+    "updatedTitle": {
+      "content":{
+        "json": "[concat('Resource Group Regions in subscription \"', subscription().displayName, '\"')]"
+      }
+    },
+    "updatedMap": {
+      "content": {
+        "path": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups')]"
+      }
+    },
+
+    // the union function applies the updates to the original data
+    "updatedItems": [
+      "[union(variables('parsedData')['items'][0], variables('updatedTitle'))]",
+      "[union(variables('parsedData')['items'][1], variables('updatedMap'))]"
+    ],
+
+    // copy to a new workbook object, with the updated items
+    "updatedWorkbookData": {
+      "version": "[variables('parsedData')['version']]",
+      "items": "[variables('updatedItems')]",
+      "isLocked": "[variables('parsedData')['isLocked']]",
+      "fallbackResourceIds": ["[parameters('workbookSourceId')]"]
+    },
+
+    // convert back to an encoded string
+    "reserializedData": "[string(variables('updatedWorkbookData'))]"
+  },
+  "resources": [
+    {
+      "name": "[parameters('workbookId')]",
+      "type": "microsoft.insights/workbooks",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2018-06-17-preview",
+      "dependsOn": [],
+      "kind": "shared",
+      "properties": {
+        "displayName": "[parameters('workbookDisplayName')]",
+        "serializedData": "[variables('reserializedData')]",
+        "version": "1.0",
+        "sourceId": "[parameters('workbookSourceId')]",
+        "category": "workbook"
+      }
+    }
+  ],
+  "outputs": {
+    "workbookId": {
+      "type": "string",
+      "value": "[resourceId( 'microsoft.insights/workbooks', parameters('workbookId'))]"
+    }
+  },
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#"
+}
+```
+
+In this example, the following steps facilitated the customization of an exported Azure Resource Manager template:
+1. Export the Workbook as an Azure Resource Manager template as explained in the above section
+2. In the template's `variables` section:
+    1. Parse the `serializedData` value into a JSON object variable, which creates a JSON structure including an array of items that represent the content of the Workbook.
+    2. Create new JSON objects that represent only the items/properties to be modified.
+    3. Project a new set of JSON content items (`updatedItems`), using the `union()` function to apply the modifications to the original JSON items.
+    4. Create a new workbook object, `updatedWorkbookData`, that contains `updatedItems` and the `version`/`isLocked` data from the original parsed data, as well as a corrected set of `fallbackResourceIds`.
+    5. Serialize the new JSON content back into a new string variable, `reserializedData`.
+3. Use the new `reserializedData` variable in place of the original `serializedData` property.
+4. Deploy the new Workbook resource using the updated Azure Resource Manager  template.
+
 ### Limitations
 For a technical reason, this mechanism cannot be used to create workbook instances in the _Workbooks_ gallery of Application Insights. We are working on addressing this limitation. In the meanwhile, we recommend that you use the Troubleshooting Guide gallery (workbookType: `tsg`) to deploy Application Insights related workbooks.
 
 ## Next steps
 
-Explore how workbooks are being used to power the new [Azure Monitor for Storage experience](../insights/storage-insights-overview.md).
+Explore how workbooks are being used to power the new [Storage insights experience](../insights/storage-insights-overview.md).

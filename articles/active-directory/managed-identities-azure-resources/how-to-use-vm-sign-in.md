@@ -6,7 +6,6 @@ documentationcenter:
 author: barclayn
 manager: daveba
 editor: 
-
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
@@ -16,7 +15,7 @@ ms.workload: identity
 ms.date: 01/29/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurepowershell
 ---
 
 # How to use managed identities for Azure resources on an Azure VM for sign-in 

@@ -1,8 +1,8 @@
 ---
 title: Discover physical servers with Azure Migrate Discovery and assessment
 description: Learn how to discover on-premises physical servers with Azure Migrate Discovery and assessment.
-author: vineetvikram
-ms.author: vivikram
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/11/2021
@@ -75,8 +75,42 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 Set up an account that the appliance can use to access the physical servers.
 
-- For **Windows servers**, use a domain account for domain-joined servers, and a local account for server that are not domain-joined. The user account should be added to these groups: Remote Management Users, Performance Monitor Users, and Performance Log Users.
-- For **Linux servers**, you need a root account on the Linux servers that you want to discover. Alternately, you can set a non-root account with the required capabilities using the following commands:
+**Windows servers**
+
+- For Windows servers, use a domain account for domain-joined servers, and a local account for servers that are not domain-joined. 
+- The user account should be added to these groups: Remote Management Users, Performance Monitor Users, and Performance Log Users. 
+- If Remote management Users group isn't present, then add user account to the group: **WinRMRemoteWMIUsers_**.
+- The account needs these permissions for appliance to create a CIM connection with the server and pull the required configuration and performance metadata from the WMI classes listed here.
+- In some cases, adding the account to these groups may not return the required data from WMI classes as the account might be filtered by [UAC](/windows/win32/wmisdk/user-account-control-and-wmi). To overcome the UAC filtering, user account needs to have necessary permissions on CIMV2 Namespace and sub-namespaces on the target server. You can follow the steps [here](troubleshoot-appliance.md) to enable the required permissions.
+
+    > [!Note]
+    > For Windows Server 2008 and 2008 R2, ensure that WMF 3.0 is installed on the servers.
+
+**Linux servers**
+
+- You need a root account on the servers that you want to discover. Alternately, you can provide a user account with sudo permissions.
+- The support to add a user account with sudo access is provided by default with the new appliance installer script downloaded from portal after July 20,2021.
+- For older appliances, you can enable the capability by following these steps:
+    1. On the server running the appliance, open the Registry Editor.
+    1. Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
+    1. Create a registry key ‘isSudo’ with DWORD value of 1.
+
+    :::image type="content" source="./media/tutorial-discover-physical/issudo-reg-key.png" alt-text="Screenshot that shows how to enable sudo support.":::
+
+- To discover the configuration and performance metadata from target server, you need to enable sudo access for the commands listed [here](migrate-appliance.md#linux-server-metadata). Make sure that you have enabled 'NOPASSWD' for the account to run the required commands without prompting for a password every time sudo command is invoked.
+- The following Linux OS distributions are supported for discovery by Azure Migrate using an account with sudo access:
+
+    Operating system | Versions 
+    --- | ---
+    Red Hat Enterprise Linux | 6,7,8
+    Cent OS | 6.6, 8.2
+    Ubuntu | 14.04,16.04,18.04
+    SUSE Linux | 11.4, 12.4
+    Debian | 7, 10
+    Amazon Linux | 2.0.2021
+    CoreOS Container | 2345.3.0
+
+- If you cannot provide root account or user account with sudo access, then you can set 'isSudo' registry key to value '0' in HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance registry and provide a non-root account with the required capabilities using the following commands:
 
 **Command** | **Purpose**
 --- | --- |
@@ -84,7 +118,6 @@ setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br></br> setcap CAP_DAC_READ_SEA
 setcap "cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_setuid,<br>cap_setpcap,cap_net_bind_service,cap_net_admin,cap_sys_chroot,cap_sys_admin,<br>cap_sys_resource,cap_audit_control,cap_setfcap=+eip" /sbin/lvm | To collect disk performance data
 setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode | To collect BIOS serial number
 chmod a+r /sys/class/dmi/id/product_uuid | To collect BIOS GUID
-
 
 ## Set up a project
 
@@ -115,7 +148,7 @@ To set up the appliance you:
 1. Provide an appliance name and generate a project key in the portal.
 2. Download a zipped file with Azure Migrate installer script from the Azure portal.
 3. Extract the contents from the zipped file. Launch the PowerShell console with administrative privileges.
-4. Execute the PowerShell script to launch the appliance web application.
+4. Execute the PowerShell script to launch the appliance configuration manager.
 5. Configure the appliance for the first time, and register it with the project using the project key.
 
 ### 1. Generate the project key
@@ -126,6 +159,8 @@ To set up the appliance you:
 1. Click on **Generate key** to start the creation of the required Azure resources. Do not close the Discover servers page during the creation of resources.
 1. After the successful creation of the Azure resources, a **project key** is generated.
 1. Copy the key as you will need it to complete the registration of the appliance during its configuration.
+
+  [ ![Selections for Generate Key.](./media/tutorial-assess-physical/generate-key-physical-inline-1.png)](./media/tutorial-assess-physical/generate-key-physical-expanded-1.png#lightbox)
 
 ### 2. Download the installer script
 
@@ -138,50 +173,45 @@ Check that the zipped file is secure, before you deploy it.
 1. On the server to which you downloaded the file, open an administrator command window.
 2. Run the following command to generate the hash for the zipped file:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example usage for public cloud: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public.zip SHA256 ```
-    - Example usage for government cloud: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip SHA256 ```
-3.  Verify the latest appliance versions and hash values:
-    - For the public cloud:
+    - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
+3.  Verify the latest appliance version and hash value:
 
-        **Scenario** | **Download*** | **Hash value**
-        --- | --- | ---
-        Physical (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140334) | ce5e6f0507936def8020eb7b3109173dad60fc51dd39c3bd23099bc9baaabe29
+    **Download** | **Hash value**
+    --- | ---
+    [Latest version](https://go.microsoft.com/fwlink/?linkid=2140334) | 15a94b637a39c53ac91a2d8b21cc3cca8905187e4d9fb4d895f4fa6fd2f30b9f
 
-    - For Azure Government:
+> [!NOTE]
+> The same script can be used to set up Physical appliance for either Azure public or Azure Government cloud with public or private endpoint connectivity.
 
-        **Scenario** | **Download*** | **Hash value**
-        --- | --- | ---
-        Physical (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140338) | ae132ebc574caf231bf41886891040ffa7abbe150c8b50436818b69e58622276
- 
 
 ### 3. Run the Azure Migrate installer script
-The installer script does the following:
-
-- Installs agents and a web application for physical server discovery and assessment.
-- Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
-- Download and installs an IIS rewritable module. [Learn more](https://www.microsoft.com/download/details.aspx?id=7435).
-- Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
-- Creates the following files under the path:
-    - **Config Files**: %Programdata%\Microsoft Azure\Config
-    - **Log Files**: %Programdata%\Microsoft Azure\Logs
-
-Run the script as follows:
 
 1. Extract the zipped file to a folder on the server that will host the appliance.  Make sure you don't run the script on a server with an existing Azure Migrate appliance.
 2. Launch PowerShell on the above server with administrative (elevated) privilege.
 3. Change the PowerShell directory to the folder where the contents have been extracted from the downloaded zipped file.
 4. Run the script named **AzureMigrateInstaller.ps1** by running the following command:
 
-    - For the public cloud: 
     
-        ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1 ```
-    - For Azure Government: 
-    
-        ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>.\AzureMigrateInstaller.ps1 ```
+    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
 
-    The script will launch the appliance web application when it finishes successfully.
+5. Select from the scenario, cloud and connectivity options to deploy an appliance with the desired configuration. For instance, the selection shown below sets up an appliance to discover and assess **physical servers** _(or servers running on other clouds like AWS, GCP, Xen etc.)_ to an Azure Migrate project with **default _(public endpoint)_ connectivity** on **Azure public cloud**.
 
-If you come across any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
+    :::image type="content" source="./media/tutorial-discover-physical/script-physical-default-inline.png" alt-text="Screenshot that shows how to set up appliance with desired configuration" lightbox="./media/tutorial-discover-physical/script-physical-default-expanded.png":::
+
+6. The installer script does the following:
+
+ - Installs agents and a web application.
+ - Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
+ - Download and installs an IIS rewritable module.
+ - Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
+ - Creates the following files under the path:
+    - **Config Files**: %Programdata%\Microsoft Azure\Config
+    - **Log Files**: %Programdata%\Microsoft Azure\Logs
+
+After the script has executed successfully, the appliance configuration manager will be launched automatically.
+
+> [!NOTE]
+> If you come across any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
 
 ### Verify appliance access to Azure
 

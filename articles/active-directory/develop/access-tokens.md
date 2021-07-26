@@ -10,9 +10,9 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 2/18/2021
+ms.date: 06/25/2021
 ms.author: hirsin
-ms.reviewer: mmacy, hirsin
+ms.reviewer: marsma
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
 ---
 
@@ -80,16 +80,15 @@ Some claims are used to help Azure AD secure tokens in case of reuse. These are 
 |Claim | Format | Description |
 |--------|--------|-------------|
 | `typ` | String - always "JWT" | Indicates that the token is a JWT.|
-| `nonce` | String | A unique identifier used to protect against token replay attacks. Your resource can record this value to protect against replays. |
 | `alg` | String | Indicates the algorithm that was used to sign the token, for example, "RS256" |
-| `kid` | String | Specifies the thumbprint for the public key that's used to sign this token. Emitted in both v1.0 and v2.0 access tokens. |
+| `kid` | String | Specifies the thumbprint for the public key that can be used to validate this token's signature. Emitted in both v1.0 and v2.0 access tokens. |
 | `x5t` | String | Functions the same (in use and value) as `kid`. `x5t` is a legacy claim emitted only in v1.0 access tokens for compatibility purposes. |
 
 ### Payload claims
 
 | Claim | Format | Description |
 |-----|--------|-------------|
-| `aud` | String, an App ID URI or GUID | Identifies the intended recipient of the token - its audience.  Your API should validate this value and reject the token if the value doesn't match. In v2.0 tokens, this is always the client ID of the API, while in v1.0 tokens it can be the client ID or the resource URI used in the request, depending on how the client requested the token.|
+| `aud` | String, an App ID URI or GUID | Identifies the intended recipient of the token - its audience.  Your API must validate this value and reject the token if the value doesn't match. In v2.0 tokens, this is always the client ID of the API, while in v1.0 tokens it can be the client ID or the resource URI used in the request, depending on how the client requested the token.|
 | `iss` | String, an STS URI | Identifies the security token service (STS) that constructs and returns the token, and the Azure AD tenant in which the user was authenticated. If the token issued is a v2.0 token (see the `ver` claim), the URI will end in `/v2.0`. The GUID that indicates that the user is a consumer user from a Microsoft account is `9188040d-6c67-4c5b-b112-36a304b66dad`. Your app can use the GUID portion of the claim to restrict the set of tenants that can sign in to the app, if applicable. |
 |`idp`| String, usually an STS URI | Records the identity provider that authenticated the subject of the token. This value is identical to the value of the Issuer claim unless the user account not in the same tenant as the issuer - guests, for instance. If the claim isn't present, it means that the value of `iss` can be used instead.  For personal accounts being used in an organizational context (for instance, a personal account invited to an Azure AD tenant), the `idp` claim may be 'live.com' or an STS URI containing the Microsoft account tenant `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 | `iat` | int, a UNIX timestamp | "Issued At" indicates when the authentication for this token occurred. |
@@ -112,7 +111,7 @@ Some claims are used to help Azure AD secure tokens in case of reuse. These are 
 | `groups:src1` | JSON object | For token requests that are not length limited (see `hasgroups` above) but still too large for the token, a link to the full groups list for the user will be included. For JWTs as a distributed claim, for SAML as a new claim in place of the `groups` claim. <br><br>**Example JWT Value**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }` |
 | `sub` | String | The principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource, and can be used as a key in database tables. Because the subject is always present in the tokens that Azure AD issues, we recommend using this value in a general-purpose authorization system. The subject is, however, a pairwise identifier - it is unique to a particular application ID. Therefore, if a single user signs into two different apps using two different client IDs, those apps will receive two different values for the subject claim. This may or may not be desired depending on your architecture and privacy requirements. See also the `oid` claim (which does remain the same across apps within a tenant). |
 | `oid` | String, a GUID | The immutable identifier for the "principal" of the request - the user or service principal whose identity has been verified.  In ID tokens and app+user tokens, this is the object ID of the user.  In app-only tokens, this is the object id of the calling service principal. It can also be used to perform authorization checks safely and as a key in database tables. This ID uniquely identifies the principal across applications - two different applications signing in the same user will receive the same value in the `oid` claim. Thus, `oid` can be used when making queries to Microsoft online services, such as the Microsoft Graph. The Microsoft Graph will return this ID as the `id` property for a given [user account](/graph/api/resources/user). Because the `oid` allows multiple apps to correlate principals, the `profile` scope is required in order to receive this claim for users. Note that if a single user exists in multiple tenants, the user will contain a different object ID in each tenant - they are considered different accounts, even though the user logs into each account with the same credentials. |
-| `tid` | String, a GUID | Represents the Azure AD tenant that the user is from. For work and school accounts, the GUID is the immutable tenant ID of the organization that the user belongs to. For personal accounts, the value is `9188040d-6c67-4c5b-b112-36a304b66dad`. The `profile` scope is required in order to receive this claim. |
+|`tid` | String, a GUID | Represents the tenant that the user is signing in to. For work and school accounts, the GUID is the immutable tenant ID of the organization that the user is signing in to. For sign-ins to the personal Microsoft account tenant (services like Xbox, Teams for Life, or Outlook), the value is `9188040d-6c67-4c5b-b112-36a304b66dad`. To receive this claim, your app must request the `profile` scope. |
 | `unique_name` | String | Only present in v1.0 tokens. Provides a human readable value that identifies the subject of the token. This value is not guaranteed to be unique within a tenant and should be used only for display purposes. |
 | `uti` | Opaque String | An internal claim used by Azure to revalidate tokens. Resources shouldn't use this claim. |
 | `rh` | Opaque String | An internal claim used by Azure to revalidate tokens. Resources should not use this claim. |
@@ -173,6 +172,12 @@ Microsoft identities can authenticate in different ways, which may be relevant t
 | `wiaormfa`| The user used Windows or an MFA credential to authenticate. |
 | `none` | No authentication was done. |
 
+## Access token lifetime
+
+The default lifetime of an access token varies, depending on the client application requesting the token. For example, continuous access evaluation (CAE) capable clients that negotiate CAE-aware sessions will see a long lived token lifetime (up to 28 hours).  When the access token expires, the client must use the refresh token to (usually silently) acquire a new refresh token and access token.
+
+You can adjust the lifetime of an access token to control how often the client application expires the application session, and how often it requires the user to re-authenticate (either silently or interactively). For more information, read [Configurable token lifetimes](active-directory-configurable-token-lifetimes.md).
+
 ## Validating tokens
 
 Not all apps should validate tokens. Only in specific scenarios should apps validate a token:
@@ -219,7 +224,7 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 This metadata document:
 
 * Is a JSON object containing several useful pieces of information, such as the location of the various endpoints required for doing OpenID Connect authentication.
-* Includes a `jwks_uri`, which gives the location of the set of public keys used to sign tokens. The JSON Web Key (JWK) located at the `jwks_uri` contains all of the public key information in use at that particular moment in time.  The JWK format is described in [RFC 7517](https://tools.ietf.org/html/rfc7517).  Your app can use the `kid` claim in the JWT header to select which public key in this document has been used to sign a particular token. It can then do signature validation using the correct public key and the indicated algorithm.
+* Includes a `jwks_uri`, which gives the location of the set of public keys that correspond to the private keys used to sign tokens. The JSON Web Key (JWK) located at the `jwks_uri` contains all of the public key information in use at that particular moment in time. The JWK format is described in [RFC 7517](https://tools.ietf.org/html/rfc7517). Your app can use the `kid` claim in the JWT header to select the public key, from this document, which corresponds to the private key that has been used to sign a particular token. It can then do signature validation using the correct public key and the indicated algorithm.
 
 > [!NOTE]
 > We recommend using the `kid` claim to validate your token. Though v1.0 tokens contain both the `x5t` and `kid` claims, v2.0 tokens contain only the `kid` claim.
@@ -232,10 +237,10 @@ If your app has custom signing keys as a result of using the [claims-mapping](ac
 
 Your application's business logic will dictate this step, some common authorization methods are laid out below.
 
-* Check the `scp` or `roles` claim to verify that all present scopes match those exposed by your API, and allow the client to do the requested action.
+* Use the `aud` claim to ensure that the user intended to call your application.  If your resource's identifier is not in the `aud` claim, reject it.
+* Use the `scp` claim to validate that the user has granted the calling app permission to call your API.
+* Use the `roles` and `wids` claims to validate that the user themselves has authorization to call your API.  For example, an admin may have permission to write to your API, but not a normal user.
 * Ensure the calling client is allowed to call your API using the `appid` claim.
-* Validate the authentication status of the calling client using `appidacr` - it shouldn't be 0 if public clients aren't allowed to call your API.
-* Check against a list of past `nonce` claims to verify the token isn't being replayed.
 * Check that the `tid` matches a tenant that is allowed to call your API.
 * Use the `amr` claim to verify the user has performed MFA. This should be enforced using [Conditional Access](../conditional-access/overview.md).
 * If you've requested the `roles` or `groups` claims in the access token, verify that the user is in the group allowed to do this action.

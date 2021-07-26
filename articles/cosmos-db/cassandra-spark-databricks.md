@@ -1,8 +1,8 @@
 ---
 title: Access Azure Cosmos DB Cassandra API from Azure Databricks
 description: This article covers how to work with Azure Cosmos DB Cassandra API from Azure Databricks.
-author: kanshiG
-ms.author: govindk
+author: TheovanKraay
+ms.author: thvankra
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
@@ -43,9 +43,12 @@ This article details how to work with Azure Cosmos DB Cassandra API from Spark o
 
 * **Cassandra Spark connector:** - To integrate Azure Cosmos DB Cassandra API with Spark, the Cassandra connector should be attached to the Azure Databricks cluster. To attach the cluster:
 
-  * Review the Databricks runtime version, the Spark version. Then find the [maven coordinates](https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) that are compatible with the Cassandra Spark connector, and attach it to the cluster. See ["Upload a Maven package or Spark package"](https://docs.databricks.com/user-guide/libraries.html) article to attach the connector library to the cluster. For example, maven coordinate for "Databricks Runtime version 4.3",  "Spark 2.3.1", and "Scala 2.11" is `spark-cassandra-connector_2.11-2.3.1`
+  * Review the Databricks runtime version, the Spark version. Then find the [maven coordinates](https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) that are compatible with the Cassandra Spark connector, and attach it to the cluster. See ["Upload a Maven package or Spark package"](https://docs.databricks.com/user-guide/libraries.html) article to attach the connector library to the cluster. We recommend selecting Databricks runtime version 7.5, which supports Spark 3.0. To add the Apache Spark Cassandra Connector, your cluster, select **Libraries** > **Install New** > **Maven**, and then add `com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.0.0` in Maven coordinates. If using Spark 2.x, we recommend an environment with Spark version 2.4.5, using spark connector at maven coordinates `com.datastax.spark:spark-cassandra-connector_2.11:2.4.3`.
 
-* **Azure Cosmos DB Cassandra API-specific library:** - A custom connection factory is required to configure the retry policy from the Cassandra Spark connector to Azure Cosmos DB Cassandra API. Add the `com.microsoft.azure.cosmosdb:azure-cosmos-cassandra-spark-helper:1.0.0`[maven coordinates](https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) to attach the library to the cluster.
+* **Azure Cosmos DB Cassandra API-specific library:** - If you are using Spark 2.x, a custom connection factory is required to configure the retry policy from the Cassandra Spark connector to Azure Cosmos DB Cassandra API. Add the `com.microsoft.azure.cosmosdb:azure-cosmos-cassandra-spark-helper:1.2.0`[maven coordinates](https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.2.0/jar) to attach the library to the cluster.
+
+> [!NOTE]
+> If you are using Spark 3.0 or higher, you do not need to install the Cosmos DB Cassandra API-specific library mentioned above.
 
 ## Sample notebooks
 

@@ -4,12 +4,12 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Azure CLI script examples to create and manage Azure SQL Database and Azure SQL Managed Instance 
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: deployment-configuration
 ms.custom: overview-samples, mvc, sqldbrb=2, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer:
 ms.date: 02/03/2019
 ---

@@ -1,14 +1,16 @@
 ---
 title: Java samples to illustrate connection pooling
 description: This article lists java samples to illustrate connection pooling.
-author: ambhatna
+author: savjani
+ms.author: pariks
 ms.custom: devx-track-java
-ms.author: ambhatna
 ms.service: mysql
 ms.topic: sample
 ms.date: 02/28/2018
 ---
 # Java sample to illustrate connection pooling
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 The below sample code illustrates connection pooling in java.
 

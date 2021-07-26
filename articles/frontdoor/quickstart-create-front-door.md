@@ -4,15 +4,17 @@ description: This quickstart shows how to use Azure Front Door Service for your 
 services: front-door
 documentationcenter: na
 author: duongau
-manager: KumudD
-Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
-ms.service: frontdoor
-ms.devlang: na
-ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/16/2020
 ms.author: duau
+manager: KumudD
+ms.date: 04/19/2021
+ms.topic: quickstart
+ms.service: frontdoor
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.custom:
+  - mode-portal
+# Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 
 # Quickstart: Create a Front Door for a highly available global web application
@@ -20,6 +22,8 @@ ms.author: duau
 Get started with Azure Front Door by using the Azure portal to set up high availability for a web application.
 
 In this quickstart, Azure Front Door pools two instances of a web application that run in different Azure regions. You create a Front Door configuration based on equal weighted and same priority backends. This configuration directs traffic to the nearest site that runs the application. Azure Front Door continuously monitors the web application. The service provides automatic failover to the next available site when the nearest site is unavailable.
+
+:::image type="content" source="media/quickstart-create-front-door/environment-diagram.png" alt-text="Diagram of Front Door deployment environment using the Azure portal." border="false":::
 
 ## Prerequisites
 
@@ -61,8 +65,8 @@ After your deployment is complete, create a second web app. Use the same procedu
 | ---              | ---  |
 | **Resource group**   | Select **Create new** and enter *FrontDoorQS_rg2* |
 | **Name**             | Enter a unique name for your Web App, in this example, *WebAppContoso-2*  |
-| **Region**           | A different region, in this example, *South Central US* |
-| **App Service plan** > **Windows Plan**         | Select **New** and enter *myAppServicePlanSouthCentralUS*, and then select **OK** |
+| **Region**           | A different region, in this example, *East US* |
+| **App Service plan** > **Windows Plan**         | Select **New** and enter *myAppServicePlanEastUS*, and then select **OK** |
 
 ## Create a Front Door for your application
 

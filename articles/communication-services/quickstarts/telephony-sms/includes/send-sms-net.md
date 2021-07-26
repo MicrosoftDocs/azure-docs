@@ -7,7 +7,7 @@ manager: rejooyan
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/11/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: peiliu
@@ -17,9 +17,8 @@ Get started with Azure Communication Services by using the Communication Service
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
-<!--**TODO: update all these reference links as the resources go live**
-
-[API reference documentation](../../../references/overview.md) | [Library source code](https://github.com/Azure/azure-sdk-for-net-pr/tree/feature/communication/sdk/communication/Azure.Communication.Sms#todo-update-to-public) | [Package (NuGet)](#todo-nuget) | [Samples](#todo-samples)-->
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendSMS)
 
 ## Prerequisites
 
@@ -55,7 +54,7 @@ dotnet build
 While still in the application directory, install the Azure Communication Services SMS SDK for .NET package by using the `dotnet add package` command.
 
 ```console
-dotnet add package Azure.Communication.Sms --version 1.0.0-beta.4
+dotnet add package Azure.Communication.Sms --version 1.0.0
 ```
 
 Add a `using` directive to the top of **Program.cs** to include the `Azure.Communication` namespace.
@@ -116,7 +115,7 @@ You should replace `<from-phone-number>` with an SMS-enabled phone number associ
 To send an SMS message to a list of recipients, call the `Send` or `SendAsync` function from the SmsClient with a list of recipient's phone numbers. You may also pass in optional parameters to specify whether the delivery report should be enabled and to set custom tags.
 
 ```csharp
-Response<IEnumerable<SmsSendResult>> response = smsClient.Send(
+Response<IReadOnlyList<SmsSendResult>> response = smsClient.Send(
     from: "<from-phone-number>",
     to: new string[] { "<to-phone-number-1>", "<to-phone-number-2>" },
     message: "Weekly Promotion!",

@@ -6,15 +6,15 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 02/26/2021
+ms.date: 06/26/2021
 ms.author: robinsh
-ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics', devx-track-azurecli]
+ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
 #Customer intent: As a developer, I want to be able to use X.509 certificates to authenticate devices to an IoT hub. This step of the tutorial needs to introduce me to Microsoft scripts that I can use to generate test certificates. 
 ---
 
 # Tutorial: Using Microsoft-supplied scripts to create test certificates
 
-Microsoft provides PowerShell and Bash scripts to help you understand how to create your own X.509 certificates and authenticate them to an IoT Hub. The scripts are located in [GitHub](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates). They are provided for demonstration purposes only. Certificates created by them must not be used for production. The certificates contain hard-coded passwords (“1234”) and expire after 30 days. For a production environment, you'll need to use your own best practices for certificate creation and lifetime management.
+Microsoft provides PowerShell and Bash scripts to help you understand how to create your own X.509 certificates and authenticate them to an IoT Hub. The scripts are located in a GitHub [repository](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates). They are provided for demonstration purposes only. Certificates created by them must not be used for production. The certificates contain hard-coded passwords (“1234”) and expire after 30 days. For a production environment, you'll need to use your own best practices for certificate creation and lifetime management.
 
 ## PowerShell scripts
 
@@ -22,7 +22,7 @@ Microsoft provides PowerShell and Bash scripts to help you understand how to cre
 
 Get OpenSSL for Windows. See <https://www.openssl.org/docs/faq.html#MISC4> for places to download it or <https://www.openssl.org/source/> to build from source. Then run the preliminary scripts:
 
-1. Copy the scripts from [GitHub](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) into the local directory in which you want to work. All files will be created as children of this directory.
+1. Copy the scripts from this GitHub [repository](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) into the local directory in which you want to work. All files will be created as children of this directory.
 
 1. Start PowerShell as an administrator.
 
@@ -54,13 +54,15 @@ After running the script, add the new CA certificate (RootCA.pem) to your IoT Hu
 
 1. Enter a display name for the CA certificate.
 
+1. To skip proof of possession, check the box next to **Set certificate status to verified on upload**.
+
 1. Upload the CA certificate.
 
 1. Select **Save**.
 
-### Step 3 - Prove possession
+### (Optional) Step 3 - Prove possession
 
-Now that  you've uploaded your CA certificate to your IoT Hub, you'll need to prove that you actually own it:
+If you didn't choose to automatically verify the certificate during upload, you manually prove possession:
 
 1. Select the new CA certificate.
 

@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 03/23/2020
+ ms.date: 07/15/2021
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -41,32 +41,31 @@ Setting up customer-managed keys for your disks will require you to create resou
 1. Leave both **Key Type** set to **RSA** and **RSA Key Size** set to **2048**.
 1. Fill in the remaining selections as you like and then select **Create**.
 
-    ![Screenshot of the create a key blade that appears once generate/import button is selected](./media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-generate.png)
+    ![Screenshot of the create a key pane that appears once generate/import button is selected](./media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-generate.png)
+
+### Add an Azure RBAC role
+
+Now that you've created the Azure key vault and a key, you must add an Azure RBAC role, so you can use your Azure key vault with your disk encryption set.
+
+1. Select **Access control (IAM)** and add a role.
+1. Add either the **Key Vault Administrator**, **Owner**, or **Contributor** roles.
 
 ## Set up your disk encryption set
 
 1. Search for **Disk Encryption Sets** and select it.
-1. On the **Disk Encryption Sets** blade select **+Add**.
+1. On the **Disk Encryption Sets** pane select **+Add**.
 
     ![Screenshot of the disk encryption portal main screen. Highlighting the Add button](./media/virtual-machines-disk-encryption-portal/sever-side-encryption-create-disk-encryption-set.png)
 
 1. Select your resource group, name your encryption set, and select the same region as your key vault.
-1. For **Encryption type** select **Encryption at-rest with a customer-managed key**.
+1. For **Encryption type**, select **Encryption at-rest with a customer-managed key**.
 
     > [!NOTE]
     > Once you create a disk encryption set with a particular encryption type, it cannot be changed. If you want to use a different encryption type, you must create a new disk encryption set.
 
 1. Select **Click to select a key**.
-1. Select the key vault and key you created previously, as well as the version.
+1. Select the key vault and key you created previously, and the version.
 1. Press **Select**.
 1. Select **Review + Create** and then **Create**.
 
-    ![Screenshot of the disk encryption creation blade. Showing the subscription, resource group, disk encryption set name, region, and key vault + key selector.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png)
-
-1. Open the disk encryption set once it finishes creating and select the alert that pops up.
-
-    ![Screenshot of alert popup: 'To associate a disk, image, or snapshot with a disk encryption set, you must grant permissions to the key vault'. Select this alert to continue](./media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-encryption-set-alert-fix.png)
-
-    Two notifications should pop up and succeed. This allows you to use the disk encryption set with your key vault.
-
-    ![Screenshot of successful permission and role assignment for your key vault.](./media/virtual-machines-disk-encryption-portal/disk-encryption-notification-success.png)
+    ![Screenshot of the disk encryption creation pane. Showing the subscription, resource group, disk encryption set name, region, and key vault + key selector.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png)

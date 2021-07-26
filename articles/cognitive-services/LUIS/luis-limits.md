@@ -4,7 +4,7 @@ description: This article contains the known limits of Azure Cognitive Services 
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 06/04/2020
+ms.date: 05/26/2021
 ---
 # Limits for your LUIS model and keys
 LUIS has several limit areas. The first is the [model limit](#model-limits), which controls intents, entities, and features in LUIS. The second area is [quota limits](#key-limits) based on key type. A third area of limits is the [keyboard combination](#keyboard-controls) for controlling the LUIS website. A fourth area is the [world region mapping](luis-reference-regions.md) between the LUIS authoring website and the LUIS [endpoint](luis-glossary.md#endpoint) APIs.
@@ -24,7 +24,7 @@ If your app exceeds the LUIS model limits, consider using a [LUIS dispatch](luis
 | External entities | no limits |
 | [Intents][intents]|500 per application: 499 custom intents, and the required _None_ intent.<br>[Dispatch-based](https://aka.ms/dispatch-tool) application has corresponding 500 dispatch sources.|
 | [List entities](./luis-concept-entity-types.md) | Parent: 50, child: 20,000 items. Canonical name is *default character max. Synonym values have no length restriction. |
-| [machine-learning entities + roles](./luis-concept-entity-types.md):<br> composite,<br>simple,<br>entity role|A limit of either 100 parent entities or 330 entities, whichever limit the user hits first. A role counts as an entity for the purpose of this limit. An example is a composite with a simple entity, which has 2 roles is: 1 composite + 1 simple + 2 roles = 4 of the 330 entities.<br>Subentities can be nested up to 5 levels, with a maximum of 10 children per level.|
+| [machine-learning entities + roles](./luis-concept-entity-types.md):<br> composite,<br>simple,<br>entity role|A limit of either 100 parent entities or 330 entities, whichever limit the user hits first. A role counts as an entity for the purpose of this limit. An example is a composite with a simple entity, which has 2 roles is: 1 composite + 1 simple + 2 roles = 4 of the 330 entities.<br>Subentities can be nested up to 5 levels, with a maximum of 20 children per level.|
 |Model as a feature| Maximum number of models that can be used as a feature to a specific model to be 10 models. The maximum number of phrase lists used as a feature for a specific model to be 10 phrase lists.|
 | [Preview - Dynamic list entities](./luis-migration-api-v3.md)|2 lists of ~1k per query prediction endpoint request|
 | [Patterns](luis-concept-patterns.md)|500 patterns per application.<br>Maximum length of pattern is 400 characters.<br>3 Pattern.any entities per pattern<br>Maximum of 2 nested optional texts in pattern|
@@ -74,7 +74,6 @@ Use the _kind_, `LUIS.Authoring`, when filtering resources in the Azure portal. 
 
 |Authoring resource|Authoring TPS|
 |--|--|
-|Starter|1 million/month, 5/second|
 |F0 - Free tier |1 million/month, 5/second|
 
 * TPS = Transactions per second
@@ -111,7 +110,7 @@ Use the _kind_, `LUIS`, when filtering resources in the Azure portal.The LUIS qu
 Your sign-in access is for **60 minutes**. After this time period, you will get this error. You need to sign in again.
 
 [luis-get-started-create-app]: ./luis-get-started-create-app.md
-[batch-testing]: ./luis-concept-test.md#batch-testing
+[batch-testing]: ./luis-interactive-test.md#batch-testing
 [intents]: ./luis-concept-intent.md
 [phrase-list]: ./luis-concept-feature.md
 [utterances]: ./luis-concept-utterance.md
