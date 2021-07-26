@@ -37,12 +37,12 @@ The Azure portal is a convenient way to configure provisioning for individual ap
 1. Upon successful sign-in, you'll see the user account details in the left-hand pane.
 
 ### Retrieve the gallery application template identifier
-Applications in the Azure AD application gallery each have an [application template](/graph/api/applicationtemplate-list?tabs=http&view=graph-rest-beta) that describes the metadata for that application. Using this template, you can create an instance of the application and service principal in your tenant for management.
+Applications in the Azure AD application gallery each have an [application template](/graph/api/applicationtemplate-list?tabs=http&view=graph-rest-beta) that describes the metadata for that application. Using this template, you can create an instance of the application and service principal in your tenant for management. Retrieve the identifier of the application template for **AWS Single-Account Access** and from the response, record the value of the **id** property to use later in this tutorial.
 
 #### Request
 
 ```msgraph-interactive
-GET https://graph.microsoft.com/beta/applicationTemplates
+GET https://graph.microsoft.com/beta/applicationTemplates?$filter=displayName eq 'AWS Single-Account Access'
 ```
 #### Response
 
@@ -75,7 +75,7 @@ Content-type: application/json
              "developerServices"
          ],
          "publisher": "Amazon",
-         "description": null    
+         "description": "Federate to a single AWS account and use SAML claims to authorize access to AWS IAM roles. If you have many AWS accounts, consider using the AWS Single Sign-On gallery application instead."    
   
 }
 ```
