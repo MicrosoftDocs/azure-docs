@@ -3,7 +3,7 @@ title: Restore VMs by using the Azure portal
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: geg
 ms.topic: conceptual
-ms.date: 05/01/2021
+ms.date: 75/27/2021
 ---
 # How to restore Azure VM data in Azure portal
 
@@ -114,6 +114,9 @@ After the disk is restored, use the template that was generated as part of the r
 1. In **Restore**, select **Deploy Template** to initiate template deployment.
 
     ![Restore job drill-down](./media/backup-azure-arm-restore-vms/restore-job-drill-down1.png)
+   
+   >[!Note]
+   >For shared access signature (SAS) that have set **Allow storage account key access** as disabled, the download content operation fails and the **Deploy Template** button doesn't function.
 
 1. To customize the VM setting provided in the template, select **Edit template**. If you want to add more customizations, select **Edit parameters**.
     - [Learn more](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template) about deploying resources from a custom template.
