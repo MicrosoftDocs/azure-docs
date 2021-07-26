@@ -13,13 +13,11 @@ This article explains how to back up virtual machines on Azure Stack HCI using M
 
 MABS can back up virtual machines running on Azure Stack HCI host servers in the following scenarios:
 
-- **Virtual machines in cluster with local or direct storage**: Back up virtual machines hosted on Azure Stack HCI host standalone servers that have local or directly attached storage. For example, a hard drive, a storage area network (SAN) device, or a network attached storage (NAS) device. The MABS protection agent must be installed on all hosts.
+- **Virtual machines in cluster with local or direct storage**: Back up virtual machines in a cluster that has local or directly attached storage. For example, a hard drive, a storage area network (SAN) device, or a network attached storage (NAS) device. The MABS protection agent must be installed on all hosts.
 
 - **Virtual machines in a cluster with CSV storage**: Back up virtual machines hosted on an Azure Stack HCI cluster with Cluster Shared Volume (CSV) storage. The MABS protection agent is installed on each cluster node.
 
-- **VM Move**: When VMs are moved within a stretched/normal cluster, MABS continues to protect the virtual machines as long as the MABS protection agent is installed on the Azure Stack HCI host. The way in which MABS protects the virtual machines depends on the type of live migration involved.
-
-- **VM Move within a cluster**: With a VM Move within a cluster, MABS detects the migration, and backs up the virtual machine from the new cluster node without any requirement for user intervention. Because the storage location hasn't changed, MABS continues with express full backups. 
+- **VM Move within a cluster**: When VMs are moved within a stretched/normal cluster, MABS continues to protect the virtual machines as long as the MABS protection agent is installed on the Azure Stack HCI host. The way in which MABS protects the virtual machines depends on the type of live migration involved. With a VM Move within a cluster, MABS detects the migration, and backs up the virtual machine from the new cluster node without any requirement for user intervention. Because the storage location hasn't changed, MABS continues with express full backups. 
 
 - **VM Move to a different stretched/normal cluster**: VM Move to a different stretched/normal cluster is not supported.
 

@@ -2,7 +2,7 @@
 title: What's new in Microsoft Azure Backup Server
 description: Microsoft Azure Backup Server gives you enhanced backup capabilities for protecting VMs, files and folders, workloads, and more.
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 07/27/2021
 ---
 
 # What's new in Microsoft Azure Backup Server (MABS)
@@ -11,7 +11,7 @@ ms.date: 07/13/2021
 
 Microsoft Azure Backup Server (MABS) version 3 UR2 supports the following new features/feature updates.
 
-For information about the UR2 issues fixes and the installation instructions, see the [KB article]().
+For information about the UR2 issues fixes and the installation instructions, see the [KB article](https://prod.support.services.microsoft.com/en-us/topic/350de164-0ae4-459a-8acf-7777dbb7fd73?preview=true).
 
 ### Support for Azure Stack HCI
 
