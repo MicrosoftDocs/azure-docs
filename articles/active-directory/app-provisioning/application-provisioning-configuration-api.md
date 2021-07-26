@@ -42,7 +42,7 @@ Applications in the Azure AD application gallery each have an [application templ
 #### Request
 
 ```msgraph-interactive
-GET https://graph.microsoft.com/v1.0/applicationTemplates?$filter=displayName eq 'AWS Single Sign-on'
+GET https://graph.microsoft.com/beta/applicationTemplates?$filter=displayName eq 'AWS Single Sign-on'
 ```
 #### Response
 
