@@ -54,7 +54,7 @@ A pattern is a phrase that includes an Entity somewhere within it. An Entity is 
     Take me to the {floorName}
 ```
 
-This defines an Entity with the id "floorName" which is case sensitive.
+This defines an Entity with the ID "floorName" which is case sensitive.
 
 All other special characters and punctuation will be ignored.
 
@@ -115,7 +115,7 @@ Now create an `IntentRecognizer`. Insert this code right below your Speech confi
     auto intentRecognizer = IntentRecognizer::FromConfig(config);
 ```
 
-## Add some Intents
+## Add some intents
 
 You need to associate some patterns with the `IntentRecognizer` by calling `AddIntent()`.
 We will add 2 intents with the same ID for changing floors, and another intent with a separate ID for opening and closing doors.
