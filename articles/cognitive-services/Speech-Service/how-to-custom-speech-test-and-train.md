@@ -148,7 +148,7 @@ Audio files can have silence at the beginning and end of the recording. If possi
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
 > [!TIP]
-> Don’t even have any real audio? You can also upload a text (.txt) file (select type **Transcript (automatic audio synthesis)** when uploading data) with some testing sentences, and audio pair for each spoken sentence will be automatically synthesized, leveraging the state-of-the-art text-to-speech technology.
+> Don’t even have any real audio? You can also upload a text (.txt) file (select type **Transcript (automatic audio synthesis)** when uploading data) with some testing sentences, and audio pair for each spoken sentence will be automatically synthesized.
 >
 > The maximum file size is 500KB. We will synthesize one audio for each line, and the maximum size of each line is 65535 bytes.
 
