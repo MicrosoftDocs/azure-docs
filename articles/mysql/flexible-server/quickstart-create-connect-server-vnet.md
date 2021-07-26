@@ -100,7 +100,7 @@ Since the server is in virtual network, you can only connect to the server from 
    > :::image type="content" source="./media/quickstart-create-connect-server-vnet/vm-add-new-subnet.png" alt-text="Screenshot of adding a new subnet for virtual machine" lightbox="./media/quickstart-create-connect-server-vnet/vm-add-new-subnet.png"::: 
 
 10. After the subnet has been created successfully , close the page.
-   > :::image type="content" source="./media/quickstart-create-connect-server-vnet/subnet-create-success.png" alt-text="Screenshot of success with adding a new subnet for virtual machine" lightbox="./media/quickstart-create-connect-server-vnet/subnet-create-success.png":::
+   > :::image type="content" source="./media/quickstart-create-connect-server-vnet/subnetcreate-success.png" alt-text="Screenshot of success with adding a new subnet for virtual machine" lightbox="./media/quickstart-create-connect-server-vnet/subnetcreate-success.png":::
 
 11. Select **Review + Create**.
 12. Select **Create**. When the **Generate new key pair** window opens, select **Download private key and create resource**. Your key file will be download as **myKey.pem**.
