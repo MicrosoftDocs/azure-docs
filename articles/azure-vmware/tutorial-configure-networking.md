@@ -41,7 +41,7 @@ You can use the **Azure vNet connect** feature to use an existing vNet or create
 
 ### Select an existing vNet
 
-When you select an existing vNet, the ARM template that creates the vNet and other resources gets redeployed. The resources in this case are the public IP, gateway, gateway connection, and ExpressRoute authorization key. If everything is setup, the deployment won't change anything. If anything is missing, on the other hand, it gets created.  For example, if the GatewaySubnet is missing, then it gets added during the deployment.
+When you select an existing vNet, the Azure Resource Manager (ARM) template that creates the vNet and other resources gets redeployed. The resources in this case are the public IP, gateway, gateway connection, and ExpressRoute authorization key. If everything is set up, the deployment won't change anything. If anything is missing, on the other hand, it gets created.  For example, if the GatewaySubnet is missing, then it gets added during the deployment.
 
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Connectivity**.
 
@@ -70,7 +70,7 @@ When you create a new vNet, the required components needed to connect to Azure V
 
    :::image type="content" source="media/networking/create-new-virtual-network.png" alt-text="Screenshot showing the Create virtual network window.":::
 
-The vNet with the provided address range and GatewaySubnet are created in your subscription and resource group.  
+The vNet with the provided address range and GatewaySubnet is created in your subscription and resource group.  
 
 
 ## Connect to the private cloud manually
