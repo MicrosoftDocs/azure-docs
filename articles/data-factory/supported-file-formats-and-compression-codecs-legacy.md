@@ -5,7 +5,7 @@ description: 'This topic describes the file formats and compression codes that a
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
-ms.custom: synapse, synapse
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 12/10/2019
 ---

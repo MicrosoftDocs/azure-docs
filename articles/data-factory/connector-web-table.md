@@ -4,7 +4,7 @@ titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn about Web Table Connector of Azure Data Factory that lets you copy data from a web table to data stores supported by Data Factory as sinks. 
 author: jianleishen
 ms.service: data-factory
-ms.custom: synapse, synapse
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jianleishen

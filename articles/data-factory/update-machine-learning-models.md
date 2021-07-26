@@ -6,7 +6,7 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
-ms.custom: synapse, synapse
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 07/16/2020
 ---

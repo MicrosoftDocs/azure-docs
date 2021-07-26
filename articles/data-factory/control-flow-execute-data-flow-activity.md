@@ -4,7 +4,7 @@ titleSuffix: Azure Data Factory & Synapse Analytics
 description: How to execute data flows from inside an Azure Data Factory or Synapse Analytics pipeline. 
 author: kromerm
 ms.service: data-factory
-ms.custom: synapse, synapse
+ms.custom: synapse
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 05/20/2021

@@ -4,7 +4,7 @@ titleSuffix: Azure Data Factory & Synapse Analytics
 description: The Teradata Connector of the Data Factory service lets you copy data from a Teradata Vantage to data stores supported by Data Factory as sinks. 
 author: jianleishen
 ms.service: data-factory
-ms.custom: synapse, synapse
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.author: jianleishen

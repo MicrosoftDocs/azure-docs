@@ -4,7 +4,7 @@ titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to troubleshoot external control activities in Azure Data Factory.
 author: nabhishek
 ms.service: data-factory
-ms.custom: synapse, synapse
+ms.custom: synapse
 ms.topic: troubleshooting
 ms.date: 06/18/2021
 ms.author: abnarain

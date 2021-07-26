@@ -6,7 +6,7 @@ ms.author: orspodek
 author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019, synapse, synapse
+ms.custom: seo-lt-2019, synapse
 ms.date: 03/24/2020
 ---
 

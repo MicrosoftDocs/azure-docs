@@ -4,7 +4,7 @@ titleSuffix: Azure Data Factory & Synapse Analytics
 description: Use GitHub to specify your Common Data Model entity references
 author: linda33wj
 ms.service: data-factory
-ms.custom: synapse, synapse
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.author: jingwang

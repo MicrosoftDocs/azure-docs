@@ -4,7 +4,7 @@ titleSuffix: Azure Data Factory & Synapse Analytics
 description: This topic describes how to deal with delimited text format in Azure Data Factory and Synapse Analytics pipelines.
 author: jianleishen
 ms.service: data-factory
-ms.custom: synapse, synapse
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.author: jianleishen

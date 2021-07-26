@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.custom: seo-lt-2019, synapse, synapse
+ms.custom: seo-lt-2019, synapse
 ms.date: 07/31/2018
 ---
 
