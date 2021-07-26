@@ -29,7 +29,9 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-### Software RequirementsAccess to ServiceNow and Defender for IoT 
+### Software Requirements
+
+Access to ServiceNow and Defender for IoT 
 
 - ServiceNow Service Management version 3.0.2.
 
@@ -80,7 +82,7 @@ Configure Defender for IoT to push alert information to the ServiceNow tables. D
 
 1. Select the :::image type="icon" source="media/tutorial-servicenow/plus-icon.png" border="false"::: button.
 
- :::image type="content" source="media/tutorial-servicenow/forwarding-rule.png" alt-text="Create Forwarding Rule":::
+    :::image type="content" source="media/tutorial-servicenow/forwarding-rule.png" alt-text="Create Forwarding Rule":::
 
 1. Add a rule name.
 
