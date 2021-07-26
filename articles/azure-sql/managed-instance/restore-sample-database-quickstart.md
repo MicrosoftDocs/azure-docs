@@ -51,7 +51,7 @@ In SQL Server Management Studio, follow these steps to restore the Wide World Im
 
 ![New restore wizard window](./media/restore-sample-database-quickstart/new_restore_wizard_window.png)
 
-4. On the "Select backup devices" click on the button "Add". The Backup media type only allow "URL" since this is the only source type available.
+4. On the "Select backup devices" click on the button "Add". The Backup media type only allow "URL" since this is the only source type supported.
 
 ![Select device](./media/restore-sample-database-quickstart/restore-wizard-select-device.png)
 
