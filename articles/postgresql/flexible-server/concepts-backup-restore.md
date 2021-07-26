@@ -112,7 +112,7 @@ After restoring the database, you can perform the following tasks to get your us
 
 * **What are the backup windows for my server? Can I customize it?**
   
-    Backup windows are inherently managed by Azure and cannot be customized. The first full snapshot backup is scheduled immediately after a server is created. Subsequent snapshot backups are differential backups only. Differential snapshot backups occur at least once a day. 
+    Backup windows are inherently managed by Azure and cannot be customized. The first full snapshot backup is scheduled immediately after a server is created. Subsequent snapshot backups are incremental backups that occur once a day.
 
 * **Are my backups encrypted?**
   
@@ -123,7 +123,7 @@ After restoring the database, you can perform the following tasks to get your us
     Restoring a single/few database(s) or tables is not directly supported. However, you need to restore the entire server to a new server and then extract the table(s) or database(s) needed and import them to your server.
 
 * **Is my server available while the backup is in progress?**
-    Yes. The snapshot operation only takes few seconds and doesn’t interfere with production workloads ensuring high availability of the server. 
+    Yes. Backups are online operations using snapshots. The snapshot operation only takes few seconds and doesn’t interfere with production workloads ensuring high availability of the server. 
 
 * **When setting up the maintenance window for the server do we need to account for backup window?**
   
@@ -131,7 +131,7 @@ After restoring the database, you can perform the following tasks to get your us
 
 * **Where are my automated backups stored and how do I manage their retention?**
   
-    Azure Database for PostgreSQL automatically creates server backups and stores them automatically in zone-redundant storage in regions where multiple zones are supported or in locally redundant storage in regions that do not support multiple zones yet. These backup files cannot be exported. You can use backups to restore your server to a point-in-time only. The default backup retention period is seven days. You can optionally configure the database backup from 1 to 35 days.
+    Azure Database for PostgreSQL automatically creates server backups and stores them automatically in zone-redundant storage in regions where multiple zones are supported or in locally redundant storage in regions that do not support multiple zones yet. These backup files cannot be exported. You can use backups to restore your server to a point-in-time only. The default backup retention period is seven days. You can optionally configure the backup retention up to 35 days.
 
 * **How are backups performed in a HA enabled servers?**
   

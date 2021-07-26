@@ -90,19 +90,19 @@ You can use this feature to simulate an unplanned outage scenario while running 
 
 This feature triggers brings the primary server down and initiates the failover workflow in which the standby promote operation is performed. Once the standby completes the recovery process till the last committed data, it is promoted to be the primary server. DNS records are updated and your application can connect to the promoted primary server. Your application can continue to write to the primary while a new standby server is established in the background. The following are the steps performed:
   
-  1. Primary server is stopped.
-  2. Application encounters downtime 
+  1. Primary server is stopped shortly after the failover request is received.
+  2. Application encounters downtime as the primary server is down.
   3. Internal monitoring system detects the failure and initiates a failover to the standby server. 
   4. Standby server enters recovery mode before being fully promoted as an independent server.
-  5. The failover process waits for the recovery to complete
-  6. Once the server is up, DNS is updated with the same hostname.  Up until this step, your application will encounter downtime.
+  5. The failover process waits for the standby recovery to complete.
+  6. Once the server is up, DNS record is updated with the same hostname, but using the standby's IP address.
   7. Application can reconnect to the new primary server and resume the operation.
   8. A standby server in the preferred zone is established.
   9. Standby server starts to recover logs (from Azure BLOB) that it missed during its establishment.
   10. A steady-state between the primary and the standby server is established.
   11. Forced failover process is complete.
 
-Application downtime is expected between step #1 and step #7.
+Application downtime is expected to start after step #1 and persists until step #6 is completed. The rest of the steps happen in the background without impacting the application writes and commits.
 
 ### Planned failover
 
@@ -111,8 +111,8 @@ You can use this feature for failing over to the standby server with reduced dow
 When executing this feature, the standby server is first prepared to make sure it is caught up with recent transactions allowing the application to continue to perform read/writes. The standby is then promoted and the connections to the primary is severed. Your application can continue to write to the primary while a new standby server is established in the background. The following are the steps involved with planned failover.
 
    1. Wait for the standby server to have caught-up with primary 
-   2. Internal monitoring system initiates the failover workflow
-   3. Application writes are blocked.
+   2. Internal monitoring system initiates the failover workflow.
+   3. Application writes are blocked when the standby server is close to primary log sequence number (LSN).
    4. Standby server is promoted to be an independent server.
    5. DNS record is updated with the new standby server's IP address. 
    6. Application to reconnect and resume its read/write with new primary
@@ -121,13 +121,13 @@ When executing this feature, the standby server is first prepared to make sure i
    9. A steady-state between the primary and the standby server is established.
   10. Planned failover process is complete.
 
-Application downtime is expected between step #3 and step #6.
+Application downtime starts at step #3 and can resume operation post step #5. The rest of the steps happen in the background without impacting application writes and commits.
 
-### Considerations during performing failovers
+### Considerations while performing on-demand failovers
 
 * The overall end-to-end operation time may be seen longer than the actual downtime experienced by the application. Please measure the downtime from the application perspective.
 * Please do not perform immediate, back-to-back failovers. Wait for at least 15-20 minutes between failovers, which will  allow the new standby server to be fully established.
-* For the planned failover, it is recommended to perform during low activity period.
+* For the planned failover with reduced downtime, it is recommended to perform during low activity period.
 
 See [this guide](how-to-manage-high-availability-portal.md) for step-by-step instructions.
 
@@ -187,7 +187,7 @@ Flexible servers that are configured with high availability, log data is replica
 ### HA configuration questions
 
 * **Is zone redundant HA available in all regions?** <br>
-    Zone-redundant HA is available in regions that support multiple AZs in the region. For the latest region support, please see [this documentation](https://docs.microsoft.com/azure/postgresql/flexible-server/overview#azure-regions). We are continuously adding more regions and enabling multiple AZs. 
+    Zone-redundant HA is available in regions that support multiple AZs in the region. For the latest region support, please see [this documentation](overview.md#azure-regions). We are continuously adding more regions and enabling multiple AZs. 
 
 * **What mode of replication is between primary and standby servers?** <br>
     Synchronous mode of replication is established between the primary and the standby server. Application writes and commits are acknowledged only after the Write Ahead Log (WAL) data is persisted on the standby site. This enables zero data loss in the event of a failover.
