@@ -42,7 +42,7 @@ server name.
 >
 > Some Hyperscale (Citus) server groups do not support metric splitting. On
 > these server groups, you can view metrics for individual nodes by clicking
-> the node name hyperlink in the server group **overview** page. Then open the
+> the node name in the server group **Overview** page. Then open the
 > **Metrics** page for the node.
 
 ### List of metrics
