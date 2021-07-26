@@ -1,7 +1,7 @@
 ---
 title: Alter row transformation in mapping data flow
 titleSuffix: Azure Data Factory & Synapse Analytics
-description: How to update database target using the alter row transformation in mapping data flow
+description: How to update database target using the alter row transformation in the mapping data flow in Azure Data Factory and Synapse Analytics pipelines.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -55,13 +55,13 @@ The sink transformation requires either a single key or a series of keys for uni
 
 ## Merges and upserts with Azure SQL Database and Synapse
 
-ADF Data Flows supports merges against Azure SQL Database and Synapse database pool (data warehouse) with the upsert option.
+Data Flows support merges against Azure SQL Database and Synapse database pool (data warehouse) with the upsert option.
 
-However, you may run into scenarios where your target database schema utilized the identity property of key columns. ADF requires you to identify the keys that you will use to match the row values for updates and upserts. But if the target column has the identity property set and you are using the upsert policy, the target database will not allow you to write to the column. You may also run into errors when you try to upsert against a distributed table's distribution column.
+However, you may run into scenarios where your target database schema utilized the identity property of key columns. The service requires you to identify the keys that you will use to match the row values for updates and upserts. But if the target column has the identity property set and you are using the upsert policy, the target database will not allow you to write to the column. You may also run into errors when you try to upsert against a distributed table's distribution column.
 
 Here are ways to fix that:
 
-1. Go to the Sink transformation Settings and set "Skip writing key columns". This will tell ADF to not write the column that you have selected as the key value for your mapping.
+1. Go to the Sink transformation Settings and set "Skip writing key columns". This will tell the service to not write the column that you have selected as the key value for your mapping.
 
 2. If that key column is not the column that is causing the issue for identity columns, then you can use the Sink transformation pre-processing SQL option: ```SET IDENTITY_INSERT tbl_content ON```. Then, turn it off with the post-processing SQL property: ```SET IDENTITY_INSERT tbl_content OFF```.
 
@@ -85,7 +85,7 @@ Here are ways to fix that:
 
 The below example is an alter row transformation named `CleanData` that takes an incoming stream `SpecifyUpsertConditions` and creates three alter row conditions. In the previous transformation, a column named `alterRowCondition` is calculated that determines whether or not a row is inserted, updated, or deleted in the database. If the value of the column has a string value that matches the alter row rule, it is assigned that policy.
 
-In the Data Factory UX, this transformation looks like the below image:
+In the UI, this transformation looks like the below image:
 
 ![Alter row example](media/data-flow/alter-row4.png "Alter row example")
 
