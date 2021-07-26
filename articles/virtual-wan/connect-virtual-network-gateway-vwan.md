@@ -90,6 +90,7 @@ In this section, you create two Azure VPN Gateway local network gateways. The co
 1. Create the local network gateway using these settings. For information about how to create a VPN Gateway local network gateway, see the VPN Gateway article [Create a local network gateway](../vpn-gateway/tutorial-site-to-site-portal.md#LocalNetworkGateway).
 
    * **IP address** - Use the Instance0 IP Address shown for *gatewayconfiguration* from the configuration file.
+   * **Address Space** If the connection isn't over BGP, make sure **Configure BGP settings** remains unchecked.  Enter the address spaces that you're going to advertise from the  Virtual Network Gateway side. You can add multiple address space ranges. Make sure that the ranges you specify here do not overlap with ranges of other networks that you want to connect to. 
    * **BGP** - If the connection is over BGP, select **Configure BGP settings** and enter the ASN '65515'. Enter the BGP peer IP address. Use 'Instance0 BgpPeeringAddresses' for *gatewayconfiguration* from the configuration file.
    * **Subscription, Resource Group, and Location** are same as for the Virtual WAN hub.
 2. Review and create the local network gateway. Your local network gateway should look similar to this example.
