@@ -74,9 +74,11 @@ The following example illustrates a basic skillset by showing two [built-in skil
 
 ### Inputs, outputs, and the enrichment tree
 
-A skillset transforms a search document as it moves through skillset execution, creating new information or structures that can be used in a search index. The new content that gets created in a document has a hierarchical structure called an *enrichment tree*. An enrichment tree consists of the extracted content, plus any new fields that contain content created by a skill, such as translated_text, keyPhrases, or locations. Although you can [visualize and work with an enrichment tree](cognitive-search-debug-session.md) through a visual editor, it's mostly an internal structure. Having a basic understanding of an enrichment tree is relevant to inputs and outputs.
+A skillset transforms the content of a search document as it moves through skillset execution, creating new information or structures that can be used in a search index. This "created content" is represented in a hierarchical structure called an *enrichment tree*. An enrichment tree consists of the extracted content, plus any new fields that contain content created by a skill, such as translated_text from the [Text Translation skill](cognitive-search-skill-text-translation[]), keyPhrases from the Key Phrase Extraction skill](cognitive-search-skill-keyphrases.md), or locations from [Entity Recognition skill](cognitive-search-skill-entity-recognition-v3.md). Although you can [visualize and work with an enrichment tree](cognitive-search-debug-session.md) through a visual editor, it's mostly an internal structure. 
 
-Inputs read from the enrichment tree. Outputs write to the enrichment tree. As such, one of tasks you'll complete as part of skillset design is creating [output field mappings](cognitive-search-output-field-mapping.md) that move content out of the enrichment tree, and into a field in a search index or knowledge store.
+Having a high-level understanding of an enrichment tree is relevant to understanding how inputs and outputs work for each skill.Inputs are read from the enrichment tree. Outputs write back to the enrichment tree. 
+
+Because a skill's inputs and outputs are reading from and writing to enrichment trees, one of tasks you'll complete as part of skillset design is creating [output field mappings](cognitive-search-output-field-mapping.md) that move content out of the enrichment tree, and into a field in a search index or knowledge store.
 
 <!-- ### Enrichment tree
 
@@ -182,7 +184,9 @@ The colors of the connectors in the tree above indicate that the enrichments wer
 
 In Azure Cognitive Search, an indexer saves the output it creates. One of the outputs is always a [searchable index](search-what-is-an-index.md). Specifying an index is a required component of an indexer, and when you attach a skillset, the output of the skillset, plus any fields that are imported directly from the source, are used to populate the index. Usually, the outputs of specific skills, such as key phrases or sentiment scores, are ingested into the index in a field created for that purpose.
 
-Optionally, an indexer can also send the output to a [knowledge store](knowledge-store-concept-intro.md) for consumption in other tools or processes. A knowledge store is defined as part of the skillset. Its definition determines whether your enriched documents are projected as tables or objects (files or blobs). Tabular projections are well suited for interactive analysis in tools like Power BI, whereas files and blobs are typically used in data science or similar processes. 
+Optionally, an indexer can also send the output to a [knowledge store](knowledge-store-concept-intro.md) for consumption in other tools or processes. A knowledge store is defined as part of the skillset. Its definition determines whether your enriched documents are projected as tables or objects (files or blobs). Tabular projections are well suited for interactive analysis in tools like Power BI, whereas files and blobs are typically used in data science or similar processes.
+
+Finally, an indexer can [cache enriched documents](cognitive-search-incremental-indexing-conceptual.md) in Azure blob storage for potential reuse in subsequent skillset executions. This is helpful if your skillset include image analysis or OCR, and you want to avoid the time and expense of re-processing image files.
 
 <!-- In this section, you'll learn how skillset composition can shape the tables or objects you want to project. -->
 
