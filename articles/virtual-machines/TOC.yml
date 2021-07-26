@@ -166,6 +166,8 @@
       - name: Overview
         displayName: General purpose, sizes, size, vm size
         href: sizes-general.md
+      - name: Av1-series retirement
+        href: av1-series-retirement.md    
       - name: Av2-series
         href: av2-series.md
       - name: B-series burstable
