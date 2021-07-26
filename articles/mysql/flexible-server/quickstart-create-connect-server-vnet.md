@@ -41,7 +41,7 @@ Complete these steps to create a flexible server:
 
     > :::image type="content" source="./media/quickstart-create-connect-server-vnet/mysql-flexible-server-create-portal.png" alt-text="Screenshot that shows the Basics tab of the Flexible server page." lightbox="/media/quickstart-create-connect-server-vnet/mysql-flexible-server-create-portal.png":::
 
-   > ![TIP]
+   > [!TIP]
    > For faster data loads during migration, it is recommended to increase the IOPS to the maximum size supported by compute size and later scale it back to save cost.
 
 5.  Go to the **Networking** tab, select **private access**.You can't change the connectivity method after you create the server. Select **Create virtual network** to create new  virtual network **vnetenvironment1**.
