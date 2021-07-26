@@ -171,9 +171,9 @@ Add any of the following parameters to your query:
     Summarize count() by <each parameter you’ve projected in the activity>, bin (TimeGenerated, Bucket in Hours)
     ```
 
-    For example:
+For example:
 
-    :::image type="content" source="./media/customize-entity-activities/new-activity-title.png" alt-text="Screenshot - See the available values for your activity title":::
+:::image type="content" source="./media/customize-entity-activities/new-activity-title.png" alt-text="Screenshot - See the available values for your activity title":::
 
 When you are satisfied with your query and activity title, select **Next : Review**.
 
