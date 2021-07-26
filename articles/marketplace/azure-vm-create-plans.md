@@ -174,7 +174,7 @@ Add open public or private ports on a deployed virtual machine.
 
 ### Properties
 
-Here is a list of the properties that can be selected for your VM.
+Here is a list of properties that can be selected for your VM.
 
 **Supports backup**: Enable this property if your images support Azure VM backup. Learn more about [Azure VM backup](https://go.microsoft.com/fwlink/?linkid=2155616).
 
