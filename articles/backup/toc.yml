@@ -330,6 +330,8 @@
         href: backup-mabs-whats-new-mabs.md
       - name: Release notes MABS
         href: backup-mabs-release-notes-v3.md
+      - name: Turn on/off telemetry settings
+        href: manage-telemetry.md
       - name: Unattended installation
         href: backup-mabs-unattended-install.md
     - name: Protect workloads
