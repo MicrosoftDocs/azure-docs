@@ -409,7 +409,7 @@ Here are some of time zones supported for Schedule triggers:
 | India Standard Time (IST) | +5:30 | `India Standard Time` | No | `'yyyy-MM-ddTHH:mm:ss'` |
 | China Standard Time | +8 | `China Standard Time` | No | `'yyyy-MM-ddTHH:mm:ss'` |
 
-This list is incomplete. For complete list of time zone options, explore in the portal [Trigger creation page](#data-factory-ui)
+This list is incomplete. For complete list of time zone options, explore in the portal [Trigger creation page](#ui-experience)
 
 ### startTime property
 The following table shows you how the **startTime** property controls a trigger run:
