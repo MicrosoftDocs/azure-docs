@@ -25,8 +25,8 @@ With the Dynatrace OneAgent you can:
 ## Prerequisites
 
 * A Dynatrace account
-* [Azure CLI](/cli/azure/install-azure-cli)
-* A [PaaS token](https://www.dynatrace.com/support/help/reference/dynatrace-concepts/access-tokens/)
+* [Install Azure CLI](/cli/azure/install-azure-cli)
+* Create a [PaaS token](https://www.dynatrace.com/support/help/reference/dynatrace-concepts/access-tokens/)
 
 ## Set up integration 
 
@@ -44,27 +44,7 @@ To set up integration, use the instructions in the following sections.
 
 ### Determine the values for the required environment variables
 
-To set up OneAgent integration on your Azure Spring Cloud instance, you need to configure three environment variables: `DT_TENANT`, `DT_TENANTTOKEN`, and `DT_CONNECTION_POINT`.
-
-To determine the values for `DT_TENANTTOKEN` and `DT_CONNECTION_POINT`, make an API request as follows:
-
-For SaaS deployments, use the following command. Be sure to replace the placeholders *\<...>* with your own values.
-
-```
-curl https://<DT_TENANT>.live.dynatrace.com/api/v1/deployment/installer/agent/connectioninfo?Api-Token=<your_PaaS_token>
-```
-
-For Managed deployments, use the following command. Replace *\<your-domain>* with your Managed deployment domain and *\<your-environment-id>* with your [Dynatrace environment ID](https://www.dynatrace.com/support/help/get-started/monitoring-environment/environment-id/).
-
-```
-curl https://<your-domain>/e/<your-environment-id>/api/v1/deployment/installer/agent/connectioninfo?Api-Token=<your_PaaS_token>
-```
-
-For environment ActiveGates, use the following command. Replace *\<your-activegate-domain>* with your ActiveGate domain and *\<your-environment-id>* with your [Dynatrace environment ID](https://www.dynatrace.com/support/help/get-started/monitoring-environment/environment-id/).
-
-```
-curl https://<your-activegate-domain>/e/<your-environment-id>/api/v1/deployment/installer/agent/connectioninfo?Api-Token=<your_PaaS_token>
-```
+To set up OneAgent integration on your Azure Spring Cloud instance, you need to configure three environment variables: `DT_TENANT`, `DT_TENANTTOKEN`, and `DT_CONNECTION_POINT`. Please refer to [Integrate AppDynamics OneAgent with Azure Spring Cloud](https://docs.microsoft.com) (Note: **The link is pending on Dynatrace Side now**)
 
 ### Add the environment variables to your application
 
@@ -98,45 +78,40 @@ To add the key/value pairs using the Azure portal, use the following steps:
 
 ## View reports in Dynatrace
 
+>Note: Since the Dynatrace menu will evolve its layout gradually, so the dashboard may be moved to other sections in Dynatrace website.
+
 After you add the environment variables to your application, Dynatrace starts collecting data. To view reports, use the [Dynatrace menu](https://www.dynatrace.com/support/help/get-started/navigation/), go to **Services**, and then select your application.
 
-## Dynatrace dashboard
+* You can find the **Service flow** from **yourAppName/Details/Service flow**:
+   ![Service flow](media/dynatrace-oneagent/spring-cloud-dynatrace-app-flow.png)
 
-The following list shows how to find various areas of the Dynatrace dashboard.
+* You can find the **Method hotspots** from **yourAppName/Details/Method hotspots**:
+   ![Method hotspots](media/dynatrace-oneagent/spring-cloud-dynatrace-hotspots.png)
 
-* **Transactions and services** blade:
+* You can find the **Database statements** from **yourAppName/Details/Response time analysis**:
+   ![Database statements](media/dynatrace-oneagent/spring-cloud-dynatrace-database-contribution.png)
 
-   * You can find the **Service flow** from **yourAppName/Details/Service flow**:
+You can go to **Multidimensional analysis** section
 
-      ![Service flow](media/dynatrace-oneagent/spring-cloud-dynatrace-app-flow.png)
+* You can find the **Top database statements** from **Multidimensional analysis/Top database statements**:
 
-   * You can find the **Method hotspots** from **yourAppName/Details/Method hotspots**:
+  ![Top database statements](media/dynatrace-oneagent/spring-cloud-dynatrace-top-database.png)
 
-      ![Method hotspots](media/dynatrace-oneagent/spring-cloud-dynatrace-hotspots.png)
+* You can find the **Exceptions overview** from **Multidimensional analysis/Exceptions overview**:
 
-   * You can find the **Database statements** from **yourAppName/Details/Response time analysis**:
+  ![Exceptions overview](media/dynatrace-oneagent/spring-cloud-dynatrace-exception-analysis.png)
 
-      ![Database statements](media/dynatrace-oneagent/spring-cloud-dynatrace-database-contribution.png)
+You can go to **Profiling and optimization** section
 
-* **Diagnostic tools** blade:
+* You can find the **CPU analysis** from the following blade:
 
-   * You can find the **Top database statements** from **Multidimensional analysis/Top database statements**:
+  ![CPU analysis](media/dynatrace-oneagent/spring-cloud-dynatrace-cpu-analysis.png)
 
-      ![Top database statements](media/dynatrace-oneagent/spring-cloud-dynatrace-top-database.png)
+You can go to **Database** section
 
-   * You can find the **Exceptions overview** from **Multidimensional analysis/Exceptions overview**:
+* You can find **Backtrace** from the following blade:
 
-      ![Exceptions overview](media/dynatrace-oneagent/spring-cloud-dynatrace-exception-analysis.png)
-
-   * You can find the **CPU analysis** from the following blade:
-
-      ![CPU analysis](media/dynatrace-oneagent/spring-cloud-dynatrace-cpu-analysis.png)
-
-* **Databases** blade:
-
-   * You can find **Backtrace** from the following blade:
-
-      ![Backtrace](media/dynatrace-oneagent/spring-cloud-dynatrace-database-backtrace.png)
+  ![Backtrace](media/dynatrace-oneagent/spring-cloud-dynatrace-database-backtrace.png)
 
 ## Dynatrace OneAgent Logging
 
@@ -165,6 +140,9 @@ The Dynatrace OneAgent will update or upgrade quarterly with the JDK. Agent upda
 ## VNet injection instance outbound traffic configuration
 
 For VNet injection instances of Azure Spring Cloud, you need to make sure the outbound traffic is configured correctly for Dynatrace OneAgent. For details, see [Communication Endpoints of Dynatrace](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/deployment/oneagent/get-connectivity-info/?response-parameters%3C-%3Ejson-model=json-model).
+
+## Dynatrace Support Model
+Refer to [Dynatrace OneAgent platform and capability support matrix](https://www.dynatrace.com/support/help/technology-support/oneagent-platform-and-capability-support-matrix/#cloud-application-platforms)
 
 ## Next steps
 
