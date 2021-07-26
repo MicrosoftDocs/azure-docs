@@ -101,6 +101,48 @@ The previous examples demonstrated how to customize drawing options while instan
 </iframe>
 
 
+### Put a shape into edit mode
+
+Programmatically put an existing shape into edit mode by passing it into the drawing managers `edit` function. If the shape is a GeoJSON feature, wrap it with the `atls.Shape` class before passing it in.
+
+To programmatically take a shape out of edit mode, set the drawing managers mode to `idle`.
+
+```javascript
+//If you are starting with a GeoJSON feature, wrap it with the atlas.Shape class.
+var feature = { 
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [0,0]
+        },
+    "properties":  {}
+};
+
+var shape = new atlas.Shape(feature);
+
+//Pass the shape into the edit function of the drawing manager.
+drawingManager.edit(shape);
+
+//Later, to programmatically take shape out of edit mode, set mode to idle. 
+drawingManager.setOptions({ mode: 'idle' });
+```
+
+> [!NOTE]
+> When a shape is passed into the `edit` function of the drawing manager, it is added to the data source maintained by the drawing manager. If the shape was previously in another data source, it will be removed from that data source.
+
+To add shapes to the drawing manager so the end user can view and edit, but don't want to programmatically put them into edit mode, retrieve the data source from the drawing manager and add your shapes to it.
+
+```javascript
+//The shape(s) you want to add to the drawing manager so 
+var shape = new atlas.Shape(feature);
+
+//Retrieve the data source from the drawing manager.
+var source = drawingManager.getSource();
+
+//Add your shape.
+source.add(shape);
+```
+
 ## Next steps
 
 Learn how to use additional features of the drawing tools module:
