@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 007/21/2021
+ms.date: 07/26/2021
 ms.author: alkohli
 ---
 
@@ -18,7 +18,7 @@ ms.author: alkohli
 Azure Key Vault is integrated with Azure Stack Edge resource for secret management. This article provides details on how an Azure Key Vault is created for Azure Stack Edge resource during device activation and is then used for secret management. 
 
 
-## About Key vault and Azure Stack Edge
+## About key vault and Azure Stack Edge
 
 Azure Key Vault cloud service is used to securely store and control access to tokens, passwords, certificates, API keys, and other secrets. Key Vault also makes it easy to create and control the encryption keys used to encrypt your data. 
 
@@ -142,13 +142,17 @@ Follow these steps to delete the Azure Stack Edge resource and the associated ke
 
 1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Overview**.
 1. In the right pane, select **Delete**. This action will delete the Azure Stack Edge resource.
-1. You'll see a confirmation blade. Type your Azure Stack Edge resource name. To confirm the deletion of the associated key vault, type **Yes**. 
+
+   ![Delete Azure Stack Edge resource and associated key vault](media/azure-stack-edge-gpu-activation-key-vault/delete-azure-stack-edge-resource-1.png)  
+
+1. You'll see a confirmation blade. Type your Azure Stack Edge resource name. To confirm the deletion of the associated key vault, type **Yes**.
+
+    ![Confirm deletion of Azure Stack Edge resource and associated key vault](media/azure-stack-edge-gpu-activation-key-vault/confirm-delete-azure-stack-edge-resource-1.png)   
 1. Select **Delete**.
 
-The Azure Stack Edge resource and the key vault are deleted. <!--when the resource is deleted, is the storage account for auditing deleted?-->
+The Azure Stack Edge resource and the key vault are deleted.
 
-
-The key vault may be deleted accidentally when the Azure Stack Edge resource is in use. If this happens, a critical alert is raised in the Security page for your Azure Stack Edge resource. You can navigate to this page to recover your key vault. 
+The key vault may be deleted accidentally when the Azure Stack Edge resource is in use. If this happens, a critical alert is raised in the **Security** page for your Azure Stack Edge resource. You can navigate to this page to recover your key vault. 
 
 
 
@@ -167,7 +171,9 @@ Within 90 days of deletion, follow these steps to recover your key vault:
 
 - In the **Recover key vault** blade, select **Configure**. The following operations are performed as a part of the recovery:  
 
-    - A key vault is recovered with the same name. 
+    ![Recovery steps](media/azure-stack-edge-gpu-activation-key-vault/recover-key-vault-2.png) 
+
+    - A key vault is recovered with the same name and a lock is placed on the key vault resource. 
     
         > [!NOTE]
         > If your key vault is deleted, and the purge-protection period of 90 days hasn't elapsed, then in that time period, the key vault name can't be used to create a new key vault.
@@ -175,9 +181,11 @@ Within 90 days of deletion, follow these steps to recover your key vault:
     - System-assigned managed identity is granted access to the key vault.
     - Device secrets are pushed to the key vault. 
     
-    Select **Configure**. The key vault is recovered and when the recovery is complete, a notification is shown to that effect.
+    Select **Configure**. 
  
     ![Recover key vault blade](media/azure-stack-edge-gpu-activation-key-vault/recover-key-vault-1.png)  
+
+    The key vault is recovered and when the recovery is complete, a notification is shown to that effect.
 
 
 If the key vault is deleted and the purge-protection period of 90 days has elapsed, then you'll have the option of creating a new key vault through the [Recover key procedure](#recover-key-vault) described above. In this case, you'll provide a new name for your key vault. A new storage account is created, managed identity is granted access to this key vault, and device secrets are pushed to this key vault.
@@ -187,6 +195,8 @@ If the key vault is deleted and the purge-protection period of 90 days has elaps
 ## 
 
 MSI access policy has been deleted, alert, grant access to the MSI
+
+## View audit logs
 
 ## Purge key vault
 
