@@ -27,11 +27,16 @@ ms.custom: seodec18
 - **C++**: Simple Language Pattern matching with the Intent Recognizer now makes it easier to implement simple intent recognition scenarios. See documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started-intent-recognition?pivots=programming-language-cpp).
 - **C++/C#/Java**: We added a new API, `GetActivationPhrasesAsync()` to the `VoiceProfileClient` class for receiving a list of valid activation phrases in speaker recognition enrollment phase for independent recognition scenarios. 
     - **Important**: The Speaker Recognition feature is in Preview. All voice profiles created in Preview will be discontinued 90 days after the Speaker Recognition feature is moved out of Preview into General Availability. At that point the Preview voice profiles will stop functioning.
--**Python**: Added support for continuous Language Identification (LID) on the existing `SpeechRecognizer` and `TranslationRecognizer` objects. See documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-python).
+- **Python**: Added support for continuous Language Identification (LID) on the existing `SpeechRecognizer` and `TranslationRecognizer` objects. See documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-python).
 - **Python**: Added  a new Python object named `SourceLanguageRecognizer` to do one-time or continuous LID (without recognition or translation). See documentation [here](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.sourcelanguagerecognizer?view=azure-python).
--Support AAD authentication and User assigned Managed Identity
+- Support AAD authentication and User assigned Managed Identity
 - **JavaScript** `getActivationPhrasesAsync` API added to `VoiceProfileClient` class for receiving a list of valid activation phrases in speaker recognition enrollment phase for independent recognition scenarios. 
 - **JavaScript** `VoiceProfileClient`'s `enrollProfileAsync` API is now async awaitable. See this independent identification code for example usage.
+
+#### Improvements
+
+-	**AutoCloseable** support added to many Java objects. Now the try-with-resources model is supported to release resources. See [this sample that uses try-with-resources](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java#L28). Also see the Oracle Java documentation tutorial for [The try-with-resources Statement](https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html) to learn about this pattern.
+- SDK size reductions.
 
 #### Bug fixes
 
