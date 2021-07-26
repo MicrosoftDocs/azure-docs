@@ -20,9 +20,7 @@ The _Microsoft Azure Consumption Commitment (MACC)_ program is for [transactable
 
 ### Requirements for an offer to be enrolled in MACC
 
-An offer must meet the following requirements to be enrolled in the MACC program.
-
-To be enrolled in MACC, an offer must be:
+An offer must meet the following requirements to be enrolled in the MACC program:
 
 - Transactable with a pricing plan greater than $0  
     > [!NOTE]
