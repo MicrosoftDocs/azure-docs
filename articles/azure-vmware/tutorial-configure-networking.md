@@ -5,8 +5,6 @@ ms.topic: tutorial
 ms.custom: contperf-fy22q1
 ms.date: 07/30/2021
 
-#Customer intent: As a < type of user >, I want < what? > so that < why? >.
-
 ---
 
 # Tutorial: Configure networking for your VMware private cloud in Azure
