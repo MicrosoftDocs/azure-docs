@@ -109,7 +109,7 @@ Since the server is in virtual network, you can only connect to the server from 
    > Make sure you know where the `.pem` file was downloaded, you will need the path to it in the next step.
 
 13. When the deployment is finished, select **Go to resource**.
- > :::image type="content" source="./media/quickstart-create-connect-server-vnet/vm-create-success.png" alt-text="Screenshot of deployment success" lightbox="./media/quickstart-create-connect-server-vnet/vm-create-success.png":::
+   > :::image type="content" source="./media/quickstart-create-connect-server-vnet/vm-create-success.png" alt-text="Screenshot of deployment success" lightbox="./media/quickstart-create-connect-server-vnet/vm-create-success.png":::
 
 11. On the page for your new VM, select the public IP address and copy it to your clipboard.
    > :::image type="content" source="../../virtual-machines/linux/media/quick-create-portal/ip-address.png" alt-text="Screenshot showing how to copy the IP address for the virtual machine" lightbox="../../virtual-machines/linux/media/quick-create-portal/ip-address.png":::
