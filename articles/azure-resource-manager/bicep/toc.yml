@@ -55,7 +55,7 @@
     - name: Loops
       items:
       - name: Resources
-        displayName: iteration,copy,multiple,batches,child
+        displayName: iteration,copy,multiple,batches,child,condition,filter
         href: loop-resources.md
       - name: Properties
         displayName: iteration,copy,multiple
@@ -159,6 +159,8 @@
       href: operators-logical.md
     - name: Numeric operators
       href: operators-numeric.md
+    - name: Access operators
+      href: operators-access.md
   - name: Bicep CLI
     href: bicep-cli.md
     displayName: build,decompile,install,list-versions,list versions,upgrade,version

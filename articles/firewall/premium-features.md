@@ -21,9 +21,6 @@ ms.custom: references_regions
 
 Azure Firewall Premium uses Firewall Policy, a global resource that can be used to centrally manage your firewalls using Azure Firewall Manager. Starting this release, all new features are configurable via Firewall Policy only. Firewall Rules (classic) continue to be supported and can be used to configure existing Standard Firewall features.  Firewall Policy can be managed independently or with Azure Firewall Manager. A firewall policy associated with a single firewall has no charge.
 
-> [!IMPORTANT]
-> Currently the Firewall Premium SKU is  not supported in Secure Hub deployments and forced tunnel configurations. 
-
 Azure Firewall Premium includes the following features:
 
 - **TLS inspection** - decrypts outbound traffic, processes the data, then encrypts the data and sends it to the destination.
