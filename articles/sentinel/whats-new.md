@@ -30,17 +30,12 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## July 2021
 
-- [Azure Sentinel now required for ingesting CEF data](#azure-sentinel-now-required-for-ingesting-cef-data)
 - [Enrich Entities with geolocation data via API (Public preview)](#enrich-entities-with-geolocation-data-via-api-public-preview)
 - [Support for ADX cross-resource queries (Public preview)](#support-for-adx-cross-resource-queries-public-preview)
 - [Watchlists are in general availability](#watchlists-are-in-general-availability)
 - [Support for data residency in more geos](#support-for-data-residency-in-more-geos)
 - [Bidirectional sync in Azure Defender connector (Public preview)](#bidirectional-sync-in-azure-defender-connector-public-preview)
 
-### Azure Sentinel now required for ingesting CEF data
-
-Ingesting CEF data into your Log Analytics workspace directly has now been deprecated. An Azure Sentinel workspace is now required to ingest CEF data.
-For more information, see [Connect your external solution using Common Event Format](connect-common-event-format.md).
 
 ### Enrich entities with geolocation data via API (Public preview)
 
