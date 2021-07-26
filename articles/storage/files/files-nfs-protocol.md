@@ -92,7 +92,7 @@ The following workloads have open issues:
 - Metadata heavy workloads such as untar may experience high latency
 - Incompatibility with dNFS from Oracle
 
-Reach out to azurefilesnfs@microsoft.com to work with us cosely to validate workloads not in the above list or to share more successful workloads stories.  
+Reach out to azurefilesnfs@microsoft .com to validate workloads not in the prior list or to share more successful workloads stories.  
 
 ## Next steps
 - [Create an NFS file share](storage-files-how-to-create-nfs-shares.md)
