@@ -19,6 +19,11 @@
   - name: Get started with Azure Defender for IoT
     displayName: getting started, registration, onboarding, activation, threat intelligence 
     href: getting-started.md
+- name: Tutorial
+  expanded: false
+  items:
+  - name: Integrate ServiceNow
+    href: tutorial-servicenow.md
 - name: Concepts
   items:  
     - name: Key concepts

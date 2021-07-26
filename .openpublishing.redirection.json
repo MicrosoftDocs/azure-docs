@@ -2179,6 +2179,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/how-to-deploy-continuously-deploy.md",
+      "redirect_url": "/azure/machine-learning/how-to-safely-rollout-managed-endpoints",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/how-to-auto-train-remote.md",
       "redirect_url": "/azure/machine-learning/concept-automated-ml#local-remote",
       "redirect_document_id": false
@@ -12542,7 +12547,7 @@
     {
       "source_path_from_root": "/articles/sql-database/sql-database-managed-instance-faq.md",
       "redirect_url": "/azure/azure-sql/managed-instance/frequently-asked-questions-faq",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/sql-database/sql-database-howto-managed-instance.md",
@@ -12597,6 +12602,11 @@
     {
       "source_path_from_root": "/articles/sql-database/sql-database-managed-instance-migrate.md",
       "redirect_url": "/azure/azure-sql/managed-instance/migrate-to-instance-from-sql-server",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/azure/azure-sql/managed-instance/migrate-to-instance-from-sql-server.md",
+      "redirect_url": "/azure/azure-sql/migration-guides/managed-instance/sql-server-to-managed-instance-guide",
       "redirect_document_id": true
     },
     {
@@ -29020,6 +29030,11 @@
       "source_path_from_root": "/articles/storage/common/storage-monitor-storage-account.md",
       "redirect_url": "/azure/storage/common/manage-storage-analytics-logs",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/insights/storage-insights-overview.md",
+      "redirect_url": "/azure/storage/common/storage-insights-overview?toc=/azure/azure-monitor/toc.json",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/storage/storage-nodejs-how-to-use-blob-storage.md",
