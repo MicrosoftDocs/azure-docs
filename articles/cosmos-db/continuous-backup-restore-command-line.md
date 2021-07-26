@@ -67,6 +67,8 @@ See [migrate to continuous backup](migrate-continuous-backup.md#cli) article on 
 
 ## <a id="migrate-mongo-api"></a>Migrate an Azure Cosmos DB API for MongoDB account to continuous backup
 
+See [migrate to continuous backup](migrate-continuous-backup.md#cli) article on how to migrate a SQL API account with from periodic back up to continuous backup.
+
 ## <a id="trigger-restore"></a>Trigger a restore operation with CLI
 
 The simplest way to trigger a restore is by issuing the restore command with name of the target account, source account, location, resource group, timestamp (in UTC), and optionally the database and container names. The following are some examples to trigger the restore operation:

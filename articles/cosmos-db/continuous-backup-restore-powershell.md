@@ -71,6 +71,9 @@ See [migrate to continuous backup](migrate-continuous-backup.md#powershell) arti
 
 ## <a id="migrate-mongodb-api"></a>Migrate an API for MongoDB account to continuous backup
 
+See [migrate to continuous backup](migrate-continuous-backup.md#powershell) article on how to migrate a SQL API account with from periodic back up to continuous backup.
+
+
 ## <a id="trigger-restore"></a>Trigger a restore operation
 
 The following cmdlet is an example to trigger a restore operation with the restore command by using the target account, source account, location, resource group, and timestamp:
