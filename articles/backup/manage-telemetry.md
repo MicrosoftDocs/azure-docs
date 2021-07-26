@@ -2,9 +2,7 @@
 title: Manage telemetry settings in Microsoft Azure Backup Server (MABS)
 description: This article provides information about how to manage the telemetry settings in MABS.
 ms.date:  07/27/2021
-ms.topic:  article
-ms.prod:  azure
-ms.technology: microsoft-azure-backup-server
+ms.topic: article
 ---
 
 # Manage telemetry settings
