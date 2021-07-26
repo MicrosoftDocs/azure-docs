@@ -2,13 +2,13 @@
 
 title: 'Security in Azure Database for PostgreSQL - Flexible Server'
 description:  Learn about security in the Flexible Server deployment option for Azure Database for PostgreSQL - Flexible Server
-author: sunilagarwal 
-ms.author: sunila
+author: gennadNY 
+ms.author: gennadyk
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 09/22/2020
+ms.date: 07/26/2021
 ---
 
 
@@ -37,7 +37,7 @@ IP firewall rules grant access to servers based on the originating IP address of
 
 
 ### Private VNET Access
-#You can deploy your flexible server into your Azure Virtual Network. Azure virtual networks provide private and secure network communication. For more information,see the [flexible server](concepts-networking.md)
+You can deploy your flexible server into your Azure Virtual Network. Azure virtual networks provide private and secure network communication. For more information,see the [flexible server](concepts-networking.md)
 
 ### Network security groups (NSG)
 Security rules in network security groups enable you to filter the type of network traffic that can flow in and out of virtual network subnets and network interfaces.  For more information, see [Network Security Groups Overview](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview)

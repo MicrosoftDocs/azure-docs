@@ -65,4 +65,3 @@ Consider the following points when access to the Microsoft Azure Database for Po
 
 * [Create and manage Azure Database for PostgreSQL firewall rules using the Azure portal](how-to-manage-firewall-portal.md)
 * [Create and manage Azure Database for PostgreSQL firewall rules using Azure CLI](how-to-manage-firewall-cli.md)
-* 
