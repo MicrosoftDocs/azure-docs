@@ -184,7 +184,7 @@ Supports cloud-init configuration: Enable this property if the images in this pl
 
 Supports hotpatch: Windows Server Azure Editions supports Hot Patch. Learn more about [Hot Patch](https://go.microsoft.com/fwlink/?linkid=2155371).
 
-Supports extensions: Enable this property if the images in this plan support extension. Extensions are small applications that provide post-deployment configuration and automation on Azure VMs. Learn more about [Azure virtual machine extensions](https://go.microsoft.com/fwlink/?linkid=2155372).
+Supports extensions: Enable this property if the images in this plan support extensions. Extensions are small applications that provide post-deployment configuration and automation on Azure VMs. Learn more about [Azure virtual machine extensions](https://go.microsoft.com/fwlink/?linkid=2155372).
 
 Is a network virtual appliance: Enable this property if this product is a Network Virtual Appliance. A network virtual appliance is a product that performs one or more network functions, such as a Load Balancer, VPN Gateway, Firewall or Application Gateway. Learn more about [network virtual appliances](https://go.microsoft.com/fwlink/?linkid=2155373).
 
