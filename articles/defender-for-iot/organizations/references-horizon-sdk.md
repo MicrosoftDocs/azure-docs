@@ -35,6 +35,7 @@ Develop dissector plugins without:
 
 - violating compliance regulations.
 
+Contact <ms-horizon-support@microsoft.com> for information about developing protocol plugins.
 ## Customization and localization  
 
 The SDK supports various customization options, including:
@@ -81,7 +82,7 @@ Defender for IoT provides basic dissectors for common protocols. You can build y
 
 This kit contains the header files needed for development. The development process requires basic steps and optional advanced steps, described in this SDK.
 
-Contact ms-horizon-support@microsoft.com for information on receiving header files and other resources.
+Contact <ms-horizon-support@microsoft.com> for information on receiving header files and other resources.
 
 ## About the environment and setup 
 
