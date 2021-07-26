@@ -62,7 +62,7 @@
     href: reserved-instance.md
   - name: Configure networking
     items:
-    - name: Configure DHCP  
+    - name: Configure DHCP server or relay 
       href: configure-dhcp-azure-vmware-solution.md
     - name: Configure DHCP on L2 stretched networks
       href: configure-l2-stretched-vmware-hcx-networks.md
