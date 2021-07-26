@@ -88,7 +88,7 @@ After a restore from either **latest restore point** or **custom restore point**
 ### Backup related questions
 
 - **How do I backup my server?**
-By default, Azure Database for MySQL enables automated backups of your entire server (encompassing all databases created) with a default 7 day retention period. The only way to manually take a backup is by using community tools such as mysqldump as documented [here](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore?WT.mc_id=Portal-Microsoft_Azure_Support#create-a-backup-file-from-the-command-line-using-mysqldump) or mydumper as documented [here](https://docs.microsoft.com/azure/mysql/concepts-migrate-mydumper-myloader#create-a-backup-using-mydumper). If you wish to backup Azure Database for MySQL to a Blob storage, refer to our tech community blog [Backup Azure Database for MySQL to a Blob Storage](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/backup-azure-database-for-mysql-to-a-blob-storage/ba-p/803830). 
+By default, Azure Database for MySQL enables automated backups of your entire server (encompassing all databases created) with a default 7 day retention period. The only way to manually take a backup is by using community tools such as mysqldump as documented [here](../concepts-migrate-dump-restore.md#dump-and-restore-using-mysqldump-utility) or mydumper as documented [here](../concepts-migrate-mydumper-myloader.md#create-a-backup-using-mydumper). If you wish to backup Azure Database for MySQL to a Blob storage, refer to our tech community blog [Backup Azure Database for MySQL to a Blob Storage](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/backup-azure-database-for-mysql-to-a-blob-storage/ba-p/803830). 
 
 - **Can I configure automatic backups to be retained for long term?**
 No, currently we only support a maximum of 35 days of automated backup retention. You can take manual backups and use that for long-term retention requirement.
@@ -111,7 +111,7 @@ No, backups are triggered internally as part of the managed service and have no 
 - **Where are my automated backups stored and how do I manage their retention?**
 Azure Database for MySQL automatically creates server backups and stores them in user-configured, locally redundant storage or in geo-redundant storage. These backup files can't be exported. The default backup retention period is seven days. You can optionally configure the database backup from 1 to 35 days.
 
-- **How can I validate backups are performed on my server?**
+- **How can I validate my backups?**
 The best way to validate availability of valid backups is performing periodic point in time restores and ensuring backups are valid and restorable. Backup operations or files are not exposed to the end users.
 
 - **Where can I see the backup usage?**
@@ -132,7 +132,7 @@ While your server instance is stopped, you are charged for provisioned storage (
 ### Restore related questions
 
 - **How do I restore my server?**
-Azure Portal supports Point In Time Restore (for all servers) allowing users to restore to latest or custom restore point. To manually restore your server from the backups taken by mysqldump/myDumper read [Restore your database using myLoader](https://docs.microsoft.com/azure/mysql/concepts-migrate-mydumper-myloader#restore-your-database-using-myloader).
+Azure Portal supports Point In Time Restore (for all servers) allowing users to restore to latest or custom restore point. To manually restore your server from the backups taken by mysqldump/myDumper read [Restore your database using myLoader](../concepts-migrate-mydumper-myloader.md#restore-your-database-using-myloader).
 
 - **Why is my restore taking so much time?**
 The estimated time for the recovery of the server depends on several factors: 
