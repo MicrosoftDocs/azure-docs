@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 07/26/2021
+ms.date: 07/21/2021
 ---
 
 # What's new in Azure Sentinel
@@ -35,7 +35,6 @@ If you're looking for items older than six months, you'll find them in the [Arch
 - [Watchlists are in general availability](#watchlists-are-in-general-availability)
 - [Support for data residency in more geos](#support-for-data-residency-in-more-geos)
 - [Bidirectional sync in Azure Defender connector (Public preview)](#bidirectional-sync-in-azure-defender-connector-public-preview)
-
 
 ### Enrich entities with geolocation data via API (Public preview)
 
