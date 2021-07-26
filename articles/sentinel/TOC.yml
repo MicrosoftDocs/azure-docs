@@ -367,7 +367,7 @@
         href: multiple-workspace-view.md
       - name: Manage your intellectual property in Azure Sentinel
         href: mssp-protect-intellectual-property.md
-    - name: Set up customer managed keys
+    - name: Set up customer-managed keys
       href: customer-managed-keys.md
     - name: Manage your SOC with incident metrics
       href: manage-soc-with-incident-metrics.md
@@ -445,6 +445,8 @@
         href: hunting-with-rest-api.md
       - name: Manage watchlists with REST-API
         href: watchlist-with-rest-api.md
+      - name: Enrich entities with geolocation data with REST-API
+        href: geolocation-data-api.md
     - name: MCAS alerts not onboarded to Microsoft 365 Defender
       href: ./microsoft-365-defender-sentinel-integration.md#microsoft-365-defender-incidents-and-microsoft-incident-creation-rules
 - name: Resources

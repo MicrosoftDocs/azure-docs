@@ -56,7 +56,7 @@ Before deploying Azure Sentinel, make sure that your Azure tenant has the follow
 
     - To maintain the least privileged access available, assign roles at the level of the resource group.
     - For more control over permissions and access, set up custom roles. For more information, see [Role-based access control](/azure/role-based-access-control/custom-roles).
-    - For additional separation between users and security users, you might want to use [resource-context](resource-context-rbac.md) or [table-level RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043).
+    - For extra separation between users and security users, you might want to use [resource-context](resource-context-rbac.md) or [table-level RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043).
 
     For more information about other roles and permissions supported for Azure Sentinel, see [Permissions in Azure Sentinel](roles.md).
 
@@ -67,7 +67,7 @@ Before deploying Azure Sentinel, make sure that your Azure tenant has the follow
 >
 > A dedicated resource group allows for permissions to be assigned once, at the resource group level, with permissions automatically applied to any relevant resources. Managing access via a resource group helps to ensure that you're using Azure Sentinel efficiently without potentially issuing improper permissions. Without a resource group for Azure Sentinel, where resources are scattered among multiple resource groups, a user or service principal may find themselves unable to perform a required action or view data due to insufficient permissions.
 >
-> To implement additional access control to resources by tiers, use additional resource groups to house the resources that should be accessed only by those groups. Using multiple tiers of resource groups enables you to separate access between those tiers.
+> To implement more access control to resources by tiers, use extra resource groups to house the resources that should be accessed only by those groups. Using multiple tiers of resource groups enables you to separate access between those tiers.
 >
 
 ## Next steps

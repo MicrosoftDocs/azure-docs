@@ -44,11 +44,11 @@ Use queries before, during, and after a compromise to take the following actions
 
     Results from your proactive hunting provide early insight into events that may confirm that a compromise is in process, or will at least show weaker areas in your environment that are at risk and need attention.
 
-- **During a compromise**:  Use [livestream](livestream.md) to run a specific query constantly, presenting results as they come in. Use livestream when you need to actively monitor user events, such as if you need to verify whether a specific compromise is still taking place, to help determine an threat actor's next action, and towards the end of an investigation to confirm that the compromise is indeed over.
+- **During a compromise**:  Use [livestream](livestream.md) to run a specific query constantly, presenting results as they come in. Use livestream when you need to actively monitor user events, such as if you need to verify whether a specific compromise is still taking place, to help determine a threat actor's next action, and towards the end of an investigation to confirm that the compromise is indeed over.
 
-- **After a compromise**:  After an compromise or an incident has occurred, make sure to improve your coverage and insight to prevent similar incidents in the future.
+- **After a compromise**:  After a compromise or an incident has occurred, make sure to improve your coverage and insight to prevent similar incidents in the future.
 
-    - Modify your existing queries or create new ones to assist with early detection, based on on insights you've gained from your compromise or incident.
+    - Modify your existing queries or create new ones to assist with early detection, based on insights you've gained from your compromise or incident.
 
     - If you've discovered or created a hunting query that provides high value insights into possible attacks, create custom detection rules based on that query and surface those insights as alerts to your security incident responders.
 
@@ -63,9 +63,9 @@ Use queries before, during, and after a compromise to take the following actions
 
 ## Use the hunting dashboard (Public preview)
 
-The hunting dashboard enables you to run all your queries, or a selected subset, in a single click. In the Azure Sentinel portal, click **Hunting**.
+The hunting dashboard enables you to run all your queries, or a selected subset, in a single selection. In the Azure Sentinel portal, select **Hunting**.
 
-The table shown lists all the queries written by Microsoft's team of security analysts as well as any additional query you created or modified. Each query provides a description of what it hunts for, and what kind of data it runs on. These templates are grouped by their various tactics - the icons on the right categorize the type of threat, such as initial access, persistence, and exfiltration.
+The table shown lists all the queries written by Microsoft's team of security analysts and any extra query you created or modified. Each query provides a description of what it hunts for, and what kind of data it runs on. These templates are grouped by their various tactics - the icons on the right categorize the type of threat, such as initial access, persistence, and exfiltration.
 
 :::image type="content" source="media/hunting/hunting-start.png" alt-text="Azure Sentinel starts hunting" lightbox="media/hunting/hunting-start.png":::
 
@@ -76,10 +76,10 @@ The following table describes detailed actions available from the hunting dashbo
 |Action  |Description  |
 |---------|---------|
 |**See how queries apply to your environment**     |   Select the **Run all queries (Preview)** button, or select a subset of queries using the check boxes to the left of each row and select the **Run selected queries (Preview)** button. <br><br>Running your queries can take anywhere from a few seconds to many minutes, depending on how many queries are selected, the time range, and the amount of data that is being queried.      |
-|**View which queries returned results**    |      After your queries are done running, view which queries returned results using the **Results** filter: <br>- Sort to see which queries had the most or fewest results. <br>- View the queries that are not at all active in your environment by selecting *N/A* in the **Results** filter. <br>- Hover over the info icon (**i**) next to the *N/A* to see which data sources are required to make this query active.  |
+|**View the queries that returned results**    |      After your queries are done running, view the queries that returned results using the **Results** filter: <br>- Sort to see which queries had the most or fewest results. <br>- View the queries that are not at all active in your environment by selecting *N/A* in the **Results** filter. <br>- Hover over the info icon (**i**) next to the *N/A* to see which data sources are required to make this query active.  |
 |**Identify spikes in your data**     |   Identify spikes in the data by sorting or filtering on **Results delta**. <br><br>This compares the results of the last 24 hours against the results of the previous 24-48 hours, highlighting any large differences in volume.     |
 |**View queries mapped to the MITRE Att&CK tactic**     | The **MITRE ATT&CK tactic bar**, at the top of the table, lists how many queries are mapped to each MITRE ATT&CK tactic. The tactic bar gets dynamically updated based on the current set of filters applied. <br><br>This enables you to see which MITRE ATT&CK tactics show up when you filter by a given result count, a high result delta, *N/A* results, or any other set of filters.        |
-|**View queries mapped to MITRE ATT&CK techniques**     | Queries can also be mapped to MITRE ATT&CK techniques. You can filter or sort by MITRE ATT&CK techniques using the **Technique** filter. By opening a query, you will be able to click on the technique to see the MITRE ATT&CK description of the technique.        |
+|**View queries mapped to MITRE ATT&CK techniques**     | Queries can also be mapped to MITRE ATT&CK techniques. You can filter or sort by MITRE ATT&CK techniques using the **Technique** filter. By opening a query, you will be able to select the technique to see the MITRE ATT&CK description of the technique.        |
 |**Save a query to your favorites**     |   Queries saved to your favorites automatically run each time the **Hunting** page is accessed. You can create your own hunting query or clone and customize an existing hunting query template.      |
 |**Run queries**     |   Select **Run Query** in the hunting query details page to run the query directly from the hunting page. The number of matches is displayed within the table, in the **Results** column. Review the list of hunting queries and their matches.     |
 |**Review an underlying query**     | Perform a quick review of the underlying query in the query details pane. You can see the results by clicking the **View query results** link (below the query window) or the **View Results** button (at the bottom of the pane). The query will open in the **Logs** (Log Analytics) blade, and below the query, you can review the matches for the query.         |
@@ -140,7 +140,7 @@ The following operators are especially helpful in Azure Sentinel hunting queries
 
 - **find** - Find rows that match a predicate across a set of tables.
 
-- **adx() (preview)** - This function performs cross-resource queries of Azure Data Explorer data sources from the Azure Sentinel hunting experience and Log Analytics. For more information see [Cross-resource query Azure Data Explorer by using Azure Monitor](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md).
+- **adx() (preview)** - This function performs cross-resource queries of Azure Data Explorer data sources from the Azure Sentinel hunting experience and Log Analytics. For more information, see [Cross-resource query Azure Data Explorer by using Azure Monitor](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md).
 
 ## Save a query
 
@@ -182,9 +182,9 @@ In the example above, start with the table name SecurityEvent and add piped elem
 
 1. Add a filter in the query on the CommandLine to contain only instances of cscript.exe.
 
-1. Project only the columns you're interested in exploring and limit the results to 1000 and click **Run query**.
+1. Project only the columns you're interested in exploring and limit the results to 1000 and select **Run query**.
 
-1. Click the green triangle and run the query. You can test the query and run it to look for anomalous behavior.
+1. Select the green triangle and run the query. You can test the query and run it to look for anomalous behavior.
 
 ## Next steps
 

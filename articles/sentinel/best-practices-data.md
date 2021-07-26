@@ -12,7 +12,7 @@ ms.date: 07/21/2021
 
 #  Data collection best practices
 
-This section reviews best practices for collecting data using Azure Sentinel data connectors. For more information, see [Connect data sources](connect-data-sources.md), [Azure Sentinel partner data connectors](partner-data-connectors.md) and the [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md).
+This section reviews best practices for collecting data using Azure Sentinel data connectors. For more information, see [Connect data sources](connect-data-sources.md), [Azure Sentinel partner data connectors](partner-data-connectors.md), and the [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md).
 
 ## Prioritize your data connectors
 
@@ -22,7 +22,7 @@ The free data connectors will start showing value from Azure Sentinel as soon as
 
 For your [partner](partner-data-connectors.md) and [custom](create-custom-connector.md) data connectors, start by setting up [Syslog](connect-syslog.md) and [CEF](connect-common-event-format.md) connectors, with the highest priority first, as well as any Linux-based devices.
 
-If your data ingestion becomes too expensive too quickly, stop or filter the logs forwarded using the [Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-overview).
+If your data ingestion becomes too expensive, too quickly, stop or filter the logs forwarded using the [Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-overview).
 
 > [!TIP]
 > Custom data connectors enable you to ingest data into Azure Sentinel from data sources not currently supported by built-in functionality, such as via agent, Logstash, or API. For more information, see [Resources for creating Azure Sentinel custom connectors](create-custom-connector.md).
@@ -30,7 +30,7 @@ If your data ingestion becomes too expensive too quickly, stop or filter the log
 
 ## Filter your logs before ingestion
 
-You may want to filter the logs collected, or even log content, before the data is ingested into Azure Sentinel. For example, you may want to filter out logs that are irrelevant or unimportant to security operations, or you may want to remove unwanted details from log messages. Filtering message content may be specifically helpful when trying to drive down costs when working with Syslog, CEF, or Windows-based logs that have a lot of irrelevant details.
+You may want to filter the logs collected, or even log content, before the data is ingested into Azure Sentinel. For example, you may want to filter out logs that are irrelevant or unimportant to security operations, or you may want to remove unwanted details from log messages. Filtering message content may also be helpful when trying to drive down costs when working with Syslog, CEF, or Windows-based logs that have many irrelevant details.
 
 Filter your logs using one of the following methods:
 
@@ -46,7 +46,7 @@ Filter your logs using one of the following methods:
 
 ## Alternative data ingestion requirements
 
-Standard configuration for data collection may not work well for your organization, due to a variety of challenges. The following tables describe common challenges or requirements, and possible solutions and considerations.
+Standard configuration for data collection may not work well for your organization, due to various challenges. The following tables describe common challenges or requirements, and possible solutions and considerations.
 
 > [!NOTE]
 > Many solutions listed below require a custom data connector. For more information, see [Resources for creating Azure Sentinel custom connectors](create-custom-connector.md).
@@ -58,7 +58,7 @@ Standard configuration for data collection may not work well for your organizati
 |Challenge / Requirement  |Possible solutions  |Considerations  |
 |---------|---------|---------|
 |**Requires log filtering**     | Use Logstash <br><br>Use Azure Functions <br><br> Use LogicApps <br><br> Use custom code (.NET, Python)  |  While filtering can lead to cost savings, and ingests only the required data, some Azure Sentinel features are not supported, such as [UEBA](identify-threats-with-entity-behavior-analytics.md), [entity pages](identify-threats-with-entity-behavior-analytics.md#entity-pages), [machine learning](bring-your-own-ml.md), and [fusion](fusion.md). <br><br>When configuring log filtering, you'll need to make updates in resources such as threat hunting queries and analytics rules     |
-|**Agent cannot be installed**     |Use Windows Event Forwarding, supported with the [Azure Monitor Agent](connect-windows-security-events.md#connector-options)       |   Using Windows Event forwarding lowers load balancing events per second from the Windows Event Collector, from 10,000 events to 500-1000 events.|
+|**Agent cannot be installed**     |Use Windows Event Forwarding, supported with the [Azure Monitor Agent](connect-windows-security-events.md#connector-options)       |   Using Windows Event forwarding lowers load-balancing events per second from the Windows Event Collector, from 10,000 events to 500-1000 events.|
 |**Servers do not connect to the internet**     | Use the [Log Analytics gateway](/azure/azure-monitor/agents/gateway)        | Configuring a proxy to your agent requires extra firewall rules to allow the Gateway to work.        |
 |**Requires tagging and enrichment at ingestion**     |Use Logstash to inject a ResourceID <br><br>Use an ARM template to inject the ResourceID into on-premises machines <br><br>Ingest the resource ID into separate workspaces        | Log Analytics doesn't support RBAC for custom tables <br><br>Azure Sentinel doesn’t support row-level RBAC <br><br>**Tip**: You may want to adopt cross workspace design and functionality for Azure Sentinel.        |
 |**Requires splitting operation and security logs**     | Use the [Microsoft Monitor Agent or Azure Monitor Agent](connect-windows-security-events.md) multi-home functionality        |  Multi-home functionality requires more deployment overhead for the agent.       |
@@ -94,7 +94,7 @@ If you need to collect Microsoft Office data, outside of the standard connector 
 
 |Challenge / Requirement  |Possible solutions  |Considerations  |
 |---------|---------|---------|
-|**Collect raw data from Teams, message trace, phishing data, and so on**     |    Use the built-in [Office 365 connector](connect-office-365.md) functionality, and then create a custom connector for additional ral data.  |  Mapping events to the corresponding recordID may be challenging.  |
+|**Collect raw data from Teams, message trace, phishing data, and so on**     |    Use the built-in [Office 365 connector](connect-office-365.md) functionality, and then create a custom connector for other raw data.  |  Mapping events to the corresponding recordID may be challenging.  |
 |**Requires RBAC for splitting countries, departments, and so on**     | Customize your data collection by adding tags to data and creating dedicated workspaces for each separation needed.|   Custom data collection has extra ingestion costs.     |
 |**Requires multiple tenants in a single workspace**     |  Customize your data collection using Azure LightHouse and a unified incident view.|  Custom data collection has extra ingestion costs.  <br><br>For more information, see [Extend Azure Sentinel across workspaces and tenants](extend-sentinel-across-workspaces-tenants.md).      |
 | | | |

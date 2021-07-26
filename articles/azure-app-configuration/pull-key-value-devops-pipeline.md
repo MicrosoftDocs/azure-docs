@@ -1,5 +1,5 @@
 ---
-title: Pull settingsfromo App Configuration with Azure Pipelines
+title: Pull settings to App Configuration with Azure Pipelines
 description: Learn to use Azure Pipelines to pull key-values to an App Configuration Store
 services: azure-app-configuration
 author: drewbatgit
