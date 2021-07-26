@@ -2,7 +2,7 @@
 title: Registry roles and permissions
 description: Use Azure role-based access control (Azure RBAC) and identity and access management (IAM) to provide fine-grained permissions to resources in an Azure container registry.
 ms.topic: article
-ms.date: 06/07/2021
+ms.date: 07/26/2021
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -92,8 +92,8 @@ az provider operation show --namespace Microsoft.ContainerRegistry
 
 To define a custom role, see [Steps to create a custom role](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role).
 
-> [!IMPORTANT]
-> In a custom role, Azure Container Registry doesn't currently support wildcards such as `Microsoft.ContainerRegistry/*` or `Microsoft.ContainerRegistry/registries/*` that grant access to all matching actions. Specify any required action individually in the role.
+> [!NOTE]
+> In registries with an ARM [private endpoint](container-registry-private-link.md), Azure Container Registry supports wildcards such as `Microsoft.ContainerRegistry/*/read` or `Microsoft.ContainerRegistry/registries/*/write` in custom roles. These wildcards grant access to all matching actions. In other registries, specify any required action individually in the custom role.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
