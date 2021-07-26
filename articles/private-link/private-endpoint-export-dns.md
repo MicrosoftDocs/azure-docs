@@ -12,12 +12,12 @@ ms.custom: how-to
 
 # Export DNS records for a private endpoint using the Azure portal.
 
-A private endpoint in Azure requires DNS records for name resolution of the endpoint. The DNS record resolves the private IP address of the endpoint for the configured resource. To export the DNS records of the endpoint to a file, use the Azure portal in the Private Link center.
+A private endpoint in Azure requires DNS records for name resolution of the endpoint. The DNS record resolves the private IP address of the endpoint for the configured resource. To export the DNS records of the endpoint, use the Private Link center in the portal.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free ](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A private endpoint configured in your subscription. For the example in this article, a private endpoint to a Azure Web App is used. For more information on creating a private endpoint for a web app, see [Tutorial: Connect to a web app using an Azure Private endpoint](tutorial-private-endpoint-webapp-portal.md).
+- A private endpoint configured in your subscription. For the example in this article, a private endpoint to an Azure Web App is used. For more information on creating a private endpoint for a web app, see [Tutorial: Connect to a web app using an Azure Private endpoint](tutorial-private-endpoint-webapp-portal.md).
 
 ## Export endpoint DNS records
 
@@ -33,11 +33,11 @@ In this section, you'll sign in to the Azure portal and search for the private l
 
     :::image type="content" source="./media/tutorial-private-endpoint-export-dns/private-link-center.png" alt-text="Select private endpoints in Private Link center":::
 
-5. In **Private endpoints**, select the endpoint you want to export the DNS records for. Select **Download hostfile** to download the endpoint DNS records in a hostfile format.
+5. In **Private endpoints**, select the endpoint you want to export the DNS records for. Select **Download host file** to download the endpoint DNS records in a host file format.
     
     :::image type="content" source="./media/tutorial-private-endpoint-export-dns/download-hostfile.png" alt-text="Download endpoint DNS records":::
 
-6. The downloaded hostfile records will look similar to below:
+6. The downloaded host file records will look similar to below:
 
 ```text
 # Exported from the Azure portal "2021-07-26 11:26:03Z"
@@ -50,7 +50,7 @@ In this section, you'll sign in to the Azure portal and search for the private l
 
 To learn more about Azure Private link and DNS, see [Azure Private Endpoint DNS configuration](private.endpoint-dns.md).
 
-For further information on Azure Private link, see:
+For more information on Azure Private link, see:
 
 * [What is Azure Private Link?](private-link-overview.md).
 * [What is Azure Private Link service?](private-link-service-overview.md).
