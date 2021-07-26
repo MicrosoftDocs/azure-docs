@@ -408,21 +408,27 @@ Grouping is a concept in time series forecasting that allows time series to comb
 
 ### Many models
 
-The Azure Machine Learning many models solution with automated machine learning allows users to train and manage 4 million models in parallel. Many models The solution accelerator leverages [Azure Machine Learning pipelines](concept-ml-pipelines.md) to train the model. Specifically, a [Pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29) object and [ParalleRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep) are used and require specific configuration parameters set through the [ParallelRunConfig](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig). The following demonstrates the key parameters users need to setup their many models run. 
-
-To get started on a many models solution, your data must be split into multiple files (.csv or .parquet) for each group that you want to train a model for. Each file must contain one or more entire series for the given group. For example, to build a forecast model for each brand within a store, the training sales data would be split to create files for Store1_BrandA, Store1_BrandB, etc.
+The Azure Machine Learning many models solution with automated machine learning allows users to train and manage 4 million models in parallel. Many models The solution accelerator leverages [Azure Machine Learning pipelines](concept-ml-pipelines.md) to train the model. Specifically, a [Pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29) object and [ParalleRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep) are used and require specific configuration parameters set through the [ParallelRunConfig](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig). 
 
 
+The following diagram shows the workflow for the many models solution. 
+
+![many-models](./media/how-to-auto-train-forecast/many-models.svg)
+
+The following code demonstrates the key parameters users need to setup their many models run.
+ 
 ### Hierarchical time series forecasting
 
 In most applications, customers have a need to understand their forecasts at a macro and micro level of the busines; whether that be predicting sales of products at different geographic locations, or understanding the expected workforce demand for different organizations at a company. The ability to train a machine learning model to intelligently forecast on hierarchy data is essential. 
 
 A hierarchical time series is a structure in which each of the unique series are arranged into a hierarchy based on dimensions such as, geography or product type. The following example shows data with unique attributes that form a hierarchy. Our hierarchy is defined by: the product type such as headphones or tablets, the product category which splits product types into accessories and devices, and the region the products are sold in. 
 
+![hierarchy-data-table](./media/how-to-auto-train-forecast/hierarchy-data-table.svg)
+ 
+To further visualize this, the leaf levels of the hierarchy contain all the time series with unique combinations of attribute values. Each higher level in the hierarchy considers one less dimension for defining the time series and aggregates each set of child nodes from the lower level into a parent node.
+ 
+![data-tree](./media/how-to-auto-train-forecast/data-tree.svg)
 
- 
-To further visualize this, the leaf levels of the hierarchy contain all the time series with unique combinations of attribute values. Each higher level in the hierarchy considers one less dimension for defining the time series and aggregates each set of child nodes from the lower level into a parent node. 
- 
 The hierarchical time series solution is built on top of the Many Models Solution and share a similar configuration setup.
 
 The code below demonstrates the key parameters to setup their hierarchical time series forecasting runs. 
