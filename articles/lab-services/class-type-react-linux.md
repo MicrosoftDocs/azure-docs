@@ -81,6 +81,14 @@ Install the React Developer Tools extensions for your browser so you can inspect
 
 To run the app in development mode, use the `npm start` built-in command.  The local and network urls will be listed in the command output.  To use HTTPS instead of HTTP, see [create React app using https in development](https://create-react-app.dev/docs/using-https-in-development).
 
+### Update firewall settings
+
+Official Ubuntu builds have [iptables](https://help.ubuntu.com/community/IptablesHowTo) installed and will allow all incoming traffic by default.  However, if you're using a VM that has a more restrictive firewall, add an inbound rule to allow traffic to the NodeJS server.  The example below uses [iptables](https://help.ubuntu.com/community/IptablesHowTo) to allow traffic to port 3000.
+
+```bash
+sudo iptables -I INPUT -p tcp -m tcp --dport 3000 -j ACCEPT
+```
+
 >[!IMPORTANT]
 >Instructors must use the template VM or another lab VM to access a student's website.
 

@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to create, edit, and delete a model within Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 4/07/2021
+ms.date: 7/13/2021
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -31,7 +31,7 @@ This article describes how to manage the [models](concepts-models.md) in your Az
 
 ## Create models
 
-Models for Azure Digital Twins are written in DTDL, and saved as .json files. There is also a [DTDL extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) available for [Visual Studio Code](https://code.visualstudio.com/), which provides syntax validation and other features to facilitate writing DTDL documents.
+Models for Azure Digital Twins are written in DTDL, and saved as .json files. There's also a [DTDL extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) available for [Visual Studio Code](https://code.visualstudio.com/), which provides syntax validation and other features to make it easier to write DTDL documents.
 
 Consider an example in which a hospital wants to digitally represent their rooms. Each room contains a smart soap dispenser for monitoring hand-washing, and sensors to monitor traffic through the room.
 
@@ -42,7 +42,7 @@ The first step towards the solution is to create models to represent aspects of 
 > [!NOTE]
 > This is a sample body for a .json file in which a model is defined and saved, to be uploaded as part of a client project. The REST API call, on the other hand, takes an array of model definitions like the one above (which is mapped to a `IEnumerable<string>` in the .NET SDK). So to use this model in the REST API directly, surround it with brackets.
 
-This model defines a name and a unique ID for the patient room, and properties to represent visitor count and hand-wash status (these counters will be updated from motion sensors and smart soap dispensers, and will be used together to calculate a *handwash percentage* property). The model also defines a relationship *hasDevices*, which will be used to connect any [digital twins](concepts-twins-graph.md) based on this Room model to the actual devices.
+This model defines a name and a unique ID for the patient room, and properties to represent visitor count and hand-wash status. These counters will be updated from motion sensors and smart soap dispensers, and will be used together to calculate a *handwash percentage* property. The model also defines a relationship *hasDevices*, which will be used to connect any [digital twins](concepts-twins-graph.md) based on this Room model to the actual devices.
 
 Following this method, you can go on to define models for the hospital's wards, zones, or the hospital itself.
 
@@ -72,7 +72,7 @@ On upload, model files are validated by the service.
 
 You can list and retrieve models stored on your Azure Digital Twins instance. 
 
-Here are your options for this:
+Your options include:
 * Retrieve a single model
 * Retrieve all models
 * Retrieve metadata and dependencies for models
@@ -81,23 +81,56 @@ Here are some example calls:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="GetModels":::
 
-The API calls to retrieve models all return `DigitalTwinsModelData` objects. `DigitalTwinsModelData` contains metadata about the model stored in the Azure Digital Twins instance, such as name, DTMI, and creation date of the model. The `DigitalTwinsModelData` object also optionally includes the model itself. Depending on parameters, you can thus use the retrieve calls to either retrieve just metadata (which is useful in scenarios where you want to display a UI list of available tools, for example), or the entire model.
+The SDK calls to retrieve models all return `DigitalTwinsModelData` objects. `DigitalTwinsModelData` contains metadata about the model stored in the Azure Digital Twins instance, such as name, DTMI, and creation date of the model. The `DigitalTwinsModelData` object also optionally includes the model itself. Meaning that, depending on parameters, you can use the retrieve calls to either retrieve just metadata (which is useful in scenarios where you want to display a UI list of available tools, for example), or the entire model.
 
 The `RetrieveModelWithDependencies` call returns not only the requested model, but also all models that the requested model depends on.
 
-Models are not necessarily returned in exactly the document form they were uploaded in. Azure Digital Twins only guarantees that the return form will be semantically equivalent. 
+Models aren't necessarily returned in exactly the document form they were uploaded in. Azure Digital Twins only guarantees that the return form will be semantically equivalent. 
 
 ## Update models
 
-Once a model is uploaded to your Azure Digital Twins instance, the entire model interface is immutable. This means there is no traditional "editing" of models. Azure Digital Twins also does not allow re-upload of the same model.
+This section describes considerations and strategies for updating your models.
 
-Instead, if you want to make changes to a model—such as updating `displayName` or `description`—the way to do this is to upload a **newer version** of the model. 
+### Before updating: Think in the context of your entire solution
 
-### Model versioning
+Before making updates to your models, it's recommended to think holistically about your entire solution and the impact of the model changes you're about to make. Models in an Azure Digital Twins solution are often interconnected, so it's important to be aware of cascading changes where updating one model requires updating several others. Updating models will impact the twins that use the models, and can also affect ingress and processing code, client applications, and automated reports.
+
+Here are some recommendations to help you manage your model transitions smoothly:
+* Instead of thinking in terms of individual models, consider evolving your entire model set when appropriate to keep models and their relationships up-to-date together.
+* Treat models like source code and manage them in source control. Apply the same rigor and attention to models and model changes that you apply to other code in your solution.
+
+When you're ready to proceed with updating your models, the rest of this section describes the strategies you can use to implement the updates.
+
+### Strategies for updating models
+
+Once a model is uploaded to your Azure Digital Twins instance, the model interface is immutable, which means there's no traditional "editing" of models. Azure Digital Twins also doesn't allow reupload of the same exact model while a matching model is already present in the instance.
+
+Instead, if you want to make changes to a model—such as updating `displayName` or `description`, or adding and removing properties—you'll need to replace the original model.
+
+There are two strategies to choose from when replacing a model:
+* [Strategy 1: Upload new model version](#strategy-1-upload-new-model-version): Upload the model, with a new version number, and update your twins to use that new model. Both the new and old versions of the model will exist in your instance until you delete one.
+    - **Use this strategy when** you want to update only some of your twins that use the model, or when you want to make sure twins stay conformant with their models and writable through the model transition.
+* [Strategy 2: Delete old model and reupload](#strategy-2-delete-old-model-and-reupload): Delete the original model and upload the new model with the same name and ID (DTMI value) in its place. Completely replaces the old model with the new one. 
+    - **Use this strategy when** you want to update all twins that use this model at once, as well as all code reacting to the models. If your model update contains a breaking change with the model update, twins will be nonconformant with their models for a short time while you're transitioning them from the old model to the new one, meaning that they won't be able to take any updates until the new model is uploaded and the twins conform to it.
+
+>[!NOTE]
+> Making breaking changes to your models is discouraged outside of development.
+
+Continue to the next sections to read more about each strategy option in detail.
+
+### Strategy 1: Upload new model version
+
+This option involves creating a new version of the model and uploading it to your instance.
+
+This operation **doesn't** overwrite earlier versions of the model, so multiple versions of the model will coexist in your instance until you [remove them](#remove-models). Since the new model version and the old model version coexist, twins can use either the new version of the model or the older version, meaning that uploading a new version of a model doesn't automatically affect existing twins. The existing twins will remain as instances of the old model version, and you can update these twins to the new model version by patching them.
+
+To use this strategy, follow the steps below.
+
+#### 1. Create and upload new model version 
 
 To create a new version of an existing model, start with the DTDL of the original model. Update, add, or remove the fields you want to change.
 
-Next, mark this as a newer version of the model by updating the `id` field of the model. The last section of the model ID, after the `;`, represents the model number. To indicate that this is now a more-updated version of this model, increment the number at the end of the `id` value to any number greater than the current version number.
+Next, mark this model as a newer version of the model by updating the `id` field of the model. The last section of the model ID, after the `;`, represents the model number. To indicate that this model is now a more-updated version, increment the number at the end of the `id` value to any number greater than the current version number.
 
 For example, if your previous model ID looked like this:
 
@@ -105,37 +138,94 @@ For example, if your previous model ID looked like this:
 "@id": "dtmi:com:contoso:PatientRoom;1",
 ```
 
-version 2 of this model might look like this:
+Version 2 of this model might look like this:
 
 ```json
 "@id": "dtmi:com:contoso:PatientRoom;2",
 ```
 
-Then, upload the new version of the model to your instance. 
+Then, [upload](#upload-models) the new version of the model to your instance. 
 
-This version of the model will then be available in your instance to use for digital twins. It **does not** overwrite earlier versions of the model, so multiple versions of the model will coexist in your instance until you [remove them](#remove-models).
+This version of the model will then be available in your instance to use for digital twins. It **does not** overwrite earlier versions of the model, so multiple versions of the model now coexist in your instance.
 
-### Impact on twins
+#### 2. Update graph elements as needed
 
-When you create a new twin, since the new model version and the old model version coexist, the new twin can use either the new version of the model or the older version.
+Next, update the **twins and relationships** in your instance to use the new model version instead of the old.
 
-This also means that uploading a new version of a model does not automatically affect existing twins. The existing twins will simply remain instances of the old model version.
+You can use the following instructions to [update twins](how-to-manage-twin.md#update-a-digital-twins-model) and [update relationships](how-to-manage-graph.md#update-relationships). The patch operation to update a twin's model will look something like this:
 
-You can update these existing twins to the new model version by patching them, as described in the [Update a digital twin's model](how-to-manage-twin.md#update-a-digital-twins-model) section of *How-to: Manage digital twins*. Within the same patch, you must update both the **model ID** (to the new version) and **any fields that must be altered on the twin to make it conform to the new model**.
+:::code language="json" source="~/digital-twins-docs-samples/models/patch-model-1.json":::
+
+>[!IMPORTANT]
+>When updating twins, use the **same patch** to update both the model ID (to the new model version) and any fields that must be altered on the twin to make it conform to the new model.
+
+You may also need to update **relationships** and other **models** in your instance that reference this model, to make them refer to the new model version. You'll need to do another model update operation to achieve this purpose, so return to the beginning of this section and repeat the process for any more models that need updating.
+
+#### 3. (Optional) Decommission or delete old model version
+
+If you won't be using the old model version anymore, you can [decommission](#decommissioning) the older model. This action allows the model to keep existing in the instance, but it can't be used to create new digital twins.
+
+You can also [delete](#deletion) the old model completely if you don't want it in the instance anymore at all.
+
+The sections linked above contain example code and considerations for decommissioning and deleting models.
+
+### Strategy 2: Delete old model and reupload
+
+Instead of incrementing the version of a model, you can delete a model completely and reupload an edited model to the instance.
+
+Azure Digital Twins doesn't remember the old model was ever uploaded, so this action will be like uploading an entirely new model. Twins in the graph that use the model will automatically switch over to the new definition once it's available. Depending on how the new definition differs from the old one, these twins may have properties and relationships that match the deleted definition and aren't valid with the new one, so you may need to patch them to make sure they remain valid.
+
+To use this strategy, follow the steps below.
+
+### 1. Delete old model
+
+Since Azure Digital Twins doesn't allow two models with the same ID, start by deleting the original model from your instance. 
+
+>[!NOTE]
+> If you have other models that depend on this model (through inheritance or components), you'll need to remove those references before you can delete the model. You can update those dependent models first to temporarily remove the references, or delete the dependent models and reupload them in a later step.
+
+Use the following instructions to [delete your original model](#deletion). This action will leave your twins that were using that model temporarily "orphaned," as they're now using a model that no longer exists. This state will be repaired in the next step when you reupload the updated model.
+
+### 2. Create and upload new model
+
+Start with the DTDL of the original model. Update, add, or remove the fields you want to change.
+
+Then, [upload the model](#upload-models) to the instance, as though it were a new model being uploaded for the first time.
+
+### 3. Update graph elements as needed
+
+Now that your new model has been uploaded in place of the old one, the twins in your graph will automatically begin to use the new model definition once the caching in your instance expires and resets. **This process may take 10-15 minutes or longer**, depending on the size of your graph. After that, new and changed properties on your model should be accessible, and removed properties won't be accessible anymore.
+
+>[!NOTE]
+> If you removed other dependent models earlier in order to delete the original model, reupload them now after the cache has reset. If you updated the dependent models to temporarily remove references to the original model, you can update them again to put the reference back.
+
+Next, update the **twins and relationships** in your instance so their properties match the properties defined by the new model. Before this step is completed, the twins that don't match their model can still be read, but cannot be written to. For more information on the state of twins without a valid model, see [Twins without models](#after-deletion-twins-without-models).
+
+There are two ways to update twins and relationships for the new model so that they're writable again:
+* Patch the twins and relationships as needed so they fit the new model. You can use the following instructions to [update twins](how-to-manage-twin.md#update-a-digital-twin) and [update relationships](how-to-manage-graph.md#update-relationships).
+    - **If you've added properties**: Updating twins and relationships to have the new values isn't required, since twins missing the new values will still be valid twins. You can patch them however you want to add values for the new properties.
+    - **If you've removed properties**: It's required to patch twins to remove the properties that are now invalid with the new model.
+    - **If you've updated properties**: It's required to patch twins to update the values of changed properties to be valid with the new model.
+* Delete twins and relationships that use the model, and recreate them. You can use the following instructions to [delete twins](how-to-manage-twin.md#delete-a-digital-twin) and [recreate twins](how-to-manage-twin.md#create-a-digital-twin), and [delete relationships](how-to-manage-graph.md#delete-relationships) and [recreate relationships](how-to-manage-graph.md#create-relationships).
+    - You might want to do this operation if you're making many changes to the model, and it will be difficult to update the existing twins to match it. However, recreation can be complicated if you have many twins that are interconnected by many relationships.
 
 ## Remove models
 
-Models can also be removed from the service, in one of two ways:
+Models can be removed from the service in one of two ways:
 * **Decommissioning** : Once a model is decommissioned, you can no longer use it to create new digital twins. Existing digital twins that already use this model aren't affected, so you can still update them with things like property changes and adding or deleting relationships.
-* **Deletion** : This will completely remove the model from the solution. Any twins that were using this model are no longer associated with any valid model, so they're treated as though they don't have a model at all. You can still read these twins, but won't be able to make any updates on them until they're reassigned to a different model.
+* **Deletion** : This operation will completely remove the model from the solution. Any twins that were using this model are no longer associated with any valid model, so they're treated as though they don't have a model at all. You can still read these twins, but you can't make any updates on them until they're reassigned to a different model.
 
-These are separate features and they do not impact each other, although they may be used together to remove a model gradually. 
+These operations are separate features and they don't impact each other, although they may be used together to remove a model gradually. 
 
 ### Decommissioning
 
-Here is the code to decommission a model:
+To decommission a model, you can use the [DecommissionModel](/dotnet/api/azure.digitaltwins.core.digitaltwinsclient.decommissionmodel?view=azure-dotnet&preserve-view=true) method from the SDK:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="DecommissionModel":::
+
+You can also decommission a model using the REST API call [DigitalTwinModels Update](/rest/api/digital-twins/dataplane/models/digitaltwinmodels_update). The `decommissioned` property is the only property that can be replaced with this API call. The JSON Patch document will look something like this:
+
+:::code language="json" source="~/digital-twins-docs-samples/models/patch-decommission-model.json":::
 
 A model's decommissioning status is included in the `ModelData` records returned by the model retrieval APIs.
 
@@ -143,15 +233,15 @@ A model's decommissioning status is included in the `ModelData` records returned
 
 You can delete all models in your instance at once, or you can do it on an individual basis.
 
-For an example of how to delete all models, download the sample app used in the [Tutorial: Explore the basics with a sample client app](tutorial-command-line-app.md). The *CommandLoop.cs* file does this in a `CommandDeleteAllModels` function.
+For an example of how to delete all models at the same time, see the [End-to-end samples for Azure Digital Twins](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/CommandLoop.cs) repository in GitHub. The *CommandLoop.cs* file contains a `CommandDeleteAllModels` function with code to delete all of the models in the instance.
 
-The rest of this section breaks down model deletion into closer detail, and shows how to do it for an individual model.
+To delete an individual model, follow the instructions and considerations from the rest of this section.
 
 #### Before deletion: Deletion requirements
 
 Generally, models can be deleted at any time.
 
-The exception is models that other models depend on, either with an `extends` relationship or as a component. For example, if a ConferenceRoom model extends a Room model, and has a ACUnit model as a component, you cannot delete Room or ACUnit until ConferenceRoom removes those respective references. 
+The exception is models that other models depend on, either with an `extends` relationship or as a component. For example, if a ConferenceRoom model extends a Room model, and has a ACUnit model as a component, you can't delete Room or ACUnit until ConferenceRoom removes those respective references. 
 
 You can do this by updating the dependent model to remove the dependencies, or deleting the dependent model completely.
 
@@ -161,19 +251,21 @@ Even if a model meets the requirements to delete it immediately, you may want to
 1. First, decommission the model
 2. Wait a few minutes, to make sure the service has processed any last-minute twin creation requests sent before the decommission
 3. Query twins by model to see all twins that are using the now-decommissioned model
-4. Delete the twins if you no longer need them, or patch them to a new model if needed. You can also choose to leave them alone, in which case they will become twins without models once the model is deleted. See the next section for the implications of this state.
+4. Delete the twins if you no longer need them, or patch them to a new model if needed. You can also choose to leave them alone, in which case they'll become twins without models once the model is deleted. See the next section for the implications of this state.
 5. Wait for another few minutes to make sure the changes have percolated through
 6. Delete the model 
 
-To delete a model, use this call:
+To delete a model, you can use the [DeleteModel]/dotnet/api/azure.digitaltwins.core.digitaltwinsclient.deletemodel?view=azure-dotnet&preserve-view=true) SDK call:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="DeleteModel":::
 
+You can also delete a model with the [DigitalTwinModels Delete](/rest/api/digital-twins/dataplane/models/digitaltwinmodels_delete) REST API call.
+
 #### After deletion: Twins without models
 
-Once a model is deleted, any digital twins that were using the model are now considered to be without a model. Note that there is no query that can give you a list of all the twins in this state—although you *can* still query the twins by the deleted model to know what twins are affected.
+Once a model is deleted, any digital twins that were using the model are now considered to be without a model. There's no query that can give you a list of all the twins in this state—although you *can* still query the twins by the deleted model to know what twins are affected.
 
-Here is an overview of what you can and cannot do with twins that don't have a model.
+Here's an overview of what you can and can't do with twins that don't have a model.
 
 Things you **can** do:
 * Query the twin
@@ -188,15 +280,15 @@ Things you **can't** do:
 * Edit outgoing relationships (as in, relationships *from* this twin to other twins)
 * Edit properties
 
-#### After deletion: Re-uploading a model
+#### After deletion: Reuploading a model
 
 After a model has been deleted, you may decide later to upload a new model with the same ID as the one you deleted. Here's what happens in that case.
-* From the solution store's perspective, this is the same as uploading a completely new model. The service doesn't remember the old one was ever uploaded.   
-* If there are any remaining twins in the graph referencing the deleted model, they are no longer orphaned; this model ID is valid again with the new definition. However, if the new definition for the model is different than the model definition that was deleted, these twins may have properties and relationships that match the deleted definition and are not valid with the new one.
+* From the solution store's perspective, this operation is the same as uploading an entirely new model. The service doesn't remember the old one was ever uploaded.   
+* If there are any remaining twins in the graph referencing the deleted model, they're no longer orphaned; this model ID is valid again with the new definition. However, if the new definition for the model is different than the model definition that was deleted, these twins may have properties and relationships that match the deleted definition and aren't valid with the new one.
 
-Azure Digital Twins does not prevent this state, so be careful to patch twins appropriately in order to make sure they remain valid through the model definition switch.
+Azure Digital Twins doesn't prevent this state, so be careful to patch twins appropriately to make sure they remain valid through the model definition switch.
 
 ## Next steps
 
 See how to create and manage digital twins based on your models:
-* [How-to: Manage digital twins](how-to-manage-twin.md)
+* [Manage digital twins](how-to-manage-twin.md)

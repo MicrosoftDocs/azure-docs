@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: troubleshooting
-ms.custom: troubleshooting
+ms.custom: troubleshooting, devplatv2
 ms.reviewer: laobri
 ms.author: tracych
 author: tracych
@@ -46,7 +46,7 @@ If you're using a non-MLflow model, you'll need to provide a scoring script. The
 
 ### Get logs
 
-After you invoke a batch endpoint using CLI or REST, the batch scoring job will run asynchronously. There are two options to get the logs for a batch scoring job.
+After you invoke a batch endpoint using the Azure CLI or REST, the batch scoring job will run asynchronously. There are two options to get the logs for a batch scoring job.
 
 Option 1: Stream logs to local console
 

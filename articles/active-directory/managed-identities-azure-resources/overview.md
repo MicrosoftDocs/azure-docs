@@ -12,7 +12,7 @@ ms.subservice: msi
 ms.devlang:
 ms.topic: overview
 ms.custom: mvc
-ms.date: 04/07/2021
+ms.date: 05/20/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 
@@ -82,7 +82,7 @@ If you choose a user assigned managed identity instead:
 - CRUD operations are available for review in [Azure Activity logs](../../azure-resource-manager/management/view-activity-logs.md).
 - View sign-in activity in Azure AD [sign-in logs](../reports-monitoring/concept-sign-ins.md).
 
-Operations on managed identities may be performed by using an Azure Resource Manager (ARM) template, the Azure Portal, the Azure CLI, PowerShell, and REST APIs.
+Operations on managed identities may be performed by using an Azure Resource Manager (ARM) template, the Azure portal, the Azure CLI, PowerShell, and REST APIs.
 
 ## Next steps
 

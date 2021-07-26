@@ -109,5 +109,4 @@ To help create your offer more easily, prepare these items ahead of time. All ar
 
 ## Next steps
 
-- Sign in to [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
 - [Create an IoT Edge module offer](./iot-edge-offer-setup.md) in Partner Center.

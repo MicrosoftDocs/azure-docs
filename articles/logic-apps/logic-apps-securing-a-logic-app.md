@@ -4,8 +4,8 @@ description: Secure access to inputs, outputs, request-based triggers, run histo
 services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, azla
-ms.topic: conceptual
-ms.date: 05/01/2021
+ms.topic: how-to
+ms.date: 07/20/2021
 ---
 
 # Secure access and data in Azure Logic Apps
@@ -35,7 +35,7 @@ For more information about security in Azure, see these topics:
 
 Inbound calls that a logic app receives through a request-based trigger, such as the [Request](../connectors/connectors-native-reqres.md) trigger or [HTTP Webhook](../connectors/connectors-native-webhook.md) trigger, support encryption and are secured with [Transport Layer Security (TLS) 1.2 at minimum](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL). Logic Apps enforces this version when receiving an inbound call to the Request trigger or a callback to the HTTP Webhook trigger or action. If you get TLS handshake errors, make sure that you use TLS 1.2. For more information, see [Solving the TLS 1.0 problem](/security/solving-tls1-problem).
 
-Inbound calls support these cipher suites:
+For inbound calls, use the following cipher suites:
 
 * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
@@ -45,6 +45,24 @@ Inbound calls support these cipher suites:
 * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
 * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+
+> [!NOTE]
+> For backward compatibility, Azure Logic Apps currently supports some older cipher suites. However, *don't use* older cipher suites when you develop new apps because such suites *might not* be supported in the future. 
+>
+> For example, you might find the following cipher suites if you inspect the TLS handshake messages while using the Azure Logic Apps service or by using a security tool on your logic app's URL. Again, *don't use* these older suites:
+>
+>
+> * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+> * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
+> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+> * TLS_RSA_WITH_AES_256_GCM_SHA384
+> * TLS_RSA_WITH_AES_128_GCM_SHA256
+> * TLS_RSA_WITH_AES_256_CBC_SHA256
+> * TLS_RSA_WITH_AES_128_CBC_SHA256
+> * TLS_RSA_WITH_AES_256_CBC_SHA
+> * TLS_RSA_WITH_AES_128_CBC_SHA
+> * TLS_RSA_WITH_3DES_EDE_CBC_SHA
 
 The following list includes more ways that you can limit access to triggers that receive inbound calls to your logic app so that only authorized clients can call your logic app:
 
@@ -549,8 +567,17 @@ In your ARM template, specify the IP ranges by using the `accessControl` section
 
 ### Secure data in run history by using obfuscation
 
-Many triggers and actions have settings to secure inputs, outputs, or both from a logic app's run history. Before using these settings to help you secure this data, review these considerations:
+Many triggers and actions have settings to secure inputs, outputs, or both from a logic app's run history. All *[managed connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) and [custom connectors](/connectors/custom-connectors/)* support these options. However, the following [built-in operations](../connectors/built-in.md) ***don't support these options***:
+     
+| Secure Inputs - Unsupported | Secure Outputs - Unsupported |
+|-----------------------------|------------------------------|
+| Append to array variable <br>Append to string variable <br>Decrement variable <br>For each <br>If <br>Increment variable <br>Initialize variable <br>Recurrence <br>Scope <br>Set variable <br>Switch <br>Terminate <br>Until | Append to array variable <br>Append to string variable <br>Compose <br>Decrement variable <br>For each <br>If <br>Increment variable <br>Initialize variable <br>Parse JSON <br>Recurrence <br>Response <br>Scope <br>Set variable <br>Switch <br>Terminate <br>Until <br>Wait |
+|||
 
+#### Considerations for securing inputs and outputs
+
+Before using these settings to help you secure this data, review these considerations:
+                 
 * When you obscure the inputs or outputs on a trigger or action, Logic Apps doesn't send the secured data to Azure Log Analytics. Also, you can't add [tracked properties](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data) to that trigger or action for monitoring.
 
 * The [Logic Apps API for handling workflow history](/rest/api/logic/) doesn't return secured outputs.

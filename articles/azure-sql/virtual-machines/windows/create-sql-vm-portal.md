@@ -26,7 +26,7 @@ This guide covers options available for using the Azure portal to provision SQL 
 Use this guide to create your own SQL Server VM. Or, use it as a reference for the available options in the Azure portal.
 
 > [!TIP]
-> If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.md).
+> If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.yml).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -280,4 +280,4 @@ The following sections show how to connect over the internet to your SQL Server 
 
 ## Next steps
 
-For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](sql-server-on-azure-vm-iaas-what-is-overview.md) and the [Frequently Asked Questions](frequently-asked-questions-faq.md).
+For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](sql-server-on-azure-vm-iaas-what-is-overview.md) and the [Frequently Asked Questions](frequently-asked-questions-faq.yml).

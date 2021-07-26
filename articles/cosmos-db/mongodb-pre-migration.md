@@ -1,12 +1,12 @@
 ---
 title: Pre-migration steps for data migration to Azure Cosmos DB's API for MongoDB
 description: This doc provides an overview of the prerequisites for a data migration from MongoDB to Cosmos DB.
-author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 05/17/2021
-ms.author: anfeldma
+author: gahl-levy
+ms.author: gahllevy
 ---
 
 # Pre-migration steps for data migrations from MongoDB to Azure Cosmos DB's API for MongoDB
@@ -151,7 +151,7 @@ Finally, now that you have a view of your existing data estate and a design for 
    |Offline|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)|&bull; Makes use of the Azure Cosmos DB bulk executor library <br/>&bull; Suitable for large datasets and takes care of replicating live changes <br/>&bull; Works only with other MongoDB sources|
    |Offline|[Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)|&bull; Easy to set up and supports multiple sources <br/>&bull; Makes use of the Azure Cosmos DB bulk executor library <br/>&bull; Suitable for large datasets <br/>&bull; Lack of checkpointing means that any issue during the course of migration would require a restart of the whole migration process<br/>&bull; Lack of a dead letter queue would mean that a few erroneous files could stop the entire migration process <br/>&bull; Needs custom code to increase read throughput for certain data sources|
    |Offline|[Existing Mongo Tools (mongodump, mongorestore, Studio3T)](https://azure.microsoft.com/resources/videos/using-mongodb-tools-with-azure-cosmos-db/)|&bull; Easy to set up and integration <br/>&bull; Needs custom handling for throttles|
-
+    
    * If your resource can tolerate an offline migration, use the diagram below to choose the appropriate migration tool:
 
    ![Offline migration tools.](./media/mongodb-pre-migration/offline-tools.png)
@@ -159,9 +159,12 @@ Finally, now that you have a view of your existing data estate and a design for 
    * If your resource requires an online migration, use the diagram below to choose the appropriate migration tool:
 
    ![Online migration tools.](./media/mongodb-pre-migration/online-tools.png)
+   
+   Watch this video for an [overview and demo of the migration solutions](https://www.youtube.com/watch?v=WN9h80P4QJM) mentioned above.
 
 * Once you have chosen migration tools for each resource, the next step is to prioritize the resources you will migrate. Good prioritization can help keep your migration on schedule. A good practice is to prioritize migrating those resources which need the most time to be moved; migrating these resources first will bring the greatest progress toward completion. Furthermore, since these time-consuming migrations typically involve more data, they are usually more resource-intensive for the migration tool and therefore are more likely to expose any problems with your migration pipeline early on. This minimizes the chance that your schedule will slip due to any difficulties with your migration pipeline.
 * Plan how you will monitor the progress of migration once it has started. If you are coordinating your data migration effort among a team, plan a regular cadence of team syncs to so that you have a comprehensive view of how the high-priority migrations are going.
+  
 
 ### Supported migration scenarios
 

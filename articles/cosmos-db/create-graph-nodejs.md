@@ -1,13 +1,13 @@
 ---
 title: Build an Azure Cosmos DB Node.js application by using Gremlin API
 description: Presents a Node.js code sample you can use to connect to and query Azure Cosmos DB
-author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/05/2019
-ms.author: chrande
+author: manishmsfte
+ms.author: mansha
 ms.custom: devx-track-js
 ---
 # Quickstart: Build a Node.js application by using Azure Cosmos DB Gremlin API account
@@ -31,11 +31,11 @@ In this quickstart, you create and manage an Azure Cosmos DB Gremlin (graph) API
 
 ## Create a database account
 
-[!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-graph](includes/cosmos-db-create-dbaccount-graph.md)]
 
 ## Add a graph
 
-[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
+[!INCLUDE [cosmos-db-create-graph](includes/cosmos-db-create-graph.md)]
 
 ## Clone the sample application
 
@@ -194,11 +194,11 @@ Try completing `g.V()` with `.has('firstName', 'Thomas')` to test the filter. No
 
 ## Review SLAs in the Azure portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](includes/cosmos-db-tutorial-review-slas.md)]
 
 ## Clean up your resources
 
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 
