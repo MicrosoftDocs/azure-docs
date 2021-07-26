@@ -1,7 +1,7 @@
 ---
 title: Data Flow activity
 titleSuffix: Azure Data Factory & Synapse Analytics
-description: How to execute data flows from inside a data factory pipeline. 
+description: How to execute data flows from inside an Azure Data Factory or Synapse Analytics pipeline. 
 author: kromerm
 ms.service: data-factory
 ms.custom: synapse, synapse
@@ -10,7 +10,7 @@ ms.author: makromer
 ms.date: 05/20/2021
 ---
 
-# Data Flow activity in Azure Data Factory
+# Data Flow activity in Azure Data Factory and Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -76,7 +76,7 @@ The Core Count and Compute Type properties can be set dynamically to adjust to t
 
 ### Data Flow integration runtime
 
-Choose which Integration Runtime to use for your Data Flow activity execution. By default, Data Factory will use the auto-resolve Azure Integration runtime with four worker cores. This IR has a general purpose compute type and runs in the same region as your factory. For operationalized pipelines, it is highly recommended that you create your own Azure Integration Runtimes that define specific regions, compute type, core counts, and TTL for your data flow activity execution.
+Choose which Integration Runtime to use for your Data Flow activity execution. By default, the service will use the auto-resolve Azure Integration runtime with four worker cores. This IR has a general purpose compute type and runs in the same region as your service instance. For operationalized pipelines, it is highly recommended that you create your own Azure Integration Runtimes that define specific regions, compute type, core counts, and TTL for your data flow activity execution.
 
 A minimum compute type of General Purpose (compute optimized is not recommended for large workloads) with an 8+8 (16 total v-cores) configuration and a 10-minute is the minimum recommendation for most production workloads. By setting a small TTL, the Azure IR can maintain a warm cluster that will not incur the several minutes of start time for a cold cluster. You can speed up the execution of your data flows even more by select "Quick re-use" on the Azure IR data flow configurations. For more information, see [Azure integration runtime](concepts-integration-runtime.md).
 
@@ -91,13 +91,13 @@ If you're using an Azure Synapse Analytics as a sink or source, you must choose 
 
 ## Logging level
 
-If you do not require every pipeline execution of your data flow activities to fully log all verbose telemetry logs, you can optionally set your logging level to "Basic" or "None". When executing your data flows in "Verbose" mode (default), you are requesting ADF to fully log activity at each individual partition level during your data transformation. This can be an expensive operation, so only enabling verbose when troubleshooting can improve your overall data flow and pipeline performance. "Basic" mode will only log transformation durations while "None" will only provide a summary of durations.
+If you do not require every pipeline execution of your data flow activities to fully log all verbose telemetry logs, you can optionally set your logging level to "Basic" or "None". When executing your data flows in "Verbose" mode (default), you are requesting the service to fully log activity at each individual partition level during your data transformation. This can be an expensive operation, so only enabling verbose when troubleshooting can improve your overall data flow and pipeline performance. "Basic" mode will only log transformation durations while "None" will only provide a summary of durations.
 
 ![Logging level](media/data-flow/logging.png "Set logging level")
 
 ## Sink properties
 
-The grouping feature in data flows allow you to both set the order of execution of your sinks as well as to group sinks together using the same group number. To help manage groups, you can ask ADF to run sinks, in the same group, in parallel. You can also set the sink group to continue even after one of the sinks encounters an error.
+The grouping feature in data flows allow you to both set the order of execution of your sinks as well as to group sinks together using the same group number. To help manage groups, you can ask the service to run sinks, in the same group, in parallel. You can also set the sink group to continue even after one of the sinks encounters an error.
 
 The default behavior of data flow sinks is to execute each sink sequentially, in a serial manner, and to fail the data flow when an error is encountered in the sink. Additionally, all sinks are defaulted to the same group unless you go into the data flow properties and set different priorities for the sinks.
 
@@ -117,7 +117,7 @@ If your data flow uses parameterized datasets, set the parameter values in the *
 
 ### Parameterized data flows
 
-If your data flow is parameterized, set the dynamic values of the data flow parameters in the **Parameters** tab. You can use either the ADF pipeline expression language or the data flow expression language to assign dynamic or literal parameter values. For more information, see [Data Flow Parameters](parameters-data-flow.md).
+If your data flow is parameterized, set the dynamic values of the data flow parameters in the **Parameters** tab. You can use either the pipeline expression language or the data flow expression language to assign dynamic or literal parameter values. For more information, see [Data Flow Parameters](parameters-data-flow.md).
 
 ### Parameterized compute properties.
 
@@ -176,7 +176,7 @@ To get the number of rows read from a source named 'source1' that was used in th
 
 ## Next steps
 
-See control flow activities supported by Data Factory: 
+See supported control flow activities: 
 
 - [If Condition Activity](control-flow-if-condition-activity.md)
 - [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md)
