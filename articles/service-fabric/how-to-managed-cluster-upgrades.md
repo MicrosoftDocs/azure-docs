@@ -64,7 +64,7 @@ If a rollback occurs, you'll need to fix the issues that resulted in the rollbac
 
 #### Automatic upgrade with wave deployment
 
-To configure Automatic upgrades and the wave deployment, simply add/validate `ClusterUpgradeMode` is set to `Automatic` and the `upgradeWave` property is defined with one of the wave values listed above in your Resource Manager template.
+To configure Automatic upgrades and the wave deployment, simply add/validate `ClusterUpgradeMode` is set to `Automatic` and the `clusterUpgradeCadence` property is defined with one of the wave values listed above in your Resource Manager template.
 
 ```json
 {
@@ -72,7 +72,7 @@ To configure Automatic upgrades and the wave deployment, simply add/validate `Cl
 "type": "Microsoft.ServiceFabric/managedClusters",
 "properties": {
         "ClusterUpgradeMode": "Automatic",
-        "upgradeWave": "Wave1",
+        "clusterUpgradeCadence": "Wave1",
         }  
 }
 ```
