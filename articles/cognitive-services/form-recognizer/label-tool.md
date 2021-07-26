@@ -47,6 +47,10 @@ You will need an Azure subscription ([create one for free](https://azure.microso
 
 ## Set up the sample labeling tool
 
+> [!NOTE]
+>
+> If your storage data is behind a VNet or firewall, you must deploy the **Form Recognizer sample labeling tool** behind your VNet or firewall and grant access by creating a [system-assigned managed identity](managed-identity-byos.md "Azure managed identity is a service principal that creates an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources").
+
 You'll use the Docker engine to run the sample labeling tool. Follow these steps to set up the Docker container. For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
 
 > [!TIP]
