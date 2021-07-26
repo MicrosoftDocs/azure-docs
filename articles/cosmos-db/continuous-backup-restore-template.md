@@ -55,6 +55,8 @@ az group deployment create -g <ResourceGroup> --template-file <ProvisionTemplate
 
 ## <a id="migration"></a>Migrate an account to continuous backup
 
+See [migrate to continuous backup](migrate-continuous-backup.md#ARM-template) article on how to migrate a SQL API account with from periodic back up to continuous backup.
+
 ## <a id="restore"></a>Restore using the Resource Manager template
 
 You can also restore an account using Resource Manager template. When defining the template include the following parameters:

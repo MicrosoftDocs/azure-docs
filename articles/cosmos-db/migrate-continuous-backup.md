@@ -33,7 +33,7 @@ The following are the key reasons to migrate into continuous mode:
 
 After you migrate your account to continuous backup mode, the cost with this mode is different when compared to the periodic backup mode. The continuous mode backup cost is significantly cheaper than periodic mode. To learn more, see the [continuous backup mode pricing](continuous-backup-restore-introduction.md#continuous-backup-pricing) example.
 
-## Migrate using portal
+## <a id="portal"></a> Migrate using portal
 
 Use the following steps to migrate your account from periodic backup to continuous backup mode:
 
@@ -47,9 +47,30 @@ Use the following steps to migrate your account from periodic backup to continuo
 
    :::image type="content" source="./media/migrate-continuous-backup/migration-status.png" alt-text="Check the status of migration from Azure portal" lightbox="./media/migrate-continuous-backup/migration-status.png":::
 
-## Migrate using PowerShell
+## <a id="powershell"></a>Migrate using PowerShell
 
-## Migrate using CLI
+1. Connect to your Azure account:
+
+   ```azurepowershell-interactive
+   Connect-AzAccount
+   ```
+
+1. Install the Azure Cosmos DB PowerShell module:
+
+   ```azurepowershell-interactive
+   Install-Module Az.CosmosDB
+   ```
+
+1. Migrate your account from periodic to continuous backup mode:
+
+   ```azurepowershell-interactive
+   Update-AzCosmosDBAccount ` 
+     -ResourceGroupName "myrg" ` 
+     -Name "myAccount" `
+     -BackupPolicyType Continuous
+   ```
+
+## <a id="cli"></a>Migrate using CLI
 
 1. Install the latest version of Azure CLI:
 
@@ -83,6 +104,34 @@ Use the following steps to migrate your account from periodic backup to continuo
     …
     }
    ```
+
+## <a id="ARM-template"></a> Migrate using Resource Manager template
+
+To migrate to continuous backup mode using ARM template, find the backupPolicy section of your template and update the `type` property. For example, if your existing template has backup policy like the following JSON object:
+
+```json
+                "backupPolicy": {
+                    "type": "Periodic",
+                    "periodicModeProperties": {
+                        "backupIntervalInMinutes": 240,
+                        "backupRetentionIntervalInHours": 8
+                    }
+                },
+```
+
+Replace it with the following JSON object:
+
+```json
+        "backupPolicy": {
+          "type": "Continuous"
+        },
+```
+
+Next deploy the template by using Azure PowerShell or CLI. The following example shows how to deploy the template with a CLI command:
+
+```azurecli
+az group deployment create -g <ResourceGroup> --template-file <ProvisionTemplateFilePath>
+```
 
 ## What to expect during and after migration?
 

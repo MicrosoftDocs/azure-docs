@@ -63,6 +63,8 @@ az cosmosdb create \
 
 ## <a id="migrate-sql-api"></a>Migrate a SQL API account to continuous backup
 
+See [migrate to continuous backup](migrate-continuous-backup.md#cli) article on how to migrate a SQL API account with from periodic back up to continuous backup.
+
 ## <a id="migrate-mongo-api"></a>Migrate an Azure Cosmos DB API for MongoDB account to continuous backup
 
 ## <a id="trigger-restore"></a>Trigger a restore operation with CLI

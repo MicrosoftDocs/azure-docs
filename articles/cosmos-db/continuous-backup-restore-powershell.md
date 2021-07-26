@@ -67,6 +67,8 @@ New-AzCosmosDBAccount `
 
 ## <a id="migrate-sql-api"></a>Migrate a SQL API account to continuous backup
 
+See [migrate to continuous backup](migrate-continuous-backup.md#powershell) article on how to migrate a SQL API account with from periodic back up to continuous backup.
+
 ## <a id="migrate-mongodb-api"></a>Migrate an API for MongoDB account to continuous backup
 
 ## <a id="trigger-restore"></a>Trigger a restore operation
