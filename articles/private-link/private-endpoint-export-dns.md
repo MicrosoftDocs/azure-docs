@@ -52,6 +52,6 @@ To learn more about Azure Private link and DNS, see [Azure Private Endpoint DNS 
 
 For more information on Azure Private link, see:
 
-* [What is Azure Private Link?](private-link-overview.md).
-* [What is Azure Private Link service?](private-link-service-overview.md).
-* [Azure Private Link frequently asked questions (FAQ)](private-link-faq.yml).
+* [What is Azure Private Link?](private-link-overview.md)
+* [What is Azure Private Link service?](private-link-service-overview.md)
+* [Azure Private Link frequently asked questions (FAQ)](private-link-faq.yml)
