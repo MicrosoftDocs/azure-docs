@@ -1,6 +1,6 @@
 ﻿---
-title: Create custom analytics rules to detect threats with Azure Sentinel| Microsoft Docs
-description: Use this tutorial to learn how to create custom analytics rules to detect security threats with Azure Sentinel. Take advantage of event grouping, alert grouping, and alert enrichment, and understand AUTO DISABLED.
+title: Create custom analytics rules to detect threats with Azure Sentinel | Microsoft Docs
+description: Learn how to create custom analytics rules to detect security threats with Azure Sentinel. Take advantage of event grouping, alert grouping, and alert enrichment, and understand AUTO DISABLED.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -10,20 +10,23 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2021
 ms.author: yelevin
 
 ---
-# Tutorial: Create custom analytics rules to detect threats
+# Create custom analytics rules to detect threats
 
-Now that you've [connected your data sources](quickstart-onboard.md) to Azure Sentinel, you can create custom analytics rules to help you discover threats and anomalous behaviors that are present in your environment. These rules search for specific events or sets of events across your environment, alert you when certain event thresholds or conditions are reached, generate incidents for your SOC to triage and investigate, and respond to threats with automated tracking and remediation processes. 
+After [connecting your data sources](quickstart-onboard.md) to Azure Sentinel, create custom analytics rules to help discover threats and anomalous behaviors in your environment.
 
-This tutorial helps you create custom rules to detect threats with Azure Sentinel.
+Analytics rules search for specific events or sets of events across your environment, alert you when certain event thresholds or conditions are reached, generate incidents for your SOC to triage and investigate, and respond to threats with automated tracking and remediation processes.
 
-Upon completing this tutorial, you will be able to do the following:
+> [!TIP]
+> When creating custom rules, use existing rules as templates or references. Using existing rules as a baseline helps by building out most of the logic before you make any changes needed.
+> 
+
 > [!div class="checklist"]
 > * Create analytics rules
 > * Define how events and alerts are processed
@@ -70,7 +73,7 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
     ```
 
     > [!NOTE]
-    > #### Rule query best practices
+    > **Rule query best practices**: 
     > - The query length should be between 1 and 10,000 characters and cannot contain "`search *`" or "`union *`". You can use [user-defined functions](/azure/data-explorer/kusto/query/functions/user-defined-functions) to overcome the query length limitation.
     >
     > - Using ADX functions to create Azure Data Explorer queries inside the Log Analytics query window **is not supported**.
@@ -283,7 +286,11 @@ SOC managers should be sure to check the rule list regularly for the presence of
 
 ## Next steps
 
-In this tutorial, you learned how to get started detecting threats using Azure Sentinel.
+When using analytics rules to detect threats from Azure Sentinel, make sure that you enable all rules associated with your connected data sources in order to ensure full security coverage for your environment. The most efficient way to enable analytics rules is directly from the data connector page, which lists any related rules. For more information, see [Connect data sources](connect-data-sources.md).
+
+You can also push rules to Azure Sentinel via [API](/rest/api/securityinsights/) and [PowerShell](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0), although doing so requires additional effort. When using API or PowerShell, you must first export the rules to JSON before enabling the rules. API or PowerShell may be helpful when enabling rules in multiple instances of Azure Sentinel with identical settings in each instance.
+
+For more information, see:
 
 For more information, see:
 

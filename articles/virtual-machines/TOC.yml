@@ -67,6 +67,40 @@
       href: ./windows/tutorial-load-balancer.md
     - name: 8 - Manage networking
       href: ./windows/tutorial-virtual-network.md
+- name: Develop
+  items:
+  - name: REST API
+    href: /rest/api/compute/virtual-machines?context=/azure/virtual-machines/context/context
+  - name: Python
+    items: 
+    - name: Python SDK
+      href: https://github.com/Azure/azure-sdk-for-python
+    - name: Samples
+      href: /samples/azure-samples/virtual-machines-python-manage/azure-virtual-machines-management-samples---python/?context=/azure/virtual-machines/context/context
+  - name: .NET 
+    items:
+    - name: .NET SDK
+      href: https://github.com/Azure/azure-sdk-for-net
+    - name: Reference
+      href: /dotnet/api/overview/azure/virtualmachines?view=azure-dotnet?context=/azure/virtual-machines/context/context
+  - name: Java 
+    items:
+    - name: Java SDK
+      href: https://github.com/Azure/azure-sdk-for-java
+    - name: Reference
+      href: /java/api/com.azure.resourcemanager.compute?view=azure-java-stable?context=/azure/virtual-machines/context/context
+  - name: Go 
+    items:
+    - name: Go SDK
+      href: https://github.com/Azure/azure-sdk-for-go
+    - name: Reference
+      href: /developer/go/azure-sdk-qs-vm?context=/azure/virtual-machines/context/context
+  - name: Azure CLI samples repo
+    href: https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine
+  - name: PowerShell samples repo
+    href: https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine
+  - name: Azure Resource Graph queries
+    href: ./resource-graph-samples.md
 - name: Workloads
   items:
   - name: Red Hat
@@ -1899,8 +1933,6 @@
     href: /azure/developer/jenkins/
   - name: Azure DevOps
     href: ./linux/tutorial-azure-devops-blue-green-strategy.md
-- name: Support and troubleshooting
-  href: vm-support-help.md
 - name: Resources
   items:
   - name: Cloud adoption framework
@@ -1923,12 +1955,6 @@
     href: https://azure.microsoft.com/roadmap/?category=compute
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: Samples
-    items:
-    - name: Azure CLI samples repo
-      href: https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine
-    - name: PowerShell samples repo
-      href: https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine
   - name: Common CLI commands
     href: ./linux/cli-manage.md
   - name: Common PowerShell commands
@@ -1949,3 +1975,5 @@
       href: ./linux/faq.yml
     - name: Windows
       href: ./windows/faq.yml
+- name: Support and troubleshooting
+  href: vm-support-help.md

@@ -32,6 +32,8 @@ When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is
 >
 > You can also refer to Azure Machine Learning - [Deploy to Local Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
+[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
+
 ## Prerequisites
 
 - An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
