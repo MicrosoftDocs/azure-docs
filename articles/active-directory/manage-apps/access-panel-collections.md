@@ -68,10 +68,9 @@ To create a collection, you must have an Azure AD Premium P1 or P2 license.
 
 The Audit logs record My Apps collections operations, including collection creation end-user actions. The following events are generated from My Apps:
 
-* Create collection
-* Edit collection
-* Delete collection
-* Launch an application (end user)
+* Create admin collection
+* Edit admin collection
+* Delete admin collection
 * Self-service application adding (end user)
 * Self-service application deletion (end user)
 

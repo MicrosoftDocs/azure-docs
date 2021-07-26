@@ -65,7 +65,7 @@ On the Register sources (Looker) screen, do the following:
 2. Enter the Looker API URL in the **Server API URL** field. The
     default port for API requests is port 19999. Also, all Looker API
     endpoints require an HTTPS connection. For example,
-    https://azurepurview.cloud.looker.com
+    'https://azurepurview.cloud.looker.com'
 
 3. Select a collection or create a new one (Optional)
 
