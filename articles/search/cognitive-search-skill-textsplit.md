@@ -35,7 +35,7 @@ Parameters are case-sensitive.
 | Parameter name	   | Description      |
 |----------------------|------------------|
 | `text`	| The text to split into substring. |
-| `languageCode`	| (Optional) Language code for the document. If you do not know the language (i.e. you need to split the text for input into the [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), it is safe to remove this input. If the language is not in the supported list for the `defaultLanguageCode` parameter above,, a warning will be emitted and the text will not be split.  |
+| `languageCode`	| (Optional) Language code for the document. If you do not know the language (i.e. you need to split the text for input into the [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), it is safe to remove this input. If the language is not in the supported list for the `defaultLanguageCode` parameter above, a warning will be emitted and the text will not be split.  |
 
 ## Skill Outputs 
 
