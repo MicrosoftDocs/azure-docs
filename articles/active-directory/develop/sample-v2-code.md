@@ -82,7 +82,7 @@ The following samples show public client desktop applications that access the Mi
 >| Universal Window Platform (UWP)    |  [Call Microsoft Graph](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam)   |        |         |
 >|  XAML  |   [Sign in users and call ASP.NET core web API](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/1.%20Desktop%20app%20calls%20Web%20API)      |   MSAL.NET     | Auth code flow (with PKCE)         |
 >|   XAML | [Sign in users and call Microsoft Graph](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2)    |  MSAL.NET     |  Auth code flow (with PKCE)       |
-|    |         |        |        |        |
+|    |         |        |       |
 
 
 
