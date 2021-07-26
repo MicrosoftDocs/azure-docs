@@ -6,6 +6,8 @@
       href: overview.md
     - name: Release notes
       href: release-notes.md
+    - name: Azure Arc validation program
+      href: validation-program.md
     - name: Data collection and reporting
       href: privacy-data-collection-and-reporting.md
 - name: Quickstarts
