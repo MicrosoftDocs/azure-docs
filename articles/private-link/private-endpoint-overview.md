@@ -98,7 +98,7 @@ A private link resource is the destination target of a given private endpoint. T
 | **Azure Synapse** | Microsoft.Synapse/privateLinkHubs | synapse |
 | **Azure Synapse Analytics** | Microsoft.Synapse/workspaces | Sql, SqlOnDemand, Dev | 
 | **Azure App Service** | Microsoft.Web/hostingEnvironments | hosting environment |
-| **Azure App Service** | Microsoft.Web/sites | site |
+| **Azure App Service** | Microsoft.Web/sites | sites |
 | **Azure App Service** | Microsoft.Web/staticSites | staticSite |
  
 ## Network security of private endpoints 
