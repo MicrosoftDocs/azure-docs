@@ -120,7 +120,7 @@ Browse to the directory that contains the .pom file to build and test the applic
 
 ## Clean up resources
 
-[!INCLUDE cosmosdb-delete-resource-group]
+[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 
