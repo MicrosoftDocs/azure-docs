@@ -121,7 +121,7 @@ Defender for IoT alerts will now appear as incidents in ServiceNow.
 
 A token is needed in order to allow ServiceNow to communicate with Defender for IoT.
 
-You will need the `Client ID` and `Client Secret` that you entered whe creating the Defender for IoT Forwarding rules. The Forwarding rules forward alert information to ServiceNow, and when configuring Defender for IoT to push device attributes to ServiceNow tables.
+You will need the `Client ID` and `Client Secret` that you entered when creating the Defender for IoT Forwarding rules. The Forwarding rules forward alert information to ServiceNow, and when configuring Defender for IoT to push device attributes to ServiceNow tables.
 
 ## Send Defender for IoT device attributes to ServiceNow
 
