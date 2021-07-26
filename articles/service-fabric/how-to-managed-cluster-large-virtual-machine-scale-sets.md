@@ -17,7 +17,9 @@ Short list of pros/cons?
 > This property can not be modified after a node type is deployed.
 
 ## Enable large node types in a Service Fabric managed cluster
-To set one or more secondary node types as large in a node type resource, set the **multiplePlacementGroups** property to **true**. When deploying a Service Fabric cluster with large node types, it is required to have at least one primary node type, which is not large in the cluster.
+To set one or more secondary node types as large in a node type resource, set the **multiplePlacementGroups** property to **true**. 
+> [!NOTE]
+> When deploying a Service Fabric cluster with large node types, it is required to have at least one primary node type which is not large in the cluster.
 
 * The Service Fabric managed cluster resource apiVersion should be **2021-05-01** or later.
 
