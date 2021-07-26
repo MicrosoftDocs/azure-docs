@@ -105,8 +105,8 @@ Since the server is in virtual network, you can only connect to the server from 
 11. Select **Review + Create**.
 12. Select **Create**. When the **Generate new key pair** window opens, select **Download private key and create resource**. Your key file will be download as **myKey.pem**.
 
->[!IMPORTANT]
-> Make sure you know where the `.pem` file was downloaded, you will need the path to it in the next step.
+   >[!IMPORTANT]
+   > Make sure you know where the `.pem` file was downloaded, you will need the path to it in the next step.
 
 13. When the deployment is finished, select **Go to resource**.
  > :::image type="content" source="./media/quickstart-create-connect-server-vnet/vm-create-success.png" alt-text="Screenshot of deployment success" lightbox="./media/quickstart-create-connect-server-vnet/vm-create-success.png":::
