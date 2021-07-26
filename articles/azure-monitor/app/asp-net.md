@@ -9,7 +9,7 @@ ms.custom: contperf-fy21q1
 
 # Configure Application Insights for your ASP.NET website
 
-This procedure configures your ASP.NET web app to send telemetry to the [Azure Application Insights](./app-insights-overview.md) service. It works for ASP.NET apps that are hosted either in your own IIS servers on-premises or in the Cloud. 
+This procedure configures your ASP.NET web app to send telemetry to the [Application Insights](./app-insights-overview.md) feature of the Azure Monitor service. It works for ASP.NET apps that are hosted either in your own IIS servers on-premises or in the cloud. 
 
 ## Prerequisites
 To add Application Insights to your ASP.NET website, you need to:
@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 - Create an [Application Insights workspace-based resource](create-workspace-resource.md).
 
 > [!IMPORTANT]
-> [Connection Strings](./sdk-connection-string.md?tabs=net) are recommended over instrumentation keys. New Azure regions **require** the use of connection strings instead of instrumentation keys. Connection string identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
+> [Connection strings](./sdk-connection-string.md?tabs=net) are recommended over instrumentation keys. New Azure regions **require** the use of connection strings instead of instrumentation keys. Connection string identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
 
 
 ## Create a basic ASP.NET web app
@@ -258,7 +258,7 @@ This section will guide you through manually adding Application Insights to a te
     }
     ```
 
-7. Update the Web.config file as follows:
+7. Update Web.config file as follows:
     
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -348,7 +348,7 @@ You have now successfully configured server-side application monitoring. If you 
 
 The previous sections provided guidance on methods to automatically and manually configure server-side monitoring. To add client-side monitoring, you will need to use our [client-side JavaScript SDK](javascript.md). You can monitor any web page's client-side transactions by adding a [JavaScript snippet](javascript.md#snippet-based-setup) before the closing `</head>` tag of the page's HTML. 
 
-While is possible to manually add the snippet to the header of each HTML page, it is recommended to instead add the snippet to a primary page, which will inject the snippet into all pages of a site. For the template-based ASP.NET MVC app from this article, the file you need to edit is called `_Layout.cshtml` and it is found under **Views** > **Shared**.
+Although it's possible to manually add the snippet to the header of each HTML page, we recommend that you instead add the snippet to a primary page, which will inject the snippet into all pages of a site. For the template-based ASP.NET MVC app from this article, the file you need to edit is called `_Layout.cshtml` and it is found under **Views** > **Shared**.
 
 To add client-side monitoring, open the `_Layout.cshtml` file and follow the [snippet-based setup instructions](javascript.md#snippet-based-setup) from the client-side JavaScript SDK configuration article.
 
@@ -358,9 +358,9 @@ There is a known issue in the current version of Visual Studio 2019 that when st
 
 ## Open-source SDK
 
-* [Read and contribute to the code](https://github.com/microsoft/ApplicationInsights-dotnet).
+[Read and contribute to the code](https://github.com/microsoft/ApplicationInsights-dotnet).
 
-For the latest updates and bug fixes [consult the release notes](./release-notes.md).
+For the latest updates and bug fixes, [consult the release notes](./release-notes.md).
 
 ## Next steps
 
