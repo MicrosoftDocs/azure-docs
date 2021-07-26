@@ -69,7 +69,7 @@ In SQL Server Management Studio, follow these steps to restore the Wide World Im
 
 9. Initiate the session on Azure
 
-![Initiate Azure session](./media/restore-sample-database-quickstart/restore-wizard-initiate-session.png)
+![Login Azure session](./media/restore-sample-database-quickstart/restore-wizard-login-session.png)
 
 10. After the sign in to Azure select the subscription where the Storage account with the backup file(s) are located.
 
