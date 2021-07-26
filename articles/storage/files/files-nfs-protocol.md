@@ -81,7 +81,7 @@ The status of items that appear in this tables may change over time as support c
 
 [!INCLUDE [files-nfs-regional-availability](../../../includes/files-nfs-regional-availability.md)]
 
-## Known workloads validated during preview
+## Validated workloads
 At the time of publishing this section, following is the list of workloads that have been validated to fully work with the NFS Preview. This list will be periodically refreshed until GA.
 - Highly Available shared storage for self-deployed Redis cache
 - Machine Learning Home Directories
