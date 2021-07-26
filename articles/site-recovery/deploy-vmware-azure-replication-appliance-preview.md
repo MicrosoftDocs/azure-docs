@@ -120,7 +120,7 @@ You need to set up an Azure Site Recovery replication appliance in the on-premis
 Go to **Recovery Services Vault** > **Getting Started**. In VMware machines to Azure, select
 **Prepare Infrastructure** and proceed with the sections detailed below:
 
-[![Recovery Services Vault](./media/deploy-vmware-azure-replication-appliance-preview/vault-inline.png)](./media/deploy-vmware-azure-replication-appliance-preview/vault-expanded.png#lighbox)
+[![Recovery Services Vault](./media/deploy-vmware-azure-replication-appliance-preview/vault-inline.png)](./media/deploy-vmware-azure-replication-appliance-preview/vault-expanded.png#lightbox)
 
 To set up a new appliance, you can use an OVF template (recommended) or PowerShell.
 
