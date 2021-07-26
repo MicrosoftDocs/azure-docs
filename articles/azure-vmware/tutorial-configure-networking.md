@@ -59,7 +59,7 @@ When you create a new vNet, the required components needed to connect to Azure V
 
    :::image type="content" source="media/networking/azure-vnet-connect-tab-create-new.png" alt-text="Screenshot showing the Azure vNet connect tab under Connectivity.":::
 
-3. Provide or update the information for the new vNet and then select **Save**.
+3. Provide or update the information for the new vNet and then select **OK**.
 
    At this point, the vNet validates if overlapping IP address spaces between Azure VMware Solution and vNet are detected. If detected, then change the network address of either the private cloud or the vNet so they don't overlap. 
 
