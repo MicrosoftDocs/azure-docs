@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 07/21/2021
+ms.date: 07/26/2021
 ---
 
 # What's new in Azure Sentinel
@@ -43,9 +43,15 @@ Azure Sentinel now provides new Fusion detections for possible Ransomware activi
 
 Incidents are generated for alerts that are possibly associated with Ransomware activities, when they occur during a specific time-frame, and are associated with the Execution and Defense Evasion stages of an attack. You can use the alerts listed in the incident to analyze the techniques possibly used by attackers to compromise a host/device and to evade detection.
 
-Supported data connectors include [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md), [Microsoft Cloud App Security](connect-cloud-app-security.md), and [scheduled analytics rules](tutorial-detect-threats-built-in.md#scheduled) from inside Azure Sentinel.
+Supported data connectors include:
 
-For more information, see [Advanced multistage attack detection in Azure Sentinel](fusion.md#multiple-alerts-possibly-related-to-ransomware-activity-detected-public-preview)
+- [Azure Security Center](connect-azure-security-center.md)
+- [Microsoft 365 Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md)
+- [Microsoft 365 Defender for Identity](connect-azure-atp.md)
+- [Microsoft Cloud App Security](connect-cloud-app-security.md)
+- [Scheduled analytics rules](tutorial-detect-threats-built-in.md#scheduled) from inside Azure Sentinel
+
+For more information, see [Multiple alerts possibly related to Ransomware activity detected](fusion.md#multiple-alerts-possibly-related-to-ransomware-activity-detected-public-preview).
 
 ### Enrich entities with geolocation data via API (Public preview)
 
