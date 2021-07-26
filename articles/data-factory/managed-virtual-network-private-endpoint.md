@@ -6,7 +6,7 @@ ms.author: lle
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: [seo-lt-2019, references_regions, devx-track-azurepowershell], synapse
+ms.custom: seo-lt-2019, references_regions, devx-track-azurepowershell, synapse
 ms.date: 06/16/2021
 ---
 

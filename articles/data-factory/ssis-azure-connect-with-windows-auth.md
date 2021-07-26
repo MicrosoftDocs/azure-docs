@@ -6,7 +6,7 @@ ms.date: "10/27/2020"
 ms.topic: conceptual
 ms.prod: sql
 ms.prod_service: "integration-services"
-ms.custom: , synapse
+ms.custom: synapse
 ms.technology: integration-services
 author: swinarko
 ms.author: sawinark
