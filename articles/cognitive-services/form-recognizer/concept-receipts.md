@@ -44,7 +44,7 @@ The Receipt API also powers the [AI Builder Receipt Processing feature](/ai-buil
 To try out the Form Recognizer receipt service, go to the online Sample UI Tool:
 
 > [!div class="nextstepaction"]
-> [Try Prebuilt Models](https://aka.ms/fott-2.1-ga)
+> [Try Prebuilt Models](https://aka.ms/fott-2.1-ga "Start with  prebuilt model to extract data from receipts.")
 
 ## What does the Receipt service do?
 
