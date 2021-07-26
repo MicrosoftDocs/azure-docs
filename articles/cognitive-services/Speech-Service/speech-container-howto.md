@@ -20,10 +20,6 @@ Containers enable you to run some of the Speech service APIs in your own environ
 
 Speech containers enable customers to build a speech application architecture that is optimized for both robust cloud capabilities and edge locality. There are several containers available, which use the same [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) as the cloud-based Azure Speech Services.
 
-
-> [!IMPORTANT]
-> To use the speech containers you must submit an online request, and have it approved. See the **Request approval to the run the container** section below for more information.
-
 | Container | Features | Latest | Release status |
 |--|--|--|--|
 | Speech-to-text | Analyzes sentiment and transcribes continuous real-time speech or batch audio recordings with intermediate results.  | 2.12.0 | Generally Available |
@@ -35,6 +31,9 @@ Speech containers enable customers to build a speech application architecture th
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
+
+> [!IMPORTANT]
+> To use the speech containers you must submit an online request, and have it approved. See the **Request approval to the run the container** section below for more information.
 
 You must meet the following prerequisites before using Speech service containers. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
