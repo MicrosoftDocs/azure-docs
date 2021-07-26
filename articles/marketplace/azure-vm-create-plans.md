@@ -174,7 +174,7 @@ Add open public or private ports on a deployed virtual machine.
 
 ### Properties
 
-    :::image type="content" source="./media/create-vm/properties.png" alt-text="A view of the properties selection page.":::
+:::image type="content" source="./media/create-vm/properties.png" alt-text="A view of the properties selection page.":::
 
 Supports backup: Enable this property if your images support Azure VM backup. Learn more about [Azure VM backup](https://go.microsoft.com/fwlink/?linkid=2155616).
 
