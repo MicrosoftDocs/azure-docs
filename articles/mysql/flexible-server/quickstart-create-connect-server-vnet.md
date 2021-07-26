@@ -81,26 +81,26 @@ Since the server is in virtual network, you can only connect to the server from 
 
 5. For **SSH public key source**, leave the default of **Generate new key pair**, and then type *myKey* for the **Key pair name**.
 
-  > :::image type="content" source="../../virtual-machines/linux/media/quick-create-portal/administrator-account.png" alt-text="Screenshot of the Administrator account section where you select an authentication type and provide the administrator credentials" lightbox="../../virtual-machines/linux/media/quick-create-portal/administrator-account.png":::
+   > :::image type="content" source="../../virtual-machines/linux/media/quick-create-portal/administrator-account.png" alt-text="Screenshot of the Administrator account section where you select an authentication type and provide the administrator credentials" lightbox="../../virtual-machines/linux/media/quick-create-portal/administrator-account.png":::
 
 6. Under **Inbound port rules** > **Public inbound ports**, choose **Allow selected ports** and then select **SSH (22)** and **HTTP (80)** from the drop-down.
 
-  > :::image type="content" source="../../virtual-machines/linux/media/quick-create-portal/inbound-port-rules.png" alt-text="Screenshot of the inbound port rules section where you select what ports inbound connections are allowed on" lightbox="../../virtual-machines/linux/media/quick-create-portal/inbound-port-rules.png":::
+   > :::image type="content" source="../../virtual-machines/linux/media/quick-create-portal/inbound-port-rules.png" alt-text="Screenshot of the inbound port rules section where you select what ports inbound connections are allowed on" lightbox="../../virtual-machines/linux/media/quick-create-portal/inbound-port-rules.png":::
 
 7. Select **Networking** page to configure the virtual network. For virtual network, choose the **vnetenvironment1** created for the database server.
 
-  > :::image type="content" source="./media/quickstart-create-connect-server-vnet/vm-vnet-configuration.png" alt-text="Screenshot of select existing virtual network of the database server" lightbox="./media/quickstart-create-connect-server-vnet/vm-vnet-configuration.png":::
+   > :::image type="content" source="./media/quickstart-create-connect-server-vnet/vm-vnet-configuration.png" alt-text="Screenshot of select existing virtual network of the database server" lightbox="./media/quickstart-create-connect-server-vnet/vm-vnet-configuration.png":::
 
 8. Select **Manage subnet configuration** to create a new subnet for the server.
 
-  > :::image type="content" source="./media/quickstart-create-connect-server-vnet/vm-manage-subnet-integration.png" alt-text="Screenshot of manage subnet" lightbox="./media/quickstart-create-connect-server-vnet/vm-manage-subnet-integration.png":::
+   > :::image type="content" source="./media/quickstart-create-connect-server-vnet/vm-manage-subnet-integration.png" alt-text="Screenshot of manage subnet" lightbox="./media/quickstart-create-connect-server-vnet/vm-manage-subnet-integration.png":::
 
 9. Add new subnet for the virtual machine.
 
- > :::image type="content" source="./media/quickstart-create-connect-server-vnet/vm-add-new-subnet.png" alt-text="Screenshot of adding a new subnet for virtual machine" lightbox="./media/quickstart-create-connect-server-vnet/vm-add-new-subnet.png"::: 
+   > :::image type="content" source="./media/quickstart-create-connect-server-vnet/vm-add-new-subnet.png" alt-text="Screenshot of adding a new subnet for virtual machine" lightbox="./media/quickstart-create-connect-server-vnet/vm-add-new-subnet.png"::: 
 
 10. After the subnet has been created successfully , close the page.
- > :::image type="content" source="./media/quickstart-create-connect-server-vnet/subnet-create-success.png" alt-text="Screenshot of success with adding a new subnet for virtual machine" lightbox="./media/quickstart-create-connect-server-vnet/subnet-create-success.png":::
+   > :::image type="content" source="./media/quickstart-create-connect-server-vnet/subnet-create-success.png" alt-text="Screenshot of success with adding a new subnet for virtual machine" lightbox="./media/quickstart-create-connect-server-vnet/subnet-create-success.png":::
 
 11. Select **Review + Create**.
 12. Select **Create**. When the **Generate new key pair** window opens, select **Download private key and create resource**. Your key file will be download as **myKey.pem**.
