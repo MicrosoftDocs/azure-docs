@@ -62,7 +62,7 @@ az spring-cloud app deploy --name <your-application-name> --jar-path app.jar \
 
 #### Portal
 
-To add the key/value pairs using the Azure portal, use the following steps:
+You can also set the key/value pairs using the Azure portal, use the following steps:
 
 1. Navigate to the list of your existing applications.
 
