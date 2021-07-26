@@ -21,7 +21,7 @@ A fully-connected Azure Digital Twins graph is driven by event propagation. Data
 
 In this article, you'll see how to send events from twin to twin, allowing you to update twins in response to property changes or other data from another twin in the graph.
 
-Currently, this is accomplished by setting up an [Azure function](../azure-functions/functions-overview.md) that watches updates on a twin and makes changes to other twins accordingly. This article walks through the process of setting up this function on an example scenario.
+Currently, this is accomplished by setting up an [Azure function](../azure-functions/functions-overview.md) that watches for twin life cycle events that should affect other areas of the graph, and makes changes to other twins accordingly. This article walks through the process of setting up this function on an example scenario.
 
 Here are the actions you will complete:
 1. [Set up an Event Grid endpoint](#create-the-endpoint) in Azure Digital Twins that connects the instance to Event Grid
