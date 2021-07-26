@@ -91,7 +91,7 @@ In SQL Server Management Studio, follow these steps to restore the Wide World Im
 
 ![File location concluded](./media/restore-sample-database-quickstart/restore-wizard-backup-file-location-concluded.png)
 
-15. Expande the folder struture on the left until the folder where the backup file(S) are located and then select all the backup files related to the backup set to be restored.
+15. Expande the folder struture on the left until the folder where the backup file(s) are located and then select all the backup files related to the backup set to be restored.
 
 ![Backup file selection](./media/restore-sample-database-quickstart/restore-wizard-backup-file-selection.png)
 
