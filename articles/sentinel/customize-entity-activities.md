@@ -177,7 +177,7 @@ For example:
 
 When you are satisfied with your query and activity title, select **Next : Review**.
 
-### Review and create tab 
+### Review and create tab
 
 1. Verify all the configuration information of your custom activity.
 
