@@ -2,7 +2,7 @@
 title: How to move Azure Backup Recovery Services vaults 
 description: Instructions on how to move a Recovery Services vault across Azure subscriptions and resource groups.
 ms.topic: conceptual
-ms.date: 07/23/2021
+ms.date: 07/26/2021
 ms.custom: references_regions 
 ---
 

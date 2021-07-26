@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 07/26/2021
 ms.custom: references_regions 
 ---
-# Continue backups in Azure Recovery Services vault after moving resources across regions
+# Continue backups in Recovery Services vault after moving resources across regions
 
 Azure Resource Mover supports the movement of multiple resources across regions and Azure Backup can protect several workloads.
 
@@ -54,5 +54,3 @@ To continue taking backups in the new region within the same resource group or i
 >[!Note]
 >- You can use the recovery points in the old vault for restore purpose if you have used Stop protection with Retain data in step 1.  
 >- If you have used Stop protection and Retain data and no longer wish to retain data to avoid billing, you need to delete the recovery points manually. 
-
- 

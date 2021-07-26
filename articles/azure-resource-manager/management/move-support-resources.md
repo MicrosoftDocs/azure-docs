@@ -1595,7 +1595,7 @@ Jump to a resource provider namespace:
 
 >[!IMPORTANT]
 >- See [Recovery Services move guidance](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
->- See [Continue backups in Azure Recovery Services vault after moving resources across regions](../../backup/azure-backup-move-vaults-across-regions.md?toc=/azure/azure-resource-manager/toc.json).
+>- See [Continue backups in Recovery Services vault after moving resources across regions](../../backup/azure-backup-move-vaults-across-regions.md?toc=/azure/azure-resource-manager/toc.json).
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
