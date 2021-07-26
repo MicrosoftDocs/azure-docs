@@ -28,7 +28,7 @@ In the Azure portal, you can get the correlation ID for a resource in two ways:
 
 Here's an example of the operation details of a failed private cloud deployment, with the correlation ID selected:
 
-:::image type="content" source="media/fix-deployment-provisioning-failures/failed-private-cloud-deployment.png" alt-text="Screenshot that shows a failed private cloud deployment with the correlation ID selected.":::
+:::image type="content" source="media/fix-deployment-failures/failed-private-cloud-deployment.png" alt-text="Screenshot that shows a failed private cloud deployment with the correlation ID selected.":::
 
 To access deployment results in a private cloud **Overview** pane:
 
@@ -48,17 +48,17 @@ To access the deployment log:
 
 1. In the Azure portal, select your private cloud, and then select the notifications icon.
 
-   :::image type="content" source="media/fix-deployment-provisioning-failures/open-notifications.png" alt-text="Screenshot that shows the notifications icon in the Azure portal.":::
+   :::image type="content" source="media/fix-deployment-failures/open-notifications.png" alt-text="Screenshot that shows the notifications icon in the Azure portal.":::
 
 1. In the **Notifications** pane, select **More events in the activity log**:
 
-    :::image type="content" source="media/fix-deployment-provisioning-failures/more-events-in-activity-log.png" alt-text="Screenshot that shows the More events in the activity log link selected in the Notifications pane.":::
+    :::image type="content" source="media/fix-deployment-failures/more-events-in-activity-log.png" alt-text="Screenshot that shows the More events in the activity log link selected in the Notifications pane.":::
 
 1. To find the failed deployment and its correlation ID, search for the name of the resource or other information that you used to create the resource. 
 
     The following example shows search results for a private cloud resource named pc03.
  
-    :::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Screenshot that shows search results for an example private cloud resource and the Create or update a PrivateCloud pane.":::
+    :::image type="content" source="media/fix-deployment-failures/find-past-deployments.png" alt-text="Screenshot that shows search results for an example private cloud resource and the Create or update a PrivateCloud pane.":::
  
 1. In the search results in the **Activity log** pane, select the operation name of the failed deployment.
 
@@ -68,7 +68,7 @@ To access the deployment log:
 
 To help resolve your deployment issue, include any error messages that are shown in the Azure portal. Select a warning message to see a summary of errors:
  
-:::image type="content" source="media/fix-deployment-provisioning-failures/summary-of-errors.png" alt-text="Screenshot that shows error details on the Summary tab of the Errors pane, with the copy icon selected.":::
+:::image type="content" source="media/fix-deployment-failures/summary-of-errors.png" alt-text="Screenshot that shows error details on the Summary tab of the Errors pane, with the copy icon selected.":::
 
 To copy the error message, select the copy icon. Save the copied message to include in your support request.
  
@@ -103,7 +103,7 @@ To create a support request for an Azure VMware Solution deployment or provision
 
 1. In the Azure portal, select the **Help** icon, and then select **New support request**.
 
-    :::image type="content" source="media/fix-deployment-provisioning-failures/open-support-request.png" alt-text="Screenshot of the New support request pane in the Azure portal.":::
+    :::image type="content" source="media/fix-deployment-failures/open-support-request.png" alt-text="Screenshot of the New support request pane in the Azure portal.":::
 
 1. Enter or select the required information:
 
