@@ -498,7 +498,7 @@ Here are a few things to be aware of while you use Azure role-based access contr
 
 - To deploy your compute resources inside a VNet, you need to explicitly have permissions for the following actions:
     - `Microsoft.Network/virtualNetworks/*/read` on the VNet resources.
-    - `Microsoft.Network/virtualNetworks/subnet/join/action` on the subnet resource.
+    - `Microsoft.Network/virtualNetworks/subnets/join/action` on the subnet resource.
     
     For more information on Azure RBAC with networking, see the [Networking built-in roles](../role-based-access-control/built-in-roles.md#networking).
 
