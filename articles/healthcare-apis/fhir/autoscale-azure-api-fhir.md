@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 07/21/2021
+ms.date: 07/26/2021
 ms.author: zxue
 ---
 
@@ -38,7 +38,7 @@ You can also decrease the max `RU/s` or `Tmax` value. When you lower the max `RU
 * **Example 2**: You have 20-GB data and the highest provisioned `RU/s` is 100,000. The minimum value is Max (4000, **100,000/10**, 20x400) = 10,000. The second number, **100,000/10 =10,000**, is used.
 * **Example 3**: You have 80-GB data and the highest provisioned RU/s is 300,000. The minimum value is Max (4000, 300,000/10, **80x400**) = 32,000. The third number, **80x400=32,000**, is used.
 
-You can adjust the max `RU/s` or `Tmax` value through the portal if it is a valid number, no greater than 10,000 `RU/s`. You can create a support ticket to request `Tmax` value larger than 10,000.
+You can adjust the max `RU/s` or `Tmax` value through the portal if it is a valid number, and no greater than 10,000 `RU/s`. You can create a support ticket to request `Tmax` value larger than 10,000.
 
 ## What is the cost impact of autoscale?
 
