@@ -67,7 +67,7 @@ Since the server is in virtual network, you can only connect to the server from 
 
 1. Go to you resource group in which the server was created. Select **Add**.
 2. Select **Ubuntu Server 18.04 LTS**
-3. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type *myResourceGroup* for the name.*.
+3. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type *myResourceGroup* for the name.
 
    > :::image type="content" source="../../virtual-machines/linux/media/quick-create-portal/project-details.png" alt-text="Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the virtual machine" lightbox="../../virtual-machines/linux/media/quick-create-portal/project-details.png"::: 
 
