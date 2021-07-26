@@ -54,9 +54,9 @@ Environment(name="myenv")
 
 Curated environments contain collections of Python packages and are available in your workspace by default. These environments are backed by cached Docker images which reduces the run preparation cost. You can select one of these popular curated environments to start with: 
 
-* The _AzureML-Minimal_ environment contains a minimal set of packages to enable run tracking and asset uploading. You can use it as a starting point for your own environment.
+* The _AzureML-lightgbm-3.2-ubuntu18.04-py37-cpu_ environment contains Scikit-learn, LightGBM, XGBoost, Dask as well as other AzureML Python SDK and additional packages.
 
-* The _AzureML-Tutorial_ environment contains common data science packages. These packages include Scikit-Learn, Pandas, Matplotlib, and a larger set of azureml-sdk packages.
+* The _AzureML-sklearn-0.24-ubuntu18.04-py37-cpu_ environment contains common data science packages. These packages include Scikit-Learn, Pandas, Matplotlib, and a larger set of azureml-sdk packages.
 
 For a list of curated environments, see the [curated environments article](resource-curated-environments.md).
 
@@ -366,6 +366,9 @@ run = exp.submit(src)
 
 > [!NOTE]
 > To disable the run history or run snapshots, use the setting under `src.run_config.history`.
+
+>[!IMPORTANT]
+> Use CPU SKUs for any image build on compute. 
 
 If you don't specify the environment in your run configuration, then the service creates a default environment when you submit your run.
 
