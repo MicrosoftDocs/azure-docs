@@ -40,10 +40,9 @@ In this section, you create a load balancer that load balances virtual machines.
 
 When you create a public load balancer, you create a new public IP address that is configured as the frontend (named as **LoadBalancerFrontend** by default) for the load balancer.
 
-1. Select **Create a resource**. 
-2. In the search box, enter **Load balancer**. Select **Load balancer** in the search results.
-3. In the **Load balancer** page, select **Create**.
-4. On the **Create load balancer** page enter, or select the following information: 
+1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
+2. In the **Load balancer** page, select **Create**.
+3. On the **Create load balancer** page enter, or select the following information: 
 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
