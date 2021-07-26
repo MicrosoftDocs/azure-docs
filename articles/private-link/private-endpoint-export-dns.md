@@ -1,5 +1,5 @@
 ---
-title: Export DNS records for a private endpoint using the Azure portal.
+title: Export DNS records for a private endpoint using the Azure portal
 titleSuffix: Azure Private Link
 description: In this tutorial, learn how to export the DNS records for a private endpoint in the Azure portal. 
 author: asudbring
@@ -31,11 +31,11 @@ In this section, you'll sign in to the Azure portal and search for the private l
 
 4. In the Private Link center, select **Private endpoints**.
 
-    :::image type="content" source="./media/tutorial-private-endpoint-export-dns/private-link-center.png" alt-text="Select private endpoints in Private Link center":::
+    :::image type="content" source="./media/private-endpoint-export-dns/private-link-center.png" alt-text="Select private endpoints in Private Link center":::
 
 5. In **Private endpoints**, select the endpoint you want to export the DNS records for. Select **Download host file** to download the endpoint DNS records in a host file format.
     
-    :::image type="content" source="./media/tutorial-private-endpoint-export-dns/download-hostfile.png" alt-text="Download endpoint DNS records":::
+    :::image type="content" source="./media/private-endpoint-export-dns/download-host-file.png" alt-text="Download endpoint DNS records":::
 
 6. The downloaded host file records will look similar to below:
 
