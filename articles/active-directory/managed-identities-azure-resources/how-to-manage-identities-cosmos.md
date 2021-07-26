@@ -34,16 +34,27 @@ This article shows you how to use managed identities with a [service name] insta
 
 ## Create an instance of [service name] with a system assigned managed identity
 
+To create an Azure VM with the system-assigned managed identity enabled, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.  No additional Azure AD directory role assignments are required.
+
 <!-- Show the steps required to create an instance of your service with a system assigned managed identity enabled using as many of the options show below as possible. You can see additional tab options https://review.docs.microsoft.com/en-us/help/contribute/validation-ref/tabbed-conceptual?branch=master -->
 
 # [Portal](#tab/azure-portal)
 
 
+[Create a Linux virtual machine with a system assigned managed identity](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal)
+[Create a Windows virtual machine with a system assigned managed identity](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
+
+
 # [PowerShell](#tab/azure-powershell)
+
+[Create a Linux virtual machine with a system assigned managed identity](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell)
+[Create a Windows virtual machine with a system assigned managed identity](https://docs.microsoft.com/zure/virtual-machines/windows/quick-create-powershell)
 
 # [Azure CLI](#tab/azure-cli)
 
-To create an Azure VM with the system-assigned managed identity enabled, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.  No additional Azure AD directory role assignments are required.
+[Create a Linux virtual machine with a system assigned managed identity](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-cli)
+[Create a Windows virtual machine with a system assigned managed identity](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli)
+
 
 1. Create a [resource group](../../azure-resource-manager/management/overview.md#terminology) for containment and deployment of your VM and its related resources, using [az group create](/cli/azure/group/#az_group_create). You can skip this step if you already have resource group you would like to use instead:
 
