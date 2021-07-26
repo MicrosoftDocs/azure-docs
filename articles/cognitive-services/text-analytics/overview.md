@@ -48,6 +48,10 @@ Language detection can [detect the language an input text is written in](how-tos
 
 Named Entity Recognition (NER) can [Identify and categorize entities](how-tos/text-analytics-how-to-entity-linking.md) in your text as people, places, organizations, quantities, Well-known entities are also recognized and linked to more information on the web.
 
+## Text summarization
+
+[Summarization](how-tos/extractive-summarization.md) produces a summary of text by extracting sentences that collectively represent the most important or relevant information within the original content. This feature condenses articles, papers, or documents down to key sentences.
+
 ## Deploy on premises using Docker containers
 
 [Use Text Analytics containers](how-tos/text-analytics-how-to-install-containers.md) to deploy API features on-premises. These docker containers enable you to bring the service closer to your data for compliance, security or other operational reasons. Text Analytics offers the following containers:
