@@ -11,7 +11,7 @@ ms.workload: identity
 ms.subservice: pim
 ms.topic: conceptual
 ms.date: 07/26/2021
-ms.author: baseldon
+ms.author: baselden
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
