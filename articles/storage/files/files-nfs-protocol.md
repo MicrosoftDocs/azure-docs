@@ -87,7 +87,7 @@ At the time of publishing this section, following is the list of workloads that 
 - Machine learning home directories
 - Home directories for high-performance computing
 
-Following workloads are known to have open issues
+The following workloads have open issues:
 - Locking issues with IBM MQ
 - High latency with metadata heavy workloads like untar
 - Incompatibility with dNFS from Oracle
