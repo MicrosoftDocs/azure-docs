@@ -42,7 +42,7 @@ Applications in the Azure AD application gallery each have an [application templ
 #### Request
 
 ```msgraph-interactive
-GET https://graph.microsoft.com/beta/applicationTemplates
+GET https://graph.microsoft.com/v1.0/applicationTemplates?$filter=displayName eq 'AWS Single Sign-on'
 ```
 #### Response
 
@@ -60,7 +60,7 @@ Content-type: application/json
   "value": [
   {
   	"id": "8b1025e4-1dd2-430b-a150-2ef79cd700f5",
-        "displayName": "AWS Single-Account Access",
+        "displayName": "AWS Single Sign-on",
         "homePageUrl": "http://aws.amazon.com/",
         "supportedSingleSignOnModes": [
              "password",
@@ -72,10 +72,13 @@ Content-type: application/json
          ],
          "logoUrl": "https://az495088.vo.msecnd.net/app-logo/aws_215.png",
          "categories": [
-             "developerServices"
+             "developerServices",
+             "itInfrastructure",
+             "security",
+             "New"
          ],
-         "publisher": "Amazon",
-         "description": null    
+         "publisher": "Amazon Web Services, Inc.",
+         "description": "Federate once to AWS SSO & use it to manage access centrally to multiple AWS accounts. Provision users via SCIM & get Azure AD single sign-in access to the AWS Console, CLI, & AWS SSO integrated apps."    
   
 }
 ```
