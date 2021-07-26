@@ -23,7 +23,7 @@ supporting resources. Each metric is emitted at a one-minute frequency, and has
 up to 30 days of history.
 
 In addition to viewing graphs of the metrics, you can configure alerts. For
-step by step guidance, see [How to set up
+step-by-step guidance, see [How to set up
 alerts](howto-hyperscale-alert-on-metric.md).  Other tasks include setting up
 automated actions, running advanced analytics, and archiving history. For more
 information, see the [Azure Metrics
@@ -31,10 +31,10 @@ Overview](../azure-monitor/data-platform.md).
 
 ### Per node vs aggregate
 
-By default, the Azure Portal displays Hyperscale (Citus) metrics aggregated
-across all nodes in a server group. However, some metrics, such as disk usage
-percentage, are more informative on a per-node basis. To see metrics for all
-nodes displayed individually, use Azure Monitor [metric
+By default, the Azure portal aggregates Hyperscale (Citus) metrics across nodes
+in a server group. However, some metrics, such as disk usage percentage, are
+more informative on a per-node basis. To see metrics for nodes displayed
+individually, use Azure Monitor [metric
 splitting](../azure-monitor/essentials/metrics-charts.md#metric-splitting) by
 server name.
 
