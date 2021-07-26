@@ -38,7 +38,7 @@ To learn how to configure staged rollout, see the [staged rollout interactive gu
 
 ## Prerequisites
 
-Before you begin your migration, ensure that you meet these prerequisites:
+Before you begin your migration, ensure that you meet these prerequisites.
 
 ### Required roles
 

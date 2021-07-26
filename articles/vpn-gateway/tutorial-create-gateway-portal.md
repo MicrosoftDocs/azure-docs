@@ -6,7 +6,7 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 07/16/2021
+ms.date: 07/21/2021
 
 #Customer intent: I want to create a VPN gateway for my virtual network so that I can connect to my VNet and communicate with resources remotely.
 ---
@@ -55,8 +55,8 @@ Create a virtual network gateway using the following values:
 * **Region:** East US
 * **Gateway type:** VPN
 * **VPN type:** Route-based
-* **SKU:** VpnGw1
-* **Generation:** Generation1
+* **SKU:** VpnGw2
+* **Generation:** Generation 2
 * **Virtual network:** VNet1
 * **Gateway subnet address range:** 10.1.255.0/27
 * **Public IP address:** Create new

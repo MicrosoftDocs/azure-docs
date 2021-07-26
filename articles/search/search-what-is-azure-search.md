@@ -15,7 +15,7 @@ ms.custom: contperf-fy21q1
 
 Azure Cognitive Search ([formerly known as "Azure Search"](whats-new.md#new-service-name)) is a cloud search service that gives developers infrastructure, APIs, and tools for building a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications.
 
-Search is foundational to any app that surfaces text content to users, with common scenarios including catalog or document search, e-commerce app search, or knowledge mining for data science.
+Search is foundational to any app that surfaces text content to users, with common scenarios including catalog or document search, retail product search, or knowledge mining for data science.
 
 When you create a search service, you'll work with the following capabilities:
 

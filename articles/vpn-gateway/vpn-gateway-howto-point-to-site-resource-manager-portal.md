@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 06/03/2021
+ms.date: 07/21/2021
 ms.author: cherylmc
 
 ---
@@ -29,6 +29,8 @@ Verify that you have an Azure subscription. If you don't already have an Azure s
 
 You can use the following values to create a test environment, or refer to these values to better understand the examples in this article:
 
+**VNet**
+
 * **VNet Name:** VNet1
 * **Address space:** 10.1.0.0/16<br>For this example, we use only one address space. You can have more than one address space for your VNet.
 * **Subnet name:** FrontEnd
@@ -36,11 +38,19 @@ You can use the following values to create a test environment, or refer to these
 * **Subscription:** If you have more than one subscription, verify that you are using the correct one.
 * **Resource Group:** TestRG1
 * **Location:** East US
-* **GatewaySubnet:** 10.1.255.0/27<br>
+
+**Virtual network gateway**
+
 * **Virtual network gateway name:** VNet1GW
 * **Gateway type:** VPN
 * **VPN type:** Route-based
+* **SKU:** VpnGw2
+* **Generation:** Generation2
+* **Gateway subnet address range:** 10.1.255.0/27
 * **Public IP address name:** VNet1GWpip
+
+**Connection type and client address pool**
+
 * **Connection type:** Point-to-site
 * **Client address pool:** 172.16.201.0/24<br>VPN clients that connect to the VNet using this Point-to-Site connection receive an IP address from the client address pool.
 

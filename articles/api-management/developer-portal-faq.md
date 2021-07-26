@@ -163,7 +163,7 @@ Among other authentication methods, the developer portal supports single sign-on
 https://contoso.com/signin-sso?token=[user-specific token]
 ```
 ### Generate user tokens
-You can generate *user-specific tokens* (including admin tokens) using the [Get Shared Access Token](/rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken) operation of the [API Management REST API](/rest/api/apimanagement/apimanagementrest/api-management-rest).
+You can generate *user-specific tokens* (including admin tokens) using the [Get Shared Access Token](/rest/api/apimanagement/2020-12-01/user/get-shared-access-token) operation of the [API Management REST API](/rest/api/apimanagement/apimanagementrest/api-management-rest).
 
 > [!NOTE]
 > The token must be URL-encoded.

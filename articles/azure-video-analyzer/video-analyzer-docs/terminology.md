@@ -3,7 +3,7 @@ title: Azure Video Analyzer terminology
 description: This article provides an overview of Azure Video Analyzer terminology.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
-ms.date: 05/10/2021
+ms.date: 06/01/2021
 
 ---
 # Azure Video Analyzer terminology

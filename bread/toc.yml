@@ -140,10 +140,10 @@
     tocHref: /azure/azure-arc/
     topicHref: /azure/azure-arc/
     items:
-      - name: Arc enabled Kubernetes
+      - name: Arc-enabled Kubernetes
         tocHref: /azure/azure-arc/kubernetes/
         topicHref: /azure/azure-arc/kubernetes/
-      - name: Arc enabled servers
+      - name: Arc-enabled servers
         tocHref: /azure/azure-arc/servers/
         topicHref: /azure/azure-arc/servers/
   - name: Automation
