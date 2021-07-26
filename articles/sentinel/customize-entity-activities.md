@@ -157,15 +157,15 @@ Add any of the following parameters to your query:
 
 - `EndTimeUTC`, to add the end time of the activity, in UTC time.
 
-- `Count`, to summarize the count of the KQL query output.  For UEBA queries, this turns on the filter for Bucket Size. 
+- `Count`, to summarize several KQL query outputs into a single output.
 
-    For example, the `Count` parameter adds the following command to your query:
+    The `count` parameter adds the following command to your query in the background, even though it's not displayed fully in the editor:
 
     ```kql
-    Summarize count() by <each parameter you’ve projected in the activity
+    Summarize count() by <each parameter you’ve projected in the activity>
     ```
 
-    For UEBA queries where the Bucket Size filter is used, the `Count` parameter adds the following command to your query:
+    Then, when you use the **Bucket Size** filter in the entity pages, the following command is also added to the query:
 
     ```kql
     Summarize count() by <each parameter you’ve projected in the activity>, bin (TimeGenerated, Bucket in Hours)
