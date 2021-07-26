@@ -37,7 +37,7 @@ Shared ultra disks are available in all regions that support ultra disks by defa
 
 #### Regional availability
 
-For shared disks on P1-P15 sizes, they are currently only available in the following regions:
+For shared disks on P1-P15 sizes are currently only available in the following regions:
 - Canada Central
 - Japan East
 - Central US
