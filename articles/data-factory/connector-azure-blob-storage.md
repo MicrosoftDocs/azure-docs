@@ -311,12 +311,12 @@ A data factory can be assigned with one or multiple [user-assigned managed ident
 
 For general information about Azure storage authentication, see [Authenticate access to Azure Storage using Azure Active Directory](../storage/common/storage-auth-aad.md). To use user-assigned managed identity authentication, follow these steps:
 
-1. [Create one or multiple user-assigned managed identities](../azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) and grant permission in Azure Blob storage. For more information on the roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../storage/common/storage-auth-aad-rbac-portal.md).
+1. [Create one or multiple user-assigned managed identities](../azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and grant permission in Azure Blob storage. For more information on the roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../storage/common/storage-auth-aad-rbac-portal.md).
 
     - **As source**, in **Access control (IAM)**, grant at least the **Storage Blob Data Reader** role.
     - **As sink**, in **Access control (IAM)**, grant at least the **Storage Blob Data Contributor** role.
      
-2. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](data-factory/data-factory-service-identity.md#credentials) for each user-assigned managed identity. 
+2. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](data-factory-service-identity.md#credentials) for each user-assigned managed identity. 
 
 
 These properties are supported for an Azure Blob storage linked service:
