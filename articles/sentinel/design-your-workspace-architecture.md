@@ -34,19 +34,21 @@ The following image shows a full decision tree flow chart to help you understand
 
 The following sections provide a full-text version of this decision tree, including the following notes referenced from the image:
 
-[Note #1](#note1) | [Note #2](#note2)  | [Note #3](#note3)  | [Note #4](#note4)  | [Note #5](#note5)  | [Note #6](#note6)  | [Note #7](#note7)  | [Note #8](#note8)  | [Note #9](#note9)
+[Note #1](#note1) | [Note #2](#note2)  | [Note #3](#note3)  | [Note #4](#note4)  | [Note #5](#note5)  | [Note #6](#note6)  | [Note #7](#note7)  | [Note #8](#note8)  | [Note #9](#note9) | [Note #10](#note10) | [Note #11](#note11)
 
 
 
 ### Step 1: New or existing workspace?
 
-Are you planning to enable Azure Sentinel on an existing workspace?
+Do you have an existing workspace that you can use for Azure Sentinel?
 
-- **If you'll be creating a new workspace**, continue directly with [step 2](#step-2-keeping-data-in-different-azure-geographies).
+- **If not, and you'll be creating a new workspace** in any case, continue directly with [step 2](#step-2-keeping-data-in-different-azure-geographies).
 
-- **If you'll be using an existing workspace**, and will be consuming more than 100 GB/day of non-SOC data, we do *not* recommend using an existing workspace for Azure Sentinel for the sake of cost efficiency.
+- **If you have an existing workspace** that you might use, consider how much data you'll be ingesting.
 
-    If the amount of non-SOC data you'll be ingesting is less than 100 GB/day, continue evaluating with [step 2](#step-2-keeping-data-in-different-azure-geographies), but consider your selection in step 5 when this question arises again.
+    - **If you'll be ingesting *more* than 100 GB / day**, we recommend that you use a separate workspace for the sake of cost efficiency.
+
+    - **If you'll be ingesting *less* than 100 GB / day**, continue with [step 2](#step-2-keeping-data-in-different-azure-geographies) for further evaluation. Consider this question again when it arises in [step 5](#step-5-collecting-any-non-soc-data).
 
 ### Step 2: Keeping data in different Azure geographies?
 
@@ -68,17 +70,18 @@ Are you planning to enable Azure Sentinel on an existing workspace?
 
 <!-- NOT INCLUDING THIS BC WE DON"T INCLUDE UNRECOMMENDED THINGS IT WILL ONLY CONFUSE Although you could use a custom connector to collect tenant-specific logs from a workspace in another tenant, doing so would have the following disadvantages: - Data collected by custom connectors will be ingested into custom tables, and therefore can’t leverage all the built-in rules and workbooks.        - Custom tables are not supported by some of the built-in features, such as UEBA and machine learning rules. - Additional cost and effort required for the custom connectors, such as using Azure Functions and Logic Apps.    > [!IMPORTANT]> If any of these disadvantages are not a concern for your organization, continue with [step 4](#step-4-splitting-billing--charge-back) instead of using separate Azure Sentinel workspaces.>
 -->
+
 ### Step 4: Splitting billing / charge-back?
 
 If you need to split your billing or charge-back, consider whether the usage reporting or manual cross-charge works for you.
 
-- **If you *do not* need to split your billing or charge-back**, continue with step 5.
+- **If you *do not* need to split your billing or charge-back**, continue with [step 5](#step-5-collecting-any-non-soc-data).
 
 - **If you *do* need to split your billing or charge-back**, consider whether [usage reporting or manual cross-charge](azure-sentinel-billing.md) will work for you.
 
-    - If usage reporting or manual cross-charging works for you, continue with step 5.
+    - **If usage reporting or manual cross-charging works for you**, continue with [step 5](#step-5-collecting-any-non-soc-data).
 
-    - If neither usage reporting or manual cross-charging will work for you, use a separate Azure Sentinel workspace for each cost owner.
+    - **If *neither* usage reporting or manual cross-charging will work for you**, use a separate Azure Sentinel workspace for each cost owner.
 
     <a name="note2"></a>[Decision tree note #2](#decision-tree): For more information, see [Azure Sentinel costs and billing](azure-sentinel-billing.md).
 
@@ -86,11 +89,17 @@ If you need to split your billing or charge-back, consider whether the usage rep
 
 - **If you are not collecting any non-SOC data**, such as operational data, you can skip directly to [step 6](#step-6-multiple-regions).
 
-- **If you are required to collect non-SOC data**, calculate the expected size of that non-SOC data:
+- **If you *are* collecting non-SOC data**, consider whether there are any overlaps, where the same data source is required for both SOC and non-SOC data.
 
-    - If you'll be collecting *more than 100 GB of non-SOC data per day*, we do not recommend using the same workspace for the sake of cost-efficiency.
+    **If you *do* have overlaps between SOC and non-SOC data**, treat the overlapping data as SOC data only. Then, consider whether the ingestion for *both* SOC and non-SOC data individually is less than 100 GB / day, but more than 100 GB / day when combined:
 
-    - If you'll be collecting *less than 100 GB of non-SOC data per day*, continue with [step 6](#step-6-multiple-regions) but consider whether you want to [combine or separate your SOC and non-SOC data](#combining-your-soc-and-non-soc-data).
+    - **Yes**: Proceed with [step 6](#step-6-multiple-regions) for further evaluation. For more information, see [note 10](#note10). 
+    - **No**: We do not recommend using the same workspace for the sake of cost efficiency. For more information, see [note 11](#note11).
+
+    **If you have *no* overlapping data**, consider whether the ingestion for *both* SOC and non-SOC data individually is less than 100 GB / day, but more than 100 GB / day when combined:
+
+    - **Yes**: Proceed with [step 6](#step-6-multiple-regions) for further evaluation. For more information, see note 3. 
+    - **No**: We do not recommend using the same workspace for the sake of cost efficiency. [step 6](#step-6-multiple-regions) for further evaluation.
 
 #### Combining your SOC and non-SOC data
 
@@ -112,13 +121,11 @@ The following table compares workspace options with and without separate workspa
 
 In this example, you'd have a cost savings of $1,000 per month by combining both workspaces, and the Ops team will also enjoy 3 months of free retention instead of only 31 days.
 
-This example:
+This example is relevant only when both SOC and non-SOC data each have an ingestion size of >=50GB/day and <100GB/day.
 
-- Is relevant only when both SOC and non-SOC data each have an ingestion size of >=50GB/day and <100GB/day.
+<a name="note10"></a>[Decision tree note #10](#decision-tree): Recommendations for separate workspaces for non-SOC data come from a purely cost-based perspective, and there are other key design factors to examine when determining whether to use a single or multiple workspaces. To avoid double ingestion costs, consider collecting overlapped data on a single workspace only with Table level Azure RBAC .
 
-- Only considers cost and ignores other key design factors. Use the rest of the decision tree to understand a more complete recommendation.
-
-In addition, to avoid double ingestion costs, consider collecting overlapped data on a single workspace only with Table level Azure RBAC .
+<a name="note11"></a>[Decision tree note #11](#decision-tree): We recommend using a separate workspace for non-SOC data so that non-SOC data isn't subjected to Azure Sentinel costs. To avoid double ingestion costs, consider collecting overlapped data on a single workspace only with Table level Azure RBAC.
 
 ### Step 6: Multiple regions?
 
