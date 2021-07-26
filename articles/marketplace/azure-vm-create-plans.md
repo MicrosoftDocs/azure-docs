@@ -174,6 +174,8 @@ Add open public or private ports on a deployed virtual machine.
 
 ### Properties
 
+Here is a list of the properties that can be selected for your VM.
+
 **Supports backup**: Enable this property if your images support Azure VM backup. Learn more about [Azure VM backup](https://go.microsoft.com/fwlink/?linkid=2155616).
 
 **Supports accelerated networking**: Enable this property if the VM images for this plan support single root I/O virtualization (SR-IOV) to a VM, enabling low latency and high throughput on the network interface. Learn more about [accelerated networking](https://go.microsoft.com/fwlink/?linkid=2124513).
