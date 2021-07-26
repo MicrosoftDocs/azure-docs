@@ -48,7 +48,7 @@ In this section, you'll sign in to the Azure portal and search for the private l
 
 ## Next steps
 
-To learn more about Azure Private link and DNS, see [Azure Private Endpoint DNS configuration](private.endpoint-dns.md).
+To learn more about Azure Private link and DNS, see [Azure Private Endpoint DNS configuration](private-endpoint-dns.md).
 
 For more information on Azure Private link, see:
 
