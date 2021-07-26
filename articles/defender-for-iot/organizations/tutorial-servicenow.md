@@ -4,7 +4,7 @@ description: In this tutorial, learn how to integrate ServiceNow with Azure Defe
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 07/22/2021
+ms.date: 07/26/2021
 ms.custom: template-tutorial
 ---
 
@@ -54,19 +54,19 @@ To access the Defender for IoT application within ServiceNow, you will need to d
 
 1. Navigate to the [ServiceNow application store](https://store.servicenow.com/).
 
-2. Search for `Defender for IoT` or `CyberX IoT/ICS Management`.
+1. Search for `Defender for IoT` or `CyberX IoT/ICS Management`.
 
    :::image type="content" source="media/tutorial-servicenow/search-results.png" alt-text="Search for CyberX in the search bar.":::
 
-3. Select the application.
+1. Select the application.
 
    :::image type="content" source="media/tutorial-servicenow/cyberx-app.png" alt-text="Select the application from the list.":::
 
-4. Select **Request App.**
+1. Select **Request App**.
 
    :::image type="content" source="media/tutorial-servicenow/sign-in.png" alt-text="Sign in to the application with your credentials.":::
 
-5. Sign in, and download the application.
+1. Sign in, and download the application.
 
 ## Set up Defender for IoT to communicate with ServiceNow
 
@@ -104,14 +104,14 @@ Configure Defender for IoT to push alert information to the ServiceNow tables. D
 
 1. In the **Actions** pane, set the following parameters:
 
-  | Parameter | Description |
-  |--|--|
-  | Domain | Enter the ServiceNow server IP address. |
-  | Username | Enter the ServiceNow server username. |
-  | Password | Enter the ServiceNow server password. |
-  | Client ID | Enter the Client ID you received for Defender for IoT in the **Application Registries** page in ServiceNow. |
-  | Client Secret | Enter the client secret string you created for Defender for IoT in the **Application Registries** page in ServiceNow. |
-  | Report Type | **Incidents**: Forward a list of alerts that are presented in ServiceNow with an incident ID and short description of each alert.<br /><br />**Defender for IoT Application**: Forward full alert information, including the  sensor details, the engine, the source, and destination addresses. The information is forwarded to the Defender for IoT on the ServiceNow application. |
+      | Parameter | Description |
+      |--|--|
+      | Domain | Enter the ServiceNow server IP address. |
+      | Username | Enter the ServiceNow server username. |
+      | Password | Enter the ServiceNow server password. |
+      | Client ID | Enter the Client ID you received for Defender for IoT in the **Application Registries** page in ServiceNow. |
+      | Client Secret | Enter the client secret string you created for Defender for IoT in the **Application Registries** page in ServiceNow. |
+      | Report Type | **Incidents**: Forward a list of alerts that are presented in ServiceNow with an incident ID and short description of each alert.<br /><br />**Defender for IoT Application**: Forward full alert information, including the  sensor details, the engine, the source, and destination addresses. The information is forwarded to the Defender for IoT on the ServiceNow application. |
 
 1. Select **SAVE**. 
 
