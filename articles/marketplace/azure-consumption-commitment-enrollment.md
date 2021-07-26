@@ -16,11 +16,11 @@ This article is for commercial marketplace publishers and describes Microsoft Az
 
 ## MACC program
 
-The _Microsoft Azure Consumption Commitment (MACC)_ program is for [transactable offers](marketplace-commercial-transaction-capabilities-and-considerations.md#transact-overview) that are published to Azure Marketplace. An Azure customer's cost of transactable offers enrolled into this program contribute towards their organization’s Microsoft Azure Consumption Commitment.
+The _Microsoft Azure Consumption Commitment (MACC)_ program is for [transactable offers](marketplace-commercial-transaction-capabilities-and-considerations.md#transact-overview) that are published to Azure Marketplace. Azure Marketplace purchases of transactable offers that are enrolled in this program contribute towards an organization’s Microsoft Azure Consumption Commitment.
 
 ### Requirements for an offer to be enrolled in MACC
 
-An offer must meet the following requirements to be enrolled in the MACC program. Requests for an exception to these requirements will not be entertained.
+An offer must meet the following requirements to be enrolled in the MACC program.
 
 To be enrolled in MACC, an offer must be:
 
@@ -42,7 +42,7 @@ To be enrolled in MACC, an offer must be:
     ***Figure 1: Offer that is enrolled in the MACC program***
 
 > [!NOTE]
-> MACC program status for offers published to Azure Marketplace is updated weekly on Mondays. This means that if you publish an offer that meets the eligibility requirements for the MACC program, the status in Partner Center will not show the Enabled status until the following Monday.
+> MACC program status for offers published to Azure Marketplace is updated weekly on Mondays. This means that if you publish an offer that meets the eligibility requirements for the MACC program, the status in Partner Center will not show the Enrolled status until the following Monday.
 
 ## Next steps
 
