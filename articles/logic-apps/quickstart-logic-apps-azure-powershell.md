@@ -19,7 +19,7 @@ If you're new to Logic Apps, you can also learn how to create your first logic a
 
 * An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * The [Az PowerShell](/powershell/azure/install-az-ps) module installed on your local computer.
-* An [Azure resource group](#example---New-AzResourceGroup) in which to create your logic app.
+* An [Azure resource group](#example---create-resource-group) in which to create your logic app.
 
 ### Prerequisite check
 
@@ -27,7 +27,7 @@ Validate your environment before you begin:
 
 * Sign in to the Azure portal and check that your subscription is active by running [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 * Check your version of Azure PowerShell by running `Get-InstalledModule -Name Az`. For the latest version, see the [latest release notes](https://aka.ms/azps-migration-latest).
-  * If you don't have the latest version, update your installation by following [Update the Azure PowerShell module](/powershell/azure/install-az-ps?view=azps-6.2.1#update-the-azure-powershell-module).
+  * If you don't have the latest version, update your installation by following [Update the Azure PowerShell module](/powershell/azure/install-az-ps#update-the-azure-powershell-module).
 
 ### Example - create resource group
 
