@@ -66,7 +66,15 @@ client.create_deployment(model_uri='runs:/{}/{}'.format(run.id, model_path),
 ```
 
 ### Customize deployment configuration
-If you don't want to use the defaults for deployment, you can set up your deployment configuration with the [deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-)method. 
+
+If you don't want to use the defaults for deployment, you can set up your deployment configuration with the [deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) method. 
+
+First create a deployment config json file, where each of the deployment config parameters need to be defined in the form  of a dictionary. The following is an example. [Learn more about what your deployment configuration json file can contain](reference-azure-machine-learning-cli.md#azure-container-instance-deployment-configuration-schema).
+
+```json
+{'computeType': 'aci', 'computeTargetName': 'aci-mlflow'}
+```
+Next define your deployment configuration with the [deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) method. 
 
 ```python
 from azureml.core.webservice import AciWebservice, Webservice
@@ -80,7 +88,11 @@ aci_config = AciWebservice.deploy_configuration(cpu_cores=1,
                                                 tags={'method' : 'sklearn'}, 
                                                 description='Diabetes model',
                                                 location='eastus2')
+                                                
+                                                
 ```
+
+
 ## Deploy to Azure Kubernetes Service (AKS)
 
 To deploy your MLflow model to an Azure Machine Learning web service, your model must be set up with the [MLflow Tracking URI to connect with Azure Machine Learning](how-to-use-mlflow.md). 
