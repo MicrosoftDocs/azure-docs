@@ -90,29 +90,29 @@ You can restore your account after the migration completes. If the migration com
 
 ## Frequently asked questions
 
-**Does the migration only happen at the account level?**
-Yes.
+* **Does the migration only happen at the account level?**
+  Yes.
 
-**Which accounts support backup migration**
-Currently, SQL API and API for MongoDB accounts with single write region, that have shared, provisioned, or autoscale provisioned throughput support migrating from periodic mode to continuous mode.
+* **Which accounts can be targeted for backup migration**
+  Currently, SQL API and API for MongoDB accounts with single write region, that have shared, provisioned, or autoscale provisioned throughput support migration.
 
-Accounts enabled with analytical storage, multiple-write regions, and Customer Managed Keys(CMK) are not supported for migration.
+  Accounts enabled with analytical storage, multiple-write regions, and Customer Managed Keys(CMK) are not supported for migration.
 
-**Does the migration take time? What is the typical time?**
-Migration takes time and it depends on the size of data and the number of regions in your account. You can get the migration status using Azure CLI or PowerShell commands. For large accounts with 10s of terabytes of data, the migration can take up to few days to complete.
+* **Does the migration take time? What is the typical time?**
+  Migration takes time and it depends on the size of data and the number of regions in your account. You can get the migration status using Azure CLI or PowerShell commands. For large accounts with 10s of terabytes of data, the migration can take up to few days to complete.
 
-**Does the migration cause any availability impact/downtime?**
-No, the migration operation takes place in the background, so the client requests are not impacted. However, we need to perform some backend operations during the migration, and it might take extra time if the account is under heavy load.
+* **Does the migration cause any availability impact/downtime?**
+  No, the migration operation takes place in the background, so the client requests are not impacted. However, we need to perform some backend operations during the migration, and it might take extra time if the account is under heavy load.
 
-**What happens if the migration fails? Will I still get the periodic backups or get the continuous backups?**
-Once the migration process is started, the account will start to become a continuous mode.  If the migration fails, you must initiate migration again until it succeeds.
+* **What happens if the migration fails? Will I still get the periodic backups or get the continuous backups?**
+  Once the migration process is started, the account will start to become a continuous mode.  If the migration fails, you must initiate migration again until it succeeds.
 
-**How do I perform a restore to a timestamp before/during/after the migration?**
-Assume that you started migration at t1 and finished at t5, you can’t use a restore timestamp between t1 and t5.
+* **How do I perform a restore to a timestamp before/during/after the migration?**
+  Assume that you started migration at t1 and finished at t5, you can’t use a restore timestamp between t1 and t5.
 
-To restore to a time after t5 because your account is now in continuous mode, you can perform the restore using Azure portal, CLI, or PowerShell like you normally do with continuous account. This self-service restore request can only be done after the migration is complete.
+  To restore to a time after t5 because your account is now in continuous mode, you can perform the restore using Azure portal, CLI, or PowerShell like you normally do with continuous account. This self-service restore request can only be done after the migration is complete.
 
-To restore to a time before t1, you can open a support ticket like you normally do with the periodic backup account.  After the migration, you have up to 30 days to perform the periodic restore.  During these 30 days, you can restore based on the backup retention/interval of your account before the migration.  For example, if the backup config was to retain 24 copies at 1 hour interval, then you can restore to anytime between [t1 – 24 hours] and [t1].
+  To restore to a time before t1, you can open a support ticket like you normally do with the periodic backup account. After the migration, you have up to 30 days to perform the periodic restore.  During these 30 days, you can restore based on the backup retention/interval of your account before the migration.  For example, if the backup config was to retain 24 copies at 1 hour interval, then you can restore to anytime between [t1 – 24 hours] and [t1].
 
 ## Next steps
 
