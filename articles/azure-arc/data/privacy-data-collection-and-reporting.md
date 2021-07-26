@@ -1,5 +1,5 @@
 ---
-title: Data collection and reporting | Azure Arc enabled data services
+title: Data collection and reporting | Azure Arc-enabled data services
 description: Explains the type of data that is transmitted by Arc enabled Data services to Microsoft. 
 author: dnethi
 ms.author: dinethi
@@ -13,13 +13,13 @@ ms.custom: template-concept
 
 # Azure Arc data services data collection and reporting
 
-This article describes the data that Azure Arc enabled data services transmits to Microsoft. 
+This article describes the data that Azure Arc-enabled data services transmits to Microsoft. 
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Related products
 
-Azure Arc enabled data services may use some or all of the following products:
+Azure Arc-enabled data services may use some or all of the following products:
 
 - SQL MI – Azure Arc 
 - PostgreSQL Hyperscale – Azure Arc
@@ -55,7 +55,7 @@ Customer Experience Improvement Program (CEIP)|[CEIP summary](/sql/sql-server/us
 
 ## Detailed description of data
 
-This section provides more details about the information included with the Azure Arc enabled data services transmits to Microsoft.
+This section provides more details about the information included with the Azure Arc-enabled data services transmits to Microsoft.
 
 ### Operational data
 

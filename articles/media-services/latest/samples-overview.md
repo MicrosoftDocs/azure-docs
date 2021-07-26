@@ -16,12 +16,6 @@ ms.author: inhenkel
 
 This article contains a list of all the samples available for Media Services organized by method and SDK.  Samples include .NET, Node.JS (Typescript), Python and Java as well as REST with Postman.
 
-## REST Postman collection
-
-The [REST Postman](https://github.com/Azure-Samples/media-services-v3-rest-postman) samples includes a Postman environment and collection for you to import into the Postman client. The Postman collection samples are recommended for getting familiar with the API structure and how it works with Azure Resource Management (ARM), as well as the structure of calls from the client SDKs. 
-
-For production workloads you should be using the client SDKs that wrap this REST API as they support retry policies defined by the Azure Resource Management gateway. If you choose to implement REST API calls directly you should be aware that there are cases where retries are required to achieve higher SLAs.
-
 ## Samples by SDK
 
 You'll find description and links to the samples you may be looking for in each of the tabs.
@@ -45,7 +39,7 @@ You'll find description and links to the samples you may be looking for in each 
 | [ContentProtection/OfflinePlayReadyAndWidevine](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/ContentProtection/OfflinePlayReadyAndWidevine)|This sample demonstrates how to dynamically encrypt your content with PlayReady and Widevine DRM and play the content without requesting a license from license service. It shows how to create a transform with built-in AdaptiveStreaming preset, submit a job, create a ContentKeyPolicy with open restriction and PlayReady/Widevine persistent configuration, associate the ContentKeyPolicy with a StreamingLocator and print a url for playback.|
 | [Streaming/AssetFilters](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/Streaming/AssetFilters)|This sample demonstrates how to create a transform with built-in AdaptiveStreaming preset, submit a job, create an asset-filter and an account-filter, associate the filters to streaming locators and print urls for playback.|
 | [Streaming/StreamHLSAndDASH](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/Streaming/StreamHLSAndDASH)|This sample demonstrates how to create a transform with built-in AdaptiveStreaming preset, submit a job, publish output asset for HLS and DASH streaming.|
-| [HighAvailabilityEncodingStreaming](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/HighAvailabilityEncodingStreaming/) | This sample provides guidance and best practices for a production system using on-demand encoding or analytics. Readers should start with the companion article [High Availability with Media Services and VOD](media-services-high-availability-encoding.md). There is a separate solution file provided for the [HighAvailabilityEncodingStreaming](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/HighAvailabilityEncodingStreaming/Readme.md) sample. |
+| [HighAvailabilityEncodingStreaming](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/HighAvailabilityEncodingStreaming/) | This sample provides guidance and best practices for a production system using on-demand encoding or analytics. Readers should start with the companion article [High Availability with Media Services and VOD](architecture-high-availability-encoding-concept.md). There is a separate solution file provided for the [HighAvailabilityEncodingStreaming](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/HighAvailabilityEncodingStreaming/README.md) sample. |
 
 ## [Node.JS](#tab/node/)
 
@@ -54,7 +48,7 @@ You'll find description and links to the samples you may be looking for in each 
 |[Hello World - list assets](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/main/AMSv3Samples/HelloWorld-ListAssets/list-assets.ts)|Basic example on how to connect and list assets |
 |[Live streaming](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/Live/index.ts)| Basic live streaming example. **WARNING**, make sure to check that all resources are cleaned up and no longer billing in portal when using live|
 |[Upload and stream HLS and DASH](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/StreamFilesSample/index.ts)| Basic example for uploading a local file or encoding from a source URL. Sample shows how to use storage SDK to download content, and shows how to stream to a player |
-|[Upload and stream HLS and DASH with Playready and Widevine DRM](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/StreamFilesWithDRMSample/index.ts)| Demonstrates how to encode and stream using Widevine and PlayReady DRM |
+|[Upload and stream HLS and DASH with PlayReady and Widevine DRM](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/StreamFilesWithDRMSample/index.ts)| Demonstrates how to encode and stream using Widevine and PlayReady DRM |
 |[Upload and use AI to index videos and audio](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/VideoIndexerSample/index.ts)| Example of using the Video and Audio Analyzer presets to generate metadata and insights from a video or audio file |
 
 ## [Python](#tab/python)
@@ -87,3 +81,9 @@ You'll find description and links to the samples you may be looking for in each 
 |[EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-java/tree/master/VideoEncoding/EncodingWithMESPredefinedPreset)|How to submit a job using a built-in preset and an HTTP URL input, publish output asset for streaming, and download results for verification.|
 
 ---
+
+## REST Postman collection
+
+The [REST Postman](https://github.com/Azure-Samples/media-services-v3-rest-postman) samples includes a Postman environment and collection for you to import into the Postman client. The Postman collection samples are recommended for getting familiar with the API structure and how it works with Azure Resource Management (ARM), as well as the structure of calls from the client SDKs. 
+
+[!INCLUDE [warning-rest-api-retry-policy.md](./includes/warning-rest-api-retry-policy.md)]

@@ -106,13 +106,17 @@ To analyze the telemetry for a device group:
 
     :::image type="content" source="media/tutorial-use-device-groups/create-analysis.png" alt-text="Screenshot that shows the telemetry types selected for analysis":::
 
-    Use the gear-wheel icons next to the telemetry types to select an aggregation type. The default is **Average**. Use **Group by** to change how the aggregate data is shown. For example, if you split by device ID you see a plot for each device when you select **Analyze**.
+    Use the ellipsis icons next to the telemetry types to select an aggregation type. The default is **Average**. Use **Group by** to change how the aggregate data is shown. For example, if you split by device ID you see a plot for each device when you select **Analyze**.
 
 1. Select **Analyze** to view the average telemetry values:
 
     :::image type="content" source="media/tutorial-use-device-groups/view-analysis.png" alt-text="Screenshot that shows average values for all the Contoso devices":::
 
-    You can customize the view, change the time period shown, and export the data.
+    You can customize the view, change the time period shown, and export the data as CSV or view data as table.
+
+    :::image type="content" source="media/tutorial-use-device-groups/export-data.png" alt-text="Screenshot that shows how to export data for the Contoso devices":::
+
+To learn more about analytics, see [How to use analytics to analyze device data](howto-create-analytics.md).
 
 ## Clean up resources
 

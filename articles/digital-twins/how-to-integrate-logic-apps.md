@@ -44,7 +44,7 @@ You also need to complete the following items as part of prerequisite setup. The
 
 This article uses Logic Apps to update a twin in your Azure Digital Twins instance. To proceed, you should add at least one twin in your instance. 
 
-You can add twins using the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins), the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), or the [Azure Digital Twins CLI](/cli/azure/dt?view=azure-cli-latest&preserve-view=true). For detailed steps on how to create twins using these methods, see [How-to: Manage digital twins](how-to-manage-twin.md).
+You can add twins using the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins), the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), or the [Azure Digital Twins CLI](/cli/azure/dt?view=azure-cli-latest&preserve-view=true). For detailed steps on how to create twins using these methods, see [Manage digital twins](how-to-manage-twin.md).
 
 You will need the **Twin ID** of a twin in your instance that you've created.
 
@@ -194,10 +194,10 @@ Now that your logic app has been created, the twin update event you defined in t
 
 You can query your twin via your method of choice (such as a [custom client app](tutorial-command-line-app.md), the [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md), the [SDKs and APIs](concepts-apis-sdks.md), or the [CLI](concepts-cli.md)). 
 
-For more about querying your Azure Digital Twins instance, see [How-to: Query the twin graph](how-to-query-graph.md).
+For more about querying your Azure Digital Twins instance, see [Query the twin graph](how-to-query-graph.md).
 
 ## Next steps
 
 In this article, you created a logic app that regularly updates a twin in your Azure Digital Twins instance with a patch that you provided. You can try out selecting other APIs in the custom connector to create Logic Apps for a variety of actions on your instance.
 
-To read more about the APIs operations available and the details they require, visit [Concepts: Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md).
+To read more about the APIs operations available and the details they require, visit [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md).

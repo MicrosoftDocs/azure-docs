@@ -175,7 +175,7 @@ To configure the authentication library, follow these steps:
     };
     ```
 
-1. Replace `<Application-ID>` with your app registration application ID. For more information, see [Configure authentication in a sample SPA application article](./configure-authentication-sample-spa-app.md#23-register-the-client-app).
+1. Replace `<Application-ID>` with your app registration application ID. For more information, see [Configure authentication in a sample SPA application article](./configure-authentication-sample-spa-app.md#23-register-the-spa-app).
 
 > [!TIP]
 > For more MSAL object configuration options, see the [Authentication options](./enable-authentication-spa-app-options.md) article.

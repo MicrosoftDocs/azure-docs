@@ -8,7 +8,7 @@ ms.author: susabat
 ms.reviewer: jburchel, jingwang
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
-ms.date: 05/10/2021
+ms.date: 07/05/2021
 ---
 
 # Quickstart: Create an Azure Data Factory using ARM template
@@ -127,9 +127,9 @@ Keep the container page open, because you can use it to verify the output at the
 
 1. Navigate to the **Data factories** page, and select the data factory you created.
 
-2. Select the **Author & Monitor** tile.
+2. Select **Open** on the **Open Azure Data Factory Studio** tile.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author-monitor-tile.png" alt-text="Author & Monitor":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-open-tile.png" alt-text="Author & Monitor":::
 
 2. Select the **Author** tab :::image type="icon" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author.png" border="false":::.
 

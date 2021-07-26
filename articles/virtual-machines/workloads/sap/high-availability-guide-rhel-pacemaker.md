@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/28/2021
+ms.date: 07/02/2021
 ms.author: radeltch
 
 ---
@@ -86,7 +86,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
-   By attaching a pool to an Azure Marketplace PAYG RHEL image, you will be effectively double-billed for your RHEL usage: once for the PAYG image, and once for the RHEL entitlement in the pool you attach. To mitigate this, Azure now provides BYOS RHEL images. More information is available [here](../redhat/byos.md).  
+   By attaching a pool to an Azure Marketplace PAYG RHEL image, you will be effectively double-billed for your RHEL usage: once for the PAYG image, and once for the RHEL entitlement in the pool you attach. To mitigate this, Azure now provides BYOS RHEL images. For more information, see [Red Hat Enterprise Linux bring-your-own-subscription Azure images](../redhat/byos.md).
 
 1. **[A]** Enable RHEL for SAP repos. This step is not required, if using RHEL SAP HA-enabled images.  
 
@@ -294,15 +294,19 @@ sudo pcs property set stonith-timeout=900
 
 For RHEL **7.X**, use the following command to configure the fence device:    
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
-power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
+power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
 op monitor interval=3600
 </code></pre>
 
 For RHEL **8.X**, use the following command to configure the fence device:  
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm username="<b>login ID</b>" password="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
-power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
+power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
 op monitor interval=3600
 </code></pre>
+
+> [!TIP]
+> Only configure the `pcmk_delay_max` attribute in two node Pacemaker clusters. For more information on preventing fence races in a two node Pacemaker cluster see [Delaying fencing in a two node cluster to prevent fence races of "fence death" scenarios](https://access.redhat.com/solutions/54829). 
+ 
 
 > [!IMPORTANT]
 > The monitoring and fencing operations are de-serialized. As a result, if there is a longer running monitoring operation and simultaneous fencing event, there is no delay to the cluster failover, due to the already running monitoring operation.  
@@ -337,6 +341,7 @@ The following Red Hat KBs contain important information about configuring `fence
 * [How to configure/manage STONITH levels in RHEL cluster with Pacemaker](https://access.redhat.com/solutions/891323)
 * [fence_kdump fails with "timeout after X seconds" in a RHEL 6 0r 7 HA cluster with kexec-tools older than 2.0.14](https://access.redhat.com/solutions/2388711)
 * For information how to change change the default timeout see [How do I configure kdump for use with the RHEL 6,7,8 HA Add-On](https://access.redhat.com/articles/67570)
+* For information on how to reduce failover delay, when using `fence_kdump` see [Can I reduce the expected delay of failover when adding fence_kdump configuration](https://access.redhat.com/solutions/5512331)
    
 Execute the following optional steps to add `fence_kdump` as a first level STONITH configuration, in addition to the Azure Fence Agent configuration. 
 
