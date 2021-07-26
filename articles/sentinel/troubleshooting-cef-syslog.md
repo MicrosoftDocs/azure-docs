@@ -142,7 +142,7 @@ This procedure describes how to troubleshoot issues that are certainly derived f
 
 ### SELinux blocking connection to the OMS agent
 
-This procedure describes how to confirm whether SELinux is currently in a `permissive` state, or is blocking a connection to the OMS agent, and is relevant when your operating system is a distribution from RedHad or CentOS.
+This procedure describes how to confirm whether SELinux is currently in a `permissive` state, or is blocking a connection to the OMS agent, and is relevant when your operating system is a distribution from RedHat or CentOS.
 
 1. Run:
 
@@ -252,7 +252,7 @@ If you're having issues related to the OMS Agent or Azure, troubleshoot by verif
 
 - Make sure that your Azure Virtual Machine is shown as connected in your workspace's list of virtual machines.
 
-Run the following command to determine if the agent is communicating successfully with Azure, or if the OMSAgent is blocked from connecting to the Log Analytics workspace. <!--when will this work and when won't it work?-->
+Run the following command to determine if the agent is communicating successfully with Azure, or if the OMS agent is blocked from connecting to the Log Analytics workspace. <!--when will this work and when won't it work?-->
 
 ```config
 Heartbeat
