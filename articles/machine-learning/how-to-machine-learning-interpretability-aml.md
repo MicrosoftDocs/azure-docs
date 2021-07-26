@@ -24,7 +24,9 @@ In this how-to guide, you learn to use the interpretability package of the Azure
 
 * Explain the behavior for the entire model and individual predictions in Azure.
 
-* Use a visualization dashboard to interact with your model explanations.
+* Upload explanations to Azure Machine Learning Run History.
+
+* Use a visualization dashboard to interact with your model explanations, both in a Jupyter notebook and in the Azure Machine Learning studio.
 
 * Deploy a scoring explainer alongside your model to observe explanations during inferencing.
 
