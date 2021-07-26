@@ -72,11 +72,14 @@ CycleCloud 8.0.2 and up support custom images created from images with a pricing
  ImagePlan.Plan = PLAN (sometimes called SKU)
 ```
 
-If the Shared Image Gallery has the purchase-plan metadata on it, it is used automatically and you do not need to specify the plan details. 
+If the Shared Image Gallery has the purchase-plan metadata on it, it is used automatically and you do not need to specify the plan details.
 
 ## Create a Custom Image
 
-Custom Azure Images can be created for [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) or for [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images).
+Custom Azure Images can be created by following [this tutorial.](https://docs.microsoft.com/azure/virtual-machines/image-version-vm-cli#create-an-image-definition)
+
+> [!NOTE]
+> Please use generalized images since specialized images have not been through the process to remove machine specific information and accounts, and specialized images do not contain osProfile which CycleCloud requires.
 
 <a name="custom-image-notation-prior-7-7-0"></a>
 ## Custom Images on prior CycleCloud versions (<7.7.0)

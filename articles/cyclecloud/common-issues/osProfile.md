@@ -13,6 +13,6 @@ ms.author: adjohnso
 
 ## Resolution
 
-Azure CycleCloud allows you to use [custom images](~/how-to/create-custom-image.md) but the custom image must use a generalized image. Since specialized images do not use waagent, errors are encountered when parameters meant for waagent are passed to the custom image.
+Azure CycleCloud allows you to use [custom images](~/how-to/create-custom-image.md) but the custom image must be created from a generalized image. Since specialized images do not have an `osProfile` associated with them, errors are encountered when the osProfile parameter is passed to the custom image.
 
 Recreate your custom image using a generalized image to resolve.
