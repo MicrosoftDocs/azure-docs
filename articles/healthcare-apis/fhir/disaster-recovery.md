@@ -5,13 +5,13 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 07/27/2021
+ms.date: 07/28/2021
 ms.author: zxue
 ---
 
 # Disaster recovery for Azure API for FHIR
 
-The Azure API for FHIR® is a fully managed and Fast Healthcare Interoperability Resources (FHIR®) compliant API for clinical health data that enables you to create new systems of engagement for analytics, machine learning, and actionable intelligence with your health data.
+The Azure API for FHIR® is a fully managed service based on Fast Healthcare Interoperability Resources (FHIR®) and enables you to create new systems of engagement for analytics, machine learning, and actionable intelligence with your health data.
 
 To meet business continuity and disaster recovery (BCDR) compliance requirements, you can use the disaster recovery (DR) feature for Azure API for FHIR. The DR feature provides a Recovery Point Objective (RPO) of 15 minutes and a Recovery Time Objective (RTO) of 60 minutes.
 
@@ -31,7 +31,7 @@ The DR process involves the following steps:
 
 By default, the Azure API for FHIR offers data protection through backup and restore. When the disaster recovery feature is enabled, data replication begins. A data replica is automatically created and synchronized in the secondary Azure region. The initial data replication can take a few minutes to a few hours, or longer, depending on the amount of data. The secondary data replica is a replication of the primary data. It's used directly to recover the service, and it helps speed up the recovery process.
 
-It is worth noting that the throughput RU/s in the secondary region must be maintained at the same level as that in the primary region to ensure successful data replication.
+It is worth noting that the throughput RU/s in the secondary region must be maintained at the same level as that in the primary region.
 
 [ ![Azure Traffic Manager.](media/disaster-recovery/azure-traffic-manager.png) ](media/disaster-recovery/azure-traffic-manager.png#lightbox)
 
