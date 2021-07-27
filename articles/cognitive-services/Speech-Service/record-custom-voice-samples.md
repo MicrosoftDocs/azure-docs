@@ -76,8 +76,9 @@ Below are some general guidelines that you can follow to create a good corpus (r
 
    In general, each sentence should contain 4 words to 30 words. It's required that no duplicate sentences are included in your script.<br>
    For how to balance the different sentence types, refer to the following table.
+   
    | Sentence types | Coverage |
-   | --------- | --------------------------- |
+   | :--------- | :--------------------------- |
    | Statement sentences | Statement sentences are the major part of the script, taking about 70-80% of all. |
    | Question sentences | Question sentences should take about 10%-20% of your domain script, including 5%-10% of rising and 5%-10% of falling tones. |
    | Exclamation sentences| Exclamation sentences should take about 10%-20% of your scripts.|
@@ -106,7 +107,6 @@ Below are some general guidelines that you can follow to create a good corpus (r
 
    > [!NOTE]
    > Please note that, the scripts prepared for your voice talent need to follow the native reading conventions, such as 50% and $45, while the scripts used for training need to be normalized to make sure that the scripts match the audio content, such as fifty percent and forty-five dollars. Thus, You need to check the scripts used for training against the recordings of your voice talent, to make sure they match.
-
 
 - Your script should include many different words and sentences with different kinds of sentence lengths, structures, and moods.  
 
