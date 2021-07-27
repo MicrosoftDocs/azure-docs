@@ -113,19 +113,11 @@ The following properties are supported:
 
 ### <a name="managed-identity"></a> Use system-assigned managed identity authentication
 
-<<<<<<< HEAD
-A data factory or Synapse workspace can be associated with a [managed identity for Azure resources](data-factory-service-identity.md), which represents it for authentication to other Azure services.  You can directly use this managed identity for Data Lake Store authentication, similar to using your own service principal. It allows this designated resource to access and copy data to or from Data Lake Store.
-=======
-A data factory can be associated with a [system-assigned managed identity](data-factory-service-identity.md), which represents this specific data factory. You can directly use this system-assigned managed identity for Data Lake Store authentication, similar to using your own service principal. It allows this designated factory to access and copy data to or from Data Lake Store.
->>>>>>> a48051eb9bbd853a13ca3393ee5e0c8822522c52
+A data factory or Synapse workspace can be associated with a [system-assigned managed identity](data-factory-service-identity.md), which represents the service for authentication. You can directly use this system-assigned managed identity for Data Lake Store authentication, similar to using your own service principal. It allows this designated resource to access and copy data to or from Data Lake Store.
 
 To use system-assigned managed identity authentication, follow these steps.
 
-<<<<<<< HEAD
-1. [Retrieve the managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the "Service Identity Application ID" generated along with your data factory or Synapse workspace.
-=======
-1. [Retrieve the data factory system-assigned managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the "Service Identity Application ID" generated along with your factory.
->>>>>>> a48051eb9bbd853a13ca3393ee5e0c8822522c52
+1. [Retrieve the system-assigned managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the "Service Identity Application ID" generated along with your factory or Synapse workspace.
 
 2. Grant the system-assigned managed identity access to Data Lake Store. See examples on how permission works in Data Lake Storage Gen1 from [Access control in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md#common-scenarios-related-to-permissions).
 
