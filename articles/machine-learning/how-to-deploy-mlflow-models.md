@@ -72,24 +72,22 @@ If you don't want to use the defaults for deployment, you can set up your deploy
 First create a deployment config json file, where each of the deployment config parameters need to be defined in the form  of a dictionary. The following is an example. [Learn more about what your deployment configuration json file can contain](reference-azure-machine-learning-cli.md#azure-container-instance-deployment-configuration-schema).
 
 ```json
-{'computeType': 'aci', 'computeTargetName': 'aci-mlflow'}
+{"computeType": "aci",
+ "containerResourceRequirements": {"cpu": 1, "memoryInGB": 1},
+ "location": "eastus2"
+}
 ```
-Next define your deployment configuration with the [deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) method. 
+
+Your json file can then be used to create your deployment.
 
 ```python
-from azureml.core.webservice import AciWebservice, Webservice
+# set the deployment config
+deploy_path = "deployment_config.json"
+test_config = {'deploy-config-file': deploy_path}
 
-# Set the model path to the model folder created by your run
-model_path = "model"
-
-# Configure 
-aci_config = AciWebservice.deploy_configuration(cpu_cores=1, 
-                                                memory_gb=1, 
-                                                tags={'method' : 'sklearn'}, 
-                                                description='Diabetes model',
-                                                location='eastus2')
-                                                
-                                                
+client.create_deployment(model_uri='runs:/{}/{}'.format(run.id, model_path),
+                         config=test_config,
+                         name="mlflow-test-aci")                                       
 ```
 
 
@@ -120,7 +118,7 @@ print(aks_target.provisioning_errors)
 Create a deployment config json using [deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration#parameters) method values as a reference. Each of the deployment config parameters simply need to be defined as a dictionary. Here's an example below:
 
 ```json
-{'computeType': 'aks', 'computeTargetName': 'aks-mlflow'}
+{"computeType": "aks", "computeTargetName": "aks-mlflow"}
 ```
 
 Then, register and deploy the model in one step with MLflow's [deployment client](https://www.mlflow.org/docs/latest/python_api/mlflow.deployments.html). 
