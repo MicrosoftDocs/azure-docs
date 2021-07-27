@@ -12,6 +12,24 @@ items:
     items:
     - name: Recognized entity categories 
       href: health/concepts/health-entity-categories.md
+- name: Language Detection
+  items:
+  - name: Overview
+    href: language-detection/overview.md
+  - name: how-to
+    items:
+    - name: Call the API
+      href: language-detection/call-api.md
+    - name: Use containers
+      items:
+      - name: Use Docker containers
+        href: language-detection/call-api.md
+      - name: Configure containers
+        href: concepts/configure-containers.md
+  - name: Concepts
+    items:
+    - name: Recognized entity categories 
+      href: health/concepts/health-entity-categories.md
 - name: Named Entity Recognition (NER) and Personally Identifying Information (PII)
   items:
   - name: Overview
