@@ -20,19 +20,19 @@ ms.topic: how-to
 ## Create an Azure SQL Managed Instance
 
 To view available create options forSQL Managed Instance, use the following command:
-```console
+```azurecli
 az sql mi-arc create --help
 ```
 
 To create an SQL Managed Instance, use the following command:
 
-```console
+```azurecli
 az sql mi-arc create -n <instanceName> --storage-class-data <storage class> --storage-class-logs <storage class>
 ```
 
 Example:
 
-```console
+```azurecli
 az sql mi-arc create -n sqldemo --storage-class-data managed-premium --storage-class-logs managed-premium
 ```
 > [!NOTE]
@@ -60,7 +60,7 @@ az sql mi-arc create -n sqldemo --storage-class-data managed-premium --storage-c
 
 To view the instance, use the following command:
 
-```console
+```azurecli
 az sql mi-arc list
 ```
 

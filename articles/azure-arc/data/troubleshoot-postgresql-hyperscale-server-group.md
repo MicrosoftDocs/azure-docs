@@ -17,17 +17,17 @@ This article describes some techniques you may use to troubleshoot your server g
 ## Getting more details about the execution of an azdata command
 You may add the parameter **--debug** to any azdata command you execute. Doing so will display to your console additional information about the execution of that command. You should find it useful to get details to help you understand the behavior of that command.
 For example you could run
-```console
+```azurecli
 az postgres arc-server create -n postgres01 -w 2 --debug
 ```
 
 or
-```console
+```azurecli
 az postgres arc-server edit -n postgres01 --extension SomeExtensionName --debug
 ```
 
 In addition, you may use the parameter --help on any azdata command to display some help, list of parameters for a specific command. For example:
-```console
+```azurecli
 az postgres arc-server create --help
 ```
 

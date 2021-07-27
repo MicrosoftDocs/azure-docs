@@ -281,13 +281,13 @@ Let's call out some specific points of interest in the description of the `serve
 
 The general format of the command is:
 
-```console
+```azurecli
 az postgres arc-server show -n <server group name>
 ```
 
 For example:
 
-```console
+```azurecli
 az postgres arc-server show -n postgres02
 ```
 

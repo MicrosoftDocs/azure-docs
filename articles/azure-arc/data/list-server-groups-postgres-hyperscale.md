@@ -21,8 +21,8 @@ To retrieve this list, use either of the following methods once you are connecte
 
 ## From CLI with azdata
 The general format of the command is:
-```console
-az postgres arc-server server list
+```azurecli
+az postgres arc-server list
 ```
 
 It will return an output like:
@@ -33,8 +33,8 @@ postgres01  Ready    2
 postgres02  Ready    2
 ```
 For more details about the parameters available for this command, run:
-```console
-az postgres arc-server server list --help
+```azurecli
+az postgres arc-server list --help
 ```
 
 ## From CLI with kubectl

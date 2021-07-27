@@ -22,11 +22,11 @@ This article explains how you can retrieve the connection endpoints for your ser
 ## Get connection end points:
 
 Run the following command:
-```console
+```azurecli
 az postgres arc-server endpoint list -n <server group name>
 ```
 For example:
-```console
+```azurecli
 az postgres arc-server endpoint list -n postgres01
 ```
 

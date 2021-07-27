@@ -44,11 +44,11 @@ The scenario uses a sample of publicly available GitHub data, available from the
 ##### List the connection information
 Connect to your Azure Arc-enabled PostgreSQL Hyperscale server group by first getting the connection information:
 The general format of this command is
-```console
+```azurecli
 az postgres arc-server endpoint list -n <server name>
 ```
 For example:
-```console
+```azurecli
 az postgres arc-server endpoint list -n postgres01
 ```
 
@@ -148,19 +148,19 @@ Make a note of the query execution time.
 
 ## Scale out
 The general format of the scale-out command is:
-```console
+```azurecli
 az postgres arc-server edit -n <server group name> -w <target number of worker nodes>
 ```
 
 
 In this example, we increase the number of worker nodes from 2 to 4, by running the following command:
 
-```console
+```azurecli
 az postgres arc-server edit -n postgres01 -w 4
 ```
 
 Upon adding  nodes, and you'll see a Pending state for the server group. For example:
-```console
+```azurecli
 az postgres arc-server list
 ```
 
@@ -177,7 +177,7 @@ Use either of the methods below to verify that the server group is now using the
 
 #### With azdata:
 Run the command:
-```console
+```azurecli
 az postgres arc-server list
 ```
 
@@ -236,7 +236,7 @@ Note the execution time.
 To scale in (reduce the number of worker nodes in your server group), you use the same command as to scale out but you indicate a smaller number of worker nodes. The worker nodes that are removed are the latest ones added to the server group. When you run this command, the system moves the data out of the nodes that are removed and redistributes (rebalances) it automatically to the remaining nodes. 
 
 The general format of the scale-in command is:
-```console
+```azurecli
 az postgres arc-server edit -n <server group name> -w <target number of worker nodes>
 ```
 

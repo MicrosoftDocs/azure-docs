@@ -86,7 +86,7 @@ By default, the AKS deployment profile uses the `managed-premium` storage class.
 
 If you are going to use `managed-premium` as your storage class, then you can run the following command to create the data controller. Substitute the placeholders in the command with your resource group name, subscription ID, and Azure location.
 
-```console
+```azurecli
 az arcdata dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
@@ -97,7 +97,7 @@ If you are not sure what storage class to use, you should use the `default` stor
 
 If you want to use the `default` storage class, then you can run this command:
 
-```console
+```azurecli
 az arcdata dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
@@ -112,7 +112,7 @@ By default, the deployment profile uses the `managed-premium` storage class. The
 
 You can run the following command to create the data controller using the managed-premium storage class:
 
-```console
+```azurecli
 az arcdata dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
@@ -123,7 +123,7 @@ If you are not sure what storage class to use, you should use the `default` stor
 
 If you want to use the `default` storage class, then you can run this command.
 
-```console
+```azurecli
 az arcdata dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
@@ -138,7 +138,7 @@ By default, the deployment profile uses a storage class named `default` and the 
 
 You can run the following command to create the data controller using the `default` storage class and service type `LoadBalancer`.
 
-```console
+```azurecli
 az arcdata dc create --profile-name azure-arc-aks-hci --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
@@ -154,7 +154,7 @@ Once you have run the command, continue on to [Monitoring the creation status](#
 
 Use the profile `azure-arc-azure-openshift` for Azure RedHat Open Shift.
 
-```console
+```azurecli
 az arcdata dc config init --source azure-arc-azure-openshift --path ./custom
 ```
 
@@ -162,7 +162,7 @@ az arcdata dc config init --source azure-arc-azure-openshift --path ./custom
 
 You can run the following command to create the data controller:
 
-```console
+```azurecli
 az arcdata dc create --profile-name azure-arc-azure-openshift --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example
@@ -190,7 +190,7 @@ Create a new custom deployment profile file based on the `azure-arc-openshift` d
 
 Use the profile `azure-arc-openshift` for OpenShift Container Platform.
 
-```console
+```azurecli
 az arcdata dc config init --source azure-arc-openshift --path ./custom
 ```
 
@@ -198,7 +198,7 @@ az arcdata dc config init --source azure-arc-openshift --path ./custom
 
 Now, set the desired storage class by replacing `<storageclassname>` in the command below with the name of the storage class that you want to use that was determined by running the `kubectl get storageclass` command above.
 
-```console
+```azurecli
 az arcdata dc config replace --path ./custom/control.json --json-values "spec.storage.data.className=<storageclassname>"
 az arcdata dc config replace --path ./custom/control.json --json-values "spec.storage.logs.className=<storageclassname>"
 
@@ -211,7 +211,7 @@ az arcdata dc config replace --path ./custom/control.json --json-values "spec.st
 
 By default, the `azure-arc-openshift` deployment profile uses `NodePort` as the service type. If you are using an OpenShift cluster that is integrated with a load balancer, you can change the configuration to use the `LoadBalancer` service type using the following command:
 
-```console
+```azurecli
 az arcdata dc config replace --path ./custom/control.json --json-values "$.spec.services[*].serviceType=LoadBalancer"
 ```
 
@@ -223,7 +223,7 @@ Now you are ready to create the data controller using the following command.
 >   The `--path` parameter should point to the _directory_ containing the control.json file not to the control.json file itself.
 
 
-```console
+```azurecli
 az arcdata dc create --path ./custom --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
@@ -238,7 +238,7 @@ By default, the kubeadm deployment profile uses a storage class called `local-st
 
 If you want to customize your deployment profile to specify a specific storage class and/or service type, start by creating a new custom deployment profile file based on the kubeadm deployment profile by running the following command. This command will create a directory `custom` in your current working directory and a custom deployment profile file `control.json` in that directory.
 
-```console
+```azurecli
 az arcdata dc config init --source azure-arc-kubeadm --path ./custom
 ```
 
@@ -250,7 +250,7 @@ kubectl get storageclass
 
 Now, set the desired storage class by replacing `<storageclassname>` in the command below with the name of the storage class that you want to use that was determined by running the `kubectl get storageclass` command above.
 
-```console
+```azurecli
 az arcdata dc config replace --path ./custom/control.json --json-values "spec.storage.data.className=<storageclassname>"
 az arcdata dc config replace --path ./custom/control.json --json-values "spec.storage.logs.className=<storageclassname>"
 
@@ -261,13 +261,13 @@ az arcdata dc config replace --path ./custom/control.json --json-values "spec.st
 
 By default, the kubeadm deployment profile uses `NodePort` as the service type. If you are using a Kubernetes cluster that is integrated with a load balancer, you can change the configuration using the following command.
 
-```console
+```azurecli
 az arcdata dc config replace --path ./custom/control.json --json-values "$.spec.services[*].serviceType=LoadBalancer"
 ```
 
 Now you are ready to create the data controller using the following command.
 
-```console
+```azurecli
 az arcdata dc create --path ./custom --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
@@ -282,7 +282,7 @@ By default, the EKS storage class is `gp2` and the service type is `LoadBalancer
 
 Run the following command to create the data controller using the provided EKS deployment profile.
 
-```console
+```azurecli
 az arcdata dc create --profile-name azure-arc-eks --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
@@ -297,7 +297,7 @@ By default, the GKE storage class is `standard` and the service type is `LoadBal
 
 Run the following command to create the data controller using the provided GKE deployment profile.
 
-```console
+```azurecli
 az arcdata dc create --profile-name azure-arc-gke --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:

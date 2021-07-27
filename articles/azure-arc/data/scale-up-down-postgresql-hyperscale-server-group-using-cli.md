@@ -31,7 +31,7 @@ To show the current definition of your server group and see what are the current
 
 ### CLI with azdata
 
-```console
+```azurecli
 az postgres arc-server show -n <server group name>
 ```
 ### CLI with kubectl
@@ -101,7 +101,7 @@ How do you indicate what role does the setting apply to?
 
 **The general syntax is:**
 
-```console
+```azurecli
 az postgres arc-server edit -n <servergroup name> --memory-limit/memory-request/cores-request/cores-limit <coordinator=val1,worker=val2>
 ```
 
@@ -121,7 +121,7 @@ To indicate a number of cores, you just pass a number without unit.
 ```
 
 or
-```console
+```azurecli
 az postgres arc-server edit -n postgres01 --cores-request coordinator=1,worker=1 --cores-limit coordinator=4,worker=4
 ```
 
@@ -184,13 +184,13 @@ If you are not familiar with the `vi` editor, see a description of the commands 
 ## Reset to default values
 To reset core/memory limits/requests parameters to their default values, edit them and pass an empty string instead of an actual value. For example, if you want to reset the core limit parameter, run the following commands:
 
-```console
+```azurecli
 az postgres arc-server edit -n postgres01 --cores-request coordinator='',worker=''
 az postgres arc-server edit -n postgres01 --cores-limit coordinator='',worker=''
 ```
 
 or 
-```console
+```azurecli
 az postgres arc-server edit -n postgres01 --cores-request coordinator='',worker='' --cores-limit coordinator='',worker=''
 ```
 

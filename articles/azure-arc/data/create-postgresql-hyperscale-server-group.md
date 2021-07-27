@@ -44,11 +44,11 @@ For more details on SCCs in OpenShift, please refer to the [OpenShift documentat
 
 ## Create an Azure Arc-enabled PostgreSQL Hyperscale server group
 
-To create an Azure Arc-enabled PostgreSQL Hyperscale server group on your Arc data controller, you will use the command `az postgres arc-server server create` to which you will pass several parameters.
+To create an Azure Arc-enabled PostgreSQL Hyperscale server group on your Arc data controller, you will use the command `az postgres arc-server create` to which you will pass several parameters.
 
 For details about all the parameters you can set at the creation time, review the output of the command:
-```console
-az postgres arc-server server create --help
+```azurecli
+az postgres arc-server create --help
 ```
 
 The main parameters should consider are:
@@ -81,8 +81,8 @@ Note that when you execute the create command, you will be prompted to enter the
 ### Examples
 
 **To deploy a server group of Postgres version 12 named postgres01 with 2 worker nodes that uses the same storage classes as the data controller, run the following command:**
-```console
-az postgres arc-server server create -n postgres01 --workers 2
+```azurecli
+az postgres arc-server create -n postgres01 --workers 2
 ```
 
 **To deploy a server group of Postgres version 12 named postgres01 with 2 worker nodes that uses the same storage classes as the data controller for data and logs but its specific storage class to do both full restores and point in time restores, use the following steps:**
@@ -114,8 +114,8 @@ kubectl create -f e:\CreateBackupPVC.yml -n arc
 
 Next, create the server group:
 
-```console
-az postgres arc-server server create -n postgres01 --workers 2 -vcm backup-pvc:backup
+```azurecli
+az postgres arc-server create -n postgres01 --workers 2 -vcm backup-pvc:backup
 ```
 
 > [!IMPORTANT]
@@ -132,8 +132,8 @@ az postgres arc-server server create -n postgres01 --workers 2 -vcm backup-pvc:b
 
 To list the PostgreSQL Hyperscale server groups deployed in your Arc data controller, run the following command:
 
-```console
-az postgres arc-server server list
+```azurecli
+az postgres arc-server list
 ```
 
 
@@ -147,7 +147,7 @@ postgres01  Ready     2
 
 To view the endpoints for a PostgreSQL server group, run the following command:
 
-```console
+```azurecli
 az postgres arc-server endpoint list -n <server group name>
 ```
 For example:
@@ -190,7 +190,7 @@ az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 
 Once you have the name of the NSG, you can add a firewall rule using the following command. The example values here create an NSG rule for port 30655 and allows connection from **any** source IP address.  This is not a security best practice!  You can lock down things better by specifying a -source-address-prefixes value that is specific to your client IP address or an IP address range that covers your team's or organization's IP addresses.
 
-Replace the value of the --destination-port-ranges parameter below with the port number you got from the 'az postgres arc-server server list' command above.
+Replace the value of the --destination-port-ranges parameter below with the port number you got from the 'az postgres arc-server list' command above.
 
 ```azurecli
 az network nsg rule create -n db_port --destination-port-ranges 30655 --source-address-prefixes '*' --nsg-name azurearcvmNSG --priority 500 -g azurearcvm-rg --access Allow --description 'Allow port through for db access' --destination-address-prefixes '*' --direction Inbound --protocol Tcp --source-port-ranges '*'

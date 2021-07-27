@@ -151,8 +151,8 @@ You can use the standard Postgres way to  create users or roles. However, if you
 ### Change the password of the _postgres_ administrative user
 Azure Arc-enabled PostgreSQL Hyperscale comes with the standard Postgres administrative user _postgres_ for which you set the password when you create your server group.
 The general format of the command to change its password is:
-```console
-az postgres arc-server server edit --name <server group name> --admin-password
+```azurecli
+az postgres arc-server edit --name <server group name> --admin-password
 ```
 
 Where `--admin-password` is a boolean that relates to the presence of a value in the AZDATA_PASSWORD **session** environment variable.
@@ -165,11 +165,11 @@ If the AZDATA_PASSWORD **session** environment variable exists but has not value
 1. Delete the AZDATA_PASSWORD **session** environment variable or delete its value
 2. Run the command:
    ```console
-   az postgres arc-server server edit --name <server group name> --admin-password
+   az postgres arc-server edit --name <server group name> --admin-password
    ```
    For example
    ```console
-   az postgres arc-server server edit -n postgres01 --admin-password
+   az postgres arc-server edit -n postgres01 --admin-password
    ```
    You will be prompted to enter the password and to confirm it:
    ```console
@@ -187,11 +187,11 @@ If the AZDATA_PASSWORD **session** environment variable exists but has not value
 1. Set the value of the AZDATA_PASSWORD **session** environment variable to what you want to password to be.
 2. Run the  command:
    ```console
-   az postgres arc-server server edit --name <server group name> --admin-password
+   az postgres arc-server edit --name <server group name> --admin-password
    ```
    For example
    ```console
-   az postgres arc-server server edit -n postgres01 --admin-password
+   az postgres arc-server edit -n postgres01 --admin-password
    ```
    
    As the password is being updated, the output of the command shows:
