@@ -57,7 +57,7 @@ Each of these options is described in the [detailed instructions](status-monitor
 
 - Does Status Monitor v2 support ASP.NET Core applications?
 
-  *Yes*. Starting Application Insights Agent [2.0.0-beta1](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/2.0.0-beta1), ASP.NET Core applications hosted in IIS are supported.
+  *Yes*. Starting from [Application Insights Agent 2.0.0-beta1](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/2.0.0-beta1), ASP.NET Core applications hosted in IIS are supported.
 
 - How do I verify that the enablement succeeded?
 
