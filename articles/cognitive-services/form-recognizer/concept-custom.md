@@ -15,32 +15,39 @@ ms.author: lajanuar
 
 # Form Recognizer custom and composed models
 
-Form Recognizer uses advanced machine learning technology to analyze and extract data from your forms and documents. A Form Recognizer model is a representation of extracted data that is used as a reference for analyzing your specific content. With Form Recognizer, you can create independent custom models, composed models, or use our prebuilt models.
+Form Recognizer uses advanced machine learning technology to analyze and extract data from your forms and documents. With Form Recognizer, you can create independent custom models, composed models, or use our prebuilt models.
 
-* **Custom models**. Form Recognizer custom models represent extracted data from forms and documents specific to your business. Custom models must be trained to analyze your distinct data.
+* **Custom models**. Form Recognizer custom models enable you to analyze and extract data from forms and documents specific to your business. Custom models must be trained your distinct data.
 
-* **Composed models**. With composed models, you can combine multiple models together and call the model with a single model ID.
+* **Composed models**. With composed models, you can combine multiple custom models together into a single model called with a single model ID.
 
 * **Prebuilt models**. Form Recognizer currently supports prebuilt models for [business cards](concept-business-cards.md), [layout](concept-layout.md), [identity documents](concept-identification-cards.md), [invoices](concept-invoices.md), and [receipts](concept-receipts.md). Prebuilt models detect and extract information from document images and return the extracted data in a structured JSON output.
 
-In this article, we will review the concepts and steps for creating custom and composed Form Recognizer models. After you have reviewed this article, you should have a good understanding of the necessary steps to create a custom model and be ready to try doing so using our  [Form Recognizer sample labeling tool](label-tool.md), [REST APIs](quickstarts/client-library.md?branch=main&pivots=programming-language-rest-api#train-a-custom-model), or the [client-library SDKs](quickstarts/client-library.md?branch=main&pivots=programming-language-csharp#train-a-custom-model).
+In this article, we will review the concepts and steps for creating custom and composed Form Recognizer models. After reading this article, you should have a good understanding of the steps necessary to create custom and composed models using our  [Form Recognizer sample labeling tool](label-tool.md), [REST APIs](quickstarts/client-library.md?branch=main&pivots=programming-language-rest-api#train-a-custom-model), or [client-library SDKs](quickstarts/client-library.md?branch=main&pivots=programming-language-csharp#train-a-custom-model).
 
 ## What is a custom model?
 
-With Form Recognizer, you can train a model that will extract information from forms relevant for your use cases. You only need five examples of the same form type to get started. Your custom model can be trained with or without labeled datasets.
+A custom model is trained to recognize form fields from your distinct content and extract key-value pairs and table data. You only need five examples of the same form type to get started and your custom model can be trained with or without labeled datasets.
 
 ## Try it out
 
-Try out the online Form Recognizer sample labeling tool:
+Try our online Form Recognizer sample labeling tool:
 
 > [!div class="nextstepaction"]
 > [Try Custom](https://aka.ms/fott-2.1-ga "Start with Custom to train a model with labels and find key-value pairs.")
 
-## Create, use, and manage a custom model
+## Create a custom model
 
-At a high level, the steps for building, training, and using your custom model are as follows:
+The steps for building, training, and using custom and composed model are as follows:
 
-## [**&#120783;. Assemble your training dataset**](build-training-data-set.md#custom-model-input-requirements)
+* Assemble a training dataset
+* Upload your training set to Azure blob storage
+* Train your custom model
+* Create a composed model
+* Analyze documents
+* Manage your custom models
+
+## Assemble your training dataset
 
 Building a custom model begins with establishing your training dataset. You'll need a minimum of five completed forms of the same type for your sample dataset. They can be of different file types (jpg, png, pdf, tiff) and contain both text and handwriting. Your forms must be of the same type of document and follow the [input requirements](build-training-data-set.md#custom-model-input-requirements) for Form Recognizer.
 
