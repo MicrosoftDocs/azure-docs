@@ -5,7 +5,7 @@ author: TerryLanfear
 ms.author: terrylan
 ms.service: security
 ms.topic: reference
-ms.date: 07/15/2021
+ms.date: 07/26/2021
 ---
 
 
@@ -13,12 +13,13 @@ ms.date: 07/15/2021
 
 This article describes feature availability in the Microsoft Azure and Azure Government clouds for the following security services:
 
+- [Azure Information Protection](#azure-information-protection)
 - [Azure Sentinel](#azure-sentinel)
 - [Azure Security Center](#azure-security-center)
 
 > [!NOTE]
 > Additional security services will be added to this article soon.
-> 
+>
 
 ## Azure Government
 
@@ -45,6 +46,107 @@ For more information about Office 365 US Government environments, see:
 
 
 The following sections identify when a service has an integration with Microsoft 365 and the feature availability for Office 365 GCC, Office 365 High, and Office 365 DoD.
+
+## Azure Information Protection
+
+Azure Information Protection (AIP) is a cloud-based solution that enables organizations to discover, classify, and protect documents and emails by applying labels to content.
+
+AIP is part of the Microsoft Information Protection (MIP) solution, and extends the [labeling](/microsoft-365/compliance/sensitivity-labels) and [classification](/microsoft-365/compliance/data-classification-overview) functionality provided by Microsoft 365.
+
+For more information, see the [Azure Information Protection product documentation](/azure/information-protection/).
+
+
+> [!TIP]
+> Office 365 GCC is paired with Azure Active Directory (Azure AD) in Azure. Office 365 GCC High and Office 365 DoD are paired with Azure AD in Azure Government. Make sure to pay attention to the Azure environment to understand where [interoperability is possible](#microsoft-365-integration). 
+>
+> In the following table, interoperability that is *not* possible is marked with a dash (-) to indicate that support is not relevant.
+>
+
+|Feature/Service  |Azure  |Azure Gov  |
+|---------|---------|---------|
+|**[Azure Information Protection scanner](/azure/information-protection/deploy-aip-scanner)**<br><br>Can function without Office 365 to scan files only. Cannot apply labels to files without Office 365.      |  GA       |     GA    |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+|**Administration**     |         |         |
+|[Azure Information Protection portal for scanner administration](/azure/information-protection/deploy-aip-scanner-configure-install?tabs=azure-portal-only)     |         |         |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+| [PowerShell for RMS service administration](/powershell/module/aipservice/?view=azureipps)   |         |         |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+|  [PowerShell for AIP UL client bulk operations](/powershell/module/azureinformationprotection/?view=azureipps)   |         |         |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+| **SDK**    |         |         |
+| [Microsoft Information Protection and Azure Information Protection Software Development Kit (SDK)](/information-protection/develop/)    |         |         |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+| **Customizations**    |         |         |
+|[Document tracking and revocation](/azure/information-protection/rms-client/track-and-revoke-admin)     |         |         |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+| **Key management**    |         |         |
+|[Bring Your Own Key (BYOK)](/azure/information-protection/byok-price-restrictions)     |         |         |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+| [Double Key Encryption (DKE)](/azure/information-protection/plan-implement-tenant-key)    |         |         |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+| **Office files**    |         |         |
+| [Protection for Microsoft Exchange Online, Microsoft SharePoint Online, and Microsoft OneDrive for Business](/azure/information-protection/requirements-applications)    |         |         |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+| [Protection for on-premises Exchange and SharePoint content via the Rights Management connector](/azure/information-protection/deploy-rms-connector)    |         |         |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+| [Office 365 Message Encryption](/microsoft-365/compliance/set-up-new-message-encryption-capabilities)    |         |         |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+|  [Set labels to automatically apply pre-configured M/MIME protection in Outlook](/azure/information-protection/rms-client/clientv2-admin-guide-customizations)   |         |         |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+| [Control oversharing of information when using Outlook](/azure/information-protection/rms-client/clientv2-admin-guide-customizations)    |         |         |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+| **Classification and labeling**    |         |         |
+|Custom templates, including departmental templates     |         |         |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+| Manual, default, and mandatory document classification    |         |         |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+|  Configure conditions for automatic and recommended classification   |         |         |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+| [AIP scanner to apply a *default label* to all files in an on-premises file server / repository](/azure/information-protection/deploy-aip-scanner-configure-install?tabs=azure-portal-only)    |         |         |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+| [AIP scanner for automated classification, labeling, and protection of supported on-premises files](/azure/information-protection/deploy-aip-scanner)    |         |         |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+|[Protection for non-Microsoft Office file formats, including PTXT, PJPG, and PFILE (generic protection)](/azure/information-protection/rms-client/clientv2-admin-guide-file-types)     |         |         |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+|     |         |         |
 
 ## Azure Security Center
 
