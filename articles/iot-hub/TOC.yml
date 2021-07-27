@@ -115,7 +115,7 @@
                   href: iot-hub-devguide-routing-query-syntax.md
             - name: Send cloud-to-device messages from IoT Hub
               href: iot-hub-devguide-messages-c2d.md
-            - name: Choose a communication protocol
+            - name: Choose a device communication protocol
               href: iot-hub-devguide-protocols.md
         - name: React to IoT Hub events with Event Grid
           href: iot-hub-event-grid.md
