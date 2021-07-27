@@ -3,7 +3,6 @@ title: Index data using Power Query connectors (preview)
 titleSuffix: Azure Cognitive Search
 description: Import data from different data sources using the Power Query connectors.
 
-manager: luisca
 author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
