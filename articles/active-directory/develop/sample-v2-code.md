@@ -123,7 +123,7 @@ The following sample shows a public client application running on a device witho
 > [!div class="mx-tdCol2BreakAll"]
 >| Language/<br/>Platform     | Code sample(s) on GitHub |Auth libraries |Auth flow |
 >| ----------- | ----------- |----------- |----------- |
->| .NET core | [Invoke protected API from text-only device](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2) | MSAL.NET | OAuth2 device code  |
+>| .NET core | [Invoke protected API from text-only device](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2) | MSAL.NET | OAuth 2.0 device code  |
 >| Java | [Sign in users and invoke protected API](https://github.com/Azure-Samples/ms-identity-java-devicecodeflow) | MSAL Java |  OAuth 2.0 device code  |
 >| Python | [Call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-python-devicecodeflow) | MSAL Python | OAuth 2.0 device code |
 
@@ -148,8 +148,8 @@ The following samples show how to protect a web API with the Microsoft identity 
 >| ASP.NET | [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | MSAL.NET |  OAuth 2.0 credentials grant |
 >| ASP.NET | [Call a downstream API](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof) | MSAL.NET |  On-Behalf-Of (OBO) flow |
 >| Java | [Sign in users](https://github.com/Azure-Samples/ms-identity-java-webapi) | MSAL Java | On-Behalf-Of (OBO) flow |
->| Node.js | [Protect a Node.js web API](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2) | MSAL Node | auth code flow with PKCE |
->| Node.js | [Sign in users and obtain a JWT Access Token from Azure AD B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) | MSAL Node | auth code flow with PKCE |
+>| Node.js | [Protect a Node.js web API](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2) | MSAL Node |  Auth code flow (with PKCE) |
+>| Node.js | [Sign in users and obtain a JWT Access Token from Azure AD B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) | MSAL Node |  Auth code flow (with PKCE) |
 
 ## Azure Functions as web APIs
 
@@ -158,8 +158,8 @@ The following samples show how to protect an Azure Function using HttpTrigger an
 > [!div class="mx-tdCol2BreakAll"]
 >| Language/<br/>Platform     | Code sample(s) on GitHub |Auth libraries |Auth flow |
 >| ----------- | ----------- |----------- |----------- |
->| ASP.NET | [DotNet Azure Function Web API secured by Azure AD](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions) | MSAL.NET  |  auth code flow |
->| Python | [Python Azure Function Web API secured by Azure AD](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions) | MSAL Python | auth code flow |
+>| ASP.NET | [DotNet Azure Function Web API secured by Azure AD](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions) | MSAL.NET  |  Auth code flow |
+>| Python | [Python Azure Function Web API secured by Azure AD](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions) | MSAL Python | Auth code flow |
 >| Node.js | [Node.js Azure Function Web API secured by Azure AD](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions) | MSAL Node |   |
 >| Node.js | [Call Microsoft Graph API on behalf of a user](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions) | MSAL Node|  On-Behalf-Of (OBO) flow|
 
