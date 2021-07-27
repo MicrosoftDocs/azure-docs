@@ -17,14 +17,14 @@ To meet business continuity and disaster recovery (BCDR) compliance requirements
 
  ## How to enable DR 
   
-To enable the DR feature, create a one-time support ticket. By default, one Azure paired region is used as the secondary region. However, you can choose an Azure region where the Azure API for FHIR is supported. The Microsoft support team will enable the DR feature based on the support priority.
+To enable the DR feature, create a one-time support ticket. You can choose an Azure paired region or another region where the Azure API for FHIR is supported. The Microsoft support team will enable the DR feature based on the support priority.
 
 ## How the DR process works
 
 The DR process involves the following steps: 
 * Data replication
 * Automatic failover
-* Impacted region recovery
+* Affected region recovery
 * Manual failback
 
 ### Data replication in the secondary region
@@ -41,13 +41,13 @@ During a primary region outage, the Azure API for FHIR automatically fails over 
 
 [ ![Failover in disaster recovery.](media/disaster-recovery/failover-in-disaster-recovery.png) ](media/disaster-recovery/failover-in-disaster-recovery.png#lightbox)
 
-### Impacted region recovery and data replication
+### Affected region recovery
 
-After the impacted region recovers, it's automatically available as a secondary region and data replication restarts. You can start the data recovery process or wait until the failback step is completed.
+After the affected region recovers, it's automatically available as a secondary region and data replication restarts. You can start the data recovery process or wait until the failback step is completed.
 
 [ ![Replication in disaster recovery.](media/disaster-recovery/replication-in-disaster-recovery.png) ](media/disaster-recovery/replication-in-disaster-recovery.png#lightbox)
 
-During the time when compute has failed back to the recovered region but data has not, there may be potential network latencies because compute and data reside in two different regions. The network latencies should disappear automatically as soon as the data fails back to the recovered region through a manual trigger.
+During the time when compute has failed back to the recovered region but data has not, there may be potential network latencies because compute and data are in two different regions. The network latencies should disappear automatically as soon as the data fails back to the recovered region through a manual trigger.
 
 [ ![Network latency.](media/disaster-recovery/network-latency.png) ](media/disaster-recovery/network-latency.png#lightbox)
 
@@ -76,7 +76,7 @@ You can enable the private link feature before or after the Azure API for FHIR h
 
 * When the private DNS is set up, the VNet in the secondary region needs to be manually set up as a "Virtual network links". The primary VNet should have already been added as part of the Private Link endpoint creation flow. For more information, see [Virtual network links](https://docs.microsoft.com/azure/dns/private-dns-virtual-network-links).
 
-* Optionally, set up one VM in the primary region VNet and one in the secondary region VNet. You should be able to access the Azure API for FHIR from both VMs.
+* Optionally, set up one VM in the primary region VNet and one in the secondary region VNet. You can access the Azure API for FHIR from both VMs.
 
 The private link feature should continue to work during a regional outage and after the failback has completed. For more information, see [Configure private link](https://docs.microsoft.com/azure/healthcare-apis/fhir/configure-private-link).
 
@@ -102,9 +102,9 @@ Any existing connection won't function until the failed region is restored. You 
 
 ## How to test DR
 
-While not required, you can test the DR feature on a non-production environment, for example dev or in a QA environment. The compute will not be included in the DR test because doing so will disrupt the Azure API for FHIR service for other customers.
+While not required, you can test the DR feature on a non-production environment. For DR test, only the data will be included and the compute will not be included. 
 
-Consider the following steps.
+Consider the following steps for DR test.
 
 * Prepare a test environment with test data. It's recommended that you use a service instance with small amounts of data to reduce the time to replicate the data.
  
