@@ -3,8 +3,8 @@ title: Built-in text and image processing during indexing
 titleSuffix: Azure Cognitive Search
 description: Data extraction, natural language, image processing cognitive skills add semantics and structure to raw content in an Azure Cognitive Search pipeline.
 
-author: vkurpad
-ms.author: vikurpad
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019

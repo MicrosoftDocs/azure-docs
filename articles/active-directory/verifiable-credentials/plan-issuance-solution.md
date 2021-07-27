@@ -54,7 +54,7 @@ Each issuer has a single key set used for signing, updating, and recovery. This 
 
 * Rules are an issuer-defined model that describes the required inputs of a verifiable credential, the trusted sources of the inputs, and the mapping of input claims to output claims. 
 
-   * Input – Are a subset of the model in the rules file for client consumption. The subset must describe the set of inputs, where to obtain the inputs and the endpoint to call to obtain a verifiable credential.
+   * **Input** – Are a subset of the model in the rules file for client consumption. The subset must describe the set of inputs, where to obtain the inputs and the endpoint to call to obtain a verifiable credential.
 
 * Rules and display files for different credentials can be configured to use different containers, subscriptions, and storage. For example, you can delegate permissions to different teams that own management of specific VCs. 
 
@@ -122,7 +122,7 @@ With Azure AD Verifiable Credentials, the most common credential use cases are:
 
 * a user’s selfie 
 
-* verification of liveness.
+* verification of liveness
 
 This kind of credential is a good fit for identity onboarding scenarios of new employees, partners, service providers, students, and other instances where identity verification is essential.
 
@@ -150,7 +150,7 @@ In addition to the industry-specific standards and schemas that might be applica
 
 * **Minimize private information**: Meet the use cases with the minimal amount of private information necessary. For example, a VC used for e-commerce websites that offers discounts to employees and alumni can be fulfilled by presenting the credential with just the first and last name claims. Additional information such as hiring date, title, department, etc. are not needed.
 
-* **Favor abstract claims**: Each claim should meet the need while minimizing the detail. For example, a claim called “ageOver” with discrete values such as “13”,”21”,”60”, is more abstract than a date of birth claim.
+* **Favor abstract claims**: Each claim should meet the need while minimizing the detail. For example, a claim named “ageOver” with discrete values such as “13”,”21”,”60”, is more abstract than a date of birth claim.
 
 * **Plan for revocability**: We recommend you define an index claim to enable mechanisms to find and revoke credentials. You are limited to defining one index claim per contract. It is important to note that values for indexed claims are not stored in the backend, only a hash of the claim value. For more information, see [Revoke a previously issued verifiable credential](../verifiable-credentials/how-to-issuer-revoke.md).
 
