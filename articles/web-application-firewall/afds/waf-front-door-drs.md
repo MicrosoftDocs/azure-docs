@@ -4,7 +4,7 @@ description: This article  provides information on Web Application Firewall DRS 
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 06/09/2021
+ms.date: 07/26/2021
 ms.author: victorh
 ms.topic: conceptual
 ---
@@ -37,6 +37,10 @@ The Default action is to BLOCK. Additionally, custom rules can be configured in 
 
 Custom rules are always applied before rules in the Default Rule Set are evaluated. If a request matches a custom rule, the corresponding rule action is applied. The request is either blocked or passed through to the back-end. No other custom rules or the rules in the Default Rule Set are processed. You can also remove the Default Rule Set from your WAF policies.
 
+### Microsoft Threat Intelligence Collection rules
+
+The Microsoft Threat Intelligence Collection rules are written in partnership with the Microsoft Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
+
 ### Anomaly Scoring mode
 
 OWASP has two modes for deciding whether to block traffic: Traditional mode and Anomaly Scoring mode.
@@ -52,10 +56,7 @@ In Anomaly Scoring mode, traffic that matches any rule isn't immediately blocked
 |Warning      |3|
 |Notice       |2|
 
-There's a threshold of 5 for the Anomaly Score to block traffic. So, a single *Critical* rule match is enough for the Application Gateway WAF to block a request, even in Prevention mode. But one *Warning* rule match only increases the Anomaly Score by 3, which isn't enough by itself to block the traffic.
-
-> [!NOTE]
-> The message that's logged when a WAF rule matches traffic includes the action value "Blocked." But the traffic is actually only blocked for an Anomaly Score of 5 or higher. For more information, see [Troubleshoot Web Application Firewall (WAF) for Azure Application Gateway](../ag/web-application-firewall-troubleshoot.md)
+There's a threshold of 5 for the Anomaly Score to block traffic. So, a single *Critical* rule match is enough for the WAF to block a request, even in Prevention mode. But one *Warning* rule match only increases the Anomaly Score by 3, which isn't enough by itself to block the traffic.
 
 ### DRS 2.0
 

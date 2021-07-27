@@ -2,7 +2,7 @@
 title: gRPC extension protocol - Azure
 description: Azure Video Analyzer allows you to enhance its processing capabilities through a pipeline extension node. The gRPC extension processor enables extensibility scenarios using the highly performant, structured, gRPC-based protocol.
 ms.topic: reference
-ms.date: 05/15/2021
+ms.date: 06/01/2021
 
 ---
 
@@ -21,7 +21,7 @@ In a single session: The client sends a media stream descriptor followed by vide
 It is strongly recommended that responses are returned using valid JSON documents following the pre-established schema defined as per the [inference metadata schema object model](inference-metadata-schema.md). This will better ensure interoperability with other components and scenarios like recording and playback of video with inference metadata.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/grpc-extension-protocol/ava-module.png" alt-text="Azure Video Analyzer module" lightbox="./media/grpc-extension-protocol/ava-module.png":::
+> :::image type="content" source="./media/grpc-extension-protocol/grpc-external-srv.svg" alt-text="Azure Video Analyzer module" lightbox="./media/grpc-extension-protocol/grpc-external-srv.svg":::
 
 ## Implementing gRPC protocol
 

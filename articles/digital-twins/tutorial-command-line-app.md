@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 [!INCLUDE [digital-twins-tutorial-selector.md](../../includes/digital-twins-tutorial-selector.md)]
 
-In this tutorial, you'll build a graph in Azure Digital Twins using models, twins, and relationships. The tool for this tutorial is the **sample command-line client application** for interacting with an Azure Digital Twins instance. The client app is similar to the one written in [Tutorial: Code a client app](tutorial-code.md).
+In this tutorial, you'll build a graph in Azure Digital Twins using models, twins, and relationships. The tool for this tutorial is the **sample command-line client application** for interacting with an Azure Digital Twins instance. The client app is similar to the one written in [Code a client app](tutorial-code.md).
 
 You can use this sample to perform essential Azure Digital Twins actions such as uploading models, creating and modifying twins, and creating relationships. You can also look at the [code of the sample](https://github.com/Azure-Samples/digital-twins-samples/tree/master/) to learn about the Azure Digital Twins APIs, and practice implementing your own commands by modifying the sample project however you want.
 
@@ -97,7 +97,7 @@ CreateModels Room
 ```
 
 As models cannot be overwritten, this will now return a service error.
-For the details on how to delete existing models, see [How-to: Manage DTDL models](how-to-manage-model.md).
+For the details on how to delete existing models, see [Manage DTDL models](how-to-manage-model.md).
 ```cmd/sh
 Response 409: Service request failed.
 Status: 409 (Conflict)
@@ -281,4 +281,4 @@ In this tutorial, you got started with Azure Digital Twins by building a graph i
 
 Continue to the next tutorial to combine Azure Digital Twins with other Azure services to complete a data-driven, end-to-end scenario:
 > [!div class="nextstepaction"]
-> [Tutorial: Connect an end-to-end solution](tutorial-end-to-end.md)
+> [Connect an end-to-end solution](tutorial-end-to-end.md)

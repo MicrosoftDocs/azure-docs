@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 01/15/2021
+ms.date: 06/30/2021
 ms.author: alkohli
 ---
 
@@ -10,7 +10,16 @@ Before you can deploy VMs on your Azure Stack Edge device, you must configure yo
 
 Make sure that you can use the following steps to access the device from your client. You've already done this configuration when you connected to Azure Resource Manager, and now you're verifying that the configuration was successful. 
 
+
+
 1. Verify that Azure Resource Manager communication is working by running the following command:     
+
+    ### [Az](#tab/Az)
+
+    ```powershell
+    Add-AzEnvironment -Name <Environment Name> -ARMEndpoint "https://management.<appliance name>.<DNSDomain>"
+    ```
+    ### [AzureRM](#tab/AzureRM)
 
     ```powershell
     Add-AzureRmEnvironment -Name <Environment Name> -ARMEndpoint "https://management.<appliance name>.<DNSDomain>"
@@ -18,7 +27,19 @@ Make sure that you can use the following steps to access the device from your cl
 
 1. To call the local device APIs to authenticate, enter: 
 
-    `login-AzureRMAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d`
+    ### [Az](#tab/Az)
+
+    ```powershell
+    login-AzAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d
+    ```
+
+    To connect via Azure Resource Manager, provide the username *EdgeArmUser* and your password.
+
+    ### [AzureRM](#tab/AzureRM)
+
+    ```powershell
+    login-AzureRMAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d
+    ```
 
     To connect via Azure Resource Manager, provide the username *EdgeArmUser* and your password.
 
