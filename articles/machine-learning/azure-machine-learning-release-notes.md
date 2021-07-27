@@ -21,8 +21,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ## 2021-08-02
 
 ### Azure Machine Learning SDK for Python v1.33.0
-  + **azure-cli-ml**
-    + Azure Machine Learning compute clusters can now be created in a location different from the location of the workspace. This is useful for: * maximizing idle capacity allocation * managing quota utilization across different locations without having to create more workspaces just to use quota and create a compute cluster in a particular location For more information, please click [here](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-create-attach-compute-cluster?tabs=python)
   + **azureml-automl-core**
     + Hierarchical timeseries (HTS) is enabled for forecasting tasks through pipelines.
     + Improved error handling around XGBoost model retrieval.
@@ -39,8 +37,8 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   + **azureml-contrib-reinforcementlearning**
     + Some properties in `azureml.core.environment.DockerSection` are deprecated, such as `shm_size` property used by Ray workers in reinforcement learning jobs. This property can now be specified in `azureml.contrib.train.rl.WorkerConfiguration` instead.
   + **azureml-core**
-    + Fix the hyperlink to the type of `distributed_job_config` for `ScriptRunConfig` https://github.com/Azure/MachineLearningNotebooks/issues/1534
-    + Azure Machine Learning compute clusters can now be created in a location different from the location of the workspace. This is useful for: * maximizing idle capacity allocation * managing quota utilization across different locations without having to create more workspaces just to use quota and create a compute cluster in a particular location For more information, please click [here](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-create-attach-compute-cluster?tabs=python)
+    + Fixed a hyperlink in `ScriptRunConfig.distributed_job_config` documentation
+    + Azure Machine Learning compute clusters can now be created in a location different from the location of the workspace. This is useful for maximizing idle capacity allocation and managing quota utilization across different locations without having to create more workspaces just to use quota and create a compute cluster in a particular location For more information, please click [here](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-create-attach-compute-cluster?tabs=python)
     + Added display_name as a mutable name field of Run object.
     + Dataset from_files now supports skipping of data extensions for large input data
   + **azureml-dataprep**
