@@ -32,7 +32,7 @@ CPU limit/instance | Unlimited  | 24 cores
 Memory limit/instance | Unlimited | 128 GB
 High availability | Availability group | Single instance w/ Kubernetes redeploy + shared storage.
 Read scale out | Availability group | None
-AHB exchange rates for IP component of price | 1:1 Enterprise Edition : Business critical​ <br> 4:1 Standard Edition: Business critical | 1:4 Enterprise Edition : General purpose​ <br> 1:1 Standard Edition : General purpose
+AHB exchange rates for IP component of price | 1:1 Enterprise Edition <br> 4:1 Standard Edition | 1:4 Enterprise Edition​ <br> 1:1 Standard Edition 
 Dev/Test pricing | No cost | No cost
 
 /* Currently business critical service tier is in preview and does not incur any changes for use use during this preview. Some of the features may change as we get closer to general availability.

@@ -17,7 +17,7 @@ ms.topic: conceptual
 
 ## Kubernetes storage concepts
 
-Kubernetes provides an infrastructure abstraction layer over the underlying virtualization tech stack (optional) and hardware. The way that Kubernetes abstracts away storage is through **[Storage Classes](https://kubernetes.io/docs/concepts/storage/storage-classes/)**. At the time of provisioning a pod, a storage class can be specified to be used for each volume. At the time the pod is provisioned, the storage class **[provisioner](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/)** is called to provision the storage and then a **[persistent volume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)** is created on that provisioned storage and then the pod is mounted to the persistent volume by a **[persistent volume claim](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims)**.
+Kubernetes provides an infrastructure abstraction layer over the underlying virtualization tech stack (optional) and hardware. The way that Kubernetes abstracts away storage is through **[Storage Classes](https://kubernetes.io/docs/concepts/storage/storage-classes/)**. When you provision a pod, you can specify a storage class for each volume. At the time the pod is provisioned, the storage class **[provisioner](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/)** is called to provision the storage, and then a **[persistent volume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)** is created on that provisioned storage and then the pod is mounted to the persistent volume by a **[persistent volume claim](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims)**.
 
 Kubernetes provides a way for storage infrastructure providers to plug in drivers (also called "Addons") that extend Kubernetes. Storage addons must comply with the **[Container Storage Interface standard](https://kubernetes.io/blog/2019/01/15/container-storage-interface-ga/)**. There are dozens of addons that can be found in this non-definitive **[list of CSI drivers](https://kubernetes-csi.github.io/docs/drivers.html)**. Which CSI driver you use will depend on factors such as whether you are running in a cloud-hosted, managed Kubernetes service or which OEM provider you are using for your hardware.
 
@@ -126,9 +126,9 @@ There are generally two types of storage:
 
 Depending on the configuration of your NFS server and storage class provisioner, you may need to set the `supplementalGroups` in the pod configurations for database instances, and you may need to change the NFS server configuration to use the group IDs passed in by the client (as opposed to looking group IDs up on the server using the passed-in user ID). Consult your NFS administrator to determine if this is the case.
 
-The `supplementalGroups` property takes an array of values and can be set as part of the Azure Arc data ontroller deployment and will be used by any database instances configured by the Azure Arc data controller.
+The `supplementalGroups` property takes an array of values and can be set as part of the Azure Arc data controller deployment and will be used by any database instances configured by the Azure Arc data controller.
 
-To set this property run the following command:
+To set this property, run the following command:
 
 ```azurecli
 az arcdata dc config add --path custom/control.json --json-values 'spec.security.supplementalGroups="1234556"'
