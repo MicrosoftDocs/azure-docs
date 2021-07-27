@@ -53,7 +53,7 @@ param (
     [string]
     $PolicyId,
 
-    # #new filewallpolicy name, if not specified will be the previous name with the '_premium' suffix
+     #new firewallpolicy name, if not specified will be the previous name with the '_premium' suffix
     [Parameter(Mandatory=$false)]
     [string]
     $NewPolicyName = ""
