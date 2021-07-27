@@ -29,7 +29,7 @@ The DR process involves the following steps:
 
 ### Data replication in the secondary region
 
-By default, the Azure API for FHIR offers data protection through backup and restore. When the disaster recovery feature is enabled, data replication begins. A data replica is automatically created and synchronized in the secondary Azure region. The initial data replication can take a few minutes to a few hours or longer, depending on the amount of data. The secondary data replica is a replication of the primary data and used directly to recover the service, thus helping to speed up the recovery process.
+By default, the Azure API for FHIR offers data protection through backup and restore. When the disaster recovery feature is enabled, data replication begins. A data replica is automatically created and synchronized in the secondary Azure region. The initial data replication can take a few minutes to a few hours, or longer, depending on the amount of data. The secondary data replica is a replication of the primary data. It's used directly to recover the service, and it helps speed up the recovery process.
 
 It is worth noting that the throughput RU/s in the secondary region must be maintained at the same level as that in the primary region to ensure successful data replication.
 
@@ -37,17 +37,17 @@ It is worth noting that the throughput RU/s in the secondary region must be main
 
 ### Automatic failover
 
-During a primary region outage, the Azure API for FHIR automatically fails over to the secondary region and the service is expected to resume in one hour or less, and with potential data loss of up to 15 minutes’ worth of data. No changes are required on the customer side unless Private Link, CMK, IoT and $export are used. For more information, see [Configuration changes during disaster recovery](#configuration-changes-in-dr).
+During a primary region outage, the Azure API for FHIR automatically fails over to the secondary region. The service is expected to resume in one hour or less, and with potential data loss of up to 15 minutes' worth of data. Changes aren't required by the customer unless Private Link, CMK, IoT and $export are used. For more information, see [Configuration changes during disaster recovery](#configuration-changes-in-dr).
 
 [ ![Failover in disaster recovery.](media/disaster-recovery/failover-in-disaster-recovery.png) ](media/disaster-recovery/failover-in-disaster-recovery.png#lightbox)
 
 ### Impacted region recovery and data replication
 
-Once the impacted region recovers, it’s automatically available as a secondary region and data replication restarts. The data recovery process can start at this point, or it can be delayed until the failback step has completed.
+After the impacted region recovers, it's automatically available as a secondary region and data replication restarts. The data recovery process can start at this point, or it can be delayed until the failback step is completed.
 
 [ ![Failback in disaster recovery.](media/disaster-recovery/failback-in-disaster-recovery.png) ](media/disaster-recovery/failback-in-disaster-recovery.png#lightbox)
 
-During the time when the computing environment (not the database) automatically fails back to the recovered region, there may be potential network latency because compute and data reside in two different regions. The network latency issue should be resolved automatically as soon as the database fails back to the recovered region through a manual trigger.
+During the time when the computing environment (not the database) automatically fails back to the recovered region, there may be potential network latency issues because compute and data reside in two different regions. The network latency issue should be resolved automatically as soon as the database fails back to the recovered region through a manual trigger.
 
 [ ![Network latency.](media/disaster-recovery/network-latency.png) ](media/disaster-recovery/network-latency.png#lightbox)
 
@@ -74,11 +74,14 @@ You can enable the private link feature before or after the Azure API for FHIR h
 
 * Use the default settings, or you can tailor the configuration as needed. The importance is that the traffic can flow between the two virtual networks.
 
-* When the private DNS is set up, the VNet in the secondary region will need to be manually set up as a "Virtual network links". The primary VNet should have already been added as part of the Private Link endpoint creation flow. For more information, see [Virtual network links](https://docs.microsoft.com/azure/dns/private-dns-virtual-network-links).
+* When the private DNS is set up, the VNet in the secondary region needs to be manually set up as a "Virtual network links". The primary VNet should have already been added as part of the Private Link endpoint creation flow. For more information, see [Virtual network links](https://docs.microsoft.com/azure/dns/private-dns-virtual-network-links).
 
 * Optionally, set up one VM in the primary region VNet and one in the secondary region VNet. You should be able to access the Azure API for FHIR from both VMs. Note that one, and only one, endpoint is accessible.
 
 Data replication will take place between the two regions through VNet peering. The private link feature should continue to work during a regional outage and after the failback has completed. For more information, see [Configure private link](https://docs.microsoft.com/azure/healthcare-apis/fhir/configure-private-link).
+
+> [!NOTE]
+> Configuring virtual networks and VNet peering does not affect data replication.
 
 ### CMK
 
@@ -90,18 +93,16 @@ The job that is running the export will be picked up from another region after 1
 
 Ensure that you grant the same permissions to the system identity of the Azure API for FHIR. Also, if the storage account is configured with selected networks, see [How to export FHIR data](https://docs.microsoft.com/azure/healthcare-apis/fhir/export-data).
 
-> [!NOTE]
-> Configuring virtual networks and VNet peering does not affect data replication.
-
 ### IoMT Connector
 
 Any existing connection won't function until the failed region is restored. You can create a new connection once the failover has completed and your FHIR server is accessible. This new connection will continue to function when failback occurs.
 
-Note that IoMT Connector is a preview feature and does not provide support for disaster recovery. 
+> [!NOTE]
+> IoMT Connector is a preview feature and does not provide support for disaster recovery. 
 
 ## How to test DR
 
-While not required, you can test the DR feature on a non-production environment, for example dev or in a QA environment. The compute will not be included in the DR test because doing so will disrupt the Azure API for FHIR service for other customers.
+While it's not required, you can test the DR feature on a non-production environment, for example dev or in a QA environment. The compute will not be included in the DR test because doing so will disrupt the Azure API for FHIR service for other customers.
 
 Consider the following steps.
 
