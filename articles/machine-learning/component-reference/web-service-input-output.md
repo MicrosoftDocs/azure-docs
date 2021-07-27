@@ -45,4 +45,4 @@ After you submit the pipeline and the run finishes successfully, you can deploy 
 ## Next steps
 Learn more about [deploying the real-time endpoint](../tutorial-designer-automobile-price-deploy.md#deploy-the-real-time-endpoint).
 
-See the [set of components available](module-reference.md) to Azure Machine Learning.
+See the [set of components available](component-reference.md) to Azure Machine Learning.

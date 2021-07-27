@@ -68,4 +68,4 @@ You can train this type of model by using the [Train Model](././train-model.md).
 
 ## Next steps
 
-See the [set of components available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](component-reference.md) to Azure Machine Learning. 

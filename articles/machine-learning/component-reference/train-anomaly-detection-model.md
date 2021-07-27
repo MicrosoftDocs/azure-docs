@@ -47,7 +47,7 @@ After training is complete:
  
 ## Next steps
 
-See the [set of components available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](component-reference.md) to Azure Machine Learning. 
 
 See [Exceptions and error codes for the designer](designer-error-codes.md) for a list of errors specific to the designer components.
 '

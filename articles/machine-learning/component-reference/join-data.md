@@ -64,4 +64,4 @@ To perform a join on two datasets, they should be related by a key column. Compo
 
 ## Next steps
 
-See the [set of components available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](component-reference.md) to Azure Machine Learning. 

@@ -129,4 +129,4 @@ Because the goal of the service is to support experienced users of Vowpal Wabbit
 
 ## Next steps
 
-See the [set of components available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](component-reference.md) to Azure Machine Learning. 

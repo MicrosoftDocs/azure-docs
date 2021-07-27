@@ -175,4 +175,4 @@ If you have experimented with the Wide and Deep recommender and then move the mo
 
 ## Next steps
 
-See the [set of components available](module-reference.md) of Azure Machine Learning. 
+See the [set of components available](component-reference.md) of Azure Machine Learning. 

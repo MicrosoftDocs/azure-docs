@@ -80,7 +80,7 @@ A component may have a set of parameters that you can use to configure the compo
 :::image type="content" source="./media/concept-designer/properties.png" alt-text="Component properties":::
 
 
-For some help navigating through the library of machine learning algorithms available, see [Algorithm & component reference overview](algorithm-module-reference/module-reference.md). For help with choosing an algorithm, see the [Azure Machine Learning Algorithm Cheat Sheet](algorithm-cheat-sheet.md).
+For some help navigating through the library of machine learning algorithms available, see [Algorithm & component reference overview](algorithm-module-reference/component-reference.md). For help with choosing an algorithm, see the [Azure Machine Learning Algorithm Cheat Sheet](algorithm-cheat-sheet.md).
 
 ## <a name="compute"></a> Compute resources
 

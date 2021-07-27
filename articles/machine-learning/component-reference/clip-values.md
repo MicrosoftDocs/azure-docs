@@ -116,4 +116,4 @@ Now try the same pipeline using 60 as the upper percentile threshold and 30 as t
  
 ## Next steps
 
-See the [set of components available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](component-reference.md) to Azure Machine Learning. 

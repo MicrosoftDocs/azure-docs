@@ -25,7 +25,7 @@ Use this component to create a Poisson regression model in a pipeline. Poisson r
 - A Poisson distribution is a discrete distribution; therefore, it is not meaningful to use this method with non-whole numbers.
 
 > [!TIP]
-> If your target isn’t a count, Poisson regression is probably not an appropriate method. Try [other regression components in the designer](./module-reference.md#machine-learning-algorithms). 
+> If your target isn’t a count, Poisson regression is probably not an appropriate method. Try [other regression components in the designer](./component-reference.md#machine-learning-algorithms). 
 
 After you have set up the regression method, you must train the model using a dataset containing examples of the value you want to predict. The trained model can then be used to make predictions.
 
@@ -101,4 +101,4 @@ After training is complete:
 
 ## Next steps
 
-See the [set of components available](module-reference.md) to Azure Machine Learning.
+See the [set of components available](component-reference.md) to Azure Machine Learning.

@@ -120,4 +120,4 @@ The component also includes the following metrics for each fold, depending on th
 
 ## Next steps
 
-See the [set of components available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](component-reference.md) to Azure Machine Learning. 

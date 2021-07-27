@@ -38,4 +38,4 @@ A common use of scoring is to return the output as part of a predictive web serv
 
 ## Next steps
 
-See the [set of components available](module-reference.md) to Azure Machine Learning.
+See the [set of components available](component-reference.md) to Azure Machine Learning.

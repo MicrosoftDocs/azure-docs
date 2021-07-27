@@ -94,4 +94,4 @@ Refer to [https://pytorch.org/vision/stable/transforms.html](https://pytorch.org
 
 ## Next steps
 
-See the [set of components available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](component-reference.md) to Azure Machine Learning. 

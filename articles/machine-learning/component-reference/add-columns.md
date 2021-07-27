@@ -42,4 +42,4 @@ If there are two columns with the same name in the input datasets, a numeric suf
 
 ## Next steps
 
-See the [set of components available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](component-reference.md) to Azure Machine Learning. 

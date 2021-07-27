@@ -75,4 +75,4 @@ In addition to the list of non-supported functions provided on the official SQLi
     
 ## Next steps
 
-See the [set of components available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](component-reference.md) to Azure Machine Learning. 

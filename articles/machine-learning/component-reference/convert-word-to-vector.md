@@ -142,6 +142,6 @@ This section contains tips and answers to frequently asked questions.
 
 ## Next steps
 
-See the [set of components available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](component-reference.md) to Azure Machine Learning. 
 
 For a list of errors specific to the designer components, see [Machine Learning error codes](designer-error-codes.md).

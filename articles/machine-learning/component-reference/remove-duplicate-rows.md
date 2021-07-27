@@ -73,4 +73,4 @@ When you run the component, it creates a candidate dataset, and returns a set of
 
 ## Next steps
 
-See the [set of components available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](component-reference.md) to Azure Machine Learning. 

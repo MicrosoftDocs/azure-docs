@@ -66,4 +66,4 @@ We recommend that you use the [Edit Metadata](edit-metadata.md) component to pre
   
 ## Next steps
 
-See the [set of components available](module-reference.md) to Azure Machine Learning.
+See the [set of components available](component-reference.md) to Azure Machine Learning.

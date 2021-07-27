@@ -83,4 +83,4 @@ The report from the component can include the following statistics.
 
 ## Next steps
 
-See the [set of components available](module-reference.md) to Azure Machine Learning.  
+See the [set of components available](component-reference.md) to Azure Machine Learning.  

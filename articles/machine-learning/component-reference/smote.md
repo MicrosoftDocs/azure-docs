@@ -94,4 +94,4 @@ To increase the number of cases, you can set the value of **SMOTE percentage**, 
 
 ## Next steps
 
-See the [set of components available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](component-reference.md) to Azure Machine Learning. 

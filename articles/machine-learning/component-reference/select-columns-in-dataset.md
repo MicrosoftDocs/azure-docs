@@ -107,4 +107,4 @@ For example, in a dataset with the columns Col1, Col2, Col3, and Col4, you could
 
 ## Next steps
 
-See the [set of components available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](component-reference.md) to Azure Machine Learning. 

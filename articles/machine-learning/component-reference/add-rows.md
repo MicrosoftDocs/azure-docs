@@ -38,4 +38,4 @@ To concatenate rows from two datasets, the rows must have exactly  the same sche
 
 ## Next steps
 
-See the [set of components available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](component-reference.md) to Azure Machine Learning. 

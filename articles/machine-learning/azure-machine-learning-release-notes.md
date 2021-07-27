@@ -1799,7 +1799,7 @@ Access the following web-based authoring tools from the studio:
 ### Azure Machine Learning designer enhancements
 
 + Formerly known as the visual interface 
-+    11 new [modules](algorithm-module-reference/module-reference.md) including recommenders, classifiers, and training utilities including feature engineering, cross validation, and data transformation.
++    11 new [modules](algorithm-module-reference/component-reference.md) including recommenders, classifiers, and training utilities including feature engineering, cross validation, and data transformation.
 
 ### R SDK 
  

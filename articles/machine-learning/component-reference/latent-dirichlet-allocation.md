@@ -200,6 +200,6 @@ After the term indexes are computed, a distance-based similarity measure compare
 
 ## Next steps
 
-See the [set of components available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](component-reference.md) to Azure Machine Learning. 
 
 For a list of errors specific to the components, see [Exceptions and error codes for the designer](designer-error-codes.md).

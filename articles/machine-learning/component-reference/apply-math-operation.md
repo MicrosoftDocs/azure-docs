@@ -590,4 +590,4 @@ Alternatively, use one of the following components to do all the calculations at
   
 ## Next steps
 
-See the [set of components available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](component-reference.md) to Azure Machine Learning. 

@@ -86,4 +86,4 @@ The decision forest classifier in Azure Machine Learning consists of an ensemble
 
 ## Next steps
 
-See the [set of components available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](component-reference.md) to Azure Machine Learning. 

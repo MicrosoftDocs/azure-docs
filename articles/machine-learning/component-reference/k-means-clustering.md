@@ -140,4 +140,4 @@ In general, with clustering models, it's possible that any given configuration w
 
 ## Next steps
 
-See the [set of components available](module-reference.md) to Azure Machine Learning.
+See the [set of components available](component-reference.md) to Azure Machine Learning.

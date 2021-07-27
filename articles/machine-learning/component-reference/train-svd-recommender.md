@@ -72,4 +72,4 @@ After pipeline run is completed, to use the model for scoring, connect the [Trai
 
 ## Next steps
 
-See the [set of components available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](component-reference.md) to Azure Machine Learning. 

@@ -188,4 +188,4 @@ In the implementation of Wide & Deep recommender, the component uses a default m
 
 ## Next steps
 
-See the [set of components available](module-reference.md) of Azure Machine Learning.
+See the [set of components available](component-reference.md) of Azure Machine Learning.
