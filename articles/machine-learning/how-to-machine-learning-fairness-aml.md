@@ -122,7 +122,7 @@ The following example shows how to use the fairness package. We will upload mode
     # Train the model on the test data
     lr_predictor.fit(X_train, y_train)
 
-    # (Optional) View this model in Fairlearn's fairness dashboard, and see the disparities which appear:
+    # (Optional) View this model in the fairness dashboard, and see the disparities which appear:
     from raiwidgets import FairnessDashboard
     FairnessDashboard(sensitive_features=A_test, 
                       sensitive_feature_names=['Race', 'Sex'],
@@ -265,9 +265,9 @@ To compare multiple models and see how their fairness assessments differ, you ca
     model_dict[svm_reg_id] = svm_predictor
     ```
 
-3. Load the Fairlearn dashboard locally
+3. Load the Fairness dashboard locally
 
-    Before uploading the fairness insights into Azure Machine Learning, you can examine these predictions in a locally invoked Fairlearn dashboard. 
+    Before uploading the fairness insights into Azure Machine Learning, you can examine these predictions in a locally invoked Fairness dashboard. 
 
 
 
@@ -341,7 +341,7 @@ To see an example that demonstrates the use of the [Grid Search](https://fairlea
 Uploading multiple models' fairness insights in a single Run allows for comparison of models with respect to fairness and performance. You can click on any of the models displayed in the model comparison chart to see the detailed fairness insights of the particular model.
 
 
-[![Model Comparison Fairlearn Dashboard](./media/how-to-machine-learning-fairness-aml/multi-model-dashboard.png)](./media/how-to-machine-learning-fairness-aml/multi-model-dashboard.png#lightbox)
+[![Model Comparison Fairness Dashboard](./media/how-to-machine-learning-fairness-aml/multi-model-dashboard.png)](./media/how-to-machine-learning-fairness-aml/multi-model-dashboard.png#lightbox)
     
 
 ## Next steps
