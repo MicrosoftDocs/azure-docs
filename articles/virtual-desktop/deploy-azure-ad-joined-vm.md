@@ -58,7 +58,7 @@ This section explains how to access Azure AD-joined VMs from different Azure Vir
 
 ### Connect using the Windows Desktop client
 
-The default configuration supports connections from Windows 10 using the Windows Desktop client. You can use your credentials, smart card, [Windows Hello for Business certificate trust](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust) or [Windows Hello for Business key trust with certificates](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-rdp-certs) to sign in to the session host. However, to access the session host, your local PC must meet one of the following conditions:
+The default configuration supports connections from Windows 10 using the Windows Desktop client. You can use your credentials, smart card, [Windows Hello for Business certificate trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust) or [Windows Hello for Business key trust with certificates](/windows/security/identity-protection/hello-for-business/hello-deployment-rdp-certs) to sign in to the session host. However, to access the session host, your local PC must meet one of the following conditions:
 
 - The local PC is Azure AD-joined to the same Azure AD tenant as the session host
 - The local PC is hybrid Azure AD-joined to the same Azure AD tenant as the session host
