@@ -9,6 +9,7 @@ ms.workload: identity
 ms.author: davidmu
 author: davidmu1
 manager: CelesteDG
+reviewer: napuri
 ---
 
 # Azure Active Directory application management: What's new

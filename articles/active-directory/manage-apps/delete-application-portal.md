@@ -10,6 +10,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/16/2021
 ms.author: davidmu
+ms.reviewer: alamaral
 ---
 
 # Quickstart: Delete an application from your Azure Active Directory (Azure AD) tenant

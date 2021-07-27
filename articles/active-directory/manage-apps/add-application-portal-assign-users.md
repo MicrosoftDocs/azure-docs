@@ -10,6 +10,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/12/2021
 ms.author: davidmu
+ms.reviewer: alamaral
 ---
 
 # Quickstart: Assign users to an app that is using Azure AD as an identity provider

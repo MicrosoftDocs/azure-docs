@@ -10,6 +10,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: davidmu
+ms.reviewer: phsignor
 ---
 
 # Managing access to apps

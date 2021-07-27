@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 6/2/2021
 ms.author: davidmu
-ms.reviewer: hpsin
+ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
 ---
 

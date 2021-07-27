@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 02/03/2020
 ms.author: davidmu
 ms.collection: M365-identity-device-management
+ms.reviewer: jesakowi
 ---
 
 # Cloud app visibility and control
