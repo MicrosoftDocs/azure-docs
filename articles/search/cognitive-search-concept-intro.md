@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/18/2020
+ms.date: 07/28/2021
 ms.custom: references_regions
 ---
 # AI enrichment in Azure Cognitive Search
@@ -68,23 +68,27 @@ Custom skills can support more complex scenarios, such as recognizing forms, or 
 
 ## Steps in an enrichment pipeline <a name="enrichment-steps"></a>
 
-An enrichment pipeline is based on [*indexers*](search-indexer-overview.md). Indexers populate an index based on field-to-field mappings between the index and your data source for document cracking. Skills, now attached to indexers, intercept and enrich documents according to the skillset(s) you define. Once indexed, you can access content via search requests through all [query types supported by Azure Cognitive Search](search-query-overview.md).  If you are new to indexers, this section walks you through the steps.
+An enrichment pipeline consists of [*indexers*](search-indexer-overview.md) that have [*skillsets*](cognitive-search-working-with-skillsets.md). The skillsets define the enrichment steps, and the indexer drives the skillset. When configuring an indexer, you can include properties like output field mappings that send enriched content to a search index or knowledge store. 
+
+Post-indexing, you can access content via search requests through all [query types supported by Azure Cognitive Search](search-query-overview.md).
 
 ### Step 1: Connection and document cracking phase
 
-At the start of the pipeline, you have unstructured text or non-text content (such as images, scanned documents, or JPEG files). Data must exist in an Azure data storage service that can be accessed by an indexer. Indexers can "crack" source documents to extract text from source data. Document cracking is the process of extracting or creating text content from non-text sources during indexing.
+Indexers connect to external sources using information provided in an indexer data source. When the indexer connects to the resource, it ["cracks the documents"](search-indexer-overview.md#document-cracking) to extract text and images. Image content can be routed to skills that specify image processing, while text content is queued for text processing. 
 
 ![Document cracking phase](./media/cognitive-search-intro/document-cracking-phase-blowup.png "document cracking")
 
- Supported sources include Azure Blob Storage, Azure Table Storage, Azure SQL Database, and Azure Cosmos DB. Text-based content can be extracted from the following file types: PDFs, Word, PowerPoint, CSV files. For the full list, see [Supported formats](search-howto-indexing-azure-blob-storage.md#SupportedFormats). Indexing takes time so start with a small, representative data set and then build it up incrementally as your solution matures.
+This step assembles all of the initial or raw content that will undergo AI enrichment. For each document, an enrichment tree is created. Initially, the tree is just a root node representation, but it will grow and gain structure during skillset execution.
 
-### Step 2: Cognitive skills and enrichment phase
+### Step 2: Skillset enrichment phase
 
-Enrichment is performed with *cognitive skills* performing atomic operations. For example, once you have cracked a PDF, you can apply entity recognition, language detection, or key phrase extraction to produce new fields in your index that are not available natively in the source. Altogether, the collection of skills used in your pipeline is called a *skillset*.  
+A skillset defines the atomic operations that are performed on each document. For example, for text and images extracted from a PDF, a skillset might apply entity recognition, language detection, or key phrase extraction to produce new fields in your index that are not available natively in the source. 
 
 ![Enrichment phase](./media/cognitive-search-intro/enrichment-phase-blowup.png "enrichment phase")
 
-A skillset is based on [built-in cognitive skills](cognitive-search-predefined-skills.md) or [custom skills](cognitive-search-create-custom-skill-example.md) you provide and connect to the skillset. A skillset can be minimal or highly complex, and determines not only the type of processing, but also the order of operations. A skillset plus the field mappings defined as part of an indexer fully specifies the enrichment pipeline. For more information about pulling all of these pieces together, see [Define a skillset](cognitive-search-defining-skillset.md).
+Skillset composition can be [built-in skills](cognitive-search-predefined-skills.md), [custom skills](cognitive-search-create-custom-skill-example.md) that you create, or both. A skillset can be minimal or highly complex, and determines not only the type of processing, but also the order of operations. Most skillsets contain about three to five skills.
+
+A skillset, plus the output field mappings defined as part of an indexer, fully specifies the enrichment pipeline. For more information about pulling all of these pieces together, see [Define a skillset](cognitive-search-defining-skillset.md).
 
 Internally, the pipeline generates a collection of enriched documents. You can decide which parts of the enriched documents should be mapped to indexable fields in your search index. For example, if you applied the key phrase extraction and the entity recognition skills, those new fields would become part of the enriched document, and can be mapped to fields on your index. See [Annotations](cognitive-search-concept-annotations-syntax.md) to learn more about input/output formations.
 
