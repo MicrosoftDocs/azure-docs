@@ -71,7 +71,7 @@ The NAT pool is reachable even after the primary or secondary connection fail. T
 
 > [!NOTE]
 > * If you use NAT option 1 (independent NAT pools for primary and secondary ExpressRoute connections) and map a port of an IP address from one of the NAT pool to an on-premises server, the server will not be reachable via the ExpressRoute circuit when the corresponding connection fails.
-> * Terminating ExpressRoute BGP connections on stateful devices can cause issues with failover during planned or unplanned maintenances by Microsoft or your ExpressRoute Provider. You should test your set up to ensure your traffic failover is working properly, and when possible, terminate BGP sessions on stateless devices.
+> * Terminating ExpressRoute BGP connections on stateful devices can cause issues with failover during planned or unplanned maintenances by Microsoft or your ExpressRoute Provider. You should test your set up to ensure your traffic will failover properly, and when possible, terminate BGP sessions on stateless devices.
 
 ## Fine-tuning features for private peering
 
