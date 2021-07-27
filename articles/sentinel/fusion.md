@@ -741,7 +741,7 @@ This scenario is currently in **PREVIEW**.
 
 Azure Sentinel also generates an incident when multiple alerts of different types are detected from the following data sources, and may be related to Ransomware activity:
 
-- [Azure Security Center](connect-azure-security-center.md)
+- [Azure Defender (Azure Security Center)](connect-azure-security-center.md)
 - [Microsoft 365 Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md)
 - [Microsoft 365 Defender for Identity](connect-azure-atp.md)
 - [Microsoft Cloud App Security](connect-cloud-app-security.md)
