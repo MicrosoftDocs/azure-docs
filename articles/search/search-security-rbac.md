@@ -17,7 +17,7 @@ Azure provides a global [role-based access control (RBAC) authorization system](
 
 + Allow access to control plane operations, such as adding capacity or rotating keys, on the search service itself through Owner, Contributor, and Reader roles.
 
-+ Allow access to data plane operations, such as creating or querying indexes. This capability is currently in public preview. Sign up is required. Check back for a sign up link in the next few days.
++ Allow access to data plane operations, such as creating or querying indexes. This capability is currently in public preview ([by request](https://aka.ms/azure-cognitive-search/rbac-preview)). After your subscription is on-boarded, follow the instructions in this article to use the feature.
 
 + Allow outbound indexer connections to be made [using a managed identity](search-howto-managed-identities-data-sources.md). For a search service that has a managed identity assigned to it, you can create roles assignments that extend external data services, such as Azure Blob Storage, to allow read access on blobs by your trusted search service.
 
@@ -61,13 +61,11 @@ Azure resources have the concept of [control plane and data plane](../azure-reso
 
 ## Configure Search for data plane authentication
 
-If you are using any of the preview data plane roles (Search Index Data Contributor or Search Index Data Reader) and Azure AD authentication, your search service must be configured to recognize an **authorization** header on data requests that provides an OAuth2 access token.
+If you are using any of the preview data plane roles (Search Index Data Contributor or Search Index Data Reader) and Azure AD authentication, your search service must be configured to recognize an **authorization** header on data requests that provides an OAuth2 access token. This section provides instructions for configuring your search service.
 
-You can skip this step if you are using API keys only.
+Before you start, [sign up](https://aka.ms/azure-cognitive-search/rbac-preview) for the RBAC preview. Your subscription must be enrolled into the program before you can use this feature. It can take up to two business days for preview enrollment. You'll receive an email when your service is ready.
 
 ### [**Azure portal**](#tab/config-svc-portal)
-
-Set the feature flag on the portal URL to work with the preview roles: Search Service Contributor, Search Index Data Contributor, and Search Index Data Reader.
 
 1. Open the portal with this syntax: [https://ms.portal.azure.com/?feature.enableRbac=true](https://ms.portal.azure.com/?feature.enableRbac=true).
 
@@ -75,7 +73,7 @@ Set the feature flag on the portal URL to work with the preview roles: Search Se
 
 1. Select **Keys** in the left navigation pane.
 
-1. Choose an **API access control** mechanism:
+1. Choose an **API access control** mechanism. If you don't see these options, make sure you are enrolled and that you used the URL from the first step.
 
    | Option | Status | Description |
    |--------|--------|-------------|

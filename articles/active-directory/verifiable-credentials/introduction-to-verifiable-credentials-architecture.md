@@ -20,10 +20,9 @@ It’s important to plan your verifiable credential solution so that in addition
 
 This architectural overview introduces the capabilities and components of the Azure Active Directory Verifiable Credentials service. For more detailed information on issuance and validation, see 
 
-* Plan your Azure AD Verifiable Credentials issuance solution
+* [Plan your issuance solution](plan-issuance-solution.md)
 
-* Plan your Azure AD Verifiable Credentials validation solution
-
+* [Plan your verification solution](plan-verification-solution.md)
 
 ## Approaches to identity
 
