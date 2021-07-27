@@ -73,7 +73,6 @@ To specify a page layout version for your custom policy pages:
 
 1. Select a [page layout](contentdefinitions.md#select-a-page-layout) for the user interface elements of your application.
 1. Define a [page layout version](contentdefinitions.md#migrating-to-page-layout) with page `contract` version for *all* of the content definitions in your custom policy. The format of the value must contain the word `contract`: _urn:com:microsoft:aad:b2c:elements:**contract**:page-name:version_. 
-Learn how to [Migrating to page layout](contentdefinitions.md#migrating-to-page-layout) with page version.
 
 The following example shows the content definition identifiers and the corresponding **DataUri** with page contract: 
 
