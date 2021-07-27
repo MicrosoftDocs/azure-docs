@@ -50,11 +50,11 @@ This article describes how to create and manage a self-hosted integration runtim
 
 ## Networking requirements
 
-Your self-hosted integration runtime machine will need connect to several resources to work correctly:
+Your self-hosted integration runtime machine will need to connect to several resources to work correctly:
 
-1. The sources you want to scan using the self-hosted integration runtime.
-1. Any Azure Key Vault used to store credentials for the Purview resource.
-1. The managed Storage account and Event Hub resources created by Purview.
+* The sources you want to scan using the self-hosted integration runtime.
+* Any Azure Key Vault used to store credentials for the Purview resource.
+* The managed Storage account and Event Hub resources created by Purview.
 
 The managed Storage and Event Hub resources can be found in your subscription under a resource group containing the name of your Purview resource. Azure Purview uses these resources to ingest the results of the scan, among many other things, so the self-hosted integration runtime will need to be able to connect directly with these resources.
 
