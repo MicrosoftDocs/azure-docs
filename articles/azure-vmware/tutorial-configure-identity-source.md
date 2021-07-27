@@ -36,13 +36,13 @@ In this tutorial, you learn how to:
 
 ## List external identity
 
-You'll run the `Get-ExternalIdentitySources** cmdlet to list all external identity sources already integrated with vCenter SSO.
+You'll run the `Get-ExternalIdentitySources` cmdlet to list all external identity sources already integrated with vCenter SSO.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Run command** > **Packages** > **Get-ExternalIdentitySources**.
 
-   :::image type="content" source="media/run-command/run-command-overview.png" alt-text="Screenshot showing ":::
+   :::image type="content" source="media/run-command/run-command-overview.png" alt-text="Screenshot showing " lightbox="media/run-command/run-command-overview.png":::
 
 1. Provided the required values or change the default values, and then select **Run**.
 
@@ -134,7 +134,7 @@ customer can do.
 
 Advance to the next article to learn how to create...
 > [!div class="nextstepaction"]
-> [Next steps button]()
+> [Next steps button](contribute-how-to-mvc-tutorial.md)
 
 <!--
 Remove all the comments in this template before you sign-off or merge to the 
