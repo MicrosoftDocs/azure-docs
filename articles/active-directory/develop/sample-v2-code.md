@@ -126,8 +126,8 @@ The following samples show how to configure your application to accept sign-ins 
 >| Language/<br/>Platform     | Code sample(s) on GitHub |Auth libraries |Auth flow |
 >| ----------- | ----------- |----------- |----------- |
 >| Angular | [Multi-tenant SPA calls multi-tenant custom web API](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnet-webapi-multitenant/tree/master/Chapter2) | MSAL Angular | |
->| .NET Core | [ASP.NET Core MVC web application calls Graph API](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-3-Multi-Tenant) | MSAL.NET |  |
->| .NET Core | [ASP.NET Core MVC web application calls ASP.NET Core Web API](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/4-WebApp-your-API/4-3-AnyOrg) | MSAL.NET |  |
+>| ASP.NET Core | [ASP.NET Core MVC web application calls Graph API](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-3-Multi-Tenant) | MSAL.NET |  |
+>| ASP.NET Core | [ASP.NET Core MVC web application calls ASP.NET Core Web API](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/4-WebApp-your-API/4-3-AnyOrg) | MSAL.NET |  |
 
 ## Web APIs
 
@@ -149,7 +149,7 @@ The following samples show how to protect an Azure Function using HttpTrigger an
 > [!div class="mx-tdCol2BreakAll"]
 >| Language/<br/>Platform     | Code sample(s) on GitHub |Auth libraries |Auth flow |
 >| ----------- | ----------- |----------- |----------- |
->| ASP.NET | [DotNet Azure Function Web API secured by Azure AD](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions) | MSAL.NET  |  Auth code flow |
+>| .NET | [DotNet Azure Function Web API secured by Azure AD](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions) | MSAL.NET  |  Auth code flow |
 >| Node.js | [Node.js Azure Function Web API secured by Azure AD](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions) | MSAL Node |   |
 >| Node.js | [Call Microsoft Graph API on behalf of a user](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions) | MSAL Node|  On-Behalf-Of (OBO) flow|
 >| Python | [Python Azure Function Web API secured by Azure AD](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions) | MSAL Python | Auth code flow |
