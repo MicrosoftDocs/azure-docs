@@ -149,19 +149,19 @@ Make a note of the query execution time.
 ## Scale out
 The general format of the scale-out command is:
 ```console
-az postgres arc-server server edit -n <server group name> -w <target number of worker nodes>
+az postgres arc-server edit -n <server group name> -w <target number of worker nodes>
 ```
 
 
 In this example, we increase the number of worker nodes from 2 to 4, by running the following command:
 
 ```console
-az postgres arc-server server edit -n postgres01 -w 4
+az postgres arc-server edit -n postgres01 -w 4
 ```
 
 Upon adding  nodes, and you'll see a Pending state for the server group. For example:
 ```console
-az postgres arc-server server list
+az postgres arc-server list
 ```
 
 ```console
@@ -178,7 +178,7 @@ Use either of the methods below to verify that the server group is now using the
 #### With azdata:
 Run the command:
 ```console
-az postgres arc-server server list
+az postgres arc-server list
 ```
 
 It returns the list of server groups created in your namespace and indicates their number of worker nodes. For example:
@@ -237,7 +237,7 @@ To scale in (reduce the number of worker nodes in your server group), you use th
 
 The general format of the scale-in command is:
 ```console
-az postgres arc-server server edit -n <server group name> -w <target number of worker nodes>
+az postgres arc-server edit -n <server group name> -w <target number of worker nodes>
 ```
 
 
