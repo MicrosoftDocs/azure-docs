@@ -233,7 +233,10 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 
 8. Select **Add vCenter Server** to add vCenter information. Enter the server name or IP address of the vCenter and port information. Post that, provide username, password and friendly name and is used to fetch details of [virtual machine managed through the vCenter](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery). The user account details will be encrypted and stored locally in the machine.
 
-9. After successfully saving the vCenter information, select **Add virtual machine credentials** to provide user details of the VMs discovered through the vCenter. For Linux OS, ensure to provide root credentials and for Windows OS, a user account with admin privileges should be added, these credentials will be used to push mobility agent on to the source VM during enable replication operation. The credentials can be chosen per VM in the Azure portal during enable replication workflow.
+9. After successfully saving the vCenter information, select **Add virtual machine credentials** to provide user details of the VMs discovered through the vCenter.
+
+   >[!NOTE]
+   > For Linux OS, ensure to provide root credentials and for Windows OS, a user account with admin privileges should be added, these credentials will be used to push mobility agent on to the source VM during enable replication operation. The credentials can be chosen per VM in the Azure portal during enable replication workflow.
 
 10. After successfully adding the details, select **Continue** to install all Azure Site Recovery replication appliance components and register with Azure services. This activity can take up to 30 minutes.
 
@@ -246,7 +249,7 @@ After successful configuration of Azure Site Recovery replication appliance, nav
 
 Select **Prepare infrastructure** under **Getting started**, you can see that an Azure Site Recovery replication appliance is already registered with this vault. Now you are all set! Start protecting your source machines through this replication appliance.
 
-Select  *1 appliance(s)*, you will be re-directed to Azure Site Recovery replication appliance view, where the list of appliances registered to this vault, is displayed.
+Click  *Select 1 appliance(s)*, you will be re-directed to Azure Site Recovery replication appliance view, where the list of appliances registered to this vault is displayed.
 
 [![appliance created](./media/deploy-vmware-azure-replication-appliance-preview/asr-replication-appliance-inline.png)](./media/deploy-vmware-azure-replication-appliance-preview/asr-replication-appliance-expanded.png#lightbox)
 
@@ -255,7 +258,7 @@ You can create and use multiple replication appliances in a vault.
 
 - You can perform discovery of all the machines in a vCenter server, using any of the replication appliances in the vault.
 
-- You can switch a protected machine, between different appliances in the same vault, given the selected appliance is healthy.
+- You can [switch a protected machine](switch-replication-appliance-preview.md)), between different appliances in the same vault, given the selected appliance is healthy.
 
 For detailed information about how to use multiple appliances and failover a replication appliance, see [this article](switch-replication-appliance-preview.md)
 

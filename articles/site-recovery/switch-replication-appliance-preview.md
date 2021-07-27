@@ -37,7 +37,7 @@ You can switch replication appliance in the following scenarios:
 
 ## Switch a replication appliance
 
-As an example, here is the scenario where replication appliance 1 (RA1) has failed and you want to move the protected workloads to replication appliance 2 (RA2), which is in healthy state. Or, you want to switch the workloads under RA1  to RA2 for any org level requirements.
+As an example, here is the scenario where replication appliance 1 (RA1) has become critical and you want to move the protected workloads to replication appliance 2 (RA2), which is in healthy state. Or, you want to switch the workloads under RA1  to RA2 for any load balancing or organization level changes.
 
 **Follow these steps to switch an appliance**:
 
@@ -47,16 +47,21 @@ As an example, here is the scenario where replication appliance 1 (RA1) has fail
 
 2. Select the replication appliance (RA1) and select  **Switch appliance**.
 
-3. Under  **Select machines**, select the applications/machines that you want to failover to another replication appliance (RA2). Select **Next**.
+3. Under  **Select machines**, select the machines that you want to failover to another replication appliance (RA2). Select **Next**.
+
+  >[!NOTE]
+  > Only those machine which have been protected by the current appliance will be visible in the list. Failed over machines will not be present here  
 
    ![Select machines for switching](./media/switch-replication-appliances/select-machines.png)
 
-4. Under **Select appliance** page, for each of the selected applications/machines (in earlier page), select the replication appliance.  
+4. Under **Source settings**  page, for each of the selected machines, select a different replication appliance.
+
 
    ![Select replication appliance](./media/switch-replication-appliances/select-replication-appliance.png)
 
    >[!NOTE]
-   > In case of a failover, You will be prompted to select the account credentials for all the selected machines, as the previous appliance has failed.
+   > - In case of a failover, you will be prompted to select the account credentials for all the selected machines, as the previous appliance has failed.
+   > -  If your current appliance has burnt down, then you will be required to select the credentials to access the machines. Otherwise, the field will be disabled.
 
 5. Select **Switch appliance**.
 
