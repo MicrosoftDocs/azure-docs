@@ -124,7 +124,7 @@ You can inspect the processes on the instrumented computer to determine if all D
 If monitoring is working, at least 12 DLLs should be loaded.
 
 * Use the `Get-ApplicationInsightsMonitoringStatus -InspectProcess` command to check the DLLs.
-* Use the `(Get-Process -id {PID}).StartInfo.EnvironmentVariables` command to check the environment variables. Following are the environment varibles set in the worker process or dotnet core process.
+* Use the `(Get-Process -id {PID}).StartInfo.EnvironmentVariables` command to check the environment variables. Following are the environment varibles set in the worker process or dotnet core process:
 
 ```
 COR_ENABLE_PROFILING=1
