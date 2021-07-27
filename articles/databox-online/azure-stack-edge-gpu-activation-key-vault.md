@@ -63,15 +63,15 @@ When you generate an activation key, the following events occur:
 
         ![Key Vault created during activation key generation](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-3.png)
 - A resource lock is enabled on the key vault to prevent accidental deletion. A soft-delete is also enabled on the key vault that allows the key vault to be restored within 90 days if there is an accidental deletion. For more information, see [Azure Key Vault soft-delete overview](../key-vault/general/soft-delete-overview.md).
-- A channel integrity key (CIK) is generated and placed in the key vault.
+- A system-assigned managed identity that was created when you created the Azure Stack Edge resource, is now enabled.
+- A channel integrity key (CIK) is generated and placed in the key vault. The CIK details are displayed in the service.
 - A Zone redundant storage account (ZRS) is also created in the same scope as the Azure Stack Edge resource and a lock is placed on the account. 
     - This account is used to store the audit logs. 
     - The storage account creation is a long running process and takes a few minutes.
     - The storage account is tagged with the key vault name.
-- A diagnostics setting is added to the key vault and the logging is enabled. A system-assigned managed identity that was created when you created the Azure Stack Edge resource, is now enabled.
+- A diagnostics setting is added to the key vault and the logging is enabled. 
 - The managed identity is added to the key vault access policy to allow access to the key vault as the device uses the key vault to store and retrieve secrets. 
-- The key vault authenticates the request with managed identity to generate activation key. 
-- The activation key is returned to the Azure portal. You can then copy this key and use it in the local UI to activate your device.
+- The key vault authenticates the request with managed identity to generate activation key. The activation key is returned to the Azure portal. You can then copy this key and use it in the local UI to activate your device.
 
 > [!NOTE]
 > - If you had an existing Azure Stack Edge resource before the Azure Key Vault was integrated with Azure Stack Edge resource, you are not affected. You can continue to use your existing Azure Stack Edge resource.
@@ -80,39 +80,9 @@ When you generate an activation key, the following events occur:
 If you run into any issues related to key vault and device activation, see [Troubleshoot device activation issues](azure-stack-edge-gpu-troubleshoot-activation.md).
 
 
-### View secrets, access policies, diagnostics, insights
+### View key vault properties
 
-After the activation key is generated and key vault is created, you may want to access the key vault. 
-
-To access the key vault and view the secrets, access policies, diagnostics, and insights, follow these steps:
-
-1. In the Azure portal for your Azure Stack Edge resource, go to **Security**. 
-1. Under **Security preferences**, select **Key vault name** to navigate to the key vault associated with your Azure Stack Edge resource. 
-
-    ![Go to device key vault](media/azure-stack-edge-gpu-activation-key-vault/view-key-vault-name-1.png)
-
-    - To view the secrets stored in your key vault, go to **Secrets**. Channel integrity key, BitLocker recovery key and Baseboard management controller (BMC) user passwords are stored in the key vault. If the device goes down, the portal provides easy access to BitLocker recovery key and BMC user password.
-    
-        ![View device secrets in key vault](media/azure-stack-edge-gpu-activation-key-vault/view-key-vault-secrets-1.png)
-
-    - To view the access policies associated with your key vault, go to **Access policies**. You can see that the MSI has been given access. Select **Secret permissions**. You can see that the MSI access is restricted only to the **Get** and **Set** of the secret. 
-    
-        ![View access policies for key vault](media/azure-stack-edge-gpu-activation-key-vault/view-key-vault-access-policies-1.png)
-
-    - To view the diagnostics settings associated with your key vault, go to **Diagnostics settings**. This setting lets you monitor how and when your key vaults are accessed, and by whom. You can see that a diagnostics setting has been created. Logs are flowing into the storage account that was also created. Audit events are also created in the key vault.
-    
-        ![View diagnostics settings for key vault](media/azure-stack-edge-gpu-activation-key-vault/view-key-vault-diagnostics-settings-1.png)
-
-    - To view the locks on your key vault, go to **Locks**. To prevent accidental deletion, a resource lock is enabled on the key vault. 
-    
-        ![View locks on your key vault](media/azure-stack-edge-gpu-activation-key-vault/view-key-vault-locks-1.png)
-
-1. Select **Key vault diagnostics** to navigate to the **Insights** associated with your key vault. This blade gives an overview of the operations performed on the key vault.
-
-
-    ![View insights for your key vault](media/azure-stack-edge-gpu-activation-key-vault/view-key-vault-insights-1.png) 
-
-1.  View the status of **system-assigned managed identity** to know if the system-assigned managed identity is enabled or disabled.  
+After the activation key is generated and key vault is created, you may want to access the key vault to view the secrets, access policies, diagnostics, and insights. The following procedure describes each of these operations.
 
 ### View secrets
 
@@ -131,7 +101,7 @@ To access the key vault and view the secrets, follow these steps:
 
 ### View managed identity access policies
 
-To access the access policies for your key vault, follow these steps:
+To access the access policies for your key vault and managed identity, follow these steps:
 
 1. In the Azure portal for your Azure Stack Edge resource, go to **Security**. 
 1. Under **Security preferences**, select **Key vault name** to navigate to the key vault associated with your Azure Stack Edge resource. 
@@ -143,7 +113,6 @@ To access the access policies for your key vault, follow these steps:
     ![View access policies for key vault](media/azure-stack-edge-gpu-activation-key-vault/view-key-vault-access-policies-1.png)
 
     
-
 ### View audit logs
 
 To access the key vault and view the diagnostics settings and the audit logs, follow these steps:
@@ -157,6 +126,7 @@ To access the key vault and view the diagnostics settings and the audit logs, fo
     
     ![View diagnostics settings for key vault](media/azure-stack-edge-gpu-activation-key-vault/view-key-vault-diagnostics-settings-1.png)
 
+If you have configured a different storage target for logs on the key vault, then you can view the logs directly in that storage account.
 
 ### View insights 
 
@@ -167,11 +137,9 @@ To access the key vault insights including the operations performed on the key v
 
     ![Go to device key vault](media/azure-stack-edge-gpu-activation-key-vault/view-key-vault-name-1.png)
 
-1. The Insights blade gives an overview of the operations performed on the key vault.
-
+1. The **Insights** blade gives an overview of the operations performed on the key vault.
 
     ![View insights for your key vault](media/azure-stack-edge-gpu-activation-key-vault/view-key-vault-insights-1.png) 
-
 
 ### View managed identity status
 
@@ -181,7 +149,6 @@ To view the status of the system-assigned managed identity associated with your 
 1. Under **Security preferences**, go to **system-assigned managed identity** to view if the system-assigned managed identity is enabled or disabled.
 
     ![Go to device key vault](media/azure-stack-edge-gpu-activation-key-vault/view-key-vault-name-1.png)
-
 
 ### View key vault locks
 
@@ -193,8 +160,7 @@ To access the key vault and view the locks, follow these steps:
     ![Go to device key vault](media/azure-stack-edge-gpu-activation-key-vault/view-key-vault-name-1.png)
 1. To view the locks on your key vault, go to **Locks**. To prevent accidental deletion, a resource lock is enabled on the key vault. 
     
-        ![View locks on your key vault](media/azure-stack-edge-gpu-activation-key-vault/view-key-vault-locks-1.png)
-
+    ![View locks on your key vault](media/azure-stack-edge-gpu-activation-key-vault/view-key-vault-locks-1.png)
 
 
 ## Regenerate activation key
@@ -202,7 +168,9 @@ To access the key vault and view the locks, follow these steps:
 In certain instances, you may need to regenerate activation key. When you regenerate an activation key, the following events occur:
 
 1. You request to regenerate an activation key in the Azure portal. 
-1. The activation key is returned to the Azure portal. You can then copy this key and use it.  
+1. The activation key is returned to the Azure portal. You can then copy this key and use it. 
+
+The key vault is not accessed when you regenerate the activation key. 
 
 ## Recover device secrets
 
@@ -210,6 +178,11 @@ If the CIK is accidentally deleted or secrets (for example, BMC user password) h
 
 Follow these steps to sync device secrets:  
 
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Security**.
+1. In the right-pane, from the top command bar, select **Sync device secrets**.
+1. The device secrets are pushed to the key vault to restore or update the secrets in the key vault. You'll see a notification when the sync is completed.
+
+    ![Sync device secrets on your key vault](media/azure-stack-edge-gpu-activation-key-vault/sync-device-secrets-1.png)
 
 ## Delete key vault
 
@@ -217,7 +190,6 @@ There are two ways to delete the key vault associated with the Azure Stack Edge 
 
 - Delete the Azure Stack Edge resource and choose to delete the associated key vault at the same time.
 - Accidentally deleted the key vault directly.
-
 
 When your Azure Stack Edge resource is deleted, the key vault is also deleted with the resource. You are prompted for confirmation. If you are storing other keys in this key vault and do not intend to delete this key vault, you can choose to not provide consent. Only the Azure Stack Edge resource is deleted leaving the key vault intact. 
 
@@ -274,9 +246,37 @@ If the key vault is deleted and the purge-protection period of 90 days has elaps
   
 <!--To recover the key vault using the follow these steps to [Recover your key vault](../key-vault/general/key-vault-recovery.md#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates).-->
 
-## Restore MSI access
+## Recover managed identity access
 
-MSI access policy has been deleted, alert, grant access to the MSI
+If the system-assigned managed identity access policy is deleted, an alert is raised when the device is unable to resync the key vault secrets. If the managed identity doesn't have access to the key vault, again a device alert is raised. Select the alert in each case to open the Recover key vault blade and reconfigure. This process should restore the managed identity access. 
+
+## Troubleshoot key vault errors and alerts
+
+Alerts 
+
+Managed identity is deleted
+Managed identity does not have access to key vault
+
+
+Errors
+Secret is deleted
+Key vault is deleted or key vault is not set up
+
+Audit logging
+
+Key vault
+
+Customer errors 
+
+Audit logging is disabled.
+Audit logging storage account was deleted
+Managed identity is deleted.
+Managed identity is removed from the key vault.
+CIK is deleted from the key vault after activation.
+Key vault is deleted after activation.
+
+
+
 
 
 
