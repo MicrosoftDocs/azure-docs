@@ -2,7 +2,7 @@
 title: EIoT deployment guide
 description: Learn how to deploy EIoT for your Defender for IoT service.
 ms.topic: how-to
-ms.date: 07/26/2021
+ms.date: 07/27/2021
 ---
 
 # Deploy EIoT 
@@ -91,8 +91,17 @@ Open the following ports in your firewall:
 
 - If you already have a subscription that is onboarded for Azure Defender for IoT for OT environments, you would need to choose an alternate, or create a new subscription. 
 
-- You must have a minimum of Security Owner to create a subscription, and Security Reader level permissions to access the Defender for IoT user interface.
+- Minimum security level to access different parts of Azure Defender for Iot. You must have a level of Security Owner to create a subscription, and Security Reader level permissions to access the Defender for IoT user interface.
 
+    The following table describes user access permissions to Azure Defender for IoT portal tools:
+
+    | Permission | Security reader | Security administrator | Subscription contributor | Subscription owner |
+    |--|--|--|--|--|
+    | View details and access software, activation files and threat intelligence packages  | ✓ | ✓ | ✓ | ✓ |
+    | Onboard a sensor  |  |  ✓ | ✓ | ✓ |
+    | Update pricing  |  |  ✓ | ✓ | ✓ |
+    | Recover password  | ✓  |  ✓ | ✓ | ✓ |
+    
 - Create an IoT Hub. 
 
     - Due to GDPR regulations, EU customers must set their instances to the EU **Europe West** cloud. Any customer outside of the EU, should set their instance to US **US East** cloud.
