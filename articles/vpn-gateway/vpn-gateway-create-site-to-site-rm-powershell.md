@@ -191,7 +191,7 @@ New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -VpnType RouteBased -GatewaySku VpnGw1
 ```
 
-After running this command, it can take up to 45 minutes for the gateway configuration to complete.
+Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
 
 ## <a name="ConfigureVPNDevice"></a>6. Configure your VPN device
 

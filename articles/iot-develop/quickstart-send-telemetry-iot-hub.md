@@ -16,8 +16,6 @@ zone_pivot_groups: iot-develop-set1
 
 **Applies to**: [Device application developers](about-iot-develop.md#device-application-development)
 
-In this quickstart, you learn a basic Azure IoT application development workflow. You use the Azure CLI to create an Azure IoT hub and a device. Then you use an Azure IoT device SDK sample to run a simulated temperature controller, connect it securely to the hub, and send telemetry.
-
 :::zone pivot="programming-language-ansi-c"
 
 [!INCLUDE [iot-develop-send-telemetry-iot-hub-c](../../includes/iot-develop-send-telemetry-iot-hub-c.md)]
@@ -85,7 +83,7 @@ In this quickstart, you learned a basic Azure IoT application workflow for secur
 As a next step, explore the following articles to learn more about building device solutions with Azure IoT. 
 
 > [!div class="nextstepaction"]
-> [Control a device connected to an IoT hub](../iot-hub/quickstart-control-device-dotnet.md)
+> [Control a device connected to an IoT hub](../iot-hub/quickstart-control-device.md)
 > [!div class="nextstepaction"]
 > [Send telemetry to IoT Central](quickstart-send-telemetry-central.md)
 > [!div class="nextstepaction"]
