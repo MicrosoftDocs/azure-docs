@@ -44,9 +44,9 @@ Compute instances can run jobs securely in a [virtual network environment](how-t
 
 **Time estimate**: Approximately 5 minutes.
 
-Creating a compute instance is a one time process for your workspace. You can reuse the compute as a development workstation or as a compute target for training. You can have multiple compute instances attached to your workspace.
+Creating a compute instance is a one time process for your workspace. You can reuse the compute as a development workstation or as a compute target for training. You can have multiple compute instances attached to your workspace. Use the [studio](?tab=studio) or a [Resource template](#schedule) to schedule the compute to automatically start and stop. 
 
-The dedicated cores per region per VM family quota and total regional quota, which applies to compute instance creation, is unified and shared with Azure Machine Learning training compute cluster quota. Stopping the compute instance does not release quota to ensure you will be able to restart the compute instance. Note it is not possible to change the virtual machine size of compute instance once it is created.
+The dedicated cores per region per VM family quota and total regional quota, which applies to compute instance creation, is unified and shared with Azure Machine Learning training compute cluster quota. Stopping the compute instance does not release quota to ensure you will be able to restart the compute instance. It is not possible to change the virtual machine size of compute instance once it is created.
 
 The following example demonstrates how to create a compute instance:
 
@@ -234,6 +234,82 @@ For example, specify a base64 encoded command string for `scriptData`:
     }
 }
 ```
+
+### <a name="schedule"></a> Schedule automatic start and stop times in a Resource Manager template
+
+Use cron or LogicApps expressions to define a schedule to start or stop the instance.  This example uses cron:
+
+```json
+"schedules": {
+    "value": {
+    "computeStartStop": [
+        {
+        "TriggerType": "Cron",
+        "Cron": {
+            "StartTime": "2021-03-10T21:21:07",
+            "TimeZone": "Pacific Standard Time",
+            "Expression": "0 18 * * *"
+        },
+        "Action": "Stop",
+        "Status": "Enabled"
+        },
+        {
+        "TriggerType": "Cron",
+        "Cron": {
+            "StartTime": "2021-03-10T21:21:07",
+            "TimeZone": "Pacific Standard Time",
+            "Expression": "0 8 * * *"
+        },
+        "Action": "Start",
+        "Status": "Enabled"
+        },
+        { 
+        "triggerType": "Recurrence", 
+        "recurrence": { 
+            "frequency": "Day", 
+            "interval": 1, 
+            "timeZone": "Pacific Standard Time", 
+          "schedule": { 
+            "hours": [18], 
+            "minutes": [0], 
+            "weekDays": [ 
+                "Saturday", 
+                "Sunday"
+            ] 
+            } 
+        }, 
+        "Action": "Stop", 
+        "Status": "Enabled" 
+        } 
+    ]
+```
+
+* Action can have value of “Start” or “Stop”.
+* For trigger type of `Recurrence` use the same syntax as logic app, with this [recurrence schema](../logic-apps/logic-apps-workflow-actions-triggers#recurrence-trigger).
+* For trigger type of `cron`, use standard cron syntax:  
+
+    ```cron
+    // Crontab expression format: 
+    // 
+    // * * * * * 
+    // - - - - - 
+    // | | | | | 
+    // | | | | +----- day of week (0 - 6) (Sunday=0) 
+    // | | | +------- month (1 - 12) 
+    // | | +--------- day of month (1 - 31) 
+    // | +----------- hour (0 - 23) 
+    // +------------- min (0 - 59) 
+    // 
+    // Star (*) in the value field above means all legal values as in 
+    // braces for that column. The value column can have a * or a list 
+    // of elements separated by commas. An element is either a number in 
+    // the ranges shown above or two numbers in the range separated by a 
+    // hyphen (meaning an inclusive range). 
+    ```
+
+User can use Azure policy to enforce shutdown schedule exists for every compute instance in a subscription or default a schedule if nothing exists.
+
+
 
 ### Setup script logs
 
