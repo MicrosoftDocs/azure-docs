@@ -84,12 +84,23 @@ The section introduces how to identify information of when, who, what and how fo
 
 ### Control plane audit
 
-Control plane operation is an Azure Resource Management operation. A typical control plane operation on storage account is creating a storage account or updating a property of an existing storage account. ARM operation is captured in Azure activity log. Go to Azure Portal > Storage Account > Activity log to access [Azure activity log](../../azure-monitor/essentials/activity-log.md). The following example shows how you can identify information of when, who, what and how a control plane operation: 
+Control plane operation is an Azure Resource Management operation. A typical control plane operation on storage account is creating a storage account or updating a property of an existing storage account. ARM operation is captured in Azure activity log. Go to Azure Portal > Storage Account > Activity log to access [Azure activity log](../../azure-monitor/essentials/activity-log.md). T 
 
 > [!div class="mx-imgBorder"]
 > ![Activity Log](./media/blob-storage-scenarios/activity-log.png)
 
-Note that you may not always see some identity information, like email address, or name due to your Azure AD configurations. You are recommended to use Object Identifier to look up in your Active Directory > Users > Search with Object ID. 
+
+Open any log entry and you can view JSON that describes the activity. The following example shows how you can identify information of when, what and how a control plane operation:
+
+> [!div class="mx-imgBorder"]
+> ![Activity Log JSON](./media/blob-storage-scenarios/activity-log-json.png)
+
+If the authorization was performed by an Azure AD security principal, the object identifier of that security principal would also appear in this JSON output (For example: `http://schemas.microsoft.com/identity/claims/objectidentifier": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"`). You might not always see other identity information such as an email address or name. The object identifier is always the best way to uniquely identify the caller. 
+
+You can find the friendly name of that security principal by taking the value of the object identifier, and searching for the security principal in Azure AD page of the Azure portal. The following screenshot shows a search result in Azure AD.
+
+> [!div class="mx-imgBorder"]
+> ![Search Azure Active Directory](./media/blob-storage-scenarios/search-azure-active-directory.png)
 
 ### Data plane audit
 
