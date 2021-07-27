@@ -11,14 +11,14 @@ ms.author: akshanka
 
 ---
 # Azure Cosmos DB Table API SDK for Python: Release notes and resources
-[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
+[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
 
 > [!div class="op_single_selector"]
-> * [.NET](table/dotnet-sdk.md)
-> * [.NET Standard](table/dotnet-standard-sdk.md)
-> * [Java](table/java-sdk.md)
-> * [Node.js](table/nodejs-sdk.md)
-> * [Python](table/python-sdk.md)
+> * [.NET](dotnet-sdk.md)
+> * [.NET Standard](dotnet-standard-sdk.md)
+> * [Java](java-sdk.md)
+> * [Node.js](nodejs-sdk.md)
+> * [Python](python-sdk.md)
  
 
 |   | Links  |
@@ -30,7 +30,7 @@ ms.author: akshanka
 |**Current supported platform**|[Python 2.7](https://www.python.org/downloads/) or [Python 3.6+](https://www.python.org/downloads/)|
 
 > [!IMPORTANT]
-> If you created a Table API account during the preview, please create a [new Table API account](table/create-table-dotnet.md#create-a-database-account) to work with the generally available Table API SDKs.
+> If you created a Table API account during the preview, please create a [new Table API account](create-table-dotnet.md#create-a-database-account) to work with the generally available Table API SDKs.
 >
 
 ## Release notes
@@ -55,7 +55,7 @@ New features and functionality and optimizations are only added to the current S
 
 
 ## FAQ
-[!INCLUDE [cosmos-db-sdk-faq](includes/cosmos-db-sdk-faq.md)]
+[!INCLUDE [cosmos-db-sdk-faq](../includes/cosmos-db-sdk-faq.md)]
 
 ## See also
 To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.

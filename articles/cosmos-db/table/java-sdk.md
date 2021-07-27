@@ -12,14 +12,14 @@ ms.custom: devx-track-java
 ---
 
 # Azure Cosmos DB Table API for Java: Release notes and resources
-[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
+[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
 
 > [!div class="op_single_selector"]
-> * [.NET](table/dotnet-sdk.md)
-> * [.NET Standard](table/dotnet-standard-sdk.md)
-> * [Java](table/java-sdk.md)
-> * [Node.js](table/nodejs-sdk.md)
-> * [Python](table/python-sdk.md)
+> * [.NET](dotnet-sdk.md)
+> * [.NET Standard](dotnet-standard-sdk.md)
+> * [Java](java-sdk.md)
+> * [Node.js](nodejs-sdk.md)
+> * [Python](python-sdk.md)
  
 
 |   | Links  |
@@ -29,7 +29,7 @@ ms.custom: devx-track-java
 |**Contribute to SDK**|[GitHub](https://github.com/Azure/azure-storage-java#contribute-code-or-provide-feedback)|
 
 > [!IMPORTANT]
-> If you created a Table API account during the preview, please create a [new Table API account](table/create-table-dotnet.md#create-a-database-account) to work with the generally available Table API SDKs.
+> If you created a Table API account during the preview, please create a [new Table API account](create-table-dotnet.md#create-a-database-account) to work with the generally available Table API SDKs.
 >
 
 ## Release notes
@@ -47,7 +47,7 @@ New features and functionality and optimizations are only added to the current S
 | [1.0.0](#1.0.0) |November 15, 2017 |--- |
 
 ## FAQ
-[!INCLUDE [cosmos-db-sdk-faq](includes/cosmos-db-sdk-faq.md)]
+[!INCLUDE [cosmos-db-sdk-faq](../includes/cosmos-db-sdk-faq.md)]
 
 ## See also
 To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page. 

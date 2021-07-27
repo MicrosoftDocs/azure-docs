@@ -12,10 +12,10 @@ ms.reviewer: sngun
 ms.custom: devx-track-python
 ---
 # Get started with Azure Table storage and the Azure Cosmos DB Table API using Python
-[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
+[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
 
-[!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
+[!INCLUDE [storage-selector-table-include](../../../includes/storage-selector-table-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 The Azure Table storage and the Azure Cosmos DB are services that store structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design. Because Table storage and Azure Cosmos DB are schemaless, it's easy to adapt your data as the needs of your application evolve. Access to the table storage and table API data is fast and cost-effective for many types of applications, and is typically lower in cost than traditional SQL for similar volumes of data.
 
@@ -37,19 +37,19 @@ You need the following to complete this sample successfully:
 
 * [Python](https://www.python.org/downloads/) 2.7 or 3.6+.
 * [Azure Cosmos DB Table SDK for Python](https://pypi.python.org/pypi/azure-cosmosdb-table/). This SDK connects with both Azure Table storage and the Azure Cosmos DB Table API.
-* [Azure Storage account](../storage/common/storage-account-create.md) or [Azure Cosmos DB account](https://azure.microsoft.com/try/cosmosdb/).
+* [Azure Storage account](../../storage/common/storage-account-create.md) or [Azure Cosmos DB account](https://azure.microsoft.com/try/cosmosdb/).
 
 ## Create an Azure service account
 
-[!INCLUDE [cosmos-db-create-azure-service-account](includes/cosmos-db-create-azure-service-account.md)]
+[!INCLUDE [cosmos-db-create-azure-service-account](../includes/cosmos-db-create-azure-service-account.md)]
 
 **Create an Azure storage account**
 
-[!INCLUDE [cosmos-db-create-storage-account](includes/cosmos-db-create-storage-account.md)]
+[!INCLUDE [cosmos-db-create-storage-account](../includes/cosmos-db-create-storage-account.md)]
 
 **Create an Azure Cosmos DB Table API account**
 
-[!INCLUDE [cosmos-db-create-tableapi-account](includes/cosmos-db-create-tableapi-account.md)]
+[!INCLUDE [cosmos-db-create-tableapi-account](../includes/cosmos-db-create-tableapi-account.md)]
 
 ## Install the Azure Cosmos DB Table SDK for Python
 
@@ -243,10 +243,10 @@ table_service.delete_table('tasktable')
 
 ## Next steps
 
-* [FAQ - Develop with the Table API](./faq.yml)
+* [FAQ - Develop with the Table API](table-api-faq.yml)
 * [Azure Cosmos DB SDK for Python API reference](/python/api/overview/azure/cosmosdb)
 * [Python Developer Center](https://azure.microsoft.com/develop/python/)
-* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md): A free, cross-platform application for working visually with Azure Storage data on Windows, macOS, and Linux.
+* [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md): A free, cross-platform application for working visually with Azure Storage data on Windows, macOS, and Linux.
 * [Working with Python in Visual Studio (Windows)](/visualstudio/python/overview-of-python-tools-for-visual-studio)
 
 

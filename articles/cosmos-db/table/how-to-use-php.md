@@ -10,24 +10,24 @@ ms.topic: sample
 ms.date: 07/23/2020
 ---
 # How to use Azure Storage Table service or the Azure Cosmos DB Table API from PHP
-[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
+[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
 
-[!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
+[!INCLUDE [storage-selector-table-include](../../../includes/storage-selector-table-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 This article shows you how to create tables, store your data, and perform CRUD operations on the data. Choose either the Azure Table service or the Azure Cosmos DB Table API. The samples are written in PHP and use the [Azure Storage Table PHP Client Library][download]. The scenarios covered include **creating and deleting a table**, and **inserting, deleting, and querying entities in a table**. For more information on the Azure Table service, see the [Next steps](#next-steps) section.
 
 ## Create an Azure service account
 
-[!INCLUDE [cosmos-db-create-azure-service-account](includes/cosmos-db-create-azure-service-account.md)]
+[!INCLUDE [cosmos-db-create-azure-service-account](../includes/cosmos-db-create-azure-service-account.md)]
 
 **Create an Azure storage account**
 
-[!INCLUDE [cosmos-db-create-storage-account](includes/cosmos-db-create-storage-account.md)]
+[!INCLUDE [cosmos-db-create-storage-account](../includes/cosmos-db-create-storage-account.md)]
 
 **Create an Azure Cosmos DB Table API account**
 
-[!INCLUDE [cosmos-db-create-tableapi-account](includes/cosmos-db-create-tableapi-account.md)]
+[!INCLUDE [cosmos-db-create-tableapi-account](../includes/cosmos-db-create-tableapi-account.md)]
 
 ## Create a PHP application
 
@@ -515,7 +515,7 @@ catch(ServiceException $e){
 
 Now that you've learned the basics of the Azure Table service and Azure Cosmos DB, follow these links to learn more.
 
-* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
+* [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 
 * [PHP Developer Center](https://azure.microsoft.com/develop/php/).
 

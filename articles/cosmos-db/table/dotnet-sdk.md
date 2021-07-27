@@ -12,26 +12,26 @@ ms.custom: devx-track-dotnet
 
 ---
 # Azure Cosmos DB Table .NET API: Download and release notes
-[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
+[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
 
 > [!div class="op_single_selector"]
-> * [.NET](table/dotnet-sdk.md)
-> * [.NET Standard](table/dotnet-standard-sdk.md)
-> * [Java](table/java-sdk.md)
-> * [Node.js](table/nodejs-sdk.md)
-> * [Python](table/python-sdk.md)
+> * [.NET](dotnet-sdk.md)
+> * [.NET Standard](dotnet-standard-sdk.md)
+> * [Java](java-sdk.md)
+> * [Node.js](nodejs-sdk.md)
+> * [Python](python-sdk.md)
 
 |   | Links|
 |---|---|
 |**SDK download**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)|
 |**Quickstart**|[Azure Cosmos DB: Build an app with .NET and the Table API](create-table-dotnet.md)|
-|**Tutorial**|[Azure Cosmos DB: Develop with the Table API in .NET](table/tutorial-develop-table-dotnet.md)|
+|**Tutorial**|[Azure Cosmos DB: Develop with the Table API in .NET](tutorial-develop-table-dotnet.md)|
 |**Current supported framework**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
 
 > [!IMPORTANT]
 > The .NET Framework SDK [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) is in maintenance mode and it will be deprecated soon. Please upgrade to the new .NET Standard library [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) to continue to get the latest features supported by the Table API.
 
-> If you created a Table API account during the preview, please create a [new Table API account](table/create-table-dotnet.md#create-a-database-account) to work with the generally available Table API SDKs.
+> If you created a Table API account during the preview, please create a [new Table API account](create-table-dotnet.md#create-a-database-account) to work with the generally available Table API SDKs.
 >
 
 ## Release notes
@@ -114,8 +114,8 @@ when attempting to use the Microsoft.Azure.CosmosDB.Table NuGet package, you hav
 
 ## FAQ
 
-[!INCLUDE [cosmos-db-sdk-faq](includes/cosmos-db-sdk-faq.md)]
+[!INCLUDE [cosmos-db-sdk-faq](../includes/cosmos-db-sdk-faq.md)]
 
 ## See also
 
-To learn more about the Azure Cosmos DB Table API, see [Introduction to Azure Cosmos DB Table API](table/introduction.md). 
+To learn more about the Azure Cosmos DB Table API, see [Introduction to Azure Cosmos DB Table API](introduction.md). 
