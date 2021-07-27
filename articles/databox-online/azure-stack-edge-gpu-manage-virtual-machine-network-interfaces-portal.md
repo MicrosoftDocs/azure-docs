@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/13/2021
+ms.date: 07/26/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to manage network interfaces on an Azure Stack Edge Pro device so that I can use it to run applications using Edge compute before sending it to Azure.<!--Does "it" refer to the device or to the virtual NICs?-->
 ---
@@ -16,7 +16,7 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-You can create and manage virtual machines (VMs) on an Azure Stack Edge device using Azure portal, templates, Azure PowerShell cmdlets and via Azure CLI/Python scripts. This article describes how to manage the network interfaces on a VM running on your Azure Stack Edge device using the Azure portal. 
+You can create and manage virtual machines (VMs) on an Azure Stack Edge device using Azure portal, templates, Azure PowerShell cmdlets and via Azure CLI/Python scripts. This article describes how to manage the network interfaces on a VM running on your Azure Stack Edge device using the Azure portal.
 
 When you create a VM, you specify one virtual network interface to be created. You may want to add one or more network interfaces to the virtual machine after it is created. You may also want to change the default network interface settings for an existing network interface.
 
@@ -120,7 +120,7 @@ Follow these steps to detach or remove a network interface associated with a vir
 
 ## Delete a network interface
 
-Follow these steps to delete a network interface that isn't attached to a virtual machine. The default network interface, ASENET, can't be deleted.
+Follow these steps to delete a network interface that isn't attached to a virtual machine.
 
 1. Go to **Virtual machines**, and then to the **Resources** page. Select **Networking**.
     
