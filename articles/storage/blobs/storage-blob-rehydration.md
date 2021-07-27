@@ -9,7 +9,7 @@ ms.date: 07/23/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.reviewer: hux 
+ms.reviewer: fryu
 ms.custom: devx-track-azurepowershell
 ---
 
