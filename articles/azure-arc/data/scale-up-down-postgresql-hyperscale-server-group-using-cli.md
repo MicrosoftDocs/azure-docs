@@ -115,8 +115,8 @@ To indicate a number of cores, you just pass a number without unit.
 
 
 **Configure the coordinator role to not exceed 2 cores and the worker role to not exceed 4 cores:**
-```console
- az postgres arc-server edit -n postgres01 --cores-request coordinator=1, --cores-limit coordinator=2
+```azurecli
+ azpostgres arc-server edit -n postgres01 --cores-request coordinator=1, --cores-limit coordinator=2
  az postgres arc-server edit -n postgres01 --cores-request worker=1, --cores-limit worker=4
 ```
 

@@ -15,13 +15,13 @@ ms.topic: how-to
 # Change the port on which the server group is listening 
 
 Changing the port is a standard edit operation of the server group. In order to change the port, run the following command:
-```console
- az postgres arc-server edit -n <server group name> --port <desired port number>
+```azurecli
+ azpostgres arc-server edit -n <server group name> --port <desired port number>
 ```
 
 For example, let's assume the name of your server group is _postgres01_ and you would like it to listen on port _866_. You would run the following command:
-```console
- az postgres arc-server edit -n postgres01 --port 866
+```azurecli
+ azpostgres arc-server edit -n postgres01 --port 866
 ```
 
 ## Verify that the port was changed
