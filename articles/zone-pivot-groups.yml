@@ -1269,6 +1269,19 @@ groups:
     title: Python
   - id: programming-language-java
     title: Java
+- id: iot-hub-set1
+# Owner: philmea
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-nodejs
+    title: Node.js
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
 # Owner: philmea
 - id: facility-ontology-schema
   title: Creator Facility Ontology
