@@ -425,12 +425,12 @@ sections:
       - question: |
           How many secondary HA replicas can I provision?
         answer: |
-          We create one secondary HA replica for Hyperscale databases by default. If you want to adjust the number of replicas, you can do so using [Azure portal](https://portal.azure.com) or [REST API](/rest/api/sql/databases/createorupdate). For more information on replica types, see [Hyperscale secondary replicas](service-tier-hyperscale-replicas.md).
+          We create one secondary HA replica for Hyperscale databases by default. If you want to adjust the number of replicas, you can do so using [Azure portal](https://portal.azure.com) or [REST API](/rest/api/sql/databases/createorupdate).
           
       - question: |
           How do I connect to secondary HA replicas?
         answer: |
-          You can connect to these additional read-only compute replicas by setting the `ApplicationIntent` argument in your connection string to `ReadOnly`. Any connections marked with `ReadOnly` are automatically routed to one of the secondary HA replicas, if any. For details, see [Use read-only replicas to offload read-only query workloads](read-scale-out.md).
+          You can connect to these additional read-only compute replicas by setting the `ApplicationIntent` argument in your connection string to `ReadOnly`. Any connections marked with `ReadOnly` are automatically routed to one of the secondary HA replicas, if they were added for your database. For details, see [Use read-only replicas to offload read-only query workloads](read-scale-out.md).
           
       - question: |
           How do I validate if I have successfully connected to secondary compute replica using SSMS or other client tools?

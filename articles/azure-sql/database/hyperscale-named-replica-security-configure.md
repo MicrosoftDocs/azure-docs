@@ -13,20 +13,20 @@ ms.date: 7/27/2021
 # Configure isolated access to a Hyperscale named replica
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-This article describes the procedure to grant access to an Azure SQL Hyperscale [named replica](service-tier-hyperscale-replicas.md) without granting access to the primary replicas or other named replicas. This scenario allows resource and security isolation of a named replica - as the named replica will be running using its own compute node - and it is useful whenever isolated read-only access to an Azure SQL Hyperscale database is needed. Isolated, in this context, means that CPU and memory are not shared between the primary and the named replica, queries running on the named replica do not use compute resources of the primary or of any other replicas, and principals accessing the named replica cannot access other replicas including primary.
+This article describes the procedure to grant access to an Azure SQL Hyperscale [named replica](service-tier-hyperscale-replicas.md) without granting access to the primary replica or other named replicas. This scenario allows resource and security isolation of a named replica - as the named replica will be running using its own compute node - and it is useful whenever isolated read-only access to an Azure SQL Hyperscale database is needed. Isolated, in this context, means that CPU and memory are not shared between the primary and the named replica, queries running on the named replica do not use compute resources of the primary or of any other replicas, and principals accessing the named replica cannot access other replicas, including the primary.
 
 ## Create a login in the master database on the primary server
 
-In the `master` database on the logical server hosting the *primary* database, execute the following to create a new login:
+In the `master` database on the logical server hosting the *primary* database, execute the following to create a new login. Use your own strong and unique password.
 
 ```sql
 create login [third-party-login] with password = 'Just4STRONG_PAZzW0rd!';
 ```
 
-Retrieve the SID hexadecimal value for the login from the `sys.sql_logins` system view:
+Retrieve the SID hexadecimal value for the created login from the `sys.sql_logins` system view:
 
 ```sql
-select [sid] from sys.sql_logins where name = 'third-party-login';
+select sid from sys.sql_logins where name = 'third-party-login';
 ```
 
 Disable the login. This will prevent this login from accessing any database on the server hosting the primary replica.
@@ -59,7 +59,7 @@ Using, for example, AZ CLI:
 az sql server create -g MyResourceGroup -n MyNamedReplicaServer -l MyLocation --admin-user MyAdminUser --admin-password MyStrongADM1NPassw0rd!
 ```
 
-Then, create a named replica on this server for the primary database. For example, using AZ CLI:
+Then, create a named replica for the primary database on this server. For example, using AZ CLI:
 
 ```azurecli
 az sql db replica create -g MyResourceGroup -n WideWorldImporters -s MyPrimaryServer --secondary-type Named --partner-database WideWorldImporters_NR --partner-server MyNamedReplicaServer
@@ -79,7 +79,7 @@ At this point, users and applications using `third-party-login` can connect to t
 
 Once you have set up login authentication as described, you can use regular `GRANT`, `DENY` and `REVOKE` statements to manage authorization, or object-level permissions within the database. In these statements, reference the name of the user you created in the database, or a database role that includes this user as a member. Remember to execute these commands on the primary replica. The changes will propagate to all secondary replicas, however they will only be effective on the named replica where the server-level login was created.
 
-Remember that by default a newly created user has a very minimal set of permissions granted (for example, it cannot access any user table). If you want to allow `third-party-user` to read data in a table, you need to explicitly grant the `SELECT` permission:
+Remember that by default a newly created user has a minimal set of permissions granted (for example, it cannot access any user tables). If you want to allow `third-party-user` to read data in a table, you need to explicitly grant the `SELECT` permission:
 
 ```sql
 grant select on [Application].[Cities] to [third-party-user];

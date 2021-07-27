@@ -14,11 +14,12 @@ ms.date: 7/27/2021
 # Hyperscale secondary replicas
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-As described in [Distributed functions architecture](service-tier-hyperscale.md), Azure SQL Database Hyperscale has two different types of compute nodes, also referred to as "replicas".
-- Primary: serves read and write operations
-- Secondary: provides read scale-out, high availability and geo-replication
+As described in [Distributed functions architecture](service-tier-hyperscale.md), Azure SQL Database Hyperscale has two different types of compute nodes, also referred to as replicas:
 
-A secondary replica can be of three different types:
+- Primary: serves read and write operations
+- Secondary: provides read scale-out, high availability, and geo-replication
+
+Secondary replicas are always read-only, and can be of three different types:
 
 - High Availability replica
 - Named replica (in Preview)
@@ -28,22 +29,22 @@ Each type has a different architecture, feature set, purpose, and cost. Based on
 
 ## High Availability replica
 
-A High Availability (HA) replica uses the same page servers as the primary replica, so no data copy is required to add an HA replica. HA replicas are mainly used to provide High Availability; they act as a hot standby for failover purposes. If the primary replica becomes unavailable, failover to one of the existing HA replicas is automatic. Connection string doesn't need to change; during failover applications may experience minimal downtime due to active connections being dropped. As usual for this scenario, proper retry logic is recommended. Several drivers already provide some degree of automatic retry logic. If you are using .NET, the [latest Microsoft.Data.SqlClient](https://devblogs.microsoft.com/azure-sql/configurable-retry-logic-for-microsoft-data-sqlclient/) library provides native full support to configurable automatic retry logic.
+A High Availability (HA) replica uses the same page servers as the primary replica, so no data copy is required to add an HA replica. HA replicas are mainly used to increase database availability; they act as hot standbys for failover purposes. If the primary replica becomes unavailable, failover to one of the existing HA replicas is automatic and quick. Connection string doesn't need to change; during failover applications may experience minimal downtime due to active connections being dropped. As usual for this scenario, proper retry logic is recommended. Several drivers already provide some degree of automatic retry logic. If you are using .NET, the [latest Microsoft.Data.SqlClient](https://devblogs.microsoft.com/azure-sql/configurable-retry-logic-for-microsoft-data-sqlclient/) library provides native full support for configurable automatic retry logic.
 
-HA replicas use the same server and database name as the primary replica. Their Service Level Objective is also always the same as for the primary replica. HA replicas are not visible or manageable as a stand-alone resource from the portal or from any other tool or DMV. 
+HA replicas use the same server and database name as the primary replica. Their Service Level Objective is also always the same as for the primary replica. HA replicas are not visible or manageable as a stand-alone resource from the portal or from any API. 
 
 There can be zero to four HA replicas. Their number can be changed during the creation of a database or after the database has been created, via the common management endpoints and tools (for example: PowerShell, AZ CLI, Portal, REST API). Creating or removing HA replicas does not affect active connections on the primary replica.
 
 ### Connecting to an HA replica
 
-In Hyperscale databases, the ApplicationIntent argument in the connection string used by the client dictates whether the connection is routed to the read-write primary replica or to a read-only HA replica. If the ApplicationIntent set to `ReadOnly` and the database doesn't have a secondary replica, connection will be routed to the primary replica and will default to the `ReadWrite` behavior.
+In Hyperscale databases, the `ApplicationIntent` argument in the connection string used by the client dictates whether the connection is routed to the read-write primary replica or to a read-only HA replica. If `ApplicationIntent` is set to `ReadOnly` and the database doesn't have a secondary replica, connection will be routed to the primary replica and will default to the `ReadWrite` behavior.
 
 ```csharp
 -- Connection string with application intent
 Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadOnly;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 ```
 
-All HA replicas are identical in their resource capacity. If more than one HA replica is present, the read-intent workload is distributed across all available HA replicas. When there are multiple HA replicas, keep in mind that each one could have different data latency with respect to data changes made on the primary. Each HA replica uses the same data as the primary on the same set of page servers. However, local data caches on each HA replica reflect the changes made on the primary via the transaction log service, which forwards log records from the primary replica to HA replicas. As the result, depending on the workload being processed by an HA replica, application of log records may happen at different speeds, and thus different replicas could have different data latency relative to the primary replica.
+All HA replicas are identical in their resource capacity. If more than one HA replica is present, the read-intent workload is distributed arbitrarily across all available HA replicas. When there are multiple HA replicas, keep in mind that each one could have different data latency with respect to data changes made on the primary. Each HA replica uses the same data as the primary on the same set of page servers. However, local data caches on each HA replica reflect the changes made on the primary via the transaction log service, which forwards log records from the primary replica to HA replicas. As the result, depending on the workload being processed by an HA replica, application of log records may happen at different speeds, and thus different replicas could have different data latency relative to the primary replica.
 
 ## Named replica (in Preview)
 
@@ -63,7 +64,7 @@ The main goal of named replicas is to enable massive OLTP read scale-out scenari
 - [HTAP scale-out sample](https://github.com/Azure-Samples/azure-sql-db-named-replica-htap)
 
 Aside from the main scenarios listed above, named replicas offer flexibility and elasticity to also satisfy many other use cases:
-- [Access Isolation](hyperscale-named-replica-security-configure.md): you can grant an account access to a specific named replica, but not the primary replica or other named replicas.
+- [Access Isolation](hyperscale-named-replica-security-configure.md): you can grant access to a specific named replica, but not the primary replica or other named replicas.
 - Workload-dependent service level objective: as a named replica can have its own service level objective, it is possible to use different named replicas for different workloads and use cases. For example, one named replica could be used to serve Power BI requests, while another can be used to serve data to Apache Spark for Data Science tasks. Each one can have an independent service level objective and scale independently.
 - Workload-dependent routing: with up to 30 named replicas, it is possible to use named replicas in groups so that an application can be isolated from another. For example, a group of four named replicas could be used to serve requests coming from mobile applications, while another group two named replicas can be used to serve requests coming from a web application. This approach would allow a fine-grained tuning of performance and costs for each group.
 
@@ -135,7 +136,7 @@ az sql db delete -g MyResourceGroup -s MyServer -n WideWorldImporters_NR
 ---
 
 > [!IMPORTANT]
-> Named replicas will be removed when the primary replica from which they have been created is deleted.
+> Named replicas will be automatically removed when the primary replica from which they have been created is deleted.
 
 ### Known issues
 
@@ -148,7 +149,7 @@ With [active geo-replication](active-geo-replication-overview.md), you can creat
 
 When creating a geo-replica, all data is copied from the primary to a different set of page servers. A geo-replica does not share page servers with the primary, even if they are in the same region. This architecture provides the necessary redundancy for geo-failovers.
 
-Geo-replicas are primarily used to maintain a transactionally consistent copy of the database via asynchronous replication. If a geo-replica is in a different Azure region, it can be used for disaster recovery in case of a disaster or outage in the primary region. Geo-replicas can also be used for geographic read scale-out scenarios.
+Geo-replicas are used to maintain a transactionally consistent copy of the database via asynchronous replication. If a geo-replica is in a different Azure region, it can be used for disaster recovery in case of a disaster or outage in the primary region. Geo-replicas can also be used for geographic read scale-out scenarios.
 
 In Hyperscale, a geo-failover must be initiated manually. After failover, the new primary will have a different connection end point, referencing the logical server name hosting the new primary replica. For more information, see [active geo-replication](active-geo-replication-overview.md).
 
@@ -156,7 +157,7 @@ Geo-replication for Hyperscale databases is currently in preview, with the follo
 - Only one geo-replica can be created (in the same or different region).
 - Failover groups are not supported. 
 - Planned failover is not supported.
-- Point in time restore of the geo-replica is not supported
+- Point in time restore of the geo-replica is not supported.
 - Creating a database copy of the geo-replica is not supported. 
 - Secondary of a secondary (also known as "geo-replica chaining") is not supported. 
 
