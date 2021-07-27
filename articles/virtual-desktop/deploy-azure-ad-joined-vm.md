@@ -58,7 +58,7 @@ This section explains how to access Azure AD-joined VMs from different Azure Vir
 
 ### Connect using the Windows Desktop client
 
-The default configuration supports connections from Windows 10 using the Windows Desktop client. You can use your credentials, smart card, [Windows Hello for Business certificate trust](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust) or [Windows Hello for Business key trust with certificates](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-rdp-certs) to sign in to the session host. However, to access the session host, your local PC must meet one of the following conditions:
+The default configuration supports connections from Windows 10 using the Windows Desktop client. You can use your credentials, smart card, [Windows Hello for Business certificate trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust) or [Windows Hello for Business key trust with certificates](/windows/security/identity-protection/hello-for-business/hello-deployment-rdp-certs) to sign in to the session host. However, to access the session host, your local PC must meet one of the following conditions:
 
 - The local PC is Azure AD-joined to the same Azure AD tenant as the session host
 - The local PC is hybrid Azure AD-joined to the same Azure AD tenant as the session host
@@ -72,7 +72,7 @@ To access Azure AD-joined VMs using the web, Android, macOS, iOS, and Microsoft 
 
 ### Enabling MFA for Azure AD joined VMs
 
-You can enable [multifactor authentication](set-up-mfa.md) for Azure AD joined VMs by setting a Conditional Access policy on the "Windows Virtual Desktop" app. Unless you want to restrict sign in to strong authentication methods like Windows Hello, you should exclude the "Azure Windows VM Sign-In" app from the list of cloud apps as described in the [MFA sign-in method requirements](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#mfa-sign-in-method-required) for Azure AD joined VMs. If you are using non-Windows clients, you must disable the MFA policy on "Azure Windows VM Sign-In".
+You can enable [multifactor authentication](set-up-mfa.md) for Azure AD joined VMs by setting a Conditional Access policy on the "Azure Virtual Desktop" app. Unless you want to restrict sign in to strong authentication methods like Windows Hello, you should exclude the "Azure Windows VM Sign-In" app from the list of cloud apps as described in the [MFA sign-in method requirements](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#mfa-sign-in-method-required) for Azure AD joined VMs. If you are using non-Windows clients, you must disable the MFA policy on "Azure Windows VM Sign-In".
 
 ## User profiles
 
