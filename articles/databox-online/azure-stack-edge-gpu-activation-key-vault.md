@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 07/26/2021
+ms.date: 07/27/2021
 ms.author: alkohli
 ---
 
@@ -238,7 +238,6 @@ Within 90 days of deletion, follow these steps to recover your key vault:
     ![Recover key vault blade](media/azure-stack-edge-gpu-activation-key-vault/recover-key-vault-1.png)  
 
     The key vault is recovered and when the recovery is complete, a notification is shown to that effect.
-
 
 If the key vault is deleted and the purge-protection period of 90 days has elapsed, then you'll have the option of creating a new key vault through the [Recover key procedure](#recover-key-vault) described above. In this case, you'll provide a new name for your key vault. A new storage account is created, managed identity is granted access to this key vault, and device secrets are pushed to this key vault.
   
