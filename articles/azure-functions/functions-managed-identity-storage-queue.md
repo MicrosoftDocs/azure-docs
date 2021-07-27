@@ -11,7 +11,8 @@ ms.date: 7/26/2021
 This article shows you how to configure a storage queue trigger to use managed identities instead of secrets. To learn more about identity-based connections, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection). 
 
 Prerequisite:
-- Complete the [Creating a function app with identity base connections tutorial](./functions-managed-identity-tutorial.md).
+> [!div class="checklist"]
+> *  Complete the [Creating a function app with identity base connections tutorial](./functions-managed-identity-tutorial.md).
 
 In this tutorial, you'll:
 
@@ -185,24 +186,17 @@ Now, you will add the **Storage Queue Data Contributor** Azure role assignment f
 
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
-## Next steps
+## Next steps 
 
-In this tutorial, you created a Premium function app, storage account, and Service Bus. You secured all of these resources behind private endpoints. 
+In this tutorial, you created a function app with identity-based connections.
 
-Use the following links to learn more Azure Functions networking options and private endpoints:
+Use the following links to learn more Azure Functions with identity-based connections:
 
 - [Managed identity in Azure Functions](../app-service/overview-managed-identity.md)
-
 - [identity-based connections in Azure Functions](./functions-reference.md#configure-an-identity-based-connection)
-
 - [Connecting to host storage with an Identity](./functions-reference.md#connecting-to-host-storage-with-an-identity)
-
 - [Creating a Function App without Azure Files](./storage-considerations.md#create-an-app-without-azure-files)
-
 - [Run Azure Functions from a package file](./run-functions-from-deployment-package.md)
-
 - [Use Key Vault references in Azure Functions](../app-service/app-service-key-vault-references.md)
-
 - [Configuring the account used by Visual Studio for local development](/dotnet/api/azure/identity-readme.md#authenticating-via-visual-studio)
-
 - [Functions documentation for local development](./functions-reference.md#local-development-with-identity-based-connections)

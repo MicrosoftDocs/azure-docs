@@ -190,17 +190,19 @@ The next step is to switch AzureWebJobsStorage to be secretless. This should alr
 
 There's one more key-like setting in your Function App, and that’s your App Insights connection string. This is not technically a secret as it contains the instrumentation key. However, you can configure this setting using Key Vault and use managed identity to access it. Steps are in the following [tutorial](./functions-managed-identity-key-vault.md).
 
-## Use Managed Identity with a Storage Queue Trigger
-For a step-by-step tutorial of managed identities with a storage queue trigger, continue on to the [Storage Queue Trigger tutorial](./functions-managed-identity-storage-queue.md)
+## Use Managed Identity with Triggers
 
-## Use Managed Identity with a Service Bus Trigger 
-For a step-by-step tutorial of managed identities with a service bus trigger, continue on to the [Service Bus Trigger tutorial](./functions-managed-identity-servicebus-queue.md)
+Step-by-step tutorials:
+    | Trigger      | Tutorial  |
+    | ------------ | ---------------- |
+    | **Storage Queue Trigger** |  [Storage Queue Trigger tutorial](./functions-managed-identity-storage-queue.md) |
+    | **Service Bus Queue Trigger** |  [Service Bus Trigger tutorial](./functions-managed-identity-servicebus-queue.md) |
 
-## Use Managed Identity for local development
+### Use Managed Identity for local development
 
-For steps on how to use managed identities with local development, see [the local development section](./functions-managed-identity-servicebus-queue.md#use-managed-identity-for-local-development) of the managed identity with service bus queue trigger tutorial.
+The Service Bus Queue Trigger tutorial also details [how to use managed identities with local development](./functions-managed-identity-servicebus-queue.md#use-managed-identity-for-local-development).
 
-## Notes on Event Hubs and Blob Trigger
+### Event Hubs and Blob Trigger
 
 You can follow similar steps for Event Hubs and Blob trigger. Event Hubs follows the same patterns as Service Bus, and you can follow the [Service Bus Trigger tutorial](./functions-managed-identity-servicebus-queue.md). For Blobs, the functions host uses queues internally to run the blob trigger, so you would need to make sure that the function app has both blob and queue role assignments, for both the account that is configured for AzureWebJobsStorage, and the account that contains the blobs you're triggering on. For more information, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
 
@@ -208,22 +210,15 @@ You can follow similar steps for Event Hubs and Blob trigger. Event Hubs follows
 
 ## Next steps 
 
-In this tutorial, you created a Premium function app, storage account, and Service Bus. You secured all of these resources behind private endpoints. 
+In this tutorial, you created a function app with identity-based connections.
 
-Use the following links to learn more Azure Functions networking options and private endpoints:
+Use the following links to learn more Azure Functions with identity-based connections:
 
 - [Managed identity in Azure Functions](../app-service/overview-managed-identity.md)
-
 - [identity-based connections in Azure Functions](./functions-reference.md#configure-an-identity-based-connection)
-
 - [Connecting to host storage with an Identity](./functions-reference.md#connecting-to-host-storage-with-an-identity)
-
 - [Creating a Function App without Azure Files](./storage-considerations.md#create-an-app-without-azure-files)
-
 - [Run Azure Functions from a package file](./run-functions-from-deployment-package.md)
-
 - [Use Key Vault references in Azure Functions](../app-service/app-service-key-vault-references.md)
-
 - [Configuring the account used by Visual Studio for local development](/dotnet/api/azure/identity-readme.md#authenticating-via-visual-studio)
-
 - [Functions documentation for local development](./functions-reference.md#local-development-with-identity-based-connections)
