@@ -51,7 +51,7 @@ You can also connect to the server using [Azure Active Directory (AAD) authentic
 
 ### Azure Defender protection
 
- Azure Database for PostgreSQL -Flexible currently doesn't support [Azure Defender Protection](https://docs.microsoft.com/azure/security-center/azure-defender). Its currently planned feature to detect anomalous activities indicating unusual and potentially harmful attempts to access or exploit servers.
+ Azure Database for PostgreSQL -Flexible currently doesn't support [Azure Defender Protection](https://docs.microsoft.com/azure/security-center/azure-defender). 
 
 
 [Audit logging](../concepts-audit.md) is available to track activity in your databases. 
