@@ -114,7 +114,10 @@ You may need to wait for the next transaction log backup to be taken before you 
 
 ### Geo-restore
 
-You can restore a server to another Azure region where the service is available if you have configured your server for geo-redundant backups. General purpose storage v1 servers (supporting up to 4-TB storage) can be restored to the geo-paired region, or to any region that supports up to 16 TB of storage. For General purpose storage v2 servers (supporting up to 16-TB storage), geo-backups can be restored in any region that support 16-TB servers as well. Review [Azure Database for MySQL pricing tiers](concepts-pricing-tiers.md) for the list of supported regions.
+You can restore a server to another Azure region where the service is available if you have configured your server for geo-redundant backups. 
+- General purpose storage v1 servers (supporting up to 4-TB storage) can be restored to the geo-paired region, or to any Azure region that supports Azure Database for MySQL Single Server service.
+- General purpose storage v2 servers (supporting up to 16-TB storage) can only be restored to Azure regions that support General purpose storage v2 servers infrastructure. 
+Review [Azure Database for MySQL pricing tiers](./concepts-pricing-tiers.md#storage) for the list of supported regions.
 
 Geo-restore is the default recovery option when your server is unavailable because of an incident in the region where the server is hosted. If a large-scale incident in a region results in unavailability of your database application, you can restore a server from the geo-redundant backups to a server in any other region. Geo-restore utilizes the most recent backup of the server. There is a delay between when a backup is taken and when it is replicated to different region. This delay can be up to an hour, so, if a disaster occurs, there can be up to one hour data loss.
 

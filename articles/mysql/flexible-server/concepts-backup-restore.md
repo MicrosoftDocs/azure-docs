@@ -100,7 +100,7 @@ The first snapshot backup is scheduled immediately after a server is created. Sn
 All Azure Database for MySQL data, backups and temporary files created during query execution are encrypted using AES 256-bit encryption. The storage encryption is always on and cannot be disabled. 
 
 - **Can I restore a single/few database(s)?**
-Restoring a single/few database(s) or tables is not supported. In case you want to restore specific databases, perform a Point in Time Restore and then use client tools like mysqldump or myDumper to take the backup of specific databases and restore them.
+Restoring a single/few database(s) or tables is not supported. In case you want to restore specific databases, perform a Point in Time Restore and then extract the table(s) or database(s) needed.
 
 - **Is my server available during the backup window?**
 Yes. Backups are online operations and are snapshot-based. The snapshot operation only takes few seconds and doesn’t interfere with production workloads ensuring high availability of the server.
@@ -115,10 +115,10 @@ Azure Database for MySQL automatically creates server backups and stores them in
 The best way to validate availability of valid backups is performing periodic point in time restores and ensuring backups are valid and restorable. Backup operations or files are not exposed to the end users.
 
 - **Where can I see the backup usage?**
-In the Azure Portal, under Monitoring tab - Metrics section, you can find “Backup Storage Used" metric which can help you monitor the total backup usage.
+In the Azure Portal, under Monitoring tab - Metrics section, you can find the [Backup Storage Used](../concepts-monitoring.md) metric which can help you monitor the total backup usage.
 
 - **What happens to my backups if I delete my server?**
-If you delete the server, all backups that belong to the server are also deleted and cannot be recovered. To protect server resources, post deployment, from accidental deletion or unexpected changes, administrators can leverage management locks.
+If you delete the server, all backups that belong to the server are also deleted and cannot be recovered. To protect server resources, post deployment, from accidental deletion or unexpected changes, administrators can leverage [management locks](../../azure-resource-manager/management/lock-resources.md).
 
 - **How will I be charged and billed for my use of backups?**
 Flexible server provides up to 100% of your provisioned server storage as backup storage at no additional cost. Any additional backup storage used is charged in GB per month as per the [pricing model](https://azure.microsoft.com/pricing/details/mysql/server/). Backup storage billing is also governed by the backup retention period selected and backup redundancy option chosen apart from the transactional activity on the server which impacts the total backup storage used directly.
