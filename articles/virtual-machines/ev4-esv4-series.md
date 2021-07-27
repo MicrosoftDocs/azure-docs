@@ -17,7 +17,7 @@ ms.date: 6/8/2020
 The Ev4 and Esv4-series runs on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) processors in a hyper-threaded configuration, are ideal for various memory-intensive enterprise applications and feature up to 504GiB of RAM. It features an all core Turbo clock speed of 3.4 GHz.
 
 > [!NOTE]
-> For frequently asked questions, refer to  [Azure VM sizes with no local temp disk](azure-vms-no-temp-disk.md).
+> For frequently asked questions, refer to  [Azure VM sizes with no local temp disk](azure-vms-no-temp-disk.yml).
 
 ## Ev4-series
 
@@ -61,21 +61,24 @@ Esv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake)
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 <br>
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max NICs|Expected Network bandwidth (Mbps) |
-|---|---|---|---|---|---|---|---|
-| Standard_E2s_v4  | 2 | 16  | Remote Storage Only | 4 | 3200/48 | 2|1000  |
-| Standard_E4s_v4  | 4 | 32  | Remote Storage Only | 8 | 6400/96 | 2|2000  |
-| Standard_E8s_v4  | 8 | 64  | Remote Storage Only | 16 | 12800/192 | 4|4000 |
-| Standard_E16s_v4 | 16 | 128 | Remote Storage Only | 32 | 25600/384 | 8|8000 |
-| Standard_E20s_v4 | 20 | 160 | Remote Storage Only | 32 | 32000/480  | 8|10000 |
-| Standard_E32s_v4 | 32 | 256 | Remote Storage Only | 32 | 51200/768  | 8|16000 |
-| Standard_E48s_v4 | 48 | 384 | Remote Storage Only | 32 | 76800/1152 | 8|24000 |
-| Standard_E64s_v4 <sup>1</sup> | 64 | 504| Remote Storage Only | 32 | 80000/1200 | 8|30000 |
-| Standard_E80is_v4 <sup>2</sup> | 80 | 504 | Remote Storage Only | 32 | 80000/1500 | 8|30000 |
 
-<sup>1</sup> [Constrained core sizes available)](./constrained-vcpu.md).
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> |Max NICs|Expected Network bandwidth (Mbps) |
+|---|---|---|---|---|---|---|---|---|
+| Standard_E2s_v4  | 2 | 16  | Remote Storage Only | 4 | 3200/48 | 4000/200 | 2|1000  |
+| Standard_E4s_v4  | 4 | 32  | Remote Storage Only | 8 | 6400/96 | 8000/200 | 2|2000  |
+| Standard_E8s_v4  | 8 | 64  | Remote Storage Only | 16 | 12800/192 | 16000/400 | 4|4000 |
+| Standard_E16s_v4 | 16 | 128 | Remote Storage Only | 32 | 25600/384 | 32000/800 | 8|8000 |
+| Standard_E20s_v4 | 20 | 160 | Remote Storage Only | 32 | 32000/480  | 40000/1000 | 8|10000 |
+| Standard_E32s_v4 | 32 | 256 | Remote Storage Only | 32 | 51200/768  | 64000/1600 | 8|16000 |
+| Standard_E48s_v4 | 48 | 384 | Remote Storage Only | 32 | 76800/1152 | 80000/2000 | 8|24000 |
+| Standard_E64s_v4 <sup>2</sup> | 64 | 504| Remote Storage Only | 32 | 80000/1200 | 80000/2000 | 8|30000 |
+| Standard_E80is_v4 <sup>3</sup> | 80 | 504 | Remote Storage Only | 32 | 80000/1200 | 80000/2000 | 8|30000 |
 
-<sup>2</sup> Instance is isolated to hardware dedicated to a single customer.
+<sup>1</sup>  Esv4-series VMs can [burst](./disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
+
+<sup>2</sup> [Constrained core sizes available)](./constrained-vcpu.md).
+
+<sup>3</sup> Instance is isolated to hardware dedicated to a single customer.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

@@ -36,7 +36,7 @@ Komprise is a software solution that is easily deployed in a virtual environment
 
 ## Before you begin
 
-A little upfront planning will help you use Azure as an offsite backup target and recovery site.
+Upfront planning will help in migrating the data with less risk.
 
 ### Get started with Azure
 

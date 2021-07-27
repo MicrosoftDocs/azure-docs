@@ -11,10 +11,12 @@ A key principle of Azure VMware Solution is to enable you to continue to use you
 
 Our backup partners have industry-leading backup and restore solutions in VMware-based environments. Customers have widely adopted these solutions for their on-premises deployments. Now these partners have extended their solutions to Azure VMware Solution, using Azure to provide a backup repository and a storage target for long-term retention and archival.
 
-Backup network traffic between Azure VMware Solution VMs and the backup repository in Azure travels over a high-bandwidth, low-latency link. Replication traffic across regions travels over the internal Azure backplane network, which lowers bandwidth costs for users.
+Back up network traffic between Azure VMware Solution VMs and the backup repository in Azure travels over a high-bandwidth, low-latency link. Replication traffic across regions travels over the internal Azure backplane network, which lowers bandwidth costs for users.
 
 >[!NOTE]
->For common questions, see [our third-party backup solution FAQ](/azure/azure-vmware/faq.yml#third-party-backup-and-recovery).
+>For common questions, see [our third-party backup solution FAQ](/azure/azure-vmware/faq#third-party-backup-and-recovery).
+
+
 
 You can find more information on these backup solutions here:
 - [Cohesity](https://www.cohesity.com/blogs/expanding-cohesitys-support-for-microsofts-ecosystem-azure-stack-and-azure-vmware-solution/)

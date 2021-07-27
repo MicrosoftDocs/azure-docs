@@ -3,8 +3,8 @@ title: 'Tutorial: Configure WEDO for automatic user provisioning with Azure Acti
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to WEDO.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 3088D3EB-CED5-45A5-BD7E-E20B1D7C40F6
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2020
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure WEDO for automatic user provisioning

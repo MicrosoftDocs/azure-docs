@@ -325,7 +325,7 @@ The following example shows what a valid deployment manifest document may look l
             "type": "docker",
             "settings": {
               "image": "mcr.microsoft.com/azureiotedge-agent:1.1",
-              "createOptions": ""
+              "createOptions": "{}"
             }
           },
           "edgeHub": {

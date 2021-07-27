@@ -91,16 +91,16 @@ To install charts with Helm, use the [helm install][helm-install-command] comman
 ```console
 helm install my-nginx-ingress ingress-nginx/ingress-nginx \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
-    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set controller.image.registry=mcr.microsoft.com \
+    --set defaultBackend.image.registry=mcr.microsoft.com \
+    --set controller.admissionWebhooks.patch.image.registry=mcr.microsoft.com
 ```
 
 The following condensed example output shows the deployment status of the Kubernetes resources created by the Helm chart:
 
 ```console
-$ helm install my-nginx-ingress ingress-nginx/ingress-nginx \
->     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
->     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
-
 NAME: my-nginx-ingress
 LAST DEPLOYED: Fri Nov 22 10:08:06 2019
 NAMESPACE: default

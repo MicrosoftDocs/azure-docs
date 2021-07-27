@@ -25,11 +25,11 @@ You'll need an existing private cloud to complete this tutorial. If you haven't 
 
 1. On the overview page of an existing private cloud, under **Manage**, select **Scale private cloud**. Next, select **+ Add a cluster**.
 
-   :::image type="content" source="./media/tutorial-scale-private-cloud/ss2-select-add-cluster.png" alt-text="select add a cluster" border="true":::
+   :::image type="content" source="./media/tutorial-scale-private-cloud/ss2-select-add-cluster.png" alt-text="Screenshot showing how to add a cluster to an Azure VMware Solution private cloud." border="true":::
 
 1. In the **Add cluster** page, use the slider to select the number of hosts. Select **Save**.
 
-   :::image type="content" source="./media/tutorial-scale-private-cloud/ss3-configure-new-cluster.png" alt-text="In the Add cluster page, use the slider to select the number of hosts. Select Save." border="true":::
+   :::image type="content" source="./media/tutorial-scale-private-cloud/ss3-configure-new-cluster.png" alt-text="Screenshot showing how to configure a new cluster." border="true":::
 
    The deployment of the new cluster will begin.
 
@@ -37,11 +37,9 @@ You'll need an existing private cloud to complete this tutorial. If you haven't 
 
 1. On the overview page of an existing private cloud, select **Scale private cloud** and select the pencil icon to edit the cluster.
 
-   :::image type="content" source="./media/tutorial-scale-private-cloud/ss4-select-scale-private-cloud-2.png" alt-text="Select Scale private cloud in Overview" border="true":::
+   :::image type="content" source="./media/tutorial-scale-private-cloud/ss4-select-scale-private-cloud-2.png" alt-text="Screenshot showing where to edit an existing cluster." border="true":::
 
 1. In the **Edit Cluster** page, use the slider to select the number of hosts. Select **Save**.
-
-   :::image type="content" source="./media/tutorial-scale-private-cloud/ss5-scale-cluster.png" alt-text="In the Edit Cluster page, use the slider to select the number of hosts. Select Save." border="true":::
 
    The addition of hosts to the cluster begins.
 

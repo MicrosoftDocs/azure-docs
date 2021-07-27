@@ -284,7 +284,7 @@ Configuring WAF at your application gateway provides the following benefits:
 
 The Anomaly Detection API is an API that's useful for detecting a variety of anomalous patterns in your time series data. The API assigns an anomaly score to each data point in the time series, which can be used for generating alerts, monitoring through dashboards, or connecting with your ticketing systems.
 
-The [Anomaly Detection API](../../machine-learning/team-data-science-process/apps-anomaly-detection-api.md) can detect the following types of anomalies on time series data:
+The [Anomaly Detection API](/azure/architecture/data-science-process/apps-anomaly-detection-api) can detect the following types of anomalies on time series data:
 
 -	**Spikes and dips**: When you're monitoring the number of login failures to a service or number of checkouts in an e-commerce site, unusual spikes or dips could indicate security attacks or service disruptions.
 

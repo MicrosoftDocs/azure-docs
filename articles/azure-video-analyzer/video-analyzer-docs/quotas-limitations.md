@@ -3,7 +3,7 @@ title: Azure Video Analyzer quotas and limitations - Azure
 description: This article describes Azure Video Analyzer quotas and limitations.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
-ms.date: 05/26/2021 
+ms.date: 06/01/2021 
  
 ---
 # Video Analyzer quotas and limitations
@@ -55,7 +55,9 @@ Following are the limitations on how different nodes can be connected together i
 ### Supported cameras
 You can only use IP Cameras that support RTSP protocol. You can find IP cameras that support RTSP on the [ONVIF conformant products](https://www.onvif.org/conformant-products) page. Look for devices that conform with profiles G, S, or T.
 
-Further, you should configure these cameras to use H.264 video and AAC audio. Other codecs are currently not supported.
+You should configure these cameras to use H.264 video and AAC audio. Other codecs are currently not supported.
+
+Video Analyzer only supports RTSP with [interleaved RTP streams]( https://datatracker.ietf.org/doc/html/rfc2326#section-10.12). In this mode, RTP traffic is tunneled through the RTSP TCP connection. RTP traffic over UDP is not supported.
 
 ### Support for video AI
 The HTTP or gRPC extension processors only support sending of image/video frame data with an external AI module. Thus, running inferencing on audio data is not supported. As a result, processor nodes in pipeline topologies that have an RTSP source node as one of the `inputs` also make use of an `outputSelectors` property to ensure that only video is passed into the processor. See this [topology](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/evr-grpcExtension-video-sink/topology.json) as an example.

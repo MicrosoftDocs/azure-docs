@@ -241,7 +241,7 @@ It is supported to use a smaller VM as target instance in the disaster recovery 
 - Re-sizing across VM families can be a problem when the Different VMs are collected in one Azure Availability Set or when the re-sizing should happen between the M-Series family and Mv2 family of VMs
 - CPU and memory consumption for the database instance being able to receive the stream of changes with minimal delay and enough CPU and memory resources to apply these changes with minimal delay to the data  
 
-More details on limitations of different VM sizes can be found [here](../../sizes.md) 
+More details on limitations of different VM sizes can be found on the [VM sizes](../../sizes.md) page
 
 Another supported method of deploying a DR target is to have a second DBMS instance installed on a VM that runs a non-production DBMS instance of a non-production SAP instance. This can be a bit more challenging since you need to figure out what on memory, CPU resources, network bandwidth, and storage bandwidth is needed for the particular target instances that should function as main instance in the DR scenario. Especially in HANA it is highly recommended that you are configuring the instance that functions as DR target on a shared host so that the data is not pre-loaded into the DR target instance.
 

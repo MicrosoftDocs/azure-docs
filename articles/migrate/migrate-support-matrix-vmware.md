@@ -1,8 +1,8 @@
 ---
 title: VMware server assessment support in Azure Migrate
 description: Learn about Azure Migrate discovery and assessment support for servers in a VMware environment.
-author: vineetvikram
-ms.author: vivikram
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/17/2021
@@ -30,7 +30,7 @@ Learn more about [assessments](concepts-assessment-calculation.md).
 
 VMware | Details
 --- | ---
-**vCenter Server** | Servers that you want to discover and assess must be managed by vCenter Server version 7.0, 6.7, 6.5, 6.0, or 5.5.<br /><br /> Discovering servers by providing ESXi host details in the appliance currently isn't supported.
+**vCenter Server** | Servers that you want to discover and assess must be managed by vCenter Server version 7.0, 6.7, 6.5, 6.0, or 5.5.<br /><br /> Discovering servers by providing ESXi host details in the appliance currently isn't supported. <br /><br /> IPv6 addresses are not supported for vCenter Server (for discovery and assessment of servers) and ESXi hosts (for replication of servers).
 **Permissions** | The Azure Migrate: Discovery and assessment tool requires a vCenter Server read-only account.<br /><br /> If you want to use the tool for software inventory and agentless dependency analysis, the account must have privileges for guest operations on VMware VMs.
 
 ## Server requirements
@@ -57,23 +57,25 @@ Device | Connection
 **vCenter Server** | Inbound connections on TCP port 443 to allow the appliance to collect configuration and performance metadata for assessments. <br /><br /> The appliance connects to vCenter on port 443 by default. If vCenter Server listens on a different port, you can modify the port when you set up discovery.
 **ESXi hosts** | For [discovery of software inventory](how-to-discover-applications.md) or [agentless dependency analysis](concepts-dependency-visualization.md#agentless-analysis), the appliance connects to ESXi hosts on TCP port 443 to discover software inventory and dependencies on the servers.
 
-## Application discovery requirements
+## Software inventory requirements
 
-In addition to discovering servers, Azure Migrate: Discovery and assessment can complete an inventory of the software running on servers. Application discovery allows you to identify and plan a migration path tailored for your on-premises workloads.
+In addition to discovering servers, Azure Migrate: Discovery and assessment can perform software inventory on servers. Software inventory allows you to identify and plan a migration path tailored for your on-premises workloads.
 
 Support | Details
 --- | ---
-**Supported servers** | Currently supported only for servers in your VMware environment. You can complete application discovery on up to 10,000 servers from each Azure Migrate appliance.
+**Supported servers** | Currently supported only for servers in your VMware environment. You can perform software inventory on up to 10,000 servers from each Azure Migrate appliance.
 **Operating systems** | Servers running all Windows and Linux versions are supported.
-**VM requirements** | For discovery of software inventory, VMware Tools must be installed and running on your servers. <br /><br /> The VMware Tools version must be version 10.2.1 or later.<br /><br /> Windows servers must have PowerShell version 2.0 or later installed.
-**Discovery** | Application discovery on servers is performed from vCenter Server by using VMware Tools installed on the servers. The appliance gathers the information about the software inventory from the server running  vCenter Server through vSphere APIs. Application discovery is agentless. No agent is installed on the server, and the appliance doesn't connect directly to the servers. WMI and SSH must be enabled and available on Windows and Linux servers respectively.
-**vCenter Server user account** | To interact with the servers for application discovery, the vCenter Server read-only account that's used for assessment must have privileges for guest operations on VMware VMs.
-**Server access** | You can add multiple domain and non-domain (Windows/Linux) credentials in the appliance configuration manager for application discovery.<br /><br /> You must have a guest user account for Windows servers and a standard user account (non-`sudo` access) for all Linux servers.
-**Port access** | The Azure Migrate appliance must be able to connect to TCP port 443 on ESXi hosts running servers on which you want to perform application discovery. The server running vCenter Server returns an ESXi host connection to download the file that contains the details of the software inventory.
+**VM requirements** | For software inventory, VMware Tools must be installed and running on your servers. <br /><br /> The VMware Tools version must be version 10.2.1 or later.<br /><br /> Windows servers must have PowerShell version 2.0 or later installed.
+**Discovery** | Software inventory is performed from vCenter Server by using VMware Tools installed on the servers. The appliance gathers the information about the software inventory from the server running  vCenter Server through vSphere APIs. Software inventory is agentless. No agent is installed on the server, and the appliance doesn't connect directly to the servers. WMI must be enabled and available on Windows servers to gather the details of the roles and features installed on the servers.
+**vCenter Server user account** | To interact with the servers for software inventory, the vCenter Server read-only account that's used for assessment must have privileges for guest operations on VMware VMs.
+**Server access** | You can add multiple domain and non-domain (Windows/Linux) credentials in the appliance configuration manager for software inventory.<br /><br /> You must have a guest user account for Windows servers and a standard user account (non-`sudo` access) for all Linux servers.
+**Port access** | The Azure Migrate appliance must be able to connect to TCP port 443 on ESXi hosts running servers on which you want to perform software inventory. The server running vCenter Server returns an ESXi host connection to download the file that contains the details of the software inventory.
 
 ## SQL Server instance and database discovery requirements
 
-[Application discovery](how-to-discover-applications.md) identifies SQL Server instances. Using this information, the appliance attempts to connect to respective SQL Server instances through the Windows authentication or SQL Server authentication credentials that are provided in the appliance configuration manager. After the appliance is connected, it gathers configuration and performance data for SQL Server instances and databases. SQL Server configuration data is updated once every 24 hours. Performance data is captured every 30 seconds.
+[Software inventory](how-to-discover-applications.md) identifies SQL Server instances. Using this information, the appliance attempts to connect to respective SQL Server instances through the Windows authentication or SQL Server authentication credentials that are provided in the appliance configuration manager. Appliance can connect to only those SQL Server instances to which it has network line of sight, whereas software inventory by itself may not need network line of sight.
+
+After the appliance is connected, it gathers configuration and performance data for SQL Server instances and databases. SQL Server configuration data is updated once every 24 hours. Performance data is captured every 30 seconds.
 
 Support | Details
 --- | ---
@@ -88,10 +90,10 @@ Support | Details
 **Supported SQL services** | Only SQL Server Database Engine is supported. <br /><br /> Discovery of SQL Server Reporting Services (SSRS), SQL Server Integration Services (SSIS), and SQL Server Analysis Services (SSAS) is not supported.
 
 > [!NOTE]
-> Azure Migrate encrypts communication between the Azure Migrate appliance and the source SQL Server instances when the [TrustServerCertificate](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) property is set to `true`. The transport layer uses SSL to encrypt the channel and bypass the certificate chain to validate trust. The appliance server must be set up to [trust the certificate's root authority](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+> By default, Azure Migrate uses the most secure way of connecting to SQL instances i.e. Azure Migrate encrypts communication between the Azure Migrate appliance and the source SQL Server instances by setting the TrustServerCertificate property to `true`. Additionally, the transport layer uses SSL to encrypt the channel and bypass the certificate chain to validate trust. Hence, the appliance server must be set up to trust the certificate's root authority. 
 >
-> If no certificate has been provisioned on the server when it starts, SQL Server generates a self-signed certificate that's used to encrypt login packets. [Learn more](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
->
+> However, you can modify the connection settings, by selecting **Edit SQL Server connection properties** on the appliance.[Learn more](https://go.microsoft.com/fwlink/?linkid=2158046) to understand what to choose.
+
 
 ## Dependency analysis requirements (agentless)
 
@@ -100,10 +102,10 @@ Support | Details
 Support | Details
 --- | --- 
 **Supported servers** | Currently supported only for servers in your VMware environment.
-**Windows servers** | Windows Server 2016<br /> Windows Server 2012 R2<br /> Windows Server 2012<br /> Windows Server 2008 R2 (64-bit)<br />Microsoft Windows Server 2008 (32-bit)
+**Windows servers** | Windows Server 2019<br />Windows Server 2016<br /> Windows Server 2012 R2<br /> Windows Server 2012<br /> Windows Server 2008 R2 (64-bit)<br />Microsoft Windows Server 2008 (32-bit)
 **Linux servers** | Red Hat Enterprise Linux 7, 6, 5<br /> Ubuntu Linux 16.04, 14.04<br /> Debian 8, 7<br /> Oracle Linux 7, 6<br /> CentOS 7, 6, 5<br /> SUSE Linux Enterprise Server 11 and later
 **Server requirements** | VMware Tools (10.2.1 and later) must be installed and running on servers you want to analyze.<br /><br /> Servers must have PowerShell version 2.0 or later installed.
-**Discovery method** |  Dependency information between servers is gathered by using VMware Tools installed on the server running vCenter Server. The appliance gathers the information from the server by using vSphere APIs. No agent is installed on the server, and the appliance doesn’t connect directly to servers. WMI and SSH should be enabled and available on Windows and Linux servers respectively.
+**Discovery method** |  Dependency information between servers is gathered by using VMware Tools installed on the server running vCenter Server. The appliance gathers the information from the server by using vSphere APIs. No agent is installed on the server, and the appliance doesn’t connect directly to servers. WMI should be enabled and available on Windows servers.
 **vCenter account** | The read-only account used by Azure Migrate for assessment must have privileges for guest operations on VMware VMs.
 **Windows server permissions** |  A user account (local or domain) with administrator permissions on servers.
 **Linux account** | A root user account, or an account that has these permissions on /bin/netstat and /bin/ls files: <br />CAP_DAC_READ_SEARCH<br /> CAP_SYS_PTRACE<br /><br /> Set these capabilities by using the following commands:<br /><code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls<br /> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat</code>

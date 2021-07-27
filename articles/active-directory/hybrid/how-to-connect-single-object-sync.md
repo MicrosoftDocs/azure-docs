@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/19/2021
+ms.date: 06/24/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -51,7 +51,9 @@ The HTML report has the following:
 
 ## Prerequisites 
 
-In order to use the Single Object Sync tool, you will need to use the 2021 March release of Azure AD Connect or later. 
+In order to use the Single Object Sync tool, you will need to use the following:  
+ - 2021 March release ([1.6.4.0](reference-connect-version-history.md#1640)) of Azure AD Connect or later.
+ -  [PowerShell 5.0](/powershell/scripting/windows-powershell/whats-new/what-s-new-in-windows-powershell-50?view=powershell-7.1)
 
 ### Run the Single Object Sync tool 
 

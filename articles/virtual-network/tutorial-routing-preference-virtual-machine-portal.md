@@ -34,7 +34,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
     |---|---|
     |Name|myVM|
     |User name| Enter a user name of your choosing.|
-    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     |Subscription| Select your subscription.|
     |Resource group| Select **Use existing** and select **myResourceGroup**.|
     |Location| Select **East US**|

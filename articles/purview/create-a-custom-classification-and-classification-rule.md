@@ -1,8 +1,8 @@
 ---
 title: Create a custom classification and classification rule (preview)
 description: Learn how to create custom classifications to define data types in your data estate that are unique to your organization in Azure Purview.
-author: anmuk601
-ms.author: anmuk
+author: viseshag
+ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
@@ -124,6 +124,9 @@ To create a custom classification rule:
    - **Distinct match threshold**: The total number of distinct data values that need to be found in a column before the scanner runs the data pattern on it. The suggested value is 8. This value can be manually adjusted in a range from 2 to 32. The system requires this value to make sure that the column contains enough data for the scanner to accurately classify it. For example, a column that contains multiple rows that all contain the value 1 won't be classified. Columns that contain one row with a value and the rest of the rows have null values also won't get classified. If you specify multiple patterns, this value applies to each of them.
 
    - **Minimum match threshold**: You can use this setting to set the minimum percentage of the distinct data value matches in a column that must be found by the scanner for the classification to be applied. The suggested value is 60%. You need to be careful with this setting. If you reduce the level below 60%, you might introduce false-positive classifications into your catalog. If you specify multiple data patterns, this setting is disabled and the value is fixed at 60%.
+
+> [!Note]
+> The Minimum match threshold must be at least 1%.
 
 1. You can now verify your rule and **create** it.
 

@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 04/01/2021
+ms.date: 07/20/2021
 ms.author: barclayn
 ms.reviewer: 
 
