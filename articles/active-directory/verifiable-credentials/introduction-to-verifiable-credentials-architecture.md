@@ -20,14 +20,13 @@ It’s important to plan your verifiable credential solution so that in addition
 
 This architectural overview introduces the capabilities and components of the Azure Active Directory Verifiable Credentials service. For more detailed information on issuance and validation, see 
 
-* Plan your Azure AD Verifiable Credentials issuance solution
+* [Plan your issuance solution](plan-issuance-solution.md)
 
-* Plan your Azure AD Verifiable Credentials validation solution
-
+* [Plan your verification solution](plan-verification-solution.md)
 
 ## Approaches to identity
 
-Today most organizations use centralized identity systems to provide employees credentials. They also use use various methods to bring customers, partners, vendors, and relying parties into the organization’s trust boundaries. These methods include federation, creating and managing guest accounts with systems like Azure AD B2B, and creating explicit trusts with relying parties. Most business relationships have a digital component, so enabling some form of trust between organizations requires significant effort. 
+Today most organizations use centralized identity systems to provide employees credentials. They also use various methods to bring customers, partners, vendors, and relying parties into the organization’s trust boundaries. These methods include federation, creating and managing guest accounts with systems like Azure AD B2B, and creating explicit trusts with relying parties. Most business relationships have a digital component, so enabling some form of trust between organizations requires significant effort. 
 
 ### Centralized identity systems
 
@@ -38,7 +37,7 @@ In centralized identity systems, the identity provider (IDP) controls the lifecy
 ![Example of a centralized identity system](./media/introduction-to-verifiable-credentials-architecture/centralized-identity-architecture.png)
 
 
-However, there are scenarios where using a decentralized architecture using verifiable credentials can provide value by augmenting key scenarios such as
+However, there are scenarios where using a decentralized architecture with verifiable credentials can provide value by augmenting key scenarios such as
 
 * secure onboarding of employees’ and others’ identities, including remote scenarios.
 
@@ -79,7 +78,7 @@ Terminology for verifiable credentials (VCs) might be confusing if you're not fa
 
  “A ***decentralized identifier document***, also referred to as a ***DID document***, is a document that is accessible using a verifiable data registry and contains information related to a specific decentralized identifier, such as the associated repository and public key information.” 
 
-* In the scenario above, both the issuer and verifier have a DID, and a DID document. The DID document contains the public key, and the list of DNS web domains associated with DID (also known as linked domains).
+* In the scenario above, both the issuer and verifier have a DID, and a DID document. The DID document contains the public key, and the list of DNS web domains associated with the DID (also known as linked domains).
 
 * Woodgrove (issuer) signs their employees’ VCs with its public key; similarly, Proseware (verifier) signs requests to present a VC using its key, which is also associated with its DID.
 
@@ -130,7 +129,7 @@ These use cases demonstrate how centralized identities and decentralized identit
 
  **Awareness**: Alice is interested in working for Woodgrove, Inc. and visits Woodgrove’s career website. 
 
-**Activation**: The Woodgrove site presents Alice with a method to prove their identity by promptinthem with a QR code or a deep link to visit its trusted identity proofing partner, Adatum.
+**Activation**: The Woodgrove site presents Alice with a method to prove their identity by prompting them with a QR code or a deep link to visit its trusted identity proofing partner, Adatum.
 
 **Request and upload**: Adatum requests proof of identity from Alice. Alice takes a selfie and a driver’s license picture and uploads them to Adatum. 
 
@@ -149,9 +148,9 @@ VCs can add value to centralized systems by augmenting the credential distributi
 
 In the onboarding use case, the trust relationship roles are distributed between the issuer, the verifier, and the holder. 
 
-* The issuer is responsible for validating the claims that are part of the VC they issue. Adatum validates Alice’s identity to issue the VCVCs are issued without the consideration of a verifier or relying party.
+* The issuer is responsible for validating the claims that are part of the VC they issue. Adatum validates Alice’s identity to issue the VC. In this case, VCs are issued without the consideration of a verifier or relying party.
 
-* The holder possesses the VC and must initiate use of the VC for verification. Only Alice can present the VCs she holds.
+* The holder possesses the VC and initiates the presentation of the VC for verification. Only Alice can present the VCs she holds.
 
 * The verifier accepts the claims in the VC from issuers they trust and validate the VC using the decentralized ledger capability described in the verifiable credentials data model. Woodgrove trusts Adatum’s claims about Alice’s identity.
 
@@ -167,7 +166,7 @@ By combining centralized and decentralized identity architectures for onboarding
 
 As an employee, Alice is operating inside of the trust boundary of Woodgrove. Woodgrove acts as the identity provider (IDP) and maintains complete control of the identity and the configuration of the apps Alice uses to interact within the Woodgrove trust boundary. To use resources in the Azure AD trust boundary, Alice provides potentially multiple forms of proof of identification to log on to Woodgrove’s trust boundary and access the resources inside of Woodgrove’s technology environment. This is a typical scenario that is well served using a centralized identity architecture. 
 
-* Woodgrove manages the trust boundary, and using good security practices provides the least-privileged level of access to Alice based on the job performed. To maintain a strong security posture, and potentially for compliance reasons, Woodgrove must also be able to track employees’ permissions and access to resources and must be able to revoke permissions when the employment is terminated.
+* Woodgrove manages the trust boundary and using good security practices provides the least-privileged level of access to Alice based on the job performed. To maintain a strong security posture, and potentially for compliance reasons, Woodgrove must also be able to track employees’ permissions and access to resources and must be able to revoke permissions when the employment is terminated.
 
 * Alice only uses the credential that Woodgrove maintains to access Woodgrove resources. Alice has no need to track when the credential is used since the credential is managed by Woodgrove and only used with Woodgrove resources. The identity is only valid inside of the Woodgrove trust boundary when access to Woodgrove resources is necessary, so Alice has no need to possess the credential. 
 
@@ -211,13 +210,13 @@ Woodgrove will add and end business relationships with other organizations and w
 
 By combining centralized and decentralized identity architectures, the responsibility and effort associated with identity and proof of identity is distributed, risk is reduced, and the user does not risk releasing their private information as often or to as many unknown verifiers. Specifically:
 
-* In centralized identity architectures, the IDP issues credentials and performs verification of issued those issued credentials. Information about all identities is processed by the IDP, either storing them in or retrieving them from a directory. IDPs may also dynamically accept security tokens from other IDP systems, such as social sign-ins or business partners. For a relying party to use identities in the IDP trust boundary, they must be configured to accept the tokens issued by the IDP.
+* In centralized identity architectures, the IDP issues credentials and performs verification of those issued credentials. Information about all identities is processed by the IDP, either storing them in or retrieving them from a directory. IDPs may also dynamically accept security tokens from other IDP systems, such as social sign-ins or business partners. For a relying party to use identities in the IDP trust boundary, they must be configured to accept the tokens issued by the IDP.
 
 ## How decentralized identity systems work
 
 In decentralized identity architectures, the issuer, user, and relying party (RP) each have a role in establishing and ensuring ongoing trusted exchange of each other’s credentials. The public keys of the actors’ DIDs are resolvable in ION, which allows signature validation and therefore trust of any artifact, including a verifiable credential. Relying parties can consume verifiable credentials without establishing trust relationships with the issuer. Instead, the issuer provides the subject a credential to present as proof to relying parties. All messages between actors are signed with the actor’s DID; DIDs from issuers and verifiers also need to own the DNS domains that generated the requests. 
 
-For example: When the holder of a VC wants to use it to access a resource, they must present the VC to that relying party. They do so by using the wallet application to read the RP’s request to present a VC. As a part of reading that request, the wallet application uses the RP’s DID to find the RPs public keys using ION, validating that the request to present the VC has not been tampered with. The wallet also checks that the DID is referenced in a metadata document that is hosted in the DNS domain of the RP, to prove domain ownership. 
+For example: When VC holders needs to access a resource, they must present the VC to that relying party. They do so by using a wallet application to read the RP’s request to present a VC. As a part of reading the request, the wallet application uses the RP’s DID to find the RPs public keys using ION, validating that the request to present the VC has not been tampered with. The wallet also checks that the DID is referenced in a metadata document that is hosted in the DNS domain of the RP, to prove domain ownership. 
 
  
 
@@ -251,7 +250,7 @@ In this flow, the credential holder interacts with the issuer to request a verif
 
    1. Validates that the DNS domain referenced in the issuer’s DID document is owned by the issuer. 
 
-   1. Depending on the VC contract requirements, the wallet guides the holder to collect additional information, for example asking for self-issued attributes, or navigating through an OIDC flow to obtain an id_token.
+   1. Depending on the VC contract requirements, the wallet might require the holder to collect additional information, for example asking for self-issued attributes, or navigating through an OIDC flow to obtain an id_token.
 
 1. Submits the artifacts required by the contract to the Azure AD VC Service. The Azure AD VC service returns the VC, signed with the issuer’s DID key and the wallet securely stores the VC.
 
@@ -273,7 +272,7 @@ In this flow, a holder interacts with a relying party (RP) to present a VC as pa
 
 1. The wallet downloads the request from the link. The request includes:
 
-   * a [standards based request for credentials](https://identity.foundation/presentation-exchange/) of a schema or credentialType. 
+   * a [standards based request for credentials](https://identity.foundation/presentation-exchange/) of a schema or credential type. 
 
    * the DID of the RP, which the wallet looks up in ION.
 

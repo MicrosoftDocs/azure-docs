@@ -2,8 +2,8 @@
 title: Data sources gallery
 titleSuffix: Azure Cognitive Search
 description: Lists all of the supported data sources for importing into an Azure Cognitive Search index.
-author: vkurpad
-ms.author: vikurpad
+author: HeidiSteen
+ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: conceptual
