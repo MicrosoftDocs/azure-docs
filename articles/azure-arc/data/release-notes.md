@@ -166,7 +166,7 @@ To update your scripts for managed instance, replace `azdata arc sql mi...` with
 
 For Azure Arc-enabled PostgreSQL Hyperscale, replace `azdata arc sql postgres...` with `az postgres arc-server...`.
 
-In addition to the parameters that have historically existed on the azdata commands, the same commands in the `arcdata` Azure CLI extension have some new parameters such as `--namespace` and `--use-k8s` are now required. The `--use-k8s` parameter will be used to differentiate when the command should be sent to the Kubernetes API or to the ARM API. For now all Azure CLI commands for Arc-enabled data services target only the Kubernetes API.
+In addition to the parameters that have historically existed on the `azdata` commands, the same commands in the `arcdata` Azure CLI extension have some new parameters such as `--k8s-namespace` and `--use-k8s` are now required. The `--use-k8s` parameter will be used to differentiate when the command should be sent to the Kubernetes API or to the ARM API. For now all Azure CLI commands for Arc-enabled data services target only the Kubernetes API.
 
 Some of the short forms of the parameter names (e.g. `--core-limit` as `-cl`) have either been removed or changed. Use the new parameter short names or the long name.
 
