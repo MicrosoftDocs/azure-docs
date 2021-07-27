@@ -231,7 +231,7 @@ In this case, you can use a third-party SIOS solution as a cluster shared disk.
 [kb4025334]:https://support.microsoft.com/help/4025334/windows-10-update-kb4025334
 
 [dv2-series]:../../dv2-dsv2-series.md
-[ds-series]:/azure/virtual-machines/windows/sizes-general
+[ds-series]:https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
