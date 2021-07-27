@@ -58,6 +58,30 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 |-----|-----|-----|-----|-----|
 | TKGm v1.3.1 | 1.20.5 | 20.3.3 | SQL Server 2019 (15.0.4123)|postgres 12.3 (Ubuntu 12.3-1)|
 
+## Data services validation process
+
+The Sonobuoy Arc-enabled data services plug-in automates the provisioning and testing of Azure Arc enabled data services on a Kubernetes cluster.
+
+### Prerequisites
+
+- Azure Data CLI ("azdata") installed (install instructions)
+- kubectl installed (install instructions)
+- A Kubernetes config file configured to access the target Kubernetes cluster and set as the current context. How this is generated and brought local to your computer is different from platform to platform. (general info about Kubernetes config files)
+- Azure Data Studio - Insiders installed (install instructions)
+- Git installed (install instructions)
+
+The conformance tests run as part of the Azure Arc-enabled Data services validation. A pre-requisite to running these tests is to pass on the Azure Arc-enabled Kubernetes tests for the Kubernetes distribution in use.
+These tests verify that the product is compliant with the requirements of running and operating data services. This will help assess if the product is Enterprise ready for deployments.
+
+The tests for data services cover the following in indirectly connected mode
+
+1. Deploy data controller in indirect mode
+2. Deploy sql-mi
+3. Deploy postgresql-hs
+4. Scale out postgres-hs
+
+More tests will be added in future releases of Azure Arc-enabled data services.
+
 ## Additional information
 
 - [Validation program overview](../validation-program/overview.md)
