@@ -41,24 +41,6 @@ The current release announces general availability for the following services:
 
 ### What's new
 
-### Known issues
-
-#### Platform
-
-- You can create a data controller, SQL managed instance, or PostgreSQL Hyperscale server group on a connected cluster with the Azure portal. Deployment is not supported with other Azure Arc-enabled data services tools. Specifically, you can't deploy a data controller in direct connect mode with any of the following tools during this release.
-   - Azure Data Studio
-   - Kubernetes native tools (`kubectl`)
-   - The `arcdata` extension for the Azure CLI (`az`)
-
-   [Create Azure Arc data controller in Direct connectivity mode from Azure portal](create-data-controller-direct-azure-portal.md) explains how to create the data controller in the portal.
-
-- You can still use `kubectl` to create resources directly on a Kubernetes cluster, however they will not be reflected in the Azure portal if you are using direct connected mode.
-
-- In direct connected mode, upload of usage, metrics, and logs using `az arcdata dc upload` is currently blocked. Usage is automatically uploaded. Upload for data controller created in indirect connected mode should continue to work.
-- Automatic upload of usage data in direct connectivity mode will not succeed if using proxy via `–proxy-cert <path-t-cert-file>`.
-- Azure Arc-enabled SQL Managed instance and Azure Arc-enabled PostgreSQL Hyperscale are not GB18030 certified.
-- Currently, only one Azure Arc data controller per Kubernetes cluster is supported.
-
 #### Data controller
 
 - Direct connected mode is in preview. 
@@ -93,6 +75,28 @@ The current release announces general availability for the following services:
 - To set a specific recovery point objective for an Azure Arc-enabled SQL Managed Instance, edit the SQL managed instance CRD to set the `recoveryPointObjectiveInSeconds` property. Supported values are from 300 to 600.
 - To disable the automated backups, edit the SQL instance CRD and set the `recoveryPointObjectiveInSeconds` property to 0.
 
+### Known issues
+
+#### Platform
+
+- You can create a data controller, SQL managed instance, or PostgreSQL Hyperscale server group on a connected cluster with the Azure portal. Deployment is not supported with other Azure Arc-enabled data services tools. Specifically, you can't deploy a data controller in direct connect mode with any of the following tools during this release.
+   - Azure Data Studio
+   - Kubernetes native tools (`kubectl`)
+   - The `arcdata` extension for the Azure CLI (`az`)
+
+   [Create Azure Arc data controller in Direct connectivity mode from Azure portal](create-data-controller-direct-azure-portal.md) explains how to create the data controller in the portal.
+
+- You can still use `kubectl` to create resources directly on a Kubernetes cluster, however they will not be reflected in the Azure portal if you are using direct connected mode.
+
+- In direct connected mode, upload of usage, metrics, and logs using `az arcdata dc upload` is currently blocked. Usage is automatically uploaded. Upload for data controller created in indirect connected mode should continue to work.
+- Automatic upload of usage data in direct connectivity mode will not succeed if using proxy via `–proxy-cert <path-t-cert-file>`.
+- Azure Arc-enabled SQL Managed instance and Azure Arc-enabled PostgreSQL Hyperscale are not GB18030 certified.
+- Currently, only one Azure Arc data controller per Kubernetes cluster is supported.
+
+#### Data controller
+
+- When Azure Arc data controller is deleted from Azure portal, validation is done block the delete if there any Azure Arc enabled SQL managed instances deployed on this Arc data controller. Currently, this validation is applied only when the delete is performed from the Overview page of the Azure Arc data controller. 
+
 #### Azure Arc-enabled PostgreSQL Hyperscale
 
 - It is not possible to enable and configure the `pg_cron` extension at the same time. You need to use two commands for this. One command to enable it and one command to configure it. For example:
@@ -116,6 +120,25 @@ The current release announces general availability for the following services:
 - Passing an invalid value to the `--extensions` parameter when editing the configuration of a server group to enable additional extensions incorrectly resets the list of enabled extensions to what it was at the create time of the server group and prevents user from creating additional extensions. The only workaround available when that happens is to delete the server group and redeploy it.
 
 - Point in time restore is not supported for now on NFS storage.
+
+#### Azure Arc-enabled SQL Managed Instance
+
+##### Point-in-time restore(PITR) supportability and limitations:
+	
+-  Doesn't support restore from one Azure Arc enabled SQL managed instance to another Azure Arc enabled SQL managed instance.
+-  Renaming of a databases is currently not supported, for point in time restore purposes.
+-  Currently there is no CLI command or an API to provide the allowed time window information for point-in-time restore. You can provide a time within a reasonable window, since the time the database was created, and if the timestamp is valid the restore would work. If the timestamp is not valid, the allowed time window will be provided via an error message.
+-  No support for restoring a TDE enabled database
+
+#####	Automated backups
+
+-  Log shipping is currently blocked 
+-  Renaming database will stop the automated backups for this database.
+-  No retention enforced. Will preserve all backups as long as there's available space. 
+-  User databases with SIMPLE recovery model are not backed up. 
+-  System database `model` is not backed up in order to prevent interference with creation/deletion of database. The DB gets locked when admin operations are performed. 
+-  Currently only `master` and `msdb` system databases are backed up. Only full backups are performed every 12 hours.
+Only `ONLINE` user databases are backup up. 
 
 ## June 2021
 
