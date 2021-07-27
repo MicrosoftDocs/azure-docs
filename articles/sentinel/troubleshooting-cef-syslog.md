@@ -235,7 +235,7 @@ This procedure describes how to verify whether the firewalld process is blocking
         ```
 
 > [!NOTE]
-> To disable the firewall, run: `sudo systemctl stop firewalld`
+> To disable the firewall, run: `sudo systemctl disable firewalld`
 >
 
 ## OMS Agent or Azure-related issues
