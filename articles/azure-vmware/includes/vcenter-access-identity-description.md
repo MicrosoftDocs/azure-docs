@@ -1,8 +1,8 @@
 ---
-title: Request authorization key for ExpressRoute
-description: Steps to request an authorization key for ExpressRoute.
+title: vCenter access and identity description
+description: vCenter has a built-in local user called cloudadmin and assigned to the CloudAdmin role.
 ms.topic: include
-ms.date: 03/15/2021
+ms.date: 07/30/2021
 ---
 
 <!-- used in concepts-run-commands.md and tutorial-configure-identity-source.md -->
