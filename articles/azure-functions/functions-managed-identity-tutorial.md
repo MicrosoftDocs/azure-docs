@@ -1,12 +1,12 @@
 ---
 title: How to configure Azure Functions with identity based connections
 description: Article that shows you how to use identity based connections with Azure Functions instead of connection strings
-ms.topic: conceptual
-ms.date: 3/13/2021
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.topic: article
+ms.date: 7/26/2021
+
 ---
 
-# Creating a function app with Identity Based Connections
+# Tutorial: Creating a function app with Identity Based Connections
 
 This article shows you how to configure a secretless function app using identity based connections instead of connection strings. To learn more about identity based connections, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
 
@@ -19,7 +19,7 @@ In this tutorial, you'll:
 
 ## Create a Function App without Azure Files
 
-You'll create a function app and configure it without Azure Files because Azure Files currently doesn't support managed identity for SMB file shares. For more information on apps without Azure Files, refer [here](./storage-considerations.md#create-an-app-without-azure-files) 
+Azure Files currently doesn't support managed identity for SMB file shares, so you'll create a function app and configure it without Azure Files. For more information on apps without Azure Files, refer [here](./storage-considerations.md#create-an-app-without-azure-files) 
 
 > [!Note]
 > Do not create the Function App until you have edited the ARM template as specified by the steps in this section.
@@ -81,7 +81,7 @@ To make your function app secretless, you will need to enable managed identity. 
 1. In your function app, in the left menu, select **Identity**.
     :::image type="content" source="./media/functions-secretless-tutorial/4-add-system-assigned-id.png" alt-text="Screenshot how to add a system assigned identity.":::
 
-1. Select the **System assigned**.
+1. Select **System assigned**.
 
 1. Switch the **Status** to **On**, and select **Save**.
 
@@ -112,7 +112,6 @@ You'll now deploy a simple timer triggered function to confirm things are config
 1. Create a timer triggered function app in Visual Studio. For steps, follow the steps for creating an HTTP triggered function app in the [Visual Studio quickstart](./functions-create-your-first-function-visual-studio.md#create-a-function-app-project), but create a timer trigger instead.
 
 1. In order to publish a package to the blob, you'll need to manually add the package.
-I right click the project and select publish, but VS doesn't know how to publish a package to blob. I'll need to do that manually. So I select the folder profile and hit publish:
 
 1. Right click the project and select **Publish**. 
     :::image type="content" source="./media/functions-secretless-tutorial/6-publish-app.png" alt-text="Screenshot of how to open the publish an app view in Visual Studio.":::
@@ -122,12 +121,11 @@ I right click the project and select publish, but VS doesn't know how to publish
 1. On the new window, select **Finish**.
 
 1. Select **Publish**.
-    :::image type="content" source="./media/functions-secretless-tutorial/7-publish-button.png" alt-text="Screenshot of how to Publish to files.":::
 
 1. In your directory, zip the published output **bin** folder, **host** file, and **Function** (Timer) folder.
 
 1. In the portal view for your storage account, select **Containers** from the left blade.
-    :::image type="content" source="./media/functions-secretless-tutorial/8-new-store-container.png" alt-text="Screenshot of how to create a new storage container.":::
+    :::image type="content" source="./media/functions-secretless-tutorial/7-new-store-container.png" alt-text="Screenshot of how to create a new storage container.":::
 
 1. Select to create a new **Container**.
 
@@ -136,7 +134,7 @@ I right click the project and select publish, but VS doesn't know how to publish
 1. Select the container you just created.
 
 1. Now, upload your zipped file. Select **Upload**.
-    :::image type="content" source="./media/functions-secretless-tutorial/9-upload-zip.png" alt-text="Screenshot of how to go to upload a package.":::
+    :::image type="content" source="./media/functions-secretless-tutorial/8-upload-zip.png" alt-text="Screenshot of how to go to upload a package.":::
 
 1. In the **Upload blob** blade, select your zipped file, and select **Upload**.
 
@@ -146,7 +144,7 @@ I right click the project and select publish, but VS doesn't know how to publish
 1. Copy the blob url for your published zip file. 
 
 1. In your function app, select **Configurations** from the left blade.
-    :::image type="content" source="./media/functions-secretless-tutorial/11-web-run-from-package.png" alt-text="Screenshot of how to add the run from package app setting.":::
+    :::image type="content" source="./media/functions-secretless-tutorial/10-web-run-from-package.png" alt-text="Screenshot of how to add the run from package app setting.":::
 
 1. Select **New application setting**.
 
@@ -154,13 +152,15 @@ I right click the project and select publish, but VS doesn't know how to publish
 
 1. Select **OK** and **Save**.
 
+## Verify your function app configuration
+
 1. Test your app setup. In your function app, select **Functions** from the left blade.
-    :::image type="content" source="./media/functions-secretless-tutorial/12-timer-test.png" alt-text="Screenshot of how to open the test a timer trigger view.":::
+    :::image type="content" source="./media/functions-secretless-tutorial/11-timer-test.png" alt-text="Screenshot of how to open the test a timer trigger view.":::
 
 1. Select **Timer**
 
 1. In the left blade, go to **Code+Test**.
-    :::image type="content" source="./media/functions-secretless-tutorial/13-test-run.png" alt-text="Screenshot of how to test the timer trigger.":::
+    :::image type="content" source="./media/functions-secretless-tutorial/12-test-run.png" alt-text="Screenshot of how to test the timer trigger.":::
 
 1. Select **Test/Run**, and select **Run** in the blade that opens.
 
@@ -171,7 +171,7 @@ I right click the project and select publish, but VS doesn't know how to publish
 The next step is to switch AzureWebJobsStorage to be secretless. This should already work because the function app has the Storage Blob Data Owner role, and you will just need to update the app setting. 
 
 1. In your function app, in the left menu, select **Configuration**.
-    :::image type="content" source="./media/functions-secretless-tutorial/14-update-azurewebjobsstorage.png" alt-text="Screenshot of how to update the AzureWebJobsStorage app setting.":::
+    :::image type="content" source="./media/functions-secretless-tutorial/13-update-azurewebjobsstorage.png" alt-text="Screenshot of how to update the AzureWebJobsStorage app setting.":::
 
 1. Select the **AzureWebJobsStorage** app setting, and configure it with the below settings.
 
@@ -184,34 +184,23 @@ The next step is to switch AzureWebJobsStorage to be secretless. This should alr
 
 1. Congratulations! You've successfully removed all secrets in your function app by configuring it without Azure Files and using managed identity to load the application content from blob storage using WEBSITE_RUN_FROM_PACKAGE. 
 
-## Update the extension bundle 
-
-**This step applies only to JavaScript, Python, PowerShell and Java.**
-
-Some of the next steps cover using identity based connections for triggers. For .NET users, this involves referencing the new NuGet packages (steps are outlined below). For JavaScript, Python, PowerShell and Java, you don't manage NuGet packages, instead you use an extension bundle. To use identity based connections, you'll need to use the preview extension bundle. To do this, edit your host.json in Visual Studio and configure the extension bundle as follows:
-
-```json
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[3.*, 4.0.0)"
-  }
-```
-
 ## Use Managed Identity to access Key Vault
 
-There's one more key-like setting in your Function App, and that’s your App Insights connection string. This is not technically a secret as it contains the instrumentation key, which is not always protectable. However, you can configure this setting using Key Vault and use managed identity to access it. Steps are in the following [tutorial](./functions-managed-identity-key-vault.md).
+There's one more key-like setting in your Function App, and that’s your App Insights connection string. This is not technically a secret as it contains the instrumentation key. However, you can configure this setting using Key Vault and use managed identity to access it. Steps are in the following [tutorial](./functions-managed-identity-key-vault.md).
 
 ## Use Managed Identity with a Storage Queue Trigger
+For a step by step tutorial of managed identities with a storage queue trigger, continue on to the [Storage Queue Trigger tutorial](./functions-managed-identity-storage-queue.md)
 
 ## Use Managed Identity with a Service Bus Trigger 
+For a step by step tutorial of managed identities with a service bus trigger, continue on to the [Service Bus Trigger tutorial](./functions-managed-identity-service-bus.md)
 
 ## Use Managed Identity for local development
 
-For steps on how to use managed identities with local development, see [the local development section](./functions-managed-identity-storage-queue.md#use-managed-identity-for-local-development) of the managed identity with service bus queue trigger document.
+For steps on how to use managed identities with local development, see [the local development section](./functions-managed-identity-service-bus.md#use-managed-identity-for-local-development) of the managed identity with service bus queue trigger tutorial.
 
 ## Notes on Event Hubs and Blob Trigger
 
-You can follow similar steps for Event Hubs and Blob trigger. Event Hubs follows the same patterns as Service Bus. For Blobs, the functions host uses queues internally to run the blob trigger, so you would need to make sure that the function app has both blob and queue role assignments, for both the account that is configured for AzureWebJobsStorage, and the account that contains the blobs you're triggering on.
+You can follow similar steps for Event Hubs and Blob trigger. Event Hubs follows the same patterns as Service Bus, and you can follow the [Service Bus Trigger tutorial](./functions-managed-identity-service-bus.md). For Blobs, the functions host uses queues internally to run the blob trigger, so you would need to make sure that the function app has both blob and queue role assignments, for both the account that is configured for AzureWebJobsStorage, and the account that contains the blobs you're triggering on. For more information, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
 
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
@@ -236,7 +225,3 @@ Use the following links to learn more Azure Functions networking options and pri
 - [Configuring the account used by Visual Studio for local development](/dotnet/api/azure/identity-readme.md#authenticating-via-visual-studio)
 
 - [Functions documentation for local development](./azure-functions/functions-reference#local-development)
-
-- [Azure SDK blog post about the new extensions](https://devblogs.microsoft.com/azure-sdk/introducing-the-new-azure-function-extension-libraries-beta/)
-
-- [GitHub issue were this scenario is discussed](https://github.com/Azure/azure-functions-host/issues/6423)

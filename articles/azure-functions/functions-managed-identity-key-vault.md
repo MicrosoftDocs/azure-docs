@@ -1,12 +1,12 @@
 ---
-title: How to configure Azure Functions with identity based connections
-description: Article that shows you how to use identity based connections with Azure Functions instead of connection strings
-ms.topic: conceptual
-ms.date: 3/13/2021
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+title: How to configure Azure Functions Application Insights with Key Vault and identity based connections
+description: Article that shows you how to use identity based connections and key vault in place of connection strings for application insights
+ms.topic: article
+ms.date: 7/26/2021
+
 ---
 
-# Use Managed Identity to access Key Vault
+# Tutorial: Use Managed Identity to access Key Vault
 
 This article shows you how to configure App Insights with Key Vault and managed identities. The tutorial is a continuation of the [functions managed identity tutorial](./functions-managed-identity-tutorial.md). To learn more about identity based connections, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
 
@@ -39,7 +39,7 @@ In this tutorial, you'll:
 1. In your Application Insights, select **Overview** on the left blade.
  
 1. Copy the **Connection String**.
-    :::image type="content" source="./media/functions-secretless-tutorial/15-app-insights-connection-string.png" alt-text="Screenshot of how to get the connection string for Application Insights.":::
+    :::image type="content" source="./media/functions-secretless-tutorial/14-app-insights-connection-string.png" alt-text="Screenshot of how to get the connection string for Application Insights.":::
 
 1. In your Key Vault, select **Secrets** from the left blade.
 
@@ -53,7 +53,7 @@ In this tutorial, you'll:
 ## Configure your app to use Azure role-based access control
 
 1. In your Key Vault, select **Access policies** from the left blade.
-    :::image type="content" source="./media/functions-secretless-tutorial/16-role-based-access-control.png" alt-text="Screenshot of how to switch to role-based-access-control.":::
+    :::image type="content" source="./media/functions-secretless-tutorial/15-role-based-access-control.png" alt-text="Screenshot of how to switch to role-based-access-control.":::
 
 1. Select **Azure role-based access control**, and select **Save**. 
 
@@ -71,7 +71,7 @@ In this tutorial, you'll:
     | **Role** | Key Vault Secrets User | The role determines what permissions your managed identity will have. The Key Vault Secrets User will allow your identity to read secret contents. |
 
 1. In your function app, select **Configuration** from the left blade.
-    :::image type="content" source="./media/functions-secretless-tutorial/17-update-appinsights-connection.png" alt-text="Screenshot of how to update the application insights connection string app setting.":::
+    :::image type="content" source="./media/functions-secretless-tutorial/16-update-appinsights-connection.png" alt-text="Screenshot of how to update the application insights connection string app setting.":::
 
 1. Select **APPLICATIONINSIGHTS_CONNECTION_STRING** and replace the **Value** with the Key Vault **SecretURI**. The format should be: `@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/)`. For example, following the steps from this tutorial, the **ServiceURI** would be `@Microsoft.KeyVault(SecretUri=https://identity-app-kv.vault.azure.net/secrets/AppInsights/)`. For more details, go to the [key vault references documentation](../app-service/app-service-key-vault-references.md#reference.syntax).
 
@@ -81,7 +81,7 @@ In this tutorial, you'll:
 
 1. Confirm that you are still receiving data with your new Key Vault reference configuration.
 
-1. Congratulations! You've successfully set up your function app's application insights to use RBAC instead of connection strings. Now, your function app is fully secretless, but it still only has a timer trigger and is not triggered by external sources. Continue to the [storage queue](./functions-managed-identity-storage-queue.md) and [service bus queue](./functions-managed-identity-servicebus-queue.md) tutorials.
+1. Congratulations! You've successfully set up your function app's application insights to use RBAC instead of connection strings. Now, your function app is fully secretless, but it still only has a timer trigger and is not triggered by external sources. Continue to the [storage queue](./functions-managed-identity-storage-queue.md) and [service bus queue](./functions-managed-identity-servicebus-queue.md) tutorials to learn how to use managed identities with external triggers.
 
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
@@ -106,7 +106,3 @@ Use the following links to learn more Azure Functions networking options and pri
 - [Configuring the account used by Visual Studio for local development](/dotnet/api/azure/identity-readme.md#authenticating-via-visual-studio)
 
 - [Functions documentation for local development](./azure-functions/functions-reference#local-development)
-
-- [Azure SDK blog post about the new extensions](https://devblogs.microsoft.com/azure-sdk/introducing-the-new-azure-function-extension-libraries-beta/)
-
-- [GitHub issue were this scenario is discussed](https://github.com/Azure/azure-functions-host/issues/6423)

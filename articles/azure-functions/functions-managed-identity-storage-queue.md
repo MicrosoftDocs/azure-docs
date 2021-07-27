@@ -1,59 +1,185 @@
 ---
-title: How to configure Azure Functions with identity based connections
-description: Article that shows you how to use identity based connections with Azure Functions instead of connection strings
-ms.topic: conceptual
-ms.date: 3/13/2021
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+title: How to configure Azure Functions storage queue with identity based connections
+description: Article that shows you how to use identity based connections with a storage queue instead of connection strings
+ms.topic: article
+ms.date: 7/26/2021
+
 ---
 
-# Using a Storage Queue Trigger with Identity-Based Connections
+# Tutorial: Using a Storage Queue Trigger with Identity-Based Connections
 
-This article shows you how to configure a storage queue trigger to use managed identities instead of secrets. To learn more about identity based connections, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
+This article shows you how to configure a storage queue trigger to use managed identities instead of secrets. To learn more about identity based connections, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection). 
 
 Prerequisite:
 - Complete the [Creating a function app with identity base connections tutorial](./functions-managed-identity-tutorial.md).
 
 In this tutorial, you'll:
-- create a storage queue trigger using managed identities
+- create a storage account and queue
+- configure your function app with a storage queue managed identity
+- deploy a queue triggered function app
+- verify your storage queue with managed identity
 
-## Add a Storage Queue Trigger
+## Create a storage account with a queue
 
-Add a storage queue trigger. A prerequisite of this tutorial is having existing queue data, so I'm going to create a new storage account to represent that. I then go into the role assignments for the function app and add the Storage Queue Data Contributor role for this new storage account:
+The storage account queue will be used by your function app's queue trigger.
 
-![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624644797808.png)
+1. On the Azure portal menu or the **Home** page, select **Create a resource**.
 
-Next, reference the new extensions. For .NET, see the next paragraph. For other languages see the [extension bundle section](#step-5-update-the-extension-bundle) above.
+1. On the **New** page, search for *storage account*. Then select **Create**.
 
-I make sure to update my storage extension to 5.x. This is the new storage extension for functions that uses the newest version of the Azure Storage SDK for .NET. There was a blog post about that here. At the time of writing, the newest version of the library is 5.0.0-beta4:
+1. On the **Basics** tab, use the following table to configure the storage account settings. All other settings can use the default values.
 
-![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624644809684.png)
+    | Setting      | Suggested value  | Description      |
+    | ------------ | ---------------- | ---------------- |
+    | **Subscription** | Your subscription | The subscription under which your resources are created. | 
+    | **[Resource group](../azure-resource-manager/management/overview.md)**  | myResourceGroup | The resource group you created with your function app. |
+    | **Name** | mystorage| The name of the storage account that will be used for the queue trigger. |
+    | **[Region](https://azure.microsoft.com/regions/)** | myFunctionRegion | The region where you created your function app. |
 
+1. Select **Review + create**. After validation finishes, select **Create**.
 
-This queue trigger uses a connection called "QueueConnection", so I need to configure the function app with the account name, similar to what I did above for AzureWebJobsStorage:
+1. Once created, in your storage account, go to **Queues** in the left blade.
 
-![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624644829790.png)
+1. Select **+Queue**, and enter a queue name. For this tutorial, the created queue will be called **queue**.
 
-I'm also using an environment variable for the name of the queue within the account (InputQueueName in the above screenshot), but its just a convenience and not necessary.
+1. Select **OK**.
 
-For every connection that is used as a trigger, I must also add the credential setting that specifies that managed identity is used. So I add a `QueueConnection_credential` setting with value `managedIdentity`.
+1. Congratulations! You've setup the storage account and queue for your queue trigger.
 
-![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624658524131.png)
+## Configure your function app with a storage queue managed identity
 
-A future update to Azure Functions will remove this requirement when using system assigned identities. Once this update is live, simply setting __accountName would be enough.
+Now, you will add the **Storage Queue Data Contributor** Azure role assignment for your queue trigger's storage account. This is required for using managed identities with the queue trigger.
 
-My function app has been updated to have the necessary role to access the queue using managed identity, and its been configured to know what account to access, and it has a queue triggered function that uses the new extension that has support for managed identity. The only remaining step is to publish the changes. I repeat the folder publishing step, zip the content, upload it to storage calling it "queue.zip" and update my run from package URL:
+1. In your function app, select **Identity** from the left blade.
 
-![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624644849689.png)
+1. Select **Azure role assignments** to open the **Azure role assignments** page. 
 
-Now I go to the queue in the portal, and I add a message:
+1. Enter the following settings.
 
-![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624644858600.png)
+    | Setting      | Suggested value  | Description |
+    | ------------ | ---------------- | ----------- |
+    | **Scope** |  Storage |  Scope is a set of resources that the role assignment applies to. Scope has levels that are inherited at lower levels. For example, if you select a subscription scope, the role assignment applies to all resource groups and resources in the subscription. |
+    |**Subscription**| Your subscription | Subscription under which this new function app is created. |
+    |**Resource**| Your queue storage account | The storage account for queue trigger created earlier in this tutorial. |
+    | **Role** | Storage Queue Data Contributor | A role is a collection of permissions. Allows for read, write, and delete access of Azure Storage queues. |
 
-![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624644866344.png)
+1. Select **Save**.
 
-I wait a bit and then refresh and the message has been read:
+1. Your role assignments should look like the below. The **Key Vault Secrets User** was part of the optional tutorial for accessing your application insights key with managed identities.
+    :::image type="content" source="./media/functions-secretless-tutorial/17-confirm-roles-queue.png" alt-text="Screenshot of roles the function app should have.":::
 
-![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624644879341.png)
+1. In your function app, select **Configuration** from the left blade.
+
+    | Setting      | Suggested value  | Description |
+    | ------------ | ---------------- | ----------- |
+    | **QueueConnection__accountName** |  Your storage queue account name |  This tutorial will use a queue trigger with a connection called **QueueConnection**. If you wish to use a connection other than QueueConnection, the setting name would be <YourConnection__accountName>. The value is the name of your storage queue account created earlier in this tutorial. |
+    |**QueueConnection__credential**| managedIdentity | For every connection that is used as a trigger, you will also need to add the credential setting that specifies that managed identity is used. |
+
+1. Select **Save**.
+
+## Deploy a queue triggered function app
+
+1. In Visual Studio, right click on your function app project, select **Add**, and select **New Function**.
+    :::image type="content" source="./media/functions-secretless-tutorial/18-add-function.png" alt-text="Screenshot of how to add a function to an existing function app.":::
+
+1. Select **Azure Function**, name your function, and select **Add**.
+ 
+1. Select **Queue trigger**, and enter the following settings.
+    | Setting      | Suggested value  | Description      |
+    | ------------ | ---------------- | ---------------- |
+    | **Connection string setting name** | QueueConnection | The app setting name for you connection. A connection string won't be used as a managed identity will be configured. For this tutorial, QueueConnection will be used. | 
+    | **Queue name**  | queue | The name of your queue you created for your storage account. This is the queue your function app will trigger off of. |
+
+1. Select **Add** to create your function.
+
+1. Update your extension version to the preview extensions which support identity based connections.
+
+    # [C#](#tab/csharp)
+    
+    1. Visual Studio will automatically add the Storage extension package. Right click this package and select **Remove** as you will need to use the preview version.
+    :::image type="content" source="./media/functions-secretless-tutorial/19-delete-extension.png" alt-text="Screenshot of how to remove a function extension.":::
+
+    1. In Visual Studio, right click dependencies, and select **Manage NuGet Packages**.
+    :::image type="content" source="./media/functions-secretless-tutorial/20-add-preview-package.png" alt-text="Screenshot of how to add a preview package.":::
+    
+    1. Make sure the **include preview** box is checked and search for the package you will be using. 
+    
+    1. For this tutorial, search **Microsoft.Azure.Webjobs.Extensions.Storage**. For a list of preview versions and nuget packets of the extensions visit [the documentation on configuring an identity-based connection](./functions-reference.md#configure-an-identity-based-connection).
+
+    1. Select the extension and verify you are using the latest version of the preview nuget package.
+
+    1. Select **Install**
+    
+    # [C# Script](#tab/csharp-script)
+    
+    1. Visual Studio will automatically add the Storage extension package. Right click this package and select **Remove** as you will need to use the preview version.
+    :::image type="content" source="./media/functions-secretless-tutorial/19-delete-extension.png" alt-text="Screenshot of how to remove a function extension.":::
+
+    1. In Visual Studio, right click dependencies, and select **Manage NuGet Packages**.
+    :::image type="content" source="./media/functions-secretless-tutorial/20-add-preview-package.png" alt-text="Screenshot of how to add a preview package.":::
+
+    1. Make sure the **include preview** box is checked and search for the package you will be using. 
+    
+    1. For this tutorial, search **Microsoft.Azure.Webjobs.Extensions.Storage**. For a list of preview versions and nuget packets of the extensions visit [the documentation on configuring an identity-based connection](./functions-reference.md#configure-an-identity-based-connection).
+
+    1. Select the extension and verify you are using the latest version of the preview nuget package.
+
+    1. Select **Install**
+
+    # [JavaScript](#tab/javascript)
+    1. Go to your host.json file
+    
+    1. Update the extension bundle configuration as follows:
+    
+        ```json
+          "extensionBundle": {
+            "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+            "version": "[3.*, 4.0.0)"
+          }
+        ```
+    
+    # [Python](#tab/python)
+    1. Go to your host.json file
+    
+    1. Update the extension bundle configuration as follows:
+    
+        ```json
+          "extensionBundle": {
+            "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+            "version": "[3.*, 4.0.0)"
+          }
+        ```
+    
+    # [Java](#tab/java)
+    1. Go to your host.json file
+    
+    1. Update the extension bundle configuration as follows:
+    
+        ```json
+          "extensionBundle": {
+            "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+            "version": "[3.*, 4.0.0)"
+          }
+        ```
+    ---
+
+1. Now publish your function app. For more specific steps on how to publish your app, follow the deploy a function using run from package section of the [Create a function app with identity based connections](./functions-managed-identity-tutorial.md#deploy-a-function-using-run-from-package) tutorial.
+
+## Test your configuration
+
+1. In your storage account, select **Queues** from the left blade.
+
+1. Select your created queue. In this tutorial, the queue was named **queue**. 
+
+1. Select **Add message**.
+
+1. Enter a **Message text**, and leave the rest as defaults.
+
+1. Select **OK**.
+
+1. Wait a couple of minutes, select **Refresh**. Your message should disappear as it has been read by the queue trigger and dequeued.
+
+1. Congratulations! You've successfully set up your storage queue trigger with managed identity.
 
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
@@ -78,7 +204,3 @@ Use the following links to learn more Azure Functions networking options and pri
 - [Configuring the account used by Visual Studio for local development](/dotnet/api/azure/identity-readme.md#authenticating-via-visual-studio)
 
 - [Functions documentation for local development](./azure-functions/functions-reference#local-development)
-
-- [Azure SDK blog post about the new extensions](https://devblogs.microsoft.com/azure-sdk/introducing-the-new-azure-function-extension-libraries-beta/)
-
-- [GitHub issue were this scenario is discussed](https://github.com/Azure/azure-functions-host/issues/6423)

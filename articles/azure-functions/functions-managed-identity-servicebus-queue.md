@@ -1,6 +1,6 @@
 ---
-title: How to configure Azure Functions with identity based connections
-description: Article that shows you how to use identity based connections with Azure Functions instead of connection strings
+title: How to configure Azure Functions service queue with identity based connections
+description: Article that shows you how to use identity based connections with a service queue instead of connection strings, and how to use managed identities locally.
 ms.topic: conceptual
 ms.date: 3/13/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
@@ -14,57 +14,241 @@ Prerequisite:
 - Complete the [Creating a function app with identity base connections tutorial](./functions-managed-identity-tutorial.md).
 
 In this tutorial, you'll:
-- create a service bus queue trigger using managed identities
-- use managed identities with local development
+- create a service bus namespace and queue
+- configure your function app with a service bus queue managed identity
+- deploy a service bus triggered function app
+- verify your storage queue with managed identity in portal
+- verify your service bus queue with managed identity in a local environment
 
-## Add a Service Bus Queue Trigger
+## Create a service bus and queue
 
-Again I start with role assignments, adding the function app as a Azure Service Bus Data Owner:
+1. On the Azure portal menu or the **Home** page, select **Create a resource**.
 
-![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624644967309.png)
+1. On the **New** page, search for *Service Bus*. Then select **Create**.
 
-I have to configure the function app with the details of the namespace. My connection is going to be called ServiceBusConnection so I add a ServiceBusConnection__fullyQualifiedNamespace setting:
+1. On the **Basics** tab, use the following table to configure the Service Bus settings. All other settings can use the default values.
 
-![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624645004512.png)
+    | Setting      | Suggested value  | Description      |
+    | ------------ | ---------------- | ---------------- |
+    | **Subscription** | Your subscription | The subscription under which your resources are created. |
+    | **[Resource group](../azure-resource-manager/management/overview.md)**  | myResourceGroup | The resource group you created with your function app. |
+    | **Namespace name** | myServiceBus | The name of the Service Bus that your function app will trigger off of. |
+    | **[Location](https://azure.microsoft.com/regions/)** | myFunctionRegion | The region where you created your function app. |
+    | **Pricing tier** | Basic | The basic Service Bus tier. |
 
-For every connection that is used as a trigger, I must also add the credential setting that specifies that managed identity is used. So I add a `ServiceBusConnection_credential` setting with value `managedIdentity`.
+1. Select **Review + create**. After validation finishes, select **Create**.
 
-![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624659002007.png)
+1. Once created, in your Service Bus, select **Queues** from the left blade.
 
-I add a service bus queue triggered function, again making sure to use the newest extension which is Microsoft.Azure.WebJobs.Extensions.ServiceBus version 5.0.0-beta4 at time of writing:
+1. Select **Queue**. For the purposes of this tutorial, provide the name *queue* as the name of the new queue.
 
-![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624645067952.png)
+1. Select **Create**.
 
-I go through similar publish steps as before. Here's my appsettings now:
+## Configure your function app with a service bus managed identity
 
-![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624645077874.png)
+Now, you will add the **Azure Service Bus Data Owner** role assignment for your function app. This is required for using managed identities with the service bus trigger.
 
+1. In your service bus, select **Access Control (IAM)** from the left blade.
+    :::image type="content" source="./media/functions-secretless-tutorial/21-service-bus-IAM.png" alt-text="Screenshot of how to add a service bus IAM.":::
+
+1. Select **Add role assignment (Preview)** to open the **Azure role assignments** page. 
+
+1. On the **Role** tab, select **Azure Service Bus Data Owner**.
+
+1. On the **Members** tab, select **Managed Identity**, and **+Select members**.
+    :::image type="content" source="./media/functions-secretless-tutorial/22-add-service-bus-managed-identity.png" alt-text="Screenshot of how to add a function to an existing function app.":::
+
+1. In the **Select managed identities** blade, configure with the following settings.
+    | Setting      | Suggested value  | Description |
+    | ------------ | ---------------- | ----------- |
+    | **System-assigned app type** | Function App | Type of resource for the managed identity. |
+    |**Subscription**| Your subscription | Subscription the managed identity is being created in. |
+    |**Select**| N/A | Leave this field blank. |
+
+1. Select your managed identity function app, and select **Select**.
+
+1. On the **Review + assign** tab, select **Review + assign**.
+
+1. Your role assignments should look like the below. The **Key Vault Secrets User** was part of the optional tutorial for accessing your application insights key with managed identities, and **Storage Queue Data Contributor** was part of the storage queue tutorial.
+    :::image type="content" source="./media/functions-secretless-tutorial/23-confirm-roles-service-bus.png" alt-text="Screenshot of roles the function app should have after configuring service bus.":::
+
+1. In your function app, select **Configuration** from the left blade.
+
+    | Setting      | Suggested value  | Description |
+    | ------------ | ---------------- | ----------- |
+    | **ServiceBusConnection__fullyQualifiedNamespace** | <YourServiceBusName>.servicebus.windows.net | This tutorial will use a service trigger with a connection called **ServiceBusConnection**. If you wish to use a connection other than ServiceBusConnection, the setting name would be <YourConnection__fullyQualifiedNamespace>. The value uses the name of your service account created earlier in this tutorial.. |
+    |**ServiceBusConnection__credential**| managedIdentity | For every connection that is used as a trigger, you will also need to add the credential setting that specifies that managed identity is used. |
+
+1. Select **Save**.
+
+## Deploy a service bus triggered function app
+
+1. In Visual Studio, right click on your function app project, select **Add**, and select **New Function**.
+    :::image type="content" source="./media/functions-secretless-tutorial/21-add-function.png" alt-text="Screenshot of how to add a function to an existing function app.":::
+
+1. Select **Azure Function**, name your function, and select **Add**.
+ 
+1. Select **Service Bus Queue trigger**, and enter the following settings.
+    | Setting      | Suggested value  | Description      |
+    | ------------ | ---------------- | ---------------- |
+    | **Connection string setting name** | ServiceBusConnection | The app setting name for you connection. A connection string won't be used as a managed identity will be configured. For this tutorial, ServiceBusConnection will be used. | 
+    | **Queue name**  | queue | The name of your queue you created for your storage account. This is the queue your function app will trigger off of. |
+
+1. Select **Add** to create your function.
+
+1. Update your extension version to the preview extensions which support identity based connections.
+
+    # [C#](#tab/csharp)
+    
+    1. Visual Studio will automatically add the Service Bus extension package. Right click this package and select **Remove** as you will need to use the preview version.
+
+    1. In Visual Studio, right click dependencies, and select **Manage NuGet Packages**.
+    :::image type="content" source="./media/functions-secretless-tutorial/20-add-preview-package.png" alt-text="Screenshot of how to add a preview package.":::
+
+    1. Make sure the **include preview** box is checked and search for the package you will be using. 
+    
+    1. For this tutorial, search **Microsoft.Azure.Webjobs.Extensions.ServiceBus**. For a list of preview versions and nuget packets of the extensions visit [the documentation on configuring an identity-based connection](./functions-reference.md#configure-an-identity-based-connection).
+
+    1. Select the extension and verify you are using the latest version of the preview nuget package.
+
+    1. Select **Install**
+    
+    # [C# Script](#tab/csharp-script)
+    
+    1. Visual Studio will automatically add the Service Bus extension package. Right click this package and select **Remove** as you will need to use the preview version.
+
+    1. In Visual Studio, right click dependencies, and select **Manage NuGet Packages**.
+    :::image type="content" source="./media/functions-secretless-tutorial/20-add-preview-package.png" alt-text="Screenshot of how to add a preview package.":::
+
+    1. Make sure the **include preview** box is checked and search for the package you will be using. 
+    
+    1. For this tutorial, search **Microsoft.Azure.Webjobs.Extensions.ServiceBus**. For a list of preview versions and nuget packets of the extensions visit [the documentation on configuring an identity-based connection](./functions-reference.md#configure-an-identity-based-connection).
+
+    1. Select the extension and verify you are using the latest version of the preview nuget package.
+
+    1. Select **Install**
+    
+    # [JavaScript](#tab/javascript)
+    1. Go to your host.json file
+    
+    1. Update the extension bundle configuration as follows:
+    
+        ```json
+          "extensionBundle": {
+            "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+            "version": "[3.*, 4.0.0)"
+          }
+        ```
+    
+    # [Python](#tab/python)
+    1. Go to your host.json file
+    
+    1. Update the extension bundle configuration as follows:
+    
+        ```json
+          "extensionBundle": {
+            "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+            "version": "[3.*, 4.0.0)"
+          }
+        ```
+    
+    # [Java](#tab/java)
+    1. Go to your host.json file
+    
+    1. Update the extension bundle configuration as follows:
+    
+        ```json
+          "extensionBundle": {
+            "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+            "version": "[3.*, 4.0.0)"
+          }
+        ```
+    ---
+
+1. Now publish your function app. For more specific steps on how to publish your app, follow the deploy a function using run from package section of the [Create a function app with identity based connections](./functions-managed-identity-tutorial.md#deploy-a-function-using-run-from-package) tutorial.
+
+## Test your Service Bus Configuration
+
+1. In your application insights, select **Live Metrics** from the left blade.
+
+1. Keeping the previous tab open, in your Service Bus, select **Queues** from the left blade.
+
+1. Select your queue.
+
+1. Select **Service Bus Explorer** from the left blade.
+
+1. Send a test message.
+
+1. Select your open **Live Metrics** tab and see the Service Bus Queue execution.
+
+1. Congratulations! You have successfully set up your service bus queue trigger with managed identities!
 
 ## Use Managed Identity for local development
 
-To test the service bus trigger I added above, I need to drop a message in the service bus queue, but the portal won't let me do that. There are plenty of other ways to write a message to a service bus queue, but this seems like a good opportunity to try using managed identity locally. First I go into VS and make sure that its configured to use my account:
+An alternative way to test the service bus trigger is to use managed identities locally to drop a message in the service bus queue and trigger your function.
 
-![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624645133535.png)
+1. Verify that your Visual Studio is configured to use your account.
 
-Next I go into the portal and give myself the Azure Service Bus Data Owner role - the same as what I did for my function app above:
-![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624645150828.png)
+1. In the Visual Studio search bar, type **Options** and select the result.
 
-Now I make a separate function app that is going to host a HTTP triggered function that uses an output binding to write to the queue. Again, making sure to use the newest extension package:
-![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624645164664.png)
+1. In the **Options** menu, select **Azure Service Authentication**, and **Account Selection** to make sure your account is used. 
+    :::image type="content" source="./media/functions-secretless-tutorial/24-confirm-visual-studio-account.png" alt-text="Screenshot of the account used by visual studio.":::
 
-I modify my local.settings.json so that my local environment knows which namespace and queue the message has to be written to:
+### Configure your account with a service bus managed identity
 
-![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624645198975.png)
+Now, you will add the **Azure Service Bus Data Owner** role assignment for your function app. This is required for using managed identities with the service bus trigger.
 
-I then set this function app as my startup project and hit F5. It outputs the URL for my function, and I call it using my browser:
+1. In your service bus, select **Access Control (IAM)** from the left blade.
 
-![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624645244319.png)
+1. Select **Add role assignment (Preview)** to open the **Azure role assignments** page. 
 
-Without configuring any connection string, my local debug session is able to write the message to the queue, and then I check app insights and I see my function ran and picked up the message:
+1. On the **Role** tab, select **Azure Service Bus Data Owner**.
 
-![image](https://gist.github.com/paulbatum/c301e8ca07b2561db91030a1566383fa/raw/images---Fri_Jun_25_2021_1624645272006.png)
+1. On the **Members** tab, select **User, group, or service principal**, and **+Select members**.
 
-This concludes the walkthrough.
+1. Search for your account, and select **Select**.
+
+1. On the **Review + assign** tab, select **Review + assign**.
+
+### Create a new HTTP triggered function app
+
+1. In Visual Studio, create a new function app project.
+
+1. Select **Azure Function**, name your function, and select **Add**.
+ 
+1. Select **HTTP trigger**, and provide an **Authorization Level** of **Function**.
+
+1. Select **Create** to create your function.
+
+1. Add a Service Bus output trigger to your HTTP function using the code below.
+
+    ```csharp
+    public static async Task<IActionResult> Run(
+        [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
+        [ServiceBus("queue", Connection = "ServiceBusConnection")] IAsyncCollector<string> message,
+        ILogger log)
+    {
+        log.LogInformation("C# HTTP trigger function processed a request.");
+        string msg = req.Query["msg"];
+        await message.AddAsync(msg);
+        return new OkResult();
+    }
+    ```
+
+1. In your `local.settings.json`, configure your environment so it knows which namespace the message will be written from. This should be the same as the connection you created earlier and follow the format of `"ServiceBusConnection__fullyQualifiedNamespace": "<YourServiceBusName>.servicebus.windows.net"`.
+
+1. Update your Service Bus extension to the preview versions by following the steps from [earlier in the tutorial](#deploy-a-service-bus-triggered-function-app).
+
+1. Hit F5 to run the function. 
+
+1. In your browser, go to application insights for your function app, and select **Live Metrics** from the left blade. 
+
+1. In another tab in your browser, enter the HTTP trigger url. Example url: `http://localhost:7071/api/Function1?msg=test`
+
+1. Select your open **Live Metrics** tab and see the Service Bus Queue execution.
+    :::image type="content" source="./media/functions-secretless-tutorial/25-live-metrics-triggered.png" alt-text="Screenshot of the trigger message from the service bus.":::
+
+1. Congratulations! You have locally tested your service bus managed identity.
 
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
@@ -89,7 +273,3 @@ Use the following links to learn more Azure Functions networking options and pri
 - [Configuring the account used by Visual Studio for local development](/dotnet/api/azure/identity-readme.md#authenticating-via-visual-studio)
 
 - [Functions documentation for local development](./azure-functions/functions-reference#local-development)
-
-- [Azure SDK blog post about the new extensions](https://devblogs.microsoft.com/azure-sdk/introducing-the-new-azure-function-extension-libraries-beta/)
-
-- [GitHub issue were this scenario is discussed](https://github.com/Azure/azure-functions-host/issues/6423)
