@@ -1,0 +1,141 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+    },
+    "variables": {
+		"vmRgName":"[resourceGroup().name]",
+        "vmRgName2": "[resourceGroup().tags['Organization Hierarchy']]",     
+       "vmRgName3": "[resourceGroup().tags['env']]",
+		"backupFabric": "Azure",
+        "v2VmType": "Microsoft.Compute/virtualMachines",
+        "v2VmContainer": "iaasvmcontainer;iaasvmcontainerv2;",
+        "v2Vm": "vm;iaasvmcontainerv2;",
+        "vaultName": "[concat('Vault-',variables('vmRgName3'),'-',replace(variables('vmRgName2'),'.','-'),'-1')]"
+	},
+    "resources": [
+        {
+            "type": "Microsoft.RecoveryServices/vaults",
+            "apiVersion": "2021-03-01",
+            "name": "[variables('vaultName')]",
+            "location": "westeurope",
+            "sku": {
+                "name": "RS0",
+                "tier": "Standard"
+            },
+            "properties": {}
+        },
+        {
+            "type": "Microsoft.RecoveryServices/vaults/backupPolicies",
+            "apiVersion": "2021-03-01",
+            "name": "[concat(variables('vaultName'), '/VM-Pool-01')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.RecoveryServices/vaults', variables('vaultName'))]"
+            ],
+            "properties": {
+                "backupManagementType": "AzureIaasVM",
+                "instantRPDetails": {
+                    "azureBackupRGNamePrefix": "[variables('vmRgName')]"
+                },
+                "schedulePolicy": {
+                    "schedulePolicyType": "SimpleSchedulePolicy",
+                    "scheduleRunFrequency": "Daily",
+                    "scheduleRunTimes": [
+                        "2021-05-17T21:00:00Z"
+                    ],
+                    "scheduleWeeklyFrequency": 0
+                },
+                "retentionPolicy": {
+                    "retentionPolicyType": "LongTermRetentionPolicy",
+                    "dailySchedule": {
+                        "retentionTimes": [
+                            "2021-05-17T21:00:00Z"
+                        ],
+                        "retentionDuration": {
+                            "count": 14,
+                            "durationType": "Days"
+                        }
+                    }
+                },
+                "instantRpRetentionRangeInDays": 2,
+                "timeZone": "W. Europe Standard Time",
+                "protectedItemsCount": 0
+            }
+        },
+		  {
+            "type": "Microsoft.RecoveryServices/vaults/backupPolicies",
+            "apiVersion": "2021-03-01",
+            "name": "[concat(variables('vaultName'), '/VM-Pool-02')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.RecoveryServices/vaults', variables('vaultName'))]"
+            ],
+            "properties": {
+                "backupManagementType": "AzureIaasVM",
+                "instantRPDetails": {
+                    "azureBackupRGNamePrefix": "[variables('vmRgName')]"
+                },
+                "schedulePolicy": {
+                    "schedulePolicyType": "SimpleSchedulePolicy",
+                    "scheduleRunFrequency": "Daily",
+                    "scheduleRunTimes": [
+                        "2021-05-17T23:00:00Z"
+                    ],
+                    "scheduleWeeklyFrequency": 0
+                },
+                "retentionPolicy": {
+                    "retentionPolicyType": "LongTermRetentionPolicy",
+                    "dailySchedule": {
+                        "retentionTimes": [
+                            "2021-05-17T23:00:00Z"
+                        ],
+                        "retentionDuration": {
+                            "count": 14,
+                            "durationType": "Days"
+                        }
+                    }
+                },
+                "instantRpRetentionRangeInDays": 2,
+                "timeZone": "W. Europe Standard Time",
+                "protectedItemsCount": 0
+            }
+        },
+          {
+            "type": "Microsoft.RecoveryServices/vaults/backupPolicies",
+            "apiVersion": "2021-03-01",
+            "name": "[concat(variables('vaultName'), '/VM-Pool-03')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.RecoveryServices/vaults', variables('vaultName'))]"
+            ],
+            "properties": {
+                "backupManagementType": "AzureIaasVM",
+                "instantRPDetails": {
+                    "azureBackupRGNamePrefix": "[variables('vmRgName')]"
+                },
+                "schedulePolicy": {
+                    "schedulePolicyType": "SimpleSchedulePolicy",
+                    "scheduleRunFrequency": "Daily",
+                    "scheduleRunTimes": [
+                        "2021-05-17T05:00:00Z"
+                    ],
+                    "scheduleWeeklyFrequency": 0
+                },
+                "retentionPolicy": {
+                    "retentionPolicyType": "LongTermRetentionPolicy",
+                    "dailySchedule": {
+                        "retentionTimes": [
+                            "2021-05-17T05:00:00Z"
+                        ],
+                        "retentionDuration": {
+                            "count": 14,
+                            "durationType": "Days"
+                        }
+                    }
+                },
+                "instantRpRetentionRangeInDays": 2,
+                "timeZone": "W. Europe Standard Time",
+                "protectedItemsCount": 0
+            }
+        }
+
+    ]
+}
