@@ -39,6 +39,9 @@ For example, you can enter the GB of daily data you expect to ingest in Azure Se
 - Azure Sentinel data analysis 
 - Log Analytics data retention 
 
+> [!NOTE]
+> The costs shown in this image are for example purposes only. They're not intended to reflect actual costs.
+
 :::image type="content" source="media/billing/pricing-calculator.png" alt-text="Example showing estimated cost in the Azure pricing calculator." lightbox="media/billing/pricing-calculator.png" :::
 
 ## Understand the full billing model for Azure Sentinel
@@ -157,6 +160,9 @@ The following table lists the free data sources you can enable in Azure Sentinel
 
 For data connectors that include both free and paid data types, you can select which data types you want to enable.
 
+> [!NOTE]
+> The costs shown in this image are for example purposes only. They're not intended to reflect actual costs.
+
 ![Screenshot showing the Data connector page for MCAS, with the free Security Alerts selected and the paid MCASShadowITReporting not selected.](media/billing/data-types.png)
 
 For more information about free and paid data sources and connectors, see [Connect data sources](connect-data-sources.md).
@@ -201,7 +207,6 @@ For example, to see charts of your daily costs for a certain time frame:
 1. Select the drop-down caret next to **Granularity** and select **Daily**.
 
 > [!NOTE]
-> The costs shown in this image are for example purposes only. They're not intended to reflect actual costs.
 > Azure Sentinel data ingestion volumes appear under **Security Insights** in some portal Usage Charts.
 
 The Azure Sentinel pricing tiers don't include Log Analytics charges. To change your pricing tier commitment for Log Analytics, see [Changing pricing tier](../azure-monitor/logs/manage-cost-storage.md#changing-pricing-tier).
@@ -211,6 +216,9 @@ The Azure Sentinel pricing tiers don't include Log Analytics charges. To change 
 In Log Analytics, you can enable a daily volume cap that limits the daily ingestion for your workspace. The daily cap can help you manage unexpected increases in data volume, stay within your limit, and limit unplanned charges.
 
 To define a daily volume cap, select **Usage and estimated costs** in the left navigation of your Log Analytics workspace, and then select **Daily cap**. Select **On**, enter a daily volume cap amount, and then select **OK**.
+
+> [!NOTE]
+> The costs shown in this image are for example purposes only. They're not intended to reflect actual costs.
 
 ![Screenshot showing the Usage and estimated costs screen and the Daily cap window.](media/billing/daily-cap.png)
 
@@ -266,6 +274,9 @@ The [Windows Security Events connector](connect-windows-security-events.md?tabs=
 Data collection rules enable you to manage collection settings at scale, while still allowing unique, scoped configurations for subsets of machines. For more information, see [Configure data collection for the Azure Monitor agent](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md).
 
 Besides for the predefined sets of events that you can select to ingest, such as All events, Minimal, or Common, data collection rules enable you to build custom filters and select specific events to ingest. The Azure Monitor Agent uses these rules to filter the data at the source, and then ingest only the events you've selected, while leaving everything else behind. Selecting specific events to ingest can help you optimize your costs and save more.
+
+> [!NOTE]
+> The costs shown in this image are for example purposes only. They're not intended to reflect actual costs.
 
 ![Screenshot showing a Cost Management + Billing Cost analysis screen.](media/billing/cost-management.png)
 
@@ -342,6 +353,10 @@ In Log Analytics, you can enable a daily volume cap that limits the daily ingest
 
 To define a daily volume cap, select **Usage and estimated costs** in the left navigation of your Log Analytics workspace, and then select **Daily cap**. Select **On**, enter a daily volume cap amount, and then select **OK**.
 
+> [!NOTE]
+> The costs shown in this image are for example purposes only. They're not intended to reflect actual costs.
+
+
 ![Screenshot showing the Usage and estimated costs screen and the Daily cap window.](media/billing/daily-cap.png)
 
 The **Usage and estimated costs** screen also shows your ingested data volume trend in the past 31 days, and the total retained data volume.
@@ -368,6 +383,10 @@ You can increase your Commitment Tier anytime, which restarts the 31-day commitm
 To see your current Azure Sentinel pricing tier, select **Settings** in the Azure Sentinel left navigation, and then select the **Pricing** tab. Your current pricing tier is marked **Current tier**.
 
 To change your pricing tier commitment, select one of the other tiers on the pricing page, and then select **Apply**. You must have **Contributor** or **Owner** role in Azure Sentinel to change the pricing tier.
+
+> [!NOTE]
+> The costs shown in this image are for example purposes only. They're not intended to reflect actual costs.
+
 
 ![Screenshot showing the Pricing page in Azure Sentinel Settings, with Pay-As-You-Go indicated as the current pricing tier.](media/billing/pricing.png)
 
