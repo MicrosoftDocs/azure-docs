@@ -97,7 +97,7 @@ If setting multiple approvers, approval completes as soon as one of them approve
 
     ![Select a user or group pane to select approvers](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
-1. Select at least one user and then click **Select**. Select at least one approver. There are no default approvers.
+1. Select at least one user and then click **Select**. Select at least one approver. If no specific approvers are selected, privileged role administrators/global administrators will become the default approvers.
 
     Your selections will appear in the list of selected approvers.
 

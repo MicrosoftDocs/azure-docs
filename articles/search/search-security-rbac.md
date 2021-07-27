@@ -61,9 +61,9 @@ Azure resources have the concept of [control plane and data plane](../azure-reso
 
 ## Configure Search for data plane authentication
 
-If you are using any of the preview data plane roles (Search Index Data Contributor or Search Index Data Reader) and Azure AD authentication, your search service must be configured to recognize an **authorization** header on data requests that provides an OAuth2 access token. This section provides instructions for configuring your search service.
+If you are using any of the preview data plane roles (Search Index Data Contributor or Search Index Data Reader) and Azure AD authentication, your search service must be configured to recognize an **authorization** header on data requests that provide an OAuth2 access token. This section explains how to configure your search service. If you are using control plane roles (Owner, Contributor, Reader), you can skip this step.
 
-Before you start, [sign up](https://aka.ms/azure-cognitive-search/rbac-preview) for the RBAC preview. Your subscription must be enrolled into the program before you can use this feature. It can take up to two business days for preview enrollment. You'll receive an email when your service is ready.
+Before you start, [sign up](https://aka.ms/azure-cognitive-search/rbac-preview) for the RBAC preview. Your subscription must be enrolled into the program before you can use this feature. It can take up to two business days to process enrollment requests. You'll receive an email when your service is ready.
 
 ### [**Azure portal**](#tab/config-svc-portal)
 
@@ -73,7 +73,7 @@ Before you start, [sign up](https://aka.ms/azure-cognitive-search/rbac-preview) 
 
 1. Select **Keys** in the left navigation pane.
 
-1. Choose an **API access control** mechanism. If you don't see these options, make sure you are enrolled and that you used the URL from the first step.
+1. Choose an **API access control** mechanism. If you don't see these options, check the portal URL. If you can't save your selection, there is an issue with subscription enrollment. 
 
    | Option | Status | Description |
    |--------|--------|-------------|
