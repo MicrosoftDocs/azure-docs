@@ -29,7 +29,7 @@ Models for Azure Digital Twins are defined using the Digital Twins Definition La
 
 You can view the full language specs for DTDL in GitHub: [Digital Twins Definition Language (DTDL) - Version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
-DTDL is based on JSON-LD and is programming-language independent. DTDL is not exclusive to Azure Digital Twins, but is also used to represent device data in other IoT services such as [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). Azure Digital Twins uses DTDL **version 2** (use of DTDL version 1 with Azure Digital Twins has now been deprecated). 
+DTDL is based on JSON-LD and is programming-language independent. DTDL is not exclusive to Azure Digital Twins, but is also used to represent device data in other IoT services such as [IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md). Azure Digital Twins uses DTDL **version 2** (use of DTDL version 1 with Azure Digital Twins has now been deprecated). 
 
 The rest of this article summarizes how the language is used in Azure Digital Twins.
 
@@ -228,7 +228,7 @@ This section describes the current set of samples in more detail.
 
 ### Model uploader 
 
-Once you are finished creating, extending, or selecting your models, you can upload them to your Azure Digital Twins instance to make them available for use in your solution. This is done using the [Azure Digital Twins APIs](concepts-apis-sdks.md), as described in [How-to: Manage DTDL models](how-to-manage-model.md#upload-models).
+Once you are finished creating, extending, or selecting your models, you can upload them to your Azure Digital Twins instance to make them available for use in your solution. This is done using the [Azure Digital Twins APIs](concepts-apis-sdks.md), as described in [Manage DTDL models](how-to-manage-model.md#upload-models).
 
 However, if you have many models to upload—or if they have many interdependencies that would make ordering individual uploads complicated—you can use the [Azure Digital Twins Model Uploader sample](https://github.com/Azure/opendigitaltwins-tools/tree/master/ADTTools#uploadmodels) to upload many models at once. Follow the instructions provided with the sample to configure and use this project to upload models into your own instance.
 
@@ -238,9 +238,9 @@ Once you have uploaded models into your Azure Digital Twins instance, you can vi
 
 ## Next steps
 
-* Learn about creating models based on industry-standard ontologies: [Concepts: What is an ontology?](concepts-ontologies.md)
+* Learn about creating models based on industry-standard ontologies: [What is an ontology?](concepts-ontologies.md)
 
-* Dive deeper into managing models with API operations: [How-to: Manage DTDL models](how-to-manage-model.md)
+* Dive deeper into managing models with API operations: [Manage DTDL models](how-to-manage-model.md)
 
-* Learn about how models are used to create digital twins: [Concepts: Digital twins and the twin graph](concepts-twins-graph.md)
+* Learn about how models are used to create digital twins: [Digital twins and the twin graph](concepts-twins-graph.md)
 
