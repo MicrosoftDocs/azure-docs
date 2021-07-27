@@ -40,7 +40,7 @@ You are getting an error in the connectivity check on the appliance.
 
 **Remediation**
 
-1. Ensure that you can connect to the required [URLs](/azure/migrate/migrate-appliance#url-access) from the appliance
+1. Ensure that you can connect to the required [URLs](/azure/migrate/migrate-appliance#url-access) from the appliance.
 1. Check if there is a proxy or firewall blocking access to these URLs. If you are required to create an allowlist, make sure that you include all of the URLs.
 1. If there is a proxy server configured on-premises, make sure that you provide the proxy details correctly by selecting **Setup proxy** in the same step. Make sure that you provide the authorization credentials if the proxy needs them.
 1. Ensure that the server has not been previously used to set up the [replication appliance](/azure/migrate/migrate-replication-appliance) or that you have the mobility service agent installed on the server.
@@ -97,7 +97,8 @@ An error about time synchronization indicates that the server clock might be out
 
 ## Getting project key related error during appliance registration
 
-**Error**
+**Error** 
+
 You are having issues when you try to register the appliance using the Azure Migrate project key copied from the project.
 
 **Remediation**
@@ -109,13 +110,14 @@ You are having issues when you try to register the appliance using the Azure Mig
 
 **Error**
 
-After a successful login with an Azure user account, the appliance registration step fails with the message, "Failed to connect to the Azure Migrate project. Check the error detail and follow the remediation steps by clicking Retry"**.
+After a successful login with an Azure user account, the appliance registration step fails with the message, **"Failed to connect to the Azure Migrate project. Check the error detail and follow the remediation steps by clicking Retry"**.
 
-This issue happens when the Azure user account that was used to log in from the appliance configuration manager is different from the user account that was used to generate the Azure Migrate project key on the portal. 
+This issue happens when the Azure user account that was used to log in from the appliance configuration manager is different from the user account that was used to generate the Azure Migrate project key on the portal.
 
 **Remediation**
-1. To complete the registration of the appliance, use the same Azure user account that generated the Azure Migrate project key on the portal OR
-2. Assign the required roles and [permissions](/azure/migrate/tutorial-prepare-vmware#prepare-azure) to the other Azure user account being used for appliance registration
+1. To complete the registration of the appliance, use the same Azure user account that generated the Azure Migrate project key on the portal 
+   OR
+1. Assign the required roles and [permissions](/azure/migrate/tutorial-prepare-vmware#prepare-azure) to the other Azure user account being used for appliance registration
 
 ## "Azure Active Directory (AAD) operation failed with status Forbidden" during appliance registration
 
