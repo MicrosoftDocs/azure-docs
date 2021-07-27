@@ -405,6 +405,6 @@ Now that you have learned how to control access IoT Hub, you may be interested i
 
 If you would like to try out some of the concepts described in this article, see the following IoT Hub tutorials:
 
-* [Get started with Azure IoT Hub](quickstart-send-telemetry-node.md)
+* [Get started with Azure IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs)
 * [How to send cloud-to-device messages with IoT Hub](iot-hub-csharp-csharp-c2d.md)
 * [How to process IoT Hub device-to-cloud messages](tutorial-routing.md)

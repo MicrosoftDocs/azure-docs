@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/25/2021
+ms.date: 02/26/2021
 ms.author: alkohli
 ms.custom: devx-track-azurepowershell
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device. I want to use APIs so that I can efficiently manage my VMs.
@@ -17,7 +17,7 @@ ms.custom: devx-track-azurepowershell
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to create and manage a virtual machine (VM) on your Azure Stack Edge device by using Azure PowerShell. The information applies to Azure Stack Edge Pro with GPU (graphical processing unit), Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices.
+This article describes how to create and manage a virtual machine (VM) on your Azure Stack Edge device by using Azure PowerShell.
 
 ## VM deployment workflow
 
@@ -26,7 +26,7 @@ The high-level deployment workflow of the VM deployment is as follows:
 1. Connect to the local Azure Resource Manager of your device.
 1. Identify the built-in subscription on the device.
 1. Bring your VM image.
-1. Create a resource group in the built-in subscription. The resource group will contain the VM and all the related resources.
+1. Create a resource group in the built-in subscription. The resource group will contain the VM and all the related resources.  
 1. Create a local storage account on the device to store the VHD that will be used to create a VM image.
 1. Upload a Windows/Linux source image into the storage account to create a managed disk.
 1. Use the managed disk to create a VM image.

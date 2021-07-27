@@ -1035,7 +1035,7 @@ To install the software:
 
 ## Legacy appliances
 
-This section describes installation procedures for appliances supported by Azure Defender for IoT, but that are **outdated**. It is **not recommended** to purchase these appliances.
+This section describes installation procedures for *legacy* appliances only. See [Identify required appliances](how-to-identify-required-appliances.md#identify-required-appliances), if you are buying a new appliance.
 
 ### Nuvo 5006LP installation
 
