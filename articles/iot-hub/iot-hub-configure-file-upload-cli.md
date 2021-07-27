@@ -223,4 +223,4 @@ az iot hub update --name {your iot hub name} \
 * [Upload files from a device overview](iot-hub-devguide-file-upload.md)
 * [IoT Hub support for managed identities](./iot-hub-managed-identity.md)
 * [File upload how-to guides](./iot-hub-csharp-csharp-file-upload.md)
-* Azure CLI [az iot hub update](/cli/azure/iot/hub#az_iot_hub_update) and [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) commands
+* Azure CLI [az iot hub update](/cli/azure/iot/hub#az_iot_hub_update), [az iot hub identity show](/cli/azure/iot/hub/identity#az_iot_hub_identity_show), and [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) commands
