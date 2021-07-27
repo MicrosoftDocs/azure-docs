@@ -18,7 +18,7 @@ Language detection can detect the language an input text is written in and repor
 
 This documentation contains the following types of articles:
 
-* [How-to guides](how-to-call.md) contain instructions for using the service in more specific or customized ways.
+* [How-to guides](how-to/call-api.md) contain instructions for using the service in more specific or customized ways.
 
 ## Responsible AI 
 
