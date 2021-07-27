@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 06/14/2021
+ms.date: 08/01/2021
 ms.author: b-juche
 ---
 # Create a dual-protocol volume for Azure NetApp Files
@@ -62,7 +62,6 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
 
 * If you have large topologies, and you use the `Unix` security style with a dual-protocol volume or LDAP with extended groups, Azure NetApp Files might not be able to access all servers in your topologies.  If this situation occurs, contact your account team for assistance.  <!-- NFSAAS-15123 --> 
 * You don't need a server root CA certificate for creating a dual-protocol volume. It is required only if LDAP over TLS is enabled.
-
 
 ## Create a dual-protocol volume
 
@@ -125,6 +124,22 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
         - The length must not exceed 80 characters.
 
     * Specify the **versions** to use for dual protocol: **NFSv4.1 and SMB**, or **NFSv3 and SMB**.
+
+        The feature to use NFSv4.1 and SMB dual protocol is currently in preview. If you are using this feature for the first time, you need to register the feature:  
+
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFDualProtocolNFSv4AndSMB
+        ```
+
+        Check the status of the feature registration: 
+
+        > [!NOTE]
+        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
+
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFDualProtocolNFSv4AndSMB
+        ```
+        You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
     * Specify the **Security Style** to use: NTFS (default) or UNIX.
 
