@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.custom: subject-cost-optimization
 ms.topic: how-to
-ms.date: 07/11/2021
+ms.date: 07/27/2021
 
 ---
 
@@ -27,9 +27,7 @@ Costs for Azure Sentinel are only a portion of the monthly costs in your Azure b
 
     For information about assigning access to Azure Cost Management data, see [Assign access to data](../cost-management/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
-- Azure Sentinel requires an Azure Monitor Log Analytics workspace to store its data for analysis. When enabled on a Log Analytics workspace, Azure Sentinel automatically analyzes all the data that workspace ingests, and bills on the volume of data that workspace ingests and stores.
-
-- You must have details about your data sources. Azure Sentinel gets its data from one or more data sources. Some of these data sources are free, and others incur charges. For more information, see [Free data sources](#free-data-sources).
+- You must have details about your data sources. Azure Sentinel allows you to bring in data from one or more data sources. Some of these data sources are free, and others incur charges. For more information, see [Free data sources](#free-data-sources).
 
 ## Estimate costs before using Azure Sentinel
 
