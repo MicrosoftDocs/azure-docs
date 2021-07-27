@@ -31,7 +31,7 @@ if (tableResult.RequestCharge.HasValue) // would be false when using Azure Stora
 }
 ```
 
-For more information, see [Quickstart: Build a Table API app by using the .NET SDK and Azure Cosmos DB](create-table-dotnet.md).
+For more information, see [Quickstart: Build a Table API app by using the .NET SDK and Azure Cosmos DB](table/create-table-dotnet.md).
 
 ## Next steps
 

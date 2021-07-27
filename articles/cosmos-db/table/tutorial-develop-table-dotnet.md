@@ -29,7 +29,7 @@ You need the following to complete this sample successfully:
 
 * [Microsoft Azure CosmosDB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) - This library is currently available for .NET Standard and .NET framework. 
 
-* [Azure Cosmos DB Table API account](create-table-dotnet.md#create-a-database-account).
+* [Azure Cosmos DB Table API account](table/create-table-dotnet.md#create-a-database-account).
 
 ## Create an Azure Cosmos DB Table API account
 
@@ -173,4 +173,4 @@ Now you can sign into the Azure portal and verify that the data exists in the ta
 You can now proceed to the next tutorial and learn how to migrate data to Azure Cosmos DB Table API account. 
 
 > [!div class="nextstepaction"]
->[Migrate data to Azure Cosmos DB Table API](../cosmos-db/table-import.md)
+>[Migrate data to Azure Cosmos DB Table API](../cosmos-db/table/table-import.md)

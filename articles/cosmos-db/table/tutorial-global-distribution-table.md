@@ -16,7 +16,7 @@ This article covers the following tasks:
 
 > [!div class="checklist"]
 > * Configure global distribution using the Azure portal
-> * Configure global distribution using the [Table API](table-introduction.md)
+> * Configure global distribution using the [Table API](table/introduction.md)
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](includes/cosmos-db-tutorial-global-distribution-portal.md)]
 

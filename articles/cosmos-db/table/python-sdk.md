@@ -14,11 +14,11 @@ ms.author: akshanka
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 > [!div class="op_single_selector"]
-> * [.NET](table-sdk-dotnet.md)
-> * [.NET Standard](table-sdk-dotnet-standard.md)
-> * [Java](table-sdk-java.md)
-> * [Node.js](table-sdk-nodejs.md)
-> * [Python](table-sdk-python.md)
+> * [.NET](table/dotnet-sdk.md)
+> * [.NET Standard](table/dotnet-standard-sdk.md)
+> * [Java](table/java-sdk.md)
+> * [Node.js](table/nodejs-sdk.md)
+> * [Python](table/python-sdk.md)
  
 
 |   | Links  |
@@ -30,7 +30,7 @@ ms.author: akshanka
 |**Current supported platform**|[Python 2.7](https://www.python.org/downloads/) or [Python 3.6+](https://www.python.org/downloads/)|
 
 > [!IMPORTANT]
-> If you created a Table API account during the preview, please create a [new Table API account](create-table-dotnet.md#create-a-database-account) to work with the generally available Table API SDKs.
+> If you created a Table API account during the preview, please create a [new Table API account](table/create-table-dotnet.md#create-a-database-account) to work with the generally available Table API SDKs.
 >
 
 ## Release notes

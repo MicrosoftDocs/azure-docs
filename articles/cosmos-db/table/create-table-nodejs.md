@@ -14,10 +14,10 @@ ms.custom: devx-track-js
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 > [!div class="op_single_selector"]
-> * [.NET](create-table-dotnet.md)
-> * [Java](create-table-java.md)
-> * [Node.js](create-table-nodejs.md)
-> * [Python](./table-storage-how-to-use-python.md)
+> * [.NET](table/create-table-dotnet.md)
+> * [Java](table/create-table-java.md)
+> * [Node.js](table/create-table-nodejs.md)
+> * [Python](./table/how-to-use-python.md)
 > 
 
 In this quickstart, you create an Azure Cosmos DB Table API account, and use Data Explorer and a Node.js app cloned from GitHub to create tables and entities. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
@@ -67,7 +67,7 @@ Now let's clone a Table app from GitHub, set the connection string, and run it. 
     ```
 
 > [!TIP]
-> For a more detailed walkthrough of similar code, see the [Cosmos DB Table API sample](table-storage-how-to-use-nodejs.md) article. 
+> For a more detailed walkthrough of similar code, see the [Cosmos DB Table API sample](table/how-to-use-nodejs.md) article. 
 
 ## Review the code
 
@@ -185,4 +185,4 @@ You've now updated your app with all the info it needs to communicate with Azure
 In this quickstart, you learned how to create an Azure Cosmos DB account, create a table using the Data Explorer, and run a Node.js app to add table data.  Now you can query your data using the Table API.  
 
 > [!div class="nextstepaction"]
-> [Import table data to the Table API](table-import.md)
+> [Import table data to the Table API](table/table-import.md)

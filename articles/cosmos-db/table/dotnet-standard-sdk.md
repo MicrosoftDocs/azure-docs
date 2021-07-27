@@ -15,18 +15,18 @@ ms.custom: devx-track-dotnet
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 > [!div class="op_single_selector"]
 > 
-> * [.NET](table-sdk-dotnet.md)
-> * [.NET Standard](table-sdk-dotnet-standard.md)
-> * [Java](table-sdk-java.md)
-> * [Node.js](table-sdk-nodejs.md)
-> * [Python](table-sdk-python.md)
+> * [.NET](table/dotnet-sdk.md)
+> * [.NET Standard](table/dotnet-standard-sdk.md)
+> * [Java](table/java-sdk.md)
+> * [Node.js](table/nodejs-sdk.md)
+> * [Python](table/python-sdk.md)
 
 |   | Links  |
 |---|---|
 |**SDK download**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)|
 |**Sample**|[Cosmos DB Table API .NET Sample](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
-|**Quickstart**|[Quickstart](create-table-dotnet.md)|
-|**Tutorial**|[Tutorial](tutorial-develop-table-dotnet.md)|
+|**Quickstart**|[Quickstart](table/create-table-dotnet.md)|
+|**Tutorial**|[Tutorial](table/tutorial-develop-table-dotnet.md)|
 |**Current supported framework**|[Microsoft .NET Standard 2.0](https://www.nuget.org/packages/NETStandard.Library)|
 |**Report Issue**|[Report Issue](https://github.com/Azure/azure-cosmos-table-dotnet/issues)|
 
@@ -86,7 +86,7 @@ ms.custom: devx-track-dotnet
    > Some functionalities in previous Azure Storage Table SDKs are not yet supported, such as client-side encryption.
 
 ### <a name="0.9.1-preview"></a>0.9.1-preview
-* Azure Cosmos DB Table .NET Standard SDK is a cross-platform .NET library that provides efficient access to the Table data model on Cosmos DB. This initial release supports the full set of Table and Entity CRUD + Query functionalities with similar APIs as the [Cosmos DB Table SDK For .NET Framework](table-sdk-dotnet.md). 
+* Azure Cosmos DB Table .NET Standard SDK is a cross-platform .NET library that provides efficient access to the Table data model on Cosmos DB. This initial release supports the full set of Table and Entity CRUD + Query functionalities with similar APIs as the [Cosmos DB Table SDK For .NET Framework](table/dotnet-sdk.md). 
    > [!NOTE]
    >  Azure Storage Table endpoints are not yet supported in the 0.9.1-preview version.
 
@@ -121,4 +121,4 @@ This cross-platform .NET Standard library [Microsoft.Azure.Cosmos.Table](https:/
 [!INCLUDE [cosmos-db-sdk-faq](includes/cosmos-db-sdk-faq.md)]
 
 ## See also
-To learn more about the Azure Cosmos DB Table API, see [Introduction to Azure Cosmos DB Table API](table-introduction.md).
+To learn more about the Azure Cosmos DB Table API, see [Introduction to Azure Cosmos DB Table API](table/introduction.md).

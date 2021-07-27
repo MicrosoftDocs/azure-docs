@@ -506,7 +506,7 @@ For Visual Studio Community Edition, if your project gets build errors because o
 
 Follow these links to learn more about Azure Storage and the Table API in Azure Cosmos DB:
 
-* [Introduction to the Table API](table-introduction.md)
+* [Introduction to the Table API](table/introduction.md)
 * [List Azure Storage resources in C++](../storage/common/storage-c-plus-plus-enumeration.md)
 * [Storage Client Library for C++ reference](https://azure.github.io/azure-storage-cpp)
 * [Azure Storage documentation](https://azure.microsoft.com/documentation/services/storage/)

@@ -16,13 +16,13 @@ ms.custom: devx-track-csharp
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 > [!div class="op_single_selector"]
-> * [.NET](create-table-dotnet.md)
-> * [Java](create-table-java.md)
-> * [Node.js](create-table-nodejs.md)
-> * [Python](./table-storage-how-to-use-python.md)
+> * [.NET](table/create-table-dotnet.md)
+> * [Java](table/create-table-java.md)
+> * [Node.js](table/create-table-nodejs.md)
+> * [Python](./table/how-to-use-python.md)
 >  
 
-This quickstart shows how to use .NET and the Azure Cosmos DB [Table API](table-introduction.md) to build an app by cloning an example from GitHub. This quickstart also shows you how to create an Azure Cosmos DB account and how to use Data Explorer to create tables and entities in the web-based Azure portal.
+This quickstart shows how to use .NET and the Azure Cosmos DB [Table API](table/introduction.md) to build an app by cloning an example from GitHub. This quickstart also shows you how to create an Azure Cosmos DB account and how to use Data Explorer to create tables and entities in the web-based Azure portal.
 
 ## Prerequisites
 
@@ -65,7 +65,7 @@ Now let's clone a Table app from GitHub, set the connection string, and run it. 
    ```
 
 > [!TIP]
-> For a more detailed walkthrough of similar code, see the [Cosmos DB Table API sample](./tutorial-develop-table-dotnet.md) article.
+> For a more detailed walkthrough of similar code, see the [Cosmos DB Table API sample](./table/tutorial-develop-table-dotnet.md) article.
 
 ## Open the sample application in Visual Studio
 
@@ -177,4 +177,4 @@ You've now updated your app with all the info it needs to communicate with Azure
 In this quickstart, you've learned how to create an Azure Cosmos DB account, create a table using the Data Explorer, and run an app.  Now you can query your data using the Table API.  
 
 > [!div class="nextstepaction"]
-> [Import table data to the Table API](table-import.md)
+> [Import table data to the Table API](table/table-import.md)

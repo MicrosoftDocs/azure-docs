@@ -13,7 +13,7 @@ title: Frequently asked questions about the Table API in Azure Cosmos DB
 summary: |
   [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
   
-  The Azure Cosmos DB Table API is available in the [Azure portal](https://portal.azure.com) First you must sign up for an Azure subscription. After you've signed up, you can add an Azure Cosmos DB Table API account to your Azure subscription, and then add tables to your account. You can find the supported languages and associated quick-starts in the [Introduction to Azure Cosmos DB Table API](table-introduction.md).
+  The Azure Cosmos DB Table API is available in the [Azure portal](https://portal.azure.com) First you must sign up for an Azure subscription. After you've signed up, you can add an Azure Cosmos DB Table API account to your Azure subscription, and then add tables to your account. You can find the supported languages and associated quick-starts in the [Introduction to Azure Cosmos DB Table API](table/introduction.md).
   
 
 sections:
@@ -71,7 +71,7 @@ sections:
       - question: |
           Do I need a new SDK to use the Table API?
         answer: |
-          No, existing storage SDKs should still work. However, it's recommended that one always gets the latest SDKs for the best support and in many cases superior performance. See the list of available languages in the [Introduction to Azure Cosmos DB Table API](table-introduction.md).
+          No, existing storage SDKs should still work. However, it's recommended that one always gets the latest SDKs for the best support and in many cases superior performance. See the list of available languages in the [Introduction to Azure Cosmos DB Table API](table/introduction.md).
           
       - question: |
           What is the connection string that I need to use to connect to the Table API?
@@ -87,7 +87,7 @@ sections:
       - question: |
           How do I override the config settings for the request options in the .NET SDK for the Table API?
         answer: |
-          Some settings are handled on the CreateCloudTableClient method and other via the app.config in the appSettings section in the client application. For information about config settings, see [Azure Cosmos DB capabilities](tutorial-develop-table-dotnet.md).
+          Some settings are handled on the CreateCloudTableClient method and other via the app.config in the appSettings section in the client application. For information about config settings, see [Azure Cosmos DB capabilities](table/tutorial-develop-table-dotnet.md).
           
       - question: |
           Are there any changes for customers who are using the existing Azure Table storage SDKs?
@@ -200,7 +200,7 @@ sections:
         answer: |
           The Table API leverages the globally distributed platform of Azure Cosmos DB. To ensure that your application can tolerate datacenter downtime, enable at least one more region for the account in the Azure Cosmos DB portal [Developing with multi-region Azure Cosmos DB accounts](high-availability.md). You can set the priority of the region by using the portal [Developing with multi-region Azure Cosmos DB accounts](high-availability.md).
           
-          You can add as many regions as you want for the account and control where it can fail over to by providing a failover priority. To use the database, you need to provide an application there too. When you do so, your customers won't experience downtime. The [latest .NET client SDK](table-sdk-dotnet.md) is auto homing but the other SDKs aren't. That is, it can detect the region that's down and automatically fail over to the new region.
+          You can add as many regions as you want for the account and control where it can fail over to by providing a failover priority. To use the database, you need to provide an application there too. When you do so, your customers won't experience downtime. The [latest .NET client SDK](table/dotnet-sdk.md) is auto homing but the other SDKs aren't. That is, it can detect the region that's down and automatically fail over to the new region.
           
       - question: |
           Is the Table API enabled for backups?
@@ -341,5 +341,5 @@ additionalContent: |
 
   ## Next steps
   
-  * [Build a Table API app with .NET SDK and Azure Cosmos DB](create-table-dotnet.md)
-  * [Build a Java app to manage Azure Cosmos DB Table API data](create-table-java.md)
+  * [Build a Table API app with .NET SDK and Azure Cosmos DB](table/create-table-dotnet.md)
+  * [Build a Java app to manage Azure Cosmos DB Table API data](table/create-table-java.md)
