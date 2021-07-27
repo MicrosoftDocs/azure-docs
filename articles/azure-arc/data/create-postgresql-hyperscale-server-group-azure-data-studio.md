@@ -19,25 +19,6 @@ This document walks you through the steps for using Azure Data Studio to provisi
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## Connect to the Azure Arc data controller
-
-Before you can create an instance, log in to the Azure Arc data controller if you are not already logged in.
-
-```console
-az login
-```
-
-You will then be prompted for the namespace where the data controller is created, the username, and password to log in to the controller.
-
-> If you need to validate the namespace, you can run ```kubectl get pods -A``` to get a list of all the namespaces on the cluster.
-
-```console
-Username: arcadmin
-Password:
-Namespace: arc
-Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting active context to `arc`
-```
-
 ## Preliminary and temporary step for OpenShift users only
 
 Implement this step before moving to the next step. To deploy PostgreSQL Hyperscale server group onto Red Hat OpenShift in a project other than the default, you need to execute the following commands against your cluster to update the security constraints. This command grants the necessary privileges to the service accounts that will run your PostgreSQL Hyperscale server group. The security context constraint (SCC) **_arc-data-scc_** is the one you added when you deployed the Azure Arc data controller.

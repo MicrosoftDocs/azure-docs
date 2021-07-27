@@ -52,20 +52,6 @@ Install Azure Data Studio, `kubectl`, and Azure (`az`) CLI with the `arcdata` ex
 
 Make sure that these tools can be invoked from anywhere on this client machine. For example, on a Windows client machine, update the PATH system environment variable and add the folder in which you installed kubectl.
 
-### Sign in with [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
-
-Sign in your Arc Data Controller from this client machine and before you launch Azure Data Studio. To do this, run a command like:
-
-```console
-az login --endpoint https://<IP address>:<port>
-```
-
-Replace `<IP address>` with the IP address of your Kubernetes cluster, and `<port>` the port on which Kubernetes is listening. You will be prompted for user name and password. To see more details, run:_
-
-```console
-az login --help
-```
-
 ### Log into your Kubernetes cluster with kubectl
 
 To do this, you may want to use the example commands provided in [this](https://blog.christianposta.com/kubernetes/logging-into-a-kubernetes-cluster-with-kubectl/) blog post.

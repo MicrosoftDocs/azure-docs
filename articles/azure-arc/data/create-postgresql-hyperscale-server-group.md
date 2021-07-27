@@ -30,25 +30,6 @@ There are important topics you may want read before you proceed with creation:
 If you prefer to try out things without provisioning a full environment yourself, get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM.
 
 
-## Login to the Azure Arc data controller
-
-Before you can create an instance, you must first login to the Azure Arc data controller. If you are already logged in into the data controller, you can skip this step.
-
-```console
-az login
-```
-
-You will then be prompted for the username, password, and the system namespace.  
-
-> If you used the script to create the data controller then your namespace should be **arc**
-
-```console
-Namespace: arc
-Username: arcadmin
-Password:
-Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting active context to `arc`
-```
-
 ## Preliminary and temporary step for OpenShift users only
 Implement this step before moving to the next step. To deploy PostgreSQL Hyperscale server group onto Red Hat OpenShift in a project other than the default, you need to execute the following commands against your cluster to update the security constraints. This command grants the necessary privileges to the service accounts that will run your PostgreSQL Hyperscale server group. The security context constraint (SCC) arc-data-scc is the one you added when you deployed the Azure Arc data controller.
 
