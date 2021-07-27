@@ -163,7 +163,7 @@ Once the Playbook is configured, you'll have to just edit the existing rule and 
 
 ## Next Steps
 
-- Because no rule is perfect, if needed you can update the rule query to exclude false positives. For more information, see [Handle false positives in Azure Sentinel](../en-us/azure/sentinel/false-positives.md)
+- Because no rule is perfect, if needed you can update the rule query to exclude false positives. For more information, see [Handle false positives in Azure Sentinel](../sentinel/false-positives.md)
 
 - To help with data analysis and creation of rich visual reports, choose and download from a gallery of expertly created workbooks that surface insights based on your data. [These workbooks](https://github.com/azure-ad-b2c/siem#workbooks) can be easily customized to your needs.
 
