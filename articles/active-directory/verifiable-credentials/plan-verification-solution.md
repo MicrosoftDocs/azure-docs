@@ -78,7 +78,7 @@ The relying party web frontend uses the Azure AD VC APIs or SDK to verify VCs by
 
 #### Business logic 
 
-You can create new logic or use existing logic that is specific to the relying party, and enhance that logic with the presentation of VCs.
+You can create new logic or use existing logic that is specific to the relying party and enhance that logic with the presentation of VCs.
 
 ## Scenario-specific designs
 
@@ -110,13 +110,13 @@ Verifiable credentials can also be used to enable faster onboarding by replacing
 
 * **VC Attribute correlation with backend systems**: When defining the attributes of the VC with the issuer, establish a mechanism to correlate information in the backend system after the user presents the VC. This typically uses a time-bound, unique identifier in the context of your RP in combination with the claims you receive. Some examples:
 
-   * **New employee**: When the HR workflow reaches the point where identity proofing is required, the RP can generate a link with a time-bound unique identifier and send it to the candidate’s email address on the HR system. This unique identifier should be sufficient to correlate information such as Firstname, LastName from the VC verification request to the HR record or underlying data. The attributes in the VC can be used to complete user attributes in the HR system, or to validate accuracy of user attributes about the employee.
+   * **New employee**: When the HR workflow reaches the point where identity proofing is required, the RP can generate a link with a time-bound unique identifier and send it to the candidate’s email address on the HR system. This unique identifier should be sufficient to correlate information such as firstName, lastName from the VC verification request to the HR record or underlying data. The attributes in the VC can be used to complete user attributes in the HR system, or to validate accuracy of user attributes about the employee.
 
    * **External identities** - invitation: When an existing user in your organization invites an external user to be onboarded in the target system, the RP can generate a link with a unique identifier that represents the invitation transaction and sends it to the external user’s email address. This unique identifier should be sufficient to correlate the VC verification request to the invitation record or underlying data and continue the provisioning workflow. The attributes in the VC can be used to validate or complete the external user attributes.
 
    * **External identities** – self-service: When external identities sign up to the target system through self-service (for example, a B2C application) the attributes in the VC can be used to populate the initial attributes of the user account. The VC attributes can also be used to find out if a profile already exists.
 
-* **Interaction with target identity systems**: The service-to-service communication between the web front end and your target identity systems needs to be secured as a highly privileged system, because it can create accounts. Grant the web front end the least privileged roles possible. Some examples include:
+* **Interaction with target identity systems**: The service-to-service communication between the web front-end and your target identity systems needs to be secured as a highly privileged system, because it can create accounts. Grant the web front end the least privileged roles possible. Some examples include:
 
    * To create a new user in Azure AD, the RP website can use a service principal that is granted the MS Graph scope of User.ReadWrite.All to create users, and the scope UserAuthenticationMethod.ReadWrite.All to reset authentication method
 
@@ -132,7 +132,7 @@ Verifiable credentials can be used as additional proof to access to sensitive ap
 
 #### Additional elements 
 
-**Relying party web frontend**: This is the web frontend of the application that is enhanced through Azure AD Verifiable Credential SDK or API calls for VC presentation and validation, based on your business requirements.
+**Relying party web front-end**: This is the web front-end of the application that is enhanced through Azure AD Verifiable Credential SDK or API calls for VC presentation and validation, based on your business requirements.
 
 **User access authorization logic**: Logic layer in the application that authorizes user access and is enhanced to consume the user attributes inside the VC to make authorization decisions. 
 
@@ -152,7 +152,7 @@ Verifiable credentials can be used as additional proof to access to sensitive ap
 
    * **Step-up authentication**: users start the session with the application with existing authentication mechanisms. Users must present a VC for specific high-value operations within the application such as approvals of business workflows. This is a good fit for scenarios where such high-value operations are easy to identify and update within the application flows.
 
-   * **Session establishment**: Users must present a VC as part of initiating the session with the application. This is a good fit when the nature of the entire application is high-value. 
+   * **Session establishment**: Users must present a VC as part of initiating the session with the application. This is a good fit when the nature of the entire application is high value. 
 
 ### Accessing applications outside organization boundaries
 
@@ -164,7 +164,7 @@ The decentralized nature of verifiable credentials enables this scenario without
 
 #### Additional elements 
 
-**Relying party web frontend**: This is the web frontend of the application that is enhanced through Azure AD Verifiable Credential SDK or API calls for VC presentation and validation, based on your business requirements.
+**Relying party web front-end**: This is the web front-end of the application that is enhanced through Azure AD Verifiable Credential SDK or API calls for VC presentation and validation, based on your business requirements.
 
 **User access authorization logic**: Logic layer in the application that authorizes user access and is enhanced to consume the user attributes inside the VC to make authorization decisions. 
 
@@ -185,7 +185,7 @@ The decentralized nature of verifiable credentials enables this scenario without
 
 ### Account recovery
 
-Verifiable credentials can be used as an approach to account recovery. For example, when a user needs to recover their account they might access a website that requires them to present a VC and initiate an Azure AD credential reset by calling MS Graph APIs as shown in the following diagram.
+Verifiable credentials can be used as an approach to account recovery. For example, when a user needs to recover their account, they might access a website that requires them to present a VC and initiate an Azure AD credential reset by calling MS Graph APIs as shown in the following diagram.
 
 Note: While the scenario we describe in this section is specific to recover Azure AD accounts, this approach can also be used to recover accounts in other systems.
 
@@ -193,7 +193,7 @@ Note: While the scenario we describe in this section is specific to recover Azur
 
 #### Additional Elements
 
-**Account portal**: This is a web front end that orchestrates the API or SDK calls for VC presentation and validation. This orchestration can include Microsoft Graph calls to recover accounts in Azure AD.
+**Account portal**: This is a web front-end that orchestrates the API or SDK calls for VC presentation and validation. This orchestration can include Microsoft Graph calls to recover accounts in Azure AD.
 
 **Custom logic or workflows**: Logic with organization-specific steps before and after updating the user account. This might include approval workflows, additional validations, logging, notifications, etc.
 
@@ -211,7 +211,7 @@ Similarly, you can use a VC to generate a temporary access pass that will allow 
 
 **Authorization**: Create an authorization mechanism such as a security group that the RP checks before proceeding with the credential recovery. For example, only users in specific groups might be eligible to recover an account with a VC.
 
-**Interaction with Azure AD**: The service-to-service communication between the web frontend and Azure AD must be secured as a highly privileged system, because it can reset employees’ credentials. Grant the web frontend the least privileged roles possible. Some examples include:
+**Interaction with Azure AD**: The service-to-service communication between the web frontend and Azure AD must be secured as a highly privileged system because it can reset employees’ credentials. Grant the web frontend the least privileged roles possible. Some examples include:
 
 * Grant the RP website the ability to use a service principal granted the MS Graph scope UserAuthenticationMethod.ReadWrite.All to reset authentication methods. Don’t grant the User.ReadWrite.All, which enables the ability to create and delete users.
 
@@ -253,7 +253,7 @@ You can use information in presented VCs to build a user profile. If you want to
 
    * Define a mechanism to deprovision the user profile from the application. Due to the decentralized nature of the Azure AD Verifiable Credentials system, there is no application user provisioning lifecycle.
 
-   * Do not store personally data claims returned in the VC token.
+   * Do not personally store data claims returned in the VC token.
 
    * Only store claims needed for the logic of the relying party. 
 
@@ -311,19 +311,19 @@ As you plan for operations, we recommend plan that you capture each attempt of c
 
 As part of your operational planning, consider monitoring the following:
 
-* For scalability:
+* **For scalability**:
 
    * Monitor failed VC validation as a part of end-to-end security metrics of applications.
 
    * Monitor end-to-end latency of credential verification.
 
-* For reliability and dependencies:
+* **For reliability and dependencies**:
 
    * Monitor underlying dependencies used by the verification solution. 
 
    * Follow [Azure Key Vault monitoring and alerting](../../key-vault/general/alert.md).
 
-* For security:
+* **For security**:
 
    * Enable logging for Key Vault to track signing operations, as well as to monitor and alert on configuration changes. Refer to [How to enable Key Vault logging](../../key-vault/general/howto-logging.md) for more information.
 
@@ -341,9 +341,9 @@ Learn more about architecting VC solutions
 
 Implement Verifiable Credentials
 
-[Introduction to Azure Active Directory Verifiable Credentials](decentralized-identifier-overview.md) 
+   * [Introduction to Azure Active Directory Verifiable Credentials](decentralized-identifier-overview.md) 
 
-[Get started with Verifiable Credentials](get-started-verifiable-credentials.md)
+   * [Get started with Verifiable Credentials](get-started-verifiable-credentials.md)
 
 [FAQs](verifiable-credentials-faq.md)
 
