@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell
 ---
 # Configure active-active S2S VPN connections with Azure VPN Gateways
 
-This article walks you through the steps to create active-active cross-premises and VNet-to-VNet connections using the Resource Manager deployment model and PowerShell. You can also configure an active-active gateway in the Azure portal.
+This article walks you through the steps to create active-active cross-premises and VNet-to-VNet connections using the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) and PowerShell. You can also configure an active-active gateway in the Azure portal.
 
 ## About highly available cross-premises connections
 To achieve high availability for cross-premises and VNet-to-VNet connectivity, you should deploy multiple VPN gateways and establish multiple parallel connections between your networks and Azure. See [Highly Available Cross-Premises and VNet-to-VNet Connectivity](vpn-gateway-highlyavailable.md) for an overview of connectivity options and topology.
