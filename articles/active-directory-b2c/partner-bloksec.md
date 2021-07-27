@@ -25,7 +25,7 @@ zone_pivot_groups: b2c-policy-type
 
 ::: zone-end
 
-In this sample tutorial, learn how to integrate Azure Active Directory (AD) B2C authentication with BlokSec. BlokSec simplifies the end-user login experience by providing  customers with passwordless authentication and tokenless MFA. BlokSec protects customers against identity-centric cyber-attacks such as password stuffing, phishing, and man-in-the-middle attacks.
+In this sample tutorial, learn how to integrate Azure Active Directory (AD) B2C authentication with [BlokSec](https://bloksec.com/). BlokSec simplifies the end-user login experience by providing customers passwordless authentication and tokenless multifactor authentication (MFA). BlokSec protects customers against identity-centric cyber-attacks such as password stuffing, phishing, and man-in-the-middle attacks.
 
 With Azure AD B2C as an identity provider, you can integrate BlokSec with any of your customer applications to provide true passwordless authentication and real-time consent-based authorization to your users.
 
