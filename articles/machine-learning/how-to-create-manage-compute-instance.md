@@ -45,11 +45,11 @@ Compute instances can run jobs securely in a [virtual network environment](how-t
 
 **Time estimate**: Approximately 5 minutes.
 
-Creating a compute instance is a one time process for your workspace. You can reuse the compute as a development workstation or as a compute target for training. You can have multiple compute instances attached to your workspace. Use the [studio](?tab=studio) or a [Resource template](#schedule) to schedule the compute to automatically start and stop. 
+Creating a compute instance is a one time process for your workspace. You can reuse the compute as a development workstation or as a compute target for training. You can have multiple compute instances attached to your workspace. Use the [studio](#create?tab=studio) or a [Resource template](#schedule) to schedule the compute to automatically start and stop. 
 
 The dedicated cores per region per VM family quota and total regional quota, which applies to compute instance creation, is unified and shared with Azure Machine Learning training compute cluster quota. Stopping the compute instance does not release quota to ensure you will be able to restart the compute instance. It is not possible to change the virtual machine size of compute instance once it is created.
 
-The following example demonstrates how to create a compute instance:
+<a name="create"></a> The following example demonstrates how to create a compute instance:
 
 # [Python](#tab/python)
 
