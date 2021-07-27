@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Configure external identity source
 description:  Learn how to configure Active Directory over LDAP or LDAPS for vCenter as an external identity source.
-ms.topic: tutorial Specify name for execution
+ms.topic: tutorial
 ms.date: 08/15/2021
 
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
@@ -44,11 +44,11 @@ You'll run the `Get-ExternalIdentitySources` cmdlet to list all external identit
 
 1. Select **Run command** > **Packages** > **Get-ExternalIdentitySources**.
 
-   :::image type="content" source="media/run-command/run-command-overview.png" alt-text="Screenshot showing " lightbox="media/run-command/run-command-overview.png":::
+   :::image type="content" source="media/run-command/run-command-overview.png" alt-text="Screenshot showing how to access the run commands available." lightbox="media/run-command/run-command-overview.png":::
 
 1. Provided the required values or change the default values, and then select **Run**.
 
-   :::image type="content" source="media/run-command/run-command-get-external-identity-sources.png" alt-text="Screenshot  ":::
+   :::image type="content" source="media/run-command/run-command-get-external-identity-sources.png" alt-text="Screenshot showing how to list external identity source. ":::
    
    | **Field** | **Value** |
    | --- | --- |
