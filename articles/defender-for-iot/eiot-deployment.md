@@ -119,7 +119,7 @@ Learn how to [Onboard a subscription](organizations/how-to-manage-subscriptions.
 
 **To configure an IoTHub**:
 
-1. Navigate to `https://ms.portal.azure.com/?enterpriseiot=true#home`.
+1. Navigate to https://ms.portal.azure.com/?enterpriseiot=true#home.
 
 1. Create a new IoTHub.
 
@@ -164,7 +164,7 @@ Onboard a new sensor for this scenario.
 
 1. Select a subscription.
 
-1. In the Deploy for field, select **An enterprise network**.
+1. In the Deploy for field, select **An enterprise network (Cloud connected)**.
 
     :::image type="content" source="media/eiot-deployment/enterprise-network.png" alt-text="Ensure An enterprise network is selected on your screen.":::
 
@@ -226,7 +226,7 @@ You will need to download a package, and move it, and your activation file to th
 
 1. (Optional) If you are using a proxy, select **Yes**, and enter a server, port, username, and password for the proxy.
 
-    If you are not using a proxy, select **No**,  and wait for the installation to complete.
+1. If you are not using a proxy, select **No**,  and wait for the installation to complete.
 
 ## Validate your setup
 
