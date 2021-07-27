@@ -77,13 +77,13 @@ Follow the below steps.
 
    Run:
 
-   ```console
+   ```azurecli
    az postgres arc-server show -n <server group name>
    ```
 
    For example:
 
-   ```console
+   ```azurecli
    az postgres arc-server show -n postgres01
    ```
 

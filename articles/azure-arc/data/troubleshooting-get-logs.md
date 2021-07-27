@@ -28,7 +28,7 @@ You can get service logs across all pods or specific pods for troubleshooting pu
 
 Run the following command to dump the logs:
 
-   ```console
+   ```azurecli
    az arcdata dc debug copy-logs --namespace <namespace name> --exclude-dumps --skip-compress
    ```
 

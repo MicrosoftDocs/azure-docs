@@ -124,7 +124,7 @@ Within your Arc setup you can use `psql` to connect to your Postgres instance, s
 
 1. List the end points to help from your `psql` connection string:
 
-   ```console
+   ```azurecli
    az postgres arc-server endpoint list -n postgres01
    [
      {

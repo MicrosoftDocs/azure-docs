@@ -164,11 +164,12 @@ If the AZDATA_PASSWORD **session** environment variable exists but has not value
 
 1. Delete the AZDATA_PASSWORD **session** environment variable or delete its value
 2. Run the command:
-   ```console
+
+   ```azurecli
    az postgres arc-server edit --name <server group name> --admin-password
    ```
    For example
-   ```console
+   ```azurecli
    az postgres arc-server edit -n postgres01 --admin-password
    ```
    You will be prompted to enter the password and to confirm it:
@@ -186,11 +187,11 @@ If the AZDATA_PASSWORD **session** environment variable exists but has not value
 #### Change the password of the postgres administrative user using the AZDATA_PASSWORD **session** environment variable:
 1. Set the value of the AZDATA_PASSWORD **session** environment variable to what you want to password to be.
 2. Run the  command:
-   ```console
+   ```azurecli
    az postgres arc-server edit --name <server group name> --admin-password
    ```
    For example
-   ```console
+   ```azurecli
    az postgres arc-server edit -n postgres01 --admin-password
    ```
    

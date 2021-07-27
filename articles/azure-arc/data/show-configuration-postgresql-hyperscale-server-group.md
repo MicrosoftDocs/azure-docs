@@ -155,7 +155,7 @@ Use either of the following commands.
 
 Run the following command. The output shows similar information to what kubectl shows:
 
-   ```console
+   ```azurecli
    az postgres arc-server list
 
    `output
