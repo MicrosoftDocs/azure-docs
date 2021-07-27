@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: uc-msft
 ms.author: umajay
 ms.reviewer: mikeray
-ms.date: 07/13/2021
+ms.date: 07/26/2021
 ms.topic: conceptual
 ---
 
@@ -122,8 +122,17 @@ There are generally two types of storage:
 - **Local storage** - storage provisioned on local hard drives on a given node. This kind of storage can be ideal in terms of performance, but requires specifically designing for data redundancy by replicating the data across multiple nodes.
 - **Remote, shared storage** - storage provisioned on some remote storage device - for example, a SAN, NAS, or cloud storage service like EBS or Azure Files. This kind of storage generally provides for data redundancy automatically, but is not as fast as local storage can be.
 
-> [!NOTE]
-> For now, if you are using NFS, you need to set allowRunAsRoot to true in your deployment profile file before deploying the Azure Arc data controller.
+## NFS based storage classes
+
+Depending on the configuration of your NFS server and storage class provisioner, you may need to set the `supplementalGroups` in the pod configurations for database instances, and you may need to change the NFS server configuration to use the group IDs passed in by the client (as opposed to looking group IDs up on the server using the passed-in user ID). Consult your NFS administrator to determine if this is the case.
+
+The `supplementalGroups` property takes an array of values and can be set as part of the Azure Arc data ontroller deployment and will be used by any database instances configured by the Azure Arc data controller.
+
+To set this property run the following command:
+
+```azurecli
+az arcdata dc config add --path custom/control.json --json-values 'spec.security.supplementalGroups="1234556"'
+```
 
 ### Data controller storage configuration
 
