@@ -146,7 +146,7 @@ In a conda environment created from a YAML file, you'll see this issue only if c
 When setting up your environment, sometimes you'll run into the issue **ModuleNotFoundError: No module named 'distutils.dir_util'**. To fix it, run the following command:
 
 ```bash
-apt-get install -y --no-install-recommends python3 && \
+apt-get install -y --no-install-recommends python3 python3-distutils && \
 ln -sf /usr/bin/python3 /usr/bin/python
 ```
 
@@ -154,7 +154,7 @@ When working with a Dockerfile, run it as part of a RUN command.
 
 ```dockerfile
 RUN apt-get update && \
-  apt-get install -y --no-install-recommends python3 && \
+  apt-get install -y --no-install-recommends python3 python3-distutils && \
   ln -sf /usr/bin/python3 /usr/bin/python
 ```
 
