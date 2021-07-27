@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/26/2021
+ms.date: 07/27/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: "it-pro;seo-update-azuread-jan"
@@ -91,9 +91,9 @@ Here are some additional details about these group settings.
 
 ### Why were the group settings changed?
 
-The previous implementation of the group settings were named **Users can create security groups in Azure portals** and **Users can create Microsoft 365 groups in Azure portals**. The previous settings only controlled group creation in Azure portals and did not apply to API or PowerShell. The new settings control group creation in Azure portals, as well as, API and PowerShell. The new settings are more logical and more secure.
+The previous implementation of the group settings were named **Users can create security groups in Azure portals** and **Users can create Microsoft 365 groups in Azure portals**. The previous settings only controlled group creation in Azure portals and did not apply to API or PowerShell. The new settings control group creation in Azure portals, as well as, API and PowerShell. The new settings are more secure.
 
-In most cases, the default value for the new settings match your previous value and will have no impact on your organization. However, there were a few cases where the default value could not be easily determined because the previous value for Azure portals and the previous value for API and PowerShell did not match. In May 2021, there was a transition period where you could select your preferred default value. Now that the new settings are available, you are required to verify the new settings are configured for your organization.
+The default values for the new settings have been set to your previous API or PowerShell values. There is a possibility that the default values for the new settings are different than your previous values that controlled only the Azure portal behavior. Starting in May 2021, there was a transition period of a few weeks where you could select your preferred default value before the new settings took effect. Now that the new settings have taken effect, you are required to verify the new settings are configured for your organization.
 
 ## Next steps
 
