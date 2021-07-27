@@ -3,8 +3,8 @@ title: Extract text from images
 titleSuffix: Azure Cognitive Search
 description: Process and extract text and other information from images in Azure Cognitive Search pipelines.
 
-author: vkurpad
-ms.author: vikurpad
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019

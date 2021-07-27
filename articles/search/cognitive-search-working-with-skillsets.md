@@ -3,9 +3,8 @@ title: Skillset concepts and workflow
 titleSuffix: Azure Cognitive Search
 description: Skillsets are where you author an AI enrichment pipeline in Azure Cognitive Search. Learn important concepts and details about skillset composition.
 
-manager: nitinme
-author: vkurpad
-ms.author: vikurpad
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/15/2020
@@ -114,7 +113,7 @@ Each skill requires a context. A context determines:
 |Context|Input|Shape of Input|Skill Invocation|
 |-------|-----|--------------|----------------|
 |`/document/countries/*` |`/document/countries/*/states/*/zipcodes/*` |A list of all ZIP codes in the country/region |Once per country/region |
-|`/document/countries/*/states/*` |`/document/countries/*/states/*/zipcodes/*`` |A list of ZIP codes in the state | Once per combination of country/region and state|
+|`/document/countries/*/states/*` |`/document/countries/*/states/*/zipcodes/*` |A list of ZIP codes in the state | Once per combination of country/region and state|
 
 ## Generate enriched data 
 
