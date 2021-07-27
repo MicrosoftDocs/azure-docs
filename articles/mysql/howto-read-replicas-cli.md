@@ -58,7 +58,7 @@ az mysql server replica create --name mydemoreplicaserver --source-server mydemo
 
 > [!NOTE]
 > * The `az mysql server replica create` command has `--sku-name` argument which allows you to specify the sku (`{pricing_tier}_{compute generation}_{vCores}`) while you create a replica using Azure CLI. </br>
-> * The primary server and read replica should have same Edition (General Purpose (GP) or Memory Optimized (MO)). </br>
+> * The primary server and read replica should be on same pricing tier (General Purpose or Memory Optimized). </br>
 > * The replica server configuration can also be changed after it has been created. It is recommended that the replica server's configuration should be kept at equal or greater values than the source to ensure the replica is able to keep up with the master.
 
 
