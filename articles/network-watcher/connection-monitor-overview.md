@@ -275,9 +275,21 @@ To view the trends in RTT and the percentage of failed checks for a test:
 
 Use Log Analytics to create custom views of your monitoring data. All data that the UI displays is from Log Analytics. You can interactively analyze data in the repository. Correlate the data from Agent Health or other solutions that are based in Log Analytics. Export the data to Excel or Power BI, or create a shareable link.
 
+#### Network Topology in Connection Monitor 
+
+Connection Monitor topology is usually built using the result of Trace route command performed by the agent which basically gets all the hops from source to destination.
+However in case when either source/destination lies with in Azure Boundary, Topology is built by merging the results of 2 distinct operations.
+First one is obviously the result of Trace Route command. The 2nd one is the result of an internal command (very similar to Next Hop Diagnostics tool of NW) which identifies a logical route based on (customer) network configuration within Azure Boundary. 
+Since the later one is logical and the former one doesn't usually identify any hops with in Azure Boundary, few hops in the merged result (mostly all the hops in the Azure Boundary) will not have latency values.
+
 #### Metrics in Azure Monitor
 
 In connection monitors that were created before the Connection Monitor experience, all four metrics are available: % Probes Failed, AverageRoundtripMs, ChecksFailedPercent, and RoundTripTimeMs. In connection monitors that were created in the Connection Monitor experience, data is available only for ChecksFailedPercent, RoundTripTimeMs and Test Result metrics.
+
+Metrics are emitted as per monitoring frequency and describe aspect of a connection monitor at a particular time. 
+Connection Monitor metrics also have multiple dimensions such as SourceName, DestinationName, TestConfiguration, TestGroup etc. 
+These dimensions can be used to visualize a specific set of data and also to target the same while defining alerts.
+Currently Azure Metrics allows minimum granularity of 1 minute, If frequency is less than 1 minute, aggregated results will be displayed
 
   :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Screenshot showing metrics in Connection Monitor" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
 

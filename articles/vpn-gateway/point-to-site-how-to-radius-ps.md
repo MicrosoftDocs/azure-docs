@@ -157,7 +157,7 @@ The [Network Policy Server (NPS)](/windows-server/networking/technologies/nps/np
 Configure and create the VPN gateway for your VNet.
 
 * The -GatewayType must be 'Vpn' and the -VpnType must be 'RouteBased'.
-* A VPN gateway can take up to 45 minutes to complete, depending on the [gateway SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku) you select.
+* A VPN gateway can take 45 minutes or more to complete, depending on the [gateway SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku) you select.
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
