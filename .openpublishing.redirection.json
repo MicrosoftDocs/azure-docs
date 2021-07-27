@@ -13465,6 +13465,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-vmware/fix-deployment-provisioning-failures.md",
+      "redirect_url": "/azure/azure-vmware/fix-deployment-failures",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-vmware/windows-server-failover-cluster.md",
       "redirect_url": "/azure/azure-vmware/configure-windows-server-failover-cluster",
       "redirect_document_id": false

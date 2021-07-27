@@ -166,7 +166,7 @@ Here is an example of a relationship formatted as a JSON object:
 
 See how to manage graph elements with Azure Digital Twin APIs:
 * [Manage digital twins](how-to-manage-twin.md)
-* [Manage the twin graph with relationships](how-to-manage-graph.md)
+* [Manage the twin graph and relationships](how-to-manage-graph.md)
 
 Or, learn about querying the Azure Digital Twins twin graph for information:
 * [Query language](concepts-query-language.md)
