@@ -1,11 +1,11 @@
 ---
 title: Troubleshooting Azure Spring Cloud in virtual network
 description: Troubleshooting guide for Azure Spring Cloud virtual network.
-author: mikedodaro
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/19/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
 ---
 

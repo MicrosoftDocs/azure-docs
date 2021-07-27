@@ -5,11 +5,13 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
-ms.date: 8/24/2020
+ms.date: 06/17/2020 
 ms.custom: devx-track-azurepowershell
 ---
 
 # How to create and manage read replicas in Azure Database for MySQL using PowerShell
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 In this article, you learn how to create and manage read replicas in the Azure Database for MySQL
 service using PowerShell. To learn more about read replicas, see the
@@ -42,6 +44,8 @@ If you choose to use PowerShell locally, connect to your Azure account using the
 > The read replica feature is only available for Azure Database for MySQL servers in the General
 > Purpose or Memory Optimized pricing tiers. Ensure the source server is in one of these pricing
 > tiers.
+>
+>If GTID is enabled on a primary server (`gtid_mode` = ON), newly created replicas will also have GTID enabled and use GTID based replication. To learn more refer to [Global transaction identifier (GTID)](concepts-read-replicas.md#global-transaction-identifier-gtid)
 
 ### Create a read replica
 

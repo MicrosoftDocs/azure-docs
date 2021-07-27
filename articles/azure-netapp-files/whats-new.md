@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 06/14/2021
+ms.date: 07/12/2021
 ms.author: b-juche
 ---
 
@@ -22,6 +22,16 @@ ms.author: b-juche
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
 ## June 2021
+
+* [Azure NetApp Files storage service add-ons](storage-service-add-ons.md)
+
+    The new Azure NetApp Files **Storage service add-ons** menu option provides an Azure portal “launching pad” for available third-party, ecosystem add-ons to the Azure NetApp Files storage service. With this new portal menu option, you can enter a landing page by clicking an add-on tile to quickly access the add-on.  
+
+    **NetApp add-ons** is the first category of add-ons introduced under **Storage service add-ons**. It provides access to **NetApp Cloud Compliance**. Clicking the **NetApp Cloud Compliance** tile opens a new browser and directs you to the add-on installation page. 
+
+* [Manual QoS capacity pool](manual-qos-capacity-pool-introduction.md) now generally available (GA)   
+
+    The Manual QoS capacity pool feature is now generally available. You no longer need to register the feature before using it. 
 
 * [Shared AD support for multiple accounts to one Active Directory per region per subscription](create-active-directory-connections.md#shared_ad) (Preview)   
 

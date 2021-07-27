@@ -69,8 +69,6 @@ Here is what the condition looks like in code:
 
 ## Step 2: Set up storage
 
-1. If you haven't already, register your subscription to use blob index tags. For more information, see [Register your subscription (preview)](../blobs/storage-manage-find-blobs.md#register-your-subscription-preview).
-
 1. Create a storage account that is compatible with the blob index tags feature, which is currently in public preview. For more information, see [Manage and find Azure Blob data with blob index tags (preview)](../blobs/storage-manage-find-blobs.md#regional-availability-and-storage-account-support).
 
 1. Create a new container within the storage account and set the Public access level to **Private (no anonymous access)**.

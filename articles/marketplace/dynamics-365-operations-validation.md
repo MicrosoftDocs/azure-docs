@@ -11,7 +11,7 @@ ms.date: 05/19/2021
 
 # Dynamics 365 for Operations functional validation
 
-Publishing a Dynamics 365 for Operations offer in [Partner Center](https://partner.microsoft.com/dashboard/home) requires two functional validations:
+Publishing a Dynamics 365 for Operations offer in [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002) requires two functional validations:
 
 - Upload a demonstration video of the Dynamics 365 environment that shows basic functionality.
 - Present screenshots that demonstrate the solution's [Lifecycle Services](https://lcs.dynamics.com/) (LCS) environment.
@@ -24,7 +24,7 @@ Publishing a Dynamics 365 for Operations offer in [Partner Center](https://partn
 There are two options for functional validation:
 
 - Hold a 30-minute conference call with us during Pacific Standard time (PST) business hours to demonstrate and record the [LCS](https://lcs.dynamics.com/) environment and solution, or
-- In Partner Center, go to [Commercial Marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) > **Overview** and upload a demo video URL and LCS screenshots on the offer's Supplemental Content tab.
+- In Partner Center, go to [Commercial Marketplace](https://go.microsoft.com/fwlink/?linkid=2165290) and upload a demo video URL and LCS screenshots on the offer's Supplemental Content tab.
 
 The Microsoft certification team reviews the video and files, then either approves the solution or emails you about next steps.
 
@@ -65,7 +65,7 @@ To schedule a final review call, contact [appsourceCRM@microsoft.com](mailto:app
 3. Upload to Partner Center.
 
     1. Create a text document that includes the demo video address and screenshots, or save the screenshots as separate JPG files.
-    2. Add the text and images to a .zip file in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) on the offer's **Supplemental content** tab.
+    2. Add the text and images to a .zip file in [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165290) on the offer's **Supplemental content** tab.
 
     [![Shows the project library window](media/dynamics-365-operations/supplemental-content.png)](media/dynamics-365-operations/supplemental-content.png#lightbox)
 

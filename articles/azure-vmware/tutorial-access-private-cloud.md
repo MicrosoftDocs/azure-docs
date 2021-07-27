@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 
 1. In the resource group, select **+ Add** then search and select **Microsoft Windows 10**, and then select **Create**.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss8-azure-w10vm-create.png" alt-text="Screenshot of how to add a new Windows 10 VM for a jump box." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss8-azure-w10vm-create.png" alt-text="Screenshot of how to add a new Windows 10 VM for a jump box.":::
 
 1. Enter the required information in the fields, and then select **Review + create**. 
 
@@ -53,7 +53,7 @@ In this tutorial, you learn how to:
 
    The URLs and user credentials for private cloud vCenter and NSX-T Manager display.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Display private cloud vCenter and NSX Manager URLs and credentials." border="true" lightbox="media/tutorial-access-private-cloud/ss4-display-identity.png":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Screenshot showing the private cloud vCenter and NSX Manager URLs and credentials." lightbox="media/tutorial-access-private-cloud/ss4-display-identity.png":::
 
 1. Navigate to the VM you created in the preceding step and connect to the virtual machine. 
 
@@ -63,13 +63,13 @@ In this tutorial, you learn how to:
 
 1. In the vCenter tab, enter the `cloudadmin@vmcp.local` user credentials from the previous step.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss5-vcenter-login.png" alt-text="Sign in to private cloud vCenter." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss5-vcenter-login.png" alt-text="Screenshot showing the VMware vSphere sign in page." border="true":::
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss6-vsphere-client-home.png" alt-text="vCenter portal." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss6-vsphere-client-home.png" alt-text="Screenshot showing a summary of Cluster-1 in the vSphere Client." border="true":::
 
 1. In the second tab of the browser, sign in to NSX-T manager.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss10-nsx-manager-home.png" alt-text="In the second tab of the browser, sign in to NSX-T manager." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss10-nsx-manager-home.png" alt-text="Screenshot of the NSX-T Manager Overview." border="true":::
 
 
 
@@ -85,5 +85,4 @@ Continue to the next tutorial to learn how to create a virtual network to set up
 
 > [!div class="nextstepaction"]
 > [Create a Virtual Network](tutorial-configure-networking.md)
-
 

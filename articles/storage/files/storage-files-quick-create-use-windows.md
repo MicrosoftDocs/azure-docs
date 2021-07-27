@@ -1,6 +1,6 @@
 ---
-title: Create and use an Azure Files share on Windows VMs
-description: Create and use an Azure Files share in the Azure portal. Connect it to a Windows VM, connect to the Files share, and upload a file to the Files share.
+title: Create and use an Azure file shares on Windows VMs
+description: Create and use an Azure files shares in the Azure portal. Connect it to a Windows VM, connect to the Files share, and upload a file to the Files share.
 author: roygara
 ms.service: storage
 ms.topic: quickstart
@@ -10,11 +10,18 @@ ms.subservice: files
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure file share so I can determine whether I want to subscribe to the service.
 ---
 
-# Quickstart: Create and manage Azure Files share with Windows virtual machines
+# Quickstart: Create and manage Azure file shares with Windows virtual machines
 
 The article demonstrates the basic steps for creating and using an Azure Files share. In this quickstart, the emphasis is on quickly setting up an Azure Files share so you can experience how the service works. If you need more detailed instructions for creating and using Azure file shares in your own environment, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Sign in to Azure
 

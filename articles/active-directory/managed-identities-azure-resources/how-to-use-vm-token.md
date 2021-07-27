@@ -233,7 +233,7 @@ func main() {
       fmt.Println("Error creating URL: ", err)
       return 
     }
-    msi_parameters := url.Values{}
+    msi_parameters := msi_endpoint.Query()
     msi_parameters.Add("resource", "https://management.azure.com/")
     msi_endpoint.RawQuery = msi_parameters.Encode()
     req, err := http.NewRequest("GET", msi_endpoint.String(), nil)

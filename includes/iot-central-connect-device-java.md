@@ -1,7 +1,7 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
 ms.date: 03/31/2021
 ---
@@ -14,7 +14,7 @@ To complete the steps in this article, you need the following resources:
 
 [!INCLUDE [iot-central-prerequisites-basic](iot-central-prerequisites-basic.md)]
 
-- A development machine with Java SE Development Kit 8 or later. You can download the Java 8 (LTS) JDK for multiple platforms from [Download Zulu Builds of OpenJDK](https://www.azul.com/downloads/zulu-community/).
+- A development machine with Java SE Development Kit 8 or later. For more information, see [Install the JDK](/azure/developer/java/fundamentals/java-jdk-install).
 
 - [Apache Maven 3](https://maven.apache.org/download.cgi).
 

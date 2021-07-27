@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sashan, moslake
-ms.date: 06/02/2021
+ms.date: 07/14/2021
 ms.custom: references_regions 
 ---
 # vCore purchase model overview - Azure SQL Database 
@@ -98,9 +98,6 @@ To enable M-series hardware for a subscription and region, a support request mus
 -->
 
 ### DC-series
-
-> [!NOTE]
-> DC-series is currently in **public preview**.
 
 - DC-series hardware uses Intel processors with Software Guard Extensions (Intel SGX) technology.
 - DC-series is required for [Always Encrypted with secure enclaves](/sql/relational-databases/security/encryption/always-encrypted-enclaves), which is not supported with other hardware configurations.
@@ -201,12 +198,16 @@ Approved support requests are typically fulfilled within 5 business days.
 
 #### DC-series
 
-> [!NOTE]
-> DC-series is currently in **public preview**.
-
 DC-series is available in the following regions: Canada Central, Canada East, East US, North Europe, UK South, West Europe, West US.
 
-If you need DC-series in a currently unsupported region, [submit a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) following the instructions in [Request quota increases for Azure SQL Database and SQL Managed Instance](quota-increase-request.md).
+If you need DC-series in a currently unsupported region, [submit a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). On the **Basics** page, provide the following:
+
+1. For **Issue type**, select **Technical**.
+1. For **Service type**, select **SQL Database**.
+1. For **Problem type**, select **Security, Private and Compliance**.
+1. For **Problem subtype**, select **Always Encrypted**.
+
+:::image type="content" source="./media/service-tiers-vcore/request-dc-series.png" alt-text="Request DC-series in a new region" loc-scope="azure-portal":::
 
 ## Next steps
 

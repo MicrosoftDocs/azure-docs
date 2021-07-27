@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/07/2021
+ms.date: 06/21/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -22,7 +22,7 @@ Azure Active Directory B2C [user flows and custom policies](user-flow-overview.m
 ## Terms for features in public preview
 
 - We encourage you to use public preview features for evaluation purposes only.
-- Service level agreements (SLAs) don't apply to public preview features.
+- [Service level agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/active-directory-b2c) don't apply to public preview features.
 - Support requests for public preview features can be submitted through regular support channels.
 
 ## User flows

@@ -21,7 +21,7 @@ This page explains how to configure and manage adaptive network hardening in Sec
 |Release state:|General Availability (GA)|
 |Pricing:|Requires [Azure Defender for servers](defender-for-servers-introduction.md)|
 |Required roles and permissions:|Write permissions on the machine’s NSGs|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National/Sovereign (US Gov, Azure China)|
 |||
 
 ## What is adaptive network hardening?
@@ -35,7 +35,7 @@ For example, let's say the existing NSG rule is to allow traffic from 140.20.30.
 
 1. From Security Center's menu, open the **Azure Defender** dashboard and select the adaptive network hardening tile (1), or the insights panel item related to adaptive network hardening (2). 
 
-    :::image type="content" source="./media/security-center-adaptive-network-hardening/traffic-hardening.png" alt-text="Accessing the adaptive network hardening tools" lightbox="./media/security-center-adaptive-network-hardening/traffic-hardening.png":::
+    :::image type="content" source="./media/security-center-adaptive-network-hardening/traffic-hardening.png" alt-text="Accessing the adaptive network hardening tools." lightbox="./media/security-center-adaptive-network-hardening/traffic-hardening.png":::
 
     > [!TIP]
     > The insights panel shows the percentage of your VMs currently defended with adaptive network hardening. 
@@ -48,7 +48,7 @@ For example, let's say the existing NSG rule is to allow traffic from 140.20.30.
       * **Not enough data is available**: In order to generate accurate traffic hardening recommendations, Security Center requires at least 30 days of traffic data.
       * **VM is not protected by Azure Defender**: Only VMs protected with [Azure Defender for servers](defender-for-servers-introduction.md) are eligible for this feature.
 
-    :::image type="content" source="./media/security-center-adaptive-network-hardening/recommendation-details-page.png" alt-text="Details page of the recommendation Adaptive Network Hardening recommendations should be applied on internet facing virtual machines":::
+    :::image type="content" source="./media/security-center-adaptive-network-hardening/recommendation-details-page.png" alt-text="Details page of the recommendation Adaptive Network Hardening recommendations should be applied on internet facing virtual machines.":::
 
 1. From the **Unhealthy resources** tab, select a VM to view its alerts and the recommended hardening rules to apply.
 
@@ -66,7 +66,7 @@ For example, let's say the existing NSG rule is to allow traffic from 140.20.30.
     > [!TIP]
     > If the allowed source IP ranges shows as 'None', it means that recommended rule is a *deny* rule, otherwise, it is an *allow* rule.
 
-    :::image type="content" source="./media/security-center-adaptive-network-hardening/hardening-alerts.png" alt-text="Managing adaptive network hardening rules":::
+    :::image type="content" source="./media/security-center-adaptive-network-hardening/hardening-alerts.png" alt-text="Managing adaptive network hardening rules.":::
 
       > [!NOTE]
       > The enforced rules are added to the NSG(s) protecting the VM. (A VM could be protected by an NSG that is associated to its NIC, or the subnet in which the VM resides, or both)
@@ -89,18 +89,18 @@ To modify an adaptive network hardening rule:
 
 1. To modify  some of the parameters of a rule, in the **Rules** tab, select on the three dots (...) at the end of the rule's row, and select **Edit**.
 
-   ![Editing s rule](./media/security-center-adaptive-network-hardening/edit-hard-rule.png)
+   ![Editing s rule.](./media/security-center-adaptive-network-hardening/edit-hard-rule.png)
 
 1. In the **Edit rule** window, update the details that you want to change, and select **Save**.
 
    > [!NOTE]
    > After selecting **Save**, you have successfully changed the rule. *However, you have not applied it to the NSG.* To apply it, you must select the rule in the list, and select **Enforce** (as explained in the next step).
 
-   ![Selecting Save](./media/security-center-adaptive-network-hardening/edit-hard-rule3.png)
+   ![Selecting Save.](./media/security-center-adaptive-network-hardening/edit-hard-rule3.png)
 
 3. To apply the updated rule, from the list, select the updated rule and select **Enforce**.
 
-    ![enforce rule](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
+    ![enforce rule.](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
 ## Add a new rule <a name ="add-rule"> </a>
 
@@ -113,7 +113,7 @@ To add an adaptive network hardening rule:
 
 1. From the top toolbar, select **Add rule**.
 
-   ![add rule](./media/security-center-adaptive-network-hardening/add-hard-rule.png)
+   ![add rule.](./media/security-center-adaptive-network-hardening/add-hard-rule.png)
 
 1. In the **New rule** window, enter the details and select **Add**.
 
@@ -122,7 +122,7 @@ To add an adaptive network hardening rule:
 
 3. To apply the new rule, from the list, select the new rule and select **Enforce**.
 
-    ![enforce rule](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
+    ![enforce rule.](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
 
 ## Delete a rule <a name ="delete-rule"> </a>
@@ -133,7 +133,7 @@ To delete an adaptive network hardening rule for your current session:
 
 - In the **Rules** tab, select the three dots (...) at the end of the rule's row, and select **Delete**.  
 
-    ![Deleting a rule](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)
+    ![Deleting a rule.](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)
 
 
 ## FAQ - Adaptive network hardening

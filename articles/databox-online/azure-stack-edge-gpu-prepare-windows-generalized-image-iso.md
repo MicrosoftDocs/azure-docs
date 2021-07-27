@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/15/2021
+ms.date: 06/25/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to quickly deploy new Windows virtual machines on my Azure Stack Edge Pro GPU device, and I want to use an ISO image for OS installation.
 ---
@@ -128,6 +128,7 @@ After creating the new virtual machine, follow these steps to mount your ISO ima
 
    ![In BIOS settings, the first item under Startup order should be CD](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-14.png)
 
+
 3. Under **DVD Drive**, select **Image file**, and browse to your ISO image.  
 
    ![In DVD drive settings, select the image file for your VHD](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-15.png)
@@ -140,9 +141,36 @@ To finish building your virtual machine, you need to start the virtual machine a
 
 [!INCLUDE [Connect to Hyper-V VM](../../includes/azure-stack-edge-connect-to-hyperv-vm.md)]
 
-## Generalize the VHD  
+> [!NOTE]
+> If you installed the Windows Server 2019 Standard operating system on your virtual machine, you'll need to change the **BIOS** setting to **IDE** before you [generalize the VHD](#generalize-the-vhd). 
 
-[!INCLUDE [Generalize the VHD](../../includes/azure-stack-edge-generalize-vhd.md)]
+## Generalize the VHD
+
+Use the *sysprep* utility to generalize the VHD.
+
+1. If you're generalizing a Windows Server 2019 Standard VM, before you generalize the VHD, make IDE the first **BIOS** setting for the virtual machine.
+
+    1. In Hyper-V Manager, select the VM, and then select **Settings**.
+ 
+       ![Screenshot showing how to open Settings for a selected VM in Hyper-V Manager](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-01.png)
+
+     1. Under **BIOS**, ensure that **IDE** is at the top of the **Startup order** list. Then select **OK** to save the setting.
+
+        ![Screenshot showing IDE at top of startup order in BIOS settings for a VM in Hyper-V Manager](./media/azure-stack-edge-gpu-prepare-windows-generalized-image-iso/vhd-from-iso-02.png)
+
+1. Inside the VM, open a command prompt.
+
+1. Run the following command to generalize the VHD. 
+
+    ```
+    c:\windows\system32\sysprep\sysprep.exe /oobe /generalize /shutdown /mode:vm
+    ```
+    
+    For details, see [Sysprep (system preparation) overview](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
+
+1.  After the command is complete, the VM will shut down. **Do not restart the VM**.
+
+<!--[!INCLUDE [Generalize the VHD](../../includes/azure-stack-edge-generalize-vhd.md)]-->
 
 Your VHD can now be used to create a generalized image to use on Azure Stack Edge Pro GPU.
 

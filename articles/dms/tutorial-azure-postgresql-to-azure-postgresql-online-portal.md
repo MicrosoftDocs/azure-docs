@@ -44,7 +44,7 @@ To complete this tutorial, you need to:
 * Check [status of migration scenarios supported by Azure Database Migration Service](./resource-scenario-status.md) for supported migration and version combinations. 
 * An existing [Azure Database for PostgreSQL](../postgresql/index.yml) version 10 and later instance with the **DVD Rental** database. 
 
-    Also note that the target Azure Database for PostgreSQL version must be equal to or later than the on-premises PostgreSQL version. For example, PostgreSQL 10 can migrate to Azure Database for PostgreSQL 10, or 11, but not to Azure Database for PostgreSQL 9.6.
+    Also note that the target Azure Database for PostgreSQL version must be equal to or later than the on-premises PostgreSQL version. For example, PostgreSQL 10 can migrate to Azure Database for PostgreSQL 10, or 11, but not to Azure Database for PostgreSQL 9.6. Migrations to PostgreSQL 13+ are not supported at this time. 
 
 * [Create an Azure Database for PostgreSQL server](../postgresql/quickstart-create-server-database-portal.md) or [Create an Azure Database for PostgreSQL - Hyperscale (Citus) server](../postgresql/quickstart-create-hyperscale-portal.md) as the target database server to migrate data into.
 * Create a Microsoft Azure Virtual Network for Azure Database Migration Service by using the Azure Resource Manager deployment model. For more information about creating a virtual network, see the [Virtual Network Documentation](../virtual-network/index.yml), and especially the quickstart articles with step-by-step details.

@@ -7,7 +7,7 @@ ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
 ms.date: 11/13/2020
-ms.author: punagpal
+ms.author: rabhaiya
 ---
 
 # Tutorial: Receive device data through Azure IoT Hub
@@ -18,7 +18,7 @@ Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)*
 
 - An active Azure subscription - [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Azure API for FHIR resource with at least one Azure IoT Connector for FHIR - [Deploy Azure IoT Connector for FHIR (preview) using Azure portal](iot-fhir-portal-quickstart.md)
-- Azure IoT Hub resource connected with real or simulated device(s) - [Create an IoT hub using the Azure portal](../../iot-hub/quickstart-send-telemetry-dotnet.md)
+- Azure IoT Hub resource connected with real or simulated device(s) - [Create an IoT hub using the Azure portal](../../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp)
 
 > [!TIP]
 > If you are using an Azure IoT Hub simulated device application, feel free to pick the application of your choice amongst different supported languages and systems.

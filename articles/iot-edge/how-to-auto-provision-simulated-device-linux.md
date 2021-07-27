@@ -222,6 +222,12 @@ Once the runtime is installed on your device, configure the device with the info
 
 1. Know your DPS **ID Scope** and device **Registration ID** that were gathered in the previous sections.
 
+1. Create a configuration file for your device based on a template file that is provided as part of the IoT Edge installation.
+
+   ```bash
+   sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+   ```
+
 1. Open the configuration file on the IoT Edge device.
 
    ```bash
