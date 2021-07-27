@@ -77,7 +77,7 @@ When you generate an activation key, the following events occur:
 If you run into any issues related to key vault and device activation, see [Troubleshoot device activation issues](azure-stack-edge-gpu-troubleshoot-activation.md).
 
 
-### View key vault properties
+## View key vault properties
 
 After the activation key is generated and key vault is created, you may want to access the key vault to view the secrets, access policies, diagnostics, and insights. The following procedure describes each of these operations.
 
@@ -88,13 +88,14 @@ After the activation key is generated and key vault is created, you may want to 
 To access the key vault and view the secrets, follow these steps:
 
 1. In the Azure portal for your Azure Stack Edge resource, go to **Security**. 
-1. Under **Security preferences**, select **Key vault name** to navigate to the key vault associated with your Azure Stack Edge resource. 
+1. Under **Security preferences**, you can view the **Secrets**. 
+1. You can also navigate to the key vault associated with your Azure Stack Edge resource. Select **Key vault name**. 
 
     ![Go to device key vault](media/azure-stack-edge-gpu-activation-key-vault/view-key-vault-name-1.png)
 
-    - To view the secrets stored in your key vault, go to **Secrets**. Channel integrity key, BitLocker recovery key and Baseboard management controller (BMC) user passwords are stored in the key vault. If the device goes down, the portal provides easy access to BitLocker recovery key and BMC user password.
+1. To view the secrets stored in your key vault, go to **Secrets**. Channel integrity key, BitLocker recovery key and Baseboard management controller (BMC) user passwords are stored in the key vault. If the device goes down, the portal provides easy access to BitLocker recovery key and BMC user password.
     
-        ![View device secrets in key vault](media/azure-stack-edge-gpu-activation-key-vault/view-key-vault-secrets-1.png)
+    ![View device secrets in key vault](media/azure-stack-edge-gpu-activation-key-vault/view-key-vault-secrets-1.png)
 
 ### View managed identity access policies
 
