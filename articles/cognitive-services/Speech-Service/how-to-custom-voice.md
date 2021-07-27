@@ -3,13 +3,13 @@ title: "Get started with Custom Neural Voice - Speech service"
 titleSuffix: Azure Cognitive Services
 description: "Custom Neural Voice is a set of online tools that allow you to create a recognizable, one-of-a-kind voice for your brand. All it takes to get started are a handful of audio files and the associated transcriptions."
 services: cognitive-services
-author: trevorbye
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/18/2021
-ms.author: trbye
+ms.author: nitinme
 ---
 
 # Get started with Custom Neural Voice

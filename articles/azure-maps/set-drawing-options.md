@@ -13,7 +13,7 @@ ms.custom: devx-track-js
 
 # Use the drawing tools module
 
-The Azure Maps Web SDK provides a *drawing tools module*. This module makes it easy to draw and edit shapes on the map using an input device such as a mouse or touch screen. The core class of this module is the [drawing manager](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-). The drawing manager provides all the capabilities needed to draw and edit shapes on the map. It can be used directly, and it's integrated with a custom toolbar UI. You can also use the built-in [drawing toolbar](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) class. 
+The Azure Maps Web SDK provides a *drawing tools module*. This module makes it easy to draw and edit shapes on the map using an input device such as a mouse or touch screen. The core class of this module is the [drawing manager](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-). The drawing manager provides all the capabilities needed to draw and edit shapes on the map. It can be used directly, and it's integrated with a custom toolbar UI. You can also use the built-in [drawing toolbar](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) class.
 
 ## Loading the drawing tools module in a webpage
 
@@ -22,14 +22,14 @@ The Azure Maps Web SDK provides a *drawing tools module*. This module makes it e
     - Use the globally hosted, Azure Content Delivery Network version of the Azure Maps services module. Add reference to the JavaScript and CSS stylesheet in the `<head>` element of the file:
 
         ```html
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/drawing/0/atlas-drawing.min.css" type="text/css" />
-        <script src="https://atlas.microsoft.com/sdk/javascript/drawing/0/atlas-drawing.min.js"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/drawing/1/atlas-drawing.min.css" type="text/css" />
+        <script src="https://atlas.microsoft.com/sdk/javascript/drawing/1/atlas-drawing.min.js"></script>
         ```
 
     - Or, you can load the drawing tools module for the Azure Maps Web SDK source code locally by using the [azure-maps-drawing-tools](https://www.npmjs.com/package/azure-maps-drawing-tools) npm package, and then host it with your app. This package also includes TypeScript definitions. Use this command:
-    
+
         > **npm install azure-maps-drawing-tools**
-    
+
         Then, add a reference to the JavaScript and CSS stylesheet in the `<head>` element of the file:
 
          ```html
@@ -141,7 +141,23 @@ var source = drawingManager.getSource();
 
 //Add your shape.
 source.add(shape);
+
+//Alternatively, load in a GeoJSON feed using the sources importDataFromUrl function.
+source.importDataFromUrl('yourFeatures.json');
 ```
+
+The following table lists the type of editing supported by different types of shape features.
+
+| Shape feature | Edit points | Rotate | Delete shape |
+|---------------|:-----------:|:------:|:------------:|
+| Point         | ✓           |        | ✓           |
+| LineString    | ✓           | ✓      | ✓           |
+| Polygon       | ✓           | ✓      | ✓           |
+| MultiPoint    |             | ✓      | ✓           |
+| MultiLineString |           | ✓      | ✓           |
+| MultiPolygon  |             | ✓      | ✓           |
+| Circle        | ✓           |        | ✓           |
+| Rectangle     | ✓           | ✓      | ✓           |
 
 ## Next steps
 
