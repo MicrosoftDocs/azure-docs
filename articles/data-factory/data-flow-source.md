@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/10/2021
+ms.date: 07/27/2021
 ---
 
 # Source transformation in mapping data flow
@@ -30,6 +30,12 @@ Inline datasets are recommended when you use flexible schemas, one-off source in
 To use an inline dataset, select the format you want in the **Source type** selector. Instead of selecting a source dataset, you select the linked service you want to connect to.
 
 ![Screenshot that shows Inline selected.](media/data-flow/inline-selector.png "Screenshot that shows Inline selected.")
+
+## Workspace DB (Synapse workspaces only)
+
+In Azure Synapse workspaces, an additional option is present in data flow source transformations called ```Workspace DB```. This will allow you to directly pick a workspace database of any available type as your source data without requiring additional linked services or datasets.
+
+![Screenshot that shows workspacedb selected.](media/data-flow/syms-source.png "Screenshot that shows workspace DB selected.")
 
 ##  <a name="supported-sources"></a> Supported source types
 
