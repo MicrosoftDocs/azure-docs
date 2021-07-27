@@ -21,7 +21,7 @@ For other migration guides, see [Azure Database Migration Guides](/data-migratio
 
 ## Prerequisites
 
-Before you begin migrating your Oracle schema to SQL Database:
+Before you begin migrating your Oracle schema to SQL Database:-
 
 - Verify that your source environment is supported.
 - Download [SSMA for Oracle](https://www.microsoft.com/download/details.aspx?id=54258).
