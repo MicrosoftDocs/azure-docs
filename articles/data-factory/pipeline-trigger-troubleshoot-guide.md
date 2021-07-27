@@ -247,7 +247,7 @@ You have not optimized mapping data flow.
 * Use memory optimized compute when dealing with large amount of data and transformations.
 * Reduce the batch size in case of a for each activity.
 * Scale up your databases and warehouses to match the performance of your ADF. 
-* Use a separate IR(integration runtime) for parallelly running activities. 
+* Use a separate IR(integration runtime) for activities running in parallel.
 * Adjust the partitions at the source and sink accordingly. 
 * Review  [Data Flow Optimizations](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-performance)
 
