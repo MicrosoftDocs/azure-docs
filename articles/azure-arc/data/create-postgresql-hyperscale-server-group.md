@@ -74,7 +74,7 @@ While using -w 1 works, we do not recommend you use it. This deployment will not
     - to set the storage class for the logs, indicate the parameter `--storage-class-logs` or `-scl` followed by the name of the storage class.
     - to set the storage class for the backups: in this Preview of the Azure Arc-enabled PostgreSQL Hyperscale there are two ways to set storage classes depending on what types of backup/restore operations you want to do. We are working on simplifying this experience. You will either indicate a storage class or a volume claim mount. A volume claim mount is a pair of an existing persistent volume claim (in the same namespace) and volume type (and optional metadata depending on the volume type) separated by colon. The persistent volume will be mounted in each pod for the PostgreSQL server group.
         - if you want plan to do only full database restores, set the parameter `--storage-class-backups` or `-scb` followed by the name of the storage class.
-        - if you plan to do both full database restores and point in time restores, set the parameter `--volume-claim-mounts` or `-vcm` followed by the name of a volume claim and a volume type.
+        - if you plan to do both full database restores and point in time restores, set the parameter `--volume-claim-mounts` or `--volume-claim-mounts` followed by the name of a volume claim and a volume type.
 
 Note that when you execute the create command, you will be prompted to enter the password of the default `postgres` administrative user. The name of that user cannot be changed in this Preview. You may skip the interactive prompt by setting the `AZDATA_PASSWORD` session environment variable before you run the create command.
 
@@ -115,7 +115,7 @@ kubectl create -f e:\CreateBackupPVC.yml -n arc
 Next, create the server group:
 
 ```azurecli
-az postgres arc-server create -n postgres01 --workers 2 -vcm backup-pvc:backup
+az postgres arc-server create -n postgres01 --workers 2 --volume-claim-mounts backup-pvc:backup
 ```
 
 > [!IMPORTANT]
