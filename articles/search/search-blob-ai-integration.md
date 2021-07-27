@@ -58,7 +58,7 @@ AI enrichment is an add-on to an indexing pipeline, and in Azure Cognitive Searc
 
 Blobs in Azure Storage are indexed using the [blob indexer](search-howto-indexing-azure-blob-storage.md). You can invoke this indexer by using the **Import data** wizard, a REST API, or an SDK. A blob indexer is invoked when the data source used by the indexer is an Azure Blob container. You can index a subset of your blobs by creating a virtual directory, which you can then pass as a parameter, or by filtering on a file type extension.
 
-An indexer does the "document cracking", opening a blob to inspect content. After connecting to the data source, it's the first step in the pipeline. For blob data, this is where PDF, office docs, image, and other content types are detected. Document cracking with text extraction is no charge. Document cracking with image extraction is charged at rates you can find on the [pricing page](https://azure.microsoft.com/pricing/details/search/).
+An indexer ["cracks a document"](search-indexer-overview.md#document-cracking), opening a blob to inspect content. After connecting to the data source, it's the first step in the pipeline. For blob data, this is where PDF, office docs, image, and other content types are detected. Document cracking with text extraction is no charge. Document cracking with image extraction is charged at rates you can find on the [pricing page](https://azure.microsoft.com/pricing/details/search/).
 
 Although all documents will be cracked, enrichment only occurs if you explicitly provide the skills to do so. For example, if your pipeline consists exclusively of image analysis, text in your container or documents is ignored.
 
