@@ -43,4 +43,4 @@ Yes. Users can shut down the VM by using the Start menu within their session, ju
 
 To learn how to configure Start VM on Connect, see [Start virtual machine on connect (preview)](start-virtual-machine-connect.md).
 
-If you have more general questions about Azure Virtual Desktop, check out our general [FAQ](faq.md).
+If you have more general questions about Azure Virtual Desktop, check out our general [FAQ](faq.yml).

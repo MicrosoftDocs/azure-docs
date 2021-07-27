@@ -78,7 +78,7 @@ Microsoft uses the [Identity Overlay Network (ION)](https://identity.foundation/
 
 ### Microsoft Authenticator application
 
-![Microsoft Authenticator application](media/plan-issuance-solution/plan-issuance-solution-microsoft-authenticator.png)
+![Microsoft Authenticator application](media/plan-issuance-solution/plan-issuance-solution-authenticator.png)
 
 Microsoft Authenticator is the mobile application that orchestrates the interactions between the user, the Azure AD Verifiable Credentials service, and dependencies that are described in the contract used to issue VCs. It acts as a digital wallet in which the holder of the VC stores the VC, including the private key of the subject of the VC. Authenticator is also the mechanism used to present VCs for verification.
 
