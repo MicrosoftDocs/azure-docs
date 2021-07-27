@@ -101,7 +101,7 @@ docker run -p 10000:10000 -p 10001:10001 \
 In the following example, the `-v c:/azurite:/data` parameter specifies *c:/azurite* as the Azurite persisted data location. The directory, *c:/azurite*, must be created before running the Docker command.
 
 ```console
-docker run -p 10000:10000 -p 10001:10001 - p 10002:10002 \
+docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 \
     -v c:/azurite:/data mcr.microsoft.com/azure-storage/azurite
 ```
 
