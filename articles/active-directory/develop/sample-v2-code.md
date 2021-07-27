@@ -146,7 +146,7 @@ The following samples show how to protect a web API with the Microsoft identity 
 >| Language/<br/>Platform     | Code sample(s) on GitHub |Auth libraries |Auth flow |
 >| ----------- | ----------- |----------- |----------- |
 >| ASP.NET | [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | MSAL.NET |  OAuth 2.0 credentials grant flow |
->| ASP.NET | [Call a downstream API](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof) | MSAL.NET |  On-Behalf-Of (OBO) flow |
+>| ASP.NET | [Call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof) | MSAL.NET |  On-Behalf-Of (OBO) flow |
 >| Java | [Sign in users](https://github.com/Azure-Samples/ms-identity-java-webapi) | MSAL Java | On-Behalf-Of (OBO) flow |
 >| Node.js | [Protect a Node.js web API](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2) | MSAL Node |  Auth code flow (with PKCE) |
 >| Node.js | [Sign in users and obtain a JWT Access Token from Azure AD B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) | MSAL Node |  Auth code flow (with PKCE) |
