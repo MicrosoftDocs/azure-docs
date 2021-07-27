@@ -107,4 +107,4 @@ Use the following links to learn more Azure Functions networking options and pri
 
 - [Configuring the account used by Visual Studio for local development](/dotnet/api/azure/identity-readme.md#authenticating-via-visual-studio)
 
-- [Functions documentation for local development](./functions-reference.md#local-development)
+- [Functions documentation for local development](./functions-reference.md#local-development-with-identity-based-connections)

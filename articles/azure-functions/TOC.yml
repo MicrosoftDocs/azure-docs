@@ -93,9 +93,9 @@
           href: functions-create-private-site-access.md
         - name: Use an outbound NAT gateway
           href: functions-how-to-use-nat-gateway.md
-    - name: Managed Identity connections
+    - name: Identity Based Connections
       items:
-        - name: Identity Based Connections
+        - name: Creating Identity-Based Connections
           href: functions-managed-identity-tutorial.md
         - name: Application Insights with Managed Identity
           href: functions-managed-identity-key-vault.md
