@@ -2,7 +2,7 @@
 title: Track objects in a live video with Azure Video Analyzer
 description: This quickstart shows you how to use Azure Video Analyzer edge module to track objects in a live video feed from a (simulated) IP camera. You will see how to apply a computer vision model to detect objects in a subset of the frames in the live video feed. You can then use an object tracker node to track those objects in the other frames.
 ms.topic: quickstart
-ms.date: 05/01/2021
+ms.date: 06/01/2021
 ---
 
 # Quickstart: Track objects in a live video
