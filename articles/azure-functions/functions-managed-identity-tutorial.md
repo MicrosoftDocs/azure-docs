@@ -11,11 +11,13 @@ ms.date: 7/26/2021
 This article shows you how to configure a secretless function app using identity based connections instead of connection strings. To learn more about identity based connections, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
 
 In this tutorial, you'll:
-- create a function app without Azure Files
-- enable managed identity on the function app
-- Deploy a function using run from package
-- Use managed identity for AzureWebJobsStorage
-- Update the extension bundle for non C# languages.
+
+> [!div class="checklist"]
+> * create a function app without Azure Files
+> * enable managed identity on the function app
+> * Deploy a function using run from package
+> * Use managed identity for AzureWebJobsStorage
+> * Update the extension bundle for non C# languages.
 
 ## Create a Function App without Azure Files
 
@@ -139,7 +141,7 @@ You'll now deploy a simple timer triggered function to confirm things are config
 1. In the **Upload blob** blade, select your zipped file, and select **Upload**.
 
 1. Once uploaded, select your uploaded blob zip file.
-    :::image type="content" source="./media/functions-secretless-tutorial/10-copy-url.png" alt-text="Screenshot of how to get the zipped blob url.":::
+    :::image type="content" source="./media/functions-secretless-tutorial/9-copy-url.png" alt-text="Screenshot of how to get the zipped blob url.":::
 
 1. Copy the blob url for your published zip file. 
 
@@ -192,15 +194,15 @@ There's one more key-like setting in your Function App, and that’s your App In
 For a step by step tutorial of managed identities with a storage queue trigger, continue on to the [Storage Queue Trigger tutorial](./functions-managed-identity-storage-queue.md)
 
 ## Use Managed Identity with a Service Bus Trigger 
-For a step by step tutorial of managed identities with a service bus trigger, continue on to the [Service Bus Trigger tutorial](./functions-managed-identity-service-bus.md)
+For a step by step tutorial of managed identities with a service bus trigger, continue on to the [Service Bus Trigger tutorial](./functions-managed-identity-servicebus-queue.md)
 
 ## Use Managed Identity for local development
 
-For steps on how to use managed identities with local development, see [the local development section](./functions-managed-identity-service-bus.md#use-managed-identity-for-local-development) of the managed identity with service bus queue trigger tutorial.
+For steps on how to use managed identities with local development, see [the local development section](./functions-managed-identity-servicebus-queue.md#use-managed-identity-for-local-development) of the managed identity with service bus queue trigger tutorial.
 
 ## Notes on Event Hubs and Blob Trigger
 
-You can follow similar steps for Event Hubs and Blob trigger. Event Hubs follows the same patterns as Service Bus, and you can follow the [Service Bus Trigger tutorial](./functions-managed-identity-service-bus.md). For Blobs, the functions host uses queues internally to run the blob trigger, so you would need to make sure that the function app has both blob and queue role assignments, for both the account that is configured for AzureWebJobsStorage, and the account that contains the blobs you're triggering on. For more information, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
+You can follow similar steps for Event Hubs and Blob trigger. Event Hubs follows the same patterns as Service Bus, and you can follow the [Service Bus Trigger tutorial](./functions-managed-identity-servicebus-queue.md). For Blobs, the functions host uses queues internally to run the blob trigger, so you would need to make sure that the function app has both blob and queue role assignments, for both the account that is configured for AzureWebJobsStorage, and the account that contains the blobs you're triggering on. For more information, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
 
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
@@ -212,16 +214,16 @@ Use the following links to learn more Azure Functions networking options and pri
 
 - [Managed identity in Azure Functions](../app-service/overview-managed-identity.md)
 
-- [Identity based connections in Azure Functions](./azure-functions/functions-reference.md#configure-an-identity-based-connection)
+- [Identity based connections in Azure Functions](./functions-reference.md#configure-an-identity-based-connection)
 
-- [Connecting to host storage with an Identity](./azure-functions/functions-reference.md#connecting-to-host-storage-with-an-identity)
+- [Connecting to host storage with an Identity](./functions-reference.md#connecting-to-host-storage-with-an-identity)
 
-- [Creating a Function App without Azure Files](./azure-functions/storage-considerations.md#create-an-app-without-azure-files)
+- [Creating a Function App without Azure Files](./storage-considerations.md#create-an-app-without-azure-files)
 
-- [Run Azure Functions from a package file](./azure-functions/run-functions-from-deployment-package.md)
+- [Run Azure Functions from a package file](./run-functions-from-deployment-package.md)
 
 - [Use Key Vault references in Azure Functions](../app-service/app-service-key-vault-references.md)
 
 - [Configuring the account used by Visual Studio for local development](/dotnet/api/azure/identity-readme.md#authenticating-via-visual-studio)
 
-- [Functions documentation for local development](./azure-functions/functions-reference#local-development)
+- [Functions documentation for local development](./functions-reference#local-development)

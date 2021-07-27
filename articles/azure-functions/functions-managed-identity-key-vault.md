@@ -11,9 +11,11 @@ ms.date: 7/26/2021
 This article shows you how to configure App Insights with Key Vault and managed identities. The tutorial is a continuation of the [functions managed identity tutorial](./functions-managed-identity-tutorial.md). To learn more about identity based connections, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
 
 In this tutorial, you'll:
-- create a Key Vault
-- add a secret to your Key Vault
-- configure your function app's application insights to use role based access instead of connection strings.
+
+> [!div class="checklist"]
+> * create a Key Vault
+> * add a secret to your Key Vault
+> * configure your function app's application insights to use role based access instead of connection strings.
 
 ## Create a Key Vault
 
@@ -73,7 +75,7 @@ In this tutorial, you'll:
 1. In your function app, select **Configuration** from the left blade.
     :::image type="content" source="./media/functions-secretless-tutorial/16-update-appinsights-connection.png" alt-text="Screenshot of how to update the application insights connection string app setting.":::
 
-1. Select **APPLICATIONINSIGHTS_CONNECTION_STRING** and replace the **Value** with the Key Vault **SecretURI**. The format should be: `@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/)`. For example, following the steps from this tutorial, the **ServiceURI** would be `@Microsoft.KeyVault(SecretUri=https://identity-app-kv.vault.azure.net/secrets/AppInsights/)`. For more details, go to the [key vault references documentation](../app-service/app-service-key-vault-references.md#reference.syntax).
+1. Select **APPLICATIONINSIGHTS_CONNECTION_STRING** and replace the **Value** with the Key Vault **SecretURI**. The format should be: `@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/)`. For example, following the steps from this tutorial, the **ServiceURI** would be `@Microsoft.KeyVault(SecretUri=https://identity-app-kv.vault.azure.net/secrets/AppInsights/)`. For more details, go to the [key vault references documentation](../app-service/app-service-key-vault-references.md#reference-syntax).
 
 1. Select **OK** and then **Save**.
 
@@ -93,16 +95,16 @@ Use the following links to learn more Azure Functions networking options and pri
 
 - [Managed identity in Azure Functions](../app-service/overview-managed-identity.md)
 
-- [Identity based connections in Azure Functions](./azure-functions/functions-reference.md#configure-an-identity-based-connection)
+- [Identity based connections in Azure Functions](./functions-reference.md#configure-an-identity-based-connection)
 
-- [Connecting to host storage with an Identity](./azure-functions/functions-reference.md#connecting-to-host-storage-with-an-identity)
+- [Connecting to host storage with an Identity](./functions-reference.md#connecting-to-host-storage-with-an-identity)
 
-- [Creating a Function App without Azure Files](./azure-functions/storage-considerations.md#create-an-app-without-azure-files)
+- [Creating a Function App without Azure Files](./storage-considerations.md#create-an-app-without-azure-files)
 
-- [Run Azure Functions from a package file](./azure-functions/run-functions-from-deployment-package.md)
+- [Run Azure Functions from a package file](./run-functions-from-deployment-package.md)
 
 - [Use Key Vault references in Azure Functions](../app-service/app-service-key-vault-references.md)
 
 - [Configuring the account used by Visual Studio for local development](/dotnet/api/azure/identity-readme.md#authenticating-via-visual-studio)
 
-- [Functions documentation for local development](./azure-functions/functions-reference#local-development)
+- [Functions documentation for local development](./functions-reference#local-development)

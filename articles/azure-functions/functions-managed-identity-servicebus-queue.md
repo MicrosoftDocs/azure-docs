@@ -14,11 +14,13 @@ Prerequisite:
 - Complete the [Creating a function app with identity base connections tutorial](./functions-managed-identity-tutorial.md).
 
 In this tutorial, you'll:
-- create a service bus namespace and queue
-- configure your function app with a service bus queue managed identity
-- deploy a service bus triggered function app
-- verify your storage queue with managed identity in portal
-- verify your service bus queue with managed identity in a local environment
+
+> [!div class="checklist"]
+> * create a service bus namespace and queue
+> * configure your function app with a service bus queue managed identity
+> * deploy a service bus triggered function app
+> * verify your storage queue with managed identity in portal
+> * verify your service bus queue with managed identity in a local environment
 
 ## Create a service bus and queue
 
@@ -56,7 +58,7 @@ Now, you will add the **Azure Service Bus Data Owner** role assignment for your 
 1. On the **Role** tab, select **Azure Service Bus Data Owner**.
 
 1. On the **Members** tab, select **Managed Identity**, and **+Select members**.
-    :::image type="content" source="./media/functions-secretless-tutorial/22-add-service-bus-managed-identity.png" alt-text="Screenshot of how to add a function to an existing function app.":::
+    :::image type="content" source="./media/functions-secretless-tutorial/22-add-service-bus-managed-identity.png" alt-text="Screenshot of how to add managed identity to service bus.":::
 
 1. In the **Select managed identities** blade, configure with the following settings.
     | Setting      | Suggested value  | Description |
@@ -84,7 +86,7 @@ Now, you will add the **Azure Service Bus Data Owner** role assignment for your 
 ## Deploy a service bus triggered function app
 
 1. In Visual Studio, right click on your function app project, select **Add**, and select **New Function**.
-    :::image type="content" source="./media/functions-secretless-tutorial/21-add-function.png" alt-text="Screenshot of how to add a function to an existing function app.":::
+    :::image type="content" source="./media/functions-secretless-tutorial/18-add-function.png" alt-text="Screenshot of how to add a function to an existing function app.":::
 
 1. Select **Azure Function**, name your function, and select **Add**.
  
@@ -260,16 +262,16 @@ Use the following links to learn more Azure Functions networking options and pri
 
 - [Managed identity in Azure Functions](../app-service/overview-managed-identity.md)
 
-- [Identity based connections in Azure Functions](./azure-functions/functions-reference.md#configure-an-identity-based-connection)
+- [Identity based connections in Azure Functions](./functions-reference.md#configure-an-identity-based-connection)
 
-- [Connecting to host storage with an Identity](./azure-functions/functions-reference.md#connecting-to-host-storage-with-an-identity)
+- [Connecting to host storage with an Identity](./functions-reference.md#connecting-to-host-storage-with-an-identity)
 
-- [Creating a Function App without Azure Files](./azure-functions/storage-considerations.md#create-an-app-without-azure-files)
+- [Creating a Function App without Azure Files](./storage-considerations.md#create-an-app-without-azure-files)
 
-- [Run Azure Functions from a package file](./azure-functions/run-functions-from-deployment-package.md)
+- [Run Azure Functions from a package file](./run-functions-from-deployment-package.md)
 
 - [Use Key Vault references in Azure Functions](../app-service/app-service-key-vault-references.md)
 
 - [Configuring the account used by Visual Studio for local development](/dotnet/api/azure/identity-readme.md#authenticating-via-visual-studio)
 
-- [Functions documentation for local development](./azure-functions/functions-reference#local-development)
+- [Functions documentation for local development](./functions-reference#local-development)

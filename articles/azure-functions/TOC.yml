@@ -94,10 +94,9 @@
         - name: Use an outbound NAT gateway
           href: functions-how-to-use-nat-gateway.md
     - name: Managed Identity connections
-          items:
+      items:
         - name: Identity Based Connections
           href: functions-managed-identity.md
-          displayName: vnet
         - name: Application Insights with Managed Identity
           href: functions-managed-identity-key-vault.md
         - name: Storage Queue with Managed Identity

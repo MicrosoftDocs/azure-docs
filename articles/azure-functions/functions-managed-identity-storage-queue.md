@@ -14,10 +14,12 @@ Prerequisite:
 - Complete the [Creating a function app with identity base connections tutorial](./functions-managed-identity-tutorial.md).
 
 In this tutorial, you'll:
-- create a storage account and queue
-- configure your function app with a storage queue managed identity
-- deploy a queue triggered function app
-- verify your storage queue with managed identity
+
+> [!div class="checklist"]
+> * create a storage account and queue
+> * configure your function app with a storage queue managed identity
+> * deploy a queue triggered function app
+> * verify your storage queue with managed identity
 
 ## Create a storage account with a queue
 
@@ -191,16 +193,16 @@ Use the following links to learn more Azure Functions networking options and pri
 
 - [Managed identity in Azure Functions](../app-service/overview-managed-identity.md)
 
-- [Identity based connections in Azure Functions](./azure-functions/functions-reference.md#configure-an-identity-based-connection)
+- [Identity based connections in Azure Functions](./functions-reference.md#configure-an-identity-based-connection)
 
-- [Connecting to host storage with an Identity](./azure-functions/functions-reference.md#connecting-to-host-storage-with-an-identity)
+- [Connecting to host storage with an Identity](./functions-reference.md#connecting-to-host-storage-with-an-identity)
 
-- [Creating a Function App without Azure Files](./azure-functions/storage-considerations.md#create-an-app-without-azure-files)
+- [Creating a Function App without Azure Files](./storage-considerations.md#create-an-app-without-azure-files)
 
-- [Run Azure Functions from a package file](./azure-functions/run-functions-from-deployment-package.md)
+- [Run Azure Functions from a package file](./run-functions-from-deployment-package.md)
 
 - [Use Key Vault references in Azure Functions](../app-service/app-service-key-vault-references.md)
 
 - [Configuring the account used by Visual Studio for local development](/dotnet/api/azure/identity-readme.md#authenticating-via-visual-studio)
 
-- [Functions documentation for local development](./azure-functions/functions-reference#local-development)
+- [Functions documentation for local development](./functions-reference#local-development)
