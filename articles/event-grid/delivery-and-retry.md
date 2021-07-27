@@ -47,10 +47,10 @@ If the endpoint responds within 3 minutes, Event Grid will attempt to remove the
 Event Grid adds a small randomization to all retry steps and may opportunistically skip certain retries if an endpoint is consistently unhealthy, down for a long period, or appears to be overwhelmed.
 
 ## Retry policy
-You can [customize the retry policy](manage-event-delivery.md) when creating an event subscription by using the following two configurations. An event will be dropped if either of the limits of the retry policy is reached. 
+You can customize the retry policy when creating an event subscription by using the following two configurations. An event will be dropped if either of the limits of the retry policy is reached. 
 
-- Maximum number of attempts. The value must be an integer between 1 and 30. The default value is 30.
-- Event time-to-live (TTL). The value must be an integer between 1 and 1440. The default value is 1440 minutes
+- **Maximum number of attempts** - The value must be an integer between 1 and 30. The default value is 30.
+- **Event time-to-live (TTL)** -  The value must be an integer between 1 and 1440. The default value is 1440 minutes
 
 For sample CLI and PowerShell command to configure these settings, see [Set retry policy](manage-event-delivery.md#set-retry-policy).
 
