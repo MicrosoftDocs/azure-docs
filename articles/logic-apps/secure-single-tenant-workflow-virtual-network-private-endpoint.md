@@ -159,7 +159,7 @@ In your logic app settings, set `AzureWebJobsStorage` to the connection string f
 
   `"WEBSITE_VNET_ROUTE_ALL": "1"`
 
-- To make your logic app use private domain name server (DNS) zones in your virtual network, set the logic app's `WEBSITE_DNS_SERVER` setting to `168.63.129.16`.
+- To make your logic app use private domain name server (DNS) zones in your virtual network where no custom DNS is configured on the VNet (default), set the logic app's `WEBSITE_DNS_SERVER` setting to `168.63.129.16`.
 
 - You need to have a separate publicly accessible storage account when you deploy your logic app. Make sure that you set the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` setting to the connection string for that storage account.
 
