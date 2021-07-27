@@ -93,7 +93,7 @@ To test your application in your local Windows-based computer, you can use the A
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-To start the Azure Storage Emulator, from your Windows desktop, select the **Start** button or the Windows key. Enter and run *Microsoft Azure Storage Emulator*. For more information, see [Use the Azure Storage Emulator for development and testing](../../../storage/common/storage-use-emulator.md).
+To start the Azure Storage Emulator, from your Windows desktop, select the **Start** button or the Windows key. Enter and run *Microsoft Azure Storage Emulator*. For more information, see [Use the Azure Storage Emulator for development and testing](../../storage/common/storage-use-emulator.md).
 
 ### Retrieve your connection string
 
@@ -507,6 +507,6 @@ For Visual Studio Community Edition, if your project gets build errors because o
 Follow these links to learn more about Azure Storage and the Table API in Azure Cosmos DB:
 
 * [Introduction to the Table API](introduction.md)
-* [List Azure Storage resources in C++](../../../storage/common/storage-c-plus-plus-enumeration.md)
+* [List Azure Storage resources in C++](../../storage/common/storage-c-plus-plus-enumeration.md)
 * [Storage Client Library for C++ reference](https://azure.github.io/azure-storage-cpp)
 * [Azure Storage documentation](https://azure.microsoft.com/documentation/services/storage/)

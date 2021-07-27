@@ -11,7 +11,7 @@ metadata:
     
 title: Frequently asked questions about the Table API in Azure Cosmos DB
 summary: |
-  [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
+  [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
   
   The Azure Cosmos DB Table API is available in the [Azure portal](https://portal.azure.com) First you must sign up for an Azure subscription. After you've signed up, you can add an Azure Cosmos DB Table API account to your Azure subscription, and then add tables to your account. You can find the supported languages and associated quick-starts in the [Introduction to Azure Cosmos DB Table API](introduction.md).
   
@@ -200,7 +200,7 @@ sections:
         answer: |
           The Table API leverages the globally distributed platform of Azure Cosmos DB. To ensure that your application can tolerate datacenter downtime, enable at least one more region for the account in the Azure Cosmos DB portal [Developing with multi-region Azure Cosmos DB accounts](../high-availability.md). You can set the priority of the region by using the portal [Developing with multi-region Azure Cosmos DB accounts](../high-availability.md).
           
-          You can add as many regions as you want for the account and control where it can fail over to by providing a failover priority. To use the database, you need to provide an application there too. When you do so, your customers won't experience downtime. The [latest .NET client SDK](../dotnet-sdk.md) is auto homing but the other SDKs aren't. That is, it can detect the region that's down and automatically fail over to the new region.
+          You can add as many regions as you want for the account and control where it can fail over to by providing a failover priority. To use the database, you need to provide an application there too. When you do so, your customers won't experience downtime. The [latest .NET client SDK](dotnet-sdk.md) is auto homing but the other SDKs aren't. That is, it can detect the region that's down and automatically fail over to the new region.
           
       - question: |
           Is the Table API enabled for backups?
