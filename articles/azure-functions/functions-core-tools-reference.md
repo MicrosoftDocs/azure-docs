@@ -16,8 +16,8 @@ Core Tools commands are organized into the following contexts, each providing a 
 | [`func`](#func-init) | Commands used to create and run functions on your local computer. |
 | [`func azure`](#func-azure-functionapp-fetch-app-settings) | Commands for working with Azure resources, including publishing. |
 | [`func durable`](#func-durable-delete-task-hub)    | Commands for working with [Durable Functions](./durable/durable-functions-overview.md). |
-| `func extensions` | Commands for installing and managing extensions. |
-| `func kubernetes` | Commands for working with Kubernetes and Azure Functions. |
+| [`func extensions`](#func-extensions-install) | Commands for installing and managing extensions. |
+| [`func kubernetes`](#func-kubernetes-deploy) | Commands for working with Kubernetes and Azure Functions. |
 | [`func settings`](#func-settings-decrypt)   | Commands for managing environment settings for the local Functions host. |
 | `func templates`  | Commands for listing available function templates. |
 
@@ -451,6 +451,38 @@ The `terminate` action supports the following options:
 
 To learn more, see the [Durable Functions documentation](./durable/durable-functions-instance-management.md#azure-functions-core-tools-4).
 
+## func extensions install
+
+Installs Functions extensions in a non-C# class library project. 
+
+When possible, you should instead use extension bundles. To learn more, see [Extension bundles](functions-bindings-register.md#extension-bundles).
+
+For C# class library and .NET isolated projects, instead use standard NuGet package installation methods, such as `dotnet add package`.
+
+The `install` action supports the following options:
+
+| Option     | Description                            |
+| ------------ | -------------------------------------- |
+| **`--configPath`** | Path of the directory containing extensions.csproj file.|
+| **`--csx`** |   Supports C# scripting (.csx) projects. |
+| **`--force`** |  Update the versions of existing extensions. |
+| **`--output`** |  Output path for the extensions. |
+| **`--package`** |   Identifier for the extension package. |
+| **`--source`** |  NuGet feed source when not using NuGet.org.|
+| **`--version`** |  Extension package version. |
+
+## func extensions sync
+
+Installs all extensions added to the function app.
+
+The `sync` action supports the following options:
+
+| Option     | Description                            |
+| ------------ | -------------------------------------- |
+| **`--configPath`** | Path of the directory containing extensions.csproj file.|
+| **`--csx`** |   Supports C# scripting (.csx) projects. |
+| **`--output`** |  Output path for the extensions. |
+
 ## func kubernetes deploy
 
 Deploys a Functions project as a custom docker container to a Kubernetes cluster using KEDA.
@@ -597,5 +629,15 @@ The `list` action supports the following option:
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--showValue`** | Shows the actual unmasked values in the output. |
+
+## func templates list
+
+Lists the available function (trigger) templates.
+
+The `list` action supports the following option:
+
+| Option     | Description                            |
+| ------------ | -------------------------------------- |
+| **`--language`** | Language for which to filter returned templates. Default is to return all languages. |
 
 [local.settings.json file]: functions-develop-local.md#local-settings-file
