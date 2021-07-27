@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Azure Backup Server v3
 description: This article provides the information about the known issues and workarounds for Microsoft Azure Backup Server (MABS) v3.
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 07/27/2021
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
 ---
 
