@@ -157,10 +157,10 @@ az iot hub update --name {your iot hub name} \
 
 The following commands retrieve the user-assigned managed identities configured on your IoT hub and configure authentication with one of them. Before you can use a user-assigned managed identity to authenticate, it must be configured on your IoT hub and granted an appropriate RBAC role on your Azure Storage account. For more detail and steps, see [IoT Hub support for managed identities](./iot-hub-managed-identity.md).
 
-To query for user-assigned managed identities on your IoT hub.
+To query for user-assigned managed identities on your IoT hub, use the [az iot hub identity show](/cli/azure/iot/hub/identity#az_iot_hub_identity_show) command.
 
 ```azurecli
-az iot hub show --name {your iot hub name} --query properties.identity.userAssignedIdentities
+az iot hub identity show --name {your iot hub name} --query userAssignedIdentities
 ```
 
 The command returns a collection of the user-assigned managed identities configured on your IoT hub. The following output shows a collection that contains a single user-assigned managed identity.
