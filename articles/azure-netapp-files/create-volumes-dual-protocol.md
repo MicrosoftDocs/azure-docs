@@ -125,7 +125,7 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
 
     * Specify the **versions** to use for dual protocol: **NFSv4.1 and SMB**, or **NFSv3 and SMB**.
 
-        The feature to use NFSv4.1 and SMB dual protocol is currently in preview. If you are using this feature for the first time, you need to register the feature:  
+        The feature to use **NFSv4.1 and SMB** dual protocol is currently in preview. If you are using this feature for the first time, you need to register the feature:  
 
         ```azurepowershell-interactive
         Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFDualProtocolNFSv4AndSMB
