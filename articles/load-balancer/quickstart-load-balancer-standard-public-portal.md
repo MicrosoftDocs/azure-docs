@@ -462,7 +462,7 @@ During the creation of the load balancer, you'll configure:
     | Name                   | Enter **myLoadBalancer**                                   |
     | Region         | Select **(Europe) West Europe**.                                        |
     | Type          | Select **Public**.                                        |
-    | SKU           | Leave the default **Basic**. |
+    | SKU           | Select **Basic**. |
  
 4. Select **Next: Frontend IP configuration** at the bottom of the page.
 
