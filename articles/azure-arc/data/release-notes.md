@@ -61,26 +61,26 @@ The current release announces general availability for the following services:
 
 #### Data controller
 
-Direct connected mode is in preview. 
+- Direct connected mode is in preview. 
 
-Direct connected mode (preview) is only available in the following Azure regions for this release:
-- East US
-- East US 2
-- West US 2
-- South Central US
-- UK South
-- West Europe
-- North Europe
-- Southeast Asia
-- Australia East
-- Central US
-- Korea Central
+- Direct connected mode (preview) is only available in the following Azure regions for this release:
+   - Central US
+   - East US
+   - East US 2
+   - West US 2
+   - South Central US
+   - UK South
+   - West Europe
+   - North Europe
+   - Australia East
+   - Southeast Asia
+   - Korea Central
 
-Currently, additional basic authentication users can be added to Grafana using the Grafana administrative experience. Customizing Grafana by modifying the Grafana .ini files is not supported.
+- Currently, additional basic authentication users can be added to Grafana using the Grafana administrative experience. Customizing Grafana by modifying the Grafana .ini files is not supported.
 
-Currently, modifying the configuration of ElasticSearch and Kibana is not supported beyond what is available through the Kibana administrative experience. Only basic authentication with a single user is supported.
+- Currently, modifying the configuration of ElasticSearch and Kibana is not supported beyond what is available through the Kibana administrative experience. Only basic authentication with a single user is supported.
 	
-Custom metrics in Azure Portal is in preview.
+- Custom metrics in Azure portal is in preview.
 
 #### Azure Arc-enabled SQL Managed Instance
 
