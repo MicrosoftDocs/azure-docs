@@ -3,7 +3,7 @@ title: Set up VMware VM disaster recovery to Azure with Azure Site Recovery - Pr
 description: Learn how to set up disaster recovery to Azure for on-premises VMware VMs with Azure Site Recovery - Preview.
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 06/29/2021
+ms.date: 07/27/2021
 ms.custom: MVC
 
 ---
@@ -70,6 +70,8 @@ Follow these steps to assign required permissions:
 
 You need to [set up an Azure Site Recovery replication appliance on the on-premises environment](deploy-vmware-azure-replication-appliance-preview.md) to channel mobility agent communications.
 
+![Replication appliance](./media/vmware-azure-set-up-replication-tutorial-preview/replication-appliance.png)
+
 ## Enable replication of VMware VMs
 
 After an Azure Site Recovery replication appliance is added to a vault, you can get started with protecting the machines.
@@ -85,7 +87,7 @@ Follow these steps to enable replication:
    > [!NOTE]
    > In Preview, the support is limited to virtual machines.
 
-3. After choosing Virtual machines, you need to choose the vCenter server added to Azure Site Recovery replication appliance, registered in this vault.
+3. After choosing virtual machines, you need to choose the vCenter server added to Azure Site Recovery replication appliance, registered in this vault.
 
 4. Later, search the source VM name to protect the machines of your choice. To review the selected VMs, select **Selected resources**.
 
@@ -103,7 +105,7 @@ Follow these steps to enable replication:
    > [!NOTE]
    > Ensure that the test failover network is different from the failover network. This is to make sure the failover network is readily available readily in case of an actual disaster.
 
-9. Select the storage
+9. Select the storage.
 
     - Cache storage account:
       Now, choose the cache storage account which Azure Site Recovery uses for staging purposes – caching and storing logs before writing the changes on to the managed disks.
