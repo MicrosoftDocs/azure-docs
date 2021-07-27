@@ -147,11 +147,11 @@ In Azure Data Factory, you don't need to specify any properties besides the gene
 
 ### Use user-assigned managed identity authentication
 
-A data factory can be assigned with one or multiple [user-assigned managed identities](data-factory-service-identity.md). You can use this user-assigned managed identity for Blob storage authentication, which allows to access and copy data from or to Data Lake Store. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../azure/active-directory/managed-identities-azure-resources/overview.md)
+A data factory can be assigned with one or multiple [user-assigned managed identities](data-factory-service-identity.md). You can use this user-assigned managed identity for Blob storage authentication, which allows to access and copy data from or to Data Lake Store. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
 
 To use user-assigned managed identity authentication, follow these steps:
 
-1. [Create one or multiple user-assigned managed identities](../azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and grant access to Azure Data Lake. See examples on how permission works in Data Lake Storage Gen1 from [Access control in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md#common-scenarios-related-to-permissions).
+1. [Create one or multiple user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and grant access to Azure Data Lake. See examples on how permission works in Data Lake Storage Gen1 from [Access control in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md#common-scenarios-related-to-permissions).
 
     - **As source**: In **Data explorer** > **Access**, grant at least **Execute** permission for ALL upstream folders including the root, along with **Read** permission for the files to copy. You can choose to add to **This folder and all children** for recursive, and add as **an access permission and a default permission entry**. There's no requirement on account-level access control (IAM).
     - **As sink**: In **Data explorer** > **Access**, grant at least **Execute** permission for ALL upstream folders including the root, along with **Write** permission for the sink folder. You can choose to add to **This folder and all children** for recursive, and add as **an access permission and a default permission entry**.
