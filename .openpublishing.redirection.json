@@ -57313,7 +57313,7 @@
     },
     {
       "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/module-reference.md",
-      "redirect_url": "/azure/machine-learning/component-reference/module-reference",
+      "redirect_url": "/azure/machine-learning/component-reference/component-reference",
       "redirect_document_id": true
     },
     {
@@ -57387,11 +57387,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/.md",
-      "redirect_url": "/azure/machine-learning/component-reference/",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/resnet.md",
       "redirect_url": "/azure/machine-learning/component-reference/resnet",
       "redirect_document_id": true
@@ -57439,11 +57434,6 @@
     {
       "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/split-data.md",
       "redirect_url": "/azure/machine-learning/component-reference/split-data",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/.md",
-      "redirect_url": "/azure/machine-learning/component-reference/",
       "redirect_document_id": true
     },
     {
