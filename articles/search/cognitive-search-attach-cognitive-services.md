@@ -3,8 +3,8 @@ title: Attach Cognitive Services to a skillset
 titleSuffix: Azure Cognitive Search
 description: Learn how to attach a Cognitive Services all-in-one subscription to an AI enrichment pipeline in Azure Cognitive Search.
 
-author: vkurpad
-ms.author: vikurpad
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/16/2021
@@ -32,7 +32,7 @@ Any "all-in-one" resource key is valid. Internally, a search service will use th
 
 + Image extraction is an Azure Cognitive Search operation that occurs when documents are cracked prior to enrichment. Image extraction is billable. For image extraction pricing, see the [Azure Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/).
 
-+ Text extraction also occurs during the document cracking phrase. It is not billable.
++ Text extraction also occurs during the [document cracking](search-indexer-overview.md#document-cracking) phrase. It is not billable.
 
 + Skills that do not call Cognitive Services, including Conditional, Shaper, Text Merge, and Text Split skills, are not billable.
 
