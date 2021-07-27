@@ -161,6 +161,28 @@ The resulting output consists of the predominant language, with a score of less 
 }
 ```
 
+## Data limits
+
+> [!NOTE]
+> * If you need to analyze larger documents than the limit allows, you can break the text into smaller chunks of text before sending them to the API. 
+> * A document is a single string of text characters.  
+
+| Limit | Value |
+|------------------------|---------------|
+| Maximum size of a single document | 5,120 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
+| Maximum size of a single document (`/analyze` endpoint)  | 125K characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
+| Maximum size of entire request | 1 MB.  |
+| Max Documents Per Request | 1000 |
+
+### Rate limits
+
+Your rate limit will vary with your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+
+| Tier          | Requests per second | Requests per minute |
+|---------------|---------------------|---------------------|
+| S / Multi-service | 1000                | 1000                |
+| S0 / F0         | 100                 | 300                 |
+
 ## Summary
 
 In this article, you learned concepts and workflow for language detection by using Text Analytics in Azure Cognitive Services. The following points were explained and demonstrated:

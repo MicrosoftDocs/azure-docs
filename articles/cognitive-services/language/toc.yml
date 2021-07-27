@@ -19,11 +19,11 @@ items:
   - name: how-to
     items:
     - name: Call the API
-      href: language-detection/call-api.md
+      href: language-detection/how-to/call-api.md
     - name: Use containers
       items:
       - name: Use Docker containers
-        href: language-detection/call-api.md
+        href: language-detection/how-to/use-containers.md
       - name: Configure containers
         href: concepts/configure-containers.md
   - name: Concepts
