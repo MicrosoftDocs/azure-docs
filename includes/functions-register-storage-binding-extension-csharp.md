@@ -9,7 +9,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 ```
 # [.NET 5.0](#tab/dotnet5)
 ```bash
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 4.0.4
+dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues --version 5.0.0-beta.4
 ```
 ---
 Now, you can add the storage output binding to your project.  
