@@ -127,7 +127,7 @@ In this section, you'll create a NAT gateway for outbound internet access for re
 
 12. Select **Create**.
 
-## Create load balancer
+## <a name="create-load-balancer-resources"></a> Create load balancer
 
 In this section, you create a load balancer that load balances virtual machines.
 
@@ -169,7 +169,7 @@ During the creation of the load balancer, you'll configure:
 8. Select **IP address** for the **IP type**.
 
     > [!NOTE]
-    > For more information on IP prefixes, see [Azure Public IP address prefix](./virtual-network/public-ip-address-prefix.md).
+    > For more information on IP prefixes, see [Azure Public IP address prefix](../virtual-network/public-ip-address-prefix.md).
 
 9. Select **Create new** in **Public IP address**.
 
@@ -181,9 +181,6 @@ During the creation of the load balancer, you'll configure:
     > In regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../availability-zones/az-overview.md).
 
 12. Leave the default of **Microsoft Network** for **Routing preference**.
-
-    > [!NOTE]
-    > For more information on Routing Preference, see [Routing Preference and Tier](#routing-preference-and-tier).
 
 13. Select **OK**.
 
@@ -231,8 +228,8 @@ During the creation of the load balancer, you'll configure:
 
 27. Select **Create**.
 
-> [!NOTE]
-    > In this example we created a NAT gateway to provide outbound Internet access. The outbound rules tab in the configuration is bypassed as it's optional and not needed with the NAT gateway. For more information on Azure NAT gateway, see [What is Azure Virtual Network NAT?](./virtual-network/nat-gateway/nat-overview.md)
+    > [!NOTE]
+    > In this example we created a NAT gateway to provide outbound Internet access. The outbound rules tab in the configuration is bypassed as it's optional isn't needed with the NAT gateway. For more information on Azure NAT gateway, see [What is Azure Virtual Network NAT?](./virtual-network/nat-gateway/nat-overview.md)
     > For more information about outbound connections in Azure, see [Source Network Address Translation (SNAT) for outbound connections](./load-balancer/load-balancer-outbound-connections.md)
 
 ## Create backend servers
@@ -580,7 +577,7 @@ During the creation of the load balancer, you'll configure:
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, load Balancer, and all related resources. To do so, select the resource group **CreatePubLBQS-rg** that contains the resources and then select **Delete**.
+When no longer needed, delete the resource group, load balancer, and all related resources. To do so, select the resource group **CreatePubLBQS-rg** that contains the resources and then select **Delete**.
 
 ## Next steps
 
