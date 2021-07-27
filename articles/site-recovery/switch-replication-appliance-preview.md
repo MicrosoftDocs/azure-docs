@@ -56,7 +56,6 @@ As an example, here is the scenario where replication appliance 1 (RA1) has beco
 
 4. Under **Source settings**  page, for each of the selected machines, select a different replication appliance.
 
-
    ![Select replication appliance](./media/switch-replication-appliances/select-replication-appliance.png)
 
    >[!NOTE]
