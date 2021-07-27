@@ -136,9 +136,13 @@ The following sections answer commonly asked questions about changing your credi
 
 If you keep getting this error message even if you've already logged out and back in, try again with a private browsing session.
 
-### How do I use a different card for each subscription I have?
+### How do I use a different card for each subscription?
 
-See [Replace credit card for a subscription to a previously saved credit card](#replace-credit-card-for-a-subscription-to-a-previously-saved-credit-card).
+As noted previously, when you create a new subscription, you can specify a new credit card. When you do so, no other subscriptions get associated with the new credit card. You can add multiple new subscriptions, each with a unique credit card. However, if you later make any of the following changes, *all subscriptions* will use the payment method you select.
+
+- Make a payment method active with the **Set active** option
+- Use the **Replace** payment option for any subscription
+- Change the default payment method
 
 ### How do I make payments?
 
