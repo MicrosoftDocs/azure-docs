@@ -37,13 +37,13 @@ It is worth noting that the throughput RU/s in the secondary region is set to th
 
 ### Automatic failover
 
-During a primary region outage, the Azure API for FHIR automatically fails over to the secondary region. The service is expected to resume in one hour or less, and with potential data loss of up to 15 minutes' worth of data. Changes aren't required by the customer unless Private Link, CMK, IoT and $export are used. For more information, see [Configuration changes during disaster recovery](#configuration-changes-in-dr).
+During a primary region outage, the Azure API for FHIR automatically fails over to the secondary region. The service is expected to resume in one hour, and potential data loss is expected to be up to 15 minutes' worth of data. Changes aren't required by the customer unless Private Link, CMK, IoT and $export are used. For more information, see [Configuration changes during disaster recovery](#configuration-changes-in-dr).
 
 [ ![Failover in disaster recovery.](media/disaster-recovery/failover-in-disaster-recovery.png) ](media/disaster-recovery/failover-in-disaster-recovery.png#lightbox)
 
 ### Impacted region recovery and data replication
 
-After the impacted region recovers, it's automatically available as a secondary region and data replication restarts. The data recovery process can start at this point, or it can be delayed until the failback step is completed.
+After the impacted region recovers, it's automatically available as a secondary region and data replication restarts. You can start the data recovery process or wait until the failback step is completed.
 
 [ ![Replication in disaster recovery.](media/disaster-recovery/replication-in-disaster-recovery.png) ](media/disaster-recovery/replication-in-disaster-recovery.png#lightbox)
 
