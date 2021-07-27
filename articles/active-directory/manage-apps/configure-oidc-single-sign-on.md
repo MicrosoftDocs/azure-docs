@@ -1,5 +1,6 @@
 ---
-title: Understand OIDC-based single sign-on (SSO) for apps in Azure Active Directory
+title: Understand OIDC-based single sign-on
+titleSuffix: Azure AD
 description: Understand OIDC-based single sign-on (SSO) for apps in Azure Active Directory.
 services: active-directory
 author: davidmu1
@@ -8,7 +9,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/19/2021
+ms.date: 07/19/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
 ms.custom: contperf-fy21q2
