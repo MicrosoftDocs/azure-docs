@@ -120,7 +120,7 @@ Review the [API reference](status-monitor-v2-api-reference.md) for a detailed de
 
 ### Troubleshooting running processes
 
-You can inspect the processes on the instrumented computer to determine if all DLLs and environment variables are loaded.
+You can inspect the processes on the instrumented computer to determine if all DLLs are loaded and environment variables are set.
 If monitoring is working, at least 12 DLLs should be loaded.
 
 * Use the `Get-ApplicationInsightsMonitoringStatus -InspectProcess` command to check the DLLs.
