@@ -45,7 +45,7 @@ During a primary region outage, the Azure API for FHIR automatically fails over 
 
 After the impacted region recovers, it's automatically available as a secondary region and data replication restarts. The data recovery process can start at this point, or it can be delayed until the failback step is completed.
 
-[ ![Failback in disaster recovery.](media/disaster-recovery/failback-in-disaster-recovery.png) ](media/disaster-recovery/failback-in-disaster-recovery.png#lightbox)
+[ ![Replication in disaster recovery.](media/disaster-recovery/replication-in-disaster-recovery.png) ](media/disaster-recovery/replication-in-disaster-recovery.png#lightbox)
 
 During the time when the computing environment (not the database) automatically fails back to the recovered region, there may be potential network latency issues because compute and data reside in two different regions. The network latency issue should be resolved automatically as soon as the database fails back to the recovered region through a manual trigger.
 
