@@ -11,7 +11,7 @@ ms.date: 07/27/2021
 
 Microsoft Azure Backup Server (MABS) version 3 UR2 supports the following new features/feature updates.
 
-For information about the UR2 issues fixes and the installation instructions, see the [KB article](https://prod.support.services.microsoft.com/en-us/topic/350de164-0ae4-459a-8acf-7777dbb7fd73?preview=true).
+For information about the UR2 issues fixes and the installation instructions, see the [KB article](https://support.microsoft.com/topic/update-rollup-2-for-microsoft-azure-backup-server-v3-350de164-0ae4-459a-8acf-7777dbb7fd73).
 
 ### Support for Azure Stack HCI
 
@@ -27,7 +27,7 @@ MABS v3 UR2 supports SQL Server Failover Cluster Instance (FCI) using Cluster Sh
 
 ### Optimized Volume Migration
 
-MABS v3 UR2 supports optimized volume migration. The optimized Volume-to-Volume Migration allows you to move data sources to the new volume much faster. The enhanced migration process migrates only the active backup copy (Active Replica) to the new volume. All new recovery points are created on the new volume, while existing recovery points are maintained on the existing volume and are purged based on the retention policy. [Learn more](https://support.microsoft.com/topic/microsoft-azure-backup-server-v3-feb4523f-8da7-da61-2f47-eaa9fca9a3de).
+MABS v3 UR2 supports optimized volume migration. The optimized volume migration allows you to move data sources to the new volume much faster. The enhanced migration process migrates only the active backup copy (Active Replica) to the new volume. All new recovery points are created on the new volume, while existing recovery points are maintained on the existing volume and are purged based on the retention policy. [Learn more](https://support.microsoft.com/topic/microsoft-azure-backup-server-v3-feb4523f-8da7-da61-2f47-eaa9fca9a3de).
 
 ### Offline Backup using Azure Data Box
 
