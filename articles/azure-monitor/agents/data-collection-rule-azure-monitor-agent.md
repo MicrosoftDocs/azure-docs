@@ -4,7 +4,7 @@ description: Describes how to create a data collection rule to collect data from
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/16/2021
+ms.date: 07/16/2021
 
 ---
 
@@ -32,7 +32,9 @@ For example, consider an environment with a set of virtual machines running a li
 You can use the Azure portal to create a data collection rule and associate virtual machines in your subscription to that rule. The Azure Monitor agent will be automatically installed and a managed identity created for any virtual machines that don't already have it installed.
 
 > [!IMPORTANT]
-> There is currently a known issue where if the data collection rule creates a managed identity on a virtual machine that already has a user-assigned managed identity, the user-assigned identity is disabled.
+> Creating a data collection rule using the portal also enables System-Assigned managed identity on the target resources, in addition to existing User-Assigned Identities (if any). For existing applications unless they specify the User-Assigned identity in the request, the machine will default to using System-Assigned Identity instead. [Learn More](../../active-directory/managed-identities-azure-resources/managed-identities-faq.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request)
+
+                    
 
 > [!NOTE]
 > If you wish to send data to Log Analytics, you must create the data collection rule in the **same region** where your Log Analytics workspace resides. The rule can be associated to machines in other supported region(s).

@@ -23,7 +23,7 @@ This article describes how to configure the [Postman REST client](https://www.ge
     1. [Create your own collection from scratch](#create-your-own-collection).
 1. [Add requests to your configured collection](#add-an-individual-request) and send them to the Azure Digital Twins APIs.
 
-Azure Digital Twins has two sets of APIs that you can work with: **data plane** and **control plane**. For more about the difference between these API sets, see [Concepts: Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md). This article contains information for both API sets.
+Azure Digital Twins has two sets of APIs that you can work with: **data plane** and **control plane**. For more about the difference between these API sets, see [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md). This article contains information for both API sets.
 
 ## Prerequisites
 
@@ -74,7 +74,7 @@ Otherwise, you can open an [Azure Cloud Shell](https://shell.azure.com) window i
     ---
 
     >[!NOTE]
-    > If you need to access your Azure Digital Twins instance using a service principal or user account that belongs to a different Azure Active Directory tenant from the instance, you'll need to request a **token** from the Azure Digital Twins instance's "home" tenant. For more information on this process, see [How-to: Write app authentication code](how-to-authenticate-client.md#authenticate-across-tenants).
+    > If you need to access your Azure Digital Twins instance using a service principal or user account that belongs to a different Azure Active Directory tenant from the instance, you'll need to request a **token** from the Azure Digital Twins instance's "home" tenant. For more information on this process, see [Write app authentication code](how-to-authenticate-client.md#authenticate-across-tenants).
 
 3. Copy the value of `accessToken` in the result, and save it to use in the next section. This is your **token value** that you will provide to Postman to authorize your requests.
 
@@ -284,7 +284,7 @@ To proceed with an example query, this article will use the Query API (and its [
 
    :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="Screenshot of the new request's details in Postman, on the Body tab. It contains a raw JSON body with a query of 'SELECT * FROM DIGITALTWINS'." lightbox="media/how-to-use-postman/postman-request-body.png":::
 
-   For more information about crafting Azure Digital Twins queries, see [How-to: Query the twin graph](how-to-query-graph.md).
+   For more information about crafting Azure Digital Twins queries, see [Query the twin graph](how-to-query-graph.md).
 
 1. Check the reference documentation for any other fields that may be required for your type of request. For the Query API, all requirements have now been met in the Postman request, so this step is done.
 1. Use the **Send** button to send your completed request.
@@ -298,4 +298,4 @@ You can also compare the response to the expected response data given in the ref
 
 ## Next steps
 
-To learn more about the Digital Twins APIs, read [Concepts: Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md), or view the [reference documentation for the REST APIs](/rest/api/azure-digitaltwins/).
+To learn more about the Digital Twins APIs, read [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md), or view the [reference documentation for the REST APIs](/rest/api/azure-digitaltwins/).

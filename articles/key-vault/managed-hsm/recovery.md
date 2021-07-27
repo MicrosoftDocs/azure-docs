@@ -4,8 +4,8 @@ description: Managed HSM Recovery features are designed to prevent the accidenta
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: how-to
-ms.author: ambapat
-author: amitbapat
+ms.author: mbaldwin
+author: mbaldwin
 ms.date: 06/01/2021
 ---
 

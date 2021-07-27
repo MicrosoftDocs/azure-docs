@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 07/26/2021
 
 ms.author: justinha
 author: justinha
@@ -30,7 +30,7 @@ Some OATH TOTP hardware tokens are programmable, meaning they don't come with a 
 
 ## OATH hardware tokens (Preview)
 
-Azure AD supports the use of OATH-TOTP SHA-1 tokens that refresh codes every 30 or 60 seconds. Customers can purchase these tokens from the vendor of their choice.
+Azure AD supports the use of OATH-TOTP SHA-1 tokens that refresh codes every 30 or 60 seconds. Customers can purchase these tokens from the vendor of their choice. For a list of security token providers that are compatible with passwordless authentication, see [FIDO2 security key providers](concept-authentication-passwordless.md#fido2-security-key-providers).
 
 OATH TOTP hardware tokens typically come with a secret key, or seed, pre-programmed in the token. These keys must be input into Azure AD as described in the following steps. Secret keys are limited to 128 characters, which may not be compatible with all tokens. The secret key can only contain the characters *a-z* or *A-Z* and digits *2-7*, and must be encoded in *Base32*.
 

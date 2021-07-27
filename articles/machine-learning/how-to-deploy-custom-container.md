@@ -10,7 +10,7 @@ author: gvashishtha
 ms.reviewer: larryfr
 ms.date: 06/16/2021
 ms.topic: how-to
-ms.custom: deploy
+ms.custom: deploy, devplatv2
 ---
 
 # Deploy a TensorFlow model served with TF Serving using a custom container in a managed online endpoint (preview)
