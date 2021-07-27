@@ -3,8 +3,8 @@ title: Attach Cognitive Services to a skillset
 titleSuffix: Azure Cognitive Search
 description: Learn how to attach a Cognitive Services all-in-one subscription to an AI enrichment pipeline in Azure Cognitive Search.
 
-author: vkurpad
-ms.author: vikurpad
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/16/2021
