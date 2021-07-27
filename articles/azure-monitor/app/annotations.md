@@ -149,7 +149,7 @@ Now, whenever you use the release template to deploy a new release, an annotatio
 
 Select any annotation marker to open details about the release, including requestor, source control branch, release pipeline, and environment.
 
-## Release annotations usings API keys
+## Release annotations using API keys
 
 Release annotations are a feature of the cloud-based Azure Pipelines service of Azure DevOps.
 
@@ -165,7 +165,7 @@ To be able to create release annotations, you'll need to install one of the many
    
 You only need to install the extension once for your Azure DevOps organization. You can now configure release annotations for any project in your organization.
 
-### Configure release annotations usings API keys
+### Configure release annotations using API keys
 
 Create a separate API key for each of your Azure Pipelines release templates.
 
