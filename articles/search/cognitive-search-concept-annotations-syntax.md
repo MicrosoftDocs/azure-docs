@@ -33,7 +33,7 @@ Because the default context is `"/document"`, the list of people can now be refe
 
 ```json
   {
-    "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+    "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
     "categories": [ "Person"],
     "defaultLanguageCode": "en",
     "inputs": [
