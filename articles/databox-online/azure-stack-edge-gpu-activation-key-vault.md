@@ -53,9 +53,6 @@ When you generate an activation key, the following events occur:
 
 ![Activation key generation flow](media/azure-stack-edge-gpu-activation-key-vault/activation-key-generation-flow-1.png)
 
-![Granting managed identity access to key vault flow](media/azure-stack-edge-gpu-activation-key-vault/activation-key-generation-flow-2.png)
-
-
 - You request an activation key in the Azure portal. The request is then sent to key vault resource provider. 
 - A standard tier key vault with access policy is created and is locked by default. 
     - This key vault uses the default name or a 3 to 24 character long custom name that you specified. You cannot use a key vault that is already in use. 
@@ -248,36 +245,11 @@ If the key vault is deleted and the purge-protection period of 90 days has elaps
 
 ## Recover managed identity access
 
-If the system-assigned managed identity access policy is deleted, an alert is raised when the device is unable to resync the key vault secrets. If the managed identity doesn't have access to the key vault, again a device alert is raised. Select the alert in each case to open the Recover key vault blade and reconfigure. This process should restore the managed identity access. 
+If the system-assigned managed identity access policy is deleted, an alert is raised when the device is unable to resync the key vault secrets. If the managed identity doesn't have access to the key vault, again a device alert is raised. Select the alert in each case to open the **Recover key vault blade** and reconfigure. This process should restore the managed identity access. 
 
-## Troubleshoot key vault errors and alerts
+![Granting managed identity access to key vault flow](media/azure-stack-edge-gpu-activation-key-vault/activation-key-generation-flow-2.png)
 
-Alerts 
-
-Managed identity is deleted
-Managed identity does not have access to key vault
-
-
-Errors
-Secret is deleted
-Key vault is deleted or key vault is not set up
-
-Audit logging
-
-Key vault
-
-Customer errors 
-
-Audit logging is disabled.
-Audit logging storage account was deleted
-Managed identity is deleted.
-Managed identity is removed from the key vault.
-CIK is deleted from the key vault after activation.
-Key vault is deleted after activation.
-
-
-
-
+<!--## Troubleshoot key vault errors and alerts-->
 
 
 ## Next steps
