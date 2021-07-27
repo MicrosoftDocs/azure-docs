@@ -1,6 +1,6 @@
 ---
-title: How to configure Azure Functions service queue with identity based connections
-description: Article that shows you how to use identity based connections with a service queue instead of connection strings, and how to use managed identities locally.
+title: How to configure Azure Functions service queue with identity-based connections
+description: Article that shows you how to use identity-based connections with a service queue instead of connection strings, and how to use managed identities locally.
 ms.topic: conceptual
 ms.date: 3/13/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
@@ -8,7 +8,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 # Using a Service Bus Queue Trigger with Identity-Based Connections
 
-This article shows you how to configure a service bus queue trigger to use managed identities instead of secrets. To learn more about identity based connections, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
+This article shows you how to configure a service bus queue trigger to use managed identities instead of secrets. To learn more about identity-based connections, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
 
 Prerequisite:
 - Complete the [Creating a function app with identity base connections tutorial](./functions-managed-identity-tutorial.md).
@@ -85,7 +85,7 @@ Now, you will add the **Azure Service Bus Data Owner** role assignment for your 
 
 ## Deploy a service bus triggered function app
 
-1. In Visual Studio, right click on your function app project, select **Add**, and select **New Function**.
+1. In Visual Studio, Right-click on your function app project, select **Add**, and select **New Function**.
     :::image type="content" source="./media/functions-secretless-tutorial/18-add-function.png" alt-text="Screenshot of how to add a function to an existing function app.":::
 
 1. Select **Azure Function**, name your function, and select **Add**.
@@ -93,40 +93,40 @@ Now, you will add the **Azure Service Bus Data Owner** role assignment for your 
 1. Select **Service Bus Queue trigger**, and enter the following settings.
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
-    | **Connection string setting name** | ServiceBusConnection | The app setting name for you connection. A connection string won't be used as a managed identity will be configured. For this tutorial, ServiceBusConnection will be used. | 
+    | **Connection string setting name** | ServiceBusConnection | The app setting name for your connection. A connection string won't be used as a managed identity will be configured. For this tutorial, ServiceBusConnection will be used. | 
     | **Queue name**  | queue | The name of your queue you created for your storage account. This is the queue your function app will trigger off of. |
 
 1. Select **Add** to create your function.
 
-1. Update your extension version to the preview extensions which support identity based connections.
+1. Update your extension version to the preview extensions that support identity-based connections.
 
     # [C#](#tab/csharp)
     
-    1. Visual Studio will automatically add the Service Bus extension package. Right click this package and select **Remove** as you will need to use the preview version.
+    1. Visual Studio will automatically add the Service Bus extension package. Right-click this package and select **Remove** as you will need to use the preview version.
 
-    1. In Visual Studio, right click dependencies, and select **Manage NuGet Packages**.
+    1. In Visual Studio, Right-click dependencies, and select **Manage NuGet Packages**.
     :::image type="content" source="./media/functions-secretless-tutorial/20-add-preview-package.png" alt-text="Screenshot of how to add a preview package.":::
 
     1. Make sure the **include preview** box is checked and search for the package you will be using. 
     
-    1. For this tutorial, search **Microsoft.Azure.Webjobs.Extensions.ServiceBus**. For a list of preview versions and nuget packets of the extensions visit [the documentation on configuring an identity-based connection](./functions-reference.md#configure-an-identity-based-connection).
+    1. For this tutorial, search **Microsoft.Azure.Webjobs.Extensions.ServiceBus**. For a list of preview versions and NuGet packets of the extensions, visit [the documentation on configuring an identity-based connection](./functions-reference.md#configure-an-identity-based-connection).
 
-    1. Select the extension and verify you are using the latest version of the preview nuget package.
+    1. Select the extension and verify you are using the latest version of the preview NuGet package.
 
     1. Select **Install**
     
     # [C# Script](#tab/csharp-script)
     
-    1. Visual Studio will automatically add the Service Bus extension package. Right click this package and select **Remove** as you will need to use the preview version.
+    1. Visual Studio will automatically add the Service Bus extension package. Right-click this package and select **Remove** as you will need to use the preview version.
 
-    1. In Visual Studio, right click dependencies, and select **Manage NuGet Packages**.
+    1. In Visual Studio, Right-click dependencies, and select **Manage NuGet Packages**.
     :::image type="content" source="./media/functions-secretless-tutorial/20-add-preview-package.png" alt-text="Screenshot of how to add a preview package.":::
 
     1. Make sure the **include preview** box is checked and search for the package you will be using. 
     
-    1. For this tutorial, search **Microsoft.Azure.Webjobs.Extensions.ServiceBus**. For a list of preview versions and nuget packets of the extensions visit [the documentation on configuring an identity-based connection](./functions-reference.md#configure-an-identity-based-connection).
+    1. For this tutorial, search **Microsoft.Azure.Webjobs.Extensions.ServiceBus**. For a list of preview versions and NuGet packets of the extensions, visit [the documentation on configuring an identity-based connection](./functions-reference.md#configure-an-identity-based-connection).
 
-    1. Select the extension and verify you are using the latest version of the preview nuget package.
+    1. Select the extension and verify you are using the latest version of the preview NuGet package.
 
     1. Select **Install**
     
@@ -167,7 +167,7 @@ Now, you will add the **Azure Service Bus Data Owner** role assignment for your 
         ```
     ---
 
-1. Now publish your function app. For more specific steps on how to publish your app, follow the deploy a function using run from package section of the [Create a function app with identity based connections](./functions-managed-identity-tutorial.md#deploy-a-function-using-run-from-package) tutorial.
+1. Now publish your function app. For more specific steps on how to publish your app, follow the deploy a function using run from package section of the [Create a function app with identity-based connections](./functions-managed-identity-tutorial.md#deploy-a-function-using-run-from-package) tutorial.
 
 ## Test your Service Bus Configuration
 
@@ -262,7 +262,7 @@ Use the following links to learn more Azure Functions networking options and pri
 
 - [Managed identity in Azure Functions](../app-service/overview-managed-identity.md)
 
-- [Identity based connections in Azure Functions](./functions-reference.md#configure-an-identity-based-connection)
+- [identity-based connections in Azure Functions](./functions-reference.md#configure-an-identity-based-connection)
 
 - [Connecting to host storage with an Identity](./functions-reference.md#connecting-to-host-storage-with-an-identity)
 
@@ -274,4 +274,4 @@ Use the following links to learn more Azure Functions networking options and pri
 
 - [Configuring the account used by Visual Studio for local development](/dotnet/api/azure/identity-readme.md#authenticating-via-visual-studio)
 
-- [Functions documentation for local development](./functions-reference#local-development)
+- [Functions documentation for local development](./functions-reference.md#local-development)

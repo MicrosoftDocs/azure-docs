@@ -98,7 +98,7 @@ The default configuration provider uses environment variables. These might be se
 
 When the connection name resolves to a single exact value, the runtime identifies the value as a _connection string_, which typically includes a secret. The details of a connection string are defined by the service to which you wish to connect.
 
-However, a connection name can also refer to a collection of multiple configuration items, useful for configuring [identity-based connections](#Configure-an-identity-based-connection). Environment variables can be treated as a collection by using a shared prefix that ends in double underscores `__`. The group can then be referenced by setting the connection name to this prefix.
+However, a connection name can also refer to a collection of multiple configuration items, useful for configuring [identity-based connections](#configure-an-identity-based-connection). Environment variables can be treated as a collection by using a shared prefix that ends in double underscores `__`. The group can then be referenced by setting the connection name to this prefix.
 
 For example, the `connection` property for a Azure Blob trigger definition might be `Storage1`. As long as there is no App Setting with a single single string value configured with `Storage1` as its name, `Storage1__serviceUri` would be used for the `serviceUri` property of the connection. The connection properties are different for each service. Refer to the documentation for the extension that uses the connection.
 

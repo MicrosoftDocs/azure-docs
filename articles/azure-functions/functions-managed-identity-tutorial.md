@@ -1,14 +1,14 @@
 ---
-title: How to configure Azure Functions with identity based connections
-description: Article that shows you how to use identity based connections with Azure Functions instead of connection strings
+title: How to configure Azure Functions with identity-based connections
+description: Article that shows you how to use identity-based connections with Azure Functions instead of connection strings
 ms.topic: article
 ms.date: 7/26/2021
 
 ---
 
-# Tutorial: Creating a function app with Identity Based Connections
+# Tutorial: Creating a function app with identity-based Connections
 
-This article shows you how to configure a secretless function app using identity based connections instead of connection strings. To learn more about identity based connections, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
+This article shows you how to configure a secretless function app using identity-based connections instead of connection strings. To learn more about identity-based connections, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
 
 In this tutorial, you'll:
 
@@ -72,7 +72,7 @@ Azure Files currently doesn't support managed identity for SMB file shares, so y
 
 1. On the **Review + create** page, verify your configuration. You may need to update some settings such as the **Resource Group**. Then, select **Create** to provision and deploy the function app.
 
-1. If you access your function app once created, you will get a warning about Storage not being configured properly. This is expected as you have removed Azure Files. Later in this tutorial, you will setup run-from-package which will remove the warning.
+1. If you access your function app once created, you will get a warning about Storage not being configured properly. This is expected as you have removed Azure Files. Later in this tutorial, you will set up run-from-package which will remove the warning.
 
 1. Congratulations! You've successfully created your function app without Azure Files.
 
@@ -109,13 +109,13 @@ To make your function app secretless, you will need to enable managed identity. 
 
 ## Deploy a function using Run From Package
 
-You'll now deploy a simple timer triggered function to confirm things are configured correctly so far to not require secrets in AzureWebJobsStorage. 
+You'll now deploy a timer triggered function to confirm things are configured correctly so far to not require secrets in AzureWebJobsStorage. 
 
 1. Create a timer triggered function app in Visual Studio. For steps, follow the steps for creating an HTTP triggered function app in the [Visual Studio quickstart](./functions-create-your-first-function-visual-studio.md#create-a-function-app-project), but create a timer trigger instead.
 
 1. In order to publish a package to the blob, you'll need to manually add the package.
 
-1. Right click the project and select **Publish**. 
+1. Right-click the project and select **Publish**. 
     :::image type="content" source="./media/functions-secretless-tutorial/6-publish-app.png" alt-text="Screenshot of how to open the publish an app view in Visual Studio.":::
 
 1. Select **Folder** for the target, and select **Next**.
@@ -133,7 +133,7 @@ You'll now deploy a simple timer triggered function to confirm things are config
 
 1. In the **New container** blade, provide a name, and select **Create**.
 
-1. Select the container you just created.
+1. Select the container you created.
 
 1. Now, upload your zipped file. Select **Upload**.
     :::image type="content" source="./media/functions-secretless-tutorial/8-upload-zip.png" alt-text="Screenshot of how to go to upload a package.":::
@@ -191,10 +191,10 @@ The next step is to switch AzureWebJobsStorage to be secretless. This should alr
 There's one more key-like setting in your Function App, and that’s your App Insights connection string. This is not technically a secret as it contains the instrumentation key. However, you can configure this setting using Key Vault and use managed identity to access it. Steps are in the following [tutorial](./functions-managed-identity-key-vault.md).
 
 ## Use Managed Identity with a Storage Queue Trigger
-For a step by step tutorial of managed identities with a storage queue trigger, continue on to the [Storage Queue Trigger tutorial](./functions-managed-identity-storage-queue.md)
+For a step-by-step tutorial of managed identities with a storage queue trigger, continue on to the [Storage Queue Trigger tutorial](./functions-managed-identity-storage-queue.md)
 
 ## Use Managed Identity with a Service Bus Trigger 
-For a step by step tutorial of managed identities with a service bus trigger, continue on to the [Service Bus Trigger tutorial](./functions-managed-identity-servicebus-queue.md)
+For a step-by-step tutorial of managed identities with a service bus trigger, continue on to the [Service Bus Trigger tutorial](./functions-managed-identity-servicebus-queue.md)
 
 ## Use Managed Identity for local development
 
@@ -214,7 +214,7 @@ Use the following links to learn more Azure Functions networking options and pri
 
 - [Managed identity in Azure Functions](../app-service/overview-managed-identity.md)
 
-- [Identity based connections in Azure Functions](./functions-reference.md#configure-an-identity-based-connection)
+- [identity-based connections in Azure Functions](./functions-reference.md#configure-an-identity-based-connection)
 
 - [Connecting to host storage with an Identity](./functions-reference.md#connecting-to-host-storage-with-an-identity)
 
@@ -226,4 +226,4 @@ Use the following links to learn more Azure Functions networking options and pri
 
 - [Configuring the account used by Visual Studio for local development](/dotnet/api/azure/identity-readme.md#authenticating-via-visual-studio)
 
-- [Functions documentation for local development](./functions-reference#local-development)
+- [Functions documentation for local development](./functions-reference.md#local-development)

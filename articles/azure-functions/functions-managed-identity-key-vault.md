@@ -1,6 +1,6 @@
 ---
-title: How to configure Azure Functions Application Insights with Key Vault and identity based connections
-description: Article that shows you how to use identity based connections and key vault in place of connection strings for application insights
+title: How to configure Azure Functions Application Insights with Key Vault and identity-based connections
+description: Article that shows you how to use identity-based connections and key vault in place of connection strings for application insights
 ms.topic: article
 ms.date: 7/26/2021
 
@@ -8,14 +8,14 @@ ms.date: 7/26/2021
 
 # Tutorial: Use Managed Identity to access Key Vault
 
-This article shows you how to configure App Insights with Key Vault and managed identities. The tutorial is a continuation of the [functions managed identity tutorial](./functions-managed-identity-tutorial.md). To learn more about identity based connections, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
+This article shows you how to configure App Insights with Key Vault and managed identities. The tutorial is a continuation of the [functions managed identity tutorial](./functions-managed-identity-tutorial.md). To learn more about identity-based connections, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
 
 In this tutorial, you'll:
 
 > [!div class="checklist"]
 > * create a Key Vault
 > * add a secret to your Key Vault
-> * configure your function app's application insights to use role based access instead of connection strings.
+> * configure your function app's application insights to use role-based access instead of connection strings.
 
 ## Create a Key Vault
 
@@ -69,7 +69,7 @@ In this tutorial, you'll:
     | ------------ | ---------------- | ---------------- |
     | **Scope**  | Key Vault | Scope is a set of resources that the role assignment applies to. |
     | **Subscription** | yourSubscription | The subscription under which your resources are created. | 
-    | **Resource**  | yourKeyVault | The Key Vault you are created a role based connection for. |
+    | **Resource**  | yourKeyVault | The Key Vault you are created a role-based connection for. |
     | **Role** | Key Vault Secrets User | The role determines what permissions your managed identity will have. The Key Vault Secrets User will allow your identity to read secret contents. |
 
 1. In your function app, select **Configuration** from the left blade.
@@ -95,7 +95,7 @@ Use the following links to learn more Azure Functions networking options and pri
 
 - [Managed identity in Azure Functions](../app-service/overview-managed-identity.md)
 
-- [Identity based connections in Azure Functions](./functions-reference.md#configure-an-identity-based-connection)
+- [identity-based connections in Azure Functions](./functions-reference.md#configure-an-identity-based-connection)
 
 - [Connecting to host storage with an Identity](./functions-reference.md#connecting-to-host-storage-with-an-identity)
 
@@ -107,4 +107,4 @@ Use the following links to learn more Azure Functions networking options and pri
 
 - [Configuring the account used by Visual Studio for local development](/dotnet/api/azure/identity-readme.md#authenticating-via-visual-studio)
 
-- [Functions documentation for local development](./functions-reference#local-development)
+- [Functions documentation for local development](./functions-reference.md#local-development)
