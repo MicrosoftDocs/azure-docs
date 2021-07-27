@@ -98,7 +98,7 @@ az vm host group create \
 
 ### [PowerShell](#tab/powershell)
 
-This example creates a host group in zone 1, with 2 fault domains.
+This example uses [New-AzHostGroup](/powershell/module/az.compute/new-azhostgroup) to create a host group in zone 1, with 2 fault domains.
 
 
 ```azurepowershell-interactive
@@ -155,7 +155,7 @@ az vm host create \
 
 ### [PowerShell](#tab/powershell)
 
-In this example, we set the fault domain for the host to 1.
+In this example, we use [New-AzHost](/powershell/module/az.compute/new-azhost) to create a host and set the fault domain to 1.
 
 
 ```azurepowershell-interactive
@@ -214,7 +214,7 @@ To place the VM on a specific host, use `--host` instead of specifying the host 
 
 ### [PowerShell](#tab/powershell)
 
-For this example, because our host group is in zone 1, we need to create the VM in zone 1.
+Create a new VM on our host using [New-AzVM](/powershell/module/az.compute/new-azvm) For this example, because our host group is in zone 1, we need to create the VM in zone 1.
 
 
 ```azurepowershell-interactive
@@ -273,7 +273,7 @@ If you want to manually choose which host to deploy the scale set to, add `--hos
 
 ### [PowerShell](#tab/powershell)
 
-When you deploy a scale set, you specify the host group.
+Deploy a scale-set to the host using [New-AzVMSS](/powershell/module/az.compute/new-azvmss). When you deploy a scale set, you specify the host group.
 
 ```azurepowershell-interactive
 New-AzVmss `
@@ -482,7 +482,7 @@ The output will look similar to this:
 ### [PowerShell](#tab/powershell)
 
 
-You can check the host health status and how many virtual machines you can still deploy to the host using [GetAzHost](/powershell/module/az.compute/get-azhost) with the `-InstanceView` parameter.
+You can check the host health status and how many virtual machines you can still deploy to the host using [Get-AzHost](/powershell/module/az.compute/get-azhost) with the `-InstanceView` parameter.
 
 ```azurepowershell-interactive
 Get-AzHost `
