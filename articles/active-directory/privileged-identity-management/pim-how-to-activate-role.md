@@ -25,7 +25,7 @@ If you have been made *eligible* for an administrative role, then you must *acti
 This article is for administrators who need to activate their Azure AD role in Privileged Identity Management.
 
 > [!TIP]
-> You can use the shotcut URL [AKA.MS/PIM](https://aka.ms/PIM) to jump straight to the Azure AD roles selection page.
+> You can use the shortcut URL [AKA.MS/PIM](https://aka.ms/PIM) to jump straight to the Azure AD roles selection page.
 
 # [New version](#tab/new)
 
