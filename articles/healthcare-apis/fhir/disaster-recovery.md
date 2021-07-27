@@ -37,7 +37,7 @@ It is worth noting that the throughput RU/s in the secondary region must be main
 
 ### Automatic failover
 
-When an unfortunate disaster strikes, the Azure API for FHIR automatically fails over to the secondary region and the service is expected to resume in one hour or less, and with potential data loss of up to 15 minutes’ worth of data. No changes are required on the customer side unless Private Link, CMK, IoT and $export are used. For more information, see [Configuration changes during disaster recovery](#configuration-changes-during-disaster-recovery).
+During a primary region outage, the Azure API for FHIR automatically fails over to the secondary region and the service is expected to resume in one hour or less, and with potential data loss of up to 15 minutes’ worth of data. No changes are required on the customer side unless Private Link, CMK, IoT and $export are used. For more information, see [Configuration changes during disaster recovery](#configuration-changes-in-dr).
 
 [ ![Failover in disaster recovery.](media/disaster-recovery/failover-in-disaster-recovery.png) ](media/disaster-recovery/failover-in-disaster-recovery.png#lightbox)
 
@@ -54,7 +54,7 @@ During the time when the computing environment (not the database) automatically 
 
 ### Manual failback
 
-The compute environment fails back automatically to the recovered region. The database is switched back to the recovered region through a manually triggered scripting process by the Microsoft support team. In either case, no customer actions are required unless Private Link, CMK, IoT, and $export are used. For more information about, see [Configuration changes during disaster recovery](#configuration-changes-during-disaster-recovery).
+The compute environment fails back automatically to the recovered region. The database is switched back to the recovered region through a manually triggered scripting process by the Microsoft support team. In either case, no customer actions are required unless Private Link, CMK, IoT, and $export are used. For more information about, see [Configuration changes during disaster recovery](#configuration-changes-in-dr).
 
 [ ![Failback in disaster recovery.](media/disaster-recovery/failback-in-disaster-recovery.png) ](media/disaster-recovery/failback-in-disaster-recovery.png#lightbox)
 
@@ -66,7 +66,7 @@ While the DR operation requires very little action to enable, additional configu
 
 You can enable the private link feature before or after the Azure API for FHIR has been provisioned. You can also provision private link before or after the DR feature has been enabled. Refer to the list below when you're ready to configure Private Link for DR.
 
-* Configure private link in the primary region. This step is not required in the secondary region.
+* Configure Azure Private Link in the primary region. This step is not required in the secondary region. For more information, see [Configure private link](https://docs.microsoft.com/azure/healthcare-apis/fhir/configure-private-link)
 
 * Create one Azure VNet in the primary region and an additional VNet in the secondary region. For information, see [Create a virtual network using the Azure portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal).
 
@@ -88,6 +88,10 @@ Data replication will take place between the two regions through VNet peering. T
 
 The job that is running the export will be picked up from another region after 10 minutes without an update to the job status. Follow the guidance for Azure storage for recovering your storage account in the event of a regional outage to allow your FHIR server to access your storage again. For more information, see [Disaster recovery and storage account failover](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance). 
 
+Ensure that you grant the same permissions to the system identity of the Azure API for FHIR. Also, if the storage account is configured with selected networks, see [How to export FHIR data](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/export-data).
+
+> [!NOTE]
+> Configuring virtual networks and VNet peering does not affect data replication.
 
 ### IoMT Connector
 
