@@ -47,9 +47,6 @@ Use the **IdentityInfo** table during investigations and when fine-tuning analyt
 
 For more information, see [IdentityInfo table](ueba-enrichments.md#identityinfo-table-public-preview) in the UEBA enrichments reference and [Use UEBA data to analyze false positives](investigate-with-ueba.md#use-ueba-data-to-analyze-false-positives).
 
-- [Support for data residency in more geos](#support-for-data-residency-in-more-geos)
-- [Bidirectional sync in Azure Defender connector](#bidirectional-sync-in-azure-defender-connector)
-
 ### Enrich entities with geolocation data via API (Public preview)
 
 Azure Sentinel now offers an API to enrich your data with geolocation information. Geolocation data can then be used to analyze and investigate security incidents.
