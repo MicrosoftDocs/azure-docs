@@ -67,6 +67,30 @@ You'll run the `New-AvsLDAPIdentitySource` cmdlet to add AD over LDAP as an exte
 
 1. Provided the required values or change the default values, and then select **Run**.
 
+
+   :::row:::
+   :::column span="":::
+      :::image type="content" source="media/run-command/run-command-new-ldap-identity-sources.png" alt-text="Screenshot  ":::
+   :::column-end:::
+   :::column span="":::
+      | Field | Value |
+      | --- | --- |
+      | Name  | User-friendly name of the external identity source. For example, **avslap.local**.  |
+      | DomainName  | Domain name of the external identity source. For example,   |
+      | DomainAlias  | Domain alias of the external identity source. For example,     |
+      | PrimaryUrl  | Primary URL of the external identity source. For example, **ldap://yourserver:389**.  |
+      | SecondaryURL  | Secondary fall-back URL in case of primary failure.  |
+      | BaseDNUsers  |  Where to look for valid users. For example, **CN=users,DC=yourserver,DC=internal**.  Base DN is needed to use LDAP Authentication.  |
+      | BaseDNGroups  | Where to look for groups. For example, **CN=group1, DC=yourserver,DC= internal**. Base DN is needed to use LDAP Authentication.  |
+      | Credential  | The username and password used for authentication with the AD source (not cloudadmin).  |
+      | GroupName  | Group to give cloud admin access in your external identity source.  For example, **avs-admins**.  |
+      | Retain up to  | Job retention period. The cmdlet output is stored for the number of days defined. Default value is 60.  |
+      | Specify name for execution  | Name of the task to execute. For example, ***addexternalIdentity**.  |
+      | Timeout  | The time in which the cmdlet exits if a certain task takes too long to finish.  |
+   :::column-end:::
+   :::row-end:::
+
+
    :::image type="content" source="media/run-command/run-command-new-ldap-identity-sources.png" alt-text="Screenshot  ":::
    
    | Field | Value |
