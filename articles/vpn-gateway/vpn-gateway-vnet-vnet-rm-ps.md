@@ -76,7 +76,7 @@ For this exercise, you can combine configurations, or just choose the one that y
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* Because it takes up to 45 minutes to create a gateway, Azure Cloud Shell will timeout periodically during this exercise. You can restart Cloud Shell by clicking in the upper left of the terminal. Be sure to redeclare any variables when you restart the terminal.
+* Because it takes 45 minutes or more to create a gateway, Azure Cloud Shell will timeout periodically during this exercise. You can restart Cloud Shell by clicking in the upper left of the terminal. Be sure to redeclare any variables when you restart the terminal.
 
 * If you would rather install latest version of the Azure PowerShell module locally, see [How to install and configure Azure PowerShell](/powershell/azure/).
 
@@ -200,7 +200,7 @@ We use the following values in the examples:
    -VpnType RouteBased -GatewaySku VpnGw1
    ```
 
-After you finish the commands, it will take up to 45 minutes to create this gateway. If you are using Azure Cloud Shell, you can restart your Cloud Shell session by clicking in the upper left of the Cloud Shell terminal, then configure TestVNet4. You don't need to wait until the TestVNet1 gateway completes.
+After you finish the commands, it will take 45 minutes or more to create this gateway. If you are using Azure Cloud Shell, you can restart your Cloud Shell session by clicking in the upper left of the Cloud Shell terminal, then configure TestVNet4. You don't need to wait until the TestVNet1 gateway completes.
 
 ### Step 3 - Create and configure TestVNet4
 

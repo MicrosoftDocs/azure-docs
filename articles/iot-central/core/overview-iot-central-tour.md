@@ -17,7 +17,7 @@ This article introduces you to Azure IoT Central UI. You can use the UI to creat
 
 ## IoT Central homepage
 
-The [IoT Central homepage](https://aka.ms/iotcentral-get-started) page is the place to learn more about the latest news and features available on IoT Central, create new applications, and see and launch your existing applications.
+The [IoT Central homepage](https://apps.azureiotcentral.com/) page is the place to learn more about the latest news and features available on IoT Central, create new applications, and see and launch your existing applications.
 
 :::image type="content" source="media/overview-iot-central-tour/iot-central-homepage.png" alt-text="IoT Central homepage":::
 
@@ -31,7 +31,7 @@ To learn more, see the [Create an Azure IoT Central application](quick-deploy-io
 
 ### Launch your application
 
-You launch your IoT Central application by navigating to the URL you chose during app creation. You can also see a list of all the applications you have access to in the [IoT Central app manager](https://aka.ms/iotcentral-apps).
+You launch your IoT Central application by navigating to the URL you chose during app creation. You can also see a list of all the applications you have access to in the [IoT Central app manager](https://apps.azureiotcentral.com/myapps).
 
 :::image type="content" source="media/overview-iot-central-tour/app-manager.png" alt-text="IoT Central app manager":::
 
