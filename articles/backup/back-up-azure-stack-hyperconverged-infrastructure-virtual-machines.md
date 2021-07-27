@@ -11,7 +11,9 @@ This article explains how to back up virtual machines on Azure Stack HCI using M
 
 ## Supported scenarios
 
-MABS can back up virtual machines running on Azure Stack HCI host servers in the following scenarios:
+MABS can back up Azure Stack HCI virtual machines in the following scenarios:
+
+- **Azure Stack HCI Host**: Back up and recover System State/BMR of the Azure Stack HCI host.
 
 - **Virtual machines in cluster with local or direct storage**: Back up virtual machines in a cluster that has local or directly attached storage. For example, a hard drive, a storage area network (SAN) device, or a network attached storage (NAS) device. The MABS protection agent must be installed on all hosts.
 
