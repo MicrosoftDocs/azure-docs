@@ -38442,6 +38442,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-hub/quickstart-control-device-dotnet.md",
+      "redirect_url": "/azure/iot-hub/quickstart-control-device?pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-control-device-node.md",
+      "redirect_url": "/azure/iot-hub/quickstart-control-device?pivots=programming-language-nodejs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-control-device-python.md",
+      "redirect_url": "/azure/iot-hub/quickstart-control-device?pivots=programming-language-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-control-device-java.md",
+      "redirect_url": "/azure/iot-hub/quickstart-control-device?pivots=programming-language-java",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-suite/iot-suite-connected-factory-publisher.md",
       "redirect_url": "https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md",
       "redirect_document_id": false
