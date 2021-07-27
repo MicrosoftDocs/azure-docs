@@ -109,45 +109,11 @@ Open the following ports in your firewall:
 
     - Due to GDPR regulations, EU customers must set their instances to the EU **Europe West** cloud. Any customer outside of the EU, should set their instance to US **US East** cloud.
 
-### Create a new subscription 
+### Onboard a new subscription 
 
 Onboard a new subscription, and provide the subscription ID to your Azure Defender for IoT contact to ensure you will not be billed.
 
-To create a new subscription.
-
-**xxxxxxxxxxx FOLLOW THIS LINK TO CREATE A SUBSCRIPTION INSERT LINK HERE  xxxxxxxxxxxxx REMOVE EVERYTHING BELOW THIS**
-
-> [!Note]
-> You must have a minimum of Security Owner to create a subscription, and Security Reader level permissions to access the Defender for IoT user interface. 
-    
-**Copy the subscription ID, and send a copy to your Azure Defender for IoT contact to ensure you will not be _billed_.**
- 
-## Onboard a new subscription
-
-Create, and onboard a new subscription, even if you already have a current subscription with Azure Defender for IoT.
-
-**To onboard a new subscription**:
-
-1. Navigate to the **https://ms.portal.azure.com/?enterpriseiot=true#home**.
-
-    > [!Note]
-    > **You must select the specific link provided in step #1 or you will not be able to compete the process listed below**.
-
-1. Search for `Azure Defender for IoT` in the search bar.
-
-    :::image type="content" source="media/eiot-deployment/search-for-defender.png" alt-text="Enter Azure Defender for IoT in the Ssearch bar and select it.":::
-
-1. Select Azure Defender for IoT.
-
-1. On the getting started page, Select **Onboard a subscription**.
-
-    :::image type="content" source="media/eiot-deployment/onboard-subscription.png" alt-text="Select onboard a subscription from the getting started page.":::
-
-1. Select :::image type="icon" source="media/eiot-deployment/onboard-icon.png" border="false":::.
-
-1. In the Onboard subscription window, select your subscription, and set the number of committed devices to **1000**.
-
-1. Select the **Onboard** button.
+Learn how to [Onboard a subscription](organizations/how-to-manage-subscriptions.md#onboard-a-subscription).
 
 ## Configure an IotHub
 
