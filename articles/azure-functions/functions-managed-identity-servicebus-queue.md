@@ -62,6 +62,7 @@ Now, you will add the **Azure Service Bus Data Owner** role assignment for your 
     :::image type="content" source="./media/functions-secretless-tutorial/22-add-service-bus-managed-identity.png" alt-text="Screenshot of how to add managed identity to service bus.":::
 
 1. In the **Select managed identities** blade, configure with the following settings.
+
     | Setting      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
     | **System-assigned app type** | Function App | Type of resource for the managed identity. |
@@ -92,6 +93,7 @@ Now, you will add the **Azure Service Bus Data Owner** role assignment for your 
 1. Select **Azure Function**, name your function, and select **Add**.
  
 1. Select **Service Bus Queue trigger**, and enter the following settings.
+
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **Connection string setting name** | ServiceBusConnection | The app setting name for your connection. A connection string won't be used as a managed identity will be configured. For this tutorial, ServiceBusConnection will be used. | 

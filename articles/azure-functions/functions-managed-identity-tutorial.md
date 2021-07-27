@@ -11,7 +11,6 @@ ms.date: 7/26/2021
 This article shows you how to configure a secretless function app using identity-based connections instead of connection strings. To learn more about identity-based connections, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
 
 In this tutorial, you'll:
-
 > [!div class="checklist"]
 > * create a function app without Azure Files
 > * enable managed identity on the function app
@@ -193,7 +192,8 @@ There's one more key-like setting in your Function App, and that’s your App In
 ## Use Managed Identity with Triggers
 
 Step-by-step tutorials:
-    | Trigger      | Tutorial  |
+
+    | Trigger     | Tutorial  |
     | ------------ | ---------------- |
     | **Storage Queue Trigger** |  [Storage Queue Trigger tutorial](./functions-managed-identity-storage-queue.md) |
     | **Service Bus Queue Trigger** |  [Service Bus Trigger tutorial](./functions-managed-identity-servicebus-queue.md) |

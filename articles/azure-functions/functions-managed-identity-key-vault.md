@@ -15,7 +15,6 @@ Prerequisite:
 > *  Complete the [Creating a function app with identity base connections tutorial](./functions-managed-identity-tutorial.md).
 
 In this tutorial, you'll:
-
 > [!div class="checklist"]
 > * create a Key Vault
 > * add a secret to your Key Vault

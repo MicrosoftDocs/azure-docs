@@ -88,6 +88,7 @@ Now, you will add the **Storage Queue Data Contributor** Azure role assignment f
 1. Select **Azure Function**, name your function, and select **Add**.
  
 1. Select **Queue trigger**, and enter the following settings.
+
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **Connection string setting name** | QueueConnection | The app setting name for your connection. A connection string won't be used as a managed identity will be configured. For this tutorial, QueueConnection will be used. | 
