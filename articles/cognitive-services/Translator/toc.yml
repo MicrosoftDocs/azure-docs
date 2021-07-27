@@ -144,7 +144,7 @@
       href: custom-translator/how-to-view-document-details.md
     - name: Train a model
       href: custom-translator/how-to-train-model.md
-    - name: Viewmodel details
+    - name: View model details
       href: custom-translator/how-to-view-model-details.md
     - name: View system test results
       href: custom-translator/how-to-view-system-test-results.md
