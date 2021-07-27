@@ -49,10 +49,10 @@ As an example, here is the scenario where replication appliance 1 (RA1) has beco
 
 3. Under  **Select machines**, select the machines that you want to failover to another replication appliance (RA2). Select **Next**.
 
-  >[!NOTE]
-  > Only those machine which have been protected by the current appliance will be visible in the list. Failed over machines will not be present here  
+   >[!NOTE]
+   > Only those machine which have been protected by the current appliance will be visible in the list. Failed over machines will not be present here  
 
-   ![Select machines for switching](./media/switch-replication-appliances/select-machines.png)
+    ![Select machines for switching](./media/switch-replication-appliances/select-machines.png)
 
 4. Under **Source settings**  page, for each of the selected machines, select a different replication appliance.
 
