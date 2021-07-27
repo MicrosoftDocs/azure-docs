@@ -23,7 +23,7 @@ group, or individual resource.
 | Scope | Exemptions | 1000 |
 | Policy definition | Parameters | 20 |
 | Initiative definition | Policies | 1000 |
-| Initiative definition | Parameters | 100 |
+| Initiative definition | Parameters | 250 |
 | Policy or initiative assignments | Exclusions (notScopes) | 400 |
 | Policy rule | Nested conditionals | 512 |
 | Remediation task | Resources | 500 |

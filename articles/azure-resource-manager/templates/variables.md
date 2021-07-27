@@ -2,7 +2,7 @@
 title: Variables in templates
 description: Describes how to define variables in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
-ms.date: 05/14/2021
+ms.date: 06/24/2021
 ---
 
 # Variables in ARM templates

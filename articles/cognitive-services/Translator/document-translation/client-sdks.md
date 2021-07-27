@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 06/22/2021
+ms.date: 07/06/2021
 ms.author: lajanuar
 ---
 
@@ -25,7 +25,7 @@ To get started, you'll need:
 
 * A [**single-service Translator resource**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource).
 
-* An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll [**create containers**](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) in your Azure blob storage account for your source and target files:
+* An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll [**create containers**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your Azure blob storage account for your source and target files:
 
   * **Source container**. This container is where you upload your files for translation (required).
   * **Target container**. This container is where your translated files will be stored (required).
@@ -172,10 +172,10 @@ That's it! You've created a program to translate documents in a blob container u
 <!-- LINKS -->
 
 [documenttranslation_nuget_package]: https://www.nuget.org/packages/Azure.AI.Translation.Document/1.0.0-beta.2
-[documenttranslation_client_library_docs]: https://aka.ms/azsdk/net/documenttranslation/docs
+[documenttranslation_client_library_docs]: /dotnet/api/azure.ai.translation.document
 [documenttranslation_docs]: overview.md
 [documenttranslation_rest_api]: reference/rest-api-guide.md
-[documenttranslation_samples]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Document_1.0.0-beta.1/sdk/translation/Azure.AI.Translation.Document/samples/README.md
+[documenttranslation_samples]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/translation/Azure.AI.Translation.Document/samples
 
 ### [Python](#tab/python)
 
@@ -254,7 +254,6 @@ That's it! You've created a program to translate documents in a blob container u
 [python-dt-client-library]: https://aka.ms/azsdk/python/documenttranslation/docs
 [python-rest-api]: reference/rest-api-guide.md
 [python-dt-product-docs]: overview.md
-[python-dt-samples]: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.0.0b1/sdk/translation/azure-ai-translation-document/samples
+[python-dt-samples]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/translation/azure-ai-translation-document/samples
 
 ---
- 

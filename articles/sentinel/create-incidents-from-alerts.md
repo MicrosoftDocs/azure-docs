@@ -20,15 +20,12 @@ ms.author: yelevin
 ---
 # Automatically create incidents from Microsoft security alerts
 
-Alerts triggered in Microsoft security solutions that are connected to Azure Sentinel, such as Microsoft Cloud App Security and Microsoft Defender for Identity (formerly Azure ATP), do not
-automatically create incidents in Azure Sentinel. By default, when you connect a Microsoft solution to Azure Sentinel, any alert generated in that service will
-be stored as raw data in Azure Sentinel, in the Security Alert table in your Azure Sentinel workspace. You can then use that data like any other raw data you
-connect into Azure Sentinel.
+Alerts triggered in Microsoft security solutions that are connected to Azure Sentinel, such as Microsoft Cloud App Security and Microsoft Defender for Identity (formerly Azure ATP), do not automatically create incidents in Azure Sentinel. By default, when you connect a Microsoft solution to Azure Sentinel, any alert generated in that service will be stored as raw data in Azure Sentinel, in the Security Alert table in your Azure Sentinel workspace. You can then use that data like any other raw data you connect into Azure Sentinel.
 
-You can easily configure Azure Sentinel to automatically create incidents every time an alert is triggered in a connected Microsoft security solution, by following the
-instructions in this article.
+You can easily configure Azure Sentinel to automatically create incidents every time an alert is triggered in a connected Microsoft security solution, by following the instructions in this article.
 
 ## Prerequisites
+
 You must [connect Microsoft security solutions](connect-data-sources.md#data-connection-methods) to enable incident creation from security service alerts.
 
 ## Using Microsoft Security incident creation analytics rules
@@ -47,21 +44,19 @@ Use the built-in rules available in Azure Sentinel to choose which connected Mic
 
 1. You can modify the rule details, and choose to filter the alerts that will create incidents by alert severity or by text contained in the alert’s name.  
       
-    For example, if you choose **Azure Defender** (may still be called *Azure Security Center*) in the **Microsoft security service** field and choose **High** in the **Filter by severity** field,
-    only high severity Azure Defender alerts will automatically create incidents in Azure Sentinel.  
+    For example, if you choose **Azure Defender** (may still be called *Azure Security Center*) in the **Microsoft security service** field and choose **High** in the **Filter by severity** field, only high severity Azure Defender alerts will automatically create incidents in Azure Sentinel.  
 
     ![Create rule wizard](media/incidents-from-alerts/create-rule-wizard.png)
 
-1. You can also create a new **Microsoft security** rule that filters alerts from different Microsoft security services by clicking on **+Create** and
-    selecting **Microsoft incident creation rule**.
+1. You can also create a new **Microsoft security** rule that filters alerts from different Microsoft security services by clicking on **+Create** and selecting **Microsoft incident creation rule**.
 
     ![Incident creation rule](media/incidents-from-alerts/incident-creation-rule.png)
 
-  You can create more than one **Microsoft Security** analytics rule per **Microsoft security service** type. This does not create duplicate incidents, since each rule
-is used as a filter. Even if an alert matches more than one **Microsoft Security** analytics rule, it creates just one Azure Sentinel incident.
+    You can create more than one **Microsoft Security** analytics rule per **Microsoft security service** type. This does not create duplicate incidents, since each rule is used as a filter. Even if an alert matches more than one **Microsoft Security** analytics rule, it creates just one Azure Sentinel incident.
 
 ## Enable incident generation automatically during connection
- When you connect a Microsoft security solution, you can select whether you want the alerts from the security solution to automatically generate incidents in Azure Sentinel automatically.
+
+When you connect a Microsoft security solution, you can select whether you want the alerts from the security solution to automatically generate incidents in Azure Sentinel automatically.
 
 1. Connect a Microsoft security solution data source. 
 
@@ -72,4 +67,4 @@ is used as a filter. Even if an alert matches more than one **Microsoft Security
 ## Next steps
 
 - To get started with Azure Sentinel, you need a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/).
-- Learn how to [onboard your data to Azure Sentinel](quickstart-onboard.md), and [get visibility into your data, and potential threats](quickstart-get-visibility.md).
+- Learn how to [onboard your data to Azure Sentinel](quickstart-onboard.md), and [get visibility into your data and potential threats](quickstart-get-visibility.md).

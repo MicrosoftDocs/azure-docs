@@ -221,6 +221,8 @@
           href: azure-stack-edge-gpu-deploy-arc-data-controller.md           
     - name: Configure Azure Resource Manager (Preview)
       items:
+      - name: What is local Azure Resource Manager?
+        href: azure-stack-edge-gpu-local-resource-manager-overview.md 
       - name: Connect via Azure PowerShell
         href: azure-stack-edge-gpu-connect-resource-manager.md 
       - name: Set Azure Resource Manager password
@@ -291,14 +293,22 @@
             href: azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md
           - name: GPU extension issues
             href: azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md
-    - name: Manage certificates
+    - name: About certificates
       items:
-      - name: Requirements
+      - name: What are certificates?
+        href: azure-stack-edge-gpu-certificates-overview.md 
+      - name: View requirements
         href: azure-stack-edge-gpu-certificate-requirements.md 
-      - name: Bring your own
+      - name: Create certificates
+        items:
+        - name: Via Azure PowerShell
+          href: azure-stack-edge-gpu-create-certificates-powershell.md 
+        - name: Via Azure Stack Readiness Checker tool
+          href: azure-stack-edge-gpu-create-certificates-tool.md 
+      - name: Prepare certificates to upload on device
+        href: azure-stack-edge-gpu-prepare-certificates-device-upload.md 
+      - name: Upload, import, view expiry
         href: azure-stack-edge-gpu-manage-certificates.md 
-      - name: Create via Azure Stack Readiness Checker tool
-        href: azure-stack-edge-gpu-create-certificates-tool.md 
       - name: Troubleshoot certificate errors
         href: azure-stack-edge-gpu-certificate-troubleshooting.md 
     - name: Manage Edge compute 
@@ -365,7 +375,9 @@
         href: azure-stack-edge-contact-microsoft-support.md 
   - name: Shared release notes
     items:
-    - name: 2105 - Current
+    - name: 2106 - Current
+      href: azure-stack-edge-gpu-2106-release-notes.md
+    - name: 2105 
       href: azure-stack-edge-gpu-2105-release-notes.md
     - name: 2103 
       href: azure-stack-edge-gpu-2103-release-notes.md

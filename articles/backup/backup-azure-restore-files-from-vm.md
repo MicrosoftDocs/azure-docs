@@ -154,6 +154,12 @@ Also, ensure that you have the [right machine to execute the ILR script](#step-2
 
 ## Step 5: Running the script and identifying volumes
 
+> [!NOTE]
+>
+> The script is generated in English language only and is not localized. Hence it might require that the system locale is in English for the script to execute properly
+> 
+
+
 ### For Windows
 
 After you meet all the requirements listed in [Step 2](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script), [Step 3](#step-3-os-requirements-to-successfully-run-the-script) and [Step 4](#step-4-access-requirements-to-successfully-run-the-script), copy the script from the downloaded location (usually the Downloads folder), see [Step 1 to learn how to generate and download script](#step-1-generate-and-download-script-to-browse-and-recover-files). Right-click the executable file and run it with Administrator credentials. When prompted, type the password or paste the password from memory, and press Enter. Once the valid password is entered, the script connects to the recovery point.

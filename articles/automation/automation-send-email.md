@@ -22,7 +22,7 @@ You can send an email from a runbook with [SendGrid](https://sendgrid.com/soluti
 
 ## Create an Azure Key Vault
 
-You can create an Azure Key Vault using the following PowerShell script. Replace the variable values with values specific to your environment. Use the embedded Azure Cloud Shell via the **Try It** button, located in the top right corner of the code block. You can also copy and run the code locally if you have the [Az modules](/powershell/azure/install-az-ps) installed on your local machine.
+You can create an Azure Key Vault using the following PowerShell script. Replace the variable values with values specific to your environment. Use the embedded Azure Cloud Shell via the **Try It** button, located in the top-right corner of the code block. You can also copy and run the code locally if you have the [Az modules](/powershell/azure/install-az-ps) installed on your local machine. This script also creates a [Key Vault access policy](../key-vault/general/assign-access-policy-portal.md) that allows the Run As account to get and set key vault secrets in the specified key vault.
 
 > [!NOTE]
 > To retrieve your API key, use the steps in [Find your SendGrid API key](../sendgrid-dotnet-how-to-send-email.md#to-find-your-sendgrid-api-key).

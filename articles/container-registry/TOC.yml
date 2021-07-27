@@ -35,6 +35,10 @@
         href: container-registry-tutorial-deploy-app.md
       - name: 3 - Update web application
         href: container-registry-tutorial-deploy-update.md
+  - name: Samples
+    items:
+    - name: Azure Resource Graph queries
+      href: ./resource-graph-samples.md
   - name: Concepts
     expanded: false
     items:
@@ -139,8 +143,6 @@
         displayName: permissions, authorization
       - name: Content trust
         href: container-registry-content-trust.md
-      - name: Image scanning with Security Center
-        href: ../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json
     - name: Registries and other Azure services
       expanded: false
       items:
@@ -157,6 +159,13 @@
           href: monitor-service.md  
         - name: Audit compliance using Azure Policy
           href: container-registry-azure-policy.md 
+        - name: Scan container images
+          expanded: false
+          items:
+          - name: Scan with Azure Defender
+            href: scan-images-defender.md
+          - name: Scan with GitHub actions
+            href: github-action-scan.md
     - name: Troubleshoot
       expanded: false
       items:
@@ -170,7 +179,7 @@
           href: container-registry-check-health.md
           displayName: check, health
         - name: FAQ
-          href: container-registry-faq.md
+          href: container-registry-faq.yml
 - name: Tasks
   expanded: true
   items:
