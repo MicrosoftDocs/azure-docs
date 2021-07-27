@@ -59,9 +59,9 @@ In this step, you create an Azure logic app that receives Service Bus events via
         ![Screenshot that shows where you select your topic and subscription.](./media/service-bus-to-event-grid-integration-example/logic-app-select-topic-subscription.png)
 
 ### Add a step to process and complete received messages
-In this step, you'll add steps to send the received message in an email and then complete the message. 
+In this step, you'll add steps to send the received message in an email and then complete the message. In a real-world scenario, you'll process a message in the logic app before completing the message.
 
-#### Add For each step
+#### Add a foreach loop
 1. Select **+ New step**.
 1. Search for and then select **Control**.  
 
@@ -73,7 +73,7 @@ In this step, you'll add steps to send the received message in an email and then
 
     :::image type="content" source="./media/service-bus-to-event-grid-integration-example/select-input-for-each.png" alt-text="Image showing the selection of input to For each":::    
 
-#### Add a step inside the for each loop to send an email with the message body
+#### Add a step inside the foreach loop to send an email with the message body
 
 1. Within **For Each** loop, select **Add an action**. 
 
@@ -92,7 +92,7 @@ In this step, you'll add steps to send the received message in an email and then
 
     :::image type="content" source="./media/service-bus-to-event-grid-integration-example/send-email-configured.png" alt-text="Image showing the Send email activity configured":::
 
-#### Complete the received message         
+#### Add another action in the foreach loop to complete the message         
 1. Within **For Each** loop, select **Add an action**. 
     1. Select **Service Bus** in the **Recent** list.
     2. Select **Complete the message in a topic subscription** from the list of actions. 
