@@ -43,9 +43,9 @@ To add an account by signing into your work or school account using your credent
 
    - If you receive the message `You might be signing in from a location that is restricted by your admin`, your admin hasn't enabled this feature for you and probably set up a Security Information Registration Conditional Access policy. Contact the administrator for your work or school account to use this authentication method.
 
-1. If you are allowed by your admin to use phone sign-in using the Authenticator app, you'll be able to go through device registration to get set up for passwordless phone sign-in and Azure Multi-Factor Authentication (MFA). However, you'll still be able to set up MFA whether or not you are enabled for phone sign-in.
+1. If you are allowed by your admin to use phone sign-in using the Authenticator app, you'll be able to go through device registration to get set up for passwordless phone sign-in and Azure AD Multi-Factor Authentication. However, you'll still be able to set up multifactor authentication whether or not you are enabled for phone sign-in.
 
-1. At this point, you could be asked to scan a QR Code provided by your organization to set up an on-premises multi-factor authentication account in the app. You're required to do this only if your organization uses on-premises MFA Server.
+1. At this point, you might be asked to scan a QR Code provided by your organization to set up an on-premises multi-factor authentication account in the app. You're required to do this only if your organization uses on-premises MFA Server.
 
 1. On your device, tap the account and verify in the full-screen view that your account is correct. For additional security, the verification code changes every 30 seconds preventing someone from using a code multiple times.
 
