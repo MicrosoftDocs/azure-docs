@@ -23,7 +23,7 @@ In this article, you learn how to:
 
 * Create a compute instance
 * Manage (start, stop, restart, delete) a compute instance
-* Create  a schedule for the compute instance to automatically start and stop
+* Create  a schedule to automatically start and stop the compute instance
 * Access the terminal window
 * Install R or Python packages
 * Create new environments or Jupyter kernels
