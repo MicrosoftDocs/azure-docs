@@ -27,7 +27,7 @@ Language Services provides each container with a common configuration framework,
 [!INCLUDE [Container shared configuration settings table](../../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-setting) settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](how-tos/text-analytics-how-to-install-containers.md#billing).
+> The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-setting) settings are used together, and you must provide valid values for all three of them; otherwise your container won't start.
 
 ## ApiKey configuration setting
 
@@ -44,6 +44,7 @@ The `Billing` setting specifies the endpoint URI of the _Language Services_ reso
 |Required| Name | Data type | Description |
 |--|------|-----------|-------------|
 |Yes| `Billing` | String | Billing endpoint URI. |
+
 
 ## Eula setting
 

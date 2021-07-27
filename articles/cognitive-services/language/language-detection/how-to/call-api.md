@@ -32,7 +32,7 @@ If you have content expressed in a less frequently used language, you can try th
 
 You submit strings of text to the API, along with an ID string. The document size must be under 5,120 characters per document. You can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request.
 
-Analysis is performed upon receipt of the request. For information on the size and number of requests you can send per minute and second, see the [data limits](#data-limits.md) section. The feature is stateless. No data is stored in your account. Results are returned immediately in the response.
+Analysis is performed upon receipt of the request. For information on the size and number of requests you can send per minute and second, see the [data limits](#data-limits) section. The feature is stateless. No data is stored in your account. Results are returned immediately in the response.
 
 
 ### View the results
