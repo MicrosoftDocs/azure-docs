@@ -31,7 +31,7 @@ The DR process involves the following steps:
 
 By default, the Azure API for FHIR offers data protection through backup and restore. When the disaster recovery feature is enabled, data replication begins. A data replica is automatically created and synchronized in the secondary Azure region. The initial data replication can take a few minutes to a few hours, or longer, depending on the amount of data. The secondary data replica is a replication of the primary data. It's used directly to recover the service, and it helps speed up the recovery process.
 
-It is worth noting that the throughput RU/s in the secondary region must be maintained at the same level as that in the primary region.
+It is worth noting that the throughput RU/s in the secondary region is set to the same value as one in the primary region.
 
 [ ![Azure Traffic Manager.](media/disaster-recovery/azure-traffic-manager.png) ](media/disaster-recovery/azure-traffic-manager.png#lightbox)
 
@@ -47,7 +47,7 @@ After the impacted region recovers, it's automatically available as a secondary 
 
 [ ![Replication in disaster recovery.](media/disaster-recovery/replication-in-disaster-recovery.png) ](media/disaster-recovery/replication-in-disaster-recovery.png#lightbox)
 
-During the time when the computing environment (not the database) automatically fails back to the recovered region, there may be potential network latency issues because compute and data reside in two different regions. The network latency issue should be resolved automatically as soon as the database fails back to the recovered region through a manual trigger.
+During the time when compute has failed back to the recovered region but data has not, there may be potential network latencies because compute and data reside in two different regions. The network latencies should disappear automatically as soon as the data fails back to the recovered region through a manual trigger.
 
 [ ![Network latency.](media/disaster-recovery/network-latency.png) ](media/disaster-recovery/network-latency.png#lightbox)
 
