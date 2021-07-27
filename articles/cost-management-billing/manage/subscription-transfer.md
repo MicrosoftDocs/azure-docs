@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 06/23/2021
+ms.date: 07/27/2021
 ms.author: banders
 ms.custom:
 ---
@@ -16,7 +16,8 @@ ms.custom:
 
 This article describes the types of supported Azure subscription transfers. It also helps you understand what's needed to transfer Azure subscriptions between different billing models and types and then provides links to other articles for more detailed information about specific transfers. Azure subscriptions are created upon different Azure agreement types and a transfer from a source agreement type to another varies depending on the source and destination agreement types. Subscription transfers can be an automatic or a manual process, depending on the source and destination subscription type. If it's a manual process, the subscription agreement types determine how much manual effort is needed.
 
-There are many types of Azure subscriptions, however not every subscription can be transferred from one type to another. Only supported subscription transfers are documented in this article. If need help with a situation that isn't addressed in this article, you can create an [Azure support request](https://go.microsoft.com/fwlink/?linkid=2083458) for assistance.
+>[!NOTE]
+>There are many types of Azure subscriptions, however not every subscription can be transferred from one type to another. Only supported subscription transfers are documented in this article. If you need help with a situation that isn't addressed in this article, you can create an [Azure support request](https://go.microsoft.com/fwlink/?linkid=2083458) for assistance.
 
 This article also helps you understand the things you should know *before* you transfer billing ownership of an Azure subscription to another account. You might want to transfer billing ownership of your Azure subscription if you're leaving your organization, or you want your subscription to be billed to another account. Transferring billing ownership to another account provides the administrators in the new account permission for billing tasks. They can change the payment method, view charges, and cancel the subscription.
 
@@ -54,8 +55,6 @@ Answers help you to communicate early with others to set expectations and timeli
 
 Answers for the source and destination offer type questions help define technical paths that you'll need to follow and identify limitations that a transfer combination might have. Limitations are covered in more detail in the next section.
 
-SHOULD WE DISCUSS MCA INDIVIDUAL VS MCA MICROSOFT FIELD? ARE THOSE TO GOOD TERMS TO USE HERE? WILL CUSTOMERS UNDERSTAND THOSE CONCEPTS? THERE'S VERY, VERY LITTLE ABOUT THOSE TERMS IN OUR EXISTING DOCS.
-
 SHOULD WE DISCUSS DIRECT EA VS INDRECT EA? WILL CUSTOMERS UNDERSTAND THOSE CONCEPTS? THERE'S VERY, VERY LITTLE ABOUT THOSE TERMS IN OUR EXISTING DOCS.
 
 ## Subscription transfer support
@@ -69,35 +68,35 @@ Dev/Test subscriptions aren't shown in the following table. Transfers for Dev/Te
 >[!NOTE]
 >Reservations will transfer for most supported subscription transfers. However, there are some transfers where reservations will not transfer as noted in the following table.
 
-| **Source Subscription Type** | **Destination Subscription Type** | **transfer Type** | **Considerations** |
+| **Source subscription type** | **Destination subscription type** | **Transfer type** | **Notes** |
 | :---: | :---: | :---: | :---: |
-| EA | MOSP (PAYG) | Billing | The transfer has no downtime because it's just a billing change. Transferring between EA enrollments requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/). |
-| EA | MCA - individual | Billing | The transfer is completed as part of the MCA transition process from an EA. For more information, see [Complete Enterprise Agreement tasks in your billing account for a Microsoft Customer Agreement](mca-enterprise-operations.md). |
-| EA | EA | Billing | The transfer has no downtime because it's just a billing change. Transferring between EA enrollments requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/). |
-| EA | MCA - Microsoft field | Billing | The transfer is completed as part of the MCA transition process from an EA. For more information, see [Complete Enterprise Agreement tasks in your billing account for a Microsoft Customer Agreement](mca-enterprise-operations.md). |
-| EA | Azure Plan/MPA | Billing | The transfer has no downtime because it's just a billing change. There are limitations and restrictions. For more information, see [Transfer EA subscriptions to a CSP partner](transfer-subscriptions-subscribers-csp.md#transfer-ea-subscriptions-to-a-csp-partner). |
-| MCA - individual | MOSP (PAYG) |  Billing | The transfer has no downtime because it's just a billing change. See [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md). VERIFY THAT THIS IS THE RIGHT LINK. |
-| MCA - individual | MCA - individual | Billing | The transfer has no downtime because it's just a billing change. See [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md). |
-| MCA - individual | EA |  Billing | NEED TO SUMMARIZE HOW THIS IS INITIATED BY THE CUSTOMER AND AND HOW THIS IS COMPLETED IN THE EA PORTAL. NEED TO ADD NEW DOC (OR NEW SECTION IN `https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-administration`. |
-| MCA - individual | MCA - Microsoft field | Billing | The transfer has no downtime because it's just a billing change. See [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md).  |
-| MCA - Microsoft field | MOSP |  Billing | Requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/). |
-| MCA - Microsoft field | MCA - individual |  Billing | SOT IMPORT.  |
-| MCA - Microsoft field | EA |  Billing | Requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/). |
-| MCA - Microsoft field | MCA - Microsoft field |  Billing | SOT IMPORT.  |
+| EA | MOSP (PAYG) | Billing GOOD | <ul><li>The transfer has no downtime because it's just a billing change. <li>Transfer to an EA enrollment requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/). <li>Reservations don't automatically transfer and transferring them isn't supported. |
+| EA | MCA - individual | Billing GOOD | <ul><li>The transfer has no downtime because it's just a billing change. <li>For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md).  |
+| EA | EA | Billing GOOD | <ul><li>The transfer has no downtime because it's just a billing change. <li>Transferring between EA enrollments requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/). <li> Transfer within the same enrollment is the same action as changing the account owner. For details, see [Change EA subscription or account ownership](ea-portal-administration.md#change-azure-subscription-or-account-ownership). |
+| EA | MCA - Enterprise GOOD EASY BUTTON | Billing | <ul><li>Transferring all enrollment subscriptions is completed as part of the MCA transition process from an EA. For more information, see [Complete Enterprise Agreement tasks in your billing account for a Microsoft Customer Agreement](mca-enterprise-operations.md). <li>If you want to transfer specific subscriptions, not all of the subscriptions in an enrollment, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md).|
+| EA | Azure Plan/MPA | Billing HERE | <ul><li>Only CSP direct bill partners certified as an [Azure Expert Managed Services Provider (MSP)](https://partner.microsoft.com/membership/azure-expert-msp) can request to transfer Azure subscriptions for their customers that have a Direct Enterprise Agreement (EA). Subscription transfers are allowed only for customers who have accepted a Microsoft Customer Agreement (MCA) and purchased an Azure plan with the CSP Program. <li>There are limitations and restrictions. For more information, see [Transfer EA subscriptions to a CSP partner](transfer-subscriptions-subscribers-csp.md#transfer-ea-subscriptions-to-a-csp-partner). |
+| MCA - individual | MOSP (PAYG) |  Billing GOOD | <ul><li>The transfer has no downtime because it's just a billing change. <li>For details, see [Transfer billing ownership of an Azure subscription to another account](billing-subscription-transfer.md). <li>Reservations don't automatically transfer and transferring them isn't supported. |
+| MCA - individual | MCA - individual |  Billing GOOD | <ul><li>The transfer has no downtime because it's just a billing change. For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md). |
+| MCA - individual | EA |  Billing GOOD| <ul><li>The transfer has no downtime because it's just a billing change. <li>For details, see [Transfer a subscription to an EA](mosp-ea-transfer.md#transfer-the-subscription-to-the-ea). <li>DESTINATION ARTICLE SAYS IT'S MOSP-SPECIFIC, SO WILL NEED TO REVISE TO SAY IT'S APPLICABLE TO BOTH MOSP AND MCA |
+| MCA - individual | MCA - Enterprise | Billing GOOD | <ul><li>The transfer has no downtime. <li>For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md). SOT-IMPORT  |
+| MCA - Enterprise | MOSP HERE 20:27 |  Billing | Requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/). |
+| MCA - Enterprise | MCA - individual |  Billing | SOT IMPORT.  |
+| MCA - Enterprise | EA |  Billing | Requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/). |
+| MCA - Enterprise | MCA - Enterprise |  Billing | SOT IMPORT.  |
 | Azure in CSP | Azure Plan/MPA (Same Partner) |  Billing | The transfer has no downtime because it's just a billing change made by CSP partners. For more information about the process, see [Transition customers to Azure plan from existing CSP Azure offers](/partner-center/azure-plan-transition). THIS IS WHERE WE LEFT OFF IN OUR LAST MEETING. |
 | Azure in CSP | EA |  Resource | ACIS COMMAND |
 | Azure in CSP | MOSP (PAYG) |  Resource | ACIS COMMAND |
 | Azure in CSP | MCA - individual |  Resource | ACIS COMMAND |
-| Azure in CSP | MCA - Microsoft field |  ACIS COMMAND |
+| Azure in CSP | MCA - Enterprise |  ACIS COMMAND |
 | Azure in CSP | Azure in CSP |  Resource | Requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/). |
 | Azure in CSP | Azure Plan(MPA) |  Resource | See [Other subscription transfers to a CSP partner](transfer-subscriptions-subscribers-csp.md#transfer-ea-subscriptions-to-a-csp-partner)???? |
 | Azure Plan/MPA | MCA - individual | N/A | ACIS COMMAND |
 | Azure Plan/MPA | EA |  Resource | Requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/). The transfer requires resources to move from the existing Azure Plan/MPA subscription to a newly created or an existing EA subscription. Use the information in the [Perform resource transfers](#perform-resource-transfers) section. There may be downtime involved in the transfer process. |
 | Azure Plan/MPA | Azure Plan/MPA |  Billing | The transfer has no downtime because it's just a billing change between CSP partners, managed by Microsoft. For more information about the process, see [Learn how to transfer a customer's Azure subscriptions to another partner](/partner-center/switch-azure-subscriptions-to-a-different-partner) and [Transfer subscriptions under an Azure plan from one partner to another](azure-plan-subscription-transfer-partners.md). |
-| MOSP (PAYG) | MOSP (PAYG) |  Billing | The transfer has no downtime. If you're changing the billing owner of the subscription, see [Transfer billing ownership of an Azure subscription to another account](billing-subscription-transfer.md). If you're changing a payment method, see [Add or update a credit card for Azure](change-credit-card.md). |
-| MOSP (PAYG) | MCA - individual |  Billing | The transfer has no downtime. Changing an MOSP (PAYG) subscription to an MCA subscription offer requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/). |
-| MOSP (PAYG) | EA |  Billing | The transfer has no downtime because it's just a billing change, however there is a detailed process to follow as documented at [MOSP to EA Subscription transfer](mosp-ea-transfer.md). |
-| MOSP (PAYG) | MCA - Microsoft field |  Billing | The transfer has no downtime. Changing an MOSP (PAYG) subscription to an MCA subscription offer requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/). |
+| MOSP (PAYG) | MOSP (PAYG) |  Billing GOOD| <ul><li>The transfer has no downtime.<li> If you're changing the billing owner of the subscription, see [Transfer billing ownership of an Azure subscription to another account](billing-subscription-transfer.md). <li>If you're changing a payment method, see [Add or update a credit card for Azure](change-credit-card.md). <li>Reservations don't automatically transfer so you must open a [billing support ticket](https://azure.microsoft.com/support/create-ticket/) to transfer them.</ul> |
+| MOSP (PAYG) | MCA - individual |  Billing GOOD | <ul><li>The transfer has no downtime. <li>For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md). SOT-IMPORT |
+| MOSP (PAYG) | EA |  Billing GOOD | <ul><li>The transfer has no downtime because it's just a billing change. <li>For details, see [Transfer a subscription to an EA](mosp-ea-transfer.md#transfer-the-subscription-to-the-ea). |
+| MOSP (PAYG) | MCA - Enterprise |  Billing GOOD | <ul><li>The transfer has no downtime. <li>For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md). SOT-IMPORT |
 
 ## Perform resource transfers
 
