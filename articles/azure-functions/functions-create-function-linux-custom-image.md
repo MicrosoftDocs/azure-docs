@@ -62,9 +62,17 @@ You can follow this tutorial on any computer running Windows, macOS, or Linux.
 In a terminal or command prompt, run the following command for your chosen language to create a function app project in a folder named `LocalFunctionsProject`.  
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"  
+
+# [.NET Core 3.1](#tab/dotnet3)
 ```console
 func init LocalFunctionsProject --worker-runtime dotnet --docker
 ```
+
+# [.NET 5.0](#tab/dotnet5)
+```console
+func init LocalFunctionsProject --worker-runtime dotnet --docker
+```
+---
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 ```console
@@ -141,6 +149,19 @@ cd LocalFunctionsProject
 ```console
 cd fabrikam-functions
 ```
+::: zone-end  
+::: zone pivot="programming-language-csharp"  
+
+# [.NET Core 3.1](#tab/dotnet3)
+No changes are needed to the Dockerfile.
+# [.NET 5.0](#tab/dotnet5)
+Open the Dockerfile and add the following lines after the first `FROM` statement, if not already present:
+
+```docker
+# Build requires 3.1 SDK
+COPY --from=mcr.microsoft.com/dotnet/core/sdk:3.1 /usr/share/dotnet /usr/share/dotnet
+```
+---
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
 Add a function to your project by using the following command, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` creates a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.
