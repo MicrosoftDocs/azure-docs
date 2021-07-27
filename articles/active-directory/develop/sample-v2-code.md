@@ -110,11 +110,11 @@ The following samples show an application that accesses the Microsoft Graph API 
 > [!div class="mx-tdCol2BreakAll"]
 >| Language/<br/>Platform     | Code sample(s) on GitHub |Auth libraries |Auth flow |
 >| ----------- | ----------- |----------- |----------- |
->| ASP.NET| &#8226; [Call Microsoft Graph with daemon console](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph) <br/> &#8226; [Call web API with daemon console](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/2-Call-OwnApi) <br/> &#8226; [Using managed identity and Azure Azure key vault with daemon console](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/3-Using-KeyVault) <br/> &#8226; [Call own web API with daemon console](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/4-Call-OwnApi-Pop)| MSAL.NET | OAuth 2.0 client credentials grant|
->| ASP.NET | [Multi-tenant with Microsoft identity platform endpoint](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp) | MSAL.NET |OAuth 2.0 client credentials grant |
->| Java | [Call Microsoft Graph with daemon console](https://github.com/Azure-Samples/ms-identity-java-daemon)| MSAL Java| OAuth 2 client credentials grant |
->| Node.js | [Sign in users and call web API](https://github.com/Azure-Samples/ms-identity-javascript-nodejs-console) | MSAL Node | OAuth 2 client credentials grant |
->| Python | &#8226; [Call Microsoft Graph with secret](https://github.com/Azure-Samples/ms-identity-python-daemon/tree/master/1-Call-MsGraph-WithSecret) <br/> &#8226; [Call Microsoft Graph with certificate](https://github.com/Azure-Samples/ms-identity-python-daemon/tree/master/2-Call-MsGraph-WithCertificate) | MSAL Python| OAuth 2 client credentials grant |
+>| ASP.NET| &#8226; [Call Microsoft Graph with daemon console](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph) <br/> &#8226; [Call web API with daemon console](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/2-Call-OwnApi) <br/> &#8226; [Using managed identity and Azure Azure key vault with daemon console](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/3-Using-KeyVault) <br/> &#8226; [Call own web API with daemon console](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/4-Call-OwnApi-Pop)| MSAL.NET | OAuth 2.0 client credentials grant flow|
+>| ASP.NET | [Multi-tenant with Microsoft identity platform endpoint](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp) | MSAL.NET |OAuth 2.0 client credentials grant flow |
+>| Java | [Call Microsoft Graph with daemon console](https://github.com/Azure-Samples/ms-identity-java-daemon)| MSAL Java| OAuth 2 client credentials grant flow|
+>| Node.js | [Sign in users and call web API](https://github.com/Azure-Samples/ms-identity-javascript-nodejs-console) | MSAL Node | OAuth 2 client credentials grant flow |
+>| Python | &#8226; [Call Microsoft Graph with secret](https://github.com/Azure-Samples/ms-identity-python-daemon/tree/master/1-Call-MsGraph-WithSecret) <br/> &#8226; [Call Microsoft Graph with certificate](https://github.com/Azure-Samples/ms-identity-python-daemon/tree/master/2-Call-MsGraph-WithCertificate) | MSAL Python| OAuth 2 client credentials grant flow|
 
 ## Headless applications
 
@@ -123,9 +123,9 @@ The following sample shows a public client application running on a device witho
 > [!div class="mx-tdCol2BreakAll"]
 >| Language/<br/>Platform     | Code sample(s) on GitHub |Auth libraries |Auth flow |
 >| ----------- | ----------- |----------- |----------- |
->| .NET core | [Invoke protected API from text-only device](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2) | MSAL.NET | OAuth 2.0 device code  |
->| Java | [Sign in users and invoke protected API](https://github.com/Azure-Samples/ms-identity-java-devicecodeflow) | MSAL Java |  OAuth 2.0 device code  |
->| Python | [Call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-python-devicecodeflow) | MSAL Python | OAuth 2.0 device code |
+>| .NET core | [Invoke protected API from text-only device](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2) | MSAL.NET | OAuth 2.0 device code flow |
+>| Java | [Sign in users and invoke protected API](https://github.com/Azure-Samples/ms-identity-java-devicecodeflow) | MSAL Java |  OAuth 2.0 device code flow |
+>| Python | [Call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-python-devicecodeflow) | MSAL Python | OAuth 2.0 device code flow |
 
 ## Multi-tenant SaaS applications
 
@@ -145,7 +145,7 @@ The following samples show how to protect a web API with the Microsoft identity 
 > [!div class="mx-tdCol2BreakAll"]
 >| Language/<br/>Platform     | Code sample(s) on GitHub |Auth libraries |Auth flow |
 >| ----------- | ----------- |----------- |----------- |
->| ASP.NET | [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | MSAL.NET |  OAuth 2.0 credentials grant |
+>| ASP.NET | [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | MSAL.NET |  OAuth 2.0 credentials grant flow |
 >| ASP.NET | [Call a downstream API](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof) | MSAL.NET |  On-Behalf-Of (OBO) flow |
 >| Java | [Sign in users](https://github.com/Azure-Samples/ms-identity-java-webapi) | MSAL Java | On-Behalf-Of (OBO) flow |
 >| Node.js | [Protect a Node.js web API](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2) | MSAL Node |  Auth code flow (with PKCE) |
