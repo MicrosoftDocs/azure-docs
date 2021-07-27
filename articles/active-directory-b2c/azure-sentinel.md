@@ -59,8 +59,9 @@ Once you've configured your Azure AD B2C instance to send logs to Azure Monitor,
 :::image type="content" source="./media/azure-sentinel/create-new-workspace.png" alt-text="select the sentinel workspace":::
 
 5. Select **Add Azure Sentinel**.
-   > [!NOTE]
-   > You can run Azure Sentinel on more than one workspace, but the data is isolated to a single workspace. For additional details on enabling Sentinel, please see this [QuickStart](../sentinel/quickstart-onboard.md).
+
+> [!NOTE]
+> You can run Azure Sentinel on more than one workspace, but the data is isolated to a single workspace. For additional details on enabling Sentinel, please see this [QuickStart](../sentinel/quickstart-onboard.md).
 
 ## Create a Sentinel Rule
 
