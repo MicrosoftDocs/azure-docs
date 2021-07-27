@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 07/21/2021
 ms.author: cherylmc
 
 ---
@@ -83,10 +83,10 @@ This article shows you how to connect VNets by using the VNet-to-VNet connection
 * **Virtual network gateway settings**
   * **Name**: VNet1GW
   * **Resource group**: East US
-  * **Generation**: Generation 1
+  * **Generation**: Generation 2
   * **Gateway type**: Select **VPN**.
-  * **VPN type**: Select **Route*based**.
-  * **SKU**: VpnGw1
+  * **VPN type**: Select **Route-based**.
+  * **SKU**: VpnGw2
   * **Virtual network**: VNet1
   * **Gateway subnet address range**: 10.1.255.0/27
   * **Public IP address**: Create new
@@ -111,10 +111,10 @@ This article shows you how to connect VNets by using the VNet-to-VNet connection
 * **Virtual network gateway settings**
   * **Name**: VNet4GW
   * **Resource group**: West US
-  * **Generation**: Generation 1
+  * **Generation**: Generation 2
   * **Gateway type**: Select **VPN**.
   * **VPN type**: Select **Route-based**.
-  * **SKU**: VpnGw1
+  * **SKU**: VpnGw2
   * **Virtual network**: VNet4
   * **Gateway subnet address range**: 10.41.255.0/27
   * **Public IP address**: Create new
@@ -142,7 +142,10 @@ In this step, you create the virtual network gateway for your VNet. Creating a g
 
 ### To create a virtual network gateway
 
-[!INCLUDE [Create a gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-portal-include.md)]
+[!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-gw-pip-portal-include.md)]
+
+You can see the deployment status on the Overview page for your gateway. A gateway can take 45 minutes or more to fully create and deploy. After the gateway is created, you can view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device.
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 

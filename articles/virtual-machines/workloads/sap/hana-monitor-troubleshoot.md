@@ -1,6 +1,6 @@
 ---
 title: Monitoring and troubleshooting from HANA side on SAP HANA on Azure (Large Instances) | Microsoft Docs
-description: Learn how to monitor and troubleshoot from HANA side on SAP HANA on an Azure (Large Instances).
+description: Learn how to monitor and troubleshoot your SAP HANA on Azure (Large Instances) using resources provided by SAP HANA.
 services: virtual-machines-linux
 documentationcenter: 
 author: msjuergent
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 6/18/2021
 ms.author: madhukan
-ms.custom: H1Hack27Feb2017
+ms.custom: 
+    - H1Hack27Feb2017
+    - contperf-fy21q4
 
 ---
 # Monitoring and troubleshooting from HANA side
 
-In this article, we'll look at monitoring and troubleshooting your SAP HANA on Azure (Large Instances) from the HANA side. 
+In this article, we'll look at monitoring and troubleshooting your SAP HANA on Azure (Large Instances) using resources provided by SAP HANA. 
 
 To analyze problems related to SAP HANA on Azure (Large Instances), you'll want to narrow down the root cause of a problem. SAP has published lots of documentation to help you. FAQs related to SAP HANA performance can be found in the following SAP Notes:
 
@@ -29,7 +31,7 @@ To analyze problems related to SAP HANA on Azure (Large Instances), you'll want 
 - [SAP Note #199930 – FAQ: SAP HANA I/O Analysis](https://launchpad.support.sap.com/#/notes/1999930)
 - [SAP Note #2177064 – FAQ: SAP HANA Service Restart and Crashes](https://launchpad.support.sap.com/#/notes/2177064)
 
-## SAP HANA Alerts
+## SAP HANA alerts
 
 First, check the current SAP HANA alert logs. In SAP HANA Studio, go to **Administration Console: Alerts: Show: all alerts**. This tab will show all SAP HANA alerts for values (free physical memory, CPU use, and so on) that fall outside the set minimum and maximum thresholds. By default, checks are automatically refreshed every 15 minutes.
 
@@ -67,7 +69,7 @@ An alert triggered by high CPU use could be caused by several reasons:
 
 For detailed CPU usage troubleshooting steps, see [SAP HANA Troubleshooting: CPU Related Causes and Solutions](https://help.sap.com/viewer/bed8c14f9f024763b0777aa72b5436f6/2.0.05/en-US/4fbc915462db406aa2fe92b708b95189.html?q=%20SAP%20HANA%20Troubleshooting:%20CPU%20Related%20Causes%20and%20Solutions).
 
-## Operating System (OS)
+## Operating system (OS)
 
 An important check for SAP HANA on Linux is to make sure Transparent Huge Pages are disabled. For more information, see [SAP Note #2131662 – Transparent Huge Pages (THP) on SAP HANA Servers](https://launchpad.support.sap.com/#/notes/2131662).
 
@@ -119,7 +121,7 @@ On the lower part of the screen (on the Volumes tab), you can see details of the
 
 For I/O troubleshooting steps, see [SAP HANA Troubleshooting: I/O Related Root Causes and Solutions](https://help.sap.com/viewer/4e9b18c116aa42fc84c7dbfd02111aba/2.0.05/en-US/dc6ff98fa36541e997e4c719a632cbd8.html?q=I%2FO%20Related%20Root%20Causes%20and%20Solutions). For disk-related troubleshooting steps, see [SAP HANA Troubleshooting: Disk Related Root Causes and Solutions](https://help.sap.com/viewer/bed8c14f9f024763b0777aa72b5436f6/2.0.05/en-US/474cb08a715c42fe9f7cc5efdc599959.html?q=Disk%20Related%20Root%20Causes%20and%20Solutions).
 
-## Diagnostic Tools
+## Diagnostic tools
 
 Do an SAP HANA Health Check through HANA\_Configuration\_Minichecks. This tool returns potentially critical technical issues that should have already been raised as alerts in SAP HANA Studio.
 

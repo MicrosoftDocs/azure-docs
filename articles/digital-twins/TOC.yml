@@ -76,11 +76,7 @@
       - name: Setup script sample
         href: how-to-set-up-instance-scripted.md
     - name: Enable private access with Private Link
-      items:
-      - name: Portal
-        href: how-to-enable-private-link-portal.md
-      - name: CLI
-        href: how-to-enable-private-link-cli.md
+      href: how-to-enable-private-link.md
     - name: Write app authentication code
       href: how-to-authenticate-client.md
     - name: Create an app registration
@@ -105,7 +101,7 @@
       href: how-to-use-azure-digital-twins-explorer.md  
     - name: Manage digital twins
       href: how-to-manage-twin.md
-    - name: Manage the twin graph with relationships
+    - name: Manage the twin graph and relationships
       href: how-to-manage-graph.md
     - name: Set up an Azure function for processing data
       href: how-to-create-azure-function.md
@@ -130,11 +126,7 @@
   - name: Connect output
     items:
     - name: Manage endpoints and routes
-      items:
-      - name: Portal
-        href: how-to-manage-routes-portal.md
-      - name: APIs and CLI
-        href: how-to-manage-routes-apis-cli.md
+      href: how-to-manage-routes.md
     - name: Route events with a managed identity
       href: how-to-route-with-managed-identity.md
     - name: Integrate with Azure Maps

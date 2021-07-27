@@ -1,5 +1,5 @@
 ---
-title: "MySQL on-premises to Azure Database for MySQL migration guide Post Migration Management"
+title: "Migrate MySQL on-premises to Azure Database for MySQL: Post Migration Management"
 description: "Once the migration has been successfully completed, the next phase it to manage the new cloud-based data workload resources."
 ms.service: mysql
 ms.subservice: migration-guide
@@ -8,10 +8,12 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom:
-ms.date: 06/14/2021
+ms.date: 06/21/2021
 ---
 
-# MySQL on-premises to Azure Database for MySQL migration guide Post Migration Management
+# Migrate MySQL on-premises to Azure Database for MySQL: Post Migration Management
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## Prerequisites
 
@@ -23,7 +25,7 @@ Once the migration has been successfully completed, the next phase it to manage 
 
 Azure Database for MySQL provides for the ability to monitor both of these types of operational activities using Azure-based tools such as [Azure Monitor,](../../../azure-monitor/overview.md) [Log Analytics](../../../azure-monitor/logs/design-logs-deployment.md) and [Azure Sentinel.](../../../sentinel/overview.md) In addition to the Azure-based tools, security information and event management (SIEM) systems can be configured to consume these logs as well.
 
-Whichever tool is used to monitor the new cloud-based workloads, alerts need to be created to warn Azure and database administrators of any suspicious activity. If a particular alert event has a well-defined remediation path, alerts can fire automated [Azure run books](/azure/automation/automation-quickstart-create-runbook) to address the event.
+Whichever tool is used to monitor the new cloud-based workloads, alerts need to be created to warn Azure and database administrators of any suspicious activity. If a particular alert event has a well-defined remediation path, alerts can fire automated [Azure run books](../../../automation/automation-quickstart-create-runbook.md) to address the event.
 
 The first step to creating a fully monitored environment is to enable MySQL log data to flow into Azure Monitor. Reference [Configure and access audit logs for Azure Database for MySQL in the Azure portal](../../howto-configure-audit-logs-portal.md) for more information.
 
@@ -51,11 +53,11 @@ AzureMetrics
 | project TimeGenerated, Total, Maximum, Minimum, TimeGrain, UnitName 
 | top 1 by TimeGenerated
 ```
-Once you've created the KQL query, you then create [log alerts](/azure/azure-monitor/platform/alerts-unified-log) based of these queries.
+Once you've created the KQL query, you then create [log alerts](../../../azure-monitor/alerts/alerts-unified-log.md) based of these queries.
 
 ## Server parameters
 
-As part of the migration, it's likely the on-premises [server parameters](/azure/mysql/concepts-server-parameters) were modified to support a fast egress. Also, modifications were made to the Azure Database for MySQL parameters to support a fast ingress. The Azure server parameters should be set back to their original on-premises workload optimized values after the migration.
+As part of the migration, it's likely the on-premises [server parameters](../../concepts-server-parameters.md) were modified to support a fast egress. Also, modifications were made to the Azure Database for MySQL parameters to support a fast ingress. The Azure server parameters should be set back to their original on-premises workload optimized values after the migration.
 
 However, be sure to review and make server parameters changes that are appropriate for the workload and the environment. Some values that were great for an on-premises environment, may not be optimal for a cloud-based environment. Additionally, when planning to migrate the current on-premises parameters to Azure, verify that they can in fact be set.
 
@@ -88,16 +90,16 @@ Since Azure Database for MySQL is a PaaS offering, administrators aren't respons
 > [!NOTE]
 > This style of failover architecture may require changes to the applications data layer to support this type of failover scenario. If the read replica is maintained as a read replica and is not promoted, the application can only read data and it may fail when any operation attempts to write information to the database.
 
-The [Planned maintenance notification](/azure/mysql/concepts-monitoring#planned-maintenance-notification) feature informs resource owners up to 72 hours in advance of installation of an update or critical security patch. Database administrators may need to notify application users of planned and unplanned maintenance.
+The [Planned maintenance notification](../../concepts-monitoring.md#planned-maintenance-notification) feature informs resource owners up to 72 hours in advance of installation of an update or critical security patch. Database administrators may need to notify application users of planned and unplanned maintenance.
 
 > [!NOTE]
 > Azure Database for MySQL maintenance notifications are incredibly important. The database maintenance can take your database and connected applications down for a period of time.
 
 ## WWI scenario
 
-WWI decided to utilize the Azure Activity logs and enable MySQL logging to flow to a [Log Analytics workspace.](../../../azure-monitor/logs/design-logs-deployment.md) This workspace is configured to be a part of [Azure Sentinel](../../../sentinel/index.yml) such that any [Threat Analytics](/azure/mysql/concepts-security#threat-protection) events would be surfaced, and incidents created.
+WWI decided to utilize the Azure Activity logs and enable MySQL logging to flow to a [Log Analytics workspace.](../../../azure-monitor/logs/design-logs-deployment.md) This workspace is configured to be a part of [Azure Sentinel](../../../sentinel/index.yml) such that any [Threat Analytics](../../concepts-security.md#threat-protection) events would be surfaced, and incidents created.
 
-The MySQL DBAs installed the Azure Database for [MySQL Azure PowerShell cmdlets](/azure/mysql/quickstart-create-mysql-server-database-using-azure-powershell) to make managing the MySQL Server automated versus having to log to the Azure portal each time.
+The MySQL DBAs installed the Azure Database for [MySQL Azure PowerShell cmdlets](../../quickstart-create-mysql-server-database-using-azure-powershell.md) to make managing the MySQL Server automated versus having to log to the Azure portal each time.
 
 ## Management checklist
 
@@ -109,6 +111,8 @@ The MySQL DBAs installed the Azure Database for [MySQL Azure PowerShell cmdlets]
 
   - Set up notifications for maintenance events such as upgrades and patches. Notify users as necessary.  
 
+
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Optimization](./11-optimization.md)

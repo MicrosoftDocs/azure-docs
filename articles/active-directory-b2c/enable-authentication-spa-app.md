@@ -7,7 +7,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/16/2021
+ms.date: 06/25/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -175,7 +175,7 @@ To configure the authentication library, follow these steps:
     };
     ```
 
-1. Replace `<Application-ID>` with your app registration application ID. For more information, see [Configure authentication in a sample SPA application article](./configure-authentication-sample-spa-app.md#23-register-the-client-app).
+1. Replace `<Application-ID>` with your app registration application ID. For more information, see [Configure authentication in a sample SPA application article](./configure-authentication-sample-spa-app.md#23-register-the-spa-app).
 
 > [!TIP]
 > For more MSAL object configuration options, see the [Authentication options](./enable-authentication-spa-app-options.md) article.
@@ -489,3 +489,4 @@ After you successfully authenticate, you can see the parsed ID token appear on t
 
 * Learn more [about the code sample](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa)
 * Configure [Authentication options in your own SPA application using Azure AD B2C](enable-authentication-spa-app-options.md)
+* [Enable authentication in your own web API](enable-authentication-web-api.md)

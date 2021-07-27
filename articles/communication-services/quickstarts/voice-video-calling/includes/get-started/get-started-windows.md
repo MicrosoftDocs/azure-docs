@@ -8,8 +8,9 @@ ms.author: mikben
 
 In this quickstart, you'll learn how to start a call using the Azure Communication Services Calling SDK for Windows.
 
-> [!NOTE]
-> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/VoiceCalling)
+## Sample Code
+
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/VoiceCalling).
 
 ## Prerequisites
 
@@ -167,7 +168,3 @@ You can build and run the code on Visual Studio. Please note that for solution p
 You can make an outbound call by providing a user ID in the text field and clicking the `Start Call` button. Calling `8:echo123` connects you with an echo bot, this is great for getting started and verifying your audio devices are working.
 
 :::image type="content" source="../../media/windows/run-the-app.png" alt-text="Screenshot showing running the quickstart app":::
-
-## Sample Code
-
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/VoiceCalling)

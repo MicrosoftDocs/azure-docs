@@ -52,9 +52,9 @@ The following is a list of FedRAMP resources:
 
 * [FedRAMP High blueprint sample overview](../../governance/blueprints/samples/fedramp-h/index.md)
 
-* [Microsoft 365 compliance center](///microsoft-365/compliance/microsoft-365-compliance-center)
+* [Microsoft 365 compliance center](/microsoft-365/compliance/microsoft-365-compliance-center)
 
-* [Microsoft Compliance Manager](///microsoft-365/compliance/compliance-manager)
+* [Microsoft Compliance Manager](/microsoft-365/compliance/compliance-manager)
 
 ## Next steps
 

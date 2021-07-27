@@ -255,7 +255,7 @@ conceptualContent:
           text: NEN 7510 (Netherlands)
 
     # Card
-    - title: Automotive, education, energy, media, and telecom
+    - title: Automotive, education, energy, media, and telecommunication
       links:
         - url: /azure/compliance/offerings/offering-cdsa
           itemType: concept
@@ -316,6 +316,9 @@ conceptualContent:
         - url: /compliance/regulatory/offering-cs-mark-gold-japan
           itemType: concept
           text: Japan CS Gold Mark
+        - url: /compliance/regulatory/offering-ismap
+          itemType: concept
+          text: Japan ISMAP
         - url: /compliance/regulatory/offering-my-number-act-japan
           itemType: concept
           text: Japan My Number Act
@@ -335,6 +338,9 @@ conceptualContent:
         - url: /azure/compliance/offerings/offering-eu-cloud-coc
           itemType: concept
           text: EU Cloud CoC
+        - url: /compliance/regulatory/offering-en-301-549-eu
+          itemType: concept
+          text: EU EN 301 549
         - url: /azure/compliance/offerings/offering-eu-enisa-iaf
           itemType: concept
           text: ENISA IAF
@@ -353,9 +359,19 @@ conceptualContent:
         - url: /compliance/regulatory/offering-bir-2012-netherlands
           itemType: concept
           text: Netherlands BIR 2012
+
+    # Card
+    - title: Regional - EMEA
+      links:
+        - url: /compliance/regulatory/offering-russia-data-localization
+          itemType: concept
+          text: Russia personal data law
         - url: /compliance/regulatory/offering-ens-spain
           itemType: concept
           text: Spain ENS High
+        - url: /compliance/regulatory/offering-lopd-spain
+          itemType: concept
+          text: Spain LOPD
         - url: /azure/compliance/offerings/offering-uae-desc
           itemType: concept
           text: UAE DESC
@@ -368,7 +384,6 @@ conceptualContent:
         - url: /azure/compliance/offerings/offering-uk-pasf
           itemType: concept
           text: UK PASF
-
 
 
 additionalContent:
@@ -412,11 +427,11 @@ additionalContent:
         - title: Privacy and GDPR
           links:
             - text: Checklists
-              url: /compliance/regulatory/gdpr-arc-azure-dynamics
+              url: /compliance/regulatory/gdpr-arc-azure-dynamics-windows
             - text: Data subject requests
               url: /compliance/regulatory/gdpr-dsr-Azure
             - text: Breach notification
-              url: /compliance/regulatory/gdpr-breach-azure-dynamics
+              url: /compliance/regulatory/gdpr-breach-azure-dynamics-windows
             - text: Data protection impact assessments
               url: /microsoft-365/compliance/gdpr-dpia-azure
             - text: Data residency in Azure

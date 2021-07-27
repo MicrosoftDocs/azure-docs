@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 06/21/2021
+ms.date: 07/27/2021
 ms.author: curtand
 ---
 
 
 # Common problems with text message two-step verification
 
- You can receive a verification code in a text message as one verification step for two-step verification. If you didn’t expect to receive a code or received a code on the wrong phone, use the following steps to fix this problem.  
+Receiving a verification code in a text message is a common verification method for two-step verification. If you didn’t expect to receive a code, or if you received a code on the wrong phone, use the following steps to fix this problem.  
 
 > [!Note]
 > If your organization doesn't allow you to receive a text message for verification, you'll need to select another method or contact your administrator for more help.
