@@ -3,9 +3,8 @@ title: Skillset concepts and workflow
 titleSuffix: Azure Cognitive Search
 description: Skillsets are where you author an AI enrichment pipeline in Azure Cognitive Search. Learn important concepts and details about skillset composition.
 
-manager: nitinme
-author: vkurpad
-ms.author: vikurpad
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/15/2020

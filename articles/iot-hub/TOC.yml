@@ -14,17 +14,7 @@
     - name: Send telemetry using SDK
       href: ../iot-develop/quickstart-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Control a device
-      items:
-        - name: Node.js
-          href: quickstart-control-device-node.md
-        - name: .NET
-          href: quickstart-control-device-dotnet.md
-        - name: Java
-          href: quickstart-control-device-java.md
-        - name: Python
-          href: quickstart-control-device-python.md
-        - name: Android
-          href: quickstart-control-device-android.md
+      href: quickstart-control-device.md
     - name: Auto-route messages using an ARM template
       displayName: Resource Manager
       href: horizontal-arm-route-messages.md
@@ -76,8 +66,6 @@
           href: tutorial-x509-test-certificate.md
 - name: Concepts
   items:
-    - name: Managed identities support
-      href: iot-hub-managed-identity.md
     - name: TLS support
       href: iot-hub-tls-support.md
     - name: Virtual networks support
@@ -219,6 +207,8 @@
               href: iot-hub-how-to-develop-for-mobile-devices.md
             - name: Develop for Android Things platform
               href: iot-hub-how-to-android-things.md
+        - name: Control a device on Android
+          href: quickstart-control-device-android.md
         - name: Query Avro data from a hub route
           href: iot-hub-query-avro-data.md
         - name: Send cloud-to-device messages
@@ -304,6 +294,8 @@
               href: iot-hub-rm-template-powershell.md
             - name: Use a template from .NET
               href: iot-hub-rm-template.md
+        - name: Configure managed identities
+          href: iot-hub-managed-identity.md
         - name: Configure file upload
           items:
             - name: Use Azure portal
