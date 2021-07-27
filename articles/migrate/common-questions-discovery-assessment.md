@@ -32,11 +32,11 @@ You can discover up to 10,000 servers from VMware environment, up to 5,000 serve
 - Use assessment type **Azure SQL** when you want to assess your on-premises SQL Server from your VMware environment for migration to Azure SQL Database or Azure SQL Managed Instance. [Learn More](concepts-assessment-calculation.md)
 - Use assessment type **Azure App Service** when you want to assess your on-premises ASP.NET web apps running on IIS web server from your VMware environment for migration to Azure App Service. [Learn More](concepts-assessment-calculation.md)
 - Use **Azure VMware Solution (AVS)** assessments when you want to assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md) using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
-- You can use a common group with VMware machines only to run both types of assessments. Note that if you are running AVS assessments in Azure Migrate for the first time, it is advisable to create a new group of VMware machines.
+- You can use a common group with VMware machines only to run both types of assessments. If you are running AVS assessments in Azure Migrate for the first time, it is advisable to create a new group of VMware machines.
 
 ## Why is performance data missing for some/all servers in my Azure VM and/or AVS assessment report?
 
-For "Performance-based" assessment, the assessment report export says 'PercentageOfCoresUtilizedMissing' or 'PercentageOfMemoryUtilizedMissing' when the Azure Migrate appliance cannot collect performance data for the on-premises servers. Please check:
+For "Performance-based" assessment, the assessment report export says 'PercentageOfCoresUtilizedMissing' or 'PercentageOfMemoryUtilizedMissing' when the Azure Migrate appliance cannot collect performance data for the on-premises servers. Check:
 
 - If the servers are powered on for the duration for which you are creating the assessment
 - If only memory counters are missing and you are trying to assess servers in Hyper-V environment. In this scenario, please enable dynamic memory on the servers and 'Recalculate' the assessment to reflect the latest changes. The appliance can collect memory utilization values for severs in Hyper-V environment only when the server has dynamic memory enabled.
@@ -71,7 +71,7 @@ The confidence rating is calculated for "Performance-based" assessments based on
     - Outbound connections on ports 443 are allowed
     - For Hyper-V Servers dynamic memory is enabled 
     - The connection status of agents in Azure Migrate are 'Connected' and check the last heartbeat
-    - For For Azure SQL assessments, Azure Migrate connection status for all SQL instances is "Connected" in the discovered SQL instance blade
+    - For Azure SQL assessments, Azure Migrate connection status for all SQL instances is "Connected" in the discovered SQL instance blade
 
     Please **Recalculate** the assessment to reflect the latest changes in confidence rating.
 
@@ -112,7 +112,7 @@ The readiness for your web apps is computed by running series of technical check
 
 ## Why is my web app marked as Ready with conditions or Not ready in my Azure App Service assessment?
 
-This can happen when one or more technical checks fails for a given web app. You may click on the readiness status for the web app to find out details and remediation for failed checks.
+This can happen when one or more technical checks fail for a given web app. You may click on the readiness status for the web app to find out details and remediation for failed checks.
 
 ## Why is the readiness for all my SQL instances marked as unknown?
 
@@ -174,7 +174,7 @@ The user is recommended to create an assessment in Azure Migrate with assessment
 
 ## I can't see some databases in my assessment even though the instance is part of the assessment
 
-The Azure SQL assessment only includes databases that are in online status. In case the database is in any other status, the assessment ignores the readiness, sizing and cost calculation for such databases. In case you wish you assess such databases, please change the status of the database and recalculate the assessment in some time.
+The Azure SQL assessment only includes databases that are in online status. In case the database is in any other status, the assessment ignores the readiness, sizing, and cost calculation for such databases. In case you wish you assess such databases, please change the status of the database and recalculate the assessment in some time.
 
 ## I want to compare costs for running my SQL instances on Azure VM Vs Azure SQL Database/Azure SQL Managed Instance
 
@@ -182,11 +182,11 @@ You can create an assessment with type **Azure VM** on the same group that was u
 
 ## The storage cost in my Azure SQL assessment is zero
 
-For Azure SQL Managed Instance, there is no storage cost added for the first 32 GB/instance/month storage and additional storage cost is added for storage in 32GB increments. [Learn More](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/)
+For Azure SQL Managed Instance, there is no storage cost added for the first 32 GB/instance/month storage and additional storage cost is added for storage in 32 GB increments. [Learn More](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/)
 
 ## I can't see some groups when I am creating an Azure VMware Solution (AVS) assessment
 
-- AVS assessment can be done on groups that have only VMware machines. Please remove any non-VMware machine from the group if you intend to perform an AVS assessment.
+- AVS assessment can be done on groups that have only VMware machines. Remove any non-VMware machine from the group if you intend to perform an AVS assessment.
 - If you are running AVS assessments in Azure Migrate for the first time, it is advisable to create a new group of VMware machines.
 
 ## I can't see some VM types and sizes in Azure Government
