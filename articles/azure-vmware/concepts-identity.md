@@ -2,7 +2,7 @@
 title: Concepts - Identity and access
 description: Learn about the identity and access concepts of Azure VMware Solution
 ms.topic: conceptual
-ms.date: 05/13/2021
+ms.date: 07/30/2021
 ---
 
 # Azure VMware Solution identity concepts
@@ -11,13 +11,7 @@ Azure VMware Solution private clouds are provisioned with a vCenter Server and N
 
 ## vCenter access and identity
 
-In Azure VMware Solution, vCenter has a built-in local user called cloudadmin and assigned to the CloudAdmin role. The local cloudadmin user is used to set up users in Active Directory (AD). In general, the CloudAdmin role creates and manages workloads in your private cloud. But in Azure VMware Solution, the CloudAdmin role has vCenter privileges that differ from other VMware cloud solutions.     
-
-- In a vCenter and ESXi on-premises deployment, the administrator has access to the vCenter administrator\@vsphere.local account. They can also have more AD users and groups assigned. 
-
-- In an Azure VMware Solution deployment, the administrator doesn't have access to the administrator user account. They can, however, assign AD users and groups to the CloudAdmin role on vCenter.  
-
-The private cloud user doesn't have access to and can't configure specific management components supported and managed by Microsoft. For example, clusters, hosts, datastores, and distributed virtual switches.
+[!INCLUDE [vcenter-access-identity-description](includes/vcenter-access-identity-description.md)]
 
 > [!IMPORTANT]
 > Azure VMware Solution offers custom roles on vCenter but currently doesn't offer them on the Azure VMware Solution portal. For more information, see the [Create custom roles on vCenter](#create-custom-roles-on-vcenter) section later in this article. 

@@ -36,6 +36,8 @@
     href: tutorial-network-checklist.md
   - name: Peer on-premises to private cloud
     href: tutorial-expressroute-global-reach-private-cloud.md
+  - name: Configure an external identity source 
+    href: tutorial-configure-identity-source.md
 - name: Concepts
   items:
   - name: Access and identity
@@ -52,6 +54,8 @@
     href: concepts-private-clouds-clusters.md
   - name: Storage 
     href: concepts-storage.md
+  - name: Run command
+    href: concepts-run-command.md
 - name: How-to guides
   items:
   - name: Create an Azure VMware Solution assessment
