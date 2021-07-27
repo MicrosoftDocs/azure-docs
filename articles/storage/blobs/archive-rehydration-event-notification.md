@@ -86,7 +86,7 @@ Blob Storage raises two events that you can handle in order to be notified that 
 - **Microsoft.Storage.BlobTierChanged**: This event is raised when a [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation completes. In the context of blob rehydration, the **Microsoft.Storage.BlobTierChanged** event indicates that the blob has been rehydrated to an online tier.
 - **Microsoft.Storage.BlobCreated**: This event is raised when a blob is created. In the context of blob rehydration, the **Microsoft.Storage.BlobCreated** event indicates that a [Copy Blob](/rest/api/storageservices/copy-blob) or [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url) operation has copied a blob from the archive tier to an online tier.
 
-The following examples show how to configure an event subscription with Azure Event Grid to handle these events:
+The following examples show how to configure an event subscription with Azure Event Grid to handle these events. The event handler for these examples is a web hook:
 
 # [Azure portal](#tab/portal)
 
@@ -99,13 +99,22 @@ To create an event subscription in the Azure portal, follow these steps:
 1. In the **Event Schema** dropdown, select **Event Grid Schema**.
 1. Provide a name for the system topic. For more information about Event Grid topics, see [System topics in Azure Event Grid](../../event-grid/system-topics.md).
 1. Select the types of events to handle. To be notified when Azure Storage has rehydrated a blob, choose either **Blob Tier Changed** or **Blob Created**, depending on how you will be rehydrating the blob.
-1. Select the type of endpoint that is serving as the event handler.
+1. Select the type of endpoint that is serving as the event handler, then select the endpoint.
 
     :::image type="content" source="media/archive-rehydration-event-notification/create-event-subscription-portal.png" alt-text="Screenshot showing how to configure event subscription in Azure portal":::
 
 # [PowerShell](#tab/powershell)
 
-TBD
+To create an event subscription with PowerShell, call the [New-AzEventGridSubscription](/powershell/module/az.eventgrid/new-azeventgridsubscription) command. Provide a name for the event subscription, the Azure Resource Manager resource ID for the storage account, and the web hook endpoint. Remember to replace the placeholder values in brackets with your own values:
+
+```azurepowershell
+$storageId = (Get-AzStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id
+$endpoint="https://<site-name>.azurewebsites.net/api/updates"
+
+New-AzEventGridSubscription -EventSubscriptionName <event-subscription> `
+  -Endpoint $endpoint `
+  -ResourceId $storageId
+```
 
 # [Azure CLI](#tab/azure-cli)
 

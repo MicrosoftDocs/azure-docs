@@ -15,10 +15,10 @@ ms.custom: devx-track-azurepowershell
 
 # Rehydrate blob data from the archive tier
 
-While a blob is in the archive access tier, it's considered offline and can't be read or modified. The blob metadata remains online and available, allowing you to list the blob and its properties. Reading and modifying blob data is only available with online tiers such as hot or cool. There are two options to retrieve and access data stored in the archive access tier.
+While a blob is in the archive access tier, it's considered offline and can't be read or modified. The blob's metadata remains online and available, enabling you to list the blob and its properties. Reading and modifying blob data is only available with online tiers such as hot or cool. There are two options to retrieve and access data stored in the archive access tier.
 
-1. [Rehydrate an archived blob to an online tier](#rehydrate-an-archived-blob-to-an-online-tier) - Rehydrate an archive blob to hot or cool by changing its tier using the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation.
-2. [Copy an archived blob to an online tier](#copy-an-archived-blob-to-an-online-tier) - Create a new copy of an archive blob by using the [Copy Blob](/rest/api/storageservices/copy-blob) operation. Specify a different blob name and a destination tier of hot or cool.
+1. [Rehydrate an archived blob to an online tier](#rehydrate-an-archived-blob-to-an-online-tier): Rehydrate an archive blob to hot or cool by changing its tier using the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation.
+1. [Copy an archived blob to an online tier](#copy-an-archived-blob-to-an-online-tier): Create a new copy of an archive blob by using the [Copy Blob](/rest/api/storageservices/copy-blob) operation. Specify a different blob name and a destination tier of hot or cool.
 
  For more information on tiers, see [Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md).
 
@@ -64,7 +64,7 @@ As discussed in the previous sections, you can rehydrate a blob by calling one o
 * [Set Blob Tier](/rest/api/storageservices/set-blob-tier) changes the blob tier.
 * [Copy Blob](/rest/api/storageservices/copy-blob)/[Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url) can create a destination blob in a new tier.
 
-Rehydrating a blob can take up to 15 hours for a standard priority rehydration, and up to one hour for a high priority rehydration. Azure Storage raises an event through Azure Event Grid when the rehydration is initiated, and again when it is complete. You can subscribe to these events so that your application is notified when the blob is rehydrated.
+Rehydrating a blob can take up to 15 hours for a standard priority rehydration, and up to one hour for a high-priority rehydration. Azure Storage raises an event through Azure Event Grid when the rehydration is initiated, and again when it is complete. You can subscribe to these events so that your application is notified when the blob is rehydrated.
 
 The following table describes the events that are raised when you change the tier of a blob with one of these operations:
 
@@ -77,7 +77,7 @@ For more information on handling events in Blob Storage, see [Reacting to Azure 
 
 ## Pricing and billing
 
-Rehydrating blobs out of archive into hot or cool tiers are charged as read operations and data retrieval. Using High priority has higher operation and data retrieval costs compared to standard priority. High priority rehydration shows up as a separate line item on your bill. If a high priority request to return an archive blob of a few gigabytes takes over 5 hours, you won't be charged the high priority retrieval rate. However, standard retrieval rates still apply as the rehydration was prioritized over other requests.
+Rehydrating blobs out of archive into hot or cool tiers are charged as read operations and data retrieval. Using High priority has higher operation and data retrieval costs compared to standard priority. High-priority rehydration shows up as a separate line item on your bill. If a high priority request to return an archive blob of a few gigabytes takes over 5 hours, you won't be charged the high priority retrieval rate. However, standard retrieval rates still apply as the rehydration was prioritized over other requests.
 
 Copying blobs from archive into hot or cool tiers are charged as read operations and data retrieval. A write operation is charged for the creation of the new blob copy. Early deletion fees don't apply when you copy to an online blob because the source blob remains unmodified in the archive tier. High priority retrieval charges do apply if selected.
 
