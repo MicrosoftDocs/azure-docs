@@ -88,7 +88,7 @@ Data replication will take place between the two regions through VNet peering. T
 
 The job that is running the export will be picked up from another region after 10 minutes without an update to the job status. Follow the guidance for Azure storage for recovering your storage account in the event of a regional outage to allow your FHIR server to access your storage again. For more information, see [Disaster recovery and storage account failover](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance). 
 
-Ensure that you grant the same permissions to the system identity of the Azure API for FHIR. Also, if the storage account is configured with selected networks, see [How to export FHIR data](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/export-data).
+Ensure that you grant the same permissions to the system identity of the Azure API for FHIR. Also, if the storage account is configured with selected networks, see [How to export FHIR data](https://docs.microsoft.com/azure/healthcare-apis/fhir/export-data).
 
 > [!NOTE]
 > Configuring virtual networks and VNet peering does not affect data replication.
