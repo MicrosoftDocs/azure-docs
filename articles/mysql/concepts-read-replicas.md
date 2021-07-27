@@ -47,6 +47,10 @@ You can create a read replica in any of the following regions, regardless of whe
 
 Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, East Asia, East US, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, UK South, UK West, West Europe, West US, West US 2, West Central US.
 
+> [!Note]Azure Database for MySQL with General purpose storage v2 is in Public Preview in the following regions:<br /> 
+>**Central India, France Central, UAE North, South Africa North.** <br /> 
+>You will have an option to create server in both General purpose storage v1 and v2. If you create source server in General purpose storage v2 (Supports up to 16-TB storage), choose replica server regions which support General purpose storage v2.
+
 ### Paired regions
 
 In addition to the universal replica regions, you can create a read replica in the Azure paired region of your source server. If you don't know your region's pair, you can learn more from the [Azure Paired Regions article](../best-practices-availability-paired-regions.md).
