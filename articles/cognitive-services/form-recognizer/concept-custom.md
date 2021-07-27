@@ -15,37 +15,41 @@ ms.author: lajanuar
 
 # Form Recognizer custom and composed models
 
-Form Recognizer uses advanced machine learning technology to analyze and extract data from your forms and documents. With Form Recognizer, you can create independent custom models, composed models, or use our prebuilt models.
+Form Recognizer uses advanced machine learning technology to analyze and extract data from your forms and documents. With Form Recognizer, you can train single custom models, create composed models, or get started with our prebuilt models:
 
-* **Custom models**. Form Recognizer custom models enable you to analyze and extract data from forms and documents specific to your business. Custom models must be trained your distinct data.
+* **Custom models**. Form Recognizer custom models enable you to analyze and extract data from forms and documents specific to your business. Custom models are trained for your distinct data.
 
-* **Composed models**. With composed models, you can combine multiple custom models together into a single model called with a single model ID.
+* **Composed models**. With composed models, you can assign multiple custom models to a composed model called with a single model ID.
 
 * **Prebuilt models**. Form Recognizer currently supports prebuilt models for [business cards](concept-business-cards.md), [layout](concept-layout.md), [identity documents](concept-identification-cards.md), [invoices](concept-invoices.md), and [receipts](concept-receipts.md). Prebuilt models detect and extract information from document images and return the extracted data in a structured JSON output.
 
-In this article, we will review the concepts and steps for creating custom and composed Form Recognizer models. After reading this article, you should have a good understanding of the steps necessary to create custom and composed models using our  [Form Recognizer sample labeling tool](label-tool.md), [REST APIs](quickstarts/client-library.md?branch=main&pivots=programming-language-rest-api#train-a-custom-model), or [client-library SDKs](quickstarts/client-library.md?branch=main&pivots=programming-language-csharp#train-a-custom-model).
+In this article, we'll examine the process for creating custom and composed Form Recognizer models. After reading this article, you should have a good understanding of the necessary steps to create custom and composed models using our  [Form Recognizer sample labeling tool](label-tool.md), [REST APIs](quickstarts/client-library.md?branch=main&pivots=programming-language-rest-api#train-a-custom-model), or [client-library SDKs](quickstarts/client-library.md?branch=main&pivots=programming-language-csharp#train-a-custom-model).
 
 ## What is a custom model?
 
-A custom model is trained to recognize form fields from your distinct content and extract key-value pairs and table data. You only need five examples of the same form type to get started and your custom model can be trained with or without labeled datasets.
+A custom model is a machine learning program trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need five examples of the same form type to get started and your custom model can be trained with or without labeled datasets.
+
+## What is a composed model?
+
+Composed models are created by taking a collection of custom models and assigning them to a single model that encompasses all your form types. Then, you can let the Form Recognizer decide which model accurately represents the form to analyze.
 
 ## Try it out
 
-Try our online Form Recognizer sample labeling tool:
+Get started with our Form Recognizer sample labeling tool web application:
 
 > [!div class="nextstepaction"]
 > [Try Custom](https://aka.ms/fott-2.1-ga "Start with Custom to train a model with labels and find key-value pairs.")
 
-## Create a custom model
+## Create your models
 
-The steps for building, training, and using custom and composed model are as follows:
+The steps for building, training, and using custom and composed models are as follows:
 
-* Assemble a training dataset
-* Upload your training set to Azure blob storage
-* Train your custom model
-* Create a composed model
-* Analyze documents
-* Manage your custom models
+* [**Assemble your training dataset**](#assemble-your-training-dataset)
+* [**Upload your training set to Azure blob storage**](#upload-your-training-dataset)
+* [**Train your custom model**](#train-your-custom-model)
+* [**Compose custom models**](#compose-custom-models)
+* [**Analyze documents**](#analyze-documents)
+* [**Manage your custom models**](#manage-your-custom-models)
 
 ## Assemble your training dataset
 
@@ -60,14 +64,14 @@ You'll need to [upload your training data](*](build-training-data-set.md#upload-
 
 You can [train your model](quickstarts/client-library.md#train-a-custom-model)  with or without labeled data sets. Unlabeled datasets rely solely on the [Layout API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync) to detect and identify key information without added human input. Labeled datasets also rely on the Layout API, but supplementary human input is included such as your specific labels and field locations. To use both labeled and unlabeled data, start with at least five completed forms of the same type for the labeled training data and then add unlabeled data to the required data set.
 
-### Compose custom models
+## Compose a custom model
 
 With the Model Compose operation, you can assign up to 100 trained custom models to a single model ID. When you call Analyze with the composed model ID, Form Recognizer will first classify the form you submitted, choose the best matching assigned model, and then return results for that model. This operation is useful when incoming forms may belong to one of several templates.
 
 > [!NOTE]
 > **Model Compose is only available for custom models trained _with_ labels.**
 
-#### Gather each model ID
+### Gather your custom model IDs
 
 Once the training process has successfully completed, your custom model will be assigned a model ID. You can retrieve the model ID as follows:
 
@@ -114,7 +118,7 @@ The following code block lists the current models in your account and prints the
 
 ### Create a composed model
 
-Composed models are created by taking a collection of custom models and composing a single model that encompasses all your form types. Below are the available methods for creating a composed custom model.
+Below are the available methods for creating a composed model.
 
 ### [**Form Recognizer sample labeling tool**](#tab/fott)
 
@@ -149,13 +153,15 @@ Use the programming language code of your choice to create a composed model that
 
 ---
 
-## Analyze documents with your custom model
+## Analyze documents with your custom or composed model 
 
-Test your newly trained model by [analyzing a form](quickstarts/client-library.md#analyze-forms-with-a-custom-model)] that wasn't part of the training dataset. You can continue to do further training to improve the performance of your custom model.
+The custom form Analyze operation requires you to provide the `modelID`  in the call to Form Recognizer . You can provide a single custom model or composes model ID for that parameter.
 
-## Manage your custom models](quickstarts/client-library.md#manage-custom-models)
+Test your newly trained models by [analyzing a form](quickstarts/client-library.md#analyze-forms-with-a-custom-model)] that wasn't part of the training dataset. You can continue to do further training to improve performance.
 
-You can [manage a custom model](quickstarts/client-library.md#manage-custom-models) throughout its lifecycle by viewing a [list of all custom models](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetCustomModels) under your subscription, retrieving information about [a specific custom model]https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetCustomModel), and [deleting a custom models](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/DeleteCustomModel) from your account.
+## Manage your custom models
+
+You can [manage your custom models](quickstarts/client-library.md#manage-custom-models) throughout their lifecycle by viewing a [list of all custom models](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetCustomModels) under your subscription, retrieving information about [a specific custom model]https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetCustomModel), and [deleting custom models](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/DeleteCustomModel) from your account.
 
 Great! You have learned the steps involved in creating custom and composed models. 
 
