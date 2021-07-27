@@ -64,10 +64,6 @@ Apps in App Service are hosted on worker roles. The Basic and higher pricing pla
 
 When regional VNet Integration is enabled, your app makes outbound through your VNet. The outbound addresses that are listed in the app properties portal are the addresses still used by your app. If all traffic routing is enabled, all outbound traffic is sent into your VNet. If all traffic routing is not enabled, only private traffic (RFC1918) and service endpoints configured on the integration subnet will be sent into the VNet and outbound traffic to the internet will go through the same channels as normal.
 
-> [!NOTE]
-> Route All is currently not supported in Windows containers.
-> 
-
 The feature supports only one virtual interface per worker. One virtual interface per worker means one regional VNet Integration per App Service plan. All of the apps in the same App Service plan can use the same VNet Integration. If you need an app to connect to an additional VNet, you need to create another App Service plan. The virtual interface used isn't a resource that customers have direct access to.
 
 Because of the nature of how this technology operates, the traffic that's used with VNet Integration doesn't show up in Azure Network Watcher or NSG flow logs.
@@ -101,9 +97,11 @@ There are two types of routing to consider when configuring regional VNet Integr
 When configuring application routing, you can either route all traffic or only private traffic (also known as [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) into your VNet. You configure this through the Route All setting. If Route All is disabled or not set, your app only routes private traffic into your VNet. If you want to route all of your outbound traffic into your VNet, make sure that Route All is enabled.
 
 > [!NOTE]
-> When Route All is enabled, all traffic is subject to the NSGs and UDRs that are applied to your integration subnet. When all traffic routing is enabled, outbound traffic is still sent from the addresses that are listed in your app properties, unless you provide routes that direct the traffic elsewhere.
+> * When Route All is enabled, all traffic is subject to the NSGs and UDRs that are applied to your integration subnet. When all traffic routing is enabled, outbound traffic is still sent from the addresses that are listed in your app properties, unless you provide routes that direct the traffic elsewhere.
 > 
-> Regional VNet integration isn't able to use port 25.
+> * Route All is currently not supported in Windows containers.
+>
+> * Regional VNet integration isn't able to use port 25.
 
 You can use the following steps to enable Route All in your app through the portal: 
 
@@ -295,16 +293,6 @@ Commands:
     add    : Add a regional virtual network integration to a webapp.
     list   : List the virtual network integrations on a webapp.
     remove : Remove a regional virtual network integration from webapp.
-
-az appservice vnet-integration --help
-
-Group
-    az appservice vnet-integration : A method that lists the virtual network
-    integrations used in an appservice plan.
-        This command group is in preview. It may be changed/removed in a future release.
-Commands:
-    list : List the virtual network integrations used in an appservice plan.
-```
 
 PowerShell support for regional VNet integration is available too, but you must create generic resource with a property array of the subnet resourceID
 
