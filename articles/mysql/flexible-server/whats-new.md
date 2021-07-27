@@ -6,7 +6,7 @@ ms.service: mysql
 ms.author: jtoland
 ms.custom: mvc
 ms.topic: conceptual
-ms.date: 06/18/2021
+ms.date: 07/27/2021
 ---
 
 # What's new in Azure Database for MySQL - Flexible Server (Preview)?
@@ -16,6 +16,30 @@ ms.date: 06/18/2021
 [Azure Database for MySQL - Flexible Server](./overview.md#azure-database-for-mysql---flexible-server-preview) is a deployment mode that's designed to provide more granular control and flexibility over database management functions and configuration settings than does the Single Server deployment mode. The service currently supports community version of MySQL 5.7 and 8.0.
 
 This article summarizes new releases and features in Azure Database for MySQL - Flexible Server beginning in January 2021. Listings appear in reverse chronological order, with the most recent updates first.
+
+## July 2021
+
+This release of Azure Database for MySQL - Flexible Server includes the following updates.
+
+- **Online migration from Single Server to Flexible Server**
+
+  Customers can now migrate an instance of Azure Database for MySQL – Single Server to Flexible Server with minimum downtime to their applications by using Data-in Replication. For detailed, step-by-step instructions, see [Migrate Azure Database for MySQL – Single Server to Flexible Server with minimal downtime](/howto-migrate-single-flexible-minimum-downtime).
+
+- **High availability within a single zone using same-zone high availability**
+
+  Azure Database for MySQL – Flexible Server now provides customers with the flexibility to choose the preferred availability zone for their standby server when they enable high availability. With this feature, customers can place a standby server in the same zone as the primary server, which reduces the replication lag between primary and standby. This also provides for lower latencies between the application server and database server if placed within the same Azure zone. [Learn more](https://aka.ms/SameZone-HA).
+
+- **Private DNS zone integration**
+
+  Azure Database for MySQL- Flexible server now provides integration with an Azure private DNS zone. Integration with Azure private DNS zone allows seamless resolution of private DNS  within the current VNet, or any in-region peered VNet to which the private DNS Zone is linked. [Learn more](/concepts-networking#connecting-from-peered-vnets-in-same-azure-region.md).
+
+- **Point-In-Time Restore for a server in a specified virtual network**
+
+  The Point-In-Time Restore experience for Azure Database for MySQL – Flexible Server now enables customers to configure networking settings, allowing users to switch between networking options   when performing a restore operation. This feature gives customers the flexibility to inject a server being restored into a specified virtual network securing their connection endpoints. [Learn more](/how-to-restore-server-portal.md).
+
+- **Availability in West US and Germany West Central**
+
+  The public preview of Azure Database for MySQL - Flexible Server is now available in the West US  and Germany West Central Azure regions.
 
 ## June 2021
 

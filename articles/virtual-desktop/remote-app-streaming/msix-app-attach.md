@@ -20,7 +20,7 @@ To learn more, see [What is MSIX app attach?](../what-is-app-attach.md).
 
 ## Requirements
 
-You'll need the following things to use MSIX app attach in Windows Virtual Desktop:
+You'll need the following things to use MSIX app attach in Azure Virtual Desktop:
 
 - An MSIX-packaged application
 - An MSIX image made from the expanded MSIX application
