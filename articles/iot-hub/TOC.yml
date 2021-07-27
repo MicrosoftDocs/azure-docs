@@ -102,10 +102,10 @@
         - name: Send and receive messages
           href: iot-hub-devguide-messaging.md
           items:
-            - name: Choose a device communication protocol
-              href: iot-hub-devguide-protocols.md
             - name: Create and read IoT Hub messages
               href: iot-hub-devguide-messages-construct.md
+            - name: Choose a device communication protocol
+              href: iot-hub-devguide-protocols.md
             - name: Read device-to-cloud messages from the built-in endpoint
               href: iot-hub-devguide-messages-read-builtin.md
             - name: Use message routing to send device-to-cloud messages
