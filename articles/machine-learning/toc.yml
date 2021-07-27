@@ -697,7 +697,7 @@
       href: reference-azure-machine-learning-cli.md
     - name: Designer component reference
       displayName: component, module, reference, algorithm, studio
-      href: algorithm-module-reference/component-reference.md
+      href: component-reference/component-reference.md
     - name: Monitor data reference
       href: monitor-resource-reference.md
     - name: Managed online endpoint YAML reference
