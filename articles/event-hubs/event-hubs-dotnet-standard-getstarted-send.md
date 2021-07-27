@@ -91,7 +91,7 @@ This section shows you how to create a .NET Core console application to send eve
             // Create a batch of events 
             using EventDataBatch eventBatch = await producerClient.CreateBatchAsync();
 
-            for (int i = 1; i <= 3; i++)
+            for (int i = 1; i <= numOfEvents; i++)
             {
                 if (! eventBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes($"Event {i}"))))
                 {
