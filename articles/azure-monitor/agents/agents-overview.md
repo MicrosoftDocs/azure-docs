@@ -61,7 +61,7 @@ Use the Azure Monitor agent if you need to:
 -->
 Limitations of the Azure Monitor Agent include:
 - Cannot use the Log Analytics solutions in production (only available in preview, [see what's supported](../faq.yml#which-log-analytics-solutions-are-supported-on-the-new-azure-monitor-agent-)).
-- No support yet for networking scenarios involving private links or direct proxies (Log Analytics/OMS gateway). 
+- No support yet for networking scenarios involving private links. 
 - No support yet collecting custom logs (files) or IIS log files. 
 - No support yet for Event Hubs and Storage accounts as destinations.
 - No support for Hybrid Runbook workers.
