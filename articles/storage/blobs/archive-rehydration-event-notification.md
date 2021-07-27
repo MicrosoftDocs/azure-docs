@@ -58,22 +58,22 @@ The Azure Event Grid documentation provides how-to guidance for setting up some 
 
 # [Azure portal](#tab/portal)
 
-- [Web hook](../../event-grid/handler-webhooks.md): A web endpoint can serve as an event handler. To learn about using a web endpoint to handle Blob storage events, see [Use Azure Event Grid to route Blob storage events to web endpoint (Azure portal)](../../event-grid/blob-event-quickstart-portal.md).
+- [Web hook](../../event-grid/handler-webhooks.md#webhooks): A web endpoint can serve as an event handler. To learn about using a web endpoint to handle Blob storage events, see [Use Azure Event Grid to route Blob storage events to web endpoint (Azure portal)](../../event-grid/blob-event-quickstart-portal.md).
 - [Azure Functions](../../event-grid/handler-functions.md): Azure Functions are automatically configured to handle events. To learn about using the Azure portal to configure an Azure Function to handle an event, see [Send custom events to Azure Function](../../event-grid/custom-event-to-function.md).
 
 # [PowerShell](#tab/powershell)
 
-- [Web hook](../../event-grid/handler-webhooks.md): A web endpoint can serve as an event handler. To learn about using a web endpoint to handle Blob storage events, see [Quickstart: Route storage events to web endpoint with PowerShell](../../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=/azure/event-grid/toc.json)
+- [Web hook](../../event-grid/handler-webhooks.md#webhooks): A web endpoint can serve as an event handler. To learn about using a web endpoint to handle Blob storage events, see [Quickstart: Route storage events to web endpoint with PowerShell](../../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=/azure/event-grid/toc.json)
 
 # [Azure CLI](#tab/azure-cli)
 
-- [Web hook](../../event-grid/handler-webhooks.md): A web endpoint can serve as an event handler. To learn about using a web endpoint to handle Blob storage events, see [Quickstart: Route storage events to web endpoint with Azure CLI](../../storage/blobs/storage-blob-event-quickstart.md?toc=/azure/event-grid/toc.json)
+- [Web hook](../../event-grid/handler-webhooks.md#webhooks): A web endpoint can serve as an event handler. To learn about using a web endpoint to handle Blob storage events, see [Quickstart: Route storage events to web endpoint with Azure CLI](../../storage/blobs/storage-blob-event-quickstart.md?toc=/azure/event-grid/toc.json)
 - [Azure Queue Storage](../../event-grid/handler-storage-queues.md): Azure Storage queues are automatically configured to handle events. To learn about using Queue Storage with Azure CLI to handle an event, see [Quickstart: Route custom events to Azure Queue storage with Azure CLI and Event Grid](../../event-grid/custom-event-to-queue-storage.md).
 - [Azure Event Hubs](../../event-grid/handler-event-hubs.md): Azure Event Hubs are  are automatically configured to handle events. To learn about using Event Hubs with Azure CLI to handle an event, see [Quickstart: Route custom events to Azure Event Hubs with Azure CLI and Event Grid](../../event-grid/custom-event-to-eventhub.md)
 
 # [Template](#tab/template)
 
-- [Web hook](../../event-grid/handler-webhooks.md): A web endpoint can serve as an event handler. To learn about using a web endpoint to handle Blob storage events, see [Quickstart: Route Blob storage events to web endpoint by using an ARM template](../../event-grid/blob-event-quickstart-template.md?toc=/azure/event-grid/toc.json)
+- [Web hook](../../event-grid/handler-webhooks.md#webhooks): A web endpoint can serve as an event handler. To learn about using a web endpoint to handle Blob storage events, see [Quickstart: Route Blob storage events to web endpoint by using an ARM template](../../event-grid/blob-event-quickstart-template.md?toc=/azure/event-grid/toc.json)
 
 ---
 
@@ -118,11 +118,24 @@ New-AzEventGridSubscription -EventSubscriptionName <event-subscription> `
 
 # [Azure CLI](#tab/azure-cli)
 
-TBD
+To create an event subscription with Azure CLI, call the [az eventgrid event-subscription create](/cli/azure/storage/account#az_storage_account_create) command. Provide a name for the event subscription, the Azure Resource Manager resource ID for the storage account, and the web hook endpoint. Remember to replace the placeholder values in brackets with your own values:
+
+```azurecli
+$storageid = $(az storage account show /
+    --name <storage-account> /
+    --resource-group <resource-group> /
+    --query id /
+    --output tsv)
+
+az eventgrid event-subscription create /
+    --source-resource-id $storageid /
+    --name <event-subscription> /
+    --endpoint https://<site-name>.azurewebsites.net/api/updates
+```
 
 # [Template](#tab/template)
 
-TBD
+For a sample template that configures an event subscription with a web hook, see **Review the template** in [Send Blob storage events to web endpoint](../../event-grid/blob-event-quickstart-template#review-the-template).
 
 ---
 
