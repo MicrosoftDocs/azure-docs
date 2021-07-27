@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-### Software Requirements
+### Software requirements
 
 Access to ServiceNow and Defender for IoT 
 
@@ -102,7 +102,7 @@ Configure Defender for IoT to push alert information to the ServiceNow tables. D
 
 1. Enter the ServiceNow action parameters:
 
-    :::image type="content" source="media/tutorial-servicenow/parameters.png" alt-text="Fill in the ServiceNow action parameters":::
+    :::image type="content" source="media/tutorial-servicenow/parameters.png" alt-text="Fill in the ServiceNow action parameters.":::
 
 1. In the **Actions** pane, set the following parameters:
 
