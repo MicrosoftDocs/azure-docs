@@ -23,7 +23,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Online migration from Single Server to Flexible Server**
 
-  Customers can now migrate an instance of Azure Database for MySQL – Single Server to Flexible Server with minimum downtime to their applications by using Data-in Replication. For detailed, step-by-step instructions, see [Migrate Azure Database for MySQL – Single Server to Flexible Server with minimal downtime](https://docs.microsoft.com/azure/mysql/howto-migrate-single-flexible-minimum-downtime).
+  Customers can now migrate an instance of Azure Database for MySQL – Single Server to Flexible Server with minimum downtime to their applications by using Data-in Replication. For detailed, step-by-step instructions, see [Migrate Azure Database for MySQL – Single Server to Flexible Server with minimal downtime](/howto-migrate-single-flexible-minimum-downtime).
 
 - **High availability within a single zone using same-zone high availability**
 
@@ -31,11 +31,11 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Private DNS zone integration**
 
-  Azure Database for MySQL- Flexible server now provides integration with an Azure private DNS zone. Integration with Azure private DNS zone allows seamless resolution of private DNS  within the current VNet, or any in-region peered VNet to which the private DNS Zone is linked. [Learn more](https://docs.microsoft.com/azure/mysql/flexible-server/concepts-networking#connecting-from-peered-vnets-in-same-azure-region).
+  Azure Database for MySQL- Flexible server now provides integration with an Azure private DNS zone. Integration with Azure private DNS zone allows seamless resolution of private DNS  within the current VNet, or any in-region peered VNet to which the private DNS Zone is linked. [Learn more](concepts-networking#connecting-from-peered-vnets-in-same-azure-region).
 
 - **Point-In-Time Restore for a server in a specified virtual network**
 
-  The Point-In-Time Restore experience for Azure Database for MySQL – Flexible Server now enables customers to configure networking settings, allowing users to switch between networking options   when performing a restore operation. This feature gives customers the flexibility to inject a server being restored into a specified virtual network securing their connection endpoints. [Learn more](https://docs.microsoft.com/azure/mysql/flexible-server/how-to-restore-server-portal).
+  The Point-In-Time Restore experience for Azure Database for MySQL – Flexible Server now enables customers to configure networking settings, allowing users to switch between networking options   when performing a restore operation. This feature gives customers the flexibility to inject a server being restored into a specified virtual network securing their connection endpoints. [Learn more](how-to-restore-server-portal).
 
 - **Availability in West US and Germany West Central**
 
