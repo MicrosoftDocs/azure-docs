@@ -93,13 +93,15 @@ If you need to split your billing or charge-back, consider whether the usage rep
 
     **If you *do* have overlaps between SOC and non-SOC data**, treat the overlapping data as SOC data only. Then, consider whether the ingestion for *both* SOC and non-SOC data individually is less than 100 GB / day, but more than 100 GB / day when combined:
 
-    - **Yes**: Proceed with [step 6](#step-6-multiple-regions) for further evaluation. For more information, see [note 10](#note10). 
-    - **No**: We do not recommend using the same workspace for the sake of cost efficiency. For more information, see [note 11](#note11).
+    - **Yes**: Proceed with [step 6](#step-6-multiple-regions) for further evaluation.
+    - **No**: We do not recommend using the same workspace for the sake of cost efficiency. Proceed with [step 6](#step-6-multiple-regions) for further evaluation.
+
+    In either case , for more information, see [note 10](#note10).
 
     **If you have *no* overlapping data**, consider whether the ingestion for *both* SOC and non-SOC data individually is less than 100 GB / day, but more than 100 GB / day when combined:
 
-    - **Yes**: Proceed with [step 6](#step-6-multiple-regions) for further evaluation. For more information, see note 3. 
-    - **No**: We do not recommend using the same workspace for the sake of cost efficiency. [step 6](#step-6-multiple-regions) for further evaluation.
+    - **Yes**: Proceed with [step 6](#step-6-multiple-regions) for further evaluation. For more information, see [note 3](#combining-your-soc-and-non-soc-data).
+    - **No**: We do not recommend using the same workspace for the sake of cost efficiency. Proceed with [step 6](#step-6-multiple-regions) for further evaluation.
 
 #### Combining your SOC and non-SOC data
 
@@ -123,25 +125,25 @@ In this example, you'd have a cost savings of $1,000 per month by combining both
 
 This example is relevant only when both SOC and non-SOC data each have an ingestion size of >=50GB/day and <100GB/day.
 
-<a name="note10"></a>[Decision tree note #10](#decision-tree): Recommendations for separate workspaces for non-SOC data come from a purely cost-based perspective, and there are other key design factors to examine when determining whether to use a single or multiple workspaces. To avoid double ingestion costs, consider collecting overlapped data on a single workspace only with Table level Azure RBAC .
+<a name="note10"></a>[Decision tree note #10](#decision-tree): We recommend using a separate workspace for non-SOC data so that non-SOC data isn't subjected to Azure Sentinel costs.
 
-<a name="note11"></a>[Decision tree note #11](#decision-tree): We recommend using a separate workspace for non-SOC data so that non-SOC data isn't subjected to Azure Sentinel costs. To avoid double ingestion costs, consider collecting overlapped data on a single workspace only with Table level Azure RBAC.
+However, this recommendation for separate workspaces for non-SOC data comes from a purely cost-based perspective, and there are other key design factors to examine when determining whether to use a single or multiple workspaces. To avoid double ingestion costs, consider collecting overlapped data on a single workspace only with table-level Azure RBAC .
 
 ### Step 6: Multiple regions?
 
-- **If you are collecting logs from Azure VMs in a *single* region only**, continue directly with step 7.
+- **If you are collecting logs from Azure VMs in a *single* region only**, continue directly with [step 7](#step-7-segregating-data-or-defining-boundaries-by-ownership).
 
 - **If you are collecting logs from Azure VMs in *multiple* regions**, how concerned are you about the data egress cost?
 
-    <a name="note4"></a>[Decision tree note #4](#decision-tree): Data egress refers to the bandwidth cost for moving data out of Azure datacenters. For more information, see [Region considerations](workspace-architecture-best-practices.md#region-considerations).
+    <a name="note4"></a>[Decision tree note #4](#decision-tree): Data egress refers to the [bandwidth cost](https://azure.microsoft.com/pricing/details/bandwidth/) for moving data out of Azure datacenters. For more information, see [Region considerations](workspace-architecture-best-practices.md#region-considerations).
 
-    - If reducing the amount of effort required to maintain separate workspaces is a priority, continue with step 7.
+    - If reducing the amount of effort required to maintain separate workspaces is a priority, continue with [step 7](#step-7-segregating-data-or-defining-boundaries-by-ownership).
 
     - If the data egress cost is enough of a concern to make maintaining separate workspaces worthwhile, use a separate Azure Sentinel workspace for each region where you need reduce the data egress cost.
 
-        <a name="note5"></a>[Decision tree note #5](#decision-tree): We recommend that you have as few workspaces as possible. Use the Azure pricing calculator to estimate the cost and determine which regions you actually need, and combine workspaces for regions with low egress costs. Bandwidth costs may be only a small part of your Azure bill when compared with separate Azure Sentinel and Log Analytics ingestion costs.
+        <a name="note5"></a>[Decision tree note #5](#decision-tree): We recommend that you have as few workspaces as possible. Use the [Azure pricing calculator](azure-sentinel-billing.md#estimate-azure-sentinel-costs) to estimate the cost and determine which regions you actually need, and combine workspaces for regions with low egress costs. Bandwidth costs may be only a small part of your Azure bill when compared with separate Azure Sentinel and Log Analytics ingestion costs.
 
-        A sample cost might be estimated as follows:
+        For example, your cost might be estimated as follows:
 
         - 1,000 VMs, each generating 1 GB / day;
         - Sending data from a US region to a EU region;
@@ -157,7 +159,7 @@ This example is relevant only when both SOC and non-SOC data each have an ingest
 
 ### Step 7: Segregating data or defining boundaries by ownership?
 
-- **If you *do not* need to segregate data or define any ownership boundaries**, continue directly with step 8.
+- **If you *do not* need to segregate data or define any ownership boundaries**, continue directly with [step 8](#step-8-controlling-data-access-by-data-source--table).
 
 - **If you *do* need to segregate data or define boundaries based on ownership**, does each data owner need to use the Azure Sentinel portal?
 
@@ -165,7 +167,7 @@ This example is relevant only when both SOC and non-SOC data each have an ingest
 
         <a name="note6"></a>[Decision tree note #6](#decision-tree): Access to the Azure Sentinel portal requires that each user have a role of at least an [Azure Sentinel Reader](/azure/role-based-access-control/built-in-roles), with **Reader** permissions on all tables in the workspace. If a user does not have access to all tables in the workspace, they'll need to use Log Analytics to access the logs in search queries.
 
-    - If access to the logs via Log Analytics is sufficient for any owners without access to the Azure Sentinel portal, continue with step 8.
+    - If access to the logs via Log Analytics is sufficient for any owners without access to the Azure Sentinel portal, continue with [step 8](#step-8-controlling-data-access-by-data-source--table).
 
     For more information, see [Permissions in Azure Sentinel](roles.md).
 
