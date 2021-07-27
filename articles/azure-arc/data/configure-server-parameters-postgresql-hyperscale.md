@@ -37,7 +37,7 @@ This document describes the steps to set the database engine settings of your Po
 The general format of the command to configure the database engine settings is:
 
 ```console
-azdata arc postgres server edit -n <server group name>, [{--engine-settings, -e}] [{--replace-engine-settings, --re}] {'<parameter name>=<parameter value>, ...'}
+az postgres arc-server server edit -n <server group name>, [{--engine-settings, -e}] [{--replace-engine-settings, --re}] {'<parameter name>=<parameter value>, ...'}
 ```
 
 ## Show current custom values
@@ -45,13 +45,13 @@ azdata arc postgres server edit -n <server group name>, [{--engine-settings, -e}
 ### With [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] command
 
 ```console
-azdata arc postgres server show -n <server group name>
+az postgres arc-server server show -n <server group name>
 ```
 
 For example:
 
 ```console
-azdata arc postgres server show -n postgres01
+az postgres arc-server server show -n postgres01
 ```
 
 This command returns the spec of the server group in which you would see the parameters you set. If there is no engine\settings section, it means that all parameters are running on their default value:
@@ -78,13 +78,13 @@ Follow the below steps.
    Run:
 
    ```console
-   azdata arc postgres server show -n <server group name>
+   az postgres arc-server server show -n <server group name>
    ```
 
    For example:
 
    ```console
-   azdata arc postgres server show -n postgres01
+   az postgres arc-server server show -n postgres01
    ```
 
    This command returns the spec of the server group in which you would see the parameters you set. If there is no engine\settings section, it means that all parameters are running on their default value:
@@ -148,19 +148,19 @@ azdata arc server edit -n <server group name> -e <parameter name>=<parameter val
 For example:
 
 ```console
-azdata arc postgres server edit -n postgres01 -e shared_buffers=8MB
+az postgres arc-server server edit -n postgres01 -e shared_buffers=8MB
 ```
 
 ### Set multiple parameters with a single command
 
 ```console
-azdata arc postgres server edit -n <server group name> -e '<parameter name>=<parameter value>, <parameter name>=<parameter value>,...'
+az postgres arc-server server edit -n <server group name> -e '<parameter name>=<parameter value>, <parameter name>=<parameter value>,...'
 ```
 
 For example:
 
 ```console
-azdata arc postgres server edit -n postgres01 -e 'shared_buffers=8MB, max_connections=50'
+az postgres arc-server server edit -n postgres01 -e 'shared_buffers=8MB, max_connections=50'
 ```
 
 ### Reset a parameter to its default value
@@ -170,19 +170,19 @@ To reset a parameter to its default value, set it without indicating a value.
 For example:
 
 ```console
-azdata arc postgres server edit -n postgres01 -e shared_buffers=
+az postgres arc-server server edit -n postgres01 -e shared_buffers=
 ```
 
 ### Reset all parameters to their default values
 
 ```console
-azdata arc postgres server edit -n <server group name> -e '' -re
+az postgres arc-server server edit -n <server group name> -e '' -re
 ```
 
 For example:
 
 ```console
-azdata arc postgres server edit -n postgres01 -e '' -re
+az postgres arc-server server edit -n postgres01 -e '' -re
 ```
 
 ## Special considerations
@@ -190,13 +190,13 @@ azdata arc postgres server edit -n postgres01 -e '' -re
 ### Set a parameter which value contains a comma, space, or special character
 
 ```console
-azdata arc postgres server edit -n <server group name> -e '<parameter name>="<parameter value>"'
+az postgres arc-server server edit -n <server group name> -e '<parameter name>="<parameter value>"'
 ```
 
 For example:
 
 ```console
-azdata arc postgres server edit -n postgres01 -e 'custom_variable_classes = "plpgsql,plperl"'
+az postgres arc-server server edit -n postgres01 -e 'custom_variable_classes = "plpgsql,plperl"'
 ```
 
 ### Pass an environment variable in a parameter value
@@ -206,7 +206,7 @@ The environment variable should be wrapped inside "''" so that it doesn't get re
 For example: 
 
 ```console
-azdata arc postgres server edit -n postgres01 -e 'search_path = "$user"'
+az postgres arc-server server edit -n postgres01 -e 'search_path = "$user"'
 ```
 
 ## Next steps

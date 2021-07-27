@@ -22,7 +22,7 @@ This document describes the steps to delete a server group from your Azure Arc s
 As an example, let's consider we want to delete the _postgres01_ instance from the below setup:
 
 ```console
-azdata arc postgres server list
+az postgres arc-server server list
 Name        State    Workers
 ----------  -------  ---------
 postgres01  Ready    3
@@ -30,22 +30,22 @@ postgres01  Ready    3
 
 The general format of the delete command is:
 ```console
-azdata arc postgres server delete -n <server group name>
+az postgres arc-server server delete -n <server group name>
 ```
 When you execute this command, you will be requested to confirm the deletion of the server group. If you are using scripts to automate deletions you will need to use the --force parameter to bypass the confirmation request. For example, you would run a command like: 
 ```console
-azdata arc postgres server delete -n <server group name> --force
+az postgres arc-server server delete -n <server group name> --force
 ```
 
 For more details about the delete command, run:
 ```console
-azdata arc postgres server delete --help
+az postgres arc-server server delete --help
 ```
 
 ### Delete the server group used in this example
 
 ```console
-azdata arc postgres server delete -n postgres01
+az postgres arc-server server delete -n postgres01
 ```
 
 ## Reclaim the Kubernetes Persistent Volume Claims (PVCs)

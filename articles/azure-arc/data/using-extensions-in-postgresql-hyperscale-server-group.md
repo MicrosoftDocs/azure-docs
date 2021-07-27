@@ -55,11 +55,11 @@ For details about that are `shared_preload_libraries`, read the PostgreSQL docum
 
 ### Add an extension at the creation time of a server group
 ```console
-azdata arc postgres server create -n <name of your postgresql server group> --extensions <extension names>
+az postgres arc-server server create -n <name of your postgresql server group> --extensions <extension names>
 ```
 ### Add an extension to an instance that already exists
 ```console
-azdata arc postgres server edit -n <name of your postgresql server group> --extensions <extension names>
+az postgres arc-server server edit -n <name of your postgresql server group> --extensions <extension names>
 ```
 
 
@@ -70,7 +70,7 @@ Run either of the following command.
 
 ### With an azdata CLI command
 ```console
-azdata arc postgres server show -n <server group name>
+az postgres arc-server server show -n <server group name>
 ```
 Scroll in the output and notice the engine\extensions sections in the specifications of your server group. For example:
 ```console

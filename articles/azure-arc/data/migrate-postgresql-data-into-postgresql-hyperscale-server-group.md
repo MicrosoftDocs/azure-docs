@@ -70,7 +70,7 @@ The backup completes successfully:
 > To register a Postgres instance in the `pgAdmin` tool, you need to you use public IP of your instance in your Kubernetes cluster and set the port and security context appropriately. You will find these details on the `psql` endpoint line after running the following command:
 
 ```console
-azdata arc postgres endpoint list -n postgres01
+az postgres arc-server endpoint list -n postgres01
 ```
 That returns an output like:
 ```console
@@ -125,7 +125,7 @@ Within your Arc setup you can use `psql` to connect to your Postgres instance, s
 1. List the end points to help from your `psql` connection string:
 
    ```console
-   azdata arc postgres endpoint list -n postgres01
+   az postgres arc-server endpoint list -n postgres01
    [
      {
        "Description": "PostgreSQL Instance",

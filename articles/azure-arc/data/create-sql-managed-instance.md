@@ -21,19 +21,19 @@ ms.topic: how-to
 
 To view available create options forSQL Managed Instance, use the following command:
 ```console
-azdata arc sql mi create --help
+az sql mi-arc create --help
 ```
 
 To create an SQL Managed Instance, use the following command:
 
 ```console
-azdata arc sql mi create -n <instanceName> --storage-class-data <storage class> --storage-class-logs <storage class>
+az sql mi-arc create -n <instanceName> --storage-class-data <storage class> --storage-class-logs <storage class>
 ```
 
 Example:
 
 ```console
-azdata arc sql mi create -n sqldemo --storage-class-data managed-premium --storage-class-logs managed-premium
+az sql mi-arc create -n sqldemo --storage-class-data managed-premium --storage-class-logs managed-premium
 ```
 > [!NOTE]
 >  Names must be less than 13 characters in length and conform to [DNS naming conventions](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-label-names)
@@ -46,7 +46,7 @@ azdata arc sql mi create -n sqldemo --storage-class-data managed-premium --stora
 
 
 > [!NOTE]
-> If you want to automate the creation of SQL instances and avoid the interactive prompt for the admin password, you can set the `AZDATA_USERNAME` and `AZDATA_PASSWORD` environment variables to the desired username and password prior to running the `azdata arc sql mi create` command.
+> If you want to automate the creation of SQL instances and avoid the interactive prompt for the admin password, you can set the `AZDATA_USERNAME` and `AZDATA_PASSWORD` environment variables to the desired username and password prior to running the `az sql mi-arc create` command.
 > 
 >  If you created the data controller using AZDATA_USERNAME and AZDATA_PASSWORD in the same terminal session, then the values for AZDATA_USERNAME and AZDATA_PASSWORD will be used to create the SQL managed instance too.
 
@@ -61,7 +61,7 @@ azdata arc sql mi create -n sqldemo --storage-class-data managed-premium --stora
 To view the instance, use the following command:
 
 ```console
-azdata arc sql mi list
+az sql mi-arc list
 ```
 
 Output should look like this:

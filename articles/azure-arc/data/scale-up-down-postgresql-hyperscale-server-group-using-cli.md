@@ -32,7 +32,7 @@ To show the current definition of your server group and see what are the current
 ### CLI with azdata
 
 ```console
-azdata arc postgres server show -n <server group name>
+az postgres arc-server server show -n <server group name>
 ```
 ### CLI with kubectl
 
@@ -102,7 +102,7 @@ How do you indicate what role does the setting apply to?
 **The general syntax is:**
 
 ```console
-azdata arc postgres server edit -n <servergroup name> --memory-limit/memory-request/cores-request/cores-limit <coordinator=val1,worker=val2>
+az postgres arc-server server edit -n <servergroup name> --memory-limit/memory-request/cores-request/cores-limit <coordinator=val1,worker=val2>
 ```
 
 The value you indicate for the memory setting is a number followed by a unit of volume. For example, to indicate 1Gb, you would indicate 1024Mi or 1Gi.
@@ -116,17 +116,17 @@ To indicate a number of cores, you just pass a number without unit.
 
 **Configure the coordinator role to not exceed 2 cores and the worker role to not exceed 4 cores:**
 ```console
- azdata arc postgres server edit -n postgres01 --cores-request coordinator=1, --cores-limit coordinator=2
- azdata arc postgres server edit -n postgres01 --cores-request worker=1, --cores-limit worker=4
+ az postgres arc-server server edit -n postgres01 --cores-request coordinator=1, --cores-limit coordinator=2
+ az postgres arc-server server edit -n postgres01 --cores-request worker=1, --cores-limit worker=4
 ```
 
 or
 ```console
-azdata arc postgres server edit -n postgres01 --cores-request coordinator=1,worker=1 --cores-limit coordinator=4,worker=4
+az postgres arc-server server edit -n postgres01 --cores-request coordinator=1,worker=1 --cores-limit coordinator=4,worker=4
 ```
 
 > [!NOTE]
-> For details about those parameters, run `azdata arc postgres server edit --help`.
+> For details about those parameters, run `az postgres arc-server server edit --help`.
 
 ### Example using Kubernetes native tools like `kubectl`
 
@@ -185,13 +185,13 @@ If you are not familiar with the `vi` editor, see a description of the commands 
 To reset core/memory limits/requests parameters to their default values, edit them and pass an empty string instead of an actual value. For example, if you want to reset the core limit parameter, run the following commands:
 
 ```console
-azdata arc postgres server edit -n postgres01 --cores-request coordinator='',worker=''
-azdata arc postgres server edit -n postgres01 --cores-limit coordinator='',worker=''
+az postgres arc-server server edit -n postgres01 --cores-request coordinator='',worker=''
+az postgres arc-server server edit -n postgres01 --cores-limit coordinator='',worker=''
 ```
 
 or 
 ```console
-azdata arc postgres server edit -n postgres01 --cores-request coordinator='',worker='' --cores-limit coordinator='',worker=''
+az postgres arc-server server edit -n postgres01 --cores-request coordinator='',worker='' --cores-limit coordinator='',worker=''
 ```
 
 ## Next steps

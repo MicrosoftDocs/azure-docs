@@ -35,14 +35,14 @@ az sql mi-arc delete -n <name>
 Similarly, to check for PostgreSQL Hyperscale instances, run:
 
 ```
-azdata login
-azdata arc postgres server list
+az login
+az postgres arc-server server list
 ```
 
 And, for each PostgreSQL Hyperscale instance, run the delete command as follows:
 ```
-azdata arc postgres server delete -n <name>
-# for example: azdata arc postgres server delete -n pg1
+az postgres arc-server server delete -n <name>
+# for example: az postgres arc-server server delete -n pg1
 ```
 
 ## Delete controller

@@ -136,7 +136,7 @@ Now, let’s scale out to add a third worker node to the server group and observ
 To scale out run the command:
 
 ```console
-azdata arc postgres server edit --name postgres01 --workers 3
+az postgres arc-server server edit --name postgres01 --workers 3
 ```
 
 That produces the following output:
@@ -149,7 +149,7 @@ postgres01 is Ready
 List the server groups deployed in the Azure Arc Data Controller and verify that the server group now runs with three workers. Run the command:
 
 ```console
-azdata arc postgres server list
+az postgres arc-server server list
 ```
 
 And observe that it did scale out from two workers to three workers:
@@ -287,7 +287,7 @@ The fifth physical node is not hosting any workload yet. As we scale out the Azu
 Run the following command to scale the Azure Arc-enabled PostgreSQL Hyperscale from 3 to 4 workers. At the end of the operation, the server group will be constituted and distributed across five PostgreSQL instances, one coordinator and four workers.
 
 ```console
-azdata arc postgres server edit --name postgres01 --workers 4
+az postgres arc-server server edit --name postgres01 --workers 4
 ```
 
 That produces the following output:
@@ -300,7 +300,7 @@ postgres01 is Ready
 List the server groups deployed in the Data Controller and verify the server group now runs with four workers:
 
 ```console
-azdata arc postgres server list
+az postgres arc-server server list
 ```
 
 And observe that it did scale out from three to four workers. 

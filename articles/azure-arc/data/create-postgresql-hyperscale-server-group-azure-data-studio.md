@@ -24,7 +24,7 @@ This document walks you through the steps for using Azure Data Studio to provisi
 Before you can create an instance, log in to the Azure Arc data controller if you are not already logged in.
 
 ```console
-azdata login
+az login
 ```
 
 You will then be prompted for the namespace where the data controller is created, the username, and password to log in to the controller.

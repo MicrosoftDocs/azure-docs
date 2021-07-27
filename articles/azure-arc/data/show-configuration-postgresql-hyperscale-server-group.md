@@ -156,7 +156,7 @@ Use either of the following commands.
 Run the following command. The output shows similar information to what kubectl shows:
 
    ```console
-   azdata arc postgres server list
+   az postgres arc-server server list
 
    `output
    Name        State    Workers
@@ -282,13 +282,13 @@ Let's call out some specific points of interest in the description of the `serve
 The general format of the command is:
 
 ```console
-azdata arc postgres server show -n <server group name>
+az postgres arc-server server show -n <server group name>
 ```
 
 For example:
 
 ```console
-azdata arc postgres server show -n postgres02
+az postgres arc-server server show -n postgres02
 ```
 
 Returns the below output in a format and content very similar to the one returned by kubectl.

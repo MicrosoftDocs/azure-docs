@@ -104,7 +104,7 @@ The current release announces general availability for the following services:
    1. Enable the extension:
 
       ```console
-      azdata arc postgres server edit -n myservergroup --extensions pg_cron
+      az postgres arc-server server edit -n myservergroup --extensions pg_cron
       ```
 
    1. Restart the server group.
@@ -112,7 +112,7 @@ The current release announces general availability for the following services:
    1. Configure the extension:
 
       ```console
-      azdata arc postgres server edit -n myservergroup --engine-settings cron.database_name='postgres'
+      az postgres arc-server server edit -n myservergroup --engine-settings cron.database_name='postgres'
       ```
 
    If you execute the second command before the restart has completed it will fail. If that is the case, simply wait for a few more moments and execute the second command again.

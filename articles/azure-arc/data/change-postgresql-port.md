@@ -16,19 +16,19 @@ ms.topic: how-to
 
 Changing the port is a standard edit operation of the server group. In order to change the port, run the following command:
 ```console
- azdata arc postgres server edit -n <server group name> --port <desired port number>
+ az postgres arc-server server edit -n <server group name> --port <desired port number>
 ```
 
 For example, let's assume the name of your server group is _postgres01_ and you would like it to listen on port _866_. You would run the following command:
 ```console
- azdata arc postgres server edit -n postgres01 --port 866
+ az postgres arc-server server edit -n postgres01 --port 866
 ```
 
 ## Verify that the port was changed
 
 To verify that the port was changed, run the following command to show the configuration of your server group:
 ```console
-azdata arc postgres server show -n <server group name>
+az postgres arc-server server show -n <server group name>
 ```
 
 In the output of that command, look at the port number displayed for the item "port" in the "service" section of the specifications of your server group.
@@ -36,7 +36,7 @@ Alternatively, you can verify in the item externalEndpoint of the status section
 
 As an illustration, if we continue the example above, you would run the command:
 ```console
-azdata arc postgres server show -n postgres01
+az postgres arc-server server show -n postgres01
 ```
 
 and you would see port 866 referred to here:

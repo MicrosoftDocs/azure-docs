@@ -26,23 +26,23 @@ This article explains how you can retrieve the connection endpoints for your ser
 - If you already have a session opened on the host of the Arc Data Controller:
 Run the following command:
 ```console
-azdata login
+az login
 ```
 
 - If you do not have a session opened on the host of the Arc Data Controller:
 run the following command 
 ```console
-azdata login --endpoint https://<external IP address of host/data controller>:30080
+az login --endpoint https://<external IP address of host/data controller>:30080
 ```
 
 #### 2. Show the connection endpoints
 Run the following command:
 ```console
-azdata arc postgres endpoint list -n <server group name>
+az postgres arc-server endpoint list -n <server group name>
 ```
 For example:
 ```console
-azdata arc postgres endpoint list -n postgres01
+az postgres arc-server endpoint list -n postgres01
 ```
 
 It shows the list of endpoints: the PostgreSQL endpoint that you use to connect your application and use the database, Kibana and Grafana endpoints for log analytics and monitoring. For example: 
@@ -76,7 +76,7 @@ postgres=#
 > [!NOTE]
 >
 > - The password of the _postgres_ user indicated in the end point named "_PostgreSQL Instance_" is the password you chose when deploying the server group.
-> - About azdata: the lease associated to your connection lasts about 10 hours. After that you need to reconnect. If your lease has expired, you will get the following error message when you try to execute a command with azdata (other than azdata login):
+> - About azdata: the lease associated to your connection lasts about 10 hours. After that you need to reconnect. If your lease has expired, you will get the following error message when you try to execute a command with azdata (other than az login):
 > _ERROR: (401)_
 > _Reason: Unauthorized_
 > _HTTP response headers: HTTPHeaderDict({'Date': 'Sun, 06 Sep 2020 16:58:38 GMT', 'Content-Length': '0', 'WWW-Authenticate': '_

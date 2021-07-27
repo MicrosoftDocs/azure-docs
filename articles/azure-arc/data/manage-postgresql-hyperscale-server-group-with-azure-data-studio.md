@@ -43,7 +43,7 @@ Enter the connection information to your Azure Data Controller:
     ```
 - **Username:**
 
-    Name of the user account you use to connect to the Controller. Use the name you typically use when you run `azdata login`. It is not the name of the PostgreSQL user you use to connect to the PostgreSQL database engine typically from psql.
+    Name of the user account you use to connect to the Controller. Use the name you typically use when you run `az login`. It is not the name of the PostgreSQL user you use to connect to the PostgreSQL database engine typically from psql.
 - **Password:**
     The password of the user account you use to connect to the Controller
 

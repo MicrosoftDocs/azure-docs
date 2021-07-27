@@ -47,7 +47,7 @@ To access the logs and monitoring dashboards for PostgreSQL Hyperscale, run the 
 
 ```bash
 
-azdata arc postgres endpoint list -n <name of postgreSQL instance>
+az postgres arc-server endpoint list -n <name of postgreSQL instance>
 
 ```
 

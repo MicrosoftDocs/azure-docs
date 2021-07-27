@@ -18,17 +18,17 @@ This article describes some techniques you may use to troubleshoot your server g
 You may add the parameter **--debug** to any azdata command you execute. Doing so will display to your console additional information about the execution of that command. You should find it useful to get details to help you understand the behavior of that command.
 For example you could run
 ```console
-azdata arc postgres server create -n postgres01 -w 2 --debug
+az postgres arc-server server create -n postgres01 -w 2 --debug
 ```
 
 or
 ```console
-azdata arc postgres server edit -n postgres01 --extension SomeExtensionName --debug
+az postgres arc-server server edit -n postgres01 --extension SomeExtensionName --debug
 ```
 
 In addition, you may use the parameter --help on any azdata command to display some help, list of parameters for a specific command. For example:
 ```console
-azdata arc postgres server create --help
+az postgres arc-server server create --help
 ```
 
 
@@ -57,13 +57,13 @@ Make sure that these tools can be invoked from anywhere on this client machine. 
 Sign in your Arc Data Controller from this client machine and before you launch Azure Data Studio. To do this, run a command like:
 
 ```console
-azdata login --endpoint https://<IP address>:<port>
+az login --endpoint https://<IP address>:<port>
 ```
 
 Replace `<IP address>` with the IP address of your Kubernetes cluster, and `<port>` the port on which Kubernetes is listening. You will be prompted for user name and password. To see more details, run:_
 
 ```console
-azdata login --help
+az login --help
 ```
 
 ### Log into your Kubernetes cluster with kubectl
