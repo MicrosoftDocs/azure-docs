@@ -57,7 +57,9 @@ az mysql server replica create --name mydemoreplicaserver --source-server mydemo
 > To learn more about which regions you can create a replica in, visit the [read replica concepts article](concepts-read-replicas.md). 
 
 > [!NOTE]
-> Read replicas are created with the same server configuration as the master. The replica server configuration can be changed after it has been created. It is recommended that the replica server's configuration should be kept at equal or greater values than the source to ensure the replica is able to keep up with the master.
+> * The `az mysql server replica create` command has `--sku-name` argument which allows you to specify the sku (`{pricing_tier}_{compute generation}_{vCores}`) while you create a replica using Azure CLI. </br>
+> * The primary server and read replica should have same Edition (General Purpose (GP) or Memory Optimized (MO)). </br>
+> * The replica server configuration can also be changed after it has been created. It is recommended that the replica server's configuration should be kept at equal or greater values than the source to ensure the replica is able to keep up with the master.
 
 
 ### List replicas for a source server
