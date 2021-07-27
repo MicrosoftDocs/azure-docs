@@ -138,8 +138,11 @@ resource "azurerm_private_endpoint" "privateendpoint" {
 }
 ```
 
+## Samples
 
+You can find a sample repository showcasing the usage of this article 
 
+[Private Intra-VNet App Services communication secured by Private Endpoints and App Gateway using Terraform](https://github.com/dariuszparys/services-in-vnet)
 
 ## Next steps
 
