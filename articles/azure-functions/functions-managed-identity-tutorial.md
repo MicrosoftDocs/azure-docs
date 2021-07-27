@@ -206,7 +206,7 @@ You can follow similar steps for Event Hubs and Blob trigger. Event Hubs follows
 
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
-## Next steps
+## Next steps 
 
 In this tutorial, you created a Premium function app, storage account, and Service Bus. You secured all of these resources behind private endpoints. 
 
