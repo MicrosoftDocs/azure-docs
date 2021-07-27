@@ -45,7 +45,7 @@ Incidents are generated for alerts that are possibly associated with Ransomware 
 
 Supported data connectors include:
 
-- [Azure Security Center](connect-azure-security-center.md)
+- [Azure Defender (Azure Security Center)](connect-azure-security-center.md)
 - [Microsoft 365 Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md)
 - [Microsoft 365 Defender for Identity](connect-azure-atp.md)
 - [Microsoft Cloud App Security](connect-cloud-app-security.md)
