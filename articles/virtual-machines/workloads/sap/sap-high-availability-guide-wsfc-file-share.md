@@ -187,8 +187,6 @@ While the resource consumption of the SAP ASCS/SCS is fairly small, a reduction 
 
 ### <a name="86cb3ee0-2091-4b74-be77-64c2e6424f50"></a>SAP Application Servers on WSFC nodes using Windows SOFS
 
-The following shows an example based on Windows SOFS. 
-
 ![Figure 6: Windows Server failover clustering configuration in Azure with Windows SOFS and locally installed SAP Application Server][sap-ha-guide-figure-8007A]
 
 > [!NOTE]
