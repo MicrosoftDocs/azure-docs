@@ -959,7 +959,7 @@ Users in this role can read settings and administrative information across Micro
 > | microsoft.directory/connectors/allProperties/read | Read all properties of application proxy connectors |
 > | microsoft.directory/connectorGroups/allProperties/read | Read all properties of application proxy connector groups |
 > | microsoft.directory/contacts/allProperties/read |  |
-> | microsoft.directory/devices/allProperties/read |  |
+> | microsoft.directory/devices/allProperties/read | Read all properties on devices |
 > | microsoft.directory/directoryRoles/allProperties/read |  |
 > | microsoft.directory/directoryRoleTemplates/allProperties/read |  |
 > | microsoft.directory/domains/allProperties/read | Read all properties of domains |
@@ -988,7 +988,7 @@ Users in this role can read settings and administrative information across Micro
 > | microsoft.directory/servicePrincipals/synchronization/standard/read | Read provisioning settings associated with your service principal |
 > | microsoft.directory/signInReports/allProperties/read | Read all properties on sign-in reports, including privileged properties |
 > | microsoft.directory/subscribedSkus/allProperties/read |  |
-> | microsoft.directory/users/allProperties/read |  |
+> | microsoft.directory/users/allProperties/read | Read all properties of users |
 > | microsoft.directory/verifiableCredentials/configuration/contracts/cards/allProperties/read | Read a verifiable credential card |
 > | microsoft.directory/verifiableCredentials/configuration/contracts/allProperties/read | Read a verifiable credential contract |
 > | microsoft.directory/verifiableCredentials/configuration/allProperties/read | Read configuration required to create and manage verifiable credentials |
