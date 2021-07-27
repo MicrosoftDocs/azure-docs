@@ -114,7 +114,7 @@ Each skill requires a context. A context determines:
 |Context|Input|Shape of Input|Skill Invocation|
 |-------|-----|--------------|----------------|
 |`/document/countries/*` |`/document/countries/*/states/*/zipcodes/*` |A list of all ZIP codes in the country/region |Once per country/region |
-|`/document/countries/*/states/*` |`/document/countries/*/states/*/zipcodes/*`` |A list of ZIP codes in the state | Once per combination of country/region and state|
+|`/document/countries/*/states/*` |`/document/countries/*/states/*/zipcodes/*` |A list of ZIP codes in the state | Once per combination of country/region and state|
 
 ## Generate enriched data 
 

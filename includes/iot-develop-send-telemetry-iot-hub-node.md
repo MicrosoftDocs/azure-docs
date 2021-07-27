@@ -84,7 +84,7 @@ In this section, you will use the Node.js SDK to send messages from your simulat
     node pnpTemperatureController.js
     ```
     > [!NOTE]
-    > This code sample uses Azure IoT Plug and Play, which lets you integrate smart devices into your solutions without any manual configuration.  By default, most samples in this documentation use IoT Plug and Play. To learn more about the advantages of IoT PnP, and cases for using or not using it, see [What is IoT Plug and Play?](../articles/iot-pnp/overview-iot-plug-and-play.md).
+    > This code sample uses Azure IoT Plug and Play, which lets you integrate smart devices into your solutions without any manual configuration.  By default, most samples in this documentation use IoT Plug and Play. To learn more about the advantages of IoT PnP, and cases for using or not using it, see [What is IoT Plug and Play?](../articles/iot-develop/overview-iot-plug-and-play.md).
 
 As the Node.js code sends a simulated telemetry message from your device to the IoT hub, the message appears in your CLI app that is monitoring events:
 

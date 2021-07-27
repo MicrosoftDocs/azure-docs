@@ -92,7 +92,7 @@
     - name: Role startup failure
       href: role-startup-failure.md
     - name: Frequently asked questions
-      href: faq.md
+      href: faq.yml
 - name: Samples
   items: 
   - name: Sample templates

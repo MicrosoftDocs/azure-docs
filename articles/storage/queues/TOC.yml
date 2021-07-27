@@ -39,6 +39,8 @@
     href: ../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Other languages
     href: ../common/storage-samples.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+  - name: Azure Resource Graph queries
+    href: ../common/resource-graph-samples.md
 - name: Concepts
   items:
   - name: Storage accounts
