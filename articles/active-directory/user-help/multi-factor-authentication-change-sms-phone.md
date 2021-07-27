@@ -21,7 +21,7 @@ Receiving a verification code in a text message is a common verification method 
 > [!Note]
 > If your organization doesn't allow you to receive a text message for verification, you'll need to select another method or contact your administrator for more help.
 
-## Change the phone number that you use for verification
+## If you received the code on the wrong phone
 
 1. Sign in to **My Security Info** to manage your security info.
 
