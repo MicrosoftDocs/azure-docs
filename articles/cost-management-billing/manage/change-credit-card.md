@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 07/19/2021
+ms.date: 07/27/2021
 ms.author: banders
 ---
 
@@ -15,7 +15,7 @@ ms.author: banders
 
 This document applies to customers who signed up for Azure online with a credit card.
 
-In the Azure portal, you can change your default payment method to a new credit card and update your credit card details. You must be an [Account Administrator](../understand/subscription-transfer.md#whoisaa) or you must have the correct [MCA permissions](understand-mca-roles.md) to make these changes. You can also replace your current credit card for a single subscription.
+In the Azure portal, you can change your default payment method to a new credit card and update your credit card details. You must be an [Account Administrator](../understand/subscription-transfer.md#whoisaa) or you must have the correct [MCA permissions](understand-mca-roles.md) to make these changes. You can also replace your current credit card for all subscriptions.
 
 If you want to a delete credit card, see [Delete an Azure billing payment method](delete-azure-payment-method.md).
 
@@ -23,15 +23,23 @@ The supported payment methods for Microsoft Azure are credit cards and check/wir
 
 With a Microsoft Customer Agreement, your payment methods are associated with billing profiles. Learn how to [check access to a Microsoft Customer Agreement](#check-the-type-of-your-account). If you have an MCA, skip to [manage credit cards for a Microsoft Customer Agreement](#manage-credit-cards-for-a-microsoft-customer-agreement).
 
+>[!NOTE]
+> When you create a new subscription, you can specify a new credit card. When you do so, no other subscriptions get associated with the new credit card. However, if you later make any of the following changes, *all subscriptions* will use the payment method you select.
+  >- Make a payment method active with the **Set active** option
+  >- Use the **Replace** payment option for any subscription
+  >- Change the default payment method
+
 <a id="addcard"></a>
 
 ## Manage credit cards for an Azure subscription
 
 The following sections apply to customers who have a Microsoft Online Services Program billing account. Learn how to [check your billing account type](#check-the-type-of-your-account). If your billing account type is Microsoft Online Services Program, payment methods are associated with individual Azure subscriptions. If you get an error after you add the credit card, see [Credit card declined at Azure sign-up](./troubleshoot-declined-card.md).
 
-### Change credit card for a subscription by adding a new credit card
+### Change credit card for all subscriptions by adding a new credit card
 
-You can change the default credit of your Azure subscription to a new credit card or previously saved credit card in the Azure portal. You must be the Account Administrator to change the credit card. If multiple subscriptions have the same active payment method, then changing the default payment method on any of the subscriptions also updates the active payment method for the others.
+You can change the default credit of your Azure subscription to a new credit card or previously saved credit card in the Azure portal. You must be the Account Administrator to change the credit card. 
+
+If multiple subscriptions have the same active payment method, then changing the default payment method on any of the subscriptions also updates the active payment method for the others.
 
 You can change your subscription's default credit card to a new one by following these steps:
 
@@ -44,12 +52,12 @@ You can change your subscription's default credit card to a new one by following
 1. In the top-left corner, select **+ Add** to add a card. A credit card form appears on the right.
 1. Enter credit card details.  
     :::image type="content" source="./media/change-credit-card/sub-add-new-default.png" alt-text="Screenshot showing adding a new card." lightbox="./media/change-credit-card/sub-add-new-default.png" :::
-1. To make this card your default payment method, select **Make this my default payment method** above the form. This card will become the active payment instrument for all subscriptions using the same card as the selected subscription.
+1. To make this card your default payment method, select **Make this my default payment method** above the form. This card becomes the active payment instrument for all subscriptions using the same card as the selected subscription.
 1. Select **Next**.
 
 ### Replace credit card for a subscription to a previously saved credit card
 
-You can also replace a subscription's default credit card to one that is already saved to your account by following these steps. This procedure changes the credit for the current subscription only.
+You can also replace a subscription's default credit card to one that is already saved to your account by following these steps. This procedure changes the credit card for all other subscriptions.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
 1. Search for **Cost Management + Billing**.  
