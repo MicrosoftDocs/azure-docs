@@ -78,7 +78,7 @@ You can enable the private link feature before or after the Azure API for FHIR h
 
 * Optionally, set up one VM in the primary region VNet and one in the secondary region VNet. You should be able to access the Azure API for FHIR from both VMs. Note that one, and only one, endpoint is accessible.
 
-Data replication will take place between the two regions through VNet peering. The private link feature should continue to work during a regional outage and after the failback has completed. For more information, see [Configure private link](https://docs.microsoft.com/azure/healthcare-apis/fhir/configure-private-link).
+The private link feature should continue to work during a regional outage and after the failback has completed. For more information, see [Configure private link](https://docs.microsoft.com/azure/healthcare-apis/fhir/configure-private-link).
 
 > [!NOTE]
 > Configuring virtual networks and VNet peering does not affect data replication.
@@ -102,7 +102,7 @@ Any existing connection won't function until the failed region is restored. You 
 
 ## How to test DR
 
-While it's not required, you can test the DR feature on a non-production environment, for example dev or in a QA environment. The compute will not be included in the DR test because doing so will disrupt the Azure API for FHIR service for other customers.
+While not required, you can test the DR feature on a non-production environment, for example dev or in a QA environment. The compute will not be included in the DR test because doing so will disrupt the Azure API for FHIR service for other customers.
 
 Consider the following steps.
 
@@ -124,12 +124,9 @@ Consider the following steps.
 > [!NOTE]
 > The DR test will double the cost of your test environment during the test. No extra cost will incur after the DR test is completed and the DR feature is disabled.
 
-
 ## Cost of disaster recovery
 
 The disaster recovery feature incurs extra costs because data of the compute and data replica running in the environment in the secondary region. For more pricing details, refer to the [Azure API for FHIR pricing]( https://azure.microsoft.com/pricing/details/azure-api-for-fhir) web page.
-
- 
 
 > [!NOTE]
 > The DR offering is subject to the [SLA for Azure API for FHIR](https://azure.microsoft.com/support/legal/sla/azure-api-for-fhir/v1_0/), 1.0.
