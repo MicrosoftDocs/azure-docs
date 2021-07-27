@@ -279,7 +279,7 @@ Direct the talent to pronounce words distinctly. Every word of the script should
 
 |Written text|Unwanted casual pronunciation|
 |-|-|
-|never going to give you up|never going to give you up|
+|never going to give you up|never gonna give you up|
 |there are four lights|there're four lights|
 |how's the weather today|how's th' weather today|
 |say hello to my little friend|say hello to my lil' friend|
