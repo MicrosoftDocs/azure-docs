@@ -30,7 +30,7 @@ Depending on the Application Insights logging package that you use, there will b
 
 To add Application Insights telemetry to ASP.NET Core applications, use the `Microsoft.ApplicationInsights.AspNetCore` NuGet package. You can configure this through [Visual Studio as a connected service](/visualstudio/azure/azure-app-insights-add-connected-service), or manually.
 
-By default, ASP.NET Core applications have an Application Insights logging provider registered when they're configured through the [code](./asp-net-core.md) or [codeless](./azure-web-apps.md?tabs=netcore#enable-agent-based-monitoring) approach. The registered provider is configured to automatically capture log events with a severity of <xref:Microsoft.Extensions.Logging.LogLevel.Warning?displayProperty=nameWithType> or greater. You can customize severity and categories. For more information, see [Control logging level](#control-logging-level).
+By default, ASP.NET Core applications have an Application Insights logging provider registered when they're configured through the [code](./asp-net-core.md) or [codeless](./azure-web-apps.md?tabs=netcore#enable-agent-based-monitoring) approach. The registered provider is configured to automatically capture log events with a severity of <xref:Microsoft.Extensions.Logging.LogLevel.Warning?displayProperty=nameWithType> or greater. You can customize severity and categories. For more information, see [Logging level](#control-logging-level).
 
 1. Ensure that the NuGet package is installed:
 
@@ -458,7 +458,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ### I updated to Microsoft.ApplicationInsights.AspNet SDK version 2.7.1, and logs from ILogger are captured automatically. How do I turn off this feature completely?
 
-See the [Control logging level](#control-logging-level) section to see how to filter logs in general. To turn off `ApplicationInsightsLoggerProvider`, use `LogLevel.None` in your call for configuring logging. In the following command, `builder` is <xref:Microsoft.Extensions.Logging.ILoggingBuilder>.
+See the [Logging level](#logging-level) section to see how to filter logs in general. To turn off `ApplicationInsightsLoggerProvider`, use `LogLevel.None` in your call for configuring logging. In the following command, `builder` is <xref:Microsoft.Extensions.Logging.ILoggingBuilder>.
 
 ```csharp
 builder.AddFilter<ApplicationInsightsLoggerProvider>("", LogLevel.None);
