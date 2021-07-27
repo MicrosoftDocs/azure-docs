@@ -1,45 +1,39 @@
 ---
-title: Tutorial - Load balance Linux virtual machines in Azure 
+title: Tutorial - Load balance VMs for high availability
 description: In this tutorial, you learn how to use the Azure CLI to create a load balancer for a highly available and secure application across three Linux virtual machines
-services: virtual-machines
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-
-tags: azure-resource-manager
 ms.subservice: networking
-ms.assetid: 
 ms.service: virtual-machines
 ms.collection: linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/13/2017
+ms.date: 04/20/2021
 ms.author: cynthn
 ms.custom: mvc, devx-track-js, devx-track-azurecli
 
 #Customer intent: As an IT administrator, I want to learn how to load balance virtual machines in Azure so that I can deploy a redundant application with traffic automatically distributed to available VMs.
 ---
 
-# Tutorial: Load balance Linux virtual machines in Azure to create a highly available application with the Azure CLI
+# Tutorial: Load balance VMs for high availability
 
 Load balancing provides a higher level of availability by spreading incoming requests across multiple virtual machines. In this tutorial, you learn about the different components of the Azure load balancer that distribute traffic and provide high availability. You learn how to:
 
 > [!div class="checklist"]
-> * Create an Azure load balancer
-> * Create a load balancer health probe
-> * Create load balancer traffic rules
-> * Use cloud-init to create a basic Node.js app
-> * Create virtual machines and attach to a load balancer
-> * View a load balancer in action
-> * Add and remove VMs from a load balancer
+> * Create a load balancer
+> * Create a health probe
+> * Create traffic rules
+> * Use cloud-init to install a basic Node.js app
+> * Create virtual machines and attach them to the load balancer
+> * View the load balancer in action
+> * Add and remove VMs from the load balancer
 
 This tutorial uses the CLI within the [Azure Cloud Shell](../../cloud-shell/overview.md), which is constantly updated to the latest version. To open the Cloud Shell, select **Try it** from the top of any code block.
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Azure load balancer overview
+
 An Azure load balancer is a Layer-4 (TCP, UDP) load balancer that provides high availability by distributing incoming traffic among healthy VMs. A load balancer health probe monitors a given port on each VM and only distributes traffic to an operational VM.
 
 You define a front-end IP configuration that contains one or more public IP addresses. This front-end IP configuration allows your load balancer and applications to be accessible over the Internet. 

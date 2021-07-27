@@ -5,7 +5,8 @@ ms.date: 1/5/2021
 author: curib
 ms.author: cauribeg
 ms.topic: quickstart
-ms.service: cache
+ms.service: cache 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Quickstart: Route Azure Cache for Redis events to web endpoint with PowerShell

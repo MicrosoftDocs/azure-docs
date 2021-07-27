@@ -5,11 +5,11 @@ description: Learn how to enable HTTPS with TLS version 1.2 to secure a web serv
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: aashishb
-author: aashishb
-ms.date: 03/11/2021
-ms.topic: conceptual
-ms.custom: how-to
+ms.author: jhirono
+author: jhirono
+ms.date: 07/07/2021
+ms.topic: how-to
+
 ---
 
 # Use TLS to secure a web service through Azure Machine Learning
@@ -79,7 +79,7 @@ For ACI deployment, you can enable TLS termination at model deployment time with
   > [!NOTE]
   > The information in this section also applies when you deploy a secure web service for the designer. If you aren't familiar with using the Python SDK, see [What is the Azure Machine Learning SDK for Python?](/python/api/overview/azure/ml/intro).
 
-When you [create or attach an AKS cluster](how-to-create-attach-kubernetes.md) in AML workspace, you can enable TLS termination with **[AksCompute.provisioning_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** and **[AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** configuration objects. Both method return a configuration object that has an **enable_ssl** method, and you can use **enable_ssl** method to enable TLS.
+When you [create or attach an AKS cluster](how-to-create-attach-kubernetes.md) in AML workspace, you can enable TLS termination with **[AksCompute.provisioning_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** and **[AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** configuration objects. Both methods return a configuration object that has an **enable_ssl** method, and you can use **enable_ssl** method to enable TLS.
 
 You can enable TLS either with Microsoft certificate or a custom certificate purchased from CA. 
 
@@ -148,16 +148,21 @@ For more information, see [AciWebservice.deploy_configuration()](/python/api/azu
 
 For either AKS deployment with custom certificate or ACI deployment, you must update your DNS record to point to the IP address of scoring endpoint.
 
-  > [!IMPORTANT]
-  > When you use a certificate from Microsoft for AKS deployment, you don't need to manually update the DNS value for the cluster. The value should be set automatically.
+> [!IMPORTANT]
+> When you use a certificate from Microsoft for AKS deployment, you don't need to manually update the DNS value for the cluster. The value should be set automatically.
 
 You can follow following steps to update DNS record for your custom domain name:
-* Get scoring endpoint IP address from scoring endpoint URI, which is usually in the format of *http://104.214.29.152:80/api/v1/service/<service-name>/score*. 
-* Use the tools from your domain name registrar to update the DNS record for your domain name. The record must point to the IP address of scoring endpoint.
-* After DNS record update, you can validate DNS resolution using *nslookup custom-domain-name* command. If DNS record is correctly updated, the custom domain name will point to the IP address of scoring endpoint.
-* There can be a delay of minutes or hours before clients can resolve the domain name, depending on the registrar and the "time to live" (TTL) that's configured for the domain name.
+1. Get scoring endpoint IP address from scoring endpoint URI, which is usually in the format of *http://104.214.29.152:80/api/v1/service/<service-name>/score*. In this example, the IP address is 104.214.29.152.
+1. Use the tools from your domain name registrar to update the DNS record for your domain name. The record maps the FQDN (for example, www\.contoso.com) to the IP address. The record must point to the IP address of scoring endpoint.
 
+    > [!TIP]
+    > Microsoft does is not responsible for updating the DNS for your custom DNS name or certificate. You must update it with your domain name registrar.
 
+1. After DNS record update, you can validate DNS resolution using *nslookup custom-domain-name* command. If DNS record is correctly updated, the custom domain name will point to the IP address of scoring endpoint.
+
+    There can be a delay of minutes or hours before clients can resolve the domain name, depending on the registrar and the "time to live" (TTL) that's configured for the domain name.
+
+For more information on DNS resolution with Azure Machine Learning, see [How to use your workspace with a custom DNS server](how-to-custom-dns.md).
 ## Update the TLS/SSL certificate
 
 TLS/SSL certificates expire and must be renewed. Typically this happens every year. Use the information in the following sections to update and renew your certificate for models deployed to Azure Kubernetes Service:
@@ -259,3 +264,4 @@ aks_target.update(update_config)
 Learn how to:
 + [Consume a machine learning model deployed as a web service](how-to-consume-web-service.md)
 + [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
++ [How to use your workspace with a custom DNS server](how-to-custom-dns.md)

@@ -194,7 +194,7 @@ NSString* value =
 
 [Customer Lockbox for Microsoft Azure](../security/fundamentals/customer-lockbox-overview.md) provides an interface for customers to review, and approve or reject customer data access requests. It is used in cases where a Microsoft engineer needs to access customer data during a support request. For information on how Customer Lockbox requests are initiated, tracked, and stored for later reviews and audits, see [Customer Lockbox](../security/fundamentals/customer-lockbox-overview.md). 
 
-Customer Lockbox is available for this Cognitive Service:
+Customer Lockbox is available for this service:
 
 * Translator
 

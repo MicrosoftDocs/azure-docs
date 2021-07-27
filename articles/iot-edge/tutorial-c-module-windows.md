@@ -10,7 +10,7 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-
+monikerRange: "=iotedge-2018-06"
 ---
 
 # Tutorial: Develop C IoT Edge modules using Windows containers
@@ -20,7 +20,7 @@ ms.custom: mvc
 This article shows you how to use Visual Studio to develop C code and deploy it to a Windows device that's running Azure IoT Edge.
 
 >[!NOTE]
->IoT Edge 1.1 LTS is the last release channel that will support Windows containers. Starting with version 1.2, Windows containers are not supported. Consider using or moving to [IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md) to run IoT Edge on Windows devices.
+>IoT Edge 1.1 LTS is the last release channel that supports Windows containers. Starting with version 1.2, Windows containers are not supported. Consider using or moving to [IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md) to run IoT Edge on Windows devices.
 
 You can use Azure IoT Edge modules to deploy code that implements your business logic directly in your IoT Edge devices. This tutorial walks you through creating and deploying an IoT Edge module that filters sensor data.
 

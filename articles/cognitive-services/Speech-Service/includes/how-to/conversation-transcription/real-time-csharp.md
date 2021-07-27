@@ -95,9 +95,9 @@ The following sample code demonstrates how to transcribe conversations in real t
 
 This sample code does the following:
 
-* Creates an `AudioStreamReader` from the sample `.wav` file to transcribe.
+* Creates an `AudioConfig` from the sample `.wav` file to transcribe.
 * Creates a `Conversation` using `CreateConversationAsync()`.
-* Creates a `ConversationTranscriber` using the constructor, and subscribes to the necessary events
+* Creates a `ConversationTranscriber` using the constructor, and subscribes to the necessary events.
 * Adds participants to the conversation. The strings `voiceSignatureStringUser1` and `voiceSignatureStringUser2` should come as output from the steps above from the function `GetVoiceSignatureString()`.
 * Joins the conversation and begins transcription.
 
@@ -108,7 +108,12 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using Microsoft.CognitiveServices.Speech;
+using Microsoft.CognitiveServices.Speech.Audio;
 using Microsoft.CognitiveServices.Speech.Transcription;
+
+class transcribe_conversation
+{
+// all your other code
 
 public static async Task TranscribeConversationsAsync(string voiceSignatureStringUser1, string voiceSignatureStringUser2)
 {
@@ -120,7 +125,7 @@ public static async Task TranscribeConversationsAsync(string voiceSignatureStrin
     config.SetProperty("ConversationTranscriptionInRoomAndOnline", "true");
     var stopRecognition = new TaskCompletionSource<int>();
 
-    using (var audioInput = AudioStreamReader.OpenWavFile(filepath))
+    using (var audioInput = AudioConfig.FromWavFileInput(filepath))
     {
         var meetingID = Guid.NewGuid().ToString();
         using (var conversation = await Conversation.CreateConversationAsync(config, meetingID))
@@ -186,5 +191,6 @@ public static async Task TranscribeConversationsAsync(string voiceSignatureStrin
             }
         }
     }
+}
 }
 ```

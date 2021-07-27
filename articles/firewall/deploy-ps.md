@@ -6,7 +6,8 @@ author: vhorne
 ms.service: firewall
 ms.date: 12/03/2020
 ms.author: victorh
-ms.topic: how-to
+ms.topic: how-to 
+ms.custom: devx-track-azurepowershell
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
 ---
 
@@ -112,6 +113,8 @@ $VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine -PublisherName 'Micros
 #Create the virtual machine
 New-AzVM -ResourceGroupName Test-FW-RG -Location "East US" -VM $VirtualMachine -Verbose
 ```
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## Deploy the firewall
 

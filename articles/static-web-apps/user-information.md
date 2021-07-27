@@ -4,14 +4,13 @@ description: Learn to read authorization provider-returned user data.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
-ms.topic:  conceptual
-ms.date: 05/08/2020
+ms.topic: conceptual
+ms.date: 04/09/2021
 ms.author: cshoe
 ms.custom: devx-track-js
-
 ---
 
-# Accessing user information in Azure Static Web Apps Preview
+# Accessing user information in Azure Static Web Apps
 
 Azure Static Web Apps provides authentication-related user information via a [direct-access endpoint](#direct-access-endpoint) and to [API functions](#api-functions).
 
@@ -21,21 +20,21 @@ Many user interfaces rely heavily on user authentication data. The direct-access
 
 Client principal data object exposes user-identifiable information to your app. The following properties are featured in the client principal object:
 
-| Property  | Description |
-|-----------|---------|
-| `identityProvider` | The name of the [identity provider](authentication-authorization.md). |
-| `userId` | An Azure Static Web Apps-specific unique identifier for the user. <ul><li>The value is unique on a per-app basis. For instance, the same user returns a different `userId` value on a different Static Web Apps resource.<li>The value persists for the lifetime of a user. If you delete and add the same user back to the app, a new `userId` is generated.</ul>|
-| `userDetails` | Username or email address of the user. Some providers return the [user's email address](authentication-authorization.md), while others send the [user handle](authentication-authorization.md). |
-| `userRoles`     | An array of the [user's assigned roles](authentication-authorization.md). |
+| Property           | Description                                                                                                                                                                                                                                                                                                                                                        |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `identityProvider` | The name of the [identity provider](authentication-authorization.md).                                                                                                                                                                                                                                                                                              |
+| `userId`           | An Azure Static Web Apps-specific unique identifier for the user. <ul><li>The value is unique on a per-app basis. For instance, the same user returns a different `userId` value on a different Static Web Apps resource.<li>The value persists for the lifetime of a user. If you delete and add the same user back to the app, a new `userId` is generated.</ul> |
+| `userDetails`      | Username or email address of the user. Some providers return the [user's email address](authentication-authorization.md), while others send the [user handle](authentication-authorization.md).                                                                                                                                                                    |
+| `userRoles`        | An array of the [user's assigned roles](authentication-authorization.md).                                                                                                                                                                                                                                                                                          |
 
 The following example is a sample client principal object:
 
 ```json
 {
-  "identityProvider": "facebook",
+  "identityProvider": "github",
   "userId": "d75b260a64504067bfc5b2905e3b8182",
-  "userDetails": "user@example.com",
-  "userRoles": [ "anonymous", "authenticated" ]
+  "userDetails": "username",
+  "userRoles": ["anonymous", "authenticated"]
 }
 ```
 
@@ -49,7 +48,7 @@ Using the [fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API/Using_Fet
 
 ```javascript
 async function getUserInfo() {
-  const response = await fetch("/.auth/me");
+  const response = await fetch('/.auth/me');
   const payload = await response.json();
   const { clientPrincipal } = payload;
   return clientPrincipal;
@@ -60,7 +59,7 @@ console.log(getUserInfo());
 
 ## API functions
 
-The API functions available in Static Web Apps via the Azure Functions backend have access to the same user information as a client application. While the API does receive user-identifiable information, it does not perform its own checks if the user is authenticated or if they match a required role. Access control rules are defined in the [`routes.json`](routes.md) file.
+The API functions available in Static Web Apps via the Azure Functions backend have access to the same user information as a client application. While the API does receive user-identifiable information, it does not perform its own checks if the user is authenticated or if they match a required role. Access control rules are defined in the [`staticwebapp.config.json`](configuration.md#routes) file.
 
 # [JavaScript](#tab/javascript)
 
@@ -70,14 +69,14 @@ The following example function shows how to read and return user information.
 
 ```javascript
 module.exports = async function (context, req) {
-  const header = req.headers["x-ms-client-principal"];
-  const encoded = Buffer.from(header, "base64");
-  const decoded = encoded.toString("ascii");
+  const header = req.headers['x-ms-client-principal'];
+  const encoded = Buffer.from(header, 'base64');
+  const decoded = encoded.toString('ascii');
 
   context.res = {
     body: {
-      clientPrincipal: JSON.parse(decoded)
-    }
+      clientPrincipal: JSON.parse(decoded),
+    },
   };
 };
 ```
@@ -86,7 +85,7 @@ Assuming the above function is named `user`, you can use the [fetch](https://dev
 
 ```javascript
 async function getUser() {
-  const response = await fetch("/api/user");
+  const response = await fetch('/api/user');
   const payload = await response.json();
   const { clientPrincipal } = payload;
   return clientPrincipal;

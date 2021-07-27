@@ -251,7 +251,7 @@ az login
     <li>If the <code>az</code> command isn't recognized, be sure you have the Azure CLI installed as described in <a href="#1-prepare-your-environment">Prepare your environment</a>.</li>
     <li>Replace <code>&lt;app-name&gt;</code> with a name that's unique across all of Azure (<em>valid characters are <code>a-z</code>, <code>0-9</code>, and <code>-</code></em>). A good pattern is to use a combination of your company name and an app identifier.</li>
     <li>The <code>--sku F1</code> argument creates the web app on the Free pricing tier. Omit this argument to use a faster premium tier, which incurs an hourly cost.</li>
-    <li>You can optionally include the argument <code>--location &lt;location-name&gt;</code> where <code>&lt;location-name&gt;</code> is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the <a href="/cli/azure/appservice#az-appservice-list-locations"><code>az account list-locations</code></a> command.</li>
+    <li>You can optionally include the argument <code>--location &lt;location-name&gt;</code> where <code>&lt;location-name&gt;</code> is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the <a href="/cli/azure/appservice#az_appservice_list_locations"><code>az account list-locations</code></a> command.</li>
     </ul>
     </details>
     
@@ -263,7 +263,7 @@ az login
     <ul>
     <li>Create a default resource group.</li>
     <li>Create a default App Service plan.</li>
-    <li><a href="/cli/azure/webapp#az-webapp-create">Create an App Service app</a> with the specified name.</li>
+    <li><a href="/cli/azure/webapp#az_webapp_create">Create an App Service app</a> with the specified name.</li>
     <li><a href="/azure/app-service/deploy-zip">Zip deploy</a> files from the current working directory to the app.</li>
     <li>While running, it provides messages about resource creation, logging, and ZIP deployment.</li>
     </ul>

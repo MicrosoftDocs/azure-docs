@@ -24,6 +24,7 @@ ms.author: yelevin
 
 This article explains how to connect your Palo Alto Networks appliance to Azure Sentinel. The Palo Alto Networks data connector allows you to easily connect your Palo Alto Networks logs with Azure Sentinel, to view dashboards, create custom alerts, and improve investigation. Using Palo Alto Networks on Azure Sentinel will provide you more insights into your organization’s Internet usage, and will enhance its security operation capabilities.​ 
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## Forward Palo Alto Networks logs to the Syslog agent
 

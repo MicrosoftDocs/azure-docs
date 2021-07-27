@@ -6,8 +6,8 @@ author: nibaccam
 ms.author: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, data4ml
+ms.topic: how-to
+ms.custom: data4ml
 ms.date: 05/14/2020
 
 # Customer intent: As an experienced Python developer, I need to export my data labels and use them for machine learning tasks.
@@ -23,7 +23,7 @@ We refer to Azure Machine Learning datasets with labels as labeled datasets. The
 
 ## Prerequisites
 
-* An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLFree) before you begin.
+* An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro), or access to [Azure Machine Learning studio](https://ml.azure.com/).
     * Install the [azure-contrib-dataset](/python/api/azureml-contrib-dataset/) package
 * A Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
@@ -115,5 +115,3 @@ imgplot = plt.imshow(gray_image)
 ```
 
 ## Next steps
-
-* See the [dataset with labels notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/labeled-datasets/labeled-datasets.ipynb) for complete training sample.

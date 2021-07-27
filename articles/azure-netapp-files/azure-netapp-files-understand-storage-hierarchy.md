@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 06/14/2021
 ms.author: b-juche
 ---
 # Storage hierarchy of Azure NetApp Files
@@ -58,9 +58,6 @@ The QoS type is an attribute of a capacity pool. Azure NetApp Files provides two
     The maximum throughput allocated to a volume depends on the service level of the capacity pool and the size quota of the volume. See [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md) for example calculation.
 
 - <a name="manual_qos_type"></a>*Manual* QoS type  
-
-     > [!IMPORTANT] 
-     > Using the manual QoS type for a capacity pool requires registration.  See [Manage a manual QoS capacity pool](manage-manual-qos-capacity-pool.md).  
 
     You have the option to use the manual QoS type for a capacity pool.
 

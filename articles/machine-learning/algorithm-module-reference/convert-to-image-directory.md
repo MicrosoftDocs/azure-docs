@@ -31,7 +31,7 @@ This article describes how to use the Convert to Image Directory module to help 
     Your_image_folder_name/Category_2/asd932_.png
     ```
     
-    In the image dataset folder, there are multiple subfolders. Each subfolder contains images of one category respectively. The names of subfolders are considered as the labels for tasks like image classification. Refer to [torchvision datasets](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder) for more information.
+    In the image dataset folder, there are multiple subfolders. Each subfolder contains images of one category respectively. The names of subfolders are considered as the labels for tasks like image classification. Refer to [torchvision datasets](https://pytorch.org/vision/stable/datasets.html#imagefolder) for more information.
 
     > [!WARNING]
     > Currently labeled datasets exported from Data Labeling are not supported in the designer.

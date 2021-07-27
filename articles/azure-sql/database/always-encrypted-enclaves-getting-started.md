@@ -1,7 +1,6 @@
 ---
-title: "Tutorial: Getting started with Always Encrypted with secure enclaves in Azure SQL Database"
+title: "Tutorial: Getting started with Always Encrypted with secure enclaves"
 description: This tutorial teaches you how to create a basic environment for Always Encrypted with secure enclaves in Azure SQL Database and how to encrypt data in-place, and issue rich confidential queries against encrypted columns using SQL Server Management Studio (SSMS). 
-keywords: encrypt data, sql encryption, database encryption, sensitive data, Always Encrypted, secure enclaves, SGX, attestation
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,14 +9,11 @@ ms.topic: tutorial
 author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
-ms.date: 01/15/2021
+ms.date: 07/14/2021
 ---
 # Tutorial: Getting started with Always Encrypted with secure enclaves in Azure SQL Database
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
-
-> [!NOTE]
-> Always Encrypted with secure enclaves for Azure SQL Database is currently in **public preview**.
 
 This tutorial teaches you how to get started with [Always Encrypted with secure enclaves](/sql/relational-databases/security/encryption/always-encrypted-enclaves) in Azure SQL Database. It will show you:
 
@@ -27,25 +23,30 @@ This tutorial teaches you how to get started with [Always Encrypted with secure 
 
 ## Prerequisites
 
-This tutorial requires Azure PowerShell and [SSMS](/sql/ssms/download-sql-server-management-studio-ssms).
+- An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/). You need to be a member of the Contributor role or the Owner role for the subscription to be able to create resources and configure an attestation policy.
+
+- SQL Server Management Studio (SSMS), version 18.9.1 or later. See [Download SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) for information on how to download SSMS.
 
 ### PowerShell requirements
 
-See [Overview of Azure PowerShell](/powershell/azure) for information on how to install and run Azure PowerShell. 
+> [!NOTE]
+> The prerequisites listed in this section apply only if you choose to use PowerShell for some of the steps in this tutorial. If you plan to use Azure portal instead, you can skip this section.
 
-Minimum version of Az modules required to support attestation operations:
+Make sure the following PowerShell modules are installed on your machine.
 
-- Az 4.5.0
-- Az.Accounts 1.9.2
-- Az.Attestation 0.1.8
+1. Az version 5.6 or later. For details on how to install the Az PowerShell module, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps). To determine the version the Az module installed on your machine, run the following command from a PowerShell session.
 
-Run the below command to verify the installed version of all Az modules:
+    ```powershell
+    Get-InstalledModule -Name Az
+    ```
 
-```powershell
-Get-InstalledModule
-```
+1. Az.Attestation 0.1.8 or later. For details on how to install the Az.Attestation PowerShell module, see [Install Az.Attestation PowerShell module](../../attestation/quickstart-powershell.md#install-azattestation-powershell-module). To determine the version the Az.Attestation module installed on your machine, run the following command from a PowerShell session.
 
-If the versions aren't matching with the minimum requirement, run the `Update-Module` command.
+    ```powershell
+    Get-InstalledModule -Name Az.Attestation
+    ```
+
+If the versions aren't matching with the minimum requirements, run the `Update-Module` command.
 
 The PowerShell Gallery has deprecated Transport Layer Security (TLS) versions 1.0 and 1.1. TLS 1.2 or a later version is recommended. You may receive the following errors if you are using a TLS version lower than 1.2:
 
@@ -58,167 +59,232 @@ To continue to interact with the PowerShell Gallery, run the following command b
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 ```
 
-### SSMS requirements
-
-See [Download SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) for information on how to download SSMS.
-
-The required minimum version of SSMS is 18.8.
-
-
 ## Step 1: Create and configure a server and a DC-series database
 
-In this step, you will create a new Azure SQL Database logical server and a new database using the DC-series hardware generation, required for Always Encrypted with secure enclaves. For more information see [DC-series](service-tiers-vcore.md#dc-series).
+In this step, you will create a new Azure SQL Database logical server and a new database using the DC-series hardware generation, required for Always Encrypted with secure enclaves. For more information see [DC-series](service-tiers-sql-database-vcore.md#dc-series).
+
+# [Portal](#tab/azure-portal)
+
+1. Browse to the [Select SQL deployment option](https://portal.azure.com/#create/Microsoft.AzureSQL) page.
+1. If you are not already signed in to Azure portal, sign in when prompted.
+1. Under **SQL databases**, leave **Resource type** set to **Single database**, and select **Create**.
+
+   :::image type="content" source="./media/single-database-create-quickstart/select-deployment.png" alt-text="Add to Azure SQL":::
+
+1. On the **Basics** tab of the **Create SQL Database** form, under **Project details**, select the desired Azure **Subscription**.
+1. For **Resource group**, select **Create new**, enter a name for your resource group, and select **OK**.
+1. For **Database name** enter *ContosoHR*.
+1. For **Server**, select **Create new**, and fill out the **New server** form with the following values:
+   - **Server name**: Enter *mysqlserver*, and add some characters for uniqueness. We can't provide an exact server name to use because server names must be globally unique for all servers in Azure, not just unique within a subscription. So enter something like mysqlserver135, and the portal lets you know if it is available or not.
+   - **Server admin login**: Enter an admin login name, for example: *azureuser*.
+   - **Password**: Enter a password that meets requirements, and enter it again in the **Confirm password** field.
+   - **Location**: Select a location from the dropdown list.
+      > [!IMPORTANT]
+      > You need to select a location (an Azure region) that supports both the DC-series hardware generation and Microsoft Azure Attestation. For the list of regions supporting DC-series, see [DC-series availability](service-tiers-sql-database-vcore.md#dc-series). [Here](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation) is the regional availability of Microsoft Azure Attestation.
+
+   Select **OK**.
+1. Leave **Want to use SQL elastic pool** set to **No**.
+1. Under **Compute + storage**, select **Configure database**, and click **Change configuration**.
+
+   :::image type="content" source="./media/always-encrypted-enclaves/portal-configure-database.png" alt-text="Configure database" lightbox="./media/always-encrypted-enclaves/portal-configure-database.png":::
+
+1. Select the **DC-series** hardware configuration, and then select **OK**.
+
+   :::image type="content" source="./media/always-encrypted-enclaves/portal-configure-dc-series-database.png" alt-text="Configure DC-series database":::
+
+1. Select **Apply**. 
+1. Back on the **Basics** tab, verify **Compute + storage** is set to **General Purpose**, **DC, 2 vCores, 32 GB storage**.
+1. Select **Next: Networking** at the bottom of the page.
+
+   :::image type="content" source="./media/always-encrypted-enclaves/portal-configure-dc-series-database-basics.png" alt-text="Configure DC-series database - basics":::
+
+1. On the **Networking** tab, for **Connectivity method**, select **Public endpoint**.
+1. For **Firewall rules**, set **Add current client IP address** to **Yes**. Leave **Allow Azure services and resources to access this server** set to **No**.
+1. Select **Review + create** at the bottom of the page.
+
+   :::image type="content" source="./media/always-encrypted-enclaves/portal-configure-database-networking.png" alt-text="New SQL database - networking":::
+
+1. On the **Review + create** page, after reviewing, select **Create**.
+
+# [PowerShell](#tab/azure-powershell)
 
 1. Open a PowerShell console and import the required version of Az.
 
-  ```PowerShell
-  Import-Module "Az" -MinimumVersion "4.5.0"
-  ```
+   ```PowerShell
+   Import-Module "Az" -MinimumVersion "5.6.0"
+   ```
+
+1. Sign into Azure. If needed, [switch to the subscription](/powershell/azure/manage-subscriptions-azureps) you are using for this tutorial.
+
+   ```PowerShell
+   Connect-AzAccount
+   $subscriptionId = "<your subscription ID>"
+   Set-AzContext -Subscription $subscriptionId
+   ```
+
+1. Create a new resource group.
+
+   > [!IMPORTANT]
+   > You need to create your resource group in a region (location) that supports both the DC-series hardware generation and Microsoft Azure Attestation. For the list of regions supporting DC-series, see [DC-series availability](service-tiers-sql-database-vcore.md#dc-series). [Here](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation) is the regional availability of Microsoft Azure Attestation.
+
+   ```powershell
+   $resourceGroupName = "<your new resource group name>"
+   $location = "<Azure region supporting DC-series and Microsoft Azure Attestation>"
+   New-AzResourceGroup -Name $resourceGroupName -Location $location
+   ```
+
+1. Create an Azure SQL logical server. When prompted, enter the server administrator name and a password. Make sure you remember the admin name and the password - you will need them later to connect to the server. 
+
+   ```powershell
+   $serverName = "<your server name>" 
+   New-AzSqlServer -ServerName $serverName -ResourceGroupName $resourceGroupName -Location $location 
+   ```
+
+1. Create a server firewall rule that allows access from the specified IP range.
   
-2. Sign into Azure. If needed, [switch to the subscription](/powershell/azure/manage-subscriptions-azureps) you are using for this tutorial.
-
-  ```PowerShell
-  Connect-AzAccount
-  $subscriptionId = "<your subscription ID>"
-  Set-AzContext -Subscription $subscriptionId
-  ```
-
-3. Create a new resource group. 
-
-  > [!IMPORTANT]
-  > You need to create your resource group in a region (location) that supports both the DC-series hardware generation and Microsoft Azure Attestation. For the list of regions supporting DC-series, see [DC-series availability](service-tiers-vcore.md#dc-series-1). [Here](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation) is the regional availability of Microsoft Azure Attestation.
-
-  ```powershell
-  $resourceGroupName = "<your new resource group name>"
-  $location = "<Azure region supporting DC-series and Microsoft Azure Attestation>"
-  New-AzResourceGroup -Name $resourceGroupName -Location $location
-  ```
-
-4. Create an Azure SQL logical server. When prompted, enter the server administrator name and a password. Make sure you remember the admin name and the password - you will need them later to connect to the server.
-
-  ```powershell
-  $serverName = "<your server name>" 
-  New-AzSqlServer -ServerName $serverName -ResourceGroupName $resourceGroupName -Location $location 
-  ```
-
-5. Create a server firewall rule that allows access from the specified IP range.
-  
-  ```powershell
-  $startIp = "<start of IP range>"
-  $endIp = "<end of IP range>"
-  $serverFirewallRule = New-AzSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
+   ```powershell
+   $startIp = "<start of IP range>"
+   $endIp = "<end of IP range>"
+   $serverFirewallRule = New-AzSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
     -ServerName $serverName `
     -FirewallRuleName "AllowedIPs" -StartIpAddress $startIp -EndIpAddress $endIp
-  ```
+   ```
 
-6. Assign a managed system identity to your server. 
+1. Create a DC-series database.
 
-  ```PowerShell
-  $server = Set-AzSqlServer -ServerName $serverName -ResourceGroupName $resourceGroupName -AssignIdentity
-  $serverObjectId = $server.Identity.PrincipalId
-  ```
-
-7. Create a DC-series database.
-
-  ```powershell
-  $databaseName = "ContosoHR"
-  $edition = "GeneralPurpose"
-  $vCore = 2
-  $generation = "DC"
-  New-AzSqlDatabase -ResourceGroupName $resourceGroupName `
+   ```powershell
+   $databaseName = "ContosoHR"
+   $edition = "GeneralPurpose"
+   $vCore = 2
+   $generation = "DC"
+   New-AzSqlDatabase -ResourceGroupName $resourceGroupName `
     -ServerName $serverName `
     -DatabaseName $databaseName `
     -Edition $edition `
     -Vcore $vCore `
     -ComputeGeneration $generation
-  ```
+   ```
 
-8. Retrieve and save the information about your server and the database. You will need this information, as well as the admin name and the password from step 4 in this section, in later sections.
+---
 
-  ```powershell
-  Write-Host 
-  Write-Host "Fully qualified server name: $($server.FullyQualifiedDomainName)" 
-  Write-Host "Server Object Id: $serverObjectId"
-  Write-Host "Database name: $databaseName"
-  ```
-  
-## Step 2: Configure an attestation provider 
+## Step 2: Configure an attestation provider
 
-In this step, You'll create and configure an attestation provider in Microsoft Azure Attestation. This is needed to attest the secure enclave your database uses.
+In this step, you'll create and configure an attestation provider in Microsoft Azure Attestation. This is needed to attest the secure enclave your database uses.
+
+# [Portal](#tab/azure-portal)
+
+1. Browse to the [Create attestation provider](https://ms.portal.azure.com/#create/Microsoft.Attestation) page.
+1. On the **Create attestation provider** page, provide the following inputs:
+
+   - **Subscription**: Choose the same subscription you created the Azure SQL logical server in.
+   - **Resource Group**: Choose the same resource group you created the Azure SQL logical server in.
+   - **Name**: Enter *myattestprovider*, and add some characters for uniqueness. We can't provide an exact attestation provider name to use because names must be globally unique. So enter something like myattestprovider12345, and the portal lets you know if it is available or not.
+   - **Location**: Choose the location, in which you created the Azure SQL logical server in.
+   - **Policy signer certificates file**: Leave this field empty, as you will configure an unsigned policy.
+
+1. After you provide the required inputs, select **Review + create**.
+
+   :::image type="content" source="./media/always-encrypted-enclaves/portal-create-attestation-provider-basics.png" alt-text="Create attestation provider":::
+
+1. Select **Create**.
+1. Once the attestation provider is created, click **Go to resource**.
+1. On the **Overview** tab for the attestation provider, copy the value of the **Attest URI** property to clipboard and save it in a file. This is the attestation URL, you will need in later steps.  
+
+   :::image type="content" source="./media/always-encrypted-enclaves/portal-attest-uri.png" alt-text="Attestation URL":::
+
+1. Select **Policy** on the resource menu on the left side of the window or on the lower pane.
+1. Set **Attestation Type** to **SGX-IntelSDK**.
+1. Select **Configure** on the upper menu.
+
+   :::image type="content" source="./media/always-encrypted-enclaves/portal-configure-attestation-policy.png" alt-text="Configure attestation policy":::
+
+1. Set **Policy Format** to **Text**. Leave  **Policy options** set to **Enter policy**.
+1. In the **Policy text** field, replace the default policy with the below policy. For information about the below policy, see [Create and configure an attestation provider](always-encrypted-enclaves-configure-attestation.md#create-and-configure-an-attestation-provider).
+
+    ```output
+    version= 1.0;
+    authorizationrules 
+    {
+           [ type=="x-ms-sgx-is-debuggable", value==false ]
+            && [ type=="x-ms-sgx-product-id", value==4639 ]
+            && [ type=="x-ms-sgx-svn", value>= 0 ]
+            && [ type=="x-ms-sgx-mrsigner", value=="e31c9e505f37a58de09335075fc8591254313eb20bb1a27e5443cc450b6e33e5"] 
+        => permit();
+    };
+    ```
+
+1. Click **Save**.
+
+   :::image type="content" source="./media/always-encrypted-enclaves/portal-edit-attestation-policy.png" alt-text="Edit attestation policy":::
+
+1. Click **Refresh** on the upper menu to view the configured policy.
+
+# [PowerShell](#tab/azure-powershell)
 
 1. Copy the below attestation policy and save the policy in a text file (txt). For information about the below policy, see [Create and configure an attestation provider](always-encrypted-enclaves-configure-attestation.md#create-and-configure-an-attestation-provider).
 
-  ```output
-  version= 1.0;
-  authorizationrules 
-  {
-       [ type=="x-ms-sgx-is-debuggable", value==false ]
-        && [ type=="x-ms-sgx-product-id", value==4639 ]
-        && [ type=="x-ms-sgx-svn", value>= 0 ]
-        && [ type=="x-ms-sgx-mrsigner", value=="e31c9e505f37a58de09335075fc8591254313eb20bb1a27e5443cc450b6e33e5"] 
-    => permit();
-  };
-  ```
+    ```output
+    version= 1.0;
+    authorizationrules 
+    {
+           [ type=="x-ms-sgx-is-debuggable", value==false ]
+            && [ type=="x-ms-sgx-product-id", value==4639 ]
+            && [ type=="x-ms-sgx-svn", value>= 0 ]
+            && [ type=="x-ms-sgx-mrsigner", value=="e31c9e505f37a58de09335075fc8591254313eb20bb1a27e5443cc450b6e33e5"] 
+        => permit();
+    };
+    ```
 
-2. Import the required version of `Az.Attestation`.  
+1. Import the required version of `Az.Attestation`.  
 
-  ```powershell
-  Import-Module "Az.Attestation" -MinimumVersion "0.1.8"
-  ```
+   ```powershell
+   Import-Module "Az.Attestation" -MinimumVersion "0.1.8"
+   ```
   
-3. Create an attestation provider. 
+1. Create an attestation provider.
 
-  ```powershell
-  $attestationProviderName = "<your attestation provider name>" 
-  New-AzAttestation -Name $attestationProviderName -ResourceGroupName $resourceGroupName -Location $location
-  ```
+   ```powershell
+   $attestationProviderName = "<your attestation provider name>" 
+   New-AzAttestation -Name $attestationProviderName -ResourceGroupName $resourceGroupName -Location $location
+   ```
 
-4. Configure your attestation policy.
+1. Configure your attestation policy.
   
-  ```powershell
-  $policyFile = "<the pathname of the file from step 1 in this section>"
-  $teeType = "SgxEnclave"
-  $policyFormat = "Text"
-  $policy=Get-Content -path $policyFile -Raw
-  Set-AzAttestationPolicy -Name $attestationProviderName `
+   ```powershell
+   $policyFile = "<the pathname of the file from step 1 in this section>"
+   $teeType = "SgxEnclave"
+   $policyFormat = "Text"
+   $policy=Get-Content -path $policyFile -Raw
+   Set-AzAttestationPolicy -Name $attestationProviderName `
     -ResourceGroupName $resourceGroupName `
     -Tee $teeType `
     -Policy $policy `
     -PolicyFormat  $policyFormat
-  ```
+   ```
 
-5. Grant your Azure SQL logical server access to your attestation provider. In this step, you're using the object ID of the managed service identity that you assigned to your server earlier.
+1. Retrieve the attestation URL (the Attest URI of your attestation provider).
 
-  ```powershell
-  New-AzRoleAssignment -ObjectId $serverObjectId `
-    -RoleDefinitionName "Attestation Reader" `
-    -ResourceName $attestationProviderName `
-    -ResourceType "Microsoft.Attestation/attestationProviders" `
-    -ResourceGroupName $resourceGroupName  
-  ```
+   ```powershell
+   $attestationUrl = (Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $resourceGroupName).AttestUri
+   Write-Host "Your attestation URL is: $attestationUrl"
+   ```
 
-6. Retrieve the attestation URL that points to an attestation policy you configured for the SGX enclave. Save the URL, as you will need it later.
+   The attestation URL should look like this: `https://myattestprovider12345.eus.attest.azure.net`
 
-  ```powershell
-  $attestationProvider = Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $resourceGroupName 
-  $attestationUrl = $attestationProvider.AttestUri + “/attest/SgxEnclave”
-  Write-Host
-  Write-Host "Your attestation URL is: $attestationUrl"
-  ```
-  
-  The attestation URL should look like this: `https://contososqlattestation.uks.attest.azure.net/attest/SgxEnclave`
+---
+
 
 ## Step 3: Populate your database
 
 In this step, you'll create a table and populate it with some data that you'll later encrypt and query.
 
 1. Open SSMS and connect to the **ContosoHR** database in the Azure SQL logical server you created **without** Always Encrypted enabled in the database connection.
-    1. In the **Connect to Server** dialog, specify the fully qualified name of your server (for example, *myserver123.database.windows.net*), and enter the administrator user name and the password you specified when you created the server.
+    1. In the **Connect to Server** dialog, specify the fully qualified name of your server (for example, *myserver135.database.windows.net*), and enter the administrator user name and the password you specified when you created the server.
     2. Click **Options >>** and select the **Connection Properties** tab. Make sure to select the **ContosoHR** database (not the default, master database). 
     3. Select the **Always Encrypted** tab.
     4. Make sure the **Enable Always Encrypted (column encryption)** checkbox is **not** selected.
 
-        ![Connect without Always Encrypted](media/always-encrypted-enclaves/connect-without-always-encrypted-ssms.png)
+        :::image type="content" source="./media/always-encrypted-enclaves/connect-without-always-encrypted-ssms.png" alt-text="Connect without Always Encrypted":::
 
     5. Click **Connect**.
 
@@ -265,7 +331,6 @@ In this step, you'll create a table and populate it with some data that you'll l
             , $55415);
     ```
 
-
 ## Step 4: Provision enclave-enabled keys
 
 In this step, you'll create a column master key and a column encryption key that allow enclave computations.
@@ -280,7 +345,7 @@ In this step, you'll create a column master key and a column encryption key that
     6. Select your certificate or Azure Key Value key if it already exists, or click the **Generate Certificate** button to create a new one.
     7. Select **OK**.
 
-        ![Allow enclave computations](media/always-encrypted-enclaves/allow-enclave-computations.png)
+        :::image type="content" source="./media/always-encrypted-enclaves/allow-enclave-computations.png" alt-text="Allow enclave computations":::
 
 1. Create a new enclave-enabled column encryption key:
 
@@ -295,18 +360,16 @@ In this step, you'll encrypt the data stored in the **SSN** and **Salary** colum
 
 1. Open a new SSMS instance and connect to your database **with** Always Encrypted enabled for the database connection.
     1. Start a new instance of SSMS.
-    2. In the **Connect to Server** dialog, specify the fully qualified name of your server (for example, *myserver123.database.windows.net*), and enter the administrator user name and the password you specified when you created the server.
+    2. In the **Connect to Server** dialog, specify the fully qualified name of your server (for example, *myserver135.database.windows.net*), and enter the administrator user name and the password you specified when you created the server.
     3. Click **Options >>** and select the **Connection Properties** tab. Make sure to select the **ContosoHR** database (not the default, master database). 
     4. Select the **Always Encrypted** tab.
-    5. Make sure the **Enable Always Encrypted (column encryption)** checkbox is selected.
+    5. Make sure the **Enable Always Encrypted (column encryption)** checkbox **is** selected.
     6. Specify your enclave attestation URL that you've obtained by following the steps in [Step 2: Configure an attestation provider](#step-2-configure-an-attestation-provider). See the below screenshot.
 
-        ![Connect with attestation](media/always-encrypted-enclaves/connect-to-server-configure-attestation.png)
+        :::image type="content" source="./media/always-encrypted-enclaves/connect-to-server-configure-attestation.png" alt-text="Connect with attestation":::
 
     7. Select **Connect**.
     8. If you're prompted to enable Parameterization for Always Encrypted queries, select **Enable**.
-
-
 
 1. Using the same SSMS instance (with Always Encrypted enabled), open a new query window and encrypt the **SSN** and **Salary** columns by running the below statements.
 
@@ -355,7 +418,7 @@ You can run rich queries against the encrypted columns. Some query processing wi
     ```
 
 3. Try the same query again in the SSMS instance that doesn't have Always Encrypted enabled. A failure should occur.
- 
+
 ## Next steps
 
 After completing this tutorial, you can go to one of the following tutorials:
@@ -363,6 +426,6 @@ After completing this tutorial, you can go to one of the following tutorials:
 - [Tutorial: Develop a .NET Framework application using Always Encrypted with secure enclaves](/sql/relational-databases/security/tutorial-always-encrypted-enclaves-develop-net-framework-apps)
 - [Tutorial: Creating and using indexes on enclave-enabled columns using randomized encryption](/sql/relational-databases/security/tutorial-creating-using-indexes-on-enclave-enabled-columns-using-randomized-encryption)
 
-## See Also
+## See also
 
 - [Configure and use Always Encrypted with secure enclaves](/sql/relational-databases/security/encryption/configure-always-encrypted-enclaves)

@@ -2,19 +2,20 @@
 title: Deploy multiple instances of resources
 description: Use copy operation and arrays in an Azure Resource Manager template (ARM template) to deploy resource type many times.
 ms.topic: conceptual
-ms.date: 12/21/2020
+ms.date: 05/07/2021
 ---
+
 # Resource iteration in ARM templates
 
-This article shows you how to create more than one instance of a resource in your Azure Resource Manager template (ARM template). By adding the `copy` element to the resources section of your template, you can dynamically set the number of resources to deploy. You also avoid having to repeat template syntax.
+This article shows you how to create more than one instance of a resource in your Azure Resource Manager template (ARM template). By adding copy loop to the resources section of your template, you can dynamically set the number of resources to deploy. You also avoid having to repeat template syntax.
 
-You can also use `copy` with [properties](copy-properties.md), [variables](copy-variables.md), and [outputs](copy-outputs.md).
+You can also use copy loop with [properties](copy-properties.md), [variables](copy-variables.md), and [outputs](copy-outputs.md).
 
 If you need to specify whether a resource is deployed at all, see [condition element](conditional-resource-deployment.md).
 
 ## Syntax
 
-The `copy` element has the following general format:
+Add the `copy` element to the resources section of your template to deploy multiple instances of the resource. The `copy` element has the following general format:
 
 ```json
 "copy": {
@@ -35,14 +36,14 @@ The count can't exceed 800.
 
 The count can't be a negative number. It can be zero if you deploy the template with a recent version of Azure CLI, PowerShell, or REST API. Specifically, you must use:
 
-* Azure PowerShell **2.6** or later
-* Azure CLI **2.0.74** or later
-* REST API version **2019-05-10** or later
-* [Linked deployments](linked-templates.md) must use API version **2019-05-10** or later for the deployment resource type
+- Azure PowerShell **2.6** or later
+- Azure CLI **2.0.74** or later
+- REST API version **2019-05-10** or later
+- [Linked deployments](linked-templates.md) must use API version **2019-05-10** or later for the deployment resource type
 
 Earlier versions of PowerShell, CLI, and the REST API don't support zero for count.
 
-Be careful using [complete mode deployment](deployment-modes.md) with copy. If you redeploy with complete mode to a resource group, any resources that aren't specified in the template after resolving the copy loop are deleted.
+Be careful using [complete mode deployment](deployment-modes.md) with copy loop. If you redeploy with complete mode to a resource group, any resources that aren't specified in the template after resolving the copy loop are deleted.
 
 ## Resource iteration
 
@@ -50,32 +51,31 @@ The following example creates the number of storage accounts specified in the `s
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storageCount": {
-            "type": "int",
-            "defaultValue": 2
-        }
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2019-04-01",
-            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-            "location": "[resourceGroup().location]",
-            "sku": {
-                "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {},
-            "copy": {
-                "name": "storagecopy",
-                "count": "[parameters('storageCount')]"
-            }
-        }
-    ],
-    "outputs": {}
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageCount": {
+      "type": "int",
+      "defaultValue": 2
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-04-01",
+      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "properties": {},
+      "copy": {
+        "name": "storagecopy",
+        "count": "[parameters('storageCount')]"
+      }
+    }
+  ]
 }
 ```
 
@@ -87,9 +87,9 @@ Notice that the name of each resource includes the `copyIndex()` function, which
 
 Creates these names:
 
-* storage0
-* storage1
-* storage2.
+- storage0
+- storage1
+- storage2
 
 To offset the index value, you can pass a value in the `copyIndex()` function. The number of iterations is still specified in the copy element, but the value of `copyIndex` is offset by the specified value. So, the following example:
 
@@ -99,9 +99,9 @@ To offset the index value, you can pass a value in the `copyIndex()` function. T
 
 Creates these names:
 
-* storage1
-* storage2
-* storage3
+- storage1
+- storage2
+- storage3
 
 The copy operation is helpful when working with arrays because you can iterate through each element in the array. Use the `length` function on the array to specify the count for iterations, and `copyIndex` to retrieve the current index in the array.
 
@@ -148,11 +148,11 @@ If you want to return values from the deployed resources, you can use [copy in t
 
 By default, Resource Manager creates the resources in parallel. It applies no limit to the number of resources deployed in parallel, other than the total limit of 800 resources in the template. The order in which they're created isn't guaranteed.
 
-However, you may want to specify that the resources are deployed in sequence. For example, when updating a production environment, you may want to stagger the updates so only a certain number are updated at any one time. To serially deploy more than one instance of a resource, set `mode` to **serial** and `batchSize` to the number of instances to deploy at a time. With serial mode, Resource Manager creates a dependency on earlier instances in the loop, so it doesn't start one batch until the previous batch completes.
+However, you may want to specify that the resources are deployed in sequence. For example, when updating a production environment, you may want to stagger the updates so only a certain number are updated at any one time.
+
+To serially deploy more than one instance of a resource, set `mode` to **serial** and `batchSize` to the number of instances to deploy at a time. With serial mode, Resource Manager creates a dependency on earlier instances in the loop, so it doesn't start one batch until the previous batch completes.
 
 The value for `batchSize` can't exceed the value for `count` in the copy element.
-
-For example, to serially deploy storage accounts two at a time, use:
 
 ```json
 {
@@ -192,7 +192,7 @@ For example, suppose you typically define a dataset as a child resource within a
 ```json
 "resources": [
 {
-  "type": "Microsoft.DataFactory/datafactories",
+  "type": "Microsoft.DataFactory/factories",
   "name": "exampleDataFactory",
   ...
   "resources": [
@@ -211,17 +211,17 @@ To create more than one data set, move it outside of the data factory. The datas
 
 To establish a parent/child relationship with an instance of the data factory, provide a name for the data set that includes the parent resource name. Use the format: `{parent-resource-name}/{child-resource-name}`.
 
-The following example shows the implementation:
+The following example shows the implementation.
 
 ```json
 "resources": [
 {
-  "type": "Microsoft.DataFactory/datafactories",
+  "type": "Microsoft.DataFactory/factories",
   "name": "exampleDataFactory",
   ...
 },
 {
-  "type": "Microsoft.DataFactory/datafactories/datasets",
+  "type": "Microsoft.DataFactory/factories/datasets",
   "name": "[concat('exampleDataFactory', '/', 'exampleDataSet', copyIndex())]",
   "dependsOn": [
     "exampleDataFactory"
@@ -246,11 +246,11 @@ The following examples show common scenarios for creating more than one instance
 
 ## Next steps
 
-* To set dependencies on resources that are created in a copy loop, see [Define the order for deploying resources in ARM templates](define-resource-dependency.md).
-* To go through a tutorial, see [Tutorial: Create multiple resource instances with ARM templates](template-tutorial-create-multiple-instances.md).
-* For a Microsoft Learn module that covers resource copy, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).
-* For other uses of the copy element, see:
-  * [Property iteration in ARM templates](copy-properties.md)
-  * [Variable iteration in ARM templates](copy-variables.md)
-  * [Output iteration in ARM templates](copy-outputs.md)
-* For information about using copy with nested templates, see [Using copy](linked-templates.md#using-copy).
+- To set dependencies on resources that are created in a copy loop, see [Define the order for deploying resources in ARM templates](./resource-dependency.md).
+- To go through a tutorial, see [Tutorial: Create multiple resource instances with ARM templates](template-tutorial-create-multiple-instances.md).
+- For a Microsoft Learn module that covers resource copy, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).
+- For other uses of the copy loop, see:
+  - [Property iteration in ARM templates](copy-properties.md)
+  - [Variable iteration in ARM templates](copy-variables.md)
+  - [Output iteration in ARM templates](copy-outputs.md)
+- For information about using copy with nested templates, see [Using copy](linked-templates.md#using-copy).

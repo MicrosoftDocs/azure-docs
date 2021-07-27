@@ -4,7 +4,7 @@ description: Azure PowerShell example script to configure auditing and Advanced 
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: security, sqldbrb=1
+ms.custom: security, sqldbrb=1, devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
 author: DavidTrigano

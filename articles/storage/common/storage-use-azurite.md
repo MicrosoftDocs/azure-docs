@@ -1,10 +1,10 @@
 ---
 title: Use Azurite emulator for local Azure Storage development
 description: The Azurite open-source emulator provides a free local environment for testing your Azure storage applications.
-author: mhopkins-msft
+author: twooley
 
-ms.author: mhopkins
-ms.date: 07/15/2020
+ms.author: twooley
+ms.date: 07/19/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
@@ -13,7 +13,7 @@ ms.custom: devx-track-csharp
 
 # Use the Azurite emulator for local Azure Storage development
 
-The Azurite open-source emulator provides a free local environment for testing your Azure blob and queue storage applications. When you're satisfied with how your application is working locally, switch to using an Azure Storage account in the cloud. The emulator provides cross-platform support on Windows, Linux, and macOS.
+The Azurite open-source emulator provides a free local environment for testing your Azure blob, queue storage, and table storage applications. When you're satisfied with how your application is working locally, switch to using an Azure Storage account in the cloud. The emulator provides cross-platform support on Windows, Linux, and macOS.
 
 Azurite is the future storage emulator platform. Azurite supersedes the [Azure Storage Emulator](storage-use-emulator.md). Azurite will continue to be updated to support the latest versions of Azure Storage APIs.
 
@@ -37,12 +37,15 @@ The extension supports the following Visual Studio Code commands. To open the co
    - **Azurite: Clean** - Reset all Azurite services persistency data
    - **Azurite: Clean Blob Service** - Clean blob service
    - **Azurite: Clean Queue Service** - Clean queue service
+   - **Azurite: Clean Table Service** - Clean table service
    - **Azurite: Close** - Close all Azurite services
    - **Azurite: Close Blob Service** - Close blob service
    - **Azurite: Close Queue Service** - Close queue service
+   - **Azurite: Close Table Service** - Close table service
    - **Azurite: Start** - Start all Azurite services
    - **Azurite: Start Blob Service** - Start blob service
    - **Azurite: Start Queue Service** - Start queue service
+   - **Azurite: Start Table Service** - Start table service
 
 To configure Azurite within Visual Studio Code, select the extensions pane. Select the **Manage** (gear) icon for **Azurite**. Select **Extension Settings**.
 
@@ -63,6 +66,8 @@ The following settings are supported:
    - **Azurite: Queue Port** - The Queue service listening port. The default port is 10001.
    - **Azurite: Silent** - Silent mode disables the access log. The default value is **false**.
    - **Azurite: Skip Api Version Check** - Skip the request API version check. The default value is **false**.
+   - **Azurite: Table Host** - The Table service listening endpoint, by default setting is 127.0.0.1.
+   - **Azurite: Table Port** - The Table service listening port, by default 10002.
 
 ## Install and run Azurite by using NPM
 
@@ -96,7 +101,7 @@ docker run -p 10000:10000 -p 10001:10001 \
 In the following example, the `-v c:/azurite:/data` parameter specifies *c:/azurite* as the Azurite persisted data location. The directory, *c:/azurite*, must be created before running the Docker command.
 
 ```console
-docker run -p 10000:10000 -p 10001:10001 \
+docker run -p 10000:10000 -p 10001:10001 - p 10002:10002 \
     -v c:/azurite:/data mcr.microsoft.com/azure-storage/azurite
 ```
 
@@ -229,6 +234,46 @@ Let the system auto select an available port:
 
 ```console
 azurite --queuePort 0
+```
+
+The port in use is displayed during Azurite startup.
+
+### Table listening host
+
+**Optional** - By default, Azurite will listen to 127.0.0.1 as the local server. Use the `--tableHost` switch to set the address to your requirements.
+
+Accept requests on the local machine only:
+
+```console
+azurite --tableHost 127.0.0.1
+```
+
+Allow remote requests:
+
+```console
+azurite --tableHost 0.0.0.0
+```
+
+> [!CAUTION]
+> Allowing remote requests may make your system vulnerable to external attacks.
+
+### Table listening port configuration
+
+**Optional** - By default, Azurite will listen for the Table service on port 10002. Use the `--tablePort` switch to specify the listening port that you require.
+
+> [!NOTE]
+> After using a customized port, you need to update the connection string or corresponding configuration in your Azure Storage tools or SDKs.
+
+Customize the Table service listening port:
+
+```console
+azurite --tablePort 11111
+```
+
+Let the system auto select an available port:
+
+```console
+azurite --tablePort 0
 ```
 
 The port in use is displayed during Azurite startup.
@@ -554,9 +599,13 @@ Azurite supports read-access geo-redundant replication (RA-GRS). For storage res
 
 ### Table support
 
-Support for tables in Azurite is currently under development and open to contribution! For the latest progress, check the [Azurite V3 Table](https://github.com/Azure/Azurite/wiki/Azurite-V3-Table) project.
+Support for tables in Azurite is currently in preview. For more information, see the [Azurite V3 Table](https://github.com/Azure/Azurite/wiki/Azurite-V3-Table) project.
 
 Support for durable functions requires tables.
+
+> [!IMPORTANT]
+>
+> Azurite support for Table Storage is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Azurite is open-source
 

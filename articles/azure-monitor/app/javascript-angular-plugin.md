@@ -16,6 +16,7 @@ ms.author: lagayhar
 The Angular plugin for the Application Insights JavaScript SDK, enables:
 
 - Tracking of router changes
+- Tracking uncaught exceptions
 
 > [!WARNING]
 > Angular plugin is NOT ECMAScript 3 (ES3) compatible.
@@ -58,6 +59,24 @@ export class AppComponent {
         appInsights.loadAppInsights();
     }
 }
+```
+
+To track uncaught exceptions, setup ApplicationinsightsAngularpluginErrorService in `app.module.ts`:
+
+```js
+import { ApplicationinsightsAngularpluginErrorService } from '@microsoft/applicationinsights-angularplugin-js';
+
+@NgModule({
+  ...
+  providers: [
+    {
+      provide: ErrorHandler,
+      useClass: ApplicationinsightsAngularpluginErrorService
+    }
+  ]
+  ...
+})
+export class AppModule { }
 ```
 
 ## Next steps

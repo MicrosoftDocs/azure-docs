@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 08/01/2016
 ms.author: bwren
-ms.subservice: diagnostic-extension
+ms.subservice: application-insights
 ---
 
 # Store and view diagnostic data in Azure Storage

@@ -80,7 +80,7 @@ When you expose the global endpoint of a cross-region load balancer to customers
 <!---To learn about how to add or remove a regional deployment from the backend, read more [here](TODO: Insert CLI doc here).--->
 
 ### Static IP
-Cross-region load balancer comes with a static public IP, which ensures the IP address remains the same. To learn more about static IP, read more [here](../virtual-network/public-ip-addresses.md#allocation-method)
+Cross-region load balancer comes with a static public IP, which ensures the IP address remains the same. To learn more about static IP, read more [here](../virtual-network/public-ip-addresses.md#ip-address-assignment)
 
 ### Client IP Preservation
 Cross-region load balancer is a Layer-4 pass-through network load balancer. This pass-through preserves the original IP of the packet.  The original IP is available to the code running on the virtual machine. This preservation allows you to apply logic that is specific to an IP address.
@@ -149,5 +149,5 @@ Cross-region load balancer, shares the [SLA](https://azure.microsoft.com/support
 ## Next steps
 
 - See [Tutorial: Create a cross-region load balancer using the Azure portal](tutorial-cross-region-portal.md) to create a cross-region load balancer.
-- See [Create a public standard load balancer](quickstart-load-balancer-standard-public-portal.md) to create a standard regional load balancer.
+- Learn more about [cross-region load balancer](https://www.youtube.com/watch?v=3awUwUIv950).
 - Learn more about [Azure Load Balancer](load-balancer-overview.md).

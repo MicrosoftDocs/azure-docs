@@ -1,7 +1,7 @@
 ---
 title: Set up your environment for Blueprint Operator
 description: Learn how to configure your Azure environment for use with the Blueprint Operator Azure built-in role.
-ms.date: 02/05/2021
+ms.date: 05/01/2021
 ms.topic: how-to
 ---
 # Configure your environment for a Blueprint Operator

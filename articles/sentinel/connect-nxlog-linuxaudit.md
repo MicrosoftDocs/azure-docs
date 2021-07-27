@@ -22,6 +22,8 @@ ms.author: yelevin
 > [!IMPORTANT]
 > The NXLog LinuxAudit connector is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 The [NXLog LinuxAudit](https://nxlog.co/documentation/nxlog-user-guide/im_linuxaudit.html) connector allows you to easily export Linux security events to Azure Sentinel in real time, giving you insight into domain name server activity throughout your organization. The NXLog LinuxAudit module supports custom audit rules and collects logs without auditd or any other user-space software. IP addresses and group/user IDs are resolved to their respective names making [Linux audit](https://nxlog.co/documentation/nxlog-user-guide/linux-audit.html) logs more intelligible to security analysts. Integration between NXLog LinuxAudit and Azure Sentinel is facilitated via REST API.
 
 > [!NOTE]

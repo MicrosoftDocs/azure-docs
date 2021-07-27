@@ -45,6 +45,8 @@ az extension update --name aks-preview
 To add a maintenance window, you can use the `az aks maintenanceconfiguration add` command.
 
 > [!IMPORTANT]
+> At this time, you must set `default` as the value for `--name`. Using any other name will cause your maintenance window to not run.
+>
 > Planned Maintenance windows are specified in Coordinated Universal Time (UTC).
 
 ```azurecli-interactive
@@ -207,6 +209,10 @@ To delete a certain maintenance configuration window in your AKS Cluster, use th
 az aks maintenanceconfiguration delete -g MyResourceGroup --cluster-name myAKSCluster --name default
 ```
 
+## Using Planned Maintenance with Cluster Auto-Upgrade
+
+Planned Maintenance will detect if you are using Cluster Auto-Upgrade and schedule your upgrades during your maintenance window automatically. For more details on about Cluster Auto-Upgrade, see [Upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
+
 ## Next steps
 
 - To get started with upgrading your AKS cluster, see [Upgrade an AKS cluster][aks-upgrade]
@@ -217,10 +223,10 @@ az aks maintenanceconfiguration delete -g MyResourceGroup --cluster-name myAKSCl
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli&preserve-view=true
-[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
+[az-provider-register]: /cli/azure/provider#az_provider_register
 [aks-upgrade]: upgrade-cluster.md

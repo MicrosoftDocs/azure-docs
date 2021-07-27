@@ -14,6 +14,8 @@ When you build and managed an API in Azure API Management, you want to be prepar
 
 Although this experience is most helpful when you re having issues with your API within the last 24 hours, all the diagnostic graphs are always available for you to analyze.
 
+[!NOTE] Diagnose and solve problems is currenty not supported for Consumption Tier.
+
 ## Open API Management Diagnostics
 
 To access API Management Diagnostics, navigate to your API Management service instance in the [Azure portal](https://portal.azure.com). In the left navigation, select **Diagnose and solve problems**.

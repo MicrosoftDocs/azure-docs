@@ -68,7 +68,7 @@ The feature is fully supported for both Windows and Linux apps, including [custo
 
 ### Service endpoints
 
-Regional VNet Integration enables you to use service endpoints. The basic steps for being able to access a service from your app over service endpoints is the following:
+Regional VNet Integration enables you to reach Azure services that are secured with service endpoints. To access a service endpoint-secured service, you must do the following:
 
 1. Configure regional VNet Integration with your web app to connect to a specific subnet for integration.
 1. Go to the destination service and configure service endpoints against the integration subnet.
@@ -95,9 +95,6 @@ After your app integrates with your VNet, it uses the same DNS server that your 
 1. `WEBSITE_VNET_ROUTE_ALL` with value `1`
 
 These settings send all of your outbound calls from your app into your VNet and enable your app to access an Azure DNS private zone. With these settings, your app can use Azure DNS by querying the DNS private zone at the worker level.  
-
-> [!NOTE]
-> Trying to add a custom domain to a web app using a DNS private zone isn't possible with the VNET Integration. Custom domain validation is done at the controller level, not the worker level, which prevents the DNS records from being seen. To use a custom domain from a DNS private zone, you must bypass validation by using an [Application Gateway](../articles/app-service/networking/app-gateway-with-service-endpoints.md) or [ILB App Service Environment](../articles/app-service/environment/create-ilb-ase.md).
 
 ### Private Endpoints
 

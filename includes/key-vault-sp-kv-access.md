@@ -10,7 +10,7 @@ ms.author: msmbaldwin
 
 ---
 
-Create an access policy for your key vault that grants permission to your service principal by passing `clientId` to the [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) command. Give the service principal get, list, and set permissions for both keys and secrets.
+Create an access policy for your key vault that grants permission to your service principal by passing `clientId` to the [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy) command. Give the service principal get, list, and set permissions for both keys and secrets.
 
 ```azurecli
 az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey

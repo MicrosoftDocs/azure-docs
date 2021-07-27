@@ -12,7 +12,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2021
-ms.author: inhenkel
+ms.author: inhenkel 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Use PowerShell to create an Azure AD app to use with the Azure Media Services API

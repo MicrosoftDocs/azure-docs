@@ -15,15 +15,14 @@ ms.custom: mvc
 
 # Tutorial: Set up disaster recovery for Linux virtual machines
 
-
 This tutorial shows you how to set up disaster recovery for Azure VMs running Linux. In this article, learn how to:
 
 > [!div class="checklist"]
 > * Enable disaster recovery for a Linux VM
-> * Run a disaster recovery drill
+> * Run a disaster recovery drill to check it works as expected
 > * Stop replicating the VM after the drill
 
-When you enable replication for a VM, the Site Recovery Mobility service extension installs on the VM, and registers it with [Azure Site Recovery](../../site-recovery/site-recovery-overview.md). During replication, VM disk writes are send to a cache storage account in the source region. Data is sent from there to the target region, and recovery points are generated from the data.  When you fail a VM over to another region during disaster recovery, a recovery point is used to restore the VM in the target region.
+When you enable replication for a VM, the Site Recovery Mobility service extension installs on the VM, and registers it with [Azure Site Recovery](../../site-recovery/site-recovery-overview.md). During replication, VM disk writes are send to a cache storage account in the source VM region. Data is sent from there to the target region, and recovery points are generated from the data.  When you fail a VM over to another region during disaster recovery, a recovery point is used to create a VM in the target region.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
@@ -57,26 +56,67 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     GuestAndHybridManagement | Use if you want to automatically upgrade the Site Recovery Mobility agent that's running on VMs enabled for replication.
 5. Make sure VMs have the latest root certificates. On Linux VMs, follow the guidance provided by your Linux distributor, to get the latest trusted root certificates and certificate revocation list on the VM.
 
-## Enable disaster recovery
+## Create a VM and enable disaster recovery
+
+You can optionally enable disaster recovery when you create a VM.
+
+1. [Create a Linux VM](quick-create-portal.md).
+2. On the **Management** tab, under **Site Recovery** select **Enable disaster recovery**.
+3. In **Secondary region**, select the target region to which you want to replicate the VM for disaster recovery.
+4. In **Secondary subscription**, select the target subscription in which the target VM will be created. The target VM is created when you fail over the source VM from the source region to the target region.
+5. In **Recovery Services vault**, select the vault you want to use for the replication. If you don't have a vault, select **Create new**. Select a resource group in which to place the vault, and a vault name.
+6. In **Site Recovery policy**, leave the default policy, or select **Create new** to set custom values.
+
+    - Recovery points are created from snapshots of VM disks taken at a specific point in time. When you fail over a VM, you use a recovery point to restore the VM in the target region. 
+    - A crash-consistent recovery point is created every five minutes. This setting can't be modified. A crash-consistent snapshot captures data that was on the disk when the snapshot was taken. It doesn't include anything in memory. 
+    - By default Site Recovery keeps crash-consistent recovery points for 24 hours. You can set a custom value between 0 and 72 hours.
+    - An app-consistent snapshot is taken every 4 hours.
+    - By default Site Recovery stores recovery points for 24 hours.
+
+7. In **Availability options**, specify whether the VM is deploy as standalone, in an availability zone, or in an availability set.
+
+    :::image type="content" source="./media/tutorial-disaster-recovery/create-vm.png" alt-text="Enable replication on the VM management properties page.":::
+
+8. Finish creating the VM.
+
+## Enable disaster recovery for an existing VM
+
+If you want to enable disaster recovery on an existing VM, use this procedure.
 
 1. In the Azure portal, open the VM properties page.
 2. In **Operations**, select **Disaster recovery**.
-3. In **Basics** > **Target region**, select the region to which you want to replicate the VM. The source and target regions must be in the same Azure Active Directory tenant.
-4. Click **Review + Start replication**.
 
-    :::image type="content" source="./media/tutorial-disaster-recovery/disaster-recovery.png" alt-text="Enable replication on the VM properties Disaster Recovery page.":::
+    :::image type="content" source="./media/tutorial-disaster-recovery/existing-vm.png" alt-text="Open disaster recovery options for an existing VM.":::
 
-5. In **Review + Start replication**, verify the settings:
+3. In **Basics**, if the VM is deployed in an availability zone, you can select disaster recovery between availability zones.
+4. In **Target region**, select the region to which you want to replicate the VM. The source and target regions must be in the same Azure Active Directory tenant.
 
-    - **Target settings**. By default, Site Recovery mirrors the source settings to create target resources.
-    - **Storage settings-Cache storage account**. Recovery uses a storage account in the source region. Source VM changes are cached in this account, before being replicated to the target location.
-    - **Storage settings-Replica disk**. By default, Site Recovery creates replica managed disks in the target region that mirror source VM managed disks with the same storage type (standard or premium).
-    - **Replication settings**. Shows the vault details, and indicates that recovery points created by Site Recovery are kept for 24 hours.
-    - **Extension settings**. Indicates that Site Recovery will manage updates to the Site Recovery Mobility Service extension that's installed on VMs you replicate. The indicated Azure automation account manages the update process.
+    :::image type="content" source="./media/tutorial-disaster-recovery/basics.png" alt-text="Set the basic disaster recovery options for a VM.":::
+
+5. Select **Next: Advanced settings**.
+6. In **Advanced settings**, you can review settings, and modify values to custom settings. By default, Site Recovery mirrors the source settings to create target resources.
+
+    - **Target subscription**. The subscription in which the target VM is created after failover.
+    - **Target VM resource group**. The resource group in which the target VM is created after failover.
+    - **Target virtual network**. The Azure virtual network in which the target VM is located when it's created after failover.
+    - **Target availability**. When the target VM is created as a single instance, in an availability set, or availability zone.
+    - **Proximity placement**. If applicable, select the proximity placement group in which the target VM is located after failover.
+    - **Storage settings-Cache storage account**. Recovery uses a storage account in the source region as a temporary data store. Source VM changes are cached in this account, before being replicated to the target location.
+        - By default one cache storage account is created per vault and reused.
+        - You can select a different storage account if you want to customize the cache account for the VM.
+    - **Storage settings-Replica managed disk**. By default, Site Recovery creates replica managed disks in the target region.
+        -  By default the target managed disk mirror the source VM managed disks, using the same storage type (standard HDD/SSD, or premium SSD).
+        - You can customize the storage type as needed.
+    - **Replication settings**. Shows the vault in which the VM is located, and the replication policy used for the VM. By default, recovery points created by Site Recovery for the VM are kept for 24 hours.
+    - **Extension settings**. Indicates that Site Recovery manages updates to the Site Recovery Mobility Service extension that's installed on VMs you replicate.
+        - The indicated Azure automation account manages the update process.
+        - You can customize the automation account.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/settings-summary.png" alt-text="Page showing summary of target and replication settings.":::
 
-2. Select **Start replication**. Deployment starts, and Site Recovery starts creating target resources. You can monitor replication progress in the notifications.
+6. Select **Review + Start replication**.
+
+7. Select **Start replication**. Deployment starts, and Site Recovery starts creating target resources. You can monitor replication progress in the notifications.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/notifications.png" alt-text="Notification for replication progress.":::
 
@@ -94,7 +134,6 @@ After the replication job finishes, you can check the VM replication status.
 5. In **Infrastructure view**, get a visual overview of source and target VMs, managed disks, and the cache storage account.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/infrastructure.png" alt-text="infrastructure visual map for VM disaster recovery.":::
-
 
 ## Run a drill
 

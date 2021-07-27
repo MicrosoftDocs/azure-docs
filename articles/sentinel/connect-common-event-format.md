@@ -19,6 +19,8 @@ ms.author: yelevin
 ---
 # Connect your external solution using Common Event Format
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 When you connect an external solution that sends CEF messages, there are three steps to connecting with Azure Sentinel:
 
 STEP 1: [Connect CEF by deploying a Syslog/CEF forwarder](connect-cef-agent.md)

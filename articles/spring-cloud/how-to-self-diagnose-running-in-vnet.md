@@ -1,8 +1,8 @@
 ---
 title: "How to self-diagnose Azure Spring Cloud VNET"
 description: Learn how to self-diagnose and solve problems in Azure Spring Cloud running in VNET.
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/25/2021
@@ -56,7 +56,7 @@ If you select **Required Outbound Traffic**, results will indicate whether there
 * *Required outbound traffic resolved with no issues in subnet 'subnet01'.
 * *Required outbound traffic resolved with no issues in subnet 'subnet02'.
 
-If any subnet is blocked by NSG or firewall rules, and if you have not blocked the log, you will find the following failures. You can check whether you overlooked any [Customer Responsibilities](spring-cloud-vnet-customer-responsibilities.md).
+If any subnet is blocked by NSG or firewall rules, and if you have not blocked the log, you will find the following failures. You can check whether you overlooked any [Customer Responsibilities](./vnet-customer-responsibilities.md).
     
    ![Endpoint failed](media/spring-cloud-self-diagnose-vnet/self-diagostic-endpoint-failed.png)
 
@@ -66,4 +66,4 @@ Maybe your network is blocked or the log service is down.
    ![Diagnostic endpoint unknown](media/spring-cloud-self-diagnose-vnet/self-diagostic-endpoint-unknown.png)
 
 ## See also
-* [How to self diagnose Azure Spring Cloud](spring-cloud-howto-self-diagnose-solve.md)
+* [How to self diagnose Azure Spring Cloud](./how-to-self-diagnose-solve.md)

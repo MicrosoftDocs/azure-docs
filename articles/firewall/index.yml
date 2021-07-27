@@ -11,7 +11,8 @@ metadata:
   ms.topic: landing-page
   author: vhorne
   ms.author: victorh
-  ms.date: 02/24/2021
+  ms.date: 05/03/2021
+  ms.custom: e2e-hybrid
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -31,25 +32,30 @@ landingContent:
             url: rule-processing.md
           - text: Frequently asked questions
             url: firewall-faq.yml
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Firewall
+            url: /learn/modules/introduction-azure-firewall/
       - linkListType: whats-new
         links:
           - text: What's new
             url: https://azure.microsoft.com/updates/?category=networking&query=Firewall
 
+
   # Card
-  - title: Learn about Azure Firewall Premium Preview
+  - title: Learn about Azure Firewall Premium
     linkLists:
       - linkListType: overview
         links:
-          - text: Azure Firewall Premium Preview features 
+          - text: Azure Firewall Premium features 
             url: premium-features.md
       - linkListType: concept
         links:
-          - text: Azure Firewall Premium Preview certificates
+          - text: Azure Firewall Premium certificates
             url: premium-certificates.md
       - linkListType: how-to-guide
         links:
-          - text: Deploy and configure Azure Firewall Premium Preview
+          - text: Deploy and configure Azure Firewall Premium
             url: premium-deploy.md
 
 
@@ -59,11 +65,11 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Deploy using the Azure portal
-            url: tutorial-firewall-deploy-portal.md
+            url: tutorial-firewall-deploy-portal-policy.md
           - text: Deploy in a hybrid network
-            url: tutorial-hybrid-portal.md
+            url: tutorial-hybrid-portal-policy.md
           - text: Filter inbound traffic
-            url: tutorial-firewall-dnat.md
+            url: tutorial-firewall-dnat-policy.md
 
   # Card
   - title: Integrate with Load Balancer

@@ -9,11 +9,7 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-develop
 services: azure
-
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
 ---
 
 # Design secure applications on Azure
@@ -37,7 +33,7 @@ Use the following resources during the training stage to familiarize
 yourself with the Azure services that are available to developers and
 with security best practices on Azure:
 
-  - [Developer’s guide to
+  - [Developer's guide to
     Azure](https://azure.microsoft.com/campaigns/developer-guide/) shows
     you how to get started with Azure. The guide shows you which
     services you can use to run your applications, store your data,
@@ -115,7 +111,7 @@ Ask security questions like:
     information, to identify, contact, or locate a single person?
 
   - Does my application collect or contain data that can be used to
-    access an individual’s medical, educational, financial, or
+    access an individual's medical, educational, financial, or
     employment information? Identifying the sensitivity of your data
     during the requirements phase helps you classify your data and
     identify the data protection method you will use for your
@@ -160,7 +156,7 @@ Awareness of these security risks can help you make requirement and
 design decisions that minimize these risks in your application.
 
 Thinking about security controls to prevent breaches is important.
-However, you also want to [assume a breach](/azure/devops/learn/devops-at-microsoft/security-in-devops)
+However, you also want to [assume a breach](/devops/operate/security-in-devops)
 will occur. Assuming a breach helps answer some important questions
 about security in advance, so they don't have to be answered in an
 emergency:
@@ -231,7 +227,7 @@ tools](../../index.yml?panel=sdkstools-all&pivot=sdkstools)
 that you can use to develop applications on Azure. An example is [Azure
 for .NET and .NET Core
 developers](/dotnet/azure/). For each language
-and framework that we offer, you’ll find quickstarts, tutorials, and API
+and framework that we offer, you'll find quickstarts, tutorials, and API
 references to help you get started fast.
 
 Azure offers a variety of services you can use to host websites and web
@@ -298,12 +294,12 @@ threats—Spoofing, Tampering, Repudiation, Information Disclosure, Denial
 of Service, and Elevation of Privilege—across all trust boundaries has
 proven an effective way to catch design errors early on. The following
 table lists the STRIDE threats and gives some example mitigations that
-use features provided by Azure. These mitigations won’t work in every
+use features provided by Azure. These mitigations won't work in every
 situation.
 
 | Threat | Security property | Potential Azure platform mitigation |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Spoofing               | Authentication        | [Require HTTPS connections](/aspnet/core/security/enforcing-ssl?tabs=visual-studio&view=aspnetcore-2.1). |
+| Spoofing               | Authentication        | [Require HTTPS connections](/aspnet/core/security/enforcing-ssl?tabs=visual-studio). |
 | Tampering              | Integrity             | Validate SSL/TLS certificates. Applications that use SSL/TLS must fully verify the X.509 certificates of the entities they connect to. Use Azure Key Vault certificates to [manage your x509 certificates](../../key-vault/general/about-keys-secrets-certificates.md). |
 | Repudiation            | Non-repudiation       | Enable Azure [monitoring and diagnostics](/azure/architecture/best-practices/monitoring).|
 | Information Disclosure | Confidentiality       | Encrypt sensitive data [at rest](../fundamentals/encryption-atrest.md) and [in transit](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
@@ -313,16 +309,16 @@ situation.
 ### Reduce your attack surface
 
 An attack surface is the total sum of where potential vulnerabilities
-might occur. In this paper, we focus on an application’s attack surface.
+might occur. In this paper, we focus on an application's attack surface.
 The focus is on protecting an application from attack. A simple and
 quick way to minimize your attack surface is to remove unused resources
 and code from your application. The smaller your application, the
 smaller your attack surface. For example, remove:
 
-- Code for features you haven’t released yet.
+- Code for features you haven't released yet.
 - Debugging support code.
-- Network interfaces and protocols that aren’t used or which have been deprecated.
-- Virtual machines and other resources that you aren’t using.
+- Network interfaces and protocols that aren't used or which have been deprecated.
+- Virtual machines and other resources that you aren't using.
 
 Doing regular cleanup of your resources and ensuring that you remove
 unused code are great ways to ensure that there are fewer opportunities
@@ -361,7 +357,7 @@ Threat modeling is the process of identifying potential security threats to your
 
 ### Adopt a policy of identity as the primary security perimeter
 
-When you design cloud applications, it’s important to expand your
+When you design cloud applications, it's important to expand your
 security perimeter focus from a network-centric approach to an
 identity-centric approach. Historically, the primary on-premises
 security perimeter was an organization's network. Most on-premises
@@ -428,7 +424,7 @@ personal computer? Evaluating access to software is no different. If you
 use [Azure role-based access control
 (Azure RBAC)](../../role-based-access-control/overview.md)
 to give users different abilities and authority in your application, you
-wouldn’t give everyone access to everything. By limiting access to what
+wouldn't give everyone access to everything. By limiting access to what
 is required for each role, you limit the risk of a security issue
 occurring.
 
@@ -443,7 +439,7 @@ throughout its access patterns.
 
 Implement *just-in-time* (JIT) access to further lower the exposure time
 of privileges. Use [Azure AD Privileged Identity
-Management](../../active-directory/roles/security-planning.md#stage-3-take-control-of-admin-activity)
+Management](../../active-directory/roles/security-planning.md#stage-3-take-control-of-administrator-activity)
 to:
 
 - Give users the permissions they need only JIT.
@@ -452,7 +448,7 @@ to:
 ### Require re-authentication for important transactions
 
 [Cross-site request
-forgery](/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1)
+forgery](/aspnet/core/security/anti-request-forgery)
 (also known as *XSRF* or *CSRF*) is an attack against web-hosted apps in
 which a malicious web app influences the interaction between a client
 browser and a web app that trusts that browser. Cross-site request
@@ -607,7 +603,7 @@ organizations.
 
 ### Use logging and alerting
 
-[Log](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1)
+[Log](/aspnet/core/fundamentals/logging/)
 your security issues for security investigations and trigger alerts
 about issues to ensure that people know about problems in a timely
 manner. Enable auditing and logging on all components. Audit logs should

@@ -10,6 +10,8 @@ ms.reviewer: ravastra
 
 Configure Blockchain Data Manager for Azure Blockchain Service to capture blockchain data send it to an Azure Event Grid Topic.
 
+[!INCLUDE [Retirement note](./includes/retirement.md)]
+
 To configure a Blockchain Data Manager instance, you:
 
 * Create a Blockchain Manager instance

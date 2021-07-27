@@ -8,7 +8,8 @@ ms.collection: windows
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 02/17/2021
-ms.author: manayar
+ms.author: manayar 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Preview: Automatic VM guest patching for Azure VMs
@@ -177,17 +178,17 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
 ### Azure CLI 2.0
-Use [az feature register](/cli/azure/feature#az-feature-register) to enable the preview for your subscription.
+Use [az feature register](/cli/azure/feature#az_feature_register) to enable the preview for your subscription.
 
 ```azurecli-interactive
-az feature register --namespace Microsoft.Compute --name InGuestAutoPatchVMPreview `
+az feature register --namespace Microsoft.Compute --name InGuestAutoPatchVMPreview
 az feature register --namespace Microsoft.Compute --name InGuestPatchVMPreview
 ```
 
 Feature registration can take up to 15 minutes. To check the registration status:
 
 ```azurecli-interactive
-az feature show --namespace Microsoft.Compute --name InGuestAutoPatchVMPreview `
+az feature show --namespace Microsoft.Compute --name InGuestAutoPatchVMPreview
 az feature show --namespace Microsoft.Compute --name InGuestPatchVMPreview
 ```
 
@@ -253,13 +254,13 @@ Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName
 ```
 
 ### Azure CLI for Windows VMs
-Use [az vm create](/cli/azure/vm#az-vm-create) to enable automatic VM guest patching when creating a new VM. The following example configures automatic VM guest patching for a VM named *myVM* in the resource group named *myResourceGroup*:
+Use [az vm create](/cli/azure/vm#az_vm_create) to enable automatic VM guest patching when creating a new VM. The following example configures automatic VM guest patching for a VM named *myVM* in the resource group named *myResourceGroup*:
 
 ```azurecli-interactive
 az vm create --resource-group myResourceGroup --name myVM --image Win2019Datacenter --enable-agent --enable-auto-update --patch-mode AutomaticByPlatform
 ```
 
-To modify an existing VM, use [az vm update](/cli/azure/vm#az-vm-update)
+To modify an existing VM, use [az vm update](/cli/azure/vm#az_vm_update)
 
 ```azurecli-interactive
 az vm update --resource-group myResourceGroup --name myVM --set osProfile.windowsConfiguration.enableAutomaticUpdates=true osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatform
@@ -304,7 +305,7 @@ Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM" -Status
 PowerShell currently only provides information on the patch extension. Information about `patchStatus` will also be available soon through PowerShell.
 
 ### Azure CLI
-Use [az vm get-instance-view](/cli/azure/vm#az-vm-get-instance-view) to access the instance view for your VM.
+Use [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view) to access the instance view for your VM.
 
 ```azurecli-interactive
 az vm get-instance-view --resource-group myResourceGroup --name myVM
@@ -339,7 +340,7 @@ Invoke-AzVmPatchAssessment -ResourceGroupName "myResourceGroup" -VMName "myVM"
 ```
 
 ### Azure CLI
-Use [az vm assess-patches](/cli/azure/vm#az-vm-assess-patches) to assess available patches for your virtual machine.
+Use [az vm assess-patches](/cli/azure/vm#az_vm_assess_patches) to assess available patches for your virtual machine.
 
 ```azurecli-interactive
 az vm assess-patches --resource-group myResourceGroup --name myVM

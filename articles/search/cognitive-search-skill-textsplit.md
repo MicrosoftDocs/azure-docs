@@ -3,9 +3,8 @@ title: Text split cognitive skill
 titleSuffix: Azure Cognitive Search
 description: Break text into chunks or pages of text based on length in an AI enrichment pipeline in Azure Cognitive Search. 
 
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: vkurpad
+ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020

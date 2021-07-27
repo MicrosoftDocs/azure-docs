@@ -76,7 +76,7 @@ For example, a system might show three exports like these:
 
 The export ``/ifs/accounting/payroll`` is a child of ``/ifs/accounting``, and ``/ifs/accounting`` is itself a child of ``/ifs``.
 
-If you add the ``payroll`` export as an HPC cache storage target, the cache actually mounts ``/ifs/`` and accesses the payroll directory from there. So Azure HPC Cache needs root access to ``/ifs`` in order to access the ``/ifs/accounting/payroll`` export.
+If you add the ``payroll`` export as an HPC Cache storage target, the cache actually mounts ``/ifs/`` and accesses the payroll directory from there. So Azure HPC Cache needs root access to ``/ifs`` in order to access the ``/ifs/accounting/payroll`` export.
 
 This requirement is related to the way the cache indexes files and avoids file collisions, using file handles that the storage system provides.
 

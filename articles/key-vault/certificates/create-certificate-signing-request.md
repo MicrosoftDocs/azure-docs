@@ -3,7 +3,6 @@ title: Creating and merging a CSR in Azure Key Vault
 description: Learn how to create and merge a CSR in Azure Key Vault. 
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -137,6 +136,8 @@ Example
 
      This error might occur if **SubjectName** includes any special characters. See notes in the Azure portal and PowerShell instructions.
 
+- Error type **The CSR used to get your certificate has already been used. Please try to generate a new certificate with a new CSR.**
+     Go to 'Advanced Policy' section of the certificate and check if 'reuse key on renewal' option is turned off.
 ---
 
 ## Next steps

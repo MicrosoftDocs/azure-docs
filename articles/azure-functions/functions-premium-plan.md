@@ -1,10 +1,10 @@
 ---
 title: Azure Functions Premium plan
 description: Details and configuration options (VNet, no cold start, unlimited execution duration) for the Azure Functions Premium plan.
-author: jeffhollan
+author: cachai2
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.author: jehollan
+ms.author: cachai
 ms.custom:
 - references_regions
 - fasttrack-edit

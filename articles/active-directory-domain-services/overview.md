@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/20/2021
+ms.date: 04/28/2021
 ms.author: justinha
 
 ms.custom: contperf-fy21q1
@@ -49,9 +49,9 @@ Azure AD DS replicates identity information from Azure AD, so it works with Azur
 * If you have an existing on-premises AD DS environment, you can synchronize user account information to provide a consistent identity for users. To learn more, see [How objects and credentials are synchronized in a managed domain][synchronization].
 * For cloud-only environments, you don't need a traditional on-premises AD DS environment to use the centralized identity services of Azure AD DS.
 
-You can expand a managed domain to have more than one replica set per Azure AD tenant. Replica sets can be added to any peered virtual network in any Azure region that supports Azure AD DS. Additional replica sets in different Azure regions provide geographical disaster recovery for legacy applications if an Azure region goes offline. Replica sets are currently in preview. For more information, see [Replica sets concepts and features for managed domains][concepts-replica-sets].
+You can expand a managed domain to have more than one replica set per Azure AD tenant. Replica sets can be added to any peered virtual network in any Azure region that supports Azure AD DS. Additional replica sets in different Azure regions provide geographical disaster recovery for legacy applications if an Azure region goes offline. For more information, see [Replica sets concepts and features for managed domains][concepts-replica-sets].
 
-The following video provides an overview of how Azure AD DS integrates with your applications and workloads to provide identity services in the cloud:
+Take a look at this video about how Azure AD DS integrates with your applications and workloads to provide identity services in the cloud:
 
 <br />
 

@@ -53,11 +53,11 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 
 The token contains the non-hashed values so that the recipient can recompute the hash with the same parameters, verifying that the issuer is in possession of a valid signing key.
 
-The resource URI is the full URI of the Service Bus resource to which access is claimed. For example, http://<namespace>.servicebus.windows.net/<entityPath> or `sb://<namespace>.servicebus.windows.net/<entityPath>;` that is, `http://contoso.servicebus.windows.net/eventhubs/eh1`.
+The resource URI is the full URI of the Service Bus resource to which access is claimed. For example, http://<namespace>.servicebus.windows.net/<entityPath> or `sb://<namespace>.servicebus.windows.net/<entityPath>;` that is, `http://contoso.servicebus.windows.net/eh1`.
 
 The URI must be percent-encoded.
 
-The shared access authorization rule used for signing must be configured on the entity specified by this URI, or by one of its hierarchical parents. For example, `http://contoso.servicebus.windows.net/eventhubs/eh1` or `http://contoso.servicebus.windows.net` in the previous example.
+The shared access authorization rule used for signing must be configured on the entity specified by this URI, or by one of its hierarchical parents. For example, `http://contoso.servicebus.windows.net/eh1` or `http://contoso.servicebus.windows.net` in the previous example.
 
 A SAS token is valid for all resources prefixed with the <resourceURI> used in the signature-string.
 

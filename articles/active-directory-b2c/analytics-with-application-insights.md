@@ -248,7 +248,7 @@ To fit your business needs, you might want to record more claims. To add a claim
 
 ### Manipulate claims
 
-You can use [input claims transformations](custom-policy-trust-frameworks.md#manipulating-your-claims) to modify the input claims or generate new ones before sending them to Application Insights. In the following example, the technical profile includes the `CheckIsAdmin` input claims transformation.
+You can use [input claims transformations](custom-policy-overview.md#manipulating-your-claims) to modify the input claims or generate new ones before sending them to Application Insights. In the following example, the technical profile includes the `CheckIsAdmin` input claims transformation.
 
 ```xml
 <TechnicalProfile Id="AppInsights-SignInComplete">
@@ -265,7 +265,7 @@ You can use [input claims transformations](custom-policy-trust-frameworks.md#man
 
 ### Add events
 
-To add an event, create a new technical profile that includes the `AppInsights-Common` technical profile. Then add the new technical profile as an orchestration step to the [user journey](custom-policy-trust-frameworks.md#orchestration-steps). Use the [Precondition](userjourneys.md#preconditions) element to trigger the event when you're ready. For example, report the event only when users run through multifactor authentication.
+To add an event, create a new technical profile that includes the `AppInsights-Common` technical profile. Then add the new technical profile as an orchestration step to the [user journey](custom-policy-overview.md#orchestration-steps). Use the [Precondition](userjourneys.md#preconditions) element to trigger the event when you're ready. For example, report the event only when users run through multifactor authentication.
 
 ```xml
 <TechnicalProfile Id="AppInsights-MFA-Completed">

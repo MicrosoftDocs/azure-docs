@@ -75,7 +75,7 @@ If you use a Storage Explorer tool to download this metrics data in a delimited 
 ## Billing on storage metrics
 Write requests to create table entities for metrics are charged at the standard rates applicable to all Azure Storage operations.  
 
-Read and delete requests of metrics data by a client are also billable at standard rates. If you configured a data retention policy, you aren't charged when Azure Storage deletes old metrics data. If you delete analytics data, your account is charged for the delete operations.  
+Read requests of metrics data by a client are also billable at standard rates. 
 
 The capacity used by the metrics tables is also billable. Use the following information to estimate the amount of capacity used for storing metrics data:  
 

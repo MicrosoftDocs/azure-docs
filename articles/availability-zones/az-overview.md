@@ -4,7 +4,7 @@ description: Learn about regions and Availability Zones in Azure to meet your te
 author: prsandhu
 ms.service: azure
 ms.topic: conceptual
-ms.date: 02/23/2021
+ms.date: 04/09/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc
@@ -82,8 +82,8 @@ If a service offering is not available in a specific region, you can share your 
 As mentioned previously, Azure classifies services into three categories: foundational, mainstream, and specialized. Service categories are assigned at general availability. Often, services start their lifecycle as a specialized service and as demand and utilization increases may be promoted to mainstream or foundational. The following table lists the category for services as foundational, mainstream. You should note the following about the table:
 
 - Some services are non-regional. For information and a list of non-regional services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
-- Older generation of services or virtual machines are not listed. For more information, see documentation at [Previous generations of virtual machine sizes](../virtual-machines/sizes-previous-gen.md)
-- .Services are not assigned a category until General Availability (GA). For information, and a list of preview services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). 
+- Older generation of services or virtual machines are not listed. For more information, see documentation at [Previous generations of virtual machine sizes](../virtual-machines/sizes-previous-gen.md).
+- Services are not assigned a category until General Availability (GA). For information, and a list of preview services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). 
 
 > [!div class="mx-tableFixed"]
 > | Foundational                           | Mainstream                                        | 
@@ -95,45 +95,35 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Azure Data Lake Storage Gen2           | Azure Active Directory Domain Services            | 
 > | Azure ExpressRoute                     | Azure Bastion                                     | 
 > | Azure Public IP                        | Azure Cache for Redis                             | 
-> | Azure SQL Database                     | Azure Cognitive Search                            | 
-> | Azure SQL Managed Instance             | Azure Cognitive Services                          | 
-> | Disk Storage                           | Azure Cognitive Services: Computer Vision         | 
-> | Event Hubs                             | Azure Cognitive Services: Content Moderator       | 
-> | Key Vault                              | Azure Cognitive Services: Face                    | 
-> | Load balancer                          | Azure Cognitive Services: Immersive Reader        | 
-> | Service Bus                            | Azure Cognitive Services: Language Understanding  | 
-> | Service Fabric                         | Azure Cognitive Services: Speech Services         | 
-> | Storage: Hot/Cool Blob Storage Tiers   | Azure Cognitive Services: Text Analytics          | 
-> | Storage: Managed Disks                 | Azure Cognitive Services: Translator              | 
-> | Virtual Machine Scale Sets             | Azure Data Explorer                               | 
-> | Virtual Machines                       | Azure Data Share                                  | 
-> | Virtual Machines: Azure Dedicated Host | Azure Database for MySQL                          | 
-> | Virtual Machines: Av2-Series           | Azure Database for PostgreSQL                     | 
-> | Virtual Machines: Bs-Series            | Azure DDoS Protection                             | 
-> | Virtual Machines: DSv2-Series          | Azure Firewall                                    | 
-> | Virtual Machines: DSv3-Series          | Azure Firewall Manager                            | 
-> | Virtual Machines: Dv2-Series           | Azure Functions                                   | 
-> | Virtual Machines: Dv3-Series           | Azure IoT Hub                                     |     
-> | Virtual Machines: ESv3-Series          | Azure Kubernetes Service (AKS)                    | 
-> | Virtual Machines: Ev3-Series           | Azure Machine Learning                            | 
-> | Virtual Network                        | Azure Monitor: Application Insights               | 
-> | VPN Gateway                            | Azure Monitor: Log Analytics                      | 
-> |                                        | Azure Private Link                                | 
-> |                                        | Azure Red Hat OpenShift                           | 
-> |                                        | Azure Site Recovery                               | 
-> |                                        | Azure Stream Analytics                            | 
-> |                                        | Azure Synapse Analytics                           | 
-> |                                        | Batch                                             | 
-> |                                        | Cloud Services: M-series                          | 
-> |                                        | Container Instances                               | 
-> |                                        | Container Registry                                | 
+> | Azure SQL Database                     | Azure Cognitive Services                          | 
+> | Azure SQL Managed Instance             | Azure Cognitive Services: Computer Vision         | 
+> | Disk Storage                           | Azure Cognitive Services: Content Moderator       | 
+> | Event Hubs                             | Azure Cognitive Services: Face                    | 
+> | Key Vault                              | Azure Cognitive Services: Text Analytics          | 
+> | Load balancer                          | Azure Data Explorer                               | 
+> | Service Bus                            | Azure Database for MySQL                          | 
+> | Service Fabric                         | Azure Database for PostgreSQL                     | 
+> | Storage: Hot/Cool Blob Storage Tiers   | Azure DDoS Protection                             | 
+> | Storage: Managed Disks                 | Azure Firewall                                    | 
+> | Virtual Machine Scale Sets             | Azure Firewall Manager                            | 
+> | Virtual Machines                       | Azure Functions                                   | 
+> | Virtual Machines: Azure Dedicated Host | Azure IoT Hub                                     | 
+> | Virtual Machines: Av2-Series           | Azure Kubernetes Service (AKS)                    | 
+> | Virtual Machines: Bs-Series            | Azure Monitor: Application Insights               | 
+> | Virtual Machines: DSv2-Series          | Azure Monitor: Log Analytics                      | 
+> | Virtual Machines: DSv3-Series          | Azure Private Link                                | 
+> | Virtual Machines: Dv2-Series           | Azure Site Recovery                               | 
+> | Virtual Machines: Dv3-Series           | Azure Synapse Analytics                           |     
+> | Virtual Machines: ESv3-Series          | Batch                                             | 
+> | Virtual Machines: Ev3-Series           | Cloud Services: M-series                          | 
+> | Virtual Network                        | Container Instances                               | 
+> | VPN Gateway                            | Container Registry                                | 
 > |                                        | Data Factory                                      | 
 > |                                        | Event Grid                                        | 
 > |                                        | HDInsight                                         |  
 > |                                        | Logic Apps                                        | 
 > |                                        | Media Services                                    | 
 > |                                        | Network Watcher                                   | 
-> |                                        | Notification Hubs                                 | 
 > |                                        | Premium Blob Storage                              | 
 > |                                        | Premium Files Storage                             | 
 > |                                        | Virtual Machines: Ddsv4-Series                    | 
@@ -151,18 +141,24 @@ As mentioned previously, Azure classifies services into three categories: founda
 
 
 ### Specialized Services
-As mentioned previously, Azure classifies services into three categories: foundational, mainstream, and specialized. Service categories are assigned at general availability. Often, services start their lifecycle as a specialized service and as demand and utilization increases may be promoted to mainstream or foundational. The following table lists  specialized services. 
+As mentioned previously, Azure classifies services into three categories: foundational, mainstream, and specialized. Service categories are assigned at general availability. Often, services start their lifecycle as a specialized service and as demand and utilization increases may be promoted to mainstream or foundational. The following table lists specialized services. 
 
 > [!div class="mx-tableFixed"]
 > | Specialized                                          |
 > |------------------------------------------------------|
 > | Azure API for FHIR                                   |
 > | Azure Analysis Services                              |
+> | Azure Blockchain Service                             |
 > | Azure Cognitive Services: Anomaly Detector           |
 > | Azure Cognitive Services: Custom Vision              |
 > | Azure Cognitive Services: Form Recognizer            |
+> | Azure Cognitive Services: Immersive Reader           |
+> | Azure Cognitive Services: Language Understanding     |
 > | Azure Cognitive Services: Personalizer               |
 > | Azure Cognitive Services: QnA Maker                  |
+> | Azure Cognitive Services: Speech Services            |
+> | Azure Data Share                                     |
+> | Azure Databricks                                     |
 > | Azure Database for MariaDB                           |
 > | Azure Database Migration Service                     |
 > | Azure Dedicated HSM                                  |
@@ -171,13 +167,13 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Azure HPC Cache                                      |
 > | Azure Lab Services                                   |
 > | Azure NetApp Files                                   |
+> | Azure Red Hat OpenShift                              |
 > | Azure SignalR Service                                |
-> | Azure Spring Cloud Service                           |
+> | Azure Spring Cloud                                   |
+> | Azure Stream Analytics                               |
 > | Azure Time Series Insights                           |
 > | Azure VMware Solution                                |
 > | Azure VMware Solution by CloudSimple                 |
-> | Data Lake Analytics                                  |
-> | Azure Machine Learning Studio (classic)              |
 > | Spatial Anchors                                      |
 > | Storage: Archive Storage                             |
 > | Ultra Disk Storage                                   |

@@ -13,7 +13,7 @@ ms.author: tagore
 
 # Migrate your IaaS resources to Azure Resource Manager by March 1, 2023 
 
-In 2014, we launched infrastructure as a service (IaaS) on [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). We've been enhancing capabilities ever since. Because Azure Resource Manager now has full IaaS capabilities and other advancements, we deprecated the management of IaaS virtual machines (VMs) through [Azure Service Manager](./migration-classic-resource-manager-faq.md#what-is-azure-service-manager-and-what-does-it-mean-by-classic) (ASM) on February 28, 2020. This functionality will be fully retired on March 1, 2023. 
+In 2014, we launched infrastructure as a service (IaaS) on [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). We've been enhancing capabilities ever since. Because Azure Resource Manager now has full IaaS capabilities and other advancements, we deprecated the management of IaaS virtual machines (VMs) through [Azure Service Manager](/azure/virtual-machines/migration-classic-resource-manager-faq#what-is-azure-service-manager-and-what-does-it-mean-by-classic) (ASM) on February 28, 2020. This functionality will be fully retired on March 1, 2023. 
 
 Today, about 90 percent of the IaaS VMs are using Azure Resource Manager. If you use IaaS resources through ASM, start planning your migration now. Complete it by March 1, 2023, to take advantage of [Azure Resource Manager](../azure-resource-manager/management/index.yml).
 
@@ -51,7 +51,7 @@ Start planning your migration to Azure Resource Manager, today.
    - You can also query Azure Resource Graph by using the [portal](https://portal.azure.com/#blade/HubsExtension/ArgQueryBlade/query/resources%0A%7C%20where%20type%20%3D%3D%20%22microsoft.classiccompute%2Fvirtualmachines%22) or [PowerShell](../governance/resource-graph/concepts/work-with-data.md) to view the list of all flagged VMs (classic) and related information for the selected subscriptions. 
    - On February 8 and September 2, 2020, we sent out emails with subject "Start planning your IaaS VM migration to Azure Resource Manager" to subscription owners. The email provides a list of all subscriptions and VMs (classic) VMs in it. Please use them to build this list. 
 
-1. [Learn more](./migration-classic-resource-manager-overview.md) about migrating your [Linux](./migration-classic-resource-manager-plan.md) and [Windows](./migration-classic-resource-manager-plan.md) VMs (classic) to Azure Resource Manager. For more information, see [Frequently asked questions about classic to Azure Resource Manager migration](./migration-classic-resource-manager-faq.md).
+1. [Learn more](./migration-classic-resource-manager-overview.md) about migrating your [Linux](./migration-classic-resource-manager-plan.md) and [Windows](./migration-classic-resource-manager-plan.md) VMs (classic) to Azure Resource Manager. For more information, see [Frequently asked questions about classic to Azure Resource Manager migration](./migration-classic-resource-manager-faq.yml).
 
 1. We recommend starting the planning by using the [platform support migration tool](./migration-classic-resource-manager-overview.md) to migrate your existing VMs with three easy steps: validate, prepare, and commit. The tool is designed to migrate your VMs within minimal to no downtime. 
 
@@ -61,6 +61,6 @@ Start planning your migration to Azure Resource Manager, today.
 
    If the migration tool is not suitable for your migration, you can explore [other compute offerings](/azure/architecture/guide/technology-choices/compute-decision-tree) for the migration. Because there are many Azure compute offerings, and they're different from one another, we can't provide a platform-supported migration path to them.  
 
-1. For technical questions, issues, and help with adding subscriptions to the allow list, [contact support](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"8a82f77d-c3ab-7b08-d915-776b4ff64ff4"}).
+1. For technical questions, issues, and help with adding subscriptions to the allowlist, [contact support](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"8a82f77d-c3ab-7b08-d915-776b4ff64ff4"}).
 
-1. Complete the migration as soon as possible to prevent business impact and to take advantage of the improved performance, security, and new features of Azure Resource Manager. 
+1. Complete the migration as soon as possible to prevent business impact and to take advantage of the improved performance, security, and new features of Azure Resource Manager.

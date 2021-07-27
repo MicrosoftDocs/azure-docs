@@ -332,5 +332,5 @@ Curl
 
 ## Next steps
 
-- You can try out the APIs through the [Swagger API URL](https://partneranalytics-api.azure-api.net/analytics/cmp/swagger/index.html)
+- You can try out the APIs through the [Swagger API URL](https://api.partnercenter.microsoft.com/insights/v1/cmp/swagger/index.html)
 - [Programmatic access paradigm](analytics-programmatic-access.md)

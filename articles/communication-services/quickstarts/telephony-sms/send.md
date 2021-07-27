@@ -7,16 +7,13 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ms.custom: tracking-python, devx-track-js
 zone_pivot_groups: acs-js-csharp-java-python
 ---
 # Quickstart: Send an SMS message
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
@@ -53,7 +50,7 @@ If you want to clean up and remove a Communication Services subscription, you ca
 In this quickstart, you learned how to send SMS messages using Azure Communication Services.
 
 > [!div class="nextstepaction"]
-> [Subscribe to SMS Events](./handle-sms-events.md)
+> [Receive SMS and Delivery Report Events](./handle-sms-events.md)
 
 > [!div class="nextstepaction"]
 > [Phone number types](../../concepts/telephony-sms/plan-solution.md)

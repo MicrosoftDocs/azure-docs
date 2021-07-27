@@ -15,12 +15,12 @@ After you [create and run a logic app](../logic-apps/quickstart-create-first-log
 For real-time event monitoring and richer debugging, set up diagnostics logging for your logic app by using [Azure Monitor logs](../azure-monitor/overview.md). This Azure service helps you monitor your cloud and on-premises environments so that you can more easily maintain their availability and performance. You can then find and view events, such as trigger events, run events, and action events. By storing this information in [Azure Monitor logs](../azure-monitor/logs/data-platform-logs.md), you can create [log queries](../azure-monitor/logs/log-query-overview.md) that help you find and analyze this information. You can also use this diagnostic data with other Azure services, such as Azure Storage and Azure Event Hubs. For more information, see [Monitor logic apps by using Azure Monitor](../logic-apps/monitor-logic-apps-log-analytics.md).
 
 > [!NOTE]
-> If your logic apps run in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 
-> that was created to use an [internal access endpoint](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access), 
-> you can view and access inputs and outputs from logic app's runs history *only from inside your virtual network*. Make sure that you have network 
-> connectivity between the private endpoints and the computer from where you want to access runs history. For example, your client computer can exist 
-> inside the ISE's virtual network or inside a virtual network that's connected to the ISE's virtual network, for example, through peering or a virtual 
-> private network. For more information, see [ISE endpoint access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). 
+> If your logic apps run in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)
+> that was created to use an [internal access endpoint](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access),
+> you can view and access inputs and outputs from logic app's runs history *only from inside your virtual network*. Make sure that you have network
+> connectivity between the private endpoints and the computer from where you want to access runs history. For example, your client computer can exist
+> inside the ISE's virtual network or inside a virtual network that's connected to the ISE's virtual network, for example, through peering or a virtual
+> private network. For more information, see [ISE endpoint access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access).
 
 <a name="review-runs-history"></a>
 
@@ -30,7 +30,7 @@ Each time that the trigger fires for an item or event, the Logic Apps engine cre
 
 1. In the [Azure portal](https://portal.azure.com), find and open your logic app in the Logic App Designer.
 
-   To find your logic app , in the main Azure search box, enter `logic apps`, and then select **Logic Apps**.
+   To find your logic app, in the main Azure search box, enter `logic apps`, and then select **Logic apps**.
 
    ![Find and select "Logic Apps" service](./media/monitor-logic-apps/find-your-logic-app.png)
 
@@ -43,7 +43,7 @@ Each time that the trigger fires for an item or event, the Logic Apps engine cre
    On the overview pane, under **Runs history**, all the past, current, and any waiting runs for your logic app appear. If the list shows many runs, and you can't find the entry that you want, try filtering the list.
 
    > [!TIP]
-   > If the run status doesn't appear, try refreshing the overview page by selecting **Refresh**. 
+   > If the run status doesn't appear, try refreshing the overview page by selecting **Refresh**.
    > No run happens for a trigger that's skipped due to unmet criteria or finding no data.
 
    ![Overview, runs history, and other logic app information](./media/monitor-logic-apps/overview-pane-logic-app-details-run-history.png)
@@ -92,10 +92,10 @@ Each time that the trigger fires for an item or event, the Logic Apps engine cre
      You can now view information such as inputs and outputs for that step, for example:
 
    > [!NOTE]
-   > All runtime details and events are encrypted within the Logic Apps service. 
-   > They are decrypted only when a user requests to view that data. 
-   > You can [hide inputs and outputs in run history](../logic-apps/logic-apps-securing-a-logic-app.md#obfuscate) 
-   > or control user access to this information by using 
+   > All runtime details and events are encrypted within the Logic Apps service.
+   > They are decrypted only when a user requests to view that data.
+   > You can [hide inputs and outputs in run history](../logic-apps/logic-apps-securing-a-logic-app.md#obfuscate)
+   > or control user access to this information by using
    > [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
 
 <a name="review-trigger-history"></a>
@@ -134,7 +134,7 @@ Each logic app run starts with a trigger. The trigger history lists all the trig
    |||
 
    > [!TIP]
-   > You can recheck the trigger without waiting for the next recurrence. On the overview toolbar, select **Run trigger**, 
+   > You can recheck the trigger without waiting for the next recurrence. On the overview toolbar, select **Run trigger**,
    > and select the trigger, which forces a check. Or, select **Run** on Logic Apps Designer toolbar.
 
 1. To view information about a specific trigger attempt, on the trigger pane, select that trigger event. If the list shows many trigger attempts, and you can't find the entry that you want, try filtering the list. If you don't find the data that you expect, try selecting **Refresh** on the toolbar.
@@ -194,13 +194,13 @@ To get alerts based on specific metrics or exceeded thresholds for your logic ap
 1. When you're done, select **Create alert rule**.
 
 > [!TIP]
-> To run a logic app from an alert, you can include the 
-> [request trigger](../connectors/connectors-native-reqres.md) in your workflow, 
+> To run a logic app from an alert, you can include the
+> [request trigger](../connectors/connectors-native-reqres.md) in your workflow,
 > which lets you perform tasks like these examples:
-> 
-> * [Post to Slack](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
-> * [Send a text](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
-> * [Add a message to a queue](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
+>
+> * [Post to Slack](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-slack-with-logic-app)
+> * [Send a text](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-text-message-with-logic-app)
+> * [Add a message to a queue](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-queue-with-logic-app)
 
 ## Next steps
 

@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 05/21/2018
  ms.author: tomfitz
- ms.custom: include file
+ ms.custom: include file, devx-track-azurepowershell
 ---
 
 To add two tags to a resource group, use the [Set-AzResourceGroup](/powershell/module/az.resources/set-azresourcegroup) command:

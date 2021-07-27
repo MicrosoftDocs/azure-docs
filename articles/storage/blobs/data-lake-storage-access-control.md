@@ -31,13 +31,14 @@ To set file and directory level permissions, see any of the following articles:
 
 | Environment | Article |
 |--------|-----------|
-|Azure Storage Explorer |[Use Azure Storage Explorer to set ACLs in Azure Data Lake Storage Gen2](data-lake-storage-explorer-acl.md)|
-|.NET |[Use .NET to set ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-dotnet.md)|
-|Java|[Use Java to set ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-java.md)|
-|Python|[Use Python to set ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-python.md)|
-|JavaScript (Node.js)|[Use the JavaScript SDK in Node.js to set ACLs in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-javascript.md)|
-|PowerShell|[Use PowerShell to set ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-powershell.md)|
-|Azure CLI|[Use Azure CLI to set ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-cli.md)|
+|Azure Storage Explorer |[Use Azure Storage Explorer to manage ACLs in Azure Data Lake Storage Gen2](data-lake-storage-explorer-acl.md)|
+|Azure portal |[Use the Azure portal to manage ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-azure-portal.md)|
+|.NET |[Use .NET to manage ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-dotnet.md)|
+|Java|[Use Java to manage ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-java.md)|
+|Python|[Use Python to manage ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-python.md)|
+|JavaScript (Node.js)|[Use the JavaScript SDK in Node.js to manage ACLs in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-javascript.md)|
+|PowerShell|[Use PowerShell to manage ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-powershell.md)|
+|Azure CLI|[Use Azure CLI to manage ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-cli.md)|
 |REST API |[Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
@@ -88,7 +89,7 @@ In the POSIX-style model that's used by Data Lake Storage Gen2, permissions for 
 
 The following table shows you the ACL entries required to enable a security principal to perform the operations listed in the **Operation** column. 
 
-This table shows a column that represents each level of a fictitious directory hierarchy. There's a column for the root directory of the container (`\`), a subdirectory named **Oregon**, a subdirectory of the Oregon directory named **Portland**, and a text file in the Portland directory named **Data.txt**. 
+This table shows a column that represents each level of a fictitious directory hierarchy. There's a column for the root directory of the container (`/`), a subdirectory named **Oregon**, a subdirectory of the Oregon directory named **Portland**, and a text file in the Portland directory named **Data.txt**. 
 
 > [!IMPORTANT]
 > This table assumes that you are using **only** ACLs without any Azure role assignments. To see a similar table that combines Azure RBAC together with ACLs, see [Permissions table: Combining Azure RBAC and ACL](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
@@ -152,7 +153,7 @@ The owning group can be changed by:
 
 The following pseudocode represents the access check algorithm for storage accounts.
 
-```console
+```python
 def access_check( user, desired_perms, path ) : 
   # access_check returns true if user has the desired permissions on the path, false otherwise
   # user is the identity that wants to perform an operation on path
@@ -200,7 +201,7 @@ For a new Data Lake Storage Gen2 container, the mask for the access ACL of the r
 
 |Entity|Directories|Files|
 |--|--|--|
-|Owning user|`rwx`|`r-w`|
+|Owning user|`rwx`|`rw-`|
 |Owning group|`r-x`|`r--`|
 |Other|`---`|`---`|
 

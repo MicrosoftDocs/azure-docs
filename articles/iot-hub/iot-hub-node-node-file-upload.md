@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 06/28/2017
+ms.date: 07/18/2021
 ms.custom: mqtt, devx-track-js
 ---
 
@@ -16,13 +16,13 @@ ms.custom: mqtt, devx-track-js
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-This tutorial builds on the code in the [Send cloud-to-device messages with IoT Hub](iot-hub-node-node-c2d.md) tutorial to show you how to use the [file upload capabilities of IoT Hub](iot-hub-devguide-file-upload.md) to upload a file to [Azure blob storage](../storage/index.yml). The tutorial shows you how to:
+The tutorial shows you how to:
 
 * Securely provide a device with an Azure blob URI for uploading a file.
 
 * Use the IoT Hub file upload notifications to trigger processing the file in your app back end.
 
-The [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-node.md) quickstart demonstrates the basic device-to-cloud messaging functionality of IoT Hub. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example:
+The [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) quickstart demonstrates the basic device-to-cloud messaging functionality of IoT Hub. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example:
 
 * Large files that contain images
 * Videos
@@ -33,7 +33,7 @@ These files are typically batch processed in the cloud using tools such as [Azur
 
 At the end of this tutorial you run two Node.js console apps:
 
-* **SimulatedDevice.js**, which uploads a file to storage using a SAS URI provided by your IoT hub.
+* **FileUpload.js**, which uploads a file to storage using a SAS URI provided by your IoT hub.
 
 * **ReadFileUploadNotification.js**, which receives file upload notifications from your IoT hub.
 
@@ -50,76 +50,73 @@ At the end of this tutorial you run two Node.js console apps:
 
 * Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-[!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
+## Create an IoT hub
+
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+## Register a new device in the IoT hub
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
+
+[!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-include-associate-storage.md)]
 
 ## Upload a file from a device app
 
-In this section, you create the device app to upload a file to IoT hub.
+In this section, you copy the device app from GitHub to upload a file to IoT hub.
 
-1. Create an empty folder called ```simulateddevice```.  In the ```simulateddevice``` folder, create a package.json file using the following command at your command prompt.  Accept all the defaults:
+1. There are two file upload samples available on GitHub for Node.js, a basic sample and one that is more advanced. Copy the basic sample from the repository [here](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/upload_to_blob.js). The advanced sample is located [here](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/upload_to_blob_advanced.js).   
+
+2. Create an empty folder called ```fileupload```.  In the ```fileupload``` folder, create a package.json file using the following command at your command prompt.  Accept all the defaults:
 
     ```cmd/sh
     npm init
     ```
 
-2. At your command prompt in the ```simulateddevice``` folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
+3. At your command prompt in the ```fileupload``` folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
 
     ```cmd/sh
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-3. Using a text editor, create a **SimulatedDevice.js** file in the ```simulateddevice``` folder.
-
-4. Add the following ```require``` statements at the start of the **SimulatedDevice.js** file:
+4. Using a text editor, create a **FileUpload.js** file in the ```fileupload``` folder, and copy the basic sample into it.
 
     ```javascript
+    // Copyright (c) Microsoft. All rights reserved.
+    // Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
     'use strict';
 
+    var Protocol = require('azure-iot-device-mqtt').Mqtt;
+    var Client = require('azure-iot-device').Client;
     var fs = require('fs');
-    var mqtt = require('azure-iot-device-mqtt').Mqtt;
-    var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
-    ```
 
-5. Add a `deviceconnectionstring` variable and use it to create a **Client** instance.  Replace `{deviceconnectionstring}` with the name of the device you created in the *Create an IoT Hub* section:
+    var deviceConnectionString = process.env.ConnectionString;
+    var filePath = process.env.FilePath;
 
-    ```javascript
-    var connectionString = '{deviceconnectionstring}';
-    var filename = 'myimage.png';
-    ```
+    var client = Client.fromConnectionString(deviceConnectionString, Protocol);
+    fs.stat(filePath, function (err, fileStats) {
+      var fileStream = fs.createReadStream(filePath);
 
-    > [!NOTE]
-    > For the sake of simplicity the connection string is included in the code: this is not a recommended practice and depending on your use-case and architecture you may want to consider more secure ways of storing this secret.
-
-6. Add the following code to connect the client:
-
-    ```javascript
-    var client = clientFromConnectionString(connectionString);
-    console.log('Client connected');
-    ```
-
-7. Create a callback and use the **uploadToBlob** function to upload the file.
-
-    ```javascript
-    fs.stat(filename, function (err, stats) {
-        const rr = fs.createReadStream(filename);
-
-        client.uploadToBlob(filename, rr, stats.size, function (err) {
-            if (err) {
-                console.error('Error uploading file: ' + err.toString());
-            } else {
-                console.log('File uploaded');
-            }
-        });
+      client.uploadToBlob('testblob.txt', fileStream, fileStats.size, function (err, result) {
+        if (err) {
+          console.error('error uploading file: ' + err.constructor.name + ': ' + err.message);
+        } else {
+          console.log('Upload successful - ' + result);
+        }
+        fileStream.destroy();
+      });
     });
     ```
 
-8. Save and close the **SimulatedDevice.js** file.
+5. Add environment variables for your device connection string and the path to the file that you want to upload.
 
-9. Copy an image file to the `simulateddevice` folder and rename it `myimage.png`.
+6. Save and close the **FileUpload.js** file.
+
+7. Copy an image file to the `fileupload` folder and give it a name such as `myimage.png`. Place the path to the file in the `FilePath` environment variable.
 
 ## Get the IoT hub connection string
 
-In this article you create a backend service to receive file upload notification messages from the IoT hub you created in [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-node.md). To receive file upload notification messages, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
+In this article you create a backend service to receive file upload notification messages from the IoT hub you created. To receive file upload notification messages, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
@@ -158,7 +155,7 @@ You can use the **iothubowner** connection string from your IoT Hub to complete 
     ```
 
     > [!NOTE]
-    > For the sake of simplicity the connection string is included in the code: this is not a recommended practice and depending on your use-case and architecture you may want to consider more secure ways of storing this secret.
+    > For the sake of simplicity the connection string is included in the code: this is not a recommended practice, and depending on your use-case and architecture you may want to consider more secure ways of storing this secret.
 
 6. Add the following code to connect the client:
 
@@ -200,13 +197,13 @@ At a command prompt in the `fileuploadnotification` folder, run the following co
 node FileUploadNotification.js
 ```
 
-At a command prompt in the `simulateddevice` folder, run the following command:
+At a command prompt in the `fileupload` folder, run the following command:
 
 ```cmd/sh
-node SimulatedDevice.js
+node FileUpload.js
 ```
 
-The following screenshot shows the output from the **SimulatedDevice** app:
+The following screenshot shows the output from the **FileUpload** app:
 
 ![Output from simulated-device app](./media/iot-hub-node-node-file-upload/simulated-device.png)
 

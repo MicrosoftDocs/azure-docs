@@ -1,6 +1,6 @@
 ---
-title: Weather services (Preview) concepts in Microsoft Azure Maps
-description: Learn about the concepts that apply to Microsoft Azure Maps Weather services (Preview).
+title: Weather services concepts in Microsoft Azure Maps
+description: Learn about the concepts that apply to Microsoft Azure Maps Weather services.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/10/2020
@@ -10,12 +10,7 @@ services: azure-maps
 manager: philmea
 ---
 
-# Weather services (Preview) in Azure Maps
-
-> [!IMPORTANT]
-> Azure Maps Weather services are currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Weather services in Azure Maps
 
 This article introduces concepts that apply to Azure Maps [Weather services](/rest/api/maps/weather). We recommend going through this article before starting out with the weather APIs.
 
@@ -48,7 +43,7 @@ Some of the Weather service (Preview) APIs allow user to specify if the data is 
 |20      |percent             |
 |21      |float               |
 |22      |integer             |
-
+|31      |MicrogramsPerCubicMeterOfAir             |
 
 ## Weather icons
 
@@ -100,7 +95,7 @@ Some of the Weather service (Preview) APIs return the `iconCode` in the response
 
 ## Radar and satellite imagery color scale
 
-Via [Get Map Tile v2 API](/rest/api/maps/renderv2/getmaptilepreview) users can request latest radar and infrared satellite images. See below guide to help interpret colors used for radar and satellite tiles.
+Via [Get Map Tile v2 API](/rest/api/maps/render-v2/get-map-tile) users can request latest radar and infrared satellite images. See below guide to help interpret colors used for radar and satellite tiles.
 
 ### Radar Images
 

@@ -1,0 +1,167 @@
+- name: Azure Video Analyzer (preview) documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Azure Video Analyzer
+    href: overview.md
+  - name: About Video Analyzer for Media
+    href: ../video-analyzer-for-media-docs/video-indexer-overview.md
+  - name: Video Analyzer terminology
+    href: terminology.md
+  - name: What's new
+    items:
+    - name: Release notes
+      href: release-notes.md  
+- name: Quickstarts
+  items:
+  - name: Get started with Azure Video Analyzer
+    items:
+    - name: Using ARM template
+      href: get-started-detect-motion-emit-events.md
+    - name: Using Portal
+      href: get-started-detect-motion-emit-events-portal.md
+  - name: Azure Video Analyzer Visual Studio Code extension
+    href: create-pipeline-vs-code-extension.md
+  - name: Detect motion and emit events    
+    href: detect-motion-emit-events-quickstart.md
+  - name: Detect motion, record video
+    items:
+    - name: On the Edge
+      href: detect-motion-record-video-edge-devices.md
+    - name: In the Cloud
+      href: detect-motion-record-video-clips-cloud.md
+  - name: Analyze live video
+    items:
+    - name: with your own gRPC model
+      displayName: analyze live video
+      href: analyze-live-video-use-your-model-grpc.md
+    - name: with your own HTTP model
+      displayName: analyze live video
+      href: analyze-live-video-use-your-model-http.md
+  - name: Track objects in live videos
+    href: track-objects-live-video.md
+- name: Tutorials
+  items:
+  - name: Use continuous video recording
+    href: use-continuous-video-recording.md
+  - name: Use event-based video recording
+    href: record-event-based-live-video.md
+  - name: Record and stream inference data with video
+    href: record-stream-inference-data-with-video.md
+  - name: Use line crossing
+    href: use-line-crossing.md
+  - name: Analyze live video
+    items:
+    - name: With OVMS via HTTP extension
+      displayName: analyze live video, intel, OpenVINO 
+      href: use-intel-openvino-tutorial.md
+    - name: With OV DL Streamer via gRPC extension
+      displayName: analyze live video, intel, OpenVINO, DL Streamer, VAS
+      href: use-intel-grpc-video-analytics-serving-tutorial.md
+    - name: With Custom Vision
+      displayName: analyze live video    
+      href: analyze-live-video-custom-vision.md 
+    - name: With Spatial Analysis
+      href: computer-vision-for-spatial-analysis.md    
+- name: GitHub samples
+  items:
+  - name: C# sample repository
+    href: https://go.microsoft.com/fwlink/?linkid=2163551
+  - name: Python sample repository
+    href: https://go.microsoft.com/fwlink/?linkid=2163454
+- name: Concepts
+  items:
+  - name: Pipeline
+    href: pipeline.md
+  - name: Pipeline extension
+    href: pipeline-extension.md
+  - name: Video recording
+    href: video-recording.md
+  - name: Scenarios 
+    items:
+    - name: Event-based video recording
+      href: event-based-video-recording-concept.md 
+    - name: Continuous video recording
+      href: continuous-video-recording.md
+    - name: Analyze live videos without recording
+      href: analyze-live-video-without-recording.md
+- name: How-to guides
+  items:
+  - name: Setup
+    items:
+    - name: Create a new account
+      href: create-video-analyzer-account.md
+    - name: Managed identity
+      href: managed-identity.md
+    - name: Customer managed keys
+      href: customer-managed-keys.md
+  - name: Deploy
+    items:  
+    - name: Deploy to an IoT Edge device
+      href: deploy-iot-edge-device.md
+    - name: Deploy to an IoT Edge for Linux on Windows
+      href: deploy-iot-edge-linux-on-windows.md
+    - name: Deploy on Azure Stack Edge
+      href: deploy-on-stack-edge.md
+  - name: Playback
+    items:      
+    - name: Playback a recording
+      href: playback-recordings-how-to.md
+    - name: Using the Azure Video Analyzer player widget
+      href: player-widget.md
+    - name: Use access policies for playback
+      href: access-policies.md
+  - name: Record
+    items:
+    - name: Manage recording policy
+      href: manage-recording-policy.md
+    - name: Configure a signal gate
+      href: configure-signal-gate.md
+  - name: Apply AI
+    items:      
+    - name: Develop and deploy gRPC inference server
+      href: develop-deploy-grpc-inference-srv.md
+  - name: Portal
+    items:      
+    - name: Invoke direct methods with the portal
+      href: use-azure-portal-to-invoke-direct-methods.md
+  - name: Operate
+    items:
+    - name: Monitor and logging
+      href: monitor-log-edge.md 
+  - name: Troubleshoot
+    href: troubleshoot.md
+- name: Reference 
+  items:
+  - name: Access policies
+    href: access-policies.md
+  - name: Developer SDKs
+    href: sdk.md
+  - name: Direct methods
+    href: direct-methods.md
+  - name: gRPC extension protocol
+    href: grpc-extension-protocol.md
+  - name: HTTP extension protocol 
+    href: http-extension-protocol.md
+  - name: Inference metadata schema
+    href: inference-metadata-schema.md
+  - name: Module Twin configuration schema
+    href: module-twin-configuration-schema.md
+  - name: Production readiness and best practices	
+    href: production-readiness.md
+  - name: Transparency and responsible AI principles
+    href: https://go.microsoft.com/fwlink/?linkid=2163476
+  - name: Visual Studio Code extension
+    href: visual-studio-code-extension.md
+- name: Resources
+  items:
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/updates/?category=media
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/video-analyzer/
+  - name: Available regions
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=video-analyzer&regions=all
+  - name: FAQs
+    href: faq-edge.yml 
+  - name: Quotas and limitations
+    href: quotas-limitations.md

@@ -19,6 +19,7 @@ The content that follows is split into two different sections meant to target di
 
 - [C# in Visual Studio with xUnit](#c-in-visual-studio)
 - [JavaScript in VS Code with Jest](#javascript-in-vs-code)
+- [Python using pytest](./functions-reference-python.md?tabs=application-level#unit-testing)
 
 The sample repository is available on [GitHub](https://github.com/Azure-Samples/azure-functions-tests).
 
@@ -37,7 +38,7 @@ To set up your environment, create a Function and test app. The following steps 
 3. [Create a timer function from the template](./functions-create-scheduled-function.md) and name it **MyTimerTrigger**.
 4. [Create an xUnit Test app](https://xunit.net/docs/getting-started/netcore/cmdline) in the solution and name it **Functions.Tests**.
 5. Use NuGet to add a reference from the test app to [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
-6. [Reference the *Functions* app](/visualstudio/ide/managing-references-in-a-project?view=vs-2017) from *Functions.Tests* app.
+6. [Reference the *Functions* app](/visualstudio/ide/managing-references-in-a-project) from *Functions.Tests* app.
 
 ### Create test classes
 

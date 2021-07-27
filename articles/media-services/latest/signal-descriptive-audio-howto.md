@@ -24,9 +24,9 @@ This article shows how to encode a video, upload an audio-only MP4 file (AAC cod
 
 ## Prerequisites
 
-- [Create a Media Services account](./create-account-howto.md).
+- [Create a Media Services account](./account-create-how-to.md).
 - Follow the steps in [Access Azure Media Services API with the Azure CLI](./access-api-howto.md) and save the credentials. You will need to use them to access the API.
-- Review [Dynamic packaging](dynamic-packaging-overview.md).
+- Review [Dynamic packaging](encode-dynamic-packaging-concept.md).
 - Review the [Upload, encode, and stream videos](stream-files-tutorial-with-api.md) tutorial.
 
 ## Create an input asset and upload a local file into it 
@@ -59,7 +59,7 @@ In the case of this article, pass the `outputAsset.Name` value to the `SubmitJob
 
 ## Create a transform and a job that encodes the uploaded file
 
-When encoding or processing content in Media Services, it is a common pattern to set up the encoding settings as a recipe. You would then submit a **Job** to apply that recipe to a video. By submitting new jobs for each new video, you are applying that recipe to all the videos in your library. A recipe in Media Services is called as a **Transform**. For more information, see [Transforms and Jobs](./transforms-jobs-concept.md). The sample described in this tutorial defines a recipe that encodes the video in order to stream it to a variety of iOS and Android devices. 
+When encoding or processing content in Media Services, it is a common pattern to set up the encoding settings as a recipe. You would then submit a **Job** to apply that recipe to a video. By submitting new jobs for each new video, you are applying that recipe to all the videos in your library. A recipe in Media Services is called as a **Transform**. For more information, see [Transforms and Jobs](./transform-jobs-concept.md). The sample described in this tutorial defines a recipe that encodes the video in order to stream it to a variety of iOS and Android devices. 
 
 The following example creates a transform (if one does not exist).
 
@@ -240,4 +240,4 @@ Azure Media Player can be used for testing but should not be used in a productio
 
 ## Next steps
 
-[Analyze videos](analyze-videos-tutorial-with-api.md)
+[Analyze videos](analyze-videos-tutorial.md)

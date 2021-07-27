@@ -7,14 +7,14 @@ manager: anvalent
 services: azure-communication-services
 
 ms.author: chpalm
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
 # Quickstart: Send SMS messages in Azure Logic Apps with Azure Communication Services
 
-By using the [Azure Communication Services SMS](../../overview.md) connector and [Azure Logic Apps](../../../logic-apps/logic-apps-overview.md), you can create automated workflows, or *logic apps*, that can send SMS messages. This quickstart shows how to automatically send text messages in response to a trigger event, which is the first step in a logic app workflow. A trigger event can be an incoming email message, a recurrence schedule, an [Azure Event Grid](../../../event-grid/overview.md) resource event, or any other [trigger that's supported by Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
+By using the [Azure Communication Services SMS](../../overview.md) connector and [Azure Logic Apps](../../../logic-apps/logic-apps-overview.md), you can create automated workflows that can send SMS messages. This quickstart shows how to automatically send text messages in response to a trigger event, which is the first step in a logic app workflow. A trigger event can be an incoming email message, a recurrence schedule, an [Azure Event Grid](../../../event-grid/overview.md) resource event, or any other [trigger that's supported by Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
 :::image type="content" source="./media/logic-app/azure-communication-services-connector.png" alt-text="Screenshot that shows the Azure portal, which is open to the Logic App Designer, and shows an example logic app that uses the Send SMS action for the Azure Communication Services connector.":::
 
@@ -48,14 +48,40 @@ To add the **Send SMS** action as a new step in your workflow by using the Azure
    :::image type="content" source="./media/logic-app/select-send-sms-action.png" alt-text="Screenshot that shows the Logic App Designer and the Azure Communication Services connector with the Send SMS action selected.":::
 
 1. Now create a connection to your Communication Services resource.
+    1. Within the same subscription:
 
-   1. Provide a name for the connection.
+       1. Provide a name for the connection.
 
-   1. Select your Azure Communication Services resource.
+       1. Select your Azure Communication Services resource.
 
-   1. Select **Create**.
+       1. Select **Create**.
 
-   :::image type="content" source="./media/logic-app/send-sms-configuration.png" alt-text="Screenshot that shows the Send SMS action configuration with sample information.":::
+       :::image type="content" source="./media/logic-app/send-sms-configuration.png" alt-text="Screenshot that shows the Send SMS action configuration with sample information.":::
+
+    1. Using the connection string from your Communication Services resource:
+        
+        1. Provide a name for the connection.
+        
+        1. Select ConnectionString Authentication from the drop down options.
+        
+        1. Enter the connection string of your Communication Services resource.
+        
+        1. Select **Create**.
+        
+        :::image type="content" source="./media/logic-app/connection-string-auth.png" alt-text="Screenshot that shows the Connection String Authentication configuration.":::
+        
+    1. Using Service Principal ([Refer Services Principal Creation](../identity/service-principal-from-cli.md)):
+        1. Provide a name for the connection.
+        
+        1. Select Service principal (Azure AD application) Authentication from the drop down options.
+        
+        1. Enter the Tenant ID, Client ID & Client Secret of your Service Principal.
+        
+        1. Enter the Communication Services Endpoint URL value of your Communication Services resource.
+        
+        1. Select **Create**.
+        
+        :::image type="content" source="./media/logic-app/service-principal-auth.png" alt-text="Screenshot that shows the Service Principal Authentication configuration.":::     
 
 1. In the **Send SMS** action, provide the following information: 
 
@@ -69,11 +95,11 @@ To add the **Send SMS** action as a new step in your workflow by using the Azure
 
 1. When you're done, on the designer toolbar, select **Save**.
 
-Next, run your logic app for testing.
+Next, run your logic app workflow for testing.
 
 ## Test your logic app
 
-To manually start your logic app, on the designer toolbar, select **Run**. Or, you can wait for your logic app to trigger. In both cases, the logic app should send an SMS message to your specified destination phone number. For more information about running your logic app, review [how to run your logic app](../../../logic-apps/quickstart-create-first-logic-app-workflow.md#run-your-logic-app)
+To manually start your workflow, on the designer toolbar, select **Run**. Or, you can wait for the trigger to fire. In both cases, the workflow should send an SMS message to your specified destination phone number. For more information, review [how to run your workflow](../../../logic-apps/quickstart-create-first-logic-app-workflow.md#run-workflow).
 
 ## Clean up resources
 

@@ -87,7 +87,7 @@ Use these Azure CLI commands to create a Data Box Heavy job.
    az storage account create --resource-group databox-rg --name databoxtestsa
    ```
 
-1. Run the [az databox job create](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_create) command to create a Data Box job with the **--sku** value of `DataBoxHeavy`:
+1. Run the [az databox job create](/cli/azure/databox/job#az_databox_job_create) command to create a Data Box job with the **--sku** value of `DataBoxHeavy`:
 
    ```azurecli
    az databox job create --resource-group databox-rg --name databoxheavy-job \
@@ -100,37 +100,37 @@ Use these Azure CLI commands to create a Data Box Heavy job.
    > [!NOTE]
    > Make sure your subscription supports Data Box Heavy.
 
-1. Run the [az databox job update](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_update) to update a job, as in this example, where you change the contact name and email:
+1. Run the [az databox job update](/cli/azure/databox/job#az_databox_job_update) to update a job, as in this example, where you change the contact name and email:
 
    ```azurecli
    az databox job update -g databox-rg --name databox-job --contact-name "Robert Anic" --email-list RobertAnic@contoso.com
    ```
 
-   Run the [az databox job show](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_show) command to get information about the job:
+   Run the [az databox job show](/cli/azure/databox/job#az_databox_job_show) command to get information about the job:
 
    ```azurecli
    az databox job show --resource-group databox-rg --name databox-job
    ```
 
-   Use the [az databox job list]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list) command to see all the Data Box jobs for a resource group:
+   Use the [az databox job list]( /cli/azure/databox/job#az_databox_job_list) command to see all the Data Box jobs for a resource group:
 
    ```azurecli
    az databox job list --resource-group databox-rg
    ```
 
-   Run the [az databox job cancel](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_cancel) command to cancel a job:
+   Run the [az databox job cancel](/cli/azure/databox/job#az_databox_job_cancel) command to cancel a job:
 
    ```azurecli
    az databox job cancel –resource-group databox-rg --name databox-job --reason "Cancel job."
    ```
 
-   Run the [az databox job delete](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_delete) command to delete a job:
+   Run the [az databox job delete](/cli/azure/databox/job#az_databox_job_delete) command to delete a job:
 
    ```azurecli
    az databox job delete –resource-group databox-rg --name databox-job
    ```
 
-1. Use the [az databox job list-credentials]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list_credentials) command to list credentials for a Data Box job:
+1. Use the [az databox job list-credentials]( /cli/azure/databox/job#az_databox_job_list_credentials) command to list credentials for a Data Box job:
 
    ```azurecli
    az databox job list-credentials --resource-group "databox-rg" --name "databoxdisk-job"

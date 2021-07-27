@@ -1,109 +1,124 @@
 ### YamlMime:Landing
 
 title: Anomaly Detector API Documentation 
-summary: Learn how to use the Anomaly Detector API to monitor data over time and detect anomalies with machine learning. Get insight into your data, regardless of volume, industry, or scenario. 
+summary: Learn how to use the Anomaly Detector univariate and multivariate APIs to monitor data over time and detect anomalies with machine learning. Get insight into your data, regardless of volume, industry, or scenario. 
 
 metadata:
   title: Anomaly Detector API - Tutorials, quickstarts, API reference
   titleSuffix: Azure Cognitive Services
-  description: Use the Anomaly Detector API to monitor data over time and detect anomalies with machine learning. Get insight into your data, regardless of volume, industry, or scenario. 
+  description: Use the Anomaly Detector univariate and multivariate APIs to monitor data over time and detect anomalies with machine learning. Get insight into your data, regardless of volume, industry, or scenario. 
   services: cognitive-services
-  author: aahill
+  author: mrbullwinkle
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: anomaly-detector
   ms.topic: landing-page
-  ms.date: 09/10/2019
-  ms.author: aahi
+  ms.date: 05/12/2021
+  ms.author: mbullwin
 
 landingContent:
-- title: About the Anomaly Detector API
+- title: About the Anomaly Detector APIs
   linkLists:
     - linkListType: overview
       links:
-        - text: What is the Anomaly Detector API?
+        - text: What is Anomaly Detector (univariate)?
           url: overview.md
+        - text: What is Anomaly Detector (multivariate)?
+          url: overview-multivariate.md
+        - text: What's new in Anomaly Detector?
+          url: whats-new.md
     - linkListType: get-started
       links:
-        - text: Anomaly Detector demo
+        - text: Demo web application (univariate)
           url: https://aka.ms/adDemo
     - linkListType: video
       links:
-        - text: Introducing the Anomaly Detector API
+        - text: Introducing the Anomaly Detector API (univariate) 
           url: https://channel9.msdn.com/Shows/AI-Show/Introducing-Azure-Anomaly-Detector?WT.mc_id=ai-c9-niner
-        - text: Algorithms used by the Anomaly Detection API 
-          url: https://www.youtube.com/embed/ERTaAnwCarM
+        - text: Introducing the new multivariate capabilities
+          url: https://channel9.msdn.com/Shows/AI-Show/New-to-Anomaly-Detector-Multivariate-Capabilities
+        - text: More videos ...
+          url: whats-new.md#videos
     - linkListType: reference
       links:
-        - text: Introducing Azure Anomaly Detector API
+        - text: Introducing Azure Anomaly Detector API (univariate) 
           url: https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162
-        - text: Overview of SR-CNN algorithm
-          url: https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798  
-        - text: Algorithm used in anomaly detection (KDD paper)
-          url: https://arxiv.org/abs/1906.03821
+        - text: Introducing Multivariate Anomaly Detection
+          url: https://techcommunity.microsoft.com/t5/azure-ai/introducing-multivariate-anomaly-detection/ba-p/2260679
+        - text: More technical articles ...
+          url: whats-new.md#technical-articles
+       
 
 - title: "Detect anomalies in your data"
   linkLists:
     - linkListType: quickstart
       links:
-        - text: Using C#
+        - text: Using C# (univariate)
           url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-csharp
-        - text: Using JavaScript
+        - text: Using JavaScript (univariate)
           url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-javascript
-        - text: Using Python
+        - text: Using Python (univariate)
           url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-python
+    - linkListType: quickstart
+      links:
+        - text: Using C# (multivariate)
+          url: ../anomaly-detector/quickstarts/client-libraries-multivariate.md?pivots=programming-language-csharp
+        - text: Using JavaScript (multivariate)
+          url: ../anomaly-detector/quickstarts/client-libraries-multivariate.md?pivots=programming-language-javascript
+        - text: Using Python (multivariate)
+          url: ../anomaly-detector/quickstarts/client-libraries-multivariate.md?pivots=programming-language-python
+        - text: Using Java (multivariate)
+          url: ../anomaly-detector/quickstarts/client-libraries-multivariate.md?pivots=programming-language-java
     - linkListType: tutorial
       links:
-        - text: Visualize anomalies using batch detection and Power BI
+        - text: Learn Multivariate Anomaly Detection in one hour
+          url: tutorials/learn-multivariate-anomaly-detection.md
+        - text: Visualize (univariate) anomalies using batch detection and Power BI
           url: tutorials/batch-anomaly-detection-powerbi.md
-    - linkListType: video
-      links:
-        - text: Anomaly detection on streaming data using Azure Databricks
-          url: https://channel9.msdn.com/Shows/AI-Show/Anomaly-detection-on-streaming-data-using-Azure-Databricks
 
 - title: Optimize your detection results
   linkLists:
     - linkListType: concept
       links:
-        - text: Adjust anomaly detection modes and parameters for your data.
+        - text: Adjust anomaly detection modes and parameters for your data (univariate)
           url: how-to/identify-anomalies.md
-        - text: Use best practices to optimize your anomaly detection results.
+        - text: Use best practices to optimize your anomaly detection results (univariate)
           url: concepts/anomaly-detection-best-practices.md
+        - text: Use best practices to optimize your anomaly detection results (multivariate)
+          url: concepts/best-practices-multivariate.md
     - linkListType: video
       links:
-        - text: Anomaly Detector best practices
+        - text: Anomaly Detector best practices (univariate)
           url: https://channel9.msdn.com/Shows/AI-Show/Anomaly-Detector-v10-Best-Practices 
 
 - title: Use Docker containers
   linkLists:
     - linkListType: how-to-guide
       links:
-        - text: Install and run Anomaly Detector containers
+        - text: Install and run Anomaly Detector containers (univariate)
           url: anomaly-detector-container-howto.md
-        - text: Configure Anomaly Detector containers
+        - text: Configure Anomaly Detector containers (univariate)
           url: anomaly-detector-container-configuration.md
-        - text: Deploy a container instance to Azure
+        - text: Deploy a container instance to Azure (univariate)
           url: how-to/deploy-anomaly-detection-on-container-instances.md
-        - text: Deploy to IoT Edge
+        - text: Deploy to IoT Edge (univariate)
           url: how-to/deploy-anomaly-detection-on-iot-edge.md
     - linkListType: video
       links:
-        - text: Bring Anomaly Detector on-premises with containers support
+        - text: Bring Anomaly Detector on-premises with containers support (univariate)
           url: https://channel9.msdn.com/Shows/AI-Show/Bring-Anomaly-Detector-on-premise-with-containers-support
-
-- title: Join the Anomaly Detector community 
+  
+- title: Help and feedback
   linkLists:
     - linkListType: learn
       links:
         - text: Join the Anomaly Detector Advisors group on Microsoft Teams
           url: https://aka.ms/adadvisorsjoin
-        - text: Featured user-generated content
-          url: user-generated-content.md
-  
-- title: Help and feedback
-  linkLists:
+          
     - linkListType: reference
       links:
+        - text: Error codes (multivariate)
+          url: concepts/troubleshoot.md
         - text: Support and help options
           url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/anomaly-detector/context/context
 
@@ -111,17 +126,29 @@ landingContent:
   linkLists:
     - linkListType: reference
       links:
-        - text: REST API
+        - text: REST API (univariate)
           url: https://aka.ms/anomaly-detector-rest-api-ref
-        - text: .NET SDK
+        - text: .NET SDK (univariate)
           url: https://aka.ms/anomaly-detector-dotnet-ref
-        - text: .Python SDK
+        - text: .Python SDK (univariate)
           url: https://go.microsoft.com/fwlink/?linkid=2090370
-        - text: Go SDK
+        - text: Go SDK (univariate)
           url: https://go.microsoft.com/fwlink/?linkid=2089915
-        - text: Node.js SDK
+        - text: Node.js SDK (univariate)
           url: https://go.microsoft.com/fwlink/?linkid=2090788
-        - text: Azure PowerShell
+        - text: Azure PowerShell (univariate)
           url: /powershell/module/az.cognitiveservices/#cognitive_services
-        - text: Azure CLI
-          url: /cli/azure/cognitiveservices#az-cognitiveservices-list
+        - text: Azure CLI (univariate)
+          url: /cli/azure/cognitiveservices#az_cognitiveservices_list
+    - linkListType: reference
+      links:
+        - text: REST API (multivariate)
+          url: https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/DetectAnomaly
+        - text: .NET SDK (multivariate)
+          url: /dotnet/api/azure.ai.anomalydetector
+        - text: Python SDK (multivariate)
+          url: /python/api/azure-ai-anomalydetector/azure.ai.anomalydetector
+        - text: Java SDK (multivariate)
+          url: /java/api/com.azure.ai.anomalydetector
+        - text: Node.js SDK (multivariate)
+          url: /javascript/api/overview/azure/ai-anomaly-detector-readme

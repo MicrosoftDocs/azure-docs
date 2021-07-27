@@ -1,17 +1,12 @@
 ---
 title: Time sync for Linux VMs in Azure 
 description: Time sync for Linux virtual machines.
-services: virtual-machines
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/20/2020
+ms.date: 04/30/2021
 ms.author: cynthn
 ---
 
@@ -34,7 +29,7 @@ Azure hosts are synchronized to internal Microsoft time servers that take their 
 
 On stand-alone hardware, the Linux OS only reads the host hardware clock on boot. After that, the clock is maintained using the interrupt timer in the Linux kernel. In this configuration, the clock will drift over time. In newer Linux distributions on Azure, VMs can use the VMICTimeSync provider, included in the Linux integration services (LIS), to query for clock updates from the host more frequently.
 
-Virtual machine interactions with the host can also affect the clock. During [memory preserving maintenance](../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot), VMs are paused for up to 30 seconds. For example, before maintenance begins the VM clock shows 10:00:00 AM and lasts 28 seconds. After the VM resumes, the clock on the VM would still show 10:00:00 AM, which would be 28 seconds off. To correct for this, the VMICTimeSync service monitors what is happening on the host and prompts for changes to happen on the VMs to compensate.
+Virtual machine interactions with the host can also affect the clock. During [memory preserving maintenance](../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot), VMs are paused for up to 30 seconds. For example, before maintenance begins the VM clock shows 10:00:00 AM and lasts 28 seconds. After the VM resumes, the clock on the VM would still show 10:00:00 AM, which would be 28 seconds off. To correct for this, the VMICTimeSync service monitors what is happening on the host and updates the time-of-day clock in Linux VMs to compensate.
 
 Without time synchronization working, the clock on the VM would accumulate errors. When there is only one VM, the effect might not be significant unless the workload requires highly accurate timekeeping. But in most cases, we have multiple, interconnected VMs that use time to track transactions and the time needs to be consistent throughout the entire deployment. When time between VMs is different, you could see the following effects:
 
@@ -43,38 +38,30 @@ Without time synchronization working, the clock on the VM would accumulate error
 - If clock is off, the billing could be calculated incorrectly.
 
 
-
 ## Configuration options
 
-There are generally three ways to configure time sync for your Linux VMs hosted in Azure:
+Time sync requires that a time sync service be running in the Linux VM, plus a source of accurate time information against which to synchronize.
+Typically ntpd or chronyd is used as the time sync service, though there are other open source time sync services that can be used as well.
+The source of accurate time information can be the Azure host or an external time service that is accessed over the public internet.
+By itself, the VMICTimeSync service does not provide ongoing time sync between the Azure host and a Linux VM except after pauses for host maintenance as described above. 
 
-- The default configuration for Azure Marketplace images uses both NTP time and VMICTimeSync host-time. 
-- Host-only using VMICTimeSync.
-- Use another, external time server with or without using VMICTimeSync host-time.
+Historically, most Azure Marketplace images with Linux have been configured in one of two ways:
+- No time sync service is running by default
+- ntpd is running as the time sync service, and synchronizing against an external NTP time source that is accessed over the network. For example, Ubuntu 18.04 LTS Marketplace images use **ntp.ubuntu.com**.
 
+To confirm ntpd is synchronizing correctly, run the `ntpq -p` command.
 
-### Use the default
+Starting in early calendar 2021, the most current Azure Marketplace images with Linux are being changed to use chronyd as the time sync service,
+and chronyd is configured to synchronize against the Azure host rather than an external NTP time source. The Azure host time is usually the best time source to synchronize
+against, as it is maintained very accurately and reliably, and is accessible without the variable network delays inherent in accessing an external NTP time source
+over the public internet.
 
-By default, most Azure Marketplace images for Linux are configured to sync from two sources: 
+The VMICTimeSync is used in parallel and provides two functions:
+- Immediately updates the Linux VM time-of-day clock after a host maintenance event
+- Instantiates an IEEE 1588 Precision Time Protocol (PTP) hardware clock source as a /dev/ptp device that provides the accurate time-of-day from the Azure host.  Chronyd can be configured to synchronize against this time source (which is the default configuration in the newest Linux images). Linux distributions with kernel version 4.11 or later (or version 3.10.0-693 or later for RHEL/CentOS 7) support the /dev/ptp device.  For earlier kernel versions that do not support /dev/ptp for Azure host time, only synchronization against an external time source is possible.
 
-- NTP as primary, which gets time from an NTP server. For example, Ubuntu 16.04 LTS Marketplace images use **ntp.ubuntu.com**.
-- The VMICTimeSync service as secondary, used to communicate the host time to the VMs and make corrections after the VM is paused for maintenance. Azure hosts use Microsoft-owned Stratum 1 devices to keep accurate time.
+Of course, the default configuration can be changed. An older image that is configured to use ntpd and an external time source can be changed to use chronyd and the /dev/ptp device for Azure host time.  Similarly, an image using Azure host time via a /dev/ptp device can be configured to use an external NTP time source if required by your application or workload.
 
-In newer Linux distributions, the VMICTimeSync service provides a Precision Time Protocol (PTP) hardware clock source, but earlier distributions may not provide this clock source and will fall-back to NTP for getting time from the host.
-
-To confirm NTP is synchronizing correctly, run the `ntpq -p` command.
-
-### Host-only 
-
-Because NTP servers like time.windows.com and ntp.ubuntu.com are public, syncing time with them requires sending traffic over the internet. Varying packet delays can negatively affect quality of the time sync. Removing NTP by switching to host-only sync can sometimes improve your time sync results.
-
-Switching to host-only time sync makes sense if you experience time sync issues using the default configuration. Try out the host-only sync to see if that would improve the time sync on your VM. 
-
-### External time server
-
-If you have specific time sync requirements, there is also an option of using external time servers. External time servers can provide specific time, which can be useful for test scenarios, ensuring time uniformity with machines hosted in non-Microsoft datacenters, or handling leap seconds in a special way.
-
-You can combine an external time server with the VMICTimeSync service to provide results similar to the default configuration. Combining an external time server with VMICTimeSync is the best option for dealing with issues that can be cause when VMs are paused for maintenance. 
 
 ## Tools and resources
 
@@ -94,23 +81,11 @@ hv_utils               24418  0
 hv_vmbus              397185  7 hv_balloon,hyperv_keyboard,hv_netvsc,hid_hyperv,hv_utils,hyperv_fb,hv_storvsc
 ```
 
-See if the Hyper-V integration services daemon is running.
-
-```bash
-ps -ef | grep hv
-```
-
-You should see something similar to this:
-
-```
-root        229      2  0 17:52 ?        00:00:00 [hv_vmbus_con]
-root        391      2  0 17:52 ?        00:00:00 [hv_balloon]
-```
-
-
 ### Check for PTP Clock Source
 
-With newer versions of Linux, a Precision Time Protocol (PTP) clock source is available as part of the VMICTimeSync provider. On older versions of Red Hat Enterprise Linux or CentOS 7.x the [Linux Integration Services](https://github.com/LIS/lis-next) can be downloaded and used to install the updated driver. When the PTP clock source is available, the Linux device will be of the form /dev/ptp*x*. 
+With newer versions of Linux, a Precision Time Protocol (PTP) clock source corresponding to the Azure host is available as part of the VMICTimeSync provider.
+On older versions of Red Hat Enterprise Linux or CentOS 7.x the [Linux Integration Services](https://github.com/LIS/lis-next) can be downloaded and used to
+install the updated driver. When the PTP clock source is available, the Linux device will be of the form /dev/ptp*x*. 
 
 See which PTP clock sources are available.
 
@@ -124,15 +99,21 @@ In this example, the value returned is *ptp0*, so we use that to check the clock
 cat /sys/class/ptp/ptp0/clock_name
 ```
 
-This should return `hyperv`.
+This should return `hyperv`, meaning the Azure host.
+
+In Linux VMs with Accelerated Networking enabled, you may see multiple PTP devices listed because the Mellanox mlx5 driver also creates a /dev/ptp device.
+Because the initialization order can be different each time Linux boots, the PTP device corresponding to the Azure host might be /dev/ptp0 or it might be /dev/ptp1, which makes
+it difficult to configure chronyd with the correct clock source. To solve this problem, the most recent Linux images have a udev rule that creates the
+symlink /dev/ptp_hyperv to whichever /dev/ptp entry corresponds to the Azure host. Chrony should be configured to use this symlink instead of /dev/ptp0 or /dev/ptp1.
 
 ### chrony
 
-On Ubuntu 19.10 and later versions, Red Hat Enterprise Linux, and CentOS 8.x, [chrony](https://chrony.tuxfamily.org/) is configured to use a PTP source clock. Instead of chrony, older Linux releases use the Network Time Protocol daemon (ntpd), which doesn't support PTP sources. To enable PTP in those releases, chrony must be manually installed and configured (in chrony.conf) by using the following code:
+On Ubuntu 19.10 and later versions, Red Hat Enterprise Linux, and CentOS 8.x, [chrony](https://chrony.tuxfamily.org/) is configured to use a PTP source clock. Instead of chrony, older Linux releases use the Network Time Protocol daemon (ntpd), which doesn't support PTP sources. To enable PTP in those releases, chrony must be manually installed and configured (in chrony.conf) by using the following statement:
 
 ```bash
 refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
 ```
+Per above, if the /dev/ptp_hyperv symlink is available, use it instead of /dev/ptp0 to avoid any confusion with the /dev/ptp device created by the Mellanox mlx5 driver.
 
 For more information about Ubuntu and NTP, see [Time Synchronization](https://ubuntu.com/server/docs/network-ntp).
 

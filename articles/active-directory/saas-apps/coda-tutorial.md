@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/23/2020
+ms.date: 05/20/2021
 ms.author: jeedes
 ---
 
@@ -20,8 +20,6 @@ In this tutorial, you'll learn how to integrate Coda with Azure Active Directory
 * Control in Azure AD who has access to Coda.
 * Enable your users to be automatically signed-in to Coda with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
-
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -34,36 +32,33 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Coda supports **IDP** initiated SSO
+* Coda supports **IDP** initiated SSO.
 
-* Coda supports **Just In Time** user provisioning
+* Coda supports **Just In Time** user provisioning.
 
-* Once you configure Coda, you can enforce session controls which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
-
-## Adding Coda from the gallery
+## Add Coda from the gallery
 
 To configure the integration of Coda into Azure AD, you need to add Coda from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Coda** in the search box.
 1. Select **Coda** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-
-## Configure and test Azure AD single sign-on for Coda
+## Configure and test Azure AD SSO for Coda
 
 Configure and test Azure AD SSO with Coda using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Coda.
 
-To configure and test Azure AD SSO with Coda, complete the following building blocks:
+To configure and test Azure AD SSO with Coda, perform the following steps:
 
 1. **[Begin configuration of Coda SSO](#begin-configuration-of-coda-sso)** - to begin configuration of SSO in Coda.
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-   * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-   * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+   1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+   1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Coda SSO](#configure-coda-sso)** - to complete configuration of single sign-on settings in Coda.
-   * **[Create Coda test user](#create-coda-test-user)** - to have a counterpart of B.Simon in Coda that is linked to the Azure AD representation of user.
+   1. **[Create Coda test user](#create-coda-test-user)** - to have a counterpart of B.Simon in Coda that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Begin configuration of Coda SSO
@@ -72,7 +67,7 @@ Follow these steps in Coda to begin.
 
 1. In Coda, open your **Organization settings** panel.
 
-   ![Open Organization Settings](media/coda-tutorial/org-settings.png)
+   ![Open Organization Settings](media/coda-tutorial/settings.png)
 
 1. Ensure that your organization has GDrive Integration turned off. If it is currently enabled, contact the [Coda support team](mailto:support@coda.io) to help you migrate off GDrive.
 
@@ -80,7 +75,7 @@ Follow these steps in Coda to begin.
 
 1. Under **Authenticate with SSO (SAML)**, select the **Configure SAML** option.
 
-   ![Saml Settings](media/coda-tutorial/saml-settings-link.png)
+   ![Saml Settings](media/coda-tutorial/settings-link.png)
 
 1. Note the values for **Entity ID** and **SAML Response URL**, which you'll need in subsequent steps.
 
@@ -90,13 +85,13 @@ Follow these steps in Coda to begin.
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Coda** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the Azure portal, on the **Coda** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Set up single sign-on with SAML** page, enter the values for the following fields:
+1. On the **Set up single sign-on with SAML** page, perform the following steps:
 
    a. In the **Identifier** text box, enter the "Entity ID" from above. It should follow the pattern:
    `https://coda.io/samlId/<CUSTOMID>`
@@ -134,13 +129,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **Coda**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-
-   ![The "Users and groups" link](common/users-groups-blade.png)
-
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-
-   ![The Add User link](common/add-assign-user.png)
-
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
@@ -165,20 +154,12 @@ In this section, a user called Britta Simon is created in Coda. Coda supports ju
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration with following options.
 
-When you click the Coda tile in the Access Panel, you should be automatically signed in to the Coda for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+* Click on Test this application in Azure portal and you should be automatically signed in to the Coda for which you set up the SSO.
 
-## Additional resources
+* You can use Microsoft My Apps. When you click the Coda tile in the My Apps, you should be automatically signed in to the Coda for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
+## Next steps
 
-- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
-
-- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Try Coda with Azure AD](https://aad.portal.azure.com/)
-
-- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
-
-- [How to protect Coda with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)
+Once you configure Coda you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

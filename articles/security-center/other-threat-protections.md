@@ -1,14 +1,11 @@
 ---
-title: Additional threat protection in Azure Security Center
+title: Additional threat protections from Azure Security Center
 description: Learn about the threat protection available from Azure Security Center beyond Azure Defender
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 33c45447-3181-4b75-aa8e-c517e76cd50d
 ms.service: security-center
 ms.topic: overview
-ms.date: 09/15/2020
+ms.date: 04/29/2021
 ms.author: memildin
 ---
 
@@ -17,9 +14,6 @@ As well as the built-in [Azure Defender protections](azure-defender.md), Azure S
 
 > [!TIP]
 > To enable Security Center's threat protection capabilities, you must enable Azure Defender on the subscription containing the applicable workloads.
->
-> You can enable threat protection for **Azure Database for MariaDB/MySQL/PostgreSQL** at the resource level only.
-
 
 ## Threat protection for Azure network layer <a name="network-layer"></a>
 Security Center network-layer analytics are based on sample [IPFIX data](https://en.wikipedia.org/wiki/IP_Flow_Information_Export), which are packet headers collected by Azure core routers. Based on this data feed, Security Center uses machine learning models to identify and flag malicious traffic activities. Security Center also uses the Microsoft Threat Intelligence database to enrich IP addresses.
@@ -31,25 +25,17 @@ Some network configurations restrict Security Center from generating alerts on s
 For a list of the Azure network layer alerts, see the [Reference table of alerts](alerts-reference.md#alerts-azurenetlayer).
 
 
-## Threat protection for Azure Resource Manager (Preview)<a name ="management-layer"></a>
-Security Center's protection layer based on Azure Resource Manager is currently in preview.
-
-Security Center offers an additional layer of protection by using Azure Resource Manager events, which is considered to be the control plane for Azure. By analyzing the Azure Resource Manager records, Security Center detects unusual or potentially harmful operations in the Azure subscription environment.
-
-For a list of the Azure Defender for Resource Manager alerts, see the [Reference table of alerts](alerts-reference.md#alerts-resourcemanager).
-
-
 >[!NOTE]
-> Several of the preceding analytics are powered by Microsoft Cloud App Security. To benefit from these analytics, you must activate a Cloud App Security license. If you have a Cloud App Security license, then these alerts are enabled by default. To disable the alerts:
+> Some of these analytics are powered by Microsoft Cloud App Security. To benefit from these analytics, you must activate a Cloud App Security license. If you have a Cloud App Security license, then these alerts are enabled by default. To disable the alerts:
 >
 > 1. From Security Center's menu, select **Pricing & settings**.
 > 1. Select the subscription you want to change.
-> 1. Select **Threat detection**.
+> 1. Select **Integrations**.
 > 1. Clear **Allow Microsoft Cloud App Security to access my data**, and select **Save**.
 
 
 >[!NOTE]
->Security Center stores security-related customer data in the same geo as its resource. If Microsoft hasn't yet deployed Security Center in the resource's geo, then it stores the data in the United States. When Cloud App Security is enabled, this information is stored in accordance with the geo location rules of Cloud App Security. For more information, see [Data storage for non-regional services](https://azuredatacentermap.azurewebsites.net/).
+> Security Center stores security-related customer data in the same geo as its resource. If Microsoft hasn't yet deployed Security Center in the resource's geo, then it stores the data in the United States. When Cloud App Security is enabled, this information is stored in accordance with the geo location rules of Cloud App Security. For more information, see [Data storage for non-regional services](https://azuredatacentermap.azurewebsites.net/).
 
 1. Set the workspace on which you're installing the agent. Make sure the workspace is in the same subscription you use in Security Center and that you have read/write permissions on the workspace.
 

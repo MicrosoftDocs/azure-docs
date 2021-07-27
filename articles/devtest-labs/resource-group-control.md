@@ -71,7 +71,7 @@ If you're using an Azure Resource Manager template to create a lab, use the **vm
         {
             "type": "microsoft.devtestlab/labs",
             "name": "[parameters('lab_name')]",
-            "apiVersion": "2018_10_15_preview",
+            "apiVersion": "2018-10-15-preview",
             "location": "eastus",
             "tags": {},
             "scale": null,
@@ -98,7 +98,7 @@ You have the following options as a lab owner when using this API:
 This setting applies to new virtual machines created in the lab. The older VMs in your lab that were created in their own resource groups remain unaffected. Environments that are created in your lab continue to remain in their own resource groups.
 
 How to use this API:
-- Use API version **2018_10_15_preview**.
+- Use API version **2018-10-15-preview**.
 - If you specify a new resource group, ensure that you have **write permissions on resource groups** in your subscription. If you lack write permissions, creating new virtual machines in the specified resource group will fail.
 - While using the API, pass in the **full resource group ID**. For example: `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>`. Ensure that the resource group is in the same subscription as the lab. 
 
@@ -107,4 +107,4 @@ How to use this API:
 See the following articles: 
 
 - [Set policies for a lab](devtest-lab-set-lab-policy.md)
-- [Frequently asked questions](devtest-lab-faq.md)
+- [Frequently asked questions](devtest-lab-faq.yml)

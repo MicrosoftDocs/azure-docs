@@ -22,7 +22,7 @@ It's worth noting that, though you'll be using Unity and Azure Cosmos DB in this
 
 Add an Azure Cosmos Database to the resource group you created earlier.
 
-[!INCLUDE [cosmos-db-create-dbaccount-table](../../../includes/cosmos-db-create-dbaccount-table.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-table](../../cosmos-db/includes/cosmos-db-create-dbaccount-table.md)]
 
 Copy the `Connection String` because you'll need it.
 

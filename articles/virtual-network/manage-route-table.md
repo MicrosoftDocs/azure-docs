@@ -56,7 +56,7 @@ There's a limit to how many route tables you can create per Azure location and s
 
 | Tool | Command |
 | ---- | ------- |
-| Azure CLI | [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create) |
+| Azure CLI | [az network route-table create](/cli/azure/network/route-table#az_network_route_table_create) |
 | PowerShell | [New-AzRouteTable](/powershell/module/az.network/new-azroutetable) |
 
 ## View route tables
@@ -67,7 +67,7 @@ Go to the [Azure portal](https://portal.azure.com) to manage your virtual networ
 
 | Tool | Command |
 | ---- | ------- |
-| Azure CLI | [az network route-table list](/cli/azure/network/route-table#az-network-route-table-list) |
+| Azure CLI | [az network route-table list](/cli/azure/network/route-table#az_network_route_table_list) |
 | PowerShell | [Get-AzRouteTable](/powershell/module/az.network/get-azroutetable) |
 
 ## View details of a route table
@@ -90,7 +90,7 @@ To learn more about common Azure settings, see the following information:
 
 | Tool | Command |
 | ---- | ------- |
-| Azure CLI | [az network route-table show](/cli/azure/network/route-table#az-network-route-table-show) |
+| Azure CLI | [az network route-table show](/cli/azure/network/route-table#az_network_route_table_show) |
 | PowerShell | [Get-AzRouteTable](/powershell/module/az.network/get-azroutetable) |
 
 ## Change a route table
@@ -105,7 +105,7 @@ The most common changes are to [add](#create-a-route) routes, [remove](#delete-a
 
 | Tool | Command |
 | ---- | ------- |
-| Azure CLI | [az network route-table update](/cli/azure/network/route-table#az-network-route-table-update) |
+| Azure CLI | [az network route-table update](/cli/azure/network/route-table#az_network_route_table_update) |
 | PowerShell | [Set-AzRouteTable](/powershell/module/az.network/set-azroutetable) |
 
 ## Associate a route table to a subnet
@@ -130,7 +130,7 @@ If your virtual network is connected to an Azure VPN gateway, don't associate a 
 
 | Tool | Command |
 | ---- | ------- |
-| Azure CLI | [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) |
+| Azure CLI | [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) |
 | PowerShell | [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) |
 
 ## Dissociate a route table from a subnet
@@ -153,7 +153,7 @@ When you dissociate a route table from a subnet, Azure routes traffic based on i
 
 | Tool | Command |
 | ---- | ------- |
-| Azure CLI | [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) |
+| Azure CLI | [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) |
 | PowerShell | [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) |
 
 ## Delete a route table
@@ -170,7 +170,7 @@ You can't delete a route table that's associated to any subnets. [Dissociate](#d
 
 | Tool | Command |
 | ---- | ------- |
-| Azure CLI | [az network route-table delete](/cli/azure/network/route-table#az-network-route-table-delete) |
+| Azure CLI | [az network route-table delete](/cli/azure/network/route-table#az_network_route_table_delete) |
 | PowerShell | [Remove-AzRouteTable](/powershell/module/az.network/remove-azroutetable) |
 
 ## Create a route
@@ -197,7 +197,7 @@ There's a limit to how many routes per route table can create per Azure location
 
 | Tool | Command |
 | ---- | ------- |
-| Azure CLI | [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create) |
+| Azure CLI | [az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create) |
 | PowerShell | [New-AzRouteConfig](/powershell/module/az.network/new-azrouteconfig) |
 
 ## View routes
@@ -214,7 +214,7 @@ A route table contains zero or more routes. To learn more about the information 
 
 | Tool | Command |
 | ---- | ------- |
-| Azure CLI | [az network route-table route list](/cli/azure/network/route-table/route#az-network-route-table-route-list) |
+| Azure CLI | [az network route-table route list](/cli/azure/network/route-table/route#az_network_route_table_route_list) |
 | PowerShell | [Get-AzRouteConfig](/powershell/module/az.network/get-azrouteconfig) |
 
 ## View details of a route
@@ -231,7 +231,7 @@ A route table contains zero or more routes. To learn more about the information 
 
 | Tool | Command |
 | ---- | ------- |
-| Azure CLI | [az network route-table route show](/cli/azure/network/route-table/route#az-network-route-table-route-show) |
+| Azure CLI | [az network route-table route show](/cli/azure/network/route-table/route#az_network_route_table_route_show) |
 | PowerShell | [Get-AzRouteConfig](/powershell/module/az.network/get-azrouteconfig) |
 
 ## Change a route
@@ -250,7 +250,7 @@ A route table contains zero or more routes. To learn more about the information 
 
 | Tool | Command |
 | ---- | ------- |
-| Azure CLI | [az network route-table route update](/cli/azure/network/route-table/route#az-network-route-table-route-update) |
+| Azure CLI | [az network route-table route update](/cli/azure/network/route-table/route#az_network_route_table_route_update) |
 | PowerShell | [Set-AzRouteConfig](/powershell/module/az.network/set-azrouteconfig) |
 
 ## Delete a route
@@ -269,7 +269,7 @@ A route table contains zero or more routes. To learn more about the information 
 
 | Tool | Command |
 | ---- | ------- |
-| Azure CLI | [az network route-table route delete](/cli/azure/network/route-table/route#az-network-route-table-route-delete) |
+| Azure CLI | [az network route-table route delete](/cli/azure/network/route-table/route#az_network_route_table_route_delete) |
 | PowerShell | [Remove-AzRouteConfig](/powershell/module/az.network/remove-azrouteconfig) |
 
 ## View effective routes
@@ -292,7 +292,7 @@ The effective routes for each VM-attached network interface are a combination of
 
 | Tool | Command |
 | ---- | ------- |
-| Azure CLI | [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table) |
+| Azure CLI | [az network nic show-effective-route-table](/cli/azure/network/nic#az_network_nic_show_effective_route_table) |
 | PowerShell | [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable) |
 
 ## Validate routing between two endpoints
@@ -321,7 +321,7 @@ After a short wait, Azure tells you the next hop type and the ID of the route th
 
 | Tool | Command |
 | ---- | ------- |
-| Azure CLI | [az network watcher show-next-hop](/cli/azure/network/watcher#az-network-watcher-show-next-hop) |
+| Azure CLI | [az network watcher show-next-hop](/cli/azure/network/watcher#az_network_watcher_show_next_hop) |
 | PowerShell | [Get-AzNetworkWatcherNextHop](/powershell/module/az.network/get-aznetworkwatchernexthop) |
 
 ## Permissions

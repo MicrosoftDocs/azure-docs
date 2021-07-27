@@ -4,7 +4,7 @@ description: Overview of auto-instrumentation for Azure Monitor Application Insi
 ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
-ms.date: 05/31/2020
+ms.date: 05/17/2021
 
 ms.reviewer: mbullwin
 ---
@@ -21,13 +21,13 @@ As we're adding additional integrations, the auto-instrumentation capability mat
 
 |Environment/Resource Provider          | .NET            | .NET Core       | Java            | Node.js         | Python          |
 |---------------------------------------|-----------------|-----------------|-----------------|-----------------|-----------------|
-|Azure App Service on Windows           | GA, OnBD*       | GA, opt-in      | In progress     | In progress     | Not supported   |
-|Azure App Service on Linux             | N/A             | Not supported   | In progress     | Public Preview  | Not supported   |
-|Azure App Service on AKS               | N/A             | In design       | In design       | In design       | Not supported   |
+|Azure App Service on Windows           | GA, OnBD*       | GA, opt-in      | Public Preview  | Public Preview  | Not supported   |
+|Azure App Service on Linux             | N/A             | Not supported   | Public Preview  | Public Preview  | Not supported   |
 |Azure Functions - basic                | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       |
 |Azure Functions Windows - dependencies | Not supported   | Not supported   | Public Preview  | Not supported   | Not supported   |
+|Azure Spring Cloud                     | Not supported   | Not supported   | Public Preview  | Not supported   | Not supported   |
 |Azure Kubernetes Service               | N/A             | In design       | Through agent   | In design       | Not supported   |
-|Azure VMs Windows                      | Public Preview  | Not supported   | Not supported   | Not supported   | Not supported   |
+|Azure VMs Windows                      | Public Preview  | Not supported   | Through agent | Not supported   | Not supported   |
 |On-Premises VMs Windows                | GA, opt-in      | Not supported   | Through agent   | Not supported   | Not supported   |
 |Standalone agent - any env.            | Not supported   | Not supported   | GA              | Not supported   | Not supported   |
 
@@ -37,35 +37,24 @@ As we're adding additional integrations, the auto-instrumentation capability mat
 
 ### Windows
 
-#### .NET
-Application monitoring on Azure App Service on Windows is available for [.NET applications](./azure-web-apps.md?tabs=net) .NET and is enabled by default.
+Application monitoring on Azure App Service on Windows is available for **[.NET](./azure-web-apps.md?tabs=net)** (enabled by default), **[.NET Core](./azure-web-apps.md?tabs=netcore)**, **[Java](./azure-web-apps.md?tabs=java)** (in public preview), and **[Node.js](./azure-web-apps.md?tabs=nodejs)** applications. To monitor a Python app, add the [SDK](./opencensus-python.md) to your code.
 
-#### .NETCore
-Monitoring for [.NETCore applications](./azure-web-apps.md?tabs=netcore) can be enabled with one click.
-
-#### Java
-The portal integration for monitoring of Java applications on App Service on Windows is currently unavailable, however, you can add Application Insights [Java 3.0 standalone agent](./java-in-process-agent.md) to your application without any code changes before deploying the apps to App Service. Application Insights Java 3.0 agent is generally available.
-
-#### Node.js
-Monitoring for Node.js applications on Windows cannot currently be enabled from the portal. To monitor Node.js applications, use the [SDK](./nodejs.md).
+> [!NOTE]
+> Application monitoring is currently available for Windows code-based applications on App Service. Monitoring for apps on Windows Containers on App Service is not yet supported through the integration with Application Insights.
 
 ### Linux
+You can enable monitoring for **[Java](./azure-web-apps.md?tabs=java)** and **[Node.js](./azure-web-apps.md?tabs=nodejs)** apps running on Linux in App Service through the portal - the experience for both languages is in public preview and available in all regions. 
 
-#### .NETCore
-To monitor .NETCore applications running on Linux, use the [SDK](./asp-net-core.md).
-
-#### Java 
-Enabling Java application monitoring for App Service on Linux from portal isn't available, but you can add [Application Insights Java 3.0 agent](./java-in-process-agent.md) to your app before deploying the apps to App Service. Application Insights Java 3.0 agent is generally available.
-
-#### Node.js
-[Monitoring Node.js applications in App Service on Linux](./azure-web-apps.md?tabs=nodejs) is in public preview and can be enabled in Azure portal, available in all regions. 
-
-#### Python
-Use the SDK to [monitor your Python app](./opencensus-python.md) 
+For other languages - [.NET Core](./asp-net-core.md) and [Python](./opencensus-python.md), use the SDK.
 
 ## Azure Functions
 
-The basic monitoring for Azure Functions is enabled by default to collects log, performance, error data, and HTTP requests. For Java applications, you can enable richer monitoring with distributed tracing and get the end-to-end transaction details. This functionality for Java is in public preview and you can [enable it in Azure portal](./monitor-functions.md).
+The basic monitoring for Azure Functions is enabled by default to collects log, performance, error data, and HTTP requests. For Java applications, you can enable richer monitoring with distributed tracing and get the end-to-end transaction details. This functionality for Java is in public preview for Windows and you can [enable it in Azure portal](./monitor-functions.md).
+
+## Azure Spring Cloud
+
+### Java 
+Application monitoring for Java apps running in Azure Spring Cloud is integrated into the portal, you can enable Application Insights directly from the Azure portal, both for the existing and newly created Azure Spring Cloud resources.  
 
 ## Azure Kubernetes Service
 

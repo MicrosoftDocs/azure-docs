@@ -5,7 +5,8 @@ author: osalzberg
 ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 10/13/2020 
+ms.custom: devx-track-azurepowershell
 
 ---
 

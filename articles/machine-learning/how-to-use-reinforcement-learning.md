@@ -8,8 +8,8 @@ ms.subservice: core
 ms.author: peterlu
 author: peterclu
 ms.date: 05/05/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperf-fy21q2
+ms.topic: how-to
+ms.custom: devx-track-python, contperf-fy21q2
 
 ---
 
@@ -38,7 +38,7 @@ Run this code in either of these environments. We recommend you try Azure Machin
 
  - Azure Machine Learning compute instance
 
-     - Learn how to clone sample notebooks in [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
+     - Learn how to clone sample notebooks in [Tutorial: Setup environment and workspace](tutorial-train-models-with-aml.md).
          - Clone the **how-to-use-azureml** folder instead of **tutorials**
      - Run the virtual network setup notebook located at `/how-to-use-azureml/reinforcement-learning/setup/devenv_setup.ipynb` to open network ports used for distributed reinforcement learning.
      - Run the sample notebook `/how-to-use-azureml/reinforcement-learning/atari-on-distributed-compute/pong_rllib.ipynb`
@@ -428,7 +428,7 @@ The **episode_reward_mean** plot shows the mean number of points scored per trai
 
 If you browse logs of the child run, you can see the evaluation results recorded in driver_log.txt file. You may need to wait several minutes before these metrics become available on the Run page.
 
-In short work, you have learned to configure multiple compute resources to train a reinforcement learning agent to play Pong very well against a computer oppponent.
+In short work, you have learned to configure multiple compute resources to train a reinforcement learning agent to play Pong very well against a computer opponent.
 
 ## Next steps
 

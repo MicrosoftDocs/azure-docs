@@ -15,7 +15,7 @@ ms.author: duau
 
 # Routing architecture overview
 
-When Azure Front Door receives your client requests, it will do one of two things. Either answers them if you enable caching or forwards them to the appropriate application backend as a reverse proxy.
+When Azure Front Door receives your client requests, it will do one of two things. Either answer them if you enable caching or forward them to the appropriate application backend as a reverse proxy.
 
 ## <a name = "anycast"></a>Selecting the Front Door environment for traffic routing (Anycast)
 

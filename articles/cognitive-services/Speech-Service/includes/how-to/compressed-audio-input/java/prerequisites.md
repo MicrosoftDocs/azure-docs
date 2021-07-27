@@ -8,7 +8,7 @@ ms.author: trbye
 
 Handling compressed audio is implemented using [GStreamer](https://gstreamer.freedesktop.org). For licensing reasons GStreamer binaries are not compiled and linked with the Speech SDK. Instead, you'll need to use the prebuilt binaries for Android. To download the prebuilt libraries, see [installing for Android development](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c).
 
-`libgstreamer_android.so` is required. Make sure that all the GStreamer plugins (from Android.mk file below) are linked in `libgstreamer_android.so`. When using the latest speech SDK (1.16.0 and above) with gstreamer version 1.18.3, `libc++_shared.so` is also required to be present from android ndk.
+`libgstreamer_android.so` is required. Make sure that all the GStreamer plugins (from Android.mk file below) are linked in `libgstreamer_android.so`. When using the latest speech SDK (1.16 and above) with gstreamer version 1.18.3, `libc++_shared.so` is also required to be present from android ndk.
 
 ```makefile
 GSTREAMER_PLUGINS := coreelements app audioconvert mpg123 \

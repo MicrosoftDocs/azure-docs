@@ -100,8 +100,10 @@ Here are some of the benefits of switching to Azure Machine Learning:
 
 Visit the [studio](https://ml.azure.com), or explore the different authoring options with these tutorials:  
 
-- + [Get started in your own development environment](tutorial-1st-experiment-sdk-setup-local.md)
-  + [Use Jupyter notebooks on a compute instance to train & deploy models](tutorial-1st-experiment-sdk-setup.md)
+Start with [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md).  Then use these resources to create your first experiment with your preferred method:
+
+  + [Run a "Hello world!" Python script (part 1 of 3)](tutorial-1st-experiment-hello-world.md)
+  + [Use a Jupyter notebook to train image classification models](tutorial-train-models-with-aml.md)
   + [Use automated machine learning to train & deploy models](tutorial-first-experiment-automated-ml.md)  
   + [Use the designer to train & deploy models](tutorial-designer-automobile-price-train-score.md)
   + [Use studio in a secured virtual network](how-to-enable-studio-virtual-network.md)

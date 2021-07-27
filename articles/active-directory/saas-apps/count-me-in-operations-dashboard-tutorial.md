@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Count Me In - Operations Dashboard | Microsoft Docs'
+title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with Count Me In - Operations Dashboard | Microsoft Docs"
 description: Learn how to configure single sign-on between Azure Active Directory and Count Me In - Operations Dashboard.
 services: active-directory
 author: jeevansd
@@ -11,29 +11,28 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/30/2020
 ms.author: jeedes
-
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Count Me In - Operations Dashboard
 
 In this tutorial, you'll learn how to integrate Count Me In - Operations Dashboard with Azure Active Directory (Azure AD). When you integrate Count Me In - Operations Dashboard with Azure AD, you can:
 
-* Control in Azure AD who has access to Count Me In - Operations Dashboard.
-* Enable your users to be automatically signed-in to Count Me In - Operations Dashboard with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+- Control in Azure AD who has access to Count Me In - Operations Dashboard.
+- Enable your users to be automatically signed-in to Count Me In - Operations Dashboard with their Azure AD accounts.
+- Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Count Me In - Operations Dashboard single sign-on (SSO) enabled subscription.
+- An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+- Count Me In - Operations Dashboard single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Count Me In - Operations Dashboard supports **SP** initiated SSO
+- Count Me In - Operations Dashboard supports **SP** initiated SSO
 
 ## Adding Count Me In - Operations Dashboard from the gallery
 
@@ -53,10 +52,10 @@ Configure and test Azure AD SSO with Count Me In - Operations Dashboard using a 
 To configure and test Azure AD SSO with Count Me In - Operations Dashboard, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+   1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+   1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Count Me In-Operations Dashboard SSO](#configure-count-me-in-operations-dashboard-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Count Me In-Operations Dashboard test user](#create-count-me-in-operations-dashboard-test-user)** - to have a counterpart of B.Simon in Count Me In - Operations Dashboard that is linked to the Azure AD representation of user.
+   1. **[Create Count Me In-Operations Dashboard test user](#create-count-me-in-operations-dashboard-test-user)** - to have a counterpart of B.Simon in Count Me In - Operations Dashboard that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -71,38 +70,39 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://api-us.localz.io/user/v1/saml/initsso?projectId=<PROJECT_ID>`
+   a. In the **Sign on URL** text box, type a URL using the following pattern:
+   `https://api-us.localz.io/user/v1/saml/initsso?projectId=<PROJECT_ID>`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `api-us.localz.io/<PROJECT_ID>`
+   b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+   `api-us.localz.io/<PROJECT_ID>`
 
-	c. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://api-us.localz.io/user/v1/saml/initsso?projectId=<PROJECT_ID>`
+   c. In the **Reply URL** text box, type a URL using the following pattern:
+   `https://api-us.localz.io/user/v1/saml/initsso?projectId=<PROJECT_ID>`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Count Me In - Operations Dashboard Client support team](mailto:support@localz.co) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+   > [!NOTE]
+   > These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Count Me In - Operations Dashboard Client support team](mailto:support@localz.co) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Count Me In - Operations Dashboard application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![image](common/default-attributes.png)
+   ![image](common/default-attributes.png)
 
 1. In addition to above, Count Me In - Operations Dashboard application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
-	
-	| Name |  Source Attribute|
-	| ----------- | --------- |
-	| assigned roles | user.assignedroles |
 
-    > [!NOTE]
-    > Count Me In - Operations Dashboard expects roles for users assigned to the application. Please set up these roles in Azure AD so that users can be assigned the appropriate roles. To understand how to configure roles in Azure AD, see [here](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview).
+   | Name           | Source Attribute   |
+   | -------------- | ------------------ |
+   | assigned roles | user.assignedroles |
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+   > [!NOTE]
+   > Count Me In - Operations Dashboard expects roles for users assigned to the application. Please set up these roles in Azure AD so that users can be assigned the appropriate roles. To understand how to configure roles in Azure AD, see [here](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui).
 
-	![The Certificate download link](common/certificatebase64.png)
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+
+   ![The Certificate download link](common/certificatebase64.png)
 
 1. On the **Set up Count Me In - Operations Dashboard** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+   ![Copy configuration URLs](common/copy-configuration-urls.png)
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -110,7 +110,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **Name** field, enter `B.Simon`.
    1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
    1. Click **Create**.
@@ -135,16 +135,15 @@ To configure single sign-on on **Count Me In - Operations Dashboard** side, you 
 
 In this section, you create a user called Britta Simon in Count Me In - Operations Dashboard. Work with [Count Me In - Operations Dashboard support team](mailto:support@localz.co) to add the users in the Count Me In - Operations Dashboard platform. Users must be created and activated before you use single sign-on.
 
-## Test SSO 
+## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Azure AD single sign-on configuration with following options.
 
-* Click on **Test this application** in Azure portal. This will redirect to Count Me In - Operations Dashboard Sign-on URL where you can initiate the login flow. 
+- Click on **Test this application** in Azure portal. This will redirect to Count Me In - Operations Dashboard Sign-on URL where you can initiate the login flow.
 
-* Go to Count Me In - Operations Dashboard Sign-on URL directly and initiate the login flow from there.
+- Go to Count Me In - Operations Dashboard Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Count Me In - Operations Dashboard tile in the My Apps, this will redirect to Count Me In - Operations Dashboard Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
-
+- You can use Microsoft My Apps. When you click the Count Me In - Operations Dashboard tile in the My Apps, this will redirect to Count Me In - Operations Dashboard Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 

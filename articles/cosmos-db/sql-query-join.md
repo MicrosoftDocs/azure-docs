@@ -71,11 +71,9 @@ Let's look at the following FROM clause: `<from_source1> JOIN <from_source2> JOI
   
 **Example 3** - 3 sources  
   
-- Let <from_source1> be container-scoped and represent set {A, B, C}.  
-  
 - Let `<from_source1>` be container-scoped and represent set {A, B, C}.  
   
-- Let <from_source2> be document-scoped referencing input_alias1 and represent sets:  
+- Let `<from_source2>` be document-scoped referencing `input_alias1` and represent sets:  
   
     {1, 2} for `input_alias1 = A,`  
   

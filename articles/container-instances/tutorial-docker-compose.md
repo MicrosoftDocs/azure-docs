@@ -161,7 +161,7 @@ docker-compose push
 
 It can take a few minutes to push to the registry.
 
-To verify the image is stored in your registry, run the [az acr repository show](/cli/azure/acr/repository#az-acr-repository-show) command:
+To verify the image is stored in your registry, run the [az acr repository show](/cli/azure/acr/repository#az_acr_repository_show) command:
 
 ```azurecli
 az acr repository show --name <acrName> --repository azure-vote-front
@@ -169,7 +169,7 @@ az acr repository show --name <acrName> --repository azure-vote-front
 
 [!INCLUDE [container-instances-create-docker-context](../../includes/container-instances-create-docker-context.md)]
 
-## Deploy application to Azure Container instances
+## Deploy application to Azure Container Instances
 
 Next, change to the ACI context. Subsequent Docker commands run in this context.
 

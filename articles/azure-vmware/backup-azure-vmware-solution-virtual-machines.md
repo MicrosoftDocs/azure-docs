@@ -30,7 +30,7 @@ By default, Azure Backup Server communicates with VMware servers over HTTPS. To 
 
 1. On the VMware **Getting Started** page, select **Download trusted root CA certificates**.
 
-   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/vsphere-web-client.png" alt-text="vSphere Web Client":::
+   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/vsphere-web-client.png" alt-text="Screenshot showing the vSphere Web Client Getting Started window to access vSphere remotely.":::
 
 1. Save the **download.zip** file to the Azure Backup Server machine, and then extract its contents to the **certs** folder, which contains the:
 
@@ -45,20 +45,20 @@ By default, Azure Backup Server communicates with VMware servers over HTTPS. To 
 
 1. In the **Certificate Import Wizard**, select **Local Machine** as the destination for the certificate, and select **Next**.
 
-   ![Wizard welcome page](../backup/media/backup-azure-backup-server-vmware/certificate-import-wizard1.png)
+   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/certificate-import-wizard1.png" alt-text="Screenshot showing the Certificate Import Wizard dialog with Local Machine selected.":::
 
    > [!NOTE] 
    > If asked, confirm that you want to allow changes to the computer.
 
 1. Select **Place all certificates in the following store**, and select **Browse** to choose the certificate store.
 
-   ![Certificate storage](../backup/media/backup-azure-backup-server-vmware/cert-import-wizard-local-store.png)
+   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/cert-import-wizard-local-store.png" alt-text="Screenshot showing the Certificate Store dialog with Place all certificates in the following store option selected.":::
 
 1. Select **Trusted Root Certification Authorities** as the destination folder, and select **OK**.
 
 1. Review the settings, and select **Finish** to start importing the certificate.
 
-   ![Verify certificate is in the proper folder](../backup/media/backup-azure-backup-server-vmware/cert-wizard-final-screen.png)
+   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/cert-wizard-final-screen.png" alt-text="Screenshot showing the Certificate Import Wizard.":::
 
 1. After the certificate import is confirmed, sign in to the vCenter server to confirm that your connection is secure.
 
@@ -68,7 +68,7 @@ VMware 6.7 onwards had TLS enabled as the communication protocol.
 
 1. Copy the following registry settings, and paste them into Notepad. Then save the file as TLS.REG without the .txt extension.
 
-   ```
+   ```text
    
    Windows Registry Editor Version 5.00
    
@@ -105,36 +105,36 @@ VMware 6.7 onwards had TLS enabled as the communication protocol.
 
 1. Open Azure Backup Server, and in the Azure Backup Server console, select **Management** > **Production Servers** > **Manage VMware**.
 
-   ![Azure Backup Server console](../backup/media/backup-azure-backup-server-vmware/add-vmware-credentials.png)
+   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/add-vmware-credentials.png" alt-text="Screenshot showing Microsoft Azure Backup console.":::
 
 1. In the **Manage Credentials** dialog box, select **Add**.
 
-   ![In the Manage Credentials dialog box, select Add.](../backup/media/backup-azure-backup-server-vmware/mabs-manage-credentials-dialog.png)
+   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/mabs-manage-credentials-dialog.png" alt-text="Screenshot showing Manage Credentials in Azure Backup Server.":::
 
 1. In the **Add Credential** dialog box, enter a name and a description for the new credential. Specify the user name and password you defined on the VMware server.
 
    > [!NOTE] 
    > If the VMware server and Azure Backup Server aren't in the same domain, specify the domain in the **User name** box.
 
-   ![Azure Backup Server Add Credential dialog box](../backup/media/backup-azure-backup-server-vmware/mabs-add-credential-dialog2.png)
+   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/mabs-add-credential-dialog2.png" alt-text="Screenshot showing the credential details in Azure Backup Server.":::
 
 1. Select **Add** to add the new credential.
 
-   ![Screenshot shows the Azure Backup Server Manage Credentials dialog box with new credentials displayed.](../backup/media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
+   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png" alt-text="Screenshot showing the Azure Backup Server Manage Credentials dialog box with new credentials displayed.":::
 
 ## Add the vCenter server to Azure Backup Server
 
 1. In the Azure Backup Server console, select **Management** > **Production Servers** > **Add**.
 
-   ![Open Production Server Addition Wizard](../backup/media/backup-azure-backup-server-vmware/add-vcenter-to-mabs.png)
+   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/add-vcenter-to-mabs.png" alt-text="Screenshot showing Microsoft Azure Backup console with the Add button selected.":::
 
 1. Select **VMware Servers**, and select **Next**.
 
-   ![Production Server Addition Wizard](../backup/media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
+   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/production-server-add-wizard.png" alt-text="Screenshot showing the Production Server Addition Wizard showing the VMware Servers option selected.":::
 
 1. Specify the IP address of the vCenter.
 
-   ![Specify VMware server](../backup/media/backup-azure-backup-server-vmware/add-vmware-server-provide-server-name.png)
+   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/add-vmware-server-provide-server-name.png" alt-text="Screenshot showing the Production Server Addition Wizard showing how to add a VMware vCenter or ESXi host server and its credentials.":::
 
 1. In the **SSL Port** box, enter the port used to communicate with the vCenter.
 
@@ -145,17 +145,17 @@ VMware 6.7 onwards had TLS enabled as the communication protocol.
 
 1. Select **Add** to add the vCenter to the servers list, and select **Next**.
 
-   ![Add VMware server and credential](../backup/media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
+   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png" alt-text="Screenshot showing the Production Server Addition Wizard showing the VMware server and credentials defined.":::
 
 1. On the **Summary** page, select **Add** to add the vCenter to Azure Backup Server.
 
    The new server gets added immediately. vCenter doesn't need an agent.
 
-   ![Add VMware server to Azure Backup Server](../backup/media/backup-azure-backup-server-vmware/tasks-screen.png)
+   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/tasks-screen.png" alt-text="Screenshot showing the Production Server Addition Wizard showing the summary of the VMware server and credentials defined and the Add button selected.":::
 
 1. On the **Finish** page, review the settings, and then select **Close**.
 
-   ![Finish page](../backup/media/backup-azure-backup-server-vmware/summary-screen.png)
+   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/summary-screen.png" alt-text="Screenshot showing the Production Server Addition Wizard showing the summary of the VMware server and credentials added.":::
 
    You see the vCenter server listed under **Production Server** with:
    - Type as **VMware Server** 
@@ -169,11 +169,11 @@ Protection groups gather multiple VMs and apply the same data retention and back
 
 1. In the Azure Backup Server console, select **Protection** > **New**.
 
-   ![Open the Create New Protection Group wizard](../backup/media/backup-azure-backup-server-vmware/open-protection-wizard.png)
+   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/open-protection-wizard.png" alt-text="Screenshot showing the Microsoft Azure Backup console with the New button selected to create a new Protection Group.":::
 
 1. On the **Create New Protection Group** wizard welcome page, select **Next**.
 
-   ![Create New Protection Group wizard dialog box](../backup/media/backup-azure-backup-server-vmware/protection-wizard.png)
+   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/protection-wizard.png" alt-text="Screenshot showing the Protection Group Wizard.":::
 
 1. On the **Select Protection Group Type** page, select **Servers**, and then select **Next**. The **Select Group Members** page appears.
 
@@ -182,20 +182,20 @@ Protection groups gather multiple VMs and apply the same data retention and back
    > [!NOTE]
    > When you select a folder or VMs, folders inside that folder are also selected for backup. You can uncheck folders or VMs you don't want to back up. If a VM or folder is already being backed up, you can't select it, which ensures duplicate recovery points aren't created for a VM.
 
-   ![Select group members](../backup/media/backup-azure-backup-server-vmware/server-add-selected-members.png)
+   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/server-add-selected-members.png" alt-text="Screenshot showing the Create New Protection Group Wizard to select group members.":::
 
 1. On the **Select Data Protection Method** page, enter a name for the protection group and protection settings. 
 
 1. Set the short-term protection to **Disk**, enable online protection, and then select **Next**.
 
-   ![Select data protection method](../backup/media/backup-azure-backup-server-vmware/name-protection-group.png)
+   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/name-protection-group.png" alt-text="Screenshot showing the Create New Protection Group Wizard to select the data protection method.":::
 
 1. Specify how long you want to keep data backed up to disk.
 
    - **Retention range**: The number of days that disk recovery points are kept.
    - **Express Full Backup**: How often disk recovery points are taken. To change the times or dates when short-term backups occur, select **Modify**.
 
-   :::image type="content" source="media/azure-vmware-solution-backup/new-protection-group-specify-short-term-goals.png" alt-text="Specify your short-term goals for disk-based protection":::
+   :::image type="content" source="media/azure-vmware-solution-backup/new-protection-group-specify-short-term-goals.png" alt-text="Screenshot showing the retention range to specify short-term recovery goals for disk-based protection.":::
 
 1. On the **Review Disk Storage Allocation** page, review the disk space provided for the VM backups.
 
@@ -204,7 +204,7 @@ Protection groups gather multiple VMs and apply the same data retention and back
    - **Disk space:** Recommended amount of disk space for the protection group. If you want to modify this setting, select space lightly larger than the amount you estimate each data source grows.
    - **Storage pool details:** Shows the status of the storage pool, which includes total and remaining disk size.
 
-   :::image type="content" source="media/azure-vmware-solution-backup/review-disk-allocation.png" alt-text="Review disk space given in the storage pool":::
+   :::image type="content" source="media/azure-vmware-solution-backup/review-disk-allocation.png" alt-text="Screenshot showing the Review disk Storage Allocation dialog to review your target storage assigned for each data source.":::
 
    > [!NOTE]
    > In some scenarios, the data size reported is higher than the actual VM size. We're aware of the issue and currently investigating it.
@@ -214,7 +214,7 @@ Protection groups gather multiple VMs and apply the same data retention and back
    - The default is **Automatically over the network** and **Now**. If you use the default, specify an off-peak time. If you choose **Later**, specify a day and time.
    - For large amounts of data or less-than-optimal network conditions, consider replicating the data offline by using removable media.
 
-   ![Choose replica creation method](../backup/media/backup-azure-backup-server-vmware/replica-creation.png)
+   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/name-protection-group.png" alt-text="Screenshot showing the Create New Protection Group Wizard to select the replica creation method.":::
 
 1. For **Consistency check options**, select how and when to automate the consistency checks and select **Next**.
 
@@ -226,25 +226,25 @@ Protection groups gather multiple VMs and apply the same data retention and back
    > [!TIP]
    > You can select the members individually or choose **Select All** to choose all members.
 
-   ![Specify online protection data](../backup/media/backup-azure-backup-server-vmware/select-data-to-protect.png)
+   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/select-data-to-protect.png" alt-text="Screenshot showing the Create New Protection Group Wizard to specify the data that you would like DPM to help protect online.":::
 
 1. On the **Specify Online Backup Schedule** page, indicate how often you want to back up data from local storage to Azure. 
 
    - Cloud recovery points for the data to get generated according to the schedule. 
    - After the recovery point gets generated, it's then transferred to the Recovery Services vault in Azure.
 
-   ![Specify online backup schedule](../backup/media/backup-azure-backup-server-vmware/online-backup-schedule.png)
+   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/online-backup-schedule.png" alt-text="Screenshot showing the Create New Protection Group Wizard to specify online backup schedule which DPN will use to generate your protection plan.":::
 
 1. On the **Specify Online Retention Policy** page, indicate how long you want to keep the recovery points created from the backups to Azure.
 
    - There's no time limit for how long you can keep data in Azure.
    - The only limit is that you can't have more than 9,999 recovery points per protected instance. In this example, the protected instance is the VMware server.
 
-   ![Specify online retention policy](../backup/media/backup-azure-backup-server-vmware/retention-policy.png)
+   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/retention-policy.png" alt-text="Screenshot showing the Create New Protection Group Wizard to specify online retention policy.":::
 
 1. On the **Summary** page, review the settings and then select **Create Group**.
 
-   ![Protection group member and setting summary](../backup/media/backup-azure-backup-server-vmware/protection-group-summary.png)
+   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/protection-group-summary.png" alt-text="Screenshot showing the Create New Protection Group Wizard to summary.":::
 
 ## Monitor with the Azure Backup Server console
 
@@ -256,7 +256,7 @@ After you configure the protection group to back up Azure VMware Solution VMs, y
 - In the **Protection** task area, you can check the status of volumes and shares in the protection group. You can also check configuration settings such as recovery settings, disk allocation, and the backup schedule.
 - In the **Management** task area, you can view the **Disks, Online**, and **Agents** tabs to check the status of disks in the storage pool, registration to Azure, and deployed DPM agent status.
 
-:::image type="content" source="media/azure-vmware-solution-backup/monitor-backup-jobs.png" alt-text="Monitor the status of backup jobs in Azure Backup Server":::
+:::image type="content" source="media/azure-vmware-solution-backup/monitor-backup-jobs.png" alt-text="Screenshot showing the backup jobs in Azure Backup Server.":::
 
 ## Restore VMware virtual machines
 
@@ -272,7 +272,7 @@ In the Azure Backup Server Administrator Console, there are two ways to find rec
 
 1. Using the **Browse** pane, browse or filter to find the VM you want to recover. After you select a VM or folder, the **Recovery points for pane display the available recovery points.
 
-   ![Available recovery points](../backup/media/restore-azure-backup-server-vmware/recovery-points.png)
+   :::image type="content" source="../backup/media/restore-azure-backup-server-vmware/recovery-points.png" alt-text="Screenshot showing the available recovery points for VMware server.":::
 
 1. In the **Recovery points for** pane, select a date when a recovery point was taken. Calendar dates in bold have available recovery points. Alternately, you can right-click the VM and select **Show all recovery points** and then select the recovery point from the list.
 
@@ -281,11 +281,11 @@ In the Azure Backup Server Administrator Console, there are two ways to find rec
 
 1. Before recovering from an online recovery point, ensure the staging location contains enough free space to house the full uncompressed size of the VM you want to recover. The staging location can be viewed or changed by running the **Configure Subscription Settings Wizard**.
 
-   :::image type="content" source="media/azure-vmware-solution-backup/mabs-recovery-folder-settings.png" alt-text="Azure Backup Server Recovery Folder Settings":::
+   :::image type="content" source="media/azure-vmware-solution-backup/mabs-recovery-folder-settings.png" alt-text="Screenshot showing the recovery folder location.":::
 
 1. Select **Recover** to open the **Recovery Wizard**.
 
-   ![Recovery Wizard, Review Recovery Selection page](../backup/media/restore-azure-backup-server-vmware/recovery-wizard.png)
+   :::image type="content" source="../backup/media/restore-azure-backup-server-vmware/recovery-wizard.png" alt-text="Screenshot showing the Recovery Wizard review dialog.":::
 
 1. Select **Next** to go to the **Specify Recovery Options** screen. Select **Next** again to go to the **Select Recovery Type** screen. 
 
@@ -297,7 +297,7 @@ In the Azure Backup Server Administrator Console, there are two ways to find rec
    - If you choose **Recover to original instance**, you don't need to make any more choices in the wizard. The data for the original instance is used.
    - If you choose **Recover as virtual machine on any host**, then on the **Specify Destination** screen, provide the information for **ESXi Host**, **Resource Pool**, **Folder**, and **Path**.
 
-   ![Select Recovery Type page](../backup/media/restore-azure-backup-server-vmware/recovery-type.png)
+   :::image type="content" source="../backup/media/restore-azure-backup-server-vmware/recovery-type.png" alt-text="Screenshot showing the Recovery Wizard to select recovery type.":::
 
 1. On the **Summary** page, review your settings and select **Recover** to start the recovery process. 
 
@@ -314,7 +314,7 @@ You can restore individual files from a protected VM recovery point. This featur
 
 1. Using the **Browse** pane, browse or filter to find the VM you want to recover. After you select a VM or folder, the **Recovery points for pane display the available recovery points.
 
-   ![Recovery points available](../backup/media/restore-azure-backup-server-vmware/vmware-rp-disk.png)
+   :::image type="content" source="../backup/media/restore-azure-backup-server-vmware/vmware-rp-disk.png" alt-text="Screenshot showing the recovery points for VMware server.":::
 
 1. In the **Recovery points for** pane, use the calendar to select the date that contains the wanted recovery points. Depending on how the backup policy was configured, dates can have more than one recovery point. 
 
@@ -330,7 +330,7 @@ You can restore individual files from a protected VM recovery point. This featur
    > [!NOTE]
    > **Search list below** doesn't search into subfolders. To search through subfolders, double-click the folder. Use the **Up** button to move from a child folder into the parent folder. You can select multiple items (files and folders), but they must be in the same parent folder. You can't recover items from multiple folders in the same recovery job.
 
-   ![Review recovery selection](../backup/media/restore-azure-backup-server-vmware/vmware-rp-disk-ilr-2.png)
+   :::image type="content" source="../backup/media/restore-azure-backup-server-vmware/vmware-rp-disk-ilr-2.png" alt-text="Screenshot showing the date and time for the available recovery points selected.":::
 
 1. When you've selected the items for recovery, in the Administrator Console tool ribbon, select **Recover** to open the **Recovery Wizard**. In the **Recovery Wizard**, the **Review Recovery Selection** screen shows the selected items to be recovered.
 
@@ -343,7 +343,7 @@ You can restore individual files from a protected VM recovery point. This featur
 
 1. On the **Specify Destination** screen, select **Browse** to find a network location for your files or folders. Azure Backup Server creates a folder where all recovered items are copied. The folder name has the prefix MABS_day-month-year. When you select a location for the recovered files or folder, the details for that location are provided.
 
-   ![Specify location to recover files](../backup/media/restore-azure-backup-server-vmware/specify-destination.png)
+   :::image type="content" source="../backup/media/restore-azure-backup-server-vmware/specify-destination.png" alt-text="Screenshot showing the date and time, destination, and destination path for the available recovery points selected.":::
 
 1. On the **Specify Recovery Options** screen, choose which security setting to apply. You can opt to modify the network bandwidth usage throttling, but throttling is disabled by default. Also, **SAN Recovery** and **Notification** aren't enabled.
 
@@ -354,4 +354,4 @@ You can restore individual files from a protected VM recovery point. This featur
 Now that you've covered backing up your Azure VMware Solution VMs with Azure Backup Server, you may want to learn about: 
 
 - [Troubleshooting when setting up backups in Azure Backup Server](../backup/backup-azure-mabs-troubleshoot.md).
-- [Lifecycle management of Azure VMware Solution VMs](lifecycle-management-of-azure-vmware-solution-vms.md).
+- [Lifecycle management of Azure VMware Solution VMs](./integrate-azure-native-services.md).

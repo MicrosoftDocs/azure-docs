@@ -22,6 +22,8 @@ ms.author: yelevin
 > [!IMPORTANT]
 > The Squid Proxy connector is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 This article explains how to connect your Squid Proxy appliance to Azure Sentinel. The Squid Proxy data connector allows you to easily connect your Squid logs with Azure Sentinel, so that you can view the data in workbooks, use it to create custom alerts, and incorporate it to improve investigation. Integration between Squid Proxy and Azure Sentinel makes use of local file processing by the Log Analytics agent.
 
 > [!NOTE]

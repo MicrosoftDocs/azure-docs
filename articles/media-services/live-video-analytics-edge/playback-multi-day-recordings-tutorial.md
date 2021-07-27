@@ -1,12 +1,14 @@
 ---
-title: Playback of multi-day recordings  - Azure
-description: In this tutorial, you will learn how to use Azure Media Service APIs to playback a multi-day continuous video recording.
+title: Playback of multi-day recordings with Live Video Analytics - Azure
+description: In this tutorial, you learn how to use Azure Media Service APIs to playback a multi-day continuous video recording.
 ms.topic: tutorial
 ms.date: 05/27/2020
 
 ---
 
-# Tutorial: Playback of multi-day recordings  
+# Tutorial: Playback of multi-day recordings with Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 This tutorial builds up on the [continuous video recording](continuous-video-recording-concept.md) (CVR) tutorial. In this tutorial, you will learn how to use Azure Media Service APIs to playback a multi-day continuous video recording from the cloud. 
 

@@ -1,8 +1,8 @@
 ---
 title: Azure Monitor view designer to workbooks transition guide
 description: Transition from views to workbooks in Azure Monitor.
-author: austonli
-ms.author: aul
+author: shijatsu
+ms.author: shijain
 ms.topic: conceptual
 ms.date: 08/04/2020
 
@@ -57,9 +57,7 @@ Once selected, a gallery will be displayed listing out all the saved workbooks a
 To start a new workbook, you may select the **Empty** template under **Quick start**, or the **New** icon in the top navigation bar. To view templates or return to saved workbooks, select the item from the gallery or search for the name in the search bar.
 
 To save a workbook, you will need to save the report with a specific title, subscription, resource group, and location.
-The workbook will autofill to the same settings as the LA workspace, with the same subscription, resource group, however, users may change these report settings. Workbooks are by default saved to *My Reports*, accessible only by the individual user. They can also be saved directly to shared reports or shared later.
-
-![Workbooks save](media/view-designer-conversion-overview/workbooks-save.png)
+The workbook will autofill to the same settings as the LA workspace, with the same subscription, resource group, however, users may change these report settings. Workbooks are shared resources that require write access to the parent resource group to be saved.
 
 ## Next steps
 

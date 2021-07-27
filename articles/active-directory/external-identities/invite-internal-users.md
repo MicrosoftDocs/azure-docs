@@ -29,9 +29,12 @@ Sending an invitation to an existing internal account lets you retain that user�
 
 - **Invitation is one-way**: You can invite internal users to use B2B collaboration, but you can’t remove the B2B credentials once they’re added. To change the user back to an internal-only user, you’ll need to delete the user object and create a new one.
 
-- **Teams**: When the user accesses Teams using their external credentials, their tenant won't be available initially in the Teams tenant picker. The user can access Teams using a URL that contains the tenant context, for example: `https://team.microsoft.com/?tenantId=<TenantId>`. After that, the tenant will become available in the Teams tenant picker.
+- **Teams**: When the user accesses Teams using their external credentials, their tenant won't be available initially in the Teams tenant picker. The user can access Teams using a URL that contains the tenant context, for example: `https://teams.microsoft.com/?tenantId=<TenantId>`. After that, the tenant will become available in the Teams tenant picker.
 
 - **On-premises synced users**: For user accounts that are synced between on-premises and the cloud, the on-premises directory remains the source of authority after they’re invited to use B2B collaboration. Any changes you make to the on-premises account will sync to the cloud account, including disabling or deleting the account. Therefore, you can’t prevent the user from signing into their on-premises account while retaining their cloud account by simply deleting the on-premises account. Instead, you can set the on-premises account password to a random GUID or other unknown value.
+
+> [!NOTE]
+> If you are using Azure AD Connect Cloud Sync, there is a rule by default that writes the OnPremUserPrincipalName onto the user. This rule needs to be modified so that it does not write this property for users that you want to convert from internal to external users.
 
 ## How to invite internal users to B2B collaboration
 

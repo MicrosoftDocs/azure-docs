@@ -4,7 +4,8 @@ description: Learn how to use Azure SQL Database extensions to import SQL BACPAC
 author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jgao 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Import SQL BACPAC files with ARM templates

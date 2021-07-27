@@ -5,7 +5,7 @@ services: synapse-analytics
 author: periclesrocha
 ms.service: synapse-analytics 
 ms.topic: troubleshooting
-ms.subservice: 
+ms.subservice: sql
 ms.date: 11/18/2020 
 ms.author: procha 
 ms.reviewer: jrasnick

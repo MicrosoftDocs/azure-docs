@@ -33,9 +33,9 @@ For more information, see the examples section of this article.
 ## Related conceptual articles
 
 - [Get started with AzCopy](storage-use-azcopy-v10.md)
+- [Tutorial: Migrate on-premises data to cloud storage with AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
 - [Transfer data with AzCopy and Blob storage](./storage-use-azcopy-v10.md#transfer-data)
 - [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
-- [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
 
 ## Advanced
 
@@ -283,6 +283,8 @@ azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccoun
 **--content-type** string Specifies the content type of the file. Implies no-guess-mime-type. Returned on download.
 
 **--decompress** Automatically decompress files when downloading, if their content-encoding indicates that they are compressed. The supported content-encoding values are `gzip` and `deflate`. File extensions of `.gz`/`.gzip` or `.zz` aren't necessary, but will be removed if present.
+
+**--disable-auto-decoding**    False by default to enable automatic decoding of illegal chars on Windows. Can be set to `true` to disable automatic decoding.
 
 **--exclude-attributes** string   (Windows only) Excludes files whose attributes match the attribute list. For example: A;S;R
 

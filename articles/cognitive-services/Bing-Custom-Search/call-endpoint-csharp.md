@@ -26,7 +26,7 @@ Use this quickstart to learn how to request search results from your Bing Custom
 ## Prerequisites
 
 - A Bing Custom Search instance. For more information, see [Quickstart: Create your first Bing Custom Search instance](quick-start.md).
-- [Microsoft .NET Core](https://www.microsoft.com/net/download/core).
+- [Microsoft .NET Core](https://dotnet.microsoft.com/download).
 - Any edition of [Visual Studio 2019 or later](https://www.visualstudio.com/downloads/).
 - If you're using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
 - The [Bing Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/2.0.0) NuGet package. 

@@ -60,5 +60,5 @@ Reservation purchase recommendations are available in Azure Advisor. Keep in min
 - When using a look-back period of seven days, you might not get recommendations when VMs are shut down for more than a day.
 
 ## Next steps
-
+- Get [Reservation recommendations using REST APIs](/rest/api/consumption/reservationrecommendations/list).
 - Learn about [how the Azure reservation discount is applied to virtual machines](../manage/understand-vm-reservation-charges.md).

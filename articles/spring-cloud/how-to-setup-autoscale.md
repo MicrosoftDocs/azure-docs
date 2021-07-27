@@ -1,8 +1,8 @@
 ---
 title:  "Set up autoscale for microservice applications"
 description: This article describes how to set up Autoscale settings for your applications using the Microsoft Azure portal or the Azure CLI.
-author:  MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 07/22/2020
@@ -20,7 +20,7 @@ Autoscale is a built-in feature of Azure Spring Cloud that helps microservice ap
 To follow these procedures, you need:
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* A deployed Azure Spring Cloud service instance. Follow the [quickstart on deploying an app via the Azure CLI](./spring-cloud-quickstart.md) to get started.
+* A deployed Azure Spring Cloud service instance. Follow the [quickstart on deploying an app via the Azure CLI](./quickstart.md) to get started.
 * At least one application already created in your service instance.
 
 ## Navigate to the Autoscale page in the Azure portal

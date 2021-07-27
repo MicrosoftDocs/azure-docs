@@ -46,7 +46,7 @@
   - name: Move data between on-premises and cloud
     href: data-factory-move-data-between-onprem-and-cloud.md
   - name: FAQ
-    href: data-factory-faq.md      
+    href: data-factory-faq.yml      
 - name: How To
   items: 
   - name: Move data

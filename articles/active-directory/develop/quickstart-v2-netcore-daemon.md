@@ -29,7 +29,7 @@ In this quickstart, you download and run a code sample that demonstrates how a .
 
 ## Prerequisites
 
-This quickstart requires [.NET Core 3.1](https://www.microsoft.com/net/download/dotnet-core) but will also work with .NET Core 5.0.
+This quickstart requires [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download) but will also work with .NET 5.0 SDK.
 
 > [!div renderon="docs"]
 > ## Register and download the app

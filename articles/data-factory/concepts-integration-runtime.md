@@ -1,12 +1,12 @@
 ---
 title: Integration runtime
 description: 'Learn about integration runtime in Azure Data Factory.'
-ms.author: abnarain
-author: nabhishek
+ms.author: lle
+author: lrtoyou1223
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/14/2020
+ms.date: 06/16/2021
 ---
 
 # Integration runtime in Azure Data Factory 
@@ -163,9 +163,11 @@ Selecting the right location for your Azure-SSIS IR is essential to achieve high
 
 The following diagram shows location settings of Data Factory and its integration run times:
 
-![Integration runtime location](media/concepts-integration-runtime/integration-runtime-location.png)
+:::image type="content" source="media/concepts-integration-runtime/integration-runtime-location.png" alt-text="Integration runtime location":::
 
 ## Determining which IR to use
+If one data factory activity associates with more than one type of integration runtime, it will resolve to one of them. The self-hosted integration runtime takes precedence over Azure integration runtime in Azure Data Factory managed virtual network. And the latter takes precedence over public Azure integration runtime.
+For example, one copy activity is used to copy data from source to sink. The public Azure integration runtime is associated with the linked service to source and an Azure integration runtime in Azure Data Factory managed virtual network associates with the linked service for sink, then the result is that both source and sink linked service use Azure integration runtime in Azure Data Factory managed virtual network. But if a self-hosted integration runtime associates the linked service for source, then both source and sink linked service use self-hosted integration runtime.
 
 ### Copy activity
 

@@ -15,7 +15,7 @@ ms.custom: azure-synapse
 
 # Performance tuning with result set caching
 
-When result set caching is enabled, dedicated SQL pool automatically caches query results in the user database for repetitive use.  This allows subsequent query executions to get results directly from the persisted cache so recomputation is not needed.   Result set caching improves query performance and reduces compute resource usage.  In addition, queries using cached results set do not use any concurrency slots and thus do not count against existing concurrency limits. For security, users can only access the cached results if they have the same data access permissions as the users creating the cached results.  
+When result set caching is enabled, dedicated SQL pool automatically caches query results in the user database for repetitive use.  This allows subsequent query executions to get results directly from the persisted cache so recomputation is not needed.   Result set caching improves query performance and reduces compute resource usage.  In addition, queries using cached results set do not use any concurrency slots and thus do not count against existing concurrency limits. For security, users can only access the cached results if they have the same data access permissions as the users creating the cached results.  Result set caching is OFF by default at the database and session levels. 
 
 ## Key commands
 
@@ -39,7 +39,7 @@ Once result set caching is turned ON for a database, results are cached for all 
 >[!NOTE]
 > - Some non-deterministic functions and runtime expressions can be deterministic to repetitive queries against the same data. For example, ROW_NUMBER().  
 > - Use ORDER BY in your query if the order/sequence of rows in the query result set is important to your application logic.
-> - If data in the ORDER BY columns are not unique, there's no garanteed row order for rows with the same values in the ORDER BY columns, regardless if result set caching is enabled or disabled.
+> - If data in the ORDER BY columns are not unique, there's no guaranteed row order for rows with the same values in the ORDER BY columns, regardless if result set caching is enabled or disabled.
 
 > [!IMPORTANT]
 > The operations to create result set cache and retrieve data from the cache happen on the control node of a dedicated SQL pool instance.

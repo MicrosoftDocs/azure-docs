@@ -1,14 +1,17 @@
 ---
-title: "Quickstart: Create an Automation account - Azure template"
+title: 'Quickstart: Create an Automation account - Azure template'
 titleSuffix: Azure Automation
 description: This quickstart shows how to create an Automation account by using the Azure Resource Manager template.
 services: automation
-Customer intent: I want to create an Automation account by using an Azure Resource Manager template so that I can automate processes with runbooks.
+ms.author: magoedte
+ms.date: 07/20/2021
 ms.topic: quickstart
 ms.workload: infrastructure-services
-ms.date: 01/07/2021
-ms.author: magoedte
-ms.custom: mvc,subject-armqs
+ms.custom:
+  - mvc
+  - subject-armqs
+  - mode-arm
+# Customer intent: I want to create an Automation account by using an Azure Resource Manager template so that I can automate processes with runbooks.
 ---
 
 # Quickstart: Create an Automation account by using ARM template
@@ -19,7 +22,7 @@ Azure Automation delivers a cloud-based automation and configuration service tha
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-automation%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.automation%2F101-automation%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -41,7 +44,7 @@ After you complete these steps, you need to [configure diagnostic settings](auto
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-automation/).
 
-:::code language="json" source="~/quickstart-templates/101-automation/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.automation/101-automation/azuredeploy.json":::
 
 ### API versions
 
@@ -85,9 +88,21 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
 
 1. Select the following image to sign in to Azure and open a template. The template creates an Azure Automation account, a Log Analytics workspace, and links the Automation account to the workspace.
 
-    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-automation%2Fazuredeploy.json)
+    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.automation%2F101-automation%2Fazuredeploy.json)
 
 2. Enter the values.
+
+    When you attempt to run the ARM template from PowerShell, CLI, or the Templates feature in the portal, if the `_artifactsLocation` parameter is not properly set, you will receive an error message similar to the following:
+
+    `"message": "Deployment template validation failed: 'The template resource '_artifactsLocation' at line '96' and column '31' is not valid: The language expression property 'templateLink' doesn't exist, available properties are 'template, templateHash, parameters, mode, debugSetting, provisioningState'.. Please see https://aka.ms/arm-template-expressions for usage details.'."`
+
+    To prevent this, when running from the Templates feature in the portal, specify the following for the `_artifactsLocation` parameter - `https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.automation/101-automation/azuredeploy.json`.
+
+    When you run from PowerShell, include the parameter and its value `-TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.automation/101-automation/azuredeploy.json`.
+
+    When you run from Azure CLI, include the parameter and its value - `--template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.automation/101-automation/azuredeploy.json`.
+
+    For reference about PowerShell/CLI, see the following - [Create Azure Automation account (microsoft.com)](https://azure.microsoft.com/resources/templates/101-automation/) under the **Use the template** section.
 
 3. The deployment can take a few minutes to finish. When completed, the output is similar to the following:
 
@@ -97,7 +112,7 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the Azure portal, open the Automation account you just created. 
+2. In the Azure portal, open the Automation account you just created.
 
 3. From the left-pane, select **Runbooks**. On the **Runbooks** page, listed are three tutorial runbooks created with the Automation account.
 
