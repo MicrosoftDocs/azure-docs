@@ -60,7 +60,7 @@ The compute environment fails back automatically to the recovered region. The da
 
 ## Configuration changes in DR
 
-While the DR operation requires very little action to enable, additional configurations and tests may be required when the following features are used. 
+Additional configurations and tests may be required when the following features are used. 
 
 ### Private link
 
@@ -68,7 +68,7 @@ You can enable the private link feature before or after the Azure API for FHIR h
 
 * Configure Azure Private Link in the primary region. This step is not required in the secondary region. For more information, see [Configure private link](https://docs.microsoft.com/azure/healthcare-apis/fhir/configure-private-link)
 
-* Create one Azure VNet in the primary region and an additional VNet in the secondary region. For information, see [Create a virtual network using the Azure portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal).
+* Create one Azure VNet in the primary region and another VNet in the secondary region. For information, see [Create a virtual network using the Azure portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal).
 
 * In the primary region, VNet creates a VNet peering to the secondary region VNet. For more information, see [Virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
@@ -76,7 +76,7 @@ You can enable the private link feature before or after the Azure API for FHIR h
 
 * When the private DNS is set up, the VNet in the secondary region needs to be manually set up as a "Virtual network links". The primary VNet should have already been added as part of the Private Link endpoint creation flow. For more information, see [Virtual network links](https://docs.microsoft.com/azure/dns/private-dns-virtual-network-links).
 
-* Optionally, set up one VM in the primary region VNet and one in the secondary region VNet. You should be able to access the Azure API for FHIR from both VMs. Note that one, and only one, endpoint is accessible.
+* Optionally, set up one VM in the primary region VNet and one in the secondary region VNet. You should be able to access the Azure API for FHIR from both VMs.
 
 The private link feature should continue to work during a regional outage and after the failback has completed. For more information, see [Configure private link](https://docs.microsoft.com/azure/healthcare-apis/fhir/configure-private-link).
 
