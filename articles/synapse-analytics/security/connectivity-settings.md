@@ -4,7 +4,7 @@ description: An article that teaches you to configure connectivity settings in A
 ms.service: synapse-analytics 
 ms.topic: overview
 ms.subservice: security 
-ms.date: 07/22/2021 
+ms.date: 07/27/2021 
 author: ashinMSFT 
 ms.author: seshin 
 ms.reviewer: jrasnick, wiassaf
@@ -24,7 +24,7 @@ You can use the public network access feature to allow incoming public network c
 > [!IMPORTANT]
 > This feature is only available to Azure Synapse workspaces associated with [Azure Synapse Analytics Managed Virtual Network](synapse-workspace-managed-vnet.md). However, you can still open your Synapse workspaces to the public network regardless of its association with managed VNet. 
 
-Selecting the **Disable** option will not apply any firewall rules that you may configure. Additionally, your firewall rules will appear greyed out in the Network setting in Synapse portal. Your firewall configurations will be reapplied when you enable Public network access again. 
+Selecting the **Disable** option will not apply any firewall rules that you may configure. Additionally, your firewall rules will appear greyed out in the Network setting in Synapse portal. Your firewall configurations will be reapplied when you enable public network access again. 
 
 > [!TIP]
 > When you revert to enable, allow some time before editing the firewall rules.
