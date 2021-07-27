@@ -69,7 +69,7 @@ Now let's clone a Table app from GitHub, set the connection string, and run it. 
     ```
 
 > [!TIP]
-> For a more detailed walkthrough of similar code, see the [Cosmos DB Table API sample](table/how-to-use-java.md) article. 
+> For a more detailed walkthrough of similar code, see the [Cosmos DB Table API sample](how-to-use-java.md) article. 
 
 ## Review the code
 
@@ -209,4 +209,4 @@ You've now updated your app with all the info it needs to communicate with Azure
 In this quickstart, you learned how to create an Azure Cosmos DB account, create a table using the Data Explorer, and run a Java app to add table data.  Now you can query your data using the Table API.  
 
 > [!div class="nextstepaction"]
-> [Import table data to the Table API](table/table-import.md)
+> [Import table data to the Table API](table-import.md)

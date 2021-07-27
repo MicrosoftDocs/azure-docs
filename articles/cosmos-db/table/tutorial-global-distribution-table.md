@@ -10,20 +10,20 @@ ms.date: 01/30/2020
 ms.reviewer: sngun
 ---
 # Set up Azure Cosmos DB global distribution using the Table API
-[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
+[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
 
 This article covers the following tasks: 
 
 > [!div class="checklist"]
 > * Configure global distribution using the Azure portal
-> * Configure global distribution using the [Table API](table/introduction.md)
+> * Configure global distribution using the [Table API](introduction.md)
 
-[!INCLUDE [cosmos-db-tutorial-global-distribution-portal](includes/cosmos-db-tutorial-global-distribution-portal.md)]
+[!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
 ## Connecting to a preferred region using the Table API
 
-In order to take advantage of the [global distribution](distribute-data-globally.md), client applications should specify the current location where their application is running. This is done by setting the `CosmosExecutorConfiguration.CurrentRegion` property. The `CurrentRegion` property should contain a single location. Each client instance can specify their own region for low latency reads. The region must be named by using their [display names](/previous-versions/azure/reference/gg441293(v=azure.100)) such as "West US". 
+In order to take advantage of the [global distribution](../distribute-data-globally.md), client applications should specify the current location where their application is running. This is done by setting the `CosmosExecutorConfiguration.CurrentRegion` property. The `CurrentRegion` property should contain a single location. Each client instance can specify their own region for low latency reads. The region must be named by using their [display names](/previous-versions/azure/reference/gg441293(v=azure.100)) such as "West US". 
 
 The Azure Cosmos DB Table API SDK automatically picks the best endpoint to communicate with based on the account configuration and current regional availability. It prioritizes the closest region to provide better latency to clients. After you set the current `CurrentRegion` property, read and write requests are directed as follows:
 

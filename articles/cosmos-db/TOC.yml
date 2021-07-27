@@ -1354,7 +1354,7 @@
         - name: Build apps with Table API
           href: table/table-support.md
         - name: Create a container - Table API
-          href: how-to-create-container
+          href: table/how-to-create-container.md
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption
           href: table/find-request-unit-charge.md

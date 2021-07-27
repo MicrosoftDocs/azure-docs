@@ -12,9 +12,9 @@ ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Query Azure Cosmos DB by using the Table API
-[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
+[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
 
-The Azure Cosmos DB [Table API](table/introduction.md) supports OData and [LINQ](/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) queries against key/value (table) data.  
+The Azure Cosmos DB [Table API](introduction.md) supports OData and [LINQ](/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) queries against key/value (table) data.  
 
 This article covers the following tasks:
 
@@ -31,11 +31,11 @@ The queries in this article use the following sample `People` table:
 
 See [Querying Tables and Entities](/rest/api/storageservices/fileservices/querying-tables-and-entities) for details on how to query by using the Table API.
 
-For more information on the premium capabilities that Azure Cosmos DB offers, see [Azure Cosmos DB Table API](table/introduction.md) and [Develop with the Table API in .NET](table/tutorial-develop-table-dotnet.md).
+For more information on the premium capabilities that Azure Cosmos DB offers, see [Azure Cosmos DB Table API](introduction.md) and [Develop with the Table API in .NET](tutorial-develop-table-dotnet.md).
 
 ## Prerequisites
 
-For these queries to work, you must have an Azure Cosmos DB account and have entity data in the container. Don't have any of those? Complete the [five-minute quickstart](table/create-table-dotnet.md) or the [developer tutorial](table/tutorial-develop-table-dotnet.md) to create an account and populate your database.
+For these queries to work, you must have an Azure Cosmos DB account and have entity data in the container. Don't have any of those? Complete the [five-minute quickstart](create-table-dotnet.md) or the [developer tutorial](tutorial-develop-table-dotnet.md) to create an account and populate your database.
 
 ## Query on PartitionKey and RowKey
 
@@ -101,4 +101,4 @@ In this tutorial, you've done the following:
 You can now proceed to the next tutorial to learn how to distribute your data globally.
 
 > [!div class="nextstepaction"]
-> [Distribute your data globally](table/tutorial-global-distribution-table.md)
+> [Distribute your data globally](tutorial-global-distribution-table.md)

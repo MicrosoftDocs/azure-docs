@@ -73,7 +73,7 @@ This example shows how to declare a static field to hold the Azure Storage conne
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=<your_storage_account>;AccountKey=<your_storage_account_key>"));
 ```
 
-Use the name of your Storage account for `<your_storage_account>`. For <your_storage_account_key>, use the access key for the Storage account listed in the [Azure portal](https://portal.azure.com). For information on Storage accounts and access keys, see [Create a storage account](../storage/common/storage-account-create.md).
+Use the name of your Storage account for `<your_storage_account>`. For <your_storage_account_key>, use the access key for the Storage account listed in the [Azure portal](https://portal.azure.com). For information on Storage accounts and access keys, see [Create a storage account](../../storage/common/storage-account-create.md).
 
 ### Set up an Azure Cosmos DB connection string
 
@@ -93,7 +93,7 @@ To test your application in your local Windows-based computer, you can use the A
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-To start the Azure Storage Emulator, from your Windows desktop, select the **Start** button or the Windows key. Enter and run *Microsoft Azure Storage Emulator*. For more information, see [Use the Azure Storage Emulator for development and testing](../../storage/common/storage-use-emulator.md).
+To start the Azure Storage Emulator, from your Windows desktop, select the **Start** button or the Windows key. Enter and run *Microsoft Azure Storage Emulator*. For more information, see [Use the Azure Storage Emulator for development and testing](../../../storage/common/storage-use-emulator.md).
 
 ### Retrieve your connection string
 

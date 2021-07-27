@@ -29,7 +29,7 @@ This article shows you how to create tables, store your data, and perform CRUD o
 
 ## Create an Azure service account
 
-[!INCLUDE [cosmos-db-create-azure-service-account](i../ncludes/cosmos-db-create-azure-service-account.md)]
+[!INCLUDE [cosmos-db-create-azure-service-account](../includes/cosmos-db-create-azure-service-account.md)]
 
 **Create an Azure storage account**
 

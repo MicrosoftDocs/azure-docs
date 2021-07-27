@@ -11,9 +11,9 @@ ms.custom: seodec18
 ---
 
 # Migrate your data to an Azure Cosmos DB Table API account
-[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
+[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
 
-This tutorial provides instructions on importing data for use with the Azure Cosmos DB [Table API](table/introduction.md). If you have data stored in Azure Table Storage, you can use either the data migration tool or AzCopy to import your data to the Azure Cosmos DB Table API. 
+This tutorial provides instructions on importing data for use with the Azure Cosmos DB [Table API](introduction.md). If you have data stored in Azure Table Storage, you can use either the data migration tool or AzCopy to import your data to the Azure Cosmos DB Table API. 
 
 This tutorial covers the following tasks:
 
@@ -102,7 +102,7 @@ AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.cosmosdb.windows.net/m
 Learn how to query data by using the Azure Cosmos DB Table API. 
 
 > [!div class="nextstepaction"]
->[How to query data?](../cosmos-db/table/tutorial-query-table.md)
+>[How to query data?](tutorial-query-table.md)
 
 
 
