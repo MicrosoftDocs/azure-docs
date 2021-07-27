@@ -63,11 +63,9 @@ The following samples illustrate web applications that sign in users. Some sampl
 > | Python </p> Flask | Flask standalone sample <br/>&#8226; [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-python-webapp) | MSAL Python | [Auth code flow](./v2-oauth2-auth-code-flow.md) |
 > | Ruby | Graph Training <br/> &#8226; [Sign in users and call Microsoft Graph](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp) | | |
 
-
 ## Desktop applications
 
 The following samples show public client desktop applications that access the Microsoft Graph API, or your own web API in the name of the user. Apart from the *Desktop (Console) with Workspace Application Manager (WAM)* sample, all these client applications use the Microsoft Authentication Library (MSAL).
-
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Language/<br/>Platform |  Code sample(s) on GitHub | Auth libraries | Auth flow |  
@@ -82,14 +80,10 @@ The following samples show public client desktop applications that access the Mi
 >| Universal Window Platform (UWP)    |  [Call Microsoft Graph](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam)   |        |         |
 >|  XAML  |   [Sign in users and call ASP.NET core web API](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/1.%20Desktop%20app%20calls%20Web%20API)      |   MSAL.NET     | Auth code flow (with PKCE)         |
 >|   XAML | [Sign in users and call Microsoft Graph](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2)    |  MSAL.NET     |  Auth code flow (with PKCE)       |
-|    |         |        |       |
-
-
 
 ## Mobile applications
 
 The following samples show public client mobile applications that access the Microsoft Graph API, or your own web API in the name of the user. These client applications use the Microsoft Authentication Library (MSAL).
-
 
 > [!div class="mx-tdCol2BreakAll"]
 >| Language/<br/>Platform     | Code sample(s) on GitHub |Auth libraries |Auth flow |
@@ -99,9 +93,6 @@ The following samples show public client mobile applications that access the Mic
 >|   Java | [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-android-java)     |     MSAL Android   |   Auth code flow (with PKCE)     |
 >|   Kotlin | [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-android-kotlin)       |  MSAL Android     |   Auth code flow (with PKCE)     |
 >|  Xamarin  | &#8226;   [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/active-directory-xamarin-native-v2/tree/main/1-Basic)  <br/>&#8226; [Sign in users with broker and call Microsoft Graph](https://github.com/Azure-Samples/active-directory-xamarin-native-v2/tree/main/2-With-broker)  |    MSAL.NET    |     Auth code flow (with PKCE)   |
-
-
-
 
 ## Daemon applications
 
@@ -123,8 +114,8 @@ The following sample shows a public client application running on a device witho
 > [!div class="mx-tdCol2BreakAll"]
 >| Language/<br/>Platform     | Code sample(s) on GitHub |Auth libraries |Auth flow |
 >| ----------- | ----------- |----------- |----------- |
->| .NET core | [Invoke protected API from text-only device](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2) | MSAL.NET | OAuth 2.0 device code flow |
 >| Java | [Sign in users and invoke protected API](https://github.com/Azure-Samples/ms-identity-java-devicecodeflow) | MSAL Java |  OAuth 2.0 device code flow |
+>| .NET core | [Invoke protected API from text-only device](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2) | MSAL.NET | OAuth 2.0 device code flow |
 >| Python | [Call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-python-devicecodeflow) | MSAL Python | OAuth 2.0 device code flow |
 
 ## Multi-tenant SaaS applications
@@ -159,10 +150,9 @@ The following samples show how to protect an Azure Function using HttpTrigger an
 >| Language/<br/>Platform     | Code sample(s) on GitHub |Auth libraries |Auth flow |
 >| ----------- | ----------- |----------- |----------- |
 >| ASP.NET | [DotNet Azure Function Web API secured by Azure AD](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions) | MSAL.NET  |  Auth code flow |
->| Python | [Python Azure Function Web API secured by Azure AD](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions) | MSAL Python | Auth code flow |
 >| Node.js | [Node.js Azure Function Web API secured by Azure AD](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions) | MSAL Node |   |
 >| Node.js | [Call Microsoft Graph API on behalf of a user](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions) | MSAL Node|  On-Behalf-Of (OBO) flow|
-
+>| Python | [Python Azure Function Web API secured by Azure AD](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions) | MSAL Python | Auth code flow |
 
 ## Other Microsoft Graph samples
 
