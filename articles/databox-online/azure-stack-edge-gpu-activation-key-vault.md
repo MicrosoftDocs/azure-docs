@@ -88,7 +88,7 @@ After the activation key is generated and key vault is created, you may want to 
 To access the key vault and view the secrets, follow these steps:
 
 1. In the Azure portal for your Azure Stack Edge resource, go to **Security**. 
-1. Under **Security preferences**, you can view the **Secrets**. 
+1. In the right-pane, under **Security**, you can view the **Secrets**. 
 1. You can also navigate to the key vault associated with your Azure Stack Edge resource. Select **Key vault name**. 
 
     ![Go to device key vault](media/azure-stack-edge-gpu-activation-key-vault/view-key-vault-name-1.png)
@@ -102,7 +102,7 @@ To access the key vault and view the secrets, follow these steps:
 To access the access policies for your key vault and managed identity, follow these steps:
 
 1. In the Azure portal for your Azure Stack Edge resource, go to **Security**. 
-1. Under **Security preferences**, select **Key vault name** to navigate to the key vault associated with your Azure Stack Edge resource. 
+1. Select the link corresponding to **Key vault name** to navigate to the key vault associated with your Azure Stack Edge resource. 
 
     ![Go to device key vault](media/azure-stack-edge-gpu-activation-key-vault/view-key-vault-name-1.png)
 
@@ -116,7 +116,7 @@ To access the access policies for your key vault and managed identity, follow th
 To access the key vault and view the diagnostics settings and the audit logs, follow these steps:
 
 1. In the Azure portal for your Azure Stack Edge resource, go to **Security**. 
-1. Under **Security preferences**, select **Key vault name** to navigate to the key vault associated with your Azure Stack Edge resource. 
+1. Select the link corresponding to **Key vault name** to navigate to the key vault associated with your Azure Stack Edge resource. 
 
     ![Go to device key vault](media/azure-stack-edge-gpu-activation-key-vault/view-key-vault-name-1.png)
 
@@ -131,7 +131,7 @@ If you have configured a different storage target for logs on the key vault, the
 To access the key vault insights including the operations performed on the key vault, follow these steps:
 
 1. In the Azure portal for your Azure Stack Edge resource, go to **Security**. 
-1. Under **Security preferences**, select **Key vault diagnostics**. 
+1. Select the link corresponding to **Key vault diagnostics**. 
 
     ![Go to device key vault](media/azure-stack-edge-gpu-activation-key-vault/view-key-vault-name-1.png)
 
@@ -144,7 +144,7 @@ To access the key vault insights including the operations performed on the key v
 To view the status of the system-assigned managed identity associated with your Azure Stack Edge resource, follow these steps:
 
 1. In the Azure portal for your Azure Stack Edge resource, go to **Security**. 
-1. Under **Security preferences**, go to **system-assigned managed identity** to view if the system-assigned managed identity is enabled or disabled.
+1. In the right-pane, go to **system-assigned managed identity** to view if the system-assigned managed identity is enabled or disabled.
 
     ![Go to device key vault](media/azure-stack-edge-gpu-activation-key-vault/view-key-vault-name-1.png)
 
@@ -153,7 +153,7 @@ To view the status of the system-assigned managed identity associated with your 
 To access the key vault and view the locks, follow these steps:
 
 1. In the Azure portal for your Azure Stack Edge resource, go to **Security**. 
-1. Under **Security preferences**, select **Key vault name** to navigate to the key vault associated with your Azure Stack Edge resource. 
+1. Select the link corresponding to **Key vault name** to navigate to the key vault associated with your Azure Stack Edge resource. 
 
     ![Go to device key vault](media/azure-stack-edge-gpu-activation-key-vault/view-key-vault-name-1.png)
 1. To view the locks on your key vault, go to **Locks**. To prevent accidental deletion, a resource lock is enabled on the key vault. 
@@ -230,7 +230,7 @@ Within 90 days of deletion, follow these steps to recover your key vault:
         > [!NOTE]
         > If your key vault is deleted, and the purge-protection period of 90 days hasn't elapsed, then in that time period, the key vault name can't be used to create a new key vault.
     - A storage account is created to store the audit logs. 
-    - system-assigned managed identity is granted access to the key vault.
+    - The system-assigned managed identity is granted access to the key vault.
     - Device secrets are pushed to the key vault. 
     
     Select **Configure**. 
