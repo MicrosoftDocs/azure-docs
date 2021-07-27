@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 
 - Establish connectivity from your on-premises network to your private cloud.
 
-- If you have AD with SSL, download the certificate for AD authentication and upload to storage account as a blob storage.
+- If you have AD with SSL, download the certificate for AD authentication and upload to an Azure storage account as a blob storage.  You must [grant access to Azure Storage resources using shared access signature (SAS)](../storage/common/storage-sas-overview.md). 
 
 - If you use FQDN, enable DNS resolution on your on-premises AD.
 
@@ -59,18 +59,43 @@ You'll run the `Get-ExternalIdentitySources` cmdlet to list all external identit
 
 ## Add Active Directory over LDAP
 
-<!-- Introduction paragraph -->
+You'll run the `New-AvsLDAPIdentitySource` cmdlet to add AD over LDAP as an external identity source to use with SSO into vCenter 
 
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+1. Select **Run command** > **Packages** > **New-AvsLDAPIdentitySource**.
 
+1. Provided the required values or change the default values, and then select **Run**.
+
+   :::image type="content" source="media/run-command/run-command-new-ldap-identity-sources.png" alt-text="Screenshot  ":::
+   
+   | Field | Value |
+   | --- | --- |
+   | Name  | User-friendly name of the external identity source. For example, **avslap.local**.  |
+   | DomainName  | Domain name of the external identity source. For example,   |
+   | DomainAlias  | Domain alias of the external identity source. For example,     |
+   | PrimaryUrl  | Primary URL of the external identity source. For example, **ldap://yourserver:389**.  |
+   | SecondaryURL  | Secondary fall-back URL in case of primary failure.  |
+   | BaseDNUsers  |  Where to look for valid users. For example, **CN=users,DC=yourserver,DC=internal**.  Base DN is needed to use LDAP Authentication.  |
+   | BaseDNGroups  | Where to look for groups. For example, **CN=group1, DC=yourserver,DC= internal**. Base DN is needed to use LDAP Authentication.  |
+   | Credential  | The username and password used for authentication with the AD source (not cloudadmin).  |
+   | GroupName  | Group to give cloud admin access in your external identity source.  For example, **avs-admins**.  |
+   | Retain up to  | Job retention period. The cmdlet output is stored for the number of days defined. Default value is 60.  |
+   | Spcify name for execution  | Name of the task to execute. For example, ***addexternalIdentity**.  |
+   | Timeout  | The time in which the cmdlet exits if a certain task takes too long to finish.  |
+
+1. Check **Notifications** to see the progress.
 
 
 
 ## Add Active Directory over LDAP with SSL
 
-<!-- Introduction paragraph -->
+You'll run the `New-AvsLDAPIdentitySource` cmdlet to add an AD over LDAP with SSL as an external identity source to use with SSO into vCenter. 
+
+
+
+1. Make sure you've downloaded the certificate for AD authentication and upload to storage account as a blob storage. 
+
+   
+
 1. <!-- Step 1 -->
 1. <!-- Step 2 -->
 1. <!-- Step n -->
@@ -134,7 +159,7 @@ customer can do.
 
 Advance to the next article to learn how to create...
 > [!div class="nextstepaction"]
-> [Next steps button](contribute-how-to-mvc-tutorial.md)
+> [Next steps button]()
 
 <!--
 Remove all the comments in this template before you sign-off or merge to the 

@@ -52,10 +52,10 @@
     href: concepts-networking.md
   - name: Private clouds and clusters
     href: concepts-private-clouds-clusters.md
-  - name: Storage 
-    href: concepts-storage.md
   - name: Run command
     href: concepts-run-command.md
+  - name: Storage 
+    href: concepts-storage.md
 - name: How-to guides
   items:
   - name: Create an Azure VMware Solution assessment
