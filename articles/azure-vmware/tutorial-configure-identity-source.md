@@ -18,9 +18,11 @@ ms.date: 08/15/2021
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * All tutorials include a list summarizing the steps to completion
-> * Each of these bullet points align to a key H2
-> * Use these green checkboxes in a tutorial
+> * List all existing external identity sources integrated with vCenter SSO
+> * Add Active Directory over LDAP, with or without SSL 
+> * Add existing AD group to cloudadmin group
+> * Remove AD group from the cloudadmin role
+> * Remove existing external identity sources
 
 
 
