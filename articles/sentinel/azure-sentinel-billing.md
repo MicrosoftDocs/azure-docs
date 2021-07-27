@@ -42,7 +42,7 @@ For example, you can enter the GB of daily data you expect to ingest in Azure Se
 > [!NOTE]
 > The costs shown in this image are for example purposes only. They're not intended to reflect actual costs.
 
-:::image type="content" source="media/billing/pricing-calculator.png" alt-text="Example showing estimated cost in the Azure pricing calculator." lightbox="media/billing/pricing-calculator.png" :::
+:::image type="content" source="media/billing/pricing-calculator.png" alt-text="Sample screenshot showing estimated cost in the Azure pricing calculator." lightbox="media/billing/pricing-calculator.png" :::
 
 ## Understand the full billing model for Azure Sentinel
 
