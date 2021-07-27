@@ -14,7 +14,7 @@ The **AVS Interconnect** feature lets you create a network connection between tw
 
 You can connect a private cloud to multiple private clouds, and the connections are non-transitive. For example, if _private cloud 1_ is connected to _private cloud 2_, and _private cloud 2_ is connected to _private cloud 3_, private clouds 1 and 3 would not communicate until they were directly connected.
 
-You can only connect to private clouds in the same region. To connect to private clouds that are in different regions, [use ExpressRoute Global Reach](tutorial-expressroute-global-reach-private-cloud.md) to connect your private clouds in the same way you connect your private cloud to your on-premises circuit. 
+You can only connect private clouds in the same region. To connect private clouds that are in different regions, [use ExpressRoute Global Reach](tutorial-expressroute-global-reach-private-cloud.md) to connect your private clouds in the same way you connect your private cloud to your on-premises circuit. 
 
 >[!IMPORTANT]
 >The AVS Interconnect (Preview) feature is currently in public preview.  
@@ -58,7 +58,7 @@ The AVS Interconnect (Preview) feature is available in all regions except for So
 
    :::image type="content" source="media/networking/add-connection-to-other-private-cloud-notification.png" alt-text="Screenshot showing the Notification information for connection in progress and an existing connection." border="true":::
 
-   You'll' see all of your connections under **AVS Private Cloud**.
+   You'll see all of your connections under **AVS Private Cloud**.
    
    :::image type="content" source="media/networking/private-cloud-to-private-cloud-two-connections.png" alt-text="Screenshot showing the AVS Interconnect tab under Connectivity and two established private cloud connections." border="true" lightbox="media/networking/private-cloud-to-private-cloud-two-connections.png":::
 

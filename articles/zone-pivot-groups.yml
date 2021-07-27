@@ -29,6 +29,15 @@ groups:
     title: Flask
   - id: python-framework-django
     title: Django
+# Owner: kraigb
+- id: postgres-server-options
+  title: PostgreSQL Server
+  prompt: Choose a PostgreSQL SKU
+  pivots:
+  - id: postgres-single-server
+    title: Single Server
+  - id: postgres-flexible-server
+    title: Flexible Server (Preview)    
 # Programming language groups
 - id: programming-languages-set-one
   title: Programming languages

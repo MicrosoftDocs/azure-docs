@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 06/14/2021
+ms.date: 07/12/2021
 ms.author: b-juche
 ---
 # Create an NFS volume for Azure NetApp Files
@@ -57,7 +57,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
     * **Volume name**      
         Specify the name for the volume that you are creating.   
 
-        A volume name must be unique within each capacity pool. It must be at least three characters long. You can use any alphanumeric characters.   
+        A volume name must be unique within each capacity pool. It must be at least three characters long. The name must begin with a letter. It can contain letters, numbers, underscores ('_'), and hyphens ('-') only.
 
         You cannot use `default` or `bin` as the volume name.
 

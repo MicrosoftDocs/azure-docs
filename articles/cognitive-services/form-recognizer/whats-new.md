@@ -15,7 +15,13 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD036 -->
 # What's new in Azure Form Recognizer
 
-Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up-to-date with release notes, feature enhancements, and documentation updates. 
+Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up-to-date with release notes, feature enhancements, and documentation updates.
+
+## July 2021
+
+### System-assigned managed identity support 
+
+ You can now enable a system-assigned managed identity to grant Form Recognizer limited access to private storage accounts including those protected by a Virtual Network (VNet) or firewall or have enabled bring-your-own-storage (BYOS). *See* [Create and use managed identity for your Form Recognizer resource](managed-identity-byos.md) to learn more.
 
 ## June 2021
 
@@ -27,7 +33,7 @@ Form Recognizer features are now supported by six feature containers—**Layout*
 
 ### Form Recognizer connector released in preview
 
-  The [**Form Recognizer connector**](/connectors/formrecognizer) integrates with  [Azure Logic Apps](/azure/logic-apps/logic-apps-overview),  [Microsoft Power Automate](/power-automate/getting-started), and [Microsoft Power Apps](/powerapps/powerapps-overview). The connector supports workflow actions and triggers to extract and analyze document data and structure from custom and prebuilt forms, invoices, receipts, business cards and ID documents.
+  The [**Form Recognizer connector**](/connectors/formrecognizer) integrates with  [Azure Logic Apps](../../logic-apps/logic-apps-overview.md),  [Microsoft Power Automate](/power-automate/getting-started), and [Microsoft Power Apps](/powerapps/powerapps-overview). The connector supports workflow actions and triggers to extract and analyze document data and structure from custom and prebuilt forms, invoices, receipts, business cards and ID documents.
 
 ### Form Recognizer SDK v3.1.0 patched to v3.1.1 for C#, Java, and Python
 

@@ -92,11 +92,12 @@ azacsnap -c backup --volume data --prefix hana_TEST --retention 9 --trim
 The command does not output to the console, but does write to a log file, a result file,
 and `/var/log/messages`.
 
-The *log file* is made up of the command name + the -c option + the config filename. By default
-a log filename for a `-c backup` run with a default config filename `azacsnap-backup-azacsnap.log`.
+In this example the *log file* name is `azacsnap-backup-azacsnap.log` (see [Log files](#log-files))
 
-The *result* file has the same base name as the log file, with `.result` as its suffix, for
-example `azacsnap-backup-azacsnap.result` that contains the following output:
+When running the `-c backup` with the `--volume data` option a result file is also generated as a file to allow
+for quickly checking the result of a backup.  The *result* file has the same base name as the log file, with `.result` as its suffix.
+
+In this example the *result file* name is `azacsnap-backup-azacsnap.result` and contains the following output:
 
 ```bash
 cat logs/azacsnap-backup-azacsnap.result
@@ -135,8 +136,7 @@ azacsnap -c backup --volume other --prefix logs_TEST --retention 9
 The command does not output to the console, but does write to a log file only.  It does _not_ write
 to a result file or `/var/log/messages`.
 
-The *log file* is made up of the command name + the -c option + the config filename. By default
-a log filename for a `-c backup` run with a default config filename `azacsnap-backup-azacsnap.log`.
+In this example the *log file* name is `azacsnap-backup-azacsnap.log` (see [Log files](#log-files)).
 
 ## Example with `other` parameter (to backup host OS)
 
@@ -155,7 +155,7 @@ azacsnap -c backup --volume other --prefix boot_TEST --retention 9 --configfile 
 The command does not output to the console, but does write to a log file only.  It does _not_ write
 to a result file or `/var/log/messages`.
 
-The *log file* name in this example is `azacsnap-backup-bootVol.log`.
+In this example the *log file* name is `azacsnap-backup-bootVol.log` (see [Log files](#log-files)).
 
 ## Log files
 

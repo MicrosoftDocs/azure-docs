@@ -166,6 +166,8 @@
     items:
     - name: Security controls by Azure Policy
       href: ./security-controls-policy.md
+    - name: Autoscale for Azure API for FHIR
+      href: autoscale-azure-api-fhir.md
 - name: Resources
   items:
   - name: FAQ

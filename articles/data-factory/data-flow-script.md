@@ -266,6 +266,13 @@ window(over(stocksymbol),
 	FifteenDayMovingAvg = round(avg(Close),2)) ~> Window1
 ```
 
+### Distinct count of all column values
+You can use this script to identify key columns and view the cardinality of all columns in your stream with a single script snippet. Add this script as an aggregate transformation to your data flow and it will automatically provide distinct counts of all columns.
+
+```
+aggregate(each(match(true()), $$ = countDistinct($$))) ~> KeyPattern
+```
+
 ## Next steps
 
 Explore Data Flows by starting with the [data flows overview article](concepts-data-flow-overview.md)

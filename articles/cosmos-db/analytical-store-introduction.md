@@ -4,7 +4,7 @@ description: Learn about Azure Cosmos DB transactional (row-based) and analytica
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 07/12/2021
 ms.author: rosouz
 ms.custom: "seo-nov-2020"
 ---
@@ -322,6 +322,8 @@ To learn more, see [how to configure analytical TTL on a container](configure-sy
 To learn more, see the following docs:
 
 * [Azure Synapse Link for Azure Cosmos DB](synapse-link.md)
+
+* Checkout the learn module on how to [Design hybrid transactional and analytical processing using Azure Synapse Analytics](/learn/modules/design-hybrid-transactional-analytical-processing-using-azure-synapse-analytics/)
 
 * [Get started with Azure Synapse Link for Azure Cosmos DB](configure-synapse-link.md)
 

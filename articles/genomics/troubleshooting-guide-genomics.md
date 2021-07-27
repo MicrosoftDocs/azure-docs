@@ -16,7 +16,7 @@ ms.date: 10/29/2018
 
 Here are a few troubleshooting tips for some of the common issues that you might face when using the Microsoft Genomics service, MSGEN.
 
- For FAQ, not related to troubleshooting, see [Common questions](frequently-asked-questions-genomics.md).
+ For FAQ, not related to troubleshooting, see [Common questions](frequently-asked-questions-genomics.yml).
 ## Step 1: Locate error codes associated with the workflow
 
 You can locate the error messages associated with the workflow by:
@@ -138,4 +138,4 @@ If you continue to have job failures, or if you have any other questions, contac
 
 ## Next steps
 
-In this article, you learned how to troubleshoot and resolve common issues with the Microsoft Genomics service. For more information and more general FAQ, see [Common questions](frequently-asked-questions-genomics.md). 
+In this article, you learned how to troubleshoot and resolve common issues with the Microsoft Genomics service. For more information and more general FAQ, see [Common questions](frequently-asked-questions-genomics.yml). 

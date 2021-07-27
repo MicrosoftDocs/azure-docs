@@ -47,7 +47,7 @@ For this article you need,
 
 ## Select your experiment type
 
-Before you begin your experiment, you should determine the kind of machine learning problem you are solving. Automated machine learning supports task types of `classification`, `regression`, and `forecasting`. Learn more about [task types](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast).
+Before you begin your experiment, you should determine the kind of machine learning problem you are solving. Automated machine learning supports task types of `classification`, `regression`, and `forecasting`. Learn more about [task types](concept-automated-ml.md#when-to-use-automl-classification-regression--forecasting).
 
 The following code uses the `task` parameter in the `AutoMLConfig` constructor to specify the experiment type as `classification`.
 
@@ -523,7 +523,7 @@ model_name = best_run.properties['model_name']
 description = 'AutoML forecast example'
 tags = None
 
-model = remote_run.register_model(model_name = model_name, 
+model = run.register_model(model_name = model_name, 
                                   description = description, 
                                   tags = tags)
 ```
@@ -551,7 +551,5 @@ For general information on how model explanations and feature importance can be 
 + Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
 
 + Learn more about [how to train a regression model with Automated machine learning](tutorial-auto-train-models.md).
-
-+ Learn how to train multiple models with AutoML in the [Many Models Solution Accelerator](https://aka.ms/many-models).
 
 + [Troubleshoot automated ML experiments](how-to-troubleshoot-auto-ml.md). 

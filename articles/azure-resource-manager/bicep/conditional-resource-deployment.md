@@ -5,12 +5,12 @@ description: Describes how to conditionally deploy a resource in Bicep.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/29/2021
+ms.date: 07/15/2021
 ---
 
 # Conditional deployment in Bicep
 
-Sometimes you need to optionally deploy a resource in Bicep. Use the `if` keyword to specify whether the resource is deployed. The value for the condition resolves to true or false. When the value is true, the resource is created. When the value is false, the resource isn't created. The value can only be applied to the whole resource.
+Sometimes you need to optionally deploy a resource or module in Bicep. Use the `if` keyword to specify whether the resource or module is deployed. The value for the condition resolves to true or false. When the value is true, the resource is created. When the value is false, the resource isn't created. The value can only be applied to the whole resource or module.
 
 > [!NOTE]
 > Conditional deployment doesn't cascade to [child resources](child-resource-name-type.md). If you want to conditionally deploy a resource and its child resources, you must apply the same condition to each resource type.
@@ -25,6 +25,16 @@ param deployZone bool
 resource dnsZone 'Microsoft.Network/dnszones@2018-05-01' = if (deployZone) {
   name: 'myZone'
   location: 'global'
+}
+```
+
+The next example conditionally deploys a module.
+
+```bicep
+param deployZone bool
+
+module dnsZone 'dnszones.bicep' = if (deployZone) {
+  name: 'myZoneModule'
 }
 ```
 

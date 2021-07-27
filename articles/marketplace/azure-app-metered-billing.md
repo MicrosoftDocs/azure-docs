@@ -4,7 +4,7 @@ description: This documentation is a guide for ISVs publishing Azure application
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/22/2020
+ms.date: 07/01/2021
 ms.author: mingshen
 author: mingshen-ms
 ---

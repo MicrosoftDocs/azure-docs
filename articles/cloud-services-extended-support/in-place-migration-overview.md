@@ -13,13 +13,28 @@ ms.custom:
  
 # Migrate Azure Cloud Services (classic) to Azure Cloud Services (extended support)
 
+This document provides overview for migrating Cloud Services (classic) to Cloud Services (extended support). Cloud Services (extended support) provides two paths for customers to migrate from Azure Service Manager to Azure Resource Manager:
+
+- **Redeploy**: Customers can deploy a new cloud service directly in Azure Resource Manager and then delete the old cloud service in Azure Service Manager after thorough validation. Redeploy provides more control and a self-paced migration. Choose this path if you desire control about how the new service components are named and how they are organized. You are also in control of pace of building new services and deleting the old deployments.
+
+- **In-place migration**: The In-place migration tool enables a seamless, platform orchestrated migration of existing Cloud Services (classic) deployments to Cloud Services (extended support). In-place migration provides less control but is faster paced. Choose this option if you would like the platform to define the basic settings for you and orchestrate a quick migration. The Cloud Services (classic) resources are deleted as soon as migration is complete successfully.
+
+## Redeploy Overview
+
+A new Cloud Service (extended support) can be deployed directly in Azure Resource Manager using the following client tools:
+
+- [Deploy a cloud service – Portal](deploy-portal.md)
+- [Deploy a cloud service – PowerShell](deploy-powershell.md)
+- [Deploy a cloud service – Template](deploy-template.md)
+- [Deploy a cloud service – SDK](deploy-sdk.md)
+- [Deploy a cloud service – Visual Studio](/visualstudio/azure/cloud-services-extended-support?context=%2fazure%2fcloud-services-extended-support%2fcontext%2fcontex)
+
+
+## Migration tool Overview
+
 This article provides an overview on the platform-supported migration tool and how to use it to migrate [Azure Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md) to [Azure Cloud Services (extended support)](overview.md).
 
 The migration tool utilizes the same APIs and has the same experience as the [Virtual Machine (classic) migration](../virtual-machines/migration-classic-resource-manager-overview.md). 
-
-> [!IMPORTANT]
-> Migrating from Cloud Services (classic) to Cloud Services (extended support) using the migration tool is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Refer to the following resources if you need assistance with your migration: 
 
@@ -51,13 +66,7 @@ To perform this migration, you must be added as a coadministrator for the subscr
     Register-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate 
     ```
  
-5. Register your subscription for the Cloud Services migration preview feature using [Portal](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [PowerShell](../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) or [CLI](../azure-resource-manager/management/resource-providers-and-types.md#azure-cli)
-
-    ```powershell
-    Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute 
-    ```
-
-6. Check the status of your registration. Registration can take a few minutes to complete. 
+5. Check the status of your registration. Registration can take a few minutes to complete. 
 
     ```powershell
     Get-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute 
@@ -66,7 +75,7 @@ To perform this migration, you must be added as a coadministrator for the subscr
 ## How is migration for Cloud Services (classic) different from Virtual Machines (classic)?
 Azure Service Manager supports two different compute products, [Azure Virtual Machines (classic)](/previous-versions/azure/virtual-machines/windows/classic/tutorial-classic) and [Azure Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md) or Web/ Worker roles. The two products differ based on the deployment type that lies within the Cloud Service. Azure Cloud Services (classic) uses Cloud Service containing deployments with Web/Worker roles. Azure Virtual Machines (classic) uses a cloud service containing deployments with IaaS VMs.
 
-The list of supported scenarios differ between Cloud Services (classic) and Virtual Machines (classic) because of differences in the deployment types.
+The list of supported scenarios differs between Cloud Services (classic) and Virtual Machines (classic) because of differences in the deployment types.
 
 ## Migration steps
  
@@ -151,37 +160,6 @@ These are top scenarios involving combinations of resources, features and Cloud 
 Cloud Service deployments using legacy role sizes (such as Small or ExtraLarge). | The migration will complete, but the role sizes will be updated to use modern role sizes. There is no change in cost or SKU properties and virtual machine will not be rebooted for this change. Update all deployment artifacts to reference these new modern role sizes. For more information, see [Available VM sizes](available-sizes.md)|
 | Migration of Cloud Service to different virtual network | Not supported <br><br> 1. Move the deployment to a different classic virtual network before migration. This will cause downtime. <br> 2. Migrate the new virtual network to Azure Resource Manager. <br><br> Or <br><br> 1. Migrate the virtual network to Azure Resource Manager <br>2. Move the Cloud Service to a new virtual network. This will cause downtime. | 
 | Cloud Service in a virtual network but does not have an explicit subnet assigned | Not supported. Mitigation involves moving the role into a subnet, which requires a role restart (downtime) | 
-
-
-## Post Migration Changes
-The Cloud Services (classic) deployment is converted to a Cloud Service (extended support) deployment. Refer to [Cloud Services (extended support) documentation](deploy-prerequisite.md) for more details.  
-
-### Changes to deployment files 
-
-Minor changes are made to customer’s .csdef and .cscfg file to make the deployment files conform to the Azure Resource Manager and Cloud Services (extended support) requirements. Post migration retrieves your new deployment files or update the existing files. This will be needed for update/delete operations.  
-
-- Virtual Network uses full Azure Resource Manager resource ID instead of just the resource name in the NetworkConfiguration section of the .cscfg file. For example, `/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.Network/virtualNetworks/vnet-name`. For virtual networks belonging to the same resource group as the cloud service, you can choose to update the .cscfg file back to using just the virtual network name.  
-
-- Classic sizes like Small, Large, ExtraLarge are replaced by their new size names, Standard_A*. The size names need to be changed to their new names in .csdef file. For more information, see [Cloud Services (extended support) deployment prerequisites](deploy-prerequisite.md#required-service-definition-file-csdef-updates)
-
-- Use the Get API to get the latest copy of the deployment files. 
-    - Get the template using [Portal](../azure-resource-manager/templates/export-template-portal.md), [PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates), [CLI](../azure-resource-manager/management/manage-resource-groups-cli.md#export-resource-groups-to-templates), and [Rest API](/rest/api/resources/resourcegroups/exporttemplate) 
-    - Get the .csdef file using [PowerShell](/powershell/module/az.cloudservice/?preserve-view=true&view=azps-5.4.0#cloudservice) or [Rest API](/rest/api/compute/cloudservices/rest-get-package). 
-    - Get the .cscfg file using [PowerShell](/powershell/module/az.cloudservice/?preserve-view=true&view=azps-5.4.0#cloudservice) or [Rest API](/rest/api/compute/cloudservices/rest-get-package). 
-    
- 
-
-### Changes to customer’s Automation, CI/CD pipeline, custom scripts, custom dashboards, custom tooling, etc.  
-
-Customers need to update their tooling and automation to start using the new APIs / commands to manage their deployment. Customer can easily adopt new features and capabilities of Azure Resource Manager/Cloud Services (extended support) as part of this change. 
-
-- Changes to Resource and Resource Group names post migration
-    - As part of migration, the names of few resources like the Cloud Service, public IP addresses, etc. change. These changes might need to be reflected in deployment files before update of Cloud Service. [Learn More about the names of resources changing](in-place-migration-technical-details.md#translation-of-resources-and-naming-convention-post-migration).  
-
-- Recreate rules and policies required to manage and scale cloud services 
-    - [Auto Scale rules](configure-scaling.md) are not migrated. After migration, recreate the auto scale rules.  
-    - [Alerts](enable-alerts.md) are not migrated. After migration, recreate the alerts.
-    - The Key Vault is created without any access policies. [Create appropriate policies](../key-vault/general/assign-access-policy-portal.md) on the Key Vault to view or manage your certificates. Certificates will be visible under settings on the tab called secrets.
 
 ## Next steps
 - [Overview of Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-overview.md)

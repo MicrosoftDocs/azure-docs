@@ -9,7 +9,7 @@ ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/18/2021
+ms.date: 07/02/2021
 ---
 
 # Set up a connection to an Azure Storage account using a managed identity
@@ -26,7 +26,7 @@ Before learning more about this feature, it is recommended that you have an unde
 
 ## 1 - Set up a managed identity
 
-Set up the [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) using one of the following options.
+Set up the [managed identity](../active-directory/managed-identities-azure-resources/overview.md) using one of the following options.
 
 ### Option 1 - Turn on system-assigned managed identity
 

@@ -1,7 +1,7 @@
 ---
 title: Understand the query language
 description: Describes Resource Graph tables and the available Kusto data types, operators, and functions usable with Azure Resource Graph.
-ms.date: 06/29/2021
+ms.date: 07/20/2021
 ms.topic: conceptual
 ---
 # Understanding the Azure Resource Graph query language
@@ -28,7 +28,7 @@ properties from related resource types. Here is the list of tables available in 
 |Resource Graph table |Can `join` other tables? |Description |
 |---|---|---|
 |Resources |Yes |The default table if none defined in the query. Most Resource Manager resource types and properties are here. |
-|ResourceContainers |Yes |Includes subscription (in preview -- `Microsoft.Resources/subscriptions`) and resource group (`Microsoft.Resources/subscriptions/resourcegroups`) resource types and data. |
+|ResourceContainers |Yes |Includes subscription (`Microsoft.Resources/subscriptions`) and resource group (`Microsoft.Resources/subscriptions/resourcegroups`) resource types and data. |
 |AdvisorResources |Yes (preview) |Includes resources _related_ to `Microsoft.Advisor`. |
 |AlertsManagementResources |Yes (preview) |Includes resources _related_ to `Microsoft.AlertsManagement`. |
 |ExtendedLocationResources |No |Includes resources _related_ to `Microsoft.ExtendedLocation`. |
@@ -37,7 +37,7 @@ properties from related resource types. Here is the list of tables available in 
 |MaintenanceResources |Partial, join _to_ only. (preview) |Includes resources _related_ to `Microsoft.Maintenance`. |
 |PatchAssessmentResources|No |Includes resources _related_ to Azure Virtual Machines patch assessment. |
 |PatchInstallationResources|No |Includes resources _related_ to Azure Virtual Machines patch installation. |
-|PolicyResources |No |Includes resources _related_ to `Microsoft.PolicyInsights`. (**Preview**) |
+|PolicyResources |Yes |Includes resources _related_ to `Microsoft.PolicyInsights`. |
 |RecoveryServicesResources |Partial, join _to_ only. (preview) |Includes resources _related_ to `Microsoft.DataProtection` and `Microsoft.RecoveryServices`. |
 |SecurityResources |Yes (preview) |Includes resources _related_ to `Microsoft.Security`. |
 |ServiceHealthResources |No (preview) |Includes resources _related_ to `Microsoft.ResourceHealth`. |

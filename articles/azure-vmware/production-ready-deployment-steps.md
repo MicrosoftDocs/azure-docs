@@ -70,7 +70,7 @@ This /22 CIDR network address block shouldn't overlap with any existing network 
 
 For a detailed breakdown of how the /22 CIDR network is broken down per private cloud [Network planning checklist](tutorial-network-checklist.md#routing-and-subnet-considerations).
 
-:::image type="content" source="media/pre-deployment/management-vmotion-vsan-network-ip-diagram.png" alt-text="Identify - IP address segment" border="false":::  
+:::image type="content" source="media/pre-deployment/management-vmotion-vsan-network-ip-diagram.png" alt-text="Diagram showing the IP IP address segment for the Azure VMware Solution deployment." border="false":::  
 
 ## Define the IP address segment for VM workloads
 
@@ -83,18 +83,18 @@ This network segment is used primarily for testing purposes during the initial d
   
 **Example:** 10.0.4.0/24
 
-:::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="Identify - IP address segment for virtual machine workloads" border="false":::     
+:::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="Diagram showing the address segment for virtual machine workloads." border="false":::     
 
 ## Define the virtual network gateway
 
->[!IMPORTANT]
->You can connect to a virtual network gateway in an Azure Virtual WAN, but it is out of scope for this quick start.
+An Azure VMware Solution private cloud requires an Azure Virtual Network and an ExpressRoute circuit. 
 
-An Azure VMware Solution private cloud requires an Azure Virtual Network and an ExpressRoute circuit.  
+>[!IMPORTANT]
+>[!INCLUDE [disk-pool-planning-note](includes/disk-pool-planning-note.md)] You can connect to a virtual network gateway in an Azure Virtual WAN, but it is out of scope for this quick start.
 
 Define whether you want to use an *existing* OR *new* ExpressRoute virtual network gateway.  If you decide to use a *new* virtual network gateway, you'll create it after you create your private cloud. It's acceptable to use an existing ExpressRoute virtual network gateway, and for planning purposes, make note of which ExpressRoute virtual network gateway you'll use. 
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Diagram that shows the Azure Virtual Network attached to Azure VMware Solution" border="false":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Diagram that shows the Azure Virtual Network attached to Azure VMware Solution." border="false":::
 
 
 

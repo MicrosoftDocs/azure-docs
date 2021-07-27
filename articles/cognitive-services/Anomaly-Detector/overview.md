@@ -14,7 +14,7 @@ keywords: anomaly detection, machine learning, algorithms
 ms.custom: cog-serv-seo-aug-2020
 ---
 
-# What is the Anomaly Detector API?
+# What is the Anomaly Detector univariate API?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 

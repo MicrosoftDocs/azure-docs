@@ -5,7 +5,7 @@ author: niklarin
 ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 07/08/2021
 ---
 
 # Networking overview - Azure Database for PostgreSQL - Flexible Server
@@ -74,7 +74,15 @@ Here are some concepts to be familiar with when using virtual networks with Post
    Security rules in network security groups enable you to filter the type of network traffic that can flow in and out of virtual network subnets and network interfaces. See [network security group overview](../../virtual-network/network-security-groups-overview.md) documentation for more information.
 
 * **Private DNS zone integration** - 
-   Azure private DNS zone integration allows you to resolve the private DNS within the current VNET or any in-region peered VNET where the private DNS Zone is linked. If you use the Azure portal or the Azure CLI to create flexible servers, you can either provide a private DNS zone name that you had previously created in the same or in a different subscription, otherwise, a default private DNS zone is automatically created in your subscription. For a new Azure Database for PostgreSQL flexible server that uses private access with API, an Azure Resource Manager template (ARM template), or Terraform, create private DNS zones that end with `postgres.database.azure.com` and use them while configuring flexible servers with private access. For more information, see the [private DNS zone overview](../../dns/private-dns-overview.md).
+   Azure private DNS zone integration allows you to resolve the private DNS within the current VNET or any in-region peered VNET where the private DNS Zone is linked. 
+
+### Using Private DNS Zone
+
+* If you use the Azure portal or the Azure CLI to create flexible servers with VNET, a new private DNS zone is auto-provisioned per server in your subscription using the server name provided. Alternatively, if you want to setup your own private DNS zone to use with the flexible server, please see the [private DNS overview](../../dns/private-dns-overview.md) documentation. 
+* If you use Azure API, an Azure Resource Manager template (ARM template), or Terraform, please create private DNS zones that end with `postgres.database.azure.com` and use them while configuring flexible servers with private access. For more information, see the [private DNS zone overview](../../dns/private-dns-overview.md).
+
+   > [!IMPORTANT]
+   > Private DNS zone names must end with `postgres.database.azure.com`.
 
 Learn how to create a flexible server with private access (VNet integration) in [the Azure portal](how-to-manage-virtual-network-portal.md) or [the Azure CLI](how-to-manage-virtual-network-cli.md).
 
@@ -84,10 +92,9 @@ If you are using the custom DNS server then you must use a DNS forwarder to reso
 
 ### Private DNS zone and VNET peering
 
-Private DNS zone settings and VNET peering are independent of each other.
+Private DNS zone settings and VNET peering are independent of each other. Please refer to the [Using Private DNS Zone](concepts-networking.md#using-private-dns-zone) section above for more details on creating and using Private DNS zones. 
 
-* By default, a new private DNS zone is auto-provisioned per server using the server name provided. However, if you want to setup your own private DNS zone to use with the flexible server, please see the [private DNS overview](../../dns/private-dns-overview.md) documentation.
-* If you want to connect to the flexible server from a client that is provisioned in another VNET, you have to link the private DNS zone with the VNET. See [how to link the virtual network](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network) documentation.
+If you want to connect to the flexible server from a client that is provisioned in another VNET from the same region or a different region, you have to link the private DNS zone with the VNET. See [how to link the virtual network](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network) documentation.
 
 > [!NOTE]
 > Private DNS zone names that end with `postgres.database.azure.com` can only be linked.
