@@ -7,7 +7,7 @@ manager: lizross
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 07/23/2021
+ms.date: 07/27/2021
 ms.author: helohr
 ---
 # Deploy Azure AD joined virtual machines in Azure Virtual Desktop
@@ -54,11 +54,14 @@ To grant users access to Azure AD-joined VMs, you must [configure role assignmen
 This section explains how to access Azure AD-joined VMs from different Azure Virtual Desktop clients.
 
 > [!NOTE]
+> Connecting to Azure AD-joined VMs isn't currently supported using the Windows Store client.
+
+> [!NOTE]
 > Azure Virtual Desktop doesn't currently support single sign-on for Azure AD-joined VMs.
 
 ### Connect using the Windows Desktop client
 
-The default configuration supports connections from Windows 10 using the Windows Desktop client. You can use your credentials, smart card, [Windows Hello for Business certificate trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust) or [Windows Hello for Business key trust with certificates](/windows/security/identity-protection/hello-for-business/hello-deployment-rdp-certs) to sign in to the session host. However, to access the session host, your local PC must meet one of the following conditions:
+The default configuration supports connections from Windows 10 using the [Windows Desktop client](user-documentation/connect-windows-7-10.md). You can use your credentials, smart card, [Windows Hello for Business certificate trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust) or [Windows Hello for Business key trust with certificates](/windows/security/identity-protection/hello-for-business/hello-deployment-rdp-certs) to sign in to the session host. However, to access the session host, your local PC must meet one of the following conditions:
 
 - The local PC is Azure AD-joined to the same Azure AD tenant as the session host
 - The local PC is hybrid Azure AD-joined to the same Azure AD tenant as the session host
@@ -68,7 +71,7 @@ To enable access from Windows devices not joined to Azure AD, add **targetisaadj
 
 ### Connect using the other clients
 
-To access Azure AD-joined VMs using the web, Android, macOS, iOS, and Microsoft Store clients, you must add **targetisaadjoined:i:1** as a [custom RDP property](customize-rdp-properties.md) to the host pool. These connections are restricted to entering user name and password credentials when signing in to the session host.
+To access Azure AD-joined VMs using the web, Android, macOS and iOS clients, you must add **targetisaadjoined:i:1** as a [custom RDP property](customize-rdp-properties.md) to the host pool. These connections are restricted to entering user name and password credentials when signing in to the session host.
 
 ### Enabling MFA for Azure AD joined VMs
 
@@ -82,6 +85,6 @@ Azure Virtual Desktop currently only supports local profiles for Azure AD-joined
 
 Now that you've deployed some Azure AD joined VMs, you can sign in to a supported Azure Virtual Desktop client to test it as part of a user session. If you want to learn how to connect to a session, check out these articles:
 
-- [Connect with the Windows Desktop client](connect-windows-7-10.md)
-- [Connect with the web client](connect-web.md)
+- [Connect with the Windows Desktop client](user-documentation/connect-windows-7-10.md)
+- [Connect with the web client](user-documentation/connect-web.md)
 - [Troubleshoot connections to Azure AD-joined VMs](troubleshoot-azure-ad-connections.md)
