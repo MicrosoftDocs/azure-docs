@@ -13,11 +13,11 @@ This article explains how to back up virtual machines on Azure Stack HCI using M
 
 MABS can back up Azure Stack HCI virtual machines in the following scenarios:
 
-- **Azure Stack HCI Host**: Back up and recover System State/BMR of the Azure Stack HCI host.
+- **Azure Stack HCI Host**: Back up and recover System State/BMR of the Azure Stack HCI host. The MABS protection agent must be installed on all hosts.
 
-- **Virtual machines in cluster with local or direct storage**: Back up virtual machines in a cluster that has local or directly attached storage. For example, a hard drive, a storage area network (SAN) device, or a network attached storage (NAS) device. The MABS protection agent must be installed on all hosts.
+- **Virtual machines in cluster with local or direct storage**: Back up guest virtual machines in a cluster that has local or directly attached storage. For example, a hard drive, a storage area network (SAN) device, or a network attached storage (NAS) device.
 
-- **Virtual machines in a cluster with CSV storage**: Back up virtual machines hosted on an Azure Stack HCI cluster with Cluster Shared Volume (CSV) storage. The MABS protection agent is installed on each cluster node.
+- **Virtual machines in a cluster with CSV storage**: Back up guest virtual machines hosted on an Azure Stack HCI cluster with Cluster Shared Volume (CSV) storage. The MABS protection agent is installed on each cluster node.
 
 - **VM Move within a cluster**: When VMs are moved within a stretched/normal cluster, MABS continues to protect the virtual machines as long as the MABS protection agent is installed on the Azure Stack HCI host. The way in which MABS protects the virtual machines depends on the type of live migration involved. With a VM Move within a cluster, MABS detects the migration, and backs up the virtual machine from the new cluster node without any requirement for user intervention. Because the storage location hasn't changed, MABS continues with express full backups. 
 
