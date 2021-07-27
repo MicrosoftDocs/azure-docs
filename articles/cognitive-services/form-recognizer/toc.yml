@@ -81,8 +81,6 @@
   items:
   - name: Layout
     href: concept-layout.md
-  - name: Custom models
-    href: concept-custom.md
   - name: Receipts
     href: concept-receipts.md
   - name: Business cards
@@ -91,6 +89,8 @@
     href: concept-invoices.md
   - name: Identity documents
     href: concept-identification-cards.md
+  - name: Custom and composed models
+    href: concept-custom.md
 - name: Tutorials
   items:
   - name: Use Azure Form Recognizer with AI Builder
