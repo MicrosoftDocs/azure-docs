@@ -18,6 +18,54 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
+## 2021-08-02
+
+### Azure Machine Learning SDK for Python v1.33.0
+  + **azure-cli-ml**
+    + Azure Machine Learning compute clusters can now be created in a location different from the location of the workspace. This is useful for: * maximizing idle capacity allocation * managing quota utilization across different locations without having to create more workspaces just to use quota and create a compute cluster in a particular location For more information, please click [here](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-create-attach-compute-cluster?tabs=python)
+  + **azureml-automl-core**
+    + Hierarchical timeseries (HTS) is enabled for forecasting tasks through pipelines.
+    + Improved error handling around XGBoost model retrieval.
+    + Added possibility to convert the predictions from float to integers for forecasting and regression tasks.
+    + Updated default value for enable_early_stopping in AutoMLConfig to True.
+  + **azureml-automl-runtime**
+    + Switch to using blob store for caching in Automated ML.
+    + Added possibility to convert the predictions from float to integers for forecasting and regression tasks.
+    + Updated default value for enable_early_stopping in AutoMLConfig to True.
+  + **azureml-contrib-automl-pipeline-steps**
+    + Hierarchical timeseries (HTS) is enabled for forecasting tasks through pipelines.
+    + Add Tabular dataset support for inferencing
+    + Custom path can be specified for the inference data
+  + **azureml-contrib-reinforcementlearning**
+    + Some properties in `azureml.core.environment.DockerSection` are deprecated, such as `shm_size` property used by Ray workers in reinforcement learning jobs. This property can now be specified in `azureml.contrib.train.rl.WorkerConfiguration` instead.
+  + **azureml-core**
+    + Fix the hyperlink to the type of `distributed_job_config` for `ScriptRunConfig` https://github.com/Azure/MachineLearningNotebooks/issues/1534
+    + Azure Machine Learning compute clusters can now be created in a location different from the location of the workspace. This is useful for: * maximizing idle capacity allocation * managing quota utilization across different locations without having to create more workspaces just to use quota and create a compute cluster in a particular location For more information, please click [here](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-create-attach-compute-cluster?tabs=python)
+    + Added display_name as a mutable name field of Run object.
+    + Dataset from_files now supports skipping of data extensions for large input data
+  + **azureml-dataprep**
+    + Fixed a bug where to_dask_dataframe would fail because of a race condition.
+    + Dataset from_files now supports skipping of data extensions for large input data
+  + **azureml-defaults**
+    + We are removing the dependency azureml-model-management-sdk==1.0.1b6.post1 from azureml-defaults.
+  + **azureml-interpret**
+    + updated azureml-interpret to interpret-community 0.19.*
+  + **azureml-pipeline-core**
+    + Hierarchical timeseries (HTS) is enabled for forecasting tasks through pipelines.
+  + **azureml-responsibleai**
+    + A new sample notebook, automl-ml-regression-responsibleai, shows using the new, experimental azureml-responsibleai package to return model explanations for a specific model.
+    + Remove unused `column_transformer` argument from RAI `ModelAnalysis`
+  + **azureml-train-automl-client**
+    + Switch to using blob store for caching in Automated ML.
+    + Hierarchical timeseries (HTS) is enabled for forecasting tasks through pipelines.
+    + Improved error handling around XGBoost model retrieval.
+    + Updated default value for enable_early_stopping in AutoMLConfig to True.
+  + **azureml-train-automl-runtime**
+    + Switch to using blob store for caching in Automated ML.
+    + Hierarchical timeseries (HTS) is enabled for forecasting tasks through pipelines.
+    + Updated default value for enable_early_stopping in AutoMLConfig to True.
+
+
 ## 2021-07-06
 
 ### Azure Machine Learning SDK for Python v1.32.0
