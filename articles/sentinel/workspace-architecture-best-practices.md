@@ -27,11 +27,13 @@ While fewer workspaces are simpler to manage, you may have specific needs for mu
 
 When determining how many tenants and workspaces to use, consider that most Azure Sentinel features operate by using a single workspace or Azure Sentinel instance, and Azure Sentinel ingests all logs housed within the workspace.
 
+<!--
 Therefore, for example, if you have both security-related and non-security logs, or logs that should not be ingested by Azure Sentinel, you may want to create an additional workspace to store the non-Azure Sentinel logs and avoid unwanted costs.
 
 The following image shows an architecture where security and non-security logs go to separate workspaces, with Azure Sentinel ingesting only the security-related logs.
 
 :::image type="content" source="media/best-practices/separate-workspaces-for-different-logs.png" alt-text="Separate workspaces for security-related logs and non-security logs.":::
+-->
 
 > [!IMPORTANT]
 > Costs are one of the main considerations when determining Azure Sentinel architecture. For more information, see [Azure Sentinel costs and billing](azure-sentinel-billing.md).
@@ -40,13 +42,7 @@ The following image shows an architecture where security and non-security logs g
 
 If you have multiple tenants, such as if you're a managed security service provider (MSSP), we recommend that you create at least one workspace for each Azure AD tenant to support built-in, [service to service data connectors](connect-data-sources.md#service-to-service-integration) that work only within their own Azure AD tenant.
 
-Some examples of such data connectors include:
-
-- [Office 365](connect-office-365.md)
-- [Azure Azure AD](connect-azure-active-directory.md)
-- [Azure Defender for IoT](connect-asc-iot.md)
-- [Azure AD Identity Protection](connect-azure-ad-identity-protection.md)
-- [Microsoft 365 Defender](connect-microsoft-365-defender.md)
+All connectors based on diagnostics settings, cannot be connected to a workspace that is not located in the same tenant where the resource resides. This applies to connectors such as [Azure Firewall](connect-azure-firewall.md), [Azure Storage](connect-azure-storage-account.md), [Azure Activity](connect-azure-activity.md) or [Azure Active Directory](connect-azure-active-directory.md).
 
 For example, the following image shows a recommended architecture for a customer that has two Azure AD tenants, and needs to connect data sources that include Office 365, Azure AD, Azure Firewall, and an on-premises Palo Alto Firewall.
 
@@ -158,7 +154,7 @@ Use the following best practice guidance when creating the Log Analytics workspa
 
 - **Use a dedicated workspace cluster if your projected data ingestion is around or more than 1 TB per day**. A [dedicated cluster](/azure/azure-monitor/logs/logs-dedicated-clusters) enables you to secure resources for your Azure Sentinel data, which enables better query performance for large data sets. Dedicated clusters also provide the option for more encryption and control of your organization's keys.
 
-### Working with multiple workspaces
+## Simplify working with multiple workspaces
 
 If you do need to work with multiple workspaces, simplify your incident management and investigation by [condensing and listing all incidents from each Azure Sentinel instance in a single location](multiple-workspace-view.md).
 
