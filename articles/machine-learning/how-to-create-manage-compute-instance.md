@@ -23,6 +23,7 @@ In this article, you learn how to:
 
 * Create a compute instance
 * Manage (start, stop, restart, delete) a compute instance
+* Create  a schedule for the compute instance to automatically start and stop
 * Access the terminal window
 * Install R or Python packages
 * Create new environments or Jupyter kernels
@@ -285,7 +286,7 @@ Use cron or LogicApps expressions to define a schedule to start or stop the inst
 ```
 
 * Action can have value of “Start” or “Stop”.
-* For trigger type of `Recurrence` use the same syntax as logic app, with this [recurrence schema](../logic-apps/logic-apps-workflow-actions-triggers#recurrence-trigger).
+* For trigger type of `Recurrence` use the same syntax as logic app, with this [recurrence schema](../logic-apps/logic-apps-workflow-actions-triggers#recurrence-trigger.md).
 * For trigger type of `cron`, use standard cron syntax:  
 
     ```cron
