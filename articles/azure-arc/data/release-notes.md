@@ -160,7 +160,7 @@ az extension add --name arcdata
 
 The extension supports command-line interaction with data controller and SQL managed instance and PostgreSQL Hyperscale resources.
 
-To update your scripts for data controller, replace `azdata arc dc...` with `az arcdata dc...`.
+To update your scripts for data controller, replace `az arcdata dc...` with `az arcdata dc...`.
 
 To update your scripts for managed instance, replace `azdata arc sql mi...` with `az sql mi-arc...`.
 
@@ -170,7 +170,7 @@ In addition to the parameters that have historically existed on the azdata comma
 
 Some of the short forms of the parameter names (e.g. `--core-limit` as `-cl`) have either been removed or changed. Use the new parameter short names or the long name.
 
-The `azdata arc dc export` command is no longer functional. Use `az arcdata dc export` instead.
+The `az arcdata dc export` command is no longer functional. Use `az arcdata dc export` instead.
 
 #### Required property: `infrastructure`
 
@@ -229,7 +229,7 @@ This release introduces `az` CLI extensions for Azure Arc-enabled data services.
    > [!NOTE]
    > These commands will migrate to the `az arcdata` extension.
 
--  `azdata arc dc export` is deprecated. It is replaced by `az arcdata dc export` in the `arcdata` extension for the Azure CLI (`az`). It uses a different approach to export the data out. It does not connect directly to the data controller API anymore. Instead it creates an export task based on the `exporttasks.tasks.arcdata.microsoft.com` custom resource definition (CRD). The export task custom resource that is created drives a workflow to generate a downloadable package. The Azure CLI waits for the completion of this task and then retrieves the secure URL from the task custom resource status to download the package.
+-  `az arcdata dc export` is deprecated. It is replaced by `az arcdata dc export` in the `arcdata` extension for the Azure CLI (`az`). It uses a different approach to export the data out. It does not connect directly to the data controller API anymore. Instead it creates an export task based on the `exporttasks.tasks.arcdata.microsoft.com` custom resource definition (CRD). The export task custom resource that is created drives a workflow to generate a downloadable package. The Azure CLI waits for the completion of this task and then retrieves the secure URL from the task custom resource status to download the package.
 -  Support for using NFS-based storage classes.
 - Diagnostics and solutions have been added to the Azure portal for Arc SQL Managed Instance
 
