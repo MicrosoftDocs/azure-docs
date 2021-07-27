@@ -60,7 +60,7 @@ The following example shows how to use the fairness package. We will upload mode
     from sklearn.compose import make_column_selector as selector
     from sklearn.pipeline import Pipeline
     
-    from fairlearn.widget import FairlearnDashboard
+    from raiwidgets import FairnessDashboard
 
     # Load the census dataset
     data = fetch_openml(data_id=1590, as_frame=True)
@@ -123,11 +123,11 @@ The following example shows how to use the fairness package. We will upload mode
     lr_predictor.fit(X_train, y_train)
 
     # (Optional) View this model in Fairlearn's fairness dashboard, and see the disparities which appear:
-    from fairlearn.widget import FairlearnDashboard
-    FairlearnDashboard(sensitive_features=A_test, 
-                       sensitive_feature_names=['Race', 'Sex'],
-                       y_true=y_test,
-                       y_pred={"lr_model": lr_predictor.predict(X_test)})
+    from raiwidgets import FairnessDashboard
+    FairnessDashboard(sensitive_features=A_test, 
+                      sensitive_feature_names=['Race', 'Sex'],
+                      y_true=y_test,
+                      y_pred={"lr_model": lr_predictor.predict(X_test)})
     ```
 
 2. Log into Azure Machine Learning and register your model.
@@ -277,12 +277,12 @@ To compare multiple models and see how their fairness assessments differ, you ca
     for n, p in model_dict.items():
         ys_pred[n] = p.predict(X_test)
 
-    from fairlearn.widget import FairlearnDashboard
+    from raiwidgets import FairnessDashboard
 
-    FairlearnDashboard(sensitive_features=A_test, 
-                    sensitive_feature_names=['Race', 'Sex'],
-                    y_true=y_test.tolist(),
-                    y_pred=ys_pred)
+    FairnessDashboard(sensitive_features=A_test, 
+                      sensitive_feature_names=['Race', 'Sex'],
+                      y_true=y_test.tolist(),
+                      y_pred=ys_pred)
     ```
 
 3. Precompute fairness metrics.
