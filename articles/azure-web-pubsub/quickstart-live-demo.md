@@ -1,5 +1,5 @@
 ---
-title: Azure Web PubSub service live demo
+title: A simple Pub/Sub live demo
 description: A quickstart for getting started with Azure Web PubSub service live demo.
 author: yjin81
 ms.author: yajin1
@@ -10,7 +10,7 @@ ms.date: 04/26/2021
 
 # Quickstart: Get started with chatroom live demo
 
-The Azure Web PubSub service helps you build real-time messaging web applications using WebSockets and the publish-subscribe pattern easily. The [chatroom live demo](https://azure.github.io/azure-webpubsub/demos/clientpubsub.html) demonstrates the real-time messaging capability provided by Azure Web PubSub. With this live demo, you could easily join a chat group and send real-time message to a specific group. 
+The Azure Web PubSub service helps you build real-time messaging web applications using WebSockets and the publish-subscribe pattern easily. The [pub/sub live demo](https://azure.github.io/azure-webpubsub/demos/clientpubsub.html) demonstrates the real-time messaging capability provided by Azure Web PubSub. With this live demo, you could easily join a chat group and send real-time message to a specific group. 
 
 :::image type="content" source="media/quickstart-live-demo/chat-live-demo.gif" alt-text="Using the chatroom live demo.":::
 
@@ -53,7 +53,9 @@ With this live demo, you could join or leave a group and send messages to the gr
 
 ## Next steps
 
-In this quickstart, you learned the real-time messaging capability with the chatroom live demo. Now, you could start to build your own application. 
+This quickstart provides you a basic idea of the Web PubSub service. In this quickstart, we leverage the *Client URL Generator* to generate a temporarily available client URL to connect to the service. In real-world applications, SDKs in various languages are provided for you to generate the client URL from the *Connection String*. Besides using SDKs to talk to the Web PubSub service from the application servers, Azure Function extension is also provided for you to build your serverless applications. 
+
+Follow the quick starts listed below to start building your own application.
 
 > [!div class="nextstepaction"]
 > [Quick start: publish and subscribe messages in Azure Web PubSub](https://azure.github.io/azure-webpubsub/getting-started/publish-messages/js-publish-message)
