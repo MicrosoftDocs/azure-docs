@@ -37,7 +37,7 @@ It is worth noting that the throughput RU/s in the secondary region is set to th
 
 ### Automatic failover
 
-During a primary region outage, the Azure API for FHIR automatically fails over to the secondary region. The service is expected to resume in one hour, and potential data loss is expected to be up to 15 minutes' worth of data. Changes aren't required by the customer unless Private Link, CMK, IoT and $export are used. For more information, see [Configuration changes during disaster recovery](#configuration-changes-in-dr).
+During a primary region outage, the Azure API for FHIR automatically fails over to the secondary region and the same service endpoint is used. The service is expected to resume in one hour or less, and potential data loss is up to 15 minutes' worth of data. Changes aren't required by the customer unless Private Link, Customer Managed Key (CMK), the Internet of Medical Things (IoMT) FHIR Connector and $export are used. For more information, see [Configuration changes during disaster recovery](#configuration-changes-in-dr).
 
 [ ![Failover in disaster recovery.](media/disaster-recovery/failover-in-disaster-recovery.png) ](media/disaster-recovery/failover-in-disaster-recovery.png#lightbox)
 
@@ -54,13 +54,13 @@ During the time when compute has failed back to the recovered region but data ha
 
 ### Manual failback
 
-The compute environment fails back automatically to the recovered region. The database is switched back to the recovered region through a manually triggered scripting process by the Microsoft support team. In either case, no customer actions are required unless Private Link, CMK, IoT, and $export are used. For more information about, see [Configuration changes during disaster recovery](#configuration-changes-in-dr).
+The compute environment fails back automatically to the recovered region. The database is switched back to the recovered region through a manually triggered scripting process by the Microsoft support team. 
 
 [ ![Failback in disaster recovery.](media/disaster-recovery/failback-in-disaster-recovery.png) ](media/disaster-recovery/failback-in-disaster-recovery.png#lightbox)
 
 ## Configuration changes in DR
 
-Additional configurations and tests may be required when the following features are used. 
+Additional configurations and tests may be required when Private Link, CMK, IoMT FHIR Connector and $export are used.
 
 ### Private link
 
@@ -83,7 +83,7 @@ The private link feature should continue to work during a regional outage and af
 > [!NOTE]
 > Configuring virtual networks and VNet peering does not affect data replication.
 
-### Customer Managed Key (CMK)
+### CMK
 
 Your access to the Azure API for FHIR will be maintained if the key vault hosting the managed key in your subscription is accessible. There's a possible temporary downtime as key vault can take up to 20 minutes to re-establish its connection if there is a regional failover. For more information, see [Azure Key Vault availability and redundancy](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance).  
 
@@ -93,7 +93,7 @@ The job that is running the export will be picked up from another region after 1
 
 Ensure that you grant the same permissions to the system identity of the Azure API for FHIR. Also, if the storage account is configured with selected networks, see [How to export FHIR data](https://docs.microsoft.com/azure/healthcare-apis/fhir/export-data).
 
-### IoMT Connector
+### IoMT FHIR Connector
 
 Any existing connection won't function until the failed region is restored. You can create a new connection once the failover has completed and your FHIR server is accessible. This new connection will continue to function when failback occurs.
 
