@@ -1,31 +1,32 @@
 ---
-title: Azure Cosmos DB Table API for Node.js
-description: Learn all about the Azure Cosmos DB Table API for Node.js including release dates, retirement dates, and changes made between each version.
+title: Azure Cosmos DB Table API for Java
+description: Learn all about the Azure Cosmos DB Table API for Java including release dates, retirement dates, and changes made between each version.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
-ms.devlang: nodejs
+ms.devlang: java
 ms.topic: reference
 ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
-
+ms.custom: devx-track-java
 ---
-# Azure Cosmos DB Table API for Node.js: Release notes and resources
-[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
+
+# Azure Cosmos DB Table API for Java: Release notes and resources
+[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
 
 > [!div class="op_single_selector"]
-> * [.NET](table-sdk-dotnet.md)
-> * [.NET Standard](table-sdk-dotnet-standard.md)
-> * [Java](table-sdk-java.md)
-> * [Node.js](table-sdk-nodejs.md)
-> * [Python](table-sdk-python.md)
+> * [.NET](dotnet-sdk.md)
+> * [.NET Standard](dotnet-standard-sdk.md)
+> * [Java](java-sdk.md)
+> * [Node.js](nodejs-sdk.md)
+> * [Python](python-sdk.md)
  
 
 |   | Links  |
 |---|---|
-|**SDK download**|[NPM](https://www.npmjs.com/package/azure-storage)|
-|**API documentation**|[Node.js API reference documentation](https://azure.github.io/azure-storage-node/)|
-|**Contribute to SDK**|[GitHub](https://github.com/Azure/azure-storage-node#contribute)|
+|**SDK download**|[Download Options](https://github.com/azure/azure-storage-java#download)|
+|**API documentation**|[Java API reference documentation](https://azure.github.io/azure-storage-java/)|
+|**Contribute to SDK**|[GitHub](https://github.com/Azure/azure-storage-java#contribute-code-or-provide-feedback)|
 
 > [!IMPORTANT]
 > If you created a Table API account during the preview, please create a [new Table API account](create-table-dotnet.md#create-a-database-account) to work with the generally available Table API SDKs.
@@ -46,7 +47,7 @@ New features and functionality and optimizations are only added to the current S
 | [1.0.0](#1.0.0) |November 15, 2017 |--- |
 
 ## FAQ
-[!INCLUDE [cosmos-db-sdk-faq](includes/cosmos-db-sdk-faq.md)]
+[!INCLUDE [cosmos-db-sdk-faq](../includes/cosmos-db-sdk-faq.md)]
 
 ## See also
 To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page. 

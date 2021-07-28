@@ -11,11 +11,11 @@ ms.date: 12/03/2019
 ms.custom: devx-track-csharp
 ---
 # Get started with Azure Cosmos DB Table API and Azure Table storage using the .NET SDK
-[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
+[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
 
-[!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
+[!INCLUDE [storage-selector-table-include](../../../includes/storage-selector-table-include.md)]
 
-[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 You can use the Azure Cosmos DB Table API or Azure Table storage to store structured NoSQL data in the cloud, providing a key/attribute store with a schema less design. Because Azure Cosmos DB Table API and Table storage are schema less, it's easy to adapt your data as the needs of your application evolve. You can use Azure Cosmos DB Table API or the Table storage to store flexible datasets such as user data for web applications, address books, device information, or other types of metadata your service requires. 
 
@@ -33,7 +33,7 @@ You need the following to complete this sample successfully:
 
 ## Create an Azure Cosmos DB Table API account
 
-[!INCLUDE [cosmos-db-create-dbaccount-table](includes/cosmos-db-create-dbaccount-table.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-table](../includes/cosmos-db-create-dbaccount-table.md)]
 
 ## Create a .NET console project
 
@@ -173,4 +173,4 @@ Now you can sign into the Azure portal and verify that the data exists in the ta
 You can now proceed to the next tutorial and learn how to migrate data to Azure Cosmos DB Table API account. 
 
 > [!div class="nextstepaction"]
->[Migrate data to Azure Cosmos DB Table API](../cosmos-db/table-import.md)
+>[Migrate data to Azure Cosmos DB Table API](table-import.md)

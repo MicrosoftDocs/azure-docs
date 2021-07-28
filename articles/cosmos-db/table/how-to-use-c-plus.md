@@ -10,10 +10,10 @@ author: sakash279
 ms.author: akshanka
 ---
 # How to use Azure Table storage and Azure Cosmos DB Table API with C++
-[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
+[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
 
-[!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
+[!INCLUDE [storage-selector-table-include](../../../includes/storage-selector-table-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 This guide shows you common scenarios by using the Azure Table storage service or Azure Cosmos DB Table API. The samples are written in C++ and use the [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). This article covers the following scenarios:
 
@@ -28,15 +28,15 @@ This guide shows you common scenarios by using the Azure Table storage service o
 
 ### Create an Azure service account
 
-[!INCLUDE [cosmos-db-create-azure-service-account](includes/cosmos-db-create-azure-service-account.md)]
+[!INCLUDE [cosmos-db-create-azure-service-account](../includes/cosmos-db-create-azure-service-account.md)]
 
 ### Create an Azure storage account
 
-[!INCLUDE [cosmos-db-create-storage-account](includes/cosmos-db-create-storage-account.md)]
+[!INCLUDE [cosmos-db-create-storage-account](../includes/cosmos-db-create-storage-account.md)]
 
 ### Create an Azure Cosmos DB Table API account
 
-[!INCLUDE [cosmos-db-create-tableapi-account](includes/cosmos-db-create-tableapi-account.md)]
+[!INCLUDE [cosmos-db-create-tableapi-account](../includes/cosmos-db-create-tableapi-account.md)]
 
 ## Create a C++ application
 
@@ -73,7 +73,7 @@ This example shows how to declare a static field to hold the Azure Storage conne
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=<your_storage_account>;AccountKey=<your_storage_account_key>"));
 ```
 
-Use the name of your Storage account for `<your_storage_account>`. For <your_storage_account_key>, use the access key for the Storage account listed in the [Azure portal](https://portal.azure.com). For information on Storage accounts and access keys, see [Create a storage account](../storage/common/storage-account-create.md).
+Use the name of your Storage account for `<your_storage_account>`. For <your_storage_account_key>, use the access key for the Storage account listed in the [Azure portal](https://portal.azure.com). For information on Storage accounts and access keys, see [Create a storage account](../../storage/common/storage-account-create.md).
 
 ### Set up an Azure Cosmos DB connection string
 
@@ -93,7 +93,7 @@ To test your application in your local Windows-based computer, you can use the A
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-To start the Azure Storage Emulator, from your Windows desktop, select the **Start** button or the Windows key. Enter and run *Microsoft Azure Storage Emulator*. For more information, see [Use the Azure Storage Emulator for development and testing](../storage/common/storage-use-emulator.md).
+To start the Azure Storage Emulator, from your Windows desktop, select the **Start** button or the Windows key. Enter and run *Microsoft Azure Storage Emulator*. For more information, see [Use the Azure Storage Emulator for development and testing](../../storage/common/storage-use-emulator.md).
 
 ### Retrieve your connection string
 
@@ -133,7 +133,7 @@ table.create_if_not_exists();
 
 ### Add an entity to a table
 
-To add an entity to a table, create a new `table_entity` object and pass it to `table_operation::insert_entity`. The following code uses the customer's first name as the row key and last name as the partition key. Together, an entity's partition and row key uniquely identify the entity in the table. Entities with the same partition key can be queried faster than entities with different partition keys. Using diverse partition keys allows for greater parallel operation scalability. For more information, see [Microsoft Azure storage performance and scalability checklist](../storage/blobs/storage-performance-checklist.md).
+To add an entity to a table, create a new `table_entity` object and pass it to `table_operation::insert_entity`. The following code uses the customer's first name as the row key and last name as the partition key. Together, an entity's partition and row key uniquely identify the entity in the table. Entities with the same partition key can be queried faster than entities with different partition keys. Using diverse partition keys allows for greater parallel operation scalability. For more information, see [Microsoft Azure storage performance and scalability checklist](../../storage/blobs/storage-performance-checklist.md).
 
 The following code creates a new instance of `table_entity` with some customer data to store. The code next calls `table_operation::insert_entity` to create a `table_operation` object to insert an entity into a table, and associates the new table entity with it. Finally, the code calls the `execute` method on the `cloud_table` object. The new `table_operation` sends a request to the Table service to insert the new customer entity into the `people` table.  
 
@@ -502,11 +502,11 @@ For Visual Studio Community Edition, if your project gets build errors because o
 
 ## Next steps
 
-[Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
+[Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 
 Follow these links to learn more about Azure Storage and the Table API in Azure Cosmos DB:
 
-* [Introduction to the Table API](table-introduction.md)
-* [List Azure Storage resources in C++](../storage/common/storage-c-plus-plus-enumeration.md)
+* [Introduction to the Table API](introduction.md)
+* [List Azure Storage resources in C++](../../storage/common/storage-c-plus-plus-enumeration.md)
 * [Storage Client Library for C++ reference](https://azure.github.io/azure-storage-cpp)
 * [Azure Storage documentation](https://azure.microsoft.com/documentation/services/storage/)

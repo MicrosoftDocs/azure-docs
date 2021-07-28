@@ -12,14 +12,14 @@ ms.custom: devx-track-dotnet
 
 ---
 # Azure Cosmos DB Table .NET API: Download and release notes
-[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
+[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
 
 > [!div class="op_single_selector"]
-> * [.NET](table-sdk-dotnet.md)
-> * [.NET Standard](table-sdk-dotnet-standard.md)
-> * [Java](table-sdk-java.md)
-> * [Node.js](table-sdk-nodejs.md)
-> * [Python](table-sdk-python.md)
+> * [.NET](dotnet-sdk.md)
+> * [.NET Standard](dotnet-standard-sdk.md)
+> * [Java](java-sdk.md)
+> * [Node.js](nodejs-sdk.md)
+> * [Python](python-sdk.md)
 
 |   | Links|
 |---|---|
@@ -114,8 +114,8 @@ when attempting to use the Microsoft.Azure.CosmosDB.Table NuGet package, you hav
 
 ## FAQ
 
-[!INCLUDE [cosmos-db-sdk-faq](includes/cosmos-db-sdk-faq.md)]
+[!INCLUDE [cosmos-db-sdk-faq](../includes/cosmos-db-sdk-faq.md)]
 
 ## See also
 
-To learn more about the Azure Cosmos DB Table API, see [Introduction to Azure Cosmos DB Table API](table-introduction.md). 
+To learn more about the Azure Cosmos DB Table API, see [Introduction to Azure Cosmos DB Table API](introduction.md). 
