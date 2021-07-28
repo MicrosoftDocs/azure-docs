@@ -23,7 +23,7 @@ The values in this article apply VPN gateways (virtual network gateways that use
 
 * For zone-redundant gateways, see [About zone-redundant gateways](about-zone-redundant-vnet-gateways.md).
 
-* For active-active gateways, see [About active-active gateways](active-active-portal.md).
+* For active-active gateways, see [About highly available connectivity](vpn-gateway-highlyavailable.md).
 
 * For Virtual WAN, see [About Virtual WAN](../virtual-wan/virtual-wan-about.md).
 
