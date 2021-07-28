@@ -27,10 +27,13 @@ This guide will show you how to successfully update your dev kit's operating sys
 ## Prerequisites
 
 - An Azure Percept DK
-- A Windows, Linux, or OS X based host computer with Wi-Fi capability and an available USB-C or USB-A port
+- A Windows or Linux-based host computer with Wi-Fi capability and an available USB-C or USB-A port
 - A USB-C to USB-A cable (optional, sold separately)
 - An SSH login account, created during the [Azure Percept DK setup experience](./quickstart-percept-dk-set-up.md)
 - A hex wrench, shipped with the dev kit, to remove the screws on the back of the dev kit (if using the DIP switch method)
+
+> [!NOTE]
+> **Mac users** - Updating the Azure Percept DK over a USB connection will not work using a Mac as the host computer. 
 
 ## Download software tools and update files
 

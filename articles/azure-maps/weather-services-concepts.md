@@ -95,7 +95,7 @@ Some of the Weather service (Preview) APIs return the `iconCode` in the response
 
 ## Radar and satellite imagery color scale
 
-Via [Get Map Tile v2 API](/rest/api/maps/renderv2/getmaptilepreview) users can request latest radar and infrared satellite images. See below guide to help interpret colors used for radar and satellite tiles.
+Via [Get Map Tile v2 API](/rest/api/maps/render-v2/get-map-tile) users can request latest radar and infrared satellite images. See below guide to help interpret colors used for radar and satellite tiles.
 
 ### Radar Images
 
