@@ -59,7 +59,7 @@ Azure VMware Solution supports the following operations:
 
 ## Cancel or delete a job
 
-<!-- add your content here -->
+
 
 ### Method 1
 
