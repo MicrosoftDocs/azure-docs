@@ -105,6 +105,7 @@ Now that you've given the Purview Managed Identity permissions to connect to the
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan.png" alt-text="Save and run Power BI screen image":::
 
 ## Register and scan a cross-tenant Power BI (preview)
+
 In a cross-tenant scenario, you can use PowerShell to register and scan your Power Bi tenants, however, you can view, browse and search assets of remote tenant using Azure Purview Studio through the UI experience. 
 
 Consider using this guide if the Azure AD tenant where Power BI tenant is located, is different than the Azure AD tenant where your Azure Purview account is being provisioned. 
@@ -187,7 +188,11 @@ Use the following steps to register and scan one or more Power BI tenants in Azu
 
     Start-AzDataCatalogScan -DataSourceName 'pbidatasource' -Name 'pbiscan'
     ```
+### Known limitations
 
+    For cross-tenant scenario, no UX experience currently available to register and scan cross power bi tenant.
+    By Editing the Power BI cross tenant registered with Powershell using Purview Studio will tamper the data source registration with inconsistent scan behavior.
+    
 ## Next steps
 
 - [Browse the Azure Purview Data catalog](how-to-browse-catalog.md)
