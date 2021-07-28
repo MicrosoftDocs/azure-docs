@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Bring a Linux custom image from your physical lab environment
 
-The steps in this article show how to import a Linux custom image that starts from your physical lab environment.  With this approach, you create a VHD from your physical environment and import the VHD into shared image gallery so that it can be used within Lab Services.  Before you use this approach for creating a custom image, read the article [Recommended approaches for creating custom images](TODO) to decide which approach is best for your scenario.
+The steps in this article show how to import a Linux custom image that starts from your physical lab environment.  With this approach, you create a VHD from your physical environment and import the VHD into shared image gallery so that it can be used within Lab Services.  Before you use this approach for creating a custom image, read the article [Recommended approaches for creating custom images](approaches-for-custom-image-creation.md) to decide which approach is best for your scenario.
 
 Azure endorses a variety of [distributions and versions](../virtual-machines/linux/endorsed-distros.md#supported-distributions-and-versions).  The steps to bring a custom Linux image from a VHD varies for each distribution.  Every distribution is different because each one has unique prerequisites that must be set up to run on Azure.
 
@@ -99,6 +99,3 @@ The following steps show how to create an Ubuntu 16.04\18.04\20.04 image from a 
 * [Shared image gallery overview](../virtual-machines/shared-image-galleries.md)
 * [Attach or detach a shard image gallery](how-to-attach-detach-shared-image-gallery.md)
 * [How to use shared image gallery](how-to-use-shared-image-gallery.md)
-
-
-Last TODO - see if you can get specialized image to work

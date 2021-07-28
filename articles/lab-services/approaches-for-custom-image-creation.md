@@ -37,7 +37,7 @@ Another approach is to use an Azure VM to set up a custom image.  After you’ve
 
 Using an Azure VM gives you more flexibility:
 -   You can create either [generalized or specialized](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) images.  Otherwise, if you use a lab’s [template VM](how-to-use-shared-image-gallery.md) to export an image, the image is always specialized.
--   You have access to more advanced features of an Azure VM that may be helpful for setting up an image.  For example, you can use [extensions](../virtual-machines/extensions/overview.md) to do post-deployment configuration and automation.  Also, you can access the VM’s [boot diagnostics](../virtual-machines/boot-diagnostics.md) and [serial console](../virtual-machines/serial-console-overview.md).
+-   You have access to more advanced features of an Azure VM that may be helpful for setting up an image.  For example, you can use [extensions](../virtual-machines/extensions/overview.md) to do post-deployment configuration and automation.  Also, you can access the VM’s [boot diagnostics](../virtual-machines/boot-diagnostics.md) and [serial console](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/serial-console-overview).
 
 However, setting up an image using an Azure VM is more complex.  As a result, IT departments are typically responsible for creating custom images on an Azure VMs.
 
