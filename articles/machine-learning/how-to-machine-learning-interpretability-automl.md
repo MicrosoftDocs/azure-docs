@@ -36,8 +36,7 @@ In this article, you learn how to:
 Retrieve the explanation from the `best_run`, which includes explanations for both raw and engineered features.
 
 > [!NOTE]
-> Interpretability, best model explanation, is not available for Auto ML forecasting experiments that recommend the following algorithms as the best model: 
-> * TCNForecaster
+> Interpretability, best model explanation, is not available for the TCNForecaster model that Auto ML forecasting experiments recommend as the best model.
 
 ### Download the engineered feature importances from the best run
 
