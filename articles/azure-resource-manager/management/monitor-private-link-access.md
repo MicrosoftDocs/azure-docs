@@ -13,7 +13,7 @@ This article explains how to monitor access to your resource management private 
 
 The logging for resource management private link is a tenant-level diagnostic log. For more information about the types of platform logs, see [Overview of Azure platform logs](../../azure-monitor/essentials/platform-logs-overview.md).
 
-For help with configuring the log, see [Create diagnostic settings to send platform logs and metrics to different destinations](../../azure-monitor/essentials/diagnostic-settings.md). Setting up logging for resource management private links is similar to configuring [Azure Active Directory reports](../../active-directory/reports-monitoring/overview-reports). Both services support tenant-level diagnostic logs.
+For help with configuring the log, see [Create diagnostic settings to send platform logs and metrics to different destinations](../../azure-monitor/essentials/diagnostic-settings.md). Setting up logging for resource management private links is similar to configuring [Azure Active Directory reports](../../active-directory/reports-monitoring/overview-reports.md). Both services support tenant-level diagnostic logs.
 
 ## Log schema
 
