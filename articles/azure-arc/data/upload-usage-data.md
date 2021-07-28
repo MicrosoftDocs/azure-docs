@@ -48,7 +48,7 @@ Usage information such as inventory and resource usage can be uploaded to Azure 
 2. Upload the usage data using the `upload` command.
 
    ```azurecli
-   az arcdata dc upload --path usage.json --k8s-namespace <namespace> --use-k8s
+   az arcdata dc upload --path usage.json
    ```
 
 ## Automating uploads (optional)
@@ -59,7 +59,7 @@ In your favorite text/code editor, add the following script to the file and save
 
 ```azurecli
 az arcdata dc export --type usage --path usage.json --force --k8s-namespace <namespace> --use-k8s
-az arcdata dc upload --path usage.json --k8s-namespace <namespace> --use-k8s
+az arcdata dc upload --path usage.json
 ```
 
 Make the script file executable

@@ -98,7 +98,7 @@ Example of a `data` entry:
 Run the following command to upload the usage.json file to Azure:
 
 ```azurecli
-az arcdata dc upload -p usage.json --k8s-namespace <namespace> --use-k8s
+az arcdata dc upload -p usage.json
 ```
 
 ## View billing data in Azure portal

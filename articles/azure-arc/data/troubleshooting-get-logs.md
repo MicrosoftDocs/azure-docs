@@ -28,13 +28,13 @@ You can get service logs across all pods or specific pods for troubleshooting pu
 Run the following command to dump the logs:
 
    ```azurecli
-   az arcdata dc debug copy-logs --namespace <namespace name> --exclude-dumps --skip-compress --k8s-namespace <namespace> --use-k8s
+   az arcdata dc debug copy-logs --exclude-dumps --skip-compress
    ```
 
    For example:
 
-   ```console
-   #az arcdata dc debug copy-logs --namespace arc --exclude-dumps --skip-compress --k8s-namespace <namespace> --use-k8s
+   ```azurecli
+   #az arcdata dc debug copy-logs --exclude-dumps --skip-compress
    ```
 
 The data controller creates the log files in the current working directory in a subdirectory called `logs`. 
@@ -52,13 +52,13 @@ The `az arcdata dc debug copy-logs` command provides the following options to ma
 With these parameters, you can replace the `<parameters>` in the following example: 
 
 ```azurecli
-az arcdata dc debug copy-logs --target-folder <desired folder> --exclude-dumps --skip-compress -resource-kind <custom resource definition name> --resource-name <resource name> --k8s-namespace <namespace> --use-k8s
+az arcdata dc debug copy-logs --target-folder <desired folder> --exclude-dumps --skip-compress -resource-kind <custom resource definition name> --resource-name <resource name>
 ```
 
 For example:
 
 ```console
-#az arcdata dc debug copy-logs --target-folder C:\temp\logs --exclude-dumps --skip-compress --resource-kind postgresql-12 --resource-name pg1  --k8s-namespace <namespace> --use-k8s
+#az arcdata dc debug copy-logs --target-folder C:\temp\logs --exclude-dumps --skip-compress --resource-kind postgresql-12 --resource-name pg1 
 ```
 
 The following folder hierarchy is an example. It's organized by pod name, then container, and then by directory hierarchy within the container.
