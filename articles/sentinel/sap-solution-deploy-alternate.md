@@ -11,7 +11,7 @@ ms.subservice: azure-sentinel
 
 ---
 
-# Azure Sentinel SAP data connector expert configuration options, on-premises deployment and SAPControl log sources
+# Expert configuration options, on-premises deployment and SAPControl log sources
 
 This article describes how to deploy the Azure Sentinel SAP data connector in an expert or custom process, such as using an on-premises machine and an Azure Key Vault to store your credentials.
 
