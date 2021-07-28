@@ -383,3 +383,7 @@ When a working Node.js app behaves differently in App Service or has errors, try
 > [App Service Linux FAQ](faq-app-service-linux.yml)
 
 ::: zone-end
+
+Or, see additional resources:
+
+[Environment variables and app settings reference](reference-app-settings.md)

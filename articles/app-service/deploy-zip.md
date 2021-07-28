@@ -38,17 +38,75 @@ To complete the steps in this article, [create an App Service app](./index.yml),
 [!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
 The above endpoint does not work for Linux App Services at this time. Consider using FTP or the [ZIP deploy API](/azure/app-service/faq-app-service-linux#continuous-integration-and-deployment) instead.
 
-## Deploy ZIP file with Azure CLI
+## Deploy artifacts with Azure CLI
 
-Deploy the uploaded ZIP file to your web app by using the [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config_zip) command.  
+The `az webapp depoy` command allows you to deploy artifacts to your web app, such as a .zip file of your source code. Using the command's optional parameters, you can change the target directory, deploy artifacts from a remote URL or local file system, and choose to delete the directory. For more information, run `az webapp deploy --help` or [see the CLI docs](cli/azure/webapp?view=azure-cli-latest#az_webapp_deploy).
 
-The following example deploys the ZIP file you uploaded. When using a local installation of Azure CLI, specify the path to your local ZIP file for `--src`.
+# [ZIP Files](#tab/zipfiles)
+
+Deploy the uploaded ZIP file to your web app by using the [az webapp deploy](cli/azure/webapp?view=azure-cli-latest#az_webapp_deploy) command.  
+
+The following example deploys the ZIP file you uploaded. When using a local installation of Azure CLI, specify the path to your local ZIP file for `--src-path`.
 
 ```azurecli-interactive
-az webapp deployment source config-zip --resource-group <group-name> --name <app-name> --src clouddrive/<filename>.zip
+az webapp deploy --resource-group <group-name> --name <app-name> --src-path clouddrive/<filename>.zip
 ```
 
-This command deploys the files and directories from the ZIP file to your default App Service application folder (`\home\site\wwwroot`) and restarts the app.
+This command deploys the files and directories from the ZIP file to your default App Service application folder (`\home\site\wwwroot`) and restarts the app. 
+
+# [WAR Files](#tab/warfiles)
+
+To deploy a WAR file to App Service, send a POST request to `https://<app-name>.scm.azurewebsites.net/api/wardeploy`. The POST request must contain the .war file in the message body. The deployment credentials for your app are provided in the request by using HTTP BASIC authentication.
+
+Always use `/api/wardeploy` when deploying WAR files. This API will expand your WAR file and place it on the shared file drive. using other deployment APIs may result in inconsistent behavior. 
+
+For the HTTP BASIC authentication, you need your App Service deployment credentials. To see how to set your deployment credentials, see [Set and reset user-level credentials](deploy-configure-credentials.md#userscope).
+
+# [Other artifacts](#tab/other-artifacts)
+
+TODO
+
+---
+
+## Deploy artifacts to REST API 
+
+# [ZIP Files](#tab/zipfiles)
+
+TODO
+
+# [WAR Files](#tab/warfiles)
+
+The following example uses the cURL tool to deploy a .war file. Replace the placeholders `<username>`, `<war-file-path>`, and `<app-name>`. When prompted by cURL, type in the password.
+
+```bash
+curl -X POST -u <username> --data-binary @"<war-file-path>" https://<app-name>.scm.azurewebsites.net/api/wardeploy
+```
+
+# [Other artifacts](#tab/other-artifacts)
+
+TODO 
+
+---
+
+## Deploy artifacts with PowerShell
+
+# [ZIP Files](#tab/zipfiles)
+
+TODO
+
+# [WAR Files](#tab/warfiles)
+
+The following example uses [Publish-AzWebapp](/powershell/module/az.websites/publish-azwebapp) upload the .war file. Replace the placeholders `<group-name>`, `<app-name>`, and `<war-file-path>`.
+
+```powershell
+Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <war-file-path>
+```
+
+# [Other artifacts](#tab/other-artifacts)
+
+TODO
+
+---
 
 ## Enable build automation
 
@@ -61,30 +119,6 @@ az webapp config appsettings set --resource-group <group-name> --name <app-name>
 For more information, see [Kudu documentation](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
 [!INCLUDE [app-service-deploy-zip-push-rest](../../includes/app-service-deploy-zip-push-rest.md)]  
-
-## Deploy WAR file
-
-To deploy a WAR file to App Service, send a POST request to `https://<app-name>.scm.azurewebsites.net/api/wardeploy`. The POST request must contain the .war file in the message body. The deployment credentials for your app are provided in the request by using HTTP BASIC authentication.
-
-Always use `/api/wardeploy` when deploying WAR files. This API will expand your WAR file and place it on the shared file drive. using other deployment APIs may result in inconsistent behavior. 
-
-For the HTTP BASIC authentication, you need your App Service deployment credentials. To see how to set your deployment credentials, see [Set and reset user-level credentials](deploy-configure-credentials.md#userscope).
-
-### With cURL
-
-The following example uses the cURL tool to deploy a .war file. Replace the placeholders `<username>`, `<war-file-path>`, and `<app-name>`. When prompted by cURL, type in the password.
-
-```bash
-curl -X POST -u <username> --data-binary @"<war-file-path>" https://<app-name>.scm.azurewebsites.net/api/wardeploy
-```
-
-### With PowerShell
-
-The following example uses [Publish-AzWebapp](/powershell/module/az.websites/publish-azwebapp) upload the .war file. Replace the placeholders `<group-name>`, `<app-name>`, and `<war-file-path>`.
-
-```powershell
-Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <war-file-path>
-```
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
