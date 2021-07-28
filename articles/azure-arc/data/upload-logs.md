@@ -16,10 +16,6 @@ zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
 
 Periodically, you can export logs and then upload them to Azure. Exporting and uploading logs also creates and updates the data controller, SQL managed instance, and PostgreSQL Hyperscale server group resources in Azure.
 
-> [!NOTE] 
-> During the preview period, there is no cost for using Azure Arc-enabled data services.
-
-
 ## Before you begin
 
 Before you can upload logs, you need to: 
