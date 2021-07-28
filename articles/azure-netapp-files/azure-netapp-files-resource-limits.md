@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/22/2021
+ms.date: 07/28/2021
 ms.author: b-juche
 ---
 # Resource limits for Azure NetApp Files
@@ -26,6 +26,7 @@ The following table describes resource limits for Azure NetApp Files:
 
 |  Resource  |  Default limit  |  Adjustable via support request  |
 |----------------|---------------------|--------------------------------------|
+|  [Regional capacity quota per subscription](#regional-capacity-quota)   |  25 TiB  |  Yes  |
 |  Number of NetApp accounts per Azure region per subscription  |  10    |  Yes   |
 |  Number of capacity pools per NetApp account   |    25     |   Yes   |
 |  Number of volumes per subscription   |    500     |   Yes   |
@@ -88,9 +89,39 @@ If you have already allocated at least 4 TiB of quota for a volume, you can init
 
 You can increase the maxfiles limit to 500 million if your volume quota is at least 20 TiB. <!-- ANF-11854 --> 
 
+## Regional capacity quota
+
+Azure NetApp Files has a regional limit based on capacity. The standard capacity limit for each subscription is 25 TiB per region, across all service levels.   
+
+You can request a capacity increase by submitting a specific **Service and subscription limits (quotas)** support ticket as follows:
+
+1. Go to **Support + Troubleshooting** in the portal to start the Support request process:  
+
+    ![Screenshot that shows the Support Troubleshooting menu.](../media/azure-netapp-files/support-troubleshoot-menu.png)   
+
+2.	Select the **Service and subscription limits (quotas)** issue type and enter all relevant details:
+
+    ![Screenshot that shows the Service and Subscription Limits menu.](../media/azure-netapp-files/service-subscription-limits-menu.png)   
+
+3. Click the **Enter details** link in the Details tab, then select the **TiBs per subscription** quota type:   
+
+    ![Screenshot that shows the Enter Details link in Details tab.](../media/azure-netapp-files/support-details.png)   
+
+    ![Screenshot that shows the Quota Details window.](../media/azure-netapp-files/support-quota-details.png)   
+
+4.  On the Support Method page, make sure to select **Severity Level B – Moderate impact**:  
+
+    ![Screenshot that shows the Support Method window.](../media/azure-netapp-files/support-method-severity.png)   
+
+5. Complete the request process to issue the request. 
+ 
+After the ticket is submitted, the request will be sent to the Azure capacity management team for processing. You will receive a response typically within 2 business days. The Azure capacity management team might contact you for handling of large requests.
+ 
+A regional capacity quota increase does not incur a billing increase. Billing will still be based on the provisioned capacity pools.
+
 ## Request limit increase <a name="limit_increase"></a> 
 
-You can create an Azure support request to increase the adjustable limits from the table above. 
+You can create an Azure support request to increase the adjustable limits from the [Resource Limits](#resource-limits) table. 
 
 From Azure portal navigation plane: 
 

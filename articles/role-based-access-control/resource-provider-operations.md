@@ -7,7 +7,7 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 07/23/2021
+ms.date: 07/26/2021
 ms.custom: generated
 ---
 
@@ -3097,6 +3097,9 @@ Azure service: [Container Registry](../container-registry/index.yml)
 > | Microsoft.ContainerRegistry/registries/queueBuild/action | Creates a new build based on the request parameters and add it to the build queue. |
 > | Microsoft.ContainerRegistry/registries/listBuildSourceUploadUrl/action | Get source upload url location for a container registry. |
 > | Microsoft.ContainerRegistry/registries/scheduleRun/action | Schedule a run against a container registry. |
+> | Microsoft.ContainerRegistry/registries/agentpools/read | Get a agentpool for a container registry or list all agentpools. |
+> | Microsoft.ContainerRegistry/registries/agentpools/write | Create or Update an agentpool for a container registry. |
+> | Microsoft.ContainerRegistry/registries/agentpools/delete | Delete an agentpool for a container registry. |
 > | Microsoft.ContainerRegistry/registries/agentpools/listQueueStatus/action | List all queue status of an agentpool for a container registry. |
 > | Microsoft.ContainerRegistry/registries/artifacts/delete | Delete artifact in a container registry. |
 > | Microsoft.ContainerRegistry/registries/builds/read | Gets the properties of the specified build or lists all the builds for the specified container registry. |
@@ -3111,14 +3114,27 @@ Azure service: [Container Registry](../container-registry/index.yml)
 > | Microsoft.ContainerRegistry/registries/buildTasks/steps/write | Creates or updates a build step for a build task with the specified parameters. |
 > | Microsoft.ContainerRegistry/registries/buildTasks/steps/delete | Deletes a build step from a build task. |
 > | Microsoft.ContainerRegistry/registries/buildTasks/steps/listBuildArguments/action | Lists the build arguments for a build step including the secret arguments. |
+> | Microsoft.ContainerRegistry/registries/connectedRegistries/read | Gets the properties of the specified connected registry or lists all the connected registries for the specified container registry. |
+> | Microsoft.ContainerRegistry/registries/connectedRegistries/write | Creates or updates a connected registry for a container registry with the specified parameters. |
+> | Microsoft.ContainerRegistry/registries/connectedRegistries/delete | Deletes a connected registry from a container registry. |
 > | Microsoft.ContainerRegistry/registries/eventGridFilters/read | Gets the properties of the specified event grid filter or lists all the event grid filters for the specified container registry. |
 > | Microsoft.ContainerRegistry/registries/eventGridFilters/write | Creates or updates an event grid filter for a container registry with the specified parameters. |
 > | Microsoft.ContainerRegistry/registries/eventGridFilters/delete | Deletes an event grid filter from a container registry. |
+> | Microsoft.ContainerRegistry/registries/exportPipelines/read | Gets the properties of the specified export pipeline or lists all the export pipelines for the specified container registry. |
+> | Microsoft.ContainerRegistry/registries/exportPipelines/write | Creates or updates an export pipeline for a container registry with the specified parameters. |
+> | Microsoft.ContainerRegistry/registries/exportPipelines/delete | Deletes an export pipeline from a container registry. |
+> | Microsoft.ContainerRegistry/registries/importPipelines/read | Gets the properties of the specified import pipeline or lists all the import pipelines for the specified container registry. |
+> | Microsoft.ContainerRegistry/registries/importPipelines/write | Creates or updates an import pipeline for a container registry with the specified parameters. |
+> | Microsoft.ContainerRegistry/registries/importPipelines/delete | Deletes an import pipeline from a container registry. |
 > | Microsoft.ContainerRegistry/registries/listPolicies/read | Lists the policies for the specified container registry |
 > | Microsoft.ContainerRegistry/registries/listUsages/read | Lists the quota usages for the specified container registry. |
 > | Microsoft.ContainerRegistry/registries/metadata/read | Gets the metadata of a specific repository for a container registry |
 > | Microsoft.ContainerRegistry/registries/metadata/write | Updates the metadata of a repository for a container registry |
 > | Microsoft.ContainerRegistry/registries/operationStatuses/read | Gets a registry async operation status |
+> | Microsoft.ContainerRegistry/registries/pipelineRuns/read | Gets the properties of the specified pipeline run or lists all the pipeline runs for the specified container registry. |
+> | Microsoft.ContainerRegistry/registries/pipelineRuns/write | Creates or updates a pipeline run for a container registry with the specified parameters. |
+> | Microsoft.ContainerRegistry/registries/pipelineRuns/delete | Deletes a pipeline run from a container registry. |
+> | Microsoft.ContainerRegistry/registries/pipelineRuns/operationStatuses/read | Gets a pipeline run async operation status. |
 > | Microsoft.ContainerRegistry/registries/privateEndpointConnectionProxies/validate/action | Validate the Private Endpoint Connection Proxy (NRP only) |
 > | Microsoft.ContainerRegistry/registries/privateEndpointConnectionProxies/read | Get the Private Endpoint Connection Proxy (NRP only) |
 > | Microsoft.ContainerRegistry/registries/privateEndpointConnectionProxies/write | Create the Private Endpoint Connection Proxy (NRP only) |
@@ -3144,6 +3160,9 @@ Azure service: [Container Registry](../container-registry/index.yml)
 > | Microsoft.ContainerRegistry/registries/scopeMaps/delete | Deletes a scope map from a container registry. |
 > | Microsoft.ContainerRegistry/registries/scopeMaps/operationStatuses/read | Gets a scope map async operation status. |
 > | Microsoft.ContainerRegistry/registries/sign/write | Push/Pull content trust metadata for a container registry. |
+> | Microsoft.ContainerRegistry/registries/taskruns/read | Get a taskrun for a container registry or list all taskruns. |
+> | Microsoft.ContainerRegistry/registries/taskruns/write | Create or Update a taskrun for a container registry. |
+> | Microsoft.ContainerRegistry/registries/taskruns/delete | Delete a taskrun for a container registry. |
 > | Microsoft.ContainerRegistry/registries/taskruns/listDetails/action | List all details of a taskrun for a container registry. |
 > | Microsoft.ContainerRegistry/registries/tasks/read | Gets a task for a container registry or list all tasks. |
 > | Microsoft.ContainerRegistry/registries/tasks/write | Creates or Updates a task for a container registry. |
@@ -5770,11 +5789,11 @@ Azure service: [Cognitive Services](../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/CustomVision/whitelist/read | Gets a list of allowlisted users with specific capability |
 > | Microsoft.CognitiveServices/accounts/CustomVision/whitelist/write | Updates or creates a user in the allowlist with specific capability |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/endpoints/action | Creates a new voice endpoint. |
-> | Microsoft.CognitiveServices/accounts/CustomVoice/models/action | Creates a new voice model. |
-> | Microsoft.CognitiveServices/accounts/CustomVoice/tests/action | Creates a new voice test. |
-> | Microsoft.CognitiveServices/accounts/CustomVoice/evaluations/action | Creates a new synthesis. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/datasets/action | LongAudio and AudioOnly dataset will leverage the batch transcription feature of speech-to-text. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/models/action | Creates a new voice model. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/evaluations/action | Creates a new evaluation. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/projects/action | Creates a new project. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/trainingsets/action | Creates a new training set. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/api/common/v3.0-beta1/features/read | Gets a list of allowed features. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/datasets/delete | Deletes the voice dataset with the given id. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/datasets/read | Gets one or more datasets. |
@@ -5782,11 +5801,13 @@ Azure service: [Cognitive Services](../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/CustomVoice/datasets/upload/action | Uploads data and creates a new voice data object. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/datasets/audioonly/action | Upload voice dataset only with audio. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/datasets/longaudio/action | Upload voice dataset with long audio and scripts. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/datasets/trainingset/action | Assign data import to specific training set. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/datasets/files/read | Gets the files of the dataset identified by the given ID. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/datasets/locales/read | Gets a list of supported locales for custom voice data imports. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/datasets/longaudiolocales/read | Get long audio data / audio only data import supported locales. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/datasets/personalvoicerecordingscript/read | Get personal voice recording script. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/datasets/project/read | Get the list of datasets for specified project. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/discount/read | Get the discount for neural model training. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/endpoints/delete | Delete the specified voice endpoint. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/endpoints/read | Get one or more voice endpoints |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/endpoints/write | Updates the name and description of the endpoint identified by the given ID. |
@@ -5798,17 +5819,24 @@ Azure service: [Cognitive Services](../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/CustomVoice/endpoints/project/read | Gets the list of endpoints for specified project. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/endpoints/resume/write | Resume a existing voice endpoint. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/endpoints/suspend/write | Suspend a existing voice endpoint. |
-> | Microsoft.CognitiveServices/accounts/CustomVoice/evaluations/delete | Deletes the specified voice test. |
-> | Microsoft.CognitiveServices/accounts/CustomVoice/evaluations/audios/read | Gets detail of the specified voice test. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/evaluations/delete | Deletes the specified evaluation. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/evaluations/read | Gets details of one or more evaluations |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/evaluations/audios/read | Gets detail of the specified evaluation. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/evaluations/files/read | Gets the files of the evaluation identified by the given ID. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/evaluations/project/read | Get the list of evaluations for specified project. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/evaluations/tests/delete | Deletes the specified voice test. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/evaluations/tests/batchdelete/action | Deletes the specified voice tests of given evaluation. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/longaudiosynthesis/delete | Deletes the specified long audio synthesis task. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/longaudiosynthesis/read | Gets one or more long audio syntheses. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/longaudiosynthesis/write | Updates the mutable details of the long audio synthesis identified by its ID. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/longaudiosynthesis/voices/read | Gets a list of supported voices for long audio synthesis. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/models/delete | Deletes the voice model with the given id. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/models/read | Gets one or more voice models. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/models/write | Updates the metadata of the voice model identified by the given ID. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/models/copy/action | This method can be used to copy a model from one location to another. If the target subcription |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/models/withtest/action | Creates a new voice model object. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/models/saveas/action | This method can be used to copy a model with new name and description. |
-> | Microsoft.CognitiveServices/accounts/CustomVoice/models/evaluations/read | Gets details of the specified model's voice test. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/models/evaluations/read | Gets details of the specified model's evaluations. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/models/locales/read | Gets a list of supported locales for custom voice models. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/models/locales/crosslingual/read | Gets a list of supported locales for custom voice crosslingual models. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/models/project/read | Gets the list of models for specified project. |
@@ -5823,16 +5851,13 @@ Azure service: [Cognitive Services](../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/CustomVoice/speakerauthorizations/upload/action | Uploads data and creates a new voice speaker authorization object. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/speakerauthorizations/project/read | Get the list of speaker authorizations for specified project. |
 > | Microsoft.CognitiveServices/accounts/CustomVoice/speakerauthorizations/template/read | Gets the authorization template of given locale. |
-> | Microsoft.CognitiveServices/accounts/CustomVoice/tests/delete | Deletes the specified voice test. |
-> | Microsoft.CognitiveServices/accounts/CustomVoice/tests/read | Gets details of one or more voice tests |
-> | Microsoft.CognitiveServices/accounts/CustomVoice/tests/files/read | Gets the files of the voice test identified by the given ID. |
-> | Microsoft.CognitiveServices/accounts/CustomVoice/tests/model/read | Gets details of the specified model's voice test. |
-> | Microsoft.CognitiveServices/accounts/CustomVoice/tests/project/read | Get the list of voice tests for specified project. |
-> | Microsoft.CognitiveServices/accounts/CustomVoice/voicesynthesis/delete | Deletes the specified voice synthesis task. |
-> | Microsoft.CognitiveServices/accounts/CustomVoice/voicesynthesis/read | Gets one or more voice syntheses. |
-> | Microsoft.CognitiveServices/accounts/CustomVoice/voicesynthesis/write | Updates the mutable details of the voice synthesis identified by its ID. |
-> | Microsoft.CognitiveServices/accounts/CustomVoice/voicesynthesis/paginated/read | Gets a list of voice synthesis under the selected subscription with result paginated. |
-> | Microsoft.CognitiveServices/accounts/CustomVoice/voicesynthesis/voices/read | Gets a list of supported voices for offline synthesis. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/trainingsets/delete | Deletes the specified training set. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/trainingsets/write | Update the existing training set. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/trainingsets/files/read | Gets the files of the training set identified by the given ID. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/trainingsets/project/read | Get the list of training sets for specified project. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/trainingsets/utterance/delete | Deletes the specified utterance. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/trainingsets/utterances/batchdelete/action | Deletes the specified utterances of given training set. |
+> | Microsoft.CognitiveServices/accounts/CustomVoice/trainingsets/utterances/read | Gets utterances of the specified training set. |
 > | Microsoft.CognitiveServices/accounts/EntitySearch/search/action | Get entities and places results for a given query. |
 > | Microsoft.CognitiveServices/accounts/Face/detect/action | Detect human faces in an image, return face rectangles, and optionally with faceIds, landmarks, and attributes. |
 > | Microsoft.CognitiveServices/accounts/Face/findsimilars/action | Given query face's faceId, to search the similar-looking faces from a faceId array, a face list or a large face list. faceId |
@@ -6705,6 +6730,15 @@ Azure service: [IoT Hub](../iot-hub/index.yml), [IoT Hub Device Provisioning Ser
 > | Microsoft.Devices/IotHubs/statistics/read | Read device and service statistics |
 > | Microsoft.Devices/IotHubs/twins/read | Read any device or module twin |
 > | Microsoft.Devices/IotHubs/twins/write | Write any device or module twin |
+> | Microsoft.Devices/provisioningServices/attestationmechanism/details/action | Fetch Attestation Mechanism Details |
+> | Microsoft.Devices/provisioningServices/enrollmentGroups/read | Read Enrollment Groups |
+> | Microsoft.Devices/provisioningServices/enrollmentGroups/write | Write Enrollment Groups |
+> | Microsoft.Devices/provisioningServices/enrollmentGroups/delete | Delete Enrollment Groups |
+> | Microsoft.Devices/provisioningServices/enrollments/read | Read Enrollments |
+> | Microsoft.Devices/provisioningServices/enrollments/write | Write Enrollments |
+> | Microsoft.Devices/provisioningServices/enrollments/delete | Delete Enrollments |
+> | Microsoft.Devices/provisioningServices/registrationStates/read | Read Registration States |
+> | Microsoft.Devices/provisioningServices/registrationStates/delete | Delete Registration States |
 
 ### Microsoft.DeviceUpdate
 
