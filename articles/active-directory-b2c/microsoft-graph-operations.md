@@ -183,7 +183,7 @@ After you've obtained the code sample, configure it for your environment and the
 The application displays a list of commands you can execute. For example, get all users, get a single user, delete a user, update a user's password, and bulk import.
 
 > [!NOTE]
-> For an application to update user's password, [User administrator](https://docs.microsoft.com/en-us/azure/active-directory/roles/permissions-reference#user-administrator) role must be assigned.
+> For the application to update user account passwords, you'll need to [grant the user administrator role](microsoft-graph-get-started.md#optional-grant-user-administrator-role) to the application.```
  
 ### Code discussion
 
