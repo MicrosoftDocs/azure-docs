@@ -16,12 +16,12 @@ With this in mind, we are retiring our NV-series Azure Virtual Machine sizes on 
 
 After September 01, 2022, any remaining NV and NV_Promo size virtual machines remaining in your subscription will be set to a deallocated state. These virtual machines will be stopped and removed from the host. These virtual machines will no longer be billed in the deallocated state. 
 
-The current VM size retirement only impacts the VM sizes in the [NV-series](https://docs.microsoft.com/en-us/azure/virtual-machines/nv-series). This does not impact the [NVv3](https://docs.microsoft.com/en-us/azure/virtual-machines/nvv3-series) and [NVv4] (https://docs.microsoft.com/en-us/azure/virtual-machines/nvv4-series) series virtual machines. 
+The current VM size retirement only impacts the VM sizes in the [NV-series](https://docs.microsoft.com/azure/virtual-machines/nv-series). This does not impact the [NVv3](https://docs.microsoft.com/en-us/azure/virtual-machines/nvv3-series) and [NVv4] (https://docs.microsoft.com/azure/virtual-machines/nvv4-series) series virtual machines. 
 
 # What actions should I take?  
 
-You will need to resize or deallocate your NV virtual machines. We recommend moving your GPU visualization/graphics workloads to another [GPU Accelerated Virtual Machine size](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-gpu).
+You will need to resize or deallocate your NV virtual machines. We recommend moving your GPU visualization/graphics workloads to another [GPU Accelerated Virtual Machine size](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu).
 
-[Learn more](https://docs.microsoft.com/en-us/azure/virtual-machines/NV-series-migration-guide) about migrating your workloads to other GPU Azure Virtual Machine sizes. 
+[Learn more](https://docs.microsoft.com/azure/virtual-machines/NV-series-migration-guide) about migrating your workloads to other GPU Azure Virtual Machine sizes. 
 
 If you have questions, contact us. You may also reach us directly at [Azure GPU Feedback](mailto:azuregpufeedback@service.microsoft.com).  
