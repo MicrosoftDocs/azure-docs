@@ -106,8 +106,8 @@ landingContent:
         links:
         - text: Access and identity
           url: concepts-identity.md
-        - text: Configure an external identity source 
-          url: tutorial-configure-identity-source.md
+        - text: Configure identity source for vCenter
+          url: tutorial-configure-identity-source-vcenter.md
         - text: Rotate cloudadmin credentials
           url: rotate-cloudadmin-credentials.md
 
