@@ -1362,7 +1362,7 @@
           href: table/resource-manager-templates.md
           displayName: ARM
         - name: Manage using PowerShell
-          href: powershell-samples.md
+          href: table/powershell-samples.md
         - name: Manage using Azure CLI
           href: table/cli-samples.md
     - name: Reference
