@@ -8,7 +8,7 @@ ms.author: glenga
 
 ## Language support details 
 
-The following table shows which languages supported by Functions can run on Linux or Windows. It also indicated whether your language supports editing in the Azure portal. The language is based on the **Runtime stack** option you choose when [creating your function app in the Azure portal](../articles/azure-functions/functions-create-function-app-portal.md#create-a-function-app). 
+The following table shows which languages supported by Functions can run on Linux or Windows. It also indicates whether your language supports editing in the Azure portal. The language is based on the **Runtime stack** option you choose when [creating your function app in the Azure portal](../articles/azure-functions/functions-create-function-app-portal.md#create-a-function-app). This is the same as the `--worker-runtime` option when using the `func init` command in Azure Functions Core Tools. 
 
 | Language | Runtime stack | Linux | Windows | In-portal editing |
 |:--- |:-- |:--|:--- |:--- |
