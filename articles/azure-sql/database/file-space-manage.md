@@ -9,8 +9,8 @@ ms.devlang:
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: jrasnick, sstein
-ms.date: 05/28/2021
+ms.reviewer: jrasnick, wiassaf
+ms.date: 07/28/2021
 ---
 # Manage file space for databases in Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,6 +29,9 @@ Monitoring file space usage and shrinking data files may be necessary in the fol
 - Allow data growth in an elastic pool when the file space allocated for its databases reaches the pool max size.
 - Allow decreasing the max size of a single database or elastic pool.
 - Allow changing a single database or elastic pool to a different service tier or performance tier with a lower max size.
+
+> [!NOTE]
+> Shrink operations should not be considered a regular maintenance operation. Data and log files that grow due to regular, recurring business operations do not require shrink operations. 
 
 ### Monitoring file space usage
 
@@ -55,6 +58,8 @@ In Premium and Business Critical service tiers, if the transaction log becomes l
 ```tsql
 DBCC SHRINKFILE (2);
 ```
+
+This command references file_id = 2, which is the transaction log file in an Azure SQL Database. To verify files and file names, use the system catalog view `sys.database_files`.
 
 ## Understanding types of storage space for a database
 
@@ -209,26 +214,36 @@ ORDER BY end_time DESC;
 
 ### DBCC shrink
 
-Once databases have been identified for reclaiming unused allocated space, modify the name of the database in the following command to shrink the data files for each database.
+Once databases have been identified for reclaiming unused allocated space, modify the name of the database in the following command to shrink the data files for each database. This should not be a regularly scheduled operation, but rather, a one-time event in response to major changes. 
+
+In Azure SQL Database, Microsoft does not recommend using the `DBCC SHRINKDATABASE` command, but rather, the `DBCC SHRINKFILE` command on either the database's data or log files. `DBCC SHRINKDATABASE` will shrink both files, which is typically unnecessary.   
+
+The following examples are executed while connected to the target database, not the master database.
 
 ```sql
--- Shrink database data space allocated.
-DBCC SHRINKDATABASE (N'db1');
+--Verify the names of files in the Azure SQL Database
+SELECT * FROM sys.database_files;
+GO
+
+-- Shrink database data file by removing all unused space.
+DBCC SHRINKFILE (1, truncateonly);
+GO
 ```
 
-Shrink commands  impact database performance while running, and if possible should be run during periods of low usage.  
+This command references file_id = 2, which is the transaction log file in an Azure SQL Database. To verify files and file names, use the system catalog view `sys.database_files`.
 
-You should also be aware of the potential negative performance impact of shrinking database files, see [**Rebuild indexes**](#rebuild-indexes) section below.
+> [!IMPORTANT]
+> Shrink commands can negatively impact database performance while running, and if possible should be run during periods of low usage. 
 
-For more information about this command, see [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
+You should also be aware of the potential negative performance impact of shrinking database files, see [**Rebuild indexes**](#rebuild-indexes) section below. For more information about this command, see [DBCC SHRINKFILE](/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql).
 
 ### Auto-shrink
 
-Alternatively, auto-shrink can be enabled for a database.  Auto-shrink reduces file management complexity and is less impactful to database performance than `SHRINKDATABASE` or `SHRINKFILE`. Auto-shrink can be particularly helpful in managing elastic pools with many databases that experience significant growth and reduction in space used. However, auto shrink can be less effective in reclaiming file space than `SHRINKDATABASE` and `SHRINKFILE`.
+Alternatively, auto-shrink can be enabled for a database. However, auto shrink can be less effective in reclaiming file space than `SHRINKDATABASE` and `SHRINKFILE`.
 
 By default, auto-shrink is disabled, which is recommended for most databases. If it becomes necessary to enable auto-shrink, it is recommended to disable it once space management goals have been achieved, instead of keeping it enabled permanently. For more information, see [Considerations for AUTO_SHRINK](/troubleshoot/sql/admin/considerations-autogrow-autoshrink#considerations-for-auto_shrink).
 
-To enable auto-shrink, execute the following command in your database (not in the master database).
+To enable auto-shrink, execute the following command in a connection to your database (not in the master database).
 
 ```sql
 -- Enable auto-shrink for the current database.
@@ -239,7 +254,7 @@ For more information about this command, see [DATABASE SET](/sql/t-sql/statement
 
 ### Rebuild indexes
 
-After data files are shrunk, indexes may become fragmented and lose their performance optimization effectiveness. If performance degradation occurs, consider rebuilding database indexes. For more information on fragmentation and index maintenance, see [Optimize index maintenance to improve query performance and reduce resource consumption](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
+After a shrink operation is completed against data files, indexes may become fragmented and lose their performance optimization effectiveness. When performance degradation occurs after the shrink operation is complete, execute index maintenance to rebuild database indexes. For more information on fragmentation and index maintenance, see [Optimize index maintenance to improve query performance and reduce resource consumption](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
 
 ## Next steps
 
@@ -248,5 +263,5 @@ After data files are shrunk, indexes may become fragmented and lose their perfor
   - [Resource limits for single databases using the DTU-based purchasing model](resource-limits-dtu-single-databases.md)
   - [Azure SQL Database vCore-based purchasing model limits for elastic pools](resource-limits-vcore-elastic-pools.md)
   - [Resources limits for elastic pools using the DTU-based purchasing model](resource-limits-dtu-elastic-pools.md)
-- For more information about the `SHRINKDATABASE` command, see [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
+- For more information about the `SHRINKFILE` command, see [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql).
 - For more information on fragmentation and rebuilding indexes, see [Reorganize and Rebuild Indexes](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
