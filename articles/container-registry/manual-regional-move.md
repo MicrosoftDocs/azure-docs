@@ -102,7 +102,7 @@ After creating the registry in the target region, use the [az acr import](/cli/a
 * Use the Azure CLI commands [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list) and [az acr repository show-tags](/cli/azure/acr/repository#az_acr_repository_show_tags), or Azure PowerShell equivalents, to help enumerate the contents of your source registry.
 * Run the import command for individual artifacts, or script it to run over a list of artifacts.
 
-The following sample Azure CLI script enumerates the source repositories and tags and then imports the artifacts to a target registry. Modify as needed to import specific repositories or tags.
+The following sample Azure CLI script enumerates the source repositories and tags and then imports the artifacts to a target registry in the same Azure subscription. Modify as needed to import specific repositories or tags. To import from a registry in a different subscription or tenant, see examples in [Import container images to a container registry](container-registry-import-images.md).
 
 ```azurecli
 #!/bin/bash
@@ -123,6 +123,8 @@ for repo in $REPO_LIST; do
     done
 done
 ```
+
+
 
 ## Verify target registry
 
