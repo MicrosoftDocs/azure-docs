@@ -253,5 +253,5 @@ While the resource consumption of the SAP ASCS/SCS is fairly small, a reduction 
 * HANA on Azure (large instances), see [SAP HANA (large instances) high availability and disaster recovery on Azure](hana-overview-high-availability-disaster-recovery.md).
 * To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure VMs, see [High Availability of SAP HANA on Azure Virtual Machines (VMs)][sap-hana-ha]
 
-[sap-ha-guide-figure-8007A]:./media/virtual-machines-shared-sap-high-availability-guide/HA-SMB+AS.png
-[sap-ha-guide-figure-8007B]:./media/virtual-machines-shared-sap-high-availability-guide/HA-SQL+ASCS-SMB.png
+[sap-ha-guide-figure-8007A]:./media/virtual-machines-shared-sap-high-availability-guide/ha-smb-as.png
+[sap-ha-guide-figure-8007B]:./media/virtual-machines-shared-sap-high-availability-guide/ha-sql-ascs-smb.png
