@@ -44,17 +44,17 @@ Routing policies allow you to specify how the Virtual WAN hub forwards Internet-
 ## Configuring Routing Policies
 1. From the Custom Portal Link provided in your confirmation email, navigate to the Virtual WAN Hub that you want to configure Routing Policies on.
 1. Under Security, click **Secured Virtual hub settings** and then **Manage security provider and route settings for this Secured virtual hub in Azure Firewall Manager**
-:::image type="content" source="./media/routing-policies/secured-hub-settings.png"alt-text="Screenshot showing architecture with two secured hubs."lightbox="./media/routing-policies/secured-hub-settings.png":::
+:::image type="content" source="./media/routing-policies/secured-hub-settings.png"alt-text="Screenshot showing how to modify secured hub settings."lightbox="./media/routing-policies/secured-hub-settings.png":::
 1. Select the Hub you want to configure your Routing Policies on from the menu.
 1. Click on **Security configuration** under **Settings**
 1. If you want to configure an Internet Traffic Routing Policy, select **Azure Firewall** from the dropdown for **Internet Traffic**. If not, select **None**
 1. If you want to configure a Private Traffic Routing Policy (branch and Virtual Network traffic) via Azure Firewall, select **Azure Firewall** from the dropdown for **Private Traffic**. If not, select **Bypass Azure Firewall**.
 
-:::image type="content" source="./media/routing-policies/configuring-intents.png"alt-text="Screenshot showing architecture with two secured hubs."lightbox="./media/routing-policies/configuring-intents.png":::
+:::image type="content" source="./media/routing-policies/configuring-intents.png"alt-text="Screenshot showing how to configure routing policies."lightbox="./media/routing-policies/configuring-intents.png":::
 
 7. If you want to configure a Private Traffic Routing Policy and have branches or virtual networks advertising non-IANA RFC1918 Prefixes, click on **Private Traffic Prefixes** and specify the non-IANA RFC1918 prefix ranges in the text box that comes up. Click **Done**. 
 
-:::image type="content" source="./media/routing-policies/private-prefixes.png"alt-text="Screenshot showing architecture with two secured hubs."lightbox="./media/routing-policies/private-prefixes.png":::
+:::image type="content" source="./media/routing-policies/private-prefixes.png"alt-text="Screenshot showing how to edit private traffic prefixes."lightbox="./media/routing-policies/private-prefixes.png":::
 1. Select **Inter-hub** to be **Enabled**. Enabling this option ensures your Routing Policies are applied to the Virtual WAN Hub. 
 1. Click **Save**. This operation will take around 10 minutes to complete. 
 1. Repeat steps 2-8 for other Secured Virtual WAN hubs that you want to configure Routing policies for. 
