@@ -3,7 +3,7 @@ title: Create an Azure App Service assessment
 description: Learn how to assess web apps for migration to Azure App Service
 author: rashi-ms
 ms.author: rajosh
-ms.topic: how to
+ms.topic: tutorial
 ms.date: 07/28/2021
 
 ---
@@ -43,24 +43,27 @@ Run an assessment as follows:
 4. Click **Edit** to review the assessment properties.
      :::image type="content" source="./media/tutorial-assess-webapps/assess-webapps.png" alt-text="Edit button from where assessment properties can be customized":::
 5. Here's what's included in Azure App Service assessment properties:
-**Property** | **Details**
---- | ---
-**Target location** | The Azure region to which you want to migrate. Azure App Service configuration and cost recommendations are based on the location that you specify.
-**Isolation required** | Select yes if you want your web apps to run in a private and dedicated environment in an Azure datacenter using Dv2-series VMs with faster processors, SSD storage, and double the memory to core ratio compared to Standard plans.
-**Reserved instances** | Specifies reserved instances so that cost estimations in the assessment take them into account.<br/><br/> If you select a reserved instance option, you can't specify “Discount (%)”.
-**Offer** | The [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) in which you're enrolled. The assessment estimates the cost for that offer.
-**Currency** | The billing currency for your account.
-**Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
-**EA subscription** | Specifies that an Enterprise Agreement (EA) subscription is used for cost estimation. Takes into account the discount applicable to the subscription. <br/><br/> Leave the settings for reserved instances, and discount (%) properties with their default settings.
+
+| **Property** | **Details** |
+| --- | --- |
+| **Target location** | The Azure region to which you want to migrate. Azure App Service configuration and cost recommendations are based on the location that you specify. |
+| **Isolation required** | Select yes if you want your web apps to run in a private and dedicated environment in an Azure datacenter using Dv2-series VMs with faster processors, SSD storage, and double the memory to core ratio compared to Standard plans. |
+| **Reserved instances** | Specifies reserved instances so that cost estimations in the assessment take them into account.<br/><br/> If you select a reserved instance option, you can't specify “Discount (%)”. |
+| **Offer** | The [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) in which you're enrolled. The assessment estimates the cost for that offer. |
+| **Currency** | The billing currency for your account. |
+| **Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%. |
+| **EA subscription** | Specifies that an Enterprise Agreement (EA) subscription is used for cost estimation. Takes into account the discount applicable to the subscription. <br/><br/> Leave the settings for reserved instances, and discount (%) properties with their default settings. |
+
      :::image type="content" source="./media/tutorial-assess-webapps/webapps-assessment-properties.png" alt-text="App Service assessment properties":::
-8. In **Create assessment** > click Next.
+
+1. In **Create assessment** > click Next.
 9.	In **Select servers to assess** > **Assessment name** > specify a name for the assessment.
 10.	In **Select or create a group** > select **Create New** and specify a group name.
 11.	Select the appliance, and select the servers you want to add to the group. Then click Next.
 12.	In **Review + create assessment**, review the assessment details, and click Create Assessment to create the group and run the assessment.
 13.	After the assessment is created, go to **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** tile > Refresh the tile data by clicking on the Refresh option on top of the tile. Wait for data to get refreshed.
      :::image type="content" source="./media/tutorial-assess-webapps/tile-refresh.png" alt-text="Refresh discovery and assessment tool data":::
-14. Click on the number next to Azure App Service assessment.
+1. Click on the number next to Azure App Service assessment.
      :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-navigation.png" alt-text="Navigation to created assessment":::
 15.	Click on the assessment name which you wish to view.
 
@@ -108,9 +111,11 @@ Not ready  | No | No
 Unknown  | No | No
 
 4. Click on the App Service plan hyperlink in table to see the App Service plan details such as compute resources, and other web apps that are part of the same plan.
+
     :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-plan-details.png" alt-text="App Service plan details":::
 
 ### Review cost estimates
+
 The assessment summary shows the estimated monthly costs for hosting you web apps in App Service. In App Service, you pay charges per App Service plan and not per web app. One or more apps can be configured to run on the same computing resources (or in the same App Service plan). Whatever apps you put into this App Service plan run on these compute resources as defined by your App Service plan.
 To optimize cost, Azure Migrate assessment allocates multiple web apps to each recommended App Service plan. Number of web apps allocated to each plan instance is as per below table.
 

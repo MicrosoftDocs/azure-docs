@@ -41,6 +41,7 @@ Run an assessment as follows:
 4. Click **Edit** to review the assessment properties.
      :::image type="content" source="./media/tutorial-assess-webapps/assess-webapps.png" alt-text="Edit button from where assessment properties can be customized":::
 5. Here's what's included in Azure App Service assessment properties:
+
 **Property** | **Details**
 --- | ---
 **Target location** | The Azure region to which you want to migrate. Azure App Service configuration and cost recommendations are based on the location that you specify.
@@ -50,15 +51,17 @@ Run an assessment as follows:
 **Currency** | The billing currency for your account.
 **Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
 **EA subscription** | Specifies that an Enterprise Agreement (EA) subscription is used for cost estimation. Takes into account the discount applicable to the subscription. <br/><br/> Leave the settings for reserved instances, and discount (%) properties with their default settings.
+
      :::image type="content" source="./media/tutorial-assess-webapps/webapps-assessment-properties.png" alt-text="App Service assessment properties":::
-8. In **Create assessment** > click Next.
+
+1. In **Create assessment** > click Next.
 9.	In **Select servers to assess** > **Assessment name** > specify a name for the assessment.
 10.	In **Select or create a group** > select **Create New** and specify a group name.
 11.	Select the appliance, and select the servers you want to add to the group. Then click Next.
 12.	In **Review + create assessment**, review the assessment details, and click Create Assessment to create the group and run the assessment.
 13.	After the assessment is created, go to **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** tile > Refresh the tile data by clicking on the Refresh option on top of the tile. Wait for data to get refreshed.
      :::image type="content" source="./media/tutorial-assess-webapps/tile-refresh.png" alt-text="Refresh discovery and assessment tool data":::
-14. Click on the number next to Azure App Service assessment.
+1. Click on the number next to Azure App Service assessment.
      :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-navigation.png" alt-text="Navigation to created assessment":::
 15.	Click on the assessment name which you wish to view.
 

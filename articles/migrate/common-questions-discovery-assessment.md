@@ -69,7 +69,7 @@ The confidence rating is calculated for "Performance-based" assessments based on
 - Assessment is not able to collect the performance data for some or all the servers in the assessment period. For a high confidence rating, please ensure that: 
     - Servers are powered on for the duration of the assessment
     - Outbound connections on ports 443 are allowed
-    - For Hyper-V Servers dynamic memory is enabled 
+    - For Hyper-V Servers dynamic memory is enabled
     - The connection status of agents in Azure Migrate are 'Connected' and check the last heartbeat
     - For Azure SQL assessments, Azure Migrate connection status for all SQL instances is "Connected" in the discovered SQL instance blade
 
@@ -88,11 +88,11 @@ Discovery and assessment of SQL Server instances and databases running in your V
 
 ## I want to try out the new Azure App Service assessment
 
-Discovery and assessment of .NET web apps running in your VMware environment is now in preview. Get started with [this tutorial](tutorial-discover-vmware.md). If you want to try out this feature in an existing project, please ensure that you have completed the [prerequisites](how-to-discover-webapps-existing-project.md) in this article.
+Discovery and assessment of .NET web apps running in your VMware environment is now in preview. Get started with [this tutorial](tutorial-discover-vmware.md). If you want to try out this feature in an existing project, please ensure that you have completed the [prerequisites](how-to-discover-sql-existing-project.md) in this article.
 
 ## I can't see some servers when I am creating an Azure SQL assessment
 
-- Azure SQL assessment can only be done on servers running where SQL instances were discovered. If you don't see the servers and SQL instances that you wish to assess, please wait for some time for the discovery to get completed and then create the assessment. 
+- Azure SQL assessment can only be done on servers running where SQL instances were discovered. If you don't see the servers and SQL instances that you wish to assess, please wait for some time for the discovery to get completed and then create the assessment.
 - If you are not able to see a previously created group while creating the assessment, please remove any non-VMware server or any server without a SQL instance from the group.
 - If you are running Azure SQL assessments in Azure Migrate for the first time, it is advisable to create a new group of servers.
 
