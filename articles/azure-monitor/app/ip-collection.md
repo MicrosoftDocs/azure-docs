@@ -68,7 +68,7 @@ If you only need to modify the behavior for a single Application Insights resour
     ![Screenshot that shows the Edit button highlighted in red, along with a warning about the resource group.](media/ip-collection/edit-template.png)
 
     > [!NOTE]
-    > If you experience the following error shown in the preceding screenshot, you can resolve it: "The resource group is in a location that is not supported by one or more resources in the template. Please choose a different resource group." Temporarily select a different resource group from the dropdown list and then re-select your original resource group.
+    > If you experience the following error (as shown in the screenshot), you can resolve it: "The resource group is in a location that is not supported by one or more resources in the template. Please choose a different resource group." Temporarily select a different resource group from the dropdown list and then re-select your original resource group.
 
 4. In the JSON for your resource, after the `Request_Source` value, add a comma and the following new line: `"DisableIpMasking": true`. Then select **Save**.
 
@@ -146,6 +146,7 @@ namespace MyWebApp
 ```
 
 > [!NOTE]
+> If you can't access `ISupportProperties`, make sure you're running the latest stable release of the Application Insights SDK. `ISupportProperties` is intended for high cardinality values. `GlobalProperties` is more appropriate for low cardinality values like region name and environment name.
 
 ### Enable the telemetry initializer for ASP.NET
 
@@ -224,7 +225,7 @@ If client-side data traverses a proxy before forwarding to the ingestion endpoin
 
 ### View the results of your telemetry initializer
 
-If you send new traffic to your site and wait a few minutes, you can then run a query to confirm that collection is working:
+If you send new traffic to your site and wait a few minutes, you can then run a query to confirm that the collection is working:
 
 ```kusto
 requests

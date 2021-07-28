@@ -214,7 +214,7 @@ This section will guide you through manually adding Application Insights to a te
 	<InstrumentationKey>your-instrumentation-key-goes-here</InstrumentationKey>
 	```
 
-5. At the same level of your project as the *ApplicationInsights.config* file, create a folder called *ErrorHandler* with a new C# file called *AiHandleErrorAttribute.cs*. The contents of the file will look as follows:
+5. At the same level of your project as the *ApplicationInsights.config* file, create a folder called *ErrorHandler* with a new C# file called *AiHandleErrorAttribute.cs*. The contents of the file will look like this:
 
     ```csharp
     using System;

@@ -24,7 +24,7 @@ In this article, you'll learn how to capture logs with Application Insights in .
 > [!TIP]
 > The [`Microsoft.ApplicationInsights.WorkerService`][nuget-ai-ws] NuGet package is beyond the scope of this article. It can be used to enable Application Insights for background services. For more information, see [Application Insights for Worker Service apps](./worker-service.md).
 
-Depending on the Application Insights logging package that you use, there will be various ways to register `ApplicationInsightsLoggerProvider`. The `ApplicationInsightsLoggerProvider` is an implementation of <xref:Microsoft.Extensions.Logging.ILoggerProvider>, which is responsible for providing <xref:Microsoft.Extensions.Logging.ILogger> and <xref:Microsoft.Extensions.Logging.ILogger%601> implementations.
+Depending on the Application Insights logging package that you use, there will be various ways to register `ApplicationInsightsLoggerProvider`. `ApplicationInsightsLoggerProvider` is an implementation of <xref:Microsoft.Extensions.Logging.ILoggerProvider>, which is responsible for providing <xref:Microsoft.Extensions.Logging.ILogger> and <xref:Microsoft.Extensions.Logging.ILogger%601> implementations.
 
 ## ASP.NET Core applications
 
@@ -286,7 +286,7 @@ namespace ConsoleApp
 
 ```
 
-The preceding example uses the `Microsoft.Extensions.Logging.ApplicationInsights` package. By default, this configuration uses the "bare minimum" `TelemetryConfiguration` for sending data to Application Insights. Bare minimum means that `InMemoryChannel` is the channel that's used. There's no sampling and no standard `TelemetryInitializer`. You can override this behavior for a console application, as the following example shows.
+The preceding example uses the `Microsoft.Extensions.Logging.ApplicationInsights` package. By default, this configuration uses the "bare minimum" `TelemetryConfiguration` setup for sending data to Application Insights: the `InMemoryChannel` channel. There's no sampling and no standard `TelemetryInitializer` instance. You can override this behavior for a console application, as the following example shows.
 
 Install this additional package:
 
@@ -294,7 +294,7 @@ Install this additional package:
 <PackageReference Include="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel" Version="2.17.0" />
 ```
 
-The following section shows how to override the default `TelemetryConfiguration` by using the <xref:Microsoft.Extensions.Options.ConfigureOptions%601.Configure(%600)> method. This example sets up `ServerTelemetryChannel` and sampling. It adds a custom `TelemetryInitializer` instance to `TelemetryConfiguration`.
+The following section shows how to override the default `TelemetryConfiguration` setup by using the <xref:Microsoft.Extensions.Options.ConfigureOptions%601.Configure(%600)> method. This example sets up `ServerTelemetryChannel` and sampling. It adds a custom `TelemetryInitializer` instance to `TelemetryConfiguration`.
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility;
@@ -422,11 +422,11 @@ If any other type is used as a scope, it will be stored under the property `Scop
 
 ### What are the old and new versions of ApplicationInsightsLoggerProvider?
 
-The [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) included a built-in `ApplicationInsightsLoggerProvider` (`Microsoft.ApplicationInsights.AspNetCore.Logging.ApplicationInsightsLoggerProvider`), which was enabled through `ILoggerFactory` extension methods. This provider is marked obsolete from version 2.7.1. It's slated to be removed completely in the next major version change. 
+The [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) included a built-in `ApplicationInsightsLoggerProvider` (`Microsoft.ApplicationInsights.AspNetCore.Logging.ApplicationInsightsLoggerProvider`) instance, which was enabled through `ILoggerFactory` extension methods. This provider is marked obsolete from version 2.7.1. It's slated to be removed completely in the next major version change. 
 
 The [Microsoft.ApplicationInsights.AspNetCore 2.6.1](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) package itself isn't obsolete. It's required to enable monitoring of items like requests and dependencies.
 
-The suggested alternative is the new standalone package [Microsoft.Extensions.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights), which contains an improved `ApplicationInsightsLoggerProvider` (`Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider`) and extension methods on `ILoggerBuilder` for enabling it.
+The suggested alternative is the new standalone package [Microsoft.Extensions.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights), which contains an improved `ApplicationInsightsLoggerProvider` instance (`Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider`) and extension methods on `ILoggerBuilder` for enabling it.
 
 [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.7.1 takes a dependency on the new package and enables `ILogger` capture automatically.
 

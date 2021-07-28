@@ -28,16 +28,16 @@ To create your first availability request:
 
    |Setting| Explanation |
    |----|----|
-   |**URL** |  The URL can be any webpage that you want to test, but it must be visible from the public internet. The URL can include a query string. So, for example, you can exercise your database a little. If the URL resolves to a redirect, we follow it up to 10 redirects.|
-   |**Parse dependent requests**| The test requests images, scripts, style files, and other files that are part of the webpage under test. The recorded response time includes the time taken to get these files. The test fails if any of these resources can't be successfully downloaded within the timeout for the whole test. If the option is not enabled, the test only requests the file at the URL that you specified. Enabling this option results in a stricter check. The test might fail for cases that aren't noticeable from manually browsing the site.
+   |**URL** |  The URL can be any webpage that you want to test, but it must be visible from the public internet. The URL can include a query string. For example, you can exercise your database a little. If the URL resolves to a redirect, you can follow it up to 10 redirects.|
+   |**Parse dependent requests**| The test requests images, scripts, style files, and other files that are part of the webpage under test. The recorded response time includes the time taken to get these files. The test fails if any of these resources can't be successfully downloaded within the timeout for the whole test. If the option is not enabled, the test only requests the file at the URL that you specified. Enabling this option results in a stricter check. The test might fail for cases that aren't noticeable from manually browsing through the site.
    |**Enable retries**|When the test fails, it's retried after a short interval. A failure is reported only if three successive attempts fail. Subsequent tests are then performed at the usual test frequency. Retry is temporarily suspended until the next success. This rule is applied independently at each test location. *We recommend this option*. On average, about 80 percent of failures disappear on retry.|
    |**Test frequency**| This setting determines how often the test is run from each test location. With a default frequency of five minutes and five test locations, your site is tested every minute on average.|
-   |**Test locations**| The values for this setting are the places from which our servers send web requests to your URL. *Our minimum number of recommended test locations is five*, to ensure that you can distinguish problems in your website from network issues. You can select up to 16 locations.
+   |**Test locations**| The values for this setting are the places from which servers send web requests to your URL. *We recommend a minimum of five test locations*, to ensure that you can distinguish problems in your website from network issues. You can select up to 16 locations.
 
 If your URL isn't visible from the public internet, you can choose to selectively open your firewall to allow only the test transactions through. To learn more about the firewall exceptions for availability test agents, consult the [IP address guide](./ip-addresses.md#availability-tests).
 
 > [!NOTE]
-> We strongly recommend testing from multiple locations with *a minimum of five locations*. This approach helps prevent false alarms that can result from transient issues with a specific location. We've also found that the optimal configuration is to have the *number of test locations be equal to the alert location threshold + 2*.
+> We strongly recommend testing from multiple locations with a minimum of five locations. This approach helps prevent false alarms that can result from transient issues with a specific location. We've also found that the optimal configuration is to have the *number of test locations be equal to the alert location threshold + 2*.
 
 ## Success criteria
 
@@ -52,7 +52,7 @@ If your URL isn't visible from the public internet, you can choose to selectivel
 |Setting| Explanation |
 |----|----|
 |**Near-realtime (Preview)** | We recommend using alerts that work in near real time. You configure this type of alert after you create your availability test.  |
-|**Alert location threshold**|We recommend a minimum of 3/5 locations. The optimal relationship between alert location threshold and the number of test locations is *alert location threshold = number of test locations - 2*, with a minimum of five test locations.|
+|**Alert location threshold**|We recommend a minimum of five test locations. The optimal relationship between alert location threshold and the number of test locations is *alert location threshold = number of test locations - 2*.|
 
 ## Location population tags
 
