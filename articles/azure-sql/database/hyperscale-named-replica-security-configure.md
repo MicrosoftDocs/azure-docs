@@ -104,7 +104,7 @@ Sqlcmd: Error: Microsoft ODBC Driver 13 for SQL Server : Login failed for user '
 The attempt to connect to the named replica succeeds:
 
 ```
-sqlcmd -S MySecondaryServer.database.windows.net -U third-party-login -P Just4STRONG_PAZzW0rd! -d WideWorldImporters_NR
+sqlcmd -S MyNamedReplicaServer.database.windows.net -U third-party-login -P Just4STRONG_PAZzW0rd! -d WideWorldImporters_NR
 ```
 
 No errors are returned, and queries can be executed on the named replica as allowed by granted object-level permissions.
