@@ -1,8 +1,8 @@
 ---
 title: "Digest management and database verification"
 description: This article provides information on digest management and database verification for a ledger database in Azure SQL Database.
-ms.custom: ""
-ms.date: "05/25/2021" 
+ms.custom: references_regions
+ms.date: "07/23/2021" 
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
@@ -16,7 +16,7 @@ ms.author: janders
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database ledger is currently in public preview and available in West Central US.
+> Azure SQL Database ledger is currently in public preview and available in West Europe, Brazil South, and West Central US.
 
 Azure SQL Database ledger provides a form of data integrity called *forward integrity*, which provides evidence of data tampering on data in your ledger tables. For example, if a banking transaction occurs on a ledger table where a balance has been updated to value `x`, and an attacker later modifies the data by changing the balance from `x` to `y`, database verification will detect this tampering activity.  
 

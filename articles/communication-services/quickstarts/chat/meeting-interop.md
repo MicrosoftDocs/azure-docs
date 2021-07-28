@@ -7,7 +7,7 @@ ms.author: askaur
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-zone_pivot_groups: acs-web-ios
+zone_pivot_groups: acs-web-ios-android
 
 ---
 
@@ -24,6 +24,10 @@ Get started with Azure Communication Services by connecting your chat solution t
 
 ::: zone pivot="platform-ios"
 [!INCLUDE [Teams interop with iOS SDK](./includes/meeting-interop-swift.md)]
+::: zone-end
+
+::: zone pivot="platform-android"
+[!INCLUDE [Teams interop with Android SDK](./includes/meeting-interop-android.md)]
 ::: zone-end
 
 ## Clean up resources
