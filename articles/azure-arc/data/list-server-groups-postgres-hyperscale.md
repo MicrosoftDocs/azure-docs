@@ -19,10 +19,11 @@ To retrieve this list, use either of the following methods once you are connecte
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## From CLI with azdata
+## From CLI with Azure CLI extension (az)
+
 The general format of the command is:
 ```azurecli
-az postgres arc-server list
+az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 ```
 
 It will return an output like:

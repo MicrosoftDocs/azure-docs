@@ -28,7 +28,7 @@ For example, let's assume the name of your server group is _postgres01_ and you 
 
 To verify that the port was changed, run the following command to show the configuration of your server group:
 ```azurecli
-az postgres arc-server show -n <server group name>
+az postgres arc-server show -n <server group name> --k8s-namespace <namespace> --use-k8s
 ```
 
 In the output of that command, look at the port number displayed for the item "port" in the "service" section of the specifications of your server group.
@@ -36,7 +36,7 @@ Alternatively, you can verify in the item externalEndpoint of the status section
 
 As an illustration, if we continue the example above, you would run the command:
 ```azurecli
-az postgres arc-server show -n postgres01
+az postgres arc-server show -n postgres01 --k8s-namespace <namespace> --use-k8s
 ```
 
 and you would see port 866 referred to here:

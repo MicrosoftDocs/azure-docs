@@ -37,7 +37,7 @@ This document describes the steps to set the database engine settings of your Po
 The general format of the command to configure the database engine settings is:
 
 ```azurecli
-az postgres arc-server edit -n <server group name>, [{--engine-settings, -e}] [{--replace-settings , --re}] {'<parameter name>=<parameter value>, ...'}
+az postgres arc-server edit -n <server group name>, [{--engine-settings, -e}] [{--replace-settings , --re}] {'<parameter name>=<parameter value>, ...'} --k8s-namespace <namespace> --use-k8s
 ```
 
 ## Show current custom values
@@ -45,13 +45,13 @@ az postgres arc-server edit -n <server group name>, [{--engine-settings, -e}] [{
 ### With [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] command
 
 ```azurecli
-az postgres arc-server show -n <server group name>
+az postgres arc-server show -n <server group name> --k8s-namespace <namespace> --use-k8s
 ```
 
 For example:
 
 ```azurecli
-az postgres arc-server show -n postgres01
+az postgres arc-server show -n postgres01 --k8s-namespace <namespace> --use-k8s 
 ```
 
 This command returns the spec of the server group in which you would see the parameters you set. If there is no engine\settings section, it means that all parameters are running on their default value:
@@ -78,13 +78,13 @@ Follow the below steps.
    Run:
 
    ```azurecli
-   az postgres arc-server show -n <server group name>
+   az postgres arc-server show -n <server group name> --k8s-namespace <namespace> --use-k8s
    ```
 
    For example:
 
    ```azurecli
-   az postgres arc-server show -n postgres01
+   az postgres arc-server show -n postgres01 --k8s-namespace <namespace> --use-k8s
    ```
 
    This command returns the spec of the server group in which you would see the parameters you set. If there is no engine\settings section, it means that all parameters are running on their default value:
@@ -142,25 +142,25 @@ The below commands set the parameters of the Coordinator node and the Worker nod
 ### Set a single parameter
 
 ```azurecli
-az postgres arc-server edit -n <server group name> --engine-settings  <parameter name>=<parameter value>
+az postgres arc-server edit -n <server group name> --engine-settings  <parameter name>=<parameter value> --k8s-namespace <namespace> --use-k8s
 ```
 
 For example:
 
 ```azurecli
-az postgres arc-server edit -n postgres01 --engine-settings  shared_buffers=8MB
+az postgres arc-server edit -n postgres01 --engine-settings  shared_buffers=8MB --k8s-namespace <namespace> --use-k8s
 ```
 
 ### Set multiple parameters with a single command
 
 ```azurecli
-az postgres arc-server edit -n <server group name> --engine-settings  '<parameter name>=<parameter value>, <parameter name>=<parameter value>,...'
+az postgres arc-server edit -n <server group name> --engine-settings  '<parameter name>=<parameter value>, <parameter name>=<parameter value>, --k8s-namespace <namespace> --use-k8s...'
 ```
 
 For example:
 
 ```azurecli
-az postgres arc-server edit -n postgres01 --engine-settings  'shared_buffers=8MB, max_connections=50'
+az postgres arc-server edit -n postgres01 --engine-settings  'shared_buffers=8MB, max_connections=50' --k8s-namespace <namespace> --use-k8s
 ```
 
 ### Reset a parameter to its default value
@@ -170,19 +170,19 @@ To reset a parameter to its default value, set it without indicating a value.
 For example:
 
 ```azurecli
-az postgres arc-server edit -n postgres01 --engine-settings  shared_buffers=
+az postgres arc-server edit -n postgres01 --k8s-namespace <namespace> --use-k8s --engine-settings  shared_buffers=
 ```
 
 ### Reset all parameters to their default values
 
 ```azurecli
-az postgres arc-server edit -n <server group name> --engine-settings  '' -re
+az postgres arc-server edit -n <server group name> --engine-settings  '' -re --k8s-namespace <namespace> --use-k8s
 ```
 
 For example:
 
 ```azurecli
-az postgres arc-server edit -n postgres01 --engine-settings  '' -re
+az postgres arc-server edit -n postgres01 --engine-settings  '' -re --k8s-namespace <namespace> --use-k8s
 ```
 
 ## Special considerations
@@ -190,13 +190,13 @@ az postgres arc-server edit -n postgres01 --engine-settings  '' -re
 ### Set a parameter which value contains a comma, space, or special character
 
 ```azurecli
-az postgres arc-server edit -n <server group name> --engine-settings  '<parameter name>="<parameter value>"'
+az postgres arc-server edit -n <server group name> --engine-settings  '<parameter name>="<parameter value>"' --k8s-namespace <namespace> --use-k8s
 ```
 
 For example:
 
 ```azurecli
-az postgres arc-server edit -n postgres01 --engine-settings  'custom_variable_classes = "plpgsql,plperl"'
+az postgres arc-server edit -n postgres01 --engine-settings  'custom_variable_classes = "plpgsql,plperl"' --k8s-namespace <namespace> --use-k8s
 ```
 
 ### Pass an environment variable in a parameter value
@@ -206,7 +206,7 @@ The environment variable should be wrapped inside "''" so that it doesn't get re
 For example: 
 
 ```azurecli
-az postgres arc-server edit -n postgres01 --engine-settings  'search_path = "$user"'
+az postgres arc-server edit -n postgres01 --engine-settings  'search_path = "$user"' --k8s-namespace <namespace> --use-k8s
 ```
 
 ## Next steps

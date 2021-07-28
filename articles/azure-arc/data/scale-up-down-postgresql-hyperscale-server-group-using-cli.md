@@ -32,7 +32,7 @@ To show the current definition of your server group and see what are the current
 ### CLI with azdata
 
 ```azurecli
-az postgres arc-server show -n <server group name>
+az postgres arc-server show -n <server group name> --k8s-namespace <namespace> --use-k8s
 ```
 ### CLI with kubectl
 
@@ -102,7 +102,7 @@ How do you indicate what role does the setting apply to?
 **The general syntax is:**
 
 ```azurecli
-az postgres arc-server edit -n <servergroup name> --memory-limit/memory-request/cores-request/cores-limit <coordinator=val1,worker=val2>
+az postgres arc-server edit -n <servergroup name> --memory-limit/memory-request/cores-request/cores-limit <coordinator=val1,worker=val2> --k8s-namespace <namespace> --use-k8s
 ```
 
 The value you indicate for the memory setting is a number followed by a unit of volume. For example, to indicate 1Gb, you would indicate 1024Mi or 1Gi.
@@ -117,12 +117,12 @@ To indicate a number of cores, you just pass a number without unit.
 **Configure the coordinator role to not exceed 2 cores and the worker role to not exceed 4 cores:**
 ```azurecli
  azpostgres arc-server edit -n postgres01 --cores-request coordinator=1, --cores-limit coordinator=2
- az postgres arc-server edit -n postgres01 --cores-request worker=1, --cores-limit worker=4
+ az postgres arc-server edit -n postgres01 --cores-request worker=1, --cores-limit worker=4 --k8s-namespace <namespace> --use-k8s
 ```
 
 or
 ```azurecli
-az postgres arc-server edit -n postgres01 --cores-request coordinator=1,worker=1 --cores-limit coordinator=4,worker=4
+az postgres arc-server edit -n postgres01 --cores-request coordinator=1,worker=1 --cores-limit coordinator=4,worker=4 --k8s-namespace <namespace> --use-k8s
 ```
 
 > [!NOTE]
@@ -185,13 +185,13 @@ If you are not familiar with the `vi` editor, see a description of the commands 
 To reset core/memory limits/requests parameters to their default values, edit them and pass an empty string instead of an actual value. For example, if you want to reset the core limit parameter, run the following commands:
 
 ```azurecli
-az postgres arc-server edit -n postgres01 --cores-request coordinator='',worker=''
-az postgres arc-server edit -n postgres01 --cores-limit coordinator='',worker=''
+az postgres arc-server edit -n postgres01 --cores-request coordinator='',worker='' --k8s-namespace <namespace> --use-k8s
+az postgres arc-server edit -n postgres01 --cores-limit coordinator='',worker='' --k8s-namespace <namespace> --use-k8s
 ```
 
 or 
 ```azurecli
-az postgres arc-server edit -n postgres01 --cores-request coordinator='',worker='' --cores-limit coordinator='',worker=''
+az postgres arc-server edit -n postgres01 --cores-request coordinator='',worker='' --cores-limit coordinator='',worker='' --k8s-namespace <namespace> --use-k8s
 ```
 
 ## Next steps

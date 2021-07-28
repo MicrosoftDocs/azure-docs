@@ -45,11 +45,11 @@ The scenario uses a sample of publicly available GitHub data, available from the
 Connect to your Azure Arc-enabled PostgreSQL Hyperscale server group by first getting the connection information:
 The general format of this command is
 ```azurecli
-az postgres arc-server endpoint list -n <server name>
+az postgres arc-server endpoint list -n <server name>  --k8s-namespace <namespace> --use-k8s
 ```
 For example:
 ```azurecli
-az postgres arc-server endpoint list -n postgres01
+az postgres arc-server endpoint list -n postgres01  --k8s-namespace <namespace> --use-k8s
 ```
 
 Example output:
@@ -149,19 +149,19 @@ Make a note of the query execution time.
 ## Scale out
 The general format of the scale-out command is:
 ```azurecli
-az postgres arc-server edit -n <server group name> -w <target number of worker nodes>
+az postgres arc-server edit -n <server group name> -w <target number of worker nodes> --k8s-namespace <namespace> --use-k8s
 ```
 
 
 In this example, we increase the number of worker nodes from 2 to 4, by running the following command:
 
 ```azurecli
-az postgres arc-server edit -n postgres01 -w 4
+az postgres arc-server edit -n postgres01 -w 4 --k8s-namespace <namespace> --use-k8s 
 ```
 
 Upon adding  nodes, and you'll see a Pending state for the server group. For example:
 ```azurecli
-az postgres arc-server list
+az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 ```
 
 ```console
@@ -178,7 +178,7 @@ Use either of the methods below to verify that the server group is now using the
 #### With azdata:
 Run the command:
 ```azurecli
-az postgres arc-server list
+az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 ```
 
 It returns the list of server groups created in your namespace and indicates their number of worker nodes. For example:
@@ -237,7 +237,7 @@ To scale in (reduce the number of worker nodes in your server group), you use th
 
 The general format of the scale-in command is:
 ```azurecli
-az postgres arc-server edit -n <server group name> -w <target number of worker nodes>
+az postgres arc-server edit -n <server group name> -w <target number of worker nodes> --k8s-namespace <namespace> --use-k8s
 ```
 
 

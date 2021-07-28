@@ -82,7 +82,7 @@ Note that when you execute the create command, you will be prompted to enter the
 
 **To deploy a server group of Postgres version 12 named postgres01 with 2 worker nodes that uses the same storage classes as the data controller, run the following command:**
 ```azurecli
-az postgres arc-server create -n postgres01 --workers 2
+az postgres arc-server create -n postgres01 --workers 2 --k8s-namespace <namespace> --use-k8s
 ```
 
 **To deploy a server group of Postgres version 12 named postgres01 with 2 worker nodes that uses the same storage classes as the data controller for data and logs but its specific storage class to do both full restores and point in time restores, use the following steps:**
@@ -115,7 +115,7 @@ kubectl create -f e:\CreateBackupPVC.yml -n arc
 Next, create the server group:
 
 ```azurecli
-az postgres arc-server create -n postgres01 --workers 2 --volume-claim-mounts backup-pvc:backup
+az postgres arc-server create -n postgres01 --workers 2 --volume-claim-mounts backup-pvc:backup --k8s-namespace <namespace> --use-k8s
 ```
 
 > [!IMPORTANT]
@@ -133,7 +133,7 @@ az postgres arc-server create -n postgres01 --workers 2 --volume-claim-mounts ba
 To list the PostgreSQL Hyperscale server groups deployed in your Arc data controller, run the following command:
 
 ```azurecli
-az postgres arc-server list
+az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 ```
 
 
@@ -148,7 +148,7 @@ postgres01  Ready     2
 To view the endpoints for a PostgreSQL server group, run the following command:
 
 ```azurecli
-az postgres arc-server endpoint list -n <server group name>
+az postgres arc-server endpoint list -n <server group name> --k8s-namespace <namespace> --use-k8s
 ```
 For example:
 ```console

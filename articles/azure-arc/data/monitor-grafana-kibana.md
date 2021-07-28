@@ -47,7 +47,7 @@ To access the logs and monitoring dashboards for PostgreSQL Hyperscale, run the 
 
 ```bash
 
-az postgres arc-server endpoint list -n <name of postgreSQL instance>
+az postgres arc-server endpoint list -n <name of postgreSQL instance> --k8s-namespace <namespace> --use-k8s
 
 ```
 

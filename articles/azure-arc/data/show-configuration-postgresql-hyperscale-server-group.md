@@ -156,7 +156,7 @@ Use either of the following commands.
 Run the following command. The output shows similar information to what kubectl shows:
 
    ```azurecli
-   az postgres arc-server list
+   az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 
    `output
    Name        State    Workers
@@ -282,13 +282,13 @@ Let's call out some specific points of interest in the description of the `serve
 The general format of the command is:
 
 ```azurecli
-az postgres arc-server show -n <server group name>
+az postgres arc-server show -n <server group name>  --k8s-namespace <namespace> --use-k8s
 ```
 
 For example:
 
 ```azurecli
-az postgres arc-server show -n postgres02
+az postgres arc-server show -n postgres02 --k8s-namespace <namespace> --use-k8s
 ```
 
 Returns the below output in a format and content very similar to the one returned by kubectl.
