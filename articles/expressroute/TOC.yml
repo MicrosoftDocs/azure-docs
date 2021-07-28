@@ -148,8 +148,8 @@
       href: monitor-expressroute.md
     - name: Network Insights
       href: expressroute-network-insights.md
-    - name: Configure ExpressRoute Connection Monitor
-      href: how-to-connection-monitor.md
+    - name: Configure ExpressRoute Connection Monitoring
+      href: how-to-configure-connection-monitor.md
     - name: ExpressRoute monitoring, metrics, and alerts
       href: expressroute-monitoring-metrics-alerts.md
     - name: View and configure maintenance alerts

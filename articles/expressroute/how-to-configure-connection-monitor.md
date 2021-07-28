@@ -55,7 +55,7 @@ Create a workspace in the subscription that has the VNets link to the ExpressRou
    >You can create a new workspace, or use an existing workspace. If you want to use an existing workspace, you must make sure that the workspace has been migrated to the new query language. [More information...](../azure-monitor/logs/log-query-overview.md)
    >
 
-    :::image type="content" source="./media/how-to-connection-monitor/search-log-analytics.png" alt-text="Screenshot of searching for Log Analytics in create a resource.":::
+    :::image type="content" source="./media/how-to-configure-connection-monitor/search-log-analytics.png" alt-text="Screenshot of searching for Log Analytics in create a resource.":::
 
 1. Create a workspace by entering or selecting the following information.  
 
@@ -66,7 +66,7 @@ Create a workspace in the subscription that has the VNets link to the ExpressRou
     | Name | Enter a name to identify this workspace. |
     | Region | Select a region where this workspace will be created in. |
 
-    :::image type="content" source="./media/how-to-connection-monitor/create-workspace-basic.png" alt-text="Screenshot of basic tab for create Log Analytics workspace.":::
+    :::image type="content" source="./media/how-to-configure-connection-monitor/create-workspace-basic.png" alt-text="Screenshot of basic tab for create Log Analytics workspace.":::
 
      >[!NOTE]
      >The ExpressRoute circuit can be anywhere in the world. It doesn't have to be in the same region as the workspace.
@@ -113,11 +113,11 @@ Once you've configured the monitoring solution. Continue to the next step of ins
 
 1. Navigate to the **Log Analytics workspace** and select **Agents management** under *Settings*. Download the agent that corresponds to your machine's operating system.
 
-    :::image type="content" source="./media/how-to-connection-monitor/download-agent.png" alt-text="Screenshot of agent management page in workspace.":::
+    :::image type="content" source="./media/how-to-configure-connection-monitor/download-agent.png" alt-text="Screenshot of agent management page in workspace.":::
 
 1. Next, copy the **Workspace ID** and **Primary Key** to Notepad.
 
-    :::image type="content" source="./media/how-to-connection-monitor/copy-id-key.png" alt-text="Screenshot of workspace id and primary key.":::
+    :::image type="content" source="./media/how-to-configure-connection-monitor/copy-id-key.png" alt-text="Screenshot of workspace id and primary key.":::
 
 1. For Windows machines, download and run this PowerShell script [*EnableRules.ps1*](https://aka.ms/npmpowershellscript) in a PowerShell window with Administrator privileges. The PowerShell script will open the relevant firewall port for the TCP transactions. 
  
@@ -166,7 +166,7 @@ Port 8084 is opened by default. You can use a custom port by providing the param
 
 On the agent servers, open a PowerShell window with administrative privileges. Run the [EnableRules](https://aka.ms/npmpowershellscript) PowerShell script (which you downloaded earlier). Don't use any parameters.
 
-:::image type="content" source="./media/how-to-connection-monitor/enable-rules-script.png" alt-text="Screenshot of running enable rules script in PowerShell window.":::
+:::image type="content" source="./media/how-to-configure-connection-monitor/enable-rules-script.png" alt-text="Screenshot of running enable rules script in PowerShell window.":::
 
 #### Linux
 
@@ -196,37 +196,37 @@ For a high-level overview of how to create a connection monitor, tests, and test
 
 1. In the Azure portal, navigate to your **Network Watcher** resource and select **Connection monitor** under *Monitoring*. Then select **Create** to create a new connection monitor.
 
-    :::image type="content" source="./media/how-to-connection-monitor/create-connection-monitor.png" alt-text="Screenshot of connection monitor in Network Watcher.":::
+    :::image type="content" source="./media/how-to-configure-connection-monitor/create-connection-monitor.png" alt-text="Screenshot of connection monitor in Network Watcher.":::
 
 1. On the **Basics** tab of the creation workflow, select the same region where you deployed your Log Analytics workspace for the *Region* field. For *Workspace configuration*, select the existing Log Analytics workspace that you created earlier. Then select **Next: Test groups >>**.
 
-    :::image type="content" source="./media/how-to-connection-monitor/connection-monitor-basic.png" alt-text="Screenshot of basic tab for creating Connection Monitor.":::
+    :::image type="content" source="./media/how-to-configure-connection-monitor/connection-monitor-basic.png" alt-text="Screenshot of basic tab for creating Connection Monitor.":::
 
 1. On the Add test group details page, you'll add the source and destination endpoints for your test group. You 'll also set up the test configurations between them. Enter a **Name** for this test group.
 
-    :::image type="content" source="./media/how-to-connection-monitor/add-test-group-details.png" alt-text="Screenshot of add test group details page.":::
+    :::image type="content" source="./media/how-to-configure-connection-monitor/add-test-group-details.png" alt-text="Screenshot of add test group details page.":::
 
 1. Select **Add source** and navigate to the **Non-Azure endpoints** tab. Choose the on-premises resources that have Log Analytics agent installed that you want to monitor connectivity, then select **Add endpoints**.
 
-    :::image type="content" source="./media/how-to-connection-monitor/add-source-endpoints.png" alt-text="Screenshot of adding source endpoints.":::
+    :::image type="content" source="./media/how-to-configure-connection-monitor/add-source-endpoints.png" alt-text="Screenshot of adding source endpoints.":::
 
 1. Next, select **Add destinations**. 
 
     To monitor connectivity over ExpressRoute **private peering**, navigate to the **Azure endpoints** tab. Choose the Azure resources with the Network Watcher agent installed that you want to monitor connectivity to your virtual networks in Azure. Make sure to select the private IP address of each of these resources in the *IP* column. Select **Add endpoints** to add these endpoints to your list of destinations for the test group.
     
-    :::image type="content" source="./media/how-to-connection-monitor/add-destination-endpoints.png" alt-text="Screenshot of adding Azure destination endpoints.":::
+    :::image type="content" source="./media/how-to-configure-connection-monitor/add-destination-endpoints.png" alt-text="Screenshot of adding Azure destination endpoints.":::
 
     To monitor connectivity over ExpressRoute **Microsoft peering**, navigate to the **External Addresses** tab. Select the Microsoft services endpoints that you wish to monitor connectivity to over Microsoft Peering. Select **Add endpoints** to add these endpoints to your list of destinations for the test group.
 
-    :::image type="content" source="./media/how-to-connection-monitor/add-external-destination-endpoints.png" alt-text="Screenshot of adding external destination endpoints.":::
+    :::image type="content" source="./media/how-to-configure-connection-monitor/add-external-destination-endpoints.png" alt-text="Screenshot of adding external destination endpoints.":::
 
 1. Now select **Add test configuration**. Select **TCP** for the protocol, and input the **destination port** you opened on your servers. Then configure your **test frequency** and **thresholds for failed checks and round trip time**. Then select **Add Test configuration**.
 
-    :::image type="content" source="./media/how-to-connection-monitor/add-test-configuration.png" alt-text="Screenshot of add test configuration page.":::
+    :::image type="content" source="./media/how-to-configure-connection-monitor/add-test-configuration.png" alt-text="Screenshot of add test configuration page.":::
 
 1. Select **Add Test Group** once you've added your sources, destinations, and test configuration.
 
-    :::image type="content" source="./media/how-to-connection-monitor/add-test-group-details-configured.png" alt-text="Screenshot of add test group detail configured." lightbox="./media/how-to-connection-monitor/add-test-group-details-configured-expanded.png":::
+    :::image type="content" source="./media/how-to-configure-connection-monitor/add-test-group-details-configured.png" alt-text="Screenshot of add test group detail configured." lightbox="./media/how-to-configure-connection-monitor/add-test-group-details-configured-expanded.png":::
 
 1. Select the **Next : Create alert >>** if you want to create alerting. Once completed, select **Review + create** and then **Create**.
 
@@ -234,19 +234,19 @@ For a high-level overview of how to create a connection monitor, tests, and test
 
 1. Go to your **Network Watcher** resource and select **Connection monitor** under *Monitoring*. You should see your new connection monitor after 5 minutes. To view the connection monitor's network topology and performance charts, select the test from the test group dropdown.
 
-    :::image type="content" source="./media/how-to-connection-monitor/overview.png" alt-text="Screenshot of connection monitor overview page." lightbox="./media/how-to-connection-monitor/overview-expanded.png":::
+    :::image type="content" source="./media/how-to-configure-connection-monitor/overview.png" alt-text="Screenshot of connection monitor overview page." lightbox="./media/how-to-configure-connection-monitor/overview-expanded.png":::
 
 1. In the **Performance analysis** panel, you can view the percentage of check failed and each test's results for round-trip time. You can adjust the time frame for the data displayed by selecting the dropdown at the top of the panel.
 
-    :::image type="content" source="./media/how-to-connection-monitor/performance-analysis.png" alt-text="Screenshot of performance analysis panel." lightbox="./media/how-to-connection-monitor/performance-analysis-expanded.png":::
+    :::image type="content" source="./media/how-to-configure-connection-monitor/performance-analysis.png" alt-text="Screenshot of performance analysis panel." lightbox="./media/how-to-configure-connection-monitor/performance-analysis-expanded.png":::
 
 1. Closing the **Performance analysis** panel reveals the network topology detected by the connection monitor between the source and destination endpoints you selected. This view shows you the bi-directional paths of traffic between your source and destination endpoints. You can also see the hop-by-hop latency of packets before they reach the Microsoft's edge network. 
 
-    :::image type="content" source="./media/how-to-connection-monitor/topology.png" alt-text="Screenshot of network topology in connection monitor." lightbox="./media/how-to-connection-monitor/topology-expanded.png":::
+    :::image type="content" source="./media/how-to-configure-connection-monitor/topology.png" alt-text="Screenshot of network topology in connection monitor." lightbox="./media/how-to-configure-connection-monitor/topology-expanded.png":::
 
     Selecting any hop in the topology view will display additional information about the hop. Any issues detected by the connection monitor about the hop will also be displayed here.
 
-    :::image type="content" source="./media/how-to-connection-monitor/hop-details.png" alt-text="Screenshot of more information for a network hop.":::
+    :::image type="content" source="./media/how-to-configure-connection-monitor/hop-details.png" alt-text="Screenshot of more information for a network hop.":::
 
 ## Next steps
 
