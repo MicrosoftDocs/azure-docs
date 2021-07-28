@@ -71,22 +71,22 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    1. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://learn-sso.trueoffice.com/simplesaml/module.php/saml/sp/metadata.php/<CUSTOMER_NAME>-sp`
 
-	b. In the **Sign on URL** text box, type a URL using the following pattern:
+    1. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://learn-sso.trueoffice.com/<CUSTOMER_NAME>`
-
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Sign on URL. Contact [True Office Learning - LIO Client support team](mailto:service@trueoffice.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    
+        > [!NOTE]
+        > These values are not real. Update these values with the actual Identifier and Sign on URL. Contact [True Office Learning - LIO Client support team](mailto:service@trueoffice.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+    ![The Certificate download link](common/metadataxml.png)
 
 1. On the **Set up True Office Learning - LIO** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -126,14 +126,13 @@ In this section, you create a user called Britta Simon in True Office Learning -
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Azure AD single sign-on configuration by using the following options:
 
-* Click on **Test this application** in Azure portal. This will redirect to True Office Learning - LIO Sign-on URL where you can initiate the login flow. 
+* Select **Test this application** in the Azure portal. You're redirected to the True Office Learning - LIO Sign-on URL where you can initiate the login flow. 
+* Go to the True Office Learning - LIO Sign-on URL directly, and initiate the login flow from that site.
 
-* Go to True Office Learning - LIO Sign-on URL directly and initiate the login flow from there.
-
-* You can use Microsoft My Apps. When you click the True Office Learning - LIO tile in the My Apps, this will redirect to True Office Learning - LIO Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can use Microsoft My Apps. When you select the True Office Learning - LIO tile in My Apps, you're redirected to the True Office Learning - LIO Sign-on URL. For more information about My Apps, see [Introduction to My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
-Once you configure True Office Learning - LIO you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+After you configure True Office Learning - LIO you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
