@@ -32,7 +32,7 @@ In this tutorial, you’ll learn:
 1. Create a sample rule in Sentinel that will trigger an incident.
 1. And lastly, configure some automated response.
 
-## Configure AAD B2C with Azure Monitor Logs
+## Configure AAD B2C with Azure Monitor Logs Analytics
 
 The next steps will take through the process to enable **_Diagnostic settings_** in Azure Active Directory within your Azure AD B2C tenant.
 Diagnostic settings define where logs and metrics for a resource should be sent.
