@@ -133,7 +133,7 @@ If you have different entities, subsidiaries, or geographies within your organiz
 
 Your central SOC team may also use an additional, optional Azure Sentinel workspace to manage centralized artifacts such as analytics rules or workbooks.
 
-For more information, see [Working with multiple workspaces](#working-with-multiple-workspaces).
+For more information, see [Simplify working with multiple workspaces](#simplify-working-with-multiple-workspaces).
 
 ### Role recommendations
 
