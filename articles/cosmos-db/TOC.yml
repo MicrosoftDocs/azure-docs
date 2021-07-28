@@ -1304,79 +1304,79 @@
     - name: Overview
       items:
         - name: What is Table API in Cosmos DB?
-          href: table-introduction.md
+          href: table/introduction.md
     - name: Quickstarts
       items:
         - name: .NET
-          href: create-table-dotnet.md
+          href: table/create-table-dotnet.md
         - name: Java
-          href: create-table-java.md
+          href: table/create-table-java.md
         - name: Node.js
-          href: create-table-nodejs.md
+          href: table/create-table-nodejs.md
         - name: Python
-          href: ./table-storage-how-to-use-python.md
+          href: ./table/how-to-use-python.md
     - name: Tutorials
       items:
         - name: 1 - Create and manage data
-          href: tutorial-develop-table-dotnet.md
+          href: table/tutorial-develop-table-dotnet.md
         - name: 2 - Migrate data
           displayName: import
-          href: table-import.md
+          href: table/table-import.md
         - name: 3 - Query data
-          href: tutorial-query-table.md
+          href: table/tutorial-query-table.md
         - name: 4 - Distribute data globally
-          href: tutorial-global-distribution-table.md
+          href: table/tutorial-global-distribution-table.md
     - name: Samples
       items:
         - name: .NET
-          href: ./tutorial-develop-table-dotnet.md
+          href: ./table/tutorial-develop-table-dotnet.md
         - name: Java
-          href: table-storage-how-to-use-java.md
+          href: table/how-to-use-java.md
         - name: Node.js
-          href: table-storage-how-to-use-nodejs.md
+          href: table/how-to-use-nodejs.md
         - name: Python
-          href: table-storage-how-to-use-python.md
+          href: table/how-to-use-python.md
         - name: PHP
-          href: table-storage-how-to-use-php.md
+          href: table/how-to-use-php.md
         - name: C++
-          href: table-storage-how-to-use-c-plus.md
+          href: table/how-to-use-c-plus.md
         - name: Ruby
-          href: table-storage-how-to-use-ruby.md
+          href: table/how-to-use-ruby.md
         - name: F#
           href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
           maintainContext: true
     - name: Concepts
       items:
         - name: FAQ
-          href: table-api-faq.yml
+          href: table/table-api-faq.yml
     - name: How-to guides
       items:
         - name: Build apps with Table API
-          href: table-support.md
+          href: table/table-support.md
         - name: Create a container - Table API
-          href: how-to-create-container-table.md
+          href: table/how-to-create-container.md
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption
-          href: find-request-unit-charge-table.md
+          href: table/find-request-unit-charge.md
         - name: Manage using Resource Manager templates
-          href: templates-samples-table.md
+          href: table/resource-manager-templates.md
           displayName: ARM
         - name: Manage using PowerShell
-          href: powershell-samples-table.md
+          href: table/powershell-samples.md
         - name: Manage using Azure CLI
-          href: cli-samples-table.md
+          href: table/cli-samples.md
     - name: Reference
       items:
         - name: .NET
-          href: table-sdk-dotnet.md
+          href: table/dotnet-sdk.md
         - name: .NET Standard
-          href: table-sdk-dotnet-standard.md
+          href: table/dotnet-standard-sdk.md
         - name: Java
-          href: table-sdk-java.md
+          href: table/java-sdk.md
         - name: Node.js
-          href: table-sdk-nodejs.md
+          href: table/nodejs-sdk.md
         - name: Python
-          href: table-sdk-python.md
+          href: table/python-sdk.md
         - name: PowerShell
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Table storage REST APIs
