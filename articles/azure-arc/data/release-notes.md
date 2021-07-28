@@ -66,6 +66,8 @@ The current release announces general availability for the following services:
 	
 - Custom metrics in Azure portal is in preview.
 
+- Exporting usage/billing information, metrics, and logs using the command `az arcdata dc export` requires bypassing SSL verification for now.  You will be prompted to bypass SSL verification or you can set the `AZDATA_VERIFY_SSL=no` environment variable to avoid prompting.  There is no way to configure an SSL certificate for the data controller export API currently.
+
 #### Azure Arc-enabled SQL Managed Instance
 
 - Backup/point in time restore is in preview.
