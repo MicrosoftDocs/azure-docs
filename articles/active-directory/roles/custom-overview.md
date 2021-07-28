@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: overview
-ms.date: 06/15/2021
+ms.date: 07/28/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -50,9 +50,9 @@ The following are the high-level steps that Azure AD uses to determine if you ha
 
 A role assignment is an Azure AD resource that attaches a *role definition* to a *security principal* at a particular *scope* to grant access to Azure AD resources. Access is granted by creating a role assignment, and access is revoked by removing a role assignment. At its core, a role assignment consists of three elements:
 
-- Azure AD user or group
-- Role definition
-- Scope
+- Security principal - An identity that gets the permissions. It could be a user, group, or a service principal. 
+- Role definition - A collection of permissions. 
+- Scope - A way to constrain where those permissions are applicable.
 
 You can [create role assignments](manage-roles-portal.md) using the Azure portal, Azure AD PowerShell, or Graph API. You can also [list the role assignments](view-assignments.md).
 
@@ -62,9 +62,9 @@ The following diagram shows an example of a role assignment. In this example, Ch
 
 ### Security principal
 
-A security principal represents a user or group that is to be assigned access to Azure AD resources. A user is an individual who has a user profile in Azure Active Directory. A group is a new Microsoft 365 or security group with the isAssignableToRole property set to true (currently in preview).
+A security principal represents a user, group, or service principal that is assigned access to Azure AD resources. A user is an individual who has a user profile in Azure Active Directory. A group is a new Microsoft 365 or security group with the isAssignableToRole property set to true (currently in preview). A service principal is an identity created for use with applications, hosted services, and automated tools to access Azure AD resources.
 
-### Role
+### Role definition
 
 A role definition, or role, is a collection of permissions. A role definition lists the operations that can be performed on Azure AD resources, such as create, read, update, and delete. There are two types of roles in Azure AD:
 
@@ -74,6 +74,10 @@ A role definition, or role, is a collection of permissions. A role definition li
 ### Scope
 
 A scope is a way to limit the permitted actions to a particular set of resources as part of a role assignment. For example, if you want to assign a custom role to a developer, but only to manage a specific application registration, you can include the specific application registration as a scope in the role assignment. When you assign a role, you can specify one of the following levels of scope:
+
+A scope is the restriction of permitted actions to a particular Azure AD resource as part of a role assignment. When you assign a role, you can specify a scope that limits the administrator's access to a specific resource. For example, if you want to assign a developer a custom role, but only to manage a specific application registration, you can include the specific application registration as a scope in the role assignment.
+
+When you assign a role, you can specify one of the following levels of scope:
 
 - Tenant
 - Administrative unit
@@ -86,5 +90,5 @@ Using built-in roles in Azure AD is free, while custom roles requires an Azure A
 ## Next steps
 
 - [Understand Azure AD roles](concept-understand-roles.md)
-- Create custom role assignments using [the Azure portal, Azure AD PowerShell, and Graph API](custom-create.md)
 - [List role assignments](view-assignments.md)
+- [Assign Azure AD roles to users](manage-roles-portal.md)
