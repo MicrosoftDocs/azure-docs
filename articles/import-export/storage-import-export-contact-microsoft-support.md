@@ -5,7 +5,7 @@ services: storsimple
 author: alkohli
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/21/2021
+ms.date: 07/28/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: contperf-fy22q1
@@ -29,48 +29,47 @@ Perform the following steps to create a support request:
    
 1. In **Basics** for **New support request**:
 
-   1. Enter required basic information:
+   1. Enter required basic information. The support request has the basic information for your Import/Export order filled in.
 
       |Option|Description|
       |------|-----------|
-      |**Summary** | Briefly describe your issue. |
+      |**Summary** | Briefly describe your issue.|
       |**Issue type**|Select **Technical**.|
-      |**Subscription**|Choose the subscription used for the resource.|
-      |**Service**|Select **My services**. Then select the **Service type** from the dropdown list. For an import/export order, you'll select **Storage Account Management**, **Blob Storage**, or **File Storage**.|
-      |**Resource**|Select the resource.|
+      |**Subscription**|Select the subscription for the Import/Export order. |
+      |**Service**|Select **My services**.|
+      | **Service type**| Select **Azure Import/Export Service**.|
+      |**Resource**|Select the Import/Export order.|
+      |**Problem type**|Select a problem type from among the problem types for Import/Export orders.|
+      |**Problem subtype**|Select the appropriate subtype for the problem type.|
  
-   1. You'll see a new **Problem type** field. Select the problem type. Then select a problem subtype in the **Problem subtype** field that appears.
-
-   ![Basics screen for a support request](./media/storage-import-export-contact-microsoft-support/import-export-support-02.png)
+   ![Screenshot showing info on the Basics screen for an Import/Export Service support request. The button that opens teh Solutions tab is highlighted.](./media/storage-import-export-contact-microsoft-support/import-export-support-02.png)
 
    Select **Next: Solutions>>** to proceed.
 
-1. Use the **Solutions** tab to get expert solutions, provided by Azure engineers, without needing a support ticket.
+1. The **Solutions** tab shows expert solutions for the problem you described. If you don't find the solution to your problem, select **Next: Details>>** to proceed with a support request.
 
-   1. Use the **Diagnostics** fields to provide more info about your problem.
-   1. Enter the **Problem start time**.
-   1. Then select **Submit** to get insights into the problem you described.
+    ![Screenshot showing the Solutions tab for an Import/Export Service support request. The Solutions tab shows expert solutions for the selected problem. The button that opens the Solutions tab is highlighted.](./media/storage-import-export-contact-microsoft-support/import-export-support-03.png)
 
-       ![Scenarios for an issue in the Troubleshooter tool for a support request](./media/storage-import-export-contact-microsoft-support/import-export-support-03.png)
+1. Use the **Details** pane to provide info for a support ticket.
 
-       Review the insights, which are displayed beneath the **Submit** option. Each insight gives more info about the issue, potential solutions, and links to resources.
+    **Problem details** options:
+    |Option|Description|
+    |------|-----------|
+    |**When did the problem start?**|Enter the data and time when the problem started. Use local time.|
+    |**Details**|Describe the problem you're experiencing.|
+    |**File upload**|You can attach a file if needed. Select the folder icon, and then browse to and select any files you want to upload.|
 
-       ![An insight based on diagnostics entered on the Solutions screen for a support request](./media/storage-import-export-contact-microsoft-support/import-export-support-04.png)
+    **Share diagnostic information?** option: Select **No**.
+ 
 
-      If you don't find the solution to your problem, select **Next: Details>>** to proceed with a support request.
+    **Support method** options:
+    |Option|Description|
+    |------|-----------|
+    |**Share diagnostic information?**|Select **No**.|
 
-1. Use the **Details** pane to provide info for a support ticket:<!--This seems like too much detail. I went to the level of detail that were required to include the fields noted in the current article. In a Q&A form with no real "gotcha's," this seems like overkill.-->
 
-   - **Problem details**: Describe the problem for Microsoft support.  
-   
-       You can attach a file if needed. In **File upload**, select the folder icon to browse to any files you want to upload. To get help with your upload, select the **i** icon by **File upload**.
 
-      ![Problem details, on the Details pane for a support request](./media/storage-import-export-contact-microsoft-support/import-export-support-05.png)
-
-   - **Share diagnostic information?** Select **Yes** if you'd like to allow Microsoft support to review diagnostic data from your services. Having access to these diagnostics can help the support representative investigate more quickly.
-
-     ![Option for sharing diagnostics, on the Details pane for a support request](./media/storage-import-export-contact-microsoft-support/import-export-support-06.png)
-
+    ![Screenshot showing the Details tab for an Import/Export Service support request. The button that opens the Review Plus Create tab is highlighted.](./media/storage-import-export-contact-microsoft-support/import-export-support-04.png)
  
    - **Support method**: Indicate the severity of the problem, and tell Microsoft support when and how you'd like to be contacted:
       - For **Severity**, accept **C - Minimal impact**. Support will increase the severity if needed.
