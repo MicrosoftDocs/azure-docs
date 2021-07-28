@@ -16,7 +16,7 @@ The following section summarizes the difference between the legacy NV series and
  
  ## NVsv3 series 
 
-The NVv3-series virtual machines are powered by NVIDIA Tesla M60 GPUs and NVIDIA GRID technology with Intel E5-2690 v4 (Broadwell) CPUs and Intel Hyper-Threading Technology. These virtual machines are targeted for GPU accelerated graphics applications and virtual desktops where customers want to visualize their data, simulate results to view, work on CAD, or render and stream content. Additionally, these virtual machines can run single precision workloads such as encoding and rendering. NVv3 virtual machines support Premium Storage and come with twice the system memory (RAM) when compared with NV-series. For the most up-to-date specifications, see [GPU Accelerated Compute VM Sizes: NVsv3-series](https://docs.microsoft.com/azure/virtual-machines/nvv3-series)
+The NVv3-series virtual machines are powered by NVIDIA Tesla M60 GPUs and NVIDIA GRID technology with Intel E5-2690 v4 (Broadwell) CPUs and Intel Hyper-Threading Technology. These virtual machines are targeted for GPU accelerated graphics applications and virtual desktops where customers want to visualize their data, simulate results to view, work on CAD, or render and stream content. Additionally, these virtual machines can run single precision workloads such as encoding and rendering. NVv3 virtual machines support Premium Storage and come with twice the system memory (RAM) when compared with NV-series. For the most up-to-date specifications, see [GPU Accelerated Compute VM Sizes: NVsv3-series](nvv3-series.md)
 
 | Current VM Size | Target VM Size | Difference in Specification  |
 |---|---|---|
@@ -26,14 +26,15 @@ The NVv3-series virtual machines are powered by NVIDIA Tesla M60 GPUs and NV
 
 ## NVsv4 series 
 
-The NVv4-series virtual machines are powered by AMD Radeon Instinct MI25 GPUs and AMD EPYC 7V12(Rome) CPUs. With NVv4-series Azure is introducing virtual machines with partial GPUs. Pick the right sized virtual machine for GPU accelerated graphics applications and virtual desktops starting at 1/8th of a GPU with 2 GiB frame buffer to a full GPU with 16 GiB frame buffer. NVv4 virtual machines currently support only Windows guest operating system. For the most up-to-date specifications, see [GPU Accelerated Compute VM Sizes: NVsv4-series](https://docs.microsoft.com/azure/virtual-machines/nvv4-series)
+The NVv4-series virtual machines are powered by AMD Radeon Instinct MI25 GPUs and AMD EPYC 7V12(Rome) CPUs. With NVv4-series Azure is introducing virtual machines with partial GPUs. Pick the right sized virtual machine for GPU accelerated graphics applications and virtual desktops starting at 1/8th of a GPU with 2 GiB frame buffer to a full GPU with 16 GiB frame buffer. NVv4 virtual machines currently support only Windows guest operating system. For the most up-to-date specifications, see [GPU Accelerated Compute VM Sizes: NVsv4-series](nvv4-series.md)
+
 | Current VM Size | Target VM Size | Difference in Specification  |
 |---|---|---|
 |Standard_NV6 <br> Standard_NV6_Promo |Standard_NV16as_v4  | vCPU: 16 (+10) <br>Memory: GiB 56  <br>Temp Storage (SSD) GiB: 352 (+12) <br>Max data disks: 16 (-8) <br>Accelerated Networking: Yes <br>Premium Storage: Yes   |
 |Standard_NV12 <br> Standard_NV12_Promo |Standard_NV32as_v4  | vCPU: 32 (+20) <br>Memory: GiB 112 <br>Temp Storage (SSD) GiB: 704 (+24) <br>Max data disks: 32 (+16)<br>Accelerated Networking: Yes <br>Premium Storage: Yes   |
 |Standard_NV24 <br> Standard_NV24_Promo |N/A  | N/A  |
 
-# Migration Steps 
+## Migration Steps 
  
 
 General Changes 
@@ -63,18 +64,18 @@ If the workload is graphics/visualization and has no hard dependency on a specif
 
 Follow the guide to [request an increase in vCPU quota by VM family](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests). Select NVSv3 Series or NVv4 Series as the VM family name depending on the target VM size you have selected for migration.
 ## Resize the current virtual machine
-You can [resize the virtual machine through Azure portal or PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/resize-vm). You can also [resize the virtual machine using Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/change-vm-size). 
+You can [resize the virtual machine through Azure portal or PowerShell](./windows/resize-vm). You can also [resize the virtual machine using Azure CLI](./linux/change-vm-size). 
 
-# FAQ
+## FAQ
 **Q:** Which GPU driver should I use for the target VM size? 
 
-**A:** For NVsv3 series, use the [Nvidia GRID driver](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup). For NVv4, use the [AMD GPU drivers](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-amd-driver-setup). 
+**A:** For NVsv3 series, use the [Nvidia GRID driver](./windows/n-series-driver-setup). For NVv4, use the [AMD GPU drivers](./windows/n-series-amd-driver-setup). 
 
 **Q:** I use Nvidia GPU driver extension today. Will it work for the target VM size? 
 
-**A:** The current [Nvidia driver extension](https://docs.microsoft.com//azure/virtual-machines/extensions/hpccompute-gpu-windows) will work for NVsv3.  
+**A:** The current [Nvidia driver extension](./extensions/hpccompute-gpu-windows) will work for NVsv3.  
 
-       Use the [AMD GPU driver extensions](https://docs.microsoft.com/azure/virtual-machines/extensions/hpccompute-amd-gpu-windows) if the target VM size is NVv4. 
+       Use the [AMD GPU driver extensions](./extensions/hpccompute-amd-gpu-windows) if the target VM size is NVv4. 
        
 **Q:** Which target VM series should I use if I have dependency on CUDA? 
 
