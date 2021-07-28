@@ -63,10 +63,10 @@ Point-in-time restore is useful in multiple scenarios. Some of the use cases tha
 
 You can choose between a latest restore point and a custom restore point via [Azure portal](how-to-restore-server-portal.md).
 
--   **Latest restore point**: The latest restore point helps you to restore the server to the last backup performed on the source server. The timestamp for restore will also displayed on the portal. This option is useful to quickly restore the server to the most updated state.
+-   **Latest restore point**: The latest restore point helps you to restore the server to the last backup performed on the source server. The timestamp for restore will also be displayed on the portal. This option is useful to quickly restore the server to the most updated state.
 -   **Custom restore point**: This will allow you to choose any point-in-time within the retention period defined for this flexible server. This option is useful to restore the server at the precise point in time to recover from a user error.
 
-The estimated time of recovery depends on several factors including the database sizes, the transaction log backup size, the compute size of the SKU, and the time of the restore as well. The transaction log recovery is the most time consuming part of the restore process. If the restore time is chosen closer to the full or differential snapshot backup schedule, the restores are faster since transaction log application is minimal. To estimate the accurate recovery time for your server, we highly recommend to test it in your environment as it has too many environment specific variables.
+The estimated time of recovery depends on several factors including the database sizes, the transaction log backup size, the compute size of the SKU, and the time of the restore as well. The transaction log recovery is the most time consuming part of the restore process. If the restore time is chosen closer to the snapshot backup schedule, the restore operations are faster since transaction log application is minimal. To estimate the accurate recovery time for your server, we highly recommend testing it in your environment as it has too many environment specific variables.
 
 > [!IMPORTANT]
 > If you are restoring a flexible server configured with zone redundant high availability, the restored server will be configured in the same region and zone as your primary server, and deployed as a single flexible server in a non-HA mode. Refer to [zone redundant high availability](concepts-high-availability.md) for flexible server.
@@ -115,7 +115,7 @@ Azure Database for MySQL automatically creates server backups and stores them in
 The best way to validate availability of valid backups is performing periodic point in time restores and ensuring backups are valid and restorable. Backup operations or files are not exposed to the end users.
 
 - **Where can I see the backup usage?**
-In the Azure Portal, under Monitoring tab - Metrics section, you can find the [Backup Storage Used](../concepts-monitoring.md) metric which can help you monitor the total backup usage.
+In the Azure portal, under Monitoring tab - Metrics section, you can find the [Backup Storage Used](../concepts-monitoring.md) metric which can help you monitor the total backup usage.
 
 - **What happens to my backups if I delete my server?**
 If you delete the server, all backups that belong to the server are also deleted and cannot be recovered. To protect server resources, post deployment, from accidental deletion or unexpected changes, administrators can leverage [management locks](../../azure-resource-manager/management/lock-resources.md).
@@ -132,7 +132,7 @@ While your server instance is stopped, you are charged for provisioned storage (
 ### Restore related questions
 
 - **How do I restore my server?**
-Azure Portal supports Point In Time Restore (for all servers) allowing users to restore to latest or custom restore point. To manually restore your server from the backups taken by mysqldump/myDumper read [Restore your database using myLoader](../concepts-migrate-mydumper-myloader.md#restore-your-database-using-myloader).
+Azure portal supports Point In Time Restore (for all servers) allowing users to restore to latest or custom restore point. To manually restore your server from the backups taken by mysqldump/myDumper read [Restore your database using myLoader](../concepts-migrate-mydumper-myloader.md#restore-your-database-using-myloader).
 
 - **Why is my restore taking so much time?**
 The estimated time for the recovery of the server depends on several factors: 

@@ -6,6 +6,7 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
+ms.custom: references_regions
 ---
 
 # Backup and restore in Azure Database for MySQL
