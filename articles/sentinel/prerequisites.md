@@ -28,7 +28,7 @@ Before deploying Azure Sentinel, we recommend taking the following steps to help
     - Any compliance requirements you have for data collection and storage
     - How to control access to Azure Sentinel data
 
-    For more information, see [Workspace architecture best practices](workspace-architecture-best-practices.md) and [Sample workspace designs](sample-workspace-designs.md).
+    For more information, see [Workspace architecture best practices](best-practices-workspace-architecture.md) and [Sample workspace designs](sample-workspace-designs.md).
 
 1. After the business use cases, data sources, and data size requirements have been identified, [start planning your budget](azure-sentinel-billing.md), considering cost implications for each planned scenario.
 
@@ -60,7 +60,7 @@ Before deploying Azure Sentinel, make sure that your Azure tenant has the follow
 
     For more information about other roles and permissions supported for Azure Sentinel, see [Permissions in Azure Sentinel](roles.md).
 
-- A [Log Analytics workspace](/azure/azure-monitor/learn/quick-create-workspace) is required to house all of the data that Azure Sentinel will be ingesting and using for its detections, analytics, and other features. For more information, see [Azure Sentinel workspace architecture best practices](workspace-architecture-best-practices.md).
+- A [Log Analytics workspace](/azure/azure-monitor/learn/quick-create-workspace) is required to house all of the data that Azure Sentinel will be ingesting and using for its detections, analytics, and other features. For more information, see [Azure Sentinel workspace architecture best practices](best-practices-workspace-architecture.md).
 
 > [!TIP]
 > When setting up your Azure Sentinel workspace, [create a resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal) that's dedicated to Azure Sentinel and the resources that Azure Sentinel users including the Log Analytics workspace, any playbooks, workbooks, and so on.

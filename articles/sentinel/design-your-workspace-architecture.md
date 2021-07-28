@@ -12,7 +12,7 @@ ms.date: 07/18/2021
 
 # Design your Azure Sentinel workspace architecture
 
-This article provides a decision tree to help you make key decisions about how to design your Azure Sentinel workspace architecture. For more information, see [Azure Sentinel sample workspace designs](sample-workspace-designs.md) and [Azure Sentinel workspace architecture best practices](workspace-architecture-best-practices.md).
+This article provides a decision tree to help you make key decisions about how to design your Azure Sentinel workspace architecture. For more information, see [Azure Sentinel sample workspace designs](sample-workspace-designs.md) and [Azure Sentinel workspace architecture best practices](best-practices-workspace-architecture.md).
 
 ## Prerequisites
 
@@ -52,7 +52,7 @@ Do you have an existing workspace that you can use for Azure Sentinel?
 
 ### Step 2: Keeping data in different Azure geographies?
 
-- **If you have regulatory requirements to keep data in different Azure geographies**, use a separate Azure Sentinel workspace for each Azure region that has compliance requirements. For more information, see [Region considerations](workspace-architecture-best-practices.md#region-considerations).
+- **If you have regulatory requirements to keep data in different Azure geographies**, use a separate Azure Sentinel workspace for each Azure region that has compliance requirements. For more information, see [Region considerations](best-practices-workspace-architecture.md#region-considerations).
 
 - **If you don't need to keep data in different Azure geographies**, continue with [step 3](#step-3-do-you-have-multiple-azure-tenants).
 
@@ -135,7 +135,7 @@ However, this recommendation for separate workspaces for non-SOC data comes from
 
 - **If you are collecting logs from Azure VMs in *multiple* regions**, how concerned are you about the data egress cost?
 
-    <a name="note4"></a>[Decision tree note #4](#decision-tree): Data egress refers to the [bandwidth cost](https://azure.microsoft.com/pricing/details/bandwidth/) for moving data out of Azure datacenters. For more information, see [Region considerations](workspace-architecture-best-practices.md#region-considerations).
+    <a name="note4"></a>[Decision tree note #4](#decision-tree): Data egress refers to the [bandwidth cost](https://azure.microsoft.com/pricing/details/bandwidth/) for moving data out of Azure datacenters. For more information, see [Region considerations](best-practices-workspace-architecture.md#region-considerations).
 
     - If reducing the amount of effort required to maintain separate workspaces is a priority, continue with [step 7](#step-7-segregating-data-or-defining-boundaries-by-ownership).
 
@@ -200,5 +200,5 @@ For examples of this decision tree in practice, see [Azure Sentinel sample works
 
 For more information, see:
 
-- [Azure Sentinel workspace architecture best practices](workspace-architecture-best-practices.md)
+- [Azure Sentinel workspace architecture best practices](best-practices-workspace-architecture.md)
 - [Best practices for Azure Sentinel](best-practices.md)

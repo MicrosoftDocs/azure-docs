@@ -30,7 +30,7 @@
   - name: Best practices
     items:
     - name: Workspace architecture best practices
-      href: workspace-architecture-best-practices.md
+      href: best-practices-workspace-architecture.md
     - name: General best practices
       href: best-practices.md
     - name: Data collection best practices

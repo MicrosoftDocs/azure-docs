@@ -18,7 +18,7 @@ This article describes suggested workspace designs for organizations with the fo
 - Single tenant with multiple clouds
 - Multiple tenants, with multiple regions and centralized security
 
-The samples in this article use the [Azure Sentinel workspace design decision tree](design-your-workspace-architecture.md) to determine the best workspace design for each organization. For more information, see [Azure Sentinel workspace architecture best practices](workspace-architecture-best-practices.md).
+The samples in this article use the [Azure Sentinel workspace design decision tree](design-your-workspace-architecture.md) to determine the best workspace design for each organization. For more information, see [Azure Sentinel workspace architecture best practices](best-practices-workspace-architecture.md).
 
 ## Sample 1: Multiple tenants and regions
 
