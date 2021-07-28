@@ -90,15 +90,9 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 8. Remove cloud-init default configs and leftover netplan artifacts that may conflict with cloud-init provisioning on Azure:
 
     ```console
-<<<<<<< HEAD
-    # sudo rm -f /etc/cloud/cloud.cfg.d/50-curtin-networking.cfg /etc/cloud/cloud.cfg.d/curtin-preserve-sources.cfg
-    # sudo rm -f /etc/cloud/ds-identify.cfg
-    # sudo rm -f /etc/netplan/*.yaml
-=======
     # rm -f /etc/cloud/cloud.cfg.d/50-curtin-networking.cfg /etc/cloud/cloud.cfg.d/curtin-preserve-sources.cfg /etc/cloud/cloud.cfg.d/99-installer.cfg /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
     # rm -f /etc/cloud/ds-identify.cfg
     # rm -f /etc/netplan/*.yaml
->>>>>>> 1e5f272c3ad7b5e909b62d9da25e058e76917e3d
     ```
 
 9. Configure cloud-init to provision the system using the Azure datasource:
