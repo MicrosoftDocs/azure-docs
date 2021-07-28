@@ -1,8 +1,8 @@
 ---
 title: "Quickstart - Set up Azure Spring Cloud configuration server"
 description: Describes set up of Azure Spring Cloud config server for app deployment.
-author: brendm
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 09/08/2020

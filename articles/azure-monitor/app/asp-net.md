@@ -258,7 +258,7 @@ This section will guide you through manually adding Application Insights to a te
     }
     ```
 
-7. Update the Web.config file as follows:
+7. If Web.config is already updated, skip this step. Otherwise, update the file as follows:
     
     ```xml
     <?xml version="1.0" encoding="utf-8"?>

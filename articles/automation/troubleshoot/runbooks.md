@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Automation runbook issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation runbooks.
 services: automation
-ms.date: 07/07/2021
+ms.date: 02/11/2021
 ms.topic: troubleshooting
 ms.custom: has-adal-ref, devx-track-azurepowershell
 ---
@@ -34,7 +34,7 @@ When you receive errors during runbook execution in Azure Automation, you can us
 1. If your runbook is suspended or unexpectedly fails:
 
     * [Renew the certificate](../manage-runas-account.md#cert-renewal) if the Run As account has expired.
-    * [Renew the webhook](../automation-webhooks.md#renew-a-webhook) if you're trying to use an expired webhook to start the runbook.
+    * [Renew the webhook](../automation-webhooks.md#update-a-webhook) if you're trying to use an expired webhook to start the runbook.
     * [Check job statuses](../automation-runbook-execution.md#job-statuses) to determine current runbook statuses and some possible causes of the issue.
     * [Add additional output](../automation-runbook-output-and-messages.md#working-with-message-streams) to the runbook to identify what happens before the runbook is suspended.
     * [Handle any exceptions](../automation-runbook-execution.md#exceptions) that are thrown by your job.
@@ -42,20 +42,6 @@ When you receive errors during runbook execution in Azure Automation, you can us
 1. Do this step if the runbook job or the environment on Hybrid Runbook Worker doesn't respond.
 
     If you're running your runbooks on a Hybrid Runbook Worker instead of in Azure Automation, you might need to [troubleshoot the hybrid worker itself](hybrid-runbook-worker.md).
-
-## Scenario: PowerShell #Requires statement does not work as expected
-
-### Issue
-
-Your Azure Automation cloud or hybrid jobs includes the PowerShell [#Requires](/powershell/module/microsoft.powershell.core/about/about_requires) statement, but the statement does not prevent the script from executing when the required condition is not met.
-
-### Cause
-
-Runbooks can't use the PowerShell [#Requires](/powershell/module/microsoft.powershell.core/about/about_requires) statement, it is not supported in Azure sandbox or on Hybrid Runbook Workers and will cause the job to fail.
-
-### Resolution
-
-Ensure all script requirements are met before execution.
 
 ## <a name="runbook-fails-no-permission"></a>Scenario: Runbook fails with a No permission or Forbidden 403 error
 
@@ -479,7 +465,7 @@ The webhook that you're trying to call is either disabled or is expired.
 
 ### Resolution
 
-If the webhook is disabled, you can re-enable it through the Azure portal. If the webhook has expired, you must delete and then re-create it. You can only [renew a webhook](../automation-webhooks.md#renew-a-webhook) if it hasn't already expired. 
+If the webhook is disabled, you can re-enable it through the Azure portal. If the webhook has expired, you must delete and then re-create it. You can only [renew a webhook](../automation-webhooks.md#update-a-webhook) if it hasn't already expired. 
 
 ## <a name="429"></a>Scenario: 429: The request rate is currently too large
 

@@ -140,10 +140,10 @@
     tocHref: /azure/azure-arc/
     topicHref: /azure/azure-arc/
     items:
-      - name: Arc enabled Kubernetes
+      - name: Arc-enabled Kubernetes
         tocHref: /azure/azure-arc/kubernetes/
         topicHref: /azure/azure-arc/kubernetes/
-      - name: Arc enabled servers
+      - name: Arc-enabled servers
         tocHref: /azure/azure-arc/servers/
         topicHref: /azure/azure-arc/servers/
   - name: Automation
@@ -496,6 +496,9 @@
     - name: MongoDB API
       tocHref: /azure/cosmos-db/mongodb-introduction
       topicHref: /azure/cosmos-db/mongodb-introduction
+    - name: Table API
+      tocHref: /azure/cosmos-db/table/
+      topicHref: /azure/cosmos-db/table/
   - name: Managed Instance for Apache Cassandra
     tocHref: /azure/managed-instance-apache-cassandra/
     topicHref: /azure/managed-instance-apache-cassandra/
