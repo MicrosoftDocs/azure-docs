@@ -27,7 +27,7 @@ In this quickstart, you'll use a Java application to make your first call to the
 
 Here are a few things that you'll need before running this quickstart:
 
-* [JDK 7 or 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)
+* [JDK 7 or 8](/azure/developer/java/fundamentals/java-support-on-azure)
 * [Gson library](https://github.com/google/gson)
 * A subscription key
 

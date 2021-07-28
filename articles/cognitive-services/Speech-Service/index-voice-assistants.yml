@@ -27,7 +27,7 @@ landingContent:
     - linkListType: reference
       links:
         - text: Voice assistants FAQ
-          url: faq-voice-assistants.md
+          url: faq-voice-assistants.yml
         - text: Voice assistants pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
     - linkListType: get-started

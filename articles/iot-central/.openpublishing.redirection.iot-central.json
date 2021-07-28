@@ -197,7 +197,12 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-add-tiles-to-your-dashboard.md",
-      "redirect_url": "/azure/iot-central/core/howto-add-tiles-to-your-dashboard/",
+      "redirect_url": "/azure/iot-central/core/howto-manage-dashboards/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-add-tiles-to-your-dashboard.md",
+      "redirect_url": "/azure/iot-central/core/howto-manage-dashboards/",
       "redirect_document_id": false
     },
     {
@@ -367,7 +372,12 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-create-personal-dashboards.md",
-      "redirect_url": "/azure/iot-central/core/howto-create-personal-dashboards/",
+      "redirect_url": "/azure/iot-central/core/howto-manage-dashboards/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-create-personal-dashboards.md",
+      "redirect_url": "/azure/iot-central/core/howto-manage-dashboards/",
       "redirect_document_id": false
     },
     {
@@ -377,17 +387,22 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/core/howto-create-webhooks-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-create-webhooks/",
+      "redirect_url": "/azure/iot-central/core/howto-configure-rules/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-create-webhooks.md",
-      "redirect_url": "/azure/iot-central/core/howto-create-webhooks/",
+      "redirect_url": "/azure/iot-central/core/howto-configure-rules/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-create-webhooks.md",
-      "redirect_url": "/azure/iot-central/core/howto-create-webhooks/",
+      "redirect_url": "/azure/iot-central/core/howto-configure-rules/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-create-webhooks.md",
+      "redirect_url": "/azure/iot-central/core/howto-configure-rules/",
       "redirect_document_id": false
     },
     {
@@ -467,7 +482,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-manage-devices.md",
-      "redirect_url": "/azure/iot-central/core/howto-manage-devices/",
+      "redirect_url": "/azure/iot-central/core/howto-manage-devices-individually/",
       "redirect_document_id": false
     },
     {
@@ -477,7 +492,12 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-manage-devices.md",
-      "redirect_url": "/azure/iot-central/core/howto-manage-devices/",
+      "redirect_url": "/azure/iot-central/core/howto-manage-devices-individually/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-manage-devices.md",
+      "redirect_url": "/azure/iot-central/core/howto-manage-devices-individually/",
       "redirect_document_id": false
     },
     {
@@ -502,12 +522,17 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-manage-iot-central-from-powershell.md",
-      "redirect_url": "/azure/iot-central/core/howto-manage-iot-central-from-powershell/",
+      "redirect_url": "/azure/iot-central/core/howto-manage-iot-central-from-cli/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-manage-iot-central-from-powershell.md",
-      "redirect_url": "/azure/iot-central/core/howto-manage-iot-central-from-powershell/",
+      "redirect_url": "/azure/iot-central/core/howto-manage-iot-central-from-cli/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-manage-iot-central-from-powershell.md",
+      "redirect_url": "/azure/iot-central/core/howto-manage-iot-central-from-cli/",
       "redirect_document_id": false
     },
     {
@@ -552,7 +577,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-personalize-dashboard.md",
-      "redirect_url": "/azure/iot-central/core/howto-personalize-dashboard/",
+      "redirect_url": "/azure/iot-central/core/howto-manage-dashboards/",
       "redirect_document_id": false
     },
     {
@@ -562,12 +587,17 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-run-a-job.md",
-      "redirect_url": "/azure/iot-central/core/howto-run-a-job/",
+      "redirect_url": "/azure/iot-central/core/howto-manage-devices-in-bulk/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-run-a-job.md",
-      "redirect_url": "/azure/iot-central/core/howto-run-a-job/",
+      "redirect_url": "/azure/iot-central/core/howto-manage-devices-in-bulk/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-run-a-job.md",
+      "redirect_url": "/azure/iot-central/core/howto-manage-devices-in-bulk/",
       "redirect_document_id": false
     },
     {
@@ -612,32 +642,42 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/core/howto-use-action-groups-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-use-action-groups/",
+      "redirect_url": "/azure/iot-central/core/howto-configure-rules/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-use-action-groups.md",
-      "redirect_url": "/azure/iot-central/core/howto-use-action-groups/",
+      "redirect_url": "/azure/iot-central/core/howto-configure-rules/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-use-action-groups.md",
-      "redirect_url": "/azure/iot-central/core/howto-use-action-groups/",
+      "redirect_url": "/azure/iot-central/core/howto-configure-rules/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-use-action-groups.md",
+      "redirect_url": "/azure/iot-central/core/howto-configure-rules/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/core/howto-use-app-templates-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-use-app-templates/",
+      "redirect_url": "/azure/iot-central/core/howto-create-iot-central-application/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-use-app-templates.md",
+      "redirect_url": "/azure/iot-central/core/howto-create-iot-central-application/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-use-app-templates.md",
-      "redirect_url": "/azure/iot-central/core/howto-use-app-templates/",
+      "redirect_url": "/azure/iot-central/core/howto-create-iot-central-application/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-use-app-templates.md",
-      "redirect_url": "/azure/iot-central/core/howto-use-app-templates/",
+      "redirect_url": "/azure/iot-central/core/howto-create-iot-central-application/",
       "redirect_document_id": false
     },
     {
@@ -1133,6 +1173,26 @@
     {
       "source_path_from_root": "/articles/iot-central/core/howto-connect-sphere.md",
       "redirect_url": "/azure-sphere/app-development/setup-iot-central",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/how-to-roll-x509-certificates.md",
+      "redirect_url": "/azure/iot-central/core/how-to-connect-devices-x509",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/how-to-manage-iot-central-programmatically.md",
+      "redirect_url": "/samples/azure-samples/azure-iot-central-arm-sdk-samples/azure-iot-central-arm-sdk-samples/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-monitor-application-health.md",
+      "redirect_url": "/azure/iot-central/core/howto-manage-iot-central-from-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/government/how-to-configure-connected-field-services.md",
+      "redirect_url": "/azure/iot-central/government/concepts-connectedwastemanagement-architecture#business-applications",
       "redirect_document_id": false
     }
   ]

@@ -3,7 +3,7 @@ title: Tutorial - Create and manage exported data from Azure Cost Management
 description: This article shows you how you can create and manage exported Azure Cost Management data so that you can use it in external systems.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/06/2021
+ms.date: 07/26/2021
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -245,7 +245,7 @@ Each export creates a new file, so older exports aren't overwritten.
 
 #### Create an export for multiple subscriptions
 
-If you have an Enterprise Agreement, then you can use a management group to aggregate subscription cost information in a single container. Then you can export cost management data for the management group.
+If you have an Enterprise Agreement, then you can use a management group to aggregate subscription cost information in a single container. Then you can export cost management data for the management group. Exports for management groups only support actual costs.
 
 Exports for management groups of other subscription types aren't supported.
 

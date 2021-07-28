@@ -9,7 +9,7 @@ ms.date: 5/12/2020
 ---
 # Monitor Azure Database for MySQL performance with Query Store
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 **Applies to:** Azure Database for MySQL 5.7, 8.0
 

@@ -10,7 +10,7 @@ ms.date: 04/28/2020
 
 # Validating data encryption for Azure Database for MySQL
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 This article helps you validate that data encryption using customer managed key for Azure Database for MySQL is working as expected.
 

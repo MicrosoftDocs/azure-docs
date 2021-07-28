@@ -1,8 +1,8 @@
 ---
 title: Security controls for Azure Spring Cloud Service
 description: Use security controls built in into Azure Spring Cloud Service.
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/23/2020

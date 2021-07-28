@@ -301,11 +301,13 @@ Only used when deploying to a Premium plan or to a Consumption plan running on W
 
 ## WEBSITE\_CONTENTOVERVNET
 
-For Premium plans only. A value of `1` enables your function app to scale when you have your storage account restricted to a virtual network. You should enable this setting when restricting your storage account to a virtual network. To learn more, see [Restrict your storage account to a virtual network](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).
+A value of `1` enables your function app to scale when you have your storage account restricted to a virtual network. You should enable this setting when restricting your storage account to a virtual network. To learn more, see [Restrict your storage account to a virtual network](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).
 
 |Key|Sample value|
 |---|------------|
 |WEBSITE_CONTENTOVERVNET|1|
+
+Supported on [Premium](functions-premium-plan.md) and [Dedicated (App Service) plans](dedicated-plan.md) (Standard and higher) running Windows. Not currently supported for Consumption and Premium plans running Linux. 
 
 ## WEBSITE\_CONTENTSHARE
 

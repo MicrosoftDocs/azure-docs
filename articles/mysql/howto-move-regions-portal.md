@@ -12,7 +12,7 @@ ms.date: 06/26/2020
 
 # Move an Azure Database for MySQL server to another region by using the Azure portal
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 There are various scenarios for moving an existing Azure Database for MySQL server from one region to another. For example, you might want to move a production server to another region as part of your disaster recovery planning.
 

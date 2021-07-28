@@ -69,4 +69,4 @@ GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$f
 ## Next steps
 
 - [Use Azure AD groups to manage role assignments](groups-concept.md)
-- [Troubleshoot Azure AD roles assigned to groups](groups-faq-troubleshooting.md)
+- [Troubleshoot Azure AD roles assigned to groups](groups-faq-troubleshooting.yml)

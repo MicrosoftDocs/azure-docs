@@ -108,7 +108,7 @@ The next step in building your application is to install the Azure Maps Android 
     3. Update your dependencies block and add a new implementation dependency line for the latest Azure Maps Android SDK:
 
         ```gradle
-        implementation "com.microsoft.azure.maps:mapcontrol:0.7"
+        implementation "com.azure.android:azure-maps-control:1.0.0"
         ```
 
         > [!Note]
@@ -118,7 +118,7 @@ The next step in building your application is to install the Azure Maps Android 
 3. Add a map fragment to the main activity (res \> layout \> activity\_main.xml):
 
     ```xml
-    <com.microsoft.azure.maps.mapcontrol.MapControl
+    <com.azure.android.maps.control.MapControl
         android:id="@+id/mapcontrol"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -152,11 +152,11 @@ The next step in building your application is to install the Azure Maps Android 
     package com.example.myapplication;
     
     import androidx.appcompat.app.AppCompatActivity;
-    import com.microsoft.azure.maps.mapcontrol.AzureMaps;
-    import com.microsoft.azure.maps.mapcontrol.MapControl;
-    import com.microsoft.azure.maps.mapcontrol.layer.SymbolLayer;
-    import com.microsoft.azure.maps.mapcontrol.options.MapStyle;
-    import com.microsoft.azure.maps.mapcontrol.source.DataSource;
+    import com.azure.android.maps.control.AzureMaps;
+    import com.azure.android.maps.control.MapControl;
+    import com.azure.android.maps.control.layer.SymbolLayer;
+    import com.azure.android.maps.control.options.MapStyle;
+    import com.azure.android.maps.control.source.DataSource;
     
     public class MainActivity extends AppCompatActivity {
         
@@ -262,10 +262,10 @@ The next step in building your application is to install the Azure Maps Android 
 
     import androidx.appcompat.app.AppCompatActivity
     import android.os.Bundle
-    import com.microsoft.azure.maps.mapcontrol.AzureMap
-    import com.microsoft.azure.maps.mapcontrol.AzureMaps
-    import com.microsoft.azure.maps.mapcontrol.MapControl
-    import com.microsoft.azure.maps.mapcontrol.events.OnReady
+    import com.azure.android.maps.control.AzureMap
+    import com.azure.android.maps.control.AzureMaps
+    import com.azure.android.maps.control.MapControl
+    import com.azure.android.maps.control.events.OnReady
     
     class MainActivity : AppCompatActivity() {
     
