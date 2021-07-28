@@ -23,6 +23,10 @@ In this article, learn how to create and manage compute targets in Azure Machine
   * [Other compute resources](how-to-attach-compute-targets.md)
 * The [VS Code extension](how-to-manage-resources-vscode.md#compute-clusters) for Azure Machine Learning.
 
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -94,7 +98,7 @@ Select **Next: Advanced Settings** if you want to:
 * Enable virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). For more information, see these [network requirements](./how-to-secure-training-vnet.md) for vnet. 
 * Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](how-to-create-manage-compute-instance.md#on-behalf).
 * Provision with a setup script - for more details about how to create and use a setup script, see [Customize the compute instance with a script](how-to-create-manage-compute-instance.md#setup-script).
-* Add schedule. Schedule times for the compute instance to automatically start and/or shutdown. See [schedule details](#schedule) below.
+* Add schedule (preview). Schedule times for the compute instance to automatically start and/or shutdown. See [schedule details](#schedule) below.
 
 ### <a name="enable-ssh"></a> Enable SSH access
 
@@ -113,17 +117,23 @@ After you have selected **Next: Advanced Settings**:
 
 Once the compute instance is created and running, see [Connect with SSH access](#ssh-access).
 
-### <a name ="schedule"></a> Add a start or shutdown schedule
+### <a name ="schedule"></a> Add a start or shutdown schedule (preview)
 
 Define multiple schedules for auto-shutdown and auto-start. For instance, create a schedule to start at 9 AM and stop at 6 PM from Monday-Thursday, and a second schedule to start at 9 AM and stop at 4 PM for Friday.
 
 After you have selected **Next: Advanced Settings**:
 
 1. Select **Add schedule** to add a new schedule.
+
+    :::image type="content" source="media/how-to-create-attach-studio/create-schedule.png" alt-text="Screenshot: Add schedule in advanced settings.":::
+
 1. Select **Start compute instance** or **Stop compute instance**.
 1. Select the **Time zone**.
 1. Select the **Startup time** or **Shutdown time**.
 1. Select the days when this schedule is active.
+
+    :::image type="content" source="media/how-to-create-attach-studio/stop-compute-schedule.png" alt-text="Screenshot: schedule a compute instance to shut down.":::
+
 1. Select **Add schedule** again if you want to create another schedule.
 
 Once the compute instance is created, you can view, edit, or add new schedules from the compute instance details section.
