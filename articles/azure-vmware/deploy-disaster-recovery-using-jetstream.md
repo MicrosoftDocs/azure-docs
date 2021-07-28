@@ -123,7 +123,7 @@ The cmdlet checks:
 
 1. Select **Run command** > **Packages** > **Invoke-PreflightJetDRSystemCheck**.
 
-1. Provided the required values or change the default values, and then select **Run**.
+1. Provide the required values or change the default values, and then select **Run**.
 
    | **Field** | **Value** |
    | --- | --- |
