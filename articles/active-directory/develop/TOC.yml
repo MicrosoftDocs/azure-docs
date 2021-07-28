@@ -140,8 +140,13 @@
   - name: Authorization basics
     displayName: AuthZ basics
     items:
+    - name: Authorization basics
+      href: authorization-basics.md
     - name: RBAC for app developers
       href: custom-rbac-for-developers.md
+    - name: Permissions and consent
+      displayName: Scopes
+      href: v2-permissions-and-consent.md
   - name: App scenarios and authentication flows
     displayName: Auth flows
     href: authentication-flows-app-scenarios.md
@@ -160,9 +165,6 @@
       href: v2-conditional-access-dev-guide.md
     - name: Authentication context
       href: developer-guide-conditional-access-authentication-context.md
-  - name: Permissions and consent
-    displayName: Scopes
-    href: v2-permissions-and-consent.md
   - name: Automatic user provisioning (SCIM)
     href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
 - name: How-to
