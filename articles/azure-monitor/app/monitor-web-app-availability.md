@@ -52,7 +52,7 @@ If your URL isn't visible from the public internet, you can choose to selectivel
 |Setting| Explanation |
 |----|----|
 |**Near-realtime (Preview)** | We recommend using alerts that work in near real time. You configure this type of alert after you create your availability test.  |
-|**Alert location threshold**|We recommend a minimum of five test locations. The optimal relationship between alert location threshold and the number of test locations is *alert location threshold = number of test locations - 2*.|
+|**Alert location threshold**| The optimal relationship between alert location threshold and the number of test locations is *alert location threshold = number of test locations - 2*, with a minimum of five test locations.|
 
 ## Location population tags
 
