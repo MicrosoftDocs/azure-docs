@@ -45,15 +45,13 @@ In Unity, open the `quickstarts/apps/unity/basic` project.
 
 [!INCLUDE [Unity build sample scene 2](../../../includes/object-anchors-quickstart-unity-build-sample-scene-2.md)]
 
-[!INCLUDE [Unity build and deploy](../../../includes/object-anchors-quickstart-unity-build-deploy.md)]
 
 ### Run the sample app
+[!INCLUDE [Unity upload your model](../../../includes/object-anchors-quickstart-unity-upload-model-to-3d-objects.md)]
 
-Turn on the device, select **All Apps**, then locate and start the app. After the Unity splash screen, you'll see a message indicating that the Object Observer has been initialized. However, you'll need to add your model to the app.
+[!INCLUDE [Unity build and deploy](../../../includes/object-anchors-quickstart-unity-build-deploy.md)]
 
-[!INCLUDE [Unity setup Windows Device Portal](../../../includes/object-anchors-quickstart-unity-setup-device-portal.md)]
-
-[!INCLUDE [Unity upload your model](../../../includes/object-anchors-quickstart-unity-upload-model.md)]
+After the Unity splash screen, you'll see a message indicating that the Object Observer has been initialized.
 
 The app looks for objects in the current field of view and then tracks them once detected. An instance will be removed when it's 6 meters away from the user's location. The debug text shows details about an instance, like ID, updated timestamp and surface coverage ratio.
 
