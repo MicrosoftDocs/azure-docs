@@ -12,7 +12,7 @@ ms.author: apimpm
 ---
 # Export APIs from Azure API Management to the Power Platform 
 
-Citizen developers using the Microsoft [Power Platform](https://powerplatform.microsoft.com) often need to reach the business capabilities that are developed by professional developers and deployed in Azure. [Azure API Management](https://aka.ms/apimrocks) enables professional developers to publish their backend service as APIs, and easily export these APIs to the Power Platform ([Power Apps](/powerapps/powerapps-overview) and [Power Automate](/power-automate/getting-started) as custom connectors for consumption by citizen developers. 
+Citizen developers using the Microsoft [Power Platform](https://powerplatform.microsoft.com) often need to reach the business capabilities that are developed by professional developers and deployed in Azure. [Azure API Management](https://aka.ms/apimrocks) enables professional developers to publish their backend service as APIs, and easily export these APIs to the Power Platform ([Power Apps](/powerapps/powerapps-overview) and [Power Automate](/power-automate/getting-started)) as custom connectors for consumption by citizen developers. 
 
 This article walks through the steps in the Azure portal to create a custom Power Platform connector to an API in API Management. This capability quickly publishes an API to the Power Platform for easy discovery and consumption by apps or automation flows.
 
@@ -28,8 +28,8 @@ This article walks through the steps in the Azure portal to create a custom Powe
 1. In the menu, under **APIs**, select **Power Platform**.
 1. Select **Create a connector**.
 1. In the **Create a connector** window, do the following:
-    1. Select an API to connect to the Power Platform.
-    1. Choose a Power Platform environment to publish the API to. 
+    1. Select an API to publish to the Power Platform.
+    1. Select a Power Platform environment to publish the API to. 
     1. Enter a display name, which will be used as the name of the custom connector.  
     1. Optionally, if the API is [protected by an OAuth 2.0 server](api-management-howto-protect-backend-with-aad.md), provide details including **Client ID**, **Client secret**, **Authorization URL**, **Token URL, and **Refresh URL**.  
 1. Select **Create**. 
