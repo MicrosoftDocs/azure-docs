@@ -58,7 +58,7 @@ You can configure both a time-based retention policy and a legal hold for a reso
 | Container | Supports one default version-level immutability policy. Does not support legal hold. | Supports one container-level immutability policy and one legal hold. |
 | Blob version | Supports one version-level immutability policy and one legal hold. | N/A |
 
-## About the preview
+### About the preview
 
 The version-level immutability policies preview is available in the following regions:
 
