@@ -22,7 +22,7 @@ Before engaging in any regional migration, we recommend establishing a testbed a
 3. Migrate your services  
    -  For stateful workloads: 
       * <p>In order to ensure that your stateful services have reached a stable point, first ensure that you have stopped incoming traffic to those services. How you do this will depend on how traffic is delivered to your services. For example, you might have to cut off the service from Event Hubs or prevent a service like APIM or the Azure Network Load Balancer from routing traffic to the service by removing appropriate routing or forwarding rules. Once traffic has ceased and the services have completed any background work related to those requests, then you can continue. 
-      * [Take a backup from any stateful services](service-fabric-reliable-services-backup-restore.md) (after the traffic has ceased and any background processing work is complete), and then restore the data into the stateful services in the new region and cluster.</p>
+      * Take a backup from any stateful services by leveraging the [backup restore service](service-fabric-reliable-services-backup-restore.md) and doing an [on-demand backup](service-fabric-backup-restore-service-ondemand-backup.md) (after the traffic has ceased and any background processing work is complete). Once complete you can then [restore the data](service-fabric-backup-restore-service-trigger-restore.md) into the stateful services in the new region and cluster.</p>
    -  For stateless services: 
       * <p>There should be no extra work beyond deploying the services into the new cluster, ideally as a part of the ARM application deployment accomplished in step 2, and ensuring that they are configured the same as in the source cluster.</p>
    -  For all services:  
