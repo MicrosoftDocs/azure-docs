@@ -151,7 +151,7 @@ During the creation of the load balancer, you'll configure:
     | SKU           | Leave the default **Standard**. |
     | Tier          | Leave the default **Regional**. |
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png" alt-text="Create standard load balancer basics tab." border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png" alt-text="Screenshot of create standard load balancer basics tab." border="true":::
 
 4. Select **Next: Frontend IP configuration** at the bottom of the page.
 
@@ -455,7 +455,7 @@ During the creation of the load balancer, you'll configure:
     | Type          | Select **Public**.                                        |
     | SKU           | Select **Basic**. |
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-basic-load-balancer.png" alt-text="Create basic load balancer basics tab." border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-basic-load-balancer.png" alt-text="Screenshot of create basic load balancer basics tab." border="true":::
  
 4. Select **Next: Frontend IP configuration** at the bottom of the page.
 
@@ -567,7 +567,7 @@ During the creation of the load balancer, you'll configure:
 
 3. Copy the public IP address, and then paste it into the address bar of your browser. The custom VM page of the IIS Web server is displayed in the browser.
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/load-balancer-test.png" alt-text="Load balancer test":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/load-balancer-test.png" alt-text="Screenshot of load balancer test":::
 
 ## Clean up resources
 
