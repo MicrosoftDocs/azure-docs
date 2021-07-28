@@ -98,7 +98,7 @@ The current release announces general availability for the following services:
 
 #### Data controller
 <a name="azure-stack-hci"></a>
-- If you deploy the data controller on Azure Stack HCI with AKS-HCI, it fails due to a permission error. This is caused due to the way Kubernetes v1.19 and higher CSI drivers in AKS-HCI are configured without a `fsType` value. To fix this, configure the CSI on Azure stack HCI AKS-HCI by creating a custom storage class with the `fstype` as
+- If you deploy the data controller on Azure Stack HCI with AKS-HCI, it fails due to a permission error. This is caused due to the way Kubernetes v1.19 and higher CSI drivers in AKS-HCI are configured without a `fsType->fsGroupPolicy` value. To fix this, create a custom storage class with'fsGroupPolicy:File' for Azure stack HCI AKS-HCI version 1.20 and above (For details - https://kubernetes-csi.github.io/docs/support-fsgroup.html). For version 1.19
 
    ```json
    fsType: ext4
