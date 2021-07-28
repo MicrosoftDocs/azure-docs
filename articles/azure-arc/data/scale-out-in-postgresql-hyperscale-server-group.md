@@ -175,8 +175,10 @@ Once the nodes are available, the Hyperscale Shard Rebalancer runs automatically
 ### Verify the new shape of the server group (optional)
 Use either of the methods below to verify that the server group is now using the additional worker nodes you added.
 
-#### With azdata:
+#### With Azure CLI (az):
+
 Run the command:
+
 ```azurecli
 az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 ```
