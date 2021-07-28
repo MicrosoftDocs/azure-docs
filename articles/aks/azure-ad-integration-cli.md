@@ -242,7 +242,7 @@ error: You must be logged in to the server (Unauthorized)
 * You defined the appropriate object ID or UPN, depending on if the user account is in the same Azure AD tenant or not.
 * The user is not a member of more than 200 groups.
 * Secret defined in the application registration for server matches the value configured using `--aad-server-app-secret`
-* Be sure the latest version of kubectl is installed by using [az aks install-cli][az-aks-install-cli]
+* Be sure the latest version of kubectl is installed by using [az aks install-cli][az-aks-install-cli], and that only one version is installed on your machine at a time.
 
 ## Next steps
 
