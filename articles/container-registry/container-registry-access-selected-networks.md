@@ -115,10 +115,20 @@ If you use Azure Pipelines with an Azure container registry that limits access t
 
 One workaround is to change the agent used to run the pipeline from Microsoft-hosted to self-hosted. With a self-hosted agent running on a [Windows](/azure/devops/pipelines/agents/v2-windows) or [Linux](/azure/devops/pipelines/agents/v2-linux) machine that you manage, you control the outbound IP address of the pipeline, and you can add this address in a registry IP access rule.
 
+## Access from AKS with internal load balancer
+
+If you want to use an Azure Kubernetes Service cluster configured with an [internal load balancer](../aks/internal-lb.md) to access a registry that limits access to specific IP addresses or netwowrks, you can't configure a fixed AKS public IP address. This limitation is because the AKS cluster with an internal load balancer in a hybrid scenario has a random external (outbound) IP address.
+
+To work around this problem and allow the AKS cluster to acccess the registry, add an Azure Container Registry service endpoint (preview) to the AKS subnet. For detailed steps, see [Restrict access to a container registry using a service endpoint in an Azure virtual network](container-registry-vnet.md). 
+
+> [!NOTE]
+> Future development of service endpoints for Azure Container Registry isn't currently planned.
+
 ## Next steps
 
 * To restrict access to a registry using a private endpoint in a virtual network, see [Configure Azure Private Link for an Azure container registry](container-registry-private-link.md).
 * If you need to set up registry access rules from behind a client firewall, see [Configure rules to access an Azure container registry behind a firewall](container-registry-firewall-access-rules.md).
+* For more troubleshooting guidance, see [Troubleshoot network issues with registry](container-registry-troubleshoot-access.md).
 
 [az-acr-login]: /cli/azure/acr#az_acr_login
 [az-acr-network-rule-add]: /cli/azure/acr/network-rule/#az_acr_network_rule_add
