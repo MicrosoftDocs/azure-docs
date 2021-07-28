@@ -46,8 +46,23 @@ This sample creates an App Service Plan and then creates a metrics alert for it.
 
 ```azurecli
 
-
-
+# Create resource group
+az group create --name TimContosoRG --location eastus2
+ 
+# Create application service plan
+az appservice plan create --resource-group TimContosoRG --name ContosoAppServicePlan --is-linux --number-of-workers 4 --sku S1 
+ 
+# Create scope
+scope=$(az appservice plan show --resource-group TimContosoRG --name ContosoAppServicePlan --output tsv --query id) 
+ 
+# Create dimension
+dim01=$(az monitor metrics alert dimension create --name availabilityResult --value * --op Include --output tsv)
+ 
+# Create condition
+condition=$(az monitor metrics alert condition create --aggregation Average --metric "Percentage CPU" --op GreaterThan --type static --threshold 90 --dimension $dim01 --output tsv)
+ 
+# Create metrics alert
+az monitor metrics alert create --name alert-01 --resource-group TimContosoRG --scopes $scope --condition $condition --description "test High CPU"
 ```
 
 ## Clean up deployment
