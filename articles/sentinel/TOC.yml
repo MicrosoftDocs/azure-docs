@@ -77,6 +77,8 @@
       href: automate-responses-with-playbooks.md
     - name: Bring your own machine learning
       href: bring-your-own-ml.md
+  - name: Microsoft 365 Defender integration
+    href: microsoft-365-defender-sentinel-integration.md
 - name: How-tos
   items:
   - name: Migrate to Azure Sentinel
@@ -337,8 +339,6 @@
     items:
     - name: Investigate incidents
       href: investigate-cases.md
-    - name: Integrate with Microsoft 365 Defender
-      href: microsoft-365-defender-sentinel-integration.md
     - name: Create custom entity activities
       href: customize-entity-activities.md
     - name: Collaborate in Microsoft Teams
