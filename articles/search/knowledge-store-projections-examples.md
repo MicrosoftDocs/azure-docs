@@ -1,5 +1,5 @@
 ---
-title: Define projections in a knowledge store 
+title: Projection examples
 titleSuffix: Azure Cognitive Search
 description: Examples of common patterns on how to project enriched documents into the knowledge store for use with Power BI or Azure ML.
 
@@ -11,7 +11,9 @@ ms.topic: conceptual
 ms.date: 06/30/2020
 ---
 
-# How to shape and export enrichments
+<!-- Power BI -->
+
+# Projection patterns for analysis in Power BI
 
 Projections are the physical expression of enriched documents in a knowledge store. Effective use of enriched documents requires structure. In this article, you'll explore both structure and relationships, learning how to build out projection properties, as well as how to relate data across the projection types created. 
 
