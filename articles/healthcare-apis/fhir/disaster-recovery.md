@@ -11,7 +11,7 @@ ms.author: zxue
 
 # Disaster recovery for Azure API for FHIR
 
-The Azure API for FHIR® is a fully managed service based on Fast Healthcare Interoperability Resources (FHIR®). You can use the disaster recovery (DR) feature for Azure API for FHIR, to meet business continuity and disaster recovery (BCDR) compliance requirements.
+The Azure API for FHIR® is a fully managed service, based on Fast Healthcare Interoperability Resources (FHIR®). To meet business and compliance requirements you can use the disaster recovery (DR) feature for Azure API for FHIR.
 
 The DR feature provides a Recovery Point Objective (RPO) of 15 minutes and a Recovery Time Objective (RTO) of 60 minutes.
 
@@ -66,7 +66,7 @@ Additional configuration changes may be required when Private Link, Customer Man
 
 You can enable the private link feature before or after the Azure API for FHIR has been provisioned. You can also provision private link before or after the DR feature has been enabled. Refer to the list below when you're ready to configure Private Link for DR.
 
-* Configure Azure Private Link in the primary region. This step is not required in the secondary region. For more information, see [Configure private link](https://docs.microsoft.com/azure/healthcare-apis/fhir/configure-private-link)
+* Configure Azure Private Link in the primary region. This step isn't required in the secondary region. For more information, see [Configure private link](https://docs.microsoft.com/azure/healthcare-apis/fhir/configure-private-link)
 
 * Create one Azure VNet in the primary region and another VNet in the secondary region. For information, see [Create a virtual network using the Azure portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal).
 
