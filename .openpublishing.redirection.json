@@ -13465,6 +13465,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-vmware/fix-deployment-provisioning-failures.md",
+      "redirect_url": "/azure/azure-vmware/fix-deployment-failures",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-vmware/windows-server-failover-cluster.md",
       "redirect_url": "/azure/azure-vmware/configure-windows-server-failover-cluster",
       "redirect_document_id": false
@@ -38434,6 +38439,26 @@
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-state.md",
       "redirect_url": "/azure/iot-develop/quickstart-devkit-mxchip-az3166-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-control-device-dotnet.md",
+      "redirect_url": "/azure/iot-hub/quickstart-control-device?pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-control-device-node.md",
+      "redirect_url": "/azure/iot-hub/quickstart-control-device?pivots=programming-language-nodejs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-control-device-python.md",
+      "redirect_url": "/azure/iot-hub/quickstart-control-device?pivots=programming-language-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/quickstart-control-device-java.md",
+      "redirect_url": "/azure/iot-hub/quickstart-control-device?pivots=programming-language-java",
       "redirect_document_id": false
     },
     {
