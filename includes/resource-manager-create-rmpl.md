@@ -40,6 +40,8 @@ To set up a private link for resources, use the following steps. The steps are d
 
 After completing those steps, you can manage Azure resources that are within the hierarchy of the scope. You use a private endpoint that is connected to the subnet.
 
+You can monitor access to the private link. For more information, see [Logging and monitoring](../articles/private-link/private-link-overview).
+
 ## Required permissions
 
 To set up the private link for resource management, you need the following access:
