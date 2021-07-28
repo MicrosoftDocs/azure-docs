@@ -379,7 +379,7 @@
       href: sap-solution-log-reference.md
     - name: SAP workbook, rules, and watchlists
       href: sap-solution-security-content.md
-    - name: Deploy the SAP data connector on-premises
+    - name: Expert configuration options
       href: sap-solution-deploy-alternate.md
 - name: Reference
   items:
