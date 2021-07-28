@@ -162,12 +162,12 @@ It is possible to use Full Fidelity Schema for SQL (Core) API accounts. Here are
  * Currently this decision cannot be made through the Azure portal.
  * The decision on this option should be made at the same time that Synapse Link is enabled on the account:
  
- **With the Azure CLI:** 
+ With the Azure CLI:
  ```cli
  az cosmosdb create --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup --subscription MySubscription --analytical-storage-schema-type "FullFidelity" --enable-analytical-storage true
  ```
  
-  **With the PowerShell:**
+  With the PowerShell:
   ```
    New-AzCosmosDBAccount -ResourceGroupName MyResourceGroup -Name MyCosmosDBDatabaseAccount  -EnableAnalyticalStorage true -AnalyticalStorageSchemaType "FullFidelity"
    ```
