@@ -1,4 +1,4 @@
----
+tua---
 title: Set up VMware VM disaster recovery to Azure with Azure Site Recovery - Preview
 description: Learn how to set up disaster recovery to Azure for on-premises VMware VMs with Azure Site Recovery - Preview.
 ms.service: site-recovery
@@ -82,14 +82,14 @@ Follow these steps to enable replication:
 
 1. Select **Site Recovery** under **Getting Started** section. Click **Enable Replication (Preview)** under the VMware section.
 
-2. Select the machine type you want to protect through Azure Site Recovery.
+2. Choose the machine type you want to protect through Azure Site Recovery.
 
    > [!NOTE]
    > In Preview, the support is limited to virtual machines.
 
    ![Select source machines](./media/vmware-azure-set-up-replication-tutorial-preview/select-source.png)
 
-3. After selecting the virtual machines, select the vCenter server added to Azure Site Recovery replication appliance, registered in this vault.
+3. After choosing the virtual machines, select the vCenter server added to Azure Site Recovery replication appliance, registered in this vault.
 
 4. Later, search the source VM name to protect the machines of your choice. To review the selected VMs, select **Selected resources**.
 
@@ -100,7 +100,7 @@ Follow these steps to enable replication:
 
    ![Source settings](./media/vmware-azure-set-up-replication-tutorial-preview/source-settings.png)
 
-6. Select **Next** to provide target region properties. By default, Vault subscription and Vault resource group are selected. You can select a subscription and resource group of your choice. Your source machines will be deployed in this subscription and resource group when you failover in the future.
+6. Select **Next** to provide target region properties. By default, Vault subscription and Vault resource group are selected. You can choose a subscription and resource group of your choice. Your source machines will be deployed in this subscription and resource group when you failover in the future.
 
    ![Target properties](./media/vmware-azure-set-up-replication-tutorial-preview/target-properties.png)
 
@@ -114,7 +114,7 @@ Follow these steps to enable replication:
 9. Select the storage.
 
     - Cache storage account:
-      Now, select the cache storage account which Azure Site Recovery uses for staging purposes – caching and storing logs before writing the changes on to the managed disks.
+      Now, choose the cache storage account which Azure Site Recovery uses for staging purposes – caching and storing logs before writing the changes on to the managed disks.
 
       By default, a new LRS v1 type storage account will be created by Azure Site Recovery for the first enable replication operation in a vault. For the next operations, same cache storage account will be re-used.
     -  Managed disks
@@ -140,7 +140,7 @@ Follow these steps to enable replication:
 
      The policy will be created and can used for protecting the chosen source machines.
 
-11. After selecting the replication policy, select **Next**. Review the Source and Target properties. Select **Enable  Replication** to initiate the operation.
+11. After choosing the replication policy, select **Next**. Review the Source and Target properties. Select **Enable  Replication** to initiate the operation.
 
     ![Site recovery](./media/vmware-azure-set-up-replication-tutorial-preview/enable-replication.png)
 
