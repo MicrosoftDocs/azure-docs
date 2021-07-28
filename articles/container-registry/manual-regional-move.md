@@ -15,7 +15,6 @@ While [Azure Resource Mover](../resource-mover/overview.md) can't currently auto
 * Use the template to deploy a registry in a different Azure region
 * Import registry content from the source registry to the target registry
 
-
 [!INCLUDE [container-registry-geo-replication-include](../../includes/container-registry-geo-replication-include.md)]
 
 ## Prerequisites
@@ -26,8 +25,10 @@ Azure CLI
 
 ## Considerations
 
-* Use steps in this article to move the registry to a different region in the same subscription. More configuration is needed to move a registry to a different Azure subscription or Active Directory tenant. 
-* Exporting and using a Resource Manager template can help re-create many registry settings. You can edit the template to configure additional settings, or update the target registry after creation.
+* Use steps in this article to move the registry to a different region in the same subscription. More configuration may be needed to move a registry to a different Azure subscription in the same Active Directory tenant.
+* Exporting and using a Resource Manager template can help re-create many registry settings. You can edit the template to configure more settings, or update the target registry after creation.
+* Currently, Azure Container Registry doesn't support a registry move to a different Active Directory tenant. This limitation applies to both registries encrypted with a [customer-managed key](container-registry-customer-managed-keys.md) and unencrypted registries.
+* If you are unable to move a registry is outlined in this article, create a new registry, manually recreate settings, and [Import registry content in the target registry](#import-registry-content-in-target-registry).
 
 ## Export template from source registry 
 
