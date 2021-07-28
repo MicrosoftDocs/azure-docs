@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 07/28/2021
 ---
 
 # Azure Sentinel workspace architecture best practices
@@ -135,6 +135,24 @@ Your central SOC team may also use an additional, optional Azure Sentinel worksp
 
 For more information, see [Working with multiple workspaces](#working-with-multiple-workspaces).
 
+### Role recommendations
+
+After understanding how [roles and permissions](roles.md) work in Azure Sentinel, you may want to use the following guidance for applying roles to your users:
+
+|User type  |Role |Resource group  |Description  |
+|---------|---------|---------|---------|
+|**Security analysts**     | [Azure Sentinel Responder](../role-based-access-control/built-in-roles.md#azure-sentinel-responder)        | Azure Sentinel's resource group        | View data, incidents, workbooks, and other Azure Sentinel resources. <br><br>Manage incidents, such as assigning or dismissing incidents.        |
+|     | [Logic Apps Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor)        | Azure Sentinel's resource group, or the resource group where your playbooks are stored        | Attach playbooks to analytics and automation rules and run playbooks. <br><br>**Note**: This role also allows users to modify playbooks.         |
+|**Security engineers**     | [Azure Sentinel Contributor](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)       |Azure Sentinel's resource group         |   View data, incidents, workbooks, and other Azure Sentinel resources. <br><br>Manage incidents, such as assigning or dismissing incidents. <br><br>Create and edit workbooks, analytics rules, and other Azure Sentinel resources.      |
+|     | [Logic Apps Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor)        | Azure Sentinel's resource group, or the resource group where your playbooks are stored        | Attach playbooks to analytics and automation rules and run playbooks. <br><br>**Note**: This role also allows users to modify playbooks.         |
+|  **Service Principal**   | [Azure Sentinel Contributor](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)      |  Azure Sentinel's resource group       | Automated configuration for management tasks |
+|     |         |        | |
+
+> [!TIP]
+> Additional roles may be required depending on the data you are ingesting or monitoring. For example, Azure AD roles may be required, such as the global admin or security admin roles, to set up data connectors for services in other Microsoft portals.
+> 
+> For more information, see [Permissions in Azure Sentinel](roles.md).
+
 ## Technical best practices for creating your workspace
 
 Use the following best practice guidance when creating the Log Analytics workspace you'll use for Azure Sentinel:
@@ -161,31 +179,6 @@ union Update, workspace("contosoretail-it").Update, workspace("WORKSPACE ID").Up
 ```
 
 For more information, see [Protecting MSSP intellectual property in Azure Sentinel](mssp-protect-intellectual-property.md).
-
-
-
-
-
-<!-- make sure this info is in roles>
-| Security Analysts                                                                                                                                                                                                                            |                  |                                      |                                      |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------------------ | ------------------------------------ |
-| Azure Sentinel Responder                                                                                                                                                                                                                    |                  |                                      |                                      |
-| Azure Sentinel’s Resource Group	View data                                                                                                                                                                                                   | incidents       | workbooks                           | and other Azure Sentinel resources. |
-| Manage incidents (assign                                                                                                                                                                                                                     | dismiss         | etc.)                               |                                      |
-| Logic Apps Contributor	Azure Sentinel’s Resource Group                                                                                                                                                                                      |                  |                                      |                                      |
-| (or RG where Playbooks are stored)	Attach Playbooks to Analytics Rules and Automation Rules. Run Playbooks. NOTE: this will also allow playbook modification by analysts                                                                     |                  |                                      |                                      |
-| Security Engineers                                                                                                                                                                                                                           |                  |                                      |                                      |
-| Azure Sentinel Contributor	Sentinel’s Resource Group	View data                                                                                                                                                                              | incidents       | workbooks                           | and other Azure Sentinel resources. |
-| Manage incidents (assign                                                                                                                                                                                                                     | dismiss         | etc.).                              |                                      |
-| Create and edit workbooks                                                                                                                                                                                                                    | analytics rules | and other Azure Sentinel resources. |                                      |
-| Logic Apps Contributor	Azure Sentinel’s Resource Group (or RG where Playbooks are stored)	Attach Playbooks to Analytics Rules and Automation Rules. Run and Modify Playbooks. NOTE: this will also allow playbook modification by analysts. |                  |                                      |                                      |
-| Service Principal	Azure Sentinel Contributor	Azure Sentinel’s Resource Group	Automated configuration management tasks                                                                                                                        |                  |                                      |                                      |
-•	When designating permissions for Azure Sentinel usage, Azure Sentinel Responder, Azure Sentinel Reader, Azure Sentinel Contributor will be needed by the users depending on their role within the product. Additional roles related to Azure services outside of Azure Sentinel, Azure Monitor, and Azure Log Analytics may be needed if ingesting data or monitoring those services. Azure AD roles may be required, such as global admin or security admin, when setting up data connectors for services in other Microsoft portals.
-</--> 
-
-
-
-
 ## Next steps
 
 
