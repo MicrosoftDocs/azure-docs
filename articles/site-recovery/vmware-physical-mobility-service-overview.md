@@ -6,7 +6,7 @@ manager: gaggupta
 ms.service: site-recovery
 ms.topic: how-to
 ms.author: sharrai
-ms.date: 05/27/2021
+ms.date: 07/29/2021
 ---
 
 # About the Mobility service for VMware VMs and physical servers
@@ -62,7 +62,7 @@ During a push installation of the Mobility service, the following steps are perf
 1. As part of the agent installation, the Volume Shadow Copy Service (VSS) provider for Azure Site Recovery is installed. The VSS provider is used to generate application-consistent recovery points.
    - If the VSS provider installation fails, the agent installation will fail. To avoid failure of the agent installation, use [version 9.23](https://support.microsoft.com/help/4494485/update-rollup-35-for-azure-site-recovery) or higher to generate crash-consistent recovery points and do a manual install of the VSS provider.
 
-## Install the Mobility service using UI - Classic
+## Install the Mobility service using UI  (Classic)
 
 >[!NOTE]
 > This section is applicable to Azure Site Recovery - Classic. [Here are the Installation instructions for preview](#install-the-mobility-services-using-ui-preview)
@@ -92,10 +92,10 @@ During a push installation of the Mobility service, the following steps are perf
 
     :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility5.png" alt-text="Mobility service registration final page.":::
 
-## Install the Mobility service using command prompt - Classic
+## Install the Mobility service using command prompt (Classic)
 
 >[!NOTE]
-> This section is applicable to Azure Site Recovery - Classic. [Here ae the installation instructions for latest](#install-the-mobility-services-using-command-prompt-preview).
+> This section is applicable to Azure Site Recovery - Classic. [Here ae the installation instructions for preview](#install-the-mobility-services-using-command-prompt-preview).
 
 ### Prerequisites
 
@@ -259,7 +259,7 @@ As a **prerequisite to update or protect Debian 7 machines** from 9.36 version o
 1. **For example**, if install path is  C:\Program Files (x86)\Microsoft Azure Site Recovery, then the above mentioned directories will be
     1. C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository
 
-## Install the Mobility service using UI - preview
+## Install the Mobility service using UI (preview)
 
 >[!NOTE]
 > This section is applicable to Azure Site Recovery - Preview. [Here are the installation instructions for Classic](#install-the-mobility-services-using-ui-classic).
@@ -274,9 +274,9 @@ Locate the installer files for the server’s operating system using the followi
 
 1. Open command prompt and navigate to the folder where the installer file has been placed.
 
- ```cmd
-  cd C:\Azure Site Recovery\Agent*
- ```
+   ```cmd
+    cd C:\Azure Site Recovery\Agent*
+   ```
 
 2. Run the below command to extract the installer file:
 
@@ -320,20 +320,19 @@ Locate the installer files for the server’s operating system using the followi
 ### Windows machine
 1. Open command prompt and navigate to the folder where the installer file has been placed.
 
-  ```cmd
+   ```cmd
    cd C:\Azure Site Recovery\Agent
-  ```
+   ```
 2. Run the following command to extract the installer file:
    ```cmd
        .\Microsoft-ASR_UA*Windows*release.exe /q /x:C:\Azure Site Recovery\Agent
     ```
-3. Tp proceed with the installation, run the following command:
+3. T0 proceed with the installation, run the following command:
 
    ```cmd
 
     .\UnifiedAgentInstaller.exe /Platform vmware /Silent /Role MS /CSType CSPrime /InstallLocation "C:\Azure Site Recovery\Agent"
   ```
-
   Once the installation is complete, copy the string that is generated alongside the parameter *Agent Config Input*. This string is required to [generate the Mobility Service configuration file](#generate-mobility-services-configuration-file).
 
   ![sample string for downloading configuration flle ](./media/vmware-physical-mobility-services-overview-preview/configuration-string.png)
@@ -378,7 +377,7 @@ Setting | Details
         ./install -q -r MS -v VmWare -c CSPrime
     ```
 
-    Once the installation is complete, copy the string that is generated alongside the parameter *Agent Config Input*. This string is equired to [generate the Mobility Service configuration file](#generate-mobility-services-configuration-file).
+    Once the installation is complete, copy the string that is generated alongside the parameter *Agent Config Input*. This string is required to [generate the Mobility Service configuration file](#generate-mobility-services-configuration-file).
 
 5. After successfully installing, register the source machine with the above appliance using the following command:
 
@@ -417,7 +416,7 @@ Setting | Details
 
   ![Image showing download configuration file option for Mobility Services](./media/vmware-physical-mobility-services-overview-preview/download-configuration-file.png)
 
-      This will download the Mobility Service configuration file. Copy this file to a local folder in your source machine. You can place it in the same folder as the Mobility Service installer.
+This will download the Mobility Service configuration file. Copy this file to a local folder in your source machine. You can place it in the same folder as the Mobility Service installer.
 
 ## Next steps
 
