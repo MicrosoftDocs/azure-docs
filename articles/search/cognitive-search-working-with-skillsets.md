@@ -84,7 +84,7 @@ The first two skills are shown below:
 
 ### Enrichment tree
 
-In the progression of [steps in an enrichment pipeline](cognitive-search-concept-intro.md#enrichment-steps), content processing follows the *document cracking* phase where text and images are extracted from the source. Image content can then be routed to skills that specify image processing, while text content is queued for text processing. For source documents that contain large quantities of text, you can set a *parsing mode* on the indexer to segment text into smaller chunks for more optimal processing. 
+In the progression of [steps in an enrichment pipeline](cognitive-search-concept-intro.md#enrichment-steps), content processing follows the [*document cracking*](search-indexer-overview.md#document-cracking) phase where text and images are extracted from the source. Image content can then be routed to skills that specify image processing, while text content is queued for text processing. For source documents that contain large quantities of text, you can set a *parsing mode* on the indexer to segment text into smaller chunks for more optimal processing. 
 
 ![Knowledge store in pipeline diagram](./media/knowledge-store-concept-intro/knowledge-store-concept-intro.svg "Knowledge store in pipeline diagram")
 
