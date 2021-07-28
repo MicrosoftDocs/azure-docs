@@ -11,6 +11,8 @@ ms.custom: devx-track-azurepowershell
 
 # Use Azure Active Directory for authentication with MySQL
 
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 This article will walk you through the steps how to configure Azure Active Directory access with Azure Database for MySQL, and how to connect using an Azure AD token.
 
 > [!IMPORTANT]

@@ -69,6 +69,7 @@ The following table lists the free data sources you can enable in Azure Sentinel
 | Azure Sentinel Data Connector   | Data type | Free or paid |
 |-------------------------------------|--------------------------------|------------------|
 | **Azure Activity Logs**         | AzureActivity                  | Free             |
+| **Azure AD Identity Protection**         | SecurityAlert (IPC)                  | Free             |
 | **Office 365**                     | OfficeActivity (SharePoint)    | Free|
 || OfficeActivity (Exchange)|Free|
 || OfficeActivity (Teams)          | Free|
@@ -95,15 +96,19 @@ For data connectors that include both free and paid data types, you can select w
 
 ![Screenshot showing the Data connector page for MCAS, with the free Security Alerts selected and the paid MCASShadowITReporting not selected.](media/billing/data-types.png)
 
+> [!NOTE]
+> Data connectors listed as Public Preview do not generate cost. Data connectors generate cost only once becoming Generally Available (GA).
+>
+
 ## Estimate Azure Sentinel costs
 
 If you're not yet using Azure Sentinel, you can use the [Azure Sentinel pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=azure-sentinel) to estimate the potential cost of using Azure Sentinel. Enter *Azure Sentinel* in the Search box and select the resulting Azure Sentinel tile. The pricing calculator helps you estimate your likely costs based on your expected data ingestion and retention.
 
 For example, you can enter the GB of daily data you expect to ingest in Azure Sentinel, and the region for your workspace. The calculator provides the aggregate monthly cost across these components:
 
-- Log Analytics data ingestion 
-- Azure Sentinel data analysis 
-- Log Analytics data retention 
+- Log Analytics data ingestion
+- Azure Sentinel data analysis
+- Log Analytics data retention
 
 ## Manage Azure Sentinel costs
 
@@ -116,6 +121,7 @@ Manage data ingestion and retention:
 - [Optimize Log Analytics costs with dedicated clusters](#optimize-log-analytics-costs-with-dedicated-clusters).
 - [Separate non-security data in a different workspace](#separate-non-security-data-in-a-different-workspace).
 - [Reduce long-term data retention costs with Azure Data Explorer (ADX)](#reduce-long-term-data-retention-costs-with-adx).
+- [Use Data Collection Rules for your Windows Security Events](#use-data-collection-rules-for-your-windows-security-events).
 
 Understand, monitor, and alert for data ingestion and cost changes:
 
@@ -176,7 +182,7 @@ Here are some other considerations for moving to a dedicated cluster for cost op
 - All workspaces linked to a cluster must be in the same region.
 - The maximum of workspaces linked to a cluster is 1000.
 - You can unlink a linked workspace from your cluster. The number of link operations on a particular workspace is limited to two in a period of 30 days.
-- You can't move an existing workspace to a customer managed key (CMK) cluster. You need to create the workspace in the cluster.
+- You can't move an existing workspace to a customer-managed  key (CMK) cluster. You need to create the workspace in the cluster.
 - Moving a cluster to another resource group or subscription isn't currently supported.
 - A workspace link to a cluster fails if the workspace is linked to another cluster.
 
@@ -197,6 +203,14 @@ Azure Sentinel security data might lose some of its value after a few months. Se
 With ADX, you can store data at a lower price, but still explore the data using the same Kusto Query Language (KQL) queries as in Azure Sentinel. You can also use the ADX proxy feature to do cross-platform queries. These queries aggregate and correlate data spread across ADX, Application Insights, Azure Sentinel, and Log Analytics.
 
 For more information, see [Integrate Azure Data Explorer for long-term log retention](store-logs-in-azure-data-explorer.md).
+
+#### Use data collection rules for your Windows Security Events
+
+The [Windows Security Events connector](connect-windows-security-events.md?tabs=LAA) enables you to stream security events from any computer running Windows Server that's connected to your Azure Sentinel workspace, including physical, virtual, or on-premises servers, or in any cloud. This connector includes support for the Azure Monitor agent, which uses data collection rules to define the data to collect from each agent. 
+
+Data collection rules enable you to manage collection settings at scale, while still allowing unique, scoped configurations for subsets of machines. For more information, see [Configure data collection for the Azure Monitor agent](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md).
+
+Besides for the predefined sets of events that you can select to ingest, such as All events, Minimal, or Common, data collection rules enable you to build custom filters and select specific events to ingest. The Azure Monitor Agent uses these rules to filter the data at the source, and then ingest only the events you've selected, while leaving everything else behind. Selecting specific events to ingest can help you optimize your costs and save more.
 
 ### Understand, monitor, and alert for changes in data ingestion and costs
 

@@ -5,11 +5,11 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 5/12/2021
+ms.date: 6/16/2021
 ms.custom: devx-track-csharp
 ---
 
-# Read input in any format using .NET custom deserializers
+# Read input in any format using .NET custom deserializers (Preview)
 
 .NET custom deserializers allow your Azure Stream Analytics job to read data from formats outside of the three [built-in data formats](stream-analytics-parsing-json.md). This article explains the serialization format and the interfaces that define .NET custom deserializers for Azure Stream Analytics cloud and edge jobs. There are also example deserializers for Protocol Buffer and CSV format.
 

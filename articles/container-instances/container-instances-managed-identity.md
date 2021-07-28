@@ -273,13 +273,13 @@ az container exec \
 
 Run the following commands in the bash shell in the container. First log in to the Azure CLI using the managed identity:
 
-```bash
+```azurecli
 az login --identity
 ```
 
 From the running container, retrieve the secret from the key vault:
 
-```bash
+```azurecli
 az keyvault secret show \
   --name SampleSecret \
   --vault-name mykeyvault --query value
@@ -287,7 +287,7 @@ az keyvault secret show \
 
 The value of the secret is retrieved:
 
-```bash
+```output
 "Hello Container Instances"
 ```
 

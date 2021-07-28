@@ -98,6 +98,6 @@ Advance to the next tutorial to learn about virtual machine scale sets.
 > [!div class="nextstepaction"]
 > [Create a virtual machine scale set](tutorial-create-vmss.md)
 
-* To learn more about availability zones, visit the  [Availability Zones documentation](../../availability-zones/az-overview.md).
-* More documentation about both availability sets and availability zones is also available [here](../availability.md).
+* To learn more about availability zones, visit the [Availability Zones documentation](../../availability-zones/az-overview.md).
+* More documentation about both availability sets and availability zones is also available at [Availability options for Azure Virtual Machines](../availability.md).
 * To try out availability zones, visit [Create a Linux virtual machine in an availability zone with the Azure CLI](./create-cli-availability-zone.md)

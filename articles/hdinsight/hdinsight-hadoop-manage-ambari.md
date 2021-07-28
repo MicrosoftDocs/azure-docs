@@ -9,7 +9,7 @@ ms.date: 01/12/2021
 
 # Manage HDInsight clusters by using the Apache Ambari Web UI
 
-[!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
+[!INCLUDE [ambari-selector](includes/hdinsight-ambari-selector.md)]
 
 Apache Ambari simplifies the management and monitoring of an Apache Hadoop cluster. This simplification is done by providing an easy to use web UI and REST API. Ambari is included on HDInsight clusters, and is used to monitor the cluster and make configuration changes.
 

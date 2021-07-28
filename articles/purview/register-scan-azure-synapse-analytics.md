@@ -21,7 +21,6 @@ Azure Synapse Analytics (formerly SQL DW) supports full and incremental scans to
 
 ### Known limitations
 
-> * Azure Purview doesn't support scanning of [views](/sql/relational-databases/views/views?view=azure-sqldw-latest&preserve-view=true) in Azure Synapse Analytics.
 > * Azure Purview doesn't support over 300 columns in the Schema tab and it will show "Additional-Columns-Truncated". 
 
 ## Prerequisites

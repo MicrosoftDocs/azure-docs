@@ -81,15 +81,18 @@ You can create a project in a number of geographies in the public cloud.
 
 **Geography** | **Metadata storage location**
 --- | ---
+Africa | South Africa or North Africa
 Asia Pacific | East Asia or Southeast Asia
 Australia | Australia East or Australia Southeast
 Brazil | Brazil South
 Canada | Canada Central or Canada East
 Europe | North Europe or West Europe
 France | France Central
+Germany | Germany West Central
 India | Central India or South India
 Japan |  Japan East or Japan West
 Korea | Korea Central or Korea South
+Norway | Norway East
 Switzerland | Switzerland North
 United Arab Emirates | UAE North
 United Kingdom | UK South or UK West

@@ -22,6 +22,10 @@ The dedicated gateway is built into Azure Cosmos DB. When you [provision a dedic
 
 There are only minimal code changes required in order for your application to use a dedicated gateway. Both new and existing Azure Cosmos DB accounts can provision a dedicated gateway for improved read performance.
 
+> [!NOTE]
+> Do you have any feedback about the dedicated gateway? We want to hear it! Feel free to share feedback directly with the Azure Cosmos DB engineering team:
+cosmoscachefeedback@microsoft.com
+
 ## Connection modes
 
 There are three ways to connect to an Azure Cosmos DB account:

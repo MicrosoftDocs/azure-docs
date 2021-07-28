@@ -33,11 +33,13 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Single Server?
-            url: single-server-overview.md
-          - text: What's new in Single Server?
-            url: single-server-whats-new.md            
+            url: single-server-overview.md  
           - text: View all Single server documentation
             url: single-server/index.yml
+      - linkListType: whats-new
+        links:
+          - text: What's new in Single Server?
+            url: single-server-whats-new.md
       - linkListType: concept
         links:
           - text: Server concepts
@@ -63,6 +65,10 @@ landingContent:
             url: flexible-server/overview.md
           - text: View all Flexible server documentation
             url: flexible-server/index.yml
+      - linkListType: whats-new
+        links:
+          - text: What's new in Flexible Server?
+            url: flexible-server/whats-new.md
       - linkListType: concept
         links:
           - text: Server concepts
