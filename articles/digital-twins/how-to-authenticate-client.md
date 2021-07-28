@@ -29,33 +29,7 @@ First, complete the setup steps in [Set up an instance and authentication](how-t
 
 To proceed, you will need a client app project in which you write your code. If you don't already have a client app project set up, create a basic project in your language of choice to use with this tutorial.
 
-## Elements of authentication code
-
-This section describes recommended class-level variables and authentication code that will allow the function to access Azure Digital Twins. Add the variables and code to your function.
-
-* **Code to read the Azure Digital Twins service URL as an environment variable or configuration setting.** It's a good practice to read the service URL from an [environment variable](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal) or a configuration setting rather than hard-coding it in the function. If you're creating an Azure function, that code to set the environment variable might look like this: 
-
-    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ADT_service_URL":::
-
-* **A static variable to hold an HttpClient instance.** HttpClient is relatively expensive to create, so you'll probably want to create it once with the authentication code to avoid creating it for every function invocation.
-
-    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="HTTP_client":::
-
-* **Managed identity credentials.**
-    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ManagedIdentityCredential":::
-
-* **A local variable _DigitalTwinsClient_.** Add the variable inside your function to hold your Azure Digital Twins client instance. Do *not* make this variable static inside your class.
-    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="DigitalTwinsClient":::
-
-* **A null check for _adtInstanceUrl_.** Add the null check and then wrap your function logic in a try/catch block to catch any exceptions.
-
-After these changes, your function code will look like the following example.
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs":::
-
-Now that your application is written, you can publish it to Azure.
-
-## Common authentication methods with Azure.Identity
+## Authenticate using Azure.Identity library
 
 `Azure.Identity` is a client library that provides several credential-obtaining methods that you can use to get a bearer token and authenticate with your SDK. Although this article gives examples in C#, you can view `Azure.Identity` for several languages, including...
 
@@ -70,19 +44,19 @@ Three common credential-obtaining methods in `Azure.Identity` are:
 * [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true) works great in cases where you need [managed identities (MSI)](../active-directory/managed-identities-azure-resources/overview.md), and is a good candidate for working with Azure Functions and deploying to Azure services.
 * [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) is intended for interactive applications, and can be used to create an authenticated SDK client
 
-The following example shows how to use each of these with the .NET (C#) SDK.
+The rest of this article shows how to use these with the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
 
-## Authentication examples: .NET (C#) SDK
+### Add Azure.Identity to your .NET project
 
-This section shows an example in C# for using the provided .NET SDK to write authentication code.
+To set up your .NET project to authenticate with `Azure.Identity`, complete the following steps:
 
-First, include the SDK package `Azure.DigitalTwins.Core` and the `Azure.Identity` package in your project. Depending on your tools of choice, you can include the packages using the Visual Studio package manager or the `dotnet` command line tool. 
+1. Include the SDK package `Azure.DigitalTwins.Core` and the `Azure.Identity` package in your project. Depending on your tools of choice, you can include the packages using the Visual Studio package manager or the `dotnet` command line tool. 
 
-You'll also need to add the following using statements to your project code:
+1. Add the following using statements to your project code:
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/authentication.cs" id="Azure_Digital_Twins_dependencies":::
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/authentication.cs" id="Azure_Digital_Twins_dependencies":::
 
-Then, add code to obtain credentials using one of the methods in `Azure.Identity`.
+Next, add code to obtain credentials using one of the methods in `Azure.Identity`. The following sections give more detail about using each one.
 
 ### DefaultAzureCredential method
 
@@ -126,9 +100,31 @@ Here is an example of the code to create an authenticated SDK client using `Inte
 >[!NOTE]
 > While you can place the client ID, tenant ID and instance URL directly into the code as shown above, it's a good idea to have your code get these values from a configuration file or environment variable instead.
 
-#### Other notes about authenticating Azure Functions
+## Authenticate Azure Functions
 
-See [Set up an Azure function for processing data](how-to-create-azure-function.md) for a more complete example that explains some of the important configuration choices in the context of functions.
+This section contains some of the important configuration choices in the context of authenticating Azure functions, including recommended class-level variables and authentication code that will allow the function to access Azure Digital Twins. 
+
+Add these variables and code to your function:
+
+* **Code to read the Azure Digital Twins service URL as an environment variable or configuration setting.** It's a good practice to read the service URL from an [environment variable](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal) or a configuration setting rather than hard-coding it in the function. If you're creating an Azure function, that code to set the environment variable might look like this: 
+
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ADT_service_URL":::
+
+* **A static variable to hold an HttpClient instance.** HttpClient is relatively expensive to create, so you'll probably want to create it once with the authentication code to avoid creating it for every function invocation.
+
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="HTTP_client":::
+
+* **Managed identity credentials.**
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ManagedIdentityCredential":::
+
+* **A local variable _DigitalTwinsClient_.** Add the variable inside your function to hold your Azure Digital Twins client instance. Do *not* make this variable static inside your class.
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="DigitalTwinsClient":::
+
+* **A null check for _adtInstanceUrl_.** Add the null check and then wrap your function logic in a try/catch block to catch any exceptions.
+
+After these changes, your function code will look like the following example.
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs":::
 
 Also, to use authentication in a function, remember to:
 * [Enable managed identity](../app-service/overview-managed-identity.md?tabs=dotnet)
