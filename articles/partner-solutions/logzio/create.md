@@ -6,6 +6,7 @@ ms.topic: conceptual
 ms.service: partner-services
 ms.date: 07/28/2021
 ms.author: tomfitz
+ms.custom: references_regions
 ---
 
 # Quickstart: Create a Logz.io resource in Azure portal

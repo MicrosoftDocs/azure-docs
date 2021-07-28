@@ -129,12 +129,12 @@ Another method is go to **Logz Configuration** and select **Add sub account**. F
 1. Select the sub account you want to delete.
 1. Select **Delete**.
 
-    :::image type="content" source="./media/manage/delete-sub-account1.png" alt-text="Delete a Logz.io sub account from Logz configuration.":::
+    :::image type="content" source="./media/manage/delete-sub-account-1.png" alt-text="Delete a Logz.io sub account from Logz configuration.":::
 
 1. Type _yes_ to confirm that you want to delete Logz.io resource.
 1. Select **Delete**.
 
-    :::image type="content" source="./media/manage/delete-sub-account2.png" alt-text="Confirm to delete a Logz.io sub account.":::
+    :::image type="content" source="./media/manage/delete-sub-account-2.png" alt-text="Confirm to delete a Logz.io sub account.":::
 
 Logs are no longer sent to Logz.io and all billing for Logz.io stops.
 
@@ -144,12 +144,12 @@ Logs are no longer sent to Logz.io and all billing for Logz.io stops.
 1. Confirm that you want to delete the Logz.io resource.
 1. Select **Delete**.
 
-    :::image type="content" source="./media/manage/delete-resource1.png" alt-text="Delete a Logz.io resource from Overview.":::
+    :::image type="content" source="./media/manage/delete-resource-1.png" alt-text="Delete a Logz.io resource from Overview.":::
 
 1. Type _yes_ to confirm that you want to delete Logz.io resource.
 1. Select **Delete**.
 
-    :::image type="content" source="./media/manage/delete-resource2.png" alt-text="Confirm to delete a Logz.io resource.":::
+    :::image type="content" source="./media/manage/delete-resource-2.png" alt-text="Confirm to delete a Logz.io resource.":::
 
 > [!NOTE]
 > The **Delete** option on the main account is only activated when all the sub accounts mapped to the main account are already deleted. For more information about how to delete sub accounts, see [Delete Logz.io sub accounts](#delete-logzio-sub-account).
