@@ -1,196 +1,127 @@
 ---
-title: Create an Azure SQL assessment
-description: Learn how to assess SQL instances for migration to Azure SQL Managed Instance and Azure SQL Database
+title: Create an Azure App Service assessment
+description: Learn how to assess web apps for migration to Azure App Service
 author: rashi-ms
 ms.author: rajosh
-ms.topic: tutorial
-ms.date: 02/07/2021
+ms.topic: how to
+ms.date: 07/28/2021
 
 ---
 
-
-# Create an Azure SQL assessment
+# Create an Azure App Service assessment
 
 As part of your migration journey to Azure, you assess your on-premises workloads to measure cloud readiness, identify risks, and estimate costs and complexity.
-This article shows you how to assess discovered SQL instances in preparation for migration to Azure SQL, using the Azure Migrate: Discovery and assessment tool.
+This article shows you how to assess discovered ASP.NET web apps for migration to Azure App Service, using the Azure Migrate: Discovery and assessment tool.
 
 > [!Note]
-> Discovery and assessment of SQL Server instances and databases running in your VMware environment is now in preview. Get started with [this tutorial](tutorial-discover-vmware.md). If you want to try out this feature in an existing project, please ensure that you have completed the [prerequisites](how-to-discover-sql-existing-project.md) in this article.
+> Discovery and assessment of ASP.NET web apps running in your VMware environment is now in preview. Get started with [this tutorial](tutorial-discover-vmware.md). If you want to try out this feature in an existing project, please ensure that you have completed the [prerequisites](how-to-discover-webapps-existing-project.md) in this article.
 
 ## Before you start
 
 - Make sure you've [created](./create-manage-projects.md) an Azure Migrate project and have the Azure Migrate: Discovery and assessment tool added.
-- To create an assessment, you need to set up an Azure Migrate appliance for [VMware](how-to-set-up-appliance-vmware.md). The appliance discovers on-premises servers, and sends metadata and performance data to Azure Migrate. [Learn more](migrate-appliance.md)
+- To create an assessment, you need to set up an Azure Migrate appliance for [VMware](how-to-set-up-appliance-vmware.md). The [appliance](migrate-appliance.md) discovers on-premises servers, and sends metadata and performance data to Azure Migrate. Same appliance discovers ASP.NET web apps running in your VMware environment.
 
-## Azure SQL assessment overview
-You can create an Azure SQL assessment with sizing criteria as **Performance-based**. 
+## Azure App Service assessment overview
+
+An Azure App Service assessment provides one sizing criteria:
 
 **Sizing criteria** | **Details** | **Data**
 --- | --- | ---
-**Performance-based** | Assessments based on collected performance data | The recommended **Azure SQL configuration** is based on performance data of SQL instances and databases, which includes CPU usage, core counts, database file organizations and sizes, file IOs, batch query per second and memory size and usage by each of the database.
+**Configuration-based** | Assessments that make recommendations based on collected configuration data | The Azure App Service assessment takes only configuration data in to consideration for assessment calculation. Performance data for web apps is not collected.
 
-[Learn more](concepts-azure-sql-assessment-calculation.md) about Azure SQL assessments.
+[Learn more](concepts-azure-webapps-assessment-calculation.md) about Azure App Service assessments.
 
 ## Run an assessment
+
 Run an assessment as follows:
-1. On the **Overview** page > **Windows, Linux and SQL Server**, click **Assess and migrate servers**.
-    :::image type="content" source="./media/tutorial-assess-sql/assess-migrate.png" alt-text="Overview page for Azure Migrate":::
-2. On **Azure Migrate: Discovery and assessment**, click **Assess** and choose the assessment type as **Azure SQL**.
-    :::image type="content" source="./media/tutorial-assess-sql/assess.png" alt-text="Dropdown to choose assessment type as Azure SQL":::
-3. In **Assess servers** > you will be able to see the assessment type pre-selected as **Azure SQL** and the discovery source defaulted to **Servers discovered from Azure Migrate appliance**.
 
+1. On the **Overview** page > **Servers, databases and web apps**, click **Discover, assess and migrate**.
+    :::image type="content" source="./media/tutorial-assess-webapps/discover-assess-migrate.png" alt-text="Overview page for Azure Migrate":::
+2. On **Azure Migrate: Discovery and assessment**, click **Assess** and choose the assessment type as **Azure App Service**.
+    :::image type="content" source="./media/tutorial-assess-webapps/assess.png" alt-text="Dropdown to choose assessment type as Azure App Service":::
+3. In **Create assessment** > you will be able to see the assessment type pre-selected as **Azure App Service** and the discovery source defaulted to **Servers discovered from Azure Migrate appliance**.
 4. Click **Edit** to review the assessment properties.
-     :::image type="content" source="./media/tutorial-assess-sql/assess-servers-sql.png" alt-text="Edit button from where assessment properties can be customized":::
-5. In Assessment properties > **Target Properties**:
-    - In **Target location**, specify the Azure region to which you want to migrate. 
-        - Azure SQL configuration and cost recommendations are based on the location that you specify. 
-    - In **Target deployment type**,
-        - Select **Recommended**, if you want Azure Migrate to assess the readiness of your SQL instances for migrating to Azure SQL MI and Azure SQL DB, and recommend the best suited target deployment option, target tier, Azure SQL configuration and monthly estimates. [Learn More](concepts-azure-sql-assessment-calculation.md)
-        - Select **Azure SQL DB**, if you want to assess the readiness of your SQL instances for migrating to Azure SQL Databases only and review the target tier, Azure SQL configuration and monthly estimates.
-        - Select **Azure SQL MI**, if you want to assess the readiness of your SQL instances for migrating to Azure SQL Managed Instance only and review the target tier, Azure SQL configuration and monthly estimates.
-    - In **Reserved Capacity**, specify whether you want to use reserved capacity for the SQL server after migration.
-        - If you select a reserved capacity option, you can't specify “Discount (%)”.
-
-6. In Assessment properties > **Assessment criteria**:
-    - The Sizing criteria is defaulted to **Performance-based** which means Azure migrate will collect performance metrics pertaining to SQL instances and the databases managed by it to recommend an optimal-sized Azure SQL Database and/or Azure SQL Managed Instance configuration. You can specify:
-        - **Performance history** to indicate the data duration on which you want to base the assessment. (Default is one day)
-        - **Percentile utilization**, to indicate the percentile value you want to use for the performance sample. (Default is 95th percentile)
-    - In **Comfort factor**, indicate the buffer you want to use during assessment. This accounts for issues like seasonal usage, short performance history, and likely increases in future usage. For example, if you use a comfort factor of two: 
-        
-        **Component** | **Effective utilization** | **Add comfort factor (2.0)**
-        --- | --- | ---
-        Cores | 2  | 4
-        Memory | 8 GB | 16 GB
-   
-7. In **Pricing**:
-    - In **Offer/Licensing program**, specify the Azure offer if you're enrolled. Currently you can only choose from Pay-as-you-go and Pay-as-you-go Dev/Test. 
-        - You can avail additional discount by applying reserved capacity and Azure Hybrid Benefit on top of Pay-as-you-go offer. 
-        - You can apply Azure Hybrid Benefit on top of Pay-as-you-go Dev/Test. The assessment currently does not support applying Reserved Capacity on top of Pay-as-you-go Dev/Test offer.
-    - In **Service Tier**, choose the most appropriate service tier option to accommodate your business needs for migration to Azure SQL Database and/or Azure SQL Managed Instance: 
-        - Select **Recommended** if you want Azure Migrate to recommend the best suited service tier for your servers. This can be General purpose or Business critical. Learn More
-        - Select **General Purpose** if you want an Azure SQL configuration designed for budget-oriented workloads.
-        - Select **Business Critical** if you want an Azure SQL configuration designed for low-latency workloads with high resiliency to failures and fast failovers.
-    - In **Discount (%)**, add any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
-    - In **Currency**, select the billing currency for your account.
-    - In **Azure Hybrid Benefit**, specify whether you already have a SQL Server license. If you do and they're covered with active Software Assurance of SQL Server Subscriptions, you can apply for the Azure Hybrid Benefit when you bring licenses to Azure.
-    - Click Save if you make changes.
-     :::image type="content" source="./media/tutorial-assess-sql/view-all.png" alt-text="Save button on assessment properties":::
-8. In **Assess Servers** > click Next.
+     :::image type="content" source="./media/tutorial-assess-webapps/assess-webapps.png" alt-text="Edit button from where assessment properties can be customized":::
+5. Here's what's included in Azure App Service assessment properties:
+**Property** | **Details**
+--- | ---
+**Target location** | The Azure region to which you want to migrate. Azure App Service configuration and cost recommendations are based on the location that you specify.
+**Isolation required** | Select yes if you want your web apps to run in a private and dedicated environment in an Azure datacenter using Dv2-series VMs with faster processors, SSD storage, and double the memory to core ratio compared to Standard plans.
+**Reserved instances** | Specifies reserved instances so that cost estimations in the assessment take them into account.<br/><br/> If you select a reserved instance option, you can't specify “Discount (%)”.
+**Offer** | The [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) in which you're enrolled. The assessment estimates the cost for that offer.
+**Currency** | The billing currency for your account.
+**Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
+**EA subscription** | Specifies that an Enterprise Agreement (EA) subscription is used for cost estimation. Takes into account the discount applicable to the subscription. <br/><br/> Leave the settings for reserved instances, and discount (%) properties with their default settings.
+     :::image type="content" source="./media/tutorial-assess-webapps/webapps-assessment-properties.png" alt-text="App Service assessment properties":::
+8. In **Create assessment** > click Next.
 9.	In **Select servers to assess** > **Assessment name** > specify a name for the assessment.
 10.	In **Select or create a group** > select **Create New** and specify a group name.
-     :::image type="content" source="./media/tutorial-assess-sql/assessment-add-servers.png" alt-text="Location of New group button":::
 11.	Select the appliance, and select the servers you want to add to the group. Then click Next.
 12.	In **Review + create assessment**, review the assessment details, and click Create Assessment to create the group and run the assessment.
-     :::image type="content" source="./media/tutorial-assess-sql/assessment-create.png" alt-text="Location of Review and create assessment button.":::
-13.	After the assessment is created, go to **Windows, Linux and SQL Server** > **Azure Migrate: Discovery and assessment** tile > Click on the number next to Azure SQL assessment.
-     :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-navigation.png" alt-text="Navigation to created assessment":::
+13.	After the assessment is created, go to **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** tile > Refresh the tile data by clicking on the Refresh option on top of the tile. Wait for data to get refreshed.
+     :::image type="content" source="./media/tutorial-assess-webapps/tile-refresh.png" alt-text="Refresh discovery and assessment tool data":::
+14. Click on the number next to Azure App Service assessment.
+     :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-navigation.png" alt-text="Navigation to created assessment":::
 15.	Click on the assessment name which you wish to view.
-
-> [!NOTE]
-> As Azure SQL assessments are performance-based assessments, we recommend that you wait at least a day after starting discovery before you create an assessment. This provides time to collect performance data with higher confidence. If your discovery is still in progress, the readiness of your SQL instances will be marked as **Unknown**. Ideally, after you start discovery, **wait for the performance duration you specify (day/week/month)** to create or recalculate the assessment for a high-confidence rating. 
 
 ## Review an assessment
 
 **To view an assessment**:
 
-1. **Windows, Linux and SQL Server** > **Azure Migrate: Discovery and assessment** > Click on the number next to Azure SQL assessment.
-2. Click on the assessment name which you wish to view. As an example(estimations and costs for example only):
-      :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-summary.png" alt-text="SQL assessment overview":::
+1. **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** > Click on the number next to Azure App Service assessment.
+2. Click on the assessment name which you wish to view.
+      :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-summary.png" alt-text="App Service assessment overview":::
 3. Review the assessment summary. You can also edit the assessment properties or recalculate the assessment.
 
-#### Discovered items
+#### Azure App Service readiness
 
-This indicates the number of SQL servers, instances and databases that were assessed in this assessment.
-    
-#### Azure readiness
+This indicates the distribution of assessed web apps. You can drill-down to understand details around migration issues/warnings that you can remediate before migration to Azure App Service. [Learn More](concepts-azure-webapps-assessment-calculation.md)
+You can also review the recommended App Service SKU for migrating to Azure App Service.
 
-This indicates the distribution of assessed SQL instances: 
-    
-**Target deployment type (in assessment properties)** | **Readiness**   
---- | --- |
-**Recommended** |  Ready for Azure SQL Database, Ready for Azure SQL Managed Instance, Potentially ready for Azure VM, Readiness unknown (In case the discovery is in progress or there are some discovery issues to be fixed)
-**Azure SQL DB** or **Azure SQL MI** | Ready for Azure SQL Database or Azure SQL Managed Instance, Not ready for Azure SQL Database or Azure SQL Managed Instance, Readiness unknown (In case the discovery is in progress or there are some discovery issues to be fixed)
-     
-You can drill-down to understand details around migration issues/warnings that you can remediate before migration to Azure SQL. [Learn More](concepts-azure-sql-assessment-calculation.md)
-You can also review the recommended Azure SQL configurations for migrating to Azure SQL databases and/or Managed Instances.
-    
-#### Azure SQL Database and Managed Instance cost details
+#### Azure App Service Cost details
 
-The monthly cost estimate includes compute and storage costs for Azure SQL configurations corresponding to the recommended Azure SQL Database and/or Azure SQL Managed Instance deployment type. [Learn More](concepts-azure-sql-assessment-calculation.md#calculate-monthly-costs)
-
+An [App Service plan](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) carries a [charge](https://azure.microsoft.com/pricing/details/app-service/windows/) on the compute resources it uses.
 
 ### Review readiness
 
-1. Click **Azure SQL readiness**.
-    :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-readiness.png" alt-text="Azure SQL readiness details":::
-1. In Azure SQL readiness, review the **Azure SQL DB readiness** and **Azure SQL MI readiness** for the assessed SQL instances:
-    - **Ready**: The instance is ready to be migrated to Azure SQL DB/MI without any migration issues or warnings. 
-        - Ready(hyperlinked and blue information icon): The instance is ready to be migrated to Azure SQL DB/MI without any migration issues but has some migration warnings that you need to review. You can click on the hyperlink to review the migration warnings and the recommended remediation guidance:
-        :::image type="content" source="./media/tutorial-assess-sql/assess-ready.png" alt-text="Assessment with ready status":::       
-    - **Not ready**: The instance has one or more migration issues for migrating to Azure SQL DB/MI. You can click on the hyperlink and review the migration issues and the recommended remediation guidance.
-    - **Unknown**: Azure Migrate can't assess readiness, because the discovery is in progress or there are issues during discovery that need to be fixed from the notifications blade. If the issue persists, please contact Microsoft support. 
-1. Review the recommended deployment type for the SQL instance which is determined as per the matrix below:
+1. Click **Azure App Service readiness**.
+    :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-readiness.png" alt-text="Azure App Service readiness details":::
+1. Review Azure App Service readiness column in table, for the assessed web apps:
+    1. If there are no compatibility issues found, the readiness is marked as **Ready** for the target deployment type.
+    1. If there are non-critical compatibility issues, such as degraded or unsupported features that do not block the migration to a specific target deployment type, the readiness is marked as **Ready with conditions** (hyperlinked) with **warning** details and recommended remediation guidance.
+    1. If there are any compatibility issues that may block the migration to a specific target deployment type, the readiness is marked as **Not ready** with **issue** details and recommended remediation guidance.
+    1. If the discovery is still in progress or there are any discovery issues for a web app, the readiness is marked as **Unknown** as the assessment could not compute the readiness for that web app.
+1. Review the recommended SKU for the web apps which is determined as per the matrix below:
 
-    - **Target deployment type** (as selected in assessment properties): **Recommended**
+**Isolation required** | **Reserved instance** | **App Service plan/ SKU**
+--- | --- | ---
+Yes  | Yes | I1
+Yes  | No  | I1
+No  | Yes | P1v3
+No  | No | P1v2
 
-        **Azure SQL DB readiness** | **Azure SQL MI readiness** | **Recommended deployment type** | **Azure SQL configuration and cost estimates calculated?**
-         --- | --- | --- | --- |
-        Ready | Ready | Azure SQL DB or Azure SQL MI [Learn more](concepts-azure-sql-assessment-calculation.md#recommended-deployment-type) | Yes
-        Ready | Not ready or Unknown | Azure SQL DB | Yes
-        Not ready or Unknown | Ready | Azure SQL MI | Yes
-        Not ready | Not ready | Potentially ready for Azure VM [Learn more](concepts-azure-sql-assessment-calculation.md#potentially-ready-for-azure-vm) | No
-        Not ready or Unknown | Not ready or Unknown | Unknown | No
-    
-    - **Target deployment type** (as selected in assessment properties): **Azure SQL DB**
-    
-        **Azure SQL DB readiness** | **Azure SQL configuration and cost estimates calculated?**
-        --- | --- |
-        Ready | Yes
-        Not ready | No
-        Unknown | No
-    
-    - **Target deployment type** (as selected in assessment properties): **Azure SQL MI**
-    
-        **Azure SQL MI readiness** | **Azure SQL configuration and cost estimates calculated?**
-         --- | --- |
-        Ready | Yes
-        Not ready | No
-        Unknown | No
+**Azure App Service readiness** | **Determine App Service SKU** | **Determine Cost estimates**
+--- | --- | ---
+Ready  | Yes | Yes
+Ready with conditions  | Yes  | Yes
+Not ready  | No | No
+Unknown  | No | No
 
-4. Click on the instance name drill down to see the number of user databases, instance details including instance properties, compute (scoped to instance) and source database storage details.
-5. Click on the number of user databases to review the list of databases and their details. As an example(estimations and costs for example only):
-    :::image type="content" source="./media/tutorial-assess-sql/assessment-db.png" alt-text="SQL instance detail":::
-5. Click on review details in the Migration issues column to review the migration issues and warnings for a particular target deployment type. 
-    :::image type="content" source="./media/tutorial-assess-sql/assessment-db-issues.png" alt-text="DB migration issues and warnings":::
+4. Click on the App Service plan hyperlink in table to see the App Service plan details such as compute resources, and other web apps that are part of the same plan.
+    :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-plan-details.png" alt-text="App Service plan details":::
 
 ### Review cost estimates
-The assessment summary shows the estimated monthly compute and storage costs for Azure SQL configurations corresponding to the recommended Azure SQL databases and/or Managed Instances deployment type.
+The assessment summary shows the estimated monthly costs for hosting you web apps in App Service. In App Service, you pay charges per App Service plan and not per web app. One or more apps can be configured to run on the same computing resources (or in the same App Service plan). Whatever apps you put into this App Service plan run on these compute resources as defined by your App Service plan.
+To optimize cost, Azure Migrate assessment allocates multiple web apps to each recommended App Service plan. Number of web apps allocated to each plan instance is as per below table.
 
-1. Review the monthly total costs. Costs are aggregated for all SQL instances in the assessed group.
-    - Cost estimates are based on the recommended Azure SQL configuration for an instance. 
-    - Estimated monthly costs for compute and storage are shown. As an example(estimations and costs for example only):
-    
-    :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-cost.png" alt-text="Cost details":::
-
-1. You can drill down at an instance level to see Azure SQL configuration and cost estimates at an instance level.  
-1. You can also drill down to the database list to review the Azure SQL configuration and cost estimates per database when an Azure SQL Database configuration is recommended.
-
-### Review confidence rating
-Azure Migrate assigns a confidence rating to all Azure SQL assessments based on the availability of the performance/utilization data points needed to compute the assessment for all the assessed SQL instances and databases. Rating is from one star (lowest) to five stars (highest).
- 
-The confidence rating helps you estimate the reliability of size recommendations in the assessment.  Confidence ratings are as follows.
-
-**Data point availability** | **Confidence rating**
+**App Service plan** | **Web apps per App Service plan**
 --- | ---
-0%-20% | 1 star
-21%-40% | 2 stars
-41%-60% | 3 stars
-61%-80% | 4 stars
-81%-100% | 5 stars
+I1  | 8
+P1v2  | 8
+P1v3  | 16
 
-[Learn more](concepts-azure-sql-assessment-calculation.md#confidence-ratings) about confidence ratings.
+    :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-cost.png" alt-text="Cost details":::
 
 ## Next steps
 
-- [Learn more](concepts-azure-sql-assessment-calculation.md) about how Azure SQL assessments are calculated.
-- Start migrating SQL instances and databases using [Azure Database Migration Service](../dms/dms-overview.md).
+- [Learn more](concepts-azure-webapps-assessment-calculation.md) about how Azure App Service assessments are calculated.
