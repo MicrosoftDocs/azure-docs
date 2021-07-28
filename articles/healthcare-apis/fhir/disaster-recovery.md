@@ -31,7 +31,7 @@ The DR process involves the following steps:
 
 By default, the Azure API for FHIR offers data protection through backup and restore. When the disaster recovery feature is enabled, data replication begins. A data replica is automatically created and synchronized in the secondary Azure region. The initial data replication can take a few minutes to a few hours, or longer, depending on the amount of data. The secondary data replica is a replication of the primary data. It's used directly to recover the service, and it helps speed up the recovery process.
 
-It is worth noting that the throughput RU/s must have the same values in the primary and secondary regions.
+It's worth noting that the throughput RU/s must have the same values in the primary and secondary regions.
 
 [ ![Azure Traffic Manager.](media/disaster-recovery/azure-traffic-manager.png) ](media/disaster-recovery/azure-traffic-manager.png#lightbox)
 
@@ -47,14 +47,14 @@ After the affected region recovers, it's automatically available as a secondary 
 
 [ ![Replication in disaster recovery.](media/disaster-recovery/replication-in-disaster-recovery.png) ](media/disaster-recovery/replication-in-disaster-recovery.png#lightbox)
 
-During the time when compute has failed back to the recovered region but data has not, there may be potential network latencies because compute and data are in two different regions. The network latencies should disappear automatically as soon as the data fails back to the recovered region through a manual trigger.
+When the compute has failed back to the recovered region but the data hasn't, there may be potential network latencies. The main reason is that the compute and the data are in two different regions. The network latencies should disappear automatically as soon as the data fails back to the recovered region through a manual trigger.
 
 [ ![Network latency.](media/disaster-recovery/network-latency.png) ](media/disaster-recovery/network-latency.png#lightbox)
 
 
 ### Manual failback
 
-The compute environment fails back automatically to the recovered region. The data is switched back to the recovered region manually by the Microsoft support team using the script. 
+The compute fails back automatically to the recovered region. The data is switched back to the recovered region manually by the Microsoft support team using the script. 
 
 [ ![Failback in disaster recovery.](media/disaster-recovery/failback-in-disaster-recovery.png) ](media/disaster-recovery/failback-in-disaster-recovery.png#lightbox)
 
@@ -85,7 +85,7 @@ The private link feature should continue to work during a regional outage and af
 
 ### CMK
 
-Your access to the Azure API for FHIR will be maintained if the key vault hosting the managed key in your subscription is accessible. There's a possible temporary downtime as key vault can take up to 20 minutes to re-establish its connection if there is a regional failover. For more information, see [Azure Key Vault availability and redundancy](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance).  
+Your access to the Azure API for FHIR will be maintained if the key vault hosting the managed key in your subscription is accessible. There's a possible temporary downtime as Key Vault can take up to 20 minutes to re-establish its connection. For more information, see [Azure Key Vault availability and redundancy](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance).  
 
 ### $export
 
@@ -102,7 +102,7 @@ Any existing connection won't function until the failed region is restored. You 
 
 ## How to test DR
 
-While not required, you can test the DR feature on a non-production environment. For DR test, only the data will be included and the compute will not be included. 
+While not required, you can test the DR feature on a non-production environment. For DR test, only the data will be included and the compute won't be included. 
 
 Consider the following steps for DR test.
 
