@@ -43,12 +43,14 @@ Since customers bring their own hardware with performance and availability requi
 
 ### Choose general purpose if
 
-- CPU/memory requirements meet or are within the limits of SQL Server Standard edition 
-- The high availability options provided by kubernetes, such as pod redeployments, is sufficient for the workload
+- CPU/memory requirements meet or are within the limits of the general purpose service tier
+- The high availability options provided by Kubernetes, such as pod redeployments, is sufficient for the workload
 - Application does not need read scale out
+- The application does not require any of the features found in the business critical service tier (same as SQL Server Enterprise Edition)
 
 ### Choose business critical if
 
-- CPU/memory requirements exceed the limits of SQL Server Standard edition 
-- Higher level of High Availability such as built-in Availability Groups to handle application failovers than what is offered by kubernetes. 
-- take advantage of read scale out to offload read workloads to one of the secondaries
+- CPU/memory requirements exceed the limits of the general purpose service tier
+- Application requires a higher level of High Availability such as built-in Availability Groups to handle application failovers than what is offered by Kubernetes. 
+- Application can take advantage of read scale out to offload read workloads to the secondary replicas
+- Application requires features found only in the business critical service tier (same as SQL Server Enterprise Edition)
