@@ -24,7 +24,7 @@
     href: tutorial-configure-networking.md
   - name: Create a private cloud
     href: tutorial-create-private-cloud.md
-  - name: Create a network segment
+  - name: Create an NSX-T network segment
     href: tutorial-nsx-t-network-segment.md
   - name: Delete a private cloud
     href: tutorial-delete-private-cloud.md
@@ -38,6 +38,8 @@
     href: tutorial-expressroute-global-reach-private-cloud.md
   - name: Configure an external identity source for vCenter
     href: tutorial-configure-identity-source-vcenter.md
+  - name: Configure storage policy 
+    href: tutorial-configure-storage-policy.md
 - name: Concepts
   items:
   - name: Access and identity

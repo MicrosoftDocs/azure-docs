@@ -97,6 +97,8 @@ landingContent:
             url: tutorial-scale-private-cloud.md
           - text: Delete a private cloud
             url: tutorial-delete-private-cloud.md
+          - text: Configure storage policy 
+            url: tutorial-configure-storage-policy.md
 
 
 # card 12
