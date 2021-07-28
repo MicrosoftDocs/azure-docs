@@ -12,11 +12,11 @@ In Azure VMware Solution, you'll get vCenter access with CloudAdmin role. You ca
 
 Azure VMware Solution supports the following operations:
 
-- [Install and uninstall JetStream DR solution](deploy-disaster-recovery-using-jetstream.md) - 
+- [Install and uninstall JetStream DR solution](deploy-disaster-recovery-using-jetstream.md)
 
-- [Configure an external indentity source](tutorial-configure-identity-source.md) - 
+- [Configure an external indentity source](tutorial-configure-identity-source.md)
 
-- [View and edit the storage policy](concepts-storage.md#storage-policies-and-fault-tolerance) - 
+- [View and edit the storage policy](concepts-storage.md#storage-policies-and-fault-tolerance) 
 
 
 ## View the status of a task
@@ -80,7 +80,7 @@ You can view the status of any run command executed including the output, errors
 
 2. Select the ellipse (...) of the job you want to cancel and delete.
 
-   :::image type="content" source="media/run-command/run-execution-cancel-delete-job-method-2.png" alt-text="Screenshot showing how to cancel and delete a run command.":::
+   :::image type="content" source="media/run-command/run-execution-cancel-delete-job-method-2.png" alt-text="Screenshot showing how to cancel and delete a run command using the ellipses.":::
 
 3. Select **Yes** to cancel and remove the job for all users.
 
