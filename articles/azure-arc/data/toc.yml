@@ -202,20 +202,30 @@
     items:
     - name: Overview
       href: ./reference/overview.md
-    - name:
-      href:
-    - name:
-      href:
-    - name:
-      href:
-    - name:
-      href:
-    - name:
-      href:
-    - name:
-      href:
-    - name:
-      href:
+    - name: arcdata dc
+      href: ./reference/reference-az-arcdata-dc.md
+    - name: arcdata dc debug
+      href: ./reference/reference-az-arcdata-dc-config.md
+    - name: arcdata dc debug
+      href: ./reference/reference-az-arcdata-dc-debug.md
+    - name: arcdata dc endpoint
+      href: ./reference/reference-az-arcdata-dc-endpoint.md
+    - name: arcdata dc status
+      href: ./reference/reference-az-arcdata-dc-status.md
+    - name: arcdata dc resource-kind
+      href: ./reference/reference-az-arcdata-dc-resource-kind.md
+    - name: postgres arc server
+      href: ./reference/reference-az-postgres-arc-server.md
+    - name: postgres arc server endpoint
+      href: ./reference/reference-az-postgres-arc-server-endpoint.md
+    - name: sql mi arc
+      href: ./reference/reference-az-sql-mi-arc.md
+    - name: sql mi arc endpoint
+      href: ./reference/reference-az-sql-mi-arc-endpoint.md
+    - name: sql mi arc config
+      href: ./reference/reference-az-sql-mi-arc-config.md
+    - name: sql mi arc dag
+      href: ./reference/reference-az-sql-mi-arc-dag.md
 - name: Resources
   items:
     - name: Plan for deployment

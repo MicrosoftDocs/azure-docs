@@ -1,5 +1,5 @@
 ---
-title: az arcdata reference
+title: az arcdata reference overview
 titleSuffix: Azure Arc-enabled data services
 description: Reference article for az arcdata commands.
 author: MikeRayMSFT
@@ -11,7 +11,7 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ---
 
-# az arcdata reference
+# Overview: az arcdata reference
 
 ## az arcdata
 ### Commands
