@@ -7,7 +7,7 @@ author: wellee
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 08/0`/2021
+ms.date: 08/01/2021
 ms.author: wellee
 
 ---
