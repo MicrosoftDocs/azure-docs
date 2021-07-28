@@ -985,100 +985,35 @@ If you are using the Table Client Library, you have three options for working wi
 
 If you know the type of the entity stored with a specific **RowKey** and **PartitionKey** values, then you can specify the entity type when you retrieve the entity as shown in the previous two examples that retrieve entities of type **EmployeeEntity**: [Executing a point query using the Storage Client Library](#executing-a-point-query-using-the-storage-client-library) and [Retrieving multiple entities using LINQ](#retrieving-multiple-entities-using-linq).  
 
-The second option is to use the **DynamicTableEntity** type (a property bag) instead of a concrete POCO entity type (this option may also improve performance because there is no need to serialize and deserialize the entity to .NET types). The following C# code potentially retrieves multiple entities of different types from the table, but returns all entities as **DynamicTableEntity** instances. It then uses the **EntityType** property to determine the type of each entity:  
+The second option is to use the **TableEntity** type (a property bag) instead of a concrete POCO entity type (this option may also improve performance because there is no need to serialize and deserialize the entity to .NET types). The following C# code potentially retrieves multiple entities of different types from the table, but returns all entities as **TableEntity** instances. It then uses the **EntityType** property to determine the type of each entity:  
 
 ```csharp
-string filter =
-    TableQuery.CombineFilters(
-        TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Sales"),
-        TableOperators.And,
-        TableQuery.CombineFilters(
-            TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.GreaterThanOrEqual, "B"),
-            TableOperators.And,
-            TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.LessThan, "F")));
-        
-TableQuery<DynamicTableEntity> entityQuery =
-    new TableQuery<DynamicTableEntity>().Where(filter);
-    
-var employees = employeeTable.ExecuteQuery(entityQuery);
+Pageable<TableEntity> entities = employeeTable.Query<TableEntity>(x =>
+    x.PartitionKey ==  "Sales" && x.RowKey.CompareTo("B") >= 0 && x.RowKey.CompareTo("F") <= 0)
 
-IEnumerable<DynamicTableEntity> entities = employeeTable.ExecuteQuery(entityQuery);
-foreach (var e in entities)
+foreach (var entity in entities)
 {
-    EntityProperty entityTypeProperty;
-    if (e.Properties.TryGetValue("EntityType", out entityTypeProperty))
+    if (entity.GetString("EntityType") == "Employee")
     {
-        if (entityTypeProperty.StringValue == "Employee")
-        {
-            // use entityTypeProperty, RowKey, PartitionKey, Etag, and Timestamp
-        }
+        // use entityTypeProperty, RowKey, PartitionKey, Etag, and Timestamp
     }
 }  
 ```
 
-To retrieve other properties you must use the **TryGetValue** method on the **Properties** property of the **DynamicTableEntity** class.  
-
-A third option is to combine using the **DynamicTableEntity** type and an **EntityResolver** instance. This enables you to resolve to multiple POCO types in the same query. In this example, the **EntityResolver** delegate is using the **EntityType** property to distinguish between the two types of entity that the query returns. The **Resolve** method uses the **resolver** delegate to resolve **DynamicTableEntity** instances to **TableEntity** instances.  
-
-```csharp
-EntityResolver<TableEntity> resolver = (pk, rk, ts, props, etag) =>
-{
-    TableEntity resolvedEntity = null;
-    if (props["EntityType"].StringValue == "Department")
-    {
-        resolvedEntity = new DepartmentEntity();
-    }
-    else if (props["EntityType"].StringValue == "Employee")
-    {
-        resolvedEntity = new EmployeeEntity();
-    }
-    else 
-    {
-        throw new ArgumentException("Unrecognized entity", "props");
-    }
-
-    resolvedEntity.PartitionKey = pk;
-    resolvedEntity.RowKey = rk;
-    resolvedEntity.Timestamp = ts;
-    resolvedEntity.ETag = etag;
-    resolvedEntity.ReadEntity(props, null);
-    return resolvedEntity;
-};
-
-string filter = TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Sales");
-        
-TableQuery<DynamicTableEntity> entityQuery = new TableQuery<DynamicTableEntity>().Where(filter);
-
-var entities = employeeTable.ExecuteQuery(entityQuery, resolver);
-foreach (var e in entities)
-{
-    if (e is DepartmentEntity)
-    {
-        // ...
-    }
-    else if (e is EmployeeEntity)
-    {
-        // ...
-    }
-}  
-```
+To retrieve other properties you must use the **GetString** method on the **entity**  of the **TableEntity** class.  
 
 ### Modifying heterogeneous entity types
 
 You do not need to know the type of an entity to delete it, and you always know the type of an entity when you insert it. However, you can use **DynamicTableEntity** type to update an entity without knowing its type and without using a POCO entity class. The following code sample retrieves a single entity, and checks the **EmployeeCount** property exists before updating it.  
 
 ```csharp
-TableResult result = employeeTable.Execute(TableOperation.Retrieve(partitionKey, rowKey));
-DynamicTableEntity department = (DynamicTableEntity)result.Result;
-
-EntityProperty countProperty;
-if (!department.Properties.TryGetValue("EmployeeCount", out countProperty))
+var result = employeeTable.GetEntity<TableEntity>(partitionKey, rowKey);
+TableEntity department = result.Value;
+if (department.GetInt32("EmployeeCount") == null)
 {
     throw new InvalidOperationException("Invalid entity, EmployeeCount property not found.");
 }
-
-countProperty.Int32Value += 1;
-employeeTable.Execute(TableOperation.Merge(department));
+ employeeTable.UpdateEntity(department, ETag.All, TableUpdateMode.Merge);
 ```
 
 ## Controlling access with Shared Access Signatures
