@@ -47,7 +47,7 @@ You can view the status of any run command executed including the output, errors
 
       :::image type="content" source="media/run-command/run-execution-status-example-error.png" alt-text="Screenshot showing the errors detected during the execution of a task.":::
 
-   - **Warning** - Shows any warnings encounted during the execution of the cmdlet.  The minimal requirements were met but the environment changed during execution. For example, the VM was rebooted during execution triggering the cmdlet to stop resulting in the task failing. 
+   - **Warning** - Shows any warnings encountered during the execution of the cmdlet.  The minimal requirements were met but the environment changed during execution. For example, the VM was rebooted during execution triggering the cmdlet to stop resulting in the task failing. 
 
       :::image type="content" source="media/run-command/run-execution-status-example-warning.png" alt-text="Screenshot showing the warnings detected during the execution of a task.":::
 
