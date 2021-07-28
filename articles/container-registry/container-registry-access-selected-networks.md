@@ -117,7 +117,7 @@ One workaround is to change the agent used to run the pipeline from Microsoft-ho
 
 ## Access from AKS with internal load balancer
 
-If you want to use an Azure Kubernetes Service cluster configured with an [internal load balancer](../aks/internal-lb.md) to access a registry that limits access to specific IP addresses or networks, you can't configure a fixed AKS public IP address. This limitation is because the AKS cluster with an internal load balancer in a hybrid scenario has a random external (outbound) IP address.
+If you want to use an Azure Kubernetes Service cluster with an [internal load balancer](../aks/internal-lb.md) to access a registry that limits access to specific IP addresses or networks, you can't configure a fixed AKS public IP address. This limitation is because the AKS cluster with an internal load balancer in a hybrid scenario has a random external (outbound) IP address.
 
 To work around this problem and allow the AKS cluster to access the registry, add an Azure Container Registry service endpoint (preview) to the AKS subnet. For detailed steps, see [Restrict access to a container registry using a service endpoint in an Azure virtual network](container-registry-vnet.md). 
 
