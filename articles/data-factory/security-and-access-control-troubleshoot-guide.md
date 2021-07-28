@@ -211,22 +211,26 @@ If you  are doing any operation related to CMK, you should do all ADF related op
 
 There are three possible ways to solve the issue. They are as follows:
 
-1. You revoked ADF's access to Key vault where the CMK key was stored. 
-You  can reassign access to data factory following permissions: Get, Unwrap Key, and Wrap Key. These permissions are required to enable customer-managed keys in Data Factory. Please refer to [Grant access to ADF](https://docs.microsoft.com/azure/data-factory/enable-customer-managed-key#grant-data-factory-access-to-azure-key-vault)
+* You revoked ADF's access to Key vault where the CMK key was stored. 
+You  can reassign access to data factory following permissions: **Get, Unwrap Key, and Wrap Key**. These permissions are required to enable customer-managed keys in Data Factory. Please refer to [Grant access to ADF](https://docs.microsoft.com/azure/data-factory/enable-customer-managed-key#grant-data-factory-access-to-azure-key-vault)
  Once the permission is provided, you  should be able to delete ADF
  
-2.  Customer deleted Key Vault / CMK before deleting ADF. 
+* Customer deleted Key Vault / CMK before deleting ADF. 
  CMK in ADF should have "Soft Delete" enabled and "Purge Protect" enabled which has default retention policy of 90 days. You can restore the deleted key.  
 Please review [Recover deleted Key](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-portal#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates ) and [Deleted Key Value](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault)
 
-3.  User Assigned Managed Identity (UA-MI) was deleted before ADF. 
+* User Assigned Managed Identity (UA-MI) was deleted before ADF. 
 You can recover from this by using REST API calls, you can do this in an http client of your choice in any programming language. If you have not anything already set up for REST API calls with Azure authentication, the easiest way to do this would be by using POSTMAN/Fiddler. Please follow following steps.
 
-* Make a GET call to the factory using Method:[ GET Url] (https://management.azure.com/subscriptions/<Subscription>/resourcegroups/<ResourceGroup>/providers/Microsoft.DataFactory/factories/<FactoryName?api-version=2018-06-01)
-* You need to create a new User Managed Identity with a different Name (same name may work, but just to be sure, it's safer to use a different name than the one in the GET response)
- * Modify the encryption.identity property and identity.userassignedidentities to point to the newly created managed identity. Remove the clientId and principalId from the userAssignedIdentity object. 
- * Make a PUT call to the same factory url passing the new body. It is very important that you are  passing whatever you got in the GET response, and only modify the identity. Otherwise they would override other settings unintentionally. 
- * After the call succeeds, you  will be able to see the entities again and retry deleting. 
+   1.  Make a GET call to the factory using Method: GET Url like   `https://management.azure.com/subscriptions/YourSubscription/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourFactoryName?api-version=2018-06-01`
+
+   2. You need to create a new User Managed Identity with a different Name (same name may work, but just to be sure, it's safer to use a different name than the one in the GET response)
+
+   3. Modify the encryption.identity property and identity.userassignedidentities to point to the newly created managed identity. Remove the clientId and principalId from the userAssignedIdentity object. 
+
+   4.  Make a PUT call to the same factory url passing the new body. It is very important that you are  passing whatever you got in the GET response, and only modify the identity. Otherwise they would override other settings unintentionally. 
+
+   5.  After the call succeeds, you  will be able to see the entities again and retry deleting. 
 
 ## Next steps
 
