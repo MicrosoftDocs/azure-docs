@@ -82,6 +82,9 @@ Here is a video walkthrough on creating dashboards.
 
 ![Screenshot shows Grafana visualizations.](media/visualizations/grafana.png)
 
+> [!IMPORTANT]
+> The Internet Explorer browser and older Microsoft Edge browsers are not compatible with Grafana, you must use a chromium-based browser including Microsoft Edge. See [supported browsers for Grafana](https://grafana.com/docs/grafana/latest/installation/requirements/#supported-web-browsers).
+
 ### Advantages
 - Rich visualizations.
 - Rich ecosystem of datasources.

@@ -44,7 +44,7 @@ The sign-in flow involves following steps:
 Depending on the user's SSO session and Azure AD identity settings, the user might be prompted to:
 
 - Provide their email address or phone number.
-- Enter their password or sign in with the [Microsoft authenticator app](https://www.microsoft.com/account/authenticator).
+- Enter their password or sign in with the [Microsoft authenticator app](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6).
 - Complete multi-factor authentication.
 - Accept the consent page. Your customer's tenant administrator can [grant tenant-wide admin consent to an app](../active-directory/manage-apps/grant-admin-consent.md). When granted, the consent page won't be presented to the user.
 

@@ -1,11 +1,11 @@
 ---
 title: Frequently asked questions about Azure Spring Cloud | Microsoft Docs
 description: This article answers frequently asked questions about Azure Spring Cloud.
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ---
@@ -148,7 +148,7 @@ LTS and MTS JDK releases have quarterly security updates, bug fixes, and critica
 
 ### How long will Java 8 and Java 11 LTS versions be supported?
 
-See [Java long-term support for Azure and Azure Stack](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+See [Java long-term support for Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure).
 
 * Java 8 LTS will be supported until December 2030.
 * Java 11 LTS will be supported until September 2027.

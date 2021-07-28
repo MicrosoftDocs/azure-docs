@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Holmes Cloud for automatic user provisioning with Az
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Holmes Cloud.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: b1088904-2ea2-4440-b39e-c4b7712b8229
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Holmes Cloud for automatic user provisioning

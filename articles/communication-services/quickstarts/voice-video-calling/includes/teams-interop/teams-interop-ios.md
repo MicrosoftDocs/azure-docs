@@ -115,7 +115,6 @@ struct ContentView: View {
         }
     }
 
-
     func leaveMeeting() {
         if let call = call {
             call.hangUp(options: nil, completionHandler: { (error) in
@@ -157,7 +156,6 @@ class CallObserver : NSObject, CallDelegate {
             owner.recordingStatus = ""
         }
     }
-
 
     private static func callStateToString(state: CallState) -> String {
         switch state {

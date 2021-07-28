@@ -4,14 +4,14 @@ description: Learn about file shares hosted in Azure Files using the Server Mess
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/06/2021
+ms.date: 06/25/2021
 ms.author: rogarana
 ms.subservice: files
 
 ---
 
 # SMB file shares in Azure Files
-Azure Files offers two industry-standard protocols for mounting Azure file share: the [Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) protocol and the [Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) protocol (preview). Azure Files enables you to pick the file system protocol that is the best fit for your workload. Azure file shares don't support accessing an individual Azure file share with both the SMB and NFS protocols, although you can create SMB and NFS file shares within the same storage account. For all file shares, Azure Files offers enterprise-grade file shares that can scale up to meet your storage needs and can be accessed concurrently by thousands of clients.
+Azure Files offers two industry-standard protocols for mounting Azure file share: the [Server Message Block (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) protocol and the [Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) protocol (preview). Azure Files enables you to pick the file system protocol that is the best fit for your workload. Azure file shares don't support accessing an individual Azure file share with both the SMB and NFS protocols, although you can create SMB and NFS file shares within the same storage account. For all file shares, Azure Files offers enterprise-grade file shares that can scale up to meet your storage needs and can be accessed concurrently by thousands of clients.
 
 This article covers SMB Azure file shares. For information about NFS Azure file shares, see [NFS file shares in Azure Files](files-nfs-protocol.md).
 

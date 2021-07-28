@@ -3,27 +3,12 @@ title: Troubleshoot migration of Hive from 3.6 to 4.0 - Azure HDInsight
 description: Troubleshooting guide for migration of Hive workloads from HDInsight 3.6 to 4.0
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 05/24/2021
+ms.date: 07/12/2021
 ---
 
 # Troubleshooting guide for migration of Hive workloads from HDInsight 3.6 to HDInsight 4.0
 
 This article provides answers to some of the most common issues that customers face when migrating Hive workloads from HDInsight 3.6 to HDInsight 4.0.
-
-## Change parquet files to store timestamp in UTC time zone
-
-Workaround:
-1. ssh both head nodes and backup below jar files in case you need to roll back. Don't keep backup under the same path.
-    `/usr/hdp/4.1.2.5/hive/lib/hive-common-3.1.2.4.1.2.5.jar` and `hive-exec-3.1.2.4.1.2.5.jar`
-
-2. Download these two jars files
-    - [https://wenjmshare.blob.core.windows.net/public/hive-common-3.1.2.4.1.2.5.jar](https://wenjmshare.blob.core.windows.net/public/hive-common-3.1.2.4.1.2.5.jar) 
-    - [https://wenjmshare.blob.core.windows.net/public/hive-exec-3.1.2.4.1.2.5.jar](https://wenjmshare.blob.core.windows.net/public/hive-exec-3.1.2.4.1.2.5.jar)
-
-3. Move the downloaded jars to `/usr/hdp/4.1.2.5/hive/lib` location on both head nodes.
-
-4. Restart HS2 on the Ambari UI.
-
 
 ## Reduce latency when running `DESCRIBE TABLE_NAME`
 
@@ -159,4 +144,4 @@ MetaStoreAuthzAPIAuthorizerEmbedOnly effectively disables security checks becaus
 
 ## Next steps
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

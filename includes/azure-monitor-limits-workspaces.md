@@ -56,8 +56,8 @@ ms.custom: "include file"
 
 | Category | Limit | Comments |
 |:---|:---|:---|
+| Maximum size of data returned | ~16.7 MB (~16 MiB) | |
 | Max number of records | 500,000 | |
-| Maximum size of data returned | ~104 MB (~100 MiB) | |
 | Max query timeout | 110 second | |
 | Charts | | Visualization in Logs page and the connector are using different charting libraries and some functionality isn't available in the connector currently. |
 
