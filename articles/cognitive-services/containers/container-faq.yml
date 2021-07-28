@@ -84,7 +84,6 @@ sections:
         answer: |    
           Customer support channels are the same as the Cognitive Services cloud based APIs. All Cognitive Services containers include logging features that will help us and the community support customers. For additional support, see the following options.
           * Customers should refer to their [Azure support plan](https://azure.microsoft.com/support/plans/) to see who to contact for support.
-          * Customer are free to explore the [Azure knowledge center](https://azure.microsoft.com/resources/knowledge-center/) to answer questions and support issues.
           * [Stack Overflow](https://en.wikipedia.org/wiki/Stack_Overflow) is a question and answer site for professional and enthusiast programmers.
             * [Azure Cognitive Services](https://stackoverflow.com/questions/tagged/azure-cognitive-services)
             * [Microsoft Cognitive](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

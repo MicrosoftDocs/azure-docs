@@ -44,7 +44,7 @@ Use the Azure portal to review analytics data at a glance for your API Managemen
 
 ## Analytics - REST API
 
-Use [Reports](/rest/api/apimanagement/2019-12-01/reports) operations in the API Management REST API to retrieve and filter analytics data for your API Management instance.
+Use [Reports](/rest/api/apimanagement/2020-12-01/reports) operations in the API Management REST API to retrieve and filter analytics data for your API Management instance.
 
 Available operations return report records by API, geography, API operations, product, request, subscription, time, or user.
 

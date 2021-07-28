@@ -99,6 +99,8 @@
     href: https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine
   - name: PowerShell samples repo
     href: https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine
+  - name: Azure Resource Graph queries
+    href: ./resource-graph-samples.md
 - name: Workloads
   items:
   - name: Red Hat
