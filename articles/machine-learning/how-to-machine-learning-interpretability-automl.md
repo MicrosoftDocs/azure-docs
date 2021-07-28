@@ -38,13 +38,6 @@ Retrieve the explanation from the `best_run`, which includes explanations for bo
 > [!NOTE]
 > Interpretability, best model explanation, is not available for Auto ML forecasting experiments that recommend the following algorithms as the best model: 
 > * TCNForecaster
-> * AutoArima
-> * ExponentialSmoothing
-> * Prophet
-> * Average 
-> * Naive
-> * Seasonal Average 
-> * Seasonal Naive
 
 ### Download the engineered feature importances from the best run
 
