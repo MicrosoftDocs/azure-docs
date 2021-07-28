@@ -3,7 +3,7 @@ title: Fail over VMware VMs to Azure with Site Recovery - Preview
 description: Learn how to fail over VMware VMs to Azure in Azure Site Recovery - Preview
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/26/2021
+ms.date: 07/28/2021
 ms.custom: MVC
 ---
 # Fail over VMware VMs - Preview
@@ -29,7 +29,7 @@ Complete the previous tutorials:
 
 1. Make sure you've [set up Azure](tutorial-prepare-azure.md) for on-premises disaster recovery of VMware VMs.
 2. Prepare your on-premises [VMware](vmware-azure-tutorial-prepare-on-premises.md) environment for disaster recovery.
-3. Set up disaster recovery for [VMware VMs](vmware-to-azure-quickstart.md).
+3. Set up disaster recovery for [VMware VMs](vmware-to-azure-quickstart-preview.md).
 4. Run a [disaster recovery drill](tutorial-dr-drill-azure.md) to make sure that everything's working as expected.
 
 ## Verify VM properties
