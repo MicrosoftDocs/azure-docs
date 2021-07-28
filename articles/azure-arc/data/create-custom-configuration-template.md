@@ -32,7 +32,7 @@ az arcdata dc  config init --source azure-arc-kubeadm --path custom
 ```
 The created control.json file can be edited in any editor such as Visual Studio Code to customize the settings appropriate for your environment.
 
-## Use custom control.json file to deploy Azure Arc-enabled data controller using azdata CLI
+## Use custom control.json file to deploy Azure Arc-enabled data controller using Azure CLI (az)
 
 Once the template file is updated, the file can be applied during Azure Arc-enabled data controller create as follows:
 
