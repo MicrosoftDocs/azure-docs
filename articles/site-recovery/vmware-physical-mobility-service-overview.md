@@ -62,7 +62,7 @@ During a push installation of the Mobility service, the following steps are perf
 1. As part of the agent installation, the Volume Shadow Copy Service (VSS) provider for Azure Site Recovery is installed. The VSS provider is used to generate application-consistent recovery points.
    - If the VSS provider installation fails, the agent installation will fail. To avoid failure of the agent installation, use [version 9.23](https://support.microsoft.com/help/4494485/update-rollup-35-for-azure-site-recovery) or higher to generate crash-consistent recovery points and do a manual install of the VSS provider.
 
-## Install the Mobility service using UI  (Classic)
+## Install the Mobility service using UI (Classic)
 
 >[!NOTE]
 > This section is applicable to Azure Site Recovery - Classic. [Here are the Installation instructions for preview](#install-the-mobility-services-using-ui-preview)
@@ -312,7 +312,7 @@ Locate the installer files for the server’s operating system using the followi
 
     This will successfully register your source machine with your appliance.
 
-## Install the Mobility service using command prompt - preview
+## Install the Mobility service using command prompt (preview)
 
 >[!NOTE]
 > This section is applicable to Azure Site Recovery - Preview. [Here are the installation instructions for Classic](#install-the-mobility-services-using-command-promot-classic).
@@ -327,12 +327,13 @@ Locate the installer files for the server’s operating system using the followi
    ```cmd
        .\Microsoft-ASR_UA*Windows*release.exe /q /x:C:\Azure Site Recovery\Agent
     ```
-3. T0 proceed with the installation, run the following command:
+3. To proceed with the installation, run the following command:
 
    ```cmd
 
     .\UnifiedAgentInstaller.exe /Platform vmware /Silent /Role MS /CSType CSPrime /InstallLocation "C:\Azure Site Recovery\Agent"
   ```
+
   Once the installation is complete, copy the string that is generated alongside the parameter *Agent Config Input*. This string is required to [generate the Mobility Service configuration file](#generate-mobility-services-configuration-file).
 
   ![sample string for downloading configuration flle ](./media/vmware-physical-mobility-services-overview-preview/configuration-string.png)
