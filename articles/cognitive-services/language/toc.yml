@@ -12,6 +12,18 @@ items:
     items:
     - name: Recognized entity categories 
       href: health/concepts/health-entity-categories.md
+- name: Key phrase extraction
+  items:
+  - name: Overview
+    href: key-phrase-extraction/overview.md
+  - name: Language support
+    href: key-phrase-extraction/language-support.md
+  - name: How-to guides
+    items:
+    - name: Call Key phrase analysis
+      href: key-phrase-extraction/how-to/call-api.md
+    - name: Use containers
+      href: key-phrase-extraction/how-to/use-containers.md
 - name: Named Entity Recognition (NER) and Personally Identifying Information (PII)
   items:
   - name: Overview
