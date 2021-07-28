@@ -18,6 +18,8 @@ As part of of the family of Azure SQL products, Azure Arc-enabled SQL Managed In
 - **General purpose** is a budget-friendly tier designed for most workloads with common performance and availability features.
 - **Business critical** tier is designed for performance-sensitive workloads with higher availability features.
 
+At this time, the business critical service tier is [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The general purpose service tier is generally available. 
+
 In Azure, storage and compute is provided by Microsoft with guaranteed service level agreements (SLAs) for performance, throughput, availability, and etc. across each of the service tiers. With Azure Arc-enabled data services, customers provide the storage and compute. Hence, there are no guaranteed SLAs provided to customers with Azure Arc-enabled data services. However, customers get the flexibility to bring their own performant hardware irrespective of the service tier. 
 
 ## Service tier comparison

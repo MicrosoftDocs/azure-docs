@@ -16,7 +16,6 @@ ms.topic: how-to
 > [!IMPORTANT]
 > If you are updating to a new monthly release, please be sure to also update to the latest version of Azure CLI and the Azure CLI extension.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Install latest Azure CLI 
 

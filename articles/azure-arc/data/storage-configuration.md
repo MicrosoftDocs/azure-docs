@@ -13,7 +13,6 @@ ms.topic: conceptual
 
 # Storage Configuration
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Kubernetes storage concepts
 
