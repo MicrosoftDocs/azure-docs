@@ -76,7 +76,7 @@ You can create a read replica in any of the following regions, regardless of whe
 | South Africa North* | :heavy_check_mark: |
 
 > [!Note] 
-> *Regions where Azure Database for MySQL has General purpose storage v2 in Public Preview for <br /> 
+> *Regions where Azure Database for MySQL has General purpose storage v2 in Public Preview  <br /> 
 > *For these Azure regions, you will have an option to create server in both General purpose storage v1 and v2. For the servers created with General purpose storage v2 in public preview, you are limited to create replica server only in the Azure regions which support General purpose storage v2.
 
 ### Paired regions
