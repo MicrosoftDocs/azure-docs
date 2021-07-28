@@ -19,7 +19,7 @@ Developing functions on your local computer and publishing them to Azure using C
 > * [Install the Core Tools and dependencies.](#v2)
 > * [Create a function app project from a language-specific template.](#create-a-local-functions-project)
 > * [Register trigger and binding extensions.](#register-extensions)
-> * Define Storage and other connections.
+> * [Define Storage and other connections.](#local-settings)
 > * [Create a function from a trigger and language-specific template.](#create-func)
 > * [Run the function locally.](#start)
 > * [Publish the project to Azure.](#publish)
@@ -157,7 +157,16 @@ If you need to install version 1.x of the Core Tools, which runs only on Windows
 
 ## Create a local Functions project
 
-A Functions project directory contains the files [host.json](functions-host-json.md) and [local.settings.json](#local-settings), along with subfolders that contain the code for individual functions. This directory is the equivalent of a function app in Azure. To learn more about the Functions folder structure, see the [Azure Functions developers guide](functions-reference.md#folder-structure).
+A Functions project directory contains the following files and folders, regardless of language: 
+
+| File name | Description |
+| --- | --- |
+| host.json | To learn more, see the [host.json reference](functions-host-json.md). |
+| local.settings.json | Settings used by Core Tools when running locally, including app settings. To learn more, see [local settings](#local-settings). |
+| .gitignore | Prevents the local.settings.json file from being accidentally published to a Git repository. To learn more, see [local settings](#local-settings)|
+| .vscode\extensions.json | Settings file used when opening the project folder in Visual Studio Code.  |
+
+To learn more about the Functions project folder, see the [Azure Functions developers guide](functions-reference.md#folder-structure).
 
 In the terminal window or from a command prompt, run the following command to create the project and local Git repository:
 
@@ -182,7 +191,7 @@ Certain languages may have additional considerations:
 
 + By default, version 2.x and later versions of the Core Tools create function app projects for the .NET runtime as [C# class projects](functions-dotnet-class-library.md) (.csproj). Version 3.x also supports creating functions that [run on .NET 5.0 in an isolated process](dotnet-isolated-process-guide.md). These C# projects, which can be used with Visual Studio or Visual Studio Code, are compiled during testing and when publishing to Azure. 
 
-+ If you instead want to create and work locally with the same C# script (.csx) files created either in the Azure portal or by using version 1.x tools, you must include the `--csx` parameter when you create and deploy functions. To learn more, see the [func init reference](functions-core-tools-reference.md#func-init).
++ Use the `--csx` parameter if you want to work locally with C# script (.csx) files. These are the same files you get when you create functions in the Azure portal and when using version 1.x of Core Tools. To learn more, see the [func init reference](functions-core-tools-reference.md#func-init).
 
 # [Java](#tab/java)
 
@@ -210,21 +219,21 @@ There are no additional considerations for PowerShell.
 
 ## Register extensions
 
-Starting with runtime version 2.x, Functions bindings are implemented as .NET extension (NuGet) packages. For .NET projects (class library and isolated-process), you simply reference the NuGet extension packages for the triggers and bindings you are using. HTTP bindings and timer triggers don't require extensions. 
+Starting with runtime version 2.x, Functions bindings are implemented as .NET extension (NuGet) packages. For compiled C# projects, you simply reference the NuGet extension packages for the specific triggers and bindings you are using. HTTP bindings and timer triggers don't require extensions. 
 
-To improve the development experience for non-C# projects, Functions lets you reference a versioned extension bundle in your host.json project file. Extension bundles removes the chance of having package compatibility issues when using multiple binding types. Extension bundles also removes the requirement of installing the .NET Core 2.x SDK.
+To improve the development experience for non-C# projects, Functions lets you reference a versioned extension bundle in your host.json project file. [Extension bundles](functions-bindings-register.md#extension-bundles) makes all extensions available to your app and removes the chance of having package compatibility issues between extensions. Extension bundles also removes the requirement of installing the .NET Core 2.x SDK and having to deal with the extensions.csproj file.
 
-Because it's the recommended approach for registering binding extensions, templates should already include the correct extension bundle in the host.json file of non-C# projects. If this works for you, you can skip this entire section. 
+Extension bundles is the recommended approach for functions projects other than C# complied projects. For these projects, the extension bundle setting is generated in the _host.json_ file during initialization. If this works for you, you can skip this entire section.  
 
 ### Use extension bundles
 
 [!INCLUDE [Register extensions](../../includes/functions-extension-bundles.md)]
 
- When supported, extension bundles should already be enabled after you call `func init`. You should add extension bundles to the host.json before you add bindings to the function.json file. To learn more, see [Register Azure Functions binding extensions](functions-bindings-register.md#extension-bundles). 
+ When supported by your language, extension bundles should already be enabled after you call `func init`. You should add extension bundles to the host.json before you add bindings to the function.json file. To learn more, see [Register Azure Functions binding extensions](functions-bindings-register.md#extension-bundles). 
 
 ### Explicitly install extensions
 
-If you can't use extension bundles with your non-.NET project,, you can use Core Tools locally to install the specific extension packages required by your project. To learn more, see [Explicitly install extensions](functions-bindings-register.md#explicitly-install-extensions).
+There may be cases in a non-.NET project when you can't use extension bundles, such as when you need to target a specific version of an extension not in the bundle. In these rare cases, you can use Core Tools to install locally the specific extension packages required by your project. To learn more, see [Explicitly install extensions](functions-bindings-register.md#explicitly-install-extensions).
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
@@ -251,11 +260,11 @@ Even when using the Microsoft Azure Storage Emulator for development, you may wa
 
 1. From the [Azure portal], search for and select **Storage accounts**. 
 
-  ![Select Storage accounts from Azure portal](./media/functions-run-local/select-storage-accounts.png)
+    ![Select Storage accounts from Azure portal](./media/functions-run-local/select-storage-accounts.png)
   
 1.  Select your storage account, select **Access keys** in **Settings**, then copy one of the **Connection string** values.
 
-  ![Copy connection string from Azure portal](./media/functions-run-local/copy-storage-connection-portal.png)
+    ![Copy connection string from Azure portal](./media/functions-run-local/copy-storage-connection-portal.png)
 
 # [Core Tools](#tab/azurecli)
 
@@ -273,7 +282,7 @@ From the project root, use one of the following commands to download the connect
     func azure storage fetch-connection-string <StorageAccountName>
     ```
 
-    When you aren't already signed in to Azure, you're prompted to do so. These commands overwrite any existing settings in the local.settings.json file. 
+    When you aren't already signed in to Azure, you're prompted to do so. These commands overwrite any existing settings in the local.settings.json file. To learn more, see the [`func azure functionapp fetch-app-settings`](functions-core-tools-reference.md#func-azure-functionapp-fetch-app-settings) and [`func azure functionapp fetch-connection-string`](functions-core-tools-reference.md#func-azure-functionapp-fetch-connection-string) commands.
 
 # [Storage Explorer](#tab/storageexplorer)
 
@@ -283,7 +292,7 @@ From the project root, use one of the following commands to download the connect
 
 1. Select your storage account and copy the primary or secondary connection string.
 
-  ![Copy connection string from Storage Explorer](./media/functions-run-local/storage-explorer.png)
+    ![Copy connection string from Storage Explorer](./media/functions-run-local/storage-explorer.png)
 
 ---
 
@@ -414,7 +423,7 @@ You can make GET requests from a browser passing data in the query string. For a
 
 #### Non-HTTP triggered functions
 
-For all functions other than HTTP and Event Grid triggers, you can test your functions locally by calling an administration endpoint. Calling this endpoint with an HTTP POST request on the local server triggers the function. 
+For all functions other than HTTP and Event Grid triggers, you can test your functions locally using REST by calling a special endpoint called an _administration endpoint_. Calling this endpoint with an HTTP POST request on the local server triggers the function. 
 
 To test Event Grid triggered functions locally, see [Local testing with viewer web app](functions-bindings-event-grid-trigger.md#local-testing-with-viewer-web-app).
 
@@ -445,6 +454,8 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 curl --request POST -H "Content-Type:application/json" --data "{'input':'sample queue data'}" http://localhost:7071/admin/functions/QueueTrigger
 ```
 ---
+
+When you call an administrator endpoint on your function app in Azure, you must provide an access key. To learn more, see [Function access keys](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
 ## <a name="publish"></a>Publish to Azure
 

@@ -467,9 +467,11 @@ The `install` action supports the following options:
 | **`--csx`** |   Supports C# scripting (.csx) projects. |
 | **`--force`** |  Update the versions of existing extensions. |
 | **`--output`** |  Output path for the extensions. |
-| **`--package`** |   Identifier for the extension package. |
+| **`--package`** |   Identifier for a specific extension package. When not specified, all referenced extensions are installed, as with `func extensions sync`.|
 | **`--source`** |  NuGet feed source when not using NuGet.org.|
 | **`--version`** |  Extension package version. |
+
+No action is taken when an extension bundle is defined in your host.json file.
 
 ## func extensions sync
 
@@ -482,6 +484,8 @@ The `sync` action supports the following options:
 | **`--configPath`** | Path of the directory containing extensions.csproj file.|
 | **`--csx`** |   Supports C# scripting (.csx) projects. |
 | **`--output`** |  Output path for the extensions. |
+
+Regenerates a missing extensions.csproj file. No action is taken when an extension bundle is defined in your host.json file.
 
 ## func kubernetes deploy
 

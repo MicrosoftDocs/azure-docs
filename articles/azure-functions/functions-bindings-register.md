@@ -79,7 +79,7 @@ Use the following command to automatically add all extension packages used by th
 func extensions install
 ```
 
-The command reads the *function.json* file to see which packages you need, installs them, and rebuilds the extensions project (extensions.csproj). It adds any new bindings at the current version but does not update existing bindings. Use the `--force` option to update existing bindings to the latest version when installing new ones.
+The command reads the *function.json* file to see which packages you need, installs them, and rebuilds the extensions project (extensions.csproj). It adds any new bindings at the current version but does not update existing bindings. Use the `--force` option to update existing bindings to the latest version when installing new ones. To learn more, see the [`func extensions install` command](functions-core-tools-reference.md#func-extensions-install).
 
 If your function app uses bindings that Core Tools does not recognize, you must manually install the specific extension.
 
@@ -91,6 +91,7 @@ Use the following command to install a specific extension package at a specific 
 func extensions install --package Microsoft.Azure.WebJobs.Extensions.Storage --version 4.0.2
 ```
 
+To learn more, see the [`func extensions install` command](functions-core-tools-reference.md#func-extensions-install).
 
 ## <a name="local-csharp"></a>Install extensions from NuGet in .NET languages
 
