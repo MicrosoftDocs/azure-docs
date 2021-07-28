@@ -184,7 +184,7 @@ You'll run the `Install-JetDR` cmdlet to deploy JetDR MSA, register vCenter to t
    | **VMName** | Name of MSA VM. For example, **jetstreamServer**. |
    | **Datastore** | Datastore where MSA will be deployed.  |
    | **ProtectedCluster** | Cluster to be protected. For example, **Cluster-1**. |
-   | **RegisterWithIp** | Register MSA with Ip instead of hostname. True if hostname of the MSA isn't DNS registered. False if hostname of the MSA is DNS registered. |
+   | **RegisterWithIp** | Register MSA with Ip instead of hostname. <ul><li>True if hostname of the MSA is not DNS registered.</li><li>False if hostname of the MSA is DNS registered. </li></ul> |
    | **Retain up to**  | Job retention period. The cmdlet output will be stored for these many days. Default value is 60.  |
    | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **check_jetserverdetails**.  |
    | **Timeout**  | The period after which a cmdlet will exit if a certain task is taking too long to finish.  |
