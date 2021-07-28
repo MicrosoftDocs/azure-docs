@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 02/29/2020
+ms.date: 07/25/2021
 ms.author: davidmu
 ---
 

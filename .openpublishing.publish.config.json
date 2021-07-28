@@ -810,6 +810,7 @@
     ".openpublishing.redirection.healthcare-apis.json",
     ".openpublishing.redirection.media-services.json",
     ".openpublishing.redirection.security-benchmark.json",
+    ".openpublishing.redirection.key-vault.json",
     "articles/azure-relay/.openpublishing.redirection.relay.json",
     "articles/cosmos-db/.openpublishing.redirection.cosmos-db.json",
     "articles/cost-management-billing/.openpublishing.redirection.cost-management-billing.json",
