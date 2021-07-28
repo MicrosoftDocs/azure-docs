@@ -23,7 +23,7 @@ In this article, you learn how to:
 
 * Create a compute instance
 * Manage (start, stop, restart, delete) a compute instance
-* Create  a schedule to automatically start and stop the compute instance
+* Create  a schedule to automatically start and stop the compute instance (preview)
 * Access the terminal window
 * Install R or Python packages
 * Create new environments or Jupyter kernels
@@ -47,7 +47,7 @@ Compute instances can run jobs securely in a [virtual network environment](how-t
 
 Creating a compute instance is a one time process for your workspace. You can reuse the compute as a development workstation or as a compute target for training. You can have multiple compute instances attached to your workspace. 
 
-Use the [studio](#create?tab=studio) or a [Resource Template](#schedule) to schedule the compute to automatically start and stop. For instance, create a schedule to start at 9 AM and stop at 6 PM from Monday-Thursday, and a second schedule to start at 9 AM and stop at 4 PM for Friday. 
+Use the studio or a [Resource Template](#schedule) to schedule the compute to automatically start and stop (preview). For instance, create a schedule to start at 9 AM and stop at 6 PM from Monday-Thursday, and a second schedule to start at 9 AM and stop at 4 PM for Friday.
 
 The dedicated cores per region per VM family quota and total regional quota, which applies to compute instance creation, is unified and shared with Azure Machine Learning training compute cluster quota. Stopping the compute instance does not release quota to ensure you will be able to restart the compute instance. It is not possible to change the virtual machine size of compute instance once it is created.
 
@@ -102,7 +102,7 @@ For more information, see the [az ml computetarget create computeinstance](/cli/
 
 In your workspace in Azure Machine Learning studio, create a new compute instance from either the **Compute** section or in the **Notebooks** section when you are ready to run one of your notebooks.
 
-For information on creating a compute instance in the studio, see [Create compute targets in Azure Machine Learning studio](how-to-create-attach-compute-studio.md#compute-instance).
+You can schedule times for a compute instance to start and stop (preview) in the studio.  For information on creating a compute instance in the studio, see [Create compute targets in Azure Machine Learning studio](how-to-create-attach-compute-studio.md#compute-instance).
 
 ---
 
@@ -238,7 +238,11 @@ For example, specify a base64 encoded command string for `scriptData`:
 }
 ```
 
-### <a name="schedule"></a> Schedule automatic start and stop times in a Resource Manager template
+### Setup script logs
+
+Logs from the setup script execution appear in the logs folder in the compute instance details page. Logs are stored back to your notebooks file share under the Logs\<compute instance name> folder. Script file and command arguments for a particular compute instance are shown in the details page.
+
+### <a name="schedule"></a> Schedule automatic start and stop times in a Resource Manager template (preview)
 
 Use cron or LogicApps expressions to define a schedule to start or stop the instance.  This example uses cron:
 
@@ -312,11 +316,6 @@ Use cron or LogicApps expressions to define a schedule to start or stop the inst
 
 User can use Azure policy to enforce shutdown schedule exists for every compute instance in a subscription or default a schedule if nothing exists.
 
-
-
-### Setup script logs
-
-Logs from the setup script execution appear in the logs folder in the compute instance details page. Logs are stored back to your notebooks file share under the Logs\<compute instance name> folder. Script file and command arguments for a particular compute instance are shown in the details page.
 
 ## Manage
 
