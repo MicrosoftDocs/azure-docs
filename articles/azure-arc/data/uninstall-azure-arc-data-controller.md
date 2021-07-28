@@ -22,14 +22,14 @@ Before you proceed, ensure all the data services that have been create on the da
 Run the following command to check if there are any SQL managed instances created:
 
 ```azurecli
-az sql mi-arc list
+az sql mi-arc list --k8s-namespace <namespace> --use-k8s
 ```
 
 For each SQL managed instance from the list above, run the delete command as follows:
 
 ```azurecli
-az sql mi-arc delete -n <name>
-# for example: az sql mi-arc delete -n sqlinstance1
+az sql mi-arc delete -n <name> --k8s-namespace <namespace> --use-k8s
+# for example: az sql mi-arc delete -n sqlinstance1 --k8s-namespace <namespace> --use-k8s
 ```
 
 Similarly, to check for PostgreSQL Hyperscale instances, run:

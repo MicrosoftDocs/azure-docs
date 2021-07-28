@@ -27,13 +27,13 @@ az sql mi-arc create --help
 To create an SQL Managed Instance, use the following command:
 
 ```azurecli
-az sql mi-arc create -n <instanceName> --storage-class-data <storage class> --storage-class-logs <storage class>
+az sql mi-arc create -n <instanceName> --storage-class-data <storage class> --storage-class-logs <storage class> --k8s-namespace <namespace> --use-k8s
 ```
 
 Example:
 
 ```azurecli
-az sql mi-arc create -n sqldemo --storage-class-data managed-premium --storage-class-logs managed-premium
+az sql mi-arc create -n sqldemo --storage-class-data managed-premium --storage-class-logs managed-premium --k8s-namespace <namespace> --use-k8s
 ```
 > [!NOTE]
 >  Names must be less than 13 characters in length and conform to [DNS naming conventions](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-label-names)
@@ -61,7 +61,7 @@ az sql mi-arc create -n sqldemo --storage-class-data managed-premium --storage-c
 To view the instance, use the following command:
 
 ```azurecli
-az sql mi-arc list
+az sql mi-arc list --k8s-namespace <namespace> --use-k8s
 ```
 
 Output should look like this:

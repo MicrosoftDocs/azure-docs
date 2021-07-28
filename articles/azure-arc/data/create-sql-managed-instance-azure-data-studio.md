@@ -45,7 +45,7 @@ This document walks you through the steps for installing Azure SQL Managed Insta
 - View all the Azure SQL Managed Instances provisioned, using the following commands:
 
 ```azurecli
-az sql mi-arc list
+az sql mi-arc list --k8s-namespace <namespace> --use-k8s
 ```
 
 Output should look like this, copy the ServerEndpoint (including the port number) from here.
