@@ -16,6 +16,8 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 
 ---
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+
 # Creating filters with Media Services REST API
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
