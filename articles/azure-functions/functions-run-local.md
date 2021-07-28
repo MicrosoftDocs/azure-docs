@@ -281,7 +281,7 @@ From the project root, use one of the following commands to download the connect
     func azure storage fetch-connection-string <StorageAccountName>
     ```
 
-    When you aren't already signed in to Azure, you're prompted to do so. These commands overwrite any existing settings in the local.settings.json file. To learn more, see the [`func azure functionapp fetch-app-settings`](functions-core-tools-reference.md#func-azure-functionapp-fetch-app-settings) and [`func azure functionapp fetch-connection-string`](functions-core-tools-reference.md#func-azure-functionapp-fetch-connection-string) commands.
+    When you aren't already signed in to Azure, you're prompted to do so. These commands overwrite any existing settings in the local.settings.json file. To learn more, see the [`func azure functionapp fetch-app-settings`](functions-core-tools-reference.md#func-azure-functionapp-fetch-app-settings) and [`func azure storage fetch-connection-string`](functions-core-tools-reference.md#func-azure-storage-fetch-connection-string) commands.
 
 # [Storage Explorer](#tab/storageexplorer)
 
