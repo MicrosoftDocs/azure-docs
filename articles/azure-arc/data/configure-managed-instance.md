@@ -71,4 +71,3 @@ To change any of these settings, follow these steps:
 
 **Known limitations**
 - The steps above require Kubernetes cluster admin permissions
-- This is subject to change throughout preview

@@ -17,10 +17,10 @@ ms.topic: overview
 
 Azure Arc makes it possible to run Azure data services on-premises, at the edge, and in public clouds using Kubernetes and the infrastructure of your choice.
 
-Currently, the following Azure Arc-enabled data services are available in preview:
+Currently, the following Azure Arc-enabled data services are available: 
 
 - SQL Managed Instance
-- PostgreSQL Hyperscale
+- PostgreSQL Hyperscale (preview)
 
 
 ## Always current
