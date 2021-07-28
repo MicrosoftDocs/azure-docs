@@ -96,6 +96,11 @@ sections:
         answer: |
           To view the traffic sent to each backend instance from the health probe you can use IP stack statistics with a tool such as netstat. When looking through this tool, the health probe traffic will be coming from 168.63.129.16.
 
+      - question: |
+          If I enable DDoS Protection Standard for my load balancer frontend, what does that mean for the resources in the backend pool?
+        answer: |
+          When enabled on the frontend IP for a load balancer, DDoS Protection Standard will apply protection for all backend pool resources that are accessible through that public IP.  Please see [Azure DDoS Protection Reference](https://docs.microsoft.com/azure/ddos-protection/ddos-protection-reference-architectures) for more details. 
+
 additionalContent: |
 
   ## Next steps
