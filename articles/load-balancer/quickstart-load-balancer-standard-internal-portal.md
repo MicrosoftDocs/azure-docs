@@ -221,13 +221,7 @@ During the creation of the load balancer, you'll configure:
     > In this example we created a NAT gateway to provide outbound Internet access. The outbound rules tab in the configuration is bypassed and isn't needed with the NAT gateway. For more information on Azure NAT gateway, see [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)
     > For more information about outbound connections in Azure, see [Source Network Address Translation (SNAT) for outbound connections](../load-balancer/load-balancer-outbound-connections.md)
 
-## Create backend servers
-
-In this section, you:
-
-* Create three virtual machines for the backend pool of the load balancer.
-
-### Create virtual machines
+## Create virtual machines
 
 In this section, you'll create three VMs (**myVM1**, **myVM2** and **myVM3**) in three different zones (**Zone 1**, **Zone 2**, and **Zone 3**). 
 
@@ -241,7 +235,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     |-----------------------|----------------------------------|
     | **Project Details** |  |
     | Subscription | Select your Azure subscription |
-    | Resource Group | Select **CreatePubLBQS-rg** |
+    | Resource Group | Select **CreateIntLBQS-rg** |
     | **Instance details** |  |
     | Virtual machine name | Enter **myVM1** |
     | Region | Select **(Europe) West Europe** |
@@ -270,26 +264,17 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | NIC network security group | Select **Advanced**|
     | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **myNSG** in **Name**. </br> Under **Inbound rules**, select **+Add an inbound rule**. </br> Under  **Destination port ranges**, enter **80**. </br> Under **Priority**, enter **100**. </br> In **Name**, enter **myHTTPRule** </br> Select **Add** </br> Select **OK** |
     | **Load balancing**  |
-    | Place this virtual machine behind an existing load balancing solution? | Select the check box. |
+    | Place this virtual machine behind an existing load balancing solution? | Select the box. |
     | **Load balancing settings** |
     | Load balancing options | Select **Azure load balancing** |
     | Select a load balancer | Select **myLoadBalancer**  |
     | Select a backend pool | Select **myBackendPool** |
-
-5. Select the **Management** tab, or select **Next** > **Management**.
-
-6. In the **Management** tab, select or enter:
-    
-    | Setting | Value |
-    |-|-|
-    | **Monitoring** |  |
-    | Boot diagnostics | Select **Off** |
    
 7. Select **Review + create**. 
   
 8. Review the settings, and then select **Create**.
 
-9. Follow the steps 1 to 8 to create two additional VMs with the following values and all the other settings the same as **myVM1**:
+9. Follow the steps 1 to 6 to create two additional VMs with the following values and all the other settings the same as **myVM1**:
 
     | Setting | VM 2| VM 3|
     | ------- | ----- |---|
@@ -439,14 +424,7 @@ During the creation of the load balancer, you'll configure:
     > In this example we created a NAT gateway to provide outbound Internet access. The outbound rules tab in the configuration is bypassed and isn't needed with the NAT gateway. For more information on Azure NAT gateway, see [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)
     > For more information about outbound connections in Azure, see [Source Network Address Translation (SNAT) for outbound connections](../load-balancer/load-balancer-outbound-connections.md)
 
-## Create backend servers
-
-In this section, you'll:
-
-* Create three virtual machines for the backend pool of the load balancer.
-* Create an availability set for the virtual machines.
-
-### Create virtual machines
+## Create virtual machines
 
 In this section, you'll create three VMs (**myVM1**, **myVM2**, and **myVM3**).
 
