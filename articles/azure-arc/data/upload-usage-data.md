@@ -36,6 +36,9 @@ Usage information such as inventory and resource usage can be uploaded to Azure 
 
 1. Export the usage data using `az arcdata dc export` command, as follows:
 
+> [!NOTE]
+> Exporting usage/billing information, metrics, and logs using the command `az arcdata dc export` requires bypassing SSL verification for now.  You will be prompted to bypass SSL verification or you can set the `AZDATA_VERIFY_SSL=no` environment variable to avoid prompting.  There is no way to configure an SSL certificate for the data controller export API currently.
+
    ```azurecli
    az arcdata dc export --type usage --path usage.json
    ```
