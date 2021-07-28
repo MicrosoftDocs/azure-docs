@@ -212,7 +212,7 @@ You'll run the `Invoke-PreflightJetDRUninstall` cmdlet to diagnose the existing 
    | **Field** | **Value** |
    | --- | --- |
    | **MSIp** | IP address of the MSA VM.  |
-   | **Credential** | Credentials of root user of the MSA VM. It must be the same user provided at the time of installation.  |
+   | **Credential** | Credentials of root user of the MSA VM. It must be the same provided at the time of installation.  |
    | **ProtectedCluster** | Name of the protected cluster, for example, **Cluster-1**.  It must be the cluster that was provided at the time of installation. |
    | **Retain up to**  | Job retention period. The cmdlet output will be stored for these many days. Default value is 60.  |
    | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **uninstallcheck_jetserverdetails**.  |
@@ -234,7 +234,7 @@ You'll run the `Uninstall-JetDR` cmdlet to uninstall JetStream DR and its compon
    | **Field** | **Value** |
    | --- | --- |
    | **MSIp** | IP address of the MSA VM.  |
-   | **Credential** | Credentials of root user of the MSA VM. It must be the same user provided at the time of installation.   |
+   | **Credential** | Credentials of root user of the MSA VM. It must be the same provided at the time of installation.   |
    | **ProtectedCluster** | Name of the protected cluster, for example, **Cluster-1**.  It must be the cluster that was provided at the time of installation. |
    | **Retain up to**  | Job retention period. The cmdlet output will be stored for these many days. Default value is 60.  |
    | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **uninstallcheck_jetserverdetails**.  |
