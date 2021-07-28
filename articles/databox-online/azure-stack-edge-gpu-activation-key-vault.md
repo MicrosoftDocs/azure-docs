@@ -249,9 +249,8 @@ If the system-assigned managed identity access policy is deleted, an alert is ra
 
 ![Granting managed identity access to key vault flow](media/azure-stack-edge-gpu-activation-key-vault/activation-key-generation-flow-2.png)
 
-<!--## Troubleshoot key vault errors and alerts-->
-
 
 ## Next steps
 
 - Learn more about how to [Generate activation key](azure-stack-edge-gpu-deploy-prep.md#get-the-activation-key).
+- [Troubleshoot key vault errors](azure-stack-edge-gpu-troubleshoot-activation.md) on your Azure Stack Edge device.
