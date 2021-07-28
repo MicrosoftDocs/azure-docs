@@ -28,14 +28,14 @@ Local storage in cluster hosts is used in cluster-wide vSAN datastore. All datas
 
 ## Storage policies and fault tolerance
 
-That default storage policy is set to RAID-1 (Mirroring), FTT-1, and thick provisioning.  Unless you adjust the storage policy or you apply a new policy, the cluster continues to grow with this configuration. In a three-host cluster, FTT-1 accommodates a single host's failure. Microsoft governs failures regularly and replaces the hardware when events are detected from an architecture perspective.
+That default storage policy is set to RAID-1 (Mirroring), FTT-1, and thick provisioning. Unless you adjust the storage policy or apply a new policy, the cluster grows with this configuration. In a three-host cluster, FTT-1 accommodates a single host's failure. Microsoft governs failures regularly and replaces the hardware when events are detected from an architecture perspective.
 
 :::image type="content" source="media/concepts/vsphere-vm-storage-policies.png" alt-text="Screenshot that shows the vSphere Client VM Storage Policies.":::
 
 
 |Provisioning type  |Description  |
 |---------|---------|
-|**Thick**      | Is reserved or pre-allocated storage space. It protects systems by allowing them to function even if the vSAN datastore is full because the space is already reserved. For example, if you create a 10-GB virtual disk with thick provisioning, the full amount of virtual disk storage capacity is pre-allocated on the physical storage of the virtual disk and consumes all the space allocated to it in the datastore. It won't allow other virtual machines (VMs) to share the space from the datastore.         |
+|**Thick**      | Reserved or pre-allocated storage space. It protects systems by allowing them to function even if the vSAN datastore is full because the space is already reserved. For example, if you create a 10-GB virtual disk with thick provisioning. In that case, the full amount of virtual disk storage capacity is pre-allocated on the physical storage of the virtual disk and consumes all the space allocated to it in the datastore. It won't allow other virtual machines (VMs) to share the space from the datastore.         |
 |**Thin**      | Consumes the space that it needs initially and grows to the data space demand used in the datastore. Outside the default (thick provision), you can create VMs with FTT-1 thin provisioning. For dedupe setup, use thin provisioning for your VM template.         |
 
 >[!TIP]
@@ -54,7 +54,7 @@ You can use Azure storage services in workloads running in your private cloud. T
 
 ## Alerts and monitoring
 
-Microsoft provides alerts when capacity consumption exceeds 75%.  You can monitor capacity consumption metrics that are integrated into Azure Monitor. For more information, see [Configure Azure Alerts in Azure VMware Solution](configure-alerts-for-azure-vmware-solution.md).
+Microsoft provides alerts when capacity consumption exceeds 75%. In addition, you can monitor capacity consumption metrics that are integrated into Azure Monitor. For more information, see [Configure Azure Alerts in Azure VMware Solution](configure-alerts-for-azure-vmware-solution.md).
 
 ## Next steps
 

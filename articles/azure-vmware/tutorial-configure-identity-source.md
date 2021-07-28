@@ -61,7 +61,7 @@ You'll run the `Get-ExternalIdentitySources` cmdlet to list all external identit
 
 ## Add Active Directory over LDAP
 
-You'll run the `New-AvsLDAPIdentitySource` cmdlet to add AD over LDAP as an external identity source to use with SSO into vCenter 
+You'll run the `New-AvsLDAPIdentitySource` cmdlet to add AD over LDAP as an external identity source to use with SSO into vCenter. 
 
 1. Select **Run command** > **Packages** > **New-AvsLDAPIdentitySource**.
 
