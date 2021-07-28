@@ -11,9 +11,9 @@ ms.author: zxue
 
 # Disaster recovery for Azure API for FHIR
 
-The Azure API for FHIR® is a fully managed service based on Fast Healthcare Interoperability Resources (FHIR®) and enables you to create new systems of engagement for analytics, machine learning, and actionable intelligence with your health data.
+The Azure API for FHIR® is a fully managed service based on Fast Healthcare Interoperability Resources (FHIR®). You can use the disaster recovery (DR) feature for Azure API for FHIR, to meet business continuity and disaster recovery (BCDR) compliance requirements.
 
-To meet business continuity and disaster recovery (BCDR) compliance requirements, you can use the disaster recovery (DR) feature for Azure API for FHIR. The DR feature provides a Recovery Point Objective (RPO) of 15 minutes and a Recovery Time Objective (RTO) of 60 minutes.
+The DR feature provides a Recovery Point Objective (RPO) of 15 minutes and a Recovery Time Objective (RTO) of 60 minutes.
 
  ## How to enable DR 
   
@@ -31,13 +31,13 @@ The DR process involves the following steps:
 
 By default, the Azure API for FHIR offers data protection through backup and restore. When the disaster recovery feature is enabled, data replication begins. A data replica is automatically created and synchronized in the secondary Azure region. The initial data replication can take a few minutes to a few hours, or longer, depending on the amount of data. The secondary data replica is a replication of the primary data. It's used directly to recover the service, and it helps speed up the recovery process.
 
-It is worth noting that the throughput RU/s in the secondary region is set to the same value as one in the primary region.
+It is worth noting that the throughput RU/s must have the same values in the primary and secondary regions.
 
 [ ![Azure Traffic Manager.](media/disaster-recovery/azure-traffic-manager.png) ](media/disaster-recovery/azure-traffic-manager.png#lightbox)
 
 ### Automatic failover
 
-During a primary region outage, the Azure API for FHIR automatically fails over to the secondary region and the same service endpoint is used. The service is expected to resume in one hour or less, and potential data loss is up to 15 minutes' worth of data. Changes aren't required by the customer unless Private Link, Customer Managed Key (CMK), the Internet of Medical Things (IoMT) FHIR Connector and $export are used. For more information, see [Configuration changes during disaster recovery](#configuration-changes-in-dr).
+During a primary region outage, the Azure API for FHIR automatically fails over to the secondary region and the same service endpoint is used. The service is expected to resume in one hour or less, and potential data loss is up to 15 minutes' worth of data. Additional configuration changes may be required. For more information, see [Configuration changes during disaster recovery](#configuration-changes-in-dr).
 
 [ ![Failover in disaster recovery.](media/disaster-recovery/failover-in-disaster-recovery.png) ](media/disaster-recovery/failover-in-disaster-recovery.png#lightbox)
 
@@ -54,13 +54,13 @@ During the time when compute has failed back to the recovered region but data ha
 
 ### Manual failback
 
-The compute environment fails back automatically to the recovered region. The database is switched back to the recovered region through a manually triggered scripting process by the Microsoft support team. 
+The compute environment fails back automatically to the recovered region. The data is switched back to the recovered region manually by the Microsoft support team using the script. 
 
 [ ![Failback in disaster recovery.](media/disaster-recovery/failback-in-disaster-recovery.png) ](media/disaster-recovery/failback-in-disaster-recovery.png#lightbox)
 
 ## Configuration changes in DR
 
-Additional configurations and tests may be required when Private Link, CMK, IoMT FHIR Connector and $export are used.
+Additional configuration changes may be required when Private Link, Customer Managed Key (CMK), IoMT FHIR Connector (the Internet of Medical Things) and $export are used.
 
 ### Private link
 
@@ -89,7 +89,7 @@ Your access to the Azure API for FHIR will be maintained if the key vault hostin
 
 ### $export
 
-The job that is running the export will be picked up from another region after 10 minutes without an update to the job status. Follow the guidance for Azure storage for recovering your storage account in the event of a regional outage to allow your FHIR server to access your storage again. For more information, see [Disaster recovery and storage account failover](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance). 
+The export job will be picked up from another region after 10 minutes without an update to the job status. Follow the guidance for Azure storage for recovering your storage account in the event of a regional outage. For more information, see [Disaster recovery and storage account failover](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance). 
 
 Ensure that you grant the same permissions to the system identity of the Azure API for FHIR. Also, if the storage account is configured with selected networks, see [How to export FHIR data](https://docs.microsoft.com/azure/healthcare-apis/fhir/export-data).
 
@@ -112,7 +112,7 @@ Consider the following steps for DR test.
 
 * Come up with a test plan, as you would with any DR test.
  
-* Wait until the Microsoft support team has enabled the DR feature and confirm that the environment is ready for test and the failover has taken place.
+* The Microsoft support team enables the DR feature and confirms that the failover has taken place.
 
 * Conduct your DR test and record the testing results, which it should include any data loss and network latency issues. 
 
@@ -134,7 +134,7 @@ The disaster recovery feature incurs extra costs because data of the compute and
 
 ## Next steps
 
-In this article, you've learned how to enable DR for Azure API for FHIR and how to test the DR feature in a non-production environment. To learn about Azure API for FHIR's other supported features, see:
+In this article, you've learned how DR for Azure API for FHIR works and how to enable it. To learn about Azure API for FHIR's other supported features, see:
 
 >[!div class="nextstepaction"]
 >[FHIR supported features](fhir-features-supported.md)
