@@ -10,9 +10,9 @@ ms.author: vikancha
 ---
 #Introduction  
 
-As more powerful GPU VM sizes  become available in Microsoft Azure datacenters, we recommend assessing your workloads and migrating the virtual machines (VMs) in the NV and NV_Promo series. These legacy VMs can be migrated into new VM series such as NVsv3 and NVasv4 series for better performance with reduced cost. NVsv3 VM series is powered by the Nvidia M60 GPUs and NVasv4 series by AMD Radeon Instinct MI25 GPUs.  The main difference between the NV, NV_Promo series and the newer NVsv3 and NVasv4 is improved performance, support for premium storage and the option to choose from a fractional GPU size to multi-GPU configurations. Both NVsv3 and NVasv4 series have more modern cores and greater capacity.  
+As more powerful GPU VM sizes  become available in Microsoft Azure datacenters, we recommend assessing your workloads and migrating the virtual machines (VMs) in the NV and NV_Promo series. These legacy VMs can be migrated into new VM series such as NVsv3 and NVasv4 series for better performance with reduced cost. NVsv3 VM series is powered by the Nvidia M60 GPUs and NVasv4 series by AMD Radeon Instinct MI25 GPUs.  The main difference between the NV, NV_Promo series, and the newer NVsv3 and NVasv4 is improved performance, support for premium storage and the option to choose from a fractional GPU size to multi-GPU configurations. Both NVsv3 and NVasv4 series have more modern cores and greater capacity.  
 
-The following section summarize the difference between the legacy NV series and the NVsv3 and NVv4  series.
+The following section summarizes the difference between the legacy NV series and the NVsv3 and NVv4  series.
  
  ##NVsv3 series 
 
@@ -98,7 +98,7 @@ General Changes
 #Breaking Changes 
 
 ##Select target size for migration 
-After assessing your current usage, decide what type of GPU VM you need. Depending on the workload requirements you have few different choices. Here’s how to choose:  
+After assessing your current usage, decide what type of GPU VM you need. Depending on the workload requirements, you have few different choices. Here’s how to choose:  
 
 If the workload is graphics/visualization and has a hard dependency on using Nvidia GPU then we recommend migrating to the NVsv3 series.  
 
@@ -112,12 +112,12 @@ If the workload is graphics/visualization and has no hard dependency on a specif
 
 Follow the guide to [request an increase in vCPU quota by VM family](https://docs.microsoft.com/en-us/azure/azure-portal/supportability/per-vm-quota-requests). Select NVSv3 Series or NVv4 Series as the VM family name depending on the target VM size you have selected for migration.
 ##Resize the current virtual machine
-You can [resize the virtual machine through Azure portal or Powershell](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/resize-vm). You can also [resize the virtual machine using Axure CLI](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/change-vm-size). 
+You can [resize the virtual machine through Azure portal or PowerShell](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/resize-vm). You can also [resize the virtual machine using Azure CLI](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/change-vm-size). 
 
 #FAQ
 **Q:** Which GPU driver should I use for the target VM size? 
 
-**A:** For NVsv3 series use the [Nvidia GRID driver](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/n-series-driver-setup). For NVv4 use the [AMD GPU drivers](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/n-series-amd-driver-setup). 
+**A:** For NVsv3 series, use the [Nvidia GRID driver](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/n-series-driver-setup). For NVv4, use the [AMD GPU drivers](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/n-series-amd-driver-setup). 
 
 **Q:** I use Nvidia GPU driver extension today. Will it work for the target VM size? 
 
