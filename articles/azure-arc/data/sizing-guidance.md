@@ -25,7 +25,7 @@ When planning for the deployment of Azure Arc data services you should plan for 
 
 Cores numbers must be an integer value greater than or equal to one.
 
-When using azdata for deployment the memory values should be specified in a power of two number - i.e. using the suffixes: Ki, Mi, or Gi.
+When using Azure CLI (az) for deployment the memory values should be specified in a power of two number - i.e. using the suffixes: Ki, Mi, or Gi.
 
 Limit values must always be greater than to the request value, if specified.
 

@@ -1,6 +1,6 @@
 ---
-title: Scale up and down an Azure Database for PostgreSQL Hyperscale server group using CLI (azdata or kubectl)
-description: Scale up and down an Azure Database for PostgreSQL Hyperscale server group using CLI (azdata or kubectl)
+title: Scale up and down an Azure Database for PostgreSQL Hyperscale server group using CLI (az or kubectl)
+description: Scale up and down an Azure Database for PostgreSQL Hyperscale server group using CLI (az or kubectl)
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -10,9 +10,7 @@ ms.reviewer: mikeray
 ms.date: 06/02/2021
 ms.topic: how-to
 ---
-# Scale up and down an Azure Database for PostgreSQL Hyperscale server group using CLI (azdata or kubectl)
-
-
+# Scale up and down an Azure Database for PostgreSQL Hyperscale server group using CLI (az or kubectl)
 
 There are times when you may need to change the characteristics or the definition of a server group. For example:
 

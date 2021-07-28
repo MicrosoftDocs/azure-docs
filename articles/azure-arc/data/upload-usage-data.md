@@ -42,7 +42,7 @@ Usage information such as inventory and resource usage can be uploaded to Azure 
  
    This command creates a `usage.json` file with all the Azure Arc-enabled data resources such as SQL managed instances and PostgreSQL Hyperscale instances etc. that are created on the data controller.
 
-2. Upload the usage data using ```azdata upload``` command
+2. Upload the usage data using the `upload` command.
 
    ```azurecli
    az arcdata dc upload --path usage.json

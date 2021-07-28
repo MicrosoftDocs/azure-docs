@@ -14,8 +14,8 @@ ms.topic: how-to
 # Troubleshooting PostgreSQL Hyperscale server groups
 This article describes some techniques you may use to troubleshoot your server group. In addition to this article you may want to read how to use [Kibana](monitor-grafana-kibana.md) to search the logs or use [Grafana](monitor-grafana-kibana.md) to visualize metrics about your server group. 
 
-## Getting more details about the execution of an azdata command
-You may add the parameter **--debug** to any azdata command you execute. Doing so will display to your console additional information about the execution of that command. You should find it useful to get details to help you understand the behavior of that command.
+## Getting more details about the execution of a CLI command
+You may add the parameter **--debug** to any CLI command you execute. Doing so will display to your console additional information about the execution of that command. You should find it useful to get details to help you understand the behavior of that command.
 For example you could run
 ```azurecli
 az postgres arc-server create -n postgres01 -w 2 --debug --k8s-namespace <namespace> --use-k8s
@@ -26,7 +26,7 @@ or
 az postgres arc-server edit -n postgres01 --extension --k8s-namespace <namespace> --use-k8s SomeExtensionName --debug
 ```
 
-In addition, you may use the parameter --help on any azdata command to display some help, list of parameters for a specific command. For example:
+In addition, you may use the parameter --help on any CLI command to display some help, list of parameters for a specific command. For example:
 ```azurecli
 az postgres arc-server create --help
 ```
