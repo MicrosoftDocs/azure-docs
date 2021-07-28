@@ -315,7 +315,6 @@ In a Resource Manager template, use cron or LogicApps expressions to define a sc
 
 User can use Azure policy to enforce shutdown schedule exists for every compute instance in a subscription or default a schedule if nothing exists.
 
-
 ## Manage
 
 Start, stop, restart, and delete a compute instance. A compute instance does not automatically scale down, so make sure to stop the resource to prevent ongoing charges. Stopping a compute instance deallocates it. Then start it again when you need it. While stopping the compute instance stops the billing for compute hours, you will still be billed for disk, public IP, and standard load balancer. 
@@ -423,7 +422,7 @@ For each compute instance in a workspace that you created (or that was created f
 * SSH into compute instance. SSH access is disabled by default but can be enabled at compute instance creation time. SSH access is through public/private key mechanism. The tab will give you details for SSH connection such as IP address, username, and port number. In a virtual network deployment, disabling SSH prevents SSH access from public internet, you can still SSH from within virtual network using private IP address of compute instance node and port 22.
 * Select the compute name to:
     * View details about a specific compute instance such as IP address, and region.
-    * Create or modify the schedule for starting and stopping the compute instance.
+    * Create or modify the schedule for starting and stopping the compute instance (preview).  Scroll down to the bottom of the page to edit the schedule.
 
 ---
 
