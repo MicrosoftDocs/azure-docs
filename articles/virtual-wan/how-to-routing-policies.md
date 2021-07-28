@@ -147,7 +147,7 @@ This scenario is not supported in the Managed Preview. However, please reach out
 
 ### Does the default route (0.0.0.0/0) propagate across hubs?
 
-No. Currently, branches and Virtual Networks should egress to the internet using an Azure Firewall deployed inside of the Virtual WAN hub the branches and Virtual Networks are connected to.
+No. Currently, branches and Virtual Networks will egress to the internet using an Azure Firewall deployed inside of the Virtual WAN hub the branches and Virtual Networks are connected to. You cannot configure a connection to access the Internet via the Firewall in a remote hub.
 
 ## Next steps
 
