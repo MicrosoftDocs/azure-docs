@@ -50,6 +50,10 @@ items:
     href: deployment-best-practices.md
   - name: Azure Purview limits
     href: how-to-manage-quotas.md
+  - name: Scans and ingestion
+    href: concept-scans-and-ingestion.md
+  - name: Elastic Data Map
+    href: concept-elastic-data-map.md
   - name: How scans detect deleted assets
     href: concept-detect-deleted-assets.md
   - name: Understanding resource sets
