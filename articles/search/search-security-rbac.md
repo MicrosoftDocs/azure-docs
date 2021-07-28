@@ -171,9 +171,11 @@ Alternatively, you can use the Azure portal and the roles assigned to yourself t
 
 API keys cannot be deleted, but they can be disabled on your service. If you are using Search Index Data Contributor and Search Index Data Reader roles and Azure AD authentication, you can disable API keys, causing the search service to refuse all data-related requests providing a key.
 
+Use the preview Management REST API, version 2021-04-01-preview, for this task.
+
 1. Set [DataPlaneAuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to `aadOrApiKey`.
 
-1. Assign roles and verify they are working correctly.
+1. [Assign roles](#assign-roles) and verify they are working correctly.
 
 1. Set `disableLocalAuth` to **True**.
 

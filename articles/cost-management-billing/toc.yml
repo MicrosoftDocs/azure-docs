@@ -98,9 +98,9 @@
         href: manage/understand-vm-reservation-charges.md?toc=/azure/cost-management-billing/toc.json
     - name: Windows and SQL costs not included
       href: reservations/reserved-instance-windows-software-costs.md?toc=/azure/cost-management-billing/toc.json
-    - name: Usage data for individual subscriptions
+    - name: Reservation usage data for individual subscriptions
       href: reservations/understand-reserved-instance-usage.md?toc=/azure/cost-management-billing/toc.json
-    - name: Enterprise and Microsoft Customer Agreement usage data
+    - name: Reservation usage data for EA and Microsoft Customer Agreement
       href: reservations/understand-reserved-instance-usage-ea.md?toc=/azure/cost-management-billing/toc.json
   - name: Billing
     items:
@@ -258,7 +258,7 @@
         href: understand/download-azure-invoice.md
       - name: View and download your Azure usage and charges
         href: understand/download-azure-daily-usage.md
-      - name: Download your invoice and daily usage data
+      - name: Download your invoice
         href: manage/download-azure-invoice-daily-usage-date.md
       - name: View and download tax documents
         href: understand/mca-download-tax-document.md
