@@ -47,7 +47,7 @@ Alternatively, the event message also contains the ID of the source twin that se
 
 The compute resource also needs to establish security and access permissions independently.
 
-To walk through the process of setting up an Azure function to process digital twin events, see [Set up an Azure function for processing data](how-to-create-azure-function.md).
+To walk through the process of setting up an Azure function to process digital twin events, see [Set up twin-to-twin event handling](how-to-send-twin-to-twin-events.md).
 
 ## Create an endpoint
 
@@ -115,4 +115,4 @@ See how to set up and manage an event route:
 * [Manage endpoints and routes](how-to-manage-routes.md)
 
 Or, see how to use Azure Functions to route events within Azure Digital Twins:
-* [Set up an Azure function for processing data](how-to-create-azure-function.md)
+* [Set up twin-to-twin event handling](how-to-send-twin-to-twin-events.md).
