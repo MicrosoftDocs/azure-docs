@@ -786,13 +786,16 @@
         "articles/media-services/latest/*.md": "rest-v3",
         "articles/media-services/live-video-analytics-edge/*.md": "lva-edge",
         "articles/media-services/previous/*.md": "rest-v2",
-        "articles/media-services/video-indexer/*.md": "video-indexer"
+        "articles/media-services/video-indexer/*.md": "video-indexer",
+        "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.md": "azure-video-analyzer-media",
+        "articles/azure-video-analyzer/video-analyzer-docs/*.md": "video-analyzer-subservice"
       },
       "monikerRange": {
         "articles/iot-edge/**/*.md": ">=iotedge-2018-06"
       },
       "recommendations": {
-        "articles/cognitive-services/Translator/**/*.md": false
+        "articles/cognitive-services/Translator/**/*.md": false,
+        "articles/azure-video-analyzer/video-analyzer-docs/*.md": false
       },
       "no-loc": {
         "articles/governance/policy/**/*.md": "[audit, deny, modify, disabled, auditifnotexists, deployifnotexists]",
@@ -854,8 +857,8 @@
         "articles/iot-fundamentals/**/*.yml": ["Azure","IoT"],
         "articles/iot-hub/**/*.md": ["Azure","IoT","Azure IoT Hub"],
         "articles/iot-hub/**/*.yml": ["Azure","IoT","Azure IoT Hub"],
-        "articles/iot-pnp/**/*.md": ["Azure","IoT","IoT Plug and Play"],
-        "articles/iot-pnp/**/*.yml": ["Azure","IoT","IoT Plug and Play"],
+        "articles/iot-develop/**/*.md": ["Azure","IoT","IoT Plug and Play", "IoT device devloper"],
+        "articles/iot-develop/**/*.yml": ["Azure","IoT","IoT Plug and Play", "IoT device devloper"],
         "articles/managed-instance-apache-cassandra/**/*.md": ["Azure","Azure Managed instance for Apache Cassandra"],
         "articles/managed-instance-apache-cassandra/**/*.yml": ["Azure","Azure Managed instance for Apache Cassandra"],
         "articles/mariadb/**/*.md": ["Azure","Azure Database for MariaDB"],

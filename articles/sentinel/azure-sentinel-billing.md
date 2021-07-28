@@ -96,15 +96,19 @@ For data connectors that include both free and paid data types, you can select w
 
 ![Screenshot showing the Data connector page for MCAS, with the free Security Alerts selected and the paid MCASShadowITReporting not selected.](media/billing/data-types.png)
 
+> [!NOTE]
+> Data connectors listed as Public Preview do not generate cost. Data connectors generate cost only once becoming Generally Available (GA).
+>
+
 ## Estimate Azure Sentinel costs
 
 If you're not yet using Azure Sentinel, you can use the [Azure Sentinel pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=azure-sentinel) to estimate the potential cost of using Azure Sentinel. Enter *Azure Sentinel* in the Search box and select the resulting Azure Sentinel tile. The pricing calculator helps you estimate your likely costs based on your expected data ingestion and retention.
 
 For example, you can enter the GB of daily data you expect to ingest in Azure Sentinel, and the region for your workspace. The calculator provides the aggregate monthly cost across these components:
 
-- Log Analytics data ingestion 
-- Azure Sentinel data analysis 
-- Log Analytics data retention 
+- Log Analytics data ingestion
+- Azure Sentinel data analysis
+- Log Analytics data retention
 
 ## Manage Azure Sentinel costs
 
@@ -178,7 +182,7 @@ Here are some other considerations for moving to a dedicated cluster for cost op
 - All workspaces linked to a cluster must be in the same region.
 - The maximum of workspaces linked to a cluster is 1000.
 - You can unlink a linked workspace from your cluster. The number of link operations on a particular workspace is limited to two in a period of 30 days.
-- You can't move an existing workspace to a customer managed key (CMK) cluster. You need to create the workspace in the cluster.
+- You can't move an existing workspace to a customer-managed  key (CMK) cluster. You need to create the workspace in the cluster.
 - Moving a cluster to another resource group or subscription isn't currently supported.
 - A workspace link to a cluster fails if the workspace is linked to another cluster.
 

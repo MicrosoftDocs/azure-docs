@@ -438,7 +438,7 @@ When handling variants, use the following guidelines:
 
 ### Deploy parsers
 
-Deploy parsers manually by copying them to the Azure Monitor **Log** page and saving your change. This method is useful for testing. For more information, see [Create a function](/azure/azure-monitor/logs/functions).
+Deploy parsers manually by copying them to the Azure Monitor **Log** page and saving your change. This method is useful for testing. For more information, see [Create a function](../azure-monitor/logs/functions.md).
 
 However, to deploy a large number of parsers, we recommend that you use an ARM template. For example, you may want to use an ARM template when deploying a complete normalization solution that includes a source-agnostic parser and several source-specific parsers, or when deploying multiple parsers for different schemas for a source.
 
