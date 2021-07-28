@@ -55,7 +55,9 @@ There are two stages to making cloud-init available to the endorsed Linux distro
 
 * All other CentOS SKUs starting from CentOS 7 (version 7.7) and CentOS 8 (version 8.1) including both Gen1 and Gen2 images are provisioned using cloud-init. CentOS 6.10, 7.4, 7.5, and 7.6 images do not support cloud-init. 
 
-* Note : OpenLogic is now Rouge Wave Software 
+> [!NOTE]
+> OpenLogic is now Rogue Wave Software 
+
 
 
 ### Oracle
