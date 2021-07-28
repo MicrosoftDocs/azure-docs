@@ -63,20 +63,27 @@ You can view the status of any run command executed including the output, errors
 
 ### Method 1
 
-
+>[!NOTE]
+>Method 1 is irreversible.
 
 1. Select **Run command** > **Run execution status** and then select the job you want to cancel.
 
+   :::image type="content" source="media/run-command/run-execution-cancel-delete-job-method-1.png" alt-text="Screenshot showing how to cancel and delete a run command.":::
+
+2. Select **Yes** to cancel and remove the job for all users.
 
 
 
 ### Method 2
 
+1. Select **Run command** > **Packages** > **Run execution status**.
+
+2. Select the ellipse (...) of the job you want to cancel and delete.
+
+   :::image type="content" source="media/run-command/run-execution-cancel-delete-job-method-2.png" alt-text="Screenshot showing how to cancel and delete a run command.":::
+
+3. Select **Yes** to cancel and remove the job for all users.
 
 
 
-
-## Next steps
-<!-- Add a context sentence for the following links -->
-- 
 
