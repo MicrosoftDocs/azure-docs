@@ -6,7 +6,7 @@ author: burkeholland
 ms.author: buhollan
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 7/20/2021
+ms.date: 7/28/2021
 ---
 
 # Configure private endpoint in Azure Static Web Apps
