@@ -35,7 +35,7 @@ Receiving a verification code in a text message is a common verification method 
 
 1. When notified that your phone was registered successfully, select **Done**.
 
-## If you receive a text message unexpectedly
+## If you receive a code unexpectedly
 
 ### If you already registered your phone number for two-step verification
 
