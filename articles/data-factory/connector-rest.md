@@ -5,6 +5,7 @@ author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 07/27/2021
+ms.author: makromer
 ---
 
 # Copy data from and to a REST endpoint by using Azure Data Factory
