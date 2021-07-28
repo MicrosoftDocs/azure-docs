@@ -11,25 +11,9 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ---
 
-# az arcdata reference
-
-## az arcdata
-### Commands
+# az arcdata
+## Commands
 | Command | Description|
 | --- | --- |
 [az arcdata dc](reference-az-arcdata-dc.md) | Create, delete, and manage data controllers.
 [az arcdata resource-kind](reference-az-arcdata-resource-kind.md) | Resource-kind commands to define and template custom resources on your cluster.
-
-
-## az sql mi-arc
-### Commands
-| Command | Description|
-| --- | --- |
-[az sql mi-arc](reference-az-sql-mi-arc.md) | Manage Azure Arc-enabled SQL managed instances.
-
-
-## az postgres arc-server
-### Commands
-| Command | Description|
-| --- | --- |
-[az postgres arc-server](reference-az-postgres-arc-server.md) | Manage Azure Arc enabled PostgreSQL Hyperscale server groups.
