@@ -3,7 +3,7 @@ title: Start virtual machine connect - Azure
 description: How to configure the start virtual machine on connect feature.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/26/2021
+ms.date: 07/29/2021
 ms.author: helohr
 manager: femila
 ---
