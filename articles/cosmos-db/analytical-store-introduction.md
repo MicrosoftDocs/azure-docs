@@ -156,20 +156,34 @@ There are two modes of schema representation in the analytical store. These mode
 > [!NOTE]
 > For SQL (Core) API accounts, when analytical store is enabled, the default schema representation in the analytical store is well-defined. Whereas for Azure Cosmos DB API for MongoDB accounts, the default schema representation in the analytical store is a full fidelity schema representation. 
 
-**Well-defined schema representation**
+#### Well-defined schema representation
 
 The well-defined schema representation creates a simple tabular representation of the schema-agnostic data in the transactional store. The well-defined schema representation has the following considerations:
 
-* A property always has the same type across multiple items.
-* We only allow 1 type change, from null to any other data type.The first non-null occurrence defines the column data type.
+* The first document defines the base schema and property must always have the same type across all documents. The only exceptions are:
+  * From null to any other data type.The first non-null occurrence defines the column data type. Any document not following the first non-null datatype won't be represented in analytical store.
+  * From `float` to `integer`. All documents will be represented in analytical store.
+  * From `integer` to `float`. All documents will be represented in analytical store. However, to read this data with Azure Synapse SQL serverless pools, you must use a WITH clause to convert the column to `varchar`. And after this initial conversion, it is possible to convert it again to a number. Please check the example below, where **num** initial value was an integer and the second one was a float.
 
-  * For example, `{"a":123} {"a": "str"}` does not have a well-defined schema because `"a"` is sometimes a string and sometimes a number. In this case, the analytical store registers the data type of `"a"` as the data type of `“a”` in the first-occurring item in the lifetime of the container. The document will still be included in analytical store, but items where the data type of `"a"` differs will not.
+```SQL
+SELECT CAST (num as float) as num
+FROM OPENROWSET(​PROVIDER = 'CosmosDB',
+                CONNECTION = '<your-connection',
+                OBJECT = 'IntToFloat',
+                SERVER_CREDENTIAL = 'your-credential'
+) 
+WITH (num varchar(100)) AS [IntToFloat]
+```
+
+  * Properties that don't follow the base schema data type won't be represented in analytical store. For example, consider the 2 documents below, and that the first one defined the analytical store base schema. The second document, where `id` is `2`, doesn't have a well-defined schema since property `"a"` is a string and the first document has `"a"` as a number. In this case, the analytical store registers the data type of `"a"` as `integer` for lifetime of the container. The second document will still be included in analytical store, but its `"a"` property will not.
   
-    This condition does not apply for null properties. For example, `{"a":123} {"a":null}` is still well defined.
+    * `{"id": "1", "a":123}` 
+    * `{"id": "2", "a": "str"}`
+     
+ > [!NOTE]
+ > This condition above doesn't apply for null properties. For example, `{"a":123} and {"a":null}` is still well defined.
 
-* Array types must contain a single repeated type.
-
-  * For example, `{"a": ["str",12]}` is not a well-defined schema because the array contains a mix of integer and string types.
+* Array types must contain a single repeated type. For example, `{"a": ["str",12]}` is not a well-defined schema because the array contains a mix of integer and string types.
 
 > [!NOTE]
 > If the Azure Cosmos DB analytical store follows the well-defined schema representation and the specification above is violated by certain items, those items will not be included in the analytical store.
@@ -187,7 +201,7 @@ The well-defined schema representation creates a simple tabular representation o
   * SQL serverless pools in Azure Synapse will represent these columns as `NULL`.
 
 
-**Full fidelity schema representation**
+#### Full fidelity schema representation
 
 The full fidelity schema representation is designed to handle the full breadth of polymorphic schemas in the schema-agnostic operational data. In this schema representation, no items are dropped from the analytical store even if the well-defined schema constraints (that is no mixed data type fields nor mixed data type arrays) are violated.
 
