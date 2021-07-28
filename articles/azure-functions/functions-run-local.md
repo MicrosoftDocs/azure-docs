@@ -174,13 +174,12 @@ The following considerations apply to project initialization:
 + When you don't provide a project name, the current folder is initialized. 
 
 + If you plan to publish your project to a custom Linux container, use the `--dockerfile` option to make sure that a Dockerfile is generated for your project. To learn more, see [Create a function on Linux using a custom image](functions-create-function-linux-custom-image.md). 
- .
 
 Certain languages may have additional considerations:
 
 # [C\#](#tab/csharp)
 
-+ By default, version 2.x and later versions of the Core Tools create function app projects for the .NET runtime as [C# class projects](functions-dotnet-class-library.md) (.csproj). Version 3.x also supports creating functions that [run on .NET 5.0 in an isolated process](dotnet-isolated-process-guide.md). These C# projects, which can be used with Visual Studio or Visual Studio Code, are compiled during testing and when publishing to Azure. 
++ By default, version 2.x and later versions of the Core Tools create function app projects for the .NET runtime as [C# class projects](functions-dotnet-class-library.md) (.csproj). Version 3.x also supports creating functions that [run on .NET 5.0 in an isolated process](dotnet-isolated-process-guide.md). These C# projects, which can be used with Visual Studio or Visual Studio Code, are compiled during debugging and when publishing to Azure. 
 
 + If you instead want to create and work locally with the same C# script (.csx) files created either in the Azure portal or by using version 1.x tools, you must include the `--csx` parameter when you create and deploy functions. To learn more, see the [func init reference](functions-core-tools-reference.md#func-init).
 
@@ -190,7 +189,7 @@ Certain languages may have additional considerations:
 
 # [JavaScript](#tab/node)
 
-+ If you used a `--worker-runtime` value of `node`, you must also specify a `--language` value of `javascript`. 
++ To use a `--worker-runtime` value of `node`, specify the `--language` as `javascript`. 
 
 # [PowerShell](#tab/powershell)
 
@@ -202,7 +201,7 @@ There are no additional considerations for PowerShell.
 
 # [TypeScript](#tab/ts)
 
-+ If you used a `--worker-runtime` value of `node`, you must also specify a `--language` value of `typescript`.  
++ To use a `--worker-runtime` value of `node`, specify the `--language` as `javascript`.
 
 + See the [TypeScript section in the JavaScript developer reference](functions-reference-node.md#typescript) for `func init` behaviors specific to TypeScript. 
 
@@ -228,7 +227,7 @@ If you can't use extension bundles with your non-.NET project,, you can use Core
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
-By default, these settings are not migrated automatically when the project is published to Azure. Use the [`--publish-local-settings` option][func azure functionapp publish] when you publish to make sure these settings are added to the function app in Azure. Values in **ConnectionStrings** are never published.
+By default, these settings are not migrated automatically when the project is published to Azure. Use the [`--publish-local-settings` option][func azure functionapp publish] when you publish to make sure these settings are added to the function app in Azure. Values in the `ConnectionStrings` section are never published.
 
 The function app settings values can also be read in your code as environment variables. For more information, see the Environment variables section of these language-specific reference topics:
 
@@ -245,7 +244,7 @@ When no valid storage connection string is set for [`AzureWebJobsStorage`] and t
 
 ### Get your storage connection strings
 
-Even when using the Microsoft Azure Storage Emulator for development, you may want to test with an actual storage connection. Assuming you have already [created a storage account](../storage/common/storage-account-create.md), you can get a valid storage connection string in one of several ways:
+Even when using the Microsoft Azure Storage Emulator for development, you may want to run locally with an actual storage connection. Assuming you have already [created a storage account](../storage/common/storage-account-create.md), you can get a valid storage connection string in one of several ways:
 
 # [Portal](#tab/portal)
 
@@ -295,7 +294,7 @@ To create a function in an existing project, run the following command:
 func new
 ```
 
-In version 3.x/2.x, when you run `func new` you are prompted to choose a template in the default language of your function app, then you are also prompted to choose a name for your function. In version 1.x, you are also prompted to choose the language. 
+In version 3.x/2.x, when you run `func new` you are prompted to choose a template in the default language of your function app. Next, you're prompted to choose a name for your function. In version 1.x, you are also required to choose the language. 
 
 You can also specify the function name and template in the `func new` command. The following example uses the `--template` option to create an HTTP trigger named `MyHttpTrigger`:
 
@@ -448,7 +447,7 @@ curl --request POST -H "Content-Type:application/json" --data "{'input':'sample 
 
 ## <a name="publish"></a>Publish to Azure
 
-The Azure Functions Core Tools supports two types of deployment:
+The Azure Functions Core Tools supports three types of deployment:
 
 | Deployment type | Command | Description |
 | ----- | ----- | ----- |
