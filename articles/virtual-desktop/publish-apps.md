@@ -1,5 +1,6 @@
 ---
-title: Publish built-in apps in Azure Virtual Desktop - Azure
+title: Publish built-in apps in Azure Virtual Desktop - Azure![appGroupname](https://user-images.githubusercontent.com/86134788/127274348-f741d55d-3851-4674-b822-fa14dfea217c.PNG)
+
 description: How to publish built-in apps in Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
@@ -24,7 +25,8 @@ To publish a built-in app:
 3. Finally, run the following cmdlet with `<PackageFamilyName>` replaced by the **PackageFamilyName** you found in the previous step:
 
    ```powershell
-   New-AzWvdApplication -Name <applicationname> -ResourceGroupName <resourcegroupname> -ApplicationGroupName <appgroupname> -FilePath "shell:appsFolder\<PackageFamilyName>!App" -CommandLineSetting <Allow|Require|DoNotAllow> -IconIndex 0 -IconPath <iconpath> -ShowInPortal:$true
+   New-AzWvdApplication -Name <applicationname> -ResourceGroupName <resourcegroupname> -GroupName[appGroupname](https://user-images.githubusercontent.com/86134788/127274131-8bb6cd94-7737-4f59-a970-f7bea677248c.PNG)
+roupName <appgroupname> -FilePath "shell:appsFolder\<PackageFamilyName>!App" -CommandLineSetting <Allow|Require|DoNotAllow> -IconIndex 0 -IconPath <iconpath> -ShowInPortal:$true
    ```
 
 >[!NOTE]
@@ -39,7 +41,7 @@ After you publish an app, it will have the default Windows app icon instead of i
 The process you use to publish Microsoft Edge is a little different from the publishing process for other apps. To publish Microsoft Edge with the default homepage, run this cmdlet:
 
 ```powershell
-New-AzWvdApplication -Name -ResourceGroupName -ApplicationGroupName -FilePath "shell:Appsfolder\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge" -CommandLineSetting <Allow|Require|DoNotAllow> -iconPath "C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\microsoftedge.exe" -iconIndex 0 -ShowInPortal:$true
+New-AzWvdApplication -Name -ResourceGroupName -GroupName -FilePath "shell:Appsfolder\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge" -CommandLineSetting <Allow|Require|DoNotAllow> -iconPath "C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\microsoftedge.exe" -iconIndex 0 -ShowInPortal:$true
 ```
 
 ## Next steps
