@@ -21,7 +21,7 @@ After completing the setup steps, you'll be able to run the simulated live video
 * An Azure account that includes an active subscription. [Create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) for free if you don't already have one.
 
 * [Visual Studio Code](https://code.visualstudio.com/), with the following extensions:
-    * [Video Analyzer](https://go.microsoft.com/fwlink/?linkid=2163332)
+    * [Video Analyzer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azure-video-analyzer)
 
 * If you didn't complete the [Get started - Azure Video Analyzer](./get-started-detect-motion-emit-events.md) quickstart, be sure to [set up Azure resources](#set-up-azure-resources).    
 
@@ -63,9 +63,9 @@ You should now see an entry in the `Pipeline topologies` list on the left labele
 1.	On the left under `Pipeline topologies`, right click on `MotionDetection` and select `Create live pipeline`.
 1.	For `Live pipeline name`, put in `mdpipeline1`.
 1.  In the `Parameters` section:
-    - For “rtspPassword” put in “testuser”.
+    - For “rtspPassword” put in “testpassword”.
     - For “rtspUrl” put in “rtsp://rtspsim:554/media/camera-300s.mkv”.
-    - For “rtspUserName” put in “testpassword”.
+    - For “rtspUserName” put in “testuser”.
 1.	In the top right, click “Save and activate”.
 
 This gets a starting topology deployed and a live pipeline up and running on your edge device.  If you have the Azure IoT Hub extension installed from the Get Started quickstart, you can monitor the build-in event endpoint in the Azure IoT-Hub Visual Studio Code extension to monitor this as shown in the [Observe Results](./get-started-detect-motion-emit-events.md#observe-results) section.

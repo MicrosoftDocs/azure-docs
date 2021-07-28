@@ -183,7 +183,7 @@ landingContent:
           - text: Azure Database Migration Service – MongoDB API
             url: ../dms/tutorial-mongodb-cosmos-db.md
           - text: AzCopy, Data migration tool – Table API
-            url: table-import.md                         
+            url: table/table-import.md                         
       - linkListType: how-to-guide
         links:
           - text: Oracle DB to Cosmos DB SQL API using Striim
@@ -219,10 +219,10 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Manage your data using a .NET app
-            url: create-table-dotnet.md            
+            url: table/create-table-dotnet.md            
           - text: Manage your data using a Java app
-            url: create-table-java.md                     
+            url: table/create-table-java.md                     
       - linkListType: concept
         links:
           - text: Differences between Table API and Azure Table storage
-            url: table-support.md
+            url: table/table-support.md
