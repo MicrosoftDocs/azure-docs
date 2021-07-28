@@ -73,9 +73,7 @@ You can [resize the virtual machine through Azure portal or PowerShell](./window
 
 **Q:** I use Nvidia GPU driver extension today. Will it work for the target VM size? 
 
-**A:** The current [Nvidia driver extension](./extensions/hpccompute-gpu-windows.md) will work for NVsv3.  
-
-       Use the [AMD GPU driver extensions](./extensions/hpccompute-amd-gpu-windows.md) if the target VM size is NVv4. 
+**A:** The current [Nvidia driver extension](./extensions/hpccompute-gpu-windows.md) will work for NVsv3. Use the [AMD GPU driver extensions](./extensions/hpccompute-amd-gpu-windows.md) if the target VM size is NVv4. 
        
 **Q:** Which target VM series should I use if I have dependency on CUDA? 
 
