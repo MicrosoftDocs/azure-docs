@@ -103,8 +103,7 @@ A network with the following characteristics must be established between the pro
 
 ## Install JetStream DR
 
-JetStream installation is available through the Run command functionality in the Azure VMware Solution portal. You'll check the current state and configuration of the system before you install JetStream DR.
-
+JetStream DR installation is available through the Run command functionality in the Azure VMware Solution portal. You'll complete the installation in three steps.
 
 :::image type="content" source="media/run-command/run-command-overview-jetstream.png" alt-text="Screenshot showing how to access the JetStream run commands available." lightbox="media/run-command/run-command-overview-jetstream.png":::
 
@@ -129,7 +128,7 @@ The cmdlet checks:
    | **Field** | **Value** |
    | --- | --- |
    | **Retain up to**  | Job retention period. The cmdlet output will be stored for these many days. Default value is 60.  |
-   | **Specify name for execution**  | A mandatory field, the job can be given a name. This can be alphanumeric. For example, **checkDRsystem**.  |
+   | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **checkDRsystem**.  |
    | **Timeout**  | The period after which a cmdlet will exit if a certain task is taking too long to finish.  |
 
 1. Check **Notifications** to see the progress.  If errors are reported, ??? [I believe this is where they go and fix the issues reported].
@@ -138,10 +137,9 @@ The cmdlet checks:
 
 ### Check cluster configuration
 
-You'll run the `Invoke-PreflightJetDRInstall` cmdlet to check if the cluster configuration.
+You'll run the `Invoke-PreflightJetDRInstall` cmdlet to check the following cluster configuration:
 
-It checks the following:
-- If the details are correct 
+- If the cluster details are correct 
 - Has at least 4 hosts (minimum)
 - If there's a VM with the same name provided for installing MSA
 - Ifthere's any **jetdr** plug-in pressent in vCenter
@@ -157,7 +155,7 @@ It checks the following:
    | **Cluster** | Cluster name where MSA will be deployed. For example, **Cluster-1**. |
    | **ProtectedCluster** | Cluster to be protected. For example, **Cluster-1**. |
    | **Retain up to**  | Job retention period. The cmdlet output will be stored for these many days. Default value is 60.  |
-   | **Specify name for execution**  | A mandatory field, the job can be given a name. This can be alphanumeric. For example, **check_jetserverdetails**.  |
+   | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **check_jetserverdetails**.  |
    | **Timeout**  | The period after which a cmdlet will exit if a certain task is taking too long to finish.  |
 
 1. Check **Notifications** to see the progress.  
@@ -188,7 +186,36 @@ You'll run the `Install-JetDR` cmdlet to deploy JetDR MSA, register vCenter to t
    | **ProtectedCluster** | Cluster to be protected. For example, **Cluster-1**. |
    | **RegisterWithIp** | Register MSA with Ip instead of hostname. <ul><li>True if hostname of the MSA is not DNS registered.</li><li>False if hostname of the MSA is DNS registered. </li></ul> |
    | **Retain up to**  | Job retention period. The cmdlet output will be stored for these many days. Default value is 60.  |
-   | **Specify name for execution**  | A mandatory field, the job can be given a name. This can be alphanumeric. For example, **check_jetserverdetails**.  |
+   | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **check_jetserverdetails**.  |
+   | **Timeout**  | The period after which a cmdlet will exit if a certain task is taking too long to finish.  |
+
+1. Check **Notifications** to see the progress.  
+
+
+## Uninstall JetStream DR
+
+You'll uninstall JetStream DR in two steps. 
+
+
+### Check current state of the JetStream appliance
+
+You'll run the `Invoke-PreflightJetDRUninstall` cmdlet to diagnose the existing MSA VM and cluster configuration. It checks the current state of the JetStream DR appliance and whether the minimal requirements for the script are met:
+
+- If the cluster details are correct 
+- Has at least 4 hosts (minimum)
+- If vCenter is registered to the MSA
+
+1. Select **Run command** > **Packages** > **Invoke-PreflightJetDRUninstall**.
+
+1. Provided the required values or change the default values, and then select **Run**.
+
+   | **Field** | **Value** |
+   | --- | --- |
+   | **MSIp** | IP address of the MSA VM.  |
+   | **Credential** | Credentials of root user of the MSA VM. It must be the same user provided at the time of installation.  |
+   | **ProtectedCluster** | Name of the protected cluster, for example, **Cluster-1**.  It must be the cluster that was provided at the time of installation. |
+   | **Retain up to**  | Job retention period. The cmdlet output will be stored for these many days. Default value is 60.  |
+   | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **uninstallcheck_jetserverdetails**.  |
    | **Timeout**  | The period after which a cmdlet will exit if a certain task is taking too long to finish.  |
 
 1. Check **Notifications** to see the progress.  
@@ -196,14 +223,24 @@ You'll run the `Install-JetDR` cmdlet to deploy JetDR MSA, register vCenter to t
 
 
 
-## Uninstall JetStream DR
-
-
-### Check current state of the JetStream appliance
-
-
-
 ### Uninstall JetDR
+
+You'll run the `Uninstall-JetDR` cmdlet to uninstall JetStream DR and its components.  It unconfigures the cluster, unregisters vCenter from the MSA, and then removes the user.
+
+1. Select **Run command** > **Packages** > **Uninstall-JetDR**.
+
+1. Provided the required values or change the default values, and then select **Run**.
+
+   | **Field** | **Value** |
+   | --- | --- |
+   | **MSIp** | IP address of the MSA VM.  |
+   | **Credential** | Credentials of root user of the MSA VM. It must be the same user provided at the time of installation.   |
+   | **ProtectedCluster** | Name of the protected cluster, for example, **Cluster-1**.  It must be the cluster that was provided at the time of installation. |
+   | **Retain up to**  | Job retention period. The cmdlet output will be stored for these many days. Default value is 60.  |
+   | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **uninstallcheck_jetserverdetails**.  |
+   | **Timeout**  | The period after which a cmdlet will exit if a certain task is taking too long to finish.  |
+
+1. Check **Notifications** to see the progress.  
 
 
 ## Support

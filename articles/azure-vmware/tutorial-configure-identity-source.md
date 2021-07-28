@@ -53,7 +53,7 @@ You'll run the `Get-ExternalIdentitySources` cmdlet to list all external identit
    | **Field** | **Value** |
    | --- | --- |
    | **Retain up to**  | Job retention period. The cmdlet output will be stored for these many days. Default value is 60.  |
-   | **Specify name for execution**  | A mandatory field, the job can be given a name. This can be alphanumeric.  |
+   | **Specify name for execution**  | Alphanumeric name of the task to execute.  |
    | **Timeout**  | The period after which a cmdlet will exit if a certain task is taking too long to finish.  |
 
 1. Check **Notifications** to see the progress.
@@ -79,7 +79,7 @@ You'll run the `New-AvsLDAPIdentitySource` cmdlet to add AD over LDAP as an exte
    | **Credential**  | The username and password used for authentication with the AD source (not cloudadmin).  |
    | **GroupName**  | Group to give cloud admin access in your external identity source.  For example, **avs-admins**.  |
    | **Retain up to**  | Job retention period. The cmdlet output is stored for the number of days defined. Default value is 60.  |
-   | **Specify name for execution**  | Name of the task to execute. For example, **addexternalIdentity**.  |
+   | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **addexternalIdentity**.  |
    | **Timeout**  | The time in which the cmdlet exits if a certain task takes too long to finish.  |
 
 1. Check **Notifications** to see the progress.
