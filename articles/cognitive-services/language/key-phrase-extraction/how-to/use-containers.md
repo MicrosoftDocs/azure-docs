@@ -1,7 +1,7 @@
 ---
-title: Use Docker containers for key phrase extraction on-premises 
+title: Use Docker containers for Key Phrase Extraction on-premises 
 titleSuffix: Azure Cognitive Services
-description: Learn how to use Docker containers for Key phrase extraction on-premises.
+description: Learn how to use Docker containers for Key Phrase Extraction on-premises.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -13,14 +13,14 @@ ms.author: aahi
 keywords: on-premises, Docker, container, natural language processing
 ---
 
-# Install and run Key phrase extraction containers
+# Install and run Key Phrase Extraction containers
 
-Containers enable you to run the Text Analytic APIs in your own environment and are great for your specific security and data governance requirements. 
+Containers enable you to run the Key Phrase Extraction APIs in your own environment and are great for your specific security and data governance requirements. 
 
 > [!NOTE]
 > * The free account is limited to 5,000 text records per month and only the **Free** and **Standard** [pricing tiers](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics) are valid for containers. For more information on transaction request rates, see [Data Limits](call-api.md#data-limits).
 
-Containers enable you to run the Text Analytic APIs in your own environment and are great for your specific security and data governance requirements. The Text Analytics containers provide advanced natural language processing over raw text, and include three main functions: sentiment analysis, key phrase extraction, and language detection.
+Containers enable you to run the Key Phrase Extraction APIs in your own environment and are great for your specific security and data governance requirements. The Key Phrase Extraction containers provide advanced natural language processing over raw text, and include three main functions: sentiment analysis, Key Phrase Extraction, and language detection.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ Containers enable you to run the Text Analytic APIs in your own environment and 
 * [Docker](https://docs.docker.com/) installed on a host computer. Docker must be configured to allow the containers to connect with and send billing data to Azure. 
     * On Windows, Docker must also be configured to support Linux containers.
     * You should have a basic understanding of [Docker concepts](https://docs.docker.com/get-started/overview/). 
-* A <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Text Analytics resource"  target="_blank">Text Analytics resource </a> with the free (F0) or standard (S) [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+* A <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language Services resource"  target="_blank">Language Services resource </a> with the free (F0) or standard (S) [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
 
 [!INCLUDE [Gathering required parameters](../../../containers/includes/container-gathering-required-parameters.md)]
 
@@ -36,15 +36,11 @@ Containers enable you to run the Text Analytic APIs in your own environment and 
 
 [!INCLUDE [Host Computer requirements](../../../../../includes/cognitive-services-containers-host-computer.md)]
 
-The following table describes the minimum and recommended specifications for the available Text Analytics containers. Each CPU core must be at least 2.6 gigahertz (GHz) or faster. The allowable Transactions Per Second (TPS) are also listed.
+The following table describes the minimum and recommended specifications for the available Key Phrase Extraction containers. Each CPU core must be at least 2.6 gigahertz (GHz) or faster. The allowable Transactions Per Second (TPS) are also listed.
 
 |  | Minimum host specs | Recommended host specs | Minimum TPS | Maximum TPS|
 |---|---------|-------------|--|--|
-| **Language detection**   | 1 core, 2GB memory | 1 core, 4GB memory |15 | 30| 
-| **key phrase extraction (preview)**   | 1 core, 2GB memory | 1 core, 4GB memory |15 | 30| 
-| **Sentiment Analysis**   | 1 core, 2GB memory | 4 cores, 8GB memory |15 | 30|
-| **Text Analytics for health - 1 document/request**   |  4 core, 10GB memory | 6 core, 12GB memory |15 | 30|
-| **Text Analytics for health - 10 documents/request**   |  6 core, 16GB memory | 8 core, 20GB memory |15 | 30|
+| **Key Phrase Extraction**   | 1 core, 2GB memory | 1 core, 4GB memory |15 | 30| 
 
 CPU core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
@@ -65,15 +61,14 @@ Once the container is on the host computer, use the [docker run](https://docs.do
 > [!IMPORTANT]
 > * The docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements. 
 > * The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
->   * If you're using the Text Analytics for health container, the [responsible AI](/legal/cognitive-services/text-analytics/transparency-note-health)  (RAI) acknowledgment must also be present with a value of `accept`.
-> * The sentiment analysis and language detection containers use v3 of the API, and are generally available. The key phrase extraction container uses v2 of the API, and is in preview.
+> * The sentiment analysis and language detection containers use v3 of the API, and are generally available. The Key Phrase Extraction container uses v2 of the API, and is in preview.
 
 To run the *Key Phrase Extraction* container, execute the following `docker run` command. Replace the placeholders below with your own values:
 
 | Placeholder | Value | Format or example |
 |-------------|-------|---|
-| **{API_KEY}** | The key for your Text Analytics resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
-| **{ENDPOINT_URI}** | The endpoint for accessing the Text Analytics API. You can find it on your resource's **Key and endpoint** page, on the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
+| **{API_KEY}** | The key for your Key Phrase Extraction resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
+| **{ENDPOINT_URI}** | The endpoint for accessing the Key Phrase Extraction API. You can find it on your resource's **Key and endpoint** page, on the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 
 
 ```bash
@@ -115,18 +110,18 @@ If you run the container with an output [mount](../../concepts/configure-contain
 
 ## Billing
 
-The key phrase extraction containers send billing information to Azure, using a _Key Phrase Extraction_ resource on your Azure account. 
+The Key Phrase Extraction containers send billing information to Azure, using a _Key Phrase Extraction_ resource on your Azure account. 
 
 [!INCLUDE [Container's Billing Settings](../../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 \
 ## Summary
 
-In this article, you learned concepts and workflow for downloading, installing, and running key phrase extraction containers. In summary:
+In this article, you learned concepts and workflow for downloading, installing, and running Key Phrase Extraction containers. In summary:
 
-* Text Analytics provides Linux containers for Docker.
+* Key Phrase Extraction provides Linux containers for Docker.
 * Container images are downloaded from the Microsoft Container Registry (MCR).
 * Container images run in Docker.
-* You can use either the REST API or SDK to call operations in key phrase extraction containers by specifying the host URI of the container.
+* You can use either the REST API or SDK to call operations in Key Phrase Extraction containers by specifying the host URI of the container.
 * You must specify billing information when instantiating a container.
 
 > [!IMPORTANT]

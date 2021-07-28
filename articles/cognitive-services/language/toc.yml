@@ -60,6 +60,8 @@ items:
       href: key-phrase-extraction/how-to/call-api.md
     - name: Use containers
       href: key-phrase-extraction/how-to/use-containers.md
+    - name: Configure containers
+      href: concepts/configure-containers.md
 - name: Named Entity Recognition (NER) and Personally Identifying Information (PII)
   items:
   - name: Overview

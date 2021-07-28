@@ -1,7 +1,7 @@
 ---
-title: Key phrase extraction in Azure Language services
+title: Key Phrase Extraction in Azure Language services
 titleSuffix: Azure Cognitive Services
-description: Learn about Key phrase extraction with Language Services.
+description: Learn about Key Phrase Extraction with Language Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,9 +12,9 @@ ms.date: 07/09/2021
 ms.author: aahi
 ---
 
-# What is the key phrase extraction API?
+# What is the Key Phrase Extraction API?
 
-Use key phrase extraction to quickly identify the main concepts in text. For example, in the text "The food was delicious and there were wonderful staff", Key Phrase Extraction will return the main talking points: "food" and "wonderful staff".
+Use Key Phrase Extraction to quickly identify the main concepts in text. For example, in the text "The food was delicious and there were wonderful staff", Key Phrase Extraction will return the main talking points: "food" and "wonderful staff".
 
 This documentation contains the following types of articles:
 

@@ -1,7 +1,7 @@
 ---
-title: Key phrase extraction using Language Services
+title: Key Phrase Extraction using Language Services
 titleSuffix: Azure Cognitive Services
-description: How to extract key phrases by using the Key phrase extraction API from Language Services.
+description: How to extract key phrases by using the Key Phrase Extraction API from Language Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -25,7 +25,7 @@ Document size must be under 5,120 characters per document. For the maximum numbe
 ## Submit data to the service
 
 
-Key phrase extraction works best when you give it bigger amounts of text to work on. This is opposite from sentiment analysis, which performs better on smaller amounts of text. To get the best results from both operations, consider restructuring the inputs accordingly.
+Key Phrase Extraction works best when you give it bigger amounts of text to work on. This is opposite from sentiment analysis, which performs better on smaller amounts of text. To get the best results from both operations, consider restructuring the inputs accordingly.
 
 To send an API request, You will need your Language service resource endpoint and key.
 
@@ -71,5 +71,5 @@ Your rate limit will vary with your [pricing tier](https://azure.microsoft.com/p
 
 ## Next steps
 
-[Key phrase extraction overview](../overview.md)
+[Key Phrase Extraction overview](../overview.md)
 
