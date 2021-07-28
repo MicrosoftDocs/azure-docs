@@ -165,7 +165,6 @@ Edit the following as needed:
 **RECOMMENDED TO REVIEW AND POSSIBLY CHANGE DEFAULTS**
 - **storage..className**: the storage class to use for the data controller data and log files.  If you are unsure of the available storage classes in your Kubernetes cluster, you can run the following command: `kubectl get storageclass`.  The default is `default` which assumes there is a storage class that exists and is named `default` not that there is a storage class that _is_ the default.  Note: There are two className settings to be set to the desired storage class - one for data and one for logs.
 - **serviceType**: Change the service type to `NodePort` if you are not using a LoadBalancer.  Note: There are two serviceType settings that need to be changed.
-- On Azure Red Hat OpenShift or Red Hat OpenShift Container Platform, you must apply the security context constraint before you create the data controller. Follow the instructions at [Apply a security context constraint for Azure Arc-enabled data services on OpenShift](how-to-apply-security-context-constraint.md).
 - **Security** For Azure Red Hat OpenShift or Red Hat OpenShift Container Platform, replace the `security:` settings with the following values in the data controller yaml file.
 
 ```yml
