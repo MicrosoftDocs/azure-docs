@@ -1004,7 +1004,7 @@ To retrieve other properties you must use the **GetString** method on the **enti
 
 ### Modifying heterogeneous entity types
 
-You do not need to know the type of an entity to delete it, and you always know the type of an entity when you insert it. However, you can use **DynamicTableEntity** type to update an entity without knowing its type and without using a POCO entity class. The following code sample retrieves a single entity, and checks the **EmployeeCount** property exists before updating it.  
+You do not need to know the type of an entity to delete it, and you always know the type of an entity when you insert it. However, you can use **TableEntity** type to update an entity without knowing its type and without using a POCO entity class. The following code sample retrieves a single entity, and checks the **EmployeeCount** property exists before updating it.  
 
 ```csharp
 var result = employeeTable.GetEntity<TableEntity>(partitionKey, rowKey);
