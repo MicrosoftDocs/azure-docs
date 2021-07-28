@@ -147,7 +147,7 @@ You'll run the `Invoke-PreflightJetDRInstall` cmdlet to check the following clus
 
 1. Select **Run command** > **Packages** > **Invoke-PreflightJetDRInstall**.
 
-1. Provided the required values or change the default values, and then select **Run**.
+1. Provide the required values or change the default values, and then select **Run**.
 
    | **Field** | **Value** |
    | --- | --- |
@@ -169,7 +169,7 @@ You'll run the `Install-JetDR` cmdlet to deploy JetDR MSA, register vCenter to t
 
 1. Select **Run command** > **Packages** > **Install-JetDR**.
 
-1. Provided the required values or change the default values, and then select **Run**.
+1. Provide the required values or change the default values, and then select **Run**.
 
    | **Field** | **Value** |
    | --- | --- |
@@ -207,7 +207,7 @@ You'll run the `Invoke-PreflightJetDRUninstall` cmdlet to diagnose the existing 
 
 1. Select **Run command** > **Packages** > **Invoke-PreflightJetDRUninstall**.
 
-1. Provided the required values or change the default values, and then select **Run**.
+1. Provide the required values or change the default values, and then select **Run**.
 
    | **Field** | **Value** |
    | --- | --- |
@@ -229,7 +229,7 @@ You'll run the `Uninstall-JetDR` cmdlet to uninstall JetStream DR and its compon
 
 1. Select **Run command** > **Packages** > **Uninstall-JetDR**.
 
-1. Provided the required values or change the default values, and then select **Run**.
+1. Provide the required values or change the default values, and then select **Run**.
 
    | **Field** | **Value** |
    | --- | --- |

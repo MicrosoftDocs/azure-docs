@@ -47,7 +47,7 @@ You'll run the `Get-ExternalIdentitySources` cmdlet to list all external identit
 
    :::image type="content" source="media/run-command/run-command-overview.png" alt-text="Screenshot showing how to access the run commands available." lightbox="media/run-command/run-command-overview.png":::
 
-1. Provided the required values or change the default values, and then select **Run**.
+1. Provide the required values or change the default values, and then select **Run**.
 
    :::image type="content" source="media/run-command/run-command-get-external-identity-sources.png" alt-text="Screenshot showing how to list external identity source. ":::
    
@@ -66,7 +66,7 @@ You'll run the `New-AvsLDAPIdentitySource` cmdlet to add AD over LDAP as an exte
 
 1. Select **Run command** > **Packages** > **New-AvsLDAPIdentitySource**.
 
-1. Provided the required values or change the default values, and then select **Run**.
+1. Provide the required values or change the default values, and then select **Run**.
    
    | **Field** | **Value** |
    | --- | --- |
@@ -95,7 +95,7 @@ You'll run the `New-AvsLDAPSIdentitySource` cmdlet to add an AD over LDAP with S
    
 1. Select **Run command** > **Packages** > **New-AvsLDAPSIdentitySource**.
 
-1. Provided the required values or change the default values, and then select **Run**.
+1. Provide the required values or change the default values, and then select **Run**.
 
    | **Field** | **Value** |
    | --- | --- |
@@ -124,7 +124,7 @@ You'll run the `Add-GroupToCloudAdmins` cmdlet to add an existing AD group to cl
 
 1. Select **Run command** > **Packages** > **Add-GroupToCloudAdmins**.
 
-1. Provided the required values or change the default values, and then select **Run**.
+1. Provide the required values or change the default values, and then select **Run**.
 
    | **Field** | **Value** |
    | --- | --- |
@@ -144,7 +144,7 @@ You'll run the `Remove-GroupFromCloudAdmins` cmdlet to remove a specified AD gro
 
 1. Select **Run command** > **Packages** > **Remove-GroupFromCloudAdmins**.
 
-1. Provided the required values or change the default values, and then select **Run**.
+1. Provide the required values or change the default values, and then select **Run**.
 
    | **Field** | **Value** |
    | --- | --- |
@@ -166,7 +166,7 @@ You'll run the `Remove-ExternalIdentitySources` cmdlet to remove all existing ex
 
 1. Select **Run command** > **Packages** > **Remove-ExternalIdentitySources**.
 
-1. Provided the required values or change the default values, and then select **Run**.
+1. Provide the required values or change the default values, and then select **Run**.
 
    | **Field** | **Value** |
    | --- | --- |
