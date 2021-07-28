@@ -1,12 +1,12 @@
 ---
-title: How to configure Azure Functions with identity-based connections
+title: How to configure a secretless Azure Function with identity-based connections
 description: Article that shows you how to use identity-based connections with Azure Functions instead of connection strings
 ms.topic: article
 ms.date: 7/26/2021
 
 ---
 
-# Tutorial: Creating a function app with identity-based Connections
+# Tutorial: Creating a secretless function app with identity-based Connections
 
 This article shows you how to configure a secretless function app using identity-based connections instead of connection strings. To learn more about identity-based connections, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
 

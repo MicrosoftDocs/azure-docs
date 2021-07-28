@@ -1,18 +1,18 @@
 ---
-title: How to configure Azure Functions storage queue with identity-based connections
+title: How to configure a secrtless Azure Function storage queue with identity-based connections
 description: Article that shows you how to use identity-based connections with a storage queue instead of connection strings
 ms.topic: article
 ms.date: 7/26/2021
 
 ---
 
-# Tutorial: Using a Storage Queue Trigger with Identity-Based Connections
+# Tutorial: Creating a Secretless Storage Queue Trigger with Identity-Based Connections
 
-This article shows you how to configure a storage queue trigger to use managed identities instead of secrets. To learn more about identity-based connections, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection). 
+This article shows you how to configure a storage queue trigger to use managed identities instead of secrets. To learn more about identity-based connections, see [configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection). 
 
 Prerequisite:
 > [!div class="checklist"]
-> *  Complete the [Creating a function app with identity base connections tutorial](./functions-managed-identity-tutorial.md).
+> *  Complete the [Creating a secretless function app with identity base connections tutorial](./functions-managed-identity-tutorial.md).
 
 In this tutorial, you'll:
 
@@ -101,9 +101,11 @@ Now, you will add the **Storage Queue Data Contributor** Azure role assignment f
     # [C#](#tab/csharp)
     
     1. Visual Studio will automatically add the Storage extension package. Right-click this package and select **Remove** as you will need to use the preview version.
+    
     :::image type="content" source="./media/functions-secretless-tutorial/19-delete-extension.png" alt-text="Screenshot of how to remove a function extension.":::
 
     1. In Visual Studio, Right-click dependencies, and select **Manage NuGet Packages**.
+    
     :::image type="content" source="./media/functions-secretless-tutorial/20-add-preview-package.png" alt-text="Screenshot of how to add a preview package.":::
     
     1. Make sure the **include preview** box is checked and search for the package you will be using. 
@@ -117,9 +119,11 @@ Now, you will add the **Storage Queue Data Contributor** Azure role assignment f
     # [C# Script](#tab/csharp-script)
     
     1. Visual Studio will automatically add the Storage extension package. Right-click this package and select **Remove** as you will need to use the preview version.
+    
     :::image type="content" source="./media/functions-secretless-tutorial/19-delete-extension.png" alt-text="Screenshot of how to remove a function extension.":::
 
     1. In Visual Studio, Right-click dependencies, and select **Manage NuGet Packages**.
+    
     :::image type="content" source="./media/functions-secretless-tutorial/20-add-preview-package.png" alt-text="Screenshot of how to add a preview package.":::
 
     1. Make sure the **include preview** box is checked and search for the package you will be using. 

@@ -1,14 +1,14 @@
 ---
-title: How to configure Azure Functions service queue with identity-based connections
+title: How to configure a secretless Azure Functions service queue with identity-based connections
 description: Article that shows you how to use identity-based connections with a service queue instead of connection strings, and how to use managed identities locally.
 ms.topic: conceptual
 ms.date: 3/13/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Using a Service Bus Queue Trigger with Identity-Based Connections
+# Configuring a Secretless Service Bus Queue Trigger with Identity-Based Connections
 
-This article shows you how to configure a service bus queue trigger to use managed identities instead of secrets. To learn more about identity-based connections, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
+This article shows you how to configure a secretless service bus queue trigger to use managed identities instead of secrets. To learn more about identity-based connections, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
 
 Prerequisite:
 > [!div class="checklist"]

@@ -6,13 +6,13 @@ ms.date: 7/26/2021
 
 ---
 
-# Tutorial: Use Managed Identity to access Key Vault
+# Tutorial: Access Application Insights Secrets Using Key Vault
 
 This article shows you how to configure App Insights with Key Vault and managed identities. The tutorial is a continuation of the [functions managed identity tutorial](./functions-managed-identity-tutorial.md). To learn more about identity-based connections, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
 
 Prerequisite:
 > [!div class="checklist"]
-> *  Complete the [Creating a function app with identity base connections tutorial](./functions-managed-identity-tutorial.md).
+> *  Complete the [creating a secretless function app with identity base connections tutorial](./functions-managed-identity-tutorial.md).
 
 In this tutorial, you'll:
 > [!div class="checklist"]

@@ -125,7 +125,7 @@ To configure your app with an identity-based connection, there are a couple requ
 
 When hosted in the Azure Functions service, identity-based connections use a [managed identity](../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json). The system-assigned identity is used by default, although a user-assigned identity can be specified with the `credential` and `clientID` properties. When run in other contexts, such as local development, your developer identity is used instead, although this can be customized using alternative connection parameters.
 
-For a tutorial on configuring your function apps with managed identities, see the [Creating a function app with Identity Based Connections tutorial](./functions-managed-identity-tutorial.md).
+For a tutorial on configuring your function apps with managed identities, see the [creating a secretless function app with identity-based connections tutorial](./functions-managed-identity-tutorial.md).
 
 #### Grant permission to the identity
 
