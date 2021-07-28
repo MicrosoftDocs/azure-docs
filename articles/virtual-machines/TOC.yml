@@ -265,6 +265,10 @@
       - name: Setup AMD GPU drivers
         displayName: AMD GPU drivers, AMD, GPU drivers, GPU
         href: ./windows/n-series-amd-driver-setup.md
+      - name: NV-series retirement
+        href: NV-series-retirement.md
+      - name: NV-series migration guide
+        href: NV-series-migration-guide.md
     - name: FPGA - accelerated compute
       items:
       - name: Overview
