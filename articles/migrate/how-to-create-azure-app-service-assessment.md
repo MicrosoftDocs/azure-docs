@@ -14,7 +14,7 @@ As part of your migration journey to Azure, you assess your on-premises workload
 This article shows you how to assess discovered ASP.NET web apps for migration to Azure App Service, using the Azure Migrate: Discovery and assessment tool.
 
 > [!Note]
-> Discovery and assessment of ASP.NET web apps running in your VMware environment is now in preview. Get started with [this tutorial](tutorial-discover-vmware.md). If you want to try out this feature in an existing project, please ensure that you have completed the [prerequisites](how-to-discover-webapps-existing-project.md) in this article.
+> Discovery and assessment of ASP.NET web apps running in your VMware environment is now in preview. Get started with [this tutorial](tutorial-discover-vmware.md). If you want to try out this feature in an existing project, please ensure that you have completed the [prerequisites](how-to-discover-sql-existing-project.md) in this article.
 
 ## Before you start
 

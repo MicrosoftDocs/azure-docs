@@ -5,13 +5,12 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: troubleshooting
-ms.date: 01/02/2020
+ms.date: 07/28/2021
 ---
 
 # Troubleshoot assessment
 
 This article helps you troubleshoot issues with assessment and dependency visualization with [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool).
-
 
 ## Assessment readiness issues
 
@@ -197,6 +196,31 @@ Collect network traffic logs as follows:
    - For Windows VMs, the operating system details are always fetched from the vCenter Server.
 - For Hyper-V VMs, the operating system data is gathered from the Hyper-V host
 - For physical servers, it is fetched from the server.
+
+## Common web apps discovery errors
+
+Azure Migrate provides option to assess discovered ASP.NET web apps for migration to Azure App Service, using the Azure Migrate: Discovery and assessment tool. Refer to the [assessment](tutorial-assess-webapps.md) tutorial to get started.
+
+Typical Azure App Service assessment errors are summarized in the table.
+
+| **Error** | **Cause** | **Recommended action** |
+|--|--|--|
+|**Application pool check.**|The IIS site is using the following application pools: {0}.|Azure App Service does not support more than one application pool configuration per App Service Application. Move the workloads to a single application pool and remove additional application pools.|
+|**Application pool identity check.**|The site's application pool is running as an unsupported user identity type: {0}|Azure App Service does not support using the LocalSystem or SpecificUser application pool identity types. Set the Application pool to run as ApplicationPoolIdentity.|
+|**Authorization check.**|The following unsupported authentication types were found: {0}|Azure App Service supported authentication types and configuration are different from on-premises IIS. Disable the unsupported authentication types on the site. After the migration is complete, it will be possible to configure the site using one of the Azure App Service supported authentication types.|
+|**Authorization check unknown.**|Unable to determine enabled authentication types for all of the site configuration.|Unable to determine authentication types. Fix all configuration errors and confirm that all site content locations are accessible to Administrators group.|
+|**Configuration error check.**|The following configuration errors were found: {0}|Migration readiness cannot be determined without reading all applicable configuration. Fix all configuration errors, making sure configuration is valid and accessible.|
+|**Content size check.**|The site content appears to be greater than the maximum allowed of 2 GB for successful migration.|For successful migration site content should be less than 2 GB. Evaluate if the site could switch to using non-file system based storage options for static content, such as Azure Storage.|
+|**Content size check unknown.**|File content size could not be determined, which usually indicates an access issue.|Content must be accessible in order to migrate the site. Confirm that site is not using UNC shares for content and that all site content locations are accessible to Administrators group.|
+|**Global module check.**|The following unsupported global modules were detected: {0}|Azure App Service supports limited global modules. Remove the unsupported module(s) from GlobalModules section along with all associated configuration.|
+|**Isapi filter check.**|The following unsupported ISAPI filters were detected: {0}|Automatic configuration of custom ISAPI filters is not supported. Remove the unsupported ISAPI filters.|
+|**Isapi filter check unknown.**|Unable to determine ISAPI filters present for all of the site configuration.|Automatic configuration of custom ISAPI filters is not supported. Fix all configuration errors and confirm that all site content locations are accessible to Administrators group.|
+|**Location tag check.**|The following location paths were found in the applicationHost.config file: {0}|Migration method does not support moving location path configuration in applicationHost.config. Move the location path configuration to either the site's root web.config file, or to a web.config file associated with the specific application to which they apply.|
+|**Protocol check.**|Bindings were found using the following unsupported protocols: {0}|Azure App Service only supports HTTP and HTTPS protocol. Remove the bindings with protocols that are not HTTP or HTTPS.|
+|**Virtual directory check.**|The following virtual directories are hosted on UNC shares: {0}|Migration does not support migrating site content hosted on UNC shares. Move content to a local file path or consider changing to a non-file system based storage option, such as Azure Storage. If using shared configuration, disable shared configuration for the server before modifying content paths.|
+|**Https binding check.**|The application uses HTTPS.|Additional manual steps are required for HTTPS configuration in App Service. Post migration additional steps will be required to associate certificates with the Azure App Service site.|
+|**TCP port check**|Bindings were found on the following unsupported ports: {0}|Azure App Services supports only ports 80 and 443. Clients making requests to the site should update the port in their requests to use 80 or 443.|
+|**Framework check.**|The following non-.NET frameworks or unsupported .NET framework versions were detected as possibly in use by this site: {0}|Migration does not validate the framework for non-.NET sites. App Service supports multiple frameworks, however these have different migration options. Confirm that the non-.NET frameworks are not being used by the site, or consider using an alternate migration option.|
 
 ## Next steps
 
