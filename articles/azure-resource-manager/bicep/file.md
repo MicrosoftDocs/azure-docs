@@ -2,7 +2,7 @@
 title: Bicep file structure and syntax
 description: Describes the structure and properties of a Bicep file using declarative syntax.
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 07/02/2021
 ---
 
 # Understand the structure and syntax of Bicep files
@@ -292,6 +292,10 @@ Specify a [data type](data-types.md) for the output value.
 An output can have the same name as a parameter, variable, module, or resource.
 
 For more information, see [Outputs in Bicep](./outputs.md).
+
+## Whitespace
+
+Spaces and tabs are ignored when authoring Bicep files. New lines however have semantic meaning, for example in [object](./data-types.md#objects) and [array](./data-types.md#arrays) declarations.
 
 ## Comments
 

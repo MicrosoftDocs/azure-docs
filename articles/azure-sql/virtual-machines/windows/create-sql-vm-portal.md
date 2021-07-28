@@ -26,7 +26,7 @@ This guide covers options available for using the Azure portal to provision SQL 
 Use this guide to create your own SQL Server VM. Or, use it as a reference for the available options in the Azure portal.
 
 > [!TIP]
-> If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.md).
+> If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.yml).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -81,7 +81,7 @@ On the **Basics** tab, provide the following information:
 > [!IMPORTANT]
 > The estimated monthly cost displayed on the **Choose a size** window does not include SQL Server licensing costs. This estimate is the cost of the VM alone. For the Express and Developer editions of SQL Server, this estimate is the total estimated cost. For other editions, see the [Windows Virtual Machines pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and select your target edition of SQL Server. Also see the [Pricing guidance for SQL Server Azure VMs](pricing-guidance.md) and [Sizes for virtual machines](../../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-* Under **Administrator account**, provide a username and password. The password must be at least 12 characters long and meet the [defined complexity requirements](../../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+* Under **Administrator account**, provide a username and password. The password must be at least 12 characters long and meet the [defined complexity requirements](../../../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
 
    ![Administrator account](./media/create-sql-vm-portal/basics-administrator-account.png)
 
@@ -280,4 +280,4 @@ The following sections show how to connect over the internet to your SQL Server 
 
 ## Next steps
 
-For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](sql-server-on-azure-vm-iaas-what-is-overview.md) and the [Frequently Asked Questions](frequently-asked-questions-faq.md).
+For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](sql-server-on-azure-vm-iaas-what-is-overview.md) and the [Frequently Asked Questions](frequently-asked-questions-faq.yml).

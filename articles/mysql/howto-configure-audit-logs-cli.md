@@ -5,11 +5,13 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
-ms.date: 6/24/2020 
 ms.custom: devx-track-azurecli
+ms.date: 6/24/2020 
 ---
 
 # Configure and access audit logs in the Azure CLI
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 You can configure the [Azure Database for MySQL audit logs](concepts-audit-logs.md) from the Azure CLI.
 
@@ -19,13 +21,13 @@ To step through this how-to guide:
 
 - You need an [Azure Database for MySQL server](quickstart-create-mysql-server-database-using-azure-portal.md).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE[azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 - This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Configure audit logging
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > It is recommended to only log the event types and users required for your auditing purposes to ensure your server's performance is not heavily impacted.
 
 Enable and configure audit logging using the following steps:
@@ -35,17 +37,18 @@ Enable and configure audit logging using the following steps:
     az mysql server configuration set --name audit_log_enabled --resource-group myresourcegroup --server mydemoserver --value ON
     ```
 
-1. Select the [event types](concepts-audit-logs.md#configure-audit-logging) to be logged by updating the **audit_log_events** parameter.
+2. Select the [event types](concepts-audit-logs.md#configure-audit-logging) to be logged by updating the **audit_log_events** parameter.
     ```azurecli-interactive
     az mysql server configuration set --name audit_log_events --resource-group myresourcegroup --server mydemoserver --value "ADMIN,CONNECTION"
     ```
 
-1. Add any MySQL users to be excluded from logging by updating the **audit_log_exclude_users** parameter. Specify users by providing their MySQL user name.
+3. Add any MySQL users to be excluded from logging by updating the **audit_log_exclude_users** parameter. Specify users by providing their MySQL user name.
     ```azurecli-interactive
     az mysql server configuration set --name audit_log_exclude_users --resource-group myresourcegroup --server mydemoserver --value "azure_superuser"
     ```
 
-1. Add any specific MySQL users to be included for logging by updating the **audit_log_include_users** parameter. Specify users by providing their MySQL user name.
+4. Add any specific MySQL users to be included for logging by updating the **audit_log_include_users** parameter. Specify users by providing their MySQL user name.
+
     ```azurecli-interactive
     az mysql server configuration set --name audit_log_include_users --resource-group myresourcegroup --server mydemoserver --value "sampleuser"
     ```

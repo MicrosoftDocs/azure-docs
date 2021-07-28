@@ -1,14 +1,14 @@
 ---
-title: Create Apache Kafka for Confluent Cloud - Azure partner solutions
+title: Create Apache Kafka for Confluent Cloud through Azure portal - Azure partner solutions
 description: This article describes how to use the Azure portal to create an instance of Apache Kafka for Confluent Cloud.
 ms.service: partner-services
 ms.topic: quickstart
-ms.date: 01/15/2021
+ms.date: 06/07/2021
 author: tfitzmac
 ms.author: tomfitz
 ---
 
-# QuickStart: Get started with Apache Kafka for Confluent Cloud
+# QuickStart: Get started with Apache Kafka for Confluent Cloud - Azure portal
 
 In this quickstart, you'll use the Azure portal to create an instance of Apache Kafka for Confluent Cloud.
 

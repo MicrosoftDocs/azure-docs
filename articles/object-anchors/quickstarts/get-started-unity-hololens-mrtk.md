@@ -26,6 +26,8 @@ You'll learn how to:
 
 [!INCLUDE [Unity quickstart prerequisites](../../../includes/object-anchors-quickstart-unity-prerequisites.md)]
 
+[!INCLUDE [Create Account](../../../includes/object-anchors-get-started-create-account.md)]
+
 [!INCLUDE [Unity device setup](../../../includes/object-anchors-quickstart-unity-device-setup.md)]
 
 ## Open the sample project
@@ -37,6 +39,8 @@ You'll learn how to:
 In Unity, open the `quickstarts/apps/unity/mrtk` project.
 
 [!INCLUDE [Import Unity Package](../../../includes/object-anchors-quickstart-unity-import-package.md)]
+
+[!INCLUDE [Configure Account](../../../includes/object-anchors-get-started-configure-account.md)]
 
 [!INCLUDE [Unity build sample scene 1](../../../includes/object-anchors-quickstart-unity-build-sample-scene-1.md)]
 
@@ -104,7 +108,13 @@ Example `subscription.json`:
 ## Next steps
 
 > [!div class="nextstepaction"]
+> [Quickstart: In-depth MRTK walkthrough](in-depth-mrtk-walkthrough.md)
+
+> [!div class="nextstepaction"]
 > [Concepts: SDK overview](../concepts/sdk-overview.md)
 
 > [!div class="nextstepaction"]
 > [FAQ](../faq.md)
+
+> [!div class="nextstepaction"]
+> [Conversion SDK](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)

@@ -206,7 +206,7 @@ sections:
           This behavior:
           
           - Is applicable to Azure AD joined and Azure AD registered devices - but not for hybrid Azure AD joined devices.
-          - Isn't applicable to any other user who signs in to that device. So all other users who access that device get a Multi-Factor Authentication challenge. Then they can access applications that require Multi-Factor Authentication.
+          - Is applicable to the Registered owner of the device and not to any other user who signs in to that device. So all other users who access that device get a Multi-Factor Authentication challenge. Then they can access applications that require Multi-Factor Authentication.
           
           
           

@@ -3,17 +3,17 @@ title: Attach Cognitive Services to a skillset
 titleSuffix: Azure Cognitive Search
 description: Learn how to attach a Cognitive Services all-in-one subscription to an AI enrichment pipeline in Azure Cognitive Search.
 
-author: LuisCabrer
-ms.author: luisca
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/16/2021
 ---
 # Attach a Cognitive Services resource to a skillset in Azure Cognitive Search
 
-When configuring an [AI enrichment pipeline](cognitive-search-concept-intro.md) in Azure Cognitive Search, you can enrich a limited number of documents free of charge. For larger and more frequent workloads, you should attach a billable "all-in-one" Cognitive Services resource. An "all-in-one" subscription references "Cognitive Services" as the offering, rather than individual services, with access granted through a single API key.
+When configuring a [AI enrichment pipeline](cognitive-search-concept-intro.md) in Azure Cognitive Search, you can enrich a limited number of documents free of charge. For larger and more frequent workloads, you should attach a billable "all-in-one" Cognitive Services resource. An "all-in-one" subscription references "Cognitive Services" as the offering, rather than individual services, with access granted through a single API key.
 
-An "all-in-one" Cognitive Services resource drives the [predefined skills](cognitive-search-predefined-skills.md) that you can include in a skillset:
+An "all-in-one" Cognitive Services resource drives the [built-in skills](cognitive-search-predefined-skills.md) that you can include in a skillset:
 
 + [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) for image analysis and optical character recognition (OCR)
 + [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) for language detection, entity recognition, sentiment analysis, and key phrase extraction
@@ -24,7 +24,7 @@ An "all-in-one" Cognitive Services key is optional in a skillset definition. Whe
 Any "all-in-one" resource key is valid. Internally, a search service will use the resource that's co-located in the same physical region, even if the "all-in-one" key is for a resource in a different region. The [product availability](https://azure.microsoft.com/global-infrastructure/services/?products=search) page shows regional availability side by side.
 
 > [!NOTE]
-> If you omit predefined skills in a skillset, then Cognitive Services is not accessed, and you won't be charged, even if the skillset specifies a key.
+> If you omit built-in skills in a skillset, then Cognitive Services is not accessed, and you won't be charged, even if the skillset specifies a key.
 
 ## How billing works
 
@@ -32,7 +32,7 @@ Any "all-in-one" resource key is valid. Internally, a search service will use th
 
 + Image extraction is an Azure Cognitive Search operation that occurs when documents are cracked prior to enrichment. Image extraction is billable. For image extraction pricing, see the [Azure Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/).
 
-+ Text extraction also occurs during the document cracking phrase. It is not billable.
++ Text extraction also occurs during the [document cracking](search-indexer-overview.md#document-cracking) phrase. It is not billable.
 
 + Skills that do not call Cognitive Services, including Conditional, Shaper, Text Merge, and Text Split skills, are not billable.
 
@@ -114,7 +114,7 @@ Content-Type: application/json
     "skills": 
     [
       {
-        "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+        "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
         "categories": [ "Organization" ],
         "defaultLanguageCode": "en",
         "inputs": [

@@ -47,7 +47,7 @@ If you don't have the email, you can find the access requests pending your appro
 
 1. On the **Pending** tab, find the request.
 
-## View requestor's answers to questions (Preview)
+## View requestor's answers to questions
 
 1. Navigate to the **Approvals** tab in My Access.
 

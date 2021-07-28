@@ -20,7 +20,7 @@ If your company has subscribed to a Microsoft cloud service such as Azure, Micro
 Follow these steps to check:
 
 1. Sign in to the Azure admin portal at https://portal.azure.com.
-2. Select **Azure Active Directory** from the left-navigation menu and then select **Custom domain names**.
+2. Select **Azure Active Directory** from the left-navigation menu and then select **Custom Domain Names**.
 3. If you already have a work account, your domain name will be listed.
 
 If your company doesn't already have a work account, one will be created for you during the Partner Center enrollment process.

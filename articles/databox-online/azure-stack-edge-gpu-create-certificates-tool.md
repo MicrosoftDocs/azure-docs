@@ -1,5 +1,5 @@
 ---
-title: Create certificates using Microsoft Azure Stack Hub Readiness Checker tool | Microsoft Docs
+title: Create certificates for Azure Stack Edge Pro GPU via Azure Stack Hub Readiness Checker tool
 description: Describes how to create certificate requests and then get and install certificates on your Azure Stack Edge Pro GPU device using the Azure Stack Hub Readiness Checker tool.
 services: Azure Stack Edge Pro
 author: alkohli
@@ -7,11 +7,11 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 06/01/2021
 ms.author: alkohli
 ---
 
-# Create certificates for your Azure Stack Edge Pro using Azure Stack Hub Readiness Checker tool 
+# Create certificates for your Azure Stack Edge Pro GPU using Azure Stack Hub Readiness Checker tool 
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
@@ -117,7 +117,7 @@ Use these steps to prepare the Azure Stack Edge Pro device certificates:
     You'll also see an INF folder. This contains a management.<edge-devicename> information file in clear text explaining the certificate details.  
 
 
-6. Submit these files to your certificate authority (either internal or public). Be sure that your CA generates certificates, using your generated request, that meet the Azure Stack Edge Pro certificate requirements for [node certificates](azure-stack-edge-gpu-manage-certificates.md#node-certificates), [endpoint certificates](azure-stack-edge-gpu-manage-certificates.md#endpoint-certificates), and [local UI certificates](azure-stack-edge-gpu-manage-certificates.md#local-ui-certificates).
+6. Submit these files to your certificate authority (either internal or public). Be sure that your CA generates certificates, using your generated request, that meet the Azure Stack Edge Pro certificate requirements for [node certificates](azure-stack-edge-gpu-certificates-overview.md#node-certificates), [endpoint certificates](azure-stack-edge-gpu-certificates-overview.md#endpoint-certificates), and [local UI certificates](azure-stack-edge-gpu-certificates-overview.md#local-ui-certificates).
 
 ## Prepare certificates for deployment
 
@@ -148,4 +148,4 @@ First, you'll generate a proper folder structure and place the certificates in t
 
 ## Next steps
 
-[Deploy your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-prep.md)
+[Upload certificates on your device](azure-stack-edge-gpu-manage-certificates.md).

@@ -4,8 +4,9 @@ description: Create a data factory with a pipeline that copies data from one loc
 author: jianleishen
 ms.service: data-factory
 ms.topic: quickstart
-ms.date: 12/14/2020
+ms.date: 07/05/2021
 ms.author: jianleishen
+
 ---
 
 # Quickstart: Create a data factory by using the Azure Data Factory UI 
@@ -60,9 +61,9 @@ Watching this video helps you understand the Data Factory UI:
 
 1. Select **Review + create**, and select **Create** after the validation is passed. After the creation is complete, select **Go to resource** to navigate to the **Data Factory** page. 
 
-1. Select the **Author & Monitor** tile to start the Azure Data Factory user interface (UI) application on a separate browser tab.
+1. Select **Open** on the **Open Azure Data Factory Studio** tile to start the Azure Data Factory user interface (UI) application on a separate browser tab.
    
-    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Author & Monitor tile.":::
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
    
    > [!NOTE]
    > If you see that the web browser is stuck at "Authorizing", clear the **Block third-party cookies and site data** check box. Or keep it selected, create an exception for **login.microsoftonline.com**, and then try to open the app again.

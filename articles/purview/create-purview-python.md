@@ -65,7 +65,7 @@ EventHub namespace. For more information refer to [Create Catalog Portal](create
 
 2. Add the following code to the **Main** method that creates an instance of PurviewManagementClient class. You use this object to create a purview account, delete purview account, check name availability and other resource provider operations.
  
- ```python
+    ```python
     def main():
     
     # Azure subscription ID
@@ -88,9 +88,9 @@ EventHub namespace. For more information refer to [Create Catalog Portal](create
 
 ## Create a purview account
 
-Add the following code to the **Main** method that creates a **purview account**. If your resource group already exists, comment out the first `create_or_update` statement.
+1. Add the following code to the **Main** method that creates a **purview account**. If your resource group already exists, comment out the first `create_or_update` statement.
 
-```python
+   ```python
     # create the resource group
     # comment out if the resource group already exits
     resource_client.resource_groups.create_or_update(rg_name, rg_params)
@@ -114,15 +114,14 @@ Add the following code to the **Main** method that creates a **purview account**
             print("Error in creating Purview account")
             break
         time.sleep(30)      
-        
-```
+      ```
 
-Now, add the following statement to invoke the **main** method when the program is run:
+2. Now, add the following statement to invoke the **main** method when the program is run:
 
-```python
-# Start the main method
-main()
-```
+   ```python
+   # Start the main method
+   main()
+   ```
 
 ## Full script
 

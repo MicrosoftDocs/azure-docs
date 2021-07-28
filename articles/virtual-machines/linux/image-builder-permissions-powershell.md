@@ -1,13 +1,13 @@
 ---
 title: Configure Azure Image Builder Service permissions using PowerShell
 description: Configure requirements for Azure VM Image Builder Service including permissions and privileges using PowerShell
-author: danielsollondon
-ms.author: danis
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 03/05/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: linux 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -18,15 +18,6 @@ When you register for the (AIB), this grants the AIB Service permission to creat
 To allow Azure VM Image Builder to distribute images to either the managed images or to a Shared Image Gallery, you will need to create an Azure user-assigned identity that has permissions to read and write images. If you are accessing Azure storage, then this will need permissions to read private or public containers.
 
 You must setup permissions and privileges prior to building an image. The following sections detail how to configure possible scenarios using PowerShell.
-
-
-## Register the features
-
-First, you must register for the Azure Image Builder Service. Registration grants the service permission to create, manage, and delete a staging resource group. The service also has rights to add resources the group that are required for the image build.
-
-```powershell-interactive
-Register-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
-```
 
 ## Create an Azure user-assigned managed identity
 

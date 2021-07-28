@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 06/02/2021
+ms.date: 06/21/2021
 ms.author: alkohli
 ---
 # Troubleshoot VM deployment in Azure Stack Edge Pro GPU
@@ -16,7 +16,7 @@ ms.author: alkohli
 
 This article describes how to troubleshoot common errors when deploying virtual machines on an Azure Stack Edge Pro GPU device. The article provides guidance for investigating the most common issues that cause VM provisioning timeouts and issues during network interface and VM creation.
 
-To diagnose any VM provisioning failure, you'll review guest logs for the failed virtual machine. <!--For steps to collect VM guest logs and include them in a Support package, see [Collect guest logs for VMs on Azure Stack Edge Pro](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md).-->
+To diagnose any VM provisioning failure, you'll review guest logs for the failed virtual machine. For steps to collect VM guest logs and include them in a Support package, see [Collect guest logs for VMs on Azure Stack Edge Pro](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md).
 
 For guidance on issues that prevent successful upload of a VM image before your VM deployment, see [Troubleshoot virtual machine image uploads in Azure Stack Edge Pro GPU](azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload.md).
 
@@ -112,8 +112,6 @@ To check for some of the most common issues that prevent `cloud init` from runni
 
    `cloud-init --help` 
 
-   <!--You can also go to [CLI Interface](https://cloudinit.readthedocs.io/en/latest/topics/cli.html). - No additional guidance. They might as well just run the Help command.-->
-
 2. Make sure the `cloud init` instance can run successfully with the data source set to *Azure*. 
 
    When the data source is set to *Azure*, the entry in the *cloud init* logs looks similar to the following one.
@@ -195,6 +193,7 @@ If Kubernetes is enabled before the VM is created, Kubernetes will use all the a
 
 ## Next steps
 
-<!-- Remove link while cmdlet issue is fixed. - * [Collect a Support package that includes guest logs for a failed VM](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)-->
+* [Collect a Support package that includes guest logs for a failed VM](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)
 * [Troubleshoot issues with a failed GPU extension installation](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)
-* [Troubleshoot issues with Azure Resource Manager](azure-stack-edge-gpu-troubleshoot.md#azure-resource-manager)
+* [Troubleshoot issues with Azure Resource Manager](azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md)
+
