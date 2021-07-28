@@ -109,7 +109,6 @@ You can schedule times for a compute instance to start and stop (preview) in the
 You can also create a compute instance with an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance).
 
 
-
 ## <a name="on-behalf"></a> Create on behalf of (preview)
 
 As an administrator, you can create a compute instance on behalf of a data scientist and assign the instance to them with:
@@ -242,7 +241,7 @@ For example, specify a base64 encoded command string for `scriptData`:
 
 Logs from the setup script execution appear in the logs folder in the compute instance details page. Logs are stored back to your notebooks file share under the Logs\<compute instance name> folder. Script file and command arguments for a particular compute instance are shown in the details page.
 
-### <a name="schedule"></a> Schedule automatic start and stop times in a Resource Manager template (preview)
+## <a name="schedule"></a> Schedule automatic start and stop with a Resource Manager template (preview)
 
 Use cron or LogicApps expressions to define a schedule to start or stop the instance.  This example uses cron:
 
