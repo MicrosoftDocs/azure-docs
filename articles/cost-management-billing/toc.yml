@@ -176,7 +176,7 @@
         href: manage/azure-plan-subscription-transfer-partners.md
       - name: Transfer EA accounts
         href: manage/ea-transfers.md
-      - name: Transfer MOSP subscription to EA
+      - name: Transfer subscription to EA
         href: manage/mosp-ea-transfer.md
       - name: Transfer CSP subscriptions
         href: manage/transfer-subscriptions-subscribers-csp.md
