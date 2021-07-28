@@ -137,7 +137,7 @@ During the creation of the load balancer, you'll configure:
 
 2. In the **Load balancer** page, select **Create**.
 
-3. In the **Basics** tab of the **Create load balancer** page, enter or select the following information: 
+3. In the **Basics** tab of the **Create load balancer** page, enter, or select the following information: 
 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
@@ -273,9 +273,9 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | NIC network security group | Select **Advanced**|
     | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **myNSG** in **Name**. </br> Under **Inbound rules**, select **+Add an inbound rule**. </br> Under  **Destination port ranges**, enter **80**. </br> Under **Priority**, enter **100**. </br> In **Name**, enter **myNSGRule** </br> Select **Add** </br> Select **OK** |
     | **Load balancing**  |
-    | Place this virtual machine behind an existing load balancing solution? | Select the check box. |
+    | Place this virtual machine behind an existing load-balancing solution? | Select the check box. |
     | **Load balancing settings** |
-    | Load balancing options | Select **Azure load balancing** |
+    | Load-balancing options | Select **Azure load balancing** |
     | Select a load balancer | Select **myLoadBalancer**  |
     | Select a backend pool | Select **myBackendPool** |
 
@@ -292,7 +292,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
   
 8. Review the settings, and then select **Create**.
 
-9. Follow the steps 1 to 8 to create two additional VMs with the following values and all the other settings the same as **myVM1**:
+9. Follow the steps 1 to 8 to create two more VMs with the following values and all the other settings the same as **myVM1**:
 
     | Setting | VM 2| VM 3|
     | ------- | ----- |---|
@@ -403,7 +403,7 @@ The three VMs will be added to an availability set named **myAvailabilitySet**.
     | NIC network security group | Select **Advanced**|
     | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **myNSG** in **Name**. </br> Under **Inbound rules**, select **+Add an inbound rule**. </br> Under  **Destination port ranges**, enter **80**. </br> Under **Priority**, enter **100**. </br> In **Name**, enter **myNSGRule** </br> Select **Add** </br> Select **OK** |
     | **Load balancing**  |
-    | Place this virtual machine behind an existing load balancing solution? | Leave the default of unselected. |
+    | Place this virtual machine behind an existing load-balancing solution? | Leave the default of unselected. |
  
 5. Select the **Management** tab, or select **Next** > **Management**.
 
@@ -418,7 +418,7 @@ The three VMs will be added to an availability set named **myAvailabilitySet**.
   
 8. Review the settings, and then select **Create**.
 
-9. Follow the steps 1 to 8 to create two additional VMs with the following values and all the other settings the same as **myVM1**:
+9. Follow the steps 1 to 8 to create two more VMs with the following values and all the other settings the same as **myVM1**:
 
     | Setting | VM 2 | VM 3 |
     | ------- | ----- |---|
@@ -442,7 +442,7 @@ During the creation of the load balancer, you'll configure:
 
 2. In the **Load balancer** page, select **+ Create**.
 
-3. In the **Basics** tab of the **Create load balancer** page, enter or select the following information: 
+3. In the **Basics** tab of the **Create load balancer** page, enter, or select the following information: 
 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
@@ -565,7 +565,7 @@ During the creation of the load balancer, you'll configure:
 
 2. Find the public IP address for the load balancer on the **Overview** page under **Public IP address**.
 
-3. Copy the public IP address, and then paste it into the address bar of your browser. The custom VM page of the IIS Web server is displayed on the browser.
+3. Copy the public IP address, and then paste it into the address bar of your browser. The custom VM page of the IIS Web server is displayed in the browser.
 
     :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/load-balancer-test.png" alt-text="Load balancer test":::
 
