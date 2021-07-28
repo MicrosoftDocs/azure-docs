@@ -154,7 +154,7 @@ Once you have run the command, continue on to [Monitoring the creation status](#
 Use the profile `azure-arc-azure-openshift` for Azure RedHat Open Shift.
 
 ```azurecli
-az arcdata dc config init --source azure-arc-azure-openshift --path ./custom --k8s-namespace <namespace> --use-k8s
+az arcdata dc config init --source azure-arc-azure-openshift --path ./custom
 ```
 
 #### Create data controller
@@ -190,7 +190,7 @@ Create a new custom deployment profile file based on the `azure-arc-openshift` d
 Use the profile `azure-arc-openshift` for OpenShift Container Platform.
 
 ```azurecli
-az arcdata dc config init --source azure-arc-openshift --path ./custom --k8s-namespace <namespace> --use-k8s
+az arcdata dc config init --source azure-arc-openshift --path ./custom
 ```
 
 #### Set storage class 
@@ -198,12 +198,12 @@ az arcdata dc config init --source azure-arc-openshift --path ./custom --k8s-nam
 Now, set the desired storage class by replacing `<storageclassname>` in the command below with the name of the storage class that you want to use that was determined by running the `kubectl get storageclass` command above.
 
 ```azurecli
-az arcdata dc config replace --path ./custom/control.json --json-values "spec.storage.data.className=<storageclassname>" --k8s-namespace <namespace> --use-k8s
-az arcdata dc config replace --path ./custom/control.json --json-values "spec.storage.logs.className=<storageclassname>" --k8s-namespace <namespace> --use-k8s
+az arcdata dc config replace --path ./custom/control.json --json-values "spec.storage.data.className=<storageclassname>"
+az arcdata dc config replace --path ./custom/control.json --json-values "spec.storage.logs.className=<storageclassname>"
 
 #Example:
-#az arcdata dc config replace --path ./custom/control.json --json-values "spec.storage.data.className=mystorageclass" --k8s-namespace <namespace> --use-k8s
-#az arcdata dc config replace --path ./custom/control.json --json-values "spec.storage.logs.className=mystorageclass" --k8s-namespace <namespace> --use-k8s
+#az arcdata dc config replace --path ./custom/control.json --json-values "spec.storage.data.className=mystorageclass"
+#az arcdata dc config replace --path ./custom/control.json --json-values "spec.storage.logs.className=mystorageclass"
 ```
 
 #### Set LoadBalancer (optional)
@@ -211,7 +211,7 @@ az arcdata dc config replace --path ./custom/control.json --json-values "spec.st
 By default, the `azure-arc-openshift` deployment profile uses `NodePort` as the service type. If you are using an OpenShift cluster that is integrated with a load balancer, you can change the configuration to use the `LoadBalancer` service type using the following command:
 
 ```azurecli
-az arcdata dc config replace --path ./custom/control.json --json-values "$.spec.services[*].serviceType=LoadBalancer" --k8s-namespace <namespace> --use-k8s
+az arcdata dc config replace --path ./custom/control.json --json-values "$.spec.services[*].serviceType=LoadBalancer"
 ```
 
 #### Create data controller
@@ -250,12 +250,12 @@ kubectl get storageclass
 Now, set the desired storage class by replacing `<storageclassname>` in the command below with the name of the storage class that you want to use that was determined by running the `kubectl get storageclass` command above.
 
 ```azurecli
-az arcdata dc config replace --path ./custom/control.json --json-values "spec.storage.data.className=<storageclassname>" --k8s-namespace <namespace> --use-k8s
-az arcdata dc config replace --path ./custom/control.json --json-values "spec.storage.logs.className=<storageclassname>" --k8s-namespace <namespace> --use-k8s
+az arcdata dc config replace --path ./custom/control.json --json-values "spec.storage.data.className=<storageclassname>"
+az arcdata dc config replace --path ./custom/control.json --json-values "spec.storage.logs.className=<storageclassname>"
 
 #Example:
-#az arcdata dc config replace --path ./custom/control.json --json-values "spec.storage.data.className=mystorageclass" --k8s-namespace <namespace> --use-k8s
-#az arcdata dc config replace --path ./custom/control.json --json-values "spec.storage.logs.className=mystorageclass" --k8s-namespace <namespace> --use-k8s
+#az arcdata dc config replace --path ./custom/control.json --json-values "spec.storage.data.className=mystorageclass"
+#az arcdata dc config replace --path ./custom/control.json --json-values "spec.storage.logs.className=mystorageclass"
 ```
 
 By default, the kubeadm deployment profile uses `NodePort` as the service type. If you are using a Kubernetes cluster that is integrated with a load balancer, you can change the configuration using the following command.

@@ -130,7 +130,7 @@ The `supplementalGroups` property takes an array of values and can be set as par
 To set this property, run the following command:
 
 ```azurecli
-az arcdata dc config add --path custom/control.json --json-values 'spec.security.supplementalGroups="1234556"' --k8s-namespace <namespace> --use-k8s
+az arcdata dc config add --path custom/control.json --json-values 'spec.security.supplementalGroups="1234556"'
 ```
 
 ### Data controller storage configuration
