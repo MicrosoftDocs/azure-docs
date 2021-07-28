@@ -66,8 +66,8 @@ If you have questions about migration to MSAL, you can post on [Microsoft Q&A](/
 
  If you partnered with an Independent Software Vendor (ISV), we suggest you communicate to them directly to understand their migration journey to MSAL. 
 
-
 ## Next steps
 
-- [MSAL authentication flow](msal-authentication-flows.md)
+- [Acquire and cache tokens using MSAL](msal-acquire-cache-tokens.md)
+- [Application configuration options](msal-client-application-configuration.md)
 - [MSAL authentication libraries](reference-v2-libraries.md)

@@ -58,5 +58,6 @@ After identifying your apps that use ADAL, migrate them to MSAL depending on you
     
 ## Next steps
 
-- [MSAL authentication flow](msal-authentication-flows.md)
+- [Acquire and cache tokens using MSAL](msal-acquire-cache-tokens.md)
+- [Application configuration options](msal-client-application-configuration.md)
 - [MSAL authentication libraries](reference-v2-libraries.md)
