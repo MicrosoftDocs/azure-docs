@@ -26,8 +26,6 @@ The following diagram shows how time-based retention policies and legal holds pr
 
 :::image type="content" source="media/immutable-storage-overview/worm-diagram.png" alt-text="Diagram showing how retention policies and legal holds prevent write and delete operations":::
 
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
-
 ## About immutable storage for blobs
 
 Immutable storage helps healthcare organization, financial institutions, and related industries&mdash;particularly broker-dealer organizations&mdash;to store data securely. Immutable storage can be leveraged in any scenario to protect critical data against modification or deletion.
@@ -59,6 +57,15 @@ You can configure both a time-based retention policy and a legal hold for a reso
 |--|--|--|
 | Container | Supports one default version-level immutability policy. Does not support legal hold. | Supports one container-level immutability policy and one legal hold. |
 | Blob version | Supports one version-level immutability policy and one legal hold. | N/A |
+
+## About the preview
+
+The version-level immutability policies preview is available in the following regions:
+
+- Canada Central
+- Canada East
+- France Central
+- France South
 
 > [!IMPORTANT]
 > Version-level immutability policies are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -102,15 +109,21 @@ Immutability policies are supported for both new and existing storage accounts. 
 | Type of immutability policy | Scope of policy | Types of storage accounts supported | Supports hierarchical namespace (preview) |
 |--|--|--|--|
 | Time-based retention policy | Version-level scope (preview) | General-purpose v2<br />Premium block blob | No |
-| Time-based retention policy | Container-level scope | General-purpose v2<br />Premium block blob<br />General-purpose v1 (legacy)<sup>1</sup><br> Blob storage (legacy) | Yes<sup>2</sup> |
+| Time-based retention policy | Container-level scope | General-purpose v2<br />Premium block blob<br />General-purpose v1 (legacy)<sup>1</sup><br> Blob storage (legacy) | Yes |
 | Legal hold | Version-level scope (preview) | General-purpose v2<br />Premium block blob | No |
-| Legal hold | Container-level scope | General-purpose v2<br />Premium block blob<br />General-purpose v1 (legacy)<sup>1</sup><br> Blob storage (legacy) | Yes<sup>2</sup> |
+| Legal hold | Container-level scope | General-purpose v2<br />Premium block blob<br />General-purpose v1 (legacy)<sup>1</sup><br> Blob storage (legacy) | Yes |
 
 <sup>1</sup> Microsoft recommends upgrading general-purpose v1 accounts to general-purpose v2 so that you can take advantage of more features. For information on upgrading an existing general-purpose v1 storage account, see [Upgrade a storage account](../common/storage-account-upgrade.md).
 
+### Access tiers
+
 All blob access tiers support immutable storage. You can change the access tier of a blob with the Set Blob Tier operation. For more information, see [Access tiers for Azure Blob Storage - hot, cool, and archive](storage-blob-storage-tiers.md).
 
+### Redundancy configurations
+
 All redundancy configurations support immutable storage. For geo-redundant configurations, customer-managed failover is not supported. For more information about redundancy configurations, see [Azure Storage redundancy](../common/storage-redundancy.md).
+
+### Hierarchical namespace support
 
 Immutable storage support for accounts with a hierarchical namespace is in preview. To enroll in the preview, see [Preview Features on Azure Data Lake Storage](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u).
 
@@ -144,15 +157,6 @@ There is no additional capacity charge for using immutable storage. Immutable da
 Creating, modifying, or deleting a time-based retention policy or legal hold on a blob version results in a write transaction charge.
 
 If you fail to pay your bill and your account has an active time-based retention policy in effect, normal data retention policies will apply as stipulated in the terms and conditions of your contract with Microsoft. For general information, see [Data management at Microsoft](https://www.microsoft.com/trust-center/privacy/data-management).
-
-## About the preview
-
-The version-level immutability policies preview is available in the following regions:
-
-- Canada Central
-- Canada East
-- France Central
-- France South
 
 ## Next steps
 
