@@ -14,7 +14,7 @@ ms.subservice: B2C
 ms.date: 07/19/2021
 ---
 
-# Tutorial: How to perform Security Analytics for Azure AD B2C with Sentinel
+# Tutorial: How to perform Security Analytics for Azure AD B2C data with Sentinel
 
 You can further secure your Azure AD B2C environment by routing logs and audit information to Azure Sentinel. Azure Sentinel is a cloud-native **Security Information Event Management (SIEM) and Security Orchestration Automated Response (SOAR)** solution. Azure Sentinel provides alert detection, threat visibility, proactive hunting, and threat response for **Azure AD B2C**.
 
