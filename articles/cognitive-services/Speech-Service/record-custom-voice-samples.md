@@ -85,7 +85,7 @@ Below are some general guidelines that you can follow to create a good corpus (r
    | Short word/phrase| Short word/phrase scripts should also take about 10% cases of the total utterances, with 5 to 7 words per case. |
 
    > [!NOTE]
-   > Regarding short word/phrase, actually it means that single words or phrases should be included and separated with a comma. It helps a voice talent pause briefly at the place of comma when reading the scripts.
+   > Regarding short word/phrase, actually it means that single words or phrases should be included and separated with a comma. It helps a voice talent pause briefly at the comma when reading the scripts.
 
    Best practices include:
     - Balanced coverage for Part of Speech, like verb, noun, adjective, and so on.  
@@ -106,7 +106,7 @@ Below are some general guidelines that you can follow to create a good corpus (r
       With that, make sure your voice talent pronounces these words in the expected way. Keep your script and recordings match consistently during the training process.  
 
    > [!NOTE]
-   > Please note that, the scripts prepared for your voice talent need to follow the native reading conventions, such as 50% and $45, while the scripts used for training need to be normalized to make sure that the scripts match the audio content, such as fifty percent and forty-five dollars. Thus, You need to check the scripts used for training against the recordings of your voice talent, to make sure they match.
+   > The scripts prepared for your voice talent need to follow the native reading conventions, such as 50% and $45, while the scripts used for training need to be normalized to make sure that the scripts match the audio content, such as *fifty percent* and *forty-five dollars*. Check the scripts used for training against the recordings of your voice talent, to make sure they match.
 
 - Your script should include many different words and sentences with different kinds of sentence lengths, structures, and moods.  
 
@@ -121,7 +121,7 @@ The script defects generally fall into the following categories:
 | Category | Example |
 | :--------- | :--------------------------- |
 | Have a meaningless content in a common way. | |
-| Incomplete sentences. |- "This was my last eve" (no subject, no specific meaning) <br>- "He's obviously already funny" (no quote mark in the end, it's not a complete sentence) |
+| Incomplete sentences. |- "This was my last eve" (no subject, no specific meaning) <br>- "He's obviously already funny (no quote mark in the end, it's not a complete sentence) |
 | Typo in the sentences. | - Start with a lower case<br>- No ending punctuation if needed<br> - Misspelling <br>- Lack of punctuation: no period in the end (except news title)<br>- End with symbols, except comma, question, exclamation <br>- Wrong format, such as:<br>    &emsp;- 45$ (should be $45)<br>    	&emsp;- No space or excess space between word/punctuation |
 |Duplication in similar format, one per each pattern is enough. |- "Now is 1pm in New York"<br>- "Now is 2pm in New York"<br>- "Now is 3pm in New York"<br>- "Now is 1pm in Seattle"<br>- "Now is 1pm in Washington D.C." |
 |Uncommon foreign words: only the commonly used foreign word is acceptable in our script. |  |
@@ -168,7 +168,7 @@ Discuss your project with the studio's recording engineer and listen to their ad
 
 ### Recording requirements
 
-To achieve high-quality training results, you need to follow the following requirements during recording or data preparation:
+To achieve high-quality training results, follow the following requirements during recording or data preparation:
 
 - Clear and well pronounced
 
@@ -290,11 +290,11 @@ The talent should *not* add distinct pauses between words. The sentence should s
 
 Create a reference recording, or *match file,* of a typical utterance at the beginning of the session. Ask the talent to repeat this line every page or so. Each time, compare the new recording to the reference. This practice helps the talent remain consistent in volume, tempo, pitch, and intonation. Meanwhile, the engineer can use the match file as a reference for levels and overall consistency of sound.
 
-The match file is especially important when you resume recording after a break or on another day. You'll want to play it a few times for the talent and have them repeat it each time until they're matching well.
+The match file is especially important when you resume recording after a break or on another day. Play it a few times for the talent and have them repeat it each time until they're matching well.
 
 Coach your talent to take a deep breath and pause for a moment before each utterance. Record a couple of seconds of silence between utterances. Words should be pronounced the same way each time they appear, considering context. For example, "record" as a verb is pronounced differently from "record" as a noun.
 
-Record approximately five seconds of silence before the first recording to capture the "room tone". This practice helps Speech Studio compensate for any remaining noise in the recordings.
+Record approximately five seconds of silence before the first recording to capture the "room tone". This practice helps Speech Studio compensate for noise in the recordings.
 
 > [!TIP]
 > All you really need to capture is the voice talent, so you can make a monophonic (single-channel) recording of just their lines. However, if you record in stereo, you can use the second channel to record the chatter in the control room to capture discussion of particular lines or takes. Remove this track from the version that's uploaded to Speech Studio.
