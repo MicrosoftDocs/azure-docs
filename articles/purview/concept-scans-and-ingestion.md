@@ -8,3 +8,5 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 08/16/2021
 ---
+
+# Scans and ingestion in Azure Purview
