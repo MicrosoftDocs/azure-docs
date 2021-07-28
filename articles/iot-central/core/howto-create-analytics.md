@@ -34,7 +34,8 @@ You'll need to start by choosing a **device group**, and the telemetry that you 
 
 - **Device group:** A [device group](tutorial-use-device-groups.md) is a user-defined group of your devices. For example, all Refrigerators in Oakland, or All version 2.0 wind turbines.
 
-- **Telemetry:** Select the telemetry that you want to analyze and explore. You can select multiple telemetries to analyze together. Default aggregation method is set to Average for numerical and Count for string data-type respectively. Supported aggregation methods for Numeric data types are Average, Maximum, Minimum, Count and, Sum.  Supported aggregation methods for string data type are count.
+- **Telemetry:** Select the telemetry that you want to analyze and explore. You can select multiple telemetries to analyze together.  Default aggregation method is set to Average for numerical and Count for string data-type respectively. Supported aggregation methods for Numeric data types are Average, Maximum, Minimum, Count and, Sum.  Supported aggregation methods for string data type are count.  
+Historical data points will only be shown when the conditions of the query are true. For example, a device was upgraded from Template1 to Template2 yesterday. Today, when querying device groups containing Template1, the device data from yesterday and before will be shown. When querying device groups containing Template2, the device and data will be presented from when it was upgraded and onward.
 
 - **Split by:** 'Split by' control helps to group the data by using the device properties as dimensions. Values of the device and cloud properties are joined along with the telemetry as and when it is sent by the device. If the cloud or device property has been updated, then you will see the telemetry grouped by different values on the chart.
 
