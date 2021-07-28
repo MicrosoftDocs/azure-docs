@@ -27,7 +27,8 @@ The following sections describe the key concepts in virtual hub routing.
 A virtual hub route table can contain one or more routes. A route includes its name, a label, a destination type, a list of destination prefixes, and next hop information for a packet to be routed. A **Connection** typically will have a routing configuration that associates or propagates to a route table.
 
 ### <a name= "hub-route"></a> Hub Routing Policies
->[!NOTE]  Hub Routing Policies are currently in Managed Preview.  
+>[!NOTE]  
+> Hub Routing Policies are currently in Managed Preview.  
 >To obtain access to this preview, please reach out to previewinterhub@microsoft.com with the Virtual WAN ID, Subscription ID and Azure Region you wish to configure Routing Policies in. Please expect a response within 24-48 hours with confirmation of feature enablement. 
 
 Routing policies allow you to specify how the Virtual WAN hub forwards Internet-bound and Private (Point-to-site, Site-to-site, ExpressRoute and Virtual Network) Traffic. There are two types of Routing Policies, Internet Traffic and Private Traffic Routing Policies. Each Virtual WAN Hub may have at most one Internet Traffic Routing Policy and one Private Traffic Routing Policy, each with a Next Hop resource. For more information on configuring routing intents, please visit the following [document]().
@@ -41,8 +42,8 @@ Routing policies allow you to specify how the Virtual WAN hub forwards Internet-
 
     When Private Traffic Routing Policies are configured on the Virtual WAN Hub,  branch-to-branch, branch-to-virtual network and inter-hub traffic will be sent via Azure Firewall.
 
-     >[!Note]
-      > Currently, the only Next Hop resource that can be specified for a Private Traffic Routing Policy is the Azure Firewall deployed inside of the Virtual WAN Hub.  In the coming months, you may also specify the Next Hop for a Private Traffic Routing Policy to be a Network Virtual Appliance deployed in the Virtual WAN hub.
+   >[!Note]
+   > Currently, the only Next Hop resource that can be specified for a Private Traffic Routing Policy is the Azure Firewall deployed inside of the Virtual WAN Hub.  In the coming months, you may also specify the Next Hop for a Private Traffic Routing Policy to be a Network Virtual Appliance deployed in the Virtual WAN hub.
 
  
 
