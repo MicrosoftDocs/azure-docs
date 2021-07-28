@@ -8,7 +8,7 @@ ms.date: 08/15/2021
 
 # Run commands in Azure VMware Solution
 
-In Azure VMware Solution, the CloudAdmin role gives you access to vCenter. You can [view the privileges granted](concepts-identity.md#view-the-vcenter-privileges) to the Azure VMware Solution CloudAdmin role on your Azure VMware Solution private cloud vCenter. Run commands are a collection of PowerShell cmdlets that you do certain operations on vCenter, which requires elevated privileges. 
+In Azure VMware Solution, you'll get vCenter access with CloudAdmin role. You can [view the privileges granted](concepts-identity.md#view-the-vcenter-privileges) to the Azure VMware Solution CloudAdmin role on your Azure VMware Solution private cloud vCenter. Run commands are a collection of PowerShell cmdlets that you do certain operations on vCenter, which requires elevated privileges. 
 
 Azure VMware Solution supports the following operations:
 
@@ -21,7 +21,7 @@ Azure VMware Solution supports the following operations:
 
 ## View the status of a task
 
-<!-- intro paragraph --> 
+You can view the status of any run command executed including the output, errors, warnings, and information.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -62,6 +62,10 @@ Azure VMware Solution supports the following operations:
 
 
 ### Method 1
+
+
+
+1. Select **Run command** > **Run execution status** and then select the job you want to cancel.
 
 
 
