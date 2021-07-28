@@ -570,21 +570,22 @@ In this section, you'll create a VM named **myTestVM**.  This VM will be used to
 
 7. In the PowerShell Window, run the following commands to:
 
-    * Install the IIS server
-    * Remove the default iisstart.htm file
-    * Add a new iisstart.htm file that displays the name of the VM:
+    * Install the IIS server.
+    * Remove the default iisstart.htm file.
+    * Add a new iisstart.htm file that displays the name of the VM.
 
    ```powershell
     
-    # install IIS server role
+    # Install IIS server role
     Install-WindowsFeature -name Web-Server -IncludeManagementTools
     
-    # remove default htm file
-     remove-item  C:\inetpub\wwwroot\iisstart.htm
+    # Remove default htm file
+    Remove-Item  C:\inetpub\wwwroot\iisstart.htm
     
     # Add a new htm file that displays server name
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
+    Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
    ```
+
 8. Close the Bastion session with **myVM1**.
 
 9. Repeat steps 1 to 6 to install IIS and the updated iisstart.htm file on **myVM2** and **myVM3**.
@@ -600,15 +601,17 @@ In this section, you'll create a VM named **myTestVM**.  This VM will be used to
 
 4. On the **Overview** page, select **Connect**, then **Bastion**.
 
+5. Select **Use Bastion**.
+
 6. Enter the username and password entered during VM creation.
 
 7. Open **Internet Explorer** on **myTestVM**.
 
-8. Enter the IP address from the previous step into the address bar of the browser. The default page of IIS Web server is displayed on the browser.
+8. Enter the IP address from the previous step into the address bar of the browser. The custom page displaying one of the backend server names is displayed on the browser.
 
     :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Screenshot shows a browser window displaying the default page, as expected." border="true":::
    
-To see the load balancer distribute traffic across both VMs, you can customize the default page of each VM's IIS Web server and then force-refresh your web browser from the client machine.
+To see the load balancer distribute traffic across both VMs, you can force-refresh your web browser from the client machine.
 
 ## Clean up resources
 
