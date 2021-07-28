@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 07/27/2021
+ms.date: 07/28/2021
 ---
 
 # What's new in Azure Sentinel
@@ -31,6 +31,7 @@ If you're looking for items older than six months, you'll find them in the [Arch
 ## July 2021
 
 - [Microsoft Threat Intelligence Matching Analytics (Public preview)](#microsoft-threat-intelligence-matching-analytics-public-preview)
+- [Use Azure AD data with Azure Sentinel's IdentityInfo table (Public preview)](#use-azure-ad-data-with-azure-sentinels-identityinfo-table-public-preview)
 - [Enrich Entities with geolocation data via API (Public preview)](#enrich-entities-with-geolocation-data-via-api-public-preview)
 - [Support for ADX cross-resource queries (Public preview)](#support-for-adx-cross-resource-queries-public-preview)
 - [Watchlists are in general availability](#watchlists-are-in-general-availability)
@@ -49,6 +50,16 @@ The **Microsoft Threat Intelligence Matching Analytics** rule currently matches 
 
 For more information, see [Detect threats using matching analytics (Public preview)](work-with-threat-indicators.md#detect-threats-using-matching-analytics-public-preview).
 
+### Use Azure AD data with Azure Sentinel's IdentityInfo table (Public preview)
+
+As attackers often use the organization's own user and service accounts, data about those user accounts, including the user identification and privileges, are crucial for the analysts in the process of an investigation.
+
+Now, having [UEBA enabled](enable-entity-behavior-analytics.md) in your Azure Sentinel workspace also synchronizes Azure AD data into the new **IdentityInfo** table in Log Analytics. Synchronizations between your Azure AD and the **IdentifyInfo** table create a snapshot of your user profile data that includes user metadata, group information, and the Azure AD roles assigned to each user.
+
+Use the **IdentityInfo** table during investigations and when fine-tuning analytics rules for your organization to reduce false positives.
+
+For more information, see [IdentityInfo table](ueba-enrichments.md#identityinfo-table-public-preview) in the UEBA enrichments reference and [Use UEBA data to analyze false positives](investigate-with-ueba.md#use-ueba-data-to-analyze-false-positives).
+
 ### Enrich entities with geolocation data via API (Public preview)
 
 Azure Sentinel now offers an API to enrich your data with geolocation information. Geolocation data can then be used to analyze and investigate security incidents.
@@ -63,6 +74,8 @@ The hunting experience in Azure Sentinel now supports [ADX cross-resource querie
 Although Log Analytics remains the primary data storage location for performing analysis with Azure Sentinel, there are cases where ADX is required to store data due to cost, retention periods, or other factors. This capability enables customers to hunt over a wider set of data and view the results in the [Azure Sentinel hunting experiences](hunting.md), including hunting queries, [livestream](livestream.md), and the Log Analytics search page.
 
 To query data stored in ADX clusters, use the adx() function to specify the ADX cluster, database name, and desired table. You can then query the output as you would any other table. See more information in the pages linked above.
+
+
 
 ### Watchlists are in general availability
 
