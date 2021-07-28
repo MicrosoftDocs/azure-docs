@@ -26,7 +26,7 @@ A projection is also an element in a skillset definition. How you set up a proje
 
 There are two ways to shape enriched content to that it can be projected into a knowledge store:
 
-+ Use the [Shaper skill](cognitive-search-skill-shaper) to create a new node that is the root node for all the enrichments you are projecting. Then, in your projections, you would only reference the output of the Shaper skill.
++ Use the [Shaper skill](cognitive-search-skill-shaper.md) to create a new node that is the root node for all the enrichments you are projecting. Then, in your projections, you would only reference the output of the Shaper skill.
 
 + Use an inline shape a projection within the projection definition itself.
 

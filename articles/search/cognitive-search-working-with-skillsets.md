@@ -93,7 +93,7 @@ The enrichment tree format enables the enrichment pipeline to attach metadata to
 
 A skillset transforms the content of a search document as it moves through skillset execution, creating new information or structures that can be used in a search index. This "created content" is represented in a hierarchical structure called an *enrichment tree*. An enrichment tree consists of the extracted content, plus any new fields that contain content created by a skill, such as translated_text from the [Text Translation skill](cognitive-search-skill-text-translation.md), keyPhrases from the Key Phrase Extraction skill](cognitive-search-skill-keyphrases.md), or locations from [Entity Recognition skill](cognitive-search-skill-entity-recognition-v3.md). Although you can [visualize and work with an enrichment tree](cognitive-search-debug-session.md) through a visual editor, it's mostly an internal structure. 
 
-Having a high-level understanding of an enrichment tree is relevant to understanding how inputs and outputs work for each skill.Inputs are read from the enrichment tree. Outputs write back to the enrichment tree. 
+Having a high-level understanding of an enrichment tree is relevant to understanding how inputs and outputs work for each skill. Inputs are read from the enrichment tree. Outputs write back to the enrichment tree. 
 
 Because a skill's inputs and outputs are reading from and writing to enrichment trees, one of tasks you'll complete as part of skillset design is creating [output field mappings](cognitive-search-output-field-mapping.md) that move content out of the enrichment tree, and into a field in a search index or knowledge store.
 

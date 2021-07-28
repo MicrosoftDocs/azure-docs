@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/30/201
+ms.date: 07/30/2021
 ---
 
 # Skillset example using Hotel Reviews demo data
