@@ -13,7 +13,6 @@ ms.topic: how-to
 
 # Create the Azure Arc data controller
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Overview of creating the Azure Arc data controller
 

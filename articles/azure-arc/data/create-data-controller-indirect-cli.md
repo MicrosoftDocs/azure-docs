@@ -13,7 +13,6 @@ ms.topic: how-to
 
 # Create Azure Arc data controller using the CLI
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Prerequisites
 

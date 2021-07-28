@@ -13,7 +13,7 @@ ms.topic: overview
 # Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
 ---
 
-# What are Azure Arc-enabled data services (preview)?
+# What are Azure Arc-enabled data services?
 
 Azure Arc makes it possible to run Azure data services on-premises, at the edge, and in public clouds using Kubernetes and the infrastructure of your choice.
 
@@ -22,7 +22,6 @@ Currently, the following Azure Arc-enabled data services are available in previe
 - SQL Managed Instance
 - PostgreSQL Hyperscale
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Always current
 

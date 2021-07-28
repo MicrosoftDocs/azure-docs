@@ -20,7 +20,6 @@ If you are the Kubernetes administrator for the cluster. As such you have the pr
 > [!NOTE]
 >  If you used a different name for the namespace where the data controller was created, be sure to change the `-n arc` parameter in the commands below to use the name of the namespace that you created the data controller to.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Linux
 

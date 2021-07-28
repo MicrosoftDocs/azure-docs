@@ -19,7 +19,6 @@ Periodically, you can export monitoring metrics and then upload them to Azure. T
 > [!NOTE] 
 > During the preview period, there is no cost for using Azure Arc-enabled data services.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Prerequisites
 

@@ -22,7 +22,6 @@ Azure Arc-enabled SQL Managed Instance share a common code base with the latest 
 
 
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Features of Azure Arc-enabled SQL Managed Instance
 

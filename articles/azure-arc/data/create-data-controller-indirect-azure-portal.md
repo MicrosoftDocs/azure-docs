@@ -13,7 +13,6 @@ ms.topic: how-to
 
 # Create Azure Arc data controller from Azure portal - Indirect connectivity mode
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Introduction
 

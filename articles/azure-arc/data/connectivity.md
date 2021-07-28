@@ -13,7 +13,6 @@ ms.topic: conceptual
 
 # Connectivity modes and requirements
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Connectivity modes
 

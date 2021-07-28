@@ -13,7 +13,6 @@ ms.topic: how-to
 
 # Create Azure SQL managed instance using Kubernetes tools
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Prerequisites
 
