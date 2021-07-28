@@ -5,7 +5,7 @@ author: Elazark
 ms.author: V-ekrieg
 ms.service: defender-for-iot
 ms.topic: how-to
-ms.date: 07/27/2021
+ms.date: 07/28/2021
 ---
 
 # Deploy EIoT 
@@ -266,5 +266,5 @@ You will need to download a package, and move it, and your activation file to th
 You can use the following command to Remove the sensor.
 
 ```bash
-sudo apt purge -y adiot-sensor
+sudo apt purge -y microsoft-eiot-sensor
 ```
