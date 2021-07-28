@@ -59,17 +59,25 @@ To start using the benefit for Red Hat:
 
 ### SUSE customers
 
-To start using the benefit for SUSE:
+Azure Hybrid Benefit for SUSE is available to customers who meet these criteria:
 
-1. Register with the SUSE Public Cloud Program.
-1. Apply the benefit to your newly created or existing VMs via the Azure portal or Azure CLI.
-1. Register your VMs that are receiving the benefit with a separate source of updates.
+- Have unused SUSE subscriptions that are eligible for use in Azure
+- Have enabled one or more of SUSE subscriptions for on-premise which should be moved to Azure
+- Have bought subscriptions and have activated them in the SUSE Customer Center (SCC) to be used in Azure 
+
+> [!IMPORTANT]
+> Ensure the correct subscription will be choosen for the new usage in Azure.
+
+To start using the benefit for SUSE:
+1. Register your subscription bought from SUSE or SUSE distributors with the SUSE Customer Center (http://scc.suse.com)
+2. Activate the subscription in SCC
+3. Register your VMs that are receiving the benefit with the SCC to get the updates from there.
 
 ## Enable and disable the benefit in the Azure portal
 
 You may enable the benefit on existing VMs by visiting the **Configuration** option on the left and following the steps there. You may enable the benefit on new VMs during the VM create experience.
 
-### Azure portal example to enable the benefit during creation of VM:
+### Azure portal example for RHEL to enable the benefit during creation of VM (SUSE workflow is identical):
 1. Visit [Microsoft Azure portal](https://portal.azure.com/)
 1. Go to 'Create a Virtual Machine' page on the portal.
  ![AHB while creating VM](./media/azure-hybrid-benefit/create-vm-ahb.png)
@@ -167,6 +175,11 @@ For more information about Red Hat subscription compliance, software updates, an
 
 ### SUSE
 
+Customers who use Azure Hybrid Benefit now have the need to move from the Cloud Update Infrastructure to one of the three options for providing software updates and patches to those VMs:
+- SUSE Customer Center ( https://scc.suse.com )
+- SUSE Manager
+- SUSE Repository Mirroring Tool (RMT) 
+
 To use Azure Hybrid Benefit for your SLES VMs, and for information about moving from SLES PAYG to BYOS or moving from SLES BYOS to PAYG, see [SUSE Linux Enterprise and Azure Hybrid Benefit](https://www.suse.com/c/suse-linux-enterprise-and-azure-hybrid-benefit/). 
 
 ## Azure Hybrid Benefit on Reserved Instances 
@@ -193,13 +206,13 @@ A: It might take some time for your Red Hat Cloud Access subscription registrati
 
 A: No, you can't. Azure Hybrid Benefit supports conversion only on pay-as-you-go images.
 
-*Q: I've uploaded my own RHEL image from on-premises (via Azure Migrate, Azure Site Recovery, or otherwise) to Azure. Can I convert the billing on these images from BYOS to PAYG?*
+*Q: I've uploaded my own RHEL or SLES image from on-premises (via Azure Migrate, Azure Site Recovery, or otherwise) to Azure. Can I convert the billing on these images from BYOS to PAYG?*
 
 A: No, you can't. The Azure Hybrid Benefit capability is currently available only to RHEL and SLES images in Azure Marketplace. 
 
-*Q: I've uploaded my own RHEL image from on-premises (via Azure Migrate, Azure Site Recovery, or otherwise) to Azure. Do I need to do anything to benefit from Azure Hybrid Benefit?*
+*Q: I've uploaded my own RHEL or SLES image from on-premises (via Azure Migrate, Azure Site Recovery, or otherwise) to Azure. Do I need to do anything to benefit from Azure Hybrid Benefit?*
 
-A: No, you don't. RHEL images that you upload are already considered BYOS, and you're charged only for Azure infrastructure costs. You're responsible for RHEL subscription costs, just as you are for your on-premises environments. 
+A: No, you don't. RHEL or SLES images that you upload are already considered BYOS, and you're charged only for Azure infrastructure costs. You're responsible for RHEL subscription costs, just as you are for your on-premises environments. 
 
 *Q: Can I use Azure Hybrid Benefit on VMs deployed from Azure Marketplace RHEL and SLES SAP images?*
 
