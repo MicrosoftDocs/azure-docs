@@ -92,7 +92,7 @@ This procedure describes how to ensure that your SAP system has the correct prer
     > In the SAP **Import Options** area, you may see the **Ignore Invalid Component Version** option displayed. If displayed, select this option before continuing.
     >
 
-1. Create a new SAP role named **/MSFTSEN/SENTINEL_CONNECTOR** by importing the SAP change request *40 (NPLK900140)*. Use the **STMS_IMPORT** SAP transaction code.
+1. Create a new SAP role named **/MSFTSEN/SENTINEL_CONNECTOR** by importing the SAP change request *14 (NPLK900140)*. Use the **STMS_IMPORT** SAP transaction code.
 
     Verify that the role is created with the required permissions, such as:
 

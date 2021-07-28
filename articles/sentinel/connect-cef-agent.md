@@ -3,7 +3,7 @@ title: Deploy the log forwarder to connect CEF data to Azure Sentinel | Microsof
 description: Learn how to deploy the agent to connect CEF data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: yelevin
+author: batamig
 manager: rkarlin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2021
-ms.author: yelevin
+ms.author: bagol
 
 ---
 # Step 1: Deploy the log forwarder
