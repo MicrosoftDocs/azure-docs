@@ -109,7 +109,7 @@ You are having issues when you try to register the appliance using the Azure Mig
 
 **Error**
 
-After a successful login with an Azure user account, the appliance registration step fails with the message, "Failed to connect to the Azure Migrate project. Check the error detail and follow the remediation steps by clicking Retry"**.
+After a successful login with an Azure user account, the appliance registration step fails with the message, **"Failed to connect to the Azure Migrate project. Check the error detail and follow the remediation steps by clicking Retry"**.
 
 This issue happens when the Azure user account that was used to log in from the appliance configuration manager is different from the user account that was used to generate the Azure Migrate project key on the portal. 
 
@@ -138,8 +138,8 @@ This usually happens when the Azure user account that was used to register the a
 **Remediation**
 
 1. Ensure that the currently logged in user account on the appliance has the required permissions on the Key Vault (mentioned in the error message). The user account needs permissions as mentioned [here](/azure/migrate/tutorial-discover-vmware#prepare-an-azure-user-account).
-2. Go to the Key Vault and ensure that your user account has an access policy with all the _Key, Secret and Certificate_ permissions assigned under Key vault Access Policy. Learn more [/azure/key-vault/general/assign-access-policy-portal]
-3. If you have enabled the appliance for **private endpoint connectivity**, ensure that the appliance is either hosted in the same VNet where the Key Vault has been created or it is connected to the Azure VNet (where Key Vault has been created) over a private link. Make sure that the Key Vault private link is resolvable from the appliance. Go to Azure Migrate: Discovery and assessment> Properties to find the details of private endpoints for resources like the Key Vault created during the Azure Migrate key creation. [Learn more](https://go.microsoft.com/fwlink/?linkid=2162447)
+2. Go to the Key Vault and ensure that your user account has an access policy with all the _Key, Secret and Certificate_ permissions assigned under Key vault Access Policy. [Learn more](/azure/key-vault/general/assign-access-policy-portal)
+3. If you have enabled the appliance for **private endpoint connectivity**, ensure that the appliance is either hosted in the same VNet where the Key Vault has been created or it is connected to the Azure VNet (where Key Vault has been created) over a private link. Make sure that the Key Vault private link is resolvable from the appliance. Go to **Azure Migrate**: **Discovery** and **assessment**> **Properties** to find the details of private endpoints for resources like the Key Vault created during the Azure Migrate key creation. [Learn more](https://go.microsoft.com/fwlink/?linkid=2162447)
 4. If you have the required permissions and connectivity, re-try the registration on the appliance after some time.
 
 ## Unable to connect to vCenter Server during validation
