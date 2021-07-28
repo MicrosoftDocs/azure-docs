@@ -1,6 +1,6 @@
 ---
-title: Upload usage data to Azure Monitor
-description: Upload usage Azure Arc-enabled data services data to Azure Monitor
+title: Upload usage data to Azure
+description: Upload usage Azure Arc-enabled data services data to Azure
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -12,7 +12,7 @@ ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
 ---
 
-# Upload usage data to Azure Monitor
+# Upload usage data to Azure
 
 Periodically, you can export out usage information. The export and upload of this information creates and updates the data controller, SQL managed instance, and PostgreSQL Hyperscale server group resources in Azure.
 
@@ -58,8 +58,8 @@ If you want to upload metrics and logs on a scheduled basis, you can create a sc
 In your favorite text/code editor, add the following script to the file and save as a script executable file such as `.sh` (Linux/Mac) or `.cmd`, `.bat`, or `.ps1`.
 
 ```azurecli
-az arcdata dc export --type metrics --path metrics.json --force
-az arcdata dc upload --path metrics.json
+az arcdata dc export --type usage --path usage.json --force
+az arcdata dc upload --path usage.json
 ```
 
 Make the script file executable
@@ -68,7 +68,7 @@ Make the script file executable
 chmod +x myuploadscript.sh
 ```
 
-Run the script every 20 minutes:
+Run the script every day for usage:
 
 ```console
 watch -n 1200 ./myuploadscript.sh
