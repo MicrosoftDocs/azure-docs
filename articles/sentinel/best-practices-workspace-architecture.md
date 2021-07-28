@@ -19,7 +19,7 @@ When planning your Azure Sentinel workspace deployment, you must also design you
 - How to control access to Azure Sentinel data
 - Cost implications for different scenarios
 
-For more information, see [Sample workspace designs](sample-workspace-designs.md) for common scenarios, and [Pre-deployment activities and prerequisites for deploying Azure Sentinel](prerequisites.md).
+For more information, see [Design your Azure Sentinel workspace architecture](design-your-workspace-architecture.md) and [Sample workspace designs](sample-workspace-designs.md) for common scenarios, and [Pre-deployment activities and prerequisites for deploying Azure Sentinel](prerequisites.md).
 
 ## Tenancy considerations
 
@@ -105,6 +105,8 @@ You may have situations planned where different teams will need access to the sa
 
 Combine [resource-context RBAC](resource-context-rbac.md) and [table-level RBAC](/azure/azure-monitor/logs/manage-access#table-level-azure-rbac) to provide your teams with a wide range of access options that should support most use cases.
 
+For more information, see [Permissions in Azure Sentinel](roles.md).
+
 ### Resource-context RBAC
 
 The following image shows a simplified version of a workspace architecture where security and operations teams need access to different sets of data, and resource-context RBAC is used to provide the required permissions.
@@ -135,23 +137,6 @@ Your central SOC team may also use an additional, optional Azure Sentinel worksp
 
 For more information, see [Simplify working with multiple workspaces](#simplify-working-with-multiple-workspaces).
 
-### Role recommendations
-
-After understanding how [roles and permissions](roles.md) work in Azure Sentinel, you may want to use the following guidance for applying roles to your users:
-
-|User type  |Role |Resource group  |Description  |
-|---------|---------|---------|---------|
-|**Security analysts**     | [Azure Sentinel Responder](../role-based-access-control/built-in-roles.md#azure-sentinel-responder)        | Azure Sentinel's resource group        | View data, incidents, workbooks, and other Azure Sentinel resources. <br><br>Manage incidents, such as assigning or dismissing incidents.        |
-|     | [Logic Apps Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor)        | Azure Sentinel's resource group, or the resource group where your playbooks are stored        | Attach playbooks to analytics and automation rules and run playbooks. <br><br>**Note**: This role also allows users to modify playbooks.         |
-|**Security engineers**     | [Azure Sentinel Contributor](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)       |Azure Sentinel's resource group         |   View data, incidents, workbooks, and other Azure Sentinel resources. <br><br>Manage incidents, such as assigning or dismissing incidents. <br><br>Create and edit workbooks, analytics rules, and other Azure Sentinel resources.      |
-|     | [Logic Apps Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor)        | Azure Sentinel's resource group, or the resource group where your playbooks are stored        | Attach playbooks to analytics and automation rules and run playbooks. <br><br>**Note**: This role also allows users to modify playbooks.         |
-|  **Service Principal**   | [Azure Sentinel Contributor](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)      |  Azure Sentinel's resource group       | Automated configuration for management tasks |
-|     |         |        | |
-
-> [!TIP]
-> Additional roles may be required depending on the data you are ingesting or monitoring. For example, Azure AD roles may be required, such as the global admin or security admin roles, to set up data connectors for services in other Microsoft portals.
-> 
-> For more information, see [Permissions in Azure Sentinel](roles.md).
 
 ## Technical best practices for creating your workspace
 
@@ -178,7 +163,7 @@ union Update, workspace("contosoretail-it").Update, workspace("WORKSPACE ID").Up
 | summarize dcount(Computer) by Classification
 ```
 
-For more information, see [Protecting MSSP intellectual property in Azure Sentinel](mssp-protect-intellectual-property.md).
+For more information, see [Extend Azure Sentinel across workspaces and tenants](extend-sentinel-across-workspaces-tenants.md).
 ## Next steps
 
 
