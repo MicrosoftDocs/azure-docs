@@ -66,13 +66,15 @@ For each document it receives, an indexer implements or coordinates multiple ste
 
 ### Stage 1: Document cracking
 
-Document cracking is the process of opening files and extracting content. Text-based content can be extracted from the following file types: PDFs, Word, PowerPoint, CSV files. Text can also be extracted from rows in a table, or items in container or collection. If you add a skillset and [image skills](cognitive-search-concept-image-scenarios.md), document cracking can also extract images and queue them for processing.
+Document cracking is the process of opening files and extracting content. Text-based content can be extracted from files on a service, rows in a table, or items in container or collection. If you add a skillset and [image skills](cognitive-search-concept-image-scenarios.md) to an indexer, document cracking can also extract images and queue them for processing.
 
-Depending on the type of data source, the indexer will try performing different operations to extract potentially indexable content:
+Depending on the data source, the indexer will try different operations to extract potentially indexable content:
+
++ When the document is a [PDF or other supported Azure Blob Storage file format](search-howto-indexing-azure-blob-storage.md#supported-document-formats), the indexer will extract text, images, and metadata. Indexers can also open files from [SharePoint](search-howto-index-sharepoint-online.md#supported-document-formats) and [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md#supported-document-formats).
 
 + When the document is a record in [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), the indexer will extract non-binary content from each field in each record.
-+ When the document is a PDF or DOCX file in an [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md), the indexer will extract text, images, and metadata. Besides Blob Storage, an indexer can open files from Azure Files, SharePoint, and Azure Data Lake Gen2.
-+ When the document is a  record in a [Cosmos DB](search-howto-index-cosmosdb.md), the indexer will extract non-binary content from fields and subfields from the Cosmos DB document.
+
++ When the document is a record in [Cosmos DB](search-howto-index-cosmosdb.md), the indexer will extract non-binary content from fields and subfields from the Cosmos DB document.
 
 ### Stage 2: Field mappings 
 

@@ -52,7 +52,6 @@ Currently, the validated list of Kubernetes services and distributions includes:
 
 - AWS Elastic Kubernetes Service (EKS)
 - Azure Kubernetes Service (AKS)
-- Azure Kubernetes Service Engine (AKS Engine) on Azure Stack
 - Azure Kubernetes Service on Azure Stack HCI
 - Azure RedHat OpenShift (ARO)
 - Google Cloud Kubernetes Engine (GKE)
