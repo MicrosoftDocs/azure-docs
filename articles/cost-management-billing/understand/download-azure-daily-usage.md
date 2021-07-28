@@ -8,6 +8,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
+ms.custom: devx-track-azurecli
 ms.date: 07/28/2020
 ---
 
@@ -74,7 +75,7 @@ If you have a Microsoft Customer Agreement, you can download month-to-date usage
 4. In the **Overview** area, find the download links beneath the recent charges.
 5. Select **Download usage and prices**.
 
-## Get using data with Azure CLI
+## Get usage data with Azure CLI
 
 Start by preparing your environment for the Azure CLI:
 
