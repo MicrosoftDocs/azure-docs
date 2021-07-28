@@ -36,7 +36,7 @@ The relevant Grafana dashboards are:
 >  When prompted to enter a username and password, enter the username and password that you provided at the time that you created the Azure Arc data controller.
 
 > [!NOTE]
->  You will be prompted with a certificate warning because the certificates used in preview are self-signed certificates.
+>  You will be prompted with a certificate warning because the certificates are self-signed certificates.
 
 
 ## Monitor Azure Database for PostgreSQL Hyperscale on Azure Arc
