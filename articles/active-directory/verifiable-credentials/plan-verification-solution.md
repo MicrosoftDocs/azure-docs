@@ -132,11 +132,11 @@ Verifiable credentials can be used as additional proof to access to sensitive ap
 
 #### Additional elements 
 
-Relying party web fronted: This is the web frontend of the application that is enhanced through Azure AD Verifiable Credential SDK or API calls for VC presentation and validation, based on your business requirements.
+**Relying party web frontend**: This is the web frontend of the application that is enhanced through Azure AD Verifiable Credential SDK or API calls for VC presentation and validation, based on your business requirements.
 
-User access authorization logic: Logic layer in the application that authorizes user access and is enhanced to consume the user attributes inside the VC to make authorization decisions. 
+**User access authorization logic**: Logic layer in the application that authorizes user access and is enhanced to consume the user attributes inside the VC to make authorization decisions. 
 
-Other backend services and dependencies: Represents the rest of the logic of the application, which typically is unchanged by the inclusion of identity proofing through VCs.
+**Other backend services and dependencies**: Represents the rest of the logic of the application, which typically is unchanged by the inclusion of identity proofing through VCs.
 
 #### Design Considerations
 
@@ -164,11 +164,11 @@ The decentralized nature of verifiable credentials enables this scenario without
 
 #### Additional elements 
 
-Relying party web fronted: This is the web frontend of the application that is enhanced through Azure AD Verifiable Credential SDK or API calls for VC presentation and validation, based on your business requirements.
+**Relying party web frontend**: This is the web frontend of the application that is enhanced through Azure AD Verifiable Credential SDK or API calls for VC presentation and validation, based on your business requirements.
 
-User access authorization logic: Logic layer in the application that authorizes user access and is enhanced to consume the user attributes inside the VC to make authorization decisions. 
+**User access authorization logic**: Logic layer in the application that authorizes user access and is enhanced to consume the user attributes inside the VC to make authorization decisions. 
 
-Other backend services and dependencies: Represents the rest of the logic of the application, which typically is unchanged by the inclusion of identity proofing through VCs.
+**Other backend services and dependencies**: Represents the rest of the logic of the application, which typically is unchanged by the inclusion of identity proofing through VCs.
 
 #### Design Considerations
 
@@ -253,7 +253,7 @@ You can use information in presented VCs to build a user profile. If you want to
 
    * Define a mechanism to deprovision the user profile from the application. Due to the decentralized nature of the Azure AD Verifiable Credentials system, there is no application user provisioning lifecycle.
 
-   * Do not store personally data claims returned in the VC token.
+   * Do not store personal data claims returned in the VC token.
 
    * Only store claims needed for the logic of the relying party. 
 

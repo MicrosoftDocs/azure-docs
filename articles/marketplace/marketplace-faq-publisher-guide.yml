@@ -46,7 +46,7 @@ sections:
       - question: |
           Is there a listing fee for the Microsoft commercial marketplace?
         answer: |
-          No, there's no cost to publish offers in our commercial marketplace. We keep a small percentage of the sale, as a transaction fee, and invest it in the Marketplace Rewards program, platform innovation, and commercial marketplace operations. This transaction fee is reduced for [Azure IP Co-sell](./co-sell-overview.md) incentivized offers and for paid SaaS offers on AppSource that are associated with one Microsoft Teams app or at least two Microsoft 365 add-ins (Excel, PowerPoint, Word, Outlook, and SharePoint).
+          No, there's no cost to publish offers in our commercial marketplace. We keep a small percentage of the sale, as a transaction fee, and invest it in the Marketplace Rewards program, platform innovation, and commercial marketplace operations.
           
       - question: |
           How do I sign up to be a publisher in the Microsoft commercial marketplace?

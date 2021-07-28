@@ -30,38 +30,42 @@ The [ActivityInsights](#activityinsights-field) field contains entity informatio
 
 <a name="baseline-explained"></a>User activities are analyzed against a baseline that is dynamically compiled each time it is used. Each activity has its defined lookback period from which the dynamic baseline is derived. The lookback period is specified in the [**Baseline**](#activityinsights-field) column in this table.
 
-> [!NOTE] 
+> [!NOTE]
 > The **Enrichment name** column in all the [entity enrichment field](#entity-enrichments-dynamic-fields) tables displays two rows of information. 
-> 
+>
 > - The first, in **bold**, is the "friendly name" of the enrichment.
 > - The second *(in italics and parentheses)* is the field name of the enrichment as stored in the [**Behavior Analytics table**](#behavioranalytics-table).
 
+> [!IMPORTANT]
+> Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
 ## BehaviorAnalytics table
 
 The following table describes the behavior analytics data displayed on each [entity details page](identify-threats-with-entity-behavior-analytics.md#how-to-use-entity-pages) in Azure Sentinel.
 
 | Field                     | Type | Description                                                  |
 |---------------------------|------|--------------------------------------------------------------|
-| **TenantId**              | string | unique ID number of the tenant                             |
-| **SourceRecordId**        | string | unique ID number of the EBA event                          |
-| **TimeGenerated**         | datetime | timestamp of the activity's occurrence                   |
-| **TimeProcessed**         | datetime | timestamp of the activity's processing by the EBA engine |
-| **ActivityType**          | string | high-level category of the activity                        |
-| **ActionType**            | string | normalized name of the activity                            |
-| **UserName**              | string | username of the user that initiated the activity           |
-| **UserPrincipalName**     | string | full username of the user that initiated the activity      |
-| **EventSource**           | string | data source that provided the original event               |
-| **SourceIPAddress**       | string | IP address from which activity was initiated               |
-| **SourceIPLocation** | string | country from which activity was initiated, enriched from IP address |
-| **SourceDevice**          | string | hostname of the device that initiated the activity         |
-| **DestinationIPAddress**  | string | IP address of the target of the activity                   |
-| **DestinationIPLocation** | string | country of the target of the activity, enriched from IP address |
-| **DestinationDevice**     | string | name of the target device                                  |
-| **UsersInsights**         | dynamic | contextual enrichments of involved users ([details below](#usersinsights-field)) |
-| **DevicesInsights**       | dynamic | contextual enrichments of involved devices ([details below](#devicesinsights-field)) |
-| **ActivityInsights**      | dynamic | contextual analysis of activity based on our profiling ([details below](#activityinsights-field)) |
-| **InvestigationPriority** | int | anomaly score, between 0-10 (0=benign, 10=highly anomalous)   |
-|
+| **TenantId**              | string | The unique ID number of the tenant.                             |
+| **SourceRecordId**        | string | The unique ID number of the EBA event.                          |
+| **TimeGenerated**         | datetime | The timestamp of the activity's occurrence.                   |
+| **TimeProcessed**         | datetime | The timestamp of the activity's processing by the EBA engine. |
+| **ActivityType**          | string | The high-level category of the activity.                        |
+| **ActionType**            | string | The normalized name of the activity.                            |
+| **UserName**              | string | The username of the user that initiated the activity.           |
+| **UserPrincipalName**     | string | The full username of the user that initiated the activity.      |
+| **EventSource**           | string | The data source that provided the original event.               |
+| **SourceIPAddress**       | string | The IP address from which activity was initiated.               |
+| **SourceIPLocation** | string | The country from which activity was initiated, enriched from IP address. |
+| **SourceDevice**          | string | The hostname of the device that initiated the activity.         |
+| **DestinationIPAddress**  | string | The IP address of the target of the activity.                   |
+| **DestinationIPLocation** | string | The country of the target of the activity, enriched from IP address. |
+| **DestinationDevice**     | string | The name of the target device.                                  |
+| **UsersInsights**         | dynamic | The contextual enrichments of involved users ([details below](#usersinsights-field)). |
+| **DevicesInsights**       | dynamic | The contextual enrichments of involved devices ([details below](#devicesinsights-field)). |
+| **ActivityInsights**      | dynamic | The contextual analysis of activity based on our profiling ([details below](#activityinsights-field)). |
+| **InvestigationPriority** | int | The anomaly score, between 0-10 (0=benign, 10=highly anomalous).   |
+
+
 
 ## Entity enrichments dynamic fields
 
@@ -200,6 +204,67 @@ The following tables describe the enrichments featured in the **ActivityInsights
 | **Unusual number of devices deleted**<br>*(UnusualNumberOfDevicesDeleted)* | 5 | A user deleted an unusual number of devices. | True, False |
 | **Unusual number of users added to group**<br>*(UnusualNumberOfUsersAddedToGroup)* | 5 | A user added an unusual number of users to a group. | True, False |
 |
+
+
+## IdentityInfo table (Public Preview)
+
+After you [enable UEBA](enable-entity-behavior-analytics.md) for your Azure Sentinel workspace, data from your Azure Active Directory is synchronized to the **IdentityInfo** table in Log Analytics for use in Azure Sentinel. You can embed user data synchronized from your Azure AD from the  in your analytics rules to enhance your analytics to fit your use cases and reduce false positives.
+
+While the initial synchronization may take a few days, once the data is fully synchronized:
+
+- Changes made to your user profiles in Azure AD are updated in the **IdentityInfo** table within 15 minutes.
+
+- Group and role information is synchronized between the **IdentityInfo** table and Azure AD daily.
+
+- Every 21 days, Azure Sentinel re-synchronizes with your entire Azure AD to ensure that stale records are fully updated.
+
+- Default retention time in the **IdentityInfo** table is 30 days.
+
+
+> [!NOTE]
+> Currently, only built-in roles are supported.
+>
+> Data about deleted groups, where a user was removed from a group, is not currently supported.
+>
+
+The following table describes the user identity data included in the **IdentityInfo** table in Log Analytics.
+
+| Field                      | Type     | Description                                                                                                             |
+| --------------------------- | -------- | -------------------------------------------------------- |
+| **AccountCloudSID**             | string   | The Azure AD security identifier of the account.       |
+| **AccountCreationTime**         | datetime | The date the user account was created (UTC).    |
+| **AccountDisplayName**          | string   | The display name of the user account.           |
+| **AccountDomain**               | string   | The domain name of the user account.  |
+| **AccountName**                 | string   | The user name of the user account.      |
+| **AccountObjectId**             | string   | The Azure Active Directory object ID for the user account.           |
+| **AccountSID**                  | string   | The on-premises security identifier of the user account.      |
+| **AccountTenantId**             | string   | The Azure Active Directory tenant ID of the user account.    |
+| **AccountUPN**                  | string   | The user principal name of the user account.     |
+| **AdditionalMailAddresses**     | dynamic  | The additional email addresses of the user.   |
+| **AssignedRoles**               | dynamic  | The Azure AD roles the user account is assigned to.    |
+| **City**                        | string   | The city of the user account.   |
+| **Country**                     | string   | The country of the user account.   |
+| **DeletedDateTime**             | datetime | The date and time the user was deleted.       |
+| **Department**                  | string   | The department of the user account.    |
+| **GivenName**                   | string   | The given name of the user account.     |
+| **GroupMembership**             | dynamic  | Azure AD Groups where the user account is a member.      |
+| **IsAccountEnabled**            | bool     | An indication as to whether the user account is enabled in Azure AD or not.    |
+| **JobTitle**                    | string   | The job title of the user account.    |
+| **MailAddress**                 | string   | The primary email address of the user account.    |
+| **Manager**                     | string   | The manager alias of the user account.     |
+| **OnPremisesDistinguishedName** | string   | The Azure AD distinguished name (DN). A distinguished name is a sequence of relative distinguished names (RDN), connected by commas. |
+| **Phone**                       | string   | The phone number of the user account.       |
+| **SourceSystem**                | string   | The system where the user data originated.   |
+| **State**                       | string   | The geographical state of the user account.  |
+| **StreetAddress**               | string   | The office street address of the user account.    |
+| **Surname**                     | string   | The surname of the user. account.      |
+| **TenantId**                    | string   |          The tenant ID of the user.   |
+| **TimeGenerated**               | datetime | The time when the event was generated (UTC).       |
+| **Type**                        | string   | The name of the table.          |
+| **UserState**                   | string   | The current state of the user account in Azure AD (Active/Disabled/Dormant/Lockout).  |
+| **UserStateChangedOn**          | datetime | The date of the last time the account state was changed (UTC).     |
+| **UserType**                    | string   | The user type.         |
+
 
 ## Next steps
 
