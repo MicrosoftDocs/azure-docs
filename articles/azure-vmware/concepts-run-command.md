@@ -8,18 +8,9 @@ ms.date: 07/30/2021
 
 # Run commands in Azure VMware Solution
 
-<!-- Can this be an INCLUDE file? [View the vCenter privileges](concepts-identity.md#view-the-vcenter-privileges) -->
-
 In Azure VMware Solution, the CloudAdmin role gives you access to vCenter. The permissions for this role are defined in [View the vCenter privileges](concepts-identity.md#view-the-vcenter-privileges).
 
 
-[add your introductory paragraph]
-
-
-
-## vCenter privileges
-
-<!-- add your content here -->
 
 
 
