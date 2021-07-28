@@ -84,7 +84,7 @@ persistentvolumeclaim "logs-demo-mi-0" deleted
   
 
 > [!NOTE]
-> As indicated, not deleting the PVCs might eventually get your Kubernetes cluster in a situation where it will throw errors. Some of these errors may include being unable to login to your Kubernetes cluster with azdata as the pods may be evicted from it because of this storage issue (normal Kubernetes behavior).
+> As indicated, not deleting the PVCs might eventually get your Kubernetes cluster in a situation where it will throw errors. Some of these errors may include being unable to create, read, update, delete resources from the Kubernetes API, or being able to run commands like `az arcdata dc export` as the controller pods may be evicted from the Kubernetes nodes because of this storage issue (normal Kubernetes behavior).
 >
 > For example, you may see messages in the logs similar to:  
 > - Annotations:    microsoft.com/ignore-pod-health: true  
