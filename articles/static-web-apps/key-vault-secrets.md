@@ -21,6 +21,9 @@ Security secrets require the following items to be in place.
 
 This article demonstrates how to set up each of these items in your application.
 
+> [!NOTE]
+> This functionality is only available in production environments and does not work with [staging versions of your static web app](./review-publish-pull-requests.md).
+
 ## Prerequisites
 
 - Existing Azure Static Web Apps site.
