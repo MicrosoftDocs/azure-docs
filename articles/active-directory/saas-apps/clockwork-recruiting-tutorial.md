@@ -67,22 +67,22 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    1. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.clockworkrecruiting.com/sp`
 
-    b. In the **Sign on URL** text box, type a URL using the following pattern:
+    1. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.clockworkrecruiting.com/session/new`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Sign on URL. Contact [Clockwork Recruiting Client support team](mailto:support@clockworkrecruiting.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+        > [!NOTE]
+        > These values are not real. Update these values with the actual Identifier and Sign on URL. Contact [Clockwork Recruiting Client support team](mailto:support@clockworkrecruiting.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-	![The Certificate download link](common/copy-metadataurl.png)
+    ![The Certificate download link](common/copy-metadataurl.png)
 
 ### Create an Azure AD test user
 
@@ -120,12 +120,10 @@ In this section, you create a user called Britta Simon in Clockwork Recruiting. 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Clockwork Recruiting Sign-on URL where you can initiate the login flow. 
-
-* Go to Clockwork Recruiting Sign-on URL directly and initiate the login flow from there.
-
-* You can use Microsoft My Apps. When you click the Clockwork Recruiting tile in the My Apps, this will redirect to Clockwork Recruiting Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* Select **Test this application** in the Azure portal. You're redirected to the Clockwork Recruiting Sign-on URL where you can initiate the login flow. 
+* Go to the Clockwork Recruiting Sign-on URL directly and initiate the login flow from there.
+* You can use Microsoft My Apps. When you select the Clockwork Recruiting tile in My Apps, you're redirected the to Clockwork Recruiting Sign-on URL. For more information about My Apps, see [Introduction to My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
-Once you configure Clockwork Recruiting you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+After you configure Clockwork Recruiting you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
