@@ -74,7 +74,7 @@ Post-indexing, you can access content via search requests through all [query typ
 
 ### Step 1: Connection and document cracking phase
 
-Indexers connect to external sources using information provided in an indexer data source. When the indexer connects to the resource, it ["cracks the documents"](search-indexer-overview.md#document-cracking) to extract text and images. Image content can be routed to skills that specify image processing, while text content is queued for text processing. 
+Indexers connect to external sources using information provided in an indexer data source. When the indexer connects to the resource, it will ["crack documents"](search-indexer-overview.md#document-cracking) to extract text and images. Image content can be routed to skills that specify image processing, while text content is queued for text processing. 
 
 ![Document cracking phase](./media/cognitive-search-intro/document-cracking-phase-blowup.png "document cracking")
 
