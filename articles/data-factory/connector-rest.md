@@ -397,6 +397,30 @@ REST is supported in data flows for both integration datasets and inline dataset
 | httpCompressionType | HTTP compression type to use while sending data with Optimal Compression Level. Allowed values are **none** and **gzip**. | No |
 | writeBatchSize | Number of records to write to the REST sink per batch. The default value is 10000. | No |
 
+You can set the delete, insert, update, and upsert methods as well as the row data to send to the REST sink.
+
+![Data flow REST sink](media/data-flow/data-flow-sink.png)
+
+## Sample data flow script
+
+```
+AlterRow1 sink(allowSchemaDrift: true,
+	validateSchema: false,
+	deletable:true,
+	insertable:true,
+	updateable:true,
+	upsertable:true,
+	rowRelativeUrl: 'periods',
+	insertHttpMethod: 'PUT',
+	deleteHttpMethod: 'DELETE',
+	upsertHttpMethod: 'PUT',
+	updateHttpMethod: 'PATCH',
+	timeout: 30,
+	requestFormat: ['type' -> 'json'],
+	skipDuplicateMapInputs: true,
+	skipDuplicateMapOutputs: true) ~> sink1
+```
+
 ## Pagination support
 
 When copying data from REST APIs, normally, the REST API limits its response payload size of a single request under a reasonable number; while to return large amount of data, it splits the result into multiple pages and requires callers to send consecutive requests to get next page of the result. Usually, the request for one page is dynamic and composed by the information returned from the response of previous page.
