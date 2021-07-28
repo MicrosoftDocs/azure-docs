@@ -21,9 +21,8 @@ Kibana and Grafana web dashboards are provided to bring insight and clarity to t
 
 To access the logs and monitoring dashboards for Arc enabled SQL Managed Instance, run the following `azdata` CLI command
 
-```bash
-
-azdata arc sql endpoint list -n <name of SQL instance>
+```azurecl
+az sql mi-arc endpoint list -n <name of SQL instance>
 
 ```
 The relevant Grafana dashboards are:
