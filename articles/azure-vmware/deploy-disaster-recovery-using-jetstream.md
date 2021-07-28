@@ -131,7 +131,7 @@ The cmdlet checks:
    | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **checkDRsystem**.  |
    | **Timeout**  | The period after which a cmdlet will exit if a certain task is taking too long to finish.  |
 
-1. Check **Notifications** to see the progress.  If errors are reported, ??? [I believe this is where they go and fix the issues reported].
+1. Check **Notifications** to see the progress. 
 
 
 
@@ -160,7 +160,7 @@ You'll run the `Invoke-PreflightJetDRInstall` cmdlet to check the following clus
 
 1. Check **Notifications** to see the progress.  
 
-1. If errors are reported, you can deploy JetDR MSA.
+1. If errors are reported, you can go to the next step to deploy JetDR MSA.
 
 
 ### Deploy JetDR MSA

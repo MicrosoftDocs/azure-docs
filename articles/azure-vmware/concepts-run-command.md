@@ -1,5 +1,5 @@
 ---
-title: Run commands in Azure VMware Solution
+title: Run commands in Azure VMware Solution 
 description: Learn about using run commands in Azure VMware Solution. 
 ms.topic: conceptual 
 ms.date: 08/15/2021
@@ -17,9 +17,6 @@ Azure VMware Solution supports the following operations:
 - [Configure an external indentity source](tutorial-configure-identity-source.md) - 
 
 - [View and edit the storage policy](concepts-storage.md#storage-policies-and-fault-tolerance) - 
-
-
-
 
 
 ## View the status of a task
