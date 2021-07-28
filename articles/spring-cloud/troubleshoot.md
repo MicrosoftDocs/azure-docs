@@ -1,11 +1,11 @@
 ---
 title: Troubleshooting guide for Azure Spring Cloud | Microsoft Docs
 description: Troubleshooting guide for Azure Spring Cloud
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: troubleshooting
 ms.date: 09/08/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
 ---
 

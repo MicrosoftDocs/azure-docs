@@ -26,7 +26,7 @@ After it [acquires a token](msal-acquire-cache-tokens.md), Microsoft Authenticat
 The recommendation is:
 - In web apps and web APIs, use [token cache serializers from "Microsoft.Identity.Web"](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization). They even provide distributed database or cache system to store tokens.
   - In ASP.NET Core [web apps](scenario-web-app-call-api-overview.md) and [web API](scenario-web-api-call-api-overview.md), use Microsoft.Identity.Web as a higher-level API in ASP.NET Core.
-  - In ASP.NET classic, .NET Core, .NET framework, use MSAL.NET directly with [token cache serialization adapters for MSAL](https://aka.ms/ms-id-web/token-cache-serialization-msal) provided in Microsoft.Identity.Web. 
+  - In ASP.NET classic, .NET Core, .NET framework, use MSAL.NET directly with [token cache serialization adapters for MSAL]() provided in Microsoft.Identity.Web. 
 - In desktop applications (which can use file system to store tokens), use [Microsoft.Identity.Client.Extensions.Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/wiki/Cross-platform-Token-Cache) with MSAL.Net.
 - In mobile applications (Xamarin.iOS, Xamarin.Android, Universal Windows Platform) don't do anything, as MSAL.NET handles the cache for you: these platforms have a secure storage.
 
@@ -38,7 +38,7 @@ The [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web) 
 | ---------------- | ------------ |
 | `AddInMemoryTokenCaches` | In memory token cache serialization. This implementation is great in samples. It's also good in production applications provided you don't mind if the token cache is lost when the web app is restarted. `AddInMemoryTokenCaches` takes an optional parameter of type `MsalMemoryTokenCacheOptions` that enables you to specify the duration after which the cache entry will expire unless it's used.
 | `AddSessionTokenCaches` | The token cache is bound to the user session. This option isn't ideal if the ID token contains many claims as the cookie would become too large.
-| `AddDistributedTokenCaches` | The token cache is an adapter against the ASP.NET Core `IDistributedCache` implementation, therefore enabling you to choose between a distributed memory cache, a Redis cache, a distributed NCache, or a SQL Server cache. For details about the `IDistributedCache` implementations, see [Distributed memory cache](/aspnet/core/performance/caching/distributed.md).
+| `AddDistributedTokenCaches` | The token cache is an adapter against the ASP.NET Core `IDistributedCache` implementation, therefore enabling you to choose between a distributed memory cache, a Redis cache, a distributed NCache, or a SQL Server cache. For details about the `IDistributedCache` implementations, see [Distributed memory cache](/aspnet/core/performance/caching/distributed).
 
 
 Here's an example of code using the in-memory cache in the [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configureservices) method of the [Startup](/aspnet/core/fundamentals/startup) class in an ASP.NET Core application:
@@ -76,7 +76,8 @@ Here are examples of possible distributed caches:
 // or use a distributed Token Cache by adding
    services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
            .AddMicrosoftIdentityWebApp(Configuration)
-             .EnableTokenAcquisitionToCallDownstreamApi(new string[] { scopesToRequest })
+             .EnableTokenAcquisitionToCallDownstreamApi(new string[] { scopesToRequest }
+               .AddDistributedTokenCaches();
 
 // and then choose your implementation
 
@@ -135,7 +136,7 @@ The following code shows how to add an in-memory well partitioned token cache to
        .Build();
 
      // Add an in-memory token cache. Other options available: see below
-     app.UseInMemoryTokenCaches();
+     app.AddInMemoryTokenCaches();
    }
    return clientapp;
   }
@@ -147,14 +148,14 @@ The following code shows how to add an in-memory well partitioned token cache to
 
 ```CSharp 
      // Add an in-memory token cache
-     app.UseInMemoryTokenCaches();
+     app.AddInMemoryTokenCaches();
 ```
 
 #### Distributed in memory token cache
 
 ```CSharp 
      // In memory distributed token cache
-     app.UseDistributedTokenCaches(services =>
+     app.AddDistributedTokenCaches(services =>
      {
        // In net462/net472, requires to reference Microsoft.Extensions.Caching.Memory
        services.AddDistributedMemoryCache();
@@ -165,7 +166,7 @@ The following code shows how to add an in-memory well partitioned token cache to
 
 ```CSharp 
      // SQL Server token cache
-     app.UseDistributedTokenCaches(services =>
+     app.AddDistributedTokenCaches(services =>
      {
       services.AddDistributedSqlServerCache(options =>
       {
@@ -189,7 +190,7 @@ The following code shows how to add an in-memory well partitioned token cache to
 
 ```CSharp 
      // Redis token cache
-     app.UseDistributedTokenCaches(services =>
+     app.AddDistributedTokenCaches(services =>
      {
        // Requires to reference Microsoft.Extensions.Caching.StackExchangeRedis
        services.AddStackExchangeRedisCache(options =>
@@ -204,7 +205,7 @@ The following code shows how to add an in-memory well partitioned token cache to
 
 ```CSharp 
       // Cosmos DB token cache
-      app.UseDistributedTokenCaches(services =>
+      app.AddDistributedTokenCaches(services =>
       {
         // Requires to reference Microsoft.Extensions.Caching.Cosmos (preview)
         services.AddCosmosCache((CosmosCacheOptions cacheOptions) =>

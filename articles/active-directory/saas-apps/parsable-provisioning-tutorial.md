@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Parsable for automatic user provisioning with Azure 
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Parsable.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 1ec33ea6-bff4-4665-bf2b-f4037ff28c09
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2020
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Parsable for automatic user provisioning

@@ -189,3 +189,4 @@ Now that you’ve configured Azure Monitor for your Azure Virtual Desktop enviro
 - Check out our [glossary](azure-monitor-glossary.md) to learn more about terms and concepts related to Azure Monitor for Azure Virtual Desktop.
 - To estimate, measure, and manage your data storage costs, see [Estimate Azure Monitor costs](azure-monitor-costs.md).
 - If you encounter a problem, check out our [troubleshooting guide](troubleshoot-azure-monitor.md) for help and known issues.
+- To see what's new in each version update, see [What's new in Azure Monitor for Azure Virtual Desktop](whats-new-azure-monitor.md).

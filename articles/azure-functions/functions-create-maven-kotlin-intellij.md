@@ -18,7 +18,7 @@ This article shows you how to create an HTTP-triggered Java function in an Intel
 
 To create and publish Kotlin functions to Azure using IntelliJ, install the following software:
 
-- [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support) (JDK), version 8
+- [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure) (JDK), version 8
 - [Apache Maven](https://maven.apache.org), version 3.0 or higher
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download), Community or Ultimate versions with Maven
 - [Azure CLI](/cli/azure)

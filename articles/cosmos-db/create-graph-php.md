@@ -1,13 +1,13 @@
 ---
 title: 'Quickstart: Gremlin API with PHP - Azure Cosmos DB'
 description: This quickstart shows how to use the Azure Cosmos DB Gremlin API to create a console application with the Azure portal and PHP
-author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2019
-ms.author: chrande
+author: manishmsfte
+ms.author: mansha
 
 ---
 # Quickstart: Create a graph database in Azure Cosmos DB using PHP and the Azure portal
