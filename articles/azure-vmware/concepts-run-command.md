@@ -40,26 +40,23 @@ Azure VMware Solution supports the following operations:
 
    You can view more details about the task including the output, errors, warnings, and information.
 
-   - **Details** - 
+   - **Details** - Shows the summary of the task details, such as the name of the task, status, package, and command name ran. 
 
-   - 
+   - **Output** - Shows the output of the cmdlet.  Not all cmdlets have output.
 
+      :::image type="content" source="media/run-command/run-execution-status-example-output.png" alt-text="Screenshot showing the output of a run execution task.":::
 
+   - **Error** - Shows any errors encountered during the execution of the cmdlet. The minimal requirements for the script not met resulting in the task failing.   
 
+      :::image type="content" source="media/run-command/run-execution-status-example-error.png" alt-text="Screenshot showing the errors detected during the execution of a task.":::
 
+   - **Warning** - Shows any warnings encounted during the execution of the cmdlet.  The minimal requirements were met but the environment changed during execution. For example, the VM was rebooted during execution triggering the cmdlet to stop resulting in the task failing. 
 
+      :::image type="content" source="media/run-command/run-execution-status-example-warning.png" alt-text="Screenshot showing the warnings detected during the execution of a task.":::
 
-1. Provided the required values or change the default values, and then select **Run**.
+   - **Information** - Shows the overall real-time progress of the cmdlet as it runs. 
 
-   | **Field** | **Value** |
-   | --- | --- |
-   | **Retain up to**  | Job retention period. The cmdlet output is stored for the number of days defined. Default value is 60.  |
-   | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **remove_externalIdentity**.  |
-   | **Timeout**  | The time in which the cmdlet exits if a certain task takes too long to finish.  |
-
-1. Check **Notifications** to see the progress.
-
-
+      :::image type="content" source="media/run-command/run-execution-status-example-information.png" alt-text="Screenshot showing the overall real-time progress of the cmdlet as it runs.":::
 
 
 
