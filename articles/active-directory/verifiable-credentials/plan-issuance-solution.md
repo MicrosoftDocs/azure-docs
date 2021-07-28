@@ -267,7 +267,7 @@ As part of your design considerations focused on security, we recommend the foll
 
    * Create a dedicated Key Vault for VC issuance. Limit Azure Key Vault permissions to the Azure AD Verifiable Credentials issuance service and the issuance service frontend website service principal. 
 
-   * Treat Azure Key Vault as a highly privileged system - Azure Key Vault issues credentials to customers. We recommend that no human identities have standing permissions over the Azure Key Vault service. Administrators should have only just I time access to Key Vault. For more best practices for Azure Key Vault usage, refer to [Azure Security Baseline for Key Vault](https://docs.microsoft.com/security/benchmark/azure/baselines/key-vault-security-baseline).
+   * Treat Azure Key Vault as a highly privileged system - Azure Key Vault issues credentials to customers. We recommend that no human identities have standing permissions over the Azure Key Vault service. Administrators should have only just I time access to Key Vault. For more best practices for Azure Key Vault usage, refer to [Azure Security Baseline for Key Vault](/security/benchmark/azure/baselines/key-vault-security-baseline).
 
 * For service principal that represents the issuance frontend website:
 
@@ -293,7 +293,7 @@ For security logging and monitoring, we recommend the following:
 
 * Mitigate distributed denial of service (DDOS) and Key Vault resource exhaustion risks. Every request that triggers a VC issuance request generates Key Vault signing operations that accrue towards service limits. We recommend protecting traffic by incorporating authentication or captcha before generating issuance requests.
 
-For guidance on managing your Azure environment, we recommend you review [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/) and [Securing Azure environments with Azure Active Directory](https://aka.ms/AzureADSecuredAzure). These guides provide best practices for managing the underlying Azure resources, including Azure Key Vault, Azure Storage, websites, and other Azure-related services and capabilities.
+For guidance on managing your Azure environment, we recommend you review [Azure Security Benchmark](/security/benchmark/azure/) and [Securing Azure environments with Azure Active Directory](https://aka.ms/AzureADSecuredAzure). These guides provide best practices for managing the underlying Azure resources, including Azure Key Vault, Azure Storage, websites, and other Azure-related services and capabilities.
 
 ## Additional considerations
 
