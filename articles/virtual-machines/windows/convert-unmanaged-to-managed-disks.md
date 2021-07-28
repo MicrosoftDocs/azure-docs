@@ -83,8 +83,11 @@ If the VMs that you want to convert to managed disks are in an availability set,
 
 ## Troubleshooting
 
-If there is an error during conversion, or if a VM is in a failed state because of issues in a previous conversion, run the `ConvertTo-AzVMManagedDisk` cmdlet again. A simple retry usually unblocks the situation.
-Before converting, make sure all the VM extensions are in the 'Provisioning succeeded' state or the conversion will fail with the error code 409.
+- Before converting, make sure all the VM extensions are in the 'Provisioning succeeded' state or the conversion will fail with the error code 409.
+- If there is an error during conversion, or if a VM is in a failed state because of issues in a previous conversion, run the `ConvertTo-AzVMManagedDisk` cmdlet again. A simple retry usually unblocks the situation.
+-  If you are converting a Linux VM to managed disks, ensure that you are using the latest version of the Azure Linux Agent. Operations using Azure Linux Agent versions '2.2.0' and below will likely fail. Running the conversion on a generalized VM or a VM that belongs to a classic availability set is also not supported.
+-  If the conversion fails because the snapshot count exceeds the limit for a storage blob, delete some snapshots and attempt the operation again.
+
 
 ## Convert using the Azure portal
 
