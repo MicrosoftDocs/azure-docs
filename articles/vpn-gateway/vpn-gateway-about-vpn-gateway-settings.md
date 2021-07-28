@@ -15,13 +15,15 @@ ms.custom: devx-track-azurepowershell
 
 A VPN gateway is a type of virtual network gateway that sends encrypted traffic between your virtual network and your on-premises location across a public connection. You can also use a VPN gateway to send traffic between virtual networks across the Azure backbone.
 
-A VPN gateway connection relies on the configuration of multiple resources, each of which contains configurable settings. The sections in this article discuss the resources and settings that relate to a VPN gateway for a virtual network created in Resource Manager deployment model. You can find descriptions and topology diagrams for each connection solution in the [About VPN Gateway](vpn-gateway-about-vpngateways.md) article.
+A VPN gateway connection relies on the configuration of multiple resources, each of which contains configurable settings. The sections in this article discuss the resources and settings that relate to a VPN gateway for a virtual network created in [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md). You can find descriptions and topology diagrams for each connection solution in the [About VPN Gateway](vpn-gateway-about-vpngateways.md) article.
 
 The values in this article apply VPN gateways (virtual network gateways that use the -GatewayType Vpn). This article does not cover all gateway types or zone-redundant gateways.
 
 * For values that apply to -GatewayType 'ExpressRoute', see [Virtual Network Gateways for ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md).
 
 * For zone-redundant gateways, see [About zone-redundant gateways](about-zone-redundant-vnet-gateways.md).
+
+* For active-active gateways, see [About highly available connectivity](vpn-gateway-highlyavailable.md).
 
 * For Virtual WAN, see [About Virtual WAN](../virtual-wan/virtual-wan-about.md).
 
@@ -94,7 +96,7 @@ If you have a VPN gateway and you want to use a different gateway SKU, your opti
 
 ## <a name="connectiontype"></a>Connection types
 
-In the Resource Manager deployment model, each configuration requires a specific virtual network gateway connection type. The available Resource Manager PowerShell values for `-ConnectionType` are:
+In the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md), each configuration requires a specific virtual network gateway connection type. The available Resource Manager PowerShell values for `-ConnectionType` are:
 
 * IPsec
 * Vnet2Vnet

@@ -289,7 +289,7 @@ In connection monitors that were created before the Connection Monitor experienc
 Metrics are emitted as per monitoring frequency and describe aspect of a connection monitor at a particular time. 
 Connection Monitor metrics also have multiple dimensions such as SourceName, DestinationName, TestConfiguration, TestGroup etc. 
 These dimensions can be used to visualize a specific set of data and also to target the same while defining alerts.
-Currently Azure Metrics allows minimum granularity of 1 minute, If frequency is less than 1 minute, aggregated results will be displayed
+Currently Azure Metrics allows minimum granularity of 1 minute, If frequency is less than 1 minute, aggregated results will be displayed.
 
   :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Screenshot showing metrics in Connection Monitor" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
 
@@ -388,7 +388,7 @@ The migration helps produce the following results:
    
 There are several reasons to migrate from Network Performance Monitor and Connection Monitor (Classic) to Connection Monitor. Below are some of the use cases which show us how Azure's Connection Monitor performs against Network Performance Monitor and Connection Monitor (Classic) . 
 
- | Feature	| Network Performance Monitor | Connection Monitor Classic | Connection Monitor |
+ | Feature	| Network Performance Monitor | Connection Monitor (Classic) | Connection Monitor |
  | -------  | --------------------------- | -------------------------- | ------------------ | 
  | Unified experience for Azure and Hybrid monitoring |	Not Available |	Not Available |	Available |
  | Cross Subscription, Cross Region, Cross Workspace Monitoring | Allows cross subscription, cross region monitoring but doesn’t allow cross workspace monitoring |	Not Available | Allows Cross Subscription , Cross Workspace monitoring; Azure Agents have regional boundary  |
@@ -419,6 +419,9 @@ For example, using same VM with a filter and without a filter in same connection
 ### The test failure reason is "Nothing to Display"?
 Issues displayed on the Connection Monitor dashboard are found during topology discovery or hop exploration. There can be cases where the threshold set for % loss or RTT is breached but no issues are found on hops.
 
+### While migrating existing Connection Monitor (Classic) to Connection Monitor, the external endpoint tests are being migrated with TCP protocol only? 
+There is no protocol selection in Connection Monitor (Classic). So customer would not have been able to specify connectivity to external endpoints using HTTP protocol in Connection Monitor (Classic).
+All the tests have TCP protocol only in Connection Monitor (Classic), that's why on migration we create TCP configuration in tests in Connection Monitor. 
 
 ## Next Steps
     
