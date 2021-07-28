@@ -1,6 +1,6 @@
 ---
 title: Investigate incidents with Azure Sentinel| Microsoft Docs
-description: In this tutorial, learn how to use Azure Sentinel to create advanced alert rules that generate incidents you can assign and investigate.
+description: In this article, learn how to use Azure Sentinel to create advanced alert rules that generate incidents you can assign and investigate.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -10,19 +10,19 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2021
 ms.author: yelevin
 
 ---
-# Tutorial: Investigate incidents with Azure Sentinel
+# Investigate incidents with Azure Sentinel
 
 > [!IMPORTANT]
 > The investigation graph is now in **General Availability**.
 
-This tutorial helps you investigate incidents with Azure Sentinel. After you connected your data sources to Azure Sentinel, you want to be notified when something suspicious happens. To enable you to do this, Azure Sentinel lets you create advanced alert rules, that generate incidents that you can assign and investigate.
+This article helps you investigate incidents with Azure Sentinel. After you connected your data sources to Azure Sentinel, you want to be notified when something suspicious happens. To enable you to do this, Azure Sentinel lets you create advanced alert rules, that generate incidents that you can assign and investigate.
 
 This article covers:
 > [!div class="checklist"]
@@ -33,6 +33,7 @@ This article covers:
 An incident can include multiple alerts. It's an aggregation of all the relevant evidence for a specific investigation. An incident is created based on analytics rules that you created in the **Analytics** page. The properties related to the alerts, such as severity and status, are set at the incident level. After you let Azure Sentinel know what kinds of threats you're looking for and how to find them, you can monitor detected threats by investigating incidents.
 
 ## Prerequisites
+
 - You'll only be able to investigate the incident if you used the entity mapping fields when you set up your analytics rule. The investigation graph requires that your original incident includes entities.
 
 - If you have a guest user that needs to assign incidents, the user must be assigned the [Directory Reader](../active-directory/roles/permissions-reference.md#directory-readers) role in your Azure AD tenant. Regular (non-guest) users have this role assigned by default.
@@ -132,7 +133,7 @@ After choosing the appropriate classification, add some descriptive text in the 
 
 
 ## Next steps
-In this tutorial, you learned how to get started investigating incidents using Azure Sentinel. Continue to the tutorial for [how to respond to threats using automated playbooks](tutorial-respond-threats-playbook.md).
-> [!div class="nextstepaction"]
-> [Respond to threats](tutorial-respond-threats-playbook.md) to automate your responses to threats.
+In this article, you learned how to get started investigating incidents using Azure Sentinel. For more information, see:
 
+- [Tutorial: Use playbooks with automation rules in Azure Sentinel](tutorial-respond-threats-playbook.md) 
+- [Tutorial: Investigate incidents with UEBA data](investigate-with-ueba.md)

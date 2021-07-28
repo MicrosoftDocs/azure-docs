@@ -14,13 +14,13 @@ ms.custom: references_regions
 ---
 # Quickstart: On-board Azure Sentinel
 
-In this quickstart, learn how to on-board Azure Sentinel. 
+In this quickstart, learn how to on-board Azure Sentinel. To on-board Azure Sentinel, you first need to enable Azure Sentinel, and then connect your data sources.
 
-To on-board Azure Sentinel, you first need to enable Azure Sentinel, and then connect your data sources. Azure Sentinel comes with a number of connectors for Microsoft solutions, available out of the box and providing real-time integration, including Microsoft 365 Defender (formerly Microsoft Threat Protection) solutions, Microsoft 365 sources (including Office 365), Azure AD, Microsoft Defender for Identity (formerly Azure ATP), Microsoft Cloud App Security, Azure Defender alerts from Azure Security Center, and more. In addition, there are built-in connectors to the broader security ecosystem for non-Microsoft solutions. You can also use Common Event Format (CEF), Syslog or REST-API to connect your data sources with Azure Sentinel. 
+Azure Sentinel comes with a number of connectors for Microsoft solutions, available out of the box and providing real-time integration, including Microsoft 365 Defender (formerly Microsoft Threat Protection) solutions, Microsoft 365 sources (including Office 365), Azure AD, Microsoft Defender for Identity (formerly Azure ATP), Microsoft Cloud App Security, Azure Defender alerts from Azure Security Center, and more. In addition, there are built-in connectors to the broader security ecosystem for non-Microsoft solutions. You can also use Common Event Format (CEF), Syslog or REST-API to connect your data sources with Azure Sentinel.
 
 After you connect your data sources, choose from a gallery of expertly created workbooks that surface insights based on your data. These workbooks can be easily customized to your needs.
 
->[!IMPORTANT] 
+>[!IMPORTANT]
 > For information about the charges incurred when using Azure Sentinel, see [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel/) and [Azure Sentinel costs and billing](azure-sentinel-billing.md).
 
 ## Global prerequisites
@@ -32,7 +32,9 @@ After you connect your data sources, choose from a gallery of expertly created w
 - To enable Azure Sentinel, you need contributor permissions to the subscription in which the Azure Sentinel workspace resides. 
 - To use Azure Sentinel, you need either contributor or reader permissions on the resource group that the workspace belongs to.
 - Additional permissions may be needed to connect specific data sources.
-- Azure Sentinel is a paid service. For pricing information see [About Azure Sentinel](https://go.microsoft.com/fwlink/?linkid=2104058).
+- Azure Sentinel is a paid service. For more information, see [About Azure Sentinel](https://go.microsoft.com/fwlink/?linkid=2104058).
+
+For more information, see [Pre-deployment activities and prerequisites for deploying Azure Sentinel](prerequisites.md).
 
 ### Geographical availability and data residency
 
@@ -57,7 +59,7 @@ After you connect your data sources, choose from a gallery of expertly created w
     | United Arab Emirates | United Arab Emirates |
     | Switzerland | Switzerland |
     |
-    
+
     \* There is no paired region for Southeast Asia.
 
     > [!IMPORTANT]
@@ -102,8 +104,9 @@ For example, if you select the **Azure Active Directory** data source, which let
 
 1. The **Next steps** tab on the connector page shows relevant built-in workbooks, sample queries, and analytics rule templates that accompany the data connector. You can use these as-is or modify them - either way you can immediately get interesting insights across your data. <br>
 
-After your data sources are connected, your data starts streaming into Azure Sentinel and is ready for you to start working with. You can view the logs in the [built-in workbooks](quickstart-get-visibility.md) and start building queries in Log Analytics to [investigate the data](tutorial-investigate-cases.md).
+After your data sources are connected, your data starts streaming into Azure Sentinel and is ready for you to start working with. You can view the logs in the [built-in workbooks](get-visibility.md) and start building queries in Log Analytics to [investigate the data](investigate-cases.md).
 
+For more information, see [Data collection best practices](best-practices-data.md).
 ## Next steps
 
 For more information, see:
@@ -115,7 +118,7 @@ For more information, see:
     - [Deploy Azure Sentinel via ARM template](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-all-in-one-accelerator/ba-p/1807933)
 
 - **Get started**:
-    - [Get started with Azure Sentinel](quickstart-get-visibility.md)
-    - [Create custom analytics rules to detect threats](tutorial-detect-threats-custom.md)
+    - [Get started with Azure Sentinel](get-visibility.md)
+    - [Create custom analytics rules to detect threats](detect-threats-custom.md)
     - [Connect your external solution using Common Event Format](connect-common-event-format.md)
 

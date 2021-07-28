@@ -41,7 +41,7 @@ Filter your logs using one of the following methods:
 > [!IMPORTANT]
 > Using Logstash to filter your message content will cause your logs to be ingested as custom logs, causing any [free-tier logs](azure-sentinel-billing.md#free-data-sources) to become paid-tier logs.
 >
-> Custom logs also need to be worked into [analytics rules](automate-incident-handling-with-automation-rules.md), [threat hunting](hunting.md), and [workbooks](quickstart-get-visibility.md), as they aren't automatically added. Custom logs are also not currently supported for [Machine Learning](bring-your-own-ml.md) capabilities.
+> Custom logs also need to be worked into [analytics rules](automate-incident-handling-with-automation-rules.md), [threat hunting](hunting.md), and [workbooks](get-visibility.md), as they aren't automatically added. Custom logs are also not currently supported for [Machine Learning](bring-your-own-ml.md) capabilities.
 >
 
 ## Alternative data ingestion requirements

@@ -52,7 +52,7 @@ Use queries before, during, and after a compromise to take the following actions
 
     - If you've discovered or created a hunting query that provides high value insights into possible attacks, create custom detection rules based on that query and surface those insights as alerts to your security incident responders.
 
-        View the query's results, and select **New alert rule** > **Create Azure Sentinel alert**. Use the **Analytics rule wizard** to create a new rule based on your query. For more information, see [Create custom analytics rules to detect threats](tutorial-detect-threats-custom.md).
+        View the query's results, and select **New alert rule** > **Create Azure Sentinel alert**. Use the **Analytics rule wizard** to create a new rule based on your query. For more information, see [Create custom analytics rules to detect threats](detect-threats-custom.md).
 
 
 > [!TIP]

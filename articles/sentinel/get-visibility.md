@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Get started with Azure Sentinel'
-description: Use this quickstart to learn how to quickly view and monitor what's happening across your environment by using Azure Sentinel. 
+title: isualize collected data
+description: Learn how to quickly view and monitor what's happening across your environment by using Azure Sentinel.
 services: sentinel
 author: yelevin
 manager: rkarlin
@@ -13,12 +13,9 @@ ms.author: yelevin
 #Customer intent: As a security operator, I want to see all my logs and alerts in one place so I can monitor and protect my environment.
 ---
 
-# Quickstart: Get started with Azure Sentinel
+# Visualize collected data
 
-
-
-
-In this quickstart, you will learn how to quickly be able to view and monitor what's happening across your environment using Azure Sentinel. After you connected your data sources to Azure Sentinel, you get instant visualization and analysis of data so that you can know what's happening across all your connected data sources. Azure Sentinel gives you workbooks that provide you with the full power of tools already available in Azure as well as tables and charts that are built in to provide you with analytics for your logs and queries. You can either use built-in workbooks or create a new workbook easily, from scratch or based on an existing workbook. 
+In this article, you will learn how to quickly be able to view and monitor what's happening across your environment using Azure Sentinel. After you connected your data sources to Azure Sentinel, you get instant visualization and analysis of data so that you can know what's happening across all your connected data sources. Azure Sentinel gives you workbooks that provide you with the full power of tools already available in Azure as well as tables and charts that are built in to provide you with analytics for your logs and queries. You can either use built-in workbooks or create a new workbook easily, from scratch or based on an existing workbook. 
 
 ## Get visualization
 
@@ -118,9 +115,10 @@ To view all the out-of-the-box detections, go to **Analytics** and then **Rule t
 
    ![Use built-in detections to find threats with Azure Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
 
-For more information about getting out-of-the-box detections, see [Tutorial: Get built-in-analytics](tutorial-detect-threats-built-in.md).
+For more information about getting out-of-the-box detections, see [Get built-in-analytics](detect-threats-built-in.md).
  
 ## Next steps
-In this quickstart, you learned how to get started using Azure Sentinel. Continue to the tutorial for [how to detect threats](tutorial-detect-threats-built-in.md).
+In this quickstart, you learned how to get started using Azure Sentinel. Continue to the article for [how to detect threats](detect-threats-built-in.md).
+
 > [!div class="nextstepaction"]
-> [Create custom threat detection rules](tutorial-detect-threats-custom.md) to automate your responses to threats.
+> [Create custom threat detection rules](detect-threats-custom.md) to automate your responses to threats.

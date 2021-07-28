@@ -111,4 +111,4 @@ For more information, see [Connect data from Microsoft 365 Defender to Azure Sen
 >[On-board Azure Sentinel](quickstart-onboard.md)
 
 > [!div class="nextstepaction"]
->[Get visibility into alerts](quickstart-get-visibility.md)
+>[Get visibility into alerts](get-visibility.md)
