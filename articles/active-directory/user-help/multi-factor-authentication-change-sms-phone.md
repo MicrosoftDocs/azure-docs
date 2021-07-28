@@ -50,4 +50,4 @@ However, if you're already using two-step verification, sending this message pre
 ## Next steps
 
 - [Get help with two-step verification](multi-factor-authentication-end-user-troubleshoot.md)
-- [Set up a mobile phone as your two-step verification method](multi-factor-authentication-end-user-setup-phone-number.md)
+- [Set up a mobile phone as your two-step verification method](multi-factor-authentication-setup-phone-number.md)
