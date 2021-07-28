@@ -116,7 +116,7 @@ After the disk is restored, use the template that was generated as part of the r
     ![Restore job drill-down](./media/backup-azure-arm-restore-vms/restore-job-drill-down1.png)
    
    >[!Note]
-   >For a shared access signature (SAS) that has **Allow storage account key access** set to disabled, the download content operation will fail, and template won't deploy.
+   >For a shared access signature (SAS) that has **Allow storage account key access** set to disabled, the template won't deploy when you select **Deploy Template**.
 
 1. To customize the VM setting provided in the template, select **Edit template**. If you want to add more customizations, select **Edit parameters**.
     - [Learn more](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template) about deploying resources from a custom template.
