@@ -151,7 +151,7 @@ Use either of the following commands.
 
    Each of them runs on 3 nodes/pods: 1 coordinator and 2 workers.
 
-- **With azdata:**
+- **With Azure CLI (az):**
 
 Run the following command. The output shows similar information to what kubectl shows:
 
@@ -277,7 +277,7 @@ Let's call out some specific points of interest in the description of the `serve
    >  State:              Ready
    > ```
 
-**With azdata:**
+**With Azure CLI (az):**
 
 The general format of the command is:
 

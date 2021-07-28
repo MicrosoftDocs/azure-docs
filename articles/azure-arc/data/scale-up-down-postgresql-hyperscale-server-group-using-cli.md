@@ -29,7 +29,7 @@ Scaling up or down the vCore or memory settings of your server group means you h
 
 To show the current definition of your server group and see what are the current vCore and Memory settings, run either of the following command:
 
-### CLI with azdata
+### CLI with azure cli (az)
 
 ```azurecli
 az postgres arc-server show -n <server group name> --k8s-namespace <namespace> --use-k8s
