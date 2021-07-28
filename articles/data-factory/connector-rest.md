@@ -4,7 +4,7 @@ description: Learn how to copy data from a cloud or on-premises REST source to s
 author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 07/27/2021
 ms.author: jianleishen
 ---
 # Copy data from and to a REST endpoint by using Azure Data Factory
@@ -371,6 +371,31 @@ REST connector as sink works with the REST APIs that accept JSON. The data will 
     }
 ]
 ```
+
+## Mapping data flow properties
+
+REST is supported in data flows for both integration datasets and inline datasets.
+
+### Source transformation
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| requestMethod | The HTTP method. Allowed values are **GET** and **POST**. | Yes |
+| relativeUrl | A relative URL to the resource that contains the data. When this property isn't specified, only the URL that's specified in the linked service definition is used. The HTTP connector copies data from the combined URL: `[URL specified in linked service]/[relative URL specified in dataset]`. | No |
+| additionalHeaders | Additional HTTP request headers. | No |
+| httpRequestTimeout | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to write the data. The default value is **00:01:40**.  | No |
+| requestInterval | The interval time between different requests in millisecond. Request interval value should be a number between [10, 60000]. |  No |
+| QueryParameters.*request_query_parameter* OR QueryParameters['request_query_parameter'] | "request_query_parameter" is user-defined, which references one query parameter name in the next HTTP request URL. | No |
+
+### Sink transformation
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| additionalHeaders | Additional HTTP request headers. | No |
+| httpRequestTimeout | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to write the data. The default value is **00:01:40**.  | No |
+| requestInterval | The interval time between different requests in millisecond. Request interval value should be a number between [10, 60000]. |  No |
+| httpCompressionType | HTTP compression type to use while sending data with Optimal Compression Level. Allowed values are **none** and **gzip**. | No |
+| writeBatchSize | Number of records to write to the REST sink per batch. The default value is 10000. | No |
 
 ## Pagination support
 
