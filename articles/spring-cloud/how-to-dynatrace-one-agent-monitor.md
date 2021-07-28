@@ -50,7 +50,7 @@ To set up OneAgent integration on your Azure Spring Cloud instance, you need to 
 
 When you have the values for the environment variables required for OneAgent integration, you can add the respective key/value pairs to your application using either the Azure portal or the Azure CLI. The following sections provide instructions for each of these options.
 
-#### Azure CLI
+#### Option 1: Azure CLI
 
 To add the key/value pairs using the Azure CLI, run the following command, replacing the placeholders *\<...>* with the values determined in the previous steps.
 
@@ -60,7 +60,7 @@ az spring-cloud app deploy --name <your-application-name> --jar-path app.jar \
     DT_TENANTTOKEN=<your-tenant-token> DT_CONNECTION_POINT=<your-communication-endpoint>
 ```
 
-#### Portal
+#### Option 2: Portal
 
 You can also set the key/value pairs using the Azure portal, use the following steps:
 
