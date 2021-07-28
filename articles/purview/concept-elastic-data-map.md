@@ -1,6 +1,6 @@
 ---
-title: Scans and ingestion
-description: This article explains scans and ingestion in Azure Purview.
+title: Elastic Data Map
+description: This article explains the concepts of the Elastic Data Map in Azure Purview
 author: chanuengg
 ms.author: csugunan
 ms.service: purview
