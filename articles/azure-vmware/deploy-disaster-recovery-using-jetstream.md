@@ -116,7 +116,7 @@ The cmdlet checks:
 
 - PowerShell
 - vCenter FQDN
-- cloudadmin role
+- CloudAdmin role
 - VMware modules
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
