@@ -26,7 +26,7 @@ The OS versions for this release are:
 
 ## New features
 ### New Azure Monitor integration experience (Preview)
-The new Azure monitor integration experience will be Preview in East US and West Europe with this release. Learn more details about the new Azure monitor experience [here](./log-analytics-migration#migrate-to-the-new-azure-monitor-integration.md)
+The new Azure monitor integration experience will be Preview in East US and West Europe with this release. Learn more details about the new Azure monitor experience [here](./log-analytics-migration.md#migrate-to-the-new-azure-monitor-integration).
 
 ## Deprecation
 ### Basic support for HDInsight 3.6 starting July 1, 2021
