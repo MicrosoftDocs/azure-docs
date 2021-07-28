@@ -74,7 +74,7 @@ You'll run the `New-AvsLDAPIdentitySource` cmdlet to add AD over LDAP as an exte
    | **DomainName**  | Domain name of the external identity source. For example,   |
    | **DomainAlias**  | Domain alias of the external identity source. For example,     |
    | **PrimaryUrl**  | Primary URL of the external identity source. For example, **ldap://yourserver:389**.  |
-   | **SecondaryURL**  | Secondary fall-back URL in case of primary failure.  |
+   | **SecondaryURL**  | Secondary fall-back URL if there is primary failure.  |
    | **BaseDNUsers**  |  Where to look for valid users. For example, **CN=users,DC=yourserver,DC=internal**.  Base DN is needed to use LDAP Authentication.  |
    | **BaseDNGroups**  | Where to look for groups. For example, **CN=group1, DC=yourserver,DC= internal**. Base DN is needed to use LDAP Authentication.  |
    | **Credential**  | The username and password used for authentication with the AD source (not cloudadmin).  |
@@ -103,7 +103,7 @@ You'll run the `New-AvsLDAPSIdentitySource` cmdlet to add an AD over LDAP with S
    | **DomainName**  | Domain name of the external identity source. For example,   |
    | **DomainAlias**  | Domain alias of the external identity source. For example,     |
    | **PrimaryUrl**  | Primary URL of the external identity source. For example, **ldap://yourserver:389**.  |
-   | **SecondaryURL**  | Secondary fall-back URL in case of primary failure.  |
+   | **SecondaryURL**  | Secondary fall-back URL if there is primary failure.  |
    | **BaseDNUsers**  |  Where to look for valid users. For example, **CN=users,DC=yourserver,DC=internal**.  Base DN is needed to use LDAP Authentication.  |
    | **BaseDNGroups**  | Where to look for groups. For example, **CN=group1, DC=yourserver,DC= internal**. Base DN is needed to use LDAP Authentication.  |
    | **Credential**  | The username and password used for authentication with the AD source (not cloudadmin).  |

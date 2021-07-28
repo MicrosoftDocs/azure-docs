@@ -14,7 +14,7 @@ Azure VMware Solution supports the following operations:
 
 - [Install and uninstall JetStream DR solution](deploy-disaster-recovery-using-jetstream.md)
 
-- [Configure an external indentity source](tutorial-configure-identity-source.md)
+- [Configure an external identity source](tutorial-configure-identity-source.md)
 
 - [View and edit the storage policy](concepts-storage.md#storage-policies-and-fault-tolerance) 
 

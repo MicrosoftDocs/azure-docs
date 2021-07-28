@@ -140,9 +140,9 @@ The cmdlet checks:
 You'll run the `Invoke-PreflightJetDRInstall` cmdlet to check the following cluster configuration:
 
 - If the cluster details are correct 
-- Has at least 4 hosts (minimum)
+- Has at least four hosts (minimum)
 - If there's a VM with the same name provided for installing MSA
-- Ifthere's any **jetdr** plug-in pressent in vCenter
+- If there's any **jetdr** plug-in present in vCenter
 
 
 1. Select **Run command** > **Packages** > **Invoke-PreflightJetDRInstall**.
@@ -184,7 +184,7 @@ You'll run the `Install-JetDR` cmdlet to deploy JetDR MSA, register vCenter to t
    | **VMName** | Name of MSA VM. For example, **jetstreamServer**. |
    | **Datastore** | Datastore where MSA will be deployed.  |
    | **ProtectedCluster** | Cluster to be protected. For example, **Cluster-1**. |
-   | **RegisterWithIp** | Register MSA with Ip instead of hostname. True if hostname of the MSA is not DNS registered. False if hostname of the MSA is DNS registered. |
+   | **RegisterWithIp** | Register MSA with Ip instead of hostname. True if hostname of the MSA isn't DNS registered. False if hostname of the MSA is DNS registered. |
    | **Retain up to**  | Job retention period. The cmdlet output will be stored for these many days. Default value is 60.  |
    | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **check_jetserverdetails**.  |
    | **Timeout**  | The period after which a cmdlet will exit if a certain task is taking too long to finish.  |
@@ -202,7 +202,7 @@ You'll uninstall JetStream DR in two steps.
 You'll run the `Invoke-PreflightJetDRUninstall` cmdlet to diagnose the existing MSA VM and cluster configuration. It checks the current state of the JetStream DR appliance and whether the minimal requirements for the script are met:
 
 - If the cluster details are correct 
-- Has at least 4 hosts (minimum)
+- Has at least four hosts (minimum)
 - If vCenter is registered to the MSA
 
 1. Select **Run command** > **Packages** > **Invoke-PreflightJetDRUninstall**.
