@@ -241,9 +241,9 @@ For example, specify a base64 encoded command string for `scriptData`:
 
 Logs from the setup script execution appear in the logs folder in the compute instance details page. Logs are stored back to your notebooks file share under the Logs\<compute instance name> folder. Script file and command arguments for a particular compute instance are shown in the details page.
 
-## <a name="schedule"></a> Schedule automatic start and stop with a Resource Manager template (preview)
+## <a name="schedule"></a> Schedule automatic start and stop (preview)
 
-Use cron or LogicApps expressions to define a schedule to start or stop the instance.  This example uses cron:
+In a Resource Manager template, use cron or LogicApps expressions to define a schedule to start or stop the instance.  This example uses cron:
 
 ```json
 "schedules": {
