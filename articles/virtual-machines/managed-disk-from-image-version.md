@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell
 
 ---
 
-# Create a managed disk from an image version
+# Export an image version to a managed disk
 
 You can export the OS or a single data disk from an image version as a managed disk from an image version stored in a Shared Image Gallery.
 

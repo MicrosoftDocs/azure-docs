@@ -262,7 +262,7 @@
     - name: Customize the UI with HTML template
       displayName: content definitions
       href: customize-ui-with-html.md
-    - name: JavaScript and page layouts
+    - name: Enable JavaScript and page layouts
       href: javascript-and-page-layout.md
     - name: Embedded sign-in with iframe
       displayName: iframe

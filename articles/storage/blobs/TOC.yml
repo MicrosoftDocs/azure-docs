@@ -124,6 +124,8 @@ items:
       href: storage-samples-blobs-powershell.md
     - name: Azure CLI
       href: storage-samples-blobs-cli.md
+    - name: Azure Resource Graph queries
+      href: ../common/resource-graph-samples.md
   - name: Concepts
     items:
     - name: Storage accounts
