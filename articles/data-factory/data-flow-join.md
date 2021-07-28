@@ -1,6 +1,6 @@
 ---
 title: Join transformation in mapping data flow 
-description: Combine data from two data sources using the join transformation in Azure Data Factory mapping data flow
+description: Combine data from two data sources using the join transformation in a mapping data flow in Azure Data Factory or Synapse Analytics
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -101,7 +101,7 @@ When testing the join transformations with data preview in debug mode, use a sma
 
 The below example is a join transformation named `JoinMatchedData` that takes left stream `TripData` and right stream `TripFare`.  The join condition is the expression `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}` that returns true if the `hack_license`, `medallion`, `vendor_id`, and `pickup_datetime` columns in each stream match. The `joinType` is `'inner'`. We're enabling broadcasting in only the left stream so `broadcast` has value `'left'`.
 
-In the Data Factory UX, this transformation looks like the below image:
+In the UI, this transformation looks like the below image:
 
 ![Screenshot shows the transformation with the Join Settings tab selected and a Join type of Inner.](media/data-flow/join-script1.png "Join example")
 
@@ -123,7 +123,7 @@ TripData, TripFare
 
 The below example is a join transformation named `JoiningColumns` that takes left stream `LeftStream` and right stream `RightStream`. This transformation takes in two streams and joins together all rows where column `leftstreamcolumn` is greater than column `rightstreamcolumn`. The `joinType` is `cross`. Broadcasting is not enabled `broadcast` has value `'none'`.
 
-In the Data Factory UX, this transformation looks like the below image:
+In the UI, this transformation looks like the below image:
 
 ![Screenshot shows the transformation with the Join Settings tab selected and a Join type of Custom (cross).](media/data-flow/join-script2.png "Join example")
 
