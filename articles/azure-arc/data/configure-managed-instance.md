@@ -30,13 +30,13 @@ az sql mi-arc edit --help
 The following example sets the cpu core and memory requests and limits.
 
 ```azurecli
-az sql mi-arc edit --cores-limit 4 --cores-request 2 --memory-limit 4Gi --memory-request 2Gi -n <NAME_OF_SQL_MI>
+az sql mi-arc edit --cores-limit 4 --cores-request 2 --memory-limit 4Gi --memory-request 2Gi -n <NAME_OF_SQL_MI> --k8s-namespace <namespace> --use-k8s
 ```
 
 To view the changes made to the SQL managed instance, you can use the following commands to view the configuration yaml file:
 
 ```azurecli
-az sql mi-arc show -n <NAME_OF_SQL_MI>
+az sql mi-arc show -n <NAME_OF_SQL_MI> --k8s-namespace <namespace> --use-k8s
 ```
 
 ## Configure Server options

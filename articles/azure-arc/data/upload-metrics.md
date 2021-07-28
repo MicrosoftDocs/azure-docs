@@ -108,13 +108,13 @@ To upload metrics for your Azure Arc-enabled SQL managed instances and Azure Arc
  
 1. Export all metrics to the specified file:
 
-   ```console
+   ```azurecli
    az arcdata dc export --type metrics --path metrics.json
    ```
 
 2. Upload metrics to Azure monitor:
 
-   ```console
+   ```azurecli
    az arcdata dc upload --path metrics.json
    ```
 

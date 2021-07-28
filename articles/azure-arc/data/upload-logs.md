@@ -213,7 +213,7 @@ With the environment variables set, you can upload logs to the log workspace.
 
 1. Log in to to the Azure Arc data controller with Azure (`az`)  CLI with the `arcdata` extension.
 
-   ```console
+   ```azurecli
    az arcdata login
    ```
 
@@ -221,13 +221,13 @@ With the environment variables set, you can upload logs to the log workspace.
 
 1. Export all logs to the specified file:
 
-   ```console
+   ```azurecli
    az arcdata dc export --type logs --path logs.json
    ```
 
 2. Upload logs to an Azure monitor log analytics workspace:
 
-   ```console
+   ```azurecli
    az arcdata dc upload --path logs.json
    ```
 

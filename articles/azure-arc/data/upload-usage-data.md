@@ -37,7 +37,7 @@ Usage information such as inventory and resource usage can be uploaded to Azure 
 
 1. Export the usage data using `az arcdata dc export` command, as follows:
 
-   ```console
+   ```azurecli
    az arcdata dc export --type usage --path usage.json
    ```
  
@@ -45,7 +45,7 @@ Usage information such as inventory and resource usage can be uploaded to Azure 
 
 2. Upload the usage data using ```azdata upload``` command
 
-   ```console
+   ```azurecli
    az arcdata dc upload --path usage.json
    ```
 

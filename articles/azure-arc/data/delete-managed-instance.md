@@ -20,7 +20,7 @@ This article describes how you can delete an Azure Arc-enabled SQL Managed Insta
 To view SQL Managed Instances, run the following command:
 
 ```azurecli
-az sql mi-arc list
+az sql mi-arc list --k8s-namespace <namespace> --use-k8s
 ```
 
 Output should look something like this:
@@ -35,13 +35,13 @@ demo-mi 1/1         10.240.0.4:32023  Ready
 To delete a SQL Managed Instance, run the following command:
 
 ```azurecli
-az sql mi-arc delete -n <NAME_OF_INSTANCE>
+az sql mi-arc delete -n <NAME_OF_INSTANCE> --k8s-namespace <namespace> --use-k8s
 ```
 
 Output should look something like this:
 
 ```console
-# az sql mi-arc delete -n demo-mi
+# az sql mi-arc delete -n demo-mi --k8s-namespace <namespace> --use-k8s
 Deleted demo-mi from namespace arc
 ```
 
