@@ -194,3 +194,4 @@ If the language code for the document is unsupported, a warning is returned and 
 
 + [Built-in skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
++ [Entity Recognition Skill (V3)](cognitive-search-skill-entity-recognition-v3.md)

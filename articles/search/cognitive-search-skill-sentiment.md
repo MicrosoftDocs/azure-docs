@@ -116,3 +116,4 @@ If a language is not supported, a warning is generated and no sentiment score is
 
 + [Built-in skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
++ [Sentiment Skill (V3)](cognitive-search-skill-sentiment-v3.md)
