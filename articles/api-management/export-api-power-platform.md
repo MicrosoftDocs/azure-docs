@@ -36,7 +36,7 @@ This article walks through the steps in the Azure portal to create a custom Powe
 
     :::image type="content" source="media/export-api-power-platform/create-custom-connector.png" alt-text="Create custom connector to API in API Management":::
 
-Once the connector is created, navigate to your [Power App](https://make.powerapps.com) or [Power Automate](https://flow.microsoft.com) environment. You will see the API listed under **Data > Custom Connectors**.
+Once the connector is created, navigate to your [Power Apps](https://make.powerapps.com) or [Power Automate](https://flow.microsoft.com) environment. You will see the API listed under **Data > Custom Connectors**.
 
 :::image type="content" source="media/export-api-power-platform/custom-connector-power-app.png" alt-text="Custom connector in Power Platform":::
 
