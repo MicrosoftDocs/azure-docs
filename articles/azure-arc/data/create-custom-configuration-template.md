@@ -37,10 +37,10 @@ The created control.json file can be edited in any editor such as Visual Studio 
 Once the template file is updated, the file can be applied during Azure Arc-enabled data controller create as follows:
 
 ```azurecli
-az arcdata dc  create --path ./custom --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
+az arcdata dc  create --path ./custom --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect  --k8s-namespace <namespace> --use-k8s
 
 #Example:
-#az arcdata dc  create --path ./custom --namespace arc --name arc --subscription <subscription ID> --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#az arcdata dc  create --path ./custom --namespace arc --name arc --subscription <subscription ID> --resource-group my-resource-group --location eastus --connectivity-mode indirect --k8s-namespace <namespace> --use-k8s
 ```
 
 ## Use custom control.json file for deploying Azure Arc data controller using Azure portal

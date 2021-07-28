@@ -40,7 +40,7 @@ Usage information such as inventory and resource usage can be uploaded to Azure 
 > Exporting usage/billing information, metrics, and logs using the command `az arcdata dc export` requires bypassing SSL verification for now.  You will be prompted to bypass SSL verification or you can set the `AZDATA_VERIFY_SSL=no` environment variable to avoid prompting.  There is no way to configure an SSL certificate for the data controller export API currently.
 
    ```azurecli
-   az arcdata dc export --type usage --path usage.json
+   az arcdata dc export --type usage --path usage.json --k8s-namespace <namespace> --use-k8s
    ```
  
    This command creates a `usage.json` file with all the Azure Arc-enabled data resources such as SQL managed instances and PostgreSQL Hyperscale instances etc. that are created on the data controller.
@@ -58,7 +58,7 @@ If you want to upload metrics and logs on a scheduled basis, you can create a sc
 In your favorite text/code editor, add the following script to the file and save as a script executable file such as `.sh` (Linux/Mac) or `.cmd`, `.bat`, or `.ps1`.
 
 ```azurecli
-az arcdata dc export --type usage --path usage.json --force
+az arcdata dc export --type usage --path usage.json --force --k8s-namespace <namespace> --use-k8s
 az arcdata dc upload --path usage.json
 ```
 

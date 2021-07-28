@@ -39,7 +39,7 @@ az sql mi-arc delete -n <NAME_OF_INSTANCE> --k8s-namespace <namespace> --use-k8s
 
 Output should look something like this:
 
-```console
+```azurecli
 # az sql mi-arc delete -n demo-mi --k8s-namespace <namespace> --use-k8s
 Deleted demo-mi from namespace arc
 ```
