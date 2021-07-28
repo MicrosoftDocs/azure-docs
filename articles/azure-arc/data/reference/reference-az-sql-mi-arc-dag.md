@@ -59,7 +59,7 @@ The name of the remote SQL managed instance or remote SQL availability group
 #### `--remote-mirroring-url -u`
 The mirroring endpoint URL of the remote SQL managed instance or remote SQL availability group
 #### `--remote-mirroring-cert-file -f`
-The filename of mirroring endpoint public certficate for the remote SQL managed instance or remote SQL availability group. Only PEM format is supported
+The filename of mirroring endpoint public certificate for the remote SQL managed instance or remote SQL availability group. Only PEM format is supported
 ### Optional Parameters
 #### `--k8s-namespace -k`
 Namespace where the SQL managed instance exists. If no namespace is specified, then the namespace defined in the kubeconfig will be used.

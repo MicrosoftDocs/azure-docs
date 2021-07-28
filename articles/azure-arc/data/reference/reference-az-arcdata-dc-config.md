@@ -90,7 +90,7 @@ Name or ID of subscription. You can configure the default subscription using `az
 #### `--verbose`
 Increase logging verbosity. Use --debug for full debug logs.
 ## az arcdata dc config add
-Add the value at the json path in the config file. All examples below are given in Bash.  If using another command line, you may need to escapequotations appropriately.  Alternatively, you may use the patch file functionality.
+Add the value at the json path in the config file. All examples below are given in Bash.  If using another command line, you may need to escape quotations appropriately.  Alternatively, you may use the patch file functionality.
 ```bash
 az arcdata dc config add --path -p 
                          --json-values -j
@@ -119,7 +119,7 @@ Name or ID of subscription. You can configure the default subscription using `az
 #### `--verbose`
 Increase logging verbosity. Use --debug for full debug logs.
 ## az arcdata dc config remove
-Remove the value at the json path in the config file.  All examples below are given in Bash.  If using another command line, you may need to escapequotations appropriately.  Alternatively, you may use the patch file functionality.
+Remove the value at the json path in the config file.  All examples below are given in Bash.  If using another command line, you may need to escape quotations appropriately.  Alternatively, you may use the patch file functionality.
 ```bash
 az arcdata dc config remove --path -p 
                             --json-path -j
@@ -148,7 +148,7 @@ Name or ID of subscription. You can configure the default subscription using `az
 #### `--verbose`
 Increase logging verbosity. Use --debug for full debug logs.
 ## az arcdata dc config replace
-Replace the value at the json path in the config file.  All examplesbelow are given in Bash.  If using another command line, you may need to escapequotations appropriately.  Alternatively, you may use the patch file functionality.
+Replace the value at the json path in the config file.  All examples below  are given in Bash.  If using another command line, you may need to escape quotations appropriately.  Alternatively, you may use the patch file functionality.
 ```bash
 az arcdata dc config replace --path -p 
                              --json-values -j
