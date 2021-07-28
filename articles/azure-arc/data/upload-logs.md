@@ -16,6 +16,10 @@ zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
 
 Periodically, you can export logs and then upload them to Azure. Exporting and uploading logs also creates and updates the data controller, SQL managed instance, and PostgreSQL Hyperscale server group resources in Azure.
 
+> [!NOTE] 
+> During the preview period, there is no cost for using Azure Arc-enabled data services.
+
+
 ## Before you begin
 
 Before you can upload logs, you need to: 
@@ -247,8 +251,8 @@ If you want to upload metrics and logs on a scheduled basis, you can create a sc
 In your favorite text/code editor, add the following script to the file and save as a script executable file such as .sh (Linux/Mac) or .cmd, .bat, .ps1.
 
 ```azurecli
-az arcdata dc export --type metrics --path metrics.json --force
-az arcdata dc upload --path metrics.json
+az arcdata dc export --type logs --path logs.json --force
+az arcdata dc upload --path logs.json
 ```
 
 Make the script file executable
