@@ -125,6 +125,8 @@
       href: create-private-link-access-rest.md
     - name: Manage - REST
       href: manage-private-link-access-rest.md
+    - name: Monitor
+      href: monitor-private-link-access.md
   - name: Manage resource groups
     items:
     - name: Azure portal

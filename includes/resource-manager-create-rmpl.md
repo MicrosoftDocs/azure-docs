@@ -13,11 +13,9 @@ Private link provides the following security benefits:
 * **Private Access** - users can manage resources from a private network via a private endpoint.
 * **Data exfiltration** - users are denied access to resources not included in the scope.
 
-This feature is in preview.
-
 ## Understand architecture
 
-For this preview, you can only apply private link management access at the level of the root [management group](../articles/governance/management-groups/overview.md). This limitation means private link access is applied across your tenant.
+For this release, you can only apply private link management access at the level of the root [management group](../articles/governance/management-groups/overview.md). This limitation means private link access is applied across your tenant.
 
 There are two resource types you'll use when implementing management through a private link.
 
