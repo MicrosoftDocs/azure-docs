@@ -190,9 +190,10 @@ Use the following steps to register and scan one or more Power BI tenants in Azu
     ```
 ### Known limitations
 
-    For cross-tenant scenario, no UX experience currently available to register and scan cross power bi tenant.
-    By Editing the Power BI cross tenant registered with Powershell using Purview Studio will tamper the data source registration with inconsistent scan behavior.
-    
+-   For cross-tenant scenario, no UX experience currently available to register and scan cross power bi tenant.
+-   By Editing the Power BI cross tenant registered with Powershell using Purview Studio will tamper the data source registration with inconsistent scan behavior.
+
+        
 ## Next steps
 
 - [Browse the Azure Purview Data catalog](how-to-browse-catalog.md)
