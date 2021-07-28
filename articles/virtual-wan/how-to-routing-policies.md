@@ -13,14 +13,17 @@ ms.author: wellee
 ---
 # How to configure Virtual WAN Hub routing policies
 
->[!NOTE]  Hub Routing Policies are currently in Managed Preview.  
->To obtain access to the preview, please reach out to previewinterhub@microsoft.com with the Virtual WAN ID, Subscription ID and Azure Region you wish to configure Routing Policies in. Please expect a response within 24-48 hours with confirmation of feature enablement.
+>[!NOTE] 
+> Hub Routing Policies are currently in Managed Preview. 
+> 
+> To obtain access to the preview, please reach out to previewinterhub@microsoft.com with the Virtual WAN ID, Subscription ID and Azure Region you wish to configure Routing Policies in. Please expect a response within 24-48 hours with confirmation of feature enablement.
 
 ## Background 
 
 Routing policies allow you to specify how the Virtual WAN hub forwards Internet-bound and Private (Point-to-site, Site-to-site, ExpressRoute and Virtual Network) Traffic. There are two types of Routing Policies, Internet Traffic and Private Traffic Routing Policies. Each Virtual WAN Hub may have at most one Internet Traffic Routing Policy and one Private Traffic Routing Policy, each with a Next Hop resource. 
 
->[!NOTE] In the Managed Preview of Virtual WAN Hub routing policies, the Next Hop resource of a routing policy must be an Azure Firewall deployed in the Virtual WAN Hub. Additionally, inter-hub traffic is only inspected if the Virtual WAN Hubs are in the same region. Inter-region traffic inspection will come at a later date.
+>[!NOTE]
+> In the Managed Preview of Virtual WAN Hub routing policies, the Next Hop resource of a routing policy must be an Azure Firewall deployed in the Virtual WAN Hub. Additionally, inter-hub traffic is only inspected if the Virtual WAN Hubs are in the same region. Inter-region traffic inspection will come at a later date.
 
 
 * **Internet Traffic Routing Policy**:  When an Internet Traffic Routing Policy is configured on a Virtual WAN hub, all branch (Point-to-site VPN, Site-to-site VPN and ExpressRoute) and Virtual Network connections to that Virtual WAN Hub will forward Internet-bound traffic to the Azure Firewall resource or Third Party Security provider specified as part of the Routing Policy.
@@ -111,7 +114,7 @@ Consider the following configuration where Hub 1 (Normal) and Hub 2 (Secured) ar
 
 ## Troubleshooting
 
-The following section describes common issues encountered when configuring Routing Policies on your Virtual WAN Hub. Please read the below section and if your issue is still unresolved, please reach out to previewinterhub@microsoft.com for support. Please expect a response within 24-48 hours. 
+The following section describes common issues encountered when configuring Routing Policies on your Virtual WAN Hub. Please read the below sections and if your issue is still unresolved, please reach out to previewinterhub@microsoft.com for support. Please expect a response within 24-48 hours. 
 
 ### Troubleshooting Configuration Issues
 1. Please make sure that you have gotten confirmation from previewinterhub@microsoft.com that access to the managed preview has been granted to your subscription and chosen region. You will **not** be able to configure routing policies without the granted permissions.
