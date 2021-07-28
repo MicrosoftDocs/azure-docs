@@ -139,9 +139,20 @@ For more information about blob inventory, see [Azure Storage blob inventory (pr
 
 ## Pricing
 
-There is no additional charge for using immutable storage. Immutable data is priced in the same way as mutable data. For pricing details on Azure Blob storage, see the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
+There is no additional capacity charge for using immutable storage. Immutable data is priced in the same way as mutable data. For pricing details on Azure Blob storage, see the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-If you fail to pay your bill and your account has an active time-based retention policy, normal data retention policies will apply as stipulated in the terms and conditions of your contract with Microsoft. For general information, see [Data management at Microsoft](https://www.microsoft.com/trust-center/privacy/data-management).
+Creating, modifying, or deleting a time-based retention policy or legal hold on a blob version results in a write transaction charge.
+
+If you fail to pay your bill and your account has an active time-based retention policy in effect, normal data retention policies will apply as stipulated in the terms and conditions of your contract with Microsoft. For general information, see [Data management at Microsoft](https://www.microsoft.com/trust-center/privacy/data-management).
+
+## About the preview
+
+The version-level immutability policies preview is available in the following regions:
+
+- Canada Central
+- Canada East
+- France Central
+- France South
 
 ## Next steps
 
