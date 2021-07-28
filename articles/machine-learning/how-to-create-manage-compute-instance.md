@@ -292,7 +292,7 @@ Use cron or LogicApps expressions to define a schedule to start or stop the inst
 ```
 
 * Action can have value of “Start” or “Stop”.
-* For trigger type of `Recurrence` use the same syntax as logic app, with this [recurrence schema](../logic-apps/logic-apps-workflow-actions-triggers#recurrence-trigger.md).
+* For trigger type of `Recurrence` use the same syntax as logic app, with this [recurrence schema](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger.md).
 * For trigger type of `cron`, use standard cron syntax:  
 
     ```cron
