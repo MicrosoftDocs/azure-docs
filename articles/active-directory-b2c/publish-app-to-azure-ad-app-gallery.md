@@ -34,7 +34,7 @@ Here are some benefits of adding your Azure AD B2C app to the app gallery:
 
 The sign-in flow involves the following steps:
 
-1. Users go to the [My Apps portal](https://myapps.microsoft.com/) and select their app, which opens the app sign-in URL.
+1. Users go to the [My Apps portal](https://myapps.microsoft.com/) and select your app, which opens the app sign-in URL.
 1. The app sign-in URL starts an authorization request and redirects users to the Azure AD B2C authorization endpoint.
 1. Users choose to sign in with their Azure AD "Corporate" account. Azure AD B2C takes them to the Azure AD authorization endpoint, where they sign in with their work account.
 1. If the Azure AD SSO session is active, Azure AD issues an access token without prompting users to sign in again. If the Azure AD session expires or becomes invalid, users are prompted to sign in again.
