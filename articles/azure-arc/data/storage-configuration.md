@@ -7,17 +7,16 @@ ms.subservice: azure-arc-data
 author: uc-msft
 ms.author: umajay
 ms.reviewer: mikeray
-ms.date: 07/13/2021
+ms.date: 07/30/2021
 ms.topic: conceptual
 ---
 
 # Storage Configuration
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Kubernetes storage concepts
 
-Kubernetes provides an infrastructure abstraction layer over the underlying virtualization tech stack (optional) and hardware. The way that Kubernetes abstracts away storage is through **[Storage Classes](https://kubernetes.io/docs/concepts/storage/storage-classes/)**. At the time of provisioning a pod, a storage class can be specified to be used for each volume. At the time the pod is provisioned, the storage class **[provisioner](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/)** is called to provision the storage and then a **[persistent volume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)** is created on that provisioned storage and then the pod is mounted to the persistent volume by a **[persistent volume claim](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims)**.
+Kubernetes provides an infrastructure abstraction layer over the underlying virtualization tech stack (optional) and hardware. The way that Kubernetes abstracts away storage is through **[Storage Classes](https://kubernetes.io/docs/concepts/storage/storage-classes/)**. When you provision a pod, you can specify a storage class for each volume. At the time the pod is provisioned, the storage class **[provisioner](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/)** is called to provision the storage, and then a **[persistent volume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)** is created on that provisioned storage and then the pod is mounted to the persistent volume by a **[persistent volume claim](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims)**.
 
 Kubernetes provides a way for storage infrastructure providers to plug in drivers (also called "Addons") that extend Kubernetes. Storage addons must comply with the **[Container Storage Interface standard](https://kubernetes.io/blog/2019/01/15/container-storage-interface-ga/)**. There are dozens of addons that can be found in this non-definitive **[list of CSI drivers](https://kubernetes-csi.github.io/docs/drivers.html)**. Which CSI driver you use will depend on factors such as whether you are running in a cloud-hosted, managed Kubernetes service or which OEM provider you are using for your hardware.
 
@@ -122,8 +121,17 @@ There are generally two types of storage:
 - **Local storage** - storage provisioned on local hard drives on a given node. This kind of storage can be ideal in terms of performance, but requires specifically designing for data redundancy by replicating the data across multiple nodes.
 - **Remote, shared storage** - storage provisioned on some remote storage device - for example, a SAN, NAS, or cloud storage service like EBS or Azure Files. This kind of storage generally provides for data redundancy automatically, but is not as fast as local storage can be.
 
-> [!NOTE]
-> For now, if you are using NFS, you need to set allowRunAsRoot to true in your deployment profile file before deploying the Azure Arc data controller.
+## NFS based storage classes
+
+Depending on the configuration of your NFS server and storage class provisioner, you may need to set the `supplementalGroups` in the pod configurations for database instances, and you may need to change the NFS server configuration to use the group IDs passed in by the client (as opposed to looking group IDs up on the server using the passed-in user ID). Consult your NFS administrator to determine if this is the case.
+
+The `supplementalGroups` property takes an array of values and can be set as part of the Azure Arc data controller deployment and will be used by any database instances configured by the Azure Arc data controller.
+
+To set this property, run the following command:
+
+```azurecli
+az arcdata dc config add --path custom/control.json --json-values 'spec.security.supplementalGroups="1234556"'
+```
 
 ### Data controller storage configuration
 
@@ -156,10 +164,10 @@ Important factors to consider when choosing a storage class for the data control
 
 Each database instance has data, logs, and backup persistent volumes. The storage classes for these persistent volumes can be specified at deployment time. If no storage class is specified the default storage class will be used.
 
-When creating an instance using either `az sql mi-arc create` or `azdata arc postgres server create`, there are two parameters that can be used to set the storage classes:
+When creating an instance using either `az sql mi-arc create` or `az postgres arc-server create`, there are two parameters that can be used to set the storage classes:
 
 > [!NOTE]
-> Some of these parameters are in development and will become available on `az sql mi-arc create` and `azdata arc postgres server create` in the upcoming releases.
+> Some of these parameters are in development and will become available on `az sql mi-arc create` and `az postgres arc-server create` in the upcoming releases.
 
 |Parameter name, short name|Used for|
 |---|---|

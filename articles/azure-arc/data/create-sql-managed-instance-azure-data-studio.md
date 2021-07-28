@@ -17,7 +17,6 @@ This document walks you through the steps for installing Azure SQL Managed Insta
 
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Create Azure SQL Managed Instance on Azure Arc
 
@@ -45,7 +44,7 @@ This document walks you through the steps for installing Azure SQL Managed Insta
 - View all the Azure SQL Managed Instances provisioned, using the following commands:
 
 ```azurecli
-azdata arc sql mi list
+az sql mi-arc list --k8s-namespace <namespace> --use-k8s
 ```
 
 Output should look like this, copy the ServerEndpoint (including the port number) from here.

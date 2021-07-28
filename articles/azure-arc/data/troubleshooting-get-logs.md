@@ -13,7 +13,6 @@ ms.topic: how-to
 
 # Get logs to troubleshoot Azure Arc-enabled data services
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Prerequisites
 
@@ -28,7 +27,7 @@ You can get service logs across all pods or specific pods for troubleshooting pu
 
 Run the following command to dump the logs:
 
-   ```console
+   ```azurecli
    az arcdata dc debug copy-logs --namespace <namespace name> --exclude-dumps --skip-compress
    ```
 

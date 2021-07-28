@@ -13,7 +13,6 @@ ms.topic: how-to
 
 This article describes how to plan to deploy Azure Arc-enabled data services.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 First, deployment of Azure Arc data services involves proper understanding of the database workloads and the business requirements for those workloads. For example, consider things like availability, business continuity, and capacity requirements for memory, CPU, and storage for those workloads. Second, the infrastructure to support those database workloads needs to be prepared based on the business requirements.
 
