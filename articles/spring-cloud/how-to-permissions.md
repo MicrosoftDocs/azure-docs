@@ -1,5 +1,5 @@
 ---
-title: "How to use permissions in Azure Spring Cloud"
+title: "Use permissions in Azure Spring Cloud"
 description: This article shows you how to create custom roles that delegate permissions to Azure Spring Cloud resources.
 author: karlerickson
 ms.author: karler
