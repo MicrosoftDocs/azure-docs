@@ -40,7 +40,7 @@
             href: create-data-controller-indirect-azure-data-studio.md
           - name: Azure portal
             href: create-data-controller-indirect-azure-portal.md
-          - name: azdata CLI
+          - name: Azure (az) CLI
             href: create-data-controller-indirect-cli.md
           - name: Kubernetes tools
             href: create-data-controller-using-kubernetes-native-tools.md
