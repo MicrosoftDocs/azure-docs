@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Use playbooks with automation rules in Azure Sentinel'
+title: Use playbooks with automation rules in Azure Sentinel
 description: Use this tutorial to help you use playbooks together with automation rules in Azure Sentinel to automate your incident response and remediate security threats.
 services: sentinel
 documentationcenter: na

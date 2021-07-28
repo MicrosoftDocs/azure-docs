@@ -1,5 +1,5 @@
 ---
-title: isualize collected data
+title: Visualize collected data
 description: Learn how to quickly view and monitor what's happening across your environment by using Azure Sentinel.
 services: sentinel
 author: yelevin
