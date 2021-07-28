@@ -35,13 +35,13 @@ Once you've integrated your Azure AD sign-in and audit logs with Azure Monitor a
 
    1. Sign into the Azure portal 
    1. Navigate to **Azure Active Directory** > **Monitoring** > **Workbooks** 
-   1. In the Usage section, open the **Sign-ins** workbook 
+   1. In the **Usage** section, open the **Sign-ins** workbook 
 
    :::image type="content" source="media/howto-get-list-of-all-active-directory-auth-library-apps/sign-in-workbook.png" alt-text="Screenshot of the Azure Active Directory portal workbooks interface highlighting the sign-ins workbook.":::
 
-## Step 3: Identify apps using ADAL
+## Step 3: Identify apps that use ADAL
 
-The Sign-ins workbook has a table at the bottom of the page that can show you which recently used apps are using ADAL as shown below. You can also export a list of the apps. Update these apps to use MSAL.
+The table at the bottom of the Sign-ins workbook page lists apps that recently used ADAL. You can also export a list of the apps. Update these apps to use MSAL.
     
 :::image type="content" source="media/howto-get-list-of-all-active-directory-auth-library-apps/active-directory-auth-library-apps-present.png" alt-text="Screenshot of sign-ins workbook displaying apps that use Active Directory Authentication Library.":::
     
@@ -58,4 +58,5 @@ After identifying your apps that use ADAL, migrate them to MSAL depending on you
     
 ## Next steps
 
-After updating your code, we recommend making use of the [Microsoft identity platform code samples](sample-v2-code.md).
+- [MSAL authentication flow](msal-authentication-flows.md)
+- [MSAL authentication libraries](reference-v2-libraries.md)

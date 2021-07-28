@@ -60,7 +60,6 @@ After identifying your apps that use ADAL, migrate them to MSAL depending on you
 
 [!INCLUDE [application type](includes/adal-msal-migration.md)]
 
-
 ## Migration help
 
 If you have questions about migration to MSAL, you can post on [Microsoft Q&A](/answers/topics/azure-ad-adal-deprecation.html) with the tag `[azure-ad-adal-deprecation]` or open an issue in library's GitHub repository. See the [Languages and frameworks](msal-overview.md#languages-and-frameworks) section of the MSAL overview article for links to each library's repo.
@@ -70,4 +69,5 @@ If you have questions about migration to MSAL, you can post on [Microsoft Q&A](/
 
 ## Next steps
 
-After updating your code, we recommend making use of the [Microsoft identity platform code samples](sample-v2-code.md).
+- [MSAL authentication flow](msal-authentication-flows.md)
+- [MSAL authentication libraries](reference-v2-libraries.md)
