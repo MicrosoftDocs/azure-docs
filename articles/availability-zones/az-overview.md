@@ -33,7 +33,7 @@ To better understand regions and Availability Zones in Azure, it helps to unders
 
 ## Regions
 
-A region is a set of datacenters deployed within a latency-defined perimeter and connected through a dedicated regional low-latency network. Azure gives you the flexibility to deploy applications where you need to, including across multiple regions to deliver cross-region resiliency. For more information, see [Overview of the resiliency pillar](/azure/architecture/framework/resiliency/overview).
+A region is a set of datacenters deployed within a latency-defined perimeter and connected through a dedicated regional low-latency network. Azure gives you the flexibility to deploy applications where you need to, including across multiple regions to deliver cross-region resiliency. For more information, see [Overview of the resiliency pillar](/azure/architecture/framework/resiliency/principles).
 
 ## Availability Zones
 
