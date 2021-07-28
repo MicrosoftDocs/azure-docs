@@ -108,15 +108,12 @@ az postgres arc-server edit -n <servergroup name> --memory-limit/memory-request/
 The value you indicate for the memory setting is a number followed by a unit of volume. For example, to indicate 1Gb, you would indicate 1024Mi or 1Gi.
 To indicate a number of cores, you just pass a number without unit. 
 
-### Examples using the azdata CLI
-
-
-
-
+### Examples using the Azure CLI
 
 **Configure the coordinator role to not exceed 2 cores and the worker role to not exceed 4 cores:**
+
 ```azurecli
- azpostgres arc-server edit -n postgres01 --cores-request coordinator=1, --cores-limit coordinator=2
+ az postgres arc-server edit -n postgres01 --cores-request coordinator=1, --cores-limit coordinator=2  --k8s-namespace <namespace> --use-k8s
  az postgres arc-server edit -n postgres01 --cores-request worker=1, --cores-limit worker=4 --k8s-namespace <namespace> --use-k8s
 ```
 
