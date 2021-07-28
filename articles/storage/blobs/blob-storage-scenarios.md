@@ -12,11 +12,11 @@ ms.custom: "monitoring"
 
 # Best practices for monitoring Azure Blob Storage
 
-This article introduces some of most used scenarios and what best practices you can do to address these scenarios with Azure Storage monitoring data and Azure Monitor feature experiences. 
+This article features a collection of common storage monitoring scenarios, and provides you with best practice guidelines that you can apply to accomplish those scenarios.  
 
 ## Identify storage accounts with no or low use
 
-When you have many storage accounts, you may need to evaluate which ones are in no or low use thus to reduce those accounts to improve management efficiency. Storage Insights is a dashboard on top of Azure Storage metrics and logs. You can use Storage Insights it to examine the transaction volume and used capacity of all your accounts. To set that up, see [Monitoring your storage service with Azure Monitor Storage insights](../../azure-monitor/insights/storage-insights-overview.md).
+Storage Insights is a dashboard on top of Azure Storage metrics and logs. You can use Storage Insights to examine the transaction volume and used capacity of all your accounts. With that information, you can better decide which accounts you might want to retire. To set that up, see [Monitoring your storage service with Azure Monitor Storage insights](../../azure-monitor/insights/storage-insights-overview.md). 
 
 ### Analyze transaction volume
 
@@ -48,9 +48,11 @@ You can use Storage Explorer to examine them. For large numbers of blobs, consid
 
 ## Monitor use of a container
 
-In scenarios that you partition your customers’ data by container, you would want to monitor how much capacity has been used by each user. You can use Azure Storage blob inventory to take an inventory of blobs with size information and aggregate the size and count on container level. For guidance, see [Calculate blob count and total size per container using Azure Storage inventory](calculate-blob-count-size.md).
+If you partition your customer's data by container, then you might want to monitor how much capacity has been used by each user. You can use Azure Storage blob inventory to take an inventory of blobs with size information and aggregate the size and count on container level. For guidance, see [Calculate blob count and total size per container using Azure Storage inventory](calculate-blob-count-size.md).
 
-You might also want to evaluate the traffic at the container level. You can query logs and aggregate on container level. Here's a query to get the number of read transactions and the number of bytes read for a container.
+You can also evaluate traffic at the container level by querying logs. To learn more about writing Log Analytic queries, see [Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md). To learn more, see the logs schema in [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md#resource-logs-preview).
+
+Here's a query to get the number of read transactions and the number of bytes read for a container.
 
 ```kusto
 StorageBlobLogs
@@ -59,7 +61,7 @@ StorageBlobLogs
 | summarize ReadSize = sum(ResponseBodySize), ReadCount = count() by tostring(ContainerName)
 ```
 
-You can also do the same to obtain statistics for write operations. Note that more than one type of operation can count as a write operation. To learn more about which operations are considered read and write operations, see either [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) or [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/)
+You can also use a similar query to obtain statistics for write operations. This query references the names of multiple operations. That's because more than one type of operation can count as a write operation. To learn more about which operations are considered read and write operations, see either [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) or [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/).
 
 ```kusto
 StorageBlobLogs
@@ -74,65 +76,64 @@ StorageBlobLogs
 | summarize WriteSize = sum(RequestBodySize), WriteCount = count() by tostring(ContainerName)
 ```
 
-To learn more about writing Log Analytic queries, see [Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md). To learn more, see the logs schema in [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md#resource-logs-preview).
-
 ## Audit account activity
 
-In most cases, you would need to audit activities on your storage accounts for security and compliance. Operations on storage accounts are in two categories: Control Plane and Data Plane. Typically, when you send an ARM request to create a storage account or update a property of an existing storage account, it’s a control plane operation. See more details in [Azure Resource Manager](../../azure-resource-manager/management/overview.md). When you upload a blob to a storage account or download a blob from a storage account, it’s a data plane operation. See more details in [Azure Storage API](https://docs.microsoft.com/rest/api/storageservices/). 
+In many cases you'll need to audit the activities of your storage accounts for security and compliance. Operations on storage accounts fall into two categories: *Control Plane* and *Data Plane*. 
 
-The section introduces how to identify information of when, who, what and how for auditing control plane operations and data plane operations. 
+A control plane operation is any Azure Resource Manager (ARM) request to create a storage account or to update a property of an existing storage account. For more information, see [Azure Resource Manager](../../azure-resource-manager/management/overview.md). 
 
-### Control plane audit
+A data plane operation is an operation on the data in a storage account that results from a request to the storage service endpoint. For example, a data plane operation is executed when you upload a blob to a storage account or download a blob from a storage account. For more information, see [Azure Storage API](https://docs.microsoft.com/rest/api/storageservices/). 
 
-Control plane operation is an Azure Resource Management operation. A typical control plane operation on storage account is creating a storage account or updating a property of an existing storage account. ARM operation is captured in Azure activity log. Go to Azure Portal > Storage Account > Activity log to access [Azure activity log](../../azure-monitor/essentials/activity-log.md). T 
+The section shows you how to identify the "when", "who", "what" and "how" information when you audit control plane and data plane operations. 
+
+### Auditing control plane operations
+
+ARM operations are captured in the [Azure activity log](../../azure-monitor/essentials/activity-log.md).
 
 > [!div class="mx-imgBorder"]
 > ![Activity Log](./media/blob-storage-scenarios/activity-log.png)
 
 
-Open any log entry and you can view JSON that describes the activity. The following example shows how you can identify information of when, what and how a control plane operation:
+Open any log entry to view JSON that describes the activity. The following JSON shows the "when", "what" and "how" information of a control plane operation:
 
 > [!div class="mx-imgBorder"]
 > ![Activity Log JSON](./media/blob-storage-scenarios/activity-log-json.png)
 
-If the authorization was performed by an Azure AD security principal, the object identifier of that security principal would also appear in this JSON output (For example: `http://schemas.microsoft.com/identity/claims/objectidentifier": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"`). You might not always see other identity information such as an email address or name. The object identifier is always the best way to uniquely identify the caller. 
+The availability of the  "who" information depends on the method of authentication that was used to perform the control plane operation. If the authorization was performed by an Azure AD security principal, the object identifier of that security principal would also appear in this JSON output (For example: `http://schemas.microsoft.com/identity/claims/objectidentifier": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"`). Because you might not always see other identity-related information such as an email address or name, the object identifier is always the best way to uniquely identify the security principal. 
 
 You can find the friendly name of that security principal by taking the value of the object identifier, and searching for the security principal in Azure AD page of the Azure portal. The following screenshot shows a search result in Azure AD.
 
 > [!div class="mx-imgBorder"]
 > ![Search Azure Active Directory](./media/blob-storage-scenarios/search-azure-active-directory.png)
 
-### Data plane audit
+### Auditing data plane operations
 
-A request that is sent to and processed on storage service endpoint is data plane operation. See more details in [Azure Storage API](https://docs.microsoft.com/rest/api/storageservices/). A typical data plane operation is uploading a blob to a storage account or downloading a blob from a storage account. Data plane operations are captured in [Azure resource logs for Storage](monitor-blob-storage.md#analyzing-logs). 
+Data plane operations are captured in [Azure resource logs for Storage](monitor-blob-storage.md#analyzing-logs). You can [configure Diagnostic setting](monitor-blob-storage.md#send-logs-to-azure-log-analytics) to export logs to Log Analytics workspace for a native query experience. 
 
-You can [configure Diagnostic setting](monitor-blob-storage.md#send-logs-to-azure-log-analytics) to export logs to Log Analytics workspace for native query experience. The following example shows how to query storage logs in Log Analytics to identify information of when, who, what, how: 
+Here's a Log Analytics query that retrieves the "when", "who", "what", and "how" information in a list of log entries. 
 
 ```kusto
 StorageBlobLogs 
 | where TimeGenerated > ago(3d) 
 | project TimeGenerated, AuthenticationType, RequesterObjectId, OperationName, Uri
 ```
-The following table shows how this query provides you each item of information.
 
-|Information | query field | 
-|--|--|
-|When|`TimeGenerated`|
-|Who|`AuthenticationType`, `RequesterObjectId`|
-|What|`Uri`|
-|How|`OperationName`|
+For the "when" portion of your audit, the `TimeGenerated` field shows when the log entry was recorded. 
 
-For the *who* part of this information, `AuthenticationType` shows which type of authentication was used to make a request. This field can show any of the types of authentication that Azure Storage supports. This includes the use of an account key, a SAS token, or Azure Active Directory (Azure AD) authentication. 
+For the "what" portion of your audit, the `Uri` field shows the item blob or directory was modified or read. 
 
-If a request was authenticated by using Azure AD, the friendly name of the security principal is not always available. If the security principal is a user in Azure Active directory, then the user principal name or *UPN* might be available. However, in certain scenarios such as cross Azure AD tenant authentication, it might not be available. The UPN is also not available in cases where the security principal is service principal, or a system-wide or user-assigned managed identity.
+For the "how" portion of your audit, the `OperationName` field shows which operation was executed. 
 
-The `RequesterObjectId` field provides the most reliable way to identify the security principal when Azure AD authentication is used. You can find the friendly name of that security principal by taking the value of the `RequesterObjectId` field, and searching for the security principal in Azure AD page of the Azure portal. The following screenshot shows a search result in Azure AD.
+For the "who" portion of your audit, `AuthenticationType` shows which type of authentication was used to make a request. This field can show any of the types of authentication that Azure Storage supports. This includes the use of an account key, a SAS token, or Azure Active Directory (Azure AD) authentication. 
+
+If a request was authenticated by using Azure AD, the `RequesterObjectId` field provides the most reliable way to identify the security principal. You can find the friendly name of that security principal by taking the value of the `RequesterObjectId` field, and searching for the security principal in Azure AD page of the Azure portal. The following screenshot shows a search result in Azure AD.
 
 > [!div class="mx-imgBorder"]
 > ![Search Azure Active Directory](./media/blob-storage-scenarios/search-azure-active-directory.png)
 
+In some cases, a user principal name or *UPN* might be appear in logs. For example, if the security principal is a Azure AD user, the UPN will likely appear. For other types of security principals such as user assigned managed identities, or in certain scenarios such as cross Azure AD tenant authentication, the UPN will not not appear in logs. 
 
-If you want to improve your ability to audit based on identity, we recommended that you transition to Azure AD, and prevent shared key and SAS authentication. That way you can audit specific identities. For example, this query shows the number of read operations and the bytes read by a specific OAuth security principal.
+This query shows the number of read operations and the bytes read by a specific OAuth security principal.
 
 ```kusto
 StorageBlobLogs
@@ -142,11 +143,13 @@ StorageBlobLogs
 | summarize BytesRead = sum(ResponseBodySize), ReadCount = count() by RequesterObjectId, OperationName, AuthenticationType
 ```
 
+Shared Key and SAS authentication provide no means of auditing individual identities. Therefore, if you want to improve your ability to audit based on identity, we recommended that you transition to Azure AD, and prevent shared key and SAS authentication. For example, 
+
 ## Optimize cost for infrequent queries
 
-This is a scenario that applies in cases where massive logs are needed to keep but for infrequent query, for example, due to compliance or security obligation. For a massive number of transactions, the cost of using Log Analytics might be high relative to just archiving to storage and using other query techniques. Log Analytics makes sense when customers want to leverage rich capabilities on Log Analytics. One way to reduce the cost of querying data is to archive logs to a storage account and then query logs in a Synapse workspace.
+If you maintain large amounts of log data but plan to query them only occasionally (For example, to meet compliance and security obligations), consider archiving your logs to a storage account instead of using Log Analytics. For a massive number of transactions, the cost of using Log Analytics might be high relative to just archiving to storage and using other query techniques. Log Analytics makes sense in cases where you want to leverage the rich capabilities of Log Analytics. You can reduce the cost of querying data by archiving logs to a storage account, and then querying those logs in a Synapse workspace.
 
-With Azure Synapse, you can create server-less SQL pool to query log data when you need. This would save your spending significantly. 
+With Azure Synapse, you can create server-less SQL pool to query log data when you need. This could save costs significantly. 
 
 1. Export logs to storage account. See [Creating a diagnostic setting](monitor-blob-storage.md#creating-a-diagnostic-setting).
 
@@ -177,7 +180,7 @@ With Azure Synapse, you can create server-less SQL pool to query log data when y
 ## See also
 
 - [Monitoring Azure Blob Storage](monitor-blob-storage.md).
-- [Tutorial: Use Kusto queries in Azure Data Explorer and Azure Monitor](../../data-explorer/kusto/query/tutorial.md?pivots=azuremonitor).
+- [Tutorial: Use Kusto queries in Azure Data Explorer and Azure Monitor](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
 - [Get started with log queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md).
 
   
