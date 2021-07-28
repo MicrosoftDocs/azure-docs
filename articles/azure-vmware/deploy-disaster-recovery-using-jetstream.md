@@ -177,7 +177,7 @@ You'll run the `Install-JetDR` cmdlet to deploy JetDR MSA, register vCenter to t
    | **HostName** | Hostname (FQDN) of the MSA to be deployed.  |
    | **Credential** | Credentials of root user of the MSA to be deployed.   |
    | **Gateway** | Gateway of the MSA to be deployed. Leave blank for DHCP.  |
-   | **Dns** | DNS IP that MSA should use. Leave blank for dhcp.  |
+   | **Dns** | DNS IP that MSA should use. Leave blank for DHCP.  |
    | **MSIp** | IP address of the MSA to be deployed. Leave blank for DHCP.  |
    | **Netmask** | Netmask of the MSA to be deployed. Leave blank for DHCP.  |
    | **Cluster** | Cluster name where MSA will be deployed. For example, **Cluster-1**. |
