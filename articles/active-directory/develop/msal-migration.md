@@ -29,7 +29,7 @@ If any of your applications use the Azure Active Directory Authentication Librar
 
 ## Why switch to MSAL?
 
-MSAL has several advantages over ADAL:
+MSAL has the following features:
 - **Security**: 
     - Security fixes beyond June 30, 2022.
     - [Continuous Access Evaluation (CAE)](app-resilience-continuous-access-evaluation.md) that proactively refreshes tokens and can revoke access tokens based on critical event and policy.
