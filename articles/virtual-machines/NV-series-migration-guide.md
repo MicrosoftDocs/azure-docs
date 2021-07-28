@@ -62,20 +62,20 @@ If the workload is graphics/visualization and has no hard dependency on a specif
 
 ## Get quota for the target VM family 
 
-Follow the guide to [request an increase in vCPU quota by VM family](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests). Select NVSv3 Series or NVv4 Series as the VM family name depending on the target VM size you have selected for migration.
+Follow the guide to [request an increase in vCPU quota by VM family](../azure-portal/supportability/per-vm-quota-requests.md). Select NVSv3 Series or NVv4 Series as the VM family name depending on the target VM size you have selected for migration.
 ## Resize the current virtual machine
-You can [resize the virtual machine through Azure portal or PowerShell](./windows/resize-vm). You can also [resize the virtual machine using Azure CLI](./linux/change-vm-size). 
+You can [resize the virtual machine through Azure portal or PowerShell](./windows/resize-vm.md). You can also [resize the virtual machine using Azure CLI](./linux/change-vm-size.md). 
 
 ## FAQ
 **Q:** Which GPU driver should I use for the target VM size? 
 
-**A:** For NVsv3 series, use the [Nvidia GRID driver](./windows/n-series-driver-setup). For NVv4, use the [AMD GPU drivers](./windows/n-series-amd-driver-setup). 
+**A:** For NVsv3 series, use the [Nvidia GRID driver](./windows/n-series-driver-setup.md). For NVv4, use the [AMD GPU drivers](./windows/n-series-amd-driver-setup.md). 
 
 **Q:** I use Nvidia GPU driver extension today. Will it work for the target VM size? 
 
-**A:** The current [Nvidia driver extension](./extensions/hpccompute-gpu-windows) will work for NVsv3.  
+**A:** The current [Nvidia driver extension](./extensions/hpccompute-gpu-windows.md) will work for NVsv3.  
 
-       Use the [AMD GPU driver extensions](./extensions/hpccompute-amd-gpu-windows) if the target VM size is NVv4. 
+       Use the [AMD GPU driver extensions](./extensions/hpccompute-amd-gpu-windows.md) if the target VM size is NVv4. 
        
 **Q:** Which target VM series should I use if I have dependency on CUDA? 
 
