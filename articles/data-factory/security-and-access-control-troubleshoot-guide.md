@@ -205,9 +205,9 @@ The self-hosted IR can't be shared across tenants.
 
 #### Cause
 
-If you  are doing any operation related to CMK, you hould do all ADF related operations first, and then external operations (like Managed Identities or Key Vault operations). For example, if you  want to delete all resources, you  need to delete the factory first, and then delete the key vault, if you  do it in a different order, ADF call will fail as it  can't read related  objects anymore, and it won't be able to validate if deletion is possible or not. 
+If you  are doing any operation related to CMK, you should do all ADF related operations first, and then external operations (like Managed Identities or Key Vault operations). For example, if you  want to delete all resources, you  need to delete the factory first, and then delete the key vault, if you  do it in a different order, ADF call will fail as it  can't read related  objects anymore, and it won't be able to validate if deletion is possible or not. 
 
-#### SOlution
+#### Solution
 
 There are three possible ways to solve the issue. They are as follows:
 
@@ -216,16 +216,17 @@ You  can reassign access to data factory following permissions: Get, Unwrap Key,
  Once the permission is provided, you  should be able to delete ADF
  
 2.  Customer deleted Key Vault / CMK before deleting ADF. 
- CMK in ADF shuld have "Soft Delete" enabled and "Purge Portect" enabled which will has default retention policy of 90 day. Customer can restore the deleted key.  
+ CMK in ADF should have "Soft Delete" enabled and "Purge Protect" enabled which has default retention policy of 90 days. You can restore the deleted key.  
 Please review [Recover deleted Key](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-portal#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates ) and [Deleted Key Value](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault)
 
 3.  User Assigned Managed Identity (UA-MI) was deleted before ADF. 
-You can recover from this by using REST API calls, you can do this in an http client of your choice in any programming language. If you  have anything already set up for REST API calls with Azure authentication, the easiest way to do this would be by using POSTMAN/Fiddler. Please follow following steps.
-* Make a GET call to the factory Method:[ GET Url] (https://management.azure.com/subscriptions/<Subscription>/resourcegroups/<ResourceGroup>/providers/Microsoft.DataFactory/factories/<FactoryName?api-version=2018-06-01)
+You can recover from this by using REST API calls, you can do this in an http client of your choice in any programming language. If you have not anything already set up for REST API calls with Azure authentication, the easiest way to do this would be by using POSTMAN/Fiddler. Please follow following steps.
+
+* Make a GET call to the factory using Method:[ GET Url] (https://management.azure.com/subscriptions/<Subscription>/resourcegroups/<ResourceGroup>/providers/Microsoft.DataFactory/factories/<FactoryName?api-version=2018-06-01)
 * You need to create a new User Managed Identity with a different Name (same name may work, but just to be sure, it's safer to use a different name than the one in the GET response)
- * Modify the encryption.identity property and identity.userassignedidentities to point to the newly created managed identity. Remove the clientId and principalid from the userAssignedIdentity object. 
- * Make a PUT call to the same factory url passing the new body. It is very important that you are  passing whatever you  got in the GET response, and only modify the identity. Otherwise they would override other settings unintentionally. 
- * After the call succeeds,you  will be able to see the entities again and retry deleting. 
+ * Modify the encryption.identity property and identity.userassignedidentities to point to the newly created managed identity. Remove the clientId and principalId from the userAssignedIdentity object. 
+ * Make a PUT call to the same factory url passing the new body. It is very important that you are  passing whatever you got in the GET response, and only modify the identity. Otherwise they would override other settings unintentionally. 
+ * After the call succeeds, you  will be able to see the entities again and retry deleting. 
 
 ## Next steps
 
