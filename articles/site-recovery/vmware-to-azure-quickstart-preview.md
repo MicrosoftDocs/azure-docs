@@ -53,7 +53,7 @@ Ensure the following pre-requisites across storage and networking are met:
 
 1. Select **Enable replication** under **Getting Started** section.
 
-2. Select the machine type you want to protect through Azure Site Recovery.
+2. Choose the machine type you want to protect through Azure Site Recovery.
 
     ![Select source machines](./media/vmware-azure-set-up-replication-tutorial-preview/select-source.png)
 
@@ -64,7 +64,7 @@ Ensure the following pre-requisites across storage and networking are met:
 
 4. Later, search the source VM name to protect the machines of your choice. To review the selected VMs, select **Selected resources**.
 
-5. After you select the list of VMs, select **Next** to proceed to source settings. Here, select the replication appliance and VM credentials. These credentials will be used to push mobility agent on the VM by configuration server to complete enabling Azure Site Recovery. Ensure accurate credentials are chosen.
+5. After choosing the list of VMs, select **Next** to proceed to source settings. Here, select the replication appliance and VM credentials. These credentials will be used to push mobility agent on the VM by configuration server to complete enabling Azure Site Recovery. Ensure accurate credentials are chosen.
 
    ![Source settings](./media/vmware-azure-set-up-replication-tutorial-preview/source-settings.png)
 
