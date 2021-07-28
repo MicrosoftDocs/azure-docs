@@ -1,7 +1,7 @@
 ---
-title: Language support - Text Analytics API
+title: Language support for key phrase extraction
 titleSuffix: Azure Cognitive Services
-description: "A list of natural languages supported by the Text Analytics API. This article explains which languages are supported for each operation."
+description: Use this article to find the natural languages supported by key phrase extraction. 
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -16,8 +16,10 @@ ms.author: aahi
 
 Use this article to find the natural languages supported by Key Phrase Analysis. 
 
+## Supported languages 
+
 > [!NOTE]
-> Languages are added as new model versions are released for specific Text Analytics features. The current model version for Key Phrase Extraction is `2021-06-01`.
+> Languages are added as new [model versions](../concepts/specify-model-version.md) are released for specific Text Analytics features. The current model version for Key Phrase Extraction is `2021-06-01`.
 
 | Language              | Language code |  v3 support | Starting with v3 model version: |       Notes        |
 |:----------------------|:-------------:|:----------:|:-----------------------------------------:|:------------------:|

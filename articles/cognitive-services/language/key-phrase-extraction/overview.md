@@ -18,7 +18,7 @@ Use key phrase extraction to quickly identify the main concepts in text. For exa
 
 This documentation contains the following types of articles:
 
-* [How-to guides](how-to-call.md) contain instructions for using the service in more specific or customized ways.
+* [How-to guides](how-to/call-api.md) contain instructions for using the service in more specific or customized ways.
 
 This feature is a part of Azure Language services, which is a part [Azure Cognitive Services](../overview.md), a collection of machine learning and AI algorithms in the cloud for your development projects. You can use these features with the REST API and client library.
 
