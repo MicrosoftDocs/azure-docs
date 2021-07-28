@@ -24,7 +24,7 @@ For other migration guides, see [Azure Database Migration Guides](/data-migratio
 Before you begin migrating your Oracle schema to SQL Managed Instance:
 
 - Verify your source environment is supported.
-- Download [SSMA for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258).
+- Download [SSMA for Oracle](https://www.microsoft.com/download/details.aspx?id=54258).
 - Have a [SQL Managed Instance](../../managed-instance/instance-create-quickstart.md) target.
 - Obtain the [necessary permissions for SSMA for Oracle](/sql/ssma/oracle/connecting-to-oracle-database-oracletosql) and [provider](/sql/ssma/oracle/connect-to-oracle-oracletosql).
  
@@ -38,7 +38,7 @@ By using SSMA for Oracle, you can review database objects and data, assess datab
 
 To create an assessment:
 
-1. Open [SSMA for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258).
+1. Open [SSMA for Oracle](https://www.microsoft.com/download/details.aspx?id=54258).
 1. Select **File**, and then select **New Project**.
 1. Enter a project name and a location to save your project. Then select **Azure SQL Managed Instance** as the migration target from the drop-down list and select **OK**.
 
@@ -164,9 +164,9 @@ For more assistance with completing this migration scenario, see the following r
 
 | **Title/link**                                                                                                                                          | **Description**                                                                                                                                                                                                                                                                                                                                                                                       |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Data Workload Assessment Model and Tool](https://www.microsoft.com/en-us/download/details.aspx?id=103130) | This tool provides suggested "best fit" target platforms, cloud readiness, and application or database remediation level for a given workload. It offers simple, one-click calculation and report generation that helps to accelerate large estate assessments by providing an automated and uniform target platform decision process.                                                          |
-| [Oracle Inventory Script Artifacts](https://www.microsoft.com/en-us/download/details.aspx?id=103121)                 | This asset includes a PL/SQL query that hits Oracle system tables and provides a count of objects by schema type, object type, and status. It also provides a rough estimate of raw data in each schema and the sizing of tables in each schema, with results stored in a CSV format.                                                                                                               |
-| [Automate SSMA Oracle Assessment Collection & Consolidation](https://www.microsoft.com/en-us/download/details.aspx?id=103120)                                             | This set of resources uses a .csv file as entry (sources.csv in the project folders) to produce the xml files that are needed to run an SSMA assessment in console mode. The source.csv is provided by the customer based on an inventory of existing Oracle instances. The output files are AssessmentReportGeneration_source_1.xml, ServersConnectionFile.xml, and VariableValueFile.xml.|
+| [Data Workload Assessment Model and Tool](https://www.microsoft.com/download/details.aspx?id=103130) | This tool provides suggested "best fit" target platforms, cloud readiness, and application or database remediation level for a given workload. It offers simple, one-click calculation and report generation that helps to accelerate large estate assessments by providing an automated and uniform target platform decision process.                                                          |
+| [Oracle Inventory Script Artifacts](https://www.microsoft.com/download/details.aspx?id=103121)                 | This asset includes a PL/SQL query that hits Oracle system tables and provides a count of objects by schema type, object type, and status. It also provides a rough estimate of raw data in each schema and the sizing of tables in each schema, with results stored in a CSV format.                                                                                                               |
+| [Automate SSMA Oracle Assessment Collection & Consolidation](https://www.microsoft.com/download/details.aspx?id=103120)                                             | This set of resources uses a .csv file as entry (sources.csv in the project folders) to produce the xml files that are needed to run an SSMA assessment in console mode. The source.csv is provided by the customer based on an inventory of existing Oracle instances. The output files are AssessmentReportGeneration_source_1.xml, ServersConnectionFile.xml, and VariableValueFile.xml.|
 |[Oracle to SQL MI - Database Compare utility](https://www.microsoft.com/download/details.aspx?id=103016)|SSMA for Oracle Tester is the recommended tool to automatically validate the database object conversion and data migration, and it's a superset of Database Compare functionality.<br /><br />If you're looking for an alternative data validation option, you can use the Database Compare utility to compare data down to the row or column level in all or selected tables, rows, and columns.|
 
 The Data SQL Engineering team developed these resources. This team's core charter is to unblock and accelerate complex modernization for data platform migration projects to Microsoft's Azure data platform.
@@ -177,7 +177,7 @@ The Data SQL Engineering team developed these resources. This team's core charte
 
 - To learn more about SQL Managed Instance, see:
   - [An overview of Azure SQL Managed Instance](../../managed-instance/sql-managed-instance-paas-overview.md)
-  - [Azure Total Cost of Ownership (TCO) Calculator](https://azure.microsoft.com/en-us/pricing/tco/calculator/)
+  - [Azure Total Cost of Ownership (TCO) Calculator](https://azure.microsoft.com/pricing/tco/calculator/)
 
 - To learn more about the framework and adoption cycle for cloud migrations, see:
    -  [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
