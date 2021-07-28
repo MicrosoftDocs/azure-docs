@@ -148,7 +148,7 @@ Show this help message and exit.
 #### `--output -o`
 Output format.  Allowed values: json, jsonc, none, table, tsv, yaml, yamlc.  Default: json.
 #### `--query -q`
-JMESPath query string. See [http://jmespath.org/](http://jmespath.org/]) for more information and examples.
+JMESPath query string. See [http://jmespath.org](http://jmespath.org) for more information and examples.
 #### `--subscription`
 Name or ID of subscription. You can configure the default subscription using `az account set -s NAME_OR_ID`.
 #### `--verbose`
@@ -246,7 +246,7 @@ Show this help message and exit.
 #### `--output -o`
 Output format.  Allowed values: json, jsonc, none, table, tsv, yaml, yamlc.  Default: json.
 #### `--query -q`
-JMESPath query string. See [http://jmespath.org/](http://jmespath.org/]) for more information and examples.
+JMESPath query string. See [http://jmespath.org](http://jmespath.org) for more information and examples.
 #### `--subscription`
 Name or ID of subscription. You can configure the default subscription using `az account set -s NAME_OR_ID`.
 #### `--verbose`
@@ -284,7 +284,7 @@ Show this help message and exit.
 #### `--output -o`
 Output format.  Allowed values: json, jsonc, none, table, tsv, yaml, yamlc.  Default: json.
 #### `--query -q`
-JMESPath query string. See [http://jmespath.org/](http://jmespath.org/]) for more information and examples.
+JMESPath query string. See [http://jmespath.org](http://jmespath.org) for more information and examples.
 #### `--subscription`
 Name or ID of subscription. You can configure the default subscription using `az account set -s NAME_OR_ID`.
 #### `--verbose`
@@ -322,7 +322,7 @@ Show this help message and exit.
 #### `--output -o`
 Output format.  Allowed values: json, jsonc, none, table, tsv, yaml, yamlc.  Default: json.
 #### `--query -q`
-JMESPath query string. See [http://jmespath.org/](http://jmespath.org/]) for more information and examples.
+JMESPath query string. See [http://jmespath.org](http://jmespath.org) for more information and examples.
 #### `--subscription`
 Name or ID of subscription. You can configure the default subscription using `az account set -s NAME_OR_ID`.
 #### `--verbose`
@@ -351,7 +351,7 @@ Show this help message and exit.
 #### `--output -o`
 Output format.  Allowed values: json, jsonc, none, table, tsv, yaml, yamlc.  Default: json.
 #### `--query -q`
-JMESPath query string. See [http://jmespath.org/](http://jmespath.org/]) for more information and examples.
+JMESPath query string. See [http://jmespath.org](http://jmespath.org) for more information and examples.
 #### `--subscription`
 Name or ID of subscription. You can configure the default subscription using `az account set -s NAME_OR_ID`.
 #### `--verbose`
