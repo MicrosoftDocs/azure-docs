@@ -91,6 +91,7 @@ An error about time synchronization indicates that the server clock might be out
 ## VDDK check failing during 'Set up prerequisites' on VMware appliance
 
 **Error**
+
 The VDDK check failed as appliance could not find the required VDDK kit installed on the appliance. This can result in failures with ongoing replication.
 
 **Remediation**
