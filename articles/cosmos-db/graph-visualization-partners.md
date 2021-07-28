@@ -1,6 +1,6 @@
 ---
 title: Visualize Azure Cosmos DB Gremlin API data using partner solutions
-description: Learn how to integrate Azure Cosmos DB graph data with different third party visualization solutions.
+description: Learn how to integrate Azure Cosmos DB graph data with different third-party visualization solutions.
 author: manishmsfte
 ms.author: mansha
 ms.service: cosmos-db
@@ -21,7 +21,7 @@ You can visualize data stored in Azure Cosmos DB Gremlin API by using various da
 The interactive interface of Linkurious Enterprise offers an easy way to investigate complex data. You can search for specific entities, expand connections to uncover hidden relationships, and apply layouts of your choice to untangle complex networks. Linkurious Enterprise is now compatible with Azure Cosmos DB Gremlin API. It's suitable for end-to-end graph visualization scenarios and supports read and write capabilities from the user interface. You can request a [demo of Linkurious with Azure Cosmos DB](https://linkurio.us/contact/)
 
 :::image type="content" source="./media/graph-visualization-partners/linkurious-demo.gif" alt-text="Linkurious Demo" border="false":::
-
+<b>Figure:</b> Depicts Tom Sawyer perspectives's visualization capabilities
 ### Useful links
 
 * [Product details](https://linkurio.us/product/)
@@ -50,20 +50,21 @@ These toolkits let you design high-performance graph visualization and analysis 
 * [Re-Graph technology overview](https://cambridge-intelligence.com/regraph/technology/)
 * [Graph visualization use cases](https://cambridge-intelligence.com/use-cases/)
 
-## TomSawyer
+## Tom Sawyer
 
-[TomSawyer Perspectives](https://www.tomsawyer.com/perspectives/) is a robust platform for building enterprise grade graph data visualization and analysis applications. It is a low-code graph & data visualization development platform, which includes integrated design, preview interface, and extensive API libraries. The platform integrates enterprise data sources with powerful graph visualization, layout, and analysis technology to solve big data problems.
+[Tom Sawyer Perspectives](https://www.tomsawyer.com/perspectives/) is a robust platform for building enterprise grade graph data visualization and analysis applications. It is a low-code graph & data visualization development platform, which includes integrated design, preview interface, and extensive API libraries. The platform integrates enterprise data sources with powerful graph visualization, layout, and analysis technology to solve big data problems.
 
-Perspectives enables developers to quickly develop production-quality, data-oriented visualization applications. Two graphic modules, the "Designer" and the "Previewer" are used to build applications to visualize and analyze the specific data that drives each project. When used together, the Designer and Previewer provide an efficient round-trip process that dramatically speeds up application development. To visualize Azure Cosmos DB Gremlin API data using this platform, request a [free 60-day evaluation](https://www.tomsawyer.com/get-started) of this tool. The following is an illustration of how Tom Sawyer works:
+Perspectives enables developers to quickly develop production-quality, data-oriented visualization applications. Two graphic modules, the "Designer" and the "Previewer" are used to build applications to visualize and analyze the specific data that drives each project. When used together, the Designer and Previewer provide an efficient round-trip process that dramatically speeds up application development. To visualize Azure Cosmos DB Gremlin API data using this platform, request a [free 60-day evaluation](https://www.tomsawyer.com/get-started) of this tool. 
 
-:::image type="content" source="./media/graph-visualization-partners/tomsawyer/tomsawyer-perspective.gif" alt-text="Tomsawyer Perspectives demo" border="false":::
+:::image type="content" source="./media/graph-visualization-partners/tom-sawyer/tom-sawyer-perspective.gif" alt-text="Tom Sawyer Perspectives demo" border="false":::
+<b>Figure:</b> Linkurious visualization capabilities
 
-[TomSawyer Graph Database Browser](https://www.tomsawyer.com/graph-database-browser/) makes it easy to visualize and analyze data in Azure Cosmos DB Gremlin API. The Graph Database Browser helps you see and understand connections in your data without extensive knowledge of the query language or the schema. You can manually define the schema for your project or use schema extraction to create it. So, even less technical users can interact with the data by loading the neighbors of selected nodes and building the visualization in whatever direction they need. Advanced users can execute queries using Gremlin, Cypher, or SPARQL to gain other insights. When you define the schema then you can load the Azure Cosmos DB data into the Perspectives model. With the help of integrator definition, you can specify the location and configuration for the Gremlin endpoint. Later you can bind elements from the Azure Cosmos DB data source to elements in the Perspectives model and visualize your data.
+[Tom Sawyer Graph Database Browser](https://www.tomsawyer.com/graph-database-browser/) makes it easy to visualize and analyze data in Azure Cosmos DB Gremlin API. The Graph Database Browser helps you see and understand connections in your data without extensive knowledge of the query language or the schema. You can manually define the schema for your project or use schema extraction to create it. So, even less technical users can interact with the data by loading the neighbors of selected nodes and building the visualization in whatever direction they need. Advanced users can execute queries using Gremlin, Cypher, or SPARQL to gain other insights. When you define the schema then you can load the Azure Cosmos DB data into the Perspectives model. With the help of integrator definition, you can specify the location and configuration for the Gremlin endpoint. Later you can bind elements from the Azure Cosmos DB data source to elements in the Perspectives model and visualize your data.
 
-Users of all skill levels can take advantage of five unique graph layouts to display the graph in a way that provides the most meaning. And there are built-in centrality, clustering, and path-finding analyses to reveal previously unseen patterns. Using these techniques, organizations can identify critical patterns in areas like fraud detection, customer intelligence, and cybersecurity. Pattern recognition is very important for network analysts in areas such as general IT and network management, logistics, legacy system migration, and business transformation. Try a live demo of TomSawyer Graph Database Browser. The following is an illustration of the Tom Sawyer's graph database browser:
+Users of all skill levels can take advantage of five unique graph layouts to display the graph in a way that provides the most meaning. And there are built-in centrality, clustering, and path-finding analyses to reveal previously unseen patterns. Using these techniques, organizations can identify critical patterns in areas like fraud detection, customer intelligence, and cybersecurity. Pattern recognition is very important for network analysts in areas such as general IT and network management, logistics, legacy system migration, and business transformation. Try a live demo of Tom Sawyer Graph Database Browser. 
 
-:::image type="content" source="./media/graph-visualization-partners/tomsawyer/tomsawyer-databrowser.gif" alt-text="Tomsawyer Data browser demo" border="false":::
-
+:::image type="content" source="./media/graph-visualization-partners/tom-sawyer/tom-sawyer-databrowser.gif" alt-text="Tom Sawyer Data browser demo" border="false":::
+<b>Figure:</b> Tom Sawyer perspectives's visualization capabilities
 ### Useful links
 
 * [Documentation](https://www.tomsawyer.com/graph-database-browser/)
@@ -82,7 +83,7 @@ Graphistry automatically transforms your data into interactive, visual investiga
 
 With the Graphistry's GPU client/cloud technology, you can do interactive visualization. By using their standard browser and the cloud, you can use all the data you want, and still remain fast, responsive, and interactive. If you want to run the browser on your hardware, it’s as easy as installing a Docker. That way you get the analytical power of GPUs without having to think about GPUs.
 
-:::image type="content" source="./media/graph-visualization-partners/graphistry/graphistry-demo1.gif" alt-text="Graphisry demo1" border="false":::
+:::image type="content" source="./media/graph-visualization-partners/graphistry/graphistry-demo-animation.gif" alt-text="Graphistry demo" border="false":::
 
 ### Useful links
 
@@ -129,7 +130,7 @@ yWorks specializes in the development of professional software solutions that en
 
 Azure Cosmos DB can be queried for data using Gremlin, an efficient graph traversal language. The user can query the database for the stored entities and use the relationships to traverse the connected neighborhood. This approach requires in-depth technical knowledge of the database itself and also the query language Gremlin to explore the stored data. Where as with yWorks visualization you can visually explore the Azure Cosmos DB data, identify significant structures, and get a better understanding of relationships. Besides the visual exploration, you can also interactively edit the stored data by modifying the diagram without any knowledge of the associated query language like Gremlin. This way it provides a high-quality visualization and can analyze large data sets from Azure Cosmos DB data. You can use yFiles to add visualization capabilities to your own applications, dashboards, and reports, or to create new, white-label apps and tools for both in-house and customer facing products.
 
-:::image type="content" source="./media/graph-visualization-partners/yWorks/yWorks-demo-grid.png" alt-text="yWorks demo" border="false":::
+:::image type="content" source="./media/graph-visualization-partners/yworks/yworks-demo-grid.png" alt-text="yWorks demo" border="false":::
 
 With yWorks, you can create meaningful visualizations that help users gain insights into the data quickly and easily. Build interactive user-interfaces that match your company's corporate design and easily connect to existing infrastructure and services. Use highly sophisticated automatic graph layouts to generate clear visualizations of the data hidden in your Azure Cosmos DB account. Efficient implementations of the most important graph analysis algorithms enable the creation of responsive user interfaces that highlight the information the user is interested in or needs to be aware of. Use yFiles to create interactive apps that work on desktops, and mobile devices alike.
 
