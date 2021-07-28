@@ -18,11 +18,15 @@ ms.custom: devx-track-python, references_regions, contperf-fy21q1,contperf-fy21q
 
 Secure Azure Machine Learning workspace resources and compute environments using virtual networks (VNets). This article uses an example scenario to show you how to configure a complete virtual network.
 
-This article is part one of a five-part series that walks you through securing an Azure Machine Learning workflow. We highly recommend that you read through this overview article to understand the concepts first. 
-
-Here are the other articles in this series:
-
-**1. VNet overview** > [2. Secure the workspace](how-to-secure-workspace-vnet.md) > [3. Secure the training environment](how-to-secure-training-vnet.md) > [4. Secure the inferencing environment](how-to-secure-inferencing-vnet.md) > [5. Enable studio functionality](how-to-enable-studio-virtual-network.md)
+> [!TIP]
+> This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
+>
+> * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
+> * [Secure the training environment](how-to-secure-training-vnet.md)
+> * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+> * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
+> * [Use custom DNS](how-to-custom-dns.md)
+> * [Use a firewall](how-to-access-azureml-behind-firewall.md)
 
 ## Prerequisites
 
@@ -51,7 +55,7 @@ The following table compares how services access different parts of an Azure Mac
 * **Inferencing compute access** - Access Azure Kubernetes Services (AKS) compute clusters with private IP addresses.
 
 
-The next five sections show you how to secure the network scenario described above. To secure your network, you must:
+The next sections show you how to secure the network scenario described above. To secure your network, you must:
 
 1. Secure the [**workspace and associated resources**](#secure-the-workspace-and-associated-resources).
 1. Secure the [**training environment**](#secure-the-training-environment).
@@ -178,11 +182,11 @@ For more information on the required domain names and IP addresses, see [how to 
 
 ## Next steps
 
-This article is part one of a five-part virtual network series. See the rest of the articles to learn how to secure a virtual network:
+This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 
-* [Part 2: Virtual network overview](how-to-secure-workspace-vnet.md)
-* [Part 3: Secure the training environment](how-to-secure-training-vnet.md)
-* [Part 4: Secure the inferencing environment](how-to-secure-inferencing-vnet.md)
-* [Part 5: Enable studio functionality](how-to-enable-studio-virtual-network.md)
-
-Also see the article on using [custom DNS](how-to-custom-dns.md) for name resolution.
+* [Secure the workspace resources](how-to-secure-workspace-vnet.md)
+* [Secure the training environment](how-to-secure-training-vnet.md)
+* [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+* [Enable studio functionality](how-to-enable-studio-virtual-network.md)
+* [Use custom DNS](how-to-custom-dns.md)
+* [Use a firewall](how-to-access-azureml-behind-firewall.md)
