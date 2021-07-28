@@ -191,7 +191,7 @@ There are two settings that need to be set for the function app to access your A
 
 #### Assign access role
 
-The first setting gives the function app the **Azure Digital Twins Data Owner** role in the Azure Digital Twins instance. This role is required for any user or function that wants to perform many data plane activities on the instance. You can read more about security and role assignments in [Concepts: Security for Azure Digital Twins solutions](concepts-security.md). 
+The first setting gives the function app the **Azure Digital Twins Data Owner** role in the Azure Digital Twins instance. This role is required for any user or function that wants to perform many data plane activities on the instance. You can read more about security and role assignments in [Security for Azure Digital Twins solutions](concepts-security.md). 
 
 1. Use the following command to see the details of the system-managed identity for the function. Take note of the **principalId** field in the output.
 
@@ -502,4 +502,4 @@ In this tutorial, you created an end-to-end scenario that shows Azure Digital Tw
 Next, start looking at the concept documentation to learn more about elements you worked with in the tutorial:
 
 > [!div class="nextstepaction"]
-> [Concepts: Custom models](concepts-models.md)
+> [Custom models](concepts-models.md)

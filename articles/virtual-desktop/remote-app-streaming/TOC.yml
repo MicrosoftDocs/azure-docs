@@ -16,6 +16,10 @@
     href: ../create-validation-host-pool.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
   - name: 4. Set up service alerts
     href: ../set-up-service-alerts.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+- name: Quickstarts
+  items:
+  - name: Getting started with Azure Virtual Desktop
+    href: ../getting-started-feature.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
 - name: How-to guides
   items:
   - name: Essentials for remote app streaming
@@ -179,7 +183,7 @@
     - name: Storage options for FSLogix profile containers
       href: ../store-fslogix-profile.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Azure Virtual Desktop FAQ
-      href: ../faq.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+      href: ../faq.yml?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Windows 10 Enterprise multi-session FAQ
       href: ../windows-10-multisession-faq.yml
     - name: MSIX app attach
@@ -189,7 +193,7 @@
         - name: Glossary
           href: ../app-attach-glossary.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
         - name: FAQ
-          href: ../app-attach-faq.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
+          href: ../app-attach-faq.yml?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Data locations
       href: ../data-locations.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
 - name: Troubleshoot
