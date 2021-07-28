@@ -19,9 +19,9 @@ ms.custom: aaddev
 
 # Migrate applications to the Microsoft Authentication Library (MSAL)
 
-You need to migrate your applications that are using the Azure Active Directory Authentication Library (ADAL). We recommend using the [Microsoft Authentication Library (MSAL)](msal-overview.md#languages-and-frameworks) for authentication and authorization of Azure AD entities. Here's why:
+If any of your applications use the Azure Active Directory Authentication Library (ADAL)  for authentication and authorization functionality, it's time to migrate them to the [Microsoft Authentication Library (MSAL)](msal-overview.md#languages-and-frameworks) Here's why:
 
-- ADAL support will end June 30, 2022.
+- All Microsoft support and development for ADAL, including security fixes ends on June 30, 2022.
 - No new features have been added to ADAL since June 30, 2020.
 
 > [!WARNING]
@@ -29,22 +29,22 @@ You need to migrate your applications that are using the Azure Active Directory 
 
 ## Why switch to MSAL?
 
-MSAL has several advantages over ADAL, which includes:
-- Security: 
+MSAL has several advantages over ADAL:
+- **Security**: 
     - Security fixes beyond June 30, 2022.
     - [Continuous Access Evaluation (CAE)](app-resilience-continuous-access-evaluation.md) that proactively refreshes tokens and can revoke access tokens based on critical event and policy.
     - [Conditional access authentication context](developer-guide-conditional-access-authentication-context.md) that allows you to apply granular policies to sensitive data and actions.
     - Proof of possession ensures that access tokens aren't stolen and used to access protected resources using the following mechanisms:
         - Access tokens are bound to the user/machine that wants to access a protected resource via public/private key pair.
         - Access tokens are bound to a protected resource, i.e a token that is used to access <code>GET https://contoso.com/transactions</code> cannot be used to access <code>GET https://contoso.com/tranfer/100</code>.
-- Performance and scalability:
+- **Performance and scalability**:
     - Standards compliant with OAuth v2.0 and OpenID Connect (OIDC),  which enables you to authenticate several identity types like:
         - Work or school accounts, provisioned through Azure AD.
         - Microsoft accounts for Skype, Xbox, and Outlook.com
     - MSAL.NET talking directly to [Active Directory Federation Service (AD FS)](msal-net-adfs-support.md) authority. 
     - Authentication for Azure AD B2C, which allows users to sign in using social accounts like Facebook or Google, or non-Microsoft email addresses and passwords.
     - Better token caching capabilities in confidential client applications, including distributed token caches. 
-- Resilience:
+- **Resilience**:
     - Azure AD Cached Credential Service (CSS), which operates as an Azure AD backup.
 
 ## AD FS support in MSAL.NET
