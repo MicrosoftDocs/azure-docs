@@ -113,7 +113,7 @@ These errors can also occur if you use an HTTPS proxy that is allowed by a netwo
 
 If you use Azure Pipelines with an Azure container registry that limits access to specific IP addresses, the pipeline may be unable to access the registry, because the outbound IP address from the pipeline is not fixed. By default, the pipeline runs jobs using a Microsoft-hosted [agent](/azure/devops/pipelines/agents/agents) on a virtual machine pool with a changing set of IP addresses.
 
-One workaround is to change the agent used to run the pipeline from Microsoft-hosted to self-hosted. With a self-hosted agent running on a [Windows](/azure/devops/pipelines/agents/v2-windows) or [Linux](azure/devops/pipelines/agents/v2-linux) machine that you manage, you control the outbound IP address of the pipeline, and you can add this address in a registry IP access rule.
+One workaround is to change the agent used to run the pipeline from Microsoft-hosted to self-hosted. With a self-hosted agent running on a [Windows](/azure/devops/pipelines/agents/v2-windows) or [Linux](/azure/devops/pipelines/agents/v2-linux) machine that you manage, you control the outbound IP address of the pipeline, and you can add this address in a registry IP access rule.
 
 ## Next steps
 
