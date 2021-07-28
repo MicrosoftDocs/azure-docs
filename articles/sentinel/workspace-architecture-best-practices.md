@@ -44,16 +44,7 @@ If you have multiple tenants, such as if you're a managed security service provi
 
 All connectors based on diagnostics settings, cannot be connected to a workspace that is not located in the same tenant where the resource resides. This applies to connectors such as [Azure Firewall](connect-azure-firewall.md), [Azure Storage](connect-azure-storage-account.md), [Azure Activity](connect-azure-activity.md) or [Azure Active Directory](connect-azure-active-directory.md).
 
-For example, the following image shows a recommended architecture for a customer that has two Azure AD tenants, and needs to connect data sources that include Office 365, Azure AD, Azure Firewall, and an on-premises Palo Alto Firewall.
-
-:::image type="content" source="media/best-practices/architecture-multiple-tenants.png" alt-text="Sample architecture for multiple tenants":::
-
-In this example:
-
-- Resources that are attached to an Azure AD tenant send their logs to a local Azure Sentinel workspace located in the same Azure AD tenant.
-- Partner resources based on API or agent integration, such as the Palo Alto Firewall, can connect to any of the workspaces in the environment.
-
-Use [Azure Lighthouse](/azure/lighthouse/how-to/onboard-customer) to help manage multiple Azure Sentinel instances in different tenants. 
+Use [Azure Lighthouse](/azure/lighthouse/how-to/onboard-customer) to help manage multiple Azure Sentinel instances in different tenants.
 
 > [!NOTE]
 > [Partner data connectors](partner-data-connectors.md) are typically based on API or agent collections, and therefore are not attached to a specific Azure AD tenant.

@@ -41,6 +41,8 @@
       href: roles.md
     - name: Costs and billing
       href: azure-sentinel-billing.md
+    - name: Extend Azure Sentinel across workspaces and tenants
+      href: extend-sentinel-across-workspaces-tenants.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=%2fazure%2fsentinel%2fTOC.json
   - name: Data collection and analysis
@@ -357,8 +359,6 @@
       href: sample-workspace-designs.md
     - name: Manage workspace access
       href: resource-context-rbac.md
-    - name: Extend Azure Sentinel across workspaces and tenants
-      href: extend-sentinel-across-workspaces-tenants.md
     - name: Azure Sentinel for MSSPs
       items:
       - name: Manage multiple tenants (MSSP)
