@@ -63,9 +63,9 @@ If you're not yet using Azure Monitor Logs, you can use the [Azure Monitor prici
 
 If you're not yet running Log Analytics, here is some guidance for estimating data volumes:
 
-1. **Monitoring VMs:** with typical monitoring eanabled, 1 GB to 3 GB of data month is ingested per monitored VM. 
+1. **Monitoring VMs:** with typical monitoring enabled, 1 GB to 3 GB of data month is ingested per monitored VM. 
 2. **Monitoring Azure Kubernetes Service (AKS) clusters:** details on expected data volumes for monitoring a typical AKS cluster are available [here](../containers/container-insights-cost.md#estimating-costs-to-monitor-your-aks-cluster). Follow these [best practices](../containers/container-insights-cost.md#controlling-ingestion-to-reduce-cost) to control your AKS cluster monitoring costs. 
-3. **Application monitoring:** the Azure Monitor pricing calculator includes a data volume estimator using on your application's usage and based on a statistcal analysis of  Application Insights data volumes. In the Application Insights section of the pricing calculator, toggle the switch next to "Estimate data volume based on application activity" to use this. 
+3. **Application monitoring:** the Azure Monitor pricing calculator includes a data volume estimator using on your application's usage and based on a statistical analysis of  Application Insights data volumes. In the Application Insights section of the pricing calculator, toggle the switch next to "Estimate data volume based on application activity" to use this. 
 
 ## Understand your usage and estimate costs
 
@@ -330,7 +330,7 @@ If you observe high data ingestion reported using the `Usage` records (see the [
 
 ### Log Analytics Workspace Insights
 
-Start understanding your data voumes in the **Usage** tab of the [Log Analytics Workspace Insights workbook](log-analytics-workspace-insights-overview.md). On the **Usage Dashboard**, you can easily see:
+Start understanding your data volumes in the **Usage** tab of the [Log Analytics Workspace Insights workbook](log-analytics-workspace-insights-overview.md). On the **Usage Dashboard**, you can easily see:
 - Which data tables are ingesting the most data volume in the main table,  
 - What are the top resources contributing data, and 
 - What is the trend of data ingestion.
@@ -339,7 +339,7 @@ You can pivot to the **Additional Queries** to easily execution more queries use
 
 Learn more about the [capabilities of the Usage tab](log-analytics-workspace-insights-overview.md#usage-tab). 
 
-While this workbook can anaswer many of the questions without even needing to run a query, to answer more specific questions or do deeper analyses, the queries in the next two sections will help to get you started. 
+While this workbook can answer many of the questions without even needing to run a query, to answer more specific questions or do deeper analyses, the queries in the next two sections will help to get you started. 
 
 ## Understanding nodes sending data
 
