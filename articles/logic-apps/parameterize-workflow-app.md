@@ -12,7 +12,7 @@ ms.date: 07/30/2021
 
 In Azure Logic Apps, you can abstract values that might change in your workflows across your development, test, and production environments by defining *parameters*. When you use parameters instead, you can focus more on designing your workflows, and insert your environment-specific variables later.
 
-This article introduces how parameters work in single-tenant Azure Logic Apps and how to edit, call, and reference environment variables using the single-tenant parameters experience.
+This article introduces how parameters work in single-tenant Azure Logic Apps and how to edit, reference, and manage environment variables using the single-tenant parameters experience.
 
 <a name="parameters-introduction"></a>
 
