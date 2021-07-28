@@ -38,6 +38,8 @@ The current release announces general availability for the following services:
 #### Data controller
 
 - `az arcdata dc create` parameter named `--azure-subscription` has been changed to use the standard `--subscription` parameter.
+- Deployment on AKS HCI requires a special configuration. See note under Known issues -> Data controller.
+- There is a new requirement to allow non-SSL connections when exporting data. Set an environment variable to enable non-interactive scripting.
 
 ### What's new
 
@@ -66,7 +68,7 @@ The current release announces general availability for the following services:
 
 #### Azure Arc-enabled SQL Managed Instance
 
-- Backup/point in time restore is in preview. [Add more guidance here!]
+- Backup/point in time restore is in preview.
 - Agent transaction replication is currently not supported.
 - Supports point-in-time restore from an existing database in an Azure Arc-enabled SQL managed instance to a new database within the same instance.
 - If the current datetime is given as point-in-time in UTC format, it resolves to the latest valid restore time and restores the given database until last valid transaction.
@@ -74,6 +76,7 @@ The current release announces general availability for the following services:
 - Supports restoring a deleted database within an Azure Arc-enabled managed instance to a given point-in-time.
 - To set a specific recovery point objective for an Azure Arc-enabled SQL Managed Instance, edit the SQL managed instance CRD to set the `recoveryPointObjectiveInSeconds` property. Supported values are from 300 to 600.
 - To disable the automated backups, edit the SQL instance CRD and set the `recoveryPointObjectiveInSeconds` property to 0.
+- Restoring databases that have been deleted is not currently supported.
 
 ### Known issues
 
@@ -93,11 +96,9 @@ The current release announces general availability for the following services:
 - Azure Arc-enabled SQL Managed instance and Azure Arc-enabled PostgreSQL Hyperscale are not GB18030 certified.
 - Currently, only one Azure Arc data controller per Kubernetes cluster is supported.
 
-#### Data controller
-
-- When Azure Arc data controller is deleted from Azure portal, validation is done block the delete if there any Azure Arc enabled SQL managed instances deployed on this Arc data controller. Currently, this validation is applied only when the delete is performed from the Overview page of the Azure Arc data controller. 
-
 #### Azure Arc-enabled PostgreSQL Hyperscale
+
+- Backup and restore operations no longer work in the July 30 release. This is a temporary limitation. Use the June 2021 release for now if you need to do to back up or restore. This will be fixed in a future release.
 
 - It is not possible to enable and configure the `pg_cron` extension at the same time. You need to use two commands for this. One command to enable it and one command to configure it. For example:
 
@@ -122,6 +123,10 @@ The current release announces general availability for the following services:
 - Point in time restore is not supported for now on NFS storage.
 
 #### Azure Arc-enabled SQL Managed Instance
+
+##### - Can't see resources in portal
+
+- Portal does not show Azure Arc-enabled SQL Managed Instance resources created in the June release. Delete the SQL Managed Instance resources from the resource group list view. 
 
 ##### Point-in-time restore(PITR) supportability and limitations:
 	
