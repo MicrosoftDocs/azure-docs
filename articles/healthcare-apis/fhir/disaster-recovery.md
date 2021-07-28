@@ -37,7 +37,7 @@ It's worth noting that the throughput RU/s must have the same values in the prim
 
 ### Automatic failover
 
-During a primary region outage, the Azure API for FHIR automatically fails over to the secondary region and the same service endpoint is used. The service is expected to resume in one hour or less, and potential data loss is up to 15 minutes' worth of data. Additional configuration changes may be required. For more information, see [Configuration changes in DR](#configuration-changes-in-dr).
+During a primary region outage, the Azure API for FHIR automatically fails over to the secondary region and the same service endpoint is used. The service is expected to resume in one hour or less, and potential data loss is up to 15 minutes' worth of data. Other configuration changes may be required. For more information, see [Configuration changes in DR](#configuration-changes-in-dr).
 
 [ ![Failover in disaster recovery.](media/disaster-recovery/failover-in-disaster-recovery.png) ](media/disaster-recovery/failover-in-disaster-recovery.png#lightbox)
 
@@ -47,7 +47,7 @@ After the affected region recovers, it's automatically available as a secondary 
 
 [ ![Replication in disaster recovery.](media/disaster-recovery/replication-in-disaster-recovery.png) ](media/disaster-recovery/replication-in-disaster-recovery.png#lightbox)
 
-When the compute has failed back to the recovered region but the data hasn't, there may be potential network latencies. The main reason is that the compute and the data are in two different regions. The network latencies should disappear automatically as soon as the data fails back to the recovered region through a manual trigger.
+When the compute has failed back to the recovered region and the data hasn't, there may be potential network latencies. The main reason is that the compute and the data are in two different regions. The network latencies should disappear automatically as soon as the data fails back to the recovered region through a manual trigger.
 
 [ ![Network latency.](media/disaster-recovery/network-latency.png) ](media/disaster-recovery/network-latency.png#lightbox)
 
@@ -60,7 +60,7 @@ The compute fails back automatically to the recovered region. The data is switch
 
 ## Configuration changes in DR
 
-Additional configuration changes may be required when Private Link, Customer Managed Key (CMK), IoMT FHIR Connector (the Internet of Medical Things) and $export are used.
+Other configuration changes may be required when Private Link, Customer Managed Key (CMK), IoMT FHIR Connector (the Internet of Medical Things) and $export are used.
 
 ### Private link
 
