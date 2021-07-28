@@ -415,7 +415,7 @@ If the collection is sharing [database-level throughput](set-throughput.md#set-t
 ```
 
 ## <a id="parallel-change-stream"></a> Parallelizing change streams 
-When using [change streams](../cosmos-db/mongodb-change-streams.md) at scale, it is best to evenly spread the load. The following command will return one or more change stream resume tokens- each one corresponding to data from a single physical shard/partition (many logical shards/partitions can exist on one physical partition). Each resume token will cause watch() to only return data from that physical shard/partition.
+When using [change streams](../cosmos-db/mongodb-change-streams.md) at scale, it is best to evenly spread the load. The following command will return one or more change stream resume tokens - each one corresponding to data from a single physical shard/partition (multiple logical shards/partitions can exist on one physical partition). Each resume token will cause watch() to only return data from that physical shard/partition.
 
 Calling db.collection.watch() on each resume token (one thread per token), will scale change streams efficiently.
 
@@ -424,7 +424,6 @@ Calling db.collection.watch() on each resume token (one thread per token), will 
         customAction: "GetChangeStreamTokens", 
         collection: "<Name of the collection>", 
         startAtOperationTime: "<BSON Timestamp>" // optional
-
 } 
 ```
 
