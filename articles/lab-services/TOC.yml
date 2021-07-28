@@ -106,7 +106,7 @@
       href: how-to-connect-peer-virtual-network.md
     - name: How to create a lab with a shared resource
       href: how-to-create-a-lab-with-shared-resource.md
-    - name: Use shared image gallery for custom images in labs
+    - name: Use shared image gallery for custom images
       items:
       - name: Attach or detach a shared image gallery
         href: how-to-attach-detach-shared-image-gallery.md
