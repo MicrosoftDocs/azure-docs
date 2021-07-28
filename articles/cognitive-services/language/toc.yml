@@ -16,7 +16,7 @@ items:
   items:
   - name: Overview
     href: language-detection/overview.md
-  - name: how-to
+  - name: How-to
     items:
     - name: Call the API
       href: language-detection/how-to/call-api.md

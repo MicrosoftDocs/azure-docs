@@ -20,6 +20,14 @@ This documentation contains the following types of articles:
 
 * [How-to guides](how-to/call-api.md) contain instructions for using the service in more specific or customized ways.
 
+## Deploy on premises using Docker containers
+
+Use Docker containers to deploy the API on-premises. Docker containers enable you to bring the service closer to your data for compliance, security or other operational reasons. 
+
+## Asynchronous operations
+
+Use the API Asynchronously to combine features of [Language Services](../overview.md) in a single call.
+
 ## Responsible AI 
 
 An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the following articles to learn about responsible AI use and deployment in your systems:
