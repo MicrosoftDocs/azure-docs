@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page 
   author: shortpatti 
   ms.author: v-patsho 
-  ms.date: 07/16/2021 
+  ms.date: 08/15/2021 
 
 
 # card 1
@@ -25,20 +25,20 @@ landingContent:
             url: azure-vmware-solution-platform-updates.md
       - linkListType: concept
         links:
-          - text: Private cloud and clusters
-            url: concepts-private-clouds-clusters.md
-          - text: Networking and interconnectivity
-            url: concepts-networking.md
-          - text: Storage 
-            url: concepts-storage.md
-          - text: Access and identity 
-            url: concepts-identity.md
-          - text: Monitor and protection
-            url: concepts-monitor-protection.md
           - text: API Management
             url: concepts-api-management.md
           - text: Hub and spoke
-            url: concepts-hub-and-spoke.md
+            url: concepts-hub-and-spoke.md    
+          - text: Monitor and protection
+            url: concepts-monitor-protection.md
+          - text: Networking and interconnectivity
+            url: concepts-networking.md
+          - text: Private clouds and clusters
+            url: concepts-private-clouds-clusters.md
+          - text: Run command
+            url: concepts-run-command.md
+          - text: Storage 
+            url: concepts-storage.md
 
 # card 2
   - title: FAQ
@@ -98,13 +98,16 @@ landingContent:
           - text: Delete a private cloud
             url: tutorial-delete-private-cloud.md
 
+
 # card 12
   - title: Identity management
     linkLists:
       - linkListType: how-to-guide
         links:
-        - text: Access and identity for private clouds
+        - text: Access and identity
           url: concepts-identity.md
+        - text: Configure an external identity source 
+          url: tutorial-configure-identity-source.md
         - text: Rotate cloudadmin credentials
           url: rotate-cloudadmin-credentials.md
 
