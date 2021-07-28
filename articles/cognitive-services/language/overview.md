@@ -34,6 +34,10 @@ Use key phrase extraction to quickly identify the main concepts in text. For exa
 
 Language detection can detect the language an input text is written in and report a single language code for every document submitted on the request in a wide range of languages, variants, dialects, and some regional/cultural languages. The language code is paired with a confidence score.
 
+## Entity linking
+
+Entity linking is the ability to identify and disambiguate the identity of an entity found in text 
+
 ## Named entity recognition
 
 Named Entity Recognition (NER) can Identify and categorize entities in your text as people, places, organizations, quantities, Well-known entities are also recognized and linked to more information on the web.

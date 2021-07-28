@@ -6,6 +6,16 @@ items:
   items:
   - name: What are Language services?
     href: overview.md
+- name: Entity linking
+  items:
+  - name: Overview
+    href: entity-linking/overview.md
+  - name: Language support
+    href: entity-linking/language-support.md
+  - name: How-to guides
+    items:
+      - name: How to call the API
+        href: entity-linking/how-to/call-api.md
 - name: Health
   items:
   - name: Concepts
