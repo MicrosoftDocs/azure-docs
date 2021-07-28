@@ -55,7 +55,7 @@ items:
   - name: Multilingual and emoji support
     href: concepts/multilingual-emoji-support.md
   - name: Model versioning
-    href: concepts/model-versioning.md
+    href: concepts/specify-model-version.md
 - name: Enterprise readiness
   items:
     - name: Region support

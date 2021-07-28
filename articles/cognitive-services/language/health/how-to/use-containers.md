@@ -1,7 +1,7 @@
 ---
-title: How to use the health API container
+title: How to use the Health API container
 titleSuffix: Azure Cognitive Services
-description: Learn how to extract and label medical information on premises using the health API Docker container. 
+description: Learn how to extract and label medical information on premises using the Health API Docker container. 
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,15 +12,15 @@ ms.date: 06/18/2021
 ms.author: aahi
 ---
 
-# Use the health API container
--
-Containers enable you to run the health API in your own environment and are great for your specific security and data governance requirements.
+# Use the Health API container
+
+Containers enable you to run the Health API in your own environment and are great for your specific security and data governance requirements.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
 
-You must meet the following prerequisites before using health API containers. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
+You must meet the following prerequisites before using Health API containers. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 * [Docker](https://docs.docker.com/) installed on a host computer. Docker must be configured to allow the containers to connect with and send billing data to Azure. 
     * On Windows, Docker must also be configured to support Linux containers.
@@ -33,7 +33,7 @@ You must meet the following prerequisites before using health API containers. If
 
 [!INCLUDE [Host Computer requirements](../../../../../includes/cognitive-services-containers-host-computer.md)]
 
-The following table describes the minimum and recommended specifications for the available health API containers. Each CPU core must be at least 2.6 gigahertz (GHz) or faster. The allowable Transactions Per Second (TPS) are also listed.
+The following table describes the minimum and recommended specifications for the available Health API containers. Each CPU core must be at least 2.6 gigahertz (GHz) or faster. The allowable Transactions Per Second (TPS) are also listed.
 
 |  | Minimum host specs | Recommended host specs | Minimum TPS | Maximum TPS|
 |---|---------|-------------|--|--|
@@ -63,7 +63,7 @@ Once the container is on the host computer, use the [docker run](https://docs.do
 >   * The [responsible AI](/legal/cognitive-services/text-analytics/transparency-note-health)  (RAI) acknowledgment must also be present with a value of `accept`.
 > * The sentiment analysis and language detection containers use v3 of the API, and are generally available. The key phrase extraction container uses v2 of the API, and is in preview.
 
-There are multiple ways you can install and run the health API container. 
+There are multiple ways you can install and run the Health API container. 
 
 - Use the Azure portal to create a Language Services resource, and use Docker to get your container.
 - Use an Azure VM with Docker to run the container. Refer to [Docker on Azure](../../../../docker/index.yml).
@@ -90,7 +90,7 @@ Logging:Disk:Format=json
 
 This command:
 
-- Runs the health API container from the container image
+- Runs the Health API container from the container image
 - Allocates 6 CPU core and 12 gigabytes (GB) of memory
 - Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 - Accepts the end user license agreement (Eula) and responsible AI (RAI) terms
@@ -265,7 +265,7 @@ curl -X POST 'http://<serverURL>:5000/text/analytics/v3.1/entities/health' --hea
 
 ```
 
-The following JSON is an example of a JSON file attached to the health API request's POST body:
+The following JSON is an example of a JSON file attached to the Health API request's POST body:
 
 ```json
 example.json
@@ -288,7 +288,7 @@ example.json
 
 ### Container response body
 
-The following JSON is an example of the health API response body from the containerized synchronous call:
+The following JSON is an example of the Health API response body from the containerized synchronous call:
 
 ```json
 {
@@ -441,18 +441,18 @@ If you run the container with an output [mount](configure-containers.md#mount-se
 
 ## Billing
 
-health API containers send billing information to Azure, using a _Language Services_ resource on your Azure account. 
+Health API containers send billing information to Azure, using a _Language Services_ resource on your Azure account. 
 
 [!INCLUDE [Container's Billing Settings](../../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 ## Summary
 
-In this article, you learned concepts and workflow for downloading, installing, and running health API containers. In summary:
+In this article, you learned concepts and workflow for downloading, installing, and running Health API containers. In summary:
 
-* The health API provides a Linux container for Docker
+* The Health API provides a Linux container for Docker
 * Container images are downloaded from the Microsoft Container Registry (MCR).
 * Container images run in Docker.
-* You can use either the REST API or SDK to call operations in health API containers by specifying the host URI of the container.
+* You can use either the REST API or SDK to call operations in Health API containers by specifying the host URI of the container.
 * You must specify billing information when instantiating a container.
 
 > [!IMPORTANT]

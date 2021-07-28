@@ -1,7 +1,7 @@
 ---
-title: How to call the health API
+title: How to call the Health API
 titleSuffix: Azure Cognitive Services
-description: Learn how to extract and label medical information from unstructured clinical text with the health API. 
+description: Learn how to extract and label medical information from unstructured clinical text with the Health API. 
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,21 +12,21 @@ ms.date: 06/18/2021
 ms.author: aahi
 ---
 
-# How to call the health API
+# How to call the Health API
 
 > [!IMPORTANT] 
-> The health API is a capability provided “AS IS” and “WITH ALL FAULTS.” The health API is not intended or made available for use as a medical device, clinical support, diagnostic tool, or other technology intended to be used in the diagnosis, cure, mitigation, treatment, or prevention of disease or other conditions, and no license or right is granted by Microsoft to use this capability for such purposes. This capability is not designed or intended to be implemented or deployed as a substitute for professional medical advice or healthcare opinion, diagnosis, treatment, or the clinical judgment of a healthcare professional, and should not be used as such. The customer is solely responsible for any use of the health API. The customer must separately license any and all source vocabularies it intends to use under the terms set for that [UMLS Metathesaurus License Agreement Appendix](https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/release/license_agreement_appendix.html) or any future equivalent link. The customer is responsible for ensuring compliance with those license terms, including any geographic or other applicable restrictions.
+> The Health API is a capability provided “AS IS” and “WITH ALL FAULTS.” The Health API is not intended or made available for use as a medical device, clinical support, diagnostic tool, or other technology intended to be used in the diagnosis, cure, mitigation, treatment, or prevention of disease or other conditions, and no license or right is granted by Microsoft to use this capability for such purposes. This capability is not designed or intended to be implemented or deployed as a substitute for professional medical advice or healthcare opinion, diagnosis, treatment, or the clinical judgment of a healthcare professional, and should not be used as such. The customer is solely responsible for any use of the Health API. The customer must separately license any and all source vocabularies it intends to use under the terms set for that [UMLS Metathesaurus License Agreement Appendix](https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/release/license_agreement_appendix.html) or any future equivalent link. The customer is responsible for ensuring compliance with those license terms, including any geographic or other applicable restrictions.
 
 
-The health API is a feature of the Language Services that extracts and labels relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records.  There are two ways to utilize this service: 
+The Health API is a feature of the Language Services that extracts and labels relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records.  There are two ways to utilize this service: 
 
 * The web-based API and client libraries (asynchronous)
 * A Docker container (synchronous)
 
 ## Features
 
-The health API performs Named Entity Recognition (NER), relation extraction, entity negation and entity linking on English-language text to uncover insights in unstructured clinical and biomedical text. 
-See the [entity categories](../concepts/health-entity-categories.md) returned by the health API for a full list of supported entities. For information on confidence scores, see the [transparency note](/legal/cognitive-services/text-analytics/transparency-note#general-guidelines-to-understand-and-improve-performance?context=/azure/cognitive-services/text-analytics/context/context). 
+The Health API performs Named Entity Recognition (NER), relation extraction, entity negation and entity linking on English-language text to uncover insights in unstructured clinical and biomedical text. 
+See the [entity categories](../concepts/health-entity-categories.md) returned by the Health API for a full list of supported entities. For information on confidence scores, see the [transparency note](/legal/cognitive-services/text-analytics/transparency-note#general-guidelines-to-understand-and-improve-performance?context=/azure/cognitive-services/text-analytics/context/context). 
 
 
 
@@ -35,14 +35,14 @@ See the [entity categories](../concepts/health-entity-categories.md) returned by
 > [!TIP]
 > There are examples of how to use the REST API and client libraries for this feature in the quickstart article. You can also make example requests and see the JSON output using [Language Studio](https://language.azure.com/tryout/sentiment) 
 > 
-> To run the health API container in your own environment, follow these [instructions to download and install the container](use-containers.md).
+> To run the Health API container in your own environment, follow these [instructions to download and install the container](use-containers.md).
 
-You submit text to the health API.  Document size must be under 5,120 characters per document. For the maximum number of documents permitted in a collection, see the data limits article. The collection is submitted in the body of the request. If your text exceeds this limit, consider splitting the text into separate requests. For best results, split text between sentences.
+You submit text to the Health API.  Document size must be under 5,120 characters per document. For the maximum number of documents permitted in a collection, see the data limits article. The collection is submitted in the body of the request. If your text exceeds this limit, consider splitting the text into separate requests. For best results, split text between sentences.
 
 
 ## Get results from the service
 
-Depending on what text you submit to the health API, you will get:
+Depending on what text you submit to the Health API, you will get:
 
 ### Named Entity Recognition
 
@@ -56,15 +56,15 @@ Relation extraction identifies meaningful connections between concepts mentioned
 
 Entity Linking disambiguates distinct entities by associating named entities mentioned in text to concepts found in a predefined database of concepts including the Unified Medical Language System (UMLS). Medical concepts are also assigned preferred naming, as an additional form of normalization.
 
-The health API supports linking to the health and biomedical vocabularies found in the Unified Medical Language System ([UMLS](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html)) Metathesaurus Knowledge Source.
+The Health API supports linking to the health and biomedical vocabularies found in the Unified Medical Language System ([UMLS](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html)) Metathesaurus Knowledge Source.
 
 ### Assertion Detection
 
-The meaning of medical content is highly affected by modifiers, such as negative or conditional assertions which can have critical implications if misrepresented. The health API supports three categories of assertion detection for entities in the text: 
+The meaning of medical content is highly affected by modifiers, such as negative or conditional assertions which can have critical implications if misrepresented. The Health API supports three categories of assertion detection for entities in the text: 
 
-* certainty
-* conditional
-* association
+* Certainty
+* Conditional
+* Association
 
 
 ## Data limits
@@ -83,7 +83,7 @@ If a document exceeds the character limit, the API won't process a document that
 
 ### Rate limits
 
-Your rate limit will vary with your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). These limits are the same for both versions of the API. These rate limits don't apply to the health API container, which does not have a set rate limit.
+Your rate limit will vary with your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). These limits are the same for both versions of the API. These rate limits don't apply to the Health API container, which does not have a set rate limit.
 
 | Tier          | Requests per second | Requests per minute |
 |---------------|---------------------|---------------------|
@@ -92,5 +92,5 @@ Your rate limit will vary with your [pricing tier](https://azure.microsoft.com/p
 
 ## See also
 
-* [health API overview](../overview.md)
+* [Health API overview](../overview.md)
 * [health entity categories](../concepts/health-entity-categories.md)

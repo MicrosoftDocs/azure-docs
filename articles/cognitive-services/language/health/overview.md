@@ -1,7 +1,7 @@
 ---
 title: Health API
 titleSuffix: Azure Cognitive Services
-description: Learn how to use the health API, which is a part of the Language Services.
+description: Learn how to use the Health API, which is a part of the Language Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,9 +12,9 @@ ms.date: 07/15/2021
 ms.author: aahi
 ---
 
-# What is the health API?
+# What is the Health API?
 
-The health API is a feature of Language Services that extracts and labels relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records.  
+The Health API is a feature of Language Services that extracts and labels relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records.  
 
 The API is a part of [Azure Cognitive Services](../../index.yml), a collection of cloud-based machine learning and AI algorithms for your development projects. You can use these features with the REST API, or the client libraries.
 
@@ -27,7 +27,7 @@ This documentation contains the following types of articles:
 
 ## Features
 
-The health API performs Named Entity Recognition (NER), relation extraction, entity negation and entity linking on English-language text to uncover insights in unstructured clinical and biomedical text.
+The Health API performs Named Entity Recognition (NER), relation extraction, entity negation and entity linking on English-language text to uncover insights in unstructured clinical and biomedical text.
 
 ### [Named Entity Recognition](#tab/ner)
 
@@ -51,15 +51,15 @@ Entity Linking disambiguates distinct entities by associating named entities men
 > [!div class="mx-imgBorder"]
 > ![Health EL](./media/call-api/health-entity-linking.png)
 
-The health API supports linking to the health and biomedical vocabularies found in the Unified Medical Language System ([UMLS](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html)) Metathesaurus Knowledge Source.
+The Health API supports linking to the health and biomedical vocabularies found in the Unified Medical Language System ([UMLS](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html)) Metathesaurus Knowledge Source.
 
 ### [Assertion Detection](#tab/assertion-detection) 
 
-The meaning of medical content is highly affected by modifiers, such as negative or conditional assertions which can have critical implications if misrepresented. The health API supports three categories of assertion detection for entities in the text: 
+The meaning of medical content is highly affected by modifiers, such as negative or conditional assertions which can have critical implications if misrepresented. The Health API supports three categories of assertion detection for entities in the text: 
 
-* certainty
-* conditional
-* association
+* Certainty
+* Conditional
+* Association
 
 > [!div class="mx-imgBorder"]
 > ![Health NEG](./media/call-api/assertions.png)
