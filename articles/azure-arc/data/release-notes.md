@@ -21,15 +21,14 @@ This article highlights capabilities, features, and enhancements recently releas
 This release is published July 30, 2021.
 
 The current release announces general availability for the following services:
-- Azure Arc-enabled data controller
 - Azure Arc-enabled SQL Managed Instance general purpose service tier.
 
    > [!NOTE]
-   > The services above are generally available in disconnected mode. 
+   > The services above are generally available in indirectly connected mode.
    >
-   > These services are also available in connected mode, for preview.
+   > These services are also available in directly connected mode, for preview.
    >
-   > Azure SQL Managed Instance business critical service tier is available in preview.
+   > Azure SQL Managed Instance business critical service tier continues to be available in preview.
    > 
    > Azure Arc-enabled PostgreSQL Hyperscale continues to be available in preview.
 
@@ -38,27 +37,27 @@ The current release announces general availability for the following services:
 #### Data controller
 
 - `az arcdata dc create` parameter named `--azure-subscription` has been changed to use the standard `--subscription` parameter.
-- Deployment on AKS HCI requires a special configuration. See details under [Known issues](#azure-stack-hci).
-- There is a new requirement to allow non-SSL connections when exporting data. Set an environment variable to enable non-interactive scripting.
+- Deployment on AKS HCI requires a special storage class configuration. See details under [Known issues](#azure-stack-hci).
+- There is a new requirement to allow non-SSL connections when exporting data. Set an environment variable to suppress the interactive prompt.
 
 ### What's new
 
 #### Data controller
 
-- Direct connected mode is in preview. 
+- Directly connected mode is in preview. 
 
-- Direct connected mode (preview) is only available in the following Azure regions for this release:
+- Directly connected mode (preview) is only available in the following Azure regions for this release:
    - Central US
    - East US
    - East US 2
    - West US 2
-   - South Central US
    - UK South
    - West Europe
    - North Europe
    - Australia East
    - Southeast Asia
    - Korea Central
+   - France Central
 
 - Currently, additional basic authentication users can be added to Grafana using the Grafana administrative experience. Customizing Grafana by modifying the Grafana .ini files is not supported.
 
@@ -70,21 +69,19 @@ The current release announces general availability for the following services:
 
 #### Azure Arc-enabled SQL Managed Instance
 
-- Backup/point in time restore is in preview.
-- Agent transaction replication is currently not supported.
+- Automated backup and point-in-time restore is in preview.
+
 - Supports point-in-time restore from an existing database in an Azure Arc-enabled SQL managed instance to a new database within the same instance.
 - If the current datetime is given as point-in-time in UTC format, it resolves to the latest valid restore time and restores the given database until last valid transaction.
-- We can restore a database to any point-in-time where the transactions took place.
-- Supports restoring a deleted database within an Azure Arc-enabled managed instance to a given point-in-time.
+- A database can be restored to any point-in-time where the transactions took place.
 - To set a specific recovery point objective for an Azure Arc-enabled SQL Managed Instance, edit the SQL managed instance CRD to set the `recoveryPointObjectiveInSeconds` property. Supported values are from 300 to 600.
 - To disable the automated backups, edit the SQL instance CRD and set the `recoveryPointObjectiveInSeconds` property to 0.
-- Restoring databases that have been deleted is not currently supported.
 
 ### Known issues
 
 #### Platform
 
-- You can create a data controller, SQL managed instance, or PostgreSQL Hyperscale server group on a connected cluster with the Azure portal. Deployment is not supported with other Azure Arc-enabled data services tools. Specifically, you can't deploy a data controller in direct connect mode with any of the following tools during this release.
+- You can create a data controller, SQL managed instance, or PostgreSQL Hyperscale server group on a directly connected mode cluster with the Azure portal. Direcly connected mode deployment is not supported with other Azure Arc-enabled data services tools. Specifically, you can't deploy a data controller in directly connect mode with any of the following tools during this release.
    - Azure Data Studio
    - Kubernetes native tools (`kubectl`)
    - The `arcdata` extension for the Azure CLI (`az`)
@@ -93,7 +90,7 @@ The current release announces general availability for the following services:
 
 - You can still use `kubectl` to create resources directly on a Kubernetes cluster, however they will not be reflected in the Azure portal if you are using direct connected mode.
 
-- In direct connected mode, upload of usage, metrics, and logs using `az arcdata dc upload` is currently blocked. Usage is automatically uploaded. Upload for data controller created in indirect connected mode should continue to work.
+- In directly connected mode, upload of usage, metrics, and logs using `az arcdata dc upload` is blocked by design. Usage is automatically uploaded. Upload for data controller created in indirect connected mode should continue to work.
 - Automatic upload of usage data in direct connectivity mode will not succeed if using proxy via `–proxy-cert <path-t-cert-file>`.
 - Azure Arc-enabled SQL Managed instance and Azure Arc-enabled PostgreSQL Hyperscale are not GB18030 certified.
 - Currently, only one Azure Arc data controller per Kubernetes cluster is supported.
@@ -111,7 +108,7 @@ The current release announces general availability for the following services:
 
       Use this type to deploy the data controller. See the complete instructions at [Create a custom storage class for an AKS on Azure Stack HCI disk](/azure-stack/aks-hci/container-storage-interface-disks#create-a-custom-storage-class-for-an-aks-on-azure-stack-hci-disk).
 
-- When Azure Arc data controller is deleted from Azure portal, validation is done block the delete if there any Azure Arc enabled SQL managed instances deployed on this Arc data controller. Currently, this validation is applied only when the delete is performed from the Overview page of the Azure Arc data controller. 
+- When Azure Arc data controller is deleted from Azure portal, validation is done to block the delete if there any Azure Arc enabled SQL managed instances deployed on this Arc data controller. Currently, this validation is applied only when the delete is performed from the Overview page of the Azure Arc data controller. 
 
 #### Azure Arc-enabled PostgreSQL Hyperscale
 
@@ -143,24 +140,28 @@ The current release announces general availability for the following services:
 
 ##### - Can't see resources in portal
 
-- Portal does not show Azure Arc-enabled SQL Managed Instance resources created in the June release. Delete the SQL Managed Instance resources from the resource group list view. 
+- Portal does not show Azure Arc-enabled SQL Managed Instance resources created in the June release. Delete the SQL Managed Instance resources from the resource group list view. You may need to delete the custom location resource first.
 
 ##### Point-in-time restore(PITR) supportability and limitations:
 	
--  Doesn't support restore from one Azure Arc enabled SQL managed instance to another Azure Arc enabled SQL managed instance.
+-  Doesn't support restore from one Azure Arc-enabled SQL managed instance to another Azure Arc enabled SQL managed instance.  The database can only be restored to the same Arc-enabled SQL Managed Instance where the backups were created.
 -  Renaming of a databases is currently not supported, for point in time restore purposes.
 -  Currently there is no CLI command or an API to provide the allowed time window information for point-in-time restore. You can provide a time within a reasonable window, since the time the database was created, and if the timestamp is valid the restore would work. If the timestamp is not valid, the allowed time window will be provided via an error message.
--  No support for restoring a TDE enabled database
+-  No support for restoring a TDE enabled database.
+-  A deleted database cannot be restored currently.
 
 #####	Automated backups
 
--  Log shipping is currently blocked 
 -  Renaming database will stop the automated backups for this database.
 -  No retention enforced. Will preserve all backups as long as there's available space. 
--  User databases with SIMPLE recovery model are not backed up. 
+-  User databases with SIMPLE recovery model are not backed up.
 -  System database `model` is not backed up in order to prevent interference with creation/deletion of database. The DB gets locked when admin operations are performed. 
 -  Currently only `master` and `msdb` system databases are backed up. Only full backups are performed every 12 hours.
-Only `ONLINE` user databases are backup up. 
+-  Only `ONLINE` user databases are backup up.
+
+##### Other limitations
+- Transaction replication is currently not supported.
+-  Log shipping is currently blocked
 
 ## June 2021
 
