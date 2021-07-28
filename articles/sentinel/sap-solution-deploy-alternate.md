@@ -1,6 +1,6 @@
 ---
-title: Deploy the Azure Sentinel SAP data connector on-premises | Microsoft Docs
-description: Learn how to deploy the Azure Sentinel data connector for SAP environments using an on-premises machine.
+title: Azure Sentinel SAP data connector expert configuration options, on-premises deployment, and SAPControl log sources  | Microsoft Docs
+description: Learn how to deploy the Azure Sentinel data connector for SAP environments using expert configuration options and an on-premises machine. Also learn more about SAPControl log sources.
 author: batamig
 ms.author: bagol
 ms.service: azure-sentinel
@@ -253,7 +253,7 @@ x509pkicert = <SET_YOUR_X509_PKI_CERTIFICATE>
 appserver = <SET_YOUR_SAPCTRL_SERVER IP OR FQDN>
 instance = <SET_YOUR_SAP_INSTANCE NUMBER, example 10>
 abapseverity = <SET_ABAP_SEVERITY 0 = All logs ; 1 = Warning ; 2 = Error>
-abaptz = <SET_ABAP_TZ for example GMT-3>
+abaptz = <SET_ABAP_TZ --Use ONLY GMT FORMAT-- example - For OS Timezone = NZST use abaptz = GMT+12>
 
 [File Extraction JAVA]
 javaosuser = <SET_YOUR_JAVAADM_LIKE_USER>
@@ -265,7 +265,7 @@ javax509pkicert = <SET_YOUR_X509_PKI_CERTIFICATE>
 javaappserver = <SET_YOUR_JAVA_SAPCTRL_SERVER IP ADDRESS OR FQDN>
 javainstance = <SET_YOUR_JAVA_SAP_INSTANCE for example 10>
 javaseverity = <SET_JAVA_SEVERITY  0 = All logs ; 1 = Warning ; 2 = Error>
-javatz = <SET_JAVA_TZ for example GMT-3>
+javatz = <SET_JAVA_TZ --Use ONLY GMT FORMAT-- example - For OS Timezone = NZST use javatz = GMT+12>
 ```
 
 ### Define the SAP logs that are sent to Azure Sentinel

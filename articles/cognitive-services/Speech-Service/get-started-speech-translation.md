@@ -3,13 +3,13 @@ title: Speech translation quickstart - Speech service
 titleSuffix: Azure Cognitive Services
 description: Learn how to use the Speech SDK to translate speech. In this quickstart, you learn about object construction, supported audio input formats, and configuration options for speech translation.
 services: cognitive-services
-author: trevorbye
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.author: trbye
+ms.author: nitinme
 ms.custom: "devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
 zone_pivot_groups: programming-languages-set-two-with-js-spx
 keywords: speech translation

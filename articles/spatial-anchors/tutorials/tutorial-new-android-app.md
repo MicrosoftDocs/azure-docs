@@ -119,15 +119,27 @@ Finally, add the following `handleTap()` method, that will tie everything togeth
 
 ## Attach a local Azure Spatial Anchor
 
-Modify `Gradle Scripts\build.gradle (Module: app)` to include the following entry. This code will ensure that your app targets Azure Spatial Anchors version 2.2.0. That said, referencing any recent version of Azure Spatial Anchors should work. You can find the release notes [here.](https://github.com/Azure/azure-spatial-anchors-samples/releases)
+Modify `Gradle Scripts\build.gradle (Module: app)` to include the following entry. This sample code snippet targets Azure Spatial Anchors SDK version 2.10.0. Note that SDK version 2.7.0 is currenlty the minimum supported version, and referencing any more recent version of Azure Spatial Anchors should work as well. We recommend using the latest version of Azure Spatial Anchors SDK. You can find the SDK release notes [here.](https://github.com/Azure/azure-spatial-anchors-samples/releases)
 
 ```
 dependencies {
     ...
-    implementation "com.microsoft.azure.spatialanchors:spatialanchors_jni:[2.2.0]"
-    implementation "com.microsoft.azure.spatialanchors:spatialanchors_java:[2.2.0]"
+    implementation "com.microsoft.azure.spatialanchors:spatialanchors_jni:[2.10.0]"
+    implementation "com.microsoft.azure.spatialanchors:spatialanchors_java:[2.10.0]"
     ...
 }
+```
+
+If you are targeting Azure Spatial Anchors SDK 2.10.0 or later, include the following entry in the repositories section of your project's build.gradle file. This will include the URL to the Maven package feed that hosts Azure Spatial Anchors Android packages for SDK 2.10.0 or later: 
+```
+repositories {
+    ...
+    maven {
+        url 'https://pkgs.dev.azure.com/aipmr/MixedReality-Unity-Packages/_packaging/Maven-packages/maven/v1'
+    }
+    ...
+}
+
 ```
 
 Right-click `app\java\<PackageName>`->**New**->**Java Class**. Set **Name** to _MyFirstApp_, and **Superclass** to _android.app.Application_. Leave the other options as they are. Click **OK**. A file called `MyFirstApp.java` will be created. Add the following import to it:

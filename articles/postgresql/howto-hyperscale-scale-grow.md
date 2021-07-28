@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 04/07/2021
+ms.date: 07/20/2021
 ---
 
 # Scale a Hyperscale (Citus) server group
@@ -43,7 +43,8 @@ Click the **Save** button to make the changed value take effect.
 > To take advantage of newly added nodes you must [rebalance distributed table
 > shards](howto-hyperscale-scale-rebalance.md), which means moving some
 > [shards](concepts-hyperscale-distributed-data.md#shards) from existing nodes
-> to the new ones.
+> to the new ones. Rebalancing can work in the background, and requires no
+> downtime.
 
 ## Increase or decrease vCores on nodes
 

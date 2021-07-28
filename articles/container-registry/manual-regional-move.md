@@ -72,7 +72,7 @@ For more information, see [Use exported template from the Azure portal](../azure
 > [!IMPORTANT]
 > If you want to encrypt the target registry using a customer-managed key, make sure to update the template with settings for the required managed identity, key vault, and key. You can only enable the customer-managed key when you deploy the registry.
 > 
-> For more information, see [Encrypt registry using customer-managed key](/azure/container-registry/container-registry-customer-managed-keys#enable-customer-managed-key---template).
+> For more information, see [Encrypt registry using customer-managed key](./container-registry-customer-managed-keys.md#enable-customer-managed-key---template).
 
 ### Create resource group 
 

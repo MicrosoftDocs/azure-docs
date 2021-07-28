@@ -2,7 +2,7 @@
 title: Application Insights availability overview 
 description: Set up recurring web tests to monitor availability and responsiveness of your app or website.
 ms.topic: conceptual
-ms.date: 07/10/2021
+ms.date: 07/13/2021
 
 ---
 
@@ -14,10 +14,11 @@ You can set up availability tests for any HTTP or HTTPS endpoint that is accessi
 
 ## Types of availability tests
 
-There are three types of availability tests:
+There are four types of availability tests:
 
-* [URL ping test](monitor-web-app-availability.md): A simple tests you can create through the portal to validate whether an endpoint is responding and measure performance associated with that response. You may also set custom success criteria coupled with more advanced features like parsing dependent requests, and allowing for retries.
-* [Multi-step web test](availability-multistep.md): A recording of a sequence of web requests, which can be played back to test more complex scenarios. Multi-step web tests are created in Visual Studio Enterprise and uploaded to the portal for execution.
+* [URL ping tests (classic)](monitor-web-app-availability.md): A simple test you can create through the portal to validate whether an endpoint is responding and measure performance associated with that response. You may also set custom success criteria coupled with more advanced features like parsing dependent requests, and allowing for retries.
+* [Standard tests (Preview)](availability-standard-tests.md): A single request test that is similar to the URL ping test but includes SSL certificate validity, proactive lifetime check, HTTP request verb (for example `GET`,`HEAD`,`POST`, etc.), custom headers, and custom data associated with your HTTP request.
+* [Multi-step web test (classic)](availability-multistep.md): A recording of a sequence of web requests, which can be played back to test more complex scenarios. Multi-step web tests are created in Visual Studio Enterprise and uploaded to the portal for execution.
 * [Custom Track Availability Tests](availability-azure-functions.md): If you decide to create a custom application to run availability tests, the [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) method can be used to send the results to Application Insights.
 
 > [!IMPORTANT]
