@@ -3,7 +3,7 @@ title: Set up VMware VM disaster recovery to Azure with Azure Site Recovery - Pr
 description: Learn how to set up disaster recovery to Azure for on-premises VMware VMs with Azure Site Recovery - Preview.
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/27/2021
+ms.date: 07/28/2021
 ms.custom: MVC
 
 ---
@@ -82,23 +82,29 @@ Follow these steps to enable replication:
 
 1. Select **Site Recovery** under **Getting Started** section. Click **Enable Replication (Preview)** under the VMware section.
 
-2. **Choose** the machine type you want to protect through Azure Site Recovery.
+2. Select the machine type you want to protect through Azure Site Recovery.
 
    > [!NOTE]
    > In Preview, the support is limited to virtual machines.
 
-3. After choosing virtual machines, you need to choose the vCenter server added to Azure Site Recovery replication appliance, registered in this vault.
+   ![Select source machines](./media/vmware-azure-set-up-replication-tutorial-preview/select-source.png)
+
+3. After selecting the virtual machines, select the vCenter server added to Azure Site Recovery replication appliance, registered in this vault.
 
 4. Later, search the source VM name to protect the machines of your choice. To review the selected VMs, select **Selected resources**.
 
-5. After you choose the list of VMs, select **Next** to proceed to source settings. Here, select the replication appliance and VM credentials. These credentials will be used to push mobility agent on the VM by configuration server to complete enabling Azure Site Recovery. Ensure accurate credentials are chosen.
+5. After you select the list of VMs, select **Next** to proceed to source settings. Here, select the replication appliance and VM credentials. These credentials will be used to push mobility agent on the VM by configuration server to complete enabling Azure Site Recovery. Ensure accurate credentials are chosen.
 
    >[!NOTE]
    >For Linux OS, ensure to provide the root credentials. For Windows OS, a user account with admin privileges should be added. These credentials will be used to push Mobility Service on to the source machine during enable replication operation.
 
+  ![Source settings](./media/vmware-azure-set-up-replication-tutorial-preview/source-settings.png)
+
 6. Select **Next** to provide target region properties. By default, Vault subscription and Vault resource group are selected. You can choose a subscription and resource group of your choice. Your source machines will be deployed in this subscription and resource group when you failover in the future.
 
-7. Next, choose an Azure network or create a new target network to be used during Failover. If you select **Create new**, you will be redirected to create virtual network context blade and asked to provide address space and subnet details. This network will be created in the target subscription and target resource group selected in the previous step.
+  ![Target properties](./media/vmware-azure-set-up-replication-tutorial-preview/target-properties.png)
+
+7. Next, you can select an existing Azure network or create a new target network to be used during failover. If you select **Create new**, you will be redirected to create virtual network context blade and asked to provide address space and subnet details. This network will be created in the target subscription and target resource group selected in the previous step.
 
 8. Then, provide the test failover network details.
 
@@ -134,11 +140,11 @@ Follow these steps to enable replication:
 
      The policy will be created and can used for protecting the chosen source machines.
 
-11. After choosing the replication policy, select **Next**. Review the Source and Target properties. Select **Enable Replication** to initiate the operation.
+11. After selecting the replication policy, select **Next**. Review the Source and Target properties. Select **Enable  Replication** to initiate the operation.
 
-    ![Site recovery](./media/vmware-azure-set-up-replication-tutorial-preview/appvault-site-recovery.png)
+    ![Site recovery](./media/vmware-azure-set-up-replication-tutorial-preview/enable-replication.png)
 
-  A job is created to enable replication of the selected machines. To track the progress, navigate to Site Recovery jobs in the recovery services vault.
+    A job is created to enable replication of the selected machines. To track the progress, navigate to Site Recovery jobs in the recovery services vault.
 
 
 ## Next steps
