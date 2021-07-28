@@ -79,7 +79,7 @@
       href: pim-how-to-configure-security-alerts.md
     - name: Azure roles
       href: pim-resource-roles-configure-alerts.md
-  - name: Audit PIM activity
+  - name: Audit activity
     items:
     - name: Azure AD roles
       href: pim-how-to-use-audit-log.md
