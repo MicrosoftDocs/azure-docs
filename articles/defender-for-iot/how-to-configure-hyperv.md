@@ -42,3 +42,44 @@ Make sure SPAN is enabled only on the data port and not the management port. Als
 1. Select **Allow management operating system to share this network adapter**.
 
    :::image type="content" source="organizations/media/how-to-configure-hyperv/external-network.png" alt-text="Select external network, and allow the management operating system to share the network adapter."::: 
+
+## Attach a ClearPass SPAN Virtual Interface to the Virtual Switch
+
+These steps can be performed through Windows PowerShell, or through Hyper-V Manager.
+
+**To attach a ClearPass SPAN Virtual Interface to the Virtual Switch with PowerShell**:
+
+1.	Add a new network adapter, selecting the newly added SPAN virtual switch with the following command:
+
+    ```bash
+    ADD-VMNetworkAdapter -VMName VK-C1000V-LongRunning-650 -Name Monitor -SwitchName vSwitch_Span
+    ```
+
+2.	Enable port mirroring for the selected interface as the span destination with the following command:
+
+    ```bash
+    Get-VMNetworkAdapter -VMName VK-C1000V-LongRunning-650 | ? Name -eq Monitor | Set-VMNetworkAdapter -PortMirroring Destination
+    ```
+
+    | Parameter | Description |
+    | -- | -- |
+    | VK-C1000V-LongRunning-650 | CPPM VA name |
+    |vSwitch_Span |Newly added SPAN virtual switch name |
+    |Monitor |Newly added adapter name |
+
+
+(The newly added adapter hardware name will be “Monitor” when adding using the above commands, and “Network Adapter” when added using Hyper-V Manager.)
+
+**To attach a ClearPass SPAN Virtual Interface to the Virtual Switch with Hyper-V Manager**:
+
+1.	Under the Hardware list, select **Network Adapter**.
+
+1.	In the Virtual Switch field, select **vSwitch_Span**.
+
+    :::image type="content" source="organizations/media/how-to-configure-hyperv/vswitch-span.png" alt-text="Select the following options on the virtual switch screen.":::
+
+1.	In the Hardware list, expand Network Adapter, and select **Advanced Features**.
+
+1.	In the Port Mirroring section, select Destination as the Mirroring mode for the new virtual interface.
+
+    :::image type="content" source="organizations/media/how-to-configure-hyperv/destination.png" alt-text="Screenshot of the selections needed to configure mirroring mode.":::
