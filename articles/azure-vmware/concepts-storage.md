@@ -3,7 +3,7 @@ title: Concepts - Storage
 description: Learn about storage capacity, storage policies, fault tolerance, and storage integration in Azure VMware Solution private clouds.
 ms.topic: conceptual
 ms.custom: contperf-fy21q4
-ms.date: 04/26/2021
+ms.date: 07/28/2021
 ---
 
 # Azure VMware Solution storage concepts
@@ -60,6 +60,7 @@ Microsoft provides alerts when capacity consumption exceeds 75%.  You can monito
 
 Now that you've covered Azure VMware Solution storage concepts, you may want to learn about:
 
+- [Attach disk pools to Azure VMware Solution hosts (Preview)](attach-disk-pools-to-azure-vmware-solution-hosts.md)
 - [Scale clusters in the private cloud][tutorial-scale-private-cloud]
 - [Azure NetApp Files with Azure VMware Solution](netapp-files-with-azure-vmware-solution.md)
 - [vSphere role-based access control for Azure VMware Solution](concepts-identity.md)
