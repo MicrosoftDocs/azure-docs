@@ -12,16 +12,16 @@ ms.author: vikancha
 As we continue to bring modern and optimized virtual machine instances to Azure using the latest innovations in datacenter technologies, we thoughtfully plan how we retire aging hardware.
 With this in mind, we are retiring our NV-series Azure Virtual Machine sizes on September 01, 2022.
 
-# How does the NV-series migration affect me?  
+## How does the NV-series migration affect me?  
 
 After September 01, 2022, any remaining NV and NV_Promo size virtual machines remaining in your subscription will be set to a deallocated state. These virtual machines will be stopped and removed from the host. These virtual machines will no longer be billed in the deallocated state. 
 
-The current VM size retirement only impacts the VM sizes in the [NV-series](https://docs.microsoft.com/azure/virtual-machines/nv-series). This does not impact the [NVv3](https://docs.microsoft.com/en-us/azure/virtual-machines/nvv3-series) and [NVv4] (https://docs.microsoft.com/azure/virtual-machines/nvv4-series) series virtual machines. 
+The current VM size retirement only impacts the VM sizes in the [NV-series](nv-series.md). This does not impact the [NVv3](nvv3-series.md) and [NVv4] (nvv4-series.md) series virtual machines. 
 
-# What actions should I take?  
+## What actions should I take?  
 
-You will need to resize or deallocate your NV virtual machines. We recommend moving your GPU visualization/graphics workloads to another [GPU Accelerated Virtual Machine size](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu).
+You will need to resize or deallocate your NV virtual machines. We recommend moving your GPU visualization/graphics workloads to another [GPU Accelerated Virtual Machine size](sizes-gpu.md).
 
-[Learn more](https://docs.microsoft.com/azure/virtual-machines/NV-series-migration-guide) about migrating your workloads to other GPU Azure Virtual Machine sizes. 
+[Learn more](NV-series-migration-guide.md) about migrating your workloads to other GPU Azure Virtual Machine sizes. 
 
 If you have questions, contact us. You may also reach us directly at [Azure GPU Feedback](mailto:azuregpufeedback@service.microsoft.com).  
