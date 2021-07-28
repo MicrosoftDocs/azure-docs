@@ -2,7 +2,7 @@
 title: Configure public registry access
 description: Configure IP rules to enable access to an Azure container registry from selected public IP addresses or address ranges.
 ms.topic: article
-ms.date: 07/15/2021
+ms.date: 07/28/2021
 ---
 
 # Configure public IP network rules
@@ -111,9 +111,9 @@ These errors can also occur if you use an HTTPS proxy that is allowed by a netwo
 
 ### Access from Azure Pipelines
 
-If you are using an Azure Pipelines pipeline to access an Azure container registry and configured an IP access rule in the registry, note that the outbound IP address from the pipeline can change, potentially distrupting access to the registry. This problem occurs because the pipeline runs by default using a Microsoft-hosted [agent](/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser) on a virtual machine pool with a changing set of IP addresses.
+If you use Azure Pipelines with an Azure container registry that limits access to specific IP addresses, the pipeline may be unable to access the registry, because the outbound IP address from the pipeline is not fixed. By default, the pipeline runs jobs using a Microsoft-hosted [agent](/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser) on a virtual machine pool with a changing set of IP addresses.
 
-One workaround is to change the agent used to run the pipleline from Microsoft-hosted to self-hosted. With a self-hosted agent running on a machine you manage, you control the outbound IP address of the pipeline, and you can add this address in a registry firewall access rule.
+One workaround is to change the agent used to run the pipeline from Microsoft-hosted to self-hosted. With a self-hosted agent running on a [Windows](/azure/devops/pipelines/agents/v2-windows) or [Linux](azure/devops/pipelines/agents/v2-linux) machine that you manage, you control the outbound IP address of the pipeline, and you can add this address in a registry IP access rule.
 
 ## Next steps
 
