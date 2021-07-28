@@ -17,6 +17,8 @@ For information about Azure Site Recovery architecture in Classic architecture, 
 
 The following table and graphic provide a high-level view of the components used for VMware VMs/physical machines disaster recovery to Azure.
 
+![VMware to Azure architecture](./media/vmware-azure-architecture-preview/architecture-preview.png)
+
 **Component** | **Requirement** | **Details**
 --- | --- | ---
 **Azure** | An Azure subscription, Azure Storage account for cache, Managed Disk, and Azure network. | Replicated data from on-premises VMs is stored in Azure storage. Azure VMs are created with the replicated data when you run a failover from on-premises to Azure. The Azure VMs connect to the Azure virtual network when they're created.

@@ -60,7 +60,7 @@ Use the following steps to assign the required permissions:
 
 5. To register the Azure Site Recovery replication appliance, your Azure account needs permissions to register the AAD apps.
 
-Follow these steps to assign required permissions:
+**Follow these steps to assign required permissions**:
 
 1. In Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**. In **User settings**, verify that Azure AD users can register applications (set to *Yes* by default).
 
@@ -98,11 +98,11 @@ Follow these steps to enable replication:
    >[!NOTE]
    >For Linux OS, ensure to provide the root credentials. For Windows OS, a user account with admin privileges should be added. These credentials will be used to push Mobility Service on to the source machine during enable replication operation.
 
-  ![Source settings](./media/vmware-azure-set-up-replication-tutorial-preview/source-settings.png)
+   ![Source settings](./media/vmware-azure-set-up-replication-tutorial-preview/source-settings.png)
 
-6. Select **Next** to provide target region properties. By default, Vault subscription and Vault resource group are selected. You can choose a subscription and resource group of your choice. Your source machines will be deployed in this subscription and resource group when you failover in the future.
+6. Select **Next** to provide target region properties. By default, Vault subscription and Vault resource group are selected. You can select a subscription and resource group of your choice. Your source machines will be deployed in this subscription and resource group when you failover in the future.
 
-  ![Target properties](./media/vmware-azure-set-up-replication-tutorial-preview/target-properties.png)
+   ![Target properties](./media/vmware-azure-set-up-replication-tutorial-preview/target-properties.png)
 
 7. Next, you can select an existing Azure network or create a new target network to be used during failover. If you select **Create new**, you will be redirected to create virtual network context blade and asked to provide address space and subnet details. This network will be created in the target subscription and target resource group selected in the previous step.
 
@@ -114,7 +114,7 @@ Follow these steps to enable replication:
 9. Select the storage.
 
     - Cache storage account:
-      Now, choose the cache storage account which Azure Site Recovery uses for staging purposes – caching and storing logs before writing the changes on to the managed disks.
+      Now, select the cache storage account which Azure Site Recovery uses for staging purposes – caching and storing logs before writing the changes on to the managed disks.
 
       By default, a new LRS v1 type storage account will be created by Azure Site Recovery for the first enable replication operation in a vault. For the next operations, same cache storage account will be re-used.
     -  Managed disks
