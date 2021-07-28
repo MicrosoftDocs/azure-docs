@@ -84,7 +84,7 @@ In many cases, you'll need to audit the activities of your storage accounts for 
 
 A control plane operation is any Azure Resource Manager request to create a storage account or to update a property of an existing storage account. For more information, see [Azure Resource Manager](../../azure-resource-manager/management/overview.md). 
 
-A data plane operation is an operation on the data in a storage account that results from a request to the storage service endpoint. For example, a data plane operation is executed when you upload a blob to a storage account or download a blob from a storage account. For more information, see [Azure Storage API](https://docs.microsoft.com/rest/api/storageservices/). 
+A data plane operation is an operation on the data in a storage account that results from a request to the storage service endpoint. For example, a data plane operation is executed when you upload a blob to a storage account or download a blob from a storage account. For more information, see [Azure Storage API](/rest/api/storageservices/). 
 
 The section shows you how to identify the "when", "who", "what" and "how" information of control and data plane operations.
 
