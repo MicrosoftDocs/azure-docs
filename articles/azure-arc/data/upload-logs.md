@@ -216,6 +216,9 @@ With the environment variables set, you can upload logs to the log workspace.
 
 1. Export all logs to the specified file:
 
+> [!NOTE]
+> Exporting usage/billing information, metrics, and logs using the command `az arcdata dc export` requires bypassing SSL verification for now.  You will be prompted to bypass SSL verification or you can set the `AZDATA_VERIFY_SSL=no` environment variable to avoid prompting.  There is no way to configure an SSL certificate for the data controller export API currently.
+
    ```azurecli
    az arcdata dc export --type logs --path logs.json
    ```
