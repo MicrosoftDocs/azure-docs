@@ -413,7 +413,7 @@ The Azure Machine Learning many models solution with automated machine learning 
 
 The following diagram shows the workflow for the many models solution. 
 
-![many-models](./media/how-to-auto-train-forecast/many-models.svg)
+![Many models concept diagram](./media/how-to-auto-train-forecast/many-models.svg)
 
 The following code demonstrates the key parameters users need to setup their many models run.
  
@@ -423,11 +423,11 @@ In most applications, customers have a need to understand their forecasts at a m
 
 A hierarchical time series is a structure in which each of the unique series are arranged into a hierarchy based on dimensions such as, geography or product type. The following example shows data with unique attributes that form a hierarchy. Our hierarchy is defined by: the product type such as headphones or tablets, the product category which splits product types into accessories and devices, and the region the products are sold in. 
 
-![hierarchy-data-table](./media/how-to-auto-train-forecast/hierarchy-data-table.svg)
+![Example raw data table for hierarchical data](./media/how-to-auto-train-forecast/hierarchy-data-table.svg)
  
 To further visualize this, the leaf levels of the hierarchy contain all the time series with unique combinations of attribute values. Each higher level in the hierarchy considers one less dimension for defining the time series and aggregates each set of child nodes from the lower level into a parent node.
  
-![data-tree](./media/how-to-auto-train-forecast/data-tree.svg)
+![Hierarchy visual for data](./media/how-to-auto-train-forecast/data-tree.svg)
 
 The hierarchical time series solution is built on top of the Many Models Solution and share a similar configuration setup.
 
