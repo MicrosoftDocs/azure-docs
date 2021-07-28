@@ -106,7 +106,7 @@ Now that you've given the Purview Managed Identity permissions to connect to the
 
 ## Register and scan a cross-tenant Power BI (preview)
 
-In a cross-tenant scenario, you can use PowerShell to register and scan your Power Bi tenants, however, you can view, browse and search assets of remote tenant using Azure Purview Studio through the UI experience. 
+In a cross-tenant scenario, you can use PowerShell to register and scan your Power BI tenants, however, you can view, browse and search assets of remote tenant using Azure Purview Studio through the UI experience. 
 
 Consider using this guide if the Azure AD tenant where Power BI tenant is located, is different than the Azure AD tenant where your Azure Purview account is being provisioned. 
 Use the following steps to register and scan one or more Power BI tenants in Azure Purview in a cross-tenant scenario:
@@ -155,7 +155,7 @@ Use the following steps to register and scan one or more Power BI tenants in Azu
     
     Make sure you replace the parameters with correct information:
     <purview_tenant_id> is the Azure Active Directory tenant ID (GUID) where Azure Purview account is provisioned.
-    <client_id_to_delegate_the_pbi_admin> is the application id corresponding to your service principal
+    <client_id_to_delegate_the_pbi_admin> is the application ID corresponding to your service principal
    
    4. Sign-in using any non-admin account. This is required to provision your service principal in the foreign tenant.
 
@@ -173,7 +173,7 @@ Use the following steps to register and scan one or more Power BI tenants in Azu
     ```
 8. In Azure Purview subscription, locate your Purview account and using Azure RBAC roles, assign _Purview Data Source Administrator_ to the Service Principal and the Power BI user.
 
-10. To register the cross-tenant Power Bi tenant as a new data source inside Azure Purview account, update `service_principal_key` and execute the following cmdlets in the PowerShell session:
+10. To register the cross-tenant Power BI tenant as a new data source inside Azure Purview account, update `service_principal_key` and execute the following cmdlets in the PowerShell session:
 
     ```powershell
     Set-AzDataCatalogSessionSettings -DataCatalogSession -TenantId $azuretenantId -ServicePrincipalAuthentication -ServicePrincipalApplicationId $ServicePrincipalId -ServicePrincipalKey '<service_principal_key>' -Environment Production -DataCatalogAccountName $purviewaccount
@@ -190,8 +190,8 @@ Use the following steps to register and scan one or more Power BI tenants in Azu
     ```
 ### Known limitations
 
--   For cross-tenant scenario, no UX experience currently available to register and scan cross power bi tenant.
--   By Editing the Power BI cross tenant registered with Powershell using Purview Studio will tamper the data source registration with inconsistent scan behavior.
+-   For cross-tenant scenario, no UX experience currently available to register and scan cross Power BI tenant.
+-   By Editing the Power BI cross tenant registered with PowerShell using Purview Studio will tamper the data source registration with inconsistent scan behavior.
 
         
 ## Next steps
