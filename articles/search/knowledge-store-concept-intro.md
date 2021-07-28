@@ -18,10 +18,6 @@ If you have used cognitive skills in the past, you already know that *skillsets*
 
 Physically, a knowledge store is [Azure Storage](../storage/common/storage-account-overview.md), either Azure Table Storage, Azure Blob Storage, or both. Any tool or process that can connect to Azure Storage can consume the contents of a knowledge store.
 
-
-> [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3&start=235&end=426]
-
-
 ![Knowledge store in pipeline diagram](./media/knowledge-store-concept-intro/knowledge-store-concept-intro.svg "Knowledge store in pipeline diagram")
 
 ## Benefits of knowledge store
@@ -38,16 +34,13 @@ Enumerated, the benefits of knowledge store include the following:
 
 + Shape the data into new forms. The reshaping is codified in skillsets, but the point is that a skillset can now provide this capability. The [Shaper skill](cognitive-search-skill-shaper.md) in Azure Cognitive Search has been extended to accommodate this task. Reshaping allows you to define a projection that aligns with your intended use of the data while preserving relationships.
 
-> [!Note]
-> New to AI enrichment and cognitive skills? Azure Cognitive Search integrates with Cognitive Services Vision and Language features to extract and enrich source data using Optical Character Recognition (OCR) over image files, entity recognition and key phrase extraction from text files, and more. For more information, see [AI enrichment in Azure Cognitive Search](cognitive-search-concept-intro.md).
+> [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3]
 
 ## Physical storage
 
+Knowledge stores are created in your [Azure Storage account](../storage/common/storage-account-overview.md), using Azure Table Storage, Azure Blob Storage, or both. 
 
-> [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3&start=455&end=542]
-
-
-The physical expression of a knowledge store is articulated through the `projections` element of a `knowledgeStore` definition in a Skillset. The projection defines a structure of the output so that it matches your intended use.
+The data structures within Azure Storage are articulated through the `projections` element of a `knowledgeStore` definition in a Skillset. The projection defines a structure of the output so that it matches your intended use.
 
 Projections can be articulated as tables, objects, or files.
 
@@ -79,7 +72,7 @@ However, it is possible to create multiple sets of `table`-`object`-`file` proje
 
 ## Requirements 
 
-[Azure Storage](../storage/index.yml) is required. It provides physical storage. You can use Blob storage, Table storage or both. Blob storage is used for intact enriched documents, usually when the output is going to downstream processes. Table storage is for slices of enriched documents, commonly used for analysis and reporting.
+[Azure Storage](../storage/index.yml) is required. It provides physical storage. You can use Blob Storage, Table Storage or both. Blob Storage is used for intact enriched documents, usually when the output is going to downstream processes. Table Storage is for slices of enriched documents, commonly used for analysis and reporting.
 
 [Skillset](cognitive-search-working-with-skillsets.md) is required. It contains the `knowledgeStore` definition, and it determines the structure and composition of an enriched document. You cannot create a knowledge store using an empty skillset. You must have at least one skill in a skillset.
 
@@ -93,7 +86,7 @@ However, it is possible to create multiple sets of `table`-`object`-`file` proje
 
 + Indexers have schedules and other properties, such as change detection mechanisms provided by various data sources, can also be applied to a knowledge store. For example, you can [schedule](search-howto-schedule-indexers.md) enrichment at regular intervals to refresh the contents. 
 
-## How to create a knowledge store
+## Create a knowledge store
 
 To create knowledge store, use the portal or the REST API (`api-version=2020-06-30`).
 
@@ -117,7 +110,7 @@ The REST API is one mechanism by which you can create a knowledge store programm
 
 <a name="tools-and-apps"></a>
 
-## How to connect with tools and apps
+## Connect with apps
 
 Once the enrichments exist in storage, any tool or technology that connects to Azure Blob or Table Storage can be used to explore, analyze, or consume the contents. The following list is a start:
 
@@ -136,7 +129,6 @@ REST API version `2020-06-30` provides knowledge store through additional defini
 + [Create Skillset (api-version=2020-06-30)](/rest/api/searchservice/create-skillset)
 + [Update Skillset (api-version=2020-06-30)](/rest/api/searchservice/update-skillset)
 
-
 ## Next steps
 
 Knowledge store offers persistence of enriched documents, useful when designing a skillset, or the creation of new structures and content for consumption by any client applications capable of accessing an Azure Storage account.
@@ -146,12 +138,4 @@ The simplest approach for creating enriched documents is [through the portal](kn
 > [!div class="nextstepaction"]
 > [Create a knowledge store using Postman and REST](knowledge-store-create-rest.md)
 
-To learn more about projections, the capabilities and how you [define them in a skillset](knowledge-store-projection-overview.md)
-
-> [!div class="nextstepaction"]
-> [Projections in a knowledge store](knowledge-store-projection-overview.md)
-
-For a tutorial covering advanced projections concepts like slicing, inline shaping and relationships, start with [define projections in a knowledge store](knowledge-store-projections-examples.md)
-
-> [!div class="nextstepaction"]
-> [Define projections in a knowledge store](knowledge-store-projections-examples.md)
+An alternative step is taking a closer look at [projections]](knowledge-store-projection-overview.md). For a tutorial that demonstrated advanced projections concepts like slicing, inline shaping and relationships, start with [Projection patterns for analysis in Power BI).

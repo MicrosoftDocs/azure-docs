@@ -7,38 +7,40 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/28/2021
+ms.date: 07/30/2021
 ---
 
 <!-- HOTEL REVIEWS -->
 
-# Shape and export enrichments to a knowledge store
+# Define data structures in a knowledge store
 
-When enriching content in Azure Cognitive Search, you can send the output to a knowledge store in Azure Blob Storage. This article explains how to shape a projection to get the data structures you want in a knowledge store.
+When enriching content in Azure Cognitive Search, you can send the output to a [knowledge store](knowledge-store-concept-intro.md) in Azure Storage. This article explains how to shape a projection to get the data structures you want for analysis in Power BI or other knowledge mining apps.
 
-For content that targets a knowledge store, you will want to consider how the content is structured. *Projection* is the process of selecting the nodes from the enrichment tree and creating a physical expression of them in the knowledge store. Projections are custom shapes of the document (content and enrichments) that can be output as either table or object projections. To learn more about working with projections, see [working with projections](knowledge-store-projection-overview.md).
+*Projection* is the process of selecting the nodes from the enrichment tree and creating a physical expression of them in the knowledge store. Projections are custom shapes of the document (content and enrichments) that can be output as either table or object projections. 
+
+A projection is also an element in a skillset definition. How you set up a projection determines what goes into blobs, tables, and files in Azure Storage. For more information, see [working with projections](knowledge-store-projection-overview.md).
 
 ![Field mapping options](./media/cognitive-search-working-with-skillsets/field-mapping-options.png "Field mapping options for enrichment pipeline")
 
 ## Approaches for defining projections
 
-There are two ways to define a projection:
+There are two ways to shape enriched content to that it can be projected into a knowledge store:
 
-+ Use the Text Shaper skill to create a new node that is the root node for all the enrichments you are projecting. Then, in your projections, you would only reference the output of the Text Shaper skill.
++ Use the [Shaper skill](cognitive-search-skill-shaper) to create a new node that is the root node for all the enrichments you are projecting. Then, in your projections, you would only reference the output of the Shaper skill.
 
 + Use an inline shape a projection within the projection definition itself.
 
-Using the Text Shaper skill is more verbose than inline shaping, but ensures that all the mutations of the enrichment tree are contained within the skills and that the output is an object that can be reused. In contrast, inline shaping allows you to create the shape you need, but is an anonymous object and is only available to the projection for which it is defined.
+Using the Shaper skill is more verbose than inline shaping, but ensures that all the mutations of the enrichment tree are contained within the skills and that the output is an object that can be reused. In contrast, inline shaping allows you to create the shape you need, but is an anonymous object and is only available to the projection for which it is defined.
 
 The approaches can be used together or separately. In this article, a skillset example shows both approaches, using a shaper skill for the table projections, and inline shaping to project the key phrases table.
 
-## Use Text Shaper
+## Use a Shaper skill
 
 <!-- INTRO - TBD -->
 
 ### SourceContext
 
-Within a Text Shaper skill, an input can have a `sourceContext` element that is used only in skill inputs and projections. It is used to construct multi-level, nested objects. You may need to create a new object to either pass it as an input to a skill or project into the knowledge store. As enrichment nodes may not be a valid JSON object in the enrichment tree and referencing a node in the tree only returns that state of the node when it was created, using the enrichments as skill inputs or projections requires you to create a well formed JSON object. The `sourceContext` enables you to construct a hierarchical, anonymous type object, which would require multiple skills if you were only using the context. 
+Within a Shaper skill, an input can have a `sourceContext` element that is used only in skill inputs and projections. It is used to construct multi-level, nested objects. You may need to create a new object to either pass it as an input to a skill or project into the knowledge store. As enrichment nodes may not be a valid JSON object in the enrichment tree and referencing a node in the tree only returns that state of the node when it was created, using the enrichments as skill inputs or projections requires you to create a well formed JSON object. The `sourceContext` enables you to construct a hierarchical, anonymous type object, which would require multiple skills if you were only using the context. 
 
 Using `sourceContext` is shown in the following examples. Look at the skill output that generated an enrichment to determine if it is a valid JSON object and not a primitive type.
 

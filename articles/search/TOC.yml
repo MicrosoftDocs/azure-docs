@@ -394,15 +394,15 @@
         href: cognitive-search-tutorial-aml-designer-custom-skill.md
     - name: Knowledge store
       items:
-      - name: Create using REST and Postman
+      - name: Create using REST
         href: knowledge-store-create-rest.md
+      - name: Define projections
+        href: knowledge-store-define-projections.md
       - name: View with Storage Explorer
         href: knowledge-store-view-storage-explorer.md
       - name: Connect with Power BI
         href: knowledge-store-connect-power-bi.md 
-      - name: Define projections
-        href: knowledge-store-define-projections.md
-      - name: Projection patterns
+      - name: Projection patterns for Power BI
         href: knowledge-store-projections-examples.md  
   - name: Queries
     items:
