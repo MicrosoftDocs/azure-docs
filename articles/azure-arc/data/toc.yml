@@ -212,8 +212,8 @@
       href: ./reference/reference-az-arcdata-dc-endpoint.md
     - name: arcdata dc status
       href: ./reference/reference-az-arcdata-dc-status.md
-    - name: arcdata dc resource-kind
-      href: ./reference/reference-az-arcdata-dc-resource-kind.md
+    - name: arcdata resource kind
+      href: ./reference/reference-az-arcdata-resource-kind.md
     - name: postgres arc server
       href: ./reference/reference-az-postgres-arc-server.md
     - name: postgres arc server endpoint
