@@ -33,7 +33,7 @@ The NVv4-series virtual machines are powered by AMD Radeon Instinct MI25 GPU
 |Standard_NV12 <br> Standard_NV12_Promo |Standard_NV32as_v4  | vCPU: 32 (+20) <br>Memory: GiB 112 <br>Temp Storage (SSD) GiB: 704 (+24) <br>Max data disks: 32 (+16)<br>Accelerated Networking: Yes <br>Premium Storage: Yes   |
 |Standard_NV24 <br> Standard_NV24_Promo |N/A  | N/A  |
 
-#Migration Steps 
+# Migration Steps 
  
 
 General Changes 
