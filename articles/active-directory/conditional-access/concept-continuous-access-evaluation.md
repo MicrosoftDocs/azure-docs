@@ -139,13 +139,18 @@ In the following example, a Conditional Access administrator has configured a lo
 
 From this page, you can optionally limit the users and groups that will be subject to the preview.
 
-> [!WARNING]
-> To disable continuous access evaluation please select **Enable preview** then **Disable preview** and select **Save**.
-
 > [!NOTE]
->You can query the Microsoft Graph via [**continuousAccessEvaluationPolicy**](/graph/api/continuousaccessevaluationpolicy-get?view=graph-rest-beta&tabs=http#request-body) to verify the configuration of CAE in your tenant. An HTTP 200 response and associated response body indicate whether CAE is enabled or disabled in your tenant. CAE is not configured if Microsoft Graph returns an HTTP 404 response.
+> You can query the Microsoft Graph via [**continuousAccessEvaluationPolicy**](/graph/api/continuousaccessevaluationpolicy-get?view=graph-rest-beta&tabs=http#request-body) to verify the configuration of CAE in your tenant. An HTTP 200 response and associated response body indicate whether CAE is enabled or disabled in your tenant. CAE is not configured if Microsoft Graph returns an HTTP 404 response.
 
 ![Enabling the CAE preview in the Azure portal](./media/concept-continuous-access-evaluation/enable-cae-preview.png)
+
+### Available options
+
+Organizations have options when it comes to enabling CAE.
+
+1. Leaving the default selected **Auto Enable after general availability** enables the functionality when CAE is generally available.
+1. Customers who select **Enable preview** immediately benefit from the new functionality and won't have to make any changes at general availability. 
+1. Customers who select **Disable preview** have time to adopt CAE at their organization's own pace. This setting will persist as **Disabled** at general availability.
 
 ## Limitations
 
