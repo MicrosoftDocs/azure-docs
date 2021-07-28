@@ -153,7 +153,7 @@ To reduce potential confusion when configuring logging for multiple instances, i
 public static void EnableSpeechSdkFileLogging(string path)
 {
     var configForLogging = SpeechConfig.FromSubscription("unused_key", "unused_region");
-    configForLogging.SetProperty("SPEECH-LogFilename", path);
+    configForLogging.SetProperty(PropertyId.Speech_LogFilename, path);
     using (var momentaryRecognizerForLoggingConfiguration = new SpeechRecognizer(configForLogging))
     {
     }
