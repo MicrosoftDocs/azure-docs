@@ -19,10 +19,10 @@ You will need permission to create an Azure VM in your school's Azure subscripti
 
 1. If you need to create a generalized image, follow the steps outlined in [Step 1: Deprovision the VM](../virtual-machines/linux/capture-image.md#step-1-deprovision-the-vm).  When you use the **-deprovision+user** command, this generalizes the image.  However, it does not guarantee that the image is cleared of all sensitive information or that it is suitable for redistribution.
 
-Otherwise, if you're creating a specialized image, you can skip this step to deprovision the VM.
+    Otherwise, if you're creating a specialized image, you can skip this step to deprovision the VM.
 
-> [!IMPORTANT]
-> You should create a specialized image if you want to maintain machine-specific information and user profiles.  For more information about the differences between generalized and specialized images, see [Generalized and specialized images](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images).
+    > [!IMPORTANT]
+    > You should create a specialized image if you want to maintain machine-specific information and user profiles.  For more information about the differences between generalized and specialized images, see [Generalized and specialized images](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images).
 
 1. In shared image gallery, [create an image definition](../virtual-machines/windows/shared-images-portal.md#create-an-image-definition) or choose an existing image definition.
      - Choose **Gen 1** for the **VM generation**.
