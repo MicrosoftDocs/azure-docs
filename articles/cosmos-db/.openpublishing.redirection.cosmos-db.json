@@ -1511,6 +1511,136 @@
     "redirect_document_id": true
   },
   {
+    "source_path_from_root": "/articles/cosmos-db/cli-samples-table.md",
+    "redirect_url": "/azure/cosmos-db/table/cli-samples",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/create-table-dotnet.md",
+    "redirect_url": "/azure/cosmos-db/table/create-table-dotnet",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/create-table-java.md",
+    "redirect_url": "/azure/cosmos-db/table/create-table-java",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/create-table-nodejs.md",
+    "redirect_url": "/azure/cosmos-db/table/create-table-nodejs",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/find-request-unit-charge-table.md",
+    "redirect_url": "/azure/cosmos-db/table/find-request-unit-charge",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/how-to-create-container-table.md",
+    "redirect_url": "/azure/cosmos-db/table/how-to-create-container",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/table-storage-how-to-use-c-plus.md",
+    "redirect_url": "/azure/cosmos-db/table/how-to-use-c-plus",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/table-storage-how-to-use-java.md",
+    "redirect_url": "/azure/cosmos-db/table/how-to-use-java",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/table-storage-how-to-use-nodejs.md",
+    "redirect_url": "/azure/cosmos-db/table/how-to-use-nodejs",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/table-storage-how-to-use-php.md",
+    "redirect_url": "/azure/cosmos-db/table/how-to-use-php",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/table-storage-how-to-use-python.md",
+    "redirect_url": "/azure/cosmos-db/table/how-to-use-python",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/table-storage-how-to-use-ruby.md",
+    "redirect_url": "/azure/cosmos-db/table/how-to-use-ruby",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/powershell-samples-table.md",
+    "redirect_url": "/azure/cosmos-db/table/powershell-samples",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/table-api-faq.yml",
+    "redirect_url": "/azure/cosmos-db/table/table-api-faq",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/table-import.md",
+    "redirect_url": "/azure/cosmos-db/table/table-import",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/table-introduction.md",
+    "redirect_url": "/azure/cosmos-db/table/introduction",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/table-sdk-dotnet-standard.md",
+    "redirect_url": "/azure/cosmos-db/table/dotnet-standard-sdk",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/table-sdk-dotnet.md",
+    "redirect_url": "/azure/cosmos-db/table/dotnet-sdk",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/table-sdk-java.md",
+    "redirect_url": "/azure/cosmos-db/table/java-sdk",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/table-sdk-nodejs.md",
+    "redirect_url": "/azure/cosmos-db/table/nodejs-sdk",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/table-sdk-python.md",
+    "redirect_url": "/azure/cosmos-db/table/python-sdk",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/table-support.md",
+    "redirect_url": "/azure/cosmos-db/table/table-support",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/templates-samples-table.md",
+    "redirect_url": "/azure/cosmos-db/table/resource-manager-templates",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/tutorial-develop-table-dotnet.md",
+    "redirect_url": "/azure/cosmos-db/table/tutorial-develop-table-dotnet",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/tutorial-global-distribution-table.md",
+    "redirect_url": "/azure/cosmos-db/table/tutorial-global-distribution-table",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/tutorial-query-table.md",
+    "redirect_url": "/azure/cosmos-db/table/tutorial-query-table",
+    "redirect_document_id": true
+  },
+  {
     "source_path_from_root": "/articles/cosmos-db/tutorial-functions-http-trigger.md",
     "redirect_url": "/azure/azure-functions/functions-bindings-cosmosdb",
     "redirect_document_id": false
