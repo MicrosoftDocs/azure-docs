@@ -71,7 +71,7 @@ For example, if you use Visual Studio Code as your local development tool to run
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Name** | Yes | The name for the parameter to create. |
-   | **Type** | Yes | The data type for the parameter, such as **Array**, **Bool**, **Float**, **Int**, **Object**, and **String**. <p><p>**Note**: Secure data types, such as `securestring` and `secureobject` aren't supported. |
+   | **Type** | Yes | The data type for the parameter, such as **Array**, **Bool**, **Float**, **Int**, **Object**, and **String**. <p><p>**Note**: In single-tenant based workflows, secure data types, such as `securestring` and `secureobject` aren't supported. |
    | **Value** | Yes | The value for the parameter. <p><p>In single-tenant Azure Logic Apps, you have to specify the parameter value because the the workflow logic, connection information, and parameter values don't exist in a single location. The designer must be able to resolve parameter value before loading. |
    |||
 
