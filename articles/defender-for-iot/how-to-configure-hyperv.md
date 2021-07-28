@@ -83,3 +83,64 @@ These steps can be performed through Windows PowerShell, or through Hyper-V Mana
 1.	In the Port Mirroring section, select Destination as the Mirroring mode for the new virtual interface.
 
     :::image type="content" source="organizations/media/how-to-configure-hyperv/destination.png" alt-text="Screenshot of the selections needed to configure mirroring mode.":::
+
+## Enable Microsoft NDIS Capture Extensions for the Virtual Switch
+
+**To enable Microsoft NDIS Capture Extensions for the newly added virtual switch**:
+
+1.	Open the Virtual Switch Manager on the Hyper-V host.
+1.	In the Virtual Switches list, expand the virtual switch name vSwitch_Span and select **Extensions**.
+1.	In the Switch Extensions field, select **Microsoft NDIS Capture**.
+
+    :::image type="content" source="organizations/media/how-to-configure-hyperv/microsoft-ndis.png" alt-text="enable the Microsoft NDIS by selecting it from the switch extensions menu.":::
+
+1. Select **OK**.
+
+## Set the Mirroring Mode on the external port
+
+Set the mirroring mode on the external port of the new virtual switch to be the source.
+
+The Hyper-V virtual switch (vSwitch_Span) must be configured so that any traffic that comes to the external source port is forwarded to the virtual network adapter that you configured as the destination.
+
+Use the following PowerShell commands to set the external virtual switch port to source mirror mode:
+
+```bash
+$ExtPortFeature=Get-VMSystemSwitchExtensionPortFeature -FeatureName "Ethernet Switch Port Security Settings"
+
+$ExtPortFeature.SettingData.MonitorMode=2
+
+Add-VMSwitchExtensionPortFeature -ExternalPort -SwitchName vSwitch_Span -VMSwitchExtensionFeature $ExtPortFeature
+```
+
+| Parameter | Description |
+| -- | -- |
+| vSwitch_Span | Newly added SPAN virtual switch name. |
+| MonitorMode=2 | Source |
+| MonitorMode=1 | Destination |
+| MonitorMode=0 | None |
+
+Use the following PowerShell command to verify the monitoring mode status:
+
+```bash
+Get-VMSwitchExtensionPortFeature -FeatureName "Ethernet Switch Port Security Settings" -SwitchName vSwitch_Span -ExternalPort | select -ExpandProperty SettingData
+```
+
+| Parameter | Description |
+| -- | -- |
+| vSwitch_Span | Newly added SPAN virtual switch name |
+
+## Set the Local SPAN in a Cisco Switch
+
+Use the following commands to set the local span on a Cisco switch where you plan to test SPAN:
+
+- Add the source:
+
+    ```bash
+    monitor session 1 source interface gigabitEthernet 1/0/1 both
+    ```
+
+- Add the destination:
+
+    ```bash
+    monitor session 1 destination interface gigabitEthernet 1/0/11
+    ```
