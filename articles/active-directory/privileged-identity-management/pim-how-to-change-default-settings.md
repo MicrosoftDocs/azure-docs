@@ -11,11 +11,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-<<<<<<< HEAD
-ms.date: 06/30/2021
-=======
 ms.date: 07/14/2021
->>>>>>> f1ee86041b8d6a252e34753e67518bad30c59d3c
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
