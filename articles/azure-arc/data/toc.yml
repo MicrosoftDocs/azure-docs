@@ -204,27 +204,25 @@
       href: ./reference/overview.md
     - name: arcdata dc
       href: ./reference/reference-az-arcdata-dc.md
-    - name: arcdata dc debug
+    - name: arcdata dc config
       href: ./reference/reference-az-arcdata-dc-config.md
-    - name: arcdata dc debug
-      href: ./reference/reference-az-arcdata-dc-debug.md
     - name: arcdata dc endpoint
       href: ./reference/reference-az-arcdata-dc-endpoint.md
     - name: arcdata dc status
       href: ./reference/reference-az-arcdata-dc-status.md
-    - name: arcdata resource kind
+    - name: arcdata resource-kind
       href: ./reference/reference-az-arcdata-resource-kind.md
-    - name: postgres arc server
+    - name: postgres arc-server
       href: ./reference/reference-az-postgres-arc-server.md
-    - name: postgres arc server endpoint
+    - name: postgres arc-server endpoint
       href: ./reference/reference-az-postgres-arc-server-endpoint.md
-    - name: sql mi arc
+    - name: sql mi-arc
       href: ./reference/reference-az-sql-mi-arc.md
-    - name: sql mi arc endpoint
+    - name: sql mi-arc endpoint
       href: ./reference/reference-az-sql-mi-arc-endpoint.md
-    - name: sql mi arc config
+    - name: sql mi-arc config
       href: ./reference/reference-az-sql-mi-arc-config.md
-    - name: sql mi arc dag
+    - name: sql mi-arc dag
       href: ./reference/reference-az-sql-mi-arc-dag.md
 - name: Resources
   items:
