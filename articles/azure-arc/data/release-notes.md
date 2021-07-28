@@ -95,6 +95,14 @@ The current release announces general availability for the following services:
 
 #### Data controller
 
+- If you deploy the data controller on Azure Stack HCI with AKS-HCI, it fails due to a permission error. This is caused due to the way Kubernetes v1.19 and higher CSI drivers in AKS-HCI are configured without a `fsType` value. To fix this, configure the CSI on Azure stack HCI AKS-HCI by creating a custom storage class with the `fstype` as
+
+```json
+fsType: ext4
+```
+
+Use this type to deploy the data controller. See the complete instructions at [Create a custom storage class for an AKS on Azure Stack HCI disk]/azure-stack/aks-hci/container-storage-interface-disks#create-a-custom-storage-class-for-an-aks-on-azure-stack-hci-disk).
+
 - When Azure Arc data controller is deleted from Azure portal, validation is done block the delete if there any Azure Arc enabled SQL managed instances deployed on this Arc data controller. Currently, this validation is applied only when the delete is performed from the Overview page of the Azure Arc data controller. 
 
 #### Azure Arc-enabled PostgreSQL Hyperscale
