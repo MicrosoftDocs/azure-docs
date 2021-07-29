@@ -146,7 +146,7 @@ If file upload notifications are enabled on your IoT hub, IoT Hub generates a no
 IoT Hub delivers file upload notifications through a service-facing endpoint. The receive semantics for file upload notifications are the same as for cloud-to-device messages and have the same [message life cycle](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-life-cycle). The service SDKs expose APIs to handle file upload notifications. 
 
 **Supported protocols** AMQP, AMQP-WS
-**Endpoint**: `/messages/servicebound/fileuploadnotifications`
+**Endpoint**: `{iot hub}.azure-devices.net/messages/servicebound/fileuploadnotifications`
 
 Each message retrieved from the file upload notification endpoint is a JSON record with the following properties:
 
