@@ -406,7 +406,7 @@ http {
 
 #### Create a new sample labeling tool project
 
-* Open the labeling tool but double-clicking on the sample labeling tool .exe file.
+* Open the labeling tool by double-clicking on the sample labeling tool .exe file.
 * On the left pane of the tool, select the connections tab.
 * Select to create a new project and give it a name and description.
 * For the provider, choose the local file system option. For the local folder, make sure you enter the path to the folder where you stored the sample data files.

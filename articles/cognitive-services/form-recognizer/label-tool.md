@@ -64,7 +64,7 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
     |:--|:--|:--|
     |Sample labeling tool|2 core, 4-GB memory|4 core, 8-GB memory|
 
-   Install Docker on your machine by following the appropriate instructions for your operating system:
+    Install Docker on your machine by following the appropriate instructions for your operating system:
 
    * [Windows](https://docs.docker.com/docker-for-windows/)
    * [macOS](https://docs.docker.com/docker-for-mac/)
@@ -72,16 +72,15 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
 
 1. Get the sample labeling tool container with the `docker pull` command.
 
-```console
- docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-2.1
-```
+    ```console
+     docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-2.1
+    ```
 
-</br>
-  3. Now you're ready to run the container with `docker run`.
+1. Now you're ready to run the container with `docker run`.
 
-```console
- docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-2.1 eula=accept
-```
+    ```console
+     docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-2.1 eula=accept
+    ```
 
    This command will make the sample labeling tool available through a web browser. Go to `http://localhost:3000`.
 

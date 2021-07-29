@@ -106,7 +106,7 @@ Pre-Built Receipt and Business Cards support all English receipts and business c
 
 |Language| Locale code |
 |:-----|:----:|
-|English (Austrialia)|`en-au`|
+|English (Australia)|`en-au`|
 |English (Canada)|`en-ca`|
 |English (United Kingdom)|`en-gb`|
 |English (India|`en-in`|

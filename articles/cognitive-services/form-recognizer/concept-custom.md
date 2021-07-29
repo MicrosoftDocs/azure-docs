@@ -21,7 +21,7 @@ Form Recognizer uses advanced machine learning technology to detect and extract 
 
 * **Composed models**. A composed model is created by taking a collection of custom models and assigning them to a single model that encompasses your form types. When a document is submitted to a composed model, the service performs a classification step to decide which custom model accurately represents the form presented for analysis.
 
-* **Prebuilt models**. Form Recognizer currently supports prebuilt models for [business cards](concept-business-cards.md), [layout](concept-layout.md), [identity documents](concept-identification-cards.md), [invoices](concept-invoices.md), and [receipts](concept-receipts.md). 
+* **Prebuilt models**. Form Recognizer currently supports prebuilt models for [business cards](concept-business-cards.md), [layout](concept-layout.md), [identity documents](concept-identification-cards.md), [invoices](concept-invoices.md), and [receipts](concept-receipts.md).
 
 In this article, we'll examine the process for creating Form Recognizer custom and composed models using our [Form Recognizer sample labeling tool](label-tool.md), [REST APIs](quickstarts/client-library.md?branch=main&pivots=programming-language-rest-api#train-a-custom-model), or [client-library SDKs](quickstarts/client-library.md?branch=main&pivots=programming-language-csharp#train-a-custom-model).
 
@@ -84,7 +84,7 @@ Once the training process has successfully completed, your custom model will be 
 
 When you train models using the [**Form Recognizer sample labeling tool**](https://fott-2-1.azurewebsites.net/), the model ID is located in the Train Result window:
 
-:::image type="content" source="media/fott-training-results.png" alt-text="{alt-text}":::
+:::image type="content" source="media/fott-training-results.png" alt-text="Screenshot: training results window.":::
 
 ### [**REST API**](#tab/rest-api)
 
@@ -116,14 +116,17 @@ The **sample labeling tool** enables you to quickly get started training models 
 
 After you have completed training, compose your models as follows:
 
-* Select the Model Compose (merging arrow) icon on the left rail menu. 
-* in the main window, select the models you wish to assign to a single model ID. Models with the arrows icon are already composed models.
-* Choose the **Compose button** from the upper-left corner. 
-* In the pop-up window, name your newly composed model and select **Compose**. 
+1. On the left rail menu, select the **Model Compose icon**  (merging arrow).
+
+1. In the main window, select the models you wish to assign to a single model ID. Models with the arrows icon are already composed models.
+
+1. Choose the **Compose button** from the upper-left corner.
+
+1. In the pop-up window, name your newly composed model and select **Compose**.
 
 When the operation completes, your newly composed model will appear in the list.
 
-  :::image type="content" source="media/custom-model-compose.png" alt-text="Model compose UX view.":::
+  :::image type="content" source="media/custom-model-compose.png" alt-text="Screenshot: model compose window." lightbox="media/custom-model-compose-expanded.png":::
 
 ### [**REST API**](#tab/rest-api)
 
@@ -143,19 +146,19 @@ Use the programming language code of your choice to create a composed model that
 
 ---
 
-## Analyze documents with your custom or composed model 
+## Analyze documents with your custom or composed model
 
  The custom form **Analyze**operation requires you to provide the `modelID`  in the call to Form Recognizer . You can provide a single custom model ID or a composed model ID for the `modelID` parameter.
 
 ### [**Form Recognizer sample labeling tool**](#tab/fott)
 
-* In the Form Recognizer sample tool window, on the left-pane menu, select the Analyze icon (lightbulb).
+1. On the tool's left-pane menu, select the **Analyze icon** (lightbulb).
 
-* Choose a local file or  image URL to analyze.
+1. Choose a local file or  image URL to analyze.
 
-* Select the **Run Analysis** button.
+1. Select the **Run Analysis** button.
 
-* The tool will apply tags in bounding boxes and report the confidence percentage for each tag.
+1. The tool will apply tags in bounding boxes and report the confidence percentage for each tag.
 
 :::image type="content" source="media/analyze.png" alt-text="Screenshot: Form Recognizer tool analyze-a-custom-form window.":::
 
