@@ -56940,11 +56940,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/partner-twilio-nodejs-how-to-use-voice-sms.md",
-      "redirect_url": "https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/partner-twilio-php-how-to-use-voice-sms.md",
       "redirect_url": "https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp",
       "redirect_document_id": false
@@ -56955,12 +56950,17 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/partner-twilio-python-how-to-use-voice-sms.md",
+      "redirect_url": "https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/partner-twilio-ruby-how-to-use-voice-sms.md",
       "redirect_url": "https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/store-sendgrid-java-how-to-send-email-example.md",
+      "source_path_from_root": "/articles/sendgrid-dotnet-how-to-send-email.md",
       "redirect_url": "https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-account",
       "redirect_document_id": false
     },
