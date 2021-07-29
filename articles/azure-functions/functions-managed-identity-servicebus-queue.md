@@ -6,7 +6,7 @@ ms.date: 3/13/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Configuring a Secretless Service Bus Queue Trigger with Identity-Based Connections
+# Tutorial: Configuring a Secretless Service Bus Queue Trigger with Identity-Based Connections
 
 This article shows you how to configure a secretless service bus queue trigger to use managed identities instead of secrets. To learn more about identity-based connections, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
 

@@ -8,7 +8,7 @@ ms.date: 7/26/2021
 
 # Tutorial: Creating a secretless function app with identity-based Connections
 
-This article shows you how to configure a secretless function app using identity-based connections instead of connection strings. To learn more about identity-based connections, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
+This article shows you how to configure a secretless function app using identity-based connections instead of connection strings. To learn more about identity-based connections, see [configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
 
 In this tutorial, you'll:
 > [!div class="checklist"]
@@ -20,7 +20,7 @@ In this tutorial, you'll:
 
 ## Create a Function App without Azure Files
 
-Azure Files currently doesn't support managed identity for SMB file shares, so you'll create a function app and configure it without Azure Files. For more information on apps without Azure Files, refer [here](./storage-considerations.md#create-an-app-without-azure-files) 
+You'll create a function app and configure it without Azure Files as Azure Files currently doesn't support managed identity for SMB file shares. For more information on apps without Azure Files, refer [here](./storage-considerations.md#create-an-app-without-azure-files) 
 
 > [!Note]
 > Do not create the Function App until you have edited the ARM template as specified by the steps in this section.
@@ -45,7 +45,7 @@ Azure Files currently doesn't support managed identity for SMB file shares, so y
     | Setting      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
     | **[Storage account](../storage/common/storage-account-create.md)** |  Globally unique name |  Create a storage account used by your function app. Storage account names must be between 3 and 24 characters long. They may contain numbers and lowercase letters only. You can also use an existing account, which must meet the [storage account requirements](./storage-considerations.md#storage-account-requirements). |
-    |**Operating system**| Windows | This tutorial uses Windows. |
+    |**Operating system**| Windows | The operating system for your function app. |
     | **[Plan](./functions-scale.md)** | Consumption (Serverless) | Hosting plan that defines how resources are allocated to your function app. |
 
 1. Select **Next: Monitoring**. On the **Monitoring** page, enter the following settings.
@@ -64,20 +64,21 @@ Azure Files currently doesn't support managed identity for SMB file shares, so y
 1. Select **Edit template**.
     :::image type="content" source="./media/functions-secretless-tutorial/2-function-edit-template.png" alt-text="Screenshot of how to edit a template for Function creation.":::
 
-1. In the editor, remove the WEBSITE_CONTENTAZUREFILECONNECTIONSTRING and WEBSITE_CONTENTSHARE app settings, lines 82-89 in the below image.
+1. In the editor, remove the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` and `WEBSITE_CONTENTSHARE` app settings, lines `82-89` in the below image.
     :::image type="content" source="./media/functions-secretless-tutorial/3-function-remove-app-settings.png" alt-text="Screenshot of which settings to remove for Azure Files secretless.":::
 
 1. Select **Save** to save the updated ARM template without Azure Files.
 
-1. On the **Review + create** page, verify your configuration. You may need to update some settings such as the **Resource Group**. Then, select **Create** to provision and deploy the function app.
+1. On the **Review + create** page, verify your configuration. You may need to update some settings such as the **Resource Group**. Then, select **Create** to provision and deploy the function app. 
 
-1. If you access your function app once created, you will get a warning about Storage not being configured properly. This is expected as you have removed Azure Files. Later in this tutorial, you will set up run-from-package which will remove the warning.
+    > [!NOTE]
+    >If you access your function app once created, you will get a warning about Storage not being configured properly. This is expected as you have removed Azure Files. Later in this tutorial, you will set up run-from-package which will remove the warning.
 
 1. Congratulations! You've successfully created your function app without Azure Files.
 
 ## Enable Managed Identity
 
-To make your function app secretless, you will need to enable managed identity. This tutorial uses the system assigned identity. To learn more about managed identities refer [here](../app-service/overview-managed-identity.md). 
+To make your function app secretless, you will need to enable managed identities. This tutorial uses the system assigned identity. To learn more about managed identities refer [here](../app-service/overview-managed-identity.md). 
 
 1. In your function app, in the left menu, select **Identity**.
     :::image type="content" source="./media/functions-secretless-tutorial/4-add-system-assigned-id.png" alt-text="Screenshot how to add a system assigned identity.":::
@@ -104,7 +105,7 @@ To make your function app secretless, you will need to enable managed identity. 
 
 1. Select **Save**.
 
-1. Congratulations! You have created a System assigned Storage Blob Data Owner role! This will allow you to use managed identity to pull packages from the blob account, so when you configure run-from-package, you won't need to use a SAS. 
+1. Congratulations! You have created a System assigned Storage Blob Data Owner role! This will allow you to use managed identity to pull packages from the blob account, so when you configure run-from-package, you won't need to use a shared access signature (SAS) key. 
 
 ## Deploy a function using Run From Package
 
@@ -193,7 +194,7 @@ There's one more key-like setting in your Function App, and that’s your App In
 
 Step-by-step tutorials:
 
-    | Trigger     | Tutorial  |
+    | Trigger      | Tutorial  |
     | ------------ | ---------------- |
     | **Storage Queue Trigger** |  [Storage Queue Trigger tutorial](./functions-managed-identity-storage-queue.md) |
     | **Service Bus Queue Trigger** |  [Service Bus Trigger tutorial](./functions-managed-identity-servicebus-queue.md) |
@@ -211,6 +212,11 @@ You can follow similar steps for Event Hubs and Blob trigger. Event Hubs follows
 ## Next steps 
 
 In this tutorial, you created a function app with identity-based connections.
+
+For further tutorials on identity-based connections, use the following links:
+- [Access Application Insights Secrets Using Key Vault](./functions-managed-identity-key-vault.md)
+- [Creating a Secretless Storage Queue Trigger with Identity-Based Connections](./functions-managed-identity-storage-queue.md)
+- [Configuring a Secretless Service Bus Queue Trigger with Identity-Based Connections](./functions-managed-identity-servicebus-queue.md)
 
 Use the following links to learn more Azure Functions with identity-based connections:
 
