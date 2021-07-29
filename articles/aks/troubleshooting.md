@@ -88,6 +88,20 @@ Ensure ports 22, 9000 and 1194 are open to connect to the API server. Check whet
 
 The minimum supported TLS version in AKS is TLS 1.2.
 
+## My application is failing with `argument list too long`
+
+The exact error message will look something like:
+
+```
+standard_init_linux.go:228: exec user process caused: argument list too long
+```
+
+There are two potential causes here, either:
+- the argument list provided to the executable is too long, or
+- the set of environment variables provided to the executable is too big
+
+If you have many Services deployed in one namespace, it can cause the environment variable list to become too large, and will produce the above error message when Kubelet tries to run the executable. The cause of this is that, by default, Kubelet will inject environment variables recording the host and port for each active Service, so that Services can use this information to locate one another (read more about this [in the Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service)). To work around this problem, you can disable this Kubelet behaviour by setting `enableServiceLinks: false` inside your [Pod spec](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#podspec-v1-core). **However**, if your service relies on these environment variables to locate other Services, then this will cause it to fail. Ultimately, fixing the issue may require reworking the service to use DNS for service resolution rather than environment varialbles (using [CoreDNS](https://kubernetes.io/docs/tasks/administer-cluster/coredns/)). Another option is to reduce the number of Services that are active.
+
 ## I'm trying to upgrade or scale and am getting a `"Changing property 'imageReference' is not allowed"` error. How do I fix this problem?
 
 You might be getting this error because you've modified the tags in the agent nodes inside the AKS cluster. Modify or delete tags and other properties of resources in the MC_* resource group can lead to unexpected results. Altering the resources under the MC_* group in the AKS cluster breaks the service-level objective (SLO).
