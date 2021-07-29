@@ -133,7 +133,7 @@ This workbook helps you to visualize the source of your data without having to b
 - Billable data ingested by Container logs(application logs)
 - Billable container logs data ingested per by Kubernetes namespace
 - Billable container logs data ingested segregated by Cluster name
-- Billable container log data ingested by logsource entry
+- Billable container log data ingested by log source entry
 - Billable diagnostic data ingested by diagnostic master node logs
 
 [![Data usage workbook](media/container-insights-cost/data-usage-workbook.png)](media/container-insights-cost/data-usage-workbook.png#lightbox)

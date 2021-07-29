@@ -17,11 +17,11 @@ The following table lists the platform metrics collected for AKS.  Follow each l
 
 |Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
-| Managed Clusters | [Microsoft.ContainerService/managedClusters](/azure/azure-monitor/essentials/metrics-supported#microsoftcontainerservicemanagedclusters)
-| Connected Clusters | [microsoft.kubernetes/connectedClusters](/azure/azure-monitor/essentials/metrics-supported#microsoftkubernetesconnectedclusters)
-| Virtual Machines| [Microsoft.Compute/virtualMachines](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachines) |
-| Virtual Machine ScaleSets | [Microsoft.Compute/virtualMachineScaleSets](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesets)|
-| Virtual Machine ScaleSets Virtual Machines | [Microsoft.Compute/virtualMachineScaleSets/virtualMachines](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesetsvirtualmachines)|
+| Managed clusters | [Microsoft.ContainerService/managedClusters](/azure/azure-monitor/essentials/metrics-supported#microsoftcontainerservicemanagedclusters)
+| Connected clusters | [microsoft.kubernetes/connectedClusters](/azure/azure-monitor/essentials/metrics-supported#microsoftkubernetesconnectedclusters)
+| Virtual machines| [Microsoft.Compute/virtualMachines](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachines) |
+| Virtual machine scale sets | [Microsoft.Compute/virtualMachineScaleSets](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesets)|
+| Virtual Machine scale sets virtual machines | [Microsoft.Compute/virtualMachineScaleSets/virtualMachines](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesetsvirtualmachines)|
 
 For more information, see a list of [all platform metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
