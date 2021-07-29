@@ -127,7 +127,7 @@ You can now send the risky users and risk detections logs to Azure Monitor, Stor
  
 ---
 
-### General availability - Application Proxy API addition for backend SSL certificate validation
+### Public Preview - Application Proxy API addition for backend SSL certificate validation
 
 **Type:** New feature  
 **Service category:** App Proxy  
@@ -200,16 +200,6 @@ The Register or join devices user action in Conditional access is now in general
 
 Currently, this user action only allows you to enable MFA as a control when users register or join devices to Azure AD. Other controls that are dependent on or not applicable to Azure AD device registration continue to be disabled with this user action. [Learn more](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions). 
 
----
-
-### General Availability - Non-interactive risky sign-ins
-
-**Type:** Changed feature  
-**Service category:** Identity Protection  
-**Product capability:** Identity Security & Protection
- 
-Identity Protection now emits risky sign-ins on non-interactive sign-ins. Admins can find these risky sign-ins using the "sign-in type" filter in the risky sign-ins report. [Learn more](../identity-protection/howto-identity-protection-investigate-risk.md).
- 
 ---
 
 ### New provisioning connectors in the Azure AD Application Gallery - July 2021
