@@ -151,7 +151,7 @@ The test approach to database migration consists of the following activities:
 
 ### Data Validation
 
-Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows to test the migrated database objects the migrated data. The tester is primarily used to verify that converted objects behaves same way.
+Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows you to test the migrated database objects the migrated data. The tester is primarily used to verify that converted objects behaves same way.
 
 Few common scenarios
 • Are the changes in table data identical?
@@ -161,14 +161,14 @@ Few common scenarios
 
 #### Create test case
 
-1. In SSMA for oracle , select Tester followed by New Test Case.
+1. In SSMA for oracle, select Tester followed by New Test Case.
  ![Screenshot that shows new test case.](./media/oracle-to-sql-database-guide/ssma_tester_new.PNG)
 
 2.On the Test Case wizard, provide the following information.
 
-Name : Enter the name to identify the test case.
+Name: Enter the name to identify the test case.
 Creation date: Today's current date, defined automatically.
-Last Modified date : filled in automatically, should not be changed.
+Last Modified date: filled in automatically, should not be changed.
 Description: Enter any additional information to identify the purpose of the test case.
  ![Screenshot - Initialize a test case .](./media/oracle-to-sql-database-guide/tester_init_test_case.PNG)
 
@@ -184,10 +184,10 @@ In this example,  stored procedure ADD_REGION and table REGION is selected.
 
 To learn more, see [Selecting and configuring affected objects.](https://docs.microsoft.com/sql/ssma/oracle/selecting-and-configuring-affected-objects-oracletosql)
 
-5.In this call ordering step,  select the order in which the objects to test will be evaluated.  You can change the order by clicking the buttons in the grid.
+5.In this call ordering step,  select the order in which the objects to test will be evaluated.You can change the order by clicking the buttons in the grid.
 ![Screenshot - ordering object .](./media/oracle-to-sql-database-guide/test_call_ordering.png)
 
-6.The finalize test case page provides  test case information , test objects and the objects that will be analysed. In addition, on this page you can set the test execution options.
+6.The finalize test case page provides  test case information, test objects and the objects that will be analyzed. In addition, on this page you can set the test execution options.
 ![Screenshot - finalize object .](./media/oracle-to-sql-database-guide/tester_finalize_case.png)
 
 For more information on test case settings,[Finishing test case preparation](https://docs.microsoft.com/sql/ssma/oracle/finishing-test-case-preparation-oracletosql)
@@ -213,10 +213,10 @@ Click connect.
 ![Screenshot - sql target connect .](./media/oracle-to-sql-database-guide/tester_sql_connect.png)
 On success, it will go to the next stage of initialization.
 
-5.The test run will proceed with the evaluation process and will show the real time progress.
+5.The test run will proceed with the evaluation process and will show the real-time progress.
 ![Screenshot - tester test progress .](./media/oracle-to-sql-database-guide/tester_run_status.png)
 
-6.Once the test case is executed , it will provide a report which provides the statistics , any errors during the test run and a final report.
+6.Once the test case is executed, it will provide a report which provides the statistics, any errors during the test run and a final report.
 ![Screenshot - tester test report.](./media/oracle-to-sql-database-guide/tester_test_result.png)
 
 7.Click details to get more information.
