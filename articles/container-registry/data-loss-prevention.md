@@ -160,3 +160,4 @@ az resource update --resource-group myResourceGroup \
 
 * Learn about [Azure Container Registry roles and permissions](container-registry-roles.md).
 * If you want to prevent accidental deletion of registry artifacts, see [Lock container images](container-registry-image-lock.md).
+* Learn about built-in [Azure policies](container-registry-azure-policy.md) to secure your Azure container registry
