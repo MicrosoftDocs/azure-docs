@@ -88,7 +88,7 @@ You can view the status of any run command executed including the output, errors
 
 ## Next steps
 
-Now that you've covered the Run command concepts, you can use the Run command feature to:
+Now that you've learned about the Run command concepts, you can use the Run command feature to:
 
 - [Configure storage policy](tutorial-configure-storage-policy.md) - Each VM deployed to a vSAN datastore is assigned at least one VM storage policy. You can assign a VM storage policy in an initial deployment of a VM or when you perform other VM operations, such as cloning or migrating.
 

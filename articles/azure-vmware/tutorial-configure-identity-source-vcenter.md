@@ -179,8 +179,10 @@ You'll run the `Remove-ExternalIdentitySources` cmdlet to remove all existing ex
 
 ## Next steps
 
-Advance to the next article to learn how to assign a VM storage policy in an initial deployment of a VM or when you perform other VM operations, such as cloning or migrating.
+Now that you've learned about how to configure LDAP and LDAPS, you can learn more about:
 
-> [!div class="nextstepaction"]
-> [Configure vSAN storage policies](tutorial-configure-storage-policy.md)
+- [How to configure storage policy](tutorial-configure-storage-policy.md) - Each VM deployed to a vSAN datastore is assigned at least one VM storage policy. You can assign a VM storage policy in an initial deployment of a VM or when you perform other VM operations, such as cloning or migrating.
 
+- [Azure VMware Solution identity concepts](concepts-identity.md) - Use vCenter to manage virtual machine (VM) workloads and NSX-T Manager to manage and extend the private cloud. Access and identity management use the CloudAdmin role for vCenter and restricted administrator rights for NSX-T Manager. 
+
+ 

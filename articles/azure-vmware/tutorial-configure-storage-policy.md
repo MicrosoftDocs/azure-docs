@@ -91,8 +91,8 @@ You'll run the `Set-StoragePolicy` cmdlet to set the storage policy for a VM.
 
 ## Next steps
 
-Advance to the next article to learn how to configure an external identity source for vCenter.
+Now that you've learned how to configure vSAN storage policies, you can learn more about:
 
-> [!div class="nextstepaction"]
-> [Configure LDAP for vCenter](tutorial-configure-identity-source-vcenter.md)
+- [How to attach disk pools to Azure VMware Solution hosts (Preview)](attach-disk-pools-to-azure-vmware-solution-hosts.md) - You can use disks as the persistent storage for Azure VMware Solution for optimal cost and performance.
 
+- [How to configure external identity for vCenter](tutorial-configure-identity-source-vcenter.md) - vCenter has a built-in local user called cloudadmin and assigned to the CloudAdmin role. The local cloudadmin user is used to set up users in Active Directory (AD). With the Run command feature, you can configure Active Directory over LDAP or LDAPS for vCenter as an external identity source.
