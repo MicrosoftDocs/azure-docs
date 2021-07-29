@@ -3,7 +3,7 @@ title: Migrate automatically from Azure Virtual Desktop (classic) - Azure
 description: How to migrate automatically from Azure Virtual Desktop (classic) to Azure Virtual Desktop by using the migration module.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/22/2021
+ms.date: 07/30/2021
 ms.author: helohr
 manager: femila
 ---
@@ -30,10 +30,10 @@ Before you use the migration module, make sure you have the following things rea
 
 - Download the migration module to your computer
 
-- PowerShell or PowerShell ISE to run the scripts you'll see in this article. The Microsoft.RdInfra.RDPowershell module doesn't currently work in PowerShell Core.
+- PowerShell or PowerShell ISE to run the scripts you'll see in this article. The Microsoft.RdInfra.RDPowershell module doesn't work in PowerShell Core.
 
 >[!IMPORTANT]
->Migration currently only creates service objects in the US geography. If you try to migrate your service objects to another geography, it won't work. Also, if you have more than 200 app groups in your Azure Virtual Desktop (classic) deployment, you won't be able to migrate. You'll only be able to migrate if you rebuild your environment to reduce the number of app groups within your Azure Active Directory (Azure AD) tenant.
+>Migration only creates service objects in the US geography. If you try to migrate your service objects to another geography, it won't work. Also, if you have more than 200 app groups in your Azure Virtual Desktop (classic) deployment, you won't be able to migrate. You'll only be able to migrate if you rebuild your environment to reduce the number of app groups within your Azure Active Directory (Azure AD) tenant.
 
 ## Prepare your PowerShell environment
 
@@ -81,7 +81,7 @@ To prepare your PowerShell environment:
 5. Now, let's import the migration module by running this cmdlet:
 
     ```powershell
-    Import-Module <Full path to the location where you extracted the migration module>\Microsoft.RdInfra.RDPowershell.Migration.psd1
+    Import-Module <Full path to the location of the migration module>\Microsoft.RdInfra.RDPowershell.Migration.psd1
     ```
 
 6. Once you're done, sign into Windows Virtual Desktop (classic) in your PowerShell window:
@@ -104,7 +104,14 @@ To prepare your PowerShell environment:
 
 9. Register the Resource Provider in Azure portal for the selected subscription.
 
-10. Sign in to the Azure portal, then go to **Subscriptions** and select the name of the subscription you want to use. After that, go to **Resource Provider** > **Microsoft.DesktopVirtualization** and select **Re-register**. You won't see anything change in the UI just yet, but your PowerShell environment should now be ready to run the module.
+10. Finally you'll need to register the provider. There are two ways you can do this:
+    - If you want to use PowerShell, then run this cmdlet:
+       
+       ```powershell
+       Register-AzResourceProvider -ProviderNamespace Microsoft.DesktopVirtualization
+       ```
+    
+    - If you'd rather use the Azure portal, open and sign in to the Azure portal, then go to **Subscriptions** and select the name of the subscription you want to use. After that, go to **Resource Provider** > **Microsoft.DesktopVirtualization** and select **Re-register**. You won't see anything change in the UI just yet, but your PowerShell environment should now be ready to run the module.
 
 ## Migrate Azure Virtual Desktop (classic) resources to Azure Resource Manager
 
@@ -124,7 +131,7 @@ To migrate your Azure virtual Desktop (classic) resources to Azure Resource Mana
     Get-RdsHostPoolMigrationMapping -Tenant Contoso -HostPool Office -Location EastUS -OutputFile 'C:\\Users\contosouser\OneDrive - Microsoft\Desktop\mapping.csv'
     ```
 
-2. Next, run the **Start-RdsHostPoolMigration** cmdlet to choose whether to migrate your resources to a single host pool or all host pools within a tenant.
+2. Next, run the **Start-RdsHostPoolMigration** cmdlet to choose whether to migrate a single host pool or all host pools within a tenant.
 
     For example:
 
@@ -132,7 +139,7 @@ To migrate your Azure virtual Desktop (classic) resources to Azure Resource Mana
     Start-RdsHostPoolMigration -Tenant Contoso -Location WestUS
     ```
 
-    If you want to migrate your resources to a specific host pool, then include the office name. For example, if you want to move your resources to the host pool named "Office," run a command like this:
+    If you want to migrate your resources a specific host pool, then include the host pool name. For example, if you want to move the host pool named "Office," run a command like this:
 
     ```powershell
     Start-RdsHostPoolMigration -Tenant Contoso -HostPool Office -CopyUserAssignments $false -Location EastUS
@@ -152,12 +159,12 @@ To migrate your Azure virtual Desktop (classic) resources to Azure Resource Mana
 
   You'll also need to specify a user assignment mode for the existing user assignments:
 
-  - Use **Copy** to copy all user assignments from your old app gropus to Azure Resource Manager app groups while leaving existing user assignments as-is. Users will be able to see feeds for both versions of their clients.
-  - Use **None** if you don't want to change the user assignments. Later, you can assign users or user groups to app groups with the Azure portal, PowerShell, or API.
+  - Use **Copy** to copy all user assignments from your old app groups to Azure Resource Manager application groups. Users will be able to see feeds for both versions of their clients.
+  - Use **None** if you don't want to change the user assignments. Later, you can assign users or user groups to app groups with the Azure portal, PowerShell, or API. Users will only be able to see feeds using the Azure Virtual Desktop (classic) clients.
 
-  You can only copy 2,000 user assignments per subscription, so your limit will depend on how many assigments are already in your subscription. The module calculates the limit based on how many assigments y ou already have. If you don't have enough assigments to copy, you'll get an error message that says "Insufficient role assignment quota to copy user assignments. Rerun command without the -CopyUserAssignments switch to migrate."
+  You can only copy 2,000 user assignments per subscription, so your limit will depend on how many assigments are already in your subscription. The module calculates the limit based on how many assignments you already have. If you don't have enough assigments to copy, you'll get an error message that says "Insufficient role assignment quota to copy user assignments. Rerun command without the -CopyUserAssignments switch to migrate."
 
-3. Once you run the commands, wait about 15 minutes for the module to create the service objects. If you copied or moved any user assignments, that will add to the time it takes for the module to finish setting everything up.
+3. Once you run the commands, it will take up to 15 minutes for the module to create the service objects. If you copied or moved any user assignments, that will add to the time it takes for the module to finish setting everything up.
 
    Once the **Start-RdsHostPoolMigration** cmdlet is done, you should see the following things:
 
@@ -167,7 +174,7 @@ To migrate your Azure virtual Desktop (classic) resources to Azure Resource Mana
 
          - A resource group called "Tenantname," which contains your workspace.
 
-         - A resource group called "Tenantname_originalHostPoolName," which contains the host pool and desktop app group.
+         - A resource group called "Tenantname_originalHostPoolName," which contains the host pool and desktop app groups.
 
       - Any users you published to the newly created app groups.
 
@@ -188,13 +195,13 @@ To migrate your Azure virtual Desktop (classic) resources to Azure Resource Mana
    Complete-RdsHostPoolMigration -Tenant Contoso -Location EastUS
    ```
 
-   If you want to revert a specific host pool, you can include the host pool name in the cmdlet. For example, if you want to revert a host pool named "Office," you'd use a command like this:
+   If you want to complete a specific host pool, you can include the host pool name in the cmdlet. For example, if you want to complete a host pool named "Office," you'd use a command like this:
 
     ```powershell
     Complete-RdsHostPoolMigration -Tenant Contoso -HostPool Office -Location EastUS
     ```
 
-    This will delete all service objects created by the classic release. You will be left with just the new Azure objects and users will only be able to see the feed for the newly created app groups on their clients. Once you are done finalizing your migration, you need to explicitly delete the tenant in Classic.
+    This will delete all service objects created by Azure Virtual Desktop (classic). You will be left with just the new Azure objects and users will only be able to see the feed for the newly created app groups on their clients. Once you are done finalizing your migration, you need to explicitly delete the tenant in Azure Virtual Desktop (classic).
 
 5. If you've changed your mind about migrating and want to revert the process, run the **Revert-RdsHostPoolMigration** cmdlet.
     
@@ -214,7 +221,7 @@ To migrate your Azure virtual Desktop (classic) resources to Azure Resource Mana
 
    However, the cmdlet won't delete the workspace the module created or its associated resource group. You'll need to manually delete those items to get rid of them.
 
-6. If you want to finish migration but don't want to delete your Azure Virtual Desktop (classic) service objects yet, you can run **Set-RdsHostPoolHidden**.
+6. If you want to don't want to delete your Azure Virtual Desktop (classic) service objects yet but do want to test migration, you can run **Set-RdsHostPoolHidden**.
 
     For example:
 
@@ -226,7 +233,7 @@ To migrate your Azure virtual Desktop (classic) resources to Azure Resource Mana
 
     The *-Hostpool* parameter is optional. You can use this parameter if there's a specific Azure Virtual Desktop (classic) host pool you want to hide.
 
-    This cmdlet will hide the Azure Virtual Desktop (classic) user feed and tservice objects instead of deleting them. This gives you the option of reverting later if you choose to.
+    This cmdlet will hide the Azure Virtual Desktop (classic) user feed and service objects instead of deleting them. However, this is usually only used for testing and doesn't count as a completed migration. To complete your migration, you'll need to run the **Complete-RdsHostPoolMigration** command. Otherwise, revert your deployment by running **Revert-RdsHostPoolMigration**.
 
 ## Next steps
 
