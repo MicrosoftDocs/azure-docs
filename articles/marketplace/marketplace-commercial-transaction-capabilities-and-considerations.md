@@ -72,7 +72,7 @@ Publishers who want to change the usage fees associated with an offer, should fi
 
 ### Determine offer type and pricing plan
 
-Use this flowchart to determine the appropriate offer type and pricing plan for selling software through the commercial marketplace.
+Use this flowchart to determine the appropriate transactable offer type and pricing plan for selling software through the commercial marketplace.
 
 [![Shows a flowchart for determining offer type and pricing plan.](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png)](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png#lightbox)
 &nbsp;&nbsp;&nbsp;* Choose an [offer type](/azure/marketplace/publisher-guide-by-offer-type) or contact [support](/azure/marketplace/support).<br>
