@@ -4,7 +4,7 @@ description: Learn how to enable Synapse link for Azure Cosmos DB accounts, crea
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 07/12/2021
 ms.author: rosouz
 ms.custom: references_regions, synapse-cosmos-db, devx-track-azurepowershell
 ---
@@ -24,11 +24,16 @@ Azure Synapse Link is available for Azure Cosmos DB SQL API containers or for Az
 * [Query the analytical store using serverless SQL pool](#query-analytical-store-sql-on-demand)
 * [Use serverless SQL pool to analyze and visualize data in Power BI](#analyze-with-powerbi)
 
+You can also checkout the learn module on how to [configure Azure Synapse Link for Azure Cosmos DB.](/learn/modules/configure-azure-synapse-link-with-azure-cosmos-db/)
+
 ## <a id="enable-synapse-link"></a>Enable Azure Synapse Link for Azure Cosmos DB accounts
 
 > [!NOTE]
 > If you want to use customer-managed keys with Azure Synapse Link, you must configure your account's managed identity in your Azure Key Vault access policy before enabling Synapse Link on your account. To learn more, see how to [Configure customer-managed keys using Azure Cosmos DB accounts' managed identities](how-to-setup-cmk.md#using-managed-identity) article.
-> 
+
+> [!NOTE]
+> If you want to use Full Fidelity Schema for SQL (CORE) API accounts, you can't use the Azure portal to enable Synapse Link. This option can't be changed after Synapse Link is enabled in your account and to set it you must use Azure CLI or PowerShell. For more information, check [analytical store schema representation documentation](analytical-store-introduction.md#schema-representation). 
+
 ### Azure portal
 
 1. Sign into the [Azure portal](https://portal.azure.com/).
@@ -281,7 +286,7 @@ You can find samples to get started with Azure Synapse Link on [GitHub](https://
 
 To learn more, see the following docs:
 
-* [Azure Synapse Link for Azure Cosmos DB.](synapse-link.md)
+* Checkout the learn module on how to [configure Azure Synapse Link for Azure Cosmos DB.](/learn/modules/configure-azure-synapse-link-with-azure-cosmos-db/)
 
 * [Azure Cosmos DB analytical store overview.](analytical-store-introduction.md)
 

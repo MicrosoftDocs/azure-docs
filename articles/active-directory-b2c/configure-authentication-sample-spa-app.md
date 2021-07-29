@@ -7,7 +7,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/25/2021
+ms.date: 07/05/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -73,9 +73,9 @@ In this step, you create the SPA app and the web API application registrations, 
 
 [!INCLUDE [active-directory-b2c-app-integration-api-scopes](../../includes/active-directory-b2c-app-integration-api-scopes.md)]
 
-### 2.3 Register the client app
+### 2.3 Register the SPA app
 
-Follow these steps to create the app registration:
+Follow these steps to create the SPA app registration:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
@@ -118,11 +118,11 @@ Now that you've obtained the SPA app sample, update the code with your Azure AD 
 
 |File  |Key  |Value  |
 |---------|---------|---------|
-|authConfig.js|clientId| The SPA application ID from [step 2.1](#21-register-the-web-api-application).|
+|authConfig.js|clientId| The SPA application ID from [step 2.3](#23-register-the-spa-app).|
 |policies.js| names| The user flows, or custom policy you created in [step 1](#step-1-configure-your-user-flow).|
 |policies.js|authorities|Your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name). For example, `contoso.onmicrosoft.com`. Then, replace with the user flows, or custom policy you created in [step 1](#step-1-configure-your-user-flow). For example, `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>`|
 |policies.js|authorityDomain|Your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name). For example, `contoso.onmicrosoft.com`.|
-|apiConfig.js|b2cScopes|The scopes you [created for the web API](#22-configure-scopes). For example, `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/tasks-api/tasks.read"]`.|
+|apiConfig.js|b2cScopes|The web API scopes you created in [step 2.2](#22-configure-scopes). For example, `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/tasks-api/tasks.read"]`.|
 |apiConfig.js|webApi|The URL of the web API, `http://localhost:5000/tasks`.|
 
 Your resulting code should look similar to following sample:

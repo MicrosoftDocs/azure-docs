@@ -57,7 +57,7 @@ To create a new Azure IoT Central application:
 
 To create a new in-store analytics checkout application:  
 
-1. Select the **In-store analytics - checkout** application template. This template includes device templates for all devices used in the tutorial except for RuuviTag sensors. The template also provides an operator dashboard for monitoring checkout and environmental conditions, and device status. 
+1. Select the **In-store analytics - checkout** application template. This template includes device templates for all devices used in the tutorial except for RuuviTag sensors. The template also provides a dashboard for monitoring checkout and environmental conditions, and device status. 
 
 1. Optionally, choose a friendly **Application name**. This application is based on a fictional retail store named Contoso. The tutorial uses the **Application name** *Contoso checkout*. The application template is based on the fictional company Northwind. In this tutorial, you use Contoso to learn how to customize the application.
 
@@ -282,4 +282,4 @@ In this tutorial, you learned how to:
 Now that you've created an Azure IoT Central condition monitoring application, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Customize the operator dashboard](./tutorial-in-store-analytics-customize-dashboard.md)
+> [Customize the dashboard](./tutorial-in-store-analytics-customize-dashboard.md)

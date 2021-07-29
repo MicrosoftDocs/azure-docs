@@ -60,7 +60,9 @@ The need for access to privileged Azure resource roles by employees changes over
 
 1. Use the **End** setting to specify how to end the recurring access review series. The series can end in three ways: it runs continuously to start reviews indefinitely, until a specific date, or after a defined number of occurrences has been completed. You, another User administrator, or another Global administrator can stop the series after creation by changing the date in **Settings**, so that it ends on that date.
 
-1. In the **Users** section,  select the scope of the review. To review users, select **Users or select (Preview) Service Principals** to review the machine accounts with access to the Azure role.   
+1. In the **Users** section,  select the scope of the review. To review users, select **Users or select (Preview) Service Principals** to review the machine accounts with access to the Azure role.
+
+    When **Users** is selected, membership of groups assigned to the role will be expanded to the individual members of the group. When **Service Principals** is selected, only those with direct membership (not via nested groups) will be reviewed.  
 
     ![Users scope to review role membership of](./media/pim-resource-roles-start-access-review/users.png)
 

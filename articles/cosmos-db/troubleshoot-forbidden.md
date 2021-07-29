@@ -30,6 +30,16 @@ Request is blocked. Please check your authorization token and Cosmos DB account 
 Verify that your current [firewall settings](how-to-configure-firewall.md) are correct and include the IPs or networks you are trying to connect from.
 If you recently updated them, keep in mind that changes can take **up to 15 minutes to apply**.
 
+## Non-data operations are not allowed
+This scenario happens when non-data [operations are disallowed in the account](how-to-restrict-user-data.md#disallow-the-execution-of-non-data-operations). On this scenario, it's common to see errors like the ones below:
+
+```
+Operation 'POST' on resource 'calls' is not allowed through Azure Cosmos DB endpoint
+```
+
+### Solution
+Perform the operation through Azure Resource Manager, Azure portal, Azure CLI, or Azure PowerShell. Or reallow execution of non-data operations.
+
 ## Next steps
 * Configure [IP Firewall](how-to-configure-firewall.md).
 * Configure access from [virtual networks](how-to-configure-vnet-service-endpoint.md).

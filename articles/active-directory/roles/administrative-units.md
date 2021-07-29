@@ -34,7 +34,7 @@ A central administrator could:
 
 ## License requirements
 
-Using administrative units requires an Azure AD Premium P1 license for each administrative unit administrator, and Azure AD Free licenses for administrative unit members. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
+Using administrative units requires an Azure AD Premium P1 license for each administrative unit administrator, and Azure AD Free licenses for administrative unit members. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## Manage administrative units
 

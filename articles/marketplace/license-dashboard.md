@@ -11,9 +11,6 @@ ms.author: subhaset
 
 # License dashboard in commercial marketplace analytics
 
-> [!IMPORTANT]
-> This capability is currently in Public Preview.
-
 This article provides information about the License dashboard in the commercial marketplace program in Partner Center. The License dashboard shows the following information:
 
 - Number of customers who purchased licenses

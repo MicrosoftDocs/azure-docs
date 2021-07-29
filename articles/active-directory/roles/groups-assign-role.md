@@ -66,7 +66,7 @@ $roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Helpdesk 
 ### Create a role assignment
 
 ```powershell
-$roleAssignment = New-AzureADMSRoleAssignment -ResourceScope '/' -RoleDefinitionId $roleDefinition.Id -PrincipalId $group.Id 
+$roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId '/' -RoleDefinitionId $roleDefinition.Id -PrincipalId $group.Id 
 ```
 
 ## Microsoft Graph API
@@ -78,20 +78,18 @@ POST https://graph.microsoft.com/beta/groups
 {
 "description": "This group is assigned to Helpdesk Administrator built-in role of Azure AD.",
 "displayName": "Contoso_Helpdesk_Administrators",
-"groupTypes": [
-"Unified"
-],
-"mailEnabled": true,
-"securityEnabled": true
+"groupTypes": [],
+"mailEnabled": false,
+"securityEnabled": true,
 "mailNickname": "contosohelpdeskadministrators",
-"isAssignableToRole": true,
+"isAssignableToRole": true
 }
 ```
 
 ### Get the role definition
 
 ```
-GET https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions?$filter = displayName eq ‘Helpdesk Administrator’
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions?$filter = displayName eq 'Helpdesk Administrator'
 ```
 
 ### Create the role assignment
@@ -107,4 +105,4 @@ POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 ## Next steps
 
 - [Use Azure AD groups to manage role assignments](groups-concept.md)
-- [Troubleshoot Azure AD roles assigned to groups](groups-faq-troubleshooting.md)
+- [Troubleshoot Azure AD roles assigned to groups](groups-faq-troubleshooting.yml)

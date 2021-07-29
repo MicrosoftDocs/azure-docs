@@ -55,12 +55,16 @@ Below are SDKs/scenarios not supported in the Public Preview:
 ### [ASP.NET and .NET](#tab/net)
 
 > [!NOTE]
-> Support for Azure AD in the Application Insights .NET SDK is included starting with [version 2.18-Beta2](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.18.0-beta2).
+> Support for Azure AD in the Application Insights .NET SDK is included starting with [version 2.18-Beta3](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.18.0-beta3).
 
 Application Insights .NET SDK supports the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity#credential-classes).
 
 - `DefaultAzureCredential` is recommended for local development.
+- `ManagedIdentityCredential` is recommended for system-assigned and user-assigned managed identities.
+    - For system-assigned, use the default constructor without parameters.
+    - For user-assigned, provide the clientId to the constructor.
 - `ClientSecretCredential` is recommended for service principals. 
+    - Provide the tenantId, clientId, and clientSecret to the constructor.
 
 Below is an example of manually creating and configuring a `TelemetryConfiguration` using .NET:
 

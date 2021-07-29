@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/07/2021
+ms.date: 07/13/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -70,7 +70,7 @@ This capability of HR-driven IT provisioning offers the following significant bu
 
 ### Licensing
 
-To configure the cloud HR app to Azure AD user provisioning integration, you require a valid [Azure AD Premium license](https://azure.microsoft.com/pricing/details/active-directory/) and a license for the cloud HR app, such as Workday or SuccessFactors.
+To configure the cloud HR app to Azure AD user provisioning integration, you require a valid [Azure AD Premium license](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) and a license for the cloud HR app, such as Workday or SuccessFactors.
 
 You also need a valid Azure AD Premium P1 or higher subscription license for every user that will be sourced from the cloud HR app and provisioned to either Active Directory or Azure AD. Any improper number of licenses owned in the cloud HR app might lead to errors during user provisioning.
 

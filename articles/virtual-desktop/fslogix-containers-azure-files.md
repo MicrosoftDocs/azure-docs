@@ -96,4 +96,4 @@ Use the following guides to set up a Azure Virtual Desktop environment.
 - To set up fully managed file shares in the cloud, see [Set up Azure Files share](/azure/storage/files/storage-files-active-directory-enable/).
 - To configure FSLogix profile containers, see [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md).
 - To assign users to a host pool, see [Manage app groups for Azure Virtual Desktop](manage-app-groups.md).
-- To access your Azure Virtual Desktop resources from a web browser, see [Connect to Azure Virtual Desktop](connect-web.md).
+- To access your Azure Virtual Desktop resources from a web browser, see [Connect to Azure Virtual Desktop](./user-documentation/connect-web.md).
