@@ -132,7 +132,6 @@ You must have the Azure CLI, version 2.15.1 or later installed.
 
 ### Limitations
 * Azure Government isn't currently supported.
-* Azure China 21Vianet isn't currently supported.
 
 If you don't have a managed identity yet, you should go ahead and create one for example by using [az identity CLI][az-identity-create].
 
