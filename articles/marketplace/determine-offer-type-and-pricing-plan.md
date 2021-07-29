@@ -19,7 +19,7 @@ Use the following flowchart to determine the best offer type for your software p
 
 [![Shows a flowchart for determining offer type.](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png)](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png#lightbox)
 &nbsp;&nbsp;&nbsp;* Choose an [offer type](/azure/marketplace/publisher-guide-by-offer-type) or contact [support](/azure/marketplace/support).<br>
-&nbsp;&nbsp;&nbsp;** Contact Microsoft Office Hours or [support](/azure/marketplace/support).
+&nbsp;&nbsp;&nbsp;** Contact [Microsoft Office Hours](https://microsoftcloudpartner.eventbuilder.com/MarketplaceDeveloperOfficeHours) or [support](/azure/marketplace/support).
 
 ## Next steps
 

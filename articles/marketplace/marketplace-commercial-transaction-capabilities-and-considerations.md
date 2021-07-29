@@ -4,28 +4,36 @@ description: This article describes pricing, billing, invoicing, and payout cons
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/12/2021
+ms.date: 07/29/2021
 ms.author: mingshen
 author: mingshen-ms
 ---
 
 # Commercial marketplace transact capabilities
 
-This article describes pricing, billing, invoicing, and payout considerations for the Microsoft commercial marketplace.
+This article describes pricing, billing, invoicing, and payout considerations for the commercial marketplace.
 
 ## Transactions by listing option
 
 Either the publisher or Microsoft is responsible for managing software license transactions for offers in the commercial marketplace. The listing option you choose for your offer determines who manages the transaction. For availability and explanations of each publishing option, see [Introduction to listing options](determine-your-listing-type.md)
 
+# Determine offer type and pricing plan
+
+Use this flowchart to determine the appropriate offer type and pricing plan for selling software through the commercial marketplace.
+
+[![Shows a flowchart for determining offer type and pricing plan.](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png)](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png#lightbox)
+&nbsp;&nbsp;&nbsp;* Choose an [offer type](/azure/marketplace/publisher-guide-by-offer-type) or contact [support](/azure/marketplace/support).<br>
+&nbsp;&nbsp;&nbsp;** Contact [Microsoft Office Hours](https://microsoftcloudpartner.eventbuilder.com/MarketplaceDeveloperOfficeHours) or [support](/azure/marketplace/support).
+
 ### Contact me, free trial, and BYOL options
 
-Publishers can choose the _Contact me_ and _Free trial_, options for promotional and user acquisition purposes. For some offer types, publishers can choose the _bring your own license_ (BYOL) option to enable customers to purchase a subscription to your offer using a license they’ve purchased directly from you. With these options, Microsoft doesn't participate directly in the publisher's software license transactions and there's no associated transaction fee, so publishers keep all of that revenue.
+Publishers can choose the *Contact me* and *Free trial*, options for promotional and user acquisition purposes. For some offer types, publishers can choose the *bring your own license* (BYOL) option to enable customers to purchase a subscription to your offer using a license they’ve purchased directly from you. With these options, Microsoft doesn't participate directly in the publisher's software license transactions and there's no associated transaction fee, so publishers keep all of that revenue.
 
 With these options, publishers are responsible for supporting all aspects of the software license transaction. This includes but is not limited to order, fulfillment, metering, billing, invoicing, payment, and collection. With the Contact me listing option, publishers keep 100% of publisher software licensing fees collected from the customer.
 
 ### Transact publishing option
 
-Choosing to sell through Microsoft takes advantage of Microsoft commerce capabilities and provides an end-to-end experience from discovery and evaluation to purchase and implementation. A _transactable_ offer is one in which Microsoft facilitates the exchange of money for a software license on the publisher’s behalf. Transact offers are billed against an existing Microsoft subscription or credit card, allowing Microsoft to host cloud marketplace transactions on behalf of the publisher.
+Choosing to sell through Microsoft takes advantage of Microsoft commerce capabilities and provides an end-to-end experience from discovery and evaluation to purchase and implementation. A *transactable* offer is one in which Microsoft facilitates the exchange of money for a software license on the publisher’s behalf. Transact offers are billed against an existing Microsoft subscription or credit card, allowing Microsoft to host cloud marketplace transactions on behalf of the publisher.
 
 You choose the transact option when you create a new offer in Partner Center. This option will appear only if transact is available for your offer type.
 
@@ -46,7 +54,7 @@ The transact publishing option is currently supported for the following offer ty
 
 ### Metered billing
 
-The _Marketplace metering service_ lets you specify pay-as-you-go (consumption-based) charges in addition to monthly or annual charges included in the contract (entitlement). You can charge usage costs for marketplace metering service dimensions that you specify such as bandwidth, tickets, or emails processed. For more information about metered billing for SaaS offers, see [Metered billing for SaaS using the commercial marketplace metering service](./partner-center-portal/saas-metered-billing.md). For more information about metered billing for Azure Application offers, see [Managed application metered billing](marketplace-metering-service-apis.md).
+The *Marketplace metering service* lets you specify pay-as-you-go (consumption-based) charges in addition to monthly or annual charges included in the contract (entitlement). You can charge usage costs for marketplace metering service dimensions that you specify such as bandwidth, tickets, or emails processed. For more information about metered billing for SaaS offers, see [Metered billing for SaaS using the commercial marketplace metering service](./partner-center-portal/saas-metered-billing.md). For more information about metered billing for Azure Application offers, see [Managed application metered billing](marketplace-metering-service-apis.md).
 
 ### Billing infrastructure costs
 
@@ -93,7 +101,7 @@ Usage-based pricing has the following cost structure:
 | **Your license cost** | **$1.00 per hour** |
 |---------|---------|
 | Azure usage cost (D1/1-Core) | $0.14 per hour |
-| _Customer is billed by Microsoft_ | _$1.14 per hour_ |
+| *Customer is billed by Microsoft* | *$1.14 per hour* |
 ||
 
 In this scenario, Microsoft bills $1.14 per hour for use of your published VM image.
@@ -112,7 +120,7 @@ BYOL has the following cost structure:
 | **Your license cost** | **License fee negotiated and billed by you** |
 |---------|---------|
 |Azure usage cost (D1/1-Core)    |   $0.14 per hour     |
-| _Customer is billed by Microsoft_ | _$0.14 per hour_ |
+| *Customer is billed by Microsoft* | *$0.14 per hour* |
 ||
 
 In this scenario, Microsoft bills $0.14 per hour for use of your published VM image.
@@ -130,7 +138,7 @@ SaaS subscriptions can be priced at a flat rate or per user on a monthly or annu
 | **Your license cost** | **$100.00 per month** |
 |--------------|---------|
 | Azure usage cost (D1/1-Core) | Billed directly to the publisher, not the customer |
-| _Customer is billed by Microsoft_ | _$100.00 per month (publisher must account for any incurred or pass-through infrastructure costs in the license fee)_ |
+| *Customer is billed by Microsoft* | *$100.00 per month (publisher must account for any incurred or pass-through infrastructure costs in the license fee)* |
 ||
 
 In this scenario, Microsoft bills $100.00 for your software license and pays out $97.00.
@@ -202,3 +210,4 @@ Private plans enable you to provide higher or lower pricing to specific customer
 
 - Review the publishing patterns by online store for examples on how your solution maps to an offer type and configuration.
 - [Publishing guide by offer type](publisher-guide-by-offer-type.md).
+- [Plans and pricing for commercial marketplace offers](/azure/marketplace/plans-pricing)
