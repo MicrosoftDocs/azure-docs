@@ -13,9 +13,9 @@ ms.custom: references_regions
 ---
 # AI enrichment in Azure Cognitive Search
 
-In Azure Cognitive Search, AI enrichment is about using AI to create new structures and information from raw content in external data sources. AI enrichment is defined by a [skillset](cognitive-search-working-with-skillsets.md) that's attached to an [indexer](search-indexer-overview.md). Together, the indexer and skillset will extract, identify, and create text and structures from images, blobs, and other unstructured data sources. The purpose of enrichment is make content more searchable in indexer output objects, either a [search index](search-what-is-an-index.md) or a [knowledge store](knowledge-store-concept-intro.md). 
+In Azure Cognitive Search, AI enrichment is about using AI to create new structures and information from raw content in external data sources. AI enrichment is defined by a [skillset](cognitive-search-working-with-skillsets.md) that's attached to an [indexer](search-indexer-overview.md). The indexer will extract and set up the content, while the skillset identifies, analyzes, and creates new information and structures from images, blobs, and other unstructured data sources. The purpose of enrichment is make content more searchable in output objects, which is either a [search index](search-what-is-an-index.md) or a [knowledge store](knowledge-store-concept-intro.md). 
 
-A skillset can contain built-in skills from Cognitive Search or embed external processing that you provide into a [*custom skill*](cognitive-search-create-custom-skill-example.md). Examples of a custom skill might be a custom entity module or document classifier targeting a specific domain such as finance, scientific publications, or medicine.
+A skillset can contain built-in skills from Cognitive Search or embed external processing that you provide in a [*custom skill*](cognitive-search-create-custom-skill-example.md). Examples of a custom skill might be a custom entity module or document classifier targeting a specific domain such as finance, scientific publications, or medicine.
 
 Built-in skills fall into these categories: 
 
@@ -48,7 +48,7 @@ Additionally, you might consider adding a custom skill if you have open-source, 
 
 ### Use-cases for built-in skills
 
-A [skillset](cognitive-search-defining-skillset.md) that's assembled using built-in skills is well suited for the following application scenarios:
+A [skillset](cognitive-search-defining-skillset.md) that's assembled using built-in skills is well-suited for the following application scenarios:
 
 + Scanned documents (JPEG) that you want to make full-text searchable. You can attach an optical character recognition (OCR) skill to identify, extract, and ingest text from JPEG files.
 
