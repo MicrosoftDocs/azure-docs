@@ -12,7 +12,7 @@ ms.custom: contperf-fy22q1
 ---
 # Open a support ticket for an Import/Export job
 
-If you encounter any issues with your Import/Export service, you can create a service request for technical support.  
+If you come across any issues with your Import/Export service, you can create a service request for technical support.  
 
 This article walks you through:
 
@@ -21,7 +21,7 @@ This article walks you through:
 
 ## Create a support request
 
-Perform the following steps to create a support request:
+Do the following steps to create a support request:
 
 1. Go to your import/export job. Under **Support + Troubleshooting**, select **New support request**.
      
@@ -42,7 +42,7 @@ Perform the following steps to create a support request:
  
      ![Screenshot showing info on the Basics screen for an Import/Export Service support request. The button that opens teh Solutions tab is highlighted.](./media/storage-import-export-contact-microsoft-support/import-export-support-02.png)
 
-   Select **Next: Solutions>>** to proceed.
+   Select **Next: Solutions>>** to continue.
 
 1. The **Solutions** tab shows expert solutions for the problem you described. If you don't find the solution to your problem, select **Next: Details>>** to proceed with a support request.
 
@@ -59,7 +59,7 @@ Perform the following steps to create a support request:
 
     ![Screenshot showing the Details tab for an Import/Export Service support request. The button that opens the Review Plus Create tab is highlighted.](./media/storage-import-export-contact-microsoft-support/import-export-support-04.png)
 
-    Select **Next: Review + create >>** to proceed.
+    Select **Next: Review + create >>** to continue.
 
 1. Review your support request on the **Review + create** tab. Make any changes that are needed. Then select **Create**. 
 
