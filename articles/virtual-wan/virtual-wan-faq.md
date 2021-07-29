@@ -131,7 +131,7 @@ Yes as long as the device supports IPsec IKEv1 or IKEv2. Virtual WAN partners au
 
 ### How do new partners that are not listed in your launch partner list get onboarded?
 
-All virtual WAN APIs are open API. You can go over the documentation [Virtual WAN partner automation](virtual-wan-configure-automation-providers.md) to assess technical feasibility. An ideal partner is one that has a device that can be provisioned for IKEv1 or IKEv2 IPsec connectivity. Once the company has completed the automation work for their CPE device based on the automation guidelines provided above, you can reach out to azurevirtualwan@microsoft.com to be listed here [Connectivity through partners]( ../articles/virtual-wan/virtual-wan-locations-partners.md#partners). If you are a customer that would like a certain company solution to be listed as a Virtual WAN partner, have the company contact the Virtual WAN by sending an email to azurevirtualwan@microsoft.com.
+All virtual WAN APIs are open API. You can go over the documentation [Virtual WAN partner automation](virtual-wan-configure-automation-providers.md) to assess technical feasibility. An ideal partner is one that has a device that can be provisioned for IKEv1 or IKEv2 IPsec connectivity. Once the company has completed the automation work for their CPE device based on the automation guidelines provided above, you can reach out to azurevirtualwan@microsoft.com to be listed here [Connectivity through partners](virtual-wan-locations-partners.md#partners). If you are a customer that would like a certain company solution to be listed as a Virtual WAN partner, have the company contact the Virtual WAN by sending an email to azurevirtualwan@microsoft.com.
 
 ### How is Virtual WAN supporting SD-WAN devices?
 
@@ -185,7 +185,7 @@ A simple configuration of one Virtual WAN with one hub and one vpnsite can be cr
 
 Yes. Standard Virtual WAN supports VNet-to-VNet transitive connectivity via the Virtual WAN hub that the VNets are connected to. In Virtual WAN terminology, we refer to these paths as “local Virtual WAN VNet transit” for VNets connected to a Virtual Wan hub within a single region, and “global Virtual WAN VNet transit” for VNets connected through multiple Virtual WAN hubs across two or more regions.
 
-In some scenarios, spoke VNets can also be directly peered with each other using [virtual network peering](../articles/virtual-network/virtual-network-peering-overview.md) in addition to local or global Virtual WAN VNet transit. In this case, VNet Peering takes precedence over the transitive connection via the Virtual WAN hub.
+In some scenarios, spoke VNets can also be directly peered with each other using [virtual network peering](../virtual-network/virtual-network-peering-overview.md) in addition to local or global Virtual WAN VNet transit. In this case, VNet Peering takes precedence over the transitive connection via the Virtual WAN hub.
 
 ### Is branch-to-branch connectivity allowed in Virtual WAN?
 
@@ -291,7 +291,7 @@ A minimum version of 05-01-2020 (May 1 2020) is required.
 
 ### Are there any Virtual WAN limits?
 
-See the [Virtual WAN limits](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#virtual-wan-limits) section on the Subscription and service limits page.
+See the [Virtual WAN limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-wan-limits) section on the Subscription and service limits page.
 
 ### What are the differences between the Virtual WAN types (Basic and Standard)?
 
@@ -303,7 +303,7 @@ No. Virtual WAN does not store any customer data.
 
 ### Are there any Managed Service Providers that can manage Virtual WAN for users as a service?
 
-Yes. For a list of Managed Service Provider (MSP) solutions enabled via Azure Marketplace, see [Azure Marketplace offers by Azure Networking MSP partners](../articles/networking/networking-partners-msp.md#msp).
+Yes. For a list of Managed Service Provider (MSP) solutions enabled via Azure Marketplace, see [Azure Marketplace offers by Azure Networking MSP partners](../networking/networking-partners-msp.md#msp).
 
 ### How does Virtual WAN Hub routing differ from Azure Route Server in a VNet?
 
