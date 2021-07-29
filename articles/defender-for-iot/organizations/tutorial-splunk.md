@@ -28,7 +28,6 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Download the Defender for IoT application in Splunk
 > * Send Defender for IoT alerts to Splunk
-> * Define alert forwarding rules
 
 ## Prerequisites
 
@@ -47,4 +46,75 @@ The following versions are required for the application to run.
 The following Splunk permission is required:
 
 - Any user with an *Admin* level user role.
+
+## Download the Defender for IoT application in Splunk
+
+To access the Defender for IoT application within Splunk, you will need to download the application form the splunkbase application store.
+
+**To access the Defender for IoT application in Splunk**:
+
+1. Navigate to the [Splunkbase](https://splunkbase.splunk.com/) application store.
+
+1. Search for `CyberX ICS Threat Monitoring for Splunk`.
+
+1. Select the CyberX ICS Threat Monitoring for Splunk application.
+
+1. Select the **LOGIN TO DOWNLOAD BUTTON**.
+
+## Send Defender for IoT alerts to Splunk
+
+The Defender for IoT alerts provide information about an extensive range of security events These events include:
+
+- Deviations from the learned baseline network activity.
+
+- Malware detections.
+
+- Detections based on suspicious operational changes.
+
+- Network anomalies.
+
+- Protocol deviations from protocol specifications.
+
+    :::image type="content" source="media/tutorial-splunk/address-scan.png" alt-text="The detections screen.":::
+
+You can configure Defender for IoT to send alerts to the Splunk server, where alert information is displayed in the Splunk Enterprise dashboard.
+
+:::image type="content" source="media/tutorial-splunk/alerts-and-details.png" alt-text="View all of the alerts and their details.":::
+
+To send alert information to the Splunk servers from Defender for IoT, you will need to use a Defender for IoT Forwarding Rule.
+
+**To create the forwarding rule**:
+
+1. Sign in to the sensor, and select **Forwarding** from the left side pane.
+
+    :::image type="content" source="media/tutorial-splunk/forwarding.png" alt-text="Select the blue button Create Forwarding Alert.":::
+
+1. Select **Create Forwarding Rules**.
+
+1. In the **Create Forwarding Rule** window, define the rule parameters.
+
+    :::image type="content" source="media/tutorial-splunk/forwarding-rule.png" alt-text="Create the rules for your forwarding rule.":::
+
+    | Parameter | Description |
+    |--|--|
+    | **Name** | The forwarding rule name. |
+    | **Select Severity** | The minimal security level incident to forward. For example, if Minor is selected, minor alerts and any alert above this severity level will be forwarded. |
+    | **Protocols** | By default, all the protocols are selected. To select a specific protocol, select **Specific** and select the protocol for which this rule is applied. |
+    | **Engines** | By default, all the security engines are involved. To select a specific security engine for which this rule is applied, select **Specific** and select the engine. |
+    | **System Notifications** | Forward sensor online/offline status. This option is only available if you have logged into the Central Manager. |
+
+1. Select **Action**, and then select **Send to Splunk Server**.
+
+1. Enter the following Splunk parameters.
+
+    :::image type="content" source="media/tutorial-splunk/parameters.png" alt-text="The Splunk parameters you should enter on this screen.":::
+
+    | Parameter | Description |
+    |--|--|
+    | **Host** | Splunk server address |
+    | **Port** | 8089 |
+    | **Username** | Splunk server username |
+    | **Password** | Splunk server password |
+
+1. Select **Submit**.
 
