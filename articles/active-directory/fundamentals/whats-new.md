@@ -123,7 +123,7 @@ In Azure AD entitlement management, an administrator can define that an access p
 **Service category:** Identity Protection  
 **Product capability:** Identity Security & Protection
  
-You can now send the risky users and risk detections logs to Azure Monitor, Storage Accounts, or Log Analytics using the Diagnostic Settings in the Azure AD blade. [Learn more](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+You can now send the risky users and risk detections logs to Azure Monitor, Storage Accounts, or Log Analytics using the Diagnostic Settings in the Azure AD blade. [Learn more](../identity-protection/howto-export-risk-data.md).
  
 ---
 
