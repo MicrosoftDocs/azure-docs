@@ -76,13 +76,13 @@ Use a notebook comment to collaborate with others who have access to your notebo
 
 Toggle the comments pane on and off with the **Notebook comments** tool at the top of the notebook.  If your screen isn't wide enough, find this tool by first selecting the **...** at the end of the set of tools.
 
-:::image type="content" source="media/how-to-run-jupyter-notebooks/notebook-comments-tool.png" alt-text="Notebook comments tool in the top toolbar.":::  
+:::image type="content" source="media/how-to-run-jupyter-notebooks/notebook-comments-tool.png" alt-text="Screenshot of notebook comments tool in the top toolbar.":::  
 
 Whether the comments pane is visible or not, you can add a comment into any code cell:
 
 1. Select some text in the code cell.  You can only comment on text in a code cell.
 1. Use the **New comment thread** tool to create your comment.
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/comment-from-code.png" alt-text="Add a comment to a code cell.":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/comment-from-code.png" alt-text="Screenshot of add a comment to a code cell tool.":::
 1. If the comments pane was previously hidden, it will now open.  
 1. Type your comment and post it with the tool or use **Ctrl+Enter**.
 1. Once a comment is posted, select **...** in the top right to:
