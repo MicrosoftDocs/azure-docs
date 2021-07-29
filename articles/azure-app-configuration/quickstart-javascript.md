@@ -5,7 +5,7 @@ services: azure-app-configuration
 author: drewbatgit
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.custom: tbd
+ms.custom: quickstart
 ms.date: 07/12/2021
 ms.author: drewbat
 
