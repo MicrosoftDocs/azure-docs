@@ -112,7 +112,7 @@ To access the backup container from an Avere vFXT for Azure cluster, follow this
 * For more information about customizing settings for Avere vFXT for Azure, read [Cluster tuning](avere-vfxt-tuning.md).
 * Learn more about disaster recovery and building resilient applications in Azure:
 
-  * [Azure resiliency technical guidance](/azure/architecture/framework/resiliency/overview)
+  * [Azure resiliency technical guidance](/azure/architecture/reliability/architect)
   * [Recover from a region-wide service disruption](/azure/architecture/resiliency/recovery-loss-azure-region)
   * [Disaster recovery and high availability for Azure applications](/azure/architecture/framework/resiliency/backup-and-recovery)
   <!-- can't find these in the source tree to use relative links -->
