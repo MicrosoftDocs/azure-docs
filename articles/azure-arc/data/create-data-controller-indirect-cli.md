@@ -22,7 +22,7 @@ Review the topic [Create the Azure Arc data controller](create-data-controller.m
 
 To create the data controller using the CLI, you will need to install the `arcdata` extension for Azure (az) CLI. 
 
-   [Install the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]](install-client-tools.md)
+[Install the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]](install-client-tools.md)
 
 Regardless of which target platform you choose, you will need to set the following environment variables prior to the creation for the data controller administrator user. You can provide these credentials to other people that need to have administrator access to the data controller as needed.
 
