@@ -152,6 +152,7 @@ The test approach to database migration consists of the following activities:
 ### Data Validation
 
 Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows to test the migrated database objects the migrated data. The tester is primarily used to verify that converted objects behaves same way.
+
 Few common scenarios
 • Are the changes in table data identical?
 • Are the values of output parameters for procedures and functions identical?
@@ -172,8 +173,9 @@ Description: Enter any additional information to identify the purpose of the tes
  ![Screenshot - Initialize a test case .](./media/oracle-to-sql-database-guide/tester_init_test_case.PNG)
 
 3.In the Oracle object tree located on the left side, select the objects you want to evaluate  during the testing process.
- ![Screenshot - select and configure object .](./media/oracle-to-sql-database-guide/tester_Select_configure_objects.PNG)
- In this example,  stored procedure ADD_REGION and table REGION is selected.
+ ![Screenshot - select and configure object .](./media/oracle-to-sql-database-guide/tester_Select_configure_objects.png)
+ 
+In this example,  stored procedure ADD_REGION and table REGION is selected.
 
  To learn more, see  [Selecting and configuring objects to test.](https://docs.microsoft.com/sql/ssma/oracle/selecting-and-configuring-objects-to-test-oracletosql)
 
@@ -181,11 +183,13 @@ Description: Enter any additional information to identify the purpose of the tes
 ![Screenshot - select and configure affected object .](./media/oracle-to-sql-database-guide/tester_select_configure_affected.PNG)
 
 To learn more, see [Selecting and configuring affected objects.](https://docs.microsoft.com/sql/ssma/oracle/selecting-and-configuring-affected-objects-oracletosql)
+
 5.In this call ordering step,  select the order in which the objects to test will be evaluated.  You can change the order by clicking the buttons in the grid.
-![Screenshot - ordering object .](./media/oracle-to-sql-database-guide/test_call_ordering.PNG)
+![Screenshot - ordering object .](./media/oracle-to-sql-database-guide/test_call_ordering.png)
 
 6.The finalize test case page provides  test case information , test objects and the objects that will be analysed. In addition, on this page you can set the test execution options.
 ![Screenshot - finalize object .](./media/oracle-to-sql-database-guide/tester_finalize_case.png)
+
 For more information on test case settings,[Finishing test case preparation](https://docs.microsoft.com/sql/ssma/oracle/finishing-test-case-preparation-oracletosql)
 
 7.Click on finish to create the test case.
@@ -197,22 +201,30 @@ When SSMA Tester runs a Test Case, it executes the objects selected for testing 
 
 1.In the test repository page, you can select the test case and then click run.
 ![Screenshot - test repo .](./media/oracle-to-sql-database-guide/tester_repo_run.PNG)
+
 2.Next, it  will launch run Test case page. Click run.
 ![Screenshot - test launch .](./media/oracle-to-sql-database-guide/tester_run_test_case.png)
+
 3.Next, you would be prompted to provide source oracle credentials. Click connect after entering the details.
 ![Screenshot - oracle connect .](./media/oracle-to-sql-database-guide/tester_oracle_connect.png)
+
 4.After the source details are provided, it will prompt for target SQL Server  details.
 Click connect.
 ![Screenshot - sql target connect .](./media/oracle-to-sql-database-guide/tester_sql_connect.png)
 On success, it will go to the next stage of initialization.
+
 5.The test run will proceed with the evaluation process and will show the real time progress.
 ![Screenshot - tester test progress .](./media/oracle-to-sql-database-guide/tester_run_status.png)
+
 6.Once the test case is executed , it will provide a report which provides the statistics , any errors during the test run and a final report.
 ![Screenshot - tester test report.](./media/oracle-to-sql-database-guide/tester_test_result.png)
+
 7.Click details to get more information.
 ![Screenshot - tester success report.](./media/oracle-to-sql-database-guide/tester_test_success.png)
+
 Example of positive data validation.
 ![Screenshot - tester failure report.](./media/oracle-to-sql-database-guide/tester_test_failed.png)
+
 Example of failed data validation.
 
 ### Optimize
