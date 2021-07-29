@@ -175,11 +175,10 @@
       - name: Configure SAML application options
         href: saml-service-provider-options.md
         displayName: SP, service provider 
-    - name: Register a Microsoft Graph application
-      href: microsoft-graph-get-started.md
-      displayName: microsoft graph
     - name: App registration
       items:
+      - name: Register a Microsoft Graph application
+        href: microsoft-graph-get-started.md
       - name: Register a single-page application
         href: tutorial-register-spa.md   
       - name: Register a native client application
