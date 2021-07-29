@@ -17,7 +17,7 @@ This article describes pricing, billing, invoicing, and payout considerations fo
 
 Either the publisher or Microsoft is responsible for managing software license transactions for offers in the commercial marketplace. The listing option you choose for your offer determines who manages the transaction. For availability and explanations of each publishing option, see [Introduction to listing options](determine-your-listing-type.md)
 
-# Determine offer type and pricing plan
+### Determine offer type and pricing plan
 
 Use this flowchart to determine the appropriate offer type and pricing plan for selling software through the commercial marketplace.
 
