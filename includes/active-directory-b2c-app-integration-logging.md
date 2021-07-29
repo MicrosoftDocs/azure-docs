@@ -9,9 +9,9 @@ ms.author: mimart
 ---
 ## Configure logging
 
-The MSAL library generates log messages that can help diagnose issues. The app can configure logging, and have custom control over the level of detail and whether or not personal and organizational data is logged. We recommend you create an MSAL logging callback and provide a way for users to submit logs when they have authentication issues.
+The MSAL library generates log messages that can help diagnose issues. The app can configure logging, and have custom control over the level of detail and whether or not personal and organizational data is logged. 
 
-MSAL provides several levels of logging detail:
+We recommend you create an MSAL logging callback and provide a way for users to submit logs when they have authentication issues. MSAL provides several levels of logging detail:
 
 - Error: Indicates something has gone wrong and an error was generated. Used for debugging and identifying problems.
 - Warning: There hasn't necessarily been an error or failure, but are intended for diagnostics and pinpointing problems.
