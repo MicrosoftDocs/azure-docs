@@ -26,7 +26,7 @@ The need for access to privileged Azure resource roles by employees changes over
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)] For more information about licenses for PIM, refer to [License requirements to use Privileged Identity Management](subscription-requirements.md).
 
 > [!Note]
->  Currently, you can scope an access review to service principals with access to Azure AD and Azure resource roles (Preview) with an Azure Active Directory Premium P2 edition active in your tenant. The licensing model for service principals will be finalized for general availability of this feature and additional licenses may be required.
+> Currently, you can scope an access review to service principals with access to Azure AD and Azure resource roles (Preview) with an Azure Active Directory Premium P2 edition active in your tenant. The licensing model for service principals will be finalized for general availability of this feature and additional licenses may be required.
 
 ## Prerequisite role
 
@@ -37,10 +37,12 @@ The need for access to privileged Azure resource roles by employees changes over
 1. Sign in to [Azure portal](https://portal.azure.com/) with a user that is assigned to one of the prerequisite roles.
 
 1. Select **Identity Governance**
- 
+
 1. In the left menu, select **Azure resources** under **Azure AD Privileged Identity Management**.
 
 1. Select the resource you want to manage, such as a subscription.
+
+    ![Azure resources - Select a resource to create an access review](./media/pim-resource-roles-start-access-review/access-review-select-resource.png)
 
 1. Under Manage, select **Access reviews**.
 

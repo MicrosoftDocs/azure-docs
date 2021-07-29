@@ -55,7 +55,7 @@ To create a custom workbook based on any of these workbooks, select the **View W
   - Billable data ingested by Container logs(application logs)
   - Billable container logs data ingested per by Kubernetes namespace
   - Billable container logs data ingested segregated by Cluster name
-  - Billable container log data ingested by logsource entry
+  - Billable container log data ingested by log source entry
   - Billable diagnostic data ingested by diagnostic master node logs
 
 ## Networking workbooks
