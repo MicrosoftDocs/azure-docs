@@ -119,12 +119,12 @@
     },
     {
       "source_path": "concepts-device-ingress.md",
-      "redirect_url": "/previous-versions/azure/digital-twins/concepts-device-ingress",
+      "redirect_url": "/azure/digital-twins/concepts-data-ingress-egress",
       "redirect_document_id": false
     },
     {
       "source_path": "concepts-events-routing.md",
-      "redirect_url": "/previous-versions/azure/digital-twins/concepts-events-routing",
+      "redirect_url": "/azure/digital-twins/concepts-route-events",
       "redirect_document_id": false
     },
     {
@@ -134,7 +134,7 @@
     },
     {
       "source_path": "concepts-service-limits.md",
-      "redirect_url": "/previous-versions/azure/digital-twins/concepts-service-limits",
+      "redirect_url": "/azure/digital-twins/reference-service-limits",
       "redirect_document_id": false
     },
     {
@@ -149,7 +149,7 @@
     },
     {
       "source_path": "how-to-configure-monitoring.md",
-      "redirect_url": "/previous-versions/azure/digital-twins/how-to-configure-monitoring",
+      "redirect_url": "/azure/digital-twins/troubleshoot-metrics",
       "redirect_document_id": false
     },
     {
@@ -159,7 +159,7 @@
     },
     {
       "source_path": "how-to-egress-endpoints.md",
-      "redirect_url": "/previous-versions/azure/digital-twins/how-to-egress-endpoints",
+      "redirect_url": "/azure/digital-twins/how-to-manage-routes",
       "redirect_document_id": false
     },
     {
@@ -169,12 +169,12 @@
     },
     {
       "source_path": "how-to-navigate-apis.md",
-      "redirect_url": "/previous-versions/azure/digital-twins/how-to-navigate-apis",
+      "redirect_url": "/azure/digital-twins/concepts-apis-sdks",
       "redirect_document_id": false
     },
     {
       "source_path": "how-to-query-common-apis.md",
-      "redirect_url": "/previous-versions/azure/digital-twins/how-to-query-common-apis",
+      "redirect_url": "/azure/digital-twins/how-to-query-graph",
       "redirect_document_id": false
     },
     {
@@ -204,22 +204,22 @@
     },
     {
       "source_path": "security-authenticating-apis.md",
-      "redirect_url": "/previous-versions/azure/digital-twins/security-authenticating-apis",
+      "redirect_url": "/azure/digital-twins/how-to-authenticate-client",
       "redirect_document_id": false
     },
     {
       "source_path": "security-best-practices.md",
-      "redirect_url": "/previous-versions/azure/digital-twins/security-best-practices",
+      "redirect_url": "/azure/digital-twins/concepts-security",
       "redirect_document_id": false
     },
     {
       "source_path": "security-create-manage-role-assignments.md",
-      "redirect_url": "/previous-versions/azure/digital-twins/security-create-manage-role-assignments",
+      "redirect_url": "/azure/digital-twins/concepts-security",
       "redirect_document_id": false
     },
     {
       "source_path": "security-role-based-access-control.md",
-      "redirect_url": "/previous-versions/azure/digital-twins/security-role-based-access-control",
+      "redirect_url": "/azure/digital-twins/concepts-security",
       "redirect_document_id": false
     },
     {
