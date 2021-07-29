@@ -834,6 +834,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/signin-appauth-ios.md",
+      "redirect_url": "/azure/configure-authentication-sample-ios-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/signin-appauth-android.md",
+      "redirect_url": "/azure/configure-authentication-sample-android-app",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-access-tokens.md",
       "redirect_url": "/azure/active-directory-b2c/access-tokens",
       "redirect_document_id": true
@@ -28579,6 +28589,16 @@
       "redirect_url": "/azure/storage/blobs/",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/storage/blobs/storage-blob-immutable-storage.md",
+      "redirect_url": "/azure/storage/blobs/immutable-storage-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/blobs/storage-blob-immutability-policies-manage.md",
+      "redirect_url": "/azure/storage/blobs/immutable-policy-configure-version-scope",
+      "redirect_document_id": false
+    },    
     {
       "source_path_from_root": "/articles/storage/blobs/storage-blob-create-account-block-blob.md",
       "redirect_url": "/azure/storage/common/storage-account-create",
