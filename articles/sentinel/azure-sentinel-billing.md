@@ -35,9 +35,9 @@ If you're not yet using Azure Sentinel, you can use the [Azure Sentinel pricing 
 
 For example, you can enter the GB of daily data you expect to ingest in Azure Sentinel, and the region for your workspace. The calculator provides the aggregate monthly cost across these components:
 
-- Log Analytics data ingestion 
-- Azure Sentinel data analysis 
-- Log Analytics data retention 
+- Log Analytics data ingestion
+- Azure Sentinel data analysis
+- Log Analytics data retention
 
 > [!NOTE]
 > The costs shown in this image are for example purposes only. They're not intended to reflect actual costs.
