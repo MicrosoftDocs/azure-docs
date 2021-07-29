@@ -138,7 +138,6 @@ Setup logs | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log`
 `/Silent`| Optional. Specifies whether to run the installer in silent mode.
 
 #### Registration settings
-
 Setting | Details
 --- | ---
 Syntax | `UnifiedAgentConfigurator.exe  /CSEndPoint \<CSIP> /PassphraseFilePath \<PassphraseFilePath>`
@@ -345,26 +344,26 @@ Locate the installer files for the server’s operating system using the followi
 
 #### Installation settings
 
-  Setting | Details
-    --- | ---
-    Syntax | `.\UnifiedAgentInstaller.exe /Platform vmware /Role MS /CSType CSPrime /InstallLocation <Install Location>`
-    Setup logs | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log`
-    `/Role` | Mandatory installation parameter. Specifies whether the Mobility service (MS) will be installed.
-    `/InstallLocation`| Optional parameter. Specifies the Mobility service installation location (any folder).
-    `/Platform` | Mandatory. Specifies the platform on which the Mobility service is installed: <br/> **VMware** for VMware VMs/physical servers. <br/> **Azure** for Azure VMs.<br/><br/> If you're treating Azure VMs as physical machines, specify **VMware**.
-    `/Silent`| Optional. Specifies whether to run the installer in silent mode.
-    `/CSType`| Optional. Used to define preview or legacy architecture. (CSPrime or CSLegacy)
+Setting | Details
+--- | ---
+Syntax | `.\UnifiedAgentInstaller.exe /Platform vmware /Role MS /CSType CSPrime /InstallLocation <Install Location>`
+Setup logs | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log`
+`/Role` | Mandatory installation parameter. Specifies whether the Mobility service (MS) will be installed.
+`/InstallLocation`| Optional parameter. Specifies the Mobility service installation location (any folder).
+`/Platform` | Mandatory. Specifies the platform on which the Mobility service is installed: <br/> **VMware** for VMware VMs/physical servers. <br/> **Azure** for Azure VMs.<br/><br/> If you're treating Azure VMs as physical machines, specify **VMware**.
+`/Silent`| Optional. Specifies whether to run the installer in silent mode.
+`/CSType`| Optional. Used to define preview or legacy architecture. (CSPrime or CSLegacy)
 
 #### Registration settings
 
 Setting | Details
-  --- | ---
-    Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime >`
-    `/SourceConfigFilePath` | Mandatory. Full file path of the Mobility Service configuration file. Use any valid folder.
-    `/CSType` |  Optional.  Location of the passphrase. Use any valid UNC or local file path.
-
+--- | ---
+Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime >`
+`/SourceConfigFilePath` | Mandatory. Full file path of the Mobility Service configuration file. Use any valid folder.
+`/CSType` |  Optional.  Location of the passphrase. Use any valid UNC or local file path.
 
 ### Linux machine
+
 1. From a terminal session, copy the installer to a local folder such as **/tmp** on the server that you want to protect. Then run the below command:
 
    ```shell
@@ -388,7 +387,7 @@ Setting | Details
 #### Installation settings
 
   Setting | Details
-    --- | ---
+  --- | ---
     Syntax | `./install -q -r MS -v VmWare -c CSPrime`
     `-r` | Mandatory. Installation parameter. Specifies whether the Mobility service (MS) should be installed.
     `-d` | Optional. Specifies the Mobility service installation location: `/usr/local/ASR`.
