@@ -55,7 +55,7 @@ To fix this issue, sign in with an Azure account that has Owner permissions, the
 
 ## Fields under Virtual Machine tab are grayed out
 
-This issue is when you open the **Virtual machine** tab and see that the fields under "Do you want users to share this machine?" are grayed out. This issue then prevents you from changing the image type, selecting an image to use, or changing the VM size.
+This issue happens when you open the **Virtual machine** tab and see that the fields under "Do you want users to share this machine?" are grayed out. This issue then prevents you from changing the image type, selecting an image to use, or changing the VM size.
 
 This issue happens when you run the feature with a prefix that was already used to start a deployment. When the feature creates a deployment, it creates an object to represent the deployment in Azure. Certain values in the object, like the image, become attached to that object to prevent multiple objects from using the same images.
 
@@ -171,7 +171,7 @@ To make sure this is the issue you've encountered:
 
 3. In the **job details** window, select **Exception**.
 
-This error happens when the Azure admin UPN you entered isn't correct. To resolve this issue, make sure you're entering the correct username and password are correct, then try again.
+This error happens when the Azure admin UPN you entered isn't correct. To resolve this issue, make sure you're entering the correct username and password, then try again.
 
 ## Multiple VMExtensions per handler not supported
 
