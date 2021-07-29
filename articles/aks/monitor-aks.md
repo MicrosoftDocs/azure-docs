@@ -118,6 +118,15 @@ Use **Node** workbooks in Container Insights to analyze disk capacity and IO in 
 
 For troubleshooting scenarios, you may need to access the AKS nodes directly for maintenance or immediate log collection. For security purposes, the AKS nodes aren't exposed to the internet but you can `kubectl debug` to SSH to the AKS nodes. See [Connect with SSH to Azure Kubernetes Service (AKS) cluster nodes for maintenance or troubleshooting](/ssh.md) for details on this process.
 
+### Resource logs
+[Resource logs](monitor-aks-reference.md#resource-logs) that you can analyze at this level include the following:
+
+- cluster-autoscale
+- guard
+- kube-audit 
+- kube-audit-admin
+- kube-scheduler  
+
 ### Level 2 - Managed AKS components
 Managed AKS level includes the following components.
 
@@ -126,7 +135,7 @@ Managed AKS level includes the following components.
 | API Server | Monitor the status of API server, identifying any increase in request load and bottlenecks if the service is down. |
 | Kubelet | Monitoring Kubelet helps in troubleshooting of pod management issues, pods not starting, nodes not ready or pods getting killed.  |
 
-Azure Monitor and container insights don't yet provide full monitoring for the API server. You can use metrics explorer to view the **Inflight Requests** counter, but you should refer to metrics in Prometheus for a complete view of API Server performance. This includes such values as request latency and workqueue processing time. A Grafana dashboard that provides views of the critical metrics for the API server is available at [Grafana Labs](https://grafana.com/grafana/dashboards/12006). Use this dashboard on your existing Grafana server or setup a new Grafana server in Azure using [Monitor your Azure services in Grafana](../visualize/grafana-plugin.md)
+Azure Monitor and container insights don't yet provide full monitoring for the API server. You can use metrics explorer to view the **Inflight Requests** counter, but you should refer to metrics in Prometheus for a complete view of API Server performance. This includes such values as request latency and workqueue processing time. A Grafana dashboard that provides views of the critical metrics for the API server is available at [Grafana Labs](https://grafana.com/grafana/dashboards/12006). Use this dashboard on your existing Grafana server or setup a new Grafana server in Azure using [Monitor your Azure services in Grafana](../../azure-monitor/visualize/grafana-plugin.md)
 
 :::image type="content" source="media/monitor-aks/grafana-api-server.png" alt-text="Grafana API server" lightbox="media/monitor-aks/grafana-api-server.png":::
 
@@ -134,7 +143,11 @@ Use the **Kubelet** workbook to view the health and performance of each kubelet.
 
 :::image type="content" source="media/monitor-aks/container-insights-kubelet-workbook.png" alt-text="Container insights kubelet workbook" lightbox="media/monitor-aks/container-insights-kubelet-workbook.png":::
 
+### Resource logs
+[Resource logs](monitor-aks-reference.md#resource-logs) that you can analyze at this level include the following:
 
+- kube-apiserver
+- kube-controller-manager
 
 ### Level 3 - Kubernetes objects and workloads
 Kubernetes objects and workloads level include the following components.
@@ -226,6 +239,7 @@ The most common types of alert rules in Azure Monitor are [metric alerts](../azu
 
 It's typically the best strategy to use metric alerts instead of log alerts when possible since they're more responsive and stateful. You can create a metric alert on any values you can analyze in metrics explorer. If the logic for your alert rule requires data in Logs, or if it requires more complex logic, then you can use a log query alert rule.
 
+For example, if you want to alert when an application workload is consuming excessive CPU then you can create a metric alert using the CPU metric. If you need an alert when a particular message is found in a control plane log, then you'll require a log alert.
 ### Metric alert rules
 Metric alert rules use the same metric values as metrics explorer. In fact, you can create an alert rule directly from metrics explorer with the data you're currently analyzing. You can use any of the values in [AKS data reference metrics](monitor-aks-reference.md#metrics) for metric alert rules.
 
@@ -235,6 +249,8 @@ Container insights includes a feature in public preview that creates a recommend
 ### Log alerts rules
 Use log alert rules to generate an alert from the results of a log query. This may be data collected by Container insights or from AKS resource logs. See [How to create log alerts from Container insights](../azure-monitor/containers/container-insights-log-alerts.md) for details on log alert rules for AKS and  a set of sample queries designed for alert rules. You can also refer to [How to query logs from Container insights](../azure-monitor/containers/container-insights-log-query.md) for details on log queries that could be modified for alert rules.
 
+### Virtual machine alerts
+AKS relies on a virtual machine scale set that must be healthy to run AKS workloads. You can alert on critical metrics such as CPU, memory, and storage for the virtual machines using the guidance at [Monitor virtual machines with Azure Monitor: Alerts](../vm/monitor-virtual-machine-alerts.md).
 
 ### Prometheus alerts
 For those conditions where Azure Monitor either doesn't have the data required for an alerting condition, or where the alerting may not be responsive enough, you should configure alerts in Prometheus. One example is alerting for the API server. Azure Monitor doesn't collect critical information for the API server including whether it's available or experiencing a bottleneck. You can create a log query alert using the data from the kube-apiserver resource log category, but this can take up to several minutes before you receive an alert which may not be sufficient for your requirements. 

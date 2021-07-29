@@ -56,7 +56,7 @@ For reference, see a list of [all resource logs category types supported in Azur
 | guard                   | Managed Azure Active Directory and Azure RBAC audits. For managed Azure AD, this includes token in and user info out. For Azure RBAC, this includes access reviews in and out. |
 | kube-apiserver          | Logs from the API server. |
 | kube-audit              | Audit log data for every audit event including get, list, create, update, delete, patch, and post. |
-| kube-audit-admin        | Subset of the kube-audit log category. Significanly reduces the number of logs by excluding the get and list audit events from the log. |
+| kube-audit-admin        | Subset of the kube-audit log category. Significantly reduces the number of logs by excluding the get and list audit events from the log. |
 | kube-controller-manager | Gain deeper visibility of issues that may arise between Kubernetes and the Azure control plane. A typical example is the AKS cluster having a lack of permissions to interact with Azure. |
 | kube-scheduler          | Logs from the scheduler. |
 | AllMetrics              | Includes all platform metrics. Sends these values to Log Analytics workspace where it can be evaluated with other data using log queries. |
