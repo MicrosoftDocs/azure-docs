@@ -1,19 +1,18 @@
 ---
-title: User, session, and event analysis in Azure Application Insights
+title: User, session, and event analysis in Application Insights
 description: Demographic analysis of users of your web app.
 ms.topic: conceptual
-author: NumberByColors
-ms.author: daviste
-ms.date: 01/24/2018
+author: lgayhardt
+ms.author: lagayhar
+ms.date: 07/29/2021
 
-ms.reviewer: mbullwin
 ---
 
 # Users, sessions, and events analysis in Application Insights
 
-Find out when people use your web app, what pages they're most interested in, where your users are located, and what browsers and operating systems they use. Analyze business and usage telemetry by using [Azure Application Insights](./app-insights-overview.md).
+Find out when people use your web app, what pages they're most interested in, where your users are located, and what browsers and operating systems they use. Analyze business and usage telemetry by using [Application Insights](./app-insights-overview.md).
 
-![Screenshot of Application Insights Users](./media/usage-segmentation/0001-users.png)
+:::image type="content" source="./media/usage-segmentation/users.png" alt-text="Screen capture shows the Users tab with an area chart. " lightbox="./media/usage-overview/users.png":::
 
 ## Get started
 
@@ -27,7 +26,7 @@ Three of the usage blades use the same tool to slice and dice telemetry from you
 * **Sessions tool**: How many sessions of user activity have included certain pages and features of your app. A session is counted after half an hour of user inactivity, or after 24 hours of continuous use.
 * **Events tool**: How often certain pages and features of your app are used. A page view is counted when a browser loads a page from your app, provided you have [instrumented it](./javascript.md). 
 
-    A custom event represents one occurrence of something happening in your app, often a user interaction like a button click or the completion of some task. You insert code in your app to [generate custom events](./api-custom-events-metrics.md#trackevent).
+    A custom event represents one occurrence of something happening in your app, often a user interaction like a button select or the completion of some task. You insert code in your app to [generate custom events](./api-custom-events-metrics.md#trackevent).
 
 ## Querying for certain users
 
@@ -43,9 +42,9 @@ Explore different groups of users by adjusting the query options at the top of t
 ## Saving and sharing reports 
 You can save Users reports, either private just to you in the My Reports section, or shared with everyone else with access to this Application Insights resource in the Shared Reports section.
 
-To share a link to a Users, Sessions, or Events report; click **Share** in the toolbar, then copy the link.
+To share a link to a Users, Sessions, or Events report; select **Share** in the toolbar, then copy the link.
 
-To share a copy of the data in a Users, Sessions, or Events report; click **Share** in the toolbar, then click the **Word icon** to create a Word document with the data. Or, click the **Word icon** above the main chart.
+To share a copy of the data in a Users, Sessions, or Events report; select **Share** in the toolbar, then select the **Word icon** to create a Word document with the data. Or, select the **Word icon** above the main chart.
 
 ## Meet your users
 

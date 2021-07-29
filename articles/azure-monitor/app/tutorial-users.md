@@ -1,18 +1,18 @@
 ---
-title: Understand your customers in Azure Application Insights | Microsoft Docs
-description: Tutorial on using Azure Application Insights to understand how customers are using your application.
+title: Understand your customers in  Application Insights | Microsoft Docs
+description: Tutorial on using Application Insights to understand how customers are using your application.
 
 ms.topic: tutorial
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 09/20/2017
+ms.date: 07/29/2021
 
 ms.custom: mvc
 ---
 
 # Use Azure Application Insights to understand how customers are using your application
 
-Azure Application Insights collects usage information to help you understand how your users interact with your application.  This tutorial walks you through the different resources that are available to analyze this information.  You will learn how to:
+ Application Insights collects usage information to help you understand how your users interact with your application.  This tutorial walks you through the different resources that are available to analyze this information.  You will learn how to:
 
 > [!div class="checklist"]
 > * Analyze details about users accessing your application
@@ -42,85 +42,74 @@ Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.co
 ## Get information about your users
 The **Users** panel allows you to understand important details about your users in a variety of ways. You can use this panel to understand such information as where your users are connecting from, details of their client, and what areas of your application they're accessing. 
 
-1. Select **Application Insights** and then select your subscription.
-2. Select **Users** in the menu.
-3. The default view shows the number of unique users that have connected to your application over the past 24 hours.  You can change the time window and set various other criteria to filter this information.
+1. In your Application Insights resource under *Usage*, select **Users** in the menu.
+2. The default view shows the number of unique users that have connected to your application over the past 24 hours.  You can change the time window and set various other criteria to filter this information.
 
-	![Query Builder](media/tutorial-users/QueryBuilder.png)
-
-6. Click the **During** dropdown and change the time window to 7 days.  This increases the data included in the different charts in the panel.
-
-	![Change Time Range](media/tutorial-users/TimeRange.png)
+3. Click the **During** dropdown and change the time window to 7 days.  This increases the data included in the different charts in the panel.
 
 4. Click the **Split by** dropdown to add a breakdown by a user property to the graph.  Select **Country or region**.  The graph includes the same data but allows you to view a breakdown of the number of users for each country/region.
 
-	![Country or Region graph](media/tutorial-users/CountryorRegion.png)
+      :::image type="content" source="./media/tutorial-users/user-1.png" alt-text="Screenshot of the User tab's query builder." lightbox="./media/tutorial-users/user-1.png":::
 
 5. Position the cursor over different bars in the chart and note that the count for each country/region reflects only the time window represented by that bar.
-6. Have a look at the **Insights** column at the right that perform analysis on your user data.  This provides information such as the number of unique sessions over the time period and records with common properties that make up significant of the user data 
+6. Select **View More Insights** for more information. 
 
-	![Insights column](media/tutorial-users/insights.png)
+      :::image type="content" source="./media/tutorial-users/user-2.png" alt-text="Screenshot oon the User tab of view more insights." lightbox="./media/tutorial-users/user-2.png":::
 
 
 ## Analyze user sessions
 The **Sessions** panel is similar to the **Users** panel.  Where **Users** helps you understand details about the users accessing your application, **Sessions** helps you understand how those users used your application.  
 
-1. Select **Sessions** in the menu.
+1. User *Usage*, select **Sessions**.
 2. Have a look at the graph and note that you have the same options to filter and break down the data as in the **Users** panel.
 
-	![Sessions Query Builder](media/tutorial-users/SessionsBuilder.png)
+     :::image type="content" source="./media/tutorial-users/sessions.png" alt-text="Screenshot of the Sessions tab." lightbox="./media/tutorial-users/sessions.png":::
 
-3. The **Sample of these sessions** pane on the right lists sessions that include a large number of events.  These are interesting sessions to analyze.
+4. To view the sessions timeline select **View More Insights** then under active sessions select **View session timeline** on one of the timelines. Session Timeline shows every action in the sessions. This can help you identify information such as the sessions with a large number of exceptions.
 
-	![Sample of these sessions](media/tutorial-users/SessionsSample.png)
-
-4. Click on one of the sessions to view its **Session Timeline**, which shows every action in the sessions.  This can help you identify information such as the sessions with a large number of exceptions.
-
-	![Sessions Timeline](media/tutorial-users/SessionsTimeline.png)
+     :::image type="content" source="./media/tutorial-users/timeline.png" alt-text="Screenshot of the Sessions tab with a timeline selected." lightbox="./media/tutorial-users/timeline.png":::
 
 ## Group together similar users
 A **Cohort** is a set of users grouped on similar characteristics.  You can use cohorts to filter data in other panels allowing you to analyze particular groups of users.  For example, you might want to analyze only users who completed a purchase.
 
-1.  Select **Cohorts** in the menu.
-2.  Click **New** to create a new cohort.
-3.  Select the **Who used** dropdown and select an action.  Only users who performed this action within the time window of the report will be included.
+1.  Select **Create a Cohort** at the top of one of the usage tabs ( Users, Sessions, Events and so on).
 
-	![Cohort who performed specified actions](media/tutorial-users/CohortsDropdown.png)
+1.  Select a template from the gallery.
 
-4.  Select **Users** in the menu.
-5.  In the **Show** dropdown, select the cohort you just created.  The data for the graph is limited to those users.
+    :::image type="content" source="./media/tutorial-users/cohort1.png" alt-text="Screenshot of the template gallery for cohorts." lightbox="./media/tutorial-users/cohort1.png":::
+1.  Edit your Cohort then select **save**.
+1.  To see your Cohort select it from the **Show** dropdown menu. 
 
-	![Cohort in users tool](media/tutorial-users/UsersCohort.png)
+    :::image type="content" source="./media/tutorial-users/cohort2.png" alt-text="Screenshot of the Show dropdown." lightbox="./media/tutorial-users/cohort2.png":::
 
 
 ## Compare desired activity to reality
 While the previous panels are focused on what users of your application did, **Funnels** focus on what you want users to do.  A funnel represents a set of steps in your application and the percentage of users who move between steps.  For example, you could create a funnel that measures the percentage of users who connect to your application who search product.  You can then see the percentage of users who add that product to a shopping cart, and then the percentage of those who complete a purchase.
 
-1. Select **Funnels** in the menu and then click **New**. 
+1. Select **Funnels** in the menu and then select **Edit**. 
 
-	![Screenshot showing how to create a new funnel.](media/tutorial-users/funnelsnew.png)
-
-2. Type in a **Funnel Name**.
 3. Create a funnel with at least two steps by selecting an action for each step.  The list of actions is built from usage data collected by Application Insights.
 
-	![Screenshot showing how to create steps in a new funnel.](media/tutorial-users/funnelsedit.png)
+    :::image type="content" source="./media/tutorial-users/funnel.png" alt-text="Screenshot of the Funnel tab and selecting steps on the edit tab." lightbox="./media/tutorial-users/funnel.png":::
 
-4. Click **Save** to save the funnel and then view its results.  The window to the right of the funnel shows the most common events before the first activity and after the last activity to help you understand user tendencies around the particular sequence.
+4. Select the **View** tab to see the results. The window to the right shows the most common events before the first activity and after the last activity to help you understand user tendencies around the particular sequence.
 
-	![Screenshot showing the event results of a newly created funnel.](media/tutorial-users/funnelsright.png)
+     :::image type="content" source="./media/tutorial-users/funnel2.png" alt-text="Screenshot of the funnel tab on view." lightbox="./media/tutorial-users/funnel2.png":::
 
+4. To save the funnel select **Save**. 
 
 ## Learn which customers return
+
 **Retention** helps you understand which users are coming back to your application.  
 
-1. Select **Retention** in the menu.
+1. Select **Retention** in the menu, then *Retention Analysis Workbook.
 2. By default, the analyzed information includes users who performed any action and then returned to perform any action.  You can change this filter to any include, for example, only those users who returned after completing a purchase.
 
-	![Screenshot showing how to set a retention filter.](media/tutorial-users/retentionquery.png)
+      :::image type="content" source="./media/tutorial-users/retention.png" alt-text="Screenshot showing a graph for users that match the criteria set for a retention filter." lightbox="./media/tutorial-users/retention.png":::
 
-3. The returning users that match the criteria are shown in graphical and table form for different time durations.  The typical pattern is for a gradual drop in returning users over time.  A sudden drop from one time period to the next might raise a concern. 
+3. The returning users that match the criteria are shown in graphical and table form for different time durations. The typical pattern is for a gradual drop in returning users over time.  A sudden drop from one time period to the next might raise a concern. 
 
-	![Screenshot showing a graph for users that match the criteria set for a retention filter.](media/tutorial-users/retentiongraph.png)
+      :::image type="content" source="./media/tutorial-users/retention2.png" alt-text="Screenshot of the retention workbook, showing user return after # of weeks chart." lightbox="./media/tutorial-users/retention2.png":::
 
 ## Analyze user navigation
 A **User flow** visualizes how users navigate between the pages and features of your application.  This helps you answer questions such as where users typically move from a particular page, how they typically exit your application, and if there are any actions that are regularly repeated.
@@ -148,13 +137,12 @@ A **User flow** visualizes how users navigate between the pages and features of 
 
 	![Screenshot showing a list of sample queries that you can use.](media/tutorial-users/samplequeries.png)
 
-4.  Click **Done editing**.
-5.  Click **Edit** in the top pane to edit the text at the top of the workbook.  This is formatted using markdown.
+4.  Select **Done editing**.
+5.  Select **Edit** in the top pane to edit the text at the top of the workbook.  This is formatted using markdown.
 
-	![Screenshot showing how to edit the text at the top of the workbook.](media/tutorial-users/markdown.png)
+6.  Select **Add users** to add a graph with user information.  Edit the details of the graph if you want and then click **Done editing** to save it.
 
-6.  Click **Add users** to add a graph with user information.  Edit the details of the graph if you want and then click **Done editing** to save it.
-
+To learn more about workbooks visit [the workbooks overview](../visualize/workbooks-overview.md).
 
 ## Next steps
 Now that you've learned how to analyze your users, advance to the next tutorial to learn how to create custom dashboards that combine this information with other useful data about your application.
