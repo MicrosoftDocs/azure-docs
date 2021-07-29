@@ -1,4 +1,4 @@
-- name: Access Windows Virtual Desktop
+- name: Access Azure Virtual Desktop
   href: index.yml
 - name: How-to
   items:
