@@ -383,7 +383,6 @@ Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath
    ```shell
         <InstallLocation>/Vx/bin/UnifiedAgentConfigurator.sh -c CSPrime -S config.json -q
     ```
-
 #### Installation settings
 
   Setting | Details
