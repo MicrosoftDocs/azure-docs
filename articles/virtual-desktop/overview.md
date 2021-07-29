@@ -117,6 +117,8 @@ To learn more about URLs you must unblock to use the clients, see the [Safe URL 
 
 Azure Virtual Desktop follows the [Microsoft Lifecycle Policy](/lifecycle/) and supports the following x64 operating system images:
 
+* Windows 11 Enterprise multi-session (Preview)
+* Windows 11 Enterprise (Preview)
 * Windows 10 Enterprise multi-session
 * Windows 10 Enterprise
 * Windows 7 Enterprise
@@ -130,6 +132,8 @@ Available automation and deployment options depend on which OS and version you c
 
 |Operating system|Azure Image Gallery|Manual VM deployment|Azure Resource Manager template integration|Provision host pools on Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|
+|Windows 11 Enterprise multi-session (Preview)|Yes|Yes|Yes|Yes|
+|Windows 11 Enterprise (Preview)|Yes|Yes|Yes|Yes|
 |Windows 10 Enterprise multi-session, version 1909 and later|Yes|Yes|Yes|Yes|
 |Windows 10 Enterprise, version 1909 and later|Yes|Yes|Yes|Yes|
 |Windows 7 Enterprise|Yes|Yes|No|No|
