@@ -178,7 +178,7 @@ You might want to query programmatically for alerts generated against your subsc
 
 It is recommended you that you use [Azure Resource Graph](../../governance/resource-graph/overview.md) with the `AlertsManagementResources` schema for querying fired alerts. Resource Graph is recommended when you have to manage alerts generated across many subscriptions.
 
-The following sample request to the Resource Graph REST API returns alerts within one subscription:
+The following sample request to the Resource Graph REST API returns alerts within one subscription in the last day:
 
 ```json
 {
