@@ -22,7 +22,7 @@ The interactive interface of Linkurious Enterprise offers an easy way to investi
 
 :::image type="content" source="./media/graph-visualization-partners/linkurious-demo.gif" alt-text="Linkurious Demo" border="false":::
 
-<b>Figure:</b> Depicts Tom Sawyer perspectives's visualization capabilities
+<b>Figure:</b> Linkurious Enterprise visualization flow
 ### Useful links
 
 * [Product details](https://linkurio.us/product/)
@@ -46,7 +46,7 @@ These toolkits let you design high-performance graph visualization and analysis 
 
 :::image type="content" source="./media/graph-visualization-partners/ci-demo-1.gif" alt-text="Animation shows a Re-Graph visualization example at various levels of detail." border="false":::
 
-<b>Figure:</b> Re-Graph visualization example at various levels of detail
+<b>Figure:</b> Re-Graph visualization example at various levels of details
 ### Useful links
 
 * [Try the toolkits](https://cambridge-intelligence.com/try/)
@@ -62,7 +62,7 @@ Perspectives enables developers to quickly develop production-quality, data-orie
 
 :::image type="content" source="./media/graph-visualization-partners/tom-sawyer/tom-sawyer-perspective.gif" alt-text="Tom Sawyer Perspectives demo" border="false":::
 
-<b>Figure:</b> Linkurious visualization capabilities
+<b>Figure:</b> Tom Sawyer Perspectives in action
 
 [Tom Sawyer Graph Database Browser](https://www.tomsawyer.com/graph-database-browser/) makes it easy to visualize and analyze data in Azure Cosmos DB Gremlin API. The Graph Database Browser helps you see and understand connections in your data without extensive knowledge of the query language or the schema. You can manually define the schema for your project or use schema extraction to create it. So, even less technical users can interact with the data by loading the neighbors of selected nodes and building the visualization in whatever direction they need. Advanced users can execute queries using Gremlin, Cypher, or SPARQL to gain other insights. When you define the schema then you can load the Azure Cosmos DB data into the Perspectives model. With the help of integrator definition, you can specify the location and configuration for the Gremlin endpoint. Later you can bind elements from the Azure Cosmos DB data source to elements in the Perspectives model and visualize your data.
 
@@ -70,7 +70,7 @@ Users of all skill levels can take advantage of five unique graph layouts to dis
 
 :::image type="content" source="./media/graph-visualization-partners/tom-sawyer/tom-sawyer-databrowser.gif" alt-text="Tom Sawyer Data browser demo" border="false":::
 
-<b>Figure:</b> Tom Sawyer perspectives visualization capabilities
+<b>Figure:</b> Tom Sawyer Database Browser's visualization capabilities
 ### Useful links
 
 * [Documentation](https://www.tomsawyer.com/graph-database-browser/)
@@ -87,13 +87,13 @@ Graphistry automatically transforms your data into interactive, visual investiga
 
 :::image type="content" source="./media/graph-visualization-partners/graphistry/graphistry-demo.png" alt-text="Graphistry snapshot" border="false":::
 
-<b>Figure:</b> Graphistry snapshot
+<b>Figure:</b> Graphistry Vsualization snapshot
 
 With the Graphistry's GPU client/cloud technology, you can do interactive visualization. By using their standard browser and the cloud, you can use all the data you want, and still remain fast, responsive, and interactive. If you want to run the browser on your hardware, it’s as easy as installing a Docker. That way you get the analytical power of GPUs without having to think about GPUs.
 
 :::image type="content" source="./media/graph-visualization-partners/graphistry/graphistry-demo-animation.gif" alt-text="Graphistry demo" border="false":::
 
-<b>Figure:</b> Graphistry various screens
+<b>Figure:</b> Graphistry in action
 
 ### Useful links
 
@@ -117,7 +117,7 @@ Graphlytic property graph visualization is a perfect enabler for all above menti
 
   :::image type="content" source="./media/graph-visualization-partners/graphlytic/it-management.gif" alt-text="Graphlytic IT Management use case demo" :::
 
-<b>Figure:</b> Graphlytic Fraud detection use case
+<b>Figure:</b> Graphlytic IT management use case
 
 * **Anti-fraud use case**
 Fraud pattern is a well-known term to every single insurance company, bank or e-commerce enterprise. Modern fraudsters build sophisticated fraud rings and schemes that are hard to unveil with traditional tools. It can cause serious losses if not detected properly and on time. On the other hand, traditional red flag systems with too strict criteria must be adjusted to eliminate false positive indicators, as it would lead to overwhelming fraud indications. Great amounts of time are spent trying to detect complex fraud, paralyzing investigators in their daily tasks.
@@ -170,4 +170,4 @@ Typical use-cases and data models include:
 
 ### Next Steps
 
-* [Pricing](./how-pricing-works.md)
+* [Cosmos DB - Gremlin API Pricing](./how-pricing-works.md)
