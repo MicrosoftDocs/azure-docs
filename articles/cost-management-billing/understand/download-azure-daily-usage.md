@@ -1,5 +1,5 @@
 ---
-title: View and Download Azure usage and charges
+title: View and download Azure usage and charges
 description: Learn how to download or view your Azure daily usage and charges, and see additional available resources.
 keywords: billing usage, usage charges, usage download, view usage, azure invoice, azure usage
 author: bandersmsft
@@ -8,14 +8,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.custom: devx-track-azurecli
+ms.date: 07/28/2020
 ---
 
 # View and download your Azure usage and charges
 
-You can download a daily breakdown of your Azure usage and charges in the Azure portal. Only certain roles have permission to get Azure usage information, like the Account Administrator or Enterprise Administrator. To learn more about getting access to billing information, see [Manage access to Azure billing using roles](../manage/manage-billing-access.md).
+You can download a daily breakdown of your Azure usage and charges in the Azure portal. You can also get your usage data using Azure CLI. Only certain roles have permission to get Azure usage information, like the Account Administrator or Enterprise Administrator. To learn more about getting access to billing information, see [Manage access to Azure billing using roles](../manage/manage-billing-access.md).
 
-If you have a Microsoft Customer Agreement (MCA), you must be a billing profile Owner, Contributor, Reader, or Invoice manager to view your Azure usage and charges.  If you have a Microsoft Partner Agreement (MPA), only the Global Admin and Admin Agent role in the partner organization Microsoft can view and download Azure usage and charges. [Check your billing account type in the Azure portal](#check-your-billing-account-type).
+If you have a Microsoft Customer Agreement (MCA), you must be a billing profile Owner, Contributor, Reader, or Invoice manager to view your Azure usage and charges.  If you have a Microsoft Partner Agreement (MPA), only the Global Admin and Admin Agent role in the partner organization Microsoft can view and download Azure usage and charges.
 
 Based on the type of subscription that you use, options to download your usage and charges vary.
 
@@ -38,11 +39,33 @@ To view and download usage data as a EA customer, you must be an Enterprise Admi
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for *Cost Management + Billing*.  
     ![Screenshot shows Azure portal search.](./media/download-azure-daily-usage/portal-cm-billing-search.png)
+1. If you have access to multiple billing accounts, select the billing scope for your EA billing account.
 1. Select **Usage + charges**.
 1. For the month you want to download, select **Download**.  
     ![Screenshot shows Cost Management + Billing Invoices page for E A customers.](./media/download-azure-daily-usage/download-usage-ea.png)
 
-## Download usage for pending charges
+## Download usage for your Microsoft Customer Agreement
+
+To view and download usage data for a billing profile, you must be a billing profile Owner, Contributor, Reader, or Invoice manager.
+
+### Download usage for billed charges
+
+1. Search for **Cost Management + Billing**.
+2. Select a billing profile.
+3. Select **Invoices**.
+4. In the invoice grid, find the row of the invoice corresponding to the usage you want to download.
+5. Click on the ellipsis (`...`) at the end of the row.
+6. In the download context menu, select **Azure usage and charges**.
+
+### Download usage for open charges
+
+You can also download month-to-date usage for the current billing period, meaning the charges have not been billed yet.
+
+1. Search for **Cost Management + Billing**.
+2. Select a billing profile.
+3. In the **Overview** blade, click **Download Azure usage and charges**.
+
+### Download usage for pending charges
 
 If you have a Microsoft Customer Agreement, you can download month-to-date usage for the current billing period. These usage charges that have not been billed yet.
 
@@ -50,11 +73,52 @@ If you have a Microsoft Customer Agreement, you can download month-to-date usage
 2. Search for *Cost Management + Billing*.
 3. Select a billing profile. Depending on your access, you might need to select a billing account first.
 4. In the **Overview** area, find the download links beneath the recent charges.
-5. Select **Download usage and prices**.  
-    :::image type="content" source="./media/download-azure-daily-usage/open-usage01.png" alt-text="Screenshot that shows download from Overview" lightbox="./media/download-azure-daily-usage/open-usage01.png" :::
+5. Select **Download usage and prices**.
 
-## Check your billing account type
-[!INCLUDE [billing-check-account-type](../../../includes/billing-check-account-type.md)]
+## Get usage data with Azure CLI
+
+Start by preparing your environment for the Azure CLI:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+After you sign in, use the [az costmanagement query](/cli/azure/costmanagement#az_costmanagement_query) command to query month-to-date usage information for your subscription:
+
+```azurecli
+az costmanagement query --timeframe MonthToDate --type Usage \
+   --scope "subscriptions/00000000-0000-0000-0000-000000000000"
+```
+
+You can also narrow the query by using the **--dataset-filter** parameter or other parameters:
+
+```azurecli
+az costmanagement query --timeframe MonthToDate --type Usage \
+   --scope "subscriptions/00000000-0000-0000-0000-000000000000" \
+   --dataset-filter "{\"and\":[{\"or\":[{\"dimension\":{\"name\":\"ResourceLocation\",\"operator\":\"In\",\"values\":[\"East US\",\"West Europe\"]}},{\"tag\":{\"name\":\"Environment\",\"operator\":\"In\",\"values\":[\"UAT\",\"Prod\"]}}]},{\"dimension\":{\"name\":\"ResourceGroup\",\"operator\":\"In\",\"values\":[\"API\"]}}]}"
+```
+
+The **--dataset-filter** parameter takes a JSON string or `@json-file`.
+
+You also have the option of using the [az costmanagement export](/cli/azure/costmanagement/export) commands to export usage data to an Azure storage account. You can download the data from there.
+
+1. Create a resource group or use an existing resource group. To create a resource group, run the [az group create](/cli/azure/group#az_group_create) command:
+
+   ```azurecli
+   az group create --name TreyNetwork --location "East US"
+   ```
+
+1. Create a storage account to receive the exports or use an existing storage account. To create an account, use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command:
+
+   ```azurecli
+   az storage account create --resource-group TreyNetwork --name cmdemo
+   ```
+
+1. Run the [az costmanagement export create](/cli/azure/costmanagement/export#az_costmanagement_export_create) command to create the export:
+
+   ```azurecli
+   az costmanagement export create --name DemoExport --type Usage \
+   --scope "subscriptions/00000000-0000-0000-0000-000000000000" --storage-account-id cmdemo \
+   --storage-container democontainer --timeframe MonthToDate --storage-directory demodirectory
+   ```
 
 ## Need help? Contact us.
 
