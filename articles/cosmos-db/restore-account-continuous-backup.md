@@ -42,7 +42,7 @@ You can use Azure portal to restore an entire live account or selected databases
 
    * **Restore Target Account** – The target account name. The target account name needs to follow same guidelines as when you are creating a new account. This account will be created by the restore process in the same region where your source account exists.
  
-   :::image type="content" source="./media/restore-account-continuous-backup/restore-live-account-portal.png" alt-text="Restore a live account from accidental modification Azure portal." border="true" lightbox="./media/continuous-backup-restore-portal/restore-live-account-portal.png":::
+   :::image type="content" source="./media/restore-account-continuous-backup/restore-live-account-portal.png" alt-text="Restore a live account from accidental modification Azure portal." border="true" lightbox="./media/restore-account-continuous-backup/restore-live-account-portal.png":::
 
 1. After you select the above parameters, select the **Submit** button to kick off a restore. The restore cost is a one time charge, which is based on the amount of data and charges for the storage in given region. To learn more, see the [Pricing](continuous-backup-restore-introduction.md#continuous-backup-pricing) section.
 
@@ -52,7 +52,7 @@ When filling out the restore point time in the Azure portal, if you need help wi
 
 For example, if you want to restore to the point before a certain container was deleted or updated, check this event feed. Events are displayed in chronologically descending order of time when they occurred, with recent events at the top. You can browse through the results and select the time before or after the event to further narrow your time.
 
-:::image type="content" source="./media/restore-account-continuous-backup/event-feed-portal.png" alt-text="Use event feed to identify the restore point time." border="true" lightbox="./media/continuous-backup-restore-portal/event-feed-portal.png":::
+:::image type="content" source="./media/restore-account-continuous-backup/event-feed-portal.png" alt-text="Use event feed to identify the restore point time." border="true" lightbox="./media/restore-account-continuous-backup/event-feed-portal.png":::
 
 > [!NOTE]
 > The event feed does not display the changes to the item resources. You can always manually specify any timestamp in the last 30 days (as long as account exists at that time) for restore.
@@ -66,7 +66,7 @@ You can use Azure portal to completely restore a deleted account within 30 days 
 1. Next select the **Restore** button. The Restore blade displays a list of deleted accounts that can be restored within the retention period, which is 30 days from deletion time.
 1. Choose the account that you want to restore.
 
-   :::image type="content" source="./media/restore-account-continuous-backup/restore-deleted-account-portal.png" alt-text="Restore a deleted account from Azure portal." border="true" lightbox="./media/continuous-backup-restore-portal/restore-deleted-account-portal.png":::
+   :::image type="content" source="./media/restore-account-continuous-backup/restore-deleted-account-portal.png" alt-text="Restore a deleted account from Azure portal." border="true" lightbox="./media/restore-account-continuous-backup/restore-deleted-account-portal.png":::
 
    > [!NOTE]
    > Note: The restore blade in Azure portal is only populated if you have the `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` permission. To learn more about how to set this permission, see the [Backup and restore permissions](continuous-backup-restore-permissions.md) article.
@@ -85,7 +85,7 @@ You can use Azure portal to completely restore a deleted account within 30 days 
 
 After initiating a restore operation, select the **Notification** bell icon at top-right corner of portal. It gives a link displaying the status of the account being restored. While restore is in progress, the status of the account will be *Creating*, after the restore operation completes, the account status will change to *Online*.
 
-:::image type="content" source="./media/restore-account-continuous-backup/track-restore-operation-status.png" alt-text="The status of restored account changes from creating to online when the operation is complete." border="true" lightbox="./media/continuous-backup-restore-portal/track-restore-operation-status.png":::
+:::image type="content" source="./media/restore-account-continuous-backup/track-restore-operation-status.png" alt-text="The status of restored account changes from creating to online when the operation is complete." border="true" lightbox="./media/restore-account-continuous-backup/track-restore-operation-status.png":::
 
 ## <a id="restore-account-powershell"></a>Restore an account using Azure PowerShell
 
@@ -102,7 +102,7 @@ Before restoring the account, install the [latest version of Azure PowerShell](/
    ```azurepowershell
    Select-AzSubscription -Subscription <SubscriptionName>
 
-### <a id="trigger-restore"></a>Trigger a restore operation
+### <a id="trigger-restore-ps"></a>Trigger a restore operation
 
 The following cmdlet is an example to trigger a restore operation with the restore command by using the target account, source account, location, resource group, and timestamp:
 
@@ -277,7 +277,7 @@ Before restoring the account, install Azure CLI with the following steps:
    * Sign into your Azure account with `az login` command.
    * Select the required subscription using `az account set -s <subscriptionguid>` command.
 
-### <a id="trigger-restore"></a>Trigger a restore operation with CLI
+### <a id="trigger-restore-cli"></a>Trigger a restore operation with CLI
 
 The simplest way to trigger a restore is by issuing the restore command with name of the target account, source account, location, resource group, timestamp (in UTC), and optionally the database and container names. The following are some examples to trigger the restore operation:
 
