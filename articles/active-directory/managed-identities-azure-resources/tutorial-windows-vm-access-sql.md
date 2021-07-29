@@ -148,7 +148,8 @@ if (accessToken != null) {
 }
 ```
 
-You can use managed identities while working with other programming options using our [SDKs](qs-configure-sdk-windows-vm.md).
+>[!NOTE]
+>You can use managed identities while working with other programming options using our [SDKs](qs-configure-sdk-windows-vm.md).
 
 Alternatively, a quick way to test the end to end setup without having to write and deploy an app on the VM is using PowerShell.
 
