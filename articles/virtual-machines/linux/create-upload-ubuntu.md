@@ -100,7 +100,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
     ```bash
 	# cat > /etc/cloud/cloud.cfg.d/90_dpkg.cfg << EOF
 	datasource_list: [ Azure ]
-        EOF
+    EOF
 
 	# cat > /etc/cloud/cloud.cfg.d/90-azure.cfg << EOF
     system_info:
