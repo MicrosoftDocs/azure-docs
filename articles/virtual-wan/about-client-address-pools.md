@@ -36,10 +36,10 @@ For instance, if a scale unit of 100 is chosen, 5 instances are deployed for the
 
 Point-to-site VPN address pool assignments are done automatically by Virtual WAN. See the following basic guidelines for specifying address pools.
 
-1. One gateway instance allows for a maximum of 10,000 concurrent connections. As such, each address pool should contain at least 10,000 unique RFC1918 IP addresses.
-1. Multiple address pool ranges are automatically combined and assigned to a **single** gateway instance. This process is done in a round-robin manner for any gateway instances that have less than 10,000 IP addresses. For example, a pool with 5,000 addresses can be combined automatically by Virtual WAN with another pool that has 8,000 addresses and is assigned to a single gateway instance.
-1. A single address pool is only assigned to a single gateway instance by Virtual WAN.
-1. Address pools must be distinct. There can be no overlap between address pools.
+* One gateway instance allows for a maximum of 10,000 concurrent connections. As such, each address pool should contain at least 10,000 unique RFC1918 IP addresses.
+* Multiple address pool ranges are automatically combined and assigned to a **single** gateway instance. This process is done in a round-robin manner for any gateway instances that have less than 10,000 IP addresses. For example, a pool with 5,000 addresses can be combined automatically by Virtual WAN with another pool that has 8,000 addresses and is assigned to a single gateway instance.
+* A single address pool is only assigned to a single gateway instance by Virtual WAN.
+* Address pools must be distinct. There can be no overlap between address pools.
 
 > [!NOTE] 
 > If an address pool is associated to a gateway instance that is undergoing maintenance, the address pool cannot be re-assigned to another instance.
