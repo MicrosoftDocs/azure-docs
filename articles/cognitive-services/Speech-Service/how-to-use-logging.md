@@ -149,16 +149,19 @@ This also means that the lifetime of the object that configured logging is not t
 
 To reduce potential confusion when configuring logging for multiple instances, it may be useful to abstract control of logging from objects doing real work. An example pair of helper routines:
 
-```csharp
-public static void EnableSpeechSdkFileLogging(string path)
+```cpp
+void EnableSpeechSdkLogging(const char* relativePath)
 {
-    var configForLogging = SpeechConfig.FromSubscription("unused_key", "unused_region");
-    configForLogging.SetProperty(PropertyId.Speech_LogFilename, path);
-    using (var momentaryRecognizerForLoggingConfiguration = new SpeechRecognizer(configForLogging))
-    {
-    }
+	auto configForLogging = SpeechConfig::FromSubscription("unused_key", "unused_region");
+	configForLogging->SetProperty(PropertyId::Speech_LogFilename, relativePath);
+	auto emptyAudioConfig = AudioConfig::FromStreamInput(AudioInputStream::CreatePushStream());
+	auto temporaryRecognizer = SpeechRecognizer::FromConfig(configForLogging, emptyAudioConfig);
 }
-public static void DisableSpeechSdkFileLogging() => EnableSpeechSdkFileLogging(string.Empty);
+
+void DisableSpeechSdkLogging()
+{
+	EnableSpeechSdkLogging("");
+}
 ```
 
 ## Next steps
