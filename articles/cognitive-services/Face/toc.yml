@@ -67,9 +67,9 @@ items:
   items:
   - name: Add users to a Face service
     items:
-    - name: Best practices for adding users
+    - name: Best practices for enrolling users
       href: enrollment-overview.md
-    - name: Build a React app to add users
+    - name: Build a React app to enroll users
       href: build-enrollment-app.md
 - name: Reference
   items:

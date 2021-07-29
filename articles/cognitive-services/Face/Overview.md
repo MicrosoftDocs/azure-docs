@@ -48,7 +48,7 @@ For more information on face detection and analysis, see the [Face detection](co
 
 ## Identity verification
 
-Identity verification is the most popular scenario implemented with the Face service. Modern enterprises and apps can use the the Face identification and Face verification operations to verify that a user is who they claim to be. Face identification can be thought of as "one-to-many" matching. Match candidates are returned based on how closely their face data matches the query face. This scenario is used in granting building access to a certain group of people or verifying the user of a device.
+Modern enterprises and apps can use the the Face identification and Face verification operations to verify that a user is who they claim to be. Face identification can be thought of as "one-to-many" matching. Match candidates are returned based on how closely their face data matches the query face. This scenario is used in granting building access to a certain group of people or verifying the user of a device.
 
 The following image shows an example of a database named `"myfriends"`. Each group can contain up to 1 million different person objects. Each person object can have up to 248 faces registered.
 
