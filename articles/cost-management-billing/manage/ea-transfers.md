@@ -6,7 +6,7 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 07/29/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
 ---
@@ -54,6 +54,9 @@ This section is for informational purposes only as the action cannot be performe
 
 When you request to transfer an entire enterprise enrollment to an enrollment, the following actions occur:
 
+- Usage transferred may take up to 72 hours to be reflected in the new enrollment.
+- If DA or AO view charges were enabled on the transferred enrollment, they must be enabled on the new enrollment.
+- If you are using API reports or Power BI, please generate a new API key under your new enrollment.
 - All Azure services, subscriptions, accounts, departments, and the entire enrollment structure, including all EA department administrators, transfer to a new target enrollment.
 - The enrollment status is set to _Transferred_. The transferred enrollment is available for historic usage reporting purposes only.
 - You can't add roles or subscriptions to a transferred enrollment. Transferred status prevents more usage against the enrollment.

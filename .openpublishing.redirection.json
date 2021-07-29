@@ -834,6 +834,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/signin-appauth-ios.md",
+      "redirect_url": "/azure/configure-authentication-sample-ios-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/signin-appauth-android.md",
+      "redirect_url": "/azure/configure-authentication-sample-android-app",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-access-tokens.md",
       "redirect_url": "/azure/active-directory-b2c/access-tokens",
       "redirect_document_id": true
