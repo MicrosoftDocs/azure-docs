@@ -180,7 +180,7 @@ Use the following steps to register and scan one or more Power BI tenants in Azu
 
 9. Update `client_id_to_delegate_the_pbi_admin` with Application (client) ID of newly created application and run the following command in your PowerShell session:
    
-    ```powershell
+   ```powershell
    $ServicePrincipalId = '<client_id_to_delegate_the_pbi_admin>'
    ```
 
