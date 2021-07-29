@@ -16,7 +16,7 @@ A knowledge store contains output from an Azure Cognitive Search enrichment pipe
 
 In this article, you use the REST API to ingest, enrich, and explore a set of customer reviews of hotel stays. To make the initial data set available, the hotel reviews are first imported into Azure Blob Storage. Post-processing, the results are saved as a knowledge store in Azure Table Storage.
 
-After you create the knowledge store, expore its content using [Storage Explorer](knowledge-store-view-storage-explorer.md) or [Power BI](knowledge-store-connect-power-bi.md).
+After you create the knowledge store, explore its content using [Storage Explorer](knowledge-store-view-storage-explorer.md) or [Power BI](knowledge-store-connect-power-bi.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -141,7 +141,7 @@ Set the structure of your Azure Cognitive Search index in the body of the reques
 
 ```
 
-This index definition is a combination of data that you'd like to present to the user (the name of the hotel, review content, the date), search metadata, and AI enhancement data (Sentiment, Keyphrases, and Language).
+This index definition is a combination of data that you'd like to present to the user (the name of the hotel, review content, the date), search metadata, and AI enhancement data (Sentiment, Key Phrases, and Language).
 
 Select **Send** to issue the PUT request. You should see the status `201 - Created`. If you see a different status, in the **Body** pane, look for a JSON response that contains an error message. 
 
