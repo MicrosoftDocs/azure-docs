@@ -23,7 +23,7 @@ Before you start, familiarize yourself with the following article: [Configure au
 
 To use a custom domain and your tenant ID in the authentication URL, follow the guidance in [Enable custom domains](custom-domain.md). Find your Microsoft Authentication Library (MSAL) configuration object and change the *authorities* and *knownAuthorities* to use your custom domain name and tenant ID.
 
-The MSAL configuration object *before* the change is shown in the following JavaScript code: 
+The following JavaScript code shows the MSAL configuration object *before* the change: 
 
 ```Javascript
 const msalConfig = {
@@ -37,8 +37,8 @@ const msalConfig = {
 }
 ```  
 
-The MSAL configuration object *after* the change is shown in the following JavaScript code: 
-*
+The following JavaScript code shows the MSAL configuration object *after* the change: 
+
 ```Javascript
 const msalConfig = {
     auth: {
