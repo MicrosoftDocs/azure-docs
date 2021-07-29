@@ -552,6 +552,4 @@ For general information on how model explanations and feature importance can be 
 
 + Learn more about [how to train a regression model with Automated machine learning](tutorial-auto-train-models.md).
 
-+ Learn how to train multiple models with AutoML in the [Many Models Solution Accelerator](https://aka.ms/many-models).
-
 + [Troubleshoot automated ML experiments](how-to-troubleshoot-auto-ml.md). 

@@ -23,7 +23,7 @@ Here, we focus specifically on deploying Horizon on Azure VMware Solution. For g
 
 With Horizon's introduction on Azure VMware Solution, there are now two Virtual Desktop Infrastructure (VDI) solutions on the Azure platform. The following diagram summarizes the key differences at a high level.
 
-:::image type="content" source="media/horizon/difference-horizon-azure-vmware-solution-horizon-cloud-azure.png" alt-text="Diagram showing the differences between Horizon on Azure VMware Solution and Horizon Cloud on Azure." border="false":::
+:::image type="content" source="media/vmware-horizon/difference-horizon-azure-vmware-solution-horizon-cloud-azure.png" alt-text="Diagram showing the differences between Horizon on Azure VMware Solution and Horizon Cloud on Azure." border="false":::
 
 Horizon 2006 and later versions on the Horizon 8 release line supports both on-premises deployment and Azure VMware Solution deployment. There are a few Horizon features that are supported on-premises but not on Azure VMware Solution. Other products in the Horizon ecosystem are also supported. For for information, see [feature parity and interoperability](https://kb.vmware.com/s/article/80850).
 
@@ -82,7 +82,7 @@ Given the Azure private cloud and SDDC max limit, we recommend a deployment arch
 
 The connection from Azure Virtual Network to the Azure private clouds / SDDCs should be configured with ExpressRoute FastPath. The following diagram shows a basic Horizon pod deployment.
 
-:::image type="content" source="media/horizon/horizon-pod-deployment-expresspath-fast-path.png" alt-text="Diagram showing the typical Horizon pod deployment using ExpressPath Fast Path." border="false":::
+:::image type="content" source="media/vmware-horizon/horizon-pod-deployment-expresspath-fast-path.png" alt-text="Diagram showing the typical Horizon pod deployment using ExpressPath Fast Path." border="false":::
 
 ## Network connectivity to scale Horizon on Azure VMware Solution
 
@@ -90,7 +90,7 @@ This section lays out the network architecture at a high level with some common 
 
 ### Single Horizon pod on Azure VMware Solution
 
-:::image type="content" source="media/horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="Diagram showing a single Horizon pod on Azure VMware Solution." border="false":::
+:::image type="content" source="media/vmware-horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="Diagram showing a single Horizon pod on Azure VMware Solution." border="false":::
 
 A single Horizon pod is the most straight forward deployment scenario because you deploy just one Horizon pod in the US East region.  Since each private cloud and SDDC is estimated to handle 4,000 desktop sessions, you deploy the maximum Horizon pod size.  You can plan the deployment of up to three private clouds/SDDCs.
 
@@ -108,7 +108,7 @@ A variation on the basic example might be to support connectivity for on-premise
 
 The diagram shows how to support connectivity for on-premises resources. To connect to your corporate network to the Azure Virtual Network, you'll need an ExpressRoute circuit.  You'll also need to connect your corporate network with each of the private cloud and SDDCs using ExpressRoute Global Reach.  It allows the connectivity from the SDDC to the ExpressRoute circuit and on-premises resources. 
 
-:::image type="content" source="media/horizon/connect-corporate-network-azure-virtual-network.png" alt-text="Diagram showing the connection of a corporate network to an Azure Virtual Network." border="false":::
+:::image type="content" source="media/vmware-horizon/connect-corporate-network-azure-virtual-network.png" alt-text="Diagram showing the connection of a corporate network to an Azure Virtual Network." border="false":::
 
 ### Multiple Horizon pods on Azure VMware Solution across multiple regions
 
@@ -118,7 +118,7 @@ You'll connect the Azure Virtual Network in each region to the private clouds/SD
 
 The same principles apply if you deploy two Horizon pods in the same region.  Make sure to deploy the second Horizon pod in a *separate Azure Virtual Network*. Just like the single pod example, you can connect your corporate network and on-premises pod to this multi-pod/region example using ExpressRoute and Global Reach. 
 
-:::image type="content" source="media/horizon/multiple-horizon-pod-azure-vmware-solution.png" alt-text=" Diagram showing multiple Horizon pods on Azure VMware Solution across multiple regions." border="false":::
+:::image type="content" source="media/vmware-horizon/multiple-horizon-pod-azure-vmware-solution.png" alt-text=" Diagram showing multiple Horizon pods on Azure VMware Solution across multiple regions." border="false":::
 
 ## Size Azure VMware Solution hosts for Horizon deployments 
 

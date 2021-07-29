@@ -225,6 +225,10 @@
         href: logic-apps-enterprise-integration-x12-encode.md
       - name: X12 decoding
         href: logic-apps-enterprise-integration-x12-decode.md
+      - name: X12 TA1 acknowledgment
+        href: logic-apps-enterprise-integration-x12-ta1-acknowledgment.md
+      - name: X12 997 acknowledgment
+        href: logic-apps-enterprise-integration-x12-997-acknowledgment.md
     - name: Batch and send EDI messages
       href: logic-apps-scenario-edi-send-batch-messages.md
     - name: Process flat files
@@ -402,8 +406,8 @@
         href: logic-apps-data-operations-code-samples.md
       - name: Monitor social media
         href: logic-apps-scenario-social-serverless.md
-      - name: Build a serverless app - Visual Studio
-        href: logic-apps-serverless-get-started-vs.md        
+      - name: Create a serverless app - Visual Studio
+        href: create-serverless-apps-visual-studio.md
       - name: Add error and exception handling
         href: logic-apps-scenario-error-and-exception-handling.md
       - name: B2B processing

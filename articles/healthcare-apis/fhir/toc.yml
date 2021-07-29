@@ -90,8 +90,3 @@ items:
     href: fhir-faq.md
   - name: Supported features
     href: fhir-features-supported.md
-    
-- name: Reference
-  items:
-  - name: Azure CLI
-    href: /cli/azure/healthcareapis

@@ -23,14 +23,14 @@ Cognitive Services are organized into four categories: Decision, Language, Speec
 * Cognitive Services Docker containers for secure access.
 * Tools like Apache Spark, Azure Databricks, Azure Synapse Analytics, and Azure Kubernetes Service for Big Data scenarios. 
 
-Before we jump in, it's important to know that the Cognitive Services is primarily used for two distinct tasks. Based on the task you want to perform, you have different development and deployment options to choose from. 
+Before we jump in, it's important to know that the Cognitive Services are primarily used for two distinct tasks. Based on the task you want to perform, you have different development and deployment options to choose from. 
 
 * [Development options for prediction and analysis](#development-options-for-prediction-and-analysis)
 * [Tools to customize and configure models](#tools-to-customize-and-configure-models)
 
 ## Development options for prediction and analysis 
 
-The tools that you will use to customize and configure models are different than those that you'll use to call the Cognitive Services. Out of the box, most Cognitive Services allow you to send data and receive insights without any customization. For example: 
+The tools that you will use to customize and configure models are different from those that you'll use to call the Cognitive Services. Out of the box, most Cognitive Services allow you to send data and receive insights without any customization. For example: 
 
 * You can send an image to the Computer Vision service to detect words and phrases or count the number of people in the frame
 * You can send an audio file to the Speech service and get transcriptions and translate the speech to text at the same time
@@ -49,14 +49,14 @@ Cognitive Services client libraries and REST APIs provide you direct access to y
 * **UI**: N/A - Code only
 * **Subscription(s)**: Azure account + Cognitive Services resources
 
-If you want to learn more about available client libraries and REST APIs, use our [Cognitive Services overview](index.yml) to pick and service and get started with one of our quickstarts for vision, decision, language, and speech.
+If you want to learn more about available client libraries and REST APIs, use our [Cognitive Services overview](index.yml) to pick a service and get started with one of our quickstarts for vision, decision, language, and speech.
 
 ### Cognitive Services for Big Data
 
-With Cognitive Services for Big Data you can embed continuously improving, intelligent models directly into Apache Spark&trade; and SQL computations. These tools liberate developers from low-level networking details, so that they can focus on creating smart, distributed applications. Cognitive Services for Big Data supports the following platforms and connectors: Azure Databricks, Azure Synapse, Azure Kubernetes Service, and Data Connectors.
+With Cognitive Services for Big Data you can embed continuously improving, intelligent models directly into Apache Spark&trade; and SQL computations. These tools liberate developers from low-level networking details, so that they can focus on creating smart, distributed applications. Cognitive Services for Big Data support the following platforms and connectors: Azure Databricks, Azure Synapse, Azure Kubernetes Service, and Data Connectors.
 
 * **Target user(s)**: Data scientists and data engineers
-* **Benefits**: The Azure Cognitive Services for Big Data lets users channel terabytes of data through Cognitive Services using Apache Spark&trade;. It's easy to create large-scale intelligent applications with any datastore.
+* **Benefits**: The Azure Cognitive Services for Big Data let users channel terabytes of data through Cognitive Services using Apache Spark&trade;. It's easy to create large-scale intelligent applications with any datastore.
 * **UI**: N/A - Code only
 * **Subscription(s)**: Azure account + Cognitive Services resources
 
@@ -73,7 +73,7 @@ If you want to learn more about Big Data for Cognitive Services, a good place to
 
 ### Azure Logic Apps 
 
-[Azure Logic Apps](../logic-apps/index.yml) share the same workflow designer and connectors as Power Automate but provides more advanced and control including integrations with Visual Studio and DevOps. Power Automate makes it easy to integrate with your cognitive services resources through service-specific connectors that provide a proxy or wrapper around the APIs. These are the same connectors as those available in Power Automate. 
+[Azure Logic Apps](../logic-apps/index.yml) share the same workflow designer and connectors as Power Automate but provide more advanced control, including integrations with Visual Studio and DevOps. Power Automate makes it easy to integrate with your Cognitive Services resources through service-specific connectors that provide a proxy or wrapper around the APIs. These are the same connectors as those available in Power Automate. 
 
 * **Target user(s)**: Developers, integrators, IT pros, DevOps
 * **Benefits**: Designer-first (declarative) development model providing advanced options and integration in a low-code solution
@@ -82,7 +82,7 @@ If you want to learn more about Big Data for Cognitive Services, a good place to
 
 ### Power Automate 
 
-Power automate is a service in the [Power Platform](/power-platform/) that helps you create automated workflows between apps and services without writing code. We offer several connectors to make it easy to interact with your Cognitive Services resource in a Power Automate solution. Power Automate is built on top of Logic Apps. 
+Power Automate is a service in the [Power Platform](/power-platform/) that helps you create automated workflows between apps and services without writing code. We offer several connectors to make it easy to interact with your Cognitive Services resource in a Power Automate solution. Power Automate is built on top of Logic Apps. 
 
 * **Target user(s)**: Business users (analysts) and SharePoint administrators
 * **Benefits**: Automate repetitive manual tasks simply by recording mouse clicks, keystrokes and copy paste steps from your desktop!
@@ -91,7 +91,7 @@ Power automate is a service in the [Power Platform](/power-platform/) that helps
 
 ### AI Builder 
 
-[AI Builder](/ai-builder/overview) is a Microsoft Power Platform capability you can use to improve business performance by automating processes and predicting outcomes. AI builder brings the power of AI to your solutions through a point-and-click experience. Many cognitive services such as Form Recognizer, Text Analytics, and Computer Vision have been directly integrated here and you don't need to create your own Cognitive Services. 
+[AI Builder](/ai-builder/overview) is a Microsoft Power Platform capability you can use to improve business performance by automating processes and predicting outcomes. AI Builder brings the power of AI to your solutions through a point-and-click experience. Many cognitive services such as Form Recognizer, Text Analytics, and Computer Vision have been directly integrated here and you don't need to create your own Cognitive Services. 
 
 * **Target user(s)**: Business users (analysts) and SharePoint administrators
 * **Benefits**: A turnkey solution that brings the power of AI through a point-and-click experience. No coding or data science skills required.
@@ -100,7 +100,7 @@ Power automate is a service in the [Power Platform](/power-platform/) that helps
 
 ### Continuous integration and deployment
 
-You can use Azure DevOps and GitHub actions to manage your deployments. In the [section below](#continuous-integration-and-delivery-with-devops-and-github-actions) that discusses, we have two examples of CI/CD integrations to train and deploy custom models for Speech and the Language Understanding (LUIS) service. 
+You can use Azure DevOps and GitHub actions to manage your deployments. In the [section below](#continuous-integration-and-delivery-with-devops-and-github-actions), we have two examples of CI/CD integrations to train and deploy custom models for Speech and the Language Understanding (LUIS) service. 
 
 * **Target user(s)**: Developers, data scientists, and data engineers
 * **Benefits**: Allows you to continuously adjust, update, and deploy applications and models programmatically. There is significant benefit when regularly using your data to improve and update models for Speech, Vision, Language, and Decision. 
@@ -111,11 +111,11 @@ You can use Azure DevOps and GitHub actions to manage your deployments. In the [
 
 As you progress on your journey building an application or workflow with the Cognitive Services, you may find that you need to customize the model to achieve the desired performance. Many of our services allow you to build on top of the pre-built models to meet your specific business needs. For all our customizable services, we provide both a UI-driven experience for walking through the process as well as APIs for code-driven training. For example:
 
-* You want to train a Custom Speech model to correctly recognize medical terms with a word error rate (WER) below 3%
+* You want to train a Custom Speech model to correctly recognize medical terms with a word error rate (WER) below 3 percent
 * You want to build an image classifier with Custom Vision that can tell the difference between coniferous and deciduous trees
 * You want to build a custom neural voice with your personal voice data for an improved automated customer experience
 
-The tools that you will use to train and configure models are different than those that you'll use to call the Cognitive Services. In many cases, Cognitive Services that support customization provide portals and UI tools designed to help you train, evaluate, and deploy models. Let's quickly take a look at a few options:<br><br>
+The tools that you will use to train and configure models are different from those that you'll use to call the Cognitive Services. In many cases, Cognitive Services that support customization provide portals and UI tools designed to help you train, evaluate, and deploy models. Let's quickly take a look at a few options:<br><br>
 
 | Pillar | Service | Customization UI | Quickstart |
 |--------|---------|------------------|------------|
@@ -137,9 +137,9 @@ Language Understanding and the Speech service offer continuous integration and c
 * [CI/CD for Custom Speech](./speech-service/how-to-custom-speech-continuous-integration-continuous-deployment.md)
 * [CI/CD for LUIS](./luis/luis-concept-devops-automation.md)
 
-## On-prem containers 
+## On-premises containers 
 
-Many of the Cognitive Services can be deployed in containers for on-prem access and use. Using these containers gives you the flexibility to bring Cognitive Services closer to your data for compliance, security or other operational reasons. For a complete list of Cognitive Services containers, see [On-prem containers for Cognitive Services](./cognitive-services-container-support.md).
+Many of the Cognitive Services can be deployed in containers for on-premises access and use. Using these containers gives you the flexibility to bring Cognitive Services closer to your data for compliance, security, or other operational reasons. For a complete list of Cognitive Services containers, see [On-premises containers for Cognitive Services](./cognitive-services-container-support.md).
 
 ## Next steps
 <!--

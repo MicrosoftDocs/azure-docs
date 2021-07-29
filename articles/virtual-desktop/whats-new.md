@@ -48,7 +48,7 @@ Here's what's changed in the Azure Virtual Desktop Agent:
     - Added an exception that prevents you from installing non-Windows 7 agents on Windows 7 VMs.
     - Has updated heartbeat service logic.
 - Version 1.0.2944.1400: This update was released April 2021 and has the following changes:
-    - Placed links to the Windows Virtual Desktop Agent troubleshooting guide in the event viewer logs for agent errors.
+    - Placed links to the Azure Virtual Desktop Agent troubleshooting guide in the event viewer logs for agent errors.
     - Added an additional exception for better error handling.
     - Added the WVDAgentUrlTool.exe that allows customers to check which required URLs they can access.
 -	Version 1.0.2866.1500: This update was released March 2021 and it fixes an issue with the stack health check.
@@ -483,7 +483,7 @@ The previous version of Remote Desktop client is now called “Remote Desktop 8.
 
 ### Teams update
 
-We've made improvements to Microsoft Teams for Azure Virtual Desktop. Most importantly, Azure Virtual Desktop now supports audio and video optimization for the Windows Desktop client. Redirection improves latency by creating direct paths between users when they use audio or video in calls and meetings. Less distance means fewer hops, which makes calls look and sound smoother. Learn more at [Use Teams on Azure Virtual Desktop](teams-on-wvd.md).
+We've made improvements to Microsoft Teams for Azure Virtual Desktop. Most importantly, Azure Virtual Desktop now supports audio and video optimization for the Windows Desktop client. Redirection improves latency by creating direct paths between users when they use audio or video in calls and meetings. Less distance means fewer hops, which makes calls look and sound smoother. Learn more at [Use Teams on Azure Virtual Desktop](./teams-on-avd.md).
 
 ## June 2020
 
