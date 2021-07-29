@@ -98,7 +98,7 @@ public static void Run(TimerInfo myTimer, ICollector<EventGridEvent> outputEvent
 
 # [Java](#tab/java)
 
-The following example shows a Java function that writes a message to an Event Grid custom topic, using the OutputBinding's `setValue` as the output using the `String` type.:
+The following example shows a Java function that writes a message to an Event Grid custom topic. The function uses the binding's `setValue` method to output a string.
 
 ```java
 public class Function {
