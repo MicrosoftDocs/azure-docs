@@ -313,7 +313,7 @@ In a Resource Manager template, use cron or LogicApps expressions to define a sc
     // hyphen (meaning an inclusive range). 
     ```
 
-User can use Azure policy to enforce shutdown schedule exists for every compute instance in a subscription or default a schedule if nothing exists.
+Use Azure policy to enforce a shutdown schedule exists for every compute instance in a subscription or default to a schedule if nothing exists.
 
 ## Manage
 
