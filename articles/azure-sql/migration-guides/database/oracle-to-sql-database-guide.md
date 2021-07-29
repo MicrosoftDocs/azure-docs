@@ -220,7 +220,7 @@ On success, it will go to initialization stage.
 
 ![Screenshot - tester test progress .](./media/oracle-to-sql-database-guide/tester_run_status.png)
 
-6.Once the test case is executed, you will a report, which provides the statistics, any errors during the test run and a detail report.
+6.Once the test case is executed, tester module will generate a report, which provides the statistics, any errors during the test run and a detail report.
 
 ![Screenshot - tester test report.](./media/oracle-to-sql-database-guide/tester_test_result.png)
 
