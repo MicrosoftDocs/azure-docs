@@ -113,8 +113,6 @@ If you just created a free Azure account, you're the owner of your subscription.
 
     ![prerequistes for replication appliance](./media/deploy-vmware-azure-replication-appliance-preview/app-setup.png)
 
-    :::image type="content" source="/media/deploy-vmware-azure-replication-appliance/app-setup6-register.png" alt-text="replication appliance set up for registration.":::
-
 ## Prepare infrastructure
 
 You need to set up an Azure Site Recovery replication appliance in the on-premises environment to channel mobility agent communications. For detailed information on the operations performed by the appliance [see this section](vmware-azure-architecture-preview.md)
