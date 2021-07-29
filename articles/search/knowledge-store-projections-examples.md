@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 06/30/2020
 ---
 
-<!-- Power BI -->
+<!-- Power BI, Table, -->
 
 # Projection patterns for analysis in Power BI
 
@@ -342,7 +342,7 @@ You now have a working projection with three tables. Importing these tables into
 
 Before moving on to the next example, let's revisit aspects of the table projection to understand the mechanics of slicing and relating data.
 
-### Slicing 
+### Slicing
 
 Slicing is a technique that subdivides a whole consolidated shape into constituent parts. The outcome consists of separate but related tables that you can work with individually.
 
