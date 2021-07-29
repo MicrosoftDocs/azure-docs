@@ -90,6 +90,10 @@ An error about time synchronization indicates that the server clock might be out
 
 ## VDDK check failing during 'Set up prerequisites' on VMware appliance
 
+**Error**
+
+The VDDK check failed as appliance could not find the required VDDK kit installed on the appliance. This can result in failures with ongoing replication.
+
 **Remediation**
 
 1. Ensure that you have downloaded VDDK kit 6.7 and have copied its files to- **C:\Program Files\VMware\VMware Virtual Disk Development Kit** on the appliance server.
@@ -140,8 +144,8 @@ This usually happens when the Azure user account that was used to register the a
 **Remediation**
 
 1. Ensure that the currently logged in user account on the appliance has the required permissions on the Key Vault (mentioned in the error message). The user account needs permissions as mentioned [here](/azure/migrate/tutorial-discover-vmware#prepare-an-azure-user-account).
-2. Go to the Key Vault and ensure that your user account has an access policy with all the _Key, Secret and Certificate_ permissions assigned under Key vault Access Policy. Learn more [/azure/key-vault/general/assign-access-policy-portal]
-3. If you have enabled the appliance for **private endpoint connectivity**, ensure that the appliance is either hosted in the same VNet where the Key Vault has been created or it is connected to the Azure VNet (where Key Vault has been created) over a private link. Make sure that the Key Vault private link is resolvable from the appliance. Go to Azure Migrate: Discovery and assessment> Properties to find the details of private endpoints for resources like the Key Vault created during the Azure Migrate key creation. [Learn more](https://go.microsoft.com/fwlink/?linkid=2162447)
+2. Go to the Key Vault and ensure that your user account has an access policy with all the _Key, Secret and Certificate_ permissions assigned under Key vault Access Policy. [Learn more](/azure/key-vault/general/assign-access-policy-portal)
+3. If you have enabled the appliance for **private endpoint connectivity**, ensure that the appliance is either hosted in the same VNet where the Key Vault has been created or it is connected to the Azure VNet (where Key Vault has been created) over a private link. Make sure that the Key Vault private link is resolvable from the appliance. Go to **Azure Migrate**: **Discovery** and **assessment**> **Properties** to find the details of private endpoints for resources like the Key Vault created during the Azure Migrate key creation. [Learn more](https://go.microsoft.com/fwlink/?linkid=2162447)
 4. If you have the required permissions and connectivity, re-try the registration on the appliance after some time.
 
 ## Unable to connect to vCenter Server during validation
