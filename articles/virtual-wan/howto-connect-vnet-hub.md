@@ -15,6 +15,8 @@ ms.author: cherylmc
 
 This article helps you connect your virtual network to your virtual hub. Repeat these steps for each VNet that you want to connect.
 
+## Add a connection
+
 [!INCLUDE [Connect](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 
 ## Next steps
