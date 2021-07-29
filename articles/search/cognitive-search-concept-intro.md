@@ -96,7 +96,7 @@ Internally, the pipeline generates a collection of enriched documents. You can d
 
 Indexing is the process wherein raw and enriched content is ingested into a search index. A search index has fields, and those fields contain values used in queries, filters, expressions, and potentially in projections in a knowledge store.
 
-Enriched content is an artifact of skillset execution, and enriched documents are temporary data structures unless you happen to save them. In order for enriched content to appear in a search index, the indexer must have mapping information so that it can send enriched content to a field in a search index. [Output field mappings](cognitive-search-output-field-mapping.md) are the mechanism by which this association is made.
+Enriched content is generated during skillset execution, and is temporary unless you save it. In order for enriched content to appear in a search index, the indexer must have mapping information so that it can send enriched content to a field in a search index. [Output field mappings](cognitive-search-output-field-mapping.md) are the mechanism by which this association is made.
 
 ## Saving enriched output
 
