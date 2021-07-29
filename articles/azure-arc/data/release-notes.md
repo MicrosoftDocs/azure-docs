@@ -37,7 +37,7 @@ The current release announces general availability for the following services:
 #### Data controller
 
 - `az arcdata dc create` parameter named `--azure-subscription` has been changed to use the standard `--subscription` parameter.
-- Deployment on AKS HCI requires a special storage class configuration. See details under [Known issues](#azure-stack-hci).
+- Deployment on AKS HCI requires a special storage class configuration. See details under [Configure storage (Azure Stack HCI with AKS-HCI)](create-data-controller-indirect-cli.md#configure-storage-azure-stack-hci-with-aks-hci).
 - There is a new requirement to allow non-SSL connections when exporting data. Set an environment variable to suppress the interactive prompt.
 
 ### What's new
@@ -96,17 +96,6 @@ The current release announces general availability for the following services:
 - Currently, only one Azure Arc data controller per Kubernetes cluster is supported.
 
 #### Data controller
-<a name="azure-stack-hci"></a>
-- If you deploy the data controller on Azure Stack HCI with AKS-HCI, it fails due to a permission error. This is caused due to the way Kubernetes v1.19 and higher CSI drivers in AKS-HCI are configured without a `fsType->fsGroupPolicy` value. To fix this, do one of the following, depending on your  Azure stack HCA AKS-HCI version:
-
-   - For version 1.20 and above, create a custom storage class with `fsGroupPolicy:File` (For details - https://kubernetes-csi.github.io/docs/support-fsgroup.html). 
-   - For version 1.19, use: 
-
-      ```json
-      fsType: ext4
-      ```
-
-      Use this type to deploy the data controller. See the complete instructions at [Create a custom storage class for an AKS on Azure Stack HCI disk](/azure-stack/aks-hci/container-storage-interface-disks#create-a-custom-storage-class-for-an-aks-on-azure-stack-hci-disk).
 
 - When Azure Arc data controller is deleted from Azure portal, validation is done to block the delete if there any Azure Arc enabled SQL managed instances deployed on this Arc data controller. Currently, this validation is applied only when the delete is performed from the Overview page of the Azure Arc data controller. 
 
