@@ -28,7 +28,7 @@ Regardless of which target platform you choose, you will need to set the followi
 
 ### Configure storage (Azure Stack HCI with AKS-HCI)
 
-If you are using Azure Stack HCI with AKS-HCI, do one of the following, depending on your  Azure stack HCA AKS-HCI version:
+If you are using Azure Stack HCI with AKS-HCI, do one of the following, depending on your Azure stack HCA AKS-HCI version:
 
 - For version 1.20 and above, create a custom storage class with `fsGroupPolicy:File` (For details - https://kubernetes-csi.github.io/docs/support-fsgroup.html). 
 - For version 1.19, use: 
