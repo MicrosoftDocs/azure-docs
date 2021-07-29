@@ -197,31 +197,30 @@ For more information on test case settings,[Finishing test case preparation](htt
 
 #### Run and view test case
 
-When SSMA Tester runs a Test Case, it executes the objects selected for testing and creates a report about verification results.
+When SSMA Tester runs a test case, the test engine executes the objects selected for testing and generates a verification report.
 
 1.In the test repository page, you can select the test case and then click run.
-![Screenshot - test repo .](./media/oracle-to-sql-database-guide/tester_repo_run.PNG)
+![Screenshot - test repo view .](./media/oracle-to-sql-database-guide/tester_repo_run.PNG)
 
 2.Next, it  will launch run Test case page. Click run.
 
 ![Screenshot - test launch .](./media/oracle-to-sql-database-guide/tester_run_test_case.png)
 
-3.Next, you would be prompted to provide source oracle credentials. Click connect after entering the details.
+3.Next, you would be prompted to provide source oracle credentials. Click connect after entering the credentials.
 
 ![Screenshot - oracle connect .](./media/oracle-to-sql-database-guide/tester_oracle_connect.png)
 
-4.After the source details are provided, it will prompt for target SQL Server  details.
-Click connect.
+4.In the next step, you need to  provide target SQL Server credentials. Click connect after entering the user details.
 
 ![Screenshot - sql target connect .](./media/oracle-to-sql-database-guide/tester_sql_connect.png)
 
-On success, it will go to the next stage of initialization.
+On success, it will go to initialization stage.
 
 5.The test run will proceed with the evaluation process and will show the real-time progress.
 
 ![Screenshot - tester test progress .](./media/oracle-to-sql-database-guide/tester_run_status.png)
 
-6.Once the test case is executed, it will provide a report, which provides the statistics, any errors during the test run and a final report.
+6.Once the test case is executed, you will a report, which provides the statistics, any errors during the test run and a detail report.
 
 ![Screenshot - tester test report.](./media/oracle-to-sql-database-guide/tester_test_result.png)
 
