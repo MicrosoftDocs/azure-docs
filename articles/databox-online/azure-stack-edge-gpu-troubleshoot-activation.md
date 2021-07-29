@@ -65,7 +65,7 @@ The following table summarizes the errors related to device activation and the c
 
 | Error   message| Recommended   resolution |
 |------------------------------------------------------|--------------------------------------|
-| If the network restrictions are configured for the key vault, you'll see this error. <br> ![Key vault error 3](./media/azure-stack-edge-gpu-troubleshoot-activation/placeholder.png) | The service can't differentiate between key vault deletion or key vault not accessible scenario due to network restrictions. In each case, you'll be directed to the Recover a key vault blade. The recovery would fail in this case. Contact Microsoft Support for next steps.     |
+| If the network restrictions are configured for the key vault, you'll see this error. <br> ![Key vault error 3](./media/azure-stack-edge-gpu-troubleshoot-activation/placeholder.png) | The service can't differentiate between key vault deletion or key vault not accessible scenario due to network restrictions. In each case, you'll be directed to the [Recover a key vault](azure-stack-edge-gpu-troubleshoot-activation.md#recover-key-vault) blade.     |
 
 
 ## Next steps
