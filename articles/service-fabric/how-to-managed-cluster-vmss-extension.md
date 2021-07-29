@@ -2,7 +2,7 @@
 title: Add a virtual machine scale set extension to a Service Fabric managed cluster node type
 description: Here's how to add a virtual machine scale set extension a Service Fabric managed cluster node type
 ms.topic: article
-ms.date: 5/10/2021
+ms.date: 8/02/2021
 ---
 
 # Add a virtual machine scale set extension to a Service Fabric managed cluster node type
@@ -11,7 +11,7 @@ Each node type in a Service Fabric managed cluster is backed by a virtual machin
 
 You can add a virtual machine scale set extension to a node type using the [Add-AzServiceFabricManagedNodeTypeVMExtension](/powershell/module/az.servicefabric/add-azservicefabricmanagednodetypevmextension) PowerShell command.
 
-Alternately, you can  a virtual machine scale set extension on a Service Fabric managed cluster node type in your Azure Resource Manager template, for example:
+Alternately, you can add a virtual machine scale set extension on a Service Fabric managed cluster node type in your Azure Resource Manager template, for example:
 
 ```json
 {

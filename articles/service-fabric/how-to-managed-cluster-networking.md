@@ -2,13 +2,13 @@
 title: Configure network settings for Service Fabric managed clusters
 description: Learn how to configure your Service Fabric managed cluster for NSG rules, RDP port access, load balancing rules, and more.
 ms.topic: how-to
-ms.date: 5/10/2021
+ms.date: 8/02/2021
 ---
 # Configure network settings for Service Fabric managed clusters
 
-Service Fabric managed clusters are created with a default networking configuration. This configuration consists of mandatory rules for essential cluster functionality, and a few optional rules such as allowing all outbound traffic by default, which are intended to make customer configuration easier.
+Service Fabric managed clusters are created with a default networking configuration. This configuration consists of an [Azure Load Balancer](../load-balancer/load-balancer-overview.md) with a public ip, a VNet with one subnet allocated with mandatory NSG service tag based rules for essential cluster functionality, and a few optional rules such as allowing all outbound traffic by default, which are intended to make customer configuration easier.
 
-Beyond the default networking configuration, you can modify the networking rules to meet the needs of your scenario.
+This document walks through how to modify the default networking configuration to change NSG rules, use a custom/existing Virtual Network, create and use an internal load balancer for secondary node types, and more.
 
 ## NSG rules guidance
 
@@ -281,6 +281,44 @@ Service Fabric managed clusters automatically creates load balancer probes for f
   ]
 }
 ```
+
+## IPv6
+Talk about v4 and v6 ip's on Load Balancers and NSG differences.
+
+To configure this feature set the following property on a Service Fabric managed cluster resource.
+
+```json
+
+```
+
+## Multiple Frontends
+Managed multiple frontends with subnets per node type and seperate NSG's
+
+
+## Use your own VNet and subnet(s)
+This can help some scenarios such as:
+X
+Y
+by allowing you to create the managed cluster resource in an existing VNet you already manage to help further simplify security and operational complexity. This feature will enable this scenario so that customers can create a single dedicated subnet in an existing virtual network the managed cluster will use for ip allocation needs.
+
+To configure this feature set the following property on a Service Fabric managed cluster resource.
+
+```json
+TBD
+```
+
+## Bring your own load balancers
+Bring your own LB/IP.
+Specific scenarios this addresses include internal load balancer(s) option for secondary node types, multiple applications with same frontend port, capacity and performance considerations, and security and management. 
+
+To configure this feature set the following property on a Service Fabric managed cluster resource.
+
+```json
+TBD
+```
+
+
+
 
 ## Next steps
 

@@ -9,7 +9,7 @@ ms.date: 7/26/2021
 
 Each node type in a Service Fabric managed cluster is backed by a virtual machine scale set. To allow managed cluster node types to create [large virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) a property `multiplePlacementGroups` has been added to node type definition. By Default, managed cluster node types set this property to false to keep fault and upgrade domains consistent within a placement group, but this limits a node type from scaling beyond 100 VMs. To help decide whether your application can make effective use of large scale sets please see [this list of requirements](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md#checklist-for-using-large-scale-sets).
 
-Short list of pros/cons? Talk about what scenarios this is good for that aren't specifically stateless?
+Since managed clusters handles scale scenarios directly from the resource provider and uses managed disks for data we are able to support this for both stateful and stateless node types.
 
 > [!NOTE]
 > This property can not be modified after a node type is deployed.
