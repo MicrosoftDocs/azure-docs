@@ -77,7 +77,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 6. Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
 
-7. Install cloud-init (the provisioning agent) and the Azure Linux Agent (the guest extensions handler). Cloud-init uses netplan to configure the system network configuration during provisioning and each subsequent boot.
+7. Install cloud-init (the provisioning agent) and the Azure Linux Agent (the guest extensions handler). Cloud-init uses `netplan` to configure the system network configuration during provisioning and each subsequent boot.
 
     ```console
     # sudo apt update
@@ -87,7 +87,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
    > [!Note]
    >  The `walinuxagent` package may remove the `NetworkManager` and `NetworkManager-gnome` packages, if they are installed.
 
-8. Remove cloud-init default configs and leftover netplan artifacts that may conflict with cloud-init provisioning on Azure:
+8. Remove cloud-init default configs and leftover `netplan` artifacts that may conflict with cloud-init provisioning on Azure:
 
     ```console
     # rm -f /etc/cloud/cloud.cfg.d/50-curtin-networking.cfg /etc/cloud/cloud.cfg.d/curtin-preserve-sources.cfg /etc/cloud/cloud.cfg.d/99-installer.cfg /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
