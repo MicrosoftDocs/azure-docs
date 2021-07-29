@@ -180,7 +180,7 @@ The next step is to switch AzureWebJobsStorage to be secretless. This should alr
     | Setting      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
     | **Name** |  AzureWebJobsStorage__accountName | Update the name from **AzureWebJobsStorage** to use the identity instead of secrets. |
-    |**Value**| Your account name | Update the name from the connection string to just your **AccountName** to use the identity instead of secrets. Ex. `DefaultEndpointsProtocol=https;AccountName=identityappstore;AccountKey=...` would become `identityappstore`|
+    | **Value** | Your account name | Update the name from the connection string to just your **AccountName** to use the identity instead of secrets. Ex. `DefaultEndpointsProtocol=https;AccountName=identityappstore;AccountKey=...` would become `identityappstore`|
 
 1. Follow the previous steps for testing your timer trigger to make sure everything is still working correctly.
 
@@ -192,7 +192,7 @@ There's one more key-like setting in your Function App, and that’s your App In
 
 ## Use Managed Identity with Triggers
 
-Step-by-step tutorials:
+1. Step-by-step tutorials:
 
     | Trigger      | Tutorial  |
     | ------------ | ---------------- |
