@@ -13,7 +13,13 @@ ms.author: martydon
 
 This article describes how a publisher can determine the appropriate offer type and pricing plan for selling software through the commercial marketplace.
 
-:::image type="content" source="media/folder/image-name.png" alt-text="Shows the…":::
+## Finding the best offer type
+
+Use the following flowchart to determine the best offer type for your software product.
+
+[![Shows a flowchart for determining offer type.](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png)](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png#lightbox)
+&nbsp;&nbsp;&nbsp;* Choose an [offer type](/azure/marketplace/publisher-guide-by-offer-type) or contact [support](/azure/marketplace/support).<br>
+&nbsp;&nbsp;&nbsp;** Contact Microsoft Office Hours or [support](/azure/marketplace/support).
 
 ## Next steps
 
