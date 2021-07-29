@@ -41,7 +41,7 @@ See the [storage-configuration](storage-configuration.md) article for details on
 
 The data controller is a collection of pods that are deployed to your Kubernetes cluster to provide an API, the controller service, the bootstrapper, and the monitoring databases and dashboards.  This table describes the default values for memory and CPU requests and limits.
 
-|Pod name|CPU Request|Memory Request|CPU Limit|Memory Limit|Notes|
+|Pod name|CPU request|Memory request|CPU limit|Memory limit|Notes|
 |---|---|---|---|---|---|
 |**bootstrapper**|100m|100Mi|200m|200Mi||
 |**control**|400m|2Gi|1800m|2Gi||
@@ -77,7 +77,8 @@ See the [storage-configuration](storage-configuration.md) article for details on
 ## SQL managed instance sizing details
 
 Each SQL managed instance must have the following minimum resource requests and limits:
-|**Service Tier**|**General Purpose**|**Business Critical (Preview)**|
+
+|Service tier|General purpose|Business critical (preview)|
 |---|---|---|
 |CPU request|Minimum: 1; Maximum: 24; Default: 2|Minimum: 1; Maximum: unlimited; Default: 4|
 |CPU limit|Minimum: 1; Maximum: 24; Default: 2|Minimum: 1; Maximum: unlimited; Default: 4|
