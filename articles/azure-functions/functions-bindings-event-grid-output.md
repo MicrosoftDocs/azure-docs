@@ -452,7 +452,7 @@ Send messages by using a method parameter such as `out EventGridEvent paramName`
 
 # [Java](#tab/java)
 
-Send messages by using a method parameter such as `out EventGridOutput paramName`. To write multiple messages, you can use `ICollector<EventGridOutput>`.
+Send individual messages by calling a method parameter such as `out EventGridOutput paramName`, and write multiple messages with `ICollector<EventGridOutput>` .
 
 # [JavaScript](#tab/javascript)
 
