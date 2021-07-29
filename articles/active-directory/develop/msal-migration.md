@@ -72,4 +72,4 @@ For more information about MSAL, including usage information and which libraries
 
 - [Acquire and cache tokens using MSAL](msal-acquire-cache-tokens.md)
 - [Application configuration options](msal-client-application-configuration.md)
-- [List of MSAL authentication libraries](reference-v2-libraries.md)
+- [MSAL authentication libraries](reference-v2-libraries.md)
