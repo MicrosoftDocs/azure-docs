@@ -1453,11 +1453,11 @@
       items:
         - name: Manage continuous backup
           items:
-            - name: Continuous backup - Permissions and roles
+            - name: Permissions and roles - Continuous backup
               href: continuous-backup-restore-permissions.md
             - name: Provision account - Continuous backup
               href: provision-account-continuous-backup.md
-            - name: Restore an account
+            - name: Restore an account - Continuous backup
               href: restore-account-continuous-backup.md
             - name: Migrate to continuous backup
               href: migrate-continuous-backup.md

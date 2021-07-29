@@ -18,15 +18,15 @@ Azure Cosmos DB's point-in-time restore feature helps you to recover from an acc
 
 This article explains how to provision an account with continuous backup and point in time restore using [Azure portal](#provision-portal), [PowerShell](#provision-powershell), [CLI](#provision-cli) and [Resource Manager templates](#provision-arm-template).
 
-## <a id="provision-portal"></a>Provision using portal
+## <a id="provision-portal"></a>Provision using Azure portal
 
 When creating a new Azure Cosmos DB account, in the **Backup policy** tab, choose **continuous** mode to enable the point in time restore functionality for the new account. With the point-in-time restore, data is restored to a new account, currently you can't restore to an existing account.
 
 :::image type="content" source="./media/provision-account-continuous-backup/configure-continuous-backup-portal.png" alt-text="Provision an Azure Cosmos DB account with continuous backup configuration." border="true" lightbox="./media/continuous-backup-restore-portal/configure-continuous-backup-portal.png":::
 
-## <a id="provision-powershell"></a>Provision using PowerShell
+## <a id="provision-powershell"></a>Provision using Azure PowerShell
 
-Before provisioning the account, install the [latest version of Azure PowerShell](/powershell/azure/install-az-ps?view=azps-6.2.1) or version higher than 6.2.0. Next connect to your Azure account and select the required subscription with the following commands:
+Before provisioning the account, install the [latest version of Azure PowerShell](/powershell/azure/install-az-ps?view=azps-6.2.1&preserve-view=true) or version higher than 6.2.0. Next connect to your Azure account and select the required subscription with the following commands:
 
 1. Sign into Azure using the following command:
 
@@ -40,7 +40,7 @@ Before provisioning the account, install the [latest version of Azure PowerShell
    Select-AzSubscription -Subscription <SubscriptionName>
    ```
 
-### <a id="provision-powershell-sql-api"></a>Provision using PowerShell - SQL API account
+### <a id="provision-powershell-sql-api"></a>SQL API account
 
 To provision an account with continuous backup, add an argument `-BackupPolicyType Continuous` along with the regular provisioning command.
 
@@ -57,7 +57,7 @@ New-AzCosmosDBAccount `
    	  
 ```
 
-### <a id="provision-powershell-mongodb-api"></a>Provision using PowerShell - API for MongoDB
+### <a id="provision-powershell-mongodb-api"></a>API for MongoDB
 
 The following cmdlet is an example of continuous backup account *Pitracct* created in *West US* region under *MyRG* resource group:
 
@@ -73,7 +73,7 @@ New-AzCosmosDBAccount `
 
 ```
 
-## <a id="provision-cli"></a>Provision using CLI
+## <a id="provision-cli"></a>Provision using Azure CLI
 
 Before provisioning the account, install Azure CLI with the following steps:
 
@@ -87,7 +87,7 @@ Before provisioning the account, install Azure CLI with the following steps:
    * Sign into your Azure account with `az login` command.
    * Select the required subscription using `az account set -s <subscriptionguid>` command.
 
-### <a id="provision-cli-sql-api"></a>Provision using CLI - SQL API account
+### <a id="provision-cli-sql-api"></a>SQL API account
 
 To provision a SQL API account with continuous backup, an extra argument `--backup-policy-type Continuous` should be passed along with the regular provisioning command. The following command is an example of a single region write account named *Pitracct* with continuous backup policy created in the *West US* region under *MyRG* resource group:
 
@@ -102,7 +102,7 @@ az cosmosdb create \
 
 ```
 
-### <a id="provision-cli-mongo-api"></a>Provision using CLI - API for MongoDB
+### <a id="provision-cli-mongo-api"></a>API for MongoDB
 
 The following command shows an example of a single region write account named *Pitracct* with continuous backup policy created the *West US* region under *MyRG* resource group:
 
@@ -157,7 +157,7 @@ az group deployment create -g <ResourceGroup> --template-file <ProvisionTemplate
 
 ## Next steps
 
-* [Restore a live or deleted Azzure Cosmos DB account](restore-account-continuous-backup.md)
+* [Restore a live or deleted Azure Cosmos DB account](restore-account-continuous-backup.md)
 * [How to migrate to an account from periodic backup to continuous backup](migrate-continuous-backup.md).
 * [Continuous backup mode resource model.](continuous-backup-restore-resource-model.md)
 * [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.

@@ -42,7 +42,7 @@ To perform a restore, a user or a principal need the permission to restore (that
 |Resource group | /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-cosmosdb-rg |
 |CosmosDB restorable account resource | /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/23e99a35-cd36-4df4-9614-f767a03b9995|
 
-The restorable account resource can be extracted from the output of the `az cosmosdb restorable-database-account list --name <accountname>` command in CLI or `Get-AzCosmosDBRestorableDatabaseAccount -DatabaseAccountName <accountname>` cmdlet in PowerShell. The name attribute in the output represents the `instanceID` of the restorable account. To learn more, see the [PowerShell](continuous-backup-restore-powershell.md) or [CLI](continuous-backup-restore-command-line.md) article.
+The restorable account resource can be extracted from the output of the `az cosmosdb restorable-database-account list --name <accountname>` command in CLI or `Get-AzCosmosDBRestorableDatabaseAccount -DatabaseAccountName <accountname>` cmdlet in PowerShell. The name attribute in the output represents the `instanceID` of the restorable account. 
 
 ## Permissions
 
@@ -124,5 +124,7 @@ az role definition create --role-definition <JSON_Role_Definition_Path>
 
 ## Next steps
 
-* Configure and manage continuous backup using the [Azure portal](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-powershell.md), [CLI](continuous-backup-restore-command-line.md), or [Azure Resource Manager](continuous-backup-restore-template.md).
+* Provision continuous backup using [Azure portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), [CLI](provision-account-continuous-backup.md#provision-cli), or [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template).
+* Restore an account using [Azure portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), [CLI](restore-account-continuous-backup.md#restore-account-cli), or [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template).
+* [Migrate to an account from periodic backup to continuous backup](migrate-continuous-backup.md).
 * [Resource model of continuous backup mode](continuous-backup-restore-resource-model.md)

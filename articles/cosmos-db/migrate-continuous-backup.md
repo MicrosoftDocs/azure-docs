@@ -48,7 +48,7 @@ Use the following steps to migrate your account from periodic backup to continuo
 
 ## <a id="powershell"></a>Migrate using PowerShell
 
-Install the [latest version of Azure PowerShell](/powershell/azure/install-az-ps?view=azps-6.2.1) or version higher than 6.2.0. Next, run the following steps:
+Install the [latest version of Azure PowerShell](/powershell/azure/install-az-ps?view=azps-6.2.1&preserve-view=true) or version higher than 6.2.0. Next, run the following steps:
 
 1. Connect to your Azure account:
 
@@ -174,4 +174,4 @@ To learn more about continuous backup mode, see the following articles:
 
 * [Continuous backup mode resource model.](continuous-backup-restore-resource-model.md)
 
-* [Configure and manage continuous backup mode](continuous-backup-restore-portal.md) using Azure portal.
+* Restore an account using [Azure portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), [CLI](restore-account-continuous-backup.md#restore-account-cli), or [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template).

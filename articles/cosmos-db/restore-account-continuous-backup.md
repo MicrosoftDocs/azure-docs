@@ -89,7 +89,7 @@ After initiating a restore operation, select the **Notification** bell icon at t
 
 ## <a id="restore-account-powershell"></a>Restore an account using Azure PowerShell
 
-Before restoring the account, install the [latest version of Azure PowerShell](/powershell/azure/install-az-ps?view=azps-6.2.1) or version higher than 6.2.0. Next connect to your Azure account and select the required subscription with the following commands:
+Before restoring the account, install the [latest version of Azure PowerShell](/powershell/azure/install-az-ps?view=azps-6.2.1&preserve-view=true) or version higher than 6.2.0. Next connect to your Azure account and select the required subscription with the following commands:
 
 1. Sign into Azure using the following command:
 
@@ -228,7 +228,7 @@ Get-AzCosmosdbSqlRestorableResource `
 
 ```
 
-### <a id="enumerate-mongodb-api"></a>Enumerate restorable resources for MongoDB
+### <a id="enumerate-mongodb-api"></a>Enumerate restorable resources in API for MongoDB
 
 The enumeration commands described below help you discover the resources that are available for restore at various timestamps. Additionally, they also provide a feed of key events on the restorable account, database, and container resources. These commands only work for live accounts and they are similar to SQL API commands but with `MongoDB` in the command name instead of `sql`.
 
