@@ -315,7 +315,7 @@ Locate the installer files for the server’s operating system using the followi
 ## Install the Mobility service using command prompt (preview)
 
 >[!NOTE]
-> This section is applicable to Azure Site Recovery - Preview. [Here are the installation instructions for Classic](#install-the-mobility-service-using-command-promot-classic).
+> This section is applicable to Azure Site Recovery - Preview. [Here are the installation instructions for Classic](#install-the-mobility-service-using-command-prompt-classic).
 
 ### Windows machine
 1. Open command prompt and navigate to the folder where the installer file has been placed.
@@ -332,10 +332,10 @@ Locate the installer files for the server’s operating system using the followi
    ```cmd
 
     .\UnifiedAgentInstaller.exe /Platform vmware /Silent /Role MS /CSType CSPrime /InstallLocation "C:\Azure Site Recovery\Agent"
-  ```
-Once the installation is complete, copy the string that is generated alongside the parameter *Agent Config Input*. This string is required to [generate the Mobility Service configuration file](#generate-mobility-service-configuration-file).
+   ```
+    Once the installation is complete, copy the string that is generated alongside the parameter *Agent Config Input*. This string is required to [generate the Mobility Service configuration file](#generate-mobility-service-configuration-file).
 
-  ![sample string for downloading configuration flle ](./media/vmware-physical-mobility-service-overview-preview/configuration-string.png)
+    ![sample string for downloading configuration flle ](./media/vmware-physical-mobility-service-overview-preview/configuration-string.png)
 
 4. After successfully installing, register the source machine with the above appliance using the following command:
 
@@ -406,7 +406,7 @@ Setting | Details
     `-c` |  Optional. Used to define preview or legacy architecture. (CSPrime or CSLegacy)
 
 
-## Generate the Mobility Service configuration file
+## Generate Mobility Service configuration file
 
   use the following steps to generate mobility service configuration file:
 
