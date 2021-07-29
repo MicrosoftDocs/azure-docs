@@ -37,9 +37,9 @@ Before deploying Azure Sentinel, we recommend taking the following steps to help
     For more information, see:
 
     - [Azure Sentinel costs and billing](azure-sentinel-billing.md)
-    - [Azure Sentinel pricing](https://azure.microsoft.com/en-us/pricing/details/azure-sentinel/)
-    - [Log Analytics pricing](https://azure.microsoft.com/en-us/pricing/details/monitor/)
-    - [Logic apps (playbooks) pricing](https://azure.microsoft.com/en-us/pricing/details/logic-apps/)
+    - [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel/)
+    - [Log Analytics pricing](https://azure.microsoft.com/pricing/details/monitor/)
+    - [Logic apps (playbooks) pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
     - [Integrating Azure Data Explorer for long-term log retention](store-logs-in-azure-data-explorer.md)
 
 1. Nominate an engineer or architect lead the deployment, based on requirements and timelines. This individual should lead the deployment and be the main point of contact on your team.
@@ -48,7 +48,7 @@ Before deploying Azure Sentinel, we recommend taking the following steps to help
 
 Before deploying Azure Sentinel, make sure that your Azure tenant has the following requirements:
 
-- An [Azure Active Directory license and tenant](/azure/active-directory/develop/quickstart-create-new-tenant), or an [individual account with a valid payment method](https://azure.microsoft.com/en-us/free/), are required to access Azure and deploy resources.
+- An [Azure Active Directory license and tenant](/azure/active-directory/develop/quickstart-create-new-tenant), or an [individual account with a valid payment method](https://azure.microsoft.com/free/), are required to access Azure and deploy resources.
 
 - After you have a tenant, you must have an [Azure subscription](/azure/cost-management-billing/manage/create-subscription) to track resource creation and billing.
 

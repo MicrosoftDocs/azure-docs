@@ -61,7 +61,7 @@ In Azure Sentinel, data is mostly stored and processed in the same geography or 
 For more information, see:
 
 - [Geographical availability and data residency](quickstart-onboard.md#geographical-availability-and-data-residency)
-- [Data residency in Azure](https://azure.microsoft.com/en-us/global-infrastructure/data-residency/)
+- [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/)
 - [Storing and processing EU data in the EU - EU policy blog](https://blogs.microsoft.com/eupolicy/2021/05/06/eu-data-boundary/)
 
 To start validating your compliance, assess your data sources, and how and where they send data.
@@ -84,7 +84,7 @@ Consider the following when working with multiple regions:
 
 - Bandwidth costs vary depending on the source and destination region and collection method. For more information, see:
 
-    - [Bandwidth pricing](https://azure.microsoft.com/en-us/pricing/details/bandwidth/)
+    - [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/)
     - [Data transfers charges using Log Analytics ](/azure/azure-monitor/logs/manage-cost-storage).
 
 - Use templates for your analytics rules, custom queries, workbooks, and other resources to make your deployments more efficient. Deploy the templates instead of manually deploying each resource in each region.
@@ -95,9 +95,9 @@ For example, if you decide to collect logs from Virtual Machines in East US and 
 
 If you're collecting Syslog and CEF logs from multiple sources around the world, you may want to set up a Syslog collector in the same region as your Azure Sentinel workspace to avoid bandwidth costs, provided that compliance is not a concern.
 
-Understanding whether bandwidth costs justify separate Azure Sentinel workspaces depend on the volume of data you need to transfer between regions. Use the [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/details/bandwidth/) to estimate your costs.
+Understanding whether bandwidth costs justify separate Azure Sentinel workspaces depend on the volume of data you need to transfer between regions. Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/details/bandwidth/) to estimate your costs.
 
-For more information, see [Data residency in Azure](https://azure.microsoft.com/en-us/global-infrastructure/data-residency/).
+For more information, see [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 ## Access considerations
 
@@ -111,7 +111,8 @@ For more information, see [Permissions in Azure Sentinel](roles.md).
 
 The following image shows a simplified version of a workspace architecture where security and operations teams need access to different sets of data, and resource-context RBAC is used to provide the required permissions.
 
-:::image type="content" source="media/resource-context-rbac/resource-context-rbac-sample.png" alt-text="Sample architecture for resource-context RBAC.":::
+
+[ ![Sample architecture for resource-context RBAC.](media/resource-context-rbac/resource-context-rbac-sample.png) ](media/resource-context-rbac/resource-context-rbac-sample.png#lightbox)
 
 In this image, the Azure Sentinel workspace is placed in a separate subscription to better isolate permissions.
 

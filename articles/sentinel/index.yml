@@ -191,7 +191,7 @@ landingContent:
             url: best-practices-workspace-architecture.md
       - linkListType: how-to-guide
         links:
-          - text: Design your worskpace architecture
+          - text: Design your workspace architecture
             url: design-your-workspace-architecture.md
           - text: Manage multiple tenants
             url: multiple-tenants-service-providers.md

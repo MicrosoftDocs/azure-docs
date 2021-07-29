@@ -69,7 +69,7 @@ The following steps apply the [Azure Sentinel workspace design decision tree](de
 
 1.	Contoso has regulatory requirements, so we need at least one Azure Sentinel workspace in Europe.
 
-1.	Contoso has two different Azure AD tenants, and collects from tenant-level data sources, like Office 365 and Azure AD SignIn and Audit logs, so we need at least one workspace per tenant.
+1.	Contoso has two different Azure AD tenants, and collects from tenant-level data sources, like Office 365 and Azure AD Sign-in and Audit logs, so we need at least one workspace per tenant.
 
 1.	Contoso does not need [charge-back](design-your-workspace-architecture.md#step-4-splitting-billing--charge-back), so we can continue with [step 5](design-your-workspace-architecture.md#step-5-collecting-any-non-soc-data).
 
@@ -232,7 +232,7 @@ The following steps apply the [Azure Sentinel workspace design decision tree](de
 
 1.	Bandwidth costs are not a major concern for Adventure Works, so continue with [step 7](design-your-workspace-architecture.md#step-7-segregating-data-or-defining-boundaries-by-ownership).
 
-1.	Adventure Works does need to segregate data by ownership, as each content's SOC team needs to access only daa that is relevant to that content. However, each continent's SOC team also needs access to the full Azure Sentinel portal.
+1.	Adventure Works does need to segregate data by ownership, as each content's SOC team needs to access only data that is relevant to that content. However, each continent's SOC team also needs access to the full Azure Sentinel portal.
 
 1.	Adventure Works does not need to control data access by table.
 
