@@ -119,36 +119,36 @@ Use the following steps to register and scan one or more Power BI tenants in Azu
     Login-AzAccount
     ```
 
-2. Sign into your Azure environment using the Azure AD Administrator credential where your Power BI tenant is located
+2. Sign into your Azure environment using the Azure AD Administrator credential where your Power BI tenant is located.
 
    ```powershell
     Login-AzAccount
     ```
 
-2. Download the [Managed Scanning PowerShell Modules](https://github.com/Azure/Purview-Samples/blob/master/Cross-Tenant-Scan-PowerBI/ManagedScanningPowerShell.zip), and extract its contents to the location of your choice.
+3. Download the [Managed Scanning PowerShell Modules](https://github.com/Azure/Purview-Samples/blob/master/Cross-Tenant-Scan-PowerBI/ManagedScanningPowerShell.zip), and extract its contents to the location of your choice.
 
-2. On your computer, enter **PowerShell** in the search box on the Windows taskbar. In the search list, right-click **Windows PowerShell**, and then select **Run as administrator**.
+4. On your computer, enter **PowerShell** in the search box on the Windows taskbar. In the search list, right-click **Windows PowerShell**, and then select **Run as administrator**.
 
-3. In the PowerShell window, enter the following command, replacing `<path-to-managed-scanning-powershell-modules>` with the folder path of the extracted modules such as `C:\Program Files\WindowsPowerShell\Modules\ManagedScanningPowerShell`
+5. In the PowerShell window, enter the following command, replacing `<path-to-managed-scanning-powershell-modules>` with the folder path of the extracted modules such as `C:\Program Files\WindowsPowerShell\Modules\ManagedScanningPowerShell`
 
    ```powershell
    dir -Path <path-to-managed-scanning-powershell-modules> -Recurse | Unblock-File
    ```
 
-4. Enter the following command to install the PowerShell modules.
+6. Enter the following command to install the PowerShell modules.
 
    ```powershell
    Import-Module 'C:\Program Files\WindowsPowerShell\Modules\ManagedScanningPowerShell\Microsoft.DataCatalog.Management.Commands.dll'
    ```
    
-5. Use the same PowerShell session to set the following parameters. Update `purview_tenant_id` with Azure AD tenant ID where Azure Purview is deployed, `powerbi_tenant_id` with your Azure AD tenant where Power BI tenant is located and `purview_account_name` is your existing Azure Purview account.
+7. Use the same PowerShell session to set the following parameters. Update `purview_tenant_id` with Azure AD tenant ID where Azure Purview is deployed, `powerbi_tenant_id` with your Azure AD tenant where Power BI tenant is located and `purview_account_name` is your existing Azure Purview account.
    
    ```powershell
    $azuretenantId = '<purview_tenant_id>'
    $powerBITenantIdToScan = '<powerbi_tenant_id>'
    $purviewaccount = '<purview_account_name>'
    ```
-6. Create a cross-tenant Service Principal. 
+8. Create a cross-tenant Service Principal. 
 
    1. Create an App Registration in your Azure Active Directory tenant where Power BI is located. Make sure you update `password` field with a strong password and update `app_display_name` with a non-existant application name in your Azure AD tenant where Power BI tenant is hosted.
 
@@ -177,21 +177,21 @@ Use the following steps to register and scan one or more Power BI tenants in Azu
    
    6. When prompted, accept permission requested for _View your basic profile_ and _Maintain access to data you have given it access to_.
 
-7. Update `client_id_to_delegate_the_pbi_admin` with Application (client) ID of newly created application and run the following command in your PowerShell session:
+9. Update `client_id_to_delegate_the_pbi_admin` with Application (client) ID of newly created application and run the following command in your PowerShell session:
    
     ```powershell
    $ServicePrincipalId = '<client_id_to_delegate_the_pbi_admin>'
    ```
 
-8.  Create a user account in Azure Active Directory tenant where Power BI tenant is located and assign Azure AD role, **Power BI Administrator**. Update `pbi_admin_username` and `pbi_admin_password` with corresponding information and execute the following lines in the PowerShell terminal:
+10.  Create a user account in Azure Active Directory tenant where Power BI tenant is located and assign Azure AD role, **Power BI Administrator**. Update `pbi_admin_username` and `pbi_admin_password` with corresponding information and execute the following lines in the PowerShell terminal:
 
     ```powershell
     $UserName = '<pbi_admin_username>'
     $Password = '<pbi_admin_password>'
     ```
-9.  In Azure Purview subscription, locate your Purview account and using Azure RBAC roles, assign _Purview Data Source Administrator_ to the Service Principal and the Power BI user.
+11.  In Azure Purview subscription, locate your Purview account and using Azure RBAC roles, assign _Purview Data Source Administrator_ to the Service Principal and the Power BI user.
 
-10. To register the cross-tenant Power BI tenant as a new data source inside Azure Purview account, update `service_principal_key` and execute the following cmdlets in the PowerShell session:
+12. To register the cross-tenant Power BI tenant as a new data source inside Azure Purview account, update `service_principal_key` and execute the following cmdlets in the PowerShell session:
 
     ```powershell
     Set-AzDataCatalogSessionSettings -DataCatalogSession -TenantId $azuretenantId -ServicePrincipalAuthentication -ServicePrincipalApplicationId $ServicePrincipalId -ServicePrincipalKey '<service_principal_key>' -Environment Production -DataCatalogAccountName $purviewaccount
@@ -199,7 +199,7 @@ Use the following steps to register and scan one or more Power BI tenants in Azu
     Set-AzDataCatalogDataSource -Name 'pbidatasource' -AccountType PowerBI -Tenant $powerBITenantIdToScan -Verbose
     ```
 
-11. To create and run a new scan inside Azure Purview execute the following cmdlets in the PowerShell session:
+13. To create and run a new scan inside Azure Purview execute the following cmdlets in the PowerShell session:
 
     ```powershell
     Set-AzDataCatalogScan -DataSourceName 'pbidatasource' -Name 'pbiscan' -AuthorizationType PowerBIDelegated -ServicePrincipalId $ServicePrincipalId -UserName $UserName -Password $Password  -IncludePersonalWorkspaces $true -Verbose
