@@ -2,7 +2,7 @@
 title: Offline Backup with Azure Data Box for DPM and MABS
 description: You can use Azure Data Box to seed initial Backup data offline from DPM and MABS.
 ms.topic: conceptual
-ms.date: 07/28/2021
+ms.date: 07/29/2021
 ---
 # Offline seeding using Azure Data Box for DPM and MABS
 
@@ -212,7 +212,13 @@ To ensure that the failure is due to the [Issue](#issue) above, perform one of t
 
 Check if you see the following error message in the DPM/MABS console at the time of configuring offline backup:
 
+**Unable to create Offline Backup policy for the current Azure account as this server’s authentication information could not be uploaded to Azure. (ID: 100242)**
+
 ![Azure recovery services agent](./media/offline-backup-azure-data-box-dpm-mabs/azure-recovery-services-agent.png)
+
+**Unable to make service calls to Azure that are required for querying Import Job status and moving backup data into the recovery Services Vault. (ID:100230)**
+
+![Screenshot of error screeb for Azure recovery services agent](./media/offline-backup-azure-data-box-dpm-mabs/azure-recovery-services-agent-error-screen.png)
 
 #### Step 2
 
