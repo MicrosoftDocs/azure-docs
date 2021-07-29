@@ -107,7 +107,7 @@ Since the server is in virtual network, you can only connect to the server from 
    >[!IMPORTANT]
    > Make sure you know where the `.pem` file was downloaded, you will need the path to it in the next step.
 
-13. When the deployment is finished, select **Go to resource** to view the vitrual machine **Overview** page.
+13. When the deployment is finished, select **Go to resource** to view the virtual machine **Overview** page.
 
 11. Select the public IP address and copy it to your clipboard.
    > :::image type="content" source="../../virtual-machines/linux/media/quick-create-portal/ip-address.png" alt-text="Screenshot showing how to copy the IP address for the virtual machine" lightbox="../../virtual-machines/linux/media/quick-create-portal/ip-address.png":::
