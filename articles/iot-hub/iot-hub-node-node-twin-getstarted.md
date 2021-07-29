@@ -232,4 +232,4 @@ Use the following resources to learn how to:
 
 * configure devices using device twin's desired properties with the [Use desired properties to configure devices](tutorial-device-twins.md) tutorial,
 
-* control devices interactively (such as turning on a fan from a user-controlled app), with the [Use direct methods](quickstart-control-device-node.md) tutorial.
+* control devices interactively (such as turning on a fan from a user-controlled app), with the [Use direct methods](/azure/iot-hub/quickstart-control-device?pivots=programming-language-nodejs) quickstart.

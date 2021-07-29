@@ -20,6 +20,10 @@ We recommend the private endpoint connectivity method when there's an organizati
 
 Review the following required permissions and the supported scenarios and tools.
 
+### Supported geographies
+
+The functionality is now in preview in all [public cloud regions.](/azure/migrate/migrate-support-matrix#supported-geographies-public-cloud)
+
 ### Required permissions
 
 You must have Contributor + User Access Administrator or Owner permissions on the subscription.

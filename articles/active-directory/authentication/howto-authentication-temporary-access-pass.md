@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/24/2021
+ms.date: 07/28/2021
 
 ms.author: justinha
 author: justinha
@@ -171,6 +171,7 @@ Users in scope for these policies will get redirected to the [Interrupt mode of 
 - If **Temporary Access Pass sign in was blocked due to User Credential Policy** appears during sign-in with a Temporary Access Pass, check the following:
   - The user has a multi-use Temporary Access Pass while the authentication method policy requires a one-time Temporary Access Pass.
   - A one-time Temporary Access Pass was already used.
+- If Temporary Access Pass sign-in was blocked due to User Credential Policy, check that the user is in scope for the TAP policy.
 
 ## Next steps
 
