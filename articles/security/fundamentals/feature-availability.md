@@ -57,14 +57,16 @@ For more information, see the [Azure Information Protection product documentatio
 
 
 > [!TIP]
-> Office 365 GCC is paired with Azure Active Directory (Azure AD) in Azure. Office 365 GCC High and Office 365 DoD are paired with Azure AD in Azure Government. Make sure to pay attention to the Azure environment to understand where [interoperability is possible](#microsoft-365-integration). 
+> Office 365 GCC is paired with Azure Active Directory (Azure AD) in Azure. Office 365 GCC High and Office 365 DoD are paired with Azure AD in Azure Government. Make sure to pay attention to the Azure environment to understand where [interoperability is possible](#microsoft-365-integration).
 >
-> In the following table, interoperability that is *not* possible is marked with a dash (-) to indicate that support is not relevant.
+> In the following table, interoperability that is *not* possible is marked with a dash (-) to indicate that support is not relevant. 
+>
+> Exceptions and more information is listed in footnotes below the table.
 >
 
 |Feature/Service  |Azure  |Azure Gov  |
 |---------|---------|---------|
-|**[Azure Information Protection scanner](/azure/information-protection/deploy-aip-scanner)**<br><br>Can function without Office 365 to scan files only. Cannot apply labels to files without Office 365.      |  GA       |     GA    |
+|**[Azure Information Protection scanner](/azure/information-protection/deploy-aip-scanner)**<br><br>Can function without Office 365 to scan files only. Cannot apply labels to files without Office 365.      |         |         |
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
 | - Office 365 DoD | - | GA |
@@ -89,8 +91,8 @@ For more information, see the [Azure Information Protection product documentatio
 | **Customizations**    |         |         |
 |[Document tracking and revocation](/azure/information-protection/rms-client/track-and-revoke-admin)     |         |         |
 | - Office 365 GCC | GA | - |
-| - Office 365 GCC High | - | GA |
-| - Office 365 DoD | - | GA |
+| - Office 365 GCC High | - | Not available |
+| - Office 365 DoD | - | Not available |
 | **Key management**    |         |         |
 |[Bring Your Own Key (BYOK)](/azure/information-protection/byok-price-restrictions)     |         |         |
 | - Office 365 GCC | GA | - |
@@ -100,15 +102,15 @@ For more information, see the [Azure Information Protection product documentatio
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
 | - Office 365 DoD | - | GA |
-| **Office files**    |         |         |
+| **Office files**   <sup>[5](#aipnote5)</sup> |         |         |
 | [Protection for Microsoft Exchange Online, Microsoft SharePoint Online, and Microsoft OneDrive for Business](/azure/information-protection/requirements-applications)    |         |         |
 | - Office 365 GCC | GA | - |
-| - Office 365 GCC High | - | GA |
-| - Office 365 DoD | - | GA |
+| - Office 365 GCC High | - | GA <sup>[4](#aipnote4)</sup> |
+| - Office 365 DoD | - | GA <sup>[4](#aipnote4)</sup> |
 | [Protection for on-premises Exchange and SharePoint content via the Rights Management connector](/azure/information-protection/deploy-rms-connector)    |         |         |
 | - Office 365 GCC | GA | - |
-| - Office 365 GCC High | - | GA |
-| - Office 365 DoD | - | GA |
+| - Office 365 GCC High | - | Not available  |
+| - Office 365 DoD | - | Not available |
 | [Office 365 Message Encryption](/microsoft-365/compliance/set-up-new-message-encryption-capabilities)    |         |         |
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
@@ -119,12 +121,12 @@ For more information, see the [Azure Information Protection product documentatio
 | - Office 365 DoD | - | GA |
 | [Control oversharing of information when using Outlook](/azure/information-protection/rms-client/clientv2-admin-guide-customizations)    |         |         |
 | - Office 365 GCC | GA | - |
-| - Office 365 GCC High | - | GA |
-| - Office 365 DoD | - | GA |
-| **Classification and labeling**    |         |         |
+| - Office 365 GCC High | - | GA <sup>[3](#aipnote3)</sup> |
+| - Office 365 DoD | - | GA <sup>[3](#aipnote3)</sup>|
+| **Classification and labeling** <sup>[1](#aipnote1)</sup>   |         |         |
 |Custom templates, including departmental templates     |         |         |
 | - Office 365 GCC | GA | - |
-| - Office 365 GCC High | - | GA |
+| - Office 365 GCC High | - | GA  |
 | - Office 365 DoD | - | GA |
 | Manual, default, and mandatory document classification    |         |         |
 | - Office 365 GCC | GA | - |
@@ -148,6 +150,19 @@ For more information, see the [Azure Information Protection product documentatio
 | - Office 365 DoD | - | GA |
 |     |         |         |
 
+<sup><a name="aipnote1" /></a>1</sup> The classification and labeling add-in is only supported for government customers with Microsoft 365 Apps (version 9126.1001 or higher). Office 2010, Office 2013, and other Office 2016 versions are not supported.
+
+<sup><a name="aipnote2" /></a>2</sup> Information Rights Management (IRM) is supported only for Microsoft 365 Apps (version 9126.1001 or higher). Office 2010, Office 2013, and other Office 2016 versions are not supported.
+
+<sup><a name="aipnote3" /></a>3</sup> Sharing of protected documents and emails from government clouds to users in the commercial cloud is not currently available. Includes Microsoft 365 Apps users in the commercial cloud, non-Microsoft 365 Apps users in the commercial cloud, and users with an RMS for Individuals license.
+
+<sup><a name="aipnote4" /></a>4</sup> Information Rights Management with SharePoint Online (IRM-protected sites and libraries) is currently not available.
+
+<sup><a name="aipnote5" /></a>5</sup> The Mobile Device Extension for AD RMS is currently not available for government customers.
+
+> [!NOTE]
+> Extra configurations are required for GCC-High and DoD customers. For more information, see [Azure Information Protection Premium Government Service Description](/enterprise-mobility-security/solutions/ems-aip-premium-govt-service-description).
+> 
 ## Azure Security Center
 
 Azure Security Center is a unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - as well as on premises.
