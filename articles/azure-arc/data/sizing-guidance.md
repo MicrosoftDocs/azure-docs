@@ -46,13 +46,11 @@ The data controller is a collection of pods that are deployed to your Kubernetes
 |**bootstrapper**|100m|100Mi|200m|200Mi||
 |**control**|400m|2Gi|1800m|2Gi||
 |**controldb**|200m|3Gi|800m|6Gi||
-|**controlwd**|10m|100Mi|100m|200Mi||
 |**logsdb**|200m|1600Mi|2|1600Mi||
 |**logsui**|100m|500Mi|2|2Gi||
 |**metricsdb**|200m|800Mi|400m|2Gi||
 |**metricsdc**|100m|200Mi|200m|300Mi|Metricsdc is a daemonset which is created on each of the Kubernetes nodes in your cluster.  The numbers in the table here are _per node_. If you set allowNodeMetricsCollection = false in your deployment profile file before creating the data controller, the metricsdc daemonset will not be created.|
 |**metricsui**|20m|200Mi|500m|200Mi||
-|**mgmtproxy**|200m|250Mi|500m|500Mi||
 
 You can override the default settings for the controldb and control pods in your deployment profile file or datacontroller YAML file.  Example:
 
@@ -78,9 +76,13 @@ See the [storage-configuration](storage-configuration.md) article for details on
 
 ## SQL managed instance sizing details
 
-Each SQL managed instance must have the following minimum resource requests:
-- Memory: 2Gi
-- Cores: 1
+Each SQL managed instance must have the following minimum resource requests and limits:
+|**Service Tier**|**General Purpose**|**Business Critical (Preview)**|
+|---|---|---|
+|CPU request|Minimum: 1; Maximum: 24; Default: 2|Minimum: 1; Maximum: unlimited; Default: 4|
+|CPU limit|Minimum: 1; Maximum: 24; Default: 2|Minimum: 1; Maximum: unlimited; Default: 4|
+|Memory request|Minimum: 2Gi; Maxium: 128Gi; Default: 4Gi|Minimum: 2Gi; Maxium: unlimited; Default: 4Gi|
+|Memory limit|Minimum: 2Gi; Maxium: 128Gi; Default: 4Gi|Minimum: 2Gi; Maxium: unlimited; Default: 4Gi|
 
 Each SQL managed instance pod that is created has three containers:
 
@@ -140,7 +142,7 @@ See the [storage-configuration](storage-configuration.md) article for details on
 
 Keep in mind that a given database instance size request for cores or RAM cannot exceed the available capacity of the Kubernetes nodes in the cluster.  For example, if the largest Kubernetes node you have in your Kubernetes cluster is 256 GB of RAM and 24 cores, you will not be able to create a database instance with a request of 512 GB of RAM and 48 cores.  
 
-It is a good idea to maintain at least 25% of available capacity across the Kubernetes nodes to allow Kubernetes to efficiently schedule pods to be created and to allow for elastic scaling and longer term growth on demand.  
+It is a good idea to maintain at least 25% of available capacity across the Kubernetes nodes to allow Kubernetes to efficiently schedule pods to be created and to allow for elastic scaling, allow for rolling upgrades of the Kubernetes nodes, and longer term growth on demand.
 
 In your sizing calculations, don't forget to add in the resource requirements of the Kubernetes system pods and any other workloads which may be sharing capacity with Azure Arc-enabled data services on the same Kubernetes cluster.
 
