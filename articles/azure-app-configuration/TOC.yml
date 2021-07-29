@@ -25,7 +25,7 @@
           href: quickstart-java-spring-app.md
         - name: Python
           href: quickstart-python.md
-        - name: JavaScript
+        - name: JavaScript/Node.js
           href: quickstart-javascript.md
     - name: Feature management
       items:

@@ -18,7 +18,7 @@ In this quickstart, you will use Azure App Configuration to centralize storage a
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- [LTS versions of Node.js](https://nodejs.org/en/about/releases/). For information about installing Node.js on either directly on Windows or using the Windows Subsystem for Linux (WSL), see [Get started with Node.js](/windows/dev-environment/javascript/nodejs-overview)
+- [LTS versions of Node.js](https://nodejs.org/en/about/releases/). For information about installing Node.js either directly on Windows or using the Windows Subsystem for Linux (WSL), see [Get started with Node.js](/windows/dev-environment/javascript/nodejs-overview)
 
 ## Create an App Configuration store
 
@@ -65,21 +65,24 @@ const appConfig = require("@azure/app-configuration");
 
 1. Set an environment variable named **AZURE_APP_CONFIG_CONNECTION_STRING**, and set it to the access key to your App Configuration store. At the command line, run the following command:
 
+    ### [.NET Core 5.x](#tab/azure-powershell)
     ```cmd
     setx AZURE_APP_CONFIG_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
     ```
 
+    ### [.NET Core 5.x](#tab/command-line)
     If you use Windows PowerShell, run the following command:
 
     ```azurepowershell
     $Env:AZURE_APP_CONFIG_CONNECTION_STRING = "connection-string-of-your-app-configuration-store"
     ```
 
-    If you use macOS or Linux, run the following command:
-
+    ### [.NET Core 5.x](#tab/macos)
     ```console
     export AZURE_APP_CONFIG_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
     ```
+
+    ---
 
 2. Restart the command prompt to allow the change to take effect. Print out the value of the environment variable to validate that it is set properly.
 
@@ -94,7 +97,7 @@ const client = new appConfig.AppConfigurationClient(connection_string);
 
 ## Get a configuration setting
 
-The following code snippet retrieves a configuration setting by `key` name.
+The following code snippet retrieves a configuration setting by `key` name. The key shown in this example was created in the previous steps of this article.
 
 ```javascript
 async function run() {
@@ -111,7 +114,7 @@ run().catch((err) => console.log("ERROR:", err));
 
 ## Build and run the app locally
 
-1. Run the following command to rin the Node.js app:
+1. Run the following command to run the Node.js app:
 
 ```powershell
 node app.js
