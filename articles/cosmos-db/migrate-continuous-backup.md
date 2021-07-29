@@ -4,7 +4,7 @@ description: Azure Cosmos DB currently supports a one-way migration from periodi
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 07/22/2021
+ms.date: 07/29/2021
 ms.author: sngun
 ms.topic: how-to
 ms.reviewer: sngun
@@ -13,15 +13,14 @@ ms.reviewer: sngun
 # Migrate from periodic to continuous backup mode
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-Azure CosmosDB accounts with periodic mode backup policy can be migrated to continuous mode using Azure portal, CLI, or PowerShell. Azure Cosmos DB currently supports a one-way migration from periodic to continuous mode and it’s irreversible. After migrating from periodic to continuous mode, you can leverage the benefits of continuous mode.
+Azure CosmosDB accounts with periodic mode backup policy can be migrated to continuous mode using [Azure portal](#portal), [CLI](#cli), [PowerShell](#powershell), or [Resource Manager templates](#ARM-template). Migration from periodic to continuous mode is a one-way migration and it’s not reversible. After migrating from periodic to continuous mode, you can leverage the benefits of continuous mode.
 
 The following are the key reasons to migrate into continuous mode:
 
 * The ability to do self-service restore using Azure portal, CLI, or PowerShell.
 * The ability to restore at time granularity of the second within the last 30-day window.
 * The ability to make sure that the backup is consistent across shards or partition key ranges within a period.
-* The ability to restore container, database, or the full account.
-* The ability to restore the asset when it is deleted, dropped, or accidently modified into another account.
+* The ability to restore container, database, or the full account when it is deleted or modified.
 * The ability to choose the events on the container, database, or account and decide when to initiate the restore.
 
 > [!NOTE]
@@ -48,6 +47,8 @@ Use the following steps to migrate your account from periodic backup to continuo
    :::image type="content" source="./media/migrate-continuous-backup/migration-status.png" alt-text="Check the status of migration from Azure portal" lightbox="./media/migrate-continuous-backup/migration-status.png":::
 
 ## <a id="powershell"></a>Migrate using PowerShell
+
+Install the [latest version of Azure PowerShell](/powershell/azure/install-az-ps?view=azps-6.2.1) or version higher than 6.2.0. Next, run the following steps:
 
 1. Connect to your Azure account:
 
@@ -110,21 +111,21 @@ Use the following steps to migrate your account from periodic backup to continuo
 To migrate to continuous backup mode using ARM template, find the backupPolicy section of your template and update the `type` property. For example, if your existing template has backup policy like the following JSON object:
 
 ```json
-                "backupPolicy": {
-                    "type": "Periodic",
-                    "periodicModeProperties": {
-                        "backupIntervalInMinutes": 240,
-                        "backupRetentionIntervalInHours": 8
-                    }
-                },
+"backupPolicy": {
+   "type": "Periodic",
+   "periodicModeProperties": {
+   "backupIntervalInMinutes": 240,
+   "backupRetentionIntervalInHours": 8
+   }
+},
 ```
 
 Replace it with the following JSON object:
 
 ```json
-        "backupPolicy": {
-          "type": "Continuous"
-        },
+"backupPolicy": {
+   "type": "Continuous"
+},
 ```
 
 Next deploy the template by using Azure PowerShell or CLI. The following example shows how to deploy the template with a CLI command:
@@ -135,7 +136,7 @@ az group deployment create -g <ResourceGroup> --template-file <ProvisionTemplate
 
 ## What to expect during and after migration?
 
-When migrating from periodic mode to continuous mode, you cannot run any control plane operations that performs account level updates or deletes. For example, operations such as adding or removing regions, account failover, updating backup policy etc. shouldn't be run while the migration is in progress. The time for migration depends on the size of data present in your account. Restore action on the migrated accounts only succeeds from the time when migration successfully completes.
+When migrating from periodic mode to continuous mode, you cannot run any control plane operations that performs account level updates or deletes. For example, operations such as adding or removing regions, account failover, updating backup policy etc. can't be run while the migration is in progress. The time for migration depends on the size of data and the number of regions in your account. Restore action on the migrated accounts only succeeds from the time when migration successfully completes.
 
 You can restore your account after the migration completes. If the migration completes at 1:00 PM PST, you can do point in time restore starting from 1.00 PM PST.
 

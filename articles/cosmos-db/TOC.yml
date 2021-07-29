@@ -1455,14 +1455,10 @@
           items:
             - name: Continuous backup - Permissions and roles
               href: continuous-backup-restore-permissions.md
-            - name: Continuous backup - Portal
-              href: continuous-backup-restore-portal.md
-            - name: Continuous backup - PowerShell
-              href: continuous-backup-restore-powershell.md
-            - name: Continuous backup - CLI
-              href: continuous-backup-restore-command-line.md
-            - name: Continuous backup - Resource Manager
-              href: continuous-backup-restore-template.md
+            - name: Provision account - Continuous backup
+              href: provision-account-continuous-backup.md
+            - name: Restore an account
+              href: restore-account-continuous-backup.md
             - name: Migrate to continuous backup
               href: migrate-continuous-backup.md
         - name: Manage periodic backup
