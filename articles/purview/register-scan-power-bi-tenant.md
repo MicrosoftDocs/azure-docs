@@ -111,7 +111,12 @@ In a cross-tenant scenario, you can use PowerShell to register and scan your Pow
 Consider using this guide if the Azure AD tenant where Power BI tenant is located, is different than the Azure AD tenant where your Azure Purview account is being provisioned. 
 Use the following steps to register and scan one or more Power BI tenants in Azure Purview in a cross-tenant scenario:
 
-1. Install and import [Azure Az PowerShell](docs-conceptual/azps-6.2.1/install-az-ps.md) module if it is not available in your machine.
+1. Download the [Managed Scanning PowerShell Modules](https://github.com/Azure/Purview-Samples/blob/master/Cross-Tenant-Scan-PowerBI/ManagedScanningPowerShell.zip), and extract its contents to the location of your choice.
+
+2. On your computer, enter **PowerShell** in the search box on the Windows taskbar. In the search list, right-click **Windows PowerShell**, and then select **Run as administrator**.
+
+
+3. Install and import module in your machine if it has not been installed yet.
 
    ```powershell
     Install-Module -name az
@@ -119,15 +124,11 @@ Use the following steps to register and scan one or more Power BI tenants in Azu
     Login-AzAccount
     ```
 
-2. Sign into your Azure environment using the Azure AD Administrator credential where your Power BI tenant is located.
+4. Sign into your Azure environment using the Azure AD Administrator credential where your Power BI tenant is located.
 
    ```powershell
     Login-AzAccount
     ```
-
-3. Download the [Managed Scanning PowerShell Modules](https://github.com/Azure/Purview-Samples/blob/master/Cross-Tenant-Scan-PowerBI/ManagedScanningPowerShell.zip), and extract its contents to the location of your choice.
-
-4. On your computer, enter **PowerShell** in the search box on the Windows taskbar. In the search list, right-click **Windows PowerShell**, and then select **Run as administrator**.
 
 5. In the PowerShell window, enter the following command, replacing `<path-to-managed-scanning-powershell-modules>` with the folder path of the extracted modules such as `C:\Program Files\WindowsPowerShell\Modules\ManagedScanningPowerShell`
 
