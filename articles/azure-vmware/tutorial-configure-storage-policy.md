@@ -72,7 +72,7 @@ all storage policies for VMs to use.
 You'll run the `Set-StoragePolicy` cmdlet to set the storage policy for a VM. 
 
 >[!NOTE]
->You cannot change the default or existing storage policy for a VM using the vSphere Client. 
+>You cannot use the vSphere Client to change the default storage policy or any existing storage policies for a VM. 
 
 1. Select **Run command** > **Packages** > **Set-StoragePolicy**.
 
