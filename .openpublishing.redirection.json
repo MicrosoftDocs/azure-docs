@@ -55973,11 +55973,16 @@
     },
     {
       "source_path_from_root": "/articles/aks/view-metrics.md",
-      "redirect_url": "/azure/azure-monitor/containers/monitor-aks-analyze",
+      "redirect_url": "/azure/azure-monitor/aks/monitor-aks",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-monitor/containers/container-insights-log-search",
+      "source_path_from_root": "/articles/aks/view-control-plane-logs.md",
+      "redirect_url": "/containers/container-insights-log-query#resource-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/containers/container-insights-log-search.md",
       "redirect_url": "/azure/azure-monitor/containers/container-insights-log-query",
       "redirect_document_id": false
     },

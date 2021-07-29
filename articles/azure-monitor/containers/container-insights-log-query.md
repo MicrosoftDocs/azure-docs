@@ -1,5 +1,5 @@
 ---
-title: How to Query Logs from Container insights
+title: How to query logs from Container insights
 description: Container insights collects metrics and log data and this article describes the records and includes sample queries.
 ms.topic: conceptual
 ms.date: 07/19/2021

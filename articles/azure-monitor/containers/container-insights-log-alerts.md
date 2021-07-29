@@ -31,10 +31,10 @@ Log query alerts can perform two different measurements of the result of a log q
 [Number of results](../alerts/alerts-unified-log.md#count-of-the-results-table-rows) create a single alert when a query returns at least a specified number of records. These are ideal for non-numeric data such or for analyzing performance trends across multiple computers. You may also choose this strategy if you want to minimize your number of alerts or possibly create an alert only when multiple components have the same error condition.
 
 > [!NOTE]
-> Resource-centric log alert rules, currently in public preview, will simplify log query alerts and replace the functionality currently provided by metric measurement queries. You can use the AKS cluster as a target for the rule which will better identify it as the affected resource. . When resource-center log query alerts become generally available, the guidance in this scenario will be updated.
+> Resource-centric log alert rules, currently in public preview, will simplify log query alerts and replace the functionality currently provided by metric measurement queries. You can use the AKS cluster as a target for the rule which will better identify it as the affected resource. When resource-center log query alerts become generally available, the guidance in this scenario will be updated.
 
 ## Create a log query alert rule
-[Comparison of log query alert measures](../vm/monitor-virtual-machine-alerts.md#comparison-of-log-query-alert-measures) provides a complete walkthrough of log query alert rules for each type of measurement, including a comparison of the log queries supporting each. You can use these same processes to create alert rules for AKS clusters using queries similar to the ones in this article..
+[Comparison of log query alert measures](../vm/monitor-virtual-machine-alerts.md#comparison-of-log-query-alert-measures) provides a complete walkthrough of log query alert rules for each type of measurement, including a comparison of the log queries supporting each. You can use these same processes to create alert rules for AKS clusters using queries similar to the ones in this article.
 
 ## Resource utilization 
 
@@ -194,7 +194,7 @@ KubePodInventory
 
 ## Resource availability 
 
-**Nodes and counts that have a status of *Ready* and *NotReady (metric measurement)**
+**Nodes and counts that have a status of Ready and NotReady (metric measurement)**
 
 ```kusto
 let endDateTime = now();
@@ -289,7 +289,7 @@ InsightsMetrics
 
 
 
-**Individual container restarts (number of results)**
+**Individual container restarts (number of results)**<br>
 Alerts when the individual system container restart count exceeds a threshold for last 10 minutes.
 
  

@@ -21,11 +21,11 @@ The following table lists the platform metrics collected for AKS.  Follow each l
 | Connected clusters | [microsoft.kubernetes/connectedClusters](/azure/azure-monitor/essentials/metrics-supported#microsoftkubernetesconnectedclusters)
 | Virtual machines| [Microsoft.Compute/virtualMachines](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachines) |
 | Virtual machine scale sets | [Microsoft.Compute/virtualMachineScaleSets](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesets)|
-| Virtual Machine scale sets virtual machines | [Microsoft.Compute/virtualMachineScaleSets/virtualMachines](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesetsvirtualmachines)|
+| Virtual machine scale sets virtual machines | [Microsoft.Compute/virtualMachineScaleSets/virtualMachines](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesetsvirtualmachines)|
 
 For more information, see a list of [all platform metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
-## Metric Dimensions
+## Metric dimensions
 
 The following table lists [dimensions](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics) for AKS metrics. 
 
@@ -91,7 +91,7 @@ For a complete list of possible log entries, see [Microsoft.ContainerService Res
 
 For more information on the schema of Activity Log entries, see [Activity  Log schema](/azure/azure-monitor/essentials/activity-log-schema). 
 
-## See Also
+## See also
 
 - See [Monitoring Azure AKS](monitor-aks.md) for a description of monitoring Azure AKS.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
