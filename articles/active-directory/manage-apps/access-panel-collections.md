@@ -65,7 +65,7 @@ To create a collection, you must have an Azure AD Premium P1 or P2 license.
 11. Select **Review + Create**. The properties for the new collection appear.
 
 > [!NOTE]
-> Admin collections are managed through the [Azure portal](https://portal.azure.com) not from [My Apps portal](https://myapps.microsoft.com), so lets say if you assign users/groups as owner then they can only manage Admin collection through [Azure portal](https://portal.azure.com).
+> Admin collections are managed through the [Azure portal](https://portal.azure.com), not from [My Apps portal](https://myapps.microsoft.com). For example, if you assign users or groups as an owner, then they can only manage the collection through the Azure portal.
 
 ## View audit logs
 
