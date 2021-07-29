@@ -40,7 +40,7 @@ Knowledge stores are created in your [Azure Storage account](../storage/common/s
 
 The data structures within Azure Storage are articulated through the `projections` element of a `knowledgeStore` definition in a Skillset. The projection defines a structure of the output so that it matches your intended use.
 
-Projections can be articulated as tables, objects, or files.
+Projections can be articulated as tables, objects, or files, and you can have multiple sets (or *projection groups*) to create multiple data structures for different purposes.
 
 ```json
 "knowledgeStore": { 
@@ -51,7 +51,7 @@ Projections can be articulated as tables, objects, or files.
             "objects": [ ], 
             "files": [ ]
         },
-                { 
+        { 
             "tables": [ ], 
             "objects": [ ], 
             "files": [ ]
@@ -86,7 +86,7 @@ However, it is possible to create multiple sets of `table`-`object`-`file` proje
 
 ## Create a knowledge store
 
-To create knowledge store, use the portal or the REST API (`api-version=2020-06-30`).
+To create knowledge store, use the portal or an API.
 
 ### [**Azure portal**](#tab/kstore-portal)
 
@@ -104,7 +104,7 @@ When you use the wizard, several additional tasks are handled internally that yo
 
 ### [**REST**](#tab/kstore-rest)
 
-REST API version `2020-06-30` provides knowledge store through additions to a skillset.
+REST API version `2020-06-30` can be used to create a knowledge store through additions to a skillset.
 
 + [Create Skillset (api-version=2020-06-30)](/rest/api/searchservice/create-skillset)
 + [Update Skillset (api-version=2020-06-30)](/rest/api/searchservice/update-skillset)
