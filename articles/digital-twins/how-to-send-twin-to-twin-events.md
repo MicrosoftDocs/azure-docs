@@ -38,73 +38,84 @@ Before continuing with this example, you'll also need to set up an **Azure Digit
 
 ### Example twin update scenario
 
-In this section, you'll set up an example set of [digital twins](concepts-twins-graph.md) that can be used to pass data from one twin to another.
+In this section, you'll set up an example set of [digital twins](concepts-twins-graph.md) that can be used to pass data between twins.
 
-There are two twins in this example:
-* **Thermostat**: A *ThermostatModel* type twin representing a thermostat device. It has a *temperature* property (among other elements that aren't used in this article).
-* **Room**: A *SpaceModel* type twin representing the room where the thermostat is located. It has a *temperature* property that should match the value on the thermostat twin.
+There are three twins in this example:
+* **Floor1**: An *IFloor* type twin representing a floor in a building. It has a *temperature* property (among other elements that aren't used in this article).
+* **Room100** and **Room101**: Two *IRoom* type twins representing rooms on **Floor1**. Each room also has a *temperature* property.
 
-Whenever the temperature on the Thermostat twin is updated, this event should be sent to the Room twin, and the Room twin's temperature should be updated to match.
+:::image type="content" source="media/how-to-send-twin-to-twin-events/sample-graph.png" alt-text="Diagram showing a graph of three nodes, representing the twins and relationships described above.":::
 
-### Add a model and twins
+The temperature on **Floor1** should reflect an average of the temperatures in **Room100** and **Room101**. The steps in this article will set this up, by ensuring that whenever the temperature on either of the room twins is updated, this event is sent to an Azure function that computes the average, and sets the temperature of **Floor1** equal to that average.
 
-In this section, you'll set up the two example twins, Thermostat and Room.
+#### Download the sample 
 
-First, you'll need to **upload the models** for the thermostat and the room.
+The models and sample function code used in the example scenario can be downloaded from this repository: [azure-digital-twins-getting-started](https://github.com/Azure-Samples/azure-digital-twins-getting-started). You can get the repository on your machine by either cloning it or downloading it as a .zip file (which you should then unzip on your machine).
 
-Use the following Azure CLI commands to upload the models to your Azure Digital Twins instance as inline JSON. You can run the commands in [Azure Cloud Shell](../cloud-shell/overview.md) in your browser (use the **Bash** environment), or on your machine if you have the [CLI installed locally](/cli/azure/install-azure-cli). There is one placeholder in each command where you should enter the name of your Azure Digital Twins instance.
+#### Add a model and twins
+
+In this section, you'll set up the example twins, Floor1, Room100, and Room101.
+
+First, you'll need to **upload the models** for IFloor and IRoom. These can be found in the repository you downloaded in the last section, under *azure-digital-twins-getting-started/models/basic-home-example/*.
+
+One way to upload these to your instance is using the Azure CLI. You can use the [Azure Cloud Shell](../cloud-shell/overview.md) in your browser, or the [local CLI](/cli/azure/install-azure-cli) if you have it installed on your machine.
+
+>[!NOTE]
+> If you're using Azure Cloud Shell, start by uploading the model files to your Cloud Shell storage so they can be accessed by the command. In the Cloud Shell window in your browser, select the "Upload/Download files" icon and choose "Upload".
+>
+> :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Screenshot of Azure Cloud Shell. The Upload icon is highlighted.":::
+>
+> Navigate to *azure-digital-twins-getting-started/models/basic-home-example/* on your machine and select **IFloor.json** and **IRoom.json** to open. This will upload the files to the root of your Cloud Shell storage.
+
+Use the following Azure CLI commands to upload the models to your Azure Digital Twins instance.
 
 ```azurecli-interactive
-az dt model create --dt-name <Azure-Digital-Twins-instance> --models '{  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;1",  "@type": "Interface",   "displayName": "Thermostat interface model", "@context": "dtmi:dtdl:context;2", "contents": [    {      "@type": "Property",      "name": "DisplayName",      "schema": "string"    },  {      "@type": "Property",      "name": "Temperature",      "schema": "double"    } ]}' 
-
-az dt model create --dt-name <Azure-Digital-Twins-instance> --models '{  "@id": "dtmi:contosocom:DigitalTwins:Space;1",  "@type": "Interface",  "displayName": "Space interface model",  "@context": "dtmi:dtdl:context;2", "contents": [    {      "@type": "Property",      "name": "DisplayName",      "schema": "string"    },  {      "@type": "Property",      "name": "Temperature",      "schema": "double"    },  {   "@type": "Relationship",  "name": "contains", "displayName": "contains" } ]}' 
+az dt model create --dt-name <Azure-Digital-Twins-instance> --models <path-to-IFloor.json> 
+az dt model create --dt-name <Azure-Digital-Twins-instance> --models <path-to-IRoom.json> 
 ```
 
->[!TIP]
-> You can view the full model code that these models were based on here:  [ThermostatModel.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/master/AdtSampleApp/SampleClientApp/Models/ThermostatModel.json) and [SpaceModel.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/master/AdtSampleApp/SampleClientApp/Models/SpaceModel.json).
-
-Next, **create a twin using each model**. Use the following commands to create the Thermostat and Room twins, both with an initial temperature value of 0.0.
+Next, **create the twins** based on the models. Use the following commands to create the Floor and Room twins, all with an initial temperature value of 0.0.
 
 ```azurecli-interactive
-az dt twin create  --dt-name <Azure-Digital-Twins-instance> --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id Thermostat --properties '{"DisplayName": "Thermostat", "Temperature": 0.0,}'
+az dt twin create  --dt-name <Azure-Digital-Twins-instance> --dtmi "dtmi:com:adt:dtsample:floor;1" --twin-id Floor1 --properties '{"id": "Floor1", "temperature": 0.0, "humidity": 0.0}'
 
-az dt twin create  --dt-name <Azure-Digital-Twins-instance> --dtmi "dtmi:contosocom:DigitalTwins:Space;1" --twin-id Room --properties '{"DisplayName": "Room", "Temperature": 0.0}'
+az dt twin create  --dt-name <Azure-Digital-Twins-instance> --dtmi "dtmi:com:adt:dtsample:room;1" --twin-id Room100 --properties '{"id": "Room100", "temperature": 0.0, "humidity": 0.0}'
+
+az dt twin create  --dt-name <Azure-Digital-Twins-instance> --dtmi "dtmi:com:adt:dtsample:room;1" --twin-id Room101 --properties '{"id": "Room101", "temperature": 0.0, "humidity": 0.0}'
 ```
 
 When the twins are created successfully, the CLI will output some information about the two twins that have been created.
 
-Finally, **create a relationship** from the Room twin to the Thermostat twin indicating that the room contains the thermostat.
+Finally, **create a relationship** from the Floor twin to the Room twins indicating that the floor "has" these rooms within it.
 
 ```azurecli-interactive
-az dt twin relationship create -n <Azure-Digital-Twins-instance> --relationship-id contains --relationship room_has_thermostat --twin-id Room --target Thermostat
+az dt twin relationship create -n <Azure-Digital-Twins-instance> --relationship-id Floor1_Room100 --relationship rel_has_rooms  --twin-id Floor1 --target Room100
+az dt twin relationship create -n <Azure-Digital-Twins-instance> --relationship-id Floor1_Room101 --relationship rel_has_rooms  --twin-id Floor1 --target Room101
 ```
 
 Now you've finished setting up the example scenario to use with this how-to.
 
 ## Set up endpoint and route
 
-To set up twin-to-twin event handling, start by creating an **endpoint** in Azure Digital Twins and a **route** to that endpoint. The Thermostat twin will use the route to send information about its update events to the endpoint (where Event Grid can pick them up later and pass them to an Azure function for processing).
+To set up twin-to-twin event handling, start by creating an **endpoint** in Azure Digital Twins and a **route** to that endpoint. The Room twins will use the route to send information about their update events to the endpoint (where Event Grid can pick them up later and pass them to an Azure function for processing).
 
 [!INCLUDE [digital-twins-twin-to-twin-resources.md](../../includes/digital-twins-twin-to-twin-resources.md)]
 
 ## Create the Azure function
 
-Next, create an Azure function that will listen on the endpoint and receive twin events that are sent there via the route. If it receives a temperature update event, it will locate the updated twin's parent twin in the Azure Digital Twins graph, and update the parent's corresponding Temperature property to match.
+Next, create an Azure function that will listen on the endpoint and receive twin events that are sent there via the route. 
 
-1. First, open Visual Studio and create a new Azure Functions app project. For instructions on how to create a function app using Visual Studio, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
+If you're following the [example scenario](#example-twin-update-scenario) for this article, you'll publish a sample function written for the sample Room and Floor twins. Whenever it receives a temperature update event from a Room, it will locate the parent Floor twin in the Azure Digital Twins graph, calculate the average of all Rooms on that floor, and update the Floor twin's temperature property to reflect that average temperature.
+
+1. First, create an Azure Functions project in Visual Studio on your machine. If you're following the example scenario for this tutorial, you can open the sample project you downloaded in the [Prerequisites](#download-the-sample) section, located at *azure-digital-twins-getting-started/azure-functions/twin-updates/TwinUpdatesSample.sln*.
 
 2. Add the following packages to your project (you can use the Visual Studio NuGet package manager or `dotnet` commands in a command-line tool).
 
     * [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core/)
     * [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/)
+    * [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid)
 
-3. Create a new function file called *ProcessDTRoutedData.cs*. Copy in the body of this sample function file: [ProcessDTRoutedData.cs](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/master/AdtSampleApp/SampleFunctionsApp/ProcessDTRoutedData.cs).
-
-    This code sample supports the [example scenario](#example-twin-update-scenario) of this how-to that updates the temperature on a Room twin whenever a Thermostat twin is updated. If you are using your own, different twins, you may want to edit the properties that are being updated or make other changes to the logic of the function to apply to your scenario.
-
-4. Create a new class file called *AdtUtilities.cs*. Copy in the body of this sample file: [AdtUtilities.cs](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/master/AdtSampleApp/SampleFunctionsApp/AdtUtilities.cs).
-
-    This sample class contains helper methods to work with the Azure Digital Twins graph, including finding a twin's parent twin and updating a twin property.
+3. Fill in the logic of your function. If you're following the example scenario for this article, the function already exists in the project as **ProcessDTRoutedData.cs**. If you're writing your own Azure function for a different set of twins, you can view sample functions in the [azure-digital-twins-getting-started](https://github.com/Azure-Samples/azure-digital-twins-getting-started/tree/main/azure-functions) repository to help you get started.
 
 5. Publish the function app and *ProcessDTRoutedData.cs* function to Azure. For instructions on how to publish a function app, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
 
@@ -118,9 +129,9 @@ Before your function can access Azure Digital Twins, it needs some information a
 
 ## Connect the function to Event Grid
 
-Next, subscribe the *ProcessDTRoutedData* Azure function to the event grid topic you created earlier. This will ensure that  telemetry data can flow from an updated twin through the event grid topic to the function.
+Next, subscribe your Azure function to the event grid topic you created earlier. This will ensure that data can flow from an updated twin through the event grid topic to the function.
 
-To do this, you'll create an **Event Grid subscription** that sends data from the event grid topic that you created earlier to your *ProcessDTRoutedData* Azure function.
+To do this, you'll create an **Event Grid subscription** that sends data from the event grid topic that you created earlier to your Azure function.
 
 1. In the [Azure portal](https://portal.azure.com/), navigate to your event grid topic by searching for its name in the top search bar and selecting it from the results.
 
@@ -132,7 +143,7 @@ To do this, you'll create an **Event Grid subscription** that sends data from th
     * *EVENT SUBSCRIPTION DETAILS* > **Name**: Give a name to your event subscription.
     * *ENDPOINT DETAILS* > **Endpoint Type**: Select *Azure Function* from the menu options.
     * *ENDPOINT DETAILS* > **Endpoint**: Select the *Select an endpoint* link. This will open a *Select Azure Function* window:
-        - Fill in your **Subscription**, **Resource group**, **Function app** and **Function** (*ProcessDTRoutedData*). Some of these may auto-populate after selecting the subscription.
+        - Fill in your **Subscription**, **Resource group**, **Function app** and **Function** (if you're following the example scenario for this article, the function is *ProcessDTRoutedData*). Some of these may auto-populate after selecting the subscription.
         - Select **Confirm Selection**.
 
 1. Back on the *Create Event Subscription* page, select **Create**.
@@ -141,21 +152,22 @@ Now, your function can receive events through your event grid topic. The data fl
 
 ## Test and verify results
 
-The last step is to verify that the flow is working, by updating a twin and checking that its parent twin reflects the same property update.
+The last step is to verify that the flow is working, by updating a twin and checking that related twins are updated accordingly.
 
-To kick off the process, update the twin that's the source of the event flow. If you're using the [example scenario](#example-twin-update-scenario), you can use the following Azure CLI command to update the temperature on the Thermostat twin to a new value of 35.48:
-
-```azurecli-interactive
-az dt twin update -n <Azure-Digital-Twins-instance> --twin-id Thermostat --json-patch '{"op":"replace", "path":"/Temperature", "value": 35.48}'
-```
-
-Next, query your Azure Digital Twins instance for the parent twin that should receive the data and update to match. If you're using the [example scenario](#example-twin-update-scenario), you can use the following Azure CLI command to query for the Room twin and see its property information:
+To kick off the process, update the twin that's the source of the event flow. If you're following the example scenario for this article, you can use the following Azure CLI command to update the temperature on the Room twins to new values of 30.00 and 50.00:
 
 ```azurecli-interactive
-az dt twin show -n <Azure-Digital-Twins-instance> --twin-id Room
+az dt twin update -n <Azure-Digital-Twins-instance> --twin-id Room100 --json-patch '{"op":"replace", "path":"/temperature", "value": 30.00}'
+az dt twin update -n <Azure-Digital-Twins-instance> --twin-id Room101 --json-patch '{"op":"replace", "path":"/temperature", "value": 50.00}'
 ```
 
-The output should show that the temperature value of Room has automatically updated to match the temperature that was set on Thermostat.
+Next, query your Azure Digital Twins instance for the parent twin that should receive the data and update to match. If you're following the example scenario, you can use the following Azure CLI command to query for the Floor1 twin and see its property information:
+
+```azurecli-interactive
+az dt twin show -n <Azure-Digital-Twins-instance> --twin-id Floor1
+```
+
+The output should show that the temperature value of Floor1 has automatically updated to 40.00 (the average of the temperatures for Room100 and Room101).
 
 ## Next steps
 
