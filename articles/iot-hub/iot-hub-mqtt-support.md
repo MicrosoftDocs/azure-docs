@@ -99,7 +99,7 @@ In the [IoT MQTT Sample repository](https://github.com/Azure-Samples/IoTMQTTSamp
 
 These samples use the Eclipse Mosquitto library to send messages to the MQTT Broker implemented in the IoT hub.
 
-To learn how to adapt the samples to use the [Azure IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md) conventions, see [Tutorial - Use MQTT to develop an IoT Plug and Play device client](../iot-pnp/tutorial-use-mqtt.md).
+To learn how to adapt the samples to use the [Azure IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md) conventions, see [Tutorial - Use MQTT to develop an IoT Plug and Play device client](../iot-develop/tutorial-use-mqtt.md).
 
 This repository contains:
 
@@ -111,7 +111,7 @@ This repository contains:
 
 * DeviceTwinMQTTWin32: contains code to query and subscribe to the device twin events of a device in the Azure IoT hub on a Windows machine.
 
-* PnPMQTTWin32: contains code to send a telemetry message with IoT Plug and Play device capabilities to an Azure IoT hub, built and run on a Windows machine. You can read more on [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md)
+* PnPMQTTWin32: contains code to send a telemetry message with IoT Plug and Play device capabilities to an Azure IoT hub, built and run on a Windows machine. You can read more on [IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md)
 
 **For Linux:**
 

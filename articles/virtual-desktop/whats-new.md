@@ -48,7 +48,7 @@ Here's what's changed in the Azure Virtual Desktop Agent:
     - Added an exception that prevents you from installing non-Windows 7 agents on Windows 7 VMs.
     - Has updated heartbeat service logic.
 - Version 1.0.2944.1400: This update was released April 2021 and has the following changes:
-    - Placed links to the Windows Virtual Desktop Agent troubleshooting guide in the event viewer logs for agent errors.
+    - Placed links to the Azure Virtual Desktop Agent troubleshooting guide in the event viewer logs for agent errors.
     - Added an additional exception for better error handling.
     - Added the WVDAgentUrlTool.exe that allows customers to check which required URLs they can access.
 -	Version 1.0.2866.1500: This update was released March 2021 and it fixes an issue with the stack health check.
@@ -56,9 +56,9 @@ Here's what's changed in the Azure Virtual Desktop Agent:
 -	Version 1.0.2800.2800: This update was released March 2021 and it fixes a reverse connection issue.
 -	Version 1.0.2800.2700: This update was released February 2021 and it fixes an access denied orchestration issue.
 
-## FSLogix 2105
-FSLogix 2105 has been released and we recommend all customers upgrade. Updates include login time improvements and the ability to increase VHD(X) size by updating the SizeinMB setting.
-Looking for more details? Check out the [FSLogix 2105 Release Notes](https://aka.ms/fslogix/whatsnew/2105).
+## FSLogix updates
+
+Curious about the latest updates for FSLogix? Check out [What's new at FSLogix](/fslogix/whats-new).
 
 ## June 2021
 
@@ -483,7 +483,7 @@ The previous version of Remote Desktop client is now called “Remote Desktop 8.
 
 ### Teams update
 
-We've made improvements to Microsoft Teams for Azure Virtual Desktop. Most importantly, Azure Virtual Desktop now supports audio and video optimization for the Windows Desktop client. Redirection improves latency by creating direct paths between users when they use audio or video in calls and meetings. Less distance means fewer hops, which makes calls look and sound smoother. Learn more at [Use Teams on Azure Virtual Desktop](teams-on-wvd.md).
+We've made improvements to Microsoft Teams for Azure Virtual Desktop. Most importantly, Azure Virtual Desktop now supports audio and video optimization for the Windows Desktop client. Redirection improves latency by creating direct paths between users when they use audio or video in calls and meetings. Less distance means fewer hops, which makes calls look and sound smoother. Learn more at [Use Teams on Azure Virtual Desktop](./teams-on-avd.md).
 
 ## June 2020
 

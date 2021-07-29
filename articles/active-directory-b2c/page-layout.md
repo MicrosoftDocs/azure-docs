@@ -22,15 +22,33 @@ Page layout packages are periodically updated to include fixes and improvements 
 > Azure Active Directory B2C releases improvements and fixes with each new page layout version. We highly recommend you keep your page layout versions up-to-date so that all page elements reflect the latest security enhancements, accessibility standards, and your feedback.
 >
 
-## jQuery version
+## jQuery and Handlebars versions
 
-Azure AD B2C page layout uses the following version of the [jQuery library](https://jquery.com/):
+Azure AD B2C page layout uses the following versions of the [jQuery library](https://jquery.com/) and the [Handlebars templates](https://handlebarsjs.com/):
 
-|From page layout version  |jQuery version  |
-|---------|---------|
-|2.1.4 | 3.5.1 |
-|1.2.0 | 3.4.1 |
-|1.1.0 | 1.10.2 |
+|Element |Page layout version range |jQuery version  |Handlebars Runtime version |Handlebars Compliler version |
+|---------|---------|------|--------|----------|
+|multifactor |>= 1.2.4 | 3.5.1 | 4.7.6 |4.7.7 |
+|            |< 1.2.4 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
+|selfasserted |>= 2.1.4 | 3.5.1 |4.7.6 |4.7.7 |
+|            |< 2.1.4 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
+|unifiedssp |>= 2.1.4 | 3.5.1 |4.7.6 |4.7.7 |
+|            |< 2.1.4 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
+|globalexception |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
+|            |< 1.2.1 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
+|providerselection |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
+|            |< 1.2.1 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
+|claimsconsent |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
+|            |< 1.2.1 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
+|unifiedssd |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
+|            |< 1.2.1 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
 
 ## Self-asserted page (selfasserted)
 
