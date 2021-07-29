@@ -128,7 +128,7 @@ Azure Arc-enabled SQL Managed Instance share a common code base with the latest 
 
 ### Tools
 
-Azure Arc-enabled SQL Managed Instance support various data tools that can help you manage your data.
+Azure Arc-enabled SQL Managed Instance supports various data tools that can help you manage your data.
 
 | **Tool** | Azure Arc-enabled SQL Managed Instance|
 | --- | --- | --- |
