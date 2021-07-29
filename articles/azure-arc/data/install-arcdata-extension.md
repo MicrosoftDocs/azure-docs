@@ -14,7 +14,7 @@ ms.topic: how-to
 # Install `arcdata` Azure CLI extension
 
 > [!IMPORTANT]
-> If you are updating to a new monthly release, please be sure to also update to the latest version of Azure CLI and the Azure CLI extension.
+> If you are updating to a new release, please be sure to also update to the latest version of Azure CLI and the `arcdata` extension.
 
 
 ## Install latest Azure CLI 
