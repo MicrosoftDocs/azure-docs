@@ -40,11 +40,11 @@ Complete these steps to create a flexible server:
 
 4. On the **Basics** tab, enter the **subscription**, **resource group** , **region** and **server name**.  With the default values, this will provision a PostgreSQL server of version 12 with General purpose pricing tier  using 2 vCores, 8 GiB RAM, 128 GiB storage. The backup retention is 7 days. You can use **Development** workload to default to lower cost pricing tier.
 
-    > :::image type="content" source="./media/quickstart-create-connect-server-vnet/postgres-create-basics1.png" alt-text="Screenshot that shows the Basics tab of the Flexible server page." lightbox="/media/quickstart-create-connect-server-vnet/postgres-create-basics1.png":::
+    > :::image type="content" source="./media/quickstart-create-connect-server-vnet/postgres-create-basics1.png" alt-text="Screenshot that shows the Basics tab of the postgres flexible server page." lightbox="/media/quickstart-create-connect-server-vnet/postgres-create-basics1.png":::
 
 5. In the **Basics** tab, enter  a unique **admin username** and **admin password**.
 
-    > :::image type="content" source="./media/quickstart-create-connect-server-vnet/db-administrator-account.png" alt-text="Screenshot that shows the Basics tab of the Flexible server page." lightbox="/media/quickstart-create-connect-server-vnet/db-administrator-account.png":::
+    > :::image type="content" source="./media/quickstart-create-connect-server-vnet/db-administrator-account.png" alt-text="Screenshot that shows the admin user information page." lightbox="/media/quickstart-create-connect-server-vnet/db-administrator-account.png":::
 
 6.  Go to the **Networking** tab, select **private access**.You can't change the connectivity method after you create the server. Select **Create virtual network** to create new  virtual network **vnetenvironment1**. Select **OK** once you have provided the virtual network name and subnet information.
 
