@@ -81,16 +81,16 @@ Follow these instructions to list Azure AD roles using the Microsoft Graph API i
 3. Select the API version to **beta**.
 4. Add the following query to use the [List roleDefinitions](/graph/api/rbacapplication-list-roledefinitions) API.
 
-```HTTP
-GET https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions
-```
+   ```HTTP
+   GET https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions
+   ```
 
 5. Select **Run query** to list the roles.
 6. To view permissions of a role, use the following API.
 
-```HTTP
-GET https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions?$filter=DisplayName eq 'Conditional Access Administrator'&$select=rolePermissions
-```
+   ```HTTP
+   GET https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions?$filter=DisplayName eq 'Conditional Access Administrator'&$select=rolePermissions
+   ```
 
 ## Next steps
 
