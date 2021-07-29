@@ -123,7 +123,7 @@ The following table compares workspace options with and without separate workspa
 |Workspace architecture  |Description |
 |---------|---------|
 |The SOC team has its own workspace, with Azure Sentinel enabled. <br><br>The Ops team has its own workspace, without Azure Sentinel enabled.     |  **SOC team**: <br>Azure Sentinel cost for 50GB/day is $6,500 per month.<br>First three months of retention are free. <br><br>**Ops team**:<br>- Cost of Log Analytics at 50GB/day is around $3,500 per month.<br>- First 31 days of retention are free.<br><br>The total cost for both equals $10,000 per month.       |
-|Both SOC and Ops teams share the same workspace with Azure Sentinel enabled. |By combining both logs, ingestion will be 100 GB / day, qualifying for eligibility for Commitment Tier (55% for Sentinel and 15% for LA).       <br><br>Cost of Azure Sentinel for 100 GB / day equals $9,000 per month.      |
+|Both SOC and Ops teams share the same workspace with Azure Sentinel enabled. |By combining both logs, ingestion will be 100 GB / day, qualifying for eligibility for Commitment Tier (50% for Sentinel and 15% for LA).       <br><br>Cost of Azure Sentinel for 100 GB / day equals $9,000 per month.      |
 |     |         |
 
 In this example, you'd have a cost savings of $1,000 per month by combining both workspaces, and the Ops team will also enjoy 3 months of free retention instead of only 31 days.
@@ -186,7 +186,7 @@ However, this recommendation for separate workspaces for non-SOC data comes from
 
     - If you have multiple, custom data sources/tables, where each one needs separate permissions
 
-    In other cases, when you do *not* need to control access at the row level, provide multiple, custom data sources/tables with separate permissions, or if resource-context RBAC works for you, use a single Azure Sentinel workspace, with table-level RBAC for data access control.
+    In other cases, when you do *not* need to control access at the row level, provide multiple, custom data sources/tables with separate permissions, use a single Azure Sentinel workspace, with table-level RBAC for data access control.
 
 #### Considerations for resource-context or table-level RBAC
 
