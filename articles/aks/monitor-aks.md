@@ -135,7 +135,7 @@ Managed AKS level includes the following components.
 | API Server | Monitor the status of API server, identifying any increase in request load and bottlenecks if the service is down. |
 | Kubelet | Monitoring Kubelet helps in troubleshooting of pod management issues, pods not starting, nodes not ready or pods getting killed.  |
 
-Azure Monitor and container insights don't yet provide full monitoring for the API server. You can use metrics explorer to view the **Inflight Requests** counter, but you should refer to metrics in Prometheus for a complete view of API Server performance. This includes such values as request latency and workqueue processing time. A Grafana dashboard that provides views of the critical metrics for the API server is available at [Grafana Labs](https://grafana.com/grafana/dashboards/12006). Use this dashboard on your existing Grafana server or setup a new Grafana server in Azure using [Monitor your Azure services in Grafana](../../azure-monitor/visualize/grafana-plugin.md)
+Azure Monitor and container insights don't yet provide full monitoring for the API server. You can use metrics explorer to view the **Inflight Requests** counter, but you should refer to metrics in Prometheus for a complete view of API Server performance. This includes such values as request latency and workqueue processing time. A Grafana dashboard that provides views of the critical metrics for the API server is available at [Grafana Labs](https://grafana.com/grafana/dashboards/12006). Use this dashboard on your existing Grafana server or setup a new Grafana server in Azure using [Monitor your Azure services in Grafana](../azure-monitor/visualize/grafana-plugin.md)
 
 :::image type="content" source="media/monitor-aks/grafana-api-server.png" alt-text="Grafana API server" lightbox="media/monitor-aks/grafana-api-server.png":::
 
@@ -207,7 +207,7 @@ Monitor external components such as Service Mesh, Ingress, Egress with Prometheu
 ## Analyze metric data with metrics explorer
 Use metrics explorer when you want to perform custom analysis of metric data collected for your containers. Metrics explorer allows you plot charts, visually correlate trends, and investigate spikes and dips in metrics' values. Create a metrics alert to proactively notify you when a metric value crosses a threshold, and pin charts to dashboards for use by different members of your organization.
 
-See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this feature. For a list of the platform metrics collected for AKS, see [Monitoring AKS data reference metrics](/monitor-aks-reference.md#metrics). When Container insights is enabled for a cluster, [addition metric values](container-insights-update-metrics.md) are available.
+See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this feature. For a list of the platform metrics collected for AKS, see [Monitoring AKS data reference metrics](/monitor-aks-reference.md#metrics). When Container insights is enabled for a cluster, [addition metric values](../azure-monitor/containers/container-insights-update-metrics.md) are available.
 
 :::image type="content" source="media/monitor-aks/metrics-explorer.png" alt-text="Metrics explorer" lightbox="media/monitor-aks/metrics-explorer.png":::
 
@@ -250,7 +250,7 @@ Container insights includes a feature in public preview that creates a recommend
 Use log alert rules to generate an alert from the results of a log query. This may be data collected by Container insights or from AKS resource logs. See [How to create log alerts from Container insights](../azure-monitor/containers/container-insights-log-alerts.md) for details on log alert rules for AKS and  a set of sample queries designed for alert rules. You can also refer to [How to query logs from Container insights](../azure-monitor/containers/container-insights-log-query.md) for details on log queries that could be modified for alert rules.
 
 ### Virtual machine alerts
-AKS relies on a virtual machine scale set that must be healthy to run AKS workloads. You can alert on critical metrics such as CPU, memory, and storage for the virtual machines using the guidance at [Monitor virtual machines with Azure Monitor: Alerts](../vm/monitor-virtual-machine-alerts.md).
+AKS relies on a virtual machine scale set that must be healthy to run AKS workloads. You can alert on critical metrics such as CPU, memory, and storage for the virtual machines using the guidance at [Monitor virtual machines with Azure Monitor: Alerts](../azure-monitor/vm/monitor-virtual-machine-alerts.md).
 
 ### Prometheus alerts
 For those conditions where Azure Monitor either doesn't have the data required for an alerting condition, or where the alerting may not be responsive enough, you should configure alerts in Prometheus. One example is alerting for the API server. Azure Monitor doesn't collect critical information for the API server including whether it's available or experiencing a bottleneck. You can create a log query alert using the data from the kube-apiserver resource log category, but this can take up to several minutes before you receive an alert which may not be sufficient for your requirements. 
