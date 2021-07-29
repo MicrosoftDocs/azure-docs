@@ -359,6 +359,8 @@
         href: chronicx-tutorial.md
       - name: Cimpl
         href: cimpl-tutorial.md
+      - name: Cirrus Identity Bridge for Azure AD
+        href: cirrus-identity-bridge-for-azure-ad-tutorial.md  
       - name: Cisco AnyConnect
         href: cisco-anyconnect.md
       - name: Cisco Cloud
@@ -401,6 +403,8 @@
         href: clicktime-tutorial.md
       - name: ClickUp Productivity Platform
         href: clickup-productivity-platform-tutorial.md
+      - name: Clockwork Recruiting
+        href: clockwork-recruiting-tutorial.md  
       - name: Cloud Academy - SSO
         href: cloud-academy-sso-tutorial.md
       - name: Cloud Management Portal for Microsoft Azure
@@ -2030,6 +2034,8 @@
         href: trisotechdigitalenterpriseserver-tutorial.md
       - name: TrueChoice
         href: truechoice-tutorial.md
+      - name: True Office Learning - LIO
+        href: true-office-learning-lio-tutorial.md  
       - name: Torii
         href: torii-tutorial.md
       - name: TruNarrative
