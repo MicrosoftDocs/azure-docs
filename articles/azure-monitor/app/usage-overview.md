@@ -51,8 +51,7 @@ Find out when people use your app, what pages they're most interested in, where 
 
 The Users and Sessions reports filter your data by pages or custom events, and segment them by properties such as location, environment, and page. You can also add your own filters.
 
-:::image type="content" source="./media/usage-overview/users.png" alt-text="Screen capture shows the Users tab with a bar chart.
-" lightbox="./media/usage-overview/users.png":::
+:::image type="content" source="./media/usage-overview/users.png" alt-text="Screen capture shows the Users tab with a bar chart." lightbox="./media/usage-overview/users.png":::
 
 Insights on the right point out interesting patterns in the set of data.  
 
