@@ -49,6 +49,10 @@ Where `{id}` is replaced by the ID of an [app consent policy](../manage-apps/man
 
 For example, to allow role assignees to grant tenant-wide admin consent to apps subject to a custom [app consent policy](../manage-apps/manage-app-consent-policies.md) with ID `low-risk-any-app`, you would use the permission `microsoft.directory/servicePrincipals/managePermissionGrantsForAll.low-risk-any-app`.
 
+Users with a custom role and using the above permission, will be allowed to provide admin consent for most API permissions, with exception of Microsoft Graph permissions that require admin consent. If a Microsoft Graph permission, that requires admin consent is included on the consent request, users assigned with a custom role for consent, will fail to provide admin consent.
+
+This exception means that you can still consent to application permissions for other apps (for example, SharePoint, non-Microsoft apps or apps that you have registered). However, Microsoft Graph permissions requires a more privileged administrator, such as Global Administrator. 
+
 ### Managing app consent policies
 
 To delegate the creation, update and deletion of [app consent policies](../manage-apps/manage-app-consent-policies.md).
