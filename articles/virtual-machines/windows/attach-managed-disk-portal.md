@@ -29,15 +29,15 @@ This article shows you how to attach a new managed data disk to a Windows virtua
 
 1. Connect to the VM.
 1. Select the Windows **Start** menu inside the running VM and enter **diskmgmt.msc** in the search box. The **Disk Management** console opens.
-2. Disk Management recognizes that you have a new, uninitialized disk and the **Initialize Disk** window appears.
-3. Verify the new disk is selected and then select **OK** to initialize it.
-4. The new disk appears as **unallocated**. Right-click anywhere on the disk and select **New simple volume**. The **New Simple Volume Wizard** window opens.
-5. Proceed through the wizard, keeping all of the defaults, and when you're done select **Finish**.
-6. Close **Disk Management**.
-7. A pop-up window appears notifying you that you need to format the new disk before you can use it. Select **Format disk**.
-8. In the **Format new disk** window, check the settings, and then select **Start**.
-9. A warning appears notifying you that formatting the disks erases all of the data. Select **OK**.
-10. When the formatting is complete, select **OK**.
+1. Disk Management recognizes that you have a new, uninitialized disk and the **Initialize Disk** window appears.
+1. Verify the new disk is selected and then select **OK** to initialize it.
+1. The new disk appears as **unallocated**. Right-click anywhere on the disk and select **New simple volume**. The **New Simple Volume Wizard** window opens.
+1. Proceed through the wizard, keeping all of the defaults, and when you're done select **Finish**.
+1. Close **Disk Management**.
+1. A pop-up window appears notifying you that you need to format the new disk before you can use it. Select **Format disk**.
+1. In the **Format new disk** window, check the settings, and then select **Start**.
+1. A warning appears notifying you that formatting the disks erases all of the data. Select **OK**.
+1. When the formatting is complete, select **OK**.
 
 ## Next steps
 

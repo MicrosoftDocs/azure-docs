@@ -68,6 +68,8 @@ items:
     href: concept-insights.md
   - name: Supported Browsers
     href: supported-browsers.md
+  - name: Asset normalization
+    href: concept-asset-normalization.md
   - name: Frequently asked questions
     href: frequently-asked-questions.md
 - name: How-to guides
