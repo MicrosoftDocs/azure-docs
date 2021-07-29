@@ -196,7 +196,7 @@ ORDER BY end_time DESC;
 > [!NOTE]
 > Shrink commands impact database performance while running, and if possible should be run during periods of low usage.
 
-### Shrinking data file
+### Shrinking data files
 
 Azure SQL Database does not automatically shrink Azure SQL database data files to reclaim unused allocated space due to the potential impact to database performance. However, customers may shrink data files via self-service at a time of their choosing.
 
