@@ -4,7 +4,7 @@ description: Learn how to deploy the Azure Sentinel solution for SAP environment
 author: batamig
 ms.author: bagold
 ms.service: azure-sentinel
-ms.topic: tutorial
+ms.topic: how-to
 ms.custom: mvc
 ms.date: 07/06/2021
 ms.subservice: azure-sentinel
@@ -333,9 +333,10 @@ If you have SAP HANA database audit logs configured with Syslog, you'll need als
 
 Learn more about the Azure Sentinel SAP solutions:
 
-- [Deploy the Azure Sentinel SAP solution using alternate deployments](sap-solution-deploy-alternate.md)
+- [Expert configuration options, on-premises deployment and SAPControl log sources](sap-solution-deploy-alternate.md)
 - [Azure Sentinel SAP solution detailed SAP requirements](sap-solution-detailed-requirements.md)
 - [Azure Sentinel SAP solution logs reference](sap-solution-log-reference.md)
 - [Azure Sentinel SAP solution: built-in security content](sap-solution-security-content.md)
+- [Troubleshooting your Azure Sentinel SAP solution deployment](sap-deploy-troubleshoot.md)
 
 For more information, see [Azure Sentinel solutions](sentinel-solutions.md).

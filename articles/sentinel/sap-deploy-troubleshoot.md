@@ -4,9 +4,9 @@ description: Learn how to troubleshoot specific issues that may occur in your Az
 author: batamig
 ms.author: bagold
 ms.service: azure-sentinel
-ms.topic: tutorial
+ms.topic: troubleshooting
 ms.custom: mvc
-ms.date: 07/06/2021
+ms.date: 07/29/2021
 ms.subservice: azure-sentinel
 
 ---
@@ -17,28 +17,175 @@ ms.subservice: azure-sentinel
 
 After having deployed both the SAP data connector and security content, you may experience the following errors or issues:
 
-|Issue  |Workaround  |
-|---------|---------|
-|Network connectivity issues to the SAP environment or to Azure Sentinel     |  Check your network connectivity as needed.       |
-|Incorrect SAP ABAP user credentials     |Check your credentials and fix them by applying the correct values to the **ABAPUSER** and **ABAPPASS** values in Azure Key Vault.         |
-|Missing permissions, such as the **/MSFTSEN/SENTINEL_CONNECTOR** role not assigned to the SAP user as needed, or inactive     |Fix this error by assigning the role and ensuring that it's active in your SAP system.         |
-|A missing SAP change request     | Make sure that you've imported the correct SAP change request, as described in [Configure your SAP system](sap-deploy-solution.md#configure-your-sap-system).        |
-|Incorrect Azure Sentinel workspace ID or key entered in the deployment script     |  To fix this error, enter the correct credentials in Azure KeyVault.       |
-|A corrupt or missing SAP SDK file     | Fix this error by reinstalling the SAP SDK and ensuring that you are using the correct Linux 64-bit version.        |
-|Missing data in your workbook or alerts     |    Ensure that the **Auditlog** policy is properly enabled on the SAP side, with no errors in the log file. Use the **RSAU_CONFIG_LOG** transaction for this step.     |
-| Unexpected issues <br><br>**Note**: Also use these steps after any major configuration changes  | Do one of the following: <br><br>**Try resetting the connector and reloading your logs**. <br>The following steps reset the connector and reload the logs from the last 24 hours.<br> 1. Stop the connector: `docker stop sapcon-SID`<br>2. Delete the **metadata.db** file from the **sapcon/SID** directory. <br>3.  Start the connector again by running `docker start sapcon-SID`. <br>3. [Review your system logs](#review-system-logs).<br><br>**Try upgrading the the connector to the latest version.**<br>For more information, see [Update your SAP data connector](sap-deploy-solution.md#update-your-sap-data-connector). |
-|   Empty or no audit log retrieved, with no special error messages   |  1. Check that audit logging is enabled in SAP. <br>2. Verify transactions **SM19** and **RASU_CONFIG**. <br>3. Enable any events as needed. <br>4. Verify whether messages arrive and exist in the SAP **SM20** or **RSAU_READ_LOG**, without any special errors appearing on the connector log. |
-|  Retrieving the audit log without the required change request deployed, or on an older / un-patched version, fails with warnings   |    Verify that the SAP Auditlog can be retrieved using a compatible mode called XAL on older versions, a version not recently patched, or without the required change request installed.<br><br>While your system should automatically switch to compatibility mode if needed, you may need to switch it manually. <br><br>**To switch to compatibility mode manually**: <br>In the **sapcon/SID** directory, edit the **systemconfig.ini** file and define: `auditlogforcexal = True` <br><br>For more information, see [Required SAP log change requests](sap-solution-detailed-requirements.md#required-sap-log-change-requests).   |
-|     |         |
+### Corrupt or missing SAP SDK file
+
+This occurs when the connector fails to boot with PyRfc, or zip-related error messages are shown.
+
+1. Reinstall the SAP SDK.
+1. Verify that you're the correct Linux 64-bit version. As of the current date, the release filename is: **nwrfc750P_8-70002752.zip**.
+
+If you'd installed the data connector manually, make sure that you'd copied the SDK file into the docker container.
+
+Run:
+
+```bash
+Docker cp SDK by running docker cp nwrfc750P_8-70002752.zip /sapcon-app/inst/
+```
+
+### ABAP runtime errors appear on a large system
+
+If ABAP runtime errors appear on large systems, try setting a smaller chunk size:
+
+1. Edit the **sapcon/SID/systemconfig.ini** file and define `timechunk = 5`.
+2. [Reset the SAP data connector](#reset-the-sap-data-connector).
+
+> [!NOTE]
+> The **timechunk** size is defined in minutes.
+
+### Empty or no audit log retrieved, with no special error messages
+
+1. Check that audit logging is enabled in SAP.
+1. Verify transactions **SM19** and **RASU_CONFIG**.
+1. Enable any events as needed.
+1. Verify whether messages arrive and exist in the SAP **SM20** or **RSAU_READ_LOG**, without any special errors appearing on the connector log.
+
+
+### Incorrect Azure Sentinel workspace ID or key
+
+If you realize that you've entered an incorrect workspace ID or key in your [deployment script](sap-deploy-solution.md#create-key-vault-for-your-sap-credentials), update the credentials stored in Azure KeyVault.
+
+### Incorrect SAP ABAP user credentials in a fixed configuration
+
+A fixed configuration is when the password is stored directly in the **systemconfig.ini** configuration file.
+
+If your credentials there are incorrect, verify your credentials.
+
+Use base64 encryption to encrypt the user and password. You can use online encryption tools to do this, such as https://www.base64encode.org/.
+
+### Incorrect SAP ABAP user credentials in key vault
+
+Check your credentials and fix them as needed.
+
+Apply the correct values to the **ABAPUSER** and **ABAPPASS** values in Azure Key Vault.
+
+
+
+### Missing ABAP (SAP user) permissions
+
+**Error message**: `..Missing Backend RFC Authorization..`
+
+1. Ensure that the **MSFTSEN/SENTINEL_CONNECTOR** role was imported as part of a [change request](sap-solution-detailed-requirements.md#required-sap-log-change-requests) transport, and applied to the connector user.
+
+1. Run the role generation and user comparison process in PFCG transaction code.
+
+
+
+### Missing data in your workbooks or alerts
+
+If you find that you're missing data in your Azure Sentinel workbooks or alerts, ensure that the **Auditlog** policy is properly enabled on the SAP side, with no errors in the log file. 
+
+Use the **RSAU_CONFIG_LOG** transaction for this step.
+
+
+### Missing SAP change request
+
+If you see errors that you're missing a required [SAP change request](sap-solution-detailed-requirements.md#required-sap-log-change-requests), make sure you've imported the correct SAP change requiest for your system.
+
+For more information, see [Configure your SAP system](sap-deploy-solution.md#configure-your-sap-system).
+
+### Network connectivity issues
+
+If you're having network connectivity issues to the SAP environment or to Azure Sentinel, check your network connectivity to make sure data is flowing as expected.
+
+### Other unexpected issues
+
+If you have unexpected issues not listed in this article, try the following:
+
+- [Reset the connector and reload your logs](#reset-the-sap-data-connector)
+- [Upgrade the the connector](sap-deploy-solution.md#update-your-sap-data-connector) to the latest version.
+
+> [!TIP]
+> Resetting your connector and ensuring that you have the latest upgrades are also recommended after any major configuration changes.
+
+### Retrieving an audit log fails with warnings
+
+If your attempt to retrieve an audit log, without the [required change request](sap-solution-detailed-requirements.md#required-sap-log-change-requests) deployed or on an older / un-patched version, and the process fails with warnings, verify that the SAP Auditlog can be retrieved using one of the following methods:
+
+- Using a compatibility mode called *XAL* on older versions
+- Using a version not recently patched
+- Without the required change request installed
+
+While your system should automatically switch to compatibility mode if needed, you may need to switch it manually. To switch to compatibility mode manually:
+
+1. In the **sapcon/SID** directory, edit the **systemconfig.ini** file
+1. Define: `auditlogforcexal = True`
+
+### SAPCONTROL or JAVA subsystems unable to connect
+
+Check that the OS user is valid and can run the following command on the target SAP system:
+
+```bash
+sapcontrol -nr <SID> -function GetSystemInstanceList
+```
+
+### SAPCONTROL or JAVA subsystem fails with timezone related error message
+
+If your SAPCONTROL or JAVA subsystem fails with a timezone-related error message, such as: **Please check the configuration and network access to the SAP server - 'Etc/NZST'**, make sure that you're using standard timezone codes.
+
+For example, use `javatz = GMT+12` or `abaptz = GMT-3**`.
+
+
+### Unable to import the change request transports to SAP
+
+If you're not able to import the [required SAP log change requests](sap-solution-detailed-requirements.md#required-sap-log-change-requests) and are getting an error about an invalid component version, add `ignore invalid component version` when you import the change request.
+
+## Reset the SAP data connector
+
+The following steps reset the connector and re-ingest SAP logs from the last 24 hours.
+
+1.	Stop the connector. Run:
+
+    ```bash
+    docker stop sapcon-SID
+    ```
+
+1.	Delete the **metadata.db** file from the **sapcon/SID** directory.
+
+    > [!NOTE]
+    > The **metadata.db** file contains the last timestamp for each of the logs, and works to prevent duplication.
+
+1. Start the connector again. Run:
+
+    ```bash
+    docker start sapcon-SID
+    ```
+
+Make sure to [Review system logs](#review-system-logs) when you're done.
 
 ## Review system logs
 
-We highly recommend that you review the system logs after installing the data connector.
+We highly recommend that you review the system logs after installing or resetting the data connector.
 
 Run:
 
 ```bash
 docker logs -f sapcon-[SID]
+```
+
+## Enable debug mode printing
+
+To enable debug mode printing:
+
+1. Copy the following file to your **sapcon/SID** directory, and then rename it as `loggingconfig.yaml`: https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/loggingconfig_DEV.yaml
+
+1. [Reset the SAP data connector](#reset-the-sap-data-connector).
+
+For example, for SID A4H:
+
+```bash
+wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/loggingconfig_DEV.y
+              cp loggingconfig.yaml ~/sapcon/A4H
+              docker restart sapcon-A4H
 ```
 
 ## View all Docker execution logs
@@ -102,3 +249,13 @@ When troubleshooting your SAP data connector, you may find the following command
 |     |         |
 
 For more information, see the [Docker CLI documentation](https://docs.docker.com/engine/reference/commandline/docker/).
+
+## Next steps
+
+For more information, see:
+
+- [Deploy SAP continuous threat monitoring (public preview)](sap-deploy-solution.md)
+- [Azure Sentinel SAP solution logs reference (public preview)](sap-solution-log-reference.md)
+- [Expert configuration options, on-premises deployment and SAPControl log sources](sap-solution-deploy-alternate.md)
+- [Azure Sentinel SAP solution: security content reference (public preview)](sap-solution-security-content.md)
+- [Azure Sentinel SAP solution detailed SAP requirements (public preview)](sap-solution-detailed-requirements.md)
