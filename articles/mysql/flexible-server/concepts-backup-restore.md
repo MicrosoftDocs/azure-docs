@@ -136,11 +136,11 @@ Azure portal supports Point In Time Restore (for all servers) allowing users to 
 
 - **Why is my restore taking so much time?**
 The estimated time for the recovery of the server depends on several factors: 
-1. The size of the databases. As a part of the recovery process, the database needs to be hydrated from the last physical backup and hence the time taken to recover will be proportional to the size of the database.
-2. The active portion of transaction activity that needs to be replayed to recover. Recovery can take longer depending on the additional transaction activity from the last successful checkpoint.
-3. The network bandwidth if the restore is to a different region 
-4. The number of concurrent restore requests being processed in the target region 
-5. The presence of primary key in the tables in the database. For faster recovery, consider adding primary key for all the tables in your database.  
+- The size of the databases. As a part of the recovery process, the database needs to be hydrated from the last physical backup and hence the time taken to recover will be proportional to the size of the database.
+- The active portion of transaction activity that needs to be replayed to recover. Recovery can take longer depending on the additional transaction activity from the last successful checkpoint.
+- The network bandwidth if the restore is to a different region 
+- The number of concurrent restore requests being processed in the target region 
+- The presence of primary key in the tables in the database. For faster recovery, consider adding primary key for all the tables in your database.  
 
 
 ## Next steps
