@@ -81,7 +81,7 @@ For details on known impacted scenarios as well as what experience your users ca
 - Previously, the presence of the banner recommending the use of collections caused content to scroll behind the header. This issue has been resolved. 
 - Previously, there was another issue when adding apps to a collection, the order of apps in All Apps collection would get randomly reordered. This issue has also been resolved. 
 
-For more information on My Apps, read [Sign in and start apps from the My Apps portal]../user-help/my-apps-portal-end-user-access.md).
+For more information on My Apps, read [Sign in and start apps from the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
 
 ---
 
