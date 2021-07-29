@@ -94,5 +94,5 @@ You'll run the `Set-StoragePolicy` cmdlet to set the storage policy for a VM.
 Advance to the next article to learn how to configure an external identity source for vCenter.
 
 > [!div class="nextstepaction"]
-> [Next steps button](tutorial-configure-identity-source-vcenter.md)
+> [Configure LDAP for vCenter](tutorial-configure-identity-source-vcenter.md)
 
