@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 07/08/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to resize VMs running on an Azure Stack Edge Pro device so that I can use it to run applications using Edge compute before sending it to Azure.
 ---
@@ -43,9 +43,9 @@ Before you resize a VM running on your device via the Azure portal, make sure th
 
 Follow these steps to resize a virtual machine deployed on your device. 
 
-1. Go to the virtual machine that you have stopped and then go to the **Overview** page. Select **VM size (change)**.
+1. Go to the virtual machine that you have stopped, and select **VM size (change)** in the virtual machine **Details**.
     
-    ![Select VM Size Change on Overview page](./media/azure-stack-edge-gpu-manage-virtual-machine-resize-portal/change-vm-size-1.png)
+    ![Select VM Size Change in Details for the virtual machine](./media/azure-stack-edge-gpu-manage-virtual-machine-resize-portal/change-vm-size-1.png)
 
 2. In the **Change VM size** blade, from the command bar, select the **VM size** and then select **Change**.
 
