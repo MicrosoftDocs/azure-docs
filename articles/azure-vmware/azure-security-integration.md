@@ -170,7 +170,7 @@ After connecting data sources to Azure Sentinel, you can create rules to generat
 
 6. On the **Incident settings** tab, enable **Create incidents from alerts triggered by this analytics rule** and select **Next: Automated response**.
  
-    :::image type="content" source="media/azure-security-integration/create-new-analytic-rule-wizard.png" alt-text="Screenshot showing the Analytic rule wizard for creating a new rule in Azure Sentinel.":::
+    :::image type="content" source="../sentinel/media/tutorial-detect-threats-custom/general-tab.png" alt-text="Screenshot showing the Analytic rule wizard for creating a new rule in Azure Sentinel.":::
 
 7. Select **Next: Review**.
 
@@ -203,7 +203,7 @@ You can create queries or use the available pre-defined query in Azure Sentinel 
    >[!TIP]
    >You can also create a new query by selecting **New Query**. 
    >
-   >:::image type="content" source="media/azure-security-integration/create-new-query.png" alt-text="Screenshot of Azure Sentinel Hunting page with + New Query highlighted.":::
+   >:::image type="content" source="../sentinel/media/hunting/save-query.png" alt-text="Screenshot of Azure Sentinel Hunting page with + New Query highlighted.":::
 
 3. Select a query and then select **Run Query**.
 

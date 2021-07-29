@@ -33,7 +33,7 @@ Form Recognizer features are now supported by six feature containers—**Layout*
 
 ### Form Recognizer connector released in preview
 
-  The [**Form Recognizer connector**](/connectors/formrecognizer) integrates with  [Azure Logic Apps](/azure/logic-apps/logic-apps-overview),  [Microsoft Power Automate](/power-automate/getting-started), and [Microsoft Power Apps](/powerapps/powerapps-overview). The connector supports workflow actions and triggers to extract and analyze document data and structure from custom and prebuilt forms, invoices, receipts, business cards and ID documents.
+  The [**Form Recognizer connector**](/connectors/formrecognizer) integrates with  [Azure Logic Apps](../../logic-apps/logic-apps-overview.md),  [Microsoft Power Automate](/power-automate/getting-started), and [Microsoft Power Apps](/powerapps/powerapps-overview). The connector supports workflow actions and triggers to extract and analyze document data and structure from custom and prebuilt forms, invoices, receipts, business cards and ID documents.
 
 ### Form Recognizer SDK v3.1.0 patched to v3.1.1 for C#, Java, and Python
 
