@@ -10,7 +10,7 @@ manager: femila
 
 # Set up managed identities
 
-Because Azure Virtual Desktop doesn't currently support external profiles, or "identities," your users won't be able to access the apps you host with their own corporate credentials. Instead, you'll need to create identities for them in the Active Directory Domain that you will leverage for remote app streaming and synchronize the user objects to the associated Azure Active Directory tenant.
+Because Azure Virtual Desktop doesn't currently support external profiles, or "identities," your users won't be able to access the apps you host with their own corporate credentials. Instead, you'll need to create identities for them in the Active Directory Domain that you'll use for remote app streaming and synchronize the user objects to the associated Azure Active Directory tenant.
 
 In this article, we'll explain how you can manage user identities to provide a secure environment for your customers. We'll also talk about the different parts that make up an identity.
 
