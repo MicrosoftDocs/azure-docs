@@ -63,8 +63,13 @@ Microsoft provides alerts when capacity consumption exceeds 75%. In addition, yo
 Now that you've covered Azure VMware Solution storage concepts, you may want to learn about:
 
 - [Attach disk pools to Azure VMware Solution hosts (Preview)](attach-disk-pools-to-azure-vmware-solution-hosts.md) - You can use disks as the persistent storage for Azure VMware Solution for optimal cost and performance.
+
+- [Configure storage policy](tutorial-configure-storage-policy.md) - Each VM deployed to a vSAN datastore is assigned at least one VM storage policy. You can assign a VM storage policy in an initial deployment of a VM or when you perform other VM operations, such as cloning or migrating.
+
 - [Scale clusters in the private cloud][tutorial-scale-private-cloud] - You can scale the clusters and hosts in a private cloud as required for your application workload. Performance and availability limitations for specific services should be addressed on a case by case basis.
+
 - [Azure NetApp Files with Azure VMware Solution](netapp-files-with-azure-vmware-solution.md) - You can use Azure NetApp to migrate and run the most demanding enterprise file-workloads in the cloud: databases, SAP, and high-performance computing applications, with no code changes. 
+
 - [vSphere role-based access control for Azure VMware Solution](concepts-identity.md) - You use vCenter to manage VM workloads and NSX-T Manager to manage and extend the private cloud. Access and identity management use the CloudAdmin role for vCenter and restricted administrator rights for NSX-T Manager.
 
 
