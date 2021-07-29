@@ -1,6 +1,6 @@
 ---
 title: Azure Sentinel SAP solution deployment troubleshooting | Microsoft Docs
-description: Learn how to deploy the Azure Sentinel solution for SAP environments.
+description: Learn how to troubleshoot specific issues that may occur in your Azure Sentinel SAP solution deployment.
 author: batamig
 ms.author: bagold
 ms.service: azure-sentinel
@@ -11,7 +11,7 @@ ms.subservice: azure-sentinel
 
 ---
 
-## Troubleshooting your Azure Sentinel SAP solution deployment
+# Troubleshooting your Azure Sentinel SAP solution deployment
 
 ## Common issues
 
@@ -22,7 +22,7 @@ After having deployed both the SAP data connector and security content, you may 
 |Network connectivity issues to the SAP environment or to Azure Sentinel     |  Check your network connectivity as needed.       |
 |Incorrect SAP ABAP user credentials     |Check your credentials and fix them by applying the correct values to the **ABAPUSER** and **ABAPPASS** values in Azure Key Vault.         |
 |Missing permissions, such as the **/MSFTSEN/SENTINEL_CONNECTOR** role not assigned to the SAP user as needed, or inactive     |Fix this error by assigning the role and ensuring that it's active in your SAP system.         |
-|A missing SAP change request     | Make sure that you've imported the correct SAP change request, as described in [Configure your SAP system](#configure-your-sap-system).        |
+|A missing SAP change request     | Make sure that you've imported the correct SAP change request, as described in [Configure your SAP system](sap-deploy-solution.md#configure-your-sap-system).        |
 |Incorrect Azure Sentinel workspace ID or key entered in the deployment script     |  To fix this error, enter the correct credentials in Azure KeyVault.       |
 |A corrupt or missing SAP SDK file     | Fix this error by reinstalling the SAP SDK and ensuring that you are using the correct Linux 64-bit version.        |
 |Missing data in your workbook or alerts     |    Ensure that the **Auditlog** policy is properly enabled on the SAP side, with no errors in the log file. Use the **RSAU_CONFIG_LOG** transaction for this step.     |
