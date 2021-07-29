@@ -4,21 +4,23 @@ description: Learn how to use the Azure CLI to create and Azure Active Directory
 services: container-service
 author: TomGeske
 ms.topic: article
-ms.date: 07/20/2020
-ms.author: thomasge
+ms.date: 07/29/2021
+ms.author: miwithro
 
 ---
 
 # Integrate Azure Active Directory with Azure Kubernetes Service using the Azure CLI (legacy)
+
+> [!WARNING]
+> **The feature described in this document, Azure AD Integration (legacy), will be deprecated on February 29th 2024.
+>
+> AKS has a new improved [AKS-managed Azure AD][managed-aad] experience  that doesn't require you to manage server or client application. If you want to migrate follow the instructions [here][managed-aad-migrate].
 
 Azure Kubernetes Service (AKS) can be configured to use Azure Active Directory (AD) for user authentication. In this configuration, you can log into an AKS cluster using an Azure AD authentication token. Cluster operators can also configure Kubernetes role-based access control (Kubernetes RBAC) based on a user's identity or directory group membership.
 
 This article shows you how to create the required Azure AD components, then deploy an Azure AD-enabled cluster and create a basic Kubernetes role in the AKS cluster.
 
 For the complete sample script used in this article, see [Azure CLI samples - AKS integration with Azure AD][complete-script].
-
-> [!Important]
-> AKS has a new improved [AKS-managed Azure AD][managed-aad] experience  that doesn't require you to manage server or client application. If you want to migrate follow the instructions [here][managed-aad-migrate].
 
 ## The following limitations apply:
 
