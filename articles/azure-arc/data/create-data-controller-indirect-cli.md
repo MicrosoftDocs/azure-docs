@@ -39,9 +39,6 @@ If you are using Azure Stack HCI with AKS-HCI, do one of the following, dependin
 
 Use this type to deploy the data controller. See the complete instructions at [Create a custom storage class for an AKS on Azure Stack HCI disk](/azure-stack/aks-hci/container-storage-interface-disks#create-a-custom-storage-class-for-an-aks-on-azure-stack-hci-disk).
 
-> [!CAUTION]
-> If you attempt to create the data controller in indirect mode on Azure Stack HCI with AKS-HCI without completing the steps above, the creation will fail due to a permission error. This is caused by how Kubernetes v1.19 and higher CSI drivers in AKS-HCI are configured without a `fsType->fsGroupPolicy` value. 
-
 ### Set environment variables
 
 **AZDATA_USERNAME** - A username of your choice for the data controller administrator user. Example: `arcadmin`
