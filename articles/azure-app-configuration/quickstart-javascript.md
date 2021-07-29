@@ -77,7 +77,7 @@ const appConfig = require("@azure/app-configuration");
     setx AZURE_APP_CONFIG_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
     ```
 
-    ### [Linux](#tab/linux)
+    ### [macOS](#tab/macOS)
     ```console
     export AZURE_APP_CONFIG_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
     ```
