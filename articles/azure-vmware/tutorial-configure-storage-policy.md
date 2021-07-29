@@ -4,7 +4,7 @@ description:  Learn how to configure storage policy for your Azure VMware Soluti
 ms.topic: tutorial
 ms.date: 08/15/2021
 
-#Customer intent: As a < type of user >, I want < what? > so that < why? >.
+#Customer intent: As an Azure service administrator, I want set the vSAN storage policies to determine how storage is allocated to the VM.
 
 ---
 
@@ -14,7 +14,7 @@ vSAN storage policies define storage requirements for your virtual machines (VMs
 
 You can assign a VM storage policy in an initial deployment of a virtual machine or when you perform other virtual machine operations, such as cloning or migrating. Post-deployment cloudadmin users or equivalent roles cannot change the default storage policy for a VM. However, **VM storage policy** per disk changes is permitted. 
 
-The RUN command enables authorized users to change the default or existing VM storage policy to one of the available policies for a VM post its deployment. There are no changes made on the disk-level VM storage policy. A user can always change the disk level VM Storage policy as per the requirements.
+The Run command feature lets authorized users change the default or existing VM storage policy to one of the available policies for a VM post-deployment. There are no changes made on the disk-level VM storage policy. You can always change the disk level VM storage policy as per your requirements.
 
 
 In this tutorial, you learn how to:
@@ -91,7 +91,7 @@ You'll run the `Set-StoragePolicy` cmdlet to set the storage policy for a VM.
 
 ## Next steps
 
-Advance to the next article to learn how to create...
+Advance to the next article to learn how to configure an external identity source for vCenter.
 > [!div class="nextstepaction"]
-> [Next steps button]()
+> [Next steps button](tutorial-configure-identity-source-vcenter.md)
 
