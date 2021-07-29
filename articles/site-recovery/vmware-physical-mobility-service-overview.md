@@ -340,7 +340,7 @@ Locate the installer files for the server’s operating system using the followi
 
    ```cmd
    "C:\Azure Site Recovery\Agent\agent\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime
-  ```
+   ```
 
 #### Installation settings
 
@@ -362,6 +362,7 @@ Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath
 `/SourceConfigFilePath` | Mandatory. Full file path of the Mobility Service configuration file. Use any valid folder.
 `/CSType` |  Optional.  Location of the passphrase. Use any valid UNC or local file path.
 
+
 ### Linux machine
 
 1. From a terminal session, copy the installer to a local folder such as **/tmp** on the server that you want to protect. Then run the below command:
@@ -378,7 +379,7 @@ Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath
 
     Once the installation is complete, copy the string that is generated alongside the parameter *Agent Config Input*. This string is required to [generate the Mobility Service configuration file](#generate-mobility-service-configuration-file).
 
-5. After successfully installing, register the source machine with the above appliance using the following command:
+3. After successfully installing, register the source machine with the above appliance using the following command:
 
    ```shell
         <InstallLocation>/Vx/bin/UnifiedAgentConfigurator.sh -c CSPrime -S config.json -q
