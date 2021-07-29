@@ -104,9 +104,9 @@ Time-based retention policies maintain blob data in a WORM state for a specified
 
 You have three options for configuring a time-based retention policy for a blob version:
 
-1. You can configure a default policy that is scoped to the container and that applies to all objects in the container by default. Objects in the container will inherit the default policy unless you explicitly override it by configuring a policy on an individual blob version. For more details, see [Configure a default time-based retention policy on a container](#configure-a-default-time-based-retention-policy-on-a-container).
-1. You can configure a policy on the current version of the blob. This policy can override a default policy configured on the container, if one exists and it is unlocked. By default, any previous versions that are created after the policy is configured will inherit the policy on the current version of the blob. For more details, see [Configure a retention policy on the current version of a blob](#configure-a-retention-policy-on-the-current-version-of-a-blob).
-1. You can configure a policy on a previous version of a blob. This policy can override a default policy configured on the current version, if one exists and it is unlocked. For more details, see [Configure a retention policy on a previous version of a blob](#configure-a-retention-policy-on-a-previous-version-of-a-blob).
+- Option 1: You can configure a default policy that is scoped to the container and that applies to all objects in the container by default. Objects in the container will inherit the default policy unless you explicitly override it by configuring a policy on an individual blob version. For more details, see [Configure a default time-based retention policy on a container](#configure-a-default-time-based-retention-policy-on-a-container).
+- Option 2: You can configure a policy on the current version of the blob. This policy can override a default policy configured on the container, if one exists and it is unlocked. By default, any previous versions that are created after the policy is configured will inherit the policy on the current version of the blob. For more details, see [Configure a retention policy on the current version of a blob](#configure-a-retention-policy-on-the-current-version-of-a-blob).
+- Option 3: You can configure a policy on a previous version of a blob. This policy can override a default policy configured on the current version, if one exists and it is unlocked. For more details, see [Configure a retention policy on a previous version of a blob](#configure-a-retention-policy-on-a-previous-version-of-a-blob).
 
 ### Configure a retention policy on the current version of a blob
 
@@ -145,9 +145,9 @@ To configure a time-based retention policy on a previous version of a blob, foll
 
 When you use the Azure portal to upload a blob to a container that supports version-level immutability, you have several options for configuring a time-based retention policy for the new blob:
 
-1. If a default retention policy is configured for the container, you can upload the blob with the container's policy. This option is selected by default when there is a retention policy on the container.
-1. If a default retention policy is configured for the container, you can choose to override the default policy, either by defining a custom retention policy for the new blob, or by uploading the blob with no policy.
-1. If no default policy is configured for the container, then you can upload the blob with a custom policy, or with no policy.
+- Option 1: If a default retention policy is configured for the container, you can upload the blob with the container's policy. This option is selected by default when there is a retention policy on the container.
+- Option 2: If a default retention policy is configured for the container, you can choose to override the default policy, either by defining a custom retention policy for the new blob, or by uploading the blob with no policy.
+- Option 3: If no default policy is configured for the container, then you can upload the blob with a custom policy, or with no policy.
 
 To configure a time-based retention policy when you upload a blob, follow these steps:
 

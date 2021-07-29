@@ -10,6 +10,7 @@ ms.topic: conceptual
 ms.date: 07/22/2021
 ms.author: tamram
 ms.subservice: blobs
+ms.custom: references_regions
 ---
 
 # Store business-critical blob data with immutable storage
