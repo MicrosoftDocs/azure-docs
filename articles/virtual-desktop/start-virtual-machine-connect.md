@@ -3,18 +3,13 @@ title: Start virtual machine connect - Azure
 description: How to configure the start virtual machine on connect feature.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 05/21/2021
+ms.date: 07/29/2021
 ms.author: helohr
 manager: femila
 ---
-# Start Virtual Machine on Connect (preview)
+# Start Virtual Machine on Connect
 
-> [!IMPORTANT]
-> The Start VM on Connect feature is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-The Start Virtual Machine (VM) on Connect (preview) feature lets you save costs by allowing end users to turn on their VMs only when they need them. You can then turn off VMs when they're not needed.
+The Start Virtual Machine (VM) on Connect feature lets you save costs by allowing end users to turn on their VMs only when they need them. You can then turn off VMs when they're not needed.
 
 >[!NOTE]
 >Azure Virtual Desktop (classic) doesn't support this feature.
@@ -25,12 +20,12 @@ You can enable the start VM on Connect feature for personal or pooled host pools
 
 The following Remote Desktop clients support the Start VM on Connect feature:
 
-- [The web client](./user-documentation/connect-web.md)
-- [The Windows client (version 1.2748 or later)](./user-documentation/connect-windows-7-10.md)
-- [The Android client (version 10.0.10 or later)](./user-documentation/connect-android.md)
-- [The macOS client (version 10.6.4 or later)](./user-documentation/connect-macos.md)
-
-You can check for announcements about updates and client support on the [Tech Community forum](https://aka.ms/wvdtc).
+- [The web client](./user-documentation/connect-web.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+- [The Windows client (version 1.2.2061 or later)](./user-documentation/connect-windows-7-10.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+- [The Android client (version 10.0.10 or later)](./user-documentation/connect-android.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+- [The macOS client (version 10.6.4 or later)](./user-documentation/connect-macos.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+- [The iOS client (version 10.2.5 or later)](./user-documentation/connect-ios.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+- The thin clients listed in [Thin client support](./user-documentation/linux-overview.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 
 ## Create a custom role for Start VM on Connect
 
