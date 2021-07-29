@@ -16,7 +16,7 @@ With this in mind, we are retiring our NV-series Azure Virtual Machine sizes on 
 
 After September 01, 2022, any remaining NV and NV_Promo size virtual machines remaining in your subscription will be set to a deallocated state. These virtual machines will be stopped and removed from the host. These virtual machines will no longer be billed in the deallocated state. 
 
-The current VM size retirement only impacts the VM sizes in the [NV-series](nv-series.md). This does not impact the [NVv3](nvv3-series.md) and [NVv4] (nvv4-series.md) series virtual machines. 
+The current VM size retirement only impacts the VM sizes in the [NV-series](nv-series.md). This does not impact the [NVv3](nvv3-series.md) and [NVv4](nvv4-series.md) series virtual machines. 
 
 ## What actions should I take?  
 
