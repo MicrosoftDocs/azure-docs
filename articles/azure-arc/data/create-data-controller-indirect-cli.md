@@ -41,9 +41,9 @@ Use this type to deploy the data controller. See the complete instructions at [C
 
 ### Set environment variables
 
-**AZDATA_USERNAME** - A username of your choice for the data controller administrator user. Example: `arcadmin`
+**AZDATA_USERNAME** - A username of your choice for the Kibana/Grafana administrator user. Example: `arcadmin`
 
-**AZDATA_PASSWORD** - A password of your choice for the data controller administrator user. The password must be at least eight characters long and contain characters from three of the following four sets: uppercase letters, lowercase letters, numbers, and symbols.
+**AZDATA_PASSWORD** - A password of your choice for the Kibana/Grafana administrator user. The password must be at least eight characters long and contain characters from three of the following four sets: uppercase letters, lowercase letters, numbers, and symbols.
 
 #### Linux or macOS
 
@@ -64,14 +64,14 @@ You will need to connect and authenticate to a Kubernetes cluster and have an ex
 You can check to see that you have a current Kubernetes connection and confirm your current context with the following commands.
 
 ```console
-kubectl get namespace
+kubectl cluster-info
 kubectl config current-context
 ```
 
 ## Create the Azure Arc data controller
 
 > [!NOTE]
-> You can use a different value for the `--namespace` parameter of the `az arcdata dc create` command in the examples below, but be sure to use that namespace name for the `--namespace parameter` in all other commands below.
+> You can use a different value for the `--namespace` parameter of the `az arcdata dc create` command in the examples below, but be sure to use that namespace name for the `--namespace` parameter in all other commands below.
 
 - [Create Azure Arc data controller using the CLI](#create-azure-arc-data-controller-using-the-cli)
   - [Prerequisites](#prerequisites)
@@ -79,7 +79,6 @@ kubectl config current-context
     - [Windows PowerShell](#windows-powershell)
   - [Create the Azure Arc data controller](#create-the-azure-arc-data-controller)
     - [Create on Azure Kubernetes Service (AKS)](#create-on-azure-kubernetes-service-aks)
-    - [Create on AKS engine on Azure Stack Hub](#create-on-aks-engine-on-azure-stack-hub)
     - [Create on AKS on Azure Stack HCI](#create-on-aks-on-azure-stack-hci)
     - [Create on Azure Red Hat OpenShift (ARO)](#create-on-azure-red-hat-openshift-aro)
       - [Create custom deployment profile](#create-custom-deployment-profile)
@@ -103,7 +102,7 @@ By default, the AKS deployment profile uses the `managed-premium` storage class.
 If you are going to use `managed-premium` as your storage class, then you can run the following command to create the data controller. Substitute the placeholders in the command with your resource group name, subscription ID, and Azure location.
 
 ```azurecli
-az arcdata dc create --profile-name azure-arc-aks-premium-storage --k8s-namespace arc --name arc --azure-subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect --use-k8s
+az arcdata dc create --profile-name azure-arc-aks-premium-storage --k8s-namespace <namespace> --name arc --azure-subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect --use-k8s
 
 #Example:
 #az arcdata dc create --profile-name azure-arc-aks-premium-storage --k8s-namespace arc --name arc --azure-subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect --use-k8s
@@ -114,36 +113,10 @@ If you are not sure what storage class to use, you should use the `default` stor
 If you want to use the `default` storage class, then you can run this command:
 
 ```azurecli
-az arcdata dc create --profile-name azure-arc-aks-default-storage  --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect --k8s-namespace <namespace> --use-k8s
+az arcdata dc create --profile-name azure-arc-aks-default-storage --k8s-namespace <namespace> --use-k8s --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#az arcdata dc create --profile-name azure-arc-aks-default-storage  --k8s-namespace <namespace> --use-k8s --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
-```
-
-Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
-
-### Create on AKS engine on Azure Stack Hub
-
-By default, the deployment profile uses the `managed-premium` storage class. The `managed-premium` storage class will only work if you have worker VMs that were deployed using VM images that have premium disks on Azure Stack Hub.
-
-You can run the following command to create the data controller using the managed-premium storage class:
-
-```azurecli
-az arcdata dc create --profile-name azure-arc-aks-premium-storage  --k8s-namespace <namespace> --use-k8s --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
-
-#Example:
-#az arcdata dc create --profile-name azure-arc-aks-premium-storage  --k8s-namespace <namespace> --use-k8s --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
-```
-
-If you are not sure what storage class to use, you should use the `default` storage class which is supported regardless of which VM type you are using. In Azure Stack Hub, premium disks and standard disks are backed by the same storage infrastructure. Therefore, they are expected to provide the same general performance, but with different IOPS limits.
-
-If you want to use the `default` storage class, then you can run this command.
-
-```azurecli
-az arcdata dc create --profile-name azure-arc-aks-default-storage  --k8s-namespace <namespace> --use-k8s --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
-
-#Example:
-#az arcdata dc create --profile-name azure-arc-aks-default-storage  --k8s-namespace <namespace> --use-k8s --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#az arcdata dc create --profile-name azure-arc-aks-default-storage  --k8s-namespace arc --use-k8s --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
@@ -158,7 +131,7 @@ You can run the following command to create the data controller using the `defau
 az arcdata dc create --profile-name azure-arc-aks-hci  --k8s-namespace <namespace> --use-k8s --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#az arcdata dc create --profile-name azure-arc-aks-hci  --k8s-namespace <namespace> --use-k8s --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#az arcdata dc create --profile-name azure-arc-aks-hci  --k8s-namespace arc --use-k8s --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
@@ -182,15 +155,12 @@ You can run the following command to create the data controller:
 az arcdata dc create --profile-name azure-arc-azure-openshift  --k8s-namespace <namespace> --use-k8s --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example
-#az arcdata dc create --profile-name azure-arc-azure-openshift  --k8s-namespace <namespace> --use-k8s --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#az arcdata dc create --profile-name azure-arc-azure-openshift  --k8s-namespace arc --use-k8s --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
 
 ### Create on Red Hat OpenShift Container Platform (OCP)
-
-> [!NOTE]
-> If you are using Red Hat OpenShift Container Platform on Azure, it is recommended to use the latest available version.
 
 #### Determine storage class
 
@@ -238,12 +208,14 @@ Now you are ready to create the data controller using the following command.
 > [!NOTE]
 >   The `--path` parameter should point to the _directory_ containing the control.json file not to the control.json file itself.
 
+> [!NOTE]
+>   When deploying to OpenShift Container Platform, you will need to specify the `--infrastructure` parameter value.  Options are: `aws`, `azure`, `alibaba`, `gcp`, `onpremises`.
 
 ```azurecli
-az arcdata dc create --path ./custom  --k8s-namespace <namespace> --use-k8s --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
+az arcdata dc create --path ./custom  --k8s-namespace <namespace> --use-k8s --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect --infrastructure <infrastructure>
 
 #Example:
-#az arcdata dc create --path ./custom  --k8s-namespace <namespace> --use-k8s --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#az arcdata dc create --path ./custom  --k8s-namespace arc --use-k8s --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect --infrastructure onpremises
 ```
 
 Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
@@ -283,11 +255,14 @@ az arcdata dc config replace --path ./custom/control.json --json-values "$.spec.
 
 Now you are ready to create the data controller using the following command.
 
+> [!NOTE]
+>   When deploying to OpenShift Container Platform, you will need to specify the `--infrastructure` parameter value.  Options are: `aws`, `azure`, `alibaba`, `gcp`, `onpremises`.
+
 ```azurecli
-az arcdata dc create --path ./custom  --k8s-namespace <namespace> --use-k8s --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
+az arcdata dc create --path ./custom  --k8s-namespace <namespace> --use-k8s --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect --infrastructure <infrastructure>
 
 #Example:
-#az arcdata dc create --path ./custom - --k8s-namespace <namespace> --use-k8s --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#az arcdata dc create --path ./custom - --k8s-namespace <namespace> --use-k8s --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect --infrastructure onpremises
 ```
 
 Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
