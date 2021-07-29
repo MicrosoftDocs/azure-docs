@@ -54,9 +54,9 @@ following:
 
 1.  Navigate to your Purview account.
 
-2.  Select **Sources** on the left navigation.
+2.  Select **Data Map** on the left navigation.
 
-3.  Select **Register.**
+3.  Select **Register**
 
 4.  On Register sources, select Hive **Metastore**. Select **Continue.**
 
