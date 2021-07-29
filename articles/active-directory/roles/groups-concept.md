@@ -1,5 +1,5 @@
 ---
-title: Use Azure AD groups to manage role assignments (preview) - Azure Active Directory
+title: Use Azure AD groups to manage role assignments - Azure Active Directory
 description: Use Azure AD groups to simplify role assignment management in Azure Active Directory.
 services: active-directory
 author: rolyon
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 06/24/2021
+ms.date: 07/30/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -16,11 +16,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Use Azure AD groups to manage role assignments (preview)
-
-> [!IMPORTANT]
-> Role-assignable groups is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Use Azure AD groups to manage role assignments
 
 Azure Active Directory (Azure AD) lets you target Azure AD groups for role assignments. Assigning roles to groups can simplify the management of role assignments in Azure AD with minimal effort from your Global Administrators and Privileged Role Administrators.
 
