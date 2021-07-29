@@ -110,8 +110,8 @@ The device uses the [Azure Blob storage REST APIs](https://docs.microsoft.com/en
 
 The device calls the [Update File Upload Status](/rest/api/iothub/device/update-file-upload-status) REST API or the equivalent API in one of the device SDKs when it completes the file upload. The device should update the file upload status with IoT Hub regardless of whether the upload succeeds or fails.
 
-**Supported protocols**: AMQP, AMQP-WS, MQTT, MQTT-WS, and HTTPS <br\>
-**Endpoint**: `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications` <br\>
+**Supported protocols**: AMQP, AMQP-WS, MQTT, MQTT-WS, and HTTPS <br/>
+**Endpoint**: `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications` <br/>
 **Method**: POST 
 
 ```json
@@ -137,7 +137,7 @@ If file upload notifications are enabled on your IoT hub, IoT Hub generates a no
 
 IoT Hub delivers file upload notifications through a service-facing endpoint. The receive semantics for file upload notifications are the same as for cloud-to-device messages and have the same [message life cycle](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-life-cycle). The service SDKs expose APIs to handle file upload notifications. 
 
-**Supported protocols** AMQP, AMQP-WS <br\>
+**Supported protocols** AMQP, AMQP-WS <br/>
 **Endpoint**: `{iot hub}.azure-devices.net/messages/servicebound/fileuploadnotifications` <br/>
 **Method** GET
 
