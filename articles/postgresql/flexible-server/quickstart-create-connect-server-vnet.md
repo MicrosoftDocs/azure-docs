@@ -64,7 +64,7 @@ Complete these steps to create a flexible server:
 
 Since the server is in virtual network, you can only connect to the server from other Azure services in the same virtual network as the server. To connect and manage the server, let's create a Linux virtual machine. The virtual machine must be created in the **same region** and **same subscription**. The Linux virtual machine can be used as SSH tunnel to manage your database server. 
 
-1. Go to you resource group in which the server was created. Select **Add**.
+1. Go to your resource group in which the server was created. Select **Add**.
 2. Select **Ubuntu Server 18.04 LTS**
 3. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type *myResourceGroup* for the name.
 
