@@ -38,7 +38,7 @@ For SQL Database, the backup storage redundancy can be configured at the time of
 
 
 > [!IMPORTANT]
-> Bbackup storage redundancy for Hyperscale and SQL Managed Instance needs to be set during database creation. This setting cannot be modified once the resource is provisioned.
+> Backup storage redundancy for Hyperscale and SQL Managed Instance can only be set during database (or instance) creation. This setting cannot be modified once the resource is provisioned.
 
 > [!IMPORTANT]
 > Zone-redundant storage is currently only available in [certain regions](../../storage/common/storage-redundancy.md#zone-redundant-storage). 
