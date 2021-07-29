@@ -55,7 +55,7 @@ To prepare the environment, complete these steps:
    echo "oracle   ALL=(ALL)      NOPASSWD: ALL" >> /etc/sudoers
    ```
 
-### Setup Azure Files Storge for the Oracle archived redo log files
+### Setup Azure Files Storage for the Oracle archived redo log files
 
 The Oracle database archive redo logfiles play a crucial role in database recovery as they store the committed transactions needed to roll forward from a database snapshot taken in the past. When in archivelog mode, the database archives the contents of online redo logfiles when they become full and switch. Together with a backup, they are required to achieve point-in-time recovery when the database has been lost.  
    
@@ -120,7 +120,7 @@ Perform the following steps for each database on the VM:
 	- The size of the online redo logfiles. As an online logfile becomes full it is switched and archived. The larger the online logfile the longer it takes to fill up which decreases the frequency of archive generation.
 	- The setting of the ARCHIVE_LAG_TARGET parameter controls the maximum number of seconds permitted before the current online logfile must be switched and archived. 
 
-    To minimize the frequency of switching and archiving, along with the accompanying checkpoint operation, Oracle online redo logfiles generally get sized quite large (1024M, 4096M, 8192M, etc). In a busy database environment logs are still likely to switch and archive every few seconds or minutes, but in a less active database they might go hours or days before the most recent transactions are archived, which would dramatically decrease archival frequency. Setting ARCHIVE_LAG_TARGET is therefore recommended to ensure a consistent RPO is achieved. A setting of 5 minutes (300 seconds) is a prudent value for ARCHIVE_LAG_TARGET, ensuring that any database recovery operation can recover to within 5 minutes or less of the time of failure.
+    To minimize the frequency of switching and archiving, along with the accompanying checkpoint operation, Oracle online redo logfiles generally get sized quite large (1024M, 4096M, 8192M, and so on). In a busy database environment logs are still likely to switch and archive every few seconds or minutes, but in a less active database they might go hours or days before the most recent transactions are archived, which would dramatically decrease archival frequency. Setting ARCHIVE_LAG_TARGET is therefore recommended to ensure a consistent RPO is achieved. A setting of 5 minutes (300 seconds) is a prudent value for ARCHIVE_LAG_TARGET, ensuring that any database recovery operation can recover to within 5 minutes or less of the time of failure.
 
     To set ARCHIVE_LAG_TARGET:
 
@@ -746,7 +746,7 @@ Perform the following steps for each database on the VM:
 
 1. Unmount the restore point.
 
-   When all databases on the VM have been successfully recovered you may unmount the restore point. This can be done on the VM using the `unmount` command or in Azure Portal from the File Recovery blade. You can also unmount the recovery volumes by running the python script again with the **-clean** option.
+   When all databases on the VM have been successfully recovered you may unmount the restore point. This can be done on the VM using the `unmount` command or in Azure portal from the File Recovery blade. You can also unmount the recovery volumes by running the python script again with the **-clean** option.
 
    In the VM using unmount:
    ```bash
