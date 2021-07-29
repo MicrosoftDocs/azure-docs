@@ -56,12 +56,11 @@ In this quickstart, you will use Azure App Configuration to centralize storage a
 
 1. Create a new file called *app.js* in the *app-configuration-quickstart* directory and add the following code:
 
-```javascript
-const appConfig = require("@azure/app-configuration");
-```
+   ```javascript
+   const appConfig = require("@azure/app-configuration");
 
 
-## Configure your App Configuration connection string
+## Configure your connection string
 
 1. Set an environment variable named **AZURE_APP_CONFIG_CONNECTION_STRING**, and set it to the access key to your App Configuration store. At the command line, run the following command:
 
@@ -116,15 +115,13 @@ run().catch((err) => console.log("ERROR:", err));
 
 1. Run the following command to run the Node.js app:
 
-```powershell
-node app.js
-```
+   ```powershell
+   node app.js
 
 1. You should see the following output at the command prompt:
 
-```powershell
-Retrieved value: Data from Azure App Configuration
-```
+   ```powershell
+   Retrieved value: Data from Azure App Configuration
 
 ## Clean up resources
 
