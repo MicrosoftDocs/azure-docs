@@ -211,9 +211,9 @@ On success, it will go to the next stage of initialization.
 ![Screenshot - tester test report.](./media/oracle-to-sql-database-guide/tester_test_result.png)
 7.Click details to get more information.
 ![Screenshot - tester success report.](./media/oracle-to-sql-database-guide/tester_test_success.png)
-Example of positive data validation
+Example of positive data validation.
 ![Screenshot - tester failure report.](./media/oracle-to-sql-database-guide/tester_test_failed.png)
-Example of failed data validation
+Example of failed data validation.
 
 ### Optimize
 
