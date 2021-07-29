@@ -20,8 +20,12 @@
   items:
   - name: Access a private cloud
     href: tutorial-access-private-cloud.md
+  - name: Configure an external identity source for vCenter
+    href: tutorial-configure-identity-source-vcenter.md
   - name: Configure networking
     href: tutorial-configure-networking.md
+  - name: Configure storage policy 
+    href: tutorial-configure-storage-policy.md
   - name: Create a private cloud
     href: tutorial-create-private-cloud.md
   - name: Create an NSX-T network segment
@@ -36,10 +40,6 @@
     href: tutorial-network-checklist.md
   - name: Peer on-premises to private cloud
     href: tutorial-expressroute-global-reach-private-cloud.md
-  - name: Configure an external identity source for vCenter
-    href: tutorial-configure-identity-source-vcenter.md
-  - name: Configure storage policy 
-    href: tutorial-configure-storage-policy.md
 - name: Concepts
   items:
   - name: Access and identity

@@ -81,24 +81,26 @@ landingContent:
             url: tutorial-deploy-vmware-hcx.md
       - linkListType: tutorial
         links:
-          - text: Network planning checklist 
-            url: tutorial-network-checklist.md
-          - text: Create a private cloud
-            url: tutorial-create-private-cloud.md
-          - text: Access a private cloud 
+          - text: Access a private cloud
             url: tutorial-access-private-cloud.md
           - text: Configure networking
             url: tutorial-configure-networking.md
-          - text: Create a network segment 
-            url: tutorial-nsx-t-network-segment.md
-          - text: Peer on-premises to private cloud 
-            url: tutorial-expressroute-global-reach-private-cloud.md
-          - text: Expand or shrink clusters in a private cloud 
-            url: tutorial-scale-private-cloud.md
-          - text: Delete a private cloud
-            url: tutorial-delete-private-cloud.md
           - text: Configure storage policy 
             url: tutorial-configure-storage-policy.md
+          - text: Create a private cloud
+            url: tutorial-create-private-cloud.md
+          - text: Create an NSX-T network segment
+            url: tutorial-nsx-t-network-segment.md
+          - text: Delete a private cloud
+            url: tutorial-delete-private-cloud.md
+          - text: Deploy and configure VMware HCX
+            url: tutorial-deploy-vmware-hcx.md
+          - text: Expand or shrink clusters in a private cloud
+            url: tutorial-scale-private-cloud.md
+          - text: Network planning checklist
+            url: tutorial-network-checklist.md
+          - text: Peer on-premises to private cloud
+            url: tutorial-expressroute-global-reach-private-cloud.md
 
 
 # card 12
