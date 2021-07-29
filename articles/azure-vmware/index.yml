@@ -95,12 +95,12 @@ landingContent:
             url: tutorial-delete-private-cloud.md
           - text: Deploy and configure VMware HCX
             url: tutorial-deploy-vmware-hcx.md
-          - text: Expand or shrink clusters in a private cloud
-            url: tutorial-scale-private-cloud.md
           - text: Network planning checklist
             url: tutorial-network-checklist.md
           - text: Peer on-premises to private cloud
             url: tutorial-expressroute-global-reach-private-cloud.md
+          - text: Scale clusters in a private cloud
+            url: tutorial-scale-private-cloud.md
 
 
 # card 12
