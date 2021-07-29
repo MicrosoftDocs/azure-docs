@@ -26,19 +26,6 @@ To create the data controller using the CLI, you will need to install the `arcda
 
 Regardless of which target platform you choose, you will need to set the following environment variables prior to the creation for the data controller administrator user. You can provide these credentials to other people that need to have administrator access to the data controller as needed.
 
-### Configure storage (Azure Stack HCI with AKS-HCI)
-
-If you are using Azure Stack HCI with AKS-HCI, do one of the following, depending on your Azure stack HCA AKS-HCI version:
-
-- For version 1.20 and above, create a custom storage class with `fsGroupPolicy:File` (For details - https://kubernetes-csi.github.io/docs/support-fsgroup.html). 
-- For version 1.19, use: 
-
-   ```json
-   fsType: ext4
-   ```
-
-Use this type to deploy the data controller. See the complete instructions at [Create a custom storage class for an AKS on Azure Stack HCI disk](/azure-stack/aks-hci/container-storage-interface-disks#create-a-custom-storage-class-for-an-aks-on-azure-stack-hci-disk).
-
 ### Set environment variables
 
 **AZDATA_USERNAME** - A username of your choice for the Kibana/Grafana administrator user. Example: `arcadmin`
@@ -122,6 +109,19 @@ az arcdata dc create --profile-name azure-arc-aks-default-storage --k8s-namespac
 Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
 
 ### Create on AKS on Azure Stack HCI
+
+#### Configure storage (Azure Stack HCI with AKS-HCI)
+
+If you are using Azure Stack HCI with AKS-HCI, do one of the following, depending on your Azure stack HCA AKS-HCI version:
+
+- For version 1.20 and above, create a custom storage class with `fsGroupPolicy:File` (For details - https://kubernetes-csi.github.io/docs/support-fsgroup.html). 
+- For version 1.19, use: 
+
+   ```json
+   fsType: ext4
+   ```
+
+Use this type to deploy the data controller. See the complete instructions at [Create a custom storage class for an AKS on Azure Stack HCI disk](/azure-stack/aks-hci/container-storage-interface-disks#create-a-custom-storage-class-for-an-aks-on-azure-stack-hci-disk).
 
 By default, the deployment profile uses a storage class named `default` and the service type `LoadBalancer`.
 
