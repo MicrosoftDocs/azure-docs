@@ -125,7 +125,7 @@ When paired in a striped array, the NVMe SSD provides up to 7 GB/s reads and 3 G
 | Orchestrator Support           | Azure CycleCloud, Azure Batch, AKS; [cluster configuration options](../../sizes-hpc.md#cluster-configuration-options)                      | 
 
 > [!NOTE] 
-> Windows Server 2012 R2 is not supported on HBv3 and other VMs with more than 64 (virtual or physical) cores. See [here](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) for more details.
+> Windows Server 2012 R2 is not supported on HBv3 and other VMs with more than 64 (virtual or physical) cores. See [Supported Windows guest operating systems for Hyper-V on Windows Server](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) for more details.
 
 ## Next steps
 

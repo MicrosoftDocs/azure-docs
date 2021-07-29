@@ -1,11 +1,11 @@
 ---
 title: Frequently asked questions about Azure Spring Cloud | Microsoft Docs
 description: This article answers frequently asked questions about Azure Spring Cloud.
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ---

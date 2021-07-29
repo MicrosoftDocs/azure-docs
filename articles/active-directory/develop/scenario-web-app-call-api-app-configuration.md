@@ -466,7 +466,7 @@ Instead of `clientapp.AddInMemoryTokenCache()`, you can also use more advanced c
   });
 ```
 
-For details see [Token cache serialization for MSAL.NET](https://aka.ms/ms-id-web/token-cache-serialization-msal).
+For details see [Token cache serialization for MSAL.NET](./msal-net-token-cache-serialization.md).
 
 # [Java](#tab/java)
 

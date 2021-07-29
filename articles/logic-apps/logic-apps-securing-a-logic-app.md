@@ -4,8 +4,8 @@ description: Secure access to inputs, outputs, request-based triggers, run histo
 services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, azla
-ms.topic: conceptual
-ms.date: 05/01/2021
+ms.topic: how-to
+ms.date: 07/20/2021
 ---
 
 # Secure access and data in Azure Logic Apps
@@ -567,8 +567,17 @@ In your ARM template, specify the IP ranges by using the `accessControl` section
 
 ### Secure data in run history by using obfuscation
 
-Many triggers and actions have settings to secure inputs, outputs, or both from a logic app's run history. Before using these settings to help you secure this data, review these considerations:
+Many triggers and actions have settings to secure inputs, outputs, or both from a logic app's run history. All *[managed connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) and [custom connectors](/connectors/custom-connectors/)* support these options. However, the following [built-in operations](../connectors/built-in.md) ***don't support these options***:
+     
+| Secure Inputs - Unsupported | Secure Outputs - Unsupported |
+|-----------------------------|------------------------------|
+| Append to array variable <br>Append to string variable <br>Decrement variable <br>For each <br>If <br>Increment variable <br>Initialize variable <br>Recurrence <br>Scope <br>Set variable <br>Switch <br>Terminate <br>Until | Append to array variable <br>Append to string variable <br>Compose <br>Decrement variable <br>For each <br>If <br>Increment variable <br>Initialize variable <br>Parse JSON <br>Recurrence <br>Response <br>Scope <br>Set variable <br>Switch <br>Terminate <br>Until <br>Wait |
+|||
 
+#### Considerations for securing inputs and outputs
+
+Before using these settings to help you secure this data, review these considerations:
+                 
 * When you obscure the inputs or outputs on a trigger or action, Logic Apps doesn't send the secured data to Azure Log Analytics. Also, you can't add [tracked properties](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data) to that trigger or action for monitoring.
 
 * The [Logic Apps API for handling workflow history](/rest/api/logic/) doesn't return secured outputs.
