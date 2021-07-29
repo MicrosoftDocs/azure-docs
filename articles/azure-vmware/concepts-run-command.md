@@ -1,5 +1,5 @@
 ---
-title: Run commands in Azure VMware Solution 
+title: Concepts - Run commands in Azure VMware Solution 
 description: Learn about using run commands in Azure VMware Solution. 
 ms.topic: conceptual 
 ms.date: 08/15/2021
