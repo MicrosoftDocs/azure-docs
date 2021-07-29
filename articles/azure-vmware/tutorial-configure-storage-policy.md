@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 Make sure that the [minimum level of hosts are met](https://docs.vmware.com/en/VMware-Cloud-on-AWS/services/com.vmware.vsphere.vmc-aws-manage-data-center-vms.doc/GUID-EDBB551B-51B0-421B-9C44-6ECB66ED660B.html).
 
 |  **RAID configuration** | **Failures to tolerate (FTT)** | **Minimum hosts required** |
-| --- | --- | --- |
+| --- | :---: | :---: |
 | RAID-1 (Mirroring) <br />Default setting.  | 1  | 3  |
 | RAID-5 (Erasure Coding)  | 1  | 4  |
 | RAID-1 (Mirroring)  | 2  | 5  |
