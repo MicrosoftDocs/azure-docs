@@ -102,7 +102,7 @@ The device:
 
 ## Device: Upload file using Azure Storage APIs
 
-The device uses the [Azure Blob storage REST APIs](https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api) or  equivalent Azure storage SDK APIs to upload the file to the blob in Azure storage. 
+The device uses the [Azure Blob storage REST APIs](/rest/api/storageservices/blob-service-rest-api) or equivalent Azure storage SDK APIs to upload the file to the blob in Azure storage. 
 
 **Supported protocols**: HTTP/S (HTTPS highly recommended)
 
