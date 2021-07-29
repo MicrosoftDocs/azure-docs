@@ -253,10 +253,5 @@ In support situations, you may be asked to provide database instance logs, Kuber
 |Crash dumps – customer data | Maximum 30-day retention of crash dumps – may contain access control data <br/><br/> Statistics objects, data values within rows, query texts could be in customer crash dumps    |
 |Crash dumps – personal data | Machine, logins/ user names, emails, location information, customer identification – require user consent to be included  |
 
-### Customer experience improvement program (CEIP) (Telemetry) 
-
-Telemetry is used to track product usage metrics and environment information. 
-See [SQL Server privacy supplement](/sql/sql-server/sql-server-privacy/). 
-
 ## Next steps
 [Upload usage data to Azure Monitor](upload-usage-data.md)
