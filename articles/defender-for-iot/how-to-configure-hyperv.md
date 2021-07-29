@@ -9,23 +9,13 @@ ms.topic: how-to
 
 The default behavior of Hyper-V Manager allows port mirroring between VA instances on the same Hyper-V server. It does not allow users to configure promiscuous mode for a virtual interface on a specific VA instance in order to receive external traffic.
 
-## Process Overview for Enabling and Configuring SPAN
+## Prerequisites
 
-Before starting, ensure that no ClearPass VA instance is running.
+- Ensure that no ClearPass VA instance is running.
 
-**To enable and configure SPAN**:
-
-1.	Create a virtual switch.
-
-1.	Attach a ClearPass SPAN virtual interface to the virtual switch.
-
-1.	Enable Microsoft NDIS capture extensions for the virtual switch.
-
-1.	Set the mirroring mode on the external port.
-
-1.	Set the local SPAN in a Cisco switch.
-
-Make sure SPAN is enabled only on the data port and not the management port. Also, before you begin the SPAN configuration on the data port, make sure the data port is not configured with an IP address.
+- Ensure that SPAN is enabled only on the data port, and not the management port. Also, before you begin the 
+-
+- In the SPAN configuration on the data port, ensure that the data port is not configured with an IP address.
 
 ## Create a Virtual Switch 
 
@@ -37,7 +27,7 @@ Make sure SPAN is enabled only on the data port and not the management port. Als
 
 1. Select **Create Virtual Switch**.
 
-1. Select **External Network** as the Connection type.
+1. Select **External Network** as the connection type.
 
 1. Select **Allow management operating system to share this network adapter**.
 
@@ -67,8 +57,9 @@ These steps can be performed through Windows PowerShell, or through Hyper-V Mana
     |vSwitch_Span |Newly added SPAN virtual switch name |
     |Monitor |Newly added adapter name |
 
+1. Select **OK**.
 
-(The newly added adapter hardware name will be “Monitor” when adding using the above commands, and “Network Adapter” when added using Hyper-V Manager.)
+The newly added adapter hardware name will be Monitor” when adding using the above commands, and “Network Adapter” when added using Hyper-V Manager.
 
 **To attach a ClearPass SPAN Virtual Interface to the Virtual Switch with Hyper-V Manager**:
 
@@ -78,18 +69,22 @@ These steps can be performed through Windows PowerShell, or through Hyper-V Mana
 
     :::image type="content" source="organizations/media/how-to-configure-hyperv/vswitch-span.png" alt-text="Select the following options on the virtual switch screen.":::
 
-1.	In the Hardware list, expand Network Adapter, and select **Advanced Features**.
+1.	In the Hardware list, under the Network Adapter drop down list, select **Advanced Features**.
 
-1.	In the Port Mirroring section, select Destination as the Mirroring mode for the new virtual interface.
+1.	In the Port Mirroring section, select **Destination** as the mirroring mode for the new virtual interface.
 
     :::image type="content" source="organizations/media/how-to-configure-hyperv/destination.png" alt-text="Screenshot of the selections needed to configure mirroring mode.":::
+
+1. Select **OK**.
 
 ## Enable Microsoft NDIS Capture Extensions for the Virtual Switch
 
 **To enable Microsoft NDIS Capture Extensions for the newly added virtual switch**:
 
 1.	Open the Virtual Switch Manager on the Hyper-V host.
+
 1.	In the Virtual Switches list, expand the virtual switch name vSwitch_Span and select **Extensions**.
+
 1.	In the Switch Extensions field, select **Microsoft NDIS Capture**.
 
     :::image type="content" source="organizations/media/how-to-configure-hyperv/microsoft-ndis.png" alt-text="enable the Microsoft NDIS by selecting it from the switch extensions menu.":::
