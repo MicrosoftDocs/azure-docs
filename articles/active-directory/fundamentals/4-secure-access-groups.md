@@ -124,7 +124,7 @@ Azure AD security groups can also be used to:
 
 * assign licenses for services such as Microsoft 365, Dynamics 365, and Enterprise Mobility and Security. For more information, see [group-based licensing](./active-directory-licensing-whatis-azure-portal.md).
 
-* assign elevated permissions. For more information, see [Use Azure AD groups to manage role assignments](../roles/groups-concept.md)). 
+* assign elevated permissions. For more information, see [Use Azure AD groups to manage role assignments](../roles/groups-concept.md). 
 
 To create a group [in the Azure portal](./active-directory-groups-create-azure-portal.md) navigate to Azure Active Directory, then to Groups. You can also create Azure AD security groups by using [PowerShell cmdlets](../enterprise-users/groups-settings-v2-cmdlets.md). 
 
