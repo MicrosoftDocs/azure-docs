@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/27/2021
+ms.date: 07/26/2021
 
 ms.author: mimart
 author: msmimart
@@ -56,7 +56,7 @@ For guest users in State 2, the **Source** is **Microsoft Account**.
 
 ![State 2 guest user after offer redemption](media/user-properties/after-redemption-state2.png)
 
-For guest users in State 3 and State 4, the **Source** property is set to **Azure Active Directory** or **Windows Server Active Directory**, as described in the next section.
+For guest users in State 3 and State 4, the **Source** property is set to **Azure Active Directory** or **Windows Server AD**, as described in the next section.
 
 ## Key properties of the Azure AD B2B collaboration user
 ### UserType
@@ -79,7 +79,7 @@ This property indicates how the user signs in.
 
 - Microsoft account: This user is homed in a Microsoft account and authenticates by using a Microsoft account. This type of sign-in corresponds to State 2.
 
-- Windows Server Active Directory: This user is signed in from on-premises Active Directory that belongs to this organization. This type of sign-in corresponds to State 3.
+- Windows Server AD: This user is signed in from on-premises Active Directory that belongs to this organization. This type of sign-in corresponds to State 3.
 
 - Azure Active Directory: This user authenticates by using an Azure AD account that belongs to this organization. This type of sign-in corresponds to State 4.
   > [!NOTE]
