@@ -52,7 +52,7 @@ Run an assessment as follows:
 **Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
 **EA subscription** | Specifies that an Enterprise Agreement (EA) subscription is used for cost estimation. Takes into account the discount applicable to the subscription. <br/><br/> Leave the settings for reserved instances, and discount (%) properties with their default settings.
 
-     :::image type="content" source="./media/tutorial-assess-webapps/webapps-assessment-properties.png" alt-text="App Service assessment properties":::
+:::image type="content" source="./media/tutorial-assess-webapps/webapps-assessment-properties.png" alt-text="App Service assessment properties":::
 
 1. In **Create assessment** > click Next.
 9.	In **Select servers to assess** > **Assessment name** > specify a name for the assessment.
@@ -81,11 +81,11 @@ You can also view the recommended App Service SKU and plan for migrating to Azur
 
 #### Azure App Service Cost details
 
-An [App Service plan](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) carries a [charge](https://azure.microsoft.com/pricing/details/app-service/windows/) on the compute resources it uses.
+An [App Service plan](/azure/app-service/overview-hosting-plans) carries a [charge](https://azure.microsoft.com/pricing/details/app-service/windows/) on the compute resources it uses.
 
 #### Azure App Service Cost details
 
-An [App Service plan](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) carries a [charge](https://azure.microsoft.com/pricing/details/app-service/windows/) on the compute resources it uses.
+An [App Service plan](/azure/app-service/overview-hosting-plans) carries a [charge](https://azure.microsoft.com/pricing/details/app-service/windows/) on the compute resources it uses.
 
 ### Review readiness
 
@@ -125,7 +125,7 @@ I1  | 8
 P1v2  | 8
 P1v3  | 16
 
-    :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-cost.png" alt-text="Cost details":::
+:::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-cost.png" alt-text="Cost details":::
 
 ## Next steps
 
