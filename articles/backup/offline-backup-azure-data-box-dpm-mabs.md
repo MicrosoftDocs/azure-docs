@@ -218,7 +218,7 @@ Check if you see the following error message in the DPM/MABS console at the time
 
 **Unable to make service calls to Azure that are required for querying Import Job status and moving backup data into the recovery Services Vault. (ID:100230)**
 
-![Screenshot of error screeb for Azure recovery services agent](./media/offline-backup-azure-data-box-dpm-mabs/azure-recovery-services-agent-error-screen.png)
+![Screenshot of error screen for Azure recovery services agent](./media/offline-backup-azure-data-box-dpm-mabs/azure-recovery-services-agent-error-screen.png)
 
 #### Step 2
 
