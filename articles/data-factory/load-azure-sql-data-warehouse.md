@@ -105,7 +105,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
     1. In the **Destination data store** page, select the newly created connection as sink in the **Connection** section.
 
-    1. In the **Table mapping** section, review the content, and select **Next**. An intelligent table mapping displays. The source tables are mapped to the destination tables based on the table names. If a source table doesn't exist in the destination, Azure Data Factory creates a destination table with the same name by default. You can also map a source table to an existing destination table.
+    1. In the section of table mapping, review the content, and select **Next**. An intelligent table mapping displays. The source tables are mapped to the destination tables based on the table names. If a source table doesn't exist in the destination, Azure Data Factory creates a destination table with the same name by default. You can also map a source table to an existing destination table.
 
    ![Screenshot showing the configuration of 'Destination data store' page.](./media/load-azure-sql-data-warehouse/destination-data-store-page.png)
 
