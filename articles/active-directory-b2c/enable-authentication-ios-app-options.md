@@ -175,7 +175,7 @@ For more information, see the [Customize browsers and WebViews for iOS/macOS](..
 
 Depending on your requirements, you can use the embedded webview. There are visual and single sign-on behavior differences between the embedded webview and the system webview in MSAL.
 
-![Demonstrate the different between the system webview experience and the embedded webview experience.](./media/enable-authentication-ios-app-options/system-web-browser-vs-embedded-view.png)
+![Screenshot demonstrates the different between the system webview experience and the embedded webview experience.](./media/enable-authentication-ios-app-options/system-web-browser-vs-embedded-view.png)
 
 > [!IMPORTANT]
 > It's recommended that you use the platform default, which is typically the system browser. The system browser is better at remembering the users that have logged in before. Some identity providers, such as Google, don't support an embedded view experience.

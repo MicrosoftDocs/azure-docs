@@ -43,7 +43,7 @@ To enable your app to sign in with Azure AD B2C and call a web API, register two
 
 The following diagrams describe the apps registration and the application architecture.
 
-![Mobile app with web API call registrations and tokens](./media/configure-authentication-sample-ios-app/mobile-app-with-api-architecture.png) 
+![Diagram describes a mobile app with web API, registrations and tokens.](./media/configure-authentication-sample-ios-app/mobile-app-with-api-architecture.png) 
 
 ### Call to a web API
 
@@ -89,7 +89,7 @@ Follow these steps to create the mobile app registration:
 1. Select **Register**.
 1. After the app registration is completed, select **Overview**.
 1. Record the **Application (client) ID** for use in a later step when you configure the mobile application.
-    ![Get your mobile application ID](./media/configure-authentication-sample-ios-app/get-azure-ad-b2c-app-id.png)  
+    ![Screenshot showing how to get the mobile application ID.](./media/configure-authentication-sample-ios-app/get-azure-ad-b2c-app-id.png)  
 
 
 ### 2.4 Grant the mobile app permissions for the web API
@@ -151,11 +151,11 @@ Update the following members:
 
 1. Select **Sign In**. Then sign up or sign in with your Azure AD B2C local or social account.
 
-    ![Screenshot demonstrate how to start the sign-in flow.](./media/configure-authentication-sample-ios-app/sign-in.png)
+    ![Screenshot demonstrates how to start the sign-in flow.](./media/configure-authentication-sample-ios-app/sign-in.png)
 
 1. After successful authentication, you'll see your display name in the navigation bar.
 
-    ![Azure AD B2C access token and user ID.](./media/configure-authentication-sample-ios-app/post-sing-in.png) 
+    ![Screenshot showing the Azure AD B2C access token and user ID.](./media/configure-authentication-sample-ios-app/post-sign-in.png) 
 
 ## Next steps
 

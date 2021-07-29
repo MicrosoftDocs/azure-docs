@@ -43,7 +43,7 @@ To enable your app to sign in with Azure AD B2C and call a web API, you must reg
 
 The following diagrams describe the app registrations and the application architecture.
 
-![Single page application with web API call registrations and tokens](./media/configure-authentication-sample-angular-spa-app/spa-app-with-api-architecture.png) 
+![Diagram describes a SPA app with web API, registrations and tokens.](./media/configure-authentication-sample-angular-spa-app/spa-app-with-api-architecture.png) 
 
 ### Call to a web API
 
@@ -91,7 +91,7 @@ Follow these steps to create the Angular app registration:
 1. Under **Permissions**, select the **Grant admin consent to openid and offline access permissions** check box.
 1. Select **Register**.
 1. Record the **Application (client) ID** for use in a later step when you configure the web application.
-    ![Get your Angular application ID](./media/configure-authentication-sample-angular-spa-app/get-azure-ad-b2c-app-id.png)  
+    ![Screenshot showing how to get the Angular application ID.](./media/configure-authentication-sample-angular-spa-app/get-azure-ad-b2c-app-id.png)  
 
 ### 2.5 Grant permissions
 
@@ -249,16 +249,16 @@ You're now ready to test the Angular's scoped access to the API. In this step, r
 1. Navigate to `http://localhost:4200` in your browser to view the application.
 1. Select **Login**.
 
-    ![Angular application sample app shown in browser](./media/configure-authentication-sample-angular-spa-app/sample-app-sign-in.png)
+    ![Screenshot showing the Angular sample app with the login link.](./media/configure-authentication-sample-angular-spa-app/sample-app-sign-in.png)
 
 1. Complete the sign-up or sign-in process.
 1. Upon successful login, you should see your profile. From the menu, select **ToDoList**.
 
-    ![Angular application in browser showing the user profile and the call to the to do list](./media/configure-authentication-sample-angular-spa-app/sample-app-result.png)
+    ![Screenshot showing the Angular sample app with the user profile, and the call to the to do list.](./media/configure-authentication-sample-angular-spa-app/sample-app-result.png)
 
 1. **Add** new items to the list, **delete**, or **edit** items.
 
-    ![Angular application calls to the to do list](./media/configure-authentication-sample-angular-spa-app/sample-app-calls-web-api.png)
+    ![Screenshot showing the Angular sample app's call to the to do list.](./media/configure-authentication-sample-angular-spa-app/sample-app-calls-web-api.png)
 
 ## Deploy your application 
 
