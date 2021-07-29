@@ -22,7 +22,7 @@ The NVv3-series virtual machines are powered by NVIDIA Tesla M60 GPUs and NV
 |---|---|---|
 |Standard_NV6 <br> Standard_NV6_Promo |Standard_NV12s_v3  | vCPU: 12 (+6) <br> Memory: GiB 112 (+56) <br> Temp Storage (SSD) GiB: 320 (-20) <br> Max data disks: 12 (-12) <br> Accelerated Networking: Yes <br> Premium Storage: Yes  |
 |Standard_NV12 <br> Standard_NV12_Promo |Standard_NV24s_v3  | vCPU: 24 (+12) <br>Memory: GiB 224 (+112) <br>Temp Storage (SSD) GiB: 640 (-40)<br>Max data disks: 24 (-24)<br>Accelerated Networking: Yes <br>Premium Storage: Yes   |
-|Standard_NV124 <br> Standard_NV24_Promo |Standard_NV48s_v3  | vCPU: 48 (+24) <br>Memory: GiB 448 (+224) <br>Temp Storage (SSD) GiB: 1280 (-160) <br>Max data disks: 32 (-32) <br>Accelerated Networking: Yes <br>Premium Storage: Yes   |
+|Standard_NV24 <br> Standard_NV24_Promo |Standard_NV48s_v3  | vCPU: 48 (+24) <br>Memory: GiB 448 (+224) <br>Temp Storage (SSD) GiB: 1280 (-160) <br>Max data disks: 32 (-32) <br>Accelerated Networking: Yes <br>Premium Storage: Yes   |
 
 ## NVsv4 series 
 
