@@ -48,4 +48,4 @@ Continue to the next tutorial to learn how to create a jump box. You use the jum
 
 
 > [!div class="nextstepaction"]
-> [Access an Azure VMware Solution private cloud](tutorial-access-private-cloud.md)
+> [Access a private cloud](tutorial-access-private-cloud.md)

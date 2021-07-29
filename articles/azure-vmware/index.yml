@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page 
   author: shortpatti 
   ms.author: v-patsho 
-  ms.date: 07/16/2021 
+  ms.date: 08/15/2021 
 
 
 # card 1
@@ -25,20 +25,20 @@ landingContent:
             url: azure-vmware-solution-platform-updates.md
       - linkListType: concept
         links:
-          - text: Private cloud and clusters
-            url: concepts-private-clouds-clusters.md
-          - text: Networking and interconnectivity
-            url: concepts-networking.md
-          - text: Storage 
-            url: concepts-storage.md
-          - text: Access and identity 
-            url: concepts-identity.md
-          - text: Monitor and protection
-            url: concepts-monitor-protection.md
           - text: API Management
             url: concepts-api-management.md
           - text: Hub and spoke
-            url: concepts-hub-and-spoke.md
+            url: concepts-hub-and-spoke.md    
+          - text: Monitor and protection
+            url: concepts-monitor-protection.md
+          - text: Networking and interconnectivity
+            url: concepts-networking.md
+          - text: Private clouds and clusters
+            url: concepts-private-clouds-clusters.md
+          - text: Run command
+            url: concepts-run-command.md
+          - text: Storage 
+            url: concepts-storage.md
 
 # card 2
   - title: FAQ
@@ -81,30 +81,37 @@ landingContent:
             url: tutorial-deploy-vmware-hcx.md
       - linkListType: tutorial
         links:
-          - text: Network planning checklist 
-            url: tutorial-network-checklist.md
-          - text: Create a private cloud
-            url: tutorial-create-private-cloud.md
-          - text: Access a private cloud 
+          - text: Access a private cloud
             url: tutorial-access-private-cloud.md
           - text: Configure networking
             url: tutorial-configure-networking.md
-          - text: Create a network segment 
+          - text: Configure storage policy 
+            url: tutorial-configure-storage-policy.md
+          - text: Create a private cloud
+            url: tutorial-create-private-cloud.md
+          - text: Create an NSX-T network segment
             url: tutorial-nsx-t-network-segment.md
-          - text: Peer on-premises to private cloud 
-            url: tutorial-expressroute-global-reach-private-cloud.md
-          - text: Expand or shrink clusters in a private cloud 
-            url: tutorial-scale-private-cloud.md
           - text: Delete a private cloud
             url: tutorial-delete-private-cloud.md
+          - text: Deploy and configure VMware HCX
+            url: tutorial-deploy-vmware-hcx.md
+          - text: Network planning checklist
+            url: tutorial-network-checklist.md
+          - text: Peer on-premises to private cloud
+            url: tutorial-expressroute-global-reach-private-cloud.md
+          - text: Scale clusters in a private cloud
+            url: tutorial-scale-private-cloud.md
+
 
 # card 12
   - title: Identity management
     linkLists:
       - linkListType: how-to-guide
         links:
-        - text: Access and identity for private clouds
+        - text: Access and identity
           url: concepts-identity.md
+        - text: Configure identity source for vCenter
+          url: tutorial-configure-identity-source-vcenter.md
         - text: Rotate cloudadmin credentials
           url: rotate-cloudadmin-credentials.md
 
@@ -198,6 +205,8 @@ landingContent:
             url: ecosystem-back-up-vms.md
           - text: Migration solutions for VMs
             url: ecosystem-migration-vms.md
+          - text: Deploy JetStream DR 
+            url: deploy-disaster-recovery-using-jetstream.md
 
 # card 9
   - title: Resources
