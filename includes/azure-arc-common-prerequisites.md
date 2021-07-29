@@ -2,7 +2,7 @@
 author: MikeRayMSFT
 ms.service: azure-arc
 ms.topic: include
-ms.date: 09/05/2020
+ms.date: 07/30/2021
 ms.author: mikeray
 ---
 

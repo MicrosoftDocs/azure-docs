@@ -5,7 +5,7 @@ description: Learn how to deploy Azure Arc-enabled SQL Managed Instance with hig
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 07/13/2021
+ms.date: 07/30/2021
 ms.topic: conceptual
 services: azure-arc
 ms.service: azure-arc
