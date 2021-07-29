@@ -75,8 +75,10 @@ Publishers who want to change the usage fees associated with an offer, should fi
 Use this flowchart to determine the appropriate transactable offer type and pricing plan for selling software through the commercial marketplace.
 
 [![Shows a flowchart for determining offer type and pricing plan.](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png)](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png#lightbox)
-&nbsp;&nbsp;&nbsp;* Choose an [offer type](/azure/marketplace/publisher-guide-by-offer-type) or contact [support](/azure/marketplace/support).<br>
-&nbsp;&nbsp;&nbsp;** Contact [Microsoft Office Hours](https://microsoftcloudpartner.eventbuilder.com/MarketplaceDeveloperOfficeHours) or [support](/azure/marketplace/support).
+&nbsp;&nbsp;&nbsp;<sup>(1)</sup> Choose an [offer type](/azure/marketplace/publisher-guide-by-offer-type) or contact [support](/azure/marketplace/support).<br>
+&nbsp;&nbsp;&nbsp;<sup>(2)</sup> Contact [Microsoft Office Hours](https://microsoftcloudpartner.eventbuilder.com/MarketplaceDeveloperOfficeHours) or [support](/azure/marketplace/support).<br>
+&nbsp;&nbsp;&nbsp;<sup>(3)</sup> VM offer images can be included in the Azure App offer to increase pricing flexibility.<br>
+&nbsp;&nbsp;&nbsp;<sup>(4)</sup> Customer pays the infrastructure costs since Azure services are deployed on the customer tenant for VM and Azure App offers.
 
 ### Free, Contact me, and Bring-your-own-license (BYOL) pricing
 
