@@ -135,6 +135,14 @@
         href: enable-authentication-spa-app.md
       - name: Authentication options
         href: enable-authentication-spa-app-options.md
+    - name: Angular single-page application
+      items:
+      - name: Configure a sample Angular app
+        href: configure-authentication-sample-angular-spa-app.md
+      - name: Enable authentication in your Angular app
+        href: enable-authentication-angular-spa-app.md
+      - name: Authentication options
+        href: enable-authentication-angular-spa-app-options.md
     - name: Android mobile app
       items:
       - name: Configure a sample Android app
@@ -143,10 +151,22 @@
         href: enable-authentication-android-app.md
       - name: Authentication options
         href: enable-authentication-android-app-options.md
-    - name: Enable authentication in your web API
-      href: enable-authentication-web-api.md
-    - name: Register a single-page application (SPA)
-      href: tutorial-register-spa.md    
+    - name: iOS mobile app
+      items:
+      - name: Configure a sample iOS app
+        href: configure-authentication-sample-ios-app.md
+      - name: Enable authentication in your iOS app
+        href: enable-authentication-ios-app.md
+      - name: Authentication options
+        href: enable-authentication-ios-app-options.md
+    - name: Web API
+      displayName: REST API
+      items:
+       - name: Enable authentication in your web API
+         href: enable-authentication-web-api.md
+       - name: Secure API Management API
+         href: secure-api-management.md
+         displayName: apim, api management, migrate, b2clogin.com 
     - name: SAML application
       items:
       - name: Configure a SAML application
@@ -157,20 +177,17 @@
         displayName: SP, service provider 
     - name: Register a Microsoft Graph application
       href: microsoft-graph-get-started.md
-      displayName: migrate, migration, microsoft graph
-    - name: Add a web API application
-      href: add-web-api-application.md
-    - name: Add a native client application
-      href: add-native-application.md
-    - name: iOS ObjC using App Auth
-      href: signin-appauth-ios.md
-    - name: Android using App Auth
-      href: signin-appauth-android.md
-    - name: Publish your app to Azure AD app gallery
-      href: publish-app-to-azure-ad-app-gallery.md
-    - name: Secure API Management API
-      href: secure-api-management.md
-      displayName: apim, api management, migrate, b2clogin.com
+      displayName: microsoft graph
+    - name: App registration
+      items:
+      - name: Register a single-page application
+        href: tutorial-register-spa.md   
+      - name: Register a native client application
+        href: add-native-application.md
+      - name: Register a web API application
+        href: add-web-api-application.md
+      - name: Publish your app to Azure AD app gallery
+        href: publish-app-to-azure-ad-app-gallery.md
   - name: Create a flow
     items:
     - name: Sign-up or sign-in policy
