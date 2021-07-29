@@ -38,9 +38,11 @@ You can choose between:
 * FHIR Data Exporter: Can read and export (`$export` operator) data.
 * FHIR Data Contributor: Can perform all data plane operations.
 
-If these roles are not sufficient for your need, you can also [create custom roles](../../role-based-access-control/tutorial-custom-role-powershell.md).
-
 In the **Select** box, search for a user, service principal, or group that you wish to assign the role to.
+
+>[!Note]
+>Make sure that the client application registration is completed. See details on [application registration](register-confidential-azure-ad-client-app.md)
+>If OAuth 2.0 authorization code grant type is used, grant the same FHIR application role to the user. If OAuth 2.0 client credentials grant type is used, this step is not required.
 
 ## Caching behavior
 

@@ -1164,7 +1164,7 @@
       href: insights/redis-cache-insights-overview.md
     - name: Azure Cosmos DB
       href: insights/cosmosdb-insights-overview.md
-    - name: Azure Data Explorer (preview)
+    - name: Azure Data Explorer
       href: insights/data-explorer.md
     - name: Log Analytics workspace
       href: logs/log-analytics-workspace-insights-overview.md

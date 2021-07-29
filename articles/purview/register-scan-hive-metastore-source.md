@@ -41,7 +41,7 @@ The Hive Metastore source supports Full scan to extract metadata from a **Hive M
     > [!Note]
     > The driver should be accessible to all accounts in the VM. Do not install it in a user account.
 
-5.  Supported Hive versions are 2.x to 3.x.
+5.  Supported Hive versions are 2.x to 3.x. Supported Databricks versions are 8.0 and above. 
 
 ## Setting up authentication for a scan
 
