@@ -2,7 +2,7 @@
 title: Access network-restricted registry using trusted Azure service
 description: Enable a trusted Azure service instance to securely access a network-restricted container registry to pull or push images 
 ms.topic: article
-ms.date: 05/19/2021
+ms.date: 07/28/2021
 ---
 
 # Allow trusted services to securely access a network-restricted container registry (preview)
@@ -37,13 +37,14 @@ Where indicated, access by the trusted service requires additional configuration
 
 |Trusted service  |Supported usage scenarios  | Configure managed identity with RBAC role
 |---------|---------|------|
+| Azure Container Instances | [Authenticate with Azure Container Registry from Azure Container Instances](container-registry-auth-aci.md) | No, configure service principal with RBAC role |
 | Azure Security Center | Vulnerability scanning by [Azure Defender for container registries](scan-images-defender.md) | No |
 |ACR Tasks     | [Access the parent registry or a different registry from an ACR Task](container-registry-tasks-cross-registry-authentication.md)       | Yes |
 |Machine Learning | [Deploy](../machine-learning/how-to-deploy-custom-container.md) or [train](../machine-learning/how-to-train-with-custom-image.md) a model in a Machine Learning workspace using a custom Docker container image | Yes |
 |Azure Container Registry | [Import images from another Azure container registry](container-registry-import-images.md#import-from-an-azure-container-registry-in-the-same-ad-tenant) | No |
 
 > [!NOTE]
-> Curently, enabling the allow trusted services setting doesn't apply to certain other managed Azure services including App Service and Azure Container Instances.
+> Curently, enabling the allow trusted services setting doesn't apply to App Service.
 
 ## Allow trusted services - CLI
 
