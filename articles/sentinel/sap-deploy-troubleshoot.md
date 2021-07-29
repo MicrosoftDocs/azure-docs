@@ -72,13 +72,11 @@ Apply the correct values to the **ABAPUSER** and **ABAPPASS** values in Azure Ke
 
 ### Missing ABAP (SAP user) permissions
 
-**Error message**: `..Missing Backend RFC Authorization..`
+If you get an error message similar to: **..Missing Backend RFC Authorization..**, your SAP authorizations and role were not applied properly.
 
 1. Ensure that the **MSFTSEN/SENTINEL_CONNECTOR** role was imported as part of a [change request](sap-solution-detailed-requirements.md#required-sap-log-change-requests) transport, and applied to the connector user.
 
-1. Run the role generation and user comparison process in PFCG transaction code.
-
-
+1. Run the role generation and user comparison process using the SAP transaction PFCG.
 
 ### Missing data in your workbooks or alerts
 
