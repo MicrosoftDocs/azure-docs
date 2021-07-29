@@ -12,7 +12,7 @@ ms.date: 06/15/2021
 ms.author: aahi
 ---
 
-## How to use entity linking
+# How to use entity linking
 
 Entity linking is the ability to identify and disambiguate the identity of an entity found in text (for example, determining whether an occurrence of the word "Mars" refers to the planet, or to the Roman god of war). This process requires the presence of a knowledge base in an appropriate language, to link recognized entities in text. Entity Linking uses [Wikipedia](https://www.wikipedia.org/) as this knowledge base.
 
@@ -42,11 +42,6 @@ The entity linking API is stateless. No data is stored in your account, and resu
 ### View the results
 
 Output is returned immediately. You can stream the results to an application that accepts JSON or the output of the client libraries, or save the output to a file on the local system. Then, import the output into an application that you can use to sort, search, and manipulate the data. Due to multilingual and emoji support, the response may contain text offsets. 
-
-# Data and rate limits for the Text Analytics API
-<a name="data-limits"></a>
-
-Use this article to find the limits for the size, and rates that you can send data to Text Analytics API. Note that pricing is not affected by the data limits or rate limits. Pricing is subject to your Text Analytics resource's [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
 
 ## Data limits
 
