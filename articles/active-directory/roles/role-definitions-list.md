@@ -23,7 +23,6 @@ This article describes how to list the Azure AD built-in and custom roles along 
 
 ## Prerequisites
 
-- Azure AD Premium P2 license when using Privileged Identity Management (PIM)
 - AzureADPreview module when using PowerShell
 - Admin consent when using Graph explorer for Microsoft Graph API
 
@@ -47,8 +46,6 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 Follow these steps to list Azure AD roles using PowerShell.
 
-### Setup
-
 1. Open a PowerShell window and use [Import-Module](/powershell/module/microsoft.powershell.core/import-module) to import the AzureADPreview module. For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
     ```powershell
@@ -69,7 +66,9 @@ Follow these steps to list Azure AD roles using PowerShell.
 4. To view the list of permissions of a role, use the following cmdlet.
     
     ```powershell
+    # Do this avoid truncation of the list of permissions
     $FormatEnumerationLimit = -1
+    
     (Get-AzureADMSRoleDefinition -Filter "displayName eq 'Conditional Access Administrator'").RolePermissions | Format-list
     ```
 
@@ -80,12 +79,14 @@ Follow these instructions to list Azure AD roles using the Microsoft Graph API i
 1. Sign in to the [Graph Explorer](https://aka.ms/ge).
 2. Select **GET** as the HTTP method from the dropdown. 
 3. Select the API version to **beta**.
-4. Use the [roleDefinition](/graph/api/rbacapplication-list-roledefinitions) API to list roles. Select **Run query**.
+4. Add the following query to use the [List roleDefinitions](/graph/api/rbacapplication-list-roledefinitions) API.
 
 ```HTTP
 GET https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions
 ```
-5. To view permissions of a role, use the following API.
+
+5. Select **Run query** to list the roles.
+6. To view permissions of a role, use the following API.
 
 ```HTTP
 GET https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions?$filter=DisplayName eq 'Conditional Access Administrator'&$select=rolePermissions
