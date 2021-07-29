@@ -1,12 +1,12 @@
 ---
 title: Configure ISV to Cloud Reseller Private Offers in Microsoft Partner Center
 description: Configure ISV to Cloud Reseller Private Offers on Azure Marketplace. 
-author:  Microsoft-BradleyWright
-ms.author: brwrigh
-ms.reviewer: anbene
+author:  Microsoft-KaranRao
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
+ms.author: karrao
+ms.reviewer: karrao
 ms.date: 07/31/2021
 ---
 
