@@ -37,8 +37,6 @@
     items:
     - name: Roles and permissions
       href: roles.md
-    - name: Costs and billing
-      href: azure-sentinel-billing.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=%2fazure%2fsentinel%2fTOC.json
   - name: Data collection and analysis
@@ -81,6 +79,8 @@
       href: bring-your-own-ml.md
 - name: How-tos
   items:
+  - name: Plan and manage costs
+    href: azure-sentinel-billing.md
   - name: Migrate to Azure Sentinel
     href: migration.md
   - name: Collect data

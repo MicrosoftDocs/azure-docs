@@ -7,7 +7,7 @@ ms.subservice: extensions
 ms.collection: linux
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 07/28/2021
+ms.date: 07/29/2021
 ms.author: srijangupta
 
 ---
@@ -93,8 +93,6 @@ There are two stages to making cloud-init available to the endorsed Linux distro
 ### Debian
 | Publisher / Version | Offer | SKU | Version | image cloud-init ready | cloud-init package support on Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| debian (Gen1) |debian-10 | 10-cloudinit |cloud-init-preview| yes (note: this is a preview image, and **must** not be used anymore, this will be removed 1st January 2021) | No, in preview. |
-| debian (Gen2) |debian-10 | 10-cloudinit-gen2 |cloud-init-preview| yes (note: this is a preview image, and **must** not be used anymore, this will be removed 1st January 2021) | No, in preview. |
 | debian (Gen1) |debian-10 | 10-cloudinit |10:0.20201013.422| yes | yes - support from package version: `20.2-2~deb10u1` |
 | debian (Gen2) |debian-10 | 10-cloudinit-gen2 |0.20201013.422| yes | yes - support from package version: `20.2-2~deb10u1` |
 
@@ -111,6 +109,9 @@ cloud-init cannot process Azure extensions, so WALA is still required in the ima
 When creating a VM, if you do not include the Azure CLI `--custom-data` switch at provisioning time, cloud-init or WALA takes the minimal VM provisioning parameters required to provision the VM and complete the deployment with the defaults.  If you reference the cloud-init configuration with the `--custom-data` switch, whatever is contained in your custom data will be available to cloud-init when the VM boots.
 
 cloud-init configurations applied to VMs do not have time constraints and will not cause a deployment to fail by timing out. This is not true for WALA, if you change the WALA defaults to process custom-data, it cannot exceed the total VM provisioning time allowance of 40mins, if so, the VM Create will fail.
+
+## cloud-init VM provisioning without a UDF driver  
+Beginning with cloud-init 21.2, you can use cloud-init to provision a VM in Azure without a UDF driver. If a UDF driver isn't available in the image, cloud-init uses the metadata that's available in the Azure Instance Metadata Service to provision the VM. Note that this option works only for SSH key and [user data](../user-data.md). To pass in a password or custom data to a VM during provisioning, you must use a UDF driver.
 
 ## Deploying a cloud-init enabled Virtual Machine
 Deploying a cloud-init enabled virtual machine is as simple as referencing a cloud-init enabled distribution during deployment.  Linux distribution maintainers have to choose to enable and integrate cloud-init into their base Azure published images. Once you have confirmed the image you want to deploy is cloud-init enabled, you can use the Azure CLI to deploy the image. 
