@@ -544,7 +544,6 @@ During the creation of the load balancer, you'll configure:
     * Add a new iisstart.htm file that displays the name of the VM:
 
    ```powershell
-    
     # Install IIS server role
     Install-WindowsFeature -name Web-Server -IncludeManagementTools
     
