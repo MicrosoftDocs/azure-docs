@@ -42,11 +42,11 @@ If you can't log in on your Data Box device, do the following steps to identify 
 
 1. If you can't connect to your device in an OU that doesn't have any group policies, it's time to run some diagnostics:
 
-   1. Run diagnostics and collect device logs. *HOW?*<!--"Tracking and event logging for your Azure Data Box and Azure Data Box Heavy import order" (https://docs.microsoft.com/en-us/azure/databox/data-box-logs#query-activity-logs-during-setup - MD:data-box-event-logs.md) doesn't discuss Smbserver.security event logs in the \etw folder.-->
+   1. In the local web UI for the device, go to **Troubleshooting**, and then to **Diagnostic test**. Run diagnostics and collect device logs. *HOW?*<!--"Tracking and event logging for your Azure Data Box and Azure Data Box Heavy import order" (https://docs.microsoft.com/en-us/azure/databox/data-box-logs#query-activity-logs-during-setup - MD:data-box-event-logs.md) doesn't discuss Smbserver.security event logs in the \etw folder.-->
 
    1. Review the `Smbserver.Security` event logs in the `etw` folder for an error similar to one of the errors identified (in bold) in the following sample entry.<!--Take a screenshot of the output to allow highlighting.-->
    
-      ```powershell
+      ```output
       SMB Session Authentication Failure
       Client Name: \\<ClientIP>
       Client Address: <ClientIP:Port>
