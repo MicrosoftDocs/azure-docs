@@ -78,12 +78,11 @@ You can view the status of any run command executed including the output, errors
 
 1. Select **Run command** > **Packages** > **Run execution status**.
 
-2. Select the ellipsis (...) of the job you want to cancel and delete.
+2. Select the **More** (...) button of the job you want to cancel and delete.
 
    :::image type="content" source="media/run-command/run-execution-cancel-delete-job-method-2.png" alt-text="Screenshot showing how to cancel and delete a run command using the ellipsis.":::
 
 3. Select **Yes** to cancel and remove the job for all users.
-
 
 
 
