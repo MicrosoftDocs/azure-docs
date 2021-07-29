@@ -7,7 +7,7 @@ ms.subservice: extensions
 ms.collection: linux
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 07/28/2021
+ms.date: 07/29/2021
 ms.author: srijangupta
 
 ---
@@ -93,13 +93,10 @@ There are two stages to making cloud-init available to the endorsed Linux distro
 ### Debian
 | Publisher / Version | Offer | SKU | Version | image cloud-init ready | cloud-init package support on Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| debian (Gen1) |debian-10 | 10-cloudinit |cloud-init-preview| yes (note: this is a preview image, and **must** not be used anymore, this will be removed 1st January 2021) | No, in preview. |
-| debian (Gen2) |debian-10 | 10-cloudinit-gen2 |cloud-init-preview| yes (note: this is a preview image, and **must** not be used anymore, this will be removed 1st January 2021) | No, in preview. |
 | debian (Gen1) |debian-10 | 10-cloudinit |10:0.20201013.422| yes | yes - support from package version: `20.2-2~deb10u1` |
 | debian (Gen2) |debian-10 | 10-cloudinit-gen2 |0.20201013.422| yes | yes - support from package version: `20.2-2~deb10u1` |
 
 
-Currently Azure Stack will support the provisioning of cloud-init enabled images.
 
 ## What is the difference between cloud-init and the Linux Agent (WALA)?
 WALA is an Azure platform-specific agent used to provision and configure VMs, and handle [Azure extensions](../extensions/features-linux.md). 
