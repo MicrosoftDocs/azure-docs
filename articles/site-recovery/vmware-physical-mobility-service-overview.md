@@ -14,7 +14,7 @@ ms.date: 07/29/2021
 When you set up disaster recovery for VMware virtual machines (VM) and physical servers using [Azure Site Recovery](site-recovery-overview.md), you install the Site Recovery Mobility service on each on-premises VMware VM and physical server. The Mobility service captures data writes on the machine, and forwards them to the Site Recovery process server. The Mobility service is installed by the Mobility service agent software that you can deploy using the following methods:
 
 - [Push installation](#push-installation): When protection is enabled via the Azure portal, Site Recovery installs the Mobility service on the server.
-- Manual installation: You can install the Mobility service manually on each machine through the [user interface (UI)](#install-the-mobility-service-using-ui) or [command prompt](#install-the-mobility-service-using-command-prompt).
+- Manual installation: You can install the Mobility service manually on each machine through the [user interface (UI)](#install-the-mobility-service-using-ui-classic) or [command prompt](#install-the-mobility-service-using-command-prompt-classic).
 - [Automated deployment](vmware-azure-mobility-install-configuration-mgr.md): You can automate the Mobility service installation with software deployment tools such as Configuration Manager.
 
 > [!NOTE]
@@ -65,14 +65,14 @@ During a push installation of the Mobility service, the following steps are perf
 ## Install the Mobility service using UI (Classic)
 
 >[!NOTE]
-> This section is applicable to Azure Site Recovery - Classic. [Here are the Installation instructions for preview](#install-the-mobility-services-using-ui-preview)
+> This section is applicable to Azure Site Recovery - Classic. [Here are the Installation instructions for preview](#install-the-mobility-service-using-ui-preview)
 ### Prerequisites
 
 - Ensure that all server configurations meet the criteria in the [Support matrix for disaster recovery of VMware VMs and physical servers to Azure](vmware-physical-azure-support-matrix.md).
 - [Locate the installer](#locate-installer-files) for the server's operating system.
 
 >[!IMPORTANT]
-> Don't use the UI installation method if you're replicating an Azure Infrastructure as a Service (IaaS) VM from one Azure region to another. Use the [command prompt](#install-the-mobility-service-using-command-prompt) installation.
+> Don't use the UI installation method if you're replicating an Azure Infrastructure as a Service (IaaS) VM from one Azure region to another. Use the [command prompt](#install-the-mobility-service-using-command-prompt-classic) installation.
 
 1. Copy the installation file to the machine, and run it.
 1. In **Installation Option**, select **Install mobility service**.
@@ -95,7 +95,7 @@ During a push installation of the Mobility service, the following steps are perf
 ## Install the Mobility service using command prompt (Classic)
 
 >[!NOTE]
-> This section is applicable to Azure Site Recovery - Classic. [Here ae the installation instructions for preview](#install-the-mobility-services-using-command-prompt-preview).
+> This section is applicable to Azure Site Recovery - Classic. [Here ae the installation instructions for preview](#install-the-mobility-service-using-command-prompt-preview).
 
 ### Prerequisites
 
@@ -262,7 +262,7 @@ As a **prerequisite to update or protect Debian 7 machines** from 9.36 version o
 ## Install the Mobility service using UI (preview)
 
 >[!NOTE]
-> This section is applicable to Azure Site Recovery - Preview. [Here are the installation instructions for Classic](#install-the-mobility-services-using-ui-classic).
+> This section is applicable to Azure Site Recovery - Preview. [Here are the installation instructions for Classic](#install-the-mobility-service-using-ui-classic).
 
 ### Prerequisites
 
@@ -299,13 +299,13 @@ Locate the installer files for the server’s operating system using the followi
 
    Wait till the installation has been completed. Once done, you will reach the registration step, you can register the source machine with the appliance of your choice.
 
-   ![Image showing Install UI option for  Mobility Services](./media/vmware-physical-mobility-services-overview-preview/mobility-services-install.png)
+   ![Image showing Install UI option for  Mobility Service](./media/vmware-physical-mobility-service-overview-preview/mobility-service-install.png)
 
 5. Copy the string present in the field  **Machine Details**.
 
    This field includes information unique to the source machine. This information is required to [generate the Mobility Service configuration file](#generate-mobility-service-configuration-file).
 
-   ![Image showing source machine string](./media/vmware-physical-mobility-services-overview-preview/source-machine-string.png)
+   ![Image showing source machine string](./media/vmware-physical-mobility-service-overview-preview/source-machine-string.png)
 
 6.	Provide the path of **Mobility Service configuration file** in the Unified Agent configurator.
 7.	Click **Register**.
@@ -315,7 +315,7 @@ Locate the installer files for the server’s operating system using the followi
 ## Install the Mobility service using command prompt (preview)
 
 >[!NOTE]
-> This section is applicable to Azure Site Recovery - Preview. [Here are the installation instructions for Classic](#install-the-mobility-services-using-command-promot-classic).
+> This section is applicable to Azure Site Recovery - Preview. [Here are the installation instructions for Classic](#install-the-mobility-service-using-command-promot-classic).
 
 ### Windows machine
 1. Open command prompt and navigate to the folder where the installer file has been placed.
@@ -333,10 +333,9 @@ Locate the installer files for the server’s operating system using the followi
 
     .\UnifiedAgentInstaller.exe /Platform vmware /Silent /Role MS /CSType CSPrime /InstallLocation "C:\Azure Site Recovery\Agent"
   ```
+Once the installation is complete, copy the string that is generated alongside the parameter *Agent Config Input*. This string is required to [generate the Mobility Service configuration file](#generate-mobility-service-configuration-file).
 
-  Once the installation is complete, copy the string that is generated alongside the parameter *Agent Config Input*. This string is required to [generate the Mobility Service configuration file](#generate-mobility-services-configuration-file).
-
-  ![sample string for downloading configuration flle ](./media/vmware-physical-mobility-services-overview-preview/configuration-string.png)
+  ![sample string for downloading configuration flle ](./media/vmware-physical-mobility-service-overview-preview/configuration-string.png)
 
 4. After successfully installing, register the source machine with the above appliance using the following command:
 
@@ -378,7 +377,7 @@ Setting | Details
         ./install -q -r MS -v VmWare -c CSPrime
     ```
 
-    Once the installation is complete, copy the string that is generated alongside the parameter *Agent Config Input*. This string is required to [generate the Mobility Service configuration file](#generate-mobility-services-configuration-file).
+    Once the installation is complete, copy the string that is generated alongside the parameter *Agent Config Input*. This string is required to [generate the Mobility Service configuration file](#generate-mobility-service-configuration-file).
 
 5. After successfully installing, register the source machine with the above appliance using the following command:
 
@@ -415,7 +414,7 @@ Setting | Details
   2. Paste the Machine Details string that you copied from Mobility Service and paste it in the input field here.
   3. Click **Download configuration file**.
 
-  ![Image showing download configuration file option for Mobility Services](./media/vmware-physical-mobility-services-overview-preview/download-configuration-file.png)
+  ![Image showing download configuration file option for Mobility Service](./media/vmware-physical-mobility-service-overview-preview/download-configuration-file.png)
 
 This will download the Mobility Service configuration file. Copy this file to a local folder in your source machine. You can place it in the same folder as the Mobility Service installer.
 
