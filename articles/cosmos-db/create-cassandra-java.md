@@ -7,7 +7,7 @@ ms.author: thvankra
 ms.subservice: cosmosdb-cassandra
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 05/18/2020
+ms.date: 07/17/2021
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
 ---
 
@@ -31,6 +31,9 @@ In this quickstart, you create an Azure Cosmos DB Cassandra API account, and use
 - [Java Development Kit (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Point your `JAVA_HOME` environment variable to the folder where the JDK is installed.
 - A [Maven binary archive](https://maven.apache.org/download.cgi). On Ubuntu, run `apt-get install maven` to install Maven.
 - [Git](https://www.git-scm.com/downloads). On Ubuntu, run `sudo apt-get install git` to install Git.
+
+> [!NOTE]
+> This is a simple quickstart which uses [version 3](https://github.com/datastax/java-driver/tree/3.x) of the open-source Apache Cassandra driver for Java. In most cases, you should be able to connect an existing Apache Cassandra dependent Java application to Azure Cosmos DB Cassandra API without any changes to your existing code. However, we recommend adding our [custom Java extension](https://github.com/Azure/azure-cosmos-cassandra-extensions/tree/feature/java-driver-3%2F1.0.0), which includes custom retry and load balancing policies, for a better overall experience. This is to handle [rate limiting](/manage-scale-cassandra.md#handling-rate-limiting-429-errors) and application level failover in Azure Cosmos DB respectively. You can find a comprehensive sample which implements the extension [here](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample).
 
 ## Create a database account
 

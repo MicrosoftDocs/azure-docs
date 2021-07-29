@@ -24,7 +24,7 @@ The `JOIN` clause is used in the Azure Digital Twins query language as part of t
 This clause is optional while querying.
 
 ## Core syntax: JOIN ... RELATED 
-Because relationships in Azure Digital Twins are part of digital twins, not independent entities, the `RELATED` keyword is used in `JOIN` queries to reference the set of relationships of a certain type from the twin collection. The set of relationships can be assigned a collection name.
+Because relationships in Azure Digital Twins are part of digital twins, not independent entities, the `RELATED` keyword is used in `JOIN` queries to reference the set of relationships of a certain type from the twin collection (the type is specified using the relationship's **name** field from its [DTDL definition](concepts-models.md#basic-relationship-example)). The set of relationships can be assigned a collection name within the query.
 
 The query must then use the `WHERE` clause to specify which specific twin or twins are being used to support the relationship query, which is done by filtering on either the source or target twin's `$dtId` value.
 
