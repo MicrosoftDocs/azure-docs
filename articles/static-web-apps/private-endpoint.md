@@ -15,9 +15,9 @@ You can use a private endpoint (also called private link) to restrict access to 
 
 ## How it works
 
-Azure VNet's are a network just like you might have in a traditional data center, but resources within the VNet talk to each other securely on the Microsoft backbone network.
+An Azure Virtual Network (VNet) is a network just like you might have in a traditional data center, but resources within the VNet talk to each other securely on the Microsoft backbone network.
 
-Configuring Static Web Apps with a private endpoint allows you to use a private IP address from your VNet. Once this link is created, your static web app is integrated into your VNet. As a result, your web app is no longer available to the public internet, and is only accessible from machines within your Azure VNet.
+Configuring Static Web Apps with a private endpoint allows you to use a private IP address from your VNet. Once this link is created, your static web app is integrated into your VNet. As a result, your static web app is no longer available to the public internet, and is only accessible from machines within your Azure VNet.
 
 > [!WARNING]
 > Placing your application behind a private endpoint means your app is only available in the region where your VNet is located. As a result, your application is no longer available across multiple points of presence.
@@ -26,8 +26,8 @@ Configuring Static Web Apps with a private endpoint allows you to use a private 
 
 - An Azure account with an active subscription.
   - [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An [Azure VNet](https://docs.microsoft.com/en-us/azure/virtual-network/quick-create-portal).
-- An application deployed with [Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/get-started-portal?tabs=vanilla-javascript) that uses the Standard hosting plan.
+- An [Azure VNet](../virtual-network/quick-create-portal.md).
+- An application deployed with [Azure Static Web Apps](./get-started-portal.md) that uses the Standard hosting plan.
 
 ## Create a private endpoint
 
@@ -38,7 +38,9 @@ In this section, you create a private endpoint for your static web app.
 
 1. In the portal, open your static web app.
 
-1. Select the **Private Endpoint** option from the side menu.
+1. Select the **Private Endpoints** option from the side menu.
+
+1. Click the **Add** button.
 
 1. In the "Add Private Endpoint" dialog, enter this information:
 
@@ -70,4 +72,5 @@ If you're not going to continue to use this application, you can delete the Azur
 
 ## Next steps
 
-> [!div class="nextstepaction"] > [Networking options](./networking-options.md)
+> [!div class="nextstepaction"]
+> [Networking options](./networking-options.md)
