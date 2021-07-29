@@ -1,5 +1,5 @@
 ---
-title: Managing Azure Service Bus resources dynamically
+title: Managing Azure Service Bus resources programmatically
 description: This article explains how to dynamically or programmatically provision Service Bus namespaces and entities.
 ms.devlang: dotnet
 ms.topic: article
