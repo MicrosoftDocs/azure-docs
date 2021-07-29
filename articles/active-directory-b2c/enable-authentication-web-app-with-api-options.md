@@ -130,7 +130,6 @@ You can pass parameters between your controller and the *OnRedirectToIdentityPro
       await Task.CompletedTask.ConfigureAwait(false);
     }
     ```
-    ```
 
 [!INCLUDE [active-directory-b2c-app-integration-custom-parameters](../../includes/active-directory-b2c-app-integration-custom-parameters.md)]
 
