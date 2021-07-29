@@ -171,7 +171,7 @@ You'll need to configure a TXT record with your domain provider. Azure DNS is re
 
    | Setting  | Value                                       |
    | -------- | ------------------------------------------- |
-   | Name     | `@` for root domain, or enter the subdomain |
+   | Name     | `_dnsauth.<your_subdomain>`                 |
    | Type     | TXT                                         |
    | TTL      | Leave as default value                      |
    | TTL Unit | Leave as default value                      |
