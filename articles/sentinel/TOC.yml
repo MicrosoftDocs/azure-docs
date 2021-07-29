@@ -37,8 +37,6 @@
     items:
     - name: Roles and permissions
       href: roles.md
-    - name: Costs and billing
-      href: azure-sentinel-billing.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=%2fazure%2fsentinel%2fTOC.json
   - name: Data collection and analysis
@@ -81,6 +79,8 @@
       href: bring-your-own-ml.md
 - name: How-tos
   items:
+  - name: Plan and manage costs
+    href: azure-sentinel-billing.md
   - name: Migrate to Azure Sentinel
     href: migration.md
   - name: Collect data
@@ -285,14 +285,14 @@
       href: store-logs-in-azure-data-explorer.md
   - name: Discover and deploy solutions
     href: sentinel-solutions-deploy.md
-  - name: Connect threat intelligence
+  - name: Use threat intelligence
     items:
     - name: Connect threat intelligence platforms
       href: connect-threat-intelligence-tip.md
     - name: Connect to STIX/TAXII feeds
       href: connect-threat-intelligence-taxii.md
-  - name: Work with threat indicators
-    href: work-with-threat-indicators.md
+    - name: Work with threat indicators
+      href: work-with-threat-indicators.md
   - name: Monitor and visualize data
     items:
     - name: Visualize collected data
@@ -379,7 +379,7 @@
       href: sap-solution-log-reference.md
     - name: SAP workbook, rules, and watchlists
       href: sap-solution-security-content.md
-    - name: Deploy the SAP data connector on-premises
+    - name: Expert configuration options
       href: sap-solution-deploy-alternate.md
 - name: Reference
   items:
