@@ -179,7 +179,8 @@ You'll run the `Remove-ExternalIdentitySources` cmdlet to remove all existing ex
 
 ## Next steps
 
-Advance to the next article to learn how to create...
+Advance to the next article to learn how to assign a VM storage policy in an initial deployment of a VM or when you perform other VM operations, such as cloning or migrating.
+
 > [!div class="nextstepaction"]
-> [Next steps button]()
+> [Next steps button](tutorial-configure-storage-policy.md)
 
