@@ -65,19 +65,19 @@ const appConfig = require("@azure/app-configuration");
 
 1. Set an environment variable named **AZURE_APP_CONFIG_CONNECTION_STRING**, and set it to the access key to your App Configuration store. At the command line, run the following command:
 
-    ### [.NET Core 5.x](#tab/azure-powershell)
+    ### [PowerShell](#tab/azure-powershell)
     ```cmd
     setx AZURE_APP_CONFIG_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
     ```
 
-    ### [.NET Core 5.x](#tab/command-line)
+    ### [Command line](#tab/command-line)
     If you use Windows PowerShell, run the following command:
 
     ```azurepowershell
     $Env:AZURE_APP_CONFIG_CONNECTION_STRING = "connection-string-of-your-app-configuration-store"
     ```
 
-    ### [.NET Core 5.x](#tab/macos)
+    ### [Linux](#tab/linux)
     ```console
     export AZURE_APP_CONFIG_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
     ```
