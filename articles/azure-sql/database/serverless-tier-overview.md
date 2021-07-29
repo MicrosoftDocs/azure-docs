@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: sstein
+ms.reviewer: MashaMSFT, wiassaf
 ms.date: 7/29/2021
 ---
 # Azure SQL Database serverless
@@ -122,7 +122,7 @@ Auto-pausing is temporarily prevented during the deployment of some service upda
 
 If auto-pausing is enabled, but a database does not auto-pause after the delay period, and the features listed above are not used, the application or user sessions may be preventing auto-pausing. To see if there are any application or user sessions currently connected to the database, connect to the database using any client tool, and execute the following query:
 
-```tsql
+```sql
 SELECT session_id,
        host_name,
        program_name,
@@ -235,7 +235,7 @@ az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
 
 When using T-SQL, default values are applied for the min vcores and autopause delay. They can later be changed from the portal or via other management APIs (PowerShell, Azure CLI, REST API).
 
-```tsql
+```sql
 CREATE DATABASE testdb
 ( EDITION = 'GeneralPurpose', SERVICE_OBJECTIVE = 'GP_S_Gen5_1' ) ;
 ```
