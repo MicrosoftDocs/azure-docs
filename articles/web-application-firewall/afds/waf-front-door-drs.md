@@ -85,6 +85,23 @@ DRS 2.0 includes 17 rule groups, as shown in the following table. Each group con
 |**[MS-ThreatIntel-SQLI](#drs99031-20)**|Protect against SQLI attacks|
 |**[MS-ThreatIntel-CVEs](#drs99001-20)**|Protect against CVE attacks|
 
+### DRS 1.1
+|Rule group|Description|
+|---|---|
+|**[PROTOCOL-ATTACK](#drs921-11)**|Protect against header injection, request smuggling, and response splitting|
+|**[APPLICATION-ATTACK-LFI](#drs930-11)**|Protect against file and path attacks|
+|**[APPLICATION-ATTACK-RFI](#drs931-11)**|Protection against remote file inclusion attacks|
+|**[APPLICATION-ATTACK-RCE](#drs932-11)**|Protection against remote command execution|
+|**[APPLICATION-ATTACK-PHP](#drs933-11)**|Protect against PHP-injection attacks|
+|**[APPLICATION-ATTACK-XSS](#drs941-11)**|Protect against cross-site scripting attacks|
+|**[APPLICATION-ATTACK-SQLI](#drs942-11)**|Protect against SQL-injection attacks|
+|**[APPLICATION-ATTACK-SESSION-FIXATION](#drs943-11)**|Protect against session-fixation attacks|
+|**[APPLICATION-ATTACK-SESSION-JAVA](#drs944-11)**|Protect against JAVA attacks|
+|**[MS-ThreatIntel-WebShells](#drs9905-11)**|Protect against Web shell attacks|
+|**[MS-ThreatIntel-AppSec](#drs9903-11)**|Protect against AppSec attacks|
+|**[MS-ThreatIntel-SQLI](#drs99031-11)**|Protect against SQLI attacks|
+|**[MS-ThreatIntel-CVEs](#drs99001-11)**|Protect against CVE attacks|
+
 ### DRS 1.0
 
 |Rule group|Description|
