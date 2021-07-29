@@ -268,7 +268,9 @@ Choose the **Compose button**. In the pop-up, name your new composed model and s
 
 ## Analyze a form
 
-Select the Predict (light bulb) icon on the left to test your model. Upload a form document that you haven't used in the training process. Then choose the **Predict** button on the right to get key/value predictions for the form. The tool will apply tags in bounding boxes and will report the confidence of each tag.
+Select the Analyze (light bulb) icon on the left to test your model. Select source 'Local file'. Browse for a file and select a file from the sample dataset that you unzipped in the test folder. Then choose the **Run analysis** button to get key/value pairs, text and tables predictions for the form. The tool will apply tags in bounding boxes and will report the confidence of each tag.
+
+:::image type="content" source="media/analyze.png" alt-text="Screenshot: analyze-a-custom-form window":::
 
 > [!TIP]
 > You can also run the Analyze API with a REST call. To learn how to do this, see [Train with labels using Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).

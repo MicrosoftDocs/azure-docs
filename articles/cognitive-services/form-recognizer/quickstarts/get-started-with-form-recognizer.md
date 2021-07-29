@@ -221,7 +221,7 @@ Choose the Train icon on the left pane to open the Training page. Then select th
 
 Select the Analyze (light bulb) icon on the left to test your model. Select source 'Local file'. Browse for a file and select a file from the sample dataset that you unzipped in the test folder. Then choose the **Run analysis** button to get key/value pairs, text and tables predictions for the form. The tool will apply tags in bounding boxes and will report the confidence of each tag.
 
-   :::image type="content" source="../media/label-tool/custom-2.jpg" alt-text="Training view.":::
+   :::image type="content" source="../media/analyze.png" alt-text="Training view.":::
 
 ## Next steps
 
