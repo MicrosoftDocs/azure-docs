@@ -68,8 +68,13 @@ Do you have an existing workspace that you can use for Azure Sentinel?
 
         <a name="note1"></a>[Decision tree note #1](#decision-tree): Logs specific to tenant boundaries, such as from Office 365 and Microsoft Defender, can only be stored in the workspace within the same tenant.
 
-<!-- NOT INCLUDING THIS BC WE DON"T INCLUDE UNRECOMMENDED THINGS IT WILL ONLY CONFUSE Although you could use a custom connector to collect tenant-specific logs from a workspace in another tenant, doing so would have the following disadvantages: - Data collected by custom connectors will be ingested into custom tables, and therefore can’t leverage all the built-in rules and workbooks.        - Custom tables are not supported by some of the built-in features, such as UEBA and machine learning rules. - Additional cost and effort required for the custom connectors, such as using Azure Functions and Logic Apps.    > [!IMPORTANT]> If any of these disadvantages are not a concern for your organization, continue with [step 4](#step-4-splitting-billing--charge-back) instead of using separate Azure Sentinel workspaces.>
--->
+        Although it is *possible* to use custom collectors to collect tenant-specific logs from a workspace in another tenant, we do not recommend this due to the following disadvantages:
+
+        - Data collected by custom connectors will be ingested into custom tables. Therefore, you won’t be able to use all the built-in rules and workbooks.
+        - Custom tables are not considered by some of the built-in features, such as UEBA and machine learning rules.
+        - Additional cost and effort required for the custom connectors, such as using Azure Functions and Logic Apps.
+
+        If these disadvantages are not a concern for your organization, continue with [step 4](#step-4-splitting-billing--charge-back) instead of using separate Azure Sentinel workspaces.
 
 ### Step 4: Splitting billing / charge-back?
 
@@ -181,7 +186,7 @@ However, this recommendation for separate workspaces for non-SOC data comes from
 
     - If you have multiple, custom data sources/tables, where each one needs separate permissions
 
-    In other cases, when you do *not* need to control access at the row level, provide multiple, custom data sources/tables with separate permissions, or if resource-context RBAC does not work for you, use a single Azure Sentinel workspace, with table-level RBAC for data access control.
+    In other cases, when you do *not* need to control access at the row level, provide multiple, custom data sources/tables with separate permissions, or if resource-context RBAC works for you, use a single Azure Sentinel workspace, with table-level RBAC for data access control.
 
 #### Considerations for resource-context or table-level RBAC
 
