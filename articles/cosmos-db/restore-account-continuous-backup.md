@@ -44,7 +44,7 @@ You can use Azure portal to restore an entire live account or selected databases
  
    :::image type="content" source="./media/restore-account-continuous-backup/restore-live-account-portal.png" alt-text="Restore a live account from accidental modification Azure portal." border="true" lightbox="./media/restore-account-continuous-backup/restore-live-account-portal.png":::
 
-1. After you select the above parameters, select the **Submit** button to kick off a restore. The restore cost is a one time charge, which is based on the amount of data and charges for the storage in given region. To learn more, see the [Pricing](continuous-backup-restore-introduction.md#continuous-backup-pricing) section.
+1. After you select the above parameters, select the **Submit** button to kick off a restore. The restore cost is a one time charge, which is based on the size of data and the cost of backup storage in the selected region. To learn more, see the [Pricing](continuous-backup-restore-introduction.md#continuous-backup-pricing) section.
 
 ### <a id="event-feed"></a>Use event feed to identify the restore time
 
@@ -156,7 +156,7 @@ Run the `Get-AzCosmosDBRestorableDatabaseAccount` PowerShell command to list all
 
 The response includes all the database accounts (both live and deleted) that can be restored and the regions that they can be restored from.
 
-```console
+```json
 {
     "accountName": "SampleAccount",
     "apiType": "Sql",
@@ -182,7 +182,7 @@ The response includes all the database accounts (both live and deleted) that can
     ],
     "tags": null,
     "type": "Microsoft.DocumentDB/locations/restorableDatabaseAccounts"
-  },
+  }
 ```
 
 Just like the `CreationTime` or `DeletionTime` for the account, there is a `CreationTime` or `DeletionTime` for the region too. These times allow you to choose the right region and a valid time range to restore into that region.
@@ -540,6 +540,7 @@ az group deployment create -g <ResourceGroup> --template-file <RestoreTemplateFi
 
 ## Next steps
 
+* Provision continuous backup using [Azure portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), [CLI](provision-account-continuous-backup.md#provision-cli), or [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template).
 * [How to migrate to an account from periodic backup to continuous backup](migrate-continuous-backup.md).
 * [Continuous backup mode resource model.](continuous-backup-restore-resource-model.md)
 * [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.

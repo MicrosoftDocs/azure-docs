@@ -40,7 +40,7 @@ Before provisioning the account, install the [latest version of Azure PowerShell
    Select-AzSubscription -Subscription <SubscriptionName>
    ```
 
-### <a id="provision-powershell-sql-api"></a>SQL API account
+#### <a id="provision-powershell-sql-api"></a>SQL API account
 
 To provision an account with continuous backup, add an argument `-BackupPolicyType Continuous` along with the regular provisioning command.
 
@@ -57,7 +57,7 @@ New-AzCosmosDBAccount `
    	  
 ```
 
-### <a id="provision-powershell-mongodb-api"></a>API for MongoDB
+#### <a id="provision-powershell-mongodb-api"></a>API for MongoDB
 
 The following cmdlet is an example of continuous backup account *Pitracct* created in *West US* region under *MyRG* resource group:
 

@@ -26,7 +26,9 @@ The following are the key reasons to migrate into continuous mode:
 > [!NOTE]
 > The migration capability is one-way only and it's an irreversible action. Which means once you migrate from periodic mode to continuous mode, you can’t switch back to periodic mode.
 
-> To perform the migration, you need `Microsoft.DocumentDB/databaseAccounts/write` permission for the account that is being migrated.  
+## Permissions
+
+To perform the migration, you need `Microsoft.DocumentDB/databaseAccounts/write` permission for the account that is being migrated.  
 
 ## Pricing after migration
 
@@ -54,12 +56,6 @@ Install the [latest version of Azure PowerShell](/powershell/azure/install-az-ps
 
    ```azurepowershell-interactive
    Connect-AzAccount
-   ```
-
-1. Install the Azure Cosmos DB PowerShell module:
-
-   ```azurepowershell-interactive
-   Install-Module Az.CosmosDB
    ```
 
 1. Migrate your account from periodic to continuous backup mode:

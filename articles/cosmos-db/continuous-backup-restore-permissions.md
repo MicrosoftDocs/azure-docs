@@ -49,7 +49,7 @@ The restorable account resource can be extracted from the output of the `az cosm
 Following permissions are required to perform the different activities pertaining to restore for continuous backup mode accounts:
 
 > [!NOTE]
-> Assigning `restorableDatabaseAccounts` read, restore permissions to a resource group scope is not allowed.
+> Permission can be assigned to restorable database account at account scope or subscription scope. Assigning permissions at resource group scope is not supported.
 
 |Permission  |Impact  |Minimum scope  |Maximum scope  |
 |---------|---------|---------|---------|
