@@ -22,6 +22,10 @@ This documentation contains the following types of articles:
 
 This feature is a part of Azure Language services, which is a part [Azure Cognitive Services](../overview.md), a collection of machine learning and AI algorithms in the cloud for your development projects. You can use these features with the REST API and client library.
 
+## Use Asynchronously 
+
+Use the API Asynchronously to combine features of Language Services in a single call.
+
 ## Responsible AI 
 
 An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the following articles to learn about responsible AI use and deployment in your systems:
