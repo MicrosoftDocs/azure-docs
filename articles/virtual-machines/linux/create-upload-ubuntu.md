@@ -97,10 +97,10 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 9. Configure cloud-init to provision the system using the Azure datasource:
 
-	```console
+```bash
 	# cat > /etc/cloud/cloud.cfg.d/90_dpkg.cfg << EOF
 	datasource_list: [ Azure ]
-EOF
+        EOF
 
 	# cat > /etc/cloud/cloud.cfg.d/90-azure.cfg << EOF
     system_info:
@@ -126,7 +126,7 @@ EOF
       telemetry:
         type: hyperv
 EOF
-	```
+```
 
 10. Configure the Azure Linux agent to rely on cloud-init to perform provisioning. Have a look at the [WALinuxAgent project](https://github.com/Azure/WALinuxAgent) for more information on these options.
 
