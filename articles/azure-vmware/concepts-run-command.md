@@ -86,3 +86,13 @@ You can view the status of any run command executed including the output, errors
 
 
 
+## Next steps
+
+Now that you've covered the Run command concepts, you can use the Run command feature to:
+
+- [Configure storage policy](tutorial-configure-storage-policy.md) - Each VM deployed to a vSAN datastore is assigned at least one VM storage policy. You can assign a VM storage policy in an initial deployment of a VM or when you perform other VM operations, such as cloning or migrating.
+
+- [Configure external identity source for vCenter](tutorial-configure-identity-source-vcenter.md) - vCenter has a built-in local user called cloudadmin and assigned to the CloudAdmin role. The local cloudadmin user is used to set up users in Active Directory (AD). With the Run command feature, you can configure Active Directory over LDAP or LDAPS for vCenter as an external identity source.
+
+- [Deploy disaster recovery using JetStream](deploy-disaster-recovery-using-jetstream.md) - Store data directly to a recovery cluster in vSAN or an attached file system like Azure NetApp Files. The data gets captured through I/O filters that run within vSphere. The underlying data store can be VMFS, VSAN, vVol, or any HCI platform.
+
