@@ -17,14 +17,6 @@ This article describes pricing, billing, invoicing, and payout considerations fo
 
 Either the publisher or Microsoft is responsible for managing software license transactions for offers in the commercial marketplace. The listing option you choose for your offer determines who manages the transaction. For availability and explanations of each publishing option, see [Introduction to listing options](determine-your-listing-type.md)
 
-### Determine offer type and pricing plan
-
-Use this flowchart to determine the appropriate offer type and pricing plan for selling software through the commercial marketplace.
-
-[![Shows a flowchart for determining offer type and pricing plan.](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png)](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png#lightbox)
-&nbsp;&nbsp;&nbsp;* Choose an [offer type](/azure/marketplace/publisher-guide-by-offer-type) or contact [support](/azure/marketplace/support).<br>
-&nbsp;&nbsp;&nbsp;** Contact [Microsoft Office Hours](https://microsoftcloudpartner.eventbuilder.com/MarketplaceDeveloperOfficeHours) or [support](/azure/marketplace/support).
-
 ### Contact me, free trial, and BYOL options
 
 Publishers can choose the *Contact me* and *Free trial*, options for promotional and user acquisition purposes. For some offer types, publishers can choose the *bring your own license* (BYOL) option to enable customers to purchase a subscription to your offer using a license they’ve purchased directly from you. With these options, Microsoft doesn't participate directly in the publisher's software license transactions and there's no associated transaction fee, so publishers keep all of that revenue.
@@ -78,7 +70,15 @@ Depending on the transaction option used, subscription charges are as follows:
 
 Publishers who want to change the usage fees associated with an offer, should first remove the offer (or the specific plan within the offer) from the commercial marketplace. Removal should be done in accordance with the requirements of the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement). Then the publisher can publish a new offer (or plan within an offer) that includes the new usage fees. For information, about removing an offer or plan, see [Stop distribution of an offer or plan](./update-existing-offer.md#stop-distribution-of-an-offer-or-plan).
 
-### Free, Contact me, and bring-your-own-license (BYOL) pricing
+### Determine offer type and pricing plan
+
+Use this flowchart to determine the appropriate offer type and pricing plan for selling software through the commercial marketplace.
+
+[![Shows a flowchart for determining offer type and pricing plan.](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png)](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png#lightbox)
+&nbsp;&nbsp;&nbsp;* Choose an [offer type](/azure/marketplace/publisher-guide-by-offer-type) or contact [support](/azure/marketplace/support).<br>
+&nbsp;&nbsp;&nbsp;** Contact [Microsoft Office Hours](https://microsoftcloudpartner.eventbuilder.com/MarketplaceDeveloperOfficeHours) or [support](/azure/marketplace/support).
+
+### Free, Contact me, and Bring-your-own-license (BYOL) pricing
 
 When publishing an offer with the Get it now (Free), Contact me, or BYOL option, Microsoft does not play a role in facilitating the sales transaction for your software license fees. The publisher keeps 100% of the software license fees.
 
