@@ -28,7 +28,7 @@ Data collection endpoints are ARM resources created within specific regions. An 
 ## Limits
 Data collection endpoints only support Log Analytics as a destination for collected data. 
 
-## Create endpoint in Azure portal
+## Create endpoint and association in Azure portal
 You can use the Azure portal to create a data collection endpoint and associate virtual machines in your subscription to that rule. 
 
 > [!NOTE]
@@ -43,6 +43,11 @@ Click **Create** to create a new endpoint. Provide a **Rule name** and specify a
 [![Data Collection Rule Basics](media/data-collection-endpoint-overview/data-collection-endpoint-basics.png)](media/data-collection-endpoint-overview/data-collection-endpoint-basics.png#lightbox)
 
 Click **Review + create** to review the details of the data collection endpoint. Click **Create** to create it.
+
+Next, you can use 'Data collection rules' in the portal to associate endpoints with a resource (e.g. a virtual machine) or a set of resources.  
+Create a new rule or open an existing rule. In the **Resources** tab, click on the **Data collection endpoint** drop-down to associate an existing endpoint for your resource in the same region (or select multiple resources in the same region to bulk-assign an endpoint for them). Doing this creates an association per resource which links the endpoint to the resource. The Azure Monitor agent running on these resources will not start using the endpoint instead for uploading data to Azure Monitor.
+
+[![Data Collection Rule virtual machines](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-dce.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-dce.png#lightbox) in can create a new DCR or open an existing
 
 ## Create rule and association using REST API
 
