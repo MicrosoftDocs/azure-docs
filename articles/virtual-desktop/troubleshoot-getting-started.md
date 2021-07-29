@@ -73,7 +73,7 @@ To resolve this issue, either try a new word or add letters to the blocked word 
 
 This error message appears when entering a password that is either too long or too short to meet the character length requirement. Azure password length and complexity requirements even apply to fields that you later use in Windows, which has less strict requirements.
 
-To resolve this issue, make sure you use an account that follows Azure's password guidelines.
+To resolve this issue, make sure you use an account that follows [Microsoft's password guidelines](https://www.microsoft.com/research/publication/password-guidance) or uses [Azure AD Password Protection](../active-directory/authentication/concept-password-ban-bad.md).
 
 ## Error messages for easy-button-prerequisite-user-setup-linked-template
 
