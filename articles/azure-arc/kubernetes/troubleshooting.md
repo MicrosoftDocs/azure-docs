@@ -92,7 +92,7 @@ The user connecting the cluster to Azure Arc should have `cluster-admin` role as
 
 If `az connectedk8s connect` is timing out and failing for an OpenShift cluster, check the following:
 
-1. The OpenShift cluster needs to meet the version pre-requisites: 4.5.41+ or 4.6.35+ or 4.7.18+.
+1. The OpenShift cluster needs to meet the version prerequisites: 4.5.41+ or 4.6.35+ or 4.7.18+.
 
 1. Before running `az connectedk8s connnect`, the following command needs to be run on the cluster:
 
