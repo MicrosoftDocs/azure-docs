@@ -10,7 +10,7 @@ ms.reviewer: laobri
 author: rsethur
 ms.date: 05/13/2021
 ms.topic: how-to
-ms.custom: how-to
+ms.custom: how-to, devplatv2
 ---
 
 # Deploy and score a machine learning model by using a managed online endpoint (preview)

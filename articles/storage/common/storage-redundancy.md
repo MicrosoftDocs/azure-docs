@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/10/2021
+ms.date: 07/21/2021
 ms.author: tamram
 ms.subservice: common
 ---
@@ -23,7 +23,7 @@ When deciding which redundancy option is best for your scenario, consider the tr
 - Whether your application requires read access to the replicated data in the secondary region if the primary region becomes unavailable for any reason
 
 > [!NOTE]
-> The features and regional availability described in this article are also available to accounts that have a hierarchical namespace. 
+> The features and regional availability described in this article are also available to accounts that have a hierarchical namespace.
 
 ## Redundancy in the primary region
 
@@ -202,9 +202,12 @@ The following table indicates whether your data is durable and available in a gi
 
 The following table shows which redundancy options are supported by each Azure Storage service.
 
-| LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
-|:-|:-|:-|:-|
-| Blob storage<br />Queue storage<br />Table storage<br />Azure Files<br />Azure managed disks | Blob storage<br />Queue storage<br />Table storage<br />Azure Files | Blob storage<br />Queue storage<br />Table storage<br />Azure Files<br /> | Blob storage<br />Queue storage<br />Table storage<br />Azure Files<br /> |
+| LRS | ZRS | GRS | RA-GRS | GZRS | RA-GZRS |
+|---|---|---|---|---|---|
+| Blob storage <br />Queue storage <br />Table storage <br />Azure Files<sup>1,</sup><sup>2</sup> <br />Azure managed disks | Blob storage <br />Queue storage <br />Table storage <br />Azure Files<sup>1,</sup><sup>2</sup> | Blob storage <br />Queue storage <br />Table storage <br />Azure Files<sup>1</sup> | Blob storage <br />Queue storage <br />Table storage <br /> | Blob storage <br />Queue storage <br />Table storage <br />Azure Files<sup>1</sup> | Blob storage <br />Queue storage <br />Table storage <br /> |
+
+<sup>1</sup> Standard file shares are supported on LRS, ZRS, GRS, and GZRS.<br />
+<sup>2</sup> Premium file shares are supported on LRS and ZRS.<br />
 
 ### Supported storage account types
 

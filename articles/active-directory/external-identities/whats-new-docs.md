@@ -74,7 +74,7 @@ Welcome to what's new in Azure Active Directory external identities documentatio
 
 ### New articles
 
-- [Microsoft Account (MSA) identity provider for External Identities (Preview)](microsoft-account.md)
+- [Microsoft Account (MSA) identity provider for External Identities](microsoft-account.md)
 
 ### Updated articles
 

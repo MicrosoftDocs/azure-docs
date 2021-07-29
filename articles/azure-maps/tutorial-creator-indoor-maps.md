@@ -85,7 +85,7 @@ To upload the Drawing package:
 
 To check the status of the drawing package and retrieve its unique ID (`udid`):
 
-1. In the Postman app, select **New**..
+1. In the Postman app, select **New**.
 
 2. In the **Create New** window, select **HTTP Request**.
 
@@ -113,7 +113,7 @@ You can retrieve metadata from the Drawing package resource. The metadata contai
 
 To retrieve content metadata:
 
-1. In the Postman app, select **New**..
+1. In the Postman app, select **New**.
 
 2. In the **Create New** window, select **HTTP Request**.
 
@@ -148,7 +148,7 @@ Now that the Drawing package is uploaded, we'll use the `udid` for the uploaded 
 
 To convert a Drawing package:
 
-1. In the Postman app, select **New**..
+1. In the Postman app, select **New**.
 
 2. In the **Create New** window, select **HTTP Request**.
 
@@ -176,7 +176,7 @@ After the conversion operation completes, it returns a `conversionId`. We can ac
 
 To check the status of the conversion process and retrieve the `conversionId`:
 
-1. In the Postman app, select **New**..
+1. In the Postman app, select **New**.
 
 2. In the **Create New** window, select **HTTP Request**.
 
@@ -233,7 +233,7 @@ A dataset is a collection of map features, such as buildings, levels, and rooms.
 
 To create a dataset:
 
-1. In the Postman app, select **New**..
+1. In the Postman app, select **New**.
 
 2. In the **Create New** window, select **HTTP Request**.
 
@@ -259,7 +259,7 @@ To create a dataset:
 
 To check the status of the dataset creation process and retrieve the `datasetId`:
 
-1. In the Postman app, select **New**..
+1. In the Postman app, select **New**.
 
 2. In the **Create New** window, select **HTTP Request**.
 
@@ -287,7 +287,7 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
 
 To create a tileset:
 
-1. In the Postman app, select **New**..
+1. In the Postman app, select **New**.
 
 2. In the **Create New** window, select **HTTP Request**.
 
@@ -313,7 +313,7 @@ To create a tileset:
 
 To check the status of the dataset creation process and retrieve the `tilesetId`:
 
-1. In the Postman app, select **New**..
+1. In the Postman app, select **New**.
 
 2. In the **Create New** window, select **HTTP Request**.
 
@@ -341,7 +341,7 @@ Datasets can be queried using [WFS API](/rest/api/maps/v2/wfs). You can use the 
 
 To query the all collections in your dataset:
 
-1. In the Postman app, select **New**..
+1. In the Postman app, select **New**.
 
 2. In the **Create New** window, select **HTTP Request**.
 
@@ -391,7 +391,7 @@ In this section, we'll query [WFS API](/rest/api/maps/v2/wfs) for the `unit` fea
 
 To query the unit collection in your dataset:
 
-1. In the Postman app, select **New**..
+1. In the Postman app, select **New**.
 
 2. In the **Create New** window, select **HTTP Request**.
 
@@ -445,7 +445,7 @@ Feature statesets define dynamic properties and values on specific features that
 
 To create a stateset:
 
-1. In the Postman app, select **New**..
+1. In the Postman app, select **New**.
 
 2. In the **Create New** window, select **HTTP Request**.
 
@@ -500,7 +500,7 @@ To create a stateset:
 
 To update the `occupied` state of the unit with feature `id` "UNIT26":
 
-1. In the Postman app, select **New**..
+1. In the Postman app, select **New**.
 
 2. In the **Create New** window, select **HTTP Request**.
 
