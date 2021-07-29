@@ -186,7 +186,7 @@ Now users can enable external users to self-service sign-up in Azure Active Dire
 **Service category:** Identity Protection  
 **Product capability:** Identity Security & Protection
  
-Anomalous token detection is now available in Identity Protection. This feature can detect that there are abnormal characteristics in the token such as time active and authentication from unfamiliar IP address. [Learn more](h../identity-protection/concept-identity-protection-risks.md#sign-in-risk).
+Anomalous token detection is now available in Identity Protection. This feature can detect that there are abnormal characteristics in the token such as time active and authentication from unfamiliar IP address. [Learn more](../identity-protection/concept-identity-protection-risks.md#sign-in-risk).
  
 ---
 
