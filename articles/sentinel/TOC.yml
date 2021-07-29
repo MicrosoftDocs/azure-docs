@@ -85,6 +85,8 @@
       href: bring-your-own-ml.md
 - name: How-tos
   items:
+  - name: Plan and manage costs
+    href: azure-sentinel-billing.md
   - name: Migrate to Azure Sentinel
     href: migration.md
   - name: Collect data

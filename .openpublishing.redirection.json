@@ -834,6 +834,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/signin-appauth-ios.md",
+      "redirect_url": "/azure/configure-authentication-sample-ios-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/signin-appauth-android.md",
+      "redirect_url": "/azure/configure-authentication-sample-android-app",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-access-tokens.md",
       "redirect_url": "/azure/active-directory-b2c/access-tokens",
       "redirect_document_id": true
@@ -56908,6 +56918,71 @@
       "source_path_from_root": "/articles/virtual-network/ipv6-reserve-public-ip-address-prefix.md",
       "redirect_url": "/azure/virtual-network/create-public-ip-prefix-portal",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/partner-twilio-cloud-services-dotnet-phone-call-web-role.md",
+      "redirect_url": "https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/partner-twilio-java-how-to-use-voice-sms.md",
+      "redirect_url": "https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/partner-twilio-java-phone-call-example.md",
+      "redirect_url": "https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/partner-twilio-nodejs-how-to-use-voice-sms.md",
+      "redirect_url": "https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/partner-twilio-php-how-to-use-voice-sms.md",
+      "redirect_url": "https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/partner-twilio-php-make-phone-call.md",
+      "redirect_url": "https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/partner-twilio-python-how-to-use-voice-sms.md",
+      "redirect_url": "https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/partner-twilio-ruby-how-to-use-voice-sms.md",
+      "redirect_url": "https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sendgrid-dotnet-how-to-send-email.md",
+      "redirect_url": "https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/store-sendgrid-java-how-to-send-email-example.md",
+      "redirect_url": "https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/store-sendgrid-java-how-to-send-email.md",
+      "redirect_url": "https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/store-sendgrid-nodejs-how-to-send-email.md",
+      "redirect_url": "https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/store-sendgrid-php-how-to-send-email.md",
+      "redirect_url": "https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-account",
+      "redirect_document_id": false
     }
   ]
 }
