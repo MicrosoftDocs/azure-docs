@@ -81,6 +81,38 @@ Status of the cluster
 |**memory**  <br>*required*|The RAM in this virtual machine, in GB  <br>**Example** : `7.5`|number|
 |**pcpuCount**  <br>*required*|The number of physical CPUs this machine type has  <br>**Example** : `16`|integer|
 |**vcpuCount**  <br>*required*|The number of virtual CPUs this machine type has  <br>**Example** : `32`|integer|
+|**vcpuQuotaCount**  <br>*optional*|The number of vCPUs that this machine uses from quota  <br>**Example** : `2`|integer|
+
+
+<a name="clusterusage"></a>
+## ClusterUsage
+Usage and optional cost information for the cluster
+
+
+|Name|Description|Schema|
+|---|---|---|
+|**usage**  <br>*required*|A list of usages by time interval  <br>**Example** : `[ "object" ]`|< [usage](#clusterusage-usage) > array|
+
+<a name="clusterusage-usage"></a>
+**usage**
+
+|Name|Description|Schema|
+|---|---|---|
+|**breakdown**  <br>*required*|The breakdown of usage in this interval, by category of "node" and "nodearray"  <br>**Example** : `[ "[clusterusageitem](#clusterusageitem)" ]`|< [ClusterUsageItem](#clusterusageitem) > array|
+|**end**  <br>*required*|The end of the interval (exclusive)  <br>**Example** : `"string"`|string|
+|**start**  <br>*required*|The beginning of the interval (inclusive)  <br>**Example** : `"string"`|string|
+|**total**  <br>*required*|The overall usage for this cluster in this interval, with a category of "cluster"  <br>**Example** : `"[clusterusageitem](#clusterusageitem)"`|[ClusterUsageItem](#clusterusageitem)|
+
+
+<a name="clusterusageitem"></a>
+## ClusterUsageItem
+
+|Name|Description|Schema|
+|---|---|---|
+|**category**  <br>*optional*|"cluster" for the overall usage; "node" for a single non-array head node; "nodearray" for a whole nodearray  <br>**Example** : `"string"`|enum (cluster, node, nodearray)|
+|**cost**  <br>*optional*|The amount that would be charged for this usage, in US dollars and at retail rates. Note: all cost amounts are estimates and are not reflective of the actual bill!  <br>**Example** : `0.0`|number|
+|**hours**  <br>*optional*|The number of core-hours of usage for this category  <br>**Example** : `0.0`|number|
+|**node**  <br>*optional*|The name of the node or nodearray the usage is for (absent for cluster-level data)  <br>**Example** : `"string"`|string|
 
 
 <a name="node"></a>

@@ -512,6 +512,55 @@ This operation contains information for the nodes and nodearrays in a given clus
 ```
 
 
+<a name="clusters_getclusterusage"></a>
+## Get usage and optional cost information for a cluster
+```
+GET /clusters/{cluster}/usage
+```
+
+
+### Description
+This operation returns overall usage data (core hours) and cost data, if available, for the cluster, as well as a per-nodearray breakdown.  By default it returns the current month's worth of usage.
+
+
+### Parameters
+
+|Type|Name|Description|Schema|
+|---|---|---|---|
+|**Path**|**cluster**  <br>*required*|The cluster to return usage data for|string|
+|**Query**|**timeframe**  <br>*optional*|If given, this specifies the time range to use for the query.  monthToDate returns the usage for the current month, and  lastMonth returns the usage for the previous month. weekToDate returns the usage for the current week (starting Sunday). custom requires to 'from' and 'to' query parameters. The default is MonthToDate. All times are in UTC.|enum (monthToDate, lastMonth, weekToDate, custom)|
+|**Query**|**from**  <br>*optional*|For custom timeframes, this is the start of the timeframe in ISO-8601 format.  This is rounded down to the nearest hour or day.|string|
+|**Query**|**to**  <br>*optional*|For custom timeframes, this is the end of the timeframe in ISO-8601 format. This is rounded up to the nearest hour or day.|string|
+|**Query**|**granularity**  <br>*optional*|Specifies how to aggregate data: by hour, by daily, or as a single number. This default is daily.|enum (total, daily, hourly)|
+
+
+### Responses
+
+|HTTP Code|Description|Schema|
+|---|---|---|
+|**200**|OK|[ClusterUsage](#clusterusage)|
+
+
+
+
+### Example HTTP request
+
+#### Request path
+```
+/clusters/CLUSTER_NAME/usage
+```
+
+
+### Example HTTP response
+
+#### Response 200
+```json
+{
+  "usage" : [ "object" ]
+}
+```
+
+
 <a name="operations_list"></a>
 ## Lists the status of operations
 ```
