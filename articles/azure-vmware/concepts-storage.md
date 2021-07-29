@@ -28,7 +28,7 @@ Local storage in cluster hosts is used in cluster-wide vSAN datastore. All datas
 
 ## Storage policies and fault tolerance
 
-That default storage policy is set to RAID-1 (Mirroring), FTT-1, and thick provisioning. Unless you adjust the storage policy or apply a new policy, the cluster grows with this configuration. For more information, see [Configure storage policy](tutorial-configure-storage-policy.md) using the Run command feature.
+That default storage policy is set to RAID-1 (Mirroring), FTT-1, and thick provisioning. Unless you adjust the storage policy or apply a new policy, the cluster grows with this configuration. To set the storage policy, see [Configure storage policy](tutorial-configure-storage-policy.md).
 
 In a three-host cluster, FTT-1 accommodates a single host's failure. Microsoft governs failures regularly and replaces the hardware when events are detected from an architecture perspective.
 
