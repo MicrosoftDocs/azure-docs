@@ -5,7 +5,7 @@ ms.service:  azure-monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/19/2021
+ms.date: 07/29/2021
 
 ---
 
@@ -54,22 +54,22 @@ Container insights allows you to collect certain Prometheus metrics in your Log 
 ### Collect resource logs
 The logs for AKS control plane components are implemented in Azure as [resource logs](../azure-monitor/essentials/resource-logs.md). Container insights doesn't currently use these logs, so you do need to create your own log queries to view and analyze them. See [How to query logs from Container insights](../azure-monitor/containers/container-insights-log-query.md#resource-logs) for details on the structure of these logs and how to write queries for them.
 
-You need to create a diagnostic setting to collect resource logs. You can send the logs to multiple locations, but the most common is to send to the Log Analytics workspace that you configured to support Container insights. See [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md) to create a diagnostic setting for your AKS cluster to send these logs to your Log Analytics workspace. 
+You need to create a diagnostic setting to collect resource logs. Create multiple diagnostic settings to send different sets of logs to different locations. See [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md) to create diagnostic settings for your AKS cluster. 
 
-There is a cost for sending resource logs to a workspace, so you should only collect those log categories that you intend to use. See [Resource logs](/monitor-aks-reference.md#resource-logs) for a description of the categories that are available for AKS and [Manage usage and costs with Azure Monitor Logs](../azure-monitor/logs/manage-cost-storage.md) for details on the cost of ingesting and retaining log data. Start by collecting a minimal number of categories and then modify the diagnostic setting to collect additional categories as your needs increase and as you understand your associated costs.
+There is a cost for sending resource logs to a workspace, so you should only collect those log categories that you intend to use. Send logs to an Azure storage account to reduce costs if you need to retain the information but don't require it to be readily available for analysis.  See [Resource logs](/monitor-aks-reference.md#resource-logs) for a description of the categories that are available for AKS and [Manage usage and costs with Azure Monitor Logs](../azure-monitor/logs/manage-cost-storage.md) for details on the cost of ingesting and retaining log data. Start by collecting a minimal number of categories and then modify the diagnostic setting to collect additional categories as your needs increase and as you understand your associated costs.
 
 If you're unsure about which resource logs to initially enable, use the recommendations in the following table which are based on the most common customer requirements. Enable the other categories if you later find that you require this information.
 
 | Category | Enable? | Destination |
 |:---|:---|:---|
-| cluster-autoscale       | Enable if autoscale is enabled | Workspace |
-| guard                   | Enable if Azure Active Directory is enabled | Workspace |
-| kube-apiserver          | Enable | Workspace |
+| cluster-autoscale       | Enable if autoscale is enabled | Log Analytics workspace |
+| guard                   | Enable if Azure Active Directory is enabled | Log Analytics workspace |
+| kube-apiserver          | Enable | Log Analytics workspace |
 | kube-audit              | Enable | Azure storage. This keeps costs to a minimum yet retains the audit logs if they're required by an auditor. |
-| kube-audit-admin        | Enable | Workspace |
-| kube-controller-manager | Enable | Workspace |
+| kube-audit-admin        | Enable | Log Analytics workspace |
+| kube-controller-manager | Enable | Log Analytics workspace |
 | kube-scheduler          | Disable | |
-| AllMetrics              | Enable | Workspace |
+| AllMetrics              | Enable | Log Analytics workspace |
 
 
 
@@ -118,14 +118,7 @@ Use **Node** workbooks in Container Insights to analyze disk capacity and IO in 
 
 For troubleshooting scenarios, you may need to access the AKS nodes directly for maintenance or immediate log collection. For security purposes, the AKS nodes aren't exposed to the internet but you can `kubectl debug` to SSH to the AKS nodes. See [Connect with SSH to Azure Kubernetes Service (AKS) cluster nodes for maintenance or troubleshooting](/ssh.md) for details on this process.
 
-### Resource logs
-[Resource logs](monitor-aks-reference.md#resource-logs) that you can analyze at this level include the following:
 
-- cluster-autoscale
-- guard
-- kube-audit 
-- kube-audit-admin
-- kube-scheduler  
 
 ### Level 2 - Managed AKS components
 Managed AKS level includes the following components.
@@ -144,10 +137,7 @@ Use the **Kubelet** workbook to view the health and performance of each kubelet.
 :::image type="content" source="media/monitor-aks/container-insights-kubelet-workbook.png" alt-text="Container insights kubelet workbook" lightbox="media/monitor-aks/container-insights-kubelet-workbook.png":::
 
 ### Resource logs
-[Resource logs](monitor-aks-reference.md#resource-logs) that you can analyze at this level include the following:
-
-- kube-apiserver
-- kube-controller-manager
+Use [log queries with resource logs](../azure-monitor/containers/containers/container-insights-log-query.md#resource-logs) to analyze control plane logs generated by AKS components. 
 
 ### Level 3 - Kubernetes objects and workloads
 Kubernetes objects and workloads level include the following components.
