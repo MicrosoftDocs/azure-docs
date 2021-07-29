@@ -126,9 +126,9 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
 8. In the **Summary** page, review the settings, and select **Next**.
 
-    ![Summary page](./media/load-azure-sql-data-warehouse/summary-page.png)
-
 9. On the **Deployment page**, select **Monitor** to monitor the pipeline (task). 
+
+    :::image type="content" source="./media/load-azure-sql-data-warehouse/deployment-complete-page.png" alt-text=" Screenshot showing the deployment page.":::
  
 10. Notice that the **Monitor** tab on the left is automatically selected. When the pipeline run completes successfully, select the **CopyFromSQLToSQLDW** link under the **Pipeline name** column to view activity run details or to rerun the pipeline.
 
