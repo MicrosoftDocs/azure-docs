@@ -18,7 +18,7 @@ ms.topic: how-to
 
 ## Create an Azure SQL Managed Instance
 
-To view available create options forSQL Managed Instance, use the following command:
+To view available options for create command for SQL Managed Instance, use the following command:
 ```azurecli
 az sql mi-arc create --help
 ```
