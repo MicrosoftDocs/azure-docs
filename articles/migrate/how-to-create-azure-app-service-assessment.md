@@ -41,8 +41,10 @@ Run an assessment as follows:
     :::image type="content" source="./media/tutorial-assess-webapps/assess.png" alt-text="Dropdown to choose assessment type as Azure App Service":::
 3. In **Create assessment** > you will be able to see the assessment type pre-selected as **Azure App Service** and the discovery source defaulted to **Servers discovered from Azure Migrate appliance**.
 4. Click **Edit** to review the assessment properties.
-     :::image type="content" source="./media/tutorial-assess-webapps/assess-webapps.png" alt-text="Edit button from where assessment properties can be customized":::
-5. Here's what's included in Azure App Service assessment properties:
+
+    :::image type="content" source="./media/tutorial-assess-webapps/assess-webapps.png" alt-text="Edit button from where assessment properties can be customized":::
+
+1. Here's what's included in Azure App Service assessment properties:
 
 | **Property** | **Details** |
 | --- | --- |
@@ -54,7 +56,7 @@ Run an assessment as follows:
 | **Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%. |
 | **EA subscription** | Specifies that an Enterprise Agreement (EA) subscription is used for cost estimation. Takes into account the discount applicable to the subscription. <br/><br/> Leave the settings for reserved instances, and discount (%) properties with their default settings. |
 
-     :::image type="content" source="./media/tutorial-assess-webapps/webapps-assessment-properties.png" alt-text="App Service assessment properties":::
+    :::image type="content" source="./media/tutorial-assess-webapps/webapps-assessment-properties.png" alt-text="App Service assessment properties":::
 
 1. In **Create assessment** > click Next.
 9.	In **Select servers to assess** > **Assessment name** > specify a name for the assessment.
@@ -83,7 +85,7 @@ You can also review the recommended App Service SKU for migrating to Azure App S
 
 #### Azure App Service Cost details
 
-An [App Service plan](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) carries a [charge](https://azure.microsoft.com/pricing/details/app-service/windows/) on the compute resources it uses.
+An [App Service plan](/azure/app-service/overview-hosting-plans) carries a [charge](https://azure.microsoft.com/pricing/details/app-service/windows/) on the compute resources it uses.
 
 ### Review readiness
 
