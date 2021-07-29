@@ -47,8 +47,8 @@ The steps for building, training, and using custom and composed models are as fo
 * [**Assemble your training dataset**](#assemble-your-training-dataset)
 * [**Upload your training set to Azure blob storage**](#upload-your-training-dataset)
 * [**Train your custom model**](#train-your-custom-model)
-* [**Compose custom models**](#compose-custom-models)
-* [**Analyze documents**](#analyze-documents)
+* [**Compose custom models**](#create-a-composed-model)
+* [**Analyze documents**](#analyze-documents-with-your-custom-or-composed-model)
 * [**Manage your custom models**](#manage-your-custom-models)
 
 ## Assemble your training dataset
@@ -73,8 +73,8 @@ With the Model Compose operation, you can assign up to 100 trained custom models
 
 Using the Form Recognizer sample labeling tool, the REST API, or the Client-library SDKs, follow the steps below to set up a composed model:
 
-1. [**Gather your custom model IDs**](gather-your-custom-model-ids)
-1. [**Compose your custom models**](compose-your-custom-models)
+1. [**Gather your custom model IDs**](#gather-your-custom-model-ids)
+1. [**Compose your custom models**](#compose-your-custom-models)
 
 #### Gather your custom model IDs
 
@@ -96,13 +96,15 @@ The [**REST API**](quickstarts/client-library.md?pivots=programming-language-res
 
  The [**client-library SDKs**](quickstarts/client-library.md?pivots=programming-language-csharp#train-a-custom-model) return a model object that can be queried to return the trained model ID:
 
-#### C\#  | [CustomFormModel Class](/dotnet/api/azure.ai.formrecognizer.training.customformmodel?view=azure-dotnet#properties "Azure SDK for .NET")
+#### C\#  | [CustomFormModel Class](/dotnet/api/azure.ai.formrecognizer.training.customformmodel?view=azure-dotnet&preserve-view=true#properties "Azure SDK for .NET")
 
-#### Java | [CustomFormModelInfo Class](/java/api/com.azure.ai.formrecognizer.training.models.customformmodelinfo?view=azure-java-stable#methods "Azure SDK for Java")
+#### Java | [CustomFormModelInfo Class](/java/api/com.azure.ai.formrecognizer.training.models.customformmodelinfo?view=azure-java-stable&preserve-view=true#methods "Azure SDK for Java")
 
-#### JavaScript | [CustomFormModelInfo interface](/javascript/api/@azure/ai-form-recognizer/customformmodelinfo?view=azure-node-latest&branch=main#properties "Azure SDK for JavaScript")
+#### JavaScript | [CustomFormModelInfo interface](/javascript/api/@azure/ai-form-recognizer/customformmodelinfo?view=azure-node-latest&preserve-view=true&branch=main#properties "Azure SDK for JavaScript")
 
-#### Python | [CustomFormModelInfo Class](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.customformmodelinfo?view=azure-python&branch=main#variables "Azure SDK for Python")
+#### Python | [CustomFormModelInfo Class](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.customformmodelinfo?view=azure-python&preserve-view=true&branch=main#variables "Azure SDK for Python")
+
+---
 
 #### Compose your custom models
 
