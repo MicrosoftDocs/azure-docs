@@ -158,7 +158,7 @@
       - name: StorSimple 1200 migration guide
         href: ../files/storage-files-migration-storsimple-1200.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
   - name: Enable large file shares
-    href: ../files/storage-files-how-to-create-large-file-share.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+    href: ../files/storage-how-to-create-file-share.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
   - name: Secure
     items:
     - name: Manage encryption keys for the storage account
@@ -194,7 +194,7 @@
     - name: Troubleshoot Azure File Sync
       href: file-sync-troubleshoot.md
     - name: Troubleshoot deleting Azure file shares
-      href: ../files/storage-troubleshoot-cannot-delete-files-azure-file-share.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
+      href: ../files/storage-troubleshoot-windows-file-connection-problems.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json#unable-to-modify-moverename-or-delete-a-file-or-directory
     - name: Troubleshoot backing up file shares
       href: ../../backup/troubleshoot-azure-files.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json
 - name: Reference

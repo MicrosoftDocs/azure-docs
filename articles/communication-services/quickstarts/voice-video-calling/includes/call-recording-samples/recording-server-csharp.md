@@ -116,7 +116,7 @@ var resumeRecording = await callingServerClient.InitializeServerCall("<servercal
 
 ## Download recording File using 'DownloadStreamingAsync' server API
 
-Use an [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) web hook or other triggered action should be used to notify your services when the recorded media is ready for download.
+Use an [Azure Event Grid](../../../../../event-grid/overview.md) web hook or other triggered action should be used to notify your services when the recorded media is ready for download.
 
 Below is an example of the event schema.
 

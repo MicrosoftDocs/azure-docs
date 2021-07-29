@@ -4,7 +4,7 @@ description: Learn how to use Azure portal or CLI to create, view, and manage me
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 01/11/2021
+ms.date: 07/19/2021
 ---
 # Create, view, and manage metric alerts using Azure Monitor
 
@@ -56,8 +56,6 @@ The following procedure describes how to create a metric alert rule in Azure por
 
 15. Click **Done** to save the metric alert rule.
 
-> [!NOTE]
-> Metric alert rules created through portal are created in the same resource group as the target resource.
 
 ## View and manage with Azure portal
 
@@ -77,7 +75,7 @@ You can view and manage metric alert rules using the Manage Rules blade under Al
 5. In the Edit Rule, click on the **Alert criteria** you want to edit. You can change the metric, threshold condition and other fields as required
 
     > [!NOTE]
-    > You can't edit the **Target resource** and **Alert Rule Name** after the metric alert is created.
+    > You can't edit the **Alert Rule Name** after the metric alert rule is created.
 
 6. Click **Done** to save your edits.
 

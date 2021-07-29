@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 > [!NOTE]
-> This tutorial uses an ASP.NET sample web application. For other sample applications (including ASP.NET Core, Node.js, Python, and more), see [Azure Active Directory B2C code samples](code-samples.md).
+> This tutorial uses an ASP.NET sample web application. For other sample applications (including ASP.NET Core, Node.js, Python, and more), see [Azure Active Directory B2C code samples](integrate-with-app-code-samples.md).
 
 ## Prerequisites
 

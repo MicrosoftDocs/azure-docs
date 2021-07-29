@@ -5,7 +5,7 @@ description: Use loops and arrays in a Bicep file to deploy multiple instances o
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 07/19/2021
 ---
 
 # Resource iteration in Bicep
@@ -89,6 +89,24 @@ resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for name 
 ```
 
 If you want to return values from the deployed resources, you can use a loop in the [output section](loop-outputs.md).
+
+## Resource iteration with condition
+
+The following example shows a nested loop combined with a filtered resource loop. Filters must be expressions that evaluate to a boolean value.
+
+```bicep
+resource parentResources 'Microsoft.Example/examples@2020-06-06' = [for parent in parents: if(parent.enabled) {
+  name: parent.name
+  properties: {
+    children: [for child in parent.children: {
+      name: child.name
+      setting: child.settingValue
+    }]
+  }
+}]
+```
+
+Filters are also supported with module loops.
 
 ## Deploy in batches
 
