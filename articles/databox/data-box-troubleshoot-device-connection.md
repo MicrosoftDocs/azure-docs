@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 07/23/2021
+ms.date: 07/29/2021
 ms.author: alkohli
 ---
 
@@ -21,29 +21,30 @@ This article describes how to troubleshoot network issues when you can't connect
 
 ### Possible causes
 
-The most common causes of a lost connection to a Data Box include:
+The most common reasons for being unable to connect to your Data Box are:
 
 - a domain issue
-- a group policy is preventing a connection
+- a group policy that's preventing a connection
 - a permissions issue<!--What about certificates?-->
 
+### Troubleshoot a connection problem
 
-### Check for a domain issue
+If you can't log in on your Data Box device, do the following steps to identify and fix the problem: 
 
-1. Check for a domain issue. Use one of the following formats to sign in to your device:<!--1) Step 1 is to open the device by typing "https://<device IP>" in their browser? Use RDC? Or do we assume -->
+1. To check for a domain issue, enter your credentials in one of the following formats:
 
-   - `<device IP address>\<user name>`
-   - `\<user name>`
+       - `<device IP address>\<user name>`
+       - `\<user name>`
 
-   If the credentials don't work in either format, the problem isn't a domain issue.
+   If this doesn't work, the problem isn't a domain issue.
 
-1. To check whether a group policy is preventing the connection, move the client/host machine to an organizational unit (OU) that doesn't have any group policies applied if possible. LINK TO INSTRUCTIONS.
+1. Next, check whether a group policy is preventing the connection. If possible, move the client/host machine to an organizational unit (OU) that doesn't have any group policies applied.<!--Can we link to a procedure? I can't find any.-->
 
-1. If you can't connect to the device in the new OU, you need to run diagnostics:
+1. If you can't connect to your device in an OU that doesn't have any group policies, it's time to run some diagnostics:
 
-   1. [Run diagnostics and collect device logs](azure-stack-edge-gpu-troubleshoot.md) to identify other issues that might be preventing a connection:
+   1. Run diagnostics and collect device logs. *HOW?*<!--"Tracking and event logging for your Azure Data Box and Azure Data Box Heavy import order" (https://docs.microsoft.com/en-us/azure/databox/data-box-logs#query-activity-logs-during-setup - MD:data-box-event-logs.md) doesn't discuss Smbserver.security event logs in the \etw folder.-->
 
-   1. Review the `Smbserver.Security` event logs in the `etw` folder for an error similar to one of the errors identified (in bold) in the following sample entry.<!--Different format to get bold or highlights?-->
+   1. Review the `Smbserver.Security` event logs in the `etw` folder for an error similar to one of the errors identified (in bold) in the following sample entry.<!--Take a screenshot of the output to allow highlighting.-->
    
       ```powershell
       SMB Session Authentication Failure
@@ -76,17 +77,17 @@ The most common causes of a lost connection to a Data Box include:
 
  1.  If you find either of these errors in the `Smbserver.Security` event logs, do the following steps to resolve the issue:
  
-     1. Run `secpol.msc.`
+     1. To open the Local Security Policy editor, start a PowerShell session, and run `secpol.msc`.
 
-     1. Go to **Local Policies** > **Security Options** > **Network Security: LAN Manager authentication level**.
+     1. Expand **Local Policies**, and go to **Security Options**. Then select **Network Security: LAN Manager authentication level**.
 
-        ![Screenshot of Security Options with Network Security: LAN Manager authentication level selected](media/data-box-troubleshoot-device-connection/security-policy-01.png)
+         ![Screenshot of Security Options with Network Security: LAN Manager authentication level selected](media/data-box-troubleshoot-device-connection/security-policy-01.png)
 
-      1. Change the LAN manager authentication level to **Send NTLMv2 response only. Refuse LM & NTLM**.
+      1. To change the setting, select and click **Network Security: LAN Manager authentication level**. Then select **Send NTLMv2 response only. Refuse LM & NTLM**, and select **OK**.
 
-        ![Screenshot that shows the "Send NTLMv2 response only. Refuse LM & NTLM." option selected as the LAN Manager authentication level](media/data-box-troubleshoot-device-connection/security-policy-02.png)
+         ![Screenshot that shows the "Send NTLMv2 response only. Refuse LM & NTLM." option selected as the LAN Manager authentication level](media/data-box-troubleshoot-device-connection/security-policy-02.png)
 
-1. If you can't change the LAN Manager authentication level using `secpol`, use the Registry Editor to update the Registry directly:
+1. If you can't change the LAN Manager authentication level using the Local Security Policy editor, use the Registry Editor to update the Registry directly:
 
     1. To open the Registry Editor, open a command prompt, and run `regedt32`.
 
@@ -96,11 +97,11 @@ The most common causes of a lost connection to a Data Box include:
 
     1. In the **LSA** folder, select and click **LMCompatibilityLevel** to open a window for editing the value data.
 
-    1. Change the **Value data** setting to 5.
+    1. In **Value data**, change the setting to 5.
 
         ![Screenshot showing the dialog box for editing the value of a setting in Registry Editor](media/data-box-troubleshoot-device-connection/security-policy-04.png)
 
-    1. Restart the system so that the Registry changes take effect.<!--They are restarting the client computer?-->
+    1. Restart your computer so that the Registry changes take effect.
 
 1. Connect to your Data Box device. LINK TO PROCEDURE.
 
