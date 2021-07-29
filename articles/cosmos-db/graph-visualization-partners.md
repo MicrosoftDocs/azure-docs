@@ -85,7 +85,7 @@ Users of all skill levels can take advantage of five unique graph layouts to dis
 
 Graphistry automatically transforms your data into interactive, visual investigation maps built for the needs of analysts. It can quickly surface relationships between events and entities without having to write queries or wrangle data. You can harness your data without worrying about scale. You can detect security, fraud, and IT investigations to 3600 views of customers and supply chains, Graphistry turns the potential of your data into human insight and value.
 
-:::image type="content" source="./media/graph-visualization-partners/graphistry/graphistry-demo.png" alt-text="Graphistry demo" border="false":::
+:::image type="content" source="./media/graph-visualization-partners/graphistry/graphistry-demo.png" alt-text="Graphistry snapshot" border="false":::
 
 <b>Figure:</b> Graphistry snapshot
 
