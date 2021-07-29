@@ -19,7 +19,7 @@ Form Recognizer uses advanced machine learning technology to detect and extract 
 
 * **Custom models**. Form Recognizer custom models enable you to analyze and extract data from forms and documents specific to your business. Custom models are trained for your distinct data and use cases.
 
-* **Composed models**. With composed models, you can assign multiple custom models to a composed model called with a single model ID. This is useful when you have trained several models and want to group them to analyze similar form types. For example, your composed model may be comprised of custom models trained to analyze your supply, equipment, and furniture purchase orders. Instead of manually trying to select the appropriate model, you can use a composed model to determine the appropriate custom model for each analysis and extraction.
+* **Composed models**. A composed model is created by taking a collection of custom models and assigning them to a single model that encompasses your form types. When a document is submitted to a composed model, the service performs a classification step to decide which custom model accurately represents the form presented for analysis.
 
 * **Prebuilt models**. Form Recognizer currently supports prebuilt models for [business cards](concept-business-cards.md), [layout](concept-layout.md), [identity documents](concept-identification-cards.md), [invoices](concept-invoices.md), and [receipts](concept-receipts.md). 
 
@@ -31,7 +31,7 @@ A custom model is a machine learning program trained to recognize form fields wi
 
 ## What is a composed model?
 
-A composed model is created by taking a collection of custom models and assigning them to a single model that encompasses your form types. When a document is submitted to a composed model, the service performs a classification step to decide which custom model accurately represents the form presented for analysis.
+With composed models, you can assign multiple custom models to a composed model called with a single model ID. This is useful when you have trained several models and want to group them to analyze similar form types. For example, your composed model may be comprised of custom models trained to analyze your supply, equipment, and furniture purchase orders. Instead of manually trying to select the appropriate model, you can use a composed model to determine the appropriate custom model for each analysis and extraction.
 
 ## Try it out
 
@@ -131,7 +131,7 @@ Using the **REST API**, you can make a  [**Compose Custom Model**](https://westu
 
 ### [**Client-library SDKs**](#tab/sdks)
 
-Use the programming language code of your choice to create a composed model that will be called with a single model ID. Below are links to code samples that demonstrate how to create and use a composed model from existing custom models:
+Use the programming language code of your choice to create a composed model that will be called with a single model ID. Below are links to code samples that demonstrate how to create a composed model from existing custom models:
 
 * [**C#/.NET**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/Sample8_ModelCompose.md).
 
@@ -145,19 +145,17 @@ Use the programming language code of your choice to create a composed model that
 
 ## Analyze documents with your custom or composed model 
 
- The custom form **Analyze**operation requires you to provide the `modelID`  in the call to Form Recognizer . You can provide a single custom model ID or a compose model ID for the `modelID` parameter.
+ The custom form **Analyze**operation requires you to provide the `modelID`  in the call to Form Recognizer . You can provide a single custom model ID or a composed model ID for the `modelID` parameter.
 
 ### [**Form Recognizer sample labeling tool**](#tab/fott)
 
 * In the Form Recognizer sample tool window, on the left-pane menu, select the Analyze icon (lightbulb).
 
-* Upload a document.
-
 * Choose a local file or  image URL to analyze.
 
 * Select the **Run Analysis** button.
 
-* The tool will apply tags in bounding boxes and report the confidence percentage for each tag.\
+* The tool will apply tags in bounding boxes and report the confidence percentage for each tag.
 
 :::image type="content" source="media/analyze.png" alt-text="Screenshot: Form Recognizer tool analyze-a-custom-form window.":::
 
@@ -166,6 +164,8 @@ Use the programming language code of your choice to create a composed model that
 Using the REST API, you can make an [Analyze Form](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) request to analyze a document and extract key-value pairs and table data.
 
 ### [**Client-library SDKs**](#tab/sdks)
+
+Using the programming language of your choice to analyze a form or document with a custom or composed model. You'll need your Form Recognizer endpoint, API key, and model ID.
 
 * [**C#/.NET**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/Sample8_ModelCompose.md#recognize-a-custom-form-using-a-composed-model)
 
