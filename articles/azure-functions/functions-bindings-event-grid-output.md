@@ -113,7 +113,7 @@ public class Function {
 }
 ```
 
-You can utilize a POJO class to send EventGrid messages as well.
+You can also use a POJO class to send EventGrid messages.
 
 ```java
 public class Function {
