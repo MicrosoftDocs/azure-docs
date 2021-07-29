@@ -58,7 +58,7 @@ In this quickstart, you will use Azure App Configuration to centralize storage a
 
    ```javascript
    const appConfig = require("@azure/app-configuration");
-
+   ```
 
 ## Configure your connection string
 
@@ -117,12 +117,12 @@ run().catch((err) => console.log("ERROR:", err));
 
    ```powershell
    node app.js
-
+   ```
 1. You should see the following output at the command prompt:
 
    ```powershell
    Retrieved value: Data from Azure App Configuration
-
+   ```
 ## Clean up resources
 
 
