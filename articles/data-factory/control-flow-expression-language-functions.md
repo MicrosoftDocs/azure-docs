@@ -66,6 +66,18 @@ The below example shows a complex example that references a deep sub-field of ac
 
 `@activity('*activityName*').output.*subfield1*.*subfield2*[pipeline().parameters.*subfield3*].*subfield4*`
 
+Creating files dynamically and naming them is common pattern. Let us explore few dynamic file naming examples.
+
+  1. Append Date to a filename:  `@concat('Test_',  formatDateTime(utcnow(), 'yyyy-dd-MM'))` 
+  
+  2. Append DateTime in customer timezone : `@concat('Test_',  convertFromUtc(utcnow(), 'Pacific Standard Time'))`
+  
+  3. Append Trigger Time :` @concat('Test_',  pipeline().TriggerTime)`
+  
+  4. Output a custom filename in a Mapping Data Flow when outputting to a single file with date : `'Test_' + toString(currentDate()) + '.csv'`
+
+In above cases, 4 dynamic filenames are created starting with Test_. 
+
 ### Dynamic content editor
 
 Dynamic content editor automatically escapes characters in your content when you finish editing. For example, the following content in content editor is a string interpolation with two expression functions. 
