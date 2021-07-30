@@ -50,7 +50,7 @@ To create an assessment:
 
    ![Screenshot that shows selecting Oracle schema.](./media/oracle-to-sql-database-guide/select-schema.png)
 
-1. In **Oracle Metadata Explorer**, right-click the Oracle schema you want to migrate and then select **Create Report** to generate an HTML report. Alternatively, you can select a database and then select the **Create Report** tab.
+1. In **Oracle Metadata Explorer**, right-click the Oracle schema you want to migrate and then select **Create Report** to generate an HTML report. Instead, you can select a database and then select the **Create Report** tab.
 
    ![Screenshot that shows Create Report.](./media/oracle-to-sql-database-guide/create-report.png)
 
@@ -83,7 +83,7 @@ To convert the schema:
 
     ![Screenshot that shows Connect to Azure SQL Database.](./media/oracle-to-sql-database-guide/connect-to-sql-database.png)
 
-1. In **Oracle Metadata Explorer**, right-click the Oracle schema and then select **Convert Schema**. Alternatively, you can select your schema and then select the **Convert Schema** tab.
+1. In **Oracle Metadata Explorer**, right-click the Oracle schema and then select **Convert Schema**. Instead, you can select your schema and then select the **Convert Schema** tab.
 
    ![Screenshot that shows Convert Schema.](./media/oracle-to-sql-database-guide/convert-schema.png)
 
@@ -112,7 +112,7 @@ To publish your schema and migrate your data:
 
    ![Screenshot that shows Synchronize with the Database review.](./media/oracle-to-sql-database-guide/synchronize-with-database-review.png)
 
-1. Migrate the data by right-clicking the database or object you want to migrate in **Oracle Metadata Explorer** and selecting **Migrate Data**. Alternatively, you can select the **Migrate Data** tab. To migrate data for an entire database, select the check box next to the database name. To migrate data from individual tables, expand the database, expand **Tables**, and then select the check boxes next to the tables. To omit data from individual tables, clear the check boxes.
+1. Migrate the data by right-clicking the database or object you want to migrate in **Oracle Metadata Explorer** and selecting **Migrate Data**. Instead, you can select the **Migrate Data** tab. To migrate data for an entire database, select the check box next to the database name. To migrate data from individual tables, expand the database, expand **Tables**, and then select the check boxes next to the tables. To omit data from individual tables, clear the check boxes.
 
    ![Screenshot that shows Migrate Data.](./media/oracle-to-sql-database-guide/migrate-data.png)
 
@@ -125,7 +125,7 @@ To publish your schema and migrate your data:
 
    ![Screenshot that shows validation in SQL Server Management Studio.](./media/oracle-to-sql-database-guide/validate-data.png)
 
-Alternatively, you can also use SQL Server Integration Services to perform the migration. To learn more, see:
+Instead, you can also use SQL Server Integration Services to perform the migration. To learn more, see:
 
 - [Getting started with SQL Server Integration Services](/sql/integration-services/sql-server-integration-services)
 - [SQL Server Integration Services for Azure and Hybrid Data Movement](https://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/SSIS%20Hybrid%20and%20Azure.docx)
@@ -187,7 +187,7 @@ To learn more, see [Selecting and configuring affected objects.](/sql/ssma/oracl
 5.In this call ordering step,  select the order in which the objects to test will be evaluated. You can change the order by clicking the buttons in the grid.
 ![Screenshot - ordering object .](./media/oracle-to-sql-database-guide/test-call-ordering.png)
 
-6.The finalize test case page provides  test case information, test objects and the objects that will be analyzed. In addition, on this page you can set the test execution options.
+6.The finalize test case page provides  test case information, test objects and the objects that will be analyzed. Also, you can set the test execution options.
 ![Screenshot - finalize object .](./media/oracle-to-sql-database-guide/tester-finalize-case.png)
 
 For more information on test case settings,[Finishing test case preparation](/sql/ssma/oracle/finishing-test-case-preparation-oracletosql)
@@ -216,7 +216,7 @@ When SSMA Tester runs a test case, the test engine executes the objects selected
 
 On success, it will go to initialization stage.
 
-5.The test run will proceed with the evaluation process and will show the real-time progress.
+5.The test run will continue with the evaluation process and will show the real-time progress.
 
 ![Screenshot - tester test progress .](./media/oracle-to-sql-database-guide/tester-run-status.png)
 

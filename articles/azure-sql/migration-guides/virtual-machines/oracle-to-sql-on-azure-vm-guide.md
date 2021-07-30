@@ -120,7 +120,7 @@ To create an assessment, follow these steps:
    ![Screenshot that shows the list of Oracle schemas that can be migrated.](./media/oracle-to-sql-on-azure-vm-guide/select-schema.png)
 
 
-1. In **Oracle Metadata Explorer**, right-click the Oracle schema that you want to migrate, and then select **Create Report**. Doing so will generate an HTML report. Alternatively, you can select the database and then select **Create report** in the top menu.
+1. In **Oracle Metadata Explorer**, right-click the Oracle schema that you want to migrate, and then select **Create Report**. Doing so will generate an HTML report. Instead, you can select the database and then select **Create report** in the top menu.
 
    ![Screenshot that shows how to create a report.](./media/oracle-to-sql-on-azure-vm-guide/create-report.png)
 
@@ -161,7 +161,7 @@ To convert the schema, follow these steps:
 
    ![Screenshot that shows how to connect to SQL Server.](./media/oracle-to-sql-on-azure-vm-guide/connect-to-sql-vm.png)
 
-1. Right-click the Oracle schema in **Oracle Metadata Explorer** and select **Convert Schema**. Alternatively, you can select **Convert schema** in the top menu:
+1. Right-click the Oracle schema in **Oracle Metadata Explorer** and select **Convert Schema**. Instead, you can select **Convert schema** in the top menu:
 
    ![Screenshot that shows how to convert the schema.](./media/oracle-to-sql-on-azure-vm-guide/convert-schema.png)
 
@@ -197,7 +197,7 @@ To publish your schema and migrate the data, follow these steps:
 
 
 
-1. Migrate the data: right-click the database or object that you want to migrate in **Oracle Metadata Explorer** and select **Migrate Data**. Alternatively, you can select **Migrate Data** in the top menu.
+1. Migrate the data: right-click the database or object that you want to migrate in **Oracle Metadata Explorer** and select **Migrate Data**. Instead, you can select **Migrate Data** in the top menu.
 
    To migrate data for an entire database, select the check box next to the database name. To migrate data from individual tables, expand the database, expand **Tables**, and then select the check box next to the table. To omit data from individual tables, clear appropriate the check boxes.
 
@@ -278,7 +278,7 @@ To learn more, see [Selecting and configuring affected objects.](/sql/ssma/oracl
 5.In this call ordering step,  select the order in which the objects to test will be evaluated. You can change the order by clicking the buttons in the grid.
 ![Screenshot - ordering object .](./media/oracle-to-sql-on-azure-vm-guide/test-call-ordering.png)
 
-6.The finalize test case page provides  test case information, test objects and the objects that will be analyzed. In addition, on this page you can set the test execution options.
+6.The finalize test case page provides  test case information, test objects and the objects that will be analyzed. Also, you can set the test execution options.
 ![Screenshot - finalize object .](./media/oracle-to-sql-on-azure-vm-guide/tester-finalize-case.png)
 
 For more information on test case settings,[Finishing test case preparation](/sql/ssma/oracle/finishing-test-case-preparation-oracletosql)
@@ -307,7 +307,7 @@ When SSMA Tester runs a test case, the test engine executes the objects selected
 
 On success, it will go to initialization stage.
 
-5.The test run will proceed with the evaluation process and will show the real-time progress.
+5.The test run will continue with the evaluation process and will show the real-time progress.
 
 ![Screenshot - tester test progress .](./media/oracle-to-sql-on-azure-vm-guide/tester-run-status.png)
 
