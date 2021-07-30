@@ -29,6 +29,8 @@ You'll learn how to:
 
 [!INCLUDE [Unity device setup](../../../includes/object-anchors-quickstart-unity-device-setup.md)]
 
+[!INCLUDE [Unity upload your model](../../../includes/object-anchors-quickstart-unity-upload-model.md)]
+
 ## Open the sample project
 
 [!INCLUDE [Clone Sample Repo](../../../includes/object-anchors-clone-sample-repository.md)]
@@ -44,10 +46,6 @@ In Unity, open the `quickstarts/apps/unity/basic` project.
 [!INCLUDE [Unity build sample scene 1](../../../includes/object-anchors-quickstart-unity-build-sample-scene-1.md)]
 
 [!INCLUDE [Unity build sample scene 2](../../../includes/object-anchors-quickstart-unity-build-sample-scene-2.md)]
-
-
-### Run the sample app
-[!INCLUDE [Unity upload your model](../../../includes/object-anchors-quickstart-unity-upload-model-to-3d-objects.md)]
 
 [!INCLUDE [Unity build and deploy](../../../includes/object-anchors-quickstart-unity-build-deploy.md)]
 

@@ -30,6 +30,8 @@ You'll learn how to:
 
 [!INCLUDE [Unity device setup](../../../includes/object-anchors-quickstart-unity-device-setup.md)]
 
+[!INCLUDE [Unity upload your model](../../../includes/object-anchors-quickstart-unity-upload-model.md)]
+
 ## Open the sample project
 
 [!INCLUDE [Clone Sample Repo](../../../includes/object-anchors-clone-sample-repository.md)]
@@ -51,9 +53,7 @@ When a "TMP Importer" dialog prompts you to import TextMesh Pro resources, selec
 
 [!INCLUDE [Unity build and deploy](../../../includes/object-anchors-quickstart-unity-build-deploy.md)]
 
-### Run the sample app
-
-Turn on the device, select **All Apps**, then locate and start the app. After the Unity splash screen, you should see a white bounding box. You can use your hand to move, scale, or rotate the bounding box. Place the box to cover the object you want to detect.
+ After the Unity splash screen, you should see a white bounding box. You can use your hand to move, scale, or rotate the bounding box. Place the box to cover the object you want to detect.
 
 Open the <a href="https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_HandMenu.html" target="_blank">hand menu</a> and select **Lock SearchArea** to prevent further movement of the bounding box. Select **Start Search** to start object detection. When the object is detected, a mesh will be rendered on the object. Details of a detected instance will show on the screen, such as updated timestamp and surface coverage ratio. Select **Stop Search** to stop tracking and all detected instances will be removed.
 
