@@ -7,16 +7,15 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 07/13/2021
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
 # Install `arcdata` Azure CLI extension
 
 > [!IMPORTANT]
-> If you are updating to a new monthly release, please be sure to also update to the latest version of Azure CLI and the Azure CLI extension.
+> If you are updating to a new release, please be sure to also update to the latest version of Azure CLI and the `arcdata` extension.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Install latest Azure CLI 
 
