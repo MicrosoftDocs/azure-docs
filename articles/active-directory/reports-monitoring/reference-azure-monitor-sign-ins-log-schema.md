@@ -165,6 +165,8 @@ This article describes the Azure Active Directory (Azure AD) sign-in log schema 
 | Location | - | Provides the location of the sign-in activity. |
 | Properties | - | Lists all the properties that are associated with sign-ins.|
 
+
+
 ## Next steps
 
 * [Interpret audit logs schema in Azure Monitor](./overview-reports.md)
