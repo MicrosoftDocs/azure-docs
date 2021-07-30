@@ -433,7 +433,8 @@ az resource delete \
 
 ## Next steps
 
-To import single container images to an Azure container registry from a public registry or another private registry, see the [az acr import][az-acr-import] command reference.
+* To import single container images to an Azure container registry from a public registry or another private registry, see the [az acr import][az-acr-import] command reference.
+* Learn how to [block creation of export pipelines](data-loss-prevention.md) from a network-restricted container registry.
 
 <!-- LINKS - External -->
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

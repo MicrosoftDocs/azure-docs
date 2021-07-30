@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 07/15/2021
+ms.date: 07/30/2021
 tags: connectors
 ---
 
@@ -226,8 +226,7 @@ Next, delete the SAP connector from your ISE. You must delete all connections to
 Next, deploy or redeploy the SAP connector in your ISE:
 
 1. Prepare a new zip archive file to use in your SAP connector deployment. You must include the SNC library and the SAPGENPSE utility.
-    1. Copy all SNC, SAPGENPSE, and NCo libraries to the root folder of your zip arc
-    1. hive. Don't put these binaries in subfolders.
+    1. Copy all SNC, SAPGENPSE, and NCo libraries to the root folder of your zip archive. Don't put these binaries in subfolders.
     1. You must use the 64-bit SNC library. There is no support for 32-bit.
     1. Your SNC library and its dependencies must be compatible with your SAP environment. For how to check compatibility, the [ISE prerequisites](#ise-prerequisites).
 1. Follow the deployment steps in [ISE prerequisites](#ise-prerequisites) with your new zip archive.
