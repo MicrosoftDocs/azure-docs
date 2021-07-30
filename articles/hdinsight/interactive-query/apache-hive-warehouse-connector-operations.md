@@ -139,3 +139,4 @@ Use **Ctrl + C** to stop netcat on the second SSH session. Use `:q` to exit spar
 * [HWC integration with Apache Spark and Apache Hive](./apache-hive-warehouse-connector.md)
 * [Use Interactive Query with HDInsight](./apache-interactive-query-get-started.md)
 * [HWC integration with Apache Zeppelin](./apache-hive-warehouse-connector-zeppelin.md)
+* [HWC supported APIs](./hive-warehouse-connector-apis.md)
