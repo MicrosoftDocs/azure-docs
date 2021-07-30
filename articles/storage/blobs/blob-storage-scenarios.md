@@ -39,7 +39,7 @@ In this example, all requests are listing operations or requests for account pro
 
 ### Analyze used capacity
 
-From the [Storage Insights view in Azure monitor](../common/storage-insights-overview.md#view-from-azure-monitor), sort your accounts in ascending order by using the **Account used capacity** column. The following image shows an account with lower capacity volume than other accounts. 
+From the **Capacity** tab of the [Storage Insights view in Azure monitor](../common/storage-insights-overview.md#view-from-azure-monitor), sort your accounts in ascending order by using the **Account used capacity** column. The following image shows an account with lower capacity volume than other accounts. 
 
 > [!div class="mx-imgBorder"]
 > ![Used storage capacity](./media/blob-storage-scenarios/storage-insights-capacity-used.png)
@@ -50,9 +50,10 @@ To examine the blobs associated with this used capacity, you can use Storage Exp
 
 If you partition your customer's data by container, then can monitor how much capacity is used by each customer. You can use Azure Storage blob inventory to take an inventory of blobs with size information. Then, you can aggregate the size and count at the container level. For an example, see [Calculate blob count and total size per container using Azure Storage inventory](calculate-blob-count-size.md).
 
-You can also evaluate traffic at the container level by querying logs. To learn more about writing Log Analytic queries, see [Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md). To learn more, see the logs schema in [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md#resource-logs-preview).
+You can also evaluate traffic at the container level by querying logs. To learn more about writing Log Analytic queries, see [Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md). To learn more about the storage logs schema, see the logs schema in [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md#resource-logs-preview).
 
-Here's a query to get the number of read transactions and the number of bytes read for a container.
+Here's a query to get the number of read transactions and the number of bytes read on each container.
+
 
 ```kusto
 StorageBlobLogs
@@ -90,7 +91,7 @@ The section shows you how to identify the "when", "who", "what" and "how" inform
 
 ### Auditing control plane operations
 
-Resource Manager operations are captured in the [Azure activity log](../../azure-monitor/essentials/activity-log.md).
+Resource Manager operations are captured in the [Azure activity log](../../azure-monitor/essentials/activity-log.md). To view the activity log, open your storage account in the Azure portal, and then select **Activity log**.
 
 > [!div class="mx-imgBorder"]
 > ![Activity Log](./media/blob-storage-scenarios/activity-log.png)
@@ -101,7 +102,7 @@ Open any log entry to view JSON that describes the activity. The following JSON 
 > [!div class="mx-imgBorder"]
 > ![Activity Log JSON](./media/blob-storage-scenarios/activity-log-json.png)
 
-The availability of the  "who" information depends on the method of authentication that was used to perform the control plane operation. If the authorization was performed by an Azure AD security principal, the object identifier of that security principal would also appear in this JSON output (For example: `http://schemas.microsoft.com/identity/claims/objectidentifier": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"`). Because you might not always see other identity-related information such as an email address or name, the object identifier is always the best way to uniquely identify the security principal. 
+The availability of the  "who" information depends on the method of authentication that was used to perform the control plane operation. If the authorization was performed by an Azure AD security principal, the object identifier of that security principal would also appear in this JSON output (For example: `"http://schemas.microsoft.com/identity/claims/objectidentifier": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"`). Because you might not always see other identity-related information such as an email address or name, the object identifier is always the best way to uniquely identify the security principal. 
 
 You can find the friendly name of that security principal by taking the value of the object identifier, and searching for the security principal in Azure AD page of the Azure portal. The following screenshot shows a search result in Azure AD.
 
@@ -135,21 +136,23 @@ If a request was authenticated by using Azure AD, the `RequesterObjectId` field 
 
 In some cases, a user principal name or *UPN* might appear in logs. For example, if the security principal is an Azure AD user, the UPN will likely appear. For other types of security principals such as user assigned managed identities, or in certain scenarios such as cross Azure AD tenant authentication, the UPN will not appear in logs. 
 
-This query shows the number of read operations and the bytes read by a specific OAuth security principal.
+This query shows all read operations performed by OAuth security principals.
 
 ```kusto
 StorageBlobLogs
-| where TimeGenerated > ago(3d) 
-  and OperationName  == "GetBlob" 
+| where TimeGenerated > ago(3d)
+  and OperationName == "GetBlob"
   and AuthenticationType == "OAuth"
-| summarize BytesRead = sum(ResponseBodySize), ReadCount = count() by RequesterObjectId, OperationName, AuthenticationType
+| project TimeGenerated, AuthenticationType, RequesterObjectId, OperationName, Uri
 ```
 
-Shared Key and SAS authentication provide no means of auditing individual identities. Therefore, if you want to improve your ability to audit based on identity, we recommended that you transition to Azure AD, and prevent shared key and SAS authentication. For example, 
+Shared Key and SAS authentication provide no means of auditing individual identities. Therefore, if you want to improve your ability to audit based on identity, we recommended that you transition to Azure AD, and prevent shared key and SAS authentication. To learn how to prevent Shared Key and SAS authentication, see [Prevent Shared Key authorization for an Azure Storage account](../common/shared-key-authorization-prevent.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=portal). To get started with Azure AD, see [Authorize access to blobs using Azure Active Directory](authorize-access-azure-active-directory.md)
 
 ## Optimize cost for infrequent queries
 
 If you maintain large amounts of log data but plan to query them only occasionally (For example, to meet compliance and security obligations), consider archiving your logs to a storage account instead of using Log Analytics. For a massive number of transactions, the cost of using Log Analytics might be high relative to just archiving to storage and using other query techniques. Log Analytics makes sense in cases where you want to use the rich capabilities of Log Analytics. You can reduce the cost of querying data by archiving logs to a storage account, and then querying those logs in a Synapse workspace.
+
+You can export logs to Log Analytics for rich native query capabilities. When you have massive transactions on your storage account, the cost of using logs with Log Analytics might be high. See [Azure Log Analytics Pricing](https://azure.microsoft.com/pricing/details/monitor/). If you only plan to query logs occasionally (for example, query logs for compliance auditing), you can consider reducing the total cost by exporting logs to storage account, and then using a serverless query solution on top of log data, for example, Azure Synapse.
 
 With Azure Synapse, you can create server-less SQL pool to query log data when you need. This could save costs significantly. 
 
