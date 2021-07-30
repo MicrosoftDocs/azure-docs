@@ -95,6 +95,16 @@ The read replica feature allows you to replicate data from an Azure Database for
 
 For more information, see [Read Replica concepts](concepts-read-replicas.md).
 
+## Setup Hybrid or Multi-Cloud Data synchronization with Data-in replication
+
+Data-in replication allows you to synchronize data from an external MySQL server into the Azure Database for MySQL Flexible service. The external server can be on-premises, in virtual machines, Azure Database for MySQL Single Server, or a database service hosted by other cloud providers. Data-in replication is based on the binary log (binlog) file position-based. The main scenarios to consider about using Data-in replication are:
+* Hybrid Data Synchronization
+* Multi-Cloud Synchronization
+* Minimal downtime migration to Flexible Server
+
+For more information, see [Data-in replication concepts](concepts-data-in-replication.md).
+
+
 ## Stop/Start server to optimize cost
 
 The flexible server service allows you to stop and start server on-demand to optimize cost. The compute tier billing is stopped immediately when the server is stopped. This can allow you to have significant cost savings during development, testing and for time-bound predictable production workloads. The server remains in stopped state for seven days unless re-started sooner.
@@ -123,8 +133,14 @@ For more information, see [Monitoring concepts](concepts-monitoring.md).
 
 The service runs the community version of MySQL. This allows full application compatibility and requires minimal refactoring cost to migrate existing applications developed on MySQL engine to Flexible Server. Migration to Flexible Server can be performed using the following option:
 
-- **Dump and Restore** – For offline migrations, where users can afford some downtime, dump and restore using community tools like mysqldump/mydumper can provide fastest way to migrate. See Migrate using dump and restore for details. 
-- **Azure Database Migration Service** – For seamless and simplified offline migrations to single server with high speed data migration, [Azure Database Migration Service](../../dms/tutorial-mysql-azure-mysql-offline-portal.md) can be leveraged. 
+### Offline Migrations
+*	Using Azure Data Migration Service when network bandwidth between source and Azure is good (for example: High speed ExpressRoute). Learn more with step by step instructions - [Migrate MySQL to Azure Database for MySQL offline using DMS - Azure Database Migration Service](../../dms/tutorial-mysql-azure-mysql-offline-portal.md)
+*	Use mydumper/myloader to take advantage of compression settings to efficiently move data over low speed networks (such as public internet). Learn more with step by step instructions [Migrate large databases to Azure Database for MySQL using mydumper/myloader](../../mysql/concepts-migrate-mydumper-myloader.md)
+
+### Online or Minimal downtime migrations
+Use data-in replication with mydumper/myloader consistent backup/restore for initial seeding. Learn more with step by step instructions - [Tutorial: Minimal Downtime Migration of Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server](../../mysql/howto-migrate-single-flexible-minimum-downtime.md)
+
+For more information, see [Migration Guide for Azure Database for MySQL](../../mysql/migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md)
 
 ## Azure regions
 
@@ -132,22 +148,23 @@ One advantage of running your workload in Azure is its global reach. The flexibl
 
 | Region | Availability | Zone redundant HA |
 | --- | --- | --- |
-| West Europe | :heavy_check_mark: | :heavy_check_mark: |
-| North Europe | :heavy_check_mark: | :heavy_check_mark: |
-| UK South | :heavy_check_mark: | :heavy_check_mark: |
-| East US 2 | :heavy_check_mark: | :heavy_check_mark: |
-| West US 2 | :heavy_check_mark: | :heavy_check_mark: |
+| Australia East | :heavy_check_mark: | :heavy_check_mark: |
+| Brazil South | :heavy_check_mark: | :x: |
+| Canada Central | :heavy_check_mark: | :x: |
 | Central US | :heavy_check_mark: | :x: |
 | East US | :heavy_check_mark: | :heavy_check_mark: |
-| Canada Central | :heavy_check_mark: | :x: |
-| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: |
-| Korea Central | :heavy_check_mark: | :x: |
-| Japan East | :heavy_check_mark: | :heavy_check_mark: |
-| Australia East | :heavy_check_mark: | :heavy_check_mark: |
+| East US 2 | :heavy_check_mark: | :heavy_check_mark: |
 | France Central | :heavy_check_mark: | :x:|
-| Brazil South | :heavy_check_mark: | :x: |
+| Germany West Central | :heavy_check_mark: | :x: |
+| Japan East | :heavy_check_mark: | :heavy_check_mark: |
+| Korea Central | :heavy_check_mark: | :x: |
+| North Europe | :heavy_check_mark: | :heavy_check_mark: |
+| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: |
 | Switzerland North | :heavy_check_mark: | :x: |
-
+| UK South | :heavy_check_mark: | :heavy_check_mark: |
+| West US | :heavy_check_mark: | :x: |
+| West US 2 | :heavy_check_mark: | :heavy_check_mark: |
+| West Europe | :heavy_check_mark: | :heavy_check_mark: |
 ## Contacts
 
 For any questions or suggestions you might have on Azure Database for MySQL flexible server, send an email to the Azure Database for MySQL Team ([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). This email address isn't a technical support alias.

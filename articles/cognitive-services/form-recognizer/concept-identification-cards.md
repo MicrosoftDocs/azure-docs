@@ -34,7 +34,7 @@ The IDs API also powers the [AI Builder ID reader feature](/ai-builder/prebuilt-
 To try out the Form Recognizer IDs service, go to the online Sample UI Tool:
 
 > [!div class="nextstepaction"]
-> [Try Prebuilt Models](https://aka.ms/fott-2.1-ga)
+> [Try Prebuilt Models](https://aka.ms/fott-2.1-ga "Start with a prebuilt model to extract data from identity documents.")
 
 ## What does the ID service do?
 

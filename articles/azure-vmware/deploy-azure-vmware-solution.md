@@ -2,8 +2,9 @@
 title: Deploy and configure Azure VMware Solution
 description: Learn how to use the information gathered in the planning stage to deploy and configure the Azure VMware Solution private cloud.
 ms.topic: tutorial
-ms.custom: contperf-fy21q4, devx-track-azurecli
+ms.custom: contperf-fy22q1, devx-track-azurecli
 ms.date: 07/09/2021
+
 ---
 
 # Deploy and configure Azure VMware Solution
@@ -31,6 +32,9 @@ The diagram shows the deployment workflow of Azure VMware Solution.
 In the planning phase, you defined whether to use an *existing* or *new* ExpressRoute virtual network gateway.  
 
 :::image type="content" source="media/connect-expressroute-vnet-workflow.png" alt-text="Diagram showing the workflow for connecting Azure Virtual Network to ExpressRoute in Azure VMware Solution." border="false":::
+
+>[!IMPORTANT]
+>[!INCLUDE [disk-pool-planning-note](includes/disk-pool-planning-note.md)] 
 
 ### Use a new ExpressRoute virtual network gateway
 

@@ -131,6 +131,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * SKARDIN INDUSTRIAL CORP
 * Sky CP Ltd
 * SMARDTV GLOBAL SAS
+* Sony Corporation
 * SoftAtHome
 * Technicolor Delivery Technologies, SAS
 * Top Victory Investments, Ltd.

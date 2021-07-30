@@ -31,6 +31,12 @@
     items:
     - name: Protect the access key
       href: howto-secure-rotate-access-key.md
+    - name: Use Azure Private Endpoints
+      href: howto-secure-private-endpoints.md
+    - name: Manage network access control
+      href: howto-secure-network-access-control.md
+    - name: Secure outbound traffic through Shared Private Endpoints
+      href: howto-secure-shared-private-endpoints.md
   - name: Troubleshooting
     items:
     - name: Collect network trace

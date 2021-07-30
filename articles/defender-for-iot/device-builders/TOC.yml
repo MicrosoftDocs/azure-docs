@@ -56,6 +56,9 @@
   - name: Micro agent event collection (Preview)
     displayName: process events, network connection
     href: concept-event-aggregation.md
+  - name: Micro agent linux dependencies
+    displayName: linux, micro agent, agent
+    href: concept-micro-agent-linux-dependencies.md
   - name: Built-in alerts for IoT Hub
     displayName: binary command line, disable firewall, port forwarding detection, possible attempt to disable auditd logging detected, reverse shells, successful bruteforce attempt, successful local login, web shell, Behavior similar, Crypto coin, suspicious, Exposed Docker, 
     href: concept-security-alerts.md
