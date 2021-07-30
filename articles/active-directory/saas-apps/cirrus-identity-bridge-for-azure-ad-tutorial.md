@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/23/2021
+ms.date: 07/30/2021
 ms.author: jeedes
 
 ---
@@ -33,7 +33,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Cirrus Identity Bridge for Azure AD supports **SP** initiated SSO.
+* Cirrus Identity Bridge for Azure AD supports **SP** and **IDP** initiated SSO.
 
 ## Add Cirrus Identity Bridge for Azure AD from the gallery
 
@@ -74,11 +74,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.cirrusidentity.com/bridge`
 
-    b. In the **Sign on URL** text box, type a value using the following pattern:
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://<NAME>.proxy.cirrusidentity.com/module.php/saml/sp/saml2-acs.php/<NAME>_proxy`
+
+1. Click Set additional URLs and perform the following step if you wish to configure the application in SP initiated mode:
+ 
+    In the **Sign on URL** text box, type a value using the following pattern:
     `<CUSTOMER_LOGIN_URL>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Sign on URL. Contact [Cirrus Identity Bridge for Azure AD Client support team](https://www.cirrusidentity.com/resources/service-desk) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier,Reply URL and Sign on URL. Contact [Cirrus Identity Bridge for Azure AD Client support team](https://www.cirrusidentity.com/resources/service-desk) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Cirrus Identity Bridge for Azure AD application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -86,7 +91,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In addition to above, Cirrus Identity Bridge for Azure AD application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 	
-	| Name |  Source attribute|
+	| Name |  Source Attribute|
 	| ---------| --------- |
 	| displayname | user.displayname |
 
@@ -130,11 +135,17 @@ In this section, you create a user called Britta Simon in Cirrus Identity Bridge
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Cirrus Identity Bridge for Azure AD Sign-on URL where you can initiate the login flow. 
+#### SP initiated:
 
-* Go to Cirrus Identity Bridge for Azure AD Sign-on URL directly and initiate the login flow from there.
+* Click on **Test this application** in Azure portal. This will redirect to Cirrus Identity Bridge Sign on URL where you can initiate the login flow.  
 
-* You can use Microsoft My Apps. When you click the Cirrus Identity Bridge for Azure AD tile in the My Apps, this will redirect to Cirrus Identity Bridge for Azure AD Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* Go to Cirrus Identity Bridge Sign-on URL directly and initiate the login flow from there.
+
+#### IDP initiated:
+
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Cirrus Identity Bridge for which you set up the SSO. 
+
+You can also use Microsoft My Apps to test the application in any mode. When you click the Cirrus Identity Bridge tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Cirrus Identity Bridge for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
