@@ -144,31 +144,31 @@ For more information, see [Managed HSM soft-delete overview](soft-delete-overvie
 
 ### Keys 
 
-* Delete a Key
+* To delete a key:
 
   ```powershell
   Remove-AzKeyVaultKey -HsmName ContosoHSM -Name 'MyKey'
   ```
 
-* List all deleted keys 
+* To list all deleted keys: 
 
   ```powershell
   Get-AzKeyVaultKey -HsmName ContosoHSM -InRemovedState
   ```
 
-* To recover a soft-deleted key
+* To recover a soft-deleted key:
 
     ```powershell
     Undo-AzKeyVaultKeyRemoval -HsmName ContosoHSM -Name ContosoFirstKey
     ```
 
-* Purge a soft-deleted key
+* To purge a soft-deleted key:
 
     ```powershell
     Remove-AzKeyVaultKey -HsmName ContosoHSM -Name ContosoFirstKey -InRemovedState
     ```
     > [!WARNING] 
-    > This operation will permanently delete your key
+    > This operation will permanently delete your key.
     
 ---
 
@@ -176,5 +176,5 @@ For more information, see [Managed HSM soft-delete overview](soft-delete-overvie
 
 - [Managed HSM PowerShell cmdlets](/powershell/module/az.keyvault)
 - [Key Vault Azure CLI commands](/cli/azure/keyvault)
-- [Managed HSM full backup/restore](backup-restore.md)
+- [Managed HSM full backup and restore](backup-restore.md)
 - [How to enable Managed HSM logging](logging.md)
