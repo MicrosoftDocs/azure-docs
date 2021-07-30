@@ -49,7 +49,7 @@ To simplify management and removal, we recommend you deploy Start/Stop VMs v2 (p
     :::image type="content" source="media/deploy/deployment-results-resource-list.png" alt-text="Start/Stop VMs template deployment resource list":::
 
 > [!NOTE]
-> We have updated the naming format on the function app and storage account. In order to assure their unique name across the globe, we have appended a unique string as a suffix on these resource names.  
+> The naming format for the function app and storage account has changed. To guarantee global uniqueness, a random and unique string is now appended to the names of these resource.  
 
 ## Enable multiple subscriptions
 
