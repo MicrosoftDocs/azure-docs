@@ -89,43 +89,47 @@ Flexible server provides two methods for you to perform on-demand failover to th
 You can use this feature to simulate an unplanned outage scenario while running your production workload and observe your application downtime. Alternatively, in rare case where your primary server becomes unresponsive for whatever reason, you may use this feature. 
 
 This feature triggers brings the primary server down and initiates the failover workflow in which the standby promote operation is performed. Once the standby completes the recovery process till the last committed data, it is promoted to be the primary server. DNS records are updated and your application can connect to the promoted primary server. Your application can continue to write to the primary while a new standby server is established in the background. The following are the steps performed:
-  
-  1. Primary server is stopped shortly after the failover request is received.
-  2. Application encounters downtime as the primary server is down.
-  3. Internal monitoring system detects the failure and initiates a failover to the standby server. 
-  4. Standby server enters recovery mode before being fully promoted as an independent server.
-  5. The failover process waits for the standby recovery to complete.
-  6. Once the server is up, DNS record is updated with the same hostname, but using the standby's IP address.
-  7. Application can reconnect to the new primary server and resume the operation.
-  8. A standby server in the preferred zone is established.
-  9. Standby server starts to recover logs (from Azure BLOB) that it missed during its establishment.
-  10. A steady-state between the primary and the standby server is established.
-  11. Forced failover process is complete.
+
+  | **Step** | **Description** | **Downtime** |
+  | ------- | ------ | ----- |
+  | 1 | Primary server is stopped shortly after the failover request is received. | Yes |
+  | 2 | Application encounters downtime as the primary server is down. | Yes |
+  | 3 | Internal monitoring system detects the failure and initiates a failover to the standby server. | Yes |
+  | 4 | Standby server enters recovery mode before being fully promoted as an independent server. | Yes |
+  | 5 | The failover process waits for the standby recovery to complete | Yes |
+  | 6 | Once the server is up, DNS record is updated with the same hostname, but using the standby's IP address. | Yes |
+  | 7 | Application can reconnect to the new primary server and resume the operation. | No |
+  | 8 | A standby server in the preferred zone is established. | No |
+  | 9 | Standby server starts to recover logs (from Azure BLOB) that it missed during its establishment. | No |
+  | 10 | A steady-state between the primary and the standby server is established. | No |
+  | 11 | Forced failover process is complete. | No |
 
 Application downtime is expected to start after step #1 and persists until step #6 is completed. The rest of the steps happen in the background without impacting the application writes and commits.
 
 ### Planned failover
 
-You can use this feature for failing over to the standby server with reduced downtime. For example, after an unplanned failover, your primary could be on a different availability zone than the application, and you want to bring the primray server back to the previous zone to co-locate with your application.
+You can use this feature for failing over to the standby server with reduced downtime. For example, after an unplanned failover, your primary could be on a different availability zone than the application, and you want to bring the primary server back to the previous zone to co-locate with your application.
 
 When executing this feature, the standby server is first prepared to make sure it is caught up with recent transactions allowing the application to continue to perform read/writes. The standby is then promoted and the connections to the primary is severed. Your application can continue to write to the primary while a new standby server is established in the background. The following are the steps involved with planned failover.
 
-   1. Wait for the standby server to have caught-up with primary 
-   2. Internal monitoring system initiates the failover workflow.
-   3. Application writes are blocked when the standby server is close to primary log sequence number (LSN).
-   4. Standby server is promoted to be an independent server.
-   5. DNS record is updated with the new standby server's IP address. 
-   6. Application to reconnect and resume its read/write with new primary
-   7. A standby server in another zone is established.
-   8. Standby server starts to recover logs (from Azure BLOB) that it missed during its establishment.
-   9. A steady-state between the primary and the standby server is established.
-  10. Planned failover process is complete.
+| **Step** | **Description** | **Downtime** |
+  | ------- | ------ | ----- |
+  | 1 | Wait for the standby server to have caught-up with primary | No |
+  | 2 | Internal monitoring system initiates the failover workflow. | No |
+  | 3 | Application writes are blocked when the standby server is close to primary log sequence number (LSN). | Yes |
+  | 4 | Standby server is promoted to be an independent server. | Yes |
+  | 5 | DNS record is updated with the new standby server's IP address. | Yes |
+  | 6 | Application to reconnect and resume its read/write with new primary | No |
+  | 7 | A new standby server in another zone is established. | No |
+  | 8 | Standby server starts to recover logs (from Azure BLOB) that it missed during its establishment. | No |
+  | 9 | A steady-state between the primary and the standby server is established. | No |
+  | 10 |  Planned failover process is complete. | No |
 
-Application downtime starts at step #3 and can resume operation post step #5. The rest of the steps happen in the background without impacting application writes and commits.
+Application downtime starts at step #3 and can resume operation post step #5. The rest of the steps happen in the background without impacting application writes and commits. 
 
 ### Considerations while performing on-demand failovers
 
-* The overall end-to-end operation time may be seen longer than the actual downtime experienced by the application. Please measure the downtime from the application perspective.
+* The overall end-to-end operation time may be seen longer than the actual downtime experienced by the application. **Please observe the downtime from the application perspective**.
 * Please do not perform immediate, back-to-back failovers. Wait for at least 15-20 minutes between failovers, which will  allow the new standby server to be fully established.
 * For the planned failover with reduced downtime, it is recommended to perform during low activity period.
 
@@ -182,7 +186,7 @@ Flexible servers that are configured with high availability, log data is replica
 
 * If logical decoding or logical replication is configured with a HA configured flexible server, in the event of a failover to the standby server, the logical replication slots are not copied over to the standby server.  
 
-## Frequenty asked questions
+## Frequently asked questions
 
 ### HA configuration questions
 

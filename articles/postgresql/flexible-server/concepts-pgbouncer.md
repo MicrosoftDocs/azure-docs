@@ -20,7 +20,7 @@ PgBouncer uses a more lightweight model that utilizes asynchronous I/O, and only
 When enabled, PgBouncer runs on port 6432 on your database server. You can change your application’s database connection configuration to use the same host name, but change the port to 6432 to start using PgBouncer and benefit from improved idle connection scaling.
 
 > [!Note]
-> PgBouncer is supported only on General Purpose and Memory Optimized compute tiers.
+> PgBouncer is supported on General Purpose and Memory Optimized compute tiers in both public access and private access networking.
 
 ## Enabling and configuring PgBouncer
 
