@@ -138,7 +138,7 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/healthcare-apis/fhir-faq.md",
+        "source_path_from_root": "/articles/healthcare-apis/fhir-faq",
         "redirect_url": "/azure/healthcare-apis/fhir/fhir-faq",
         "redirect_document_id": true
     },

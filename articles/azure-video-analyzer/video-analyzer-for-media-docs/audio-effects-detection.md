@@ -6,6 +6,7 @@ author: Juliako
 manager: femila
 
 ms.service: azure-video-analyzer
+ms.subservice: azure-video-analyzer-media
 ms.topic: article
 ms.date: 05/12/2021
 ms.author: juliako

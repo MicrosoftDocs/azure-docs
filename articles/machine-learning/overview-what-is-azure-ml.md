@@ -23,7 +23,7 @@ Start training on your local machine and then scale out to the cloud.
 The service also interoperates with popular deep learning and reinforcement open-source tools such as PyTorch, TensorFlow, scikit-learn, and Ray RLlib. 
 
 > [!Tip]
-> **Free trial!**  If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today. You get credits to spend on Azure services. After they're used up, you can keep the account and use [free Azure services](https://azure.microsoft.com/free/). Your credit card is never charged unless you explicitly change your settings and ask to be charged.
+> **Free trial!**  If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today. You get credits to spend on Azure services. After they're used up, you can keep the account and use [free Azure services](https://azure.microsoft.com/free/). Your credit card is never charged unless you explicitly change your settings and ask to be charged.
 
 
 ## What is machine learning?
@@ -39,8 +39,6 @@ Azure Machine Learning provides all the tools developers and data scientists nee
 
 + Jupyter notebooks: use our [example notebooks](https://github.com/Azure/MachineLearningNotebooks) or create your own notebooks to leverage our <a href="/python/api/overview/azure/ml/intro" target="_blank">SDK for Python</a> samples for your machine learning. 
 
-+ The [Many Models Solution Accelerator](https://aka.ms/many-models) (preview) builds on Azure Machine Learning and enables you to train, operate, and manage hundreds or even thousands of machine learning models.
-
 + [Machine learning extension for Visual Studio Code (preview)](how-to-set-up-vs-code-remote.md) provides you with a full-featured development environment for building and managing your machine learning projects.
 
 + [Machine learning CLI](reference-azure-machine-learning-cli.md) is an Azure CLI extension that provides commands for managing with Azure Machine Learning resources from the command line.
@@ -51,7 +49,7 @@ Azure Machine Learning provides all the tools developers and data scientists nee
 
 You can even use [MLflow to track metrics and deploy models](how-to-use-mlflow.md) or Kubeflow to [build end-to-end workflow pipelines](https://www.kubeflow.org/docs/azure/).
 
-## Build ML models in with the Python SDK
+## Build ML models with the Python SDK
 
 Start training on your local machine using the Azure Machine Learning <a href="/python/api/overview/azure/ml/intro" target="_blank">Python SDK</a>. Then, you can scale out to the cloud. 
 

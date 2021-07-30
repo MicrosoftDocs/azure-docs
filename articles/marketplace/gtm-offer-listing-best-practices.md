@@ -11,7 +11,7 @@ ms.date: 06/03/2021
 
 # Offer listing best practices
 
-This article gives suggestions for creating and engaging Microsoft commercial marketplace offers. The following tables outline best practices for completing offer information in Partner Center. For an analysis of how your offers are performing, go to the [Marketplace Insights dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights) in Partner Center. 
+This article gives suggestions for creating and engaging Microsoft commercial marketplace offers. The following tables outline best practices for completing offer information in Partner Center. For an analysis of how your offers are performing, go to the [Marketplace Insights dashboard](https://go.microsoft.com/fwlink/?linkid=2165936) in Partner Center.
 
 ## Online store offer details
 
@@ -135,10 +135,10 @@ When you link from the AppSource or Azure Marketplace badge on your site to your
 The following example URL contains both of the preceding query parameters:
 `https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
 
-By adding the parameters to your AppSource URL, you can review the effectiveness of your campaign in the analytics dashboard in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/).
+By adding the parameters to your AppSource URL, you can review the effectiveness of your campaign in the [analytics dashboard](https://go.microsoft.com/fwlink/?linkid=2165765) in Partner Center.
 
 ## Next steps
 
 Learn more about your [commercial marketplace benefits](./gtm-your-marketplace-benefits.md).
 
-Sign in to [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create and configure your offer.
+Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165290) to create and configure your offer. If you haven't yet enrolled in Partner Center, [create an account](create-account.md).

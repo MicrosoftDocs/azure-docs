@@ -17,9 +17,9 @@ ms.service: digital-twins
 
 # Adopting an industry ontology
 
-Because it can be easier to start with an open-source DTDL ontology than starting from a blank page, Microsoft is partnering with domain experts to publish ontologies, which represent widely accepted industry conventions and support various customer use cases. 
+Because it can be easier to start with an open-source DTDL ontology than from a blank page, Microsoft is partnering with domain experts to publish ontologies. These ontologies represent widely accepted industry conventions and support various customer use cases. 
 
-The result is a set of open-source DTDL-based ontologies, which learn from, build on, learn from, or directly use industry standards. The ontologies are designed to meet the needs of downstream developers, with the potential to be widely adopted and/or extended by the industry.
+The result is a set of open-source DTDL-based ontologies, which learn from, build on, or directly use industry standards. The ontologies are designed to meet the needs of downstream developers, with the potential to be widely adopted and extended by the industry.
 
 At this time, Microsoft has worked with partners to develop ontologies for [smart buildings](#realestatecore-smart-building-ontology), [smart cities](#smart-cities-ontology), and [energy grids](#energy-grid-ontology), which provide common ground for modeling based on standards in these industries to avoid the need for reinvention. 
 
@@ -51,7 +51,7 @@ You can also read more about the partnerships and approach for smart cities in t
 
 *Get the ontology from the following repository:* [Digital Twins Definition Language (DTDL) ontology for Energy Grid](https://github.com/Azure/opendigitaltwins-energygrid/).
 
-This ontology was created to help solution providers accelerate development of digital twin solutions for energy use cases (monitoring grid assets, outage and impact analysis, simulation, and predictive maintenance) and facilitate digital transformation and modernization of the energy grid. It is adapted from the [Common Information Model (CIM)](https://cimug.ucaiug.org/), a global standard for energy grid assets management, power system operations modeling and physical energy commodity market.
+This ontology was created to help solution providers accelerate development of digital twin solutions for energy use cases (monitoring grid assets, outage and impact analysis, simulation, and predictive maintenance) and enable the digital transformation and modernization of the energy grid. It's adapted from the [Common Information Model (CIM)](https://cimug.ucaiug.org/), a global standard for energy grid assets management, power system operations modeling, and physical energy commodity market.
 
 To learn more about the ontology, how to use it, and how to contribute, visit the ontology's repository on GitHub: [Azure/opendigitaltwins-energygrid](https://github.com/Azure/opendigitaltwins-energygrid/). 
 
@@ -59,6 +59,6 @@ You can also read more about the partnerships and approach for energy grids in t
 
 ## Next steps
 
-* Learn more about extending industry-standard ontologies to meet your specifications: [Concepts: Extending industry ontologies](concepts-ontologies-extend.md).
+* Learn more about extending industry-standard ontologies to meet your specifications: [Extending industry ontologies](concepts-ontologies-extend.md).
 
 * Or, continue on the path for developing models based on ontologies: [Using ontology strategies in a model development path](concepts-ontologies.md#using-ontology-strategies-in-a-model-development-path).

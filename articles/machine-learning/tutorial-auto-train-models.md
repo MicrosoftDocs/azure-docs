@@ -10,7 +10,7 @@ author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 06/11/2021
-ms.custom: devx-track-python, automl
+ms.custom: devx-track-python, automl, FY21Q4-aml-seo-hack, contperf-fy21q4
 ---
 
 # Tutorial: Train a regression model with AutoML and Python
@@ -36,7 +36,7 @@ For no-code AutoML, try the following tutorials:
 
 ## Prerequisites
 
-If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version](https://aka.ms/AMLFree) of Azure Machine Learning today.
+If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version](https://azure.microsoft.com/free/) of Azure Machine Learning today.
 
 * Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) if you don't already have an Azure Machine Learning workspace or a compute instance.
 * After you complete the quickstart:

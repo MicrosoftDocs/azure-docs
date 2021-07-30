@@ -56,7 +56,7 @@ For **How do you want potential customers to interact with this listing offer?**
 - **Enable app license management through Microsoft** – Manage your app licenses through Microsoft. To let customers run your app’s base functionality without a license and run premium features after they’ve purchased a license, select the **Allow customers to install my app even if licenses are not assigned box**. If you select this second box, you need to configure your solution package to not require a license.
 
     > [!NOTE]
-    > You cannot change this setting after you publish your offer. To learn more about this setting, see [Third-party app license management through Microsoft](third-party-license.md).
+    > You cannot change this setting after you publish your offer. To learn more about this setting, see [ISV app license management](isv-app-license.md).
 
 - **Get it now (free)** – List your offer to customers for free.
 - **Free trial (listing)** – List your offer to customers with a link to a free trial. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
