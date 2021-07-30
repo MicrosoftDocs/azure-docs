@@ -77,10 +77,12 @@
   items:
     - name: Tiers 
       items: 
-      - name: Event Hubs Premium
+      - name: Premium tier
         href: event-hubs-premium-overview.md      
-      - name: Event Hubs Dedicated
+      - name: Dedicated tier
         href: event-hubs-dedicated-overview.md
+      - name: Compare Event Hubs tiers
+        href: compare-tiers.md
     - name: Event Hubs for Apache Kafka
       href: event-hubs-for-kafka-ecosystem-overview.md
     - name: Event Hubs Capture
