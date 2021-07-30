@@ -78,8 +78,8 @@ The preview of Automatic Extension Upgrade supports the following extensions (an
 
 
 ## Enabling Automatic Extension Upgrade
-To enable Automatic Extension Upgrade for an extension, you must ensure the property *enableAutomaticUpgrade* is set to *true* and added to every extension definition individually.
 
+To enable Automatic Extension Upgrade for an extension, you must ensure the property `enableAutomaticUpgrade` is set to `true` and added to every extension definition individually.
 
 ### REST API for Virtual Machines
 To enable automatic extension upgrade for an extension (in this example the Dependency Agent extension) on an Azure VM, use the following:

@@ -370,10 +370,12 @@ Use [az vm install-patches](/cli/azure/vm#az_vm_install_patches) to install patc
 Example to install all Critical patches on a Linux VM:
 ```azurecli-interactive
 az vm install-patches --resource-group myResourceGroup --name myVM --maximum-duration PT2H --reboot-setting IfRequired --classifications-to-include-linux Critical
+```
 
 Example to install all Critical and Security patches on a Windows VM, while excluding any patch that requires a reboot:
 ```azurecli-interactive
 az vm install-patches --resource-group myResourceGroup --name myVM --maximum-duration PT2H --reboot-setting IfRequired --classifications-to-include-win Critical Security --exclude-kbs-requiring-reboot true
+```
 
 ## Next steps
 > [!div class="nextstepaction"]
