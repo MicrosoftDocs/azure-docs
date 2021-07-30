@@ -58,7 +58,7 @@ The following table summarizes the Azure Storage data protection options accordi
 | Immutability policy on a container | Yes<sup>2</sup> | Yes | Yes | Yes |
 | Container soft delete | No | Yes | No | No |
 | Blob versioning<sup>3</sup> | No | No | Yes | Yes |
-| Blob soft delete<sup>3</sup> | No | No | Yes | Yes |
+| Blob soft delete | No | No | Yes | Yes |
 | Point-in-time restore<sup>3</sup> | No | No | Yes | Yes |
 | Blob snapshot | No | No | No | Yes |
 | Roll-your-own solution for copying data to a second account<sup>4</sup> | No | Yes | Yes | Yes |
