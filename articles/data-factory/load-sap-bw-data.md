@@ -1,6 +1,6 @@
 ---
 title: Load data from SAP Business Warehouse
-description: 'Use Azure Data Factory to copy data from SAP Business Warehouse (BW)'
+description: Copy data from SAP Business Warehouse (BW) with Azure Data Factory or Synapse Analytics
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
@@ -9,19 +9,19 @@ ms.custom: seo-lt-2019
 ms.date: 07/05/2021
 ---
 
-# Copy data from SAP Business Warehouse by using Azure Data Factory
+# Copy data from SAP Business Warehouse with Azure Data Factory or Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article shows how to use Azure Data Factory to copy data from SAP Business Warehouse (BW) via Open Hub to Azure Data Lake Storage Gen2. You can use a similar process to copy data to other [supported sink data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+This article shows how to use Azure Data Factory or Synapse Analytics pipelines to copy data from SAP Business Warehouse (BW) via Open Hub to Azure Data Lake Storage Gen2. You can use a similar process to copy data to other [supported sink data stores](copy-activity-overview.md#supported-data-stores-and-formats).
 
 > [!TIP]
 > For general information about copying data from SAP BW, including SAP BW Open Hub integration and delta extraction flow, see [Copy data from SAP Business Warehouse via Open Hub by using Azure Data Factory](connector-sap-business-warehouse-open-hub.md).
 
 ## Prerequisites
 
-- **Azure Data Factory**: If you don't have one, follow the steps to [create a data factory](quickstart-create-data-factory-portal.md#create-a-data-factory).
+- **Azure Data Factory or Synapse workspace**: If you don't have one, follow the steps to [create a data factory](quickstart-create-data-factory-portal.md#create-a-data-factory) or [create a Synapse workspace](../synapse-analytics/quickstart-create-workspace.md).
 
-- **SAP BW Open Hub Destination (OHD) with destination type "Database Table"**: To create an OHD or to check that your OHD is configured correctly for Data Factory integration, see the [SAP BW Open Hub Destination configurations](#sap-bw-open-hub-destination-configurations) section of this article.
+- **SAP BW Open Hub Destination (OHD) with destination type "Database Table"**: To create an OHD or to check that your OHD is configured correctly for integration with the service, see the [SAP BW Open Hub Destination configurations](#sap-bw-open-hub-destination-configurations) section of this article.
 
 - **The SAP BW user needs the following permissions**:
 
@@ -38,7 +38,7 @@ This article shows how to use Azure Data Factory to copy data from SAP Business 
 
 ## Do a full copy from SAP BW Open Hub
 
-In the Azure portal, go to your data factory. Select **Open** on the **Open Azure Data Factory Studio** tile to open the Data Factory UI in a separate tab.
+In the Azure portal, go to your service. Select **Open** on the **Open Azure Data Factory Studio** or **Open Synapse Studio** tile to open the service UI in a separate tab.
 
 1. On the home page, select **Ingest** to open the Copy Data tool.
 
@@ -120,7 +120,7 @@ In the Azure portal, go to your data factory. Select **Open** on the **Open Azur
 ## Incremental copy from SAP BW Open Hub
 
 > [!TIP]
-> See [SAP BW Open Hub connector delta extraction flow](connector-sap-business-warehouse-open-hub.md#delta-extraction-flow) to learn how the SAP BW Open Hub connector in Data Factory copies incremental data from SAP BW. This article can also help you understand basic connector configuration.
+> See [SAP BW Open Hub connector delta extraction flow](connector-sap-business-warehouse-open-hub.md#delta-extraction-flow) to learn how the SAP BW Open Hub connector copies incremental data from SAP BW. This article can also help you understand basic connector configuration.
 
 Now, let's continue to configure incremental copy from SAP BW Open Hub.
 
@@ -128,7 +128,7 @@ Incremental copy uses a "high-watermark" mechanism that's based on the **request
 
 ![Incremental copy workflow flow chart](media/load-sap-bw-data/incremental-copy-workflow.png)
 
-On the data factory home page, select **Pipeline templates** in the **Discover more** section to use the built-in template.
+On the home page, select **Pipeline templates** in the **Discover more** section to use the built-in template.
 
 1. Search for **SAP BW** to find and select the **Incremental copy from SAP BW to Azure Data Lake Storage Gen2** template. This template copies data into Azure Data Lake Storage Gen2. You can use a similar workflow to copy to other sink types.
 
@@ -148,9 +148,9 @@ On the data factory home page, select **Pipeline templates** in the **Discover m
 
    - **SAPOpenHubDestinationName**: Specify the Open Hub table name to copy data from.
 
-   - **Data_Destination_Container**: Specify the destination Azure Data Lake Storage Gen2 container to copy data to. If the container doesn't exist, the Data Factory copy activity creates one during execution.
+   - **Data_Destination_Container**: Specify the destination Azure Data Lake Storage Gen2 container to copy data to. If the container doesn't exist, the copy activity creates one during execution.
   
-   - **Data_Destination_Directory**: Specify the folder path under the Azure Data Lake Storage Gen2 container to copy data to. If the path doesn't exist, the Data Factory copy activity creates a path during execution.
+   - **Data_Destination_Directory**: Specify the folder path under the Azure Data Lake Storage Gen2 container to copy data to. If the path doesn't exist, the copy activity creates a path during execution.
   
    - **HighWatermarkBlobContainer**: Specify the container to store the high-watermark value.
 
@@ -183,13 +183,13 @@ On the data factory home page, select **Pipeline templates** in the **Discover m
 
       3. Add a **Create blob** action. For **Folder path** and **Blob name**, use the same values that you configured previously in *HighWatermarkBlobContainer+HighWatermarkBlobDirectory* and *HighWatermarkBlobName*.
 
-      4. Select **Save**. Then, copy the value of **HTTP POST URL** to use in the Data Factory pipeline.
+      4. Select **Save**. Then, copy the value of **HTTP POST URL** to use in the pipeline.
 
-4. After you provide the Data Factory pipeline parameters, select **Debug** > **Finish** to invoke a run to validate the configuration. Or, select **Publish** to publish all the changes, and then select **Add trigger** to execute a run.
+4. After you provide the pipeline parameters, select **Debug** > **Finish** to invoke a run to validate the configuration. Or, select **Publish** to publish all the changes, and then select **Add trigger** to execute a run.
 
 ## SAP BW Open Hub Destination configurations
 
-This section introduces configuration of the SAP BW side to use the SAP BW Open Hub connector in Data Factory to copy data.
+This section introduces configuration of the SAP BW side to use the SAP BW Open Hub connector to copy data.
 
 ### Configure delta extraction in SAP BW
 
@@ -232,13 +232,13 @@ For a full load OHD, choose different options than for delta extraction:
 
    ![Create SAP BW OHD dialog box configured for "Full" extraction](media/load-sap-bw-data/create-sap-bw-ohd-full2.png)
 
-- In the BW Open Hub connector of Data Factory: Turn off **Exclude last request**. Otherwise, nothing will be extracted.
+- In the BW Open Hub connector: Turn off **Exclude last request**. Otherwise, nothing will be extracted.
 
-You typically run the full DTP manually. Or, you can create a process chain for the full DTP. It's typically a separate chain that's independent of your existing process chains. In either case, *make sure that the DTP is finished before you start the extraction by using Data Factory copy*. Otherwise, only partial data will be copied.
+You typically run the full DTP manually. Or, you can create a process chain for the full DTP. It's typically a separate chain that's independent of your existing process chains. In either case, *make sure that the DTP is finished before you start the extraction by using copy*. Otherwise, only partial data will be copied.
 
 ### Run delta extraction the first time
 
-The first delta extraction is technically a *full extraction*. By default, the SAP BW Open Hub connector excludes the last request when it copies data. For the first delta extraction, no data is extracted by the Data Factory copy activity until a subsequent DTP generates delta data in the table with a separate request ID. There are two ways to avoid this scenario:
+The first delta extraction is technically a *full extraction*. By default, the SAP BW Open Hub connector excludes the last request when it copies data. For the first delta extraction, no data is extracted by the copy activity until a subsequent DTP generates delta data in the table with a separate request ID. There are two ways to avoid this scenario:
 
 - Turn off the **Exclude last request** option for the first delta extraction. Make sure that the first delta DTP is finished before you start the delta extraction the first time.
 -  Use the procedure for resyncing the delta extraction, as described in the next section.
@@ -250,13 +250,13 @@ The following scenarios change the data in SAP BW cubes but are not considered b
 - SAP BW selective deletion (of rows by using any filter condition)
 - SAP BW request deletion (of faulty requests)
 
-An SAP Open Hub Destination isn't a data-mart-controlled data target (in all SAP BW support packages since 2015). So, you can delete data from a cube without changing the data in the OHD. You must then resync the data of the cube with Data Factory:
+An SAP Open Hub Destination isn't a data-mart-controlled data target (in all SAP BW support packages since 2015). So, you can delete data from a cube without changing the data in the OHD. You must then resync the data of the cube with the service:
 
-1. Run a full extraction in Data Factory (by using a full DTP in SAP).
+1. Run a full extraction in the service (by using a full DTP in SAP).
 2. Delete all rows in the Open Hub table for the delta DTP.
 3. Set the status of the delta DTP to **Fetched**.
 
-After this, all subsequent delta DTPs and Data Factory delta extractions work as expected.
+After this, all subsequent delta DTPs and delta extractions work as expected.
 
 To set the status of the delta DTP to **Fetched**, you can use the following option to run the delta DTP manually:
 
