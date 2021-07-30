@@ -63,7 +63,7 @@ Once you've configured your Azure AD B2C instance to send logs to Azure Monitor,
 > [!NOTE]
 > You can run Azure Sentinel on more than one workspace, but the data is isolated to a single workspace. For additional details on enabling Sentinel, please see this [QuickStart](../sentinel/quickstart-onboard.md).
 
-## Create a Sentinel Rule
+## Create a sentinel rule
 
 > [!NOTE]
 > Azure Sentinel provides out-of-the-box, built-in templates to help you create threat detection rules designed by Microsoft's team of security experts and analysts. Rules created from these templates automatically search across your data for any suspicious activity. Because today there is no native Azure AD B2C connector we will not use native rules in our example. For this tutorial we will create our own rule.
@@ -80,75 +80,76 @@ In our scenario, we want to receive a notification if someone is trying to force
 1. From the Azure Sentinel navigation menu, select **Analytics**.
 2. In the action bar at the top, select **+Create** and select **Scheduled query rule**. This opens the **Analytics rule wizard**.
 
-:::image type="content" source="./media/azure-sentinel/Rule2.png" alt-text="select create scheduled query rule":::
+   :::image type="content" source="./media/azure-sentinel/create-scheduled-rule.png" alt-text="select create scheduled query rule":::
 
 3. Analytics rule wizard - General tab
+
    - Provide a unique **Name** and a **Description**
      - **Name**: _B2C Non-successful logins_ **Description**: _Notify on two or more non-successful logins within 60 sec_
    - In the **Tactics** field, you can choose from among categories of attacks by which to classify the rule. These are based on the tactics of the [MITRE ATT&CK](https://attack.mitre.org/) framework.
      - For our example, we will choose _PreAttack_
 
-> [!Tip]
-> MITRE ATT&CK® is a globally accessible knowledge base of adversary tactics and techniques based on real-world observations. The ATT&CK knowledge base is used as a foundation for the development of specific threat models and methodologies.
+   > [!Tip]
+   > MITRE ATT&CK® is a globally accessible knowledge base of adversary tactics and techniques based on real-world observations. The ATT&CK knowledge base is used as a foundation for the development of specific threat models and methodologies.
 
-- Set the alert **Severity** as appropriate.
-  - Giving this is our first rule, we will choose _High_. We can makes changes to our rule later
-- When you create the rule, its **Status** is **Enabled** by default, which means it will run immediately after you finish creating it. If you don’t want it to run immediately, select **Disabled**, and the rule will be added to your **Active rules** tab and you can enable it from there when you need it.
+   - Set the alert **Severity** as appropriate.
+     - As this is our first rule, we will choose _High_. We can makes changes to our rule later
+   - When you create the rule, its **Status** is **Enabled** by default, which means it will run immediately after you finish creating it. If you don’t want it to run immediately, select **Disabled**, and the rule will be added to your **Active rules** tab and you can enable it from there when you need it.
 
-:::image type="content" source="./media/azure-sentinel/Rule3.png" alt-text="provide basic rule properties":::
+   :::image type="content" source="./media/azure-sentinel/create-new-rule.png" alt-text="provide basic rule properties":::
 
 4. Define the rule query logic and configure settings.
 
-In the **Set rule logic** tab, we will write a query directly in the **Rule query** field. This query will alert you when there are two or more non-successful logins within 60 sec to your B2C tenant and will organize by _UserPrincipalName_
+   In the **Set rule logic** tab, we will write a query directly in the **Rule query** field. This query will alert you when there are two or more non-successful logins within 60 sec to your B2C tenant and will organize by _UserPrincipalName_
 
-```kusto
-SigninLogs
-| where ResultType != "0"
-| summarize Count = count() by bin(TimeGenerated, 60s), UserPrincipalName
-| project Count = toint(Count), UserPrincipalName
-| where Count >= 1
-```
+   ```kusto
+   SigninLogs
+   | where ResultType != "0"
+   | summarize Count = count() by bin(TimeGenerated, 60s), UserPrincipalName
+   | project Count = toint(Count), UserPrincipalName
+   | where Count >= 1
+   ```
 
-:::image type="content" source="./media/azure-sentinel/Rule4.png" alt-text="enter the rule query in the logic tab":::
+   :::image type="content" source="./media/azure-sentinel/rule-query.png" alt-text="enter the rule query in the logic tab":::
 
-In the Query scheduling section, set the following parameters:
+   In the Query scheduling section, set the following parameters:
 
-:::image type="content" source="./media/azure-sentinel/query-scheduling.png" alt-text="set query scheduling parameters":::
+   :::image type="content" source="./media/azure-sentinel/query-scheduling.png" alt-text="set query scheduling parameters":::
 
 5. Click Next in **Incident Settings (Preview)** and in **Automated Response**. You will configure and add the Automated Response later.
 
 6. Click Next get to the **Review and create** tab to review all the settings for your new alert rule. When the "Validation passed" message appears, select **Create** to initialize your alert rule.
 
-:::image type="content" source="./media/azure-sentinel/review-create.png" alt-text="review and create rule":::
+   :::image type="content" source="./media/azure-sentinel/review-create.png" alt-text="review and create rule":::
 
 7. View the rule and Incidents it generates.
 
-You can find your newly created custom rule (of type "Scheduled") in the table under the **Active rules** tab on the main **Analytics** screen. From this list you can **_edit_**, **_enable_**, **_disable_**, or **_delete_** rules.
+   You can find your newly created custom rule (of type "Scheduled") in the table under the **Active rules** tab on the main **Analytics** screen. From this list you can **_edit_**, **_enable_**, **_disable_**, or **_delete_** rules.
 
-:::image type="content" source="./media/azure-sentinel/Rule7.png" alt-text="analytics screen showing options to edit, enable, disable or delete rules":::
+   :::image type="content" source="./media/azure-sentinel/rule-crud.png" alt-text="analytics screen showing options to edit, enable, disable or delete rules":::
 
-To view the results of our new B2C Non-successful logins rule, go to the **Incidents** page, where you can triage, investigate, and remediate the threats.
+   To view the results of our new B2C Non-successful logins rule, go to the **Incidents** page, where you can triage, investigate, and remediate the threats.
 
-An incident can include multiple alerts. It's an aggregation of all the relevant evidence for a specific investigation. You can set properties such as severity and status at the incident level.
+   An incident can include multiple alerts. It's an aggregation of all the relevant evidence for a specific investigation. You can set properties such as severity and status at the incident level.
 
-> [!NOTE]
-> For detailed review on Incident investigation please see [this Tutorial](../sentinel/tutorial-investigate-cases.md)
+   > [!NOTE]
+   > For detailed review on Incident investigation please see [this Tutorial](../sentinel/tutorial-investigate-cases.md)
 
-To begin the investigation, select a specific incident. On the right, you can see detailed information for the incident including its severity, entities involved, the raw events that triggered the incident, and the incident’s unique ID.
+   To begin the investigation, select a specific incident. On the right, you can see detailed information for the incident including its severity, entities involved, the raw events that triggered the incident, and the incident’s unique ID.
 
-:::image type="content" source="./media/azure-sentinel/Rule72.png" alt-text="incident screen":::
+   :::image type="content" source="./media/azure-sentinel/select-incident.png" alt-text="incident screen":::
 
-To view more details about the alerts and entities in the incident, select **View full details** in the incident page and review the relevant tabs that summarize the incident information
+   To view more details about the alerts and entities in the incident, select **View full details** in the incident page and review the relevant tabs that summarize the incident information
 
-:::image type="content" source="./media/azure-sentinel/Rule73.png" alt-text="rule 73":::
+   :::image type="content" source="./media/azure-sentinel/full-details.png" alt-text="rule 73":::
 
-To review further details about the incident, you can select **Evidence->Events** or **Events -> Link to Log Analytics**
+   To review further details about the incident, you can select **Evidence->Events** or **Events -> Link to Log Analytics**
 
-The results will display the _UserPrincipalName_ of the identity trying to log in the _number_ of attempts.
+   The results will display the _UserPrincipalName_ of the identity trying to log in the _number_ of attempts.
 
-:::image type="content" source="./media/azure-sentinel/Rule74.png" alt-text="details of selected incident":::
+   :::image type="content" source="./media/azure-sentinel/logs.png" alt-text="details of selected incident":::
 
-## Automated Response
+## Automated response
 
 Azure Sentinel also provides a robust SOAR capability; additional information can be found at the official Sentinel documentation [here](../sentinel/automation-in-azure-sentinel.md).
 
@@ -160,9 +161,9 @@ To accomplish our task, we will use an existing Playbook from the Sentinel GitHu
 
 Once the Playbook is configured, you'll have to just edit the existing rule and select the playbook into the Automation tab:
 
-:::image type="content" source="./media/azure-sentinel/Automation.png" alt-text="configuration screen for the automated response associated to a rule":::
+:::image type="content" source="./media/azure-sentinel/automation-tab.png" alt-text="configuration screen for the automated response associated to a rule":::
 
-## Next Steps
+## Next steps
 
 - Because no rule is perfect, if needed you can update the rule query to exclude false positives. For more information, see [Handle false positives in Azure Sentinel](../sentinel/false-positives.md)
 
