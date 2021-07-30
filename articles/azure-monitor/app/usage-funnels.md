@@ -26,7 +26,7 @@ To create a funnel:
 1. Then choose your *Second step* and so on.
 1. Select the **View** tab to see your funnel results
 
-      :::image type="content" source="./media/usage-funnels/funnel2.png" alt-text="Screenshot of the funnel tab on view." lightbox="./media/usage-funnels/funnel2.png":::
+      :::image type="content" source="./media/usage-funnels/funnel-2.png" alt-text="Screenshot of the funnel tab on view tab showing results from the top and second step." lightbox="./media/usage-funnels/funnel-2.png":::
 
 1. To save your funnel to view at another time, select **Save** at the top. You can use **Open** to open your saved funnels.
 

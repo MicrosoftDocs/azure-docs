@@ -20,7 +20,7 @@ If you don't yet see data in the retention tool in the Application Insights port
 
 To use the Retention Workbook, in your Application Insights resources navigate to **Usage** > **Retention** and select **Retention Analysis Workbook**. Or in the  **Workbooks** tab select **Public Templates** then select **User Retention Analysis** under *Usage*.
 
-:::image type="content" source="./media/usage-retention/workbooks-gallery.png" alt-text="Screenshot of the workbooks gallery." lightbox="./media/usage-retention/workbooks-gallery.png":::
+:::image type="content" source="./media/usage-retention/workbooks-gallery.png" alt-text="Screenshot of the workbooks gallery on public templates." lightbox="./media/usage-retention/workbooks-gallery.png":::
 
 
 

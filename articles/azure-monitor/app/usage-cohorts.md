@@ -52,7 +52,8 @@ Your team defines an engaged user as anyone who uses your app five or more times
 
 Open the Users tool. In the **Show** drop-down box, choose the cohort you created under **Users who belong to**.
 
-:::image type="content" source="./media/usage-cohorts/cohort2.png" alt-text="Screenshot of the Show dropdown.":::
+
+:::image type="content" source="./media/usage-cohorts/cohort-2.png" alt-text="Screenshot of the Show dropdown, showing a cohort.":::
 
 A few important things to notice:
 
@@ -82,7 +83,7 @@ The previous two cohorts were defined by using drop-down boxes. But you can also
 
 1. Open the Cohorts tool, select the **Template Gallery** tab, and select **Blank Users cohort**.
 
-   :::image type="content" source="./media/usage-cohorts/cohort1.png" alt-text="Screenshot of the template gallery for cohorts." lightbox="./media/usage-cohorts/cohort1.png":::
+   :::image type="content" source="./media/usage-cohorts/cohort.png" alt-text="Screenshot of the template gallery for cohorts." lightbox="./media/usage-cohorts/cohort.png":::
 
     There are three sections:
    * A Markdown text section, where you describe the cohort in more detail for others on your team.

@@ -25,7 +25,7 @@ But analyzing performance is just a subset of Impact's capabilities. Since Impac
 
 To use the Impact Analytics Workbook, in your Application Insights resources navigate to **Usage** > **Impact** and select **Impact Analysis Workbook**. Or in the  **Workbooks** tab select **Public Templates** then select **User Impact Analysis** under *Usage*.
 
-:::image type="content" source="./media/usage-impact/workbooks-gallery.png" alt-text="Screenshot of the workbooks gallery." lightbox="./media/usage-impact/workbooks-gallery.png":::
+:::image type="content" source="./media/usage-impact/workbooks-gallery.png" alt-text="Screenshot of the workbooks gallery on public templates." lightbox="./media/usage-impact/workbooks-gallery.png":::
 
 
 ### Using the workbook

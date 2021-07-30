@@ -54,7 +54,7 @@ The **Users** panel allows you to understand important details about your users 
 5. Position the cursor over different bars in the chart and note that the count for each country/region reflects only the time window represented by that bar.
 6. Select **View More Insights** for more information. 
 
-      :::image type="content" source="./media/tutorial-users/user-2.png" alt-text="Screenshot oon the User tab of view more insights." lightbox="./media/tutorial-users/user-2.png":::
+      :::image type="content" source="./media/tutorial-users/user-2.png" alt-text="Screenshot of the User tab of view more insights." lightbox="./media/tutorial-users/user-2.png":::
 
 
 ## Analyze user sessions
@@ -63,7 +63,7 @@ The **Sessions** panel is similar to the **Users** panel.  Where **Users** helps
 1. User *Usage*, select **Sessions**.
 2. Have a look at the graph and note that you have the same options to filter and break down the data as in the **Users** panel.
 
-     :::image type="content" source="./media/tutorial-users/sessions.png" alt-text="Screenshot of the Sessions tab." lightbox="./media/tutorial-users/sessions.png":::
+     :::image type="content" source="./media/tutorial-users/sessions.png" alt-text="Screenshot of the Sessions tab with a bar chart displayed." lightbox="./media/tutorial-users/sessions.png":::
 
 4. To view the sessions timeline, select **View More Insights** then under active sessions select **View session timeline** on one of the timelines. Session Timeline shows every action in the sessions. This can help you identify information such as the sessions with a large number of exceptions.
 
@@ -76,11 +76,11 @@ A **Cohort** is a set of users grouped on similar characteristics.  You can use 
 
 1.  Select a template from the gallery.
 
-    :::image type="content" source="./media/tutorial-users/cohort1.png" alt-text="Screenshot of the template gallery for cohorts." lightbox="./media/tutorial-users/cohort1.png":::
+    :::image type="content" source="./media/tutorial-users/cohort.png" alt-text="Screenshot of the template gallery for cohorts." lightbox="./media/tutorial-users/cohort.png":::
 1.  Edit your Cohort then select **save**.
 1.  To see your Cohort select it from the **Show** dropdown menu. 
 
-    :::image type="content" source="./media/tutorial-users/cohort2.png" alt-text="Screenshot of the Show dropdown." lightbox="./media/tutorial-users/cohort2.png":::
+    :::image type="content" source="./media/tutorial-users/cohort-2.png" alt-text="Screenshot of the Show dropdown, showing a cohort." lightbox="./media/tutorial-users/cohort-2.png":::
 
 
 ## Compare desired activity to reality
@@ -94,7 +94,7 @@ While the previous panels are focused on what users of your application did, **F
 
 4. Select the **View** tab to see the results. The window to the right shows the most common events before the first activity and after the last activity to help you understand user tendencies around the particular sequence.
 
-     :::image type="content" source="./media/tutorial-users/funnel2.png" alt-text="Screenshot of the funnel tab on view." lightbox="./media/tutorial-users/funnel2.png":::
+     :::image type="content" source="./media/tutorial-users/funnel-2.png" alt-text="Screenshot of the funnel tab on view." lightbox="./media/tutorial-users/funnel-2.png":::
 
 4. To save the funnel, select **Save**. 
 
@@ -109,7 +109,7 @@ While the previous panels are focused on what users of your application did, **F
 
 3. The returning users that match the criteria are shown in graphical and table form for different time durations. The typical pattern is for a gradual drop in returning users over time.  A sudden drop from one time period to the next might raise a concern. 
 
-      :::image type="content" source="./media/tutorial-users/retention2.png" alt-text="Screenshot of the retention workbook, showing user return after # of weeks chart." lightbox="./media/tutorial-users/retention2.png":::
+      :::image type="content" source="./media/tutorial-users/retention-2.png" alt-text="Screenshot of the retention workbook, showing user return after # of weeks chart." lightbox="./media/tutorial-users/retention-2.png":::
 
 ## Analyze user navigation
 A **User flow** visualizes how users navigate between the pages and features of your application.  This helps you answer questions such as where users typically move from a particular page, how they typically exit your application, and if there are any actions that are regularly repeated.
