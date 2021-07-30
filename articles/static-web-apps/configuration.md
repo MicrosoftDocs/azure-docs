@@ -254,13 +254,14 @@ The `networking` section controls the network configuration of your static web a
 > [!NOTE]
 > Networking configuration is only available in the Azure Static Web Apps Standard plan.
 
-Define each IPv4 address block in Classless Inter-Domain Routing (CIDR) notation. To learn more about CIDR notation, see [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+Define each IPv4 address block in Classless Inter-Domain Routing (CIDR) notation. To learn more about CIDR notation, see [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). Each IPv4 address block can denote either a public or private address space. If you only want to allow access from a single IP Address you can use the `/32` CIDR block.
 
 ```json
 {
   "networking": {
     "allowedIpRanges": [
       "10.0.0.0/24",
+      "100.0.0.0/32",
       "192.168.100.0/22"
     ]
   }
@@ -378,7 +379,7 @@ Based on the above configuration, review the following scenarios.
 
 ## Restrictions
 
-The following restrictions exist for the _staticwebapps.config.json_ file.
+The following restrictions exist for the _staticwebapp.config.json_ file.
 
 - Max file size is 100 KB
 - Max of 50 distinct roles

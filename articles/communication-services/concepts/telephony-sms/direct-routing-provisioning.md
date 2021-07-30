@@ -36,7 +36,7 @@ If everything set up correctly, you should see exchange of OPTIONS messages betw
 
 ## Voice routing considerations
 
-Azure Communication services direct routing has a routing mechanism that allows a call to be sent to a specific Session Border Controller (SBC) based on the called number pattern.
+Azure Communication Services direct routing has a routing mechanism that allows a call to be sent to a specific Session Border Controller (SBC) based on the called number pattern.
 When you add a direct routing configuration to a resource, all calls made from this resource’s instances (identities) will try a direct routing trunk first. The routing is based on a dialed number and a match in voice routes configured for the resource. If there is a match, the call goes through the direct routing trunk. If there is no match, the next step is to process the alternateCallerId parameter of callAgent.startCall method. If the resource is enabled for Voice Calling (PSTN) and has at least one number purchased from Microsoft, and if alternateCallerId matches one of a purchased number for the resource, the call is routed through the Voice Calling (PSTN) using Microsoft infrastructure. If alternateCallerId parameter does not match any of the purchased numbers, the call will fail. The diagram below demonstrates the Azure Communication Services voice routing logic.
 
 :::image type="content" source="../media/direct-routing-provisioning/voice-routing-diagram.png" alt-text="Communication Services outgoing voice routing.":::
@@ -75,6 +75,24 @@ Here are some examples of basic regular expressions:
 For more information about regular expressions, see [.NET regular expressions overview](/dotnet/standard/base-types/regular-expressions).
 
 You can select multiple SBCs for a single pattern. In such a case, the routing algorithm will choose them in random order. You may also specify the exact number pattern more than once. The higher row will have higher priority, and if all SBCs associated with that row are not available next row will be selected. This way, you create complex routing scenarios.
+
+## Delete direct routing configuration
+
+### Delete using Azure portal
+
+#### To delete a Voice Route:
+1. In the left navigation, go to Direct routing under Voice Calling - PSTN and then select the Voice Routes tab.
+1. Select route or routes you want to delete using a checkbox.
+1. Select Remove.
+
+#### To delete an SBC:
+1. In the left navigation, go to Direct routing under Voice Calling - PSTN.
+1. On a Session Border Controllers tab, select Configure.
+1. Clear the FQDN and port fields for the SBC that you want to remove, select Next.
+1. On a Voice Routes tab, review voice routing configuration, make changes if needed. select Save.
+
+> [!NOTE]
+> When you remove SBC associated with a voice route, you can choose a different SBC for the route on the Voice Routes tab. The voice route without an SBC will be deleted.
 
 ## Next steps
 

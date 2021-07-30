@@ -5,7 +5,7 @@ author: jianleishen
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 06/04/2021
+ms.date: 07/05/2021
 ms.author: jianleishen
 ---
 
@@ -89,7 +89,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
 1. After the creation is finished, you see the notice in the Notifications center. Select **Go to resource** to go to the **Data Factory** page.
 
-1. Select **Author & Monitor** to launch the Data Factory UI in a separate tab.
+1. Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Data Factory UI in a separate tab.
 
 ## Create an Azure integration runtime in Data Factory Managed Virtual Network
 In this step, you create an Azure integration runtime and enable Data Factory Managed Virtual Network.

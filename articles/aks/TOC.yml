@@ -26,6 +26,8 @@
       items:
         - name: Develop with Helm
           href: quickstart-helm.md
+    - name: Subscribe to AKS events with Event Grid (Preview)
+      href: quickstart-event-grid.md
 - name: Tutorials
   items:
     - name: 1 - Prepare application for AKS
@@ -203,11 +205,11 @@
           href: use-ultra-disks.md
         - name: CSI Storage Drivers
           items:
-            - name: Enable CSI Storage Drivers (preview)
+            - name: Enable CSI Storage Drivers
               href: csi-storage-drivers.md
-            - name: Azure Disk CSI drivers (preview)
+            - name: Azure Disk CSI drivers
               href: azure-disk-csi.md
-            - name: Azure Files CSI drivers (preview)
+            - name: Azure Files CSI drivers
               href: azure-files-csi.md
     - name: Configure networking
       items:
@@ -297,13 +299,10 @@
           href: csi-secrets-store-driver.md
     - name: Monitoring and logging
       items:
-        - name: View cluster metrics
-          href: view-metrics.md
-        - name: Container insights
-          href: ../azure-monitor/containers/container-insights-overview.md
-          maintainContext: true
-        - name: View the control plane component logs
-          href: view-control-plane-logs.md
+        - name: Monitor AKS
+          href: monitor-aks.md
+        - name: Monitor reference
+          href: monitor-aks-reference.md
         - name: View the kubelet logs
           href: kubelet-logs.md
         - name: View container data real-time

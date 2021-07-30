@@ -210,6 +210,8 @@
         href: ./hdinsight-log-management.md
       - name: Add storage accounts
         href: ./hdinsight-hadoop-add-storage.md
+      - name: Update storage account access key
+        href: ./hdinsight-rotate-storage-keys.md
       - name: Upload data for Apache Hadoop jobs
         href: ./hdinsight-upload-data.md
       - name: Multiple HDInsight clusters with Data Lake Storage

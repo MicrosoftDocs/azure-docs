@@ -143,6 +143,9 @@ In this step, we are going to create an Azure IoT Edge solution using the “Azu
       CONTAINER_REGISTRY_PASSWORD_<your registry name>=<ACR password>
       ```
 
+      >[!NOTE]
+      >This tutorial uses admin login credentials for Azure Container Registry, which are convenient for development and test scenarios. When you're ready for production scenarios, we recommend a least-privilege authentication option like service principals. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
+
 1. Right click on the deployment.template.json file in Visual Studio Code explorer and select **Build IoT Edge Solution**.
 
 1. Notice that this command creates a config folder with a deployment.amd64.json file. This file is the concrete deployment template for the solution.

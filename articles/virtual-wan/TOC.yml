@@ -85,6 +85,8 @@
     items:
     - name: About P2S IPsec policies
       href: point-to-site-ipsec.md
+    - name: About P2S client address pools
+      href: about-client-address-pools.md
   - name: Security
     items:
     - name: Security baseline
@@ -101,6 +103,8 @@
     href: upgrade-virtual-wan.md
   - name: Create an NVA in a virtual hub
     href: How-to-nva-hub.md
+  - name: Connect a VNet to a virtual hub
+    href: howto-connect-vnet-hub.md
   - name: Create a cross-tenant VNet connection
     href: cross-tenant-vnet.md
   - name: ExpressRoute
@@ -181,7 +185,7 @@
       href: howto-private-link.md
     - name: Manage access to resources - Spoke VNet P2S
       href: manage-secure-access-resources-spoke-p2s.md
-  - name: Monitoring
+  - name: Health monitoring
     items:
     - name: Monitoring Virtual WAN
       href: monitor-virtual-wan.md

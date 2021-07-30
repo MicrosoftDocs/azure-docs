@@ -37,7 +37,7 @@ If the issue still continues, create a [support ticket](../../azure-portal/suppo
 ### Query fails because file cannot be opened
 
 If your query fails with the error 'File cannot be opened because it does not exist or it is used by another process' and you're sure both file exist and it's not used by another process it means serverless SQL pool can't access the file. This problem usually happens because your Azure Active Directory identity doesn't have rights to access the file or because a firewall is blocking access to the file. By default, serverless SQL pool is trying to access the file using your Azure Active Directory identity. To resolve this issue, you need to have proper rights to access the file. Easiest way is to grant yourself 'Storage Blob Data Contributor' role on the storage account you're trying to query. 
-- [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/common/storage-auth-aad-rbac-portal.md). 
+- [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/blobs/assign-azure-role-data-access.md). 
 - [Visit Control storage account access for serverless SQL pool in Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
 
 #### Alternative to Storage Blob Data Contributor role
@@ -82,6 +82,12 @@ If your query fails with the error message 'This query can't be executed due to 
 - If your query targets CSV files, consider [creating statistics](develop-tables-statistics.md#statistics-in-serverless-sql-pool). 
 
 - Visit [performance best practices for serverless SQL pool](./best-practices-serverless-sql-pool.md) to optimize query.  
+
+### Could not allocate tempdb space while transferring data from one distribution to another
+
+This error is special case of the generic [query fails because it cannot be executed due to current resource constraints](#query-fails-because-it-cannot-be-executed-due-to-current-resource-constraints) error. This error is returned when the resources allocated to the `tempdb` database are insufficient to run the query. 
+
+Apply the same mitigation and the best practices before you file a support ticket.
 
 ### Query fails with error while handling an external file. 
 
@@ -510,8 +516,8 @@ Delta Lake support is currently in public preview in serverless SQL pools. There
   - Do not specify wildcards to describe the partition schema. Delta Lake query will automatically identify the Delta Lake partitions. 
 - Delta Lake tables created in the Apache Spark pools are not synchronized in serverless SQL pool. You cannot query Apache Spark pools Delta Lake tables using T-SQL language.
 - External tables do not support partitioning. Use [partitioned views](create-use-views.md#delta-lake-partitioned-views) on Delta Lake folder to leverage the partition elimination. See known issues and workarounds below.
-- Serverless SQL pools do not support time travel queries. You can vote for this feature on [Azure feedback site](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/43656111-add-time-travel-feature-in-delta-lake)
-- Serverless SQL pools do not support updating Delta Lake files. You can use serverless SQL pool to query the latest version of Delta Lake. Use Apache Spark pools in Azure Synapse Analytics [to update Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data) or [read historical data](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
+- Serverless SQL pools do not support time travel queries. You can vote for this feature on [Azure feedback site](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/43656111-add-time-travel-feature-in-delta-lake). Use Apache Spark pools in Azure Synapse Analytics to [read historical data](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
+- Serverless SQL pools do not support updating Delta Lake files. You can use serverless SQL pool to query the latest version of Delta Lake. Use Apache Spark pools in Azure Synapse Analytics [to update Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data).
 - Delta Lake support is not available in dedicated SQL pools. Make sure that you are using serverless pools to query Delta Lake files.
 
 You can propose ideas and enhancements on [Azure Synapse feedback site](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=171048).
@@ -539,14 +545,34 @@ FORMAT='csv', FIELDQUOTE = '0x0b', FIELDTERMINATOR ='0x0b', ROWTERMINATOR = '0x0
 If this query fails, the caller does not have permission to read the underlying storage files. 
 
 Easiest way is to grant yourself 'Storage Blob Data Contributor' role on the storage account you're trying to query. 
-- [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/common/storage-auth-aad-rbac-portal.md). 
+- [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/blobs/assign-azure-role-data-access.md). 
 - [Visit Control storage account access for serverless SQL pool in Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
 
 ### Partitioning column returns NULL values
 
-If you are using views over the `OPENROWSET` function that read partitioned Delta Lake folder, you might get the value `NULL` instead of the actual column values for the partitioning columns. Due to the known issue, the `OPENROWSET` function with the `WITH` clause cannot read partitioning columns. The [partitioned views](create-use-views.md#delta-lake-partitioned-views) on Delta Lake should not have the `OPENROWSET` function with the `WITH` clause. You need to use the `OPENROWSET` function that doesn't have explicitly specified schema.
+If you are using views over the `OPENROWSET` function that read partitioned Delta Lake folder, you might get the value `NULL` instead of the actual column values for the partitioning columns. An example of a view that references `Year` and `Month` partitioning columns is shown in the following example:
 
-**Workaround:** Remove the `WITH` clause form the `OPENROWSET` function that is used in the views.
+```sql
+create or alter view test as
+select top 10 * 
+from openrowset(bulk 'https://storageaccount.blob.core.windows.net/path/to/delta/lake/folder',
+                format = 'delta') 
+     with (ID int, Year int, Month int, Temperature float) 
+                as rows
+```
+
+Due to the known issue, the `OPENROWSET` function with the `WITH` clause cannot read the values from the partitioning columns. The [partitioned views](create-use-views.md#delta-lake-partitioned-views) on Delta Lake should not have the `OPENROWSET` function with the `WITH` clause. You need to use the `OPENROWSET` function that doesn't have explicitly specified schema.
+
+**Workaround:** Remove the `WITH` clause from the `OPENROWSET` function that is used in the views - example:
+
+```sql
+create or alter view test as
+select top 10 * 
+from openrowset(bulk 'https://storageaccount.blob.core.windows.net/path/to/delta/lake/folder',
+                format = 'delta') 
+   --with (ID int, Year int, Month int, Temperature float) 
+                as rows
+```
 
 ### Query failed because of a topology change or compute container failure
 
@@ -557,7 +583,7 @@ CREATE DATABASE mydb
     COLLATE Latin1_General_100_BIN2_UTF8;
 ```
 
-The queries executed via master database are affected with this issue.
+The queries executed via master database are affected with this issue. This is not applicable on all queries that are reading partitioned data. The data sets partitioned by string columns are affected by this issue.
 
 **Workaround:** Execute the queries on a custom database with `Latin1_General_100_BIN2_UTF8` database collation.
 
@@ -565,7 +591,7 @@ The queries executed via master database are affected with this issue.
 
 You are trying to read Delta Lake files that contain some nested type columns without specifying WITH clause (using automatic schema inference). Automatic schema inference doesn't work with the nested columns in Delta Lake.
 
-**Workaround:** Use the `WITH` clause and explicitly assign the `VARCHAR` type to the nested columns.
+**Workaround:** Use the `WITH` clause and explicitly assign the `VARCHAR` type to the nested columns. Note that this will not work if your data set is partitioned, due to another known issue where `WITH` clause returns `NULL` for partition columns. Partitioned data sets with complex type columns are currently not supported.
 
 ### Cannot find value of partitioning column in file 
 
@@ -589,18 +615,20 @@ JSON text is not properly formatted. Unexpected character '{' is found at positi
 Msg 16513, Level 16, State 0, Line 1
 Error reading external metadata.
 ```
-
+First, make sure that your Delta Lake data set is not corrupted.
 - Verify that you can read the content of the Delta Lake folder using Apache Spark pool in Synapse or Databricks cluster. This way you will ensure that the `_delta_log` file is not corrupted.
 - Verify that you can read the content of data files by specifying `FORMAT='PARQUET'` and using recursive wildcard `/**` at the end of the URI path. If you can read all Parquet files, the issue is in `_delta_log` transaction log folder.
 
-In this case, report a support ticket and provide a repro to Azure support:
+**Workaround:** This problem might happen if you are using some `_UTF8` database collation. Try to run a query on `master` database or any other database that has non-UTF8 collation. If this workaround resolves your issue, use a database without `_UTF8` collation.
+
+In the data set is valid, and the workaround cannot help, report a support ticket and provide a repro to Azure support:
 - Do not make any changes like adding/removing the columns or optimizing the table because this might change the state of Delta Lake transaction log files.
 - Copy the content of `_delta_log` folder into a new empty folder. **DO NOT** copy `.parquet data` files.
 - Try to read the content that you copied in new folder and verify that you are getting the same error.
 - Now you can continue using Delta Lake folder with Spark pool. You will provide copied data to Microsoft support if you are allowed to share this.
 - Send the content of the copied `_delta_log` file to Azure support.
 
-Microsoft team will investigate the content of the `delta_log` file and provide more info about the possible errors and workarounds.
+Azure team will investigate the content of the `delta_log` file and provide more info about the possible errors and the workarounds.
 
 ## Constraints
 

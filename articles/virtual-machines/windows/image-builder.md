@@ -3,6 +3,7 @@ title: Create a Windows VM with Azure Image Builder
 description: Create a Windows VM with the Azure Image Builder.
 author: kof-f
 ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 04/23/2021
 ms.topic: how-to
 ms.service: virtual-machines
@@ -149,7 +150,7 @@ vi helloImageTemplateWin.json
 
 > [!NOTE]
 > For the source image, you must always [specify a version](../linux/image-builder-troubleshoot.md#build--step-failed-for-image-version), you cannot use `latest`.
-> If you add or change the resource group where the image is distributed to, you must make the [permissions are set](#create-a-user-assigned-identity-and-set-permissions-on-the-resource-group) on the resource group.
+> If you add or change the resource group where the image is distributed to, you must make sure the [permissions are set](#create-a-user-assigned-identity-and-set-permissions-on-the-resource-group) on the resource group.
  
 ## Create the image
 

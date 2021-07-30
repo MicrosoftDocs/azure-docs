@@ -167,7 +167,7 @@ To simplify deployment and configuration, in this article, we use the SAP three-
 ## <a name="217c5479-5595-4cd8-870d-15ab00d4f84c"></a> Prerequisites
 Before you start, make sure that you meet the prerequisites that are described in the following sections. Also, be sure to check all resources listed in the [Resources][sap-ha-guide-2] section.
 
-In this article, we use Azure Resource Manager templates for [three-tier SAP NetWeaver using Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md/). For a helpful overview of templates, see [SAP Azure Resource Manager templates](/archive/blogs/saponsqlserver/azure-quickstart-templates-for-sap).
+In this article, we use Azure Resource Manager templates for [three-tier SAP NetWeaver using Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/sap/sap-3-tier-marketplace-image-md/). For a helpful overview of templates, see [SAP Azure Resource Manager templates](/archive/blogs/saponsqlserver/azure-quickstart-templates-for-sap).
 
 ## <a name="42b8f600-7ba3-4606-b8a5-53c4f026da08"></a> Resources
 These articles cover SAP deployments in Azure:

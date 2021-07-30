@@ -20,9 +20,10 @@ We've also added links to some user-generated content. Those items will be marke
 * Multivariate anomaly detection APIs deployed in four more regions: Australia East, Canada Central, North Europe, and Southeast Asia. Now in total 10 regions are supported.
 * Anomaly Detector (univariate) available in West US 3 and Norway East.
 
+
 ### June 2021
 
-* Multivariate anomaly detection APIs available in more regions (West US 2, West Europe, East US 2, South Central US, East US, and UK South).
+* Multivariate anomaly detection APIs available in more regions: West US2, West Europe, East US2, South Central US, East US, and UK South.
 * Anomaly Detector (univariate) available in Azure cloud for US Government.
 * Anomaly Detector (univariate) available in Azure China (China North 2).
 
