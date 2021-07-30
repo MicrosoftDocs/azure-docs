@@ -73,7 +73,7 @@ You can also update a logic app's workflow from Azure PowerShell using the cmdle
 
 ### Example - update logic app
 
-In this example, the [sample workflow created in the previous section](#example---create-logic-app) is updated to use a different JSON definition file, `newTestDefinition.json`.
+This example shows how to update the [sample workflow created in the previous section](#example---create-logic-app) using a different JSON definition file, `newTestDefinition.json`.
 
 ```azurepowershell-interactive
 Set-AzLogicApp -ResourceGroupName testResourceGroup -Name testLogicApp -DefinitionFilePath .\newTestDefinition.json
