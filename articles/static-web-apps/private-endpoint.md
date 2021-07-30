@@ -60,17 +60,7 @@ In this section, you create a private endpoint for your static web app.
 
 Since your application is no longer publicly available, the only way to access it is from inside of your virtual network. To test, setup a virtual machine inside of your virtual network and navigate to your site.
 
-## Clean up resources
-
-If you're not going to continue to use this application, you can delete the Azure Static Web Apps instance through the following steps:
-
-1. Open the [Azure portal](https://portal.azure.com).
-1. Search for **my-first-web-static-app** from the top search bar.
-1. Select the app name.
-1. Select the **Delete** button.
-1. Select **Yes** to confirm the delete action (this action may take a few moments to complete).
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Networking options](./networking-options.md)
+> [Learn more about private endpoints](../private-link/private-endpoint-overview.md)
