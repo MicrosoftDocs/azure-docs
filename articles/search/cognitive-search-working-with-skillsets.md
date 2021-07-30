@@ -20,11 +20,11 @@ From the onset of skillset processing to its conclusion, skills read and write t
 
 :::image type="content" source="media/cognitive-search-working-with-skillsets/skillset-def-enrichment-tree.png" alt-text="Skills read and write from enrichment tree" border="false":::
 
-Ultimately, nodes from an enriched document are then mapped to fields in a search index or knowledge store, so that the content can be queried or consumed by other apps.
+Ultimately, nodes from an enriched document are then [mapped to fields](ognitive-search-output-field-mapping.md) in a search index or knowledge store, so that the content can be queried or consumed by other apps.
 
 ## Illustrative example
 
-Skills have context, and inputs and outputs that are often chained together. The following example demonstrates two [built-in skills](cognitive-search-predefined-skills.md) that work together.
+Skills have context, and inputs and outputs that are often chained together. The following example demonstrates two [built-in skills](cognitive-search-predefined-skills.md) that work together. After reviewing this example, if you want more detail about how input and output formulation, see [How to reference annotations](cognitive-search-concept-annotations-syntax.md).
 
 + Skill #1 is a [Text Split skill](cognitive-search-skill-textsplit.md) that accepts the contents of the "reviews_text" source field as input, and splits that content into "pages" of 5000 characters as output. Splitting large text into smaller chunks can produce better outcomes during natural language processing.
 
@@ -79,7 +79,7 @@ Skills have context, and inputs and outputs that are often chained together. The
 
 ## Enrichment tree
 
-An enriched document is a temporal data structure created during skillset execution that collects all of transformations made by the skills. It also includes any unprocessed fields that you want to use as-is from the external data source. An enriched document exists for the duration of skillset execution, but can be cached or persisted to a knowledge store. 
+An enriched document is a temporal data structure created during skillset execution that collects all of changes that are introduced through skills. It also includes any unprocessed fields that you want to use verbatim from the external data source. An enriched document exists for the duration of skillset execution, but can be cached or persisted to a knowledge store. 
 
 Initially, an enriched document is simply the content extracted from a data source during [*document cracking*](search-indexer-overview.md#document-cracking), where text and images are extracted from the source and made available for language or image analysis. The articulation of the root node of the tree varies for each data source type. The following table shows the state of a document entering into the enrichment pipeline for several supported data sources:
 
