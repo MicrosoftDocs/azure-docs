@@ -7,7 +7,7 @@ services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.topic: conceptual 
-ms.date: 04/27/2021
+ms.date: 07/30/2021
 ms.custom: template-concept 
 ---
 
@@ -15,7 +15,6 @@ ms.custom: template-concept
 
 This article describes the data that Azure Arc-enabled data services transmits to Microsoft. 
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Related products
 
@@ -253,11 +252,6 @@ In support situations, you may be asked to provide database instance logs, Kuber
 |Views    |Views can contain customer data but are restricted and shared only by user     |
 |Crash dumps – customer data | Maximum 30-day retention of crash dumps – may contain access control data <br/><br/> Statistics objects, data values within rows, query texts could be in customer crash dumps    |
 |Crash dumps – personal data | Machine, logins/ user names, emails, location information, customer identification – require user consent to be included  |
-
-### Customer experience improvement program (CEIP) (Telemetry) 
-
-Telemetry is used to track product usage metrics and environment information. 
-See [SQL Server privacy supplement](/sql/sql-server/sql-server-privacy/). 
 
 ## Next steps
 [Upload usage data to Azure Monitor](upload-usage-data.md)

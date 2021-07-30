@@ -184,21 +184,7 @@ ADF may still use Managed VNet IR, but you could encounter such error because th
 - Having private endpoint enabled on the source and also the sink side when using the Managed VNet IR.
 - If you still want to use the public endpoint, you can switch to public IR only instead of using the Managed VNet IR for the source and the sink. Even if you switch back to public IR, ADF may still use the Managed VNet IR if the Managed VNet IR is still there.
 
-## Sharing Self-hosted Integration Runtime
-
-### Sharing a self-hosted IR from a different tenant is not supported 
-
-#### Symptoms
-
-You might notice other data factories (on different tenants) as you're attempting to share the self-hosted IR from the Azure Data Factory UI, but you can't share it across data factories that are on different tenants.
-
-#### Cause
-
-The self-hosted IR can't be shared across tenants.
-
-## Internal Sever error while trying to Delete ADF with Customer Managed Key (CMK) and User Assigned Managed Identity (UA-MI)
-
-### Wrong order of deletion of resources and ADF causes the error.
+### Internal error while trying to Delete ADF with Customer Managed Key (CMK) and User Assigned Managed Identity (UA-MI)
 
 #### Symptoms
 `{\"error\":{\"code\":\"InternalError\",\"message\":\"Internal error has occurred.\"}}`
@@ -231,6 +217,19 @@ You can recover from this by using REST API calls, you can do this in an http cl
    4.  Make a PUT call to the same factory url passing the new body. It is very important that you are  passing whatever you got in the GET response, and only modify the identity. Otherwise they would override other settings unintentionally. 
 
    5.  After the call succeeds, you  will be able to see the entities again and retry deleting. 
+
+## Sharing Self-hosted Integration Runtime
+
+### Sharing a self-hosted IR from a different tenant is not supported 
+
+#### Symptoms
+
+You might notice other data factories (on different tenants) as you're attempting to share the self-hosted IR from the Azure Data Factory UI, but you can't share it across data factories that are on different tenants.
+
+#### Cause
+
+The self-hosted IR can't be shared across tenants.
+
 
 ## Next steps
 
