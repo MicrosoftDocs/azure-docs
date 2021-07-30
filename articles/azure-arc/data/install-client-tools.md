@@ -16,8 +16,10 @@ ms.topic: how-to
 > [!IMPORTANT]
 > If you are updating to a new release, please be sure to also update to the latest version of Azure Data Studio, the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] tool, the Azure CLI and Azure Arc extensions for Azure Data Studio.
 
+[!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
+
 > [!IMPORTANT]
-> The Arc enabled data services command groups in the Azure Data CLI (azdata) are deprecated and will be removed in the next release.  Please move to using the `arcdata` extension for Azure CLI instead.
+> The Arc enabled data services command groups in the Azure Data CLI (azdata) are deprecated and will be removed in the next release.  Please move to using the [`arcdata` extension for Azure CLI instead](reference/reference-az-arcdata-dc.md).
 
 This document walks you through the steps for installing the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)], Azure Data Studio, Azure CLI (az), and the Kubernetes CLI tool (kubectl) on your client machine.
 
