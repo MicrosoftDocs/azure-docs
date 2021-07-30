@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/26/2021
+ms.date: 07/30/2021
 ---
 
 # Copy data from an SAP table by using Azure Data Factory
@@ -224,7 +224,7 @@ To copy data from an SAP table, the following properties are supported:
 | `partitionColumnName`              | The name of the column used to partition the data.                | No       |
 | `partitionUpperBound`              | The maximum value of the column specified in `partitionColumnName` that will be used to continue with partitioning. | No       |
 | `partitionLowerBound`              | The minimum value of the column specified in `partitionColumnName` that will be used to continue with partitioning. (Note: `partitionLowerBound` cannot be "0" when partition option is `PartitionOnInt`) | No       |
-| `maxPartitionsNumber`              | The maximum number of partitions to split the data into.     | No       |
+| `maxPartitionsNumber`              | The maximum number of partitions to split the data into. The default value is 1.    | No       |
 | `sapDataColumnDelimiter` | The single character that is used as delimiter passed to SAP RFC to split the output data. | No |
 
 >[!TIP]
