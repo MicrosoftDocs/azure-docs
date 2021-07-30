@@ -138,11 +138,15 @@ AZF1 represents an Azure virtual appliance containing the following rules:
 
 * **Policy**: Allow all bidirectional traffic between **port1** and **port2**.
 
+### AZF2
+AZF2 represents an Azure virtual appliance containing the following rules:
+
+* **Policy**: Allow all bidirectional traffic between **port1** and **port2**.
+
 ### AZF3
 AZF3 represents an Azure virtual appliance containing the following rules:
 
 * **Route**: All traffic to 192.168.0.0/16 (**onpremvnet**) must be sent to the Azure gateway IP address (i.e. 10.0.0.1) through **port1**.
-* **Policy**: Allow all bidirectional traffic between **port1** and **port2**.
 
 ## Network Security Groups (NSGs)
 In this scenario, NSGs are not being used. However, you could apply NSGs to each subnet to restrict incoming and outgoing traffic. For instance, you could apply the following NSG rules to the external FW subnet.
