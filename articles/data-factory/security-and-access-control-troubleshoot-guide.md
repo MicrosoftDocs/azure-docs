@@ -144,11 +144,10 @@ To resolve the issue, go to [Azure Private Link](./data-factory-private-link.md)
 Try to enable public network access on the user interface, as shown in the following screenshot:
 
 # [Azure Data Factory](#tab/data-factory)
-:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access.png" alt-text="Screenshot of the &#8221Enabled&#8221 control for &#8221Allow public network access&#8221 on the Networking pane.":::
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access.png" alt-text="Screenshot of the 'Enabled' control for 'Allow public network access' on the Networking pane.":::
 
 # [Synapse Analytics](#tab/synapse-analytics)
-:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access-synapse.png" alt-text="Screenshot of the &#8221Enabled&#8221 control for &#8221Allow public network access&#8221 on the Networking pane.":::
-
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access-synapse.png" alt-text="Screenshot of the 'Enabled' control for 'Allow public network access' on the Networking pane.":::
 
 ---
 
@@ -205,11 +204,11 @@ If you are performing any operations related to CMK, you should complete all ope
 There are three possible ways to solve the issue. They are as follows:
 
 * You revoked the service's access to Key vault where the CMK key was stored. 
-You can reassign access to the following permissions: **Get, Unwrap Key, and Wrap Key**. These permissions are required to enable customer-managed keys. Please refer to [Grant access to customer-managed keys](https://docs.microsoft.com/azure/data-factory/enable-customer-managed-key#grant-data-factory-access-to-azure-key-vault). Once the permission is provided, you should be able to delete the service.
+You can reassign access to the following permissions: **Get, Unwrap Key, and Wrap Key**. These permissions are required to enable customer-managed keys. Please refer to [Grant access to customer-managed keys](enable-customer-managed-key.md#grant-data-factory-access-to-azure-key-vault). Once the permission is provided, you should be able to delete the service.
  
 * Customer deleted Key Vault / CMK before deleting the service. 
 CMK in the service should have "Soft Delete" enabled and "Purge Protect" enabled which has default retention policy of 90 days. You can restore the deleted key.  
-Please review [Recover deleted Key](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-portal#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates ) and [Deleted Key Value](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault)
+Please review [Recover deleted Key](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates ) and [Deleted Key Value](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault)
 
 * User Assigned Managed Identity (UA-MI) was deleted before the service. 
 You can recover from this by using REST API calls, you can do this in an http client of your choice in any programming language. If you have not anything already set up for REST API calls with Azure authentication, the easiest way to do this would be by using POSTMAN/Fiddler. Please follow following steps.
