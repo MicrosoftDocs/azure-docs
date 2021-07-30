@@ -118,11 +118,11 @@
       href: ./samples/nist-sp-800-171-r2.md
     - name: UK OFFICIAL and UK NHS
       href: ./samples/ukofficial-uknhs.md
-  - name: Guest Configuration baselines
+  - name: Compute security baselines
     items:
-    - name: Linux baseline for Azure Security Benchmark
+    - name: Linux security baseline
       href: ./samples/guest-configuration-baseline-linux.md
-    - name: Windows baseline for Azure Security Benchmark
+    - name: Windows security baseline
       href: ./samples/guest-configuration-baseline-windows.md
 - name: Concepts
   items:
