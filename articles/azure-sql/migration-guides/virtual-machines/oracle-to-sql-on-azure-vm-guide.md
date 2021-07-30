@@ -284,7 +284,7 @@ To learn more, see [Selecting and configuring affected objects.](https://docs.mi
 For more information on test case settings,[Finishing test case preparation](https://docs.microsoft.com/sql/ssma/oracle/finishing-test-case-preparation-oracletosql)
 
 7.Click on finish to create the test case.
-![Screenshot - test repo .](./media/oracle-to-sql-database-guide/tester_test_repo.PNG)
+![Screenshot - test repo .](./media/oracle-to-sql-on-azure-vm-guide/tester_test_repo.PNG)
 
 #### Run and view test case
 
