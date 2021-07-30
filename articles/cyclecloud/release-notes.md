@@ -12,11 +12,11 @@ The current release is 8.2.0.
 
 ## Azure CycleCloud 8.2 Release Highlights
 
-CycleCloud 8.1 is the first GA release of the CycleCloud 8.x platform, and contains significant updates from the CycleCloud 7.x versions.
+CycleCloud 8.2 is the second GA release of the CycleCloud 8.x platform and continues to add expanded scheduler support and improvements.
 
 |  |  |
 | --- | --- |
-| [**Univa Grid Engine is a Supported Scheduler Type**](~/gridengine.md)<br/> A free, demo version of Univa Grid Engine is available in CycleCloud 8, with a simple path to full end-to-end enterprise support for Univa clusters running on Azure. [Learn more about Univa + Azure here](https://techcommunity.microsoft.com/t5/azure-compute/univa-grid-engine-cluster-arrives-in-azure-cyclecloud-8-1/ba-p/1863043) | ![Univa Logo](./images/release-notes/univa-logo.jpg) |
+| [**Altair Grid Engine is a Supported Scheduler Type**](~/gridengine.md)<br/> A free, demo version of Altair Grid Engine is available in CycleCloud 8, with a simple path to full end-to-end enterprise support for Altair clusters running on Azure. [Learn more about Altair + Azure here](https://techcommunity.microsoft.com/t5/azure-compute/univa-grid-engine-cluster-arrives-in-azure-cyclecloud-8-1/ba-p/1863043) | ![Altair Logo](./images/release-notes/altair-logo.jpg) |
 | [**Slurm Cluster Updates**](~/slurm.md)<br/> Slurm clusters deployed in CycleCloud 8 can now be configured to do [Slurm job accounting](https://slurm.schedmd.com/accounting.html). Additionally, GPU resources on nodes are now recognized automatically, with node partitions autoscaling based on GPU resource requests. |  |
 | [**Autoscaling Library**](https://github.com/Azure/cyclecloud-scalelib)<br/> A new, open-source, autoscaling library is now implemented in CycleCloud 8, simplifying autoscaler development for any scheduler in Azure. This new autoscaling library drives the Univa Grid Engine scaling on Azure, and is also used in the open-source Grid Engine clusters. |  |
 | [**NAS Options in Default Cluster Templates**](~/how-to/mount-fileserver.md)<br/> Default cluster templates shipped in CycleCloud 8 now include a section for configuring network filesystem mounts. With this, mounting NFS shares no longer requires changes to a cluster template. | [ ![NAS Options](./images/release-notes/nas-options-small.png) ](./images/release-notes/nas-options.png#lightbox) |
