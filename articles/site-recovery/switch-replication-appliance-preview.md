@@ -3,7 +3,7 @@ title: Switch replication appliance in Azure Site Recovery - Preview
 description: This article describes show to switch between different replication appliances while replicating VMware VMs to Azure in Azure Site Recovery- Preview
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/12/2021
+ms.date: 07/30/2021
 ---
 
 # Switch Azure Site Recovery replication appliance
@@ -43,7 +43,9 @@ As an example, here is the scenario where replication appliance 1 (RA1) has beco
 
 1. Go to **Site Recovery infrastructure** blade and select **ASR replication appliance**.
 
-   The list of available appliances and their health is displayed. RA2 is healthy here.
+   The list of available appliances and their health is displayed. For example, RA2 is healthy here.
+
+   ![Healthy replication appliances list](./media/switch-replication-appliance-preview/appliance-health.png)
 
 2. Select the replication appliance (RA1) and select  **Switch appliance**.
 
@@ -52,17 +54,19 @@ As an example, here is the scenario where replication appliance 1 (RA1) has beco
    >[!NOTE]
    > Only those machine which have been protected by the current appliance will be visible in the list. Failed over machines will not be present here  
 
-    ![Select machines for switching](./media/switch-replication-appliances/select-machines.png)
+    ![Select machines for switching](./media/switch-replication-appliance-preview/select-machines.png)
 
 4. Under **Source settings**  page, for each of the selected machines, select a different replication appliance.
 
-   ![Select replication appliance](./media/switch-replication-appliances/select-replication-appliance.png)
+   ![Source settings for replication appliance](./media/switch-replication-appliance-preview/source-settings.png)
 
    >[!NOTE]
    > - In case of a failover, you will be prompted to select the account credentials for all the selected machines, as the previous appliance has failed.
    > -  If your current appliance has burnt down, then you will be required to select the credentials to access the machines. Otherwise, the field will be disabled.
 
 5. Select **Switch appliance**.
+
+   ![Switch replication appliance](./media/switch-replication-appliance-preview/switch-appliance.png)
 
    Once the resync is complete, the replication status turns healthy for the VMs that are moved to a new appliance.
 

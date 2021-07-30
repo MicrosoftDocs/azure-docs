@@ -6,7 +6,7 @@ manager: gaggupta
 ms.service: site-recovery
 ms.topic: how-to
 ms.author: sharrai
-ms.date: 07/29/2021
+ms.date: 07/30/2021
 ---
 
 # About the Mobility service for VMware VMs and physical servers
@@ -95,7 +95,7 @@ During a push installation of the Mobility service, the following steps are perf
 ## Install the Mobility service using command prompt (Classic)
 
 >[!NOTE]
-> This section is applicable to Azure Site Recovery - Classic. [Here ae the installation instructions for preview](#install-the-mobility-service-using-command-prompt-preview).
+> This section is applicable to Azure Site Recovery - Classic. [Here are the installation instructions for preview](#install-the-mobility-service-using-command-prompt-preview).
 
 ### Prerequisites
 
@@ -300,6 +300,8 @@ Locate the installer files for the server’s operating system using the followi
 
    ![Image showing Install UI option for  Mobility Service](./media/vmware-physical-mobility-service-overview-preview/mobility-service-install.png)
 
+   ![Image showing Installation progress for  Mobility Service](./media/vmware-physical-mobility-service-overview-preview/installation-progress.png)
+
 5. Copy the string present in the field  **Machine Details**.
 
    This field includes information unique to the source machine. This information is required to [generate the Mobility Service configuration file](#generate-mobility-service-configuration-file).
@@ -416,6 +418,8 @@ Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath
   ![Image showing download configuration file option for Mobility Service](./media/vmware-physical-mobility-service-overview-preview/download-configuration-file.png)
 
 This will download the Mobility Service configuration file. Copy this file to a local folder in your source machine. You can place it in the same folder as the Mobility Service installer.
+
+See information about [upgrading the mobility services](upgrade-mobility-service-preview.md). 
 
 ## Next steps
 

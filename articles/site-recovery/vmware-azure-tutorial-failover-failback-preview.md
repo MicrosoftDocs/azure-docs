@@ -3,7 +3,7 @@ title: Fail over VMware VMs to Azure with Site Recovery - Preview
 description: Learn how to fail over VMware VMs to Azure in Azure Site Recovery - Preview
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/28/2021
+ms.date: 07/30/2021
 ms.custom: MVC
 ---
 # Fail over VMware VMs - Preview
@@ -112,19 +112,35 @@ Ensure the following for the VM,  after it is failed over to Azure:
 
 ## Cancel planned failover
 
-If your on-premises environment is not ready or in case of any challenges, you can cancel the planned failover.
+If your on-premises environment is not ready or in case of any challenges, you can cancel the planned failover
+You can perform a planned failover any time later, once your on-premises conditions turn favorable.
 
-To cancel a planned failover:
+**To cancel a planned failover**:
 
 1. Navigate to the machine in recovery services vault and select **Cancel Failover**.
 2. Click **OK**.
-3. Ensure that you read the details about how cancel failover proceeds.
+3. Ensure that you read the information about  how the *cancel failover* operation proceeds.
 
 If there are any issues preventing Azure Site Recovery from successfully canceling the failed job, follow the recommended steps provided in the job. After following the recommended action, retry the cancel job.
 
-the previous planned failover operation will be canceled. The machine in Azure will be returned to the state just before *planned failover* was triggered.
+The previous planned failover operation will be canceled. The machine in Azure will be returned to the state just before *planned failover* was triggered.
 
-You can perform a planned failover  any time later, once your on-premises conditions turn favorable.
+For planned failover, after we detach the VM disks from the appliance, we take its snapshot before powering on.
+
+If the VM does not boot properly or some application does not come up properly, or for some reason you decide to cancel the planned failover and try again, then:
+
+1. We would revert all the changes made.
+
+2. Bring back the disks to the same state as they were before powering, by using the snapshots taken earlier.
+
+3. Finally, attach the disks back to the appliance and resume the replication.
+
+This behavior is different from what was present in the Legacy/Classic architecture.
+
+- Using the preview, you can do the failback operation again at a later point of time.
+
+- In Legacy architecture, you cannot cancel and retry the failback - if the VM does not boot up or the application does not come up or for any other reason.  
+
 
 > [!NOTE]
 > Only planned failover from Azure to on-premises can be canceled. Failover from on-premises to Azure cannot be canceled.
