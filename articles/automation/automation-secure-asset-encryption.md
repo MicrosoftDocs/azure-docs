@@ -56,7 +56,7 @@ To use customer-managed keys with an Automation account, your Automation account
 
 ### Using PowerShell
 
-Use PowerShell cmdlet [Set-AzAutomationAccount](/powershell/module/az.automation/set-azautomationaccount) to modify an existing Azure Automation account. The `-AssignSystemIdentity` parameter generates and assigns a new system-assigned identity for the Automation account to use with other services like Azure Key Vault. For more information, see [What are managed identities for Azure resources?](/active-directory/managed-identities-azure-resources/overview) and [About Azure Key Vault](/key-vault/general/overview). Execute the following code:
+Use PowerShell cmdlet [Set-AzAutomationAccount](/powershell/module/az.automation/set-azautomationaccount) to modify an existing Azure Automation account. The `-AssignSystemIdentity` parameter generates and assigns a new system-assigned identity for the Automation account to use with other services like Azure Key Vault. For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md) and [About Azure Key Vault](../key-vault/general/overview.md). Execute the following code:
 
 ```powershell
 # Revise variables with your actual values.

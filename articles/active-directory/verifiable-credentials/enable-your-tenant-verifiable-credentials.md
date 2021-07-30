@@ -39,7 +39,7 @@ Before you can successfully complete this tutorial, you must first:
 
 - Complete the steps in the [Get started](get-started-verifiable-credentials.md) tutorial.
 - Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Have Azure AD with a P2 [license](https://azure.microsoft.com/pricing/details/active-directory/). If you don't have one, follow the steps in [Create a free developer account](how-to-create-a-free-developer-account.md).
+- Have Azure AD with a P2 [license](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing). If you don't have one, follow the steps in [Create a free developer account](how-to-create-a-free-developer-account.md).
 - Have an instance of [Azure Key Vault](../../key-vault/general/overview.md) where you have rights to create keys and secrets.
 
 ## Azure Active Directory
@@ -236,7 +236,7 @@ Before you create the credential, you need to first give the signed-in user the 
     ![Screenshot that shows the Add role assignment page in the Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
   >[!IMPORTANT]
-  >By default, container creators get the Owner role assigned. The Owner role isn't enough on its own. Your account needs the Storage Blob Data Reader role. For more information, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../../storage/common/storage-auth-aad-rbac-portal.md).
+  >By default, container creators get the Owner role assigned. The Owner role isn't enough on its own. Your account needs the Storage Blob Data Reader role. For more information, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../../storage/blobs/assign-azure-role-data-access.md).
 
 ## Set up Verifiable Credentials Preview
 
@@ -399,5 +399,3 @@ Now that you have the sample code that issues a verifiable credential from your 
 
 > [!div class="nextstepaction"]
 > [Tutorial - Issue and verify verifiable credentials by using your tenant](issue-verify-verifiable-credentials-your-tenant.md)
-
-

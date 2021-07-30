@@ -157,32 +157,7 @@ sections:
         answer: |
              Comprehensive programs that offer Software Assurance equivalent subscription rights as a fixed benefit support the DR benefit. This includes. but is not limited to, the Open Value (OV), Open Value Subscription (OVS), Enterprise Agreement (EA), Enterprise Agreement Subscription (EAS), and the Server and Cloud Enrollment (SCE). Refer to the [product terms](https://www.microsoft.com/licensing/product-licensing/products) and talk to your licensing contacts or account manager for more information. 
           
-             
-  - name: Extension
-    questions:
-      - question: |
-          Will registering my VM with the new SQL IaaS Agent extension bring additional costs?
-        answer:    No. The SQL IaaS Agent extension just enables additional manageability for SQL Server on Azure VM with no additional charges. 
-
-      - question: |
-          Is the SQL IaaS Agent extension available for all customers?
-        answer: |
-             Yes, as long as the SQL Server VM was deployed on the public cloud using the Resource Manager model, and not the classic model. All other customers are able to register with the new SQL IaaS Agent extension. However, only customers with the [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3) benefit can use their own license by activating the [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) on a SQL Server VM. 
-          
-      - question: |
-          What happens to the extension ('Microsoft.SqlVirtualMachine') resource if the VM resource is moved or dropped? 
-        answer:    When the Microsoft.Compute/VirtualMachine resource is dropped or moved, then the associated Microsoft.SqlVirtualMachine resource is notified to asynchronously replicate the operation.
-
-      - question: |
-          What happens to the VM if the extension ('Microsoft.SqlVirtualMachine') resource is dropped?
-        answer:     The Microsoft.Compute/VirtualMachine resource is not impacted when the Microsoft.SqlVirtualMachine resource is dropped. However, the licensing changes will default back to the original image source. 
-
-      - question: |
-          Is it possible to register self-deployed SQL Server VMs with the SQL IaaS Agent extension?
-        answer: |
-              Yes. If you deployed SQL Server from your own media, and installed the SQL IaaS extension you can register your SQL Server VM with the extension to get the manageability benefits provided by the SQL IaaS extension.    
-          
-          
+         
   - name: Administration
     questions:
       - question: |
@@ -382,6 +357,35 @@ sections:
           How do I remove the extension?
         answer: |
              Remove the extension by [unregistering](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension) the SQL Server VM from the SQL IaaS Agent extension. 
+      - question: |
+          Will registering my VM with the new SQL IaaS Agent extension bring additional costs?
+        answer:    No. The SQL IaaS Agent extension just enables additional manageability for SQL Server on Azure VM with no additional charges. 
+
+      - question: |
+          Is the SQL IaaS Agent extension available for all customers?
+        answer: |
+             Yes, as long as the SQL Server VM was deployed on the public cloud using the Resource Manager model, and not the classic model. All other customers are able to register with the new SQL IaaS Agent extension. However, only customers with the [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3) benefit can use their own license by activating the [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) on a SQL Server VM. 
+          
+      - question: |
+          What happens to the extension ('Microsoft.SqlVirtualMachine') resource if the VM resource is moved or dropped? 
+        answer:    When the Microsoft.Compute/VirtualMachine resource is dropped or moved, then the associated Microsoft.SqlVirtualMachine resource is notified to asynchronously replicate the operation.
+
+      - question: |
+          What happens to the VM if the extension ('Microsoft.SqlVirtualMachine') resource is dropped?
+        answer:     The Microsoft.Compute/VirtualMachine resource is not impacted when the Microsoft.SqlVirtualMachine resource is dropped. However, the licensing changes will default back to the original image source. 
+
+      - question: |
+          Is it possible to register self-deployed SQL Server VMs with the SQL IaaS Agent extension?
+        answer: |
+              Yes. If you deployed SQL Server from your own media, and installed the SQL IaaS extension you can register your SQL Server VM with the extension to get the manageability benefits provided by the SQL IaaS extension.    
+      - question: |
+          Is it possible to repair the SQL IaaS agent extension? 
+        answer: |
+              Yes. Navigate to the **SQL virtual machines** resource for your SQL Server VM, and choose **Repair** under **Support & troubleshooting** to open the [repair](sql-agent-extension-manually-register-single-vm.md#repair-extension) page and repair the extension. 
+
+
+
+             
 
 additionalContent: |
 
