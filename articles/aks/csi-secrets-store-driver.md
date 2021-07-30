@@ -79,7 +79,7 @@ To create an AKS cluster with Secrets Store CSI Driver capability, use the [az a
 az aks create -n myAKSCluster -g myResourceGroup --enable-addons azure-keyvault-secrets-provider --enable-managed-identity
 ```
 
-A user-assigned managed identity is created by the addon for the purpose of accessing azure resources, named `azurekeyvaultsecretsprovider-*`. We can use this identity to connect to the Azure Key Vault where our secrets will be stored. Take note of the identity's `clientId` in the output:
+A user-assigned managed identity is created by the addon for the purpose of accessing Azure resources, named `azurekeyvaultsecretsprovider-*`. We can use this identity to connect to the Azure Key Vault where our secrets will be stored. Take note of the identity's `clientId` in the output:
 
 ```json
 ...,
