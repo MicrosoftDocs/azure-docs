@@ -5,7 +5,7 @@ services: storsimple
 author: alkohli
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/29/2021
+ms.date: 07/30/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: contperf-fy22q1
@@ -23,7 +23,7 @@ This article walks you through:
 
 Do the following steps to create a support request:
 
-1. Go to your import/export job. Under **Support + Troubleshooting**, select **New support request**.
+1. Go to your Import/Export job. Under **Support + Troubleshooting**, select **New support request**.
      
     ![Basics](./media/storage-import-export-contact-microsoft-support/import-export-support-01.png)
    
@@ -48,7 +48,7 @@ Do the following steps to create a support request:
 
     ![Screenshot showing the Solutions tab for an Import/Export Service support request. The Solutions tab shows expert solutions for the selected problem. The button that opens the Solutions tab is highlighted.](./media/storage-import-export-contact-microsoft-support/import-export-support-03.png)
 
-1. Use the **Details** pane to provide info for a support ticket.
+1. Use the **Details** tab to provide info for a support ticket.
 
     |Grouping|Options|
     |--------|-------------------|
