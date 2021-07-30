@@ -118,11 +118,6 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/healthcare-apis/device-data-through-iot-hub.md",
-        "redirect_url": "/azure/healthcare-apis/data-transformation/device-data-through-iot-hub",
-        "redirect_document_id": true
-    },
-    {
         "source_path_from_root": "/articles/healthcare-apis/enable-diagnostic-logging.md",
         "redirect_url": "/azure/healthcare-apis/fhir/enable-diagnostic-logging",
         "redirect_document_id": true
@@ -135,11 +130,6 @@
     {
         "source_path_from_root": "/articles/healthcare-apis/fhir-app-registration.md",
         "redirect_url": "/azure/healthcare-apis/fhir/fhir-app-registration",
-        "redirect_document_id": true
-    },
-    {
-        "source_path_from_root": "/articles/healthcare-apis/fhir-faq",
-        "redirect_url": "/azure/healthcare-apis/fhir/fhir-faq",
         "redirect_document_id": true
     },
     {
@@ -175,41 +165,6 @@
     {
         "source_path_from_root": "/articles/healthcare-apis/get-healthcare-apis-access-token-cli.md",
         "redirect_url": "/azure/healthcare-apis/fhir/get-healthcare-apis-access-token-cli",
-        "redirect_document_id": true
-    },
-    {
-        "source_path_from_root": "/articles/healthcare-apis/iot-data-flow.md",
-        "redirect_url": "/azure/healthcare-apis/data-transformation/iot-data-flow",
-        "redirect_document_id": true
-    },
-    {
-        "source_path_from_root": "/articles/healthcare-apis/iot-fhir-arm-template-quickstart.md",
-        "redirect_url": "/azure/healthcare-apis/data-transformation/iot-fhir-arm-template-quickstart",
-        "redirect_document_id": true
-    },
-    {
-        "source_path_from_root": "/articles/healthcare-apis/iot-fhir-portal-quickstart.md",
-        "redirect_url": "/azure/healthcare-apis/data-transformation/iot-fhir-portal-quickstart",
-        "redirect_document_id": true
-    },
-    {
-        "source_path_from_root": "/articles/healthcare-apis/iot-mapping-templates.md",
-        "redirect_url": "/azure/healthcare-apis/data-transformation/iot-mapping-templates",
-        "redirect_document_id": true
-    },
-    {
-        "source_path_from_root": "/articles/healthcare-apis/iot-metrics-diagnostics-export.md",
-        "redirect_url": "/azure/healthcare-apis/data-transformation/iot-metrics-diagnostics-export",
-        "redirect_document_id": true
-    },
-    {
-        "source_path_from_root": "/articles/healthcare-apis/iot-metrics-display.md",
-        "redirect_url": "/azure/healthcare-apis/data-transformation/iot-metrics-display",
-        "redirect_document_id": true
-    },
-    {
-        "source_path_from_root": "/articles/healthcare-apis/iot-troubleshoot-guide.md",
-        "redirect_url": "/azure/healthcare-apis/data-transformation/iot-troubleshoot-guide",
         "redirect_document_id": true
     },
     {
@@ -288,18 +243,8 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/healthcare-apis/fhir/additional-settings.md",
-        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/additional-settings",
-        "redirect_document_id": true
-    },
-    {
         "source_path_from_root": "/articles/healthcare-apis/fhir/access-fhir-postman-tutorial.md",
         "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/access-fhir-postman-tutorial",
-        "redirect_document_id": true
-    },
-    {
-        "source_path_from_root": "/articles/healthcare-apis/fhir/azure-api-for-fhir-additional-settings.md",
-        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/articles/azure-api-for-fhir-additional-settings",
         "redirect_document_id": true
     },
     {
@@ -435,12 +380,12 @@
     {
         "source_path_from_root": "/articles/healthcare-apis/fhir/register-resource-azure-ad-client-app.md",
         "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/register-resource-azure-ad-client-app.md",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/healthcare-apis/fhir/register-service-azure-ad-client-app.md",
         "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/register-service-azure-ad-client-app.md",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/healthcare-apis/fhir/tutorial-web-app-fhir-server.md",
@@ -469,22 +414,22 @@
     },
     {
         "source_path_from_root": "/articles/healthcare-apis/fhir/de-identified-export.md",
-        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/de-identified-export",
+        "redirect_url": "/azure/healthcare-apis/data-transformation/de-identified-export",
         "redirect_document_id": true
     },
     {
         "source_path_from_root": "/articles/healthcare-apis/fhir/export-data.md",
-        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/export-data",
+        "redirect_url": "/azure/healthcare-apis/data-transformation/export-data",
         "redirect_document_id": true
     },
     {
         "source_path_from_root": "/articles/healthcare-apis/fhir/move-to-synapse.md",
-        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/move-to-synapse",
+        "redirect_url": "/azure/healthcare-apis/data-transformation/move-to-synapse",
         "redirect_document_id": true
     },
     {
         "source_path_from_root": "/articles/healthcare-apis/fhir/configure-export-data.md",
-        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/configure-export-data",
+        "redirect_url": "/azure/healthcare-apis/data-transformation/configure-export-data",
         "redirect_document_id": true
     }
 
