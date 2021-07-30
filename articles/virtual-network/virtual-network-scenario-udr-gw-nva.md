@@ -138,10 +138,10 @@ AZF1 represents an Azure virtual appliance containing the following rules:
 
 * **Policy**: Allow all bidirectional traffic between **port1** and **port2**.
 
-### AZF2
-AZF2 represents an Azure virtual appliance containing the following rules:
+### AZF3
+AZF3 represents an Azure virtual appliance containing the following rules:
 
-* **Route**: All traffic to 10.0.0.0/16 (**onpremvnet**) must be sent to the Azure gateway IP address (i.e. 10.0.0.1) through **port1**.
+* **Route**: All traffic to 192.168.0.0/16 (**onpremvnet**) must be sent to the Azure gateway IP address (i.e. 10.0.0.1) through **port1**.
 * **Policy**: Allow all bidirectional traffic between **port1** and **port2**.
 
 ## Network Security Groups (NSGs)
