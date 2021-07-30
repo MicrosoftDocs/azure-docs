@@ -133,7 +133,7 @@ Select **Next: Advanced Settings** if you want to:
 
 * Enable SSH access.  Follow the [detailed SSH access instructions](#enable-ssh) below.
 * Enable virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). For more information, see these [network requirements](./how-to-secure-training-vnet.md) for vnet. 
-* Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](d#on-behalf).
+* Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](#on-behalf).
 * Provision with a setup script - for more details about how to create and use a setup script, see [Customize the compute instance with a script](#setup-script).
 * Add schedule (preview). Schedule times for the compute instance to automatically start and/or shutdown. See [schedule details](#schedule) below.
 
@@ -143,7 +143,7 @@ SSH access is disabled by default.  SSH access cannot be changed after creation.
 
 [!INCLUDE [amlinclude-info](../../includes/machine-learning-enable-ssh.md)]
 
-Once the compute instance is created and running, see [Connect with SSH access](how-to-create-attach-compute-studio#ssh-access).
+Once the compute instance is created and running, see [Connect with SSH access](how-to-create-attach-compute-studio.md#ssh-access).
 
 ### <a name ="schedule"></a> Add a start or shutdown schedule (preview)
 
@@ -260,9 +260,9 @@ Once you store the script, specify it during creation of your compute instance:
 1. Sign into the [studio](https://ml.azure.com/) and select your workspace.
 1. On the left, select **Compute**.
 1. Select **+New** to create a new compute instance.
-1. [Fill out the form](how-to-create-attach-compute-studio.md#compute-instance).
-1. On the second page of the form, open **Show advanced settings**
-1. Turn on **Provision with setup script**
+1. [Fill out the form](#compute-instance).
+1. On the second page of the form, open **Show advanced settings**.
+1. Turn on **Provision with setup script**.
 1. Browse to the shell script you saved.  Or upload a script from your computer.
 1. Add command arguments as needed.
 
