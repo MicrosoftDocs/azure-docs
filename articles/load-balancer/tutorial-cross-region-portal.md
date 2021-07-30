@@ -42,10 +42,13 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Create cross-region load balancer
 
-In this section, you'll create a cross-region load balancer and public IP address.
+In this section, you'll create a 
 
-1. Select **Create a resource**. 
-2. In the search box, enter **Load balancer**. Select **Load balancer** in the search results.
+* Cross-region load balancer
+* Frontend with a global public IP address
+* Backend pool with two regional load balancers
+
+2. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancer** in the search results.
 3. In the **Load balancer** page, select **Create**.
 4. In the **Basics** tab of the **Create load balancer** page, enter, or select the following information: 
 
@@ -60,11 +63,15 @@ In this section, you'll create a cross-region load balancer and public IP addres
     | Tier           | Select **Global** |
     | Public IP address | Select **Create new**.|
     | Public IP address name | Type **myPublicIP-CR** in the text box.|
-    | Routing preference| Select **Microsoft network**. </br> For more information on routing preference, see [What is routing preference (preview)?](../virtual-network/routing-preference-overview.md). |
+    | Routing preference| Select **Microsoft network**. </br>  |
+
+
+
+    For more information on routing preference, see [What is routing preference?](../virtual-network/routing-preference-overview.md).
+
 
     > [!NOTE]
     > Cross region load-balancer can only be deployed in the following home regions: **East US 2, West US, West Europe, Southeast Asia, Central US, North Europe, East Asia**. For more information, see **https://aka.ms/homeregionforglb**.
-
 
 3. Accept the defaults for the remaining settings, and then select **Review + create**.
 
@@ -74,7 +81,6 @@ In this section, you'll create a cross-region load balancer and public IP addres
 
 ## Create backend pool
 
-In this section, you'll add two regional standard load balancers to the backend pool of the cross-region load balancer.
 
 > [!IMPORTANT]
 > To complete these steps, ensure that two regional load balancers with backend pools have been deployed in your subscription.  For more information, see, **[Quickstart: Create a public load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-public-portal.md)**.
