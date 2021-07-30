@@ -121,7 +121,8 @@ If you use Azure Kubernetes Service (AKS) with an Azure container registry that 
 
 To allow the AKS cluster to access the registry, you have these options:
 
-* Set up a [static IP address](../aks/egress.md) for the AKS cluster.
+* If you use the Azure Basic Load Balancer, set up a [static IP address](../aks/egress.md) for the AKS cluster. 
+* If you use the Azure Standard Load Balancer, see guidance to [control egress traffic](../aks/limit-egress-traffic.md) from the cluster.
 * Add an Azure Container Registry service endpoint (preview) to the AKS subnet. The service endpoint can co-exist with other registry IP access rules. For detailed steps, see [Restrict access to a container registry using a service endpoint in an Azure virtual network](container-registry-vnet.md). 
 
 > [!NOTE]
