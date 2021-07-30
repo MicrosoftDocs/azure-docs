@@ -14,7 +14,7 @@ ms.subservice: B2C
 ms.date: 07/19/2021
 ---
 
-# Tutorial: How to perform Security Analytics for Azure AD B2C data with Sentinel
+# Tutorial: How to perform security analytics for Azure AD B2C data with Azure Sentinel
 
 You can further secure your Azure AD B2C environment by routing logs and audit information to Azure Sentinel. Azure Sentinel is a cloud-native **Security Information Event Management (SIEM) and Security Orchestration Automated Response (SOAR)** solution. Azure Sentinel provides alert detection, threat visibility, proactive hunting, and threat response for **Azure AD B2C**.
 
@@ -52,16 +52,16 @@ Once you've configured your Azure AD B2C instance to send logs to Azure Monitor,
 
 3. Select **Add**.
 
-:::image type="content" source="./media/azure-sentinel/azure-sentinel-add.png" alt-text="search for Azure Sentinel in the Azure portal":::
+   :::image type="content" source="./media/azure-sentinel/azure-sentinel-add.png" alt-text="search for Azure Sentinel in the Azure portal":::
 
 4. Select the workspace used in the previous step.
 
-:::image type="content" source="./media/azure-sentinel/create-new-workspace.png" alt-text="select the sentinel workspace":::
+   :::image type="content" source="./media/azure-sentinel/create-new-workspace.png" alt-text="select the sentinel workspace":::
 
 5. Select **Add Azure Sentinel**.
 
-> [!NOTE]
-> You can run Azure Sentinel on more than one workspace, but the data is isolated to a single workspace. For additional details on enabling Sentinel, please see this [QuickStart](../sentinel/quickstart-onboard.md).
+   > [!NOTE]
+   > You can run Azure Sentinel on more than one workspace, but the data is isolated to a single workspace. For additional details on enabling Sentinel, please see this [QuickStart](../sentinel/quickstart-onboard.md).
 
 ## Create a sentinel rule
 
