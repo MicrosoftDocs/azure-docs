@@ -44,7 +44,7 @@ To create an Azure VM with the system-assigned managed identity enabled, your ac
 - Choose **Create**
 - In the **Basics** tab provide the required information.
 - Choose **Next: Disks >**
-- Continue filling out information as needed and in the **Management** tab find the ‘Identity’ section and check the box next to **System assigned managed identity**
+- Continue filling out information as needed and in the **Management** tab find the **Identity** section and check the box next to **System assigned managed identity**
 
 
 :::image type="content" source="media/how-to-manage-identities-vm-cosmos/create-vm-system-assigned-managed-identities.png" alt-text="Image showing how to enable system assigned managed identities while creating a VM":::
