@@ -329,7 +329,7 @@ This zone configures connectivity to the global agents' storage account for solu
 
 ### Validating that you're communicating over a Private Link connection
 
-To validate that your requests are now sent through the private endpoint, you can review them with a network tracking tool or even your browser. For example, when you're attempting to query your workspace or application, make sure the request is sent to the private IP that's mapped to the API endpoint. In this example, it's 172.17.0.9.
+To validate that your requests are now sent through the private endpoint, you can review them with a network tracking tool or even your browser. For example, when you're trying to query your workspace or application, make sure the request is sent to the private IP that's mapped to the API endpoint. In this example, it's 172.17.0.9.
 
 > [!NOTE]
 > Some browsers might use [other DNS settings](#browser-dns-settings). Make sure that your DNS settings apply.
@@ -444,13 +444,13 @@ To use the REST API, the [CLI](/cli/azure/monitor), or PowerShell with Azure Mon
 
 ### Application Insights SDK downloads from a content delivery network
 
-Bundle the JavaScript code in your script so that the browser doesn't attempt to download code from a content delivery network. An example is provided on [GitHub](https://github.com/microsoft/ApplicationInsights-JS#npm-setup-ignore-if-using-snippet-setup).
+Bundle the JavaScript code in your script so that the browser doesn't try to download code from a content delivery network. An example is provided on [GitHub](https://github.com/microsoft/ApplicationInsights-JS#npm-setup-ignore-if-using-snippet-setup).
 
 ### Browser DNS settings
 
 If you're connecting to your Azure Monitor resources over a Private Link connection, traffic to these resources must go through the private endpoint that's configured on your network. To enable the private endpoint, update your DNS settings as explained in [Connect to a private endpoint](#connect-to-a-private-endpoint). 
 
-Some browsers use their own DNS settings instead of the ones you set. The browser might attempt to connect to Azure Monitor public endpoints and bypass the Private Link connection entirely. Verify that your browser's settings don't override or cache old DNS settings. 
+Some browsers use their own DNS settings instead of the ones you set. The browser might try to connect to Azure Monitor public endpoints and bypass the Private Link connection entirely. Verify that your browser's settings don't override or cache old DNS settings. 
 
 ## Next steps
 
