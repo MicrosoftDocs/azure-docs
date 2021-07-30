@@ -23,7 +23,10 @@ The telemetry types are:
 
 This behavior is by design to help avoid unnecessary collection of personal data. Whenever possible, we recommend avoiding the collection of personal data. 
 
-Although the default is to not collect IP addresses, you can override this behavior. We recommend verifying that the collection doesn't break any compliance requirements or local regulations. 
+> [!NOTE]
+> Although the default is to not collect IP addresses, you can override this behavior. We recommend verifying that the collection doesn't break any compliance requirements or local regulations. 
+>
+> To learn more about handling personal data in Application Insights, consult the [guidance for personal data](../logs/personal-data-mgmt.md).
 
 To learn more about handling personal data in Application Insights, consult the [guidance for personal data](../logs/personal-data-mgmt.md).
 
