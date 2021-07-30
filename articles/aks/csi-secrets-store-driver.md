@@ -87,7 +87,7 @@ A user-assigned managed identity is created by the addon for the purpose of acce
     "azureKeyvaultSecretsProvider": {
       ...,
       "identity": {
-        "clientId": "<your-client-id>",
+        "clientId": "<client-id>",
         ...
       }
     }
@@ -168,7 +168,7 @@ Take note of the following properties for use in the next section:
 Use the values from the previous steps to set permissions, allowing the addon-created managed identity to access keyvault objects:
 
 ```azurecli
-az keyvault set-policy -n <keyvault-name> --<object-type>-permissions get --spn <clientId>
+az keyvault set-policy -n <keyvault-name> --<object-type>-permissions get --spn <client-id>
 ```
 
 ## Create and apply your own SecretProviderClass object
@@ -185,7 +185,7 @@ spec:
   parameters:
     keyvaultName: "<keyvault-name>"       # The name of the Azure Key Vault
     useVMManagedIdentity: "true"         
-    userAssignedIdentityID: "<client-Id>" # The clientId of the addon-created managed identity
+    userAssignedIdentityID: "<client-id>" # The clientId of the addon-created managed identity
     cloudName: ""                         # [OPTIONAL for Azure] if not provided, Azure environment will default to AzurePublicCloud 
     objects:  |
       array:
