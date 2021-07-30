@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 07/29/2021
+ms.date: 07/30/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -29,7 +29,7 @@ Azure AD stores reports and security signals for a defined period of time. When 
 
 Organizations can choose to store data for longer periods by changing diagnostic settings in Azure AD to send **RiskyUsers** and **UserRiskEvents** data to a Log Analytics workspace, archive data to a storage account, stream data to an Event Hub, or send data to a partner solution. Find these options in the **Azure portal** > **Azure Active Directory**, **Diagnostic settings** > **Edit setting**. If you don't have a diagnostic setting, follow the instructions in the article [Create diagnostic settings to send platform logs and metrics to different destinations](../../azure-monitor/essentials/diagnostic-settings.md) to create one.
 
-:::image type="content" source="media/howto-export-risk-data/change-diagnostic-setting-in-portal.png" alt-text="Diagnostic settings screen in Azure AD showing existing configuration.":::
+[ ![Diagnostic settings screen in Azure AD showing existing configuration](./media/howto-export-risk-data/change-diagnostic-setting-in-portal.png) ](./media/howto-export-risk-data/change-diagnostic-setting-in-portal.png#lightbox)
 
 ## Log Analytics
 
@@ -40,7 +40,7 @@ Once enabled you will find access to Log Analytics in the **Azure portal** > **A
 - AADRiskyUsers - Provides data like the **Risky users** report in Identity Protection.
 - AADUserRiskEvents - Provides data like the **Risk detections** report in Identity Protection.
 
-:::image type="content" source="media/howto-export-risk-data/log-analytics-view-query-user-risk-events.png" alt-text="Log Analytics view showing a query against the AADUserRiskEvents table showing the top 5 events":::
+[ ![Log Analytics view showing a query against the AADUserRiskEvents table showing the top 5 events](./media/howto-export-risk-data/log-analytics-view-query-user-risk-events.png) ](./media/howto-export-risk-data/log-analytics-view-query-user-risk-events.png#lightbox)
 
 In the image above, the following query was run to show the most recent five risk detections triggered. 
 
