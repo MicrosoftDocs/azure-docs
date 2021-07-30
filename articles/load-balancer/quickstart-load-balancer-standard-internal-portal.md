@@ -200,7 +200,7 @@ During the creation of the load balancer, you'll configure:
     | Port | Enter **80**. |
     | Backend port | Enter **80**. |
     | Backend pool | Select **myBackendPool**. |
-    | Health probe | Select **Create new**. </br> In **Name**, enter **myHTTPProbe**. </br> Select **HTTP** in **Protocol**. </br> Leave the rest of the defaults, and select **OK**. |
+    | Health probe | Select **Create new**. </br> In **Name**, enter **myHealthProbe**. </br> Select **HTTP** in **Protocol**. </br> Leave the rest of the defaults, and select **OK**. |
     | Session persistence | Select **None**. |
     | Idle timeout (minutes) | Enter or select **15**. |
     | TCP reset | Select **Enabled**. |
@@ -257,7 +257,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Subnet | **myBackendSubnet** |
     | Public IP | Select **None**. |
     | NIC network security group | Select **Advanced**|
-    | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **myNSG** in **Name**. </br> Under **Inbound rules**, select **+Add an inbound rule**. </br> Under  **Destination port ranges**, enter **80**. </br> Under **Priority**, enter **100**. </br> In **Name**, enter **myHTTPRule** </br> Select **Add** </br> Select **OK** |
+    | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **myNSG** in **Name**. </br> Under **Inbound rules**, select **+Add an inbound rule**. </br> Under  **Destination port ranges**, enter **80**. </br> Under **Priority**, enter **100**. </br> In **Name**, enter **myNSGRule** </br> Select **Add** </br> Select **OK** |
     | **Load balancing**  |
     | Place this virtual machine behind an existing load balancing solution? | Select the box. |
     | **Load balancing settings** |
@@ -404,7 +404,7 @@ During the creation of the load balancer, you'll configure:
     | Port | Enter **80**. |
     | Backend port | Enter **80**. |
     | Backend pool | Select **myBackendPool**. |
-    | Health probe | Select **Create new**. </br> In **Name**, enter **myHTTPProbe**. </br> Select **HTTP** in **Protocol**. </br> Leave the rest of the defaults, and select **OK**. |
+    | Health probe | Select **Create new**. </br> In **Name**, enter **myHealthProbe**. </br> Select **HTTP** in **Protocol**. </br> Leave the rest of the defaults, and select **OK**. |
     | Session persistence | Select **None**. |
     | Idle timeout (minutes) | Enter or select **15**. |
     | Floating IP | Select **Disabled**. |
@@ -460,7 +460,7 @@ The three VMs will be added to an availability set named **myAvailabilitySet**.
     | Subnet | Select **myBackendSubnet** |
     | Public IP | Select **None** |
     | NIC network security group | Select **Advanced**|
-    | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **myNSG** in **Name**. </br> Under **Inbound rules**, select **+Add an inbound rule**. </br> Under  **Destination port ranges**, enter **80**. </br> Under **Priority**, enter **100**. </br> In **Name**, enter **myHTTPRule** </br> Select **Add** </br> Select **OK** |
+    | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **myNSG** in **Name**. </br> Under **Inbound rules**, select **+Add an inbound rule**. </br> Under  **Destination port ranges**, enter **80**. </br> Under **Priority**, enter **100**. </br> In **Name**, enter **myNSGRule** </br> Select **Add** </br> Select **OK** |
     | **Load balancing**  |
     | Place this virtual machine behind an existing load balancing solution? | Select the box |
     | **Load balancing settings** |   |
@@ -594,7 +594,7 @@ When no longer needed, delete the resource group, load balancer, and all related
 
 In this quickstart, you:
 
-* Created an Azure standard or basic internal load balancer
+* Created an Azure Standard or Basic Internal Load Balancer
 * Attached 3 VMs to the load balancer.
 * Configured the load balancer traffic rule, health probe, and then tested the load balancer. 
 
