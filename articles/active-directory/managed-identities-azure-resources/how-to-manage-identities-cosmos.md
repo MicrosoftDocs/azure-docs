@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: msi
 ms.workload: integration
 ms.topic: how-to
-ms.date: 07/21/2021
+ms.date: 07/30/2021
 ms.author: barclayn
 ms.custom: ep-msia
 
@@ -40,8 +40,12 @@ To create an Azure VM with the system-assigned managed identity enabled, your ac
 
 # [Portal](#tab/azure-portal)
 
+### Create a Linux VM
 
 [Create a Linux virtual machine with a system assigned managed identity](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal)
+
+### Create a Windows VM
+
 [Create a Windows virtual machine with a system assigned managed identity](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
 
 
