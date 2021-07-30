@@ -173,8 +173,8 @@ The following table lists the values for a single workflow definition:
 ### Multi-tenant & single-tenant
 
 | Name | Limit | Notes |
-| ---- | ----- | ----- |
-| Action - Executions per 5-minute rolling interval | Multi-tenant: <br>- Default: 100,000 executions <br>- High throughput mode: 300,000 executions  <p><p>Single-tenant: None | For multi-tenant Azure Logic Apps, you can raise the default value to the maximum value for your workflow. For more information, see [Run in high throughput mode](#run-high-throughput-mode), which is in preview. Or, you can [distribute the workload across more than one workflow](handle-throttling-problems-429-errors.md#logic-app-throttling) as necessary. |
+|------|-------|-------|
+| Action - Executions per 5-minute rolling interval | Multi-tenant: <br>- Default: 100,000 executions <br>- High throughput mode: 300,000 executions  <p><p>Single-tenant: None | For multi-tenant, you can raise the default value to the maximum value for your workflow. For more information, see [Run in high throughput mode](#run-high-throughput-mode), which is in preview. Or, you can [distribute the workload across more than one workflow](handle-throttling-problems-429-errors.md#logic-app-throttling) as necessary. |
 | Action - Concurrent outbound calls | ~2,500 calls | You can reduce the number of concurrent requests or reduce the duration as necessary. |
 | Managed connector throttling | - Multi-tenant: Throttling limit varies based on connector <p><p>- Single-tenant: 50 requests per minute per connection | For multi-tenant, review [each managed connector's technical reference page](/connectors/connector-reference/connector-reference-logicapps-connectors). <p><p>For more information about handling connector throttling, review [Handle throttling problems ("429 - Too many requests" errors)](handle-throttling-problems-429-errors.md#connector-throttling). |
 | Runtime endpoint - Concurrent inbound calls | ~1,000 calls | You can reduce the number of concurrent requests or reduce the duration as necessary. |
