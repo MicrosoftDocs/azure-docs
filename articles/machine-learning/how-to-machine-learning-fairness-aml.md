@@ -60,7 +60,7 @@ The following example shows how to use the fairness package. We will upload mode
     from sklearn.compose import make_column_selector as selector
     from sklearn.pipeline import Pipeline
     
-    from fairlearn.widget import FairlearnDashboard
+    from raiwidgets import FairnessDashboard
 
     # Load the census dataset
     data = fetch_openml(data_id=1590, as_frame=True)
@@ -122,12 +122,12 @@ The following example shows how to use the fairness package. We will upload mode
     # Train the model on the test data
     lr_predictor.fit(X_train, y_train)
 
-    # (Optional) View this model in Fairlearn's fairness dashboard, and see the disparities which appear:
-    from fairlearn.widget import FairlearnDashboard
-    FairlearnDashboard(sensitive_features=A_test, 
-                       sensitive_feature_names=['Race', 'Sex'],
-                       y_true=y_test,
-                       y_pred={"lr_model": lr_predictor.predict(X_test)})
+    # (Optional) View this model in the fairness dashboard, and see the disparities which appear:
+    from raiwidgets import FairnessDashboard
+    FairnessDashboard(sensitive_features=A_test, 
+                      sensitive_feature_names=['Race', 'Sex'],
+                      y_true=y_test,
+                      y_pred={"lr_model": lr_predictor.predict(X_test)})
     ```
 
 2. Log into Azure Machine Learning and register your model.
@@ -265,9 +265,9 @@ To compare multiple models and see how their fairness assessments differ, you ca
     model_dict[svm_reg_id] = svm_predictor
     ```
 
-3. Load the Fairlearn dashboard locally
+3. Load the Fairness dashboard locally
 
-    Before uploading the fairness insights into Azure Machine Learning, you can examine these predictions in a locally invoked Fairlearn dashboard. 
+    Before uploading the fairness insights into Azure Machine Learning, you can examine these predictions in a locally invoked Fairness dashboard. 
 
 
 
@@ -277,12 +277,12 @@ To compare multiple models and see how their fairness assessments differ, you ca
     for n, p in model_dict.items():
         ys_pred[n] = p.predict(X_test)
 
-    from fairlearn.widget import FairlearnDashboard
+    from raiwidgets import FairnessDashboard
 
-    FairlearnDashboard(sensitive_features=A_test, 
-                    sensitive_feature_names=['Race', 'Sex'],
-                    y_true=y_test.tolist(),
-                    y_pred=ys_pred)
+    FairnessDashboard(sensitive_features=A_test, 
+                      sensitive_feature_names=['Race', 'Sex'],
+                      y_true=y_test.tolist(),
+                      y_pred=ys_pred)
     ```
 
 3. Precompute fairness metrics.
@@ -341,7 +341,7 @@ To see an example that demonstrates the use of the [Grid Search](https://fairlea
 Uploading multiple models' fairness insights in a single Run allows for comparison of models with respect to fairness and performance. You can click on any of the models displayed in the model comparison chart to see the detailed fairness insights of the particular model.
 
 
-[![Model Comparison Fairlearn Dashboard](./media/how-to-machine-learning-fairness-aml/multi-model-dashboard.png)](./media/how-to-machine-learning-fairness-aml/multi-model-dashboard.png#lightbox)
+[![Model Comparison Fairness Dashboard](./media/how-to-machine-learning-fairness-aml/multi-model-dashboard.png)](./media/how-to-machine-learning-fairness-aml/multi-model-dashboard.png#lightbox)
     
 
 ## Next steps
