@@ -24,7 +24,7 @@ This page provides latest news and updates regarding feature additions, engine v
 * Support for `pg_stat_reset_shared('bgwriter');` and `pg_stat_reset_shared('archiver');` to reset the counters shown in the `pg_stat_bgwriter` and `pg_stat_archiver` views <sup>$</sup>.
 * * Several bug fixes, stability, and performance improvements<sup>$</sup>.
 
-<sup>**$**</sup> Your existing servers will be automatically upgraded to the latest supported minor version and also new features are enabled during your server's future maintenance window.
+<sup>**$**</sup> New servers get these features automatically. In your existing servers, these features are enabled during your server's future maintenance window.
 
 ## Release: June 2021
 
@@ -36,7 +36,7 @@ This page provides latest news and updates regarding feature additions, engine v
 * Support for lo extension. See the [extensions page](./concepts-extensions.md) for versions supported with each major version <sup>$</sup>.
 * Several bug fixes, stability, and performance improvements<sup>$</sup>.
   
-<sup>**$**</sup> Your existing servers will be automatically upgraded to the latest supported minor version and also new features are enabled during your server's future maintenance window.
+<sup>**$**</sup> New servers get these features automatically. Your existing servers will be automatically upgraded to the latest supported minor version and also new features are enabled during your server's future maintenance window.
 
 ## Release: May 2021
 

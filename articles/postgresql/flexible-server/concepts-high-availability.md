@@ -90,7 +90,7 @@ You can use this feature to simulate an unplanned outage scenario while running 
 
 This feature triggers brings the primary server down and initiates the failover workflow in which the standby promote operation is performed. Once the standby completes the recovery process till the last committed data, it is promoted to be the primary server. DNS records are updated and your application can connect to the promoted primary server. Your application can continue to write to the primary while a new standby server is established in the background. The following are the steps performed:
 
-  | **Step** | **Description** | **Downtime** |
+  | **Step** | **Description** | **App downtime expected?** |
   | ------- | ------ | ----- |
   | 1 | Primary server is stopped shortly after the failover request is received. | Yes |
   | 2 | Application encounters downtime as the primary server is down. | Yes |
@@ -112,7 +112,7 @@ You can use this feature for failing over to the standby server with reduced dow
 
 When executing this feature, the standby server is first prepared to make sure it is caught up with recent transactions allowing the application to continue to perform read/writes. The standby is then promoted and the connections to the primary is severed. Your application can continue to write to the primary while a new standby server is established in the background. The following are the steps involved with planned failover.
 
-| **Step** | **Description** | **Downtime** |
+| **Step** | **Description** | **App downtime expected?** |
   | ------- | ------ | ----- |
   | 1 | Wait for the standby server to have caught-up with primary | No |
   | 2 | Internal monitoring system initiates the failover workflow. | No |
@@ -133,7 +133,7 @@ Application downtime starts at step #3 and can resume operation post step #5. Th
 * Please do not perform immediate, back-to-back failovers. Wait for at least 15-20 minutes between failovers, which will  allow the new standby server to be fully established.
 * For the planned failover with reduced downtime, it is recommended to perform during low activity period.
 
-See [this guide](how-to-manage-high-availability-portal.md) for step-by-step instructions.
+See [this guide](how-to-manage-high-availability-portal.md) for managing high availability.
 
 
 ## Point-in-time restore of HA servers

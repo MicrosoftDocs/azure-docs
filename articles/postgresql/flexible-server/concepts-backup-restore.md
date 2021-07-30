@@ -135,7 +135,7 @@ After restoring the database, you can perform the following tasks to get your us
 
 * **How are backups performed in a HA enabled servers?**
   
-    Flexible server's data volumes are backuped using Managed disk incremental snapshots from the primary server. The WAL backup is performed from either the primary server or the standby server.
+    Flexible server's data volumes are backed up using Managed disk incremental snapshots from the primary server. The WAL backup is performed from either the primary server or the standby server.
 
 * **How can I validate backups are performed on my server?**
 
@@ -173,7 +173,7 @@ After restoring the database, you can perform the following tasks to get your us
 
     To restore your server from the backups taken manually using tools like pg_dump, you can first create a flexible server and restore your database(s) into the server using [pg_restore](https://www.postgresql.org/docs/current/app-pgrestore.html).
 
-* **Can I restore to another availabilty zone within the same region?**
+* **Can I restore to another availability zone within the same region?**
   
     Yes. If the region supports multiple availability zones, the backup is stored on ZRS account and allows you to restore to another zone. 
 
