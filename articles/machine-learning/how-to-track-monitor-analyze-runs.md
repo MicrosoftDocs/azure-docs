@@ -189,7 +189,7 @@ The run display name is an optional and customizable name that you can provide f
 
 3. Select the **Edit** button to edit the run display name. 
 
-:::image type="content" source="media/how-to-track-monitor-analyze-runs/displayname.gif" alt-text="Screenshot: edit the display name":::
+:::image type="content" source="media/how-to-track-monitor-analyze-runs/display-name.gif" alt-text="Screenshot: edit the display name":::
 
 ## Custom View 
     
