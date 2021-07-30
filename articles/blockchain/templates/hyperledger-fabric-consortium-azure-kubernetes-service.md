@@ -7,7 +7,7 @@ ms.reviewer: ravastra
 ms.custom: contperf-fy21q3, devx-track-azurecli
 ---
 
-# Deploy Hyperledger Fabric consortium on Azure Kubernetes Service
+# Deploy Hyperledger Fabric consortium on Azure Kubernetes Service (Deprecated)
 
 You can use the Hyperledger Fabric on Azure Kubernetes Service (AKS) template to deploy and configure a Hyperledger Fabric consortium network on Azure.
 
