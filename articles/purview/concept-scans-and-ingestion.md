@@ -15,15 +15,15 @@ This article provides an overview of Scanning and Ingestion features in Azure Pu
 
 ## Scanning
 
-After the data sources are registered in Purview account, the next step is to scan the data sources. Scanning process establishes a connection to the data source and captures technical metadata like names, file size etc., extracts schema for structure data sources, applies classifications on schemas wherever applicable and also applies sensitivity labels if your Purview account is connected to Microsoft 365 Security and Compliance Center (SCC) [Apply Sensitivity Label](create-sensitivity-label.md). Scanning process can be triggered to run immediately or can be scheduled to run on a periodic basis.
+After the data sources are registered in Purview account, the next step is to scan the data sources. Scanning process establishes a connection to the data source and captures technical metadata like names, file size etc., extracts schema for structure data sources, applies classifications on schemas and also applies sensitivity labels if your Purview account is connected to Microsoft 365 Security and Compliance Center (SCC) [Apply Sensitivity Label](create-sensitivity-label.md). Scanning process can be triggered to run immediately or can be scheduled to run on a periodic basis.
 
 ## Scope your Scan
 
-You have a choice to scan the entire data source or pick and choose entities (folders/tables) you want to scan. This is determined in scope your scan section.
+You have a choice to scan the entire data source or select the entities (folders/tables) you want to scan. This is determined in scope your scan section.
 
 ## Scan rule set
 
-A scan rule determines the rules which are associated to a scan and applied to the data source during scanning process. It can contains a list of classifications to be applied on schemas discovered during scanning or file types to be included for file based sources.
+A scan rule determines the rules, which are associated to a scan and applied to the data source during scanning process. It contains a list of classifications that can be applied on schemas discovered during scanning or file types to be included for file based sources.
 
  > [Note]
    > Scoping the scans or Scan rule sets are not available to all data sources. [Scan Rule Sets](create-a-scan-rule-set.md)

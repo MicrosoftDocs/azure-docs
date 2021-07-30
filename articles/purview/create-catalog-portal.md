@@ -19,7 +19,7 @@ This quickstart describes the steps to create an Azure Purview account by using 
 
 1. Go to the **Purview accounts** page in the Azure portal, and then select **Create** to create a new Azure Purview account. Alternatively, you can go to marketplace search for **Purview** and select **Create**. Note that you can add only one Azure Purview account at a time.
 
-   :::image type="content" source="./media/create-catalog-portal/add-purview-instance.png" alt-text="Screenshot showing how to create an Azure Purview account instance in the Azure portal.":::
+   :::image type="content" source="media/create-catalog-portal/add-purview-instance.png" alt-text="Screenshot showing how to create an Azure Purview account instance in the Azure portal.":::
 
     > [!Note] 
     > Azure Purview does not support moving its account across regions. You can find out more information about this in [Move operation support for resources](../azure-resource-manager/management/move-support-resources.md).
@@ -38,7 +38,7 @@ This quickstart describes the steps to create an Azure Purview account by using 
 
 ## Open Purview Studio
 
-After your Azure Synapse workspace is created, you have two ways to open Synapse Studio:
+After your Azure Purview account is created, you have two ways to open Purview Studio:
 
 * Open your Purview account  in the [Azure portal](https://portal.azure.com). On the top of the **Overview** section, select **Open Purview Studio**.
 * Go to the `https://web.purview.azure.net` and sign in to your workspace.
