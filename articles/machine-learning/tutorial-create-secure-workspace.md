@@ -8,7 +8,7 @@ ms.subservice: core
 ms.reviewer: jhirono
 ms.author: larryfr
 author: blackmist
-ms.date: 07/16/2021
+ms.date: 07/27/2021
 ms.topic: how-to
 ms.custom: subject-rbac-steps
 ---
@@ -340,7 +340,7 @@ Use the following steps to create a Data Science Virtual Machine for use as a ju
 
 ### Connect to the jump box
 
-1. Once the workspace has been created, select __Go to resource__.
+1. Once the virtual machine has been created, select __Go to resource__.
 1. From the top of the page, select __Connect__ and then __Bastion__.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/virtual-machine-connect.png" alt-text="Image of the connect/bastion UI":::
@@ -381,11 +381,11 @@ A compute cluster is used by your training jobs. A compute instance provides a J
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/create-compute-instance.png" alt-text="Screenshot of new compute instance workflow":::
 
-1. From the __Virtual Machine__ dialog, select __Next__ to accept the default virtual machine configuration.
+1. From the __Virtual Machine__ dialog, enter a unique __Computer name__ and select __Next: Advanced Settings__.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/create-compute-instance-vm.png" alt-text="Screenshot of compute instance vm settings":::
 
-1. From the __Configure Settings__ dialog, enter a unique __Computer name__, set the __Subnet__ to __Training__, and then select __Create__.
+1. From the __Advanced Settings__ dialog, , set the __Subnet__ to __Training__, and then select __Create__.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/create-compute-instance-settings.png" alt-text="Screenshot of compute instance settings":::
 
