@@ -59,6 +59,8 @@ In this article you learn how to enable the following workspaces resources in a 
 
 * Your Azure Machine Learning workspace must contain an [Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md).
 
+* Your Azure Container Registry must have [admin user enabled](https://docs.microsoft.com/azure/container-registry/container-registry-authentication?tabs=azure-cli#admin-account).
+
 ## Limitations
 
 ### Azure Container Registry
