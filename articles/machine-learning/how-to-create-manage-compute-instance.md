@@ -100,8 +100,6 @@ For more information, see the [az ml computetarget create computeinstance](/cli/
 
 # [Studio](#tab/azure-studio)
 
-You can schedule times for a compute instance to start and stop (preview) in the studio.  
-
 1. Navigate to [Azure Machine Learning studio](https://ml.azure.com).
  
 1. Under __Manage__, select __Compute__.
@@ -260,7 +258,7 @@ Once you store the script, specify it during creation of your compute instance:
 1. Sign into the [studio](https://ml.azure.com/) and select your workspace.
 1. On the left, select **Compute**.
 1. Select **+New** to create a new compute instance.
-1. [Fill out the form](#compute-instance).
+1. [Fill out the form](?tabs=azure-studio#create).
 1. On the second page of the form, open **Show advanced settings**.
 1. Turn on **Provision with setup script**.
 1. Browse to the shell script you saved.  Or upload a script from your computer.

@@ -114,7 +114,7 @@ As an administrator, you can **[create a compute instance for others in the work
 
 You can also **[use a setup script (preview)](how-to-create-manage-compute-instance.md#setup-script)**  for an automated way to customize and configure the compute instance.
 
-To create your a compute instance for yourself, use your workspace in Azure Machine Learning studio, [create a new compute instance](how-to-create-attach-compute-studio.md#compute-instance) from either the **Compute** section or in the **Notebooks** section when you are ready to run one of your notebooks.
+To create your a compute instance for yourself, use your workspace in Azure Machine Learning studio, [create a new compute instance](how-to-create-manage-compute-instance.md?tabs=azure-studio#create) from either the **Compute** section or in the **Notebooks** section when you are ready to run one of your notebooks.
 
 You can also create an instance
 * Directly from the [integrated notebooks experience](tutorial-train-models-with-aml.md#azure)

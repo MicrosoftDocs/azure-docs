@@ -66,7 +66,7 @@ Follow the previous steps to view the list of compute targets. Then use these st
 
 1. Fill out the form for your compute type:
 
-    * [Compute instance](how-to-create-manage-compute-instance.md#compute-instance)
+    * [Compute instance](how-to-create-manage-compute-instance.md?tabs=azure-studio#create)
     * [Compute clusters](#amlcompute)
     * [Inference clusters](#inference-clusters)
     * [Attached compute](#attached-compute)
