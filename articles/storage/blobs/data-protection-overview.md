@@ -53,7 +53,7 @@ The following table summarizes the options available in Azure Storage for common
 
 The following table summarizes the Azure Storage data protection options according to the resources they protect.
 
-| Data protection option | Protects an account from deletion | Protects a container from deletion | Protects a blob from deletion | Protects a blob from overwrites |
+| Data protection option | Protects an account from deletion | Protects a container from deletion | Protects an object from deletion | Protects an object from overwrites |
 |--|--|--|--|--|
 | Azure Resource Manager lock | Yes | No<sup>1</sup> | No | No |
 | Immutability policy on a blob version (preview) | Yes<sup>2</sup> | Yes<sup>3</sup> | Yes | Yes<sup>4</sup> |
@@ -67,8 +67,8 @@ The following table summarizes the Azure Storage data protection options accordi
 
 <sup>1</sup> An Azure Resource Manager lock does not protect a container from deletion.<br />
 <sup>2</sup> Storage account deletion fails if there is at least one container with version-level immutable storage enabled.<br />
-<sup>3</sup> Container deletion fails if at least one blob exists in the container, regardless of whether policy is locked or unlocked.
-<sup>4</sup> Overwriting the contents of a blob creates a new version. An immutability policy protects a version's metadata from being overwritten.
+<sup>3</sup> Container deletion fails if at least one blob exists in the container, regardless of whether policy is locked or unlocked.<br />
+<sup>4</sup> Overwriting the contents of a the current version of the blob creates a new version. An immutability policy protects a version's metadata from being overwritten.<br />
 <sup>5</sup> While a legal hold or a locked time-based retention policy is in effect at container scope, the storage account is also protected from deletion.<br />
 <sup>6</sup> Not currently supported for Data Lake Storage workloads.<br />
 <sup>7</sup> AzCopy and Azure Data Factory are options that are supported for both Blob Storage and Data Lake Storage workloads. Object replication is supported for Blob Storage workloads only.<br />
