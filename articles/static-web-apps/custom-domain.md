@@ -171,7 +171,7 @@ You'll need to configure a TXT record with your domain provider. Azure DNS is re
 
    | Setting  | Value                                                                           |
    | -------- | ------------------------------------------------------------------------------- |
-   | Name     | `@` for root domain, or enter `_dnsauth.<your_subdomain>` for subdomain         |
+   | Name     | `@` for root domain, or enter `_dnsauth.<YOUR_SUBDOMAIN>` for subdomain         |
    | Type     | TXT                                                                             |
    | TTL      | Leave as default value                                                          |
    | TTL Unit | Leave as default value                                                          |
@@ -209,12 +209,12 @@ You'll need to configure a TXT record with your domain provider. Azure DNS is re
    | Setting             | Value                                                                        |
    | ------------------- | ---------------------------------------------------------------------------- |
    | Type                | TXT                                                                          |
-   | Host                | `@` for root domain, or enter `_dnsauth.<your_subdomain>` for subdomain      |
+   | Host                | `@` for root domain, or enter `_dnsauth.<YOUR_SUBDOMAIN>` for subdomain      |
    | Value               | Paste the code from your clipboard                                           |
    | TTL (if applicable) | Leave as default value                                                       |
 
 > [!NOTE]
-> Some DNS providers will use a different convention than "@" to indicate a root domain or they will change the "@" to your root domain (i.e. mydomain.com) automatically. This is expected and the validation process will still work.
+> Some DNS providers use a different convention than "@" to indicate a root domain or they change the "@" to your root domain (i.e. mydomain.com) automatically. This is expected and the validation process will still work.
 
 [!INCLUDE [create repository from template](../../includes/static-web-apps-validate-txt.md)]
 
