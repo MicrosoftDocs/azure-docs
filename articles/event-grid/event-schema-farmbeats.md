@@ -114,7 +114,7 @@ status| string|	Contains the user-defined status of the resource.
 eTag|	string|	Implements optimistic concurrency
 description| string|	Textual description of the resource
 
-*SatelliteDataIngestionJobChange, WeatherDataIngestionJobChange, and FarmOperationsDataIngestionJobChange FarmBeats events have the following data object:*
+*SatelliteDataIngestionJobChanged, WeatherDataIngestionJobChanged, and FarmOperationsDataIngestionJobChanged FarmBeats events have the following data object:*
 
 Property|	Type|	Description
 |----|----|----|
@@ -370,7 +370,7 @@ These event samples represent an event notification.
     "eventTime": "2021-03-05T11:10:21.4572495Z"
   }
 ```
-**Event type: Microsoft.AgFoodPlatform.SatelliteDataIngestionJobStatusChange**
+**Event type: Microsoft.AgFoodPlatform.SatelliteDataIngestionJobStatusChanged**
 ```json
 [
   {
@@ -399,7 +399,7 @@ These event samples represent an event notification.
   }
 ]
 ```
-**Event type: Microsoft.AgFoodPlatform.WeatherDataIngestionJobStatusChange**
+**Event type: Microsoft.AgFoodPlatform.WeatherDataIngestionJobStatusChanged**
 ```json
 [
   {
@@ -423,7 +423,7 @@ These event samples represent an event notification.
 ]
 
 ```
-**Event type: Microsoft.AgFoodPlatform.FarmOperationDataIngestionJobStatusChange**
+**Event type: Microsoft.AgFoodPlatform.FarmOperationDataIngestionJobStatusChanged**
 ```json
 [
   {
