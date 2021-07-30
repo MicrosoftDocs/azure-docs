@@ -4,7 +4,7 @@ description: How many users return to your app?
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 07/29/2021
+ms.date: 07/30/2021
 
 ---
 
@@ -34,7 +34,7 @@ To use the Retention Workbook, in your Application Insights resources navigate t
 - The grid shows the number of users retained. Each row represents a cohort of users who performed any event in the time period shown. Each cell in the row shows how many of that cohort returned at least once in a later period. Some users may return in more than one period. 
 - The insights cards show top five initiating events, and top five returned events to give users a better understanding of their retention report. 
 
-:::image type="content" source="./media/usage-retention/retention-2.png" alt-text="Screenshot of the retention workbook, showing user return after # of weeks chart." lightbox="./media/usage-retention/retention-2.png":::
+    :::image type="content" source="./media/usage-retention/retention-2.png" alt-text="Screenshot of the retention workbook, showing user return after # of weeks chart." lightbox="./media/usage-retention/retention-2.png":::
 
 ## Use business events to track retention
 
@@ -58,7 +58,7 @@ Or in ASP.NET server code:
 
 
 ## Next steps
-- - To learn more about workbooks visit [the workbooks overview](../visualize/workbooks-overview.md).
+- - To learn more about workbooks, visit [the workbooks overview](../visualize/workbooks-overview.md).
 - To enable usage experiences, start sending [custom events](./api-custom-events-metrics.md#trackevent) or [page views](./api-custom-events-metrics.md#page-views).
 - If you already send custom events or page views, explore the Usage tools to learn how users use your service.
     - [Users, Sessions, Events](usage-segmentation.md)

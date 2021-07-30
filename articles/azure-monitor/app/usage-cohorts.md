@@ -4,7 +4,7 @@ description: Analyze different sets or users, sessions, events, or operations th
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 07/29/2021
+ms.date: 07/30/2021
 
 ---
 
@@ -52,9 +52,7 @@ Your team defines an engaged user as anyone who uses your app five or more times
 
 Open the Users tool. In the **Show** drop-down box, choose the cohort you created under **Users who belong to**.
 
-
-:::image type="content" source="./media/usage-cohorts/cohort2.png" alt-text="Screenshot of the Show dropdown." lightbox="./media/usage-cohorts/cohort2.png":::
-
+:::image type="content" source="./media/usage-cohorts/cohort2.png" alt-text="Screenshot of the Show dropdown.":::
 
 A few important things to notice:
 
@@ -67,12 +65,11 @@ These filters support more sophisticated questions that are impossible to expres
 
 You can also make cohorts of events. In this section, you define a cohort of the events and page views. Then you see how to use them from the other tools. This cohort might define a set of events that your team considers _active usage_ or a set related to a certain new feature.
 
-1. Open the Cohorts tool.
+1. Select **Create a Cohort**
 
 2. Select the **Template Gallery** tab. You’ll see a collection of templates for various cohorts.
 
 3. Select **Events Picker**.
-
 
 4. In the **Activities** drop-down box, select the events you want to be in the cohort.
 

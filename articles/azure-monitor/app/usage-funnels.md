@@ -4,13 +4,13 @@ description: Learn how you can use Funnels to discover how customers are interac
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 07/29/2021
+ms.date: 07/30/2021
 
 ---
 
 # Discover how customers are using your application with Application Insights Funnels
 
-Understanding the customer experience is of the utmost importance to your business. If your application involves multiple stages, you need to know if most customers are progressing through the entire process, or if they are ending the process at some point. The progression through a series of steps in a web application is known as a *funnel*. You can use Application Insights Funnels to gain insights into your users, and monitor step-by-step conversion rates. 
+Understanding the customer experience is of the utmost importance to your business. If your application involves multiple stages, you need to know if most customers are progressing through the entire process, or if they're ending the process at some point. The progression through a series of steps in a web application is known as a *funnel*. You can use Application Insights Funnels to gain insights into your users, and monitor step-by-step conversion rates. 
 
 ## Create your funnel
 Before you create your funnel, decide on the question you want to answer. For example, you might want to know how many users are viewing the home page, viewing a customer profile, and creating a ticket. 
@@ -32,7 +32,7 @@ To create a funnel:
 
 ### Funnels features
 
-- If your app is sampled, you will see a sampling banner. Selecting the banner opens a context pane, explaining how to turn sampling off. 
+- If your app is sampled, you'll see a sampling banner. Selecting the banner opens a context pane, explaining how to turn sampling off. 
 - Select a step to see more details on the right. 
 - The historical conversion graph shows the conversion rates over the last 90 days. 
 - Understand your users better by accessing the users tool. You can use filters in each step. 

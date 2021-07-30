@@ -5,14 +5,14 @@ description: Tutorial on using Application Insights to understand how customers 
 ms.topic: tutorial
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 07/29/2021
+ms.date: 07/30/2021
 
 ms.custom: mvc
 ---
 
 # Use Azure Application Insights to understand how customers are using your application
 
- Application Insights collects usage information to help you understand how your users interact with your application.  This tutorial walks you through the different resources that are available to analyze this information.  You will learn how to:
+ Application Insights collects usage information to help you understand how your users interact with your application.  This tutorial walks you through the different resources that are available to analyze this information.  You'll learn how to:
 
 > [!div class="checklist"]
 > * Analyze details about users accessing your application
@@ -65,7 +65,7 @@ The **Sessions** panel is similar to the **Users** panel.  Where **Users** helps
 
      :::image type="content" source="./media/tutorial-users/sessions.png" alt-text="Screenshot of the Sessions tab." lightbox="./media/tutorial-users/sessions.png":::
 
-4. To view the sessions timeline select **View More Insights** then under active sessions select **View session timeline** on one of the timelines. Session Timeline shows every action in the sessions. This can help you identify information such as the sessions with a large number of exceptions.
+4. To view the sessions timeline, select **View More Insights** then under active sessions select **View session timeline** on one of the timelines. Session Timeline shows every action in the sessions. This can help you identify information such as the sessions with a large number of exceptions.
 
      :::image type="content" source="./media/tutorial-users/timeline.png" alt-text="Screenshot of the Sessions tab with a timeline selected." lightbox="./media/tutorial-users/timeline.png":::
 
@@ -96,7 +96,7 @@ While the previous panels are focused on what users of your application did, **F
 
      :::image type="content" source="./media/tutorial-users/funnel2.png" alt-text="Screenshot of the funnel tab on view." lightbox="./media/tutorial-users/funnel2.png":::
 
-4. To save the funnel select **Save**. 
+4. To save the funnel, select **Save**. 
 
 ## Learn which customers return
 
@@ -115,34 +115,34 @@ While the previous panels are focused on what users of your application did, **F
 A **User flow** visualizes how users navigate between the pages and features of your application.  This helps you answer questions such as where users typically move from a particular page, how they typically exit your application, and if there are any actions that are regularly repeated.
 
 1.  Select **User flows** in the menu.
-2.  Click **New** to create a new user flow and then click **Edit** to edit its details.
+2.  Click **New** to create a new user flow and then select **Edit** to edit its details.
 3.  Increase the **Time Range** to 7 days and then select an initial event.  The flow will track user sessions that start with that event.
 
-	![Screenshot showing how to create a new user flow.](media/tutorial-users/flowsedit.png)
-
+     :::image type="content" source="./media/tutorial-users/flowsedit.png" alt-text="Screenshot showing how to create a new user flow." lightbox="./media/tutorial-users/flowsedit.png":::
+    
 4.  The user flow is displayed, and you can see the different user paths and their session counts.  Blue lines indicate an action that the user performed after the current action.  A red line indicates the end of the user session.
 
-	![Screenshot showing the display of user paths and session counts for a user flow.](media/tutorial-users/flows.png)
+   :::image type="content" source="./media/tutorial-users/flows.png" alt-text="Screenshot showing the display of user paths and session counts for a user flow." lightbox="./media/tutorial-users/flows.png":::
 
-5.  To remove an event from the flow, click the **x** in the corner of the action and then click **Create Graph**.  The graph is redrawn with any instances of that event removed.  Click **Edit** to see that the event is now added to **Excluded events**.
+5.  To remove an event from the flow, select the **x** in the corner of the action and then select **Create Graph**.  The graph is redrawn with any instances of that event removed. Select **Edit** to see that the event is now added to **Excluded events**.
 
-	![Screenshot showing the list of excluded events for a user flow.](media/tutorial-users/flowsexclude.png)
+    :::image type="content" source="./media/tutorial-users/flowsexclude.png" alt-text="Screenshot showing the list of excluded events for a user flow." lightbox="./media/tutorial-users/flowsexclude.png":::
 
 ## Consolidate usage data
 **Workbooks** combine data visualizations, Analytics queries, and text into interactive documents.  You can use workbooks to group together common usage information, consolidate information from a particular incident, or report back to your team on your application's usage.
 
 1.  Select **Workbooks** in the menu.
-2.  Click **New** to create a new workbook.
-3.  A query is already provided that includes all usage data in the last day displayed as a bar chart.  You can use this query, manually edit it, or click **Sample queries** to select from other useful queries.
+2.  Select **New** to create a new workbook.
+3.  A query is already provided that includes all usage data in the last day displayed as a bar chart.  You can use this query, manually edit it, or select **Samples** to select from other useful queries.
 
-	![Screenshot showing a list of sample queries that you can use.](media/tutorial-users/samplequeries.png)
+    :::image type="content" source="./media/tutorial-users/sample-queries.png" alt-text="Screenshot showing the sample button and list of sample queries that you can use." lightbox="./media/tutorial-users/sample-queries.png":::
 
 4.  Select **Done editing**.
 5.  Select **Edit** in the top pane to edit the text at the top of the workbook.  This is formatted using markdown.
 
-6.  Select **Add users** to add a graph with user information.  Edit the details of the graph if you want and then click **Done editing** to save it.
+6.  Select **Add users** to add a graph with user information.  Edit the details of the graph if you want and then select **Done editing** to save it.
 
-To learn more about workbooks visit [the workbooks overview](../visualize/workbooks-overview.md).
+To learn more about workbooks, visit [the workbooks overview](../visualize/workbooks-overview.md).
 
 ## Next steps
 Now that you've learned how to analyze your users, advance to the next tutorial to learn how to create custom dashboards that combine this information with other useful data about your application.
