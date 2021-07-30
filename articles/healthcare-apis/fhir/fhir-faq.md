@@ -49,7 +49,7 @@ The FHIR service in the Azure Healthcare APIs is a hosted and managed version of
 
 When you run the FHIR Server for Azure, you have direct access to the underlying services, but are responsible for maintaining and updating the server and all required compliance work if you're storing PHI data.
 
-For a development standpoint, every feature that doesn't apply only to the managed service is first deployed to the open-source Microsoft FHIR Server for Azure. Once it has been validated in open-source, it will be released to the PaaS FHIR service. The time between the release in open-source and PaaS depends on the complexity of the feature and other roadmap priorities.
+For a development standpoint, every feature that doesn't apply only to the managed service is first deployed to the open-source Microsoft FHIR Server for Azure. Once it has been validated in open-source, it will be released to the PaaS FHIR service.
 
 ### In which regions is the FHIR service available?
 

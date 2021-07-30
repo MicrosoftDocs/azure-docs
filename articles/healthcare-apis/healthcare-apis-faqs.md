@@ -36,7 +36,7 @@ No, unfortunately we do not offer migration capabilities at this time.
 During the public preview phase, Azure Healthcare APIs is available for you to use at no charge
 
 ### What regions are Healthcare APIs available?
-Please refer to the [Products by region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=azure-api-for-fhir) page for the most current information. 
+Please refer to the [Products by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir) page for the most current information. 
           
 ### Can you use IoT Central with IoT Connector for FHIR?
 Health data can be sent to Event Hubs, Azure IoT Hub or Azure IoT Central, and is converted to FHIR resources, which enables care teams to view patient data captured from IoT devices in context with clinical records in FHIR.

@@ -20,7 +20,7 @@ An [ARM template](../../azure-resource-manager/templates/overview.md) is a JSON 
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 * If you want to run the code locally:
-    * [Azure PowerShell](https://review.docs.microsoft.com/en-us/powershell/azure/install-az-ps).
+    * [Azure PowerShell](https://review.docs.microsoft.com/powershell/azure/install-az-ps).
 
 # [CLI](#tab/CLI)
 
