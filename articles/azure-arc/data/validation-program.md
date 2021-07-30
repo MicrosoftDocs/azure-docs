@@ -26,37 +26,37 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 ### Dell
 
-|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL Server version | PostgreSQL Hyperscale version
+|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL Engine version | PostgreSQL Hyperscale version
 |-----|-----|-----|-----|-----|
-| Dell EMC PowerFlex |1.19.7|20.3.3|SQL Server 2019 (15.0.4123) | |
-| PowerFlex version 3.6 |1.19.7|20.3.3|SQL Server 2019 (15.0.4123) | |
-| PowerFlex CSI version 1.4 |1.19.7|20.3.3|SQL Server 2019 (15.0.4123) | |
-| PowerStore X|1.20.6|20.3.3|SQL Server 2019 (15.0.4123) |postgres 12.3 (Ubuntu 12.3-1) |
-| Powerstore T|1.20.6|20.3.3|SQL Server 2019 (15.0.4123) |postgres 12.3 (Ubuntu 12.3-1)|
+| Dell EMC PowerFlex |1.19.7|v1.0.0_2021-07-30|SQL Server 2019 (15.0.4123) | |
+| PowerFlex version 3.6 |1.19.7|v1.0.0_2021-07-30|SQL Server 2019 (15.0.4123) | |
+| PowerFlex CSI version 1.4 |1.19.7|v1.0.0_2021-07-30|SQL Server 2019 (15.0.4123) | |
+| PowerStore X|1.20.6|v1.0.0_2021-07-30|SQL Server 2019 (15.0.4123) |postgres 12.3 (Ubuntu 12.3-1) |
+| Powerstore T|1.20.6|v1.0.0_2021-07-30|SQL Server 2019 (15.0.4123) |postgres 12.3 (Ubuntu 12.3-1)|
 
 ### Nutanix
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL Server version | PostgreSQL Hyperscale version
 |-----|-----|-----|-----|-----|
-| Karbon 2.2<br/>AOS: 5.19.1.5<br/>AHV:20201105.1021<br/>PC: Version pc.2021.3.02<br/> | 1.19.8-0 | 20.3.4 | SQL Server 2019 (15.0.4123)|postgres 12.3 (Ubuntu 12.3-1)|
+| Karbon 2.2<br/>AOS: 5.19.1.5<br/>AHV:20201105.1021<br/>PC: Version pc.2021.3.02<br/> | 1.19.8-0 | v1.0.0_2021-07-30 | SQL Server 2019 (15.0.4123)|postgres 12.3 (Ubuntu 12.3-1)|
 
 ### PureStorage
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL Server version | PostgreSQL Hyperscale version
 |-----|-----|-----|-----|-----|
-| Portworx Enterprise 2.7 | 1.20.7 | 20.3.5 | SQL Server 2019 (15.0.4138)||
+| Portworx Enterprise 2.7 | 1.20.7 | v1.0.0_2021-07-30 | SQL Server 2019 (15.0.4138)||
 
 ### Red Hat
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL Server version | PostgreSQL Hyperscale version
 |-----|-----|-----|-----|-----|
-| OpenShift 7.13 | 1.20.0 | 20.3.5 | SQL Server 2019 (15.0.4138)|postgres 12.3 (Ubuntu 12.3-1)|
+| OpenShift 7.13 | 1.20.0 | v1.0.0_2021-07-30 | SQL Server 2019 (15.0.4138)|postgres 12.3 (Ubuntu 12.3-1)|
 
 ### VMware
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL Server version | PostgreSQL Hyperscale version
 |-----|-----|-----|-----|-----|
-| TKGm v1.3.1 | 1.20.5 | 20.3.3 | SQL Server 2019 (15.0.4123)|postgres 12.3 (Ubuntu 12.3-1)|
+| TKGm v1.3.1 | 1.20.5 | v1.0.0_2021-07-30 | SQL Server 2019 (15.0.4123)|postgres 12.3 (Ubuntu 12.3-1)|
 
 ## Data services validation process
 
