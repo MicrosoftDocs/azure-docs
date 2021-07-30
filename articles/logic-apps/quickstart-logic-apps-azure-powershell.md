@@ -13,7 +13,7 @@ ms.date: 07/26/2021
 
 This quickstart shows you how to create and manage logic apps by using [Azure PowerShell](/powershell/azure/install-az-ps). From PowerShell, you can create a logic app by using the JSON file for a logic app workflow definition. You can then manage your logic app by running the cmdlets in the [Az.LogicApp](/powershell/module/az.logicapp/) PowerShell module.
 
-If you're new to Logic Apps, you can also learn how to create your first logic apps [through the Azure portal](quickstart-create-first-logic-app-workflow.md), [in Visual Studio](quickstart-create-logic-apps-with-visual-studio.md), and [in Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md).
+If you're new to Azure Logic Apps, you can also learn how to create your first logic apps [through the Azure portal](quickstart-create-first-logic-app-workflow.md), [in Visual Studio](quickstart-create-logic-apps-with-visual-studio.md), and [in Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md).
 
 ## Prerequisites
 
