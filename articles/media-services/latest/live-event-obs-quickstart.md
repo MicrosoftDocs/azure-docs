@@ -104,7 +104,7 @@ OBS starts with a default scene but with no inputs selected.
 
    ![OBS audio source with add existing selected.](media/live-events-obs-quickstart/live-event-obs-new-audio-source.png)
 
-1. From the **Device** dropdown list, select the audio capture device you want to use for your broadcast. Leave the rest of the settings alone for now, and select OK. The audio capture device will be added to the audio mixer panel.
+1. From the **Device** dropdown list, select the audio capture device you want to use for your broadcast. Leave the rest of the settings alone for now, and select **OK**. The audio capture device will be added to the audio mixer panel.
 
    ![OBS audio device selection dropdown list](media/live-events-obs-quickstart/live-event-select-audio-device.png)
 
@@ -219,6 +219,9 @@ In the next procedure, you will adjust the audio encoding settings.
 1. Set the **Sample Rate** to 44.1 kHz.
 
    ![OBS Audio Sample Rate settings.](media/live-events-obs-quickstart/live-event-obs-audio-sample-rate-settings.png)
+   
+1. Select **Apply** and **OK** to save all the setting modifications you made.
+  
 
 ### Start streaming
 
@@ -226,7 +229,7 @@ In the next procedure, you will adjust the audio encoding settings.
 
     ![OBS start streaming button.](media/live-events-obs-quickstart/live-event-obs-start-streaming.png)
 
-2. Switch to the Azure Media Services Live event screen in your browser and click the **Reload Player** link. You should now see your stream in the Preview player.
+2. Switch to the Azure Media Services Live event screen in your browser and click **Restart**. You should now see your stream in the Preview player.
 
 ## Set up outputs
 
