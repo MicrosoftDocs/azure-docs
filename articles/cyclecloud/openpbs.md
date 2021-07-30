@@ -1,17 +1,17 @@
 ---
-title: PBS Professional OSS Integration
-description: PBS Professional OSS scheduler configuration in Azure CycleCloud.
-author: KimliW
-ms.date: 08/01/2018
+title: Open PBS Integration
+description: Open PBS scheduler configuration in Azure CycleCloud.
+author: adriankjohnson
+ms.date: 07/29/2021
 ms.author: adjohnso
 ---
 
-# PBS Professional OSS
+# Open PBS
 
 [//]: # (Need to link to the scheduler README on Github)
 
 ::: moniker range="=cyclecloud-7"
-[PBS Professional OSS (PBS Pro)](http://pbspro.org/) can easily be enabled on a CycleCloud cluster by modifying the "run_list" in the configuration section of your cluster definition. The two basic components of a PBS Professional cluster are the 'master' node which provides a shared filesystem on which the PBS Professional software runs, and the 'execute' nodes which are the hosts that mount the shared filesystem and execute the jobs submitted. For example, a simple cluster template snippet may look like:
+[Open PBS](http://openpbs.org/) can easily be enabled on a CycleCloud cluster by modifying the "run_list" in the configuration section of your cluster definition. The two basic components of a PBS Professional cluster are the 'master' node which provides a shared filesystem on which the PBS Professional software runs, and the 'execute' nodes which are the hosts that mount the shared filesystem and execute the jobs submitted. For example, a simple cluster template snippet may look like:
 
 ``` ini
 [cluster my-pbspro]
@@ -35,7 +35,7 @@ Importing and starting a cluster with definition in CycleCloud will yield a sing
 ::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
-[PBS Professional OSS (PBS Pro)](http://pbspro.org/) can easily be enabled on a CycleCloud cluster by modifying the "run_list" in the configuration section of your cluster definition. The two basic components of a PBS Professional cluster are the 'server' node which provides a shared filesystem on which the PBS Professional software runs, and the 'execute' nodes which are the hosts that mount the shared filesystem and execute the jobs submitted. For example, a simple cluster template snippet may look like:
+[Open PBS](http://openpbs.org/) can easily be enabled on a CycleCloud cluster by modifying the "run_list" in the configuration section of your cluster definition. The two basic components of a PBS Professional cluster are the 'server' node which provides a shared filesystem on which the PBS Professional software runs, and the 'execute' nodes which are the hosts that mount the shared filesystem and execute the jobs submitted. For example, a simple cluster template snippet may look like:
 
 ``` ini
 [cluster my-pbspro]
