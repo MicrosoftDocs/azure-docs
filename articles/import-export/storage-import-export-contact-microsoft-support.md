@@ -16,7 +16,7 @@ If you come across any issues with your Import/Export service, you can create a 
 
 This article walks you through:
 
-* How to create a support request
+* How to create a support request 
 * How to manage a support request lifecycle from within the portal
 
 ## Create a support request
