@@ -7,7 +7,7 @@ ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/07/2018
+ms.date: 07/30/2021
 ms.custom: [mqtt, 'Role: Cloud Development', 'Role: IoT Device']
 ---
 
@@ -67,6 +67,19 @@ After creating a container, follow the instructions in [Configure file uploads u
 
 You can also use the [IoT Hub resource provider REST APIs](/rest/api/iothub/iothubresource) to create a container associated with the storage for your IoT Hub.
 
+## File upload using an SDK
+
+The following how-to guides provide complete step-by-step instructions to perform file uploads in a variety of SDK languages. They show you how to use the Azure portal to associate a storage account with an IoT hub. They also contain code snippets or refer to samples that guide you through the upload process.
+
+| How-to guide | Device SDK example | Service SDK example |
+|---------|--------|---------|
+| [.NET](iot-hub-csharp-csharp-file-upload.md) | Yes | No |
+| [Java](iot-hub-java-java-file-upload.md) | Yes | Yes |
+| [Node.js](iot-hub-node-node-file-upload.md) | Yes | Yes |
+| [Python](iot-hub-python-python-file-upload.md) | Yes | No service SDK available in Python |
+
+> [!NOTE]
+> The C device SDK uses a single call on the device client to perform file uploads. For more information, see [IoTHubDeviceClient_UploadToBlobAsync()](/azure/iot-hub/iot-c-sdk-ref/iothub-device-client-h/iothubdeviceclient-uploadtoblobasync) and [IoTHubDeviceClient_UploadMultipleBlocksToBlobAsync()](/azure/iot-hub/iot-c-sdk-ref/iothub-device-client-h/iothubdeviceclient-uploadmultipleblockstoblobasync). These functions perform all aspects of the file upload - initiating the upload, uploading the file to Azure storage, and notifying IoT Hub when it completes -- in a single call. Make sure that access to both the IoT Hub endpoint and the Azure storage endpoint (HTTPS) is available to the device as these functions will make calls to Azure storage APIs.
 
 ## Device: Initialize a file upload
 
@@ -77,12 +90,6 @@ The device calls the [Create File Upload SAS URI](/rest/api/iothub/device/create
 **Method**: POST
 
 ```json
-POST https://myfileuploadhub.azure-devices.net/devices/mydevice/files?api-version=2020-03-13 HTTP/1.1
-Authorization: SharedAccessSignature sr=MyFileUploadHub.azure-devices.net%2Fdevices%2Fmydevice&sig=pD7ytXr0ZmaWiXfY...tNW0rF1NIZ2yYmKGbsW0LM%3D&se=1627625040
-Host: myfileuploadhub.azure-devices.net
-Content-Length: 29
-Content-Type: application/json
-
 {
     "blobName":"myfile.txt"
 }
@@ -95,20 +102,14 @@ Content-Type: application/json
 IoT Hub returns the following data, subject to its throttling and per-device upload limits:
 
 ```json
-HTTP/1.1 200 OK
-Content-Length: 362
-Content-Type: application/json; charset=utf-8
-Vary: Origin
-Server: Microsoft-HTTPAPI/2.0
-x-ms-request-id: 05e3646c-5e68-4327-941b-e5ba8d4f8f18
-Date: Fri, 30 Jul 2021 05:11:10 GMT
-
 {
-    "correlationId":"MjAyMTA3MzAwNjIxXzBiNjgwOGVkLWZjNzQtN...MzYzLWRlZmI4OWQxMzdmNF9teWZpbGUudHh0X3ZlcjIuMA==","hostName":"contosostorageaccount.blob.core.windows.net",
+    "correlationId":"MjAyMTA3MzAwNjIxXzBiNjgwOGVkLWZjNzQtN...MzYzLWRlZmI4OWQxMzdmNF9teWZpbGUudHh0X3ZlcjIuMA==",
+    "hostName":"contosostorageaccount.blob.core.windows.net",
     "containerName":"device-upload-container",
     "blobName":"mydevice/myfile.txt",
     "sasToken":"?sv=2018-03-28&sr=b&sig=mBLiODhpKXBs0y9RVzwk1S...l1X9qAfDuyg%3D&se=2021-07-30T06%3A11%3A10Z&sp=rw"
 }
+
 ```
 | Property | Description |
 |----------|-------------|
@@ -143,7 +144,7 @@ x-ms-blob-type: BlockBlob
 hello world
 ```
 
-For more information about 
+For more information about Azure storage, see 
 
 
 ## Device: Notify IoT Hub of a completed file upload
@@ -228,20 +229,6 @@ Each IoT hub has the following configuration options for file upload notificatio
 | **fileNotifications.maxDeliveryCount** |Maximum delivery count for the file upload notification queue. |1 to 100. Default: 100. |
 
 You can set these properties on your IoT hub using the Azure portal, Azure CLI, or PowerShell. To learn how, see the topics under [Configure file upload](iot-hub-configure-file-upload.md).
-
-## File upload using an SDK
-
-The following how-to guides provide complete step-by-step instructions to perform file uploads in a variety of SDK languages. They show you how to use the Azure portal to associate a storage account with an IoT hub. They also contain code snippets or refer to samples that guide you through the upload process.
-
-| How-to guide | Device SDK example | Service SDK example |
-|---------|--------|---------|
-| [.NET](iot-hub-csharp-csharp-file-upload.md) | Yes | No |
-| [Java](iot-hub-java-java-file-upload.md) | Yes | Yes |
-| [Node.js](iot-hub-node-node-file-upload.md) | Yes | Yes |
-| [Python](iot-hub-python-python-file-upload.md) | Yes | No service SDK available in Python |
-
-> [!NOTE]
-> The C device SDK uses a single call on the device client to perform file uploads. For more information, see [IoTHubDeviceClient_UploadToBlobAsync()](/azure/iot-hub/iot-c-sdk-ref/iothub-device-client-h/iothubdeviceclient-uploadtoblobasync) and [IoTHubDeviceClient_UploadMultipleBlocksToBlobAsync()](/azure/iot-hub/iot-c-sdk-ref/iothub-device-client-h/iothubdeviceclient-uploadmultipleblockstoblobasync). These functions perform all aspects of the file upload - initiating the upload, uploading the file to Azure storage, and notifying IoT Hub when it completes -- in a single call. Make sure that access to both the IoT Hub endpoint and the Azure storage endpoint (HTTPS) is available to the device as these functions will make calls to Azure storage APIs.
 
 ## Next steps
 
