@@ -1,6 +1,6 @@
 ---
 title: Exists transformation in mapping data flow 
-description: Check for existing rows using the exists transformation in Azure Data Factory mapping data flow
+description: Check for existing rows using the exists transformation in Azure Data Factory and Synapse Analytics mapping data flow
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -64,7 +64,7 @@ It's not recommended to disable broadcasting via the **Off** option unless your 
 
 The below example is an exists transformation named `checkForChanges` that takes left stream `NameNorm2` and right stream `TypeConversions`.  The exists condition is the expression `NameNorm2@EmpID == TypeConversions@EmpID && NameNorm2@Region == DimEmployees@Region` that returns true if both the `EMPID` and `Region` columns in each stream matches. As we're checking for existence, `negate` is false. We aren't enabling any broadcasting in the optimize tab so `broadcast` has value `'none'`.
 
-In the Data Factory UX, this transformation looks like the below image:
+In the UI experience, this transformation looks like the below image:
 
 ![Exists example](media/data-flow/exists-script.png "Exists example")
 
