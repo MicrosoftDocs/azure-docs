@@ -31,7 +31,7 @@ The most common reasons for being unable to connect to your Data Box are:
 
 If you can't log in on your Data Box device, do the following steps to identify and fix the problem: 
 
-1. To check for a domain issue, enter your credentials in one of the following formats:
+1. To check for a domain issue, try to [connect to your device](data-box-quickstart-portal.md) entering your credentials in one of the following formats:
 
        - `<device IP address>\<user name>`
        - `\<user name>`
@@ -44,7 +44,7 @@ If you can't log in on your Data Box device, do the following steps to identify 
 
    1. In the local web UI for the device, go to **Troubleshooting**, and then to **Diagnostic test**. Run diagnostics and collect device logs. *HOW?*<!--"Tracking and event logging for your Azure Data Box and Azure Data Box Heavy import order" (https://docs.microsoft.com/en-us/azure/databox/data-box-logs#query-activity-logs-during-setup - MD:data-box-event-logs.md) doesn't discuss Smbserver.security event logs in the \etw folder.-->
 
-   1. Review the `Smbserver.Security` event logs in the `etw` folder for an error similar to one of the errors identified (in bold) in the following sample entry.<!--Take a screenshot of the output to allow highlighting.-->
+   1. Review the `Smbserver.Security` event logs in the `etw` folder for an error similar to one of the errors identified (in bold) in the following sample entry.<!--Take a screenshot of the output to allow highlighting of the two errors.-->
    
       ```output
       SMB Session Authentication Failure
@@ -103,9 +103,9 @@ If you can't log in on your Data Box device, do the following steps to identify 
 
     1. Restart your computer so that the Registry changes take effect.
 
-1. Connect to your Data Box device. LINK TO PROCEDURE.
+1. [Connect to your Data Box device](data-box-quickstart-portal.md).
 
 ## Next steps
 
 - [Copy data via SMB](data-box-deploy-copy-data.md)<!--Other options: via REST, via NFS, To managed disks-->
-- [Copy data via network-attached storage (NAS)](data-box-deploy-copy-data-via-copy-service)
+- [Copy data via network-attached storage (NAS)](data-box-deploy-copy-data-via-copy-service.md)
