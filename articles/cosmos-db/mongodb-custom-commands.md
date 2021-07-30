@@ -297,7 +297,7 @@ The update collection extension command updates the properties associated with t
   collection: "<Name of the collection that you want to update>",
   // Replace the line below with "autoScaleSettings: { maxThroughput: (int) }" if using Autoscale instead of Provisioned Throughput. Fill the required Autoscale max throughput setting. Changing between Autoscale and Provisioned throughput is only supported in the Azure Portal.
   offerThroughput: (int) // Provisioned Throughput enabled with required throughput amount set.
-  indexes: [{key: {_id: 1}, name:"_id_1"}, ... ] // Optional indexes (3.6+ accounts only).
+  indexes: [{key: {_id: 1}, name: "_id_1"}, ... ] // Optional indexes (3.6+ accounts only).
 }
 ```
 
