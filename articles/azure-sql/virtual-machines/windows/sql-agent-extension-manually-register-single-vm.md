@@ -324,7 +324,6 @@ It's possible for your SQL IaaS agent extension to be in a failed state. Use the
    ![If your provisioning state shows as **Failed**, choose **Repair** to repair the extension. If your state is **Succeeded** you can check the box next to **Force repair** to repair the extension regardless of state.](./media/sql-agent-extension-manually-register-single-vm/force-repair-extension.png)
 
 
-
 ## Unregister from extension
 
 To unregister your SQL Server VM with the SQL IaaS Agent extension, delete the SQL virtual machine *resource* using the Azure portal or Azure CLI. Deleting the SQL virtual machine *resource* does not delete the SQL Server VM. However, use caution and follow the steps carefully because it is possible to inadvertently delete the virtual machine when attempting to remove the *resource*.
