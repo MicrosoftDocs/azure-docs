@@ -1,7 +1,7 @@
 ---
 title: Hive Warehouse Connector APIs in Azure HDInsight
 description: Learn about the different APIs of Hive Warehouse Connector.
-author: adeshr
+author: adesh-rao
 ms.author: adrao
 ms.service: hdinsight
 ms.topic: how-to
@@ -44,43 +44,51 @@ Complete the [Hive Warehouse Connector setup](./apache-hive-warehouse-connector.
 4. Describe a table
     
     ```scala
-    hive.describeTable("<table-name>") // Describes the table <table-name> in the current database
+   // Describes the table <table-name> in the current database
+    hive.describeTable("<table-name>")
     ```
     
     ```scala
-    hive.describeTable("<database-name>.<table-name>") // Describes the table <table-name> in <database-name>
+   // Describes the table <table-name> in <database-name>
+    hive.describeTable("<database-name>.<table-name>")
     ```
 
 5. Drop a database
     
     ```scala
-    hive.dropDatabase("<database-name>", ifExists, cascade) // ifExists and cascade are boolean variables
+   // ifExists and cascade are boolean variables
+    hive.dropDatabase("<database-name>", ifExists, cascade)
     ```
 
 6.  Drop a table in the current database
     
     ```scala
-    hive.dropTable("<table-name>", ifExists, purge) // ifExists and purge are boolean variables
+    // ifExists and purge are boolean variables
+    hive.dropTable("<table-name>", ifExists, purge)
     ```
 
 7. Create a database
     ```scala
-    hive.createDatabase("<database-name>", ifNotExists) // ifNotExists is boolean variable
+   // ifNotExists is boolean variable
+    hive.createDatabase("<database-name>", ifNotExists)
     ```
 
 8. Create a table in current database
     ```scala
-    val createTableBuilder = hive.createTable("<table-name>") // Returns a builder to create table
+   // Returns a builder to create table
+    val createTableBuilder = hive.createTable("<table-name>")
     ```
     
     Builder for create-table supports only the below operations: 
     
     ```scala
-    createTableBuilder = createTableBuilder.ifNotExists() // Create only if table does not exists already
+   // Create only if table does not exists already
+    createTableBuilder = createTableBuilder.ifNotExists()
     ```
     
     ```scala
-    createTableBuilder = createTableBuilder.column("<column-name>", "<datatype>") // Add columns
+   // Add columns
+    createTableBuilder = createTableBuilder.column("<column-name>", "<datatype>")
     ```
     
     ```scala
@@ -88,10 +96,12 @@ Complete the [Hive Warehouse Connector setup](./apache-hive-warehouse-connector.
     createTableBuilder = createTableBuilder.partition("<partition-column-name>", "<datatype>")
     ```
     ```scala
-    createTableBuilder = createTableBuilder.prop("<key>", "<value>") // add table properties
+   // Add table properties
+    createTableBuilder = createTableBuilder.prop("<key>", "<value>")
     ```
     ```scala
-    // Creates a bucketed table, parameters are numOfBuckets (integer) followed by column names for bucketing
+    // Creates a bucketed table,
+    // Parameters are numOfBuckets (integer) followed by column names for bucketing
     createTableBuilder = createTableBuilder.clusterBy(numOfBuckets, "<column1>", .... , "<columnN>")
     ```
     
@@ -100,13 +110,15 @@ Complete the [Hive Warehouse Connector setup](./apache-hive-warehouse-connector.
     createTableBuilder.create()
     ```
 
-    **Note**: This API creates an ORC formatted table at default location. To create other type of tables, please use `executeUpdate` API.
+    **Note**: This API creates an ORC formatted table at default location.
+   For other features/options or to create table using hive querys, please use `executeUpdate` API.
 
 
 9. Read a table
 
     ```scala
-    hive.table("<table-name>") // Returns a Dataset<Row> that contains data of <table-name> in the current database
+   // Returns a Dataset<Row> that contains data of <table-name> in the current database
+    hive.table("<table-name>")
     ```
 
 10. Execute DDL commands on HiveServer2 
@@ -132,14 +144,16 @@ Complete the [Hive Warehouse Connector setup](./apache-hive-warehouse-connector.
     hive.executeQuery("<hive-query>")
     ```
     b. Executing query through HiveServer2 via JDBC.
+
+    Set `spark.datasource.hive.warehouse.smartExecution` to `false` in spark configs before starting spark session to use this API
     ```scala
-    // Set `spark.datasource.hive.warehouse.smartExecution` to `false` in spark configs before starting spark session
     hive.execute("<hive-query>")
     ```
 
 12. Close Hive warehouse connector session
     ```scala
-    // Closes all the open connections and release resources/locks from HiveServer2
+    // Closes all the open connections and
+    // release resources/locks from HiveServer2
     hive.close()
     ```
 
@@ -192,11 +206,11 @@ Complete the [Hive Warehouse Connector setup](./apache-hive-warehouse-connector.
 14. Write a Dataset to Hive Table in batch
     ```scala
     df.write.format("com.hortonworks.spark.sql.hive.llap.HiveWarehouseConnector")
-       .option("table", tableName) // tableName should be of form <table> (table should exist in current db) or <db>.<table>
+       .option("table", tableName)
        .mode(SaveMode.Type)
        .save()
     ```
-    * TableName should be of form `<db>.<table>` or `<table>`. If no database name is provided, the table will searched/created in current database
+    * TableName should be of form `<db>.<table>` or `<table>`. If no database name is provided, the table will searched/created in the current database
     
     * SaveMode types are:
     
@@ -238,6 +252,6 @@ Complete the [Hive Warehouse Connector setup](./apache-hive-warehouse-connector.
         .option("database", databaseName)
         .option("table", tableName)
       //.option("partition", partition) , add if inserting data in partition
-      // .option("metastoreKrbPrincipal", principal), add if executing in ESP cluster
+      //.option("metastoreKrbPrincipal", principal), add if executing in ESP cluster
         .start()
     ```
