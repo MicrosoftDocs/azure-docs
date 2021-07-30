@@ -143,7 +143,7 @@ During the creation of the load balancer, you'll configure:
 
 2. In the **Load balancer** page, select **Create**.
 
-3. In the **Basics** tab of the **Create load balancer** page, enter or select the following information: 
+3. In the **Basics** tab of the **Create load balancer** page, enter, or select the following information: 
 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
@@ -259,9 +259,9 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | NIC network security group | Select **Advanced**|
     | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **myNSG** in **Name**. </br> Under **Inbound rules**, select **+Add an inbound rule**. </br> Under  **Destination port ranges**, enter **80**. </br> Under **Priority**, enter **100**. </br> In **Name**, enter **myNSGRule** </br> Select **Add** </br> Select **OK** |
     | **Load balancing**  |
-    | Place this virtual machine behind an existing load balancing solution? | Select the box. |
+    | Place this virtual machine behind an existing load-balancing solution? | Select the box. |
     | **Load balancing settings** |
-    | Load balancing options | Select **Azure load balancing** |
+    | Load-balancing options | Select **Azure load balancing** |
     | Select a load balancer | Select **myLoadBalancer**  |
     | Select a backend pool | Select **myBackendPool** |
    
@@ -269,7 +269,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
   
 8. Review the settings, and then select **Create**.
 
-9. Follow the steps 1 to 6 to create two additional VMs with the following values and all the other settings the same as **myVM1**:
+9. Follow the steps 1 to 6 to create two more VMs with the following values and all the other settings the same as **myVM1**:
 
     | Setting | VM 2| VM 3|
     | ------- | ----- |---|
@@ -352,7 +352,7 @@ During the creation of the load balancer, you'll configure:
 
 2. In the **Load balancer** page, select **Create**.
 
-3. In the **Basics** tab of the **Create load balancer** page, enter or select the following information: 
+3. In the **Basics** tab of the **Create load balancer** page, enter, or select the following information: 
 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
@@ -462,9 +462,9 @@ The three VMs will be added to an availability set named **myAvailabilitySet**.
     | NIC network security group | Select **Advanced**|
     | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **myNSG** in **Name**. </br> Under **Inbound rules**, select **+Add an inbound rule**. </br> Under  **Destination port ranges**, enter **80**. </br> Under **Priority**, enter **100**. </br> In **Name**, enter **myNSGRule** </br> Select **Add** </br> Select **OK** |
     | **Load balancing**  |
-    | Place this virtual machine behind an existing load balancing solution? | Select the box |
+    | Place this virtual machine behind an existing load-balancing solution? | Select the box |
     | **Load balancing settings** |   |
-    | Load balancing options | Select **Azure load balancer**. |
+    | Load-balancing options | Select **Azure load balancer**. |
     | Select a load balancer | Select **myLoadBalancer**>. |
     | Select a backend pool | Select **myBackendPool**. |
  
@@ -472,7 +472,7 @@ The three VMs will be added to an availability set named **myAvailabilitySet**.
   
 8. Review the settings, and then select **Create**.
 
-9. Follow the steps 1 to 8 to create two additional VMs with the following values and all the other settings the same as **myVM1**:
+9. Follow the steps 1 to 8 to create two more VMs with the following values and all the other settings the same as **myVM1**:
 
     | Setting | VM 2 | VM 3 |
     | ------- | ----- |---|
@@ -498,7 +498,7 @@ In this section, you'll create a VM named **myTestVM**.  This VM will be used to
     | Resource Group | Select **CreateIntLBQS-rg** |
     | **Instance details** |  |
     | Virtual machine name | Enter **myTestVM** |
-    | Region | Select **(Europ) West Europe** |
+    | Region | Select **(Europe) West Europe** |
     | Availability Options | Select **No infrastructure redundancy required** |
     | Image | Select **Windows Server 2019 Datacenter** |
     | Azure Spot instance | Leave the default of unselected. |
@@ -582,7 +582,7 @@ In this section, you'll create a VM named **myTestVM**.  This VM will be used to
 
 8. Enter the IP address from the previous step into the address bar of the browser. The custom page displaying one of the backend server names is displayed on the browser.
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Screenshot shows a browser window displaying the default page, as expected." border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Screenshot shows a browser window displaying the customized page, as expected." border="true":::
    
 To see the load balancer distribute traffic across both VMs, you can force-refresh your web browser from the client machine.
 
