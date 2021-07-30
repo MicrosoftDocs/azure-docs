@@ -87,7 +87,7 @@ You can delete a logic app's workflow from Azure PowerShell using the cmdlet [`R
 
 ### Example - delete logic app
 
-In this example, the [sample workflow created in a previous section](#example---create-logic-app) is deleted.
+This example deletes the [sample workflow created in a previous section](#example---create-logic-app).
 
 ```azurepowershell-interactive
 Remove-AzLogicApp -ResourceGroupName testResourceGroup -Name testLogicApp
