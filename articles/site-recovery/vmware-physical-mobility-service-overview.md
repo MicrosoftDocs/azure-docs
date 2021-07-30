@@ -6,7 +6,7 @@ manager: gaggupta
 ms.service: site-recovery
 ms.topic: how-to
 ms.author: sharrai
-ms.date: 07/29/2021
+ms.date: 07/30/2021
 ---
 
 # About the Mobility service for VMware VMs and physical servers
@@ -299,6 +299,8 @@ Locate the installer files for the server’s operating system using the followi
    Wait till the installation has been completed. Once done, you will reach the registration step, you can register the source machine with the appliance of your choice.
 
    ![Image showing Install UI option for  Mobility Service](./media/vmware-physical-mobility-service-overview-preview/mobility-service-install.png)
+
+   ![Image showing Installation progress for  Mobility Service](./media/vmware-physical-mobility-service-overview-preview/installation-progress.png)
 
 5. Copy the string present in the field  **Machine Details**.
 
