@@ -30,25 +30,29 @@ To avoid putting secrets in source control, the configuration looks into [applic
 
 ### Configuration
 
-The following tables contain the different configuration options for each provider.
+Setting up custom authentication requires that you reference a few secrets stored as [Application Settings](./application-settings.md). 
 
 # [Azure Active Directory](#tab/aad)
 
-| Field Path                             | Description                                                                                                               |
-| -------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `registration.openIdIssuer`            | The endpoint for the OpenID configuration of the AAD tenant.                                                  |
-| `registration.clientIdSettingName`     | The name of the application setting containing the Application (client) ID for the Azure AD app registration. |
-| `registration.clientSecretSettingName` | The name of the application setting containing the client secret for the Azure AD app registration.           |
+First, create the following Application Settings:
+
+| Setting Name | Value |
+| --- | --- |
+| `AAD_CLIENT_ID` | The Application (client) ID for the Azure AD app registration. |
+| `AAD_CLIENT_SECRET` | The client secret for the Azure AD app registration. |
+
+### Version 1
 
 ```json
 {
   "auth": {
     "identityProviders": {
       "azureActiveDirectory": {
+        "userDetailsClaim": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
         "registration": {
           "openIdIssuer": "https://login.microsoftonline.com/<TENANT_ID>",
-          "clientIdSettingName": "<AAD_CLIENT_ID>",
-          "clientSecretSettingName": "<AAD_CLIENT_SECRET>"
+          "clientIdSettingName": "AAD_CLIENT_ID",
+          "clientSecretSettingName": "AAD_CLIENT_SECRET"
         }
       }
     }
@@ -56,23 +60,40 @@ The following tables contain the different configuration options for each provid
 }
 ```
 
-Azure Active Directory features versioned endpoints which affect how your registration is configured. If you are using AAD v1 (the issuer endpoint does not end with "/v2.0"), then you need to add the following `userDetailsClaim` entry to your configuration in the `"azureActiveDirectory"` object.
+Make sure to replace `<TENANT_ID>` with your Azure Active Directory tenant ID.
+
+### Version 2
 
 ```json
-"azureActiveDirectory": {
-  "registration": { ... },
-  "userDetailsClaim": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" 
+{
+  "auth": {
+    "identityProviders": {
+      "azureActiveDirectory": {
+        "registration": {
+          "openIdIssuer": "https://login.microsoftonline.com/<TENANT_ID>/v2.0",
+          "clientIdSettingName": "AAD_CLIENT_ID",
+          "clientSecretSettingName": "AAD_CLIENT_SECRET"
+        }
+      }
+    }
+  }
 }
 ```
+
+Make sure to replace `<TENANT_ID>` with your Azure Active Directory tenant ID.
 
 For more information on how to configure Azure Active Directory, see the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-aad.md).
 
 # [Apple](#tab/apple)
 
-| Field Path                             | Description                                                                                  |
-| -------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `registration.clientIdSettingName`     | The name of the application setting containing the Client ID.                                       |
-| `registration.clientSecretSettingName` | The name of the application setting containing the Client Secret.                                   |
+First, create the following Application Settings:
+
+| Setting Name | Value |
+| --- | --- |
+| `APPLE_CLIENT_ID` | The Apple client ID. |
+| `APPLE_CLIENT_SECRET` | The Apple client secret. |
+
+Next, use the following sample to configure the provider.
 
 ```json
 {
@@ -80,8 +101,8 @@ For more information on how to configure Azure Active Directory, see the [App Se
     "identityProviders": {
       "apple": {
         "registration": {
-          "clientIdSettingName": "<APPLE_CLIENT_ID>",
-          "clientSecretSettingName": "<APPLE_CLIENT_SECRET>"
+          "clientIdSettingName": "APPLE_CLIENT_ID",
+          "clientSecretSettingName": "APPLE_CLIENT_SECRET"
         }
       }
     }
@@ -93,10 +114,14 @@ For more information on how to configure Apple as an authentication provider, se
 
 # [Facebook](#tab/facebook)
 
-| Field Path                          | Description                                                                            |
-| ----------------------------------- | -------------------------------------------------------------------------------------- |
-| `registration.appIdSettingName`     | The name of the application setting containing the App ID.                             |
-| `registration.appSecretSettingName` | The name of the application setting containing the App Secret.                         |
+First, create the following Application Settings:
+
+| Setting Name | Value |
+| --- | --- |
+| `FACEBOOK_APP_ID` | The Facebook application ID. |
+| `FACEBOOK_APP_SECRET` | The Facebook application secret. |
+
+Next, use the following sample to configure the provider.
 
 ```json
 {
@@ -117,10 +142,15 @@ For more information on how to configure Facebook as an authentication provider,
 
 # [GitHub](#tab/github)
 
-| Field Path                             | Description                                                                                  |
-| -------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `registration.clientIdSettingName`     | The name of the application setting containing the Client ID.                                |
-| `registration.clientSecretSettingName` | The name of the application setting containing the Client Secret.                            |
+
+First, create the following Application Settings:
+
+| Setting Name | Value |
+| --- | --- |
+| `GITHUB_CLIENT_ID` | The GitHub client ID. |
+| `GITHUB_CLIENT_SECRET` | The GitHub client secret. |
+
+Next, use the following sample to configure the provider.
 
 ```json
 {
@@ -128,8 +158,8 @@ For more information on how to configure Facebook as an authentication provider,
     "identityProviders": {
       "github": {
         "registration": {
-          "clientIdSettingName": "<GITHUB_CLIENT_ID>",
-          "clientSecretSettingName": "<GITHUB_CLIENT_SECRET>"
+          "clientIdSettingName": "GITHUB_CLIENT_ID",
+          "clientSecretSettingName": "GITHUB_CLIENT_SECRET"
         }
       }
     }
@@ -139,10 +169,15 @@ For more information on how to configure Facebook as an authentication provider,
 
 # [Google](#tab/google)
 
-| Field Path                             | Description                                                                                  |
-| -------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `registration.clientIdSettingName`     | The name of the application setting containing the Client ID.                                |
-| `registration.clientSecretSettingName` | The name of the application setting containing the Client Secret.                            |
+
+First, create the following Application Settings:
+
+| Setting Name | Value |
+| --- | --- |
+| `GOOGLE_CLIENT_ID` | The Google client ID. |
+| `GOOGLE_CLIENT_SECRET` | The Google client secret. |
+
+Next, use the following sample to configure the provider.
 
 ```json
 {
@@ -163,10 +198,14 @@ For more information on how to configure Google as an authentication provider, s
 
 # [Twitter](#tab/twitter)
 
-| Field Path                               | Description                                                                                        |
-| ---------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `registration.consumerKeySettingName`    | The name of the application setting containing the Consumer Key.                                   |
-| `registration.consumerSecretSettingName` | The name of the application setting containing the Consumer Secret.                                |
+First, create the following Application Settings:
+
+| Setting Name | Value |
+| --- | --- |
+| `TWITTER_CONSUMER_KEY` | The Twitter consumer key. |
+| `TWITTER_CONSUMER_SECRET` | The Twitter consumer secret. |
+
+Next, use the following sample to configure the provider.
 
 ```json
 {
@@ -174,8 +213,8 @@ For more information on how to configure Google as an authentication provider, s
     "identityProviders": {
       "twitter": {
         "registration": {
-          "consumerKeySettingName": "<TWITTER_CONSUMER_KEY>",
-          "consumerSecretSettingName": "<TWITTER_CONSUMER_SECRET>"
+          "consumerKeySettingName": "TWITTER_CONSUMER_KEY",
+          "consumerSecretSettingName": "TWITTER_CONSUMER_SECRET"
         }
       }
     }
