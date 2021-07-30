@@ -2,7 +2,7 @@
 title: Configure public registry access
 description: Configure IP rules to enable access to an Azure container registry from selected public IP addresses or address ranges.
 ms.topic: article
-ms.date: 07/28/2021
+ms.date: 07/30/2021
 ---
 
 # Configure public IP network rules
@@ -115,14 +115,17 @@ If you use Azure Pipelines with an Azure container registry that limits access t
 
 One workaround is to change the agent used to run the pipeline from Microsoft-hosted to self-hosted. With a self-hosted agent running on a [Windows](/azure/devops/pipelines/agents/v2-windows) or [Linux](/azure/devops/pipelines/agents/v2-linux) machine that you manage, you control the outbound IP address of the pipeline, and you can add this address in a registry IP access rule.
 
-## Access from AKS with internal load balancer
+## Access from AKS
 
-If you want to use an Azure Kubernetes Service cluster with an [internal load balancer](../aks/internal-lb.md) to access a registry that limits access to specific IP addresses or networks, you can't configure a fixed AKS public IP address. This limitation is because the AKS cluster with an internal load balancer in a hybrid scenario has a random external (outbound) IP address.
+If you use Azure Kubernetes Service (AKS) with an Azure container registry that limits access to specific IP addresses, you can't configure a fixed AKS IP address by default. The egress IP address from the AKS cluster is randomly assigned.
 
-To work around this problem and allow the AKS cluster to access the registry, add an Azure Container Registry service endpoint (preview) to the AKS subnet. For detailed steps, see [Restrict access to a container registry using a service endpoint in an Azure virtual network](container-registry-vnet.md). 
+To allow the AKS cluster to access the registry, you have these options:
+
+* Set up a [static IP address](../aks/egress.md) for the AKS cluster.
+* Add an Azure Container Registry service endpoint (preview) to the AKS subnet. The service endpoint can co-exist with other registry IP access rules. For detailed steps, see [Restrict access to a container registry using a service endpoint in an Azure virtual network](container-registry-vnet.md). 
 
 > [!NOTE]
-> Future development of service endpoints for Azure Container Registry isn't currently planned.
+> Future development of the service endpoint feature for Azure Container Registry isn't currently planned.
 
 ## Next steps
 
