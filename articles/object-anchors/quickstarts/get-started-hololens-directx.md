@@ -37,7 +37,7 @@ To complete this quickstart, make sure you have:
 
 [!INCLUDE [Create Account](../../../includes/object-anchors-get-started-create-account.md)]
 
-[!INCLUDE [Upload model](../../../includes/object-anchors-quickstart-unity-upload-model.md)]
+[!INCLUDE [Upload your model](../../../includes/object-anchors-quickstart-unity-upload-model.md)]
 
 ## Open the sample project
 
@@ -73,9 +73,9 @@ Right-click **AoaSampleApp** project, then click **Deploy** from the pop-up menu
 
 :::image type="content" source="./media/vs-deploy-app.png" alt-text="Deploy app to HoloLens":::
 
-Before launching the app, you ought to have uploaded an object model to the **3D Objects** folder on your HoloLens. Follow the instructions in the ["Upload Model"](#upload-model) section.
+Before launching the app, you ought to have uploaded an object model, **chair.ou** for example, to the **3D Objects** folder on your HoloLens. If you haven't, follow the instructions in the ["Upload your model"](#upload-your-model) section.
 
-To launch and debug the app, select **Debug > Start debugging**. To stop the app, select either **Stop Debugging** or press **Shift + F5**.
+To launch and debug the app, select **Debug > Start debugging**.
 
 ## Ingest object model and detect its instance
 
