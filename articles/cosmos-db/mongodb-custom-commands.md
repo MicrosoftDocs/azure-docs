@@ -203,7 +203,7 @@ The create collection extension command creates a new MongoDB collection. The da
   shardKey: "<Shard key path>",
   // Replace the line below with "autoScaleSettings: { maxThroughput: (int) }" to use Autoscale instead of Provisioned Throughput. Fill the required Autoscale max throughput setting.
   offerThroughput: (int) // Provisioned Throughput enabled with required throughput amount set.
-  indexes: [{key: {_id: 1}, name:"_id_1"}, ... ] // Optional indexes (3.6+ accounts only).
+  indexes: [{key: {_id: 1}, name: "_id_1"}, ... ] // Optional indexes (3.6+ accounts only).
 }
 ```
 
