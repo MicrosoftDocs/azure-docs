@@ -100,7 +100,7 @@ After restoring the database, you can perform the following tasks to get your us
 
 * **How do Azure handles backup of my server?**
  
-    By default, Azure Database for PostgreSQL enables automated backups of your entire server (encompassing all databases created) with a default 7 day retention period. A daily incremental snapshot of the database is performed. The logs (WAL) files are archived to Azure BLOB continuously.
+    By default, Azure Database for PostgreSQL enables automated backups of your entire server (encompassing all databases created) with a default 7 days of retention period. A daily incremental snapshot of the database is performed. The logs (WAL) files are archived to Azure BLOB continuously.
 
 * **Can I configure these automatic backup to be retained for long term?**
   
@@ -163,7 +163,7 @@ After restoring the database, you can perform the following tasks to get your us
 
 * **I configured my server with zone-redundant high availability. Do you take two backups and will I be charged twice?**
   
-    No. Irrespective of HA or non-HA servers, there is only will be one backup copy maintained. You will be charged only once.
+    No. Irrespective of HA or non-HA servers, only one set of backup copy is maintained and you will be charged only once.
 
 ### Restore related questions
 
