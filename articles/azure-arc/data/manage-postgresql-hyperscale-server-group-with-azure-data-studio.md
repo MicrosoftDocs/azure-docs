@@ -24,6 +24,9 @@ This article describes how to:
 
 - [Install azdata, Azure Data Studio, and Azure CLI](install-client-tools.md)
 - Install in Azure Data Studio the **[!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]** and **Azure Arc** and **PostgreSQL** extensions
+
+   [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
+
 - Create the [Azure Arc Data Controller](create-data-controller-using-azdata.md)
 - Launch Azure Data Studio
 
