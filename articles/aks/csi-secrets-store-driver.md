@@ -150,7 +150,7 @@ In addition to an AKS cluster, you will need an Azure Key Vault resource contain
 az keyvault create -n <keyvault-name> -g myResourceGroup -l eastus2
 ```
 
-Azure Key Vault can store keys, secrets, and certificates. In this example, we'll set a plain text secret:
+Azure Key Vault can store keys, secrets, and certificates. In this example, we'll set a plain text secret called `ExampleSecret`:
 
 ```azurecli
 az keyvault secret set --vault-name <keyvault-name> -n ExampleSecret --value MyAKSExampleSecret
@@ -208,7 +208,7 @@ kubectl apply -f ./new-secretproviderclass.yaml
 
 ## Update and apply your cluster's deployment YAML
 
-To ensure your cluster is using the new custom resource, update the deployment YAML:
+To ensure your cluster is using the new custom resource, update the deployment YAML. For example:
 
 ```yml
 kind: Pod
@@ -249,8 +249,8 @@ After the pod starts, the mounted content at the volume path specified in your d
 ## show secrets held in secrets-store
 kubectl exec busybox-secrets-store-inline -- ls /mnt/secrets-store/
 
-## print a test secret 'secret1' held in secrets-store
-kubectl exec busybox-secrets-store-inline -- cat /mnt/secrets-store/secret1
+## print a test secret 'ExampleSecret' held in secrets-store
+kubectl exec busybox-secrets-store-inline -- cat /mnt/secrets-store/ExampleSecret
 ```
 
 ## Disable Secrets Store CSI Driver on an existing AKS Cluster
