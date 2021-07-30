@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/18/2021
+ms.date: 07/21/2021
 ---
 # Create a query that invokes semantic ranking and returns semantic captions
 
@@ -25,7 +25,7 @@ Captions and answers are extracted verbatim from text in the search document. Th
 
 + [Sign up for the preview](https://aka.ms/SemanticSearchPreviewSignup). Expected turnaround is about two business days.
 
-+ An existing search index with content in a [supported language](/rest/api/searchservice/preview-api/search-documents#queryLanguage).
++ An existing search index with content in a [supported language](/rest/api/searchservice/preview-api/search-documents#queryLanguage). Semantic search works best on content that is informational or descriptive.
 
 + A search client for sending queries.
 
@@ -158,9 +158,13 @@ Field order is critical because the semantic ranker limits the amount of content
 
   + Follow the above fields with other descriptive fields, where the answer to semantic queries may be found, such as the main content of a document.
 
-#### Step 3: Remove orderBy clauses
+#### Step 3: Remove or bracket query features that bypass relevance scoring
 
-Remove any orderBy clauses from existing query code. The semantic score is used to order results, and if you include explicit sort logic, an HTTP 400 error is returned.
+Several query capabilities in Cognitive Search do not undergo relevance scoring, and some bypass the full text search engine altogether. If your query logic includes the following features, you will not get relevance scores or semantic ranking on your results:
+
++ Filters, fuzzy search queries, and regular expressions iterate over untokenized text, scanning for verbatim matches in the content. Search scores for all of the above query forms are a uniform 1.0, and won't provide meaningful input for semantic ranking.
+
++ Sorting (orderBy clauses) on specific fields will also override search scores and semantic score. Given that semantic score is used to order results, including explicit sort logic will case an HTTP 400 error to be returned.
 
 #### Step 4: Add answers
 

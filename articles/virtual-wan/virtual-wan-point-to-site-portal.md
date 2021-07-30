@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 06/23/2021
+ms.date: 07/29/2021
 ms.author: cherylmc
 
 ---
@@ -21,11 +21,10 @@ In this tutorial, you learn how to:
 > * Create a virtual WAN
 > * Create a P2S configuration
 > * Create a virtual hub
-> * Choose client address pools
-> * Specify DNS servers
 > * Generate VPN client profile configuration package
 > * Configure VPN clients
 > * View your virtual WAN
+> * Modify settings
 
 ![Virtual WAN diagram](./media/virtual-wan-about/virtualwanp2s.png)
 
@@ -47,16 +46,6 @@ A point-to-site (P2S) configuration defines the parameters for connecting remote
 
 [!INCLUDE [Create hub](../../includes/virtual-wan-p2s-hub-include.md)]
 
-## <a name="chooseclientpools"></a> Choose P2S Client Address Pools
-
-[!INCLUDE [Choose pools](../../includes/virtual-wan-allocating-p2s-pools.md)]
-
-## <a name="dns"></a>Specify DNS server
-
-You can configure this setting when you create the hub, or modify it at a later time. To modify, locate the virtual hub. Under **User VPN (point to site)**, select **Configure** and enter the DNS server IP address(es) in the **Custom DNS Servers** text box(es). You can specify up to 5 DNS Servers.
-
-   :::image type="content" source="media/virtual-wan-point-to-site-portal/custom-dns.png" alt-text="custom DNS" lightbox="media/virtual-wan-point-to-site-portal/custom-dns-expand.png":::
-
 ## <a name="download"></a>Generate VPN client profile package
 
 Generate and download the VPN client profile package to configure your VPN clients.
@@ -66,7 +55,7 @@ Generate and download the VPN client profile package to configure your VPN clien
 ## <a name="configure-client"></a>Configure VPN clients
 
 Use the downloaded profile package to configure the remote access VPN clients. The procedure for each operating system is different. Follow the instructions that apply to your system.
-Once you have finished configuring your client, you can connect.
+Once you have finished configuring your client, you can connect. The following instructions are for Windows VPN clients.
 
 [!INCLUDE [Configure clients](../../includes/virtual-wan-p2s-configure-clients-include.md)]
 
@@ -76,6 +65,20 @@ Once you have finished configuring your client, you can connect.
 1. On the **Overview** page, each point on the map represents a hub.
 1. In the **Hubs and connections** section, you can view hub status, site, region, VPN connection status, and bytes in and out.
 
+## To modify settings
+
+### <a name="address-pool"></a>Modify client address pool
+
+[!INCLUDE [Modify client address pool](../../includes/virtual-wan-client-address-pool-include.md)]
+
+### <a name="dns"></a>Modify DNS servers
+
+1. Navigate to your **Virtual HUB -> User VPN (Point to site)**, then click **Configure**.
+
+1. On the **Edit User VPN gateway** page, edit the **Custom DNS Servers** field. Enter the DNS server IP address(es) in the **Custom DNS Servers** text box(es). You can specify up to five DNS Servers.
+
+1. Click **Edit** at the bottom of the page to validate your settings. Then, click to update this setting.
+
 ## <a name="cleanup"></a>Clean up resources
 
 When you no longer need the resources that you created, delete them. Some of the Virtual WAN resources must be deleted in a certain order due to dependencies. Deleting can take about 30 minutes to complete.
@@ -84,7 +87,7 @@ When you no longer need the resources that you created, delete them. Some of the
 
 ## Next steps
 
-Next, to learn more about Virtual WAN, see:
+To connect a virtual network to a hub, see:
 
 > [!div class="nextstepaction"]
-> * [Virtual WAN FAQ](virtual-wan-faq.md)
+> * [Connect a VNet to a hub](howto-connect-vnet-hub.md)

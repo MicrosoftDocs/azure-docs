@@ -2,7 +2,7 @@
 title: Deploy disaster recovery with VMware Site Recovery Manager
 description: Deploy disaster recovery with VMware Site Recovery Manager (SRM) in your Azure VMware Solution private cloud.
 ms.topic: how-to
-ms.date: 07/15/2021
+ms.date: 07/22/2021
 ---
 
 # Deploy disaster recovery with VMware Site Recovery Manager
@@ -58,7 +58,7 @@ The workflow diagram shows the Primary Azure VMware Solution to secondary workfl
 
 - Azure VMware Solution private cloud deployed as a secondary region.
 
-- [DNS resolution](/azure/azure-vmware/configure-dns-azure-vmware-solution) to on-premises SRM and virtual cloud appliances.
+- [DNS resolution](configure-dns-azure-vmware-solution.md) to on-premises SRM and virtual cloud appliances.
 
    >[!NOTE]
    >For private clouds created on or after July 1, 2021, you can configure private DNS resolution. For private clouds created before July 1, 2021, that need a private DNS resolution, open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) to request **Private DNS configuration**.
@@ -81,7 +81,7 @@ The workflow diagram shows the Primary Azure VMware Solution to secondary workfl
 1. In your on-premises datacenter, install VMware SRM and vSphere.
 
    >[!NOTE]
-   >Use the [Two-site Topology with one vCenter Server instance per PSC](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.VMware.srm.install_config.doc/GUID-F474543A-88C5-4030-BB86-F7CC51DADE22.html) deployment model.  Also, make sure that the [required vSphere Replication Network ports](https://kb.VMware.com/s/article/2087769) are opened.
+   >Use the [Two-site Topology with one vCenter Server instance per PSC](https://docs.vmware.com/en/Site-Recovery-Manager/8.4/com.vmware.srm.install_config.doc/GUID-F474543A-88C5-4030-BB86-F7CC51DADE22.html) deployment model. Also, make sure that the [required vSphere Replication Network ports](https://kb.VMware.com/s/article/2087769) are opened.
 
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Add-ons** > **Disaster recovery**.
 
@@ -285,11 +285,12 @@ If you no longer require SRM, you must uninstall it in a clean manner. Before yo
 
 VMware SRM is a Disaster Recovery solution from VMware.  
 
-- For SRM-related issues in your on-premises environment, contact VMware for support.
+Microsoft only supports install/uninstall of SRM and vSphere Replication Manager and scale up/down of vSphere Replication appliances within Azure VMware Solution. 
 
-- For SRM-related issues in your Azure VMware Solution environment, contact Microsoft. Microsoft only supports install/uninstall of SRM and vSphere Replication Manager and scale up/down of vSphere Replication appliances. For all other issues, contact VMware first.   
+For all other issues, such as configuration and replication, contact VMware for support.
 
-VMware and Microsoft support teams engage each other as needed to troubleshoot SRM issues on Azure VMware Solution.
+VMware and Microsoft support teams will engage each other as needed to troubleshoot SRM issues on Azure VMware Solution.
+
 
 ## References
 
@@ -306,4 +307,3 @@ VMware and Microsoft support teams engage each other as needed to troubleshoot S
 - [Pre-requisites and Best Practices for SRM installation](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.install_config.doc/GUID-BB0C03E4-72BE-4C74-96C3-97AC6911B6B8.html)
 - [Network ports for SRM](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.install_config.doc/GUID-499D3C83-B8FD-4D4C-AE3D-19F518A13C98.html)
 - [Network ports for vSphere Replication](https://kb.vmware.com/s/article/2087769)
-

@@ -117,6 +117,6 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 
 ### Updated articles
 
-- [Azure Active Directory B2C code samples](code-samples.md)
+- [Azure Active Directory B2C code samples](integrate-with-app-code-samples.md)
 - [Track user behavior in Azure AD B2C by using Application Insights](analytics-with-application-insights.md)
 - [Configure session behavior in Azure Active Directory B2C](session-behavior.md)

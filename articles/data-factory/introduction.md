@@ -32,11 +32,11 @@ Additionally, you can publish your transformed data to data stores such as Azure
 
 Data Factory contains a series of interconnected systems that provide a complete end-to-end platform for data engineers.
 
-This visual guide provides a high level overview of of the Data Factory architecture:
+This visual guide provides a high-level overview of the Data Factory architecture:
 
 :::image type="content" source="media\introduction\data-factory-visual-guide-small.png" alt-text="A detailed visual guide to the complete system architecture for Azure Data Factory, presented in a single high resolution image." lightbox="media\introduction\data-factory-visual-guide.png":::
 
-To see more detail, click the preceding image to zoom in, or browse to the [high resolution image](/azure/data-factory/media/introduction/data-factory-visual-guide.png#lightbox). 
+To see more detail, click the preceding image to zoom in, or browse to the [high resolution image](/azure/data-factory/media/introduction/data-factory-visual-guide.png). 
 
 ### Connect and collect
 
@@ -91,6 +91,9 @@ Linked services are used for two purposes in Data Factory:
 - To represent a **data store** that includes, but isn't limited to, a SQL Server database, Oracle database, file share, or Azure blob storage account. For a list of supported data stores, see the [copy activity](copy-activity-overview.md) article.
 
 - To represent a **compute resource** that can host the execution of an activity. For example, the HDInsightHive activity runs on an HDInsight Hadoop cluster. For a list of transformation activities and supported compute environments, see the [transform data](transform-data.md) article.
+
+### Integration Runtime
+In Data Factory, an activity defines the action to be performed. A linked service defines a target data store or a compute service. An integration runtime provides the bridge between the activity and linked Services.  It's referenced by the linked service or activity, and provides the compute environment where the activity either runs on or gets dispatched from. This way, the activity can be performed in the region closest possible to the target data store or compute service in the most performant way while meeting security and compliance needs.
 
 ### Triggers
 Triggers represent the unit of processing that determines when a pipeline execution needs to be kicked off. There are different types of triggers for different types of events.

@@ -1,13 +1,13 @@
 ---
-title: Troubleshoot Azure Arc enabled servers VM extension issues
-description: This article tells how to troubleshoot and resolve issues with Azure VM extensions that arise with Azure Arc enabled servers.
-ms.date: 09/24/2020
+title: Troubleshoot Azure Arc-enabled servers VM extension issues
+description: This article tells how to troubleshoot and resolve issues with Azure VM extensions that arise with Azure Arc-enabled servers.
+ms.date: 07/16/2021
 ms.topic: conceptual
 ---
 
-# Troubleshoot Arc enabled servers VM extension issues
+# Troubleshoot Arc-enabled servers VM extension issues
 
-This article provides information on troubleshooting and resolving issues that may occur while attempting to deploy or remove Azure VM extensions on Arc enabled servers. For general information, see [Manage and use Azure VM extensions](./manage-vm-extensions.md).
+This article provides information on troubleshooting and resolving issues that may occur while attempting to deploy or remove Azure VM extensions on Arc-enabled servers. For general information, see [Manage and use Azure VM extensions](./manage-vm-extensions.md).
 
 ## General troubleshooting
 
@@ -27,11 +27,11 @@ The following troubleshooting steps apply to all VM extensions.
 
 ### VM Insights
 
-- When enabling VM Insights for an Azure Arc enabled server, it installs the Dependency and Log Analytics agent. On a slow machine or one with a slow network connection, it is possible to see timeouts during the installation process. Microsoft is taking steps to address this in the Connected Machine agent to help improve this condition. In the interim, a retry of the installation may succeed.
+- When enabling VM Insights for an Azure Arc-enabled server, it installs the Dependency and Log Analytics agent. On a slow machine or one with a slow network connection, it is possible to see timeouts during the installation process. Microsoft is taking steps to address this in the Connected Machine agent to help improve this condition. In the interim, a retry of the installation may succeed.
 
 ### Log Analytics agent for Linux
 
-- The Log Analytics agent version 1.13.9 (corresponding extension version is 1.13.15) is not correctly marking uploaded data with the resource ID of the Azure Arc enabled server. Although logs are being sent to the service, when you try to view the data from the selected enabled server after selecting **Logs** or **Insights**, no data is returned. You can view its data by running queries from Azure Monitor Logs or from Azure Monitor for VMs, which are scoped to the workspace.
+- The Log Analytics agent version 1.13.9 (corresponding extension version is 1.13.15) is not correctly marking uploaded data with the resource ID of the Azure Arc-enabled server. Although logs are being sent to the service, when you try to view the data from the selected enabled server after selecting **Logs** or **Insights**, no data is returned. You can view its data by running queries from Azure Monitor Logs or from Azure Monitor for VMs, which are scoped to the workspace.
 
 - Some distributions are not currently supported by the Log Analytics agent for Linux. The agent requires additional dependencies to be installed, including Python 2. Review the support matrix and prerequisites [here](../../azure-monitor/agents/agents-overview.md#supported-operating-systems).
 
