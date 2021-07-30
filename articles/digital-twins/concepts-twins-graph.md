@@ -24,7 +24,7 @@ In an Azure Digital Twins solution, the entities in your environment are represe
 
 ## Digital twins
 
-Before you can create a digital twin in your Azure Digital Twins instance, you need to have a *model* uploaded to the service. A model describes the set of properties, telemetry messages, and relationships that a particular twin can have, among other things. For the types of information that are defined in a model, see [Concepts: Custom models](concepts-models.md).
+Before you can create a digital twin in your Azure Digital Twins instance, you need to have a *model* uploaded to the service. A model describes the set of properties, telemetry messages, and relationships that a particular twin can have, among other things. For the types of information that are defined in a model, see [Custom models](concepts-models.md).
 
 After creating and uploading a model, your client app can create an instance of the type; this is a digital twin. For example, after creating a model of Floor, you may create one or several digital twins that use this type (like a Floor-type twin called GroundFloor, another called Floor2, etc.).
 
@@ -165,8 +165,8 @@ Here is an example of a relationship formatted as a JSON object:
 ## Next steps
 
 See how to manage graph elements with Azure Digital Twin APIs:
-* [How-to: Manage digital twins](how-to-manage-twin.md)
-* [How-to: Manage the twin graph with relationships](how-to-manage-graph.md)
+* [Manage digital twins](how-to-manage-twin.md)
+* [Manage the twin graph and relationships](how-to-manage-graph.md)
 
 Or, learn about querying the Azure Digital Twins twin graph for information:
-* [Concepts: Query language](concepts-query-language.md)
+* [Query language](concepts-query-language.md)

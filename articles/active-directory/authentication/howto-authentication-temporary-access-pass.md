@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/11/2021
+ms.date: 07/28/2021
 
 ms.author: justinha
 author: justinha
@@ -158,7 +158,7 @@ Keep these limitations in mind:
 - Temporary Access Pass is in public preview and currently not available in Azure for US Government.
 - Users in scope for Self Service Password Reset (SSPR) registration policy *or* [Identity Protection Multi-factor authentication registration policy](../identity-protection/howto-identity-protection-configure-mfa-policy.md) will be required to register authentication methods after they have signed in with a Temporary Access Pass. 
 Users in scope for these policies will get redirected to the [Interrupt mode of the combined registration](concept-registration-mfa-sspr-combined.md#combined-registration-modes). This experience does not currently support FIDO2 and Phone Sign-in registration. 
-- A Temporary Access Pass cannot be used with the Network Policy Server (NPS) extension and Active Directory Federation Services (AD FS) adapter, or during Windows Setup/Out-of-Box-Experience (OOBE) and Autopilot. 
+- A Temporary Access Pass cannot be used with the Network Policy Server (NPS) extension and Active Directory Federation Services (AD FS) adapter, or during Windows Setup/Out-of-Box-Experience (OOBE), Autopilot, or to deploy Windows Hello for Business. 
 - When Seamless SSO is enabled on the tenant, the users are prompted to enter a password. The **Use your Temporary Access Pass instead** link will be available for the user to sign-in with a Temporary Access Pass.
 
   ![Screenshot of Use a Temporary Access Pass instead](./media/how-to-authentication-temporary-access-pass/alternative.png)
@@ -171,6 +171,7 @@ Users in scope for these policies will get redirected to the [Interrupt mode of 
 - If **Temporary Access Pass sign in was blocked due to User Credential Policy** appears during sign-in with a Temporary Access Pass, check the following:
   - The user has a multi-use Temporary Access Pass while the authentication method policy requires a one-time Temporary Access Pass.
   - A one-time Temporary Access Pass was already used.
+- If Temporary Access Pass sign-in was blocked due to User Credential Policy, check that the user is in scope for the TAP policy.
 
 ## Next steps
 

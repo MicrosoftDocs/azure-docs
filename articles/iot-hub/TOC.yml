@@ -4,6 +4,8 @@
   items:
     - name: What is Azure IoT Hub?
       href: about-iot-hub.md
+    - name: IoT concepts
+      href: iot-concepts.md 
 - name: Quickstarts
   expanded: true
   items:
@@ -12,17 +14,7 @@
     - name: Send telemetry using SDK
       href: ../iot-develop/quickstart-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Control a device
-      items:
-        - name: Node.js
-          href: quickstart-control-device-node.md
-        - name: .NET
-          href: quickstart-control-device-dotnet.md
-        - name: Java
-          href: quickstart-control-device-java.md
-        - name: Python
-          href: quickstart-control-device-python.md
-        - name: Android
-          href: quickstart-control-device-android.md
+      href: quickstart-control-device.md
     - name: Auto-route messages using an ARM template
       displayName: Resource Manager
       href: horizontal-arm-route-messages.md
@@ -54,6 +46,8 @@
       href: tutorial-firmware-update.md
     - name: Test device connectivity
       href: tutorial-connectivity.md
+    - name: Data visualization in Power BI
+      href: iot-hub-live-data-visualization-in-power-bi.md
     - name: Using X.509 certificates
       items:
         - name: Introduction
@@ -72,8 +66,6 @@
           href: tutorial-x509-test-certificate.md
 - name: Concepts
   items:
-    - name: Managed identities support
-      href: iot-hub-managed-identity.md
     - name: TLS support
       href: iot-hub-tls-support.md
     - name: Virtual networks support
@@ -110,21 +102,21 @@
         - name: Send and receive messages
           href: iot-hub-devguide-messaging.md
           items:
+            - name: Create and read IoT Hub messages
+              href: iot-hub-devguide-messages-construct.md
+            - name: Choose a device communication protocol
+              href: iot-hub-devguide-protocols.md
+            - name: Read device-to-cloud messages from the built-in endpoint
+              href: iot-hub-devguide-messages-read-builtin.md
             - name: Use message routing to send device-to-cloud messages
               href: iot-hub-devguide-messages-d2c.md
               items:
-                - name: Create and read IoT Hub messages
-                  href: iot-hub-devguide-messages-construct.md
-                - name: Read device-to-cloud messages from the built-in endpoint
-                  href: iot-hub-devguide-messages-read-builtin.md
                 - name: Use custom endpoints and routing rules for device-to-cloud messages
                   href: iot-hub-devguide-messages-read-custom.md
                 - name: Add queries to message routes
                   href: iot-hub-devguide-routing-query-syntax.md
             - name: Send cloud-to-device messages from IoT Hub
               href: iot-hub-devguide-messages-c2d.md
-            - name: Choose a communication protocol
-              href: iot-hub-devguide-protocols.md
         - name: React to IoT Hub events with Event Grid
           href: iot-hub-event-grid.md
         - name: Upload files from a device
@@ -159,8 +151,6 @@
           items:
             - name: SDK overview
               href: iot-hub-devguide-sdks.md
-            - name: SDK platform support
-              href: iot-hub-device-sdk-platform-support.md
             - name: Develop without the SDK
               href: iot-hub-devguide-no-sdk.md   
             - name: Manage connectivity and reliable messaging
@@ -209,8 +199,6 @@
               items:
                 - name: Use the IoTHubClient
                   href: iot-hub-device-sdk-c-iothubclient.md
-                - name: Use the serializer
-                  href: iot-hub-device-sdk-c-serializer.md
             - name: Azure IoT C SDK resource information
               href: https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md
             - name: Develop for constrained devices
@@ -219,6 +207,8 @@
               href: iot-hub-how-to-develop-for-mobile-devices.md
             - name: Develop for Android Things platform
               href: iot-hub-how-to-android-things.md
+        - name: Control a device on Android
+          href: quickstart-control-device-android.md
         - name: Query Avro data from a hub route
           href: iot-hub-query-avro-data.md
         - name: Send cloud-to-device messages
@@ -304,6 +294,8 @@
               href: iot-hub-rm-template-powershell.md
             - name: Use a template from .NET
               href: iot-hub-rm-template.md
+        - name: Configure managed identities
+          href: iot-hub-managed-identity.md
         - name: Configure file upload
           items:
             - name: Use Azure portal
@@ -359,26 +351,12 @@
               href: iot-hub-raspberry-pi-kit-node-get-started.md
             - name: Raspberry Pi with C
               href: iot-hub-raspberry-pi-kit-c-get-started.md
-            - name: MXChip IoT DevKit with Arduino
-              href: iot-hub-arduino-iot-devkit-az3166-get-started.md
-        - name: Use MXChip IoT DevKit
-          items:
-            - name: Translate voice message with Azure Cognitive Services
-              href: iot-hub-arduino-iot-devkit-az3166-translator.md
-            - name: Retrieve a Twitter message with Azure Functions
-              href: iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md
-            - name: Send messages to an MQTT server using Eclipse Paho APIs
-              href: iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md
-            - name: Monitor the magnetic sensor and send email notifications with Azure Functions
-              href: iot-hub-arduino-iot-devkit-az3166-door-monitor.md
     - name: Extended IoT scenarios
       items:
         - name: Manage cloud device messaging with Azure IoT Tools for VS Code
           href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
         - name: Manage cloud device messaging with Cloud Explorer for Visual Studio
           href: iot-hub-visual-studio-cloud-device-messaging.md
-        - name: Data Visualization in Power BI
-          href: iot-hub-live-data-visualization-in-power-bi.md
         - name: Data Visualization in a web app
           href: iot-hub-live-data-visualization-in-web-apps.md
         - name: Weather forecast using Azure Machine Learning
@@ -499,7 +477,7 @@
       - name: IoT Edge
         href: ../iot-edge/index.yml
       - name: IoT Plug and Play
-        href: ../iot-pnp/index.yml
+        href: ../iot-develop/index.yml
       - name: IoT solution accelerators
         href: ../iot-accelerators/index.yml
       - name: Azure Maps

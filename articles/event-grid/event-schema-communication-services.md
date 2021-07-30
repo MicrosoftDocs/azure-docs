@@ -45,6 +45,7 @@ Azure Communication Services emits the following event types:
 | Microsoft.Communication.ChatThreadPropertiesUpdated| Published when a chat thread's properties like topic are updated.|    
 | Microsoft.Communication.ChatMessageEditedInThread | Published when a message is edited in a chat thread |  
 | Microsoft.Communication.ChatMessageDeletedInThread | Published when a message is deleted in  a chat thread  |  
+| Microsoft.Communication.RecordingFileStatusUpdated | Published when recording file is available |
 
 You can use the Azure portal or Azure CLI to subscribe to events emitted by your Communication Services resource. Get started with handling events by looking at [How to handle SMS Events in Communication Services](../communication-services/quickstarts/telephony-sms/handle-sms-events.md)
 
@@ -136,6 +137,10 @@ This section contains an example of what that data would look like for each even
     "data": {
       "messageBody": "Welcome to Azure Communication Services",
       "messageId": "1613694358927",
+      "metadata": {
+        "key": "value",
+        "description": "A map of data associated with the message"
+      },
       "senderId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7caf-07fd-084822001724",
       "senderCommunicationIdentifier": {
         "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7caf-07fd-084822001724",
@@ -176,6 +181,10 @@ This section contains an example of what that data would look like for each even
       "editTime": "2021-02-19T00:28:20.784Z",
       "messageBody": "Let's Chat about new communication services.",
       "messageId": "1613694357917",
+      "metadata": {
+        "key": "value",
+        "description": "A map of data associated with the message"
+      },
       "senderId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7caf-07fd-084822001724",
       "senderCommunicationIdentifier": {
         "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7caf-07fd-084822001724",
@@ -725,6 +734,10 @@ This section contains an example of what that data would look like for each even
     "data": {
       "messageBody": "Talk about new Thread Events in commuication services",
       "messageId": "1613783230064",
+      "metadata": {
+        "key": "value",
+        "description": "A map of data associated with the message"
+      },
       "type": "Text",
       "version": "1613783230064",
       "senderDisplayName": "Bob",
@@ -757,6 +770,10 @@ This section contains an example of what that data would look like for each even
       "editTime": "2021-02-20T00:59:10.464+00:00",
       "messageBody": "8effb181-1eb2-4a58-9d03-ed48a461b19b",
       "messageId": "1613782685964",
+      "metadata": {
+        "key": "value",
+        "description": "A map of data associated with the message"
+      },
       "type": "Text",
       "version": "1613782750464",
       "senderDisplayName": "Scott",
@@ -809,7 +826,40 @@ This section contains an example of what that data would look like for each even
   }
 ]
 ```
+> [!IMPORTANT]
+> Call Recording feature is still in a Public Preview
 
+### Microsoft.Communication.RecordingFileStatusUpdated
+
+```json
+[
+ {
+  "id": "7283825e-f8f1-4c61-a9ea-752c56890500",
+  "topic": "/subscriptions/{subscription-id}/resourcegroups/}{group-name}/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
+  "subject": "/recording/call/{call-id}/recordingId/{recording-id}",
+  "data": {
+    "recordingStorageInfo": {
+      "recordingChunks": [
+        {
+          "documentId": "0-eus-d12-801b3f3fc462fe8a01e6810cbff729b8",
+          "index": 0,
+          "endReason": "SessionEnded",
+          "contentLocation": "https://storage.asm.skype.com/v1/objects/0-eus-d12-801b3f3fc462fe8a01e6810cbff729b8/content/video",
+          "metadataLocation": "https://storage.asm.skype.com/v1/objects/0-eus-d12-801b3f3fc462fe8a01e6810cbff729b8/content/acsmetadata"
+        }
+      ]
+    },
+    "recordingStartTime": "2021-07-27T15:20:23.6089755Z",
+    "recordingDurationMs": 6620,
+    "sessionEndReason": "CallEnded"
+  },
+  "eventType": "Microsoft.Communication.RecordingFileStatusUpdated",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2021-07-27T15:20:34.2199328Z"
+ }
+]
+```
 
 ## Quickstarts and how-tos
 

@@ -31,7 +31,7 @@ For installation steps, see [Install GPU extension](./azure-stack-edge-gpu-deplo
 
 **Suggested solution:** Prepare a new VM image that has an operating system that the GPU extension supports. 
 
-* For a list of supported operating systems, see [Supported OS and GPU drivers for GPU VMs](./azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#supported-os-and-gpu-drivers).
+* For a list of supported operating systems, see [Supported OS and GPU drivers for GPU VMs](./azure-stack-edge-gpu-overview-gpu-virtual-machines.md#supported-os-and-gpu-drivers).
 
 * For image preparation requirements for a GPU VM, see [Create GPU VMs](./azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms).
 

@@ -76,7 +76,7 @@
     - name: Co-sell requirements
       href: co-sell-requirements.md
     - name: Verify co-sell status
-      href: co-sell-status.md  
+      href: co-sell-status.md
     - name: Migrate co-sell solutions from OCP GTM
       href: co-sell-solution-migration.md 
     - name: Resell through CSP Partners
@@ -86,7 +86,7 @@
     - name: Azure consumption commitment enrollment
       href: azure-consumption-commitment-enrollment.md
     - name: Preferred solutions
-      href: /marketplace/appsource-overview#microsoft-preferred-solutions
+      href: preferred-solution.md
     - name: Integrated solutions
       href: integrated-solutions-for-publishers.md
   - name: Activate marketplace rewards
@@ -212,9 +212,9 @@
       - name: SAS failure messages
         href: azure-vm-sas-failure-messages.md
       - name: VM creation FAQ
-        href: azure-vm-create-faq.md
+        href: azure-vm-create-faq.yml
       - name: VM certification troubleshooting
-        href: azure-vm-create-certification-faq.md
+        href: azure-vm-create-certification-faq.yml
   - name: Consulting services offer
     items: 
     - name: Plan the offer
@@ -311,13 +311,15 @@
           href: iot-edge-plan-technical-configuration.md
   - name: Managed Service offers
     items:
-    - name: Plan a Managed Service offer
+    - name: Plan the offer
       href: plan-managed-service-offer.md
-    - name: Create a Managed Service offer
+    - name: Create the offer
       href: create-managed-service-offer.md
-    - name: Configure Managed Service listing
+    - name: Properties
+      href: create-managed-service-offer-properties.md
+    - name: Offer listing
       href: create-managed-service-offer-listing.md
-    - name: Add a preview audience
+    - name: Preview audience
       href: create-managed-service-offer-preview.md
     - name: Create plans
       href: create-managed-service-offer-plans.md
@@ -398,7 +400,7 @@
     - name: Salesforce
       href: partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md  
     - name: Lead management FAQ 
-      href: lead-management-faq.md
+      href: lead-management-faq.yml
 - name: Data and analytics
   items:
   - name: Commercial marketplace analytics 
@@ -413,6 +415,8 @@
     href: customer-dashboard.md
   - name: Marketplace Insights dashboard
     href: insights-dashboard.md
+  - name: License dashboard
+    href: license-dashboard.md
   - name: Downloads dashboard
     href: downloads-dashboard.md
   - name: Ratings and reviews dashboard
@@ -462,7 +466,7 @@
   - name: Manage metered billing anomalies
     href: anomaly-detection.md
   - name: Analytics common questions
-    href: analytics-faq.md
+    href: analytics-faq.yml
 - name: Policies and terms
   items:    
   - name: About our policies and terms
@@ -520,7 +524,7 @@
     - name: Marketplace metering service APIs
       href: marketplace-metering-service-apis.md   
     - name: Marketplace metering service APIs - FAQ
-      href: marketplace-metering-service-apis-faq.md
+      href: marketplace-metering-service-apis-faq.yml
   - name: SaaS Fulfillment APIs
     items:
     - name: SaaS Fulfillment API overview
@@ -532,13 +536,13 @@
     - name: SaaS Fulfillment APIs v1 (deprecated)
       href: partner-center-portal/pc-saas-fulfillment-api-v1.md
     - name: SaaS fulfillment APIs - FAQ
-      href: partner-center-portal/saas-fulfillment-apis-faq.md 
+      href: partner-center-portal/saas-fulfillment-apis-faq.yml
 - name: Resources
   items:
   - name: Commercial marketplace FAQ
-    href: marketplace-faq-publisher-guide.md
+    href: marketplace-faq-publisher-guide.yml
   - name: Cloud Partner Portal migration FAQ
-    href: cloud-partner-portal-migration-faq.md 
+    href: cloud-partner-portal-migration-faq.yml
   - name: Business opportunity office hours
     href: https://aka.ms/marketplaceofficehours
   - name: Technical and publishing office hours

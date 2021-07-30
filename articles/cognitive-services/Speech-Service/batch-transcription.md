@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/23/2020
+ms.date: 06/17/2021
 ms.author: wolfma
 ms.custom: devx-track-csharp
 ---
@@ -323,6 +323,9 @@ with [Get transcriptions](https://westus.dev.cognitive.microsoft.com/docs/servic
 Call [Delete transcription](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) 
 regularly from the service once you retrieved the results. Alternatively set `timeToLive` property to ensure eventual
 deletion of the results.
+
+> [!TIP]
+> You can use the [Ingestion Client](ingestion-client.md) tool and resulting solution to process high volume of audio.
 
 ## Sample code
 

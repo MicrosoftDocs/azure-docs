@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/26/2020
+ms.date: 06/30/2021
 ms.author: jeedes
 ---
 
@@ -72,7 +72,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
 1. On the **Set up Single Sign-On with SAML** page, enter the following values:
 
     a. In the **Sign on URL** box, enter a URL in the pattern
-    `https://<FQDN>/remote/login`.
+    `https://<FQDN>/remote/saml/login`.
 
     b. In the **Identifier** box, enter a URL in the pattern
     `https://<FQDN>/remote/saml/metadata`.
@@ -202,6 +202,7 @@ To complete these steps, you'll need the values you recorded earlier:
    ```console
     config user saml
     edit azure
+    set cert <FortiGate VPN Server Certificate Name>
     set entity-id <Entity ID>
     set single-sign-on-url <Reply URL>
     set single-logout-url <Logout URL>

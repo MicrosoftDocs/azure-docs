@@ -38,28 +38,23 @@ To complete this quickstart, you must have:
 
 ## Try it out
 
-To try out the Form Recognizer Sample Labeling Tool online, go to the [FOTT website](https://fott-2-1.azurewebsites.net/).
-
-### [v2.1](#tab/v2-1)
+Try out the [**Form Recognizer sample labeling tool**](https://fott-2-1.azurewebsites.net/) online:
 
 > [!div class="nextstepaction"]
-> [Try Prebuilt Models](https://fott.azurewebsites.net/)
-
-### [v2.0](#tab/v2-0)
-
-> [!div class="nextstepaction"]
-> [Try Prebuilt Models](https://fott.azurewebsites.net/)
-
----
+> [Try Prebuilt Models](https://fott-2-1.azurewebsites.net/)
 
 You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer service.
 
 ## Set up the sample labeling tool
 
+> [!NOTE]
+>
+> If your storage data is behind a VNet or firewall, you must deploy the **Form Recognizer sample labeling tool** behind your VNet or firewall and grant access by creating a [system-assigned managed identity](managed-identity-byos.md "Azure managed identity is a service principal that creates an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources").
+
 You'll use the Docker engine to run the sample labeling tool. Follow these steps to set up the Docker container. For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
 
 > [!TIP]
-> The OCR Form Labeling Tool is also available as an open source project on GitHub. The tool is a TypeScript web application built using React + Redux. To learn more or contribute, see the [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application) repo. To try out the tool online, go to the [FOTT website](https://fott.azurewebsites.net/).
+> The OCR Form Labeling Tool is also available as an open source project on GitHub. The tool is a TypeScript web application built using React + Redux. To learn more or contribute, see the [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application) repo. To try out the tool online, go to the [Form Recognizer sample labeling tool website](https://fott-2-1.azurewebsites.net/).
 
 1. First, install Docker on a host computer. This guide will show you how to use local computer as a host. If you want to use a Docker hosting service in Azure, see the [Deploy the sample labeling tool](deploy-label-tool.md) how-to guide.
 
@@ -69,7 +64,7 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
     |:--|:--|:--|
     |Sample labeling tool|2 core, 4-GB memory|4 core, 8-GB memory|
 
-   Install Docker on your machine by following the appropriate instructions for your operating system:
+    Install Docker on your machine by following the appropriate instructions for your operating system:
 
    * [Windows](https://docs.docker.com/docker-for-windows/)
    * [macOS](https://docs.docker.com/docker-for-mac/)
@@ -77,35 +72,15 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
 
 1. Get the sample labeling tool container with the `docker pull` command.
 
-### [v2.1](#tab/v2-1)
+    ```console
+     docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-2.1
+    ```
 
-```console
- docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-2.1
-```
+1. Now you're ready to run the container with `docker run`.
 
-### [v2.0](#tab/v2-0)
-
-```console
-docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
-```
-
----
-</br>
-  3. Now you're ready to run the container with `docker run`.
-
-### [v2.1](#tab/v2-1)
-
-```console
- docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-2.1 eula=accept
-```
-
-### [v2.0](#tab/v2-0)
-
-```console
-docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
-```
-
----
+    ```console
+     docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-2.1 eula=accept
+    ```
 
    This command will make the sample labeling tool available through a web browser. Go to `http://localhost:3000`.
 
@@ -183,8 +158,6 @@ In v2.1, if your training document does not have a value filled in, you can draw
 
 Next, you'll create tags (labels) and apply them to the text elements that you want the model to analyze.
 
-### [v2.1](#tab/v2-1)  
-
 1. First, use the tags editor pane to create the tags you'd like to identify.
    1. Select **+** to create a new tag.
    1. Enter the tag name.
@@ -203,30 +176,6 @@ Next, you'll create tags (labels) and apply them to the text elements that you w
     > * Use the buttons to the right of the **+** to search, rename, reorder, and delete your tags.
     > * To remove an applied tag without deleting the tag itself, select the tagged rectangle on the document view and press the delete key.
     >
-
-### [v2.0](#tab/v2-0)
-
-1. First, use the tags editor pane to create the tags you'd like to identify.
-   1. Select **+** to create a new tag.
-   1. Enter the tag name.
-   1. Press Enter to save the tag.
-1. In the main editor, select words from the highlighted text elements.
-1. Select the tag you want to apply, or press the corresponding keyboard key. The number keys are assigned as hotkeys for the first 10 tags. You can reorder your tags using the up and down arrow icons in the tag editor pane.
-    > [!Tip]
-    > Keep the following tips in mind when you're labeling your forms:
-    >
-    > * You can only apply one tag to each selected text element.
-    > * Each tag can only be applied once per page. If a value appears multiple times on the same form, create different tags for each instance. For example: "invoice# 1", "invoice# 2" and so on.
-    > * Tags cannot span across pages.
-    > * Label values as they appear on the form; don't try to split a value into two parts with two different tags. For example, an address field should be labeled with a single tag even if it spans multiple lines.
-    > * Don't include keys in your tagged fields&mdash;only the values.
-    > * Table data should be detected automatically and will be available in the final output JSON file. However, if the model fails to detect all of your table data, you can manually tag these fields as well. Tag each cell in the table with a different label. If your forms have tables with varying numbers of rows, make sure you tag at least one form with the largest possible table.
-    > * Use the buttons to the right of the **+** to search, rename, reorder, and delete your tags.
-    > * To remove an applied tag without deleting the tag itself, select the tagged rectangle on the document view and press the delete key.
->
-
----
----
 
 :::image type="content" source="media/label-tool/main-editor-2-1.png" alt-text="Main editor window of sample labeling tool.":::
 
@@ -309,8 +258,6 @@ After training finishes, examine the **Average Accuracy** value. If it's low, yo
 
 ## Compose trained models
 
-### [v2.1](#tab/v2-1)
-
 With Model Compose, you can compose up to 100 models to a single model ID. When you call Analyze with the composed `modelID`, Form Recognizer will first classify the form you submitted, choose the best matching model, and then return results for that model. This operation is useful when incoming forms may belong to one of several templates.
 
 To compose models in the sample labeling tool, select the Model Compose (merging arrow) icon on the left. On the left, select the models you wish to compose together. Models with the arrows icon are already composed models.
@@ -318,15 +265,11 @@ Choose the **Compose button**. In the pop-up, name your new composed model and s
 
 :::image type="content" source="media/label-tool/model-compose.png" alt-text="Model compose UX view.":::
 
-### [v2.0](#tab/v2-0)
-
-This feature is only available in v2.1
-
----
-
 ## Analyze a form
 
-Select the Predict (light bulb) icon on the left to test your model. Upload a form document that you haven't used in the training process. Then choose the **Predict** button on the right to get key/value predictions for the form. The tool will apply tags in bounding boxes and will report the confidence of each tag.
+Select the Analyze (light bulb) icon on the left to test your model. Select source 'Local file'. Browse for a file and select a file from the sample dataset that you unzipped in the test folder. Then choose the **Run analysis** button to get key/value pairs, text and tables predictions for the form. The tool will apply tags in bounding boxes and will report the confidence of each tag.
+
+:::image type="content" source="media/analyze.png" alt-text="Screenshot: analyze-a-custom-form window":::
 
 > [!TIP]
 > You can also run the Analyze API with a REST call. To learn how to do this, see [Train with labels using Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).

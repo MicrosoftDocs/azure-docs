@@ -1,8 +1,8 @@
 ---
 title:  "Deploy Azure Spring Cloud in a virtual network"
 description: Deploy Azure Spring Cloud in a virtual network (VNet injection).
-author:  MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 07/21/2020
@@ -17,8 +17,8 @@ This tutorial explains how to deploy an Azure Spring Cloud instance in your virt
 
 The deployment enables:
 
-* Isolation of Azure Spring Cloud apps and service runtime from the internetâ€‹ on your corporate networkâ€‹.
-* Azure Spring Cloud interaction with systems in â€‹on-premises data centers â€‹or Azure services in other virtual networks.
+* Isolation of Azure Spring Cloud apps and service runtime from the internet on your corporate network.
+* Azure Spring Cloud interaction with systems in on-premises data centers or Azure services in other virtual networks.
 * Empowerment of customers to control inbound and outbound network communications for Azure Spring Cloud.
 
 > [!Note]
@@ -164,7 +164,7 @@ This table shows the maximum number of app instances Azure Spring Cloud supports
 | /25             | 128       | 120           | <p> App with 1 core:  500<br> App with 2 cores:  500<br>  App with 3 cores:  480<br>  App with 4 cores: 360</p> |
 | /24             | 256       | 248           | <p> App with 1 core:  500<br/> App with 2 cores:  500<br/>  App with 3 cores: 500<br/>  App with 4 cores: 500</p> |
 
-For subnets, five IP addresses are reserved by Azure, and at least four addresses are required by Azure Spring Cloud. At least nine IP addresses are required, so /29 and /30 are nonoperational.
+For subnets, five IP addresses are reserved by Azure, and at least three IP addresses are required by Azure Spring Cloud. At least eight IP addresses are required, so /29 and /30 are nonoperational.
 
 For a service runtime subnet, the minimum size is /28. This size has no bearing on the number of app instances.
 
