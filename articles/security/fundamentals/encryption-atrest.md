@@ -34,7 +34,7 @@ Encryption is the secure encoding of data used to protect confidentiality of dat
 - A symmetric encryption key is used to encrypt data as it is written to storage.
 - The same encryption key is used to decrypt that data as it is readied for use in memory.
 - Data may be partitioned, and different keys may be used for each partition.
-- Keys must be stored in a secure location with identity-based access control and audit policies. Data encryption keys are often encrypted with a key encryption key in Azure Key Vault to further limit access.
+- Keys must be stored in a secure location with identity-based access control and audit policies. Data encryption keys which are stored outside of secure locations are encrypted with a key encryption key kept in a secure location.
 
 In practice, key management and control scenarios, as well as scale and availability assurances, require additional constructs. Microsoft Azure Encryption at Rest concepts and components are described below.
 
