@@ -273,11 +273,6 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/healthcare-apis/fhir/fhir-faq.yml",
-        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/fhir-faq",
-        "redirect_document_id": true
-    },
-    {
         "source_path_from_root": "/articles/healthcare-apis/fhir/fhir-github-projects.md",
         "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/fhir-github-projects",
         "redirect_document_id": true
