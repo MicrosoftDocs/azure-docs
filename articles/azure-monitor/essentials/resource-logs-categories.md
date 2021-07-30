@@ -18,9 +18,9 @@ A combination of the resource type (available in the `resourceId` property) and 
 
 ## Costs
 
-There are costs associated with sending and storing any data into into Log Analytics, Azure Storage and/or Event hub. You may pay for the cost to get the data into these locations and for keeping it there.  Resource logs are one type of data you can send to these locations. 
+[Azure Monitor Log Analytics](https://azure.microsoft.com/pricing/details/monitor/), [Azure Storage](https://azure.microsoft.com/en-us/product-categories/storage/), [Event hub](https://azure.microsoft.com/en-us/pricing/details/event-hubs/), and partners who integrate directly with Azure Monitor ([for example Datadog](/azure/partner-solutions/datadog/overview)) have costs associated with ingesting data and storing data. Check the previous links to pricing pages for these services to understand those costs. Resource logs are just one type of data you can send to these locations. 
 
-There is an additional cost to export some categories of resource logs into these locations. Those logs with export costs are listed in the table below. For more information on this pricing, see the Platform Logs section in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
+In addition, there may be costs to export some categories of resource logs to those locations. Those logs with possible export costs are listed in the table below. For more information on export pricing, see the *Platform Logs* section in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## Supported log categories per resource type
 
