@@ -109,29 +109,7 @@ The Azure portal provides an interface for creating, updating and deleting appli
 
 ### Using the Azure CLI
 
-You can use the `az rest` command to do bulk uploads of your settings to Azure. The command accepts application settings as JSON objects in a parent property called `properties`.
-
-The easiest way to create a JSON file with the appropriate values is to create a modified version of your _local.settings.json_ file.
-
-1. To ensure your new file with sensitive data isn't exposed publicly, add the following entry into your _.gitignore_ file.
-
-   ```bash
-   local.settings*.json
-   ```
-
-2. Next, make a copy of your _local.settings.json_ file and name it _local.settings.properties.json_.
-
-3. Inside the new file, remove all other data from the file except for the application settings and rename `Values` to `properties`.
-
-   Your file should now look similar to the following example:
-
-   ```json
-   {
-     "properties": {
-       "DATABASE_CONNECTION_STRING": "<YOUR_DATABASE_CONNECTION_STRING>"
-     }
-   }
-   ```
+You can use the `az staticwebapp appsettings` command to list, set and delete your settings on Azure. See the [detailed documentation](https://docs.microsoft.com/en-us/cli/azure/staticwebapp/appsettings?view=azure-cli-latest)
 
 The Azure CLI command requires a number of values specific to your account to run the upload. From the _Overview_ window of your Static Web Apps resource, you have access to the following information:
 
@@ -141,23 +119,20 @@ The Azure CLI command requires a number of values specific to your account to ru
 
 :::image type="content" source="media/application-settings/overview.png" alt-text="Azure Static Web Apps Overview":::
 
-4. From a terminal or command line, execute the following command. Make sure to replace the placeholders of `<YOUR_STATIC_SITE_NAME>`, `<YOUR_RESOURCE_GROUP_NAME>`, and `<YOUR_SUBSCRIPTION_ID>` with your values from the _Overview_ window.
+To set an app setting execute the following command. Make sure to replace the placeholders of `<YOUR_STATIC_SITE_NAME>`, `<YOUR_RESOURCE_GROUP_NAME>`, and `<YOUR_SUBSCRIPTION_ID>` with your values from the _Overview_ window.
 
    ```bash
-   az rest --method put --headers "Content-Type=application/json" --uri "/subscriptions/<YOUR_SUBSCRIPTION_ID>/resourceGroups/<YOUR_RESOURCE_GROUP_NAME>/providers/Microsoft.Web/staticSites/<YOUR_STATIC_SITE_NAME>/config/functionappsettings?api-version=2019-12-01-preview" --body @local.settings.properties.json
+   az staticwebapp appsettings set --subscription <YOUR_SUBSCRIPTION_ID> --resource-group <YOUR_RESOURCE_GROUP_NAME> --name <YOUR_STATIC_SITE_NAME> --setting-names key1=val1 key2=val2
    ```
-
-> [!IMPORTANT]
-> The "local.settings.properties.json" file must be in the same directory where this command is run. This file can be named anything you like. The name is not significant.
 
 ### View application settings with the Azure CLI
 
 Application settings are available to view through the Azure CLI.
 
-- From a terminal or command line, execute the following command. Make sure to replace the placeholders `<YOUR_SUBSCRIPTION_ID>`, `<YOUR_RESOURCE_GROUP_NAME>`, `<YOUR_STATIC_SITE_NAME>` with your values.
+From a terminal or command line, execute the following command. Make sure to replace the placeholders `<YOUR_SUBSCRIPTION_ID>`, `<YOUR_RESOURCE_GROUP_NAME>`, `<YOUR_STATIC_SITE_NAME>` with your values.
 
    ```bash
-   az rest --method post --uri "/subscriptions/<YOUR_SUBSCRIPTION_ID>/resourceGroups/<YOUR_RESOURCE_GROUP_NAME>/providers/Microsoft.Web/staticSites/<YOUR_STATIC_SITE_NAME>/listFunctionAppSettings?api-version=2019-12-01-preview"
+   az staticwebapp appsettings list --subscription <YOUR_SUBSCRIPTION_ID> --resource-group <YOUR_RESOURCE_GROUP_NAME> --name <YOUR_STATIC_SITE_NAME> 
    ```
 
 ## Next steps
