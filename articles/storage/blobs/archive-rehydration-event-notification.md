@@ -15,6 +15,51 @@ ms.subservice: blobs
 
 # Trigger an event when an archived blob is rehydrated 
 
+
+
+
+
+## Create a function app
+
+A function app is an Azure resource that serves as a container for your Azure functions. You can use a new or existing function app to complete the steps in this article.
+
+This article shows how to create a .NET function. You can choose to use a different language for your function. For more information about supported languages for Azure Functions, see [Supported languages in Azure Functions](../../azure-functions/supported-languages.md).
+
+To create a new function app in the Azure portal, follow these steps:
+
+1. In the Azure portal, search for *Function App*. Select **Function App** icon to navigate to the list of function apps in your subscription.
+1. Select the **Create** button to create a new function app.
+1. On the **Basics** tab, specify a resource group, and provide a unique name for the new function app.
+1. Make sure that the **Publish** option is set to *Code*.
+1. From the **Runtime stack** dropdown, select *.NET*. The **Version** field is automatically populated to use the latest version of .NET core.
+1. Select the region for the new function app.
+
+    :::image type="content" source="media/archive-rehydration-event-notification/create-function-app-basics-tab.png" alt-text="Screenshot showing how to create a new function app in Azure - Basics tab":::
+
+1. After you have completed the **Basics** tab, navigate to the **Hosting** tab.
+1. On the **Hosting** tab, select the storage account where your Azure Functions will be stored. You can choose an existing storage account or create a new one.
+1. Make sure that the **Operating system** field is set to *Windows*.
+1. In the **Plan type** field, select *Consumption (Serverless)*. For more information about this plan, see [Azure Functions Consumption plan hosting](../../azure-functions/consumption-plan.md).
+
+    :::image type="content" source="media/archive-rehydration-event-notification/create-function-app-hosting-tab.png" alt-text="Screenshot showing how to create a new function app in Azure - Hosting tab":::
+
+1. Select **Create** to create the new function app.
+
+To learn more about configuring your function app, see [Manage your function app](../../azure-functions/functions-how-to-use-azure-function-app-settings.md).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 TBD
 
 recommend reading through this article
