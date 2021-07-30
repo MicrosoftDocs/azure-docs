@@ -250,8 +250,6 @@ Next, create the following application settings:
 
 Once you have the registration credentials, use the following steps to create a custom registration.
 
-1. Add the client ID and client secret as [application settings](application-settings.md) for the app, using setting names of your choice. Make note of these names for later. Alternatively, the client ID can be included in the configuration file.
-
 1. You need the OpenID Connect metadata for the provider. This information is often exposed via a [configuration metadata document](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig), which is the provider's _Issuer URL_ suffixed with `/.well-known/openid-configuration`. Gather this configuration URL.
 
 1. Add an `auth` section of the [configuration file](configuration.md) with a configuration block for the OIDC providers, and your provider definition.
@@ -283,8 +281,7 @@ Once you have the registration credentials, use the following steps to create a 
    }
    ```
 
-  Make sure to replace `<PROVIDER_ISSUER_URL>` with the path to the _Issuer URL_ of the provider.
-
+  - Make sure to replace `<PROVIDER_ISSUER_URL>` with the path to the _Issuer URL_ of the provider.
   - The provider name, `myProvider` in this example, is the unique identifier used by Azure Static Web Apps.
   - The `login` object allows you to provide values for: custom scopes, login parameters, or custom claims.
 
