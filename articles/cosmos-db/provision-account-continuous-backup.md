@@ -18,7 +18,7 @@ Azure Cosmos DB's point-in-time restore feature helps you to recover from an acc
 
 This article explains how to provision an account with continuous backup and point in time restore using [Azure portal](#provision-portal), [PowerShell](#provision-powershell), [CLI](#provision-cli) and [Resource Manager templates](#provision-arm-template).
 
-> [!NOTE}
+> [!NOTE]
 > You can provision continuous backup mode account only if the following conditions are true:
 >
 > * If the account is of type SQL API or API for MongoDB.
