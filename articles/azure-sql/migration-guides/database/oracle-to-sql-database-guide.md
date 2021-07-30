@@ -173,7 +173,7 @@ Description: Enter any additional information to identify the purpose of the tes
  ![Screenshot - Initialize a test case .](./media/oracle-to-sql-database-guide/tester-init-test-case.png)
 
 3.In the Oracle object tree located on the left side, select the objects you want to evaluate  during the testing process.
- ![Screenshot - select and configure object .](./media/oracle-to-sql-database-guide/tester_select-configure-objects.png)
+ ![Screenshot - select and configure object .](./media/oracle-to-sql-database-guide/tester-select-configure-objects.png)
  
 In this example,  stored procedure ADD_REGION and table REGION are selected.
 
@@ -188,7 +188,7 @@ To learn more, see [Selecting and configuring affected objects.](/sql/ssma/oracl
 ![Screenshot - ordering object .](./media/oracle-to-sql-database-guide/test-call-ordering.png)
 
 6.The finalize test case page provides  test case information, test objects and the objects that will be analyzed. In addition, on this page you can set the test execution options.
-![Screenshot - finalize object .](./media/oracle-to-sql-database-guide/tester-finalize-case.)
+![Screenshot - finalize object .](./media/oracle-to-sql-database-guide/tester-finalize-case.png)
 
 For more information on test case settings,[Finishing test case preparation](/sql/ssma/oracle/finishing-test-case-preparation-oracletosql)
 
