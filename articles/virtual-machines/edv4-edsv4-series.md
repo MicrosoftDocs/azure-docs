@@ -57,23 +57,26 @@ Edsv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 <br>
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | <sup>**</sup> Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs|Expected Network bandwidth (Mbps) |
-|---|---|---|---|---|---|---|---|---|
-| Standard_E2ds_v4  | 2 | 16 | 75 | 4 | 19000/120(50) | 3200/48 | 2|1000 |
-| Standard_E4ds_v4 <sup>1</sup> | 4 | 32 | 150 | 8 | 38500/242(100) | 6400/96 | 2|2000 |
-| Standard_E8ds_v4 <sup>1</sup> | 8 | 64 | 300 | 16 | 77000/485(200) | 12800/192 | 4|4000 |
-| Standard_E16ds_v4 <sup>1</sup> | 16 | 128 | 600 | 32 | 154000/968(400) | 25600/384 | 8|8000 |
-| Standard_E20ds_v4 | 20 | 160 | 750 | 32 | 193000/1211(500)  | 32000/480  | 8|10000 |
-| Standard_E32ds_v4 <sup>1</sup> | 32 | 256 | 1200 | 32 | 308000/1936(800) | 51200/768  | 8|16000 |
-| Standard_E48ds_v4 | 48 | 384 | 1800 | 32 | 462000/2904(1200) | 76800/1152 | 8|24000 |
-| Standard_E64ds_v4 <sup>1</sup> | 64 | 504 | 2400 | 32 | 615000/3872(1600) | 80000/1200 | 8|30000 |
-| Standard_E80ids_v4 <sup>2</sup> | 80 | 504 | 2400 | 32 | 615000/3872(1600) | 80000/1500 | 8|30000 |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | <sup>**</sup> Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs|Expected Network bandwidth (Mbps) |
+|---|---|---|---|---|---|---|---|---|---|
+| Standard_E2ds_v4  | 2 | 16 | 75 | 4 | 19000/120(50) | 3200/48 | 4000/200 | 2|1000 |
+| Standard_E4ds_v4  | 4 | 32 | 150 | 8 | 38500/242(100) | 6400/96 | 8000/200 | 2|2000 |
+| Standard_E8ds_v4 | 8 | 64 | 300 | 16 | 77000/485(200) | 12800/192 | 16000/400 | 4|4000 |
+| Standard_E16ds_v4 | 16 | 128 | 600 | 32 | 154000/968(400) | 25600/384 | 32000/800 | 8|8000 |
+| Standard_E20ds_v4 | 20 | 160 | 750 | 32 | 193000/1211(500)  | 32000/480 | 40000/1000 | 8|10000 |
+| Standard_E32ds_v4 | 32 | 256 | 1200 | 32 | 308000/1936(800) | 51200/768  | 64000/1600 | 8|16000 |
+| Standard_E48ds_v4 | 48 | 384 | 1800 | 32 | 462000/2904(1200) | 76800/1152 | 80000/2000 | 8|24000 |
+| Standard_E64ds_v4 <sup>2</sup> | 64 | 504 | 2400 | 32 | 615000/3872(1600) | 80000/1200 | 80000/2000 | 8|30000 |
+| Standard_E80ids_v4 <sup>3</sup> | 80 | 504 | 2400 | 32 | 615000/3872(1600) | 80000/1200 | 80000/2000 | 8|30000 |
 
-<sup>1</sup> [Constrained core sizes available](./constrained-vcpu.md).
+<sup>**</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)
 
-<sup>2</sup> Instance is isolated to hardware dedicated to a single customer.
+<sup>1</sup>  Edsv4-series VMs can [burst](./disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
 
-<sup>**</sup> These IOPs values can be achieved by using [Gen2 VMs](generation-2.md)
+<sup>2</sup> [Constrained core sizes available)](./constrained-vcpu.md).
+
+<sup>3</sup> Instance is isolated to hardware dedicated to a single customer.
+
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

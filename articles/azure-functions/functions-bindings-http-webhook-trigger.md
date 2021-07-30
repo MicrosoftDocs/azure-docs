@@ -371,7 +371,7 @@ module.exports = function(context, req) {
 
 # [PowerShell](#tab/powershell)
 
-The following example shows a trigger binding in a *function.json* file and a [PowerShell function](functions-reference-node.md). The function looks for a `name` parameter either in the query string or the body of the HTTP request.
+The following example shows a trigger binding in a *function.json* file and a [PowerShell function](functions-reference-powershell.md). The function looks for a `name` parameter either in the query string or the body of the HTTP request.
 
 ```json
 {
@@ -920,7 +920,7 @@ In non-C# functions, requests sent with the content-type `image/jpeg` results in
 
 The HTTP request length is limited to 100 MB (104,857,600 bytes), and the URL length is limited to 4 KB (4,096 bytes). These limits are specified by the `httpRuntime` element of the runtime's [Web.config file](https://github.com/Azure/azure-functions-host/blob/v3.x/src/WebJobs.Script.WebHost/web.config).
 
-If a function that uses the HTTP trigger doesn't complete within 230 seconds, the [Azure Load Balancer](../app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds) will time out and return an HTTP 502 error. The function will continue running but will be unable to return an HTTP response. For long-running functions, we recommend that you follow async patterns and return a location where you can ping the status of the request. For information about how long a function can run, see [Scale and hosting - Consumption plan](functions-scale.md#timeout).
+If a function that uses the HTTP trigger doesn't complete within 230 seconds, the [Azure Load Balancer](../app-service/faq-availability-performance-application-issues.yml#why-does-my-request-time-out-after-230-seconds-) will time out and return an HTTP 502 error. The function will continue running but will be unable to return an HTTP response. For long-running functions, we recommend that you follow async patterns and return a location where you can ping the status of the request. For information about how long a function can run, see [Scale and hosting - Consumption plan](functions-scale.md#timeout).
 
 
 ## Next steps

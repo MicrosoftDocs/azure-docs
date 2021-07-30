@@ -59,7 +59,7 @@ You can start runbooks by doing a POST on the webhook URL. For example, the URL 
 
 The user Hybrid Runbook Worker feature of Azure Automation enables you to run runbooks directly on the Azure or non-Azure machine, including servers registered with Azure Arc enabled servers. From the machine or server that's hosting the role, you can run runbooks directly on it and against resources in the environment to manage those local resources.
 
-A JRDS endpoint is used by the hybrid worker to start/stop runbooks, download the runbooks to the worker, and to send the job log stream back to the Automation service. After enabling JRDS endpoint, the URL would look like this: `https://<automationaccountID>.jobruntimedata.<region>.azure-automation.net`. This would ensure runbook execution on the hybrid worker connected to Azure Virtual Network is able to execute jobs without the need to open an outbound connection to the Internet.  
+A JRDS endpoint is used by the hybrid worker to start/stop runbooks, download the runbooks to the worker, and to send the job log stream back to the Automation service. After enabling JRDS endpoint, the URL would look like this: `https://<automationaccountID>.jrds.<region>.privatelink.azure-automation.net`. This would ensure runbook execution on the hybrid worker connected to Azure Virtual Network is able to execute jobs without the need to open an outbound connection to the Internet.  
 
 > [!NOTE]
 >With the current implementation of Private Links for Azure Automation, it only supports running jobs on the Hybrid Runbook Worker connected to an Azure virtual network and does not support cloud jobs.
@@ -72,7 +72,7 @@ To understand & configure Update Management review [About Update Management](../
 
 If you want your machines configured for Update management to connect to Automation & Log Analytics workspace in a secure manner over Private Link channel, you have to enable Private Link for the Log Analytics workspace linked to the Automation Account configured with Private Link.
 
-You can control how a Log Analytics workspace can be reached from outside of the Private Link scopes by following the steps described in [Configure Log Analytics](../../azure-monitor/logs/private-link-security.md#configure-log-analytics). If you set **Allow public network access for ingestion** to **No**, then machines outside of the connected scopes cannot upload data to this workspace. If you set **Allow public network access for queries** to **No**, then machines outside of the scopes cannot access data in this workspace.
+You can control how a Log Analytics workspace can be reached from outside of the Private Link scopes by following the steps described in [Configure Log Analytics](../../azure-monitor/logs/private-link-security.md#configure-access-to-your-resources). If you set **Allow public network access for ingestion** to **No**, then machines outside of the connected scopes cannot upload data to this workspace. If you set **Allow public network access for queries** to **No**, then machines outside of the scopes cannot access data in this workspace.
 
 Use **DSCAndHybridWorker** target sub-resource to enable Private Link for user & system hybrid workers.
 

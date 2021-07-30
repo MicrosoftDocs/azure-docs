@@ -7,12 +7,15 @@ manager: anvalent
 services: azure-communication-services
 
 ms.author: joseys
-ms.date: 04/16/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
-# Call Automation APIs overview
-Call Automation APIs allow you to connect with your users at scale through automated business logic. You can use these APIs to create automated outbound reminder calls for appointments or to provide notifications for events like power outages or wildfires. Applications added to a call can monitor updates as participants join or leave, allowing you to implement reporting and logging. 
+# Call Automation overview
+
+[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
+
+Call Automation APIs enable you to access voice and video calling capabilities from **services**. You can use these APIs to create service applications that drive automated outbound reminder calls for appointments or provide proactive notifications for events like power outages or wildfires. Service applications that join a call can monitor updates such as participants joining or leaving, allowing you to implement rich reporting and logging capabilities.
 
 ![in and out-of-call apps](../media/call-automation-apps.png)
 
@@ -34,11 +37,6 @@ Call Automation APIs are provided for both in-call (application-participant or a
 | Start and manage call recording                                |                           | X             |
 
 ## In-Call (App-Participant) APIs
-> [!NOTE] 
-> In-Call applications are billed as call participants at [standard PSTN and VoIP rates](https://azure.microsoft.com/pricing/details/communication-services/).
-
-> [!NOTE] 
-> In-Call actions are attributed to the App-participant associated with the `callConnectionId` used in the API call.
 
 In-call APIs enable an application to take actions in a call as an app-participant. When an application answers or joins a call, a `callConnectionId` is assigned, which is used for in-call actions such as:
 - Add or remove call participants
@@ -72,6 +70,4 @@ Event notifications are sent as JSON payloads to the calling application via the
 - Invite participant result
 
 ## Next steps
-Check out the [Call Automation Quickstart Sample](../../quickstarts/voice-video-calling/call-automation-api-sample.md) to learn more.
-
-Learn more about [Call Recording](./call-recording.md).
+Check out the [Call Automation Quickstart](../../quickstarts/voice-video-calling/call-automation-api-sample.md) to learn more.

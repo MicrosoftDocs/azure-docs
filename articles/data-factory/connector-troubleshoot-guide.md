@@ -4,7 +4,7 @@ description: Learn how to troubleshoot connector issues in Azure Data Factory.
 author: jianleishen
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 06/24/2021
+ms.date: 07/16/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref
 ---
@@ -446,6 +446,12 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
     3. Update the table schema accordingly.
 
+### Error code: FailedDbOperation
+
+- **Message**: `User does not have permission to perform this action.`
+
+- **Recommendation**: Make sure the user configured in the Azure Synapse Analytics connector must have 'CONTROL' permission on the target database while using PolyBase to load data. For more detailed information, refer to this [document](./connector-azure-sql-data-warehouse.md#required-database-permission).
+
 
 ## Azure Table Storage
 
@@ -886,6 +892,21 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
     - The first row with white spaces is used as the column name.
     - The type OriginalType is supported. Try to avoid using these special characters: `,;{}()\n\t=`. 
 
+### Error code: ParquetDateTimeExceedLimit
+
+- **Message**: `The Ticks value '%ticks;' for the datetime column must be between valid datetime ticks range -621355968000000000 and 2534022144000000000.`
+
+- **Cause**: If the datetime value is '0001-01-01 00:00:00', it could be caused by the difference between Julian Calendar and Gregorian Calendar. For more details, reference [Difference between Julian and proleptic Gregorian calendar dates](https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar#Difference_between_Julian_and_proleptic_Gregorian_calendar_dates).
+
+- **Resolution**: Check the ticks value and avoid using the datetime value '0001-01-01 00:00:00'.
+
+### Error code: ParquetInvalidColumnName
+
+- **Message**: `The column name is invalid. Column name cannot contain these character:[,;{}()\n\t=]`
+
+- **Cause**: The column name contains invalid characters.
+
+- **Resolution**: Add or modify the column mapping to make the sink column name valid.
 
 ## REST
 

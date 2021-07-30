@@ -52,7 +52,7 @@ From your TLS/SSL certificate, export the public key .cer file (not the private 
 
 6. Click **Finish** to export the certificate.
 
-   ![Screenshot shows the Certificate Export Wizard after you complete the file export.](./media/certificates-for-backend-authentication/finish.png)
+   ![Screenshot shows the Certificate Export Wizard after you complete the file export.](./media/certificates-for-backend-authentication/finish-screen.png)
 
 7. Your certificate is successfully exported.
 

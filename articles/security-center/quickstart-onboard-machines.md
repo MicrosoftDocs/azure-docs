@@ -3,7 +3,7 @@ title: Connect your non-Azure machines to Azure Security Center
 description: Learn how to connect your non-Azure machines to Security Center
 author: memildin
 ms.author: memildin
-ms.date: 11/16/2020
+ms.date: 07/12/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
@@ -24,11 +24,17 @@ Each of these is described on this page.
 
 ## Add non-Azure machines with Azure Arc
 
-Azure Arc enabled servers is the preferred way of adding your non-Azure machines to Azure Security Center.
+The preferred way of adding your non-Azure machines to Azure Security Center is with [Azure Arc enabled servers](../azure-arc/servers/overview.md).
 
-A machine with Azure Arc enabled servers becomes an Azure resource and appears in Security Center with recommendations like your other Azure resources.
+A machine with Azure Arc enabled servers becomes an Azure resource and - when you've installed the Log Analytics agent on it - appears in Security Center with recommendations like your other Azure resources.
 
-In addition, Azure Arc enabled servers provides enhanced capabilities such as the option to enable guest configuration policies on the machine, deploy the Log Analytics agent as an extension, simplify deployment with other Azure services, and more. For an overview of the benefits, see [Supported scenarios](../azure-arc/servers/overview.md#supported-scenarios).
+In addition, Azure Arc enabled servers provides enhanced capabilities such as the option to enable guest configuration policies on the machine, simplify deployment with other Azure services, and more. For an overview of the benefits, see [Supported scenarios](../azure-arc/servers/overview.md#supported-scenarios).
+
+> [!NOTE]
+> Security Center's auto-deploy tools for deploying the Log Analytics agent don't support machines running Azure Arc. When you've connected your machines using Azure Arc, use the relevant Security Center recommendation to deploy the agent and benefit from the full range of protections offered by Security Center:
+>
+> - [Log Analytics agent should be installed on your Linux-based Azure Arc machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/720a3e77-0b9a-4fa9-98b6-ddf0fd7e32c1)
+> - [Log Analytics agent should be installed on your Windows-based Azure Arc machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/27ac71b1-75c5-41c2-adc2-858f5db45b08)
 
 Learn more about [Azure Arc enabled servers](../azure-arc/servers/overview.md).
 
@@ -38,7 +44,7 @@ Learn more about [Azure Arc enabled servers](../azure-arc/servers/overview.md).
 - To connect multiple machines at scale to Arc enabled servers, see [Connect hybrid machines to Azure at scale](../azure-arc/servers/onboard-service-principal.md)
 
 > [!TIP]
-> If you're onboarding machines running on AWS, Security Center's connector for AWS transparently handles the Azure Arc deployment for you. Learn more in [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md).
+> If you're onboarding machines running on Amazon Web Services (AWS), Security Center's connector for AWS transparently handles the Azure Arc deployment for you. Learn more in [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md).
 
 ::: zone-end
 

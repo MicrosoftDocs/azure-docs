@@ -1,5 +1,5 @@
 ---
-title: Use Azure AD groups to manage role assignments (preview) - Azure Active Directory
+title: Use Azure AD groups to manage role assignments - Azure Active Directory
 description: Use Azure AD groups to simplify role assignment management in Azure Active Directory.
 services: active-directory
 author: rolyon
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 06/24/2021
+ms.date: 07/30/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -16,11 +16,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Use Azure AD groups to manage role assignments (preview)
-
-> [!IMPORTANT]
-> Role-assignable groups is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Use Azure AD groups to manage role assignments
 
 Azure Active Directory (Azure AD) lets you target Azure AD groups for role assignments. Assigning roles to groups can simplify the management of role assignments in Azure AD with minimal effort from your Global Administrators and Privileged Role Administrators.
 
@@ -62,7 +58,7 @@ Role-assignable groups are designed to help prevent potential breaches by having
 If you do not want members of the group to have standing access to a role, you can use [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) to make a group eligible for a role assignment. Each member of the group is then eligible to activate the role assignment for a fixed time duration.
 
 > [!Note]
-> You must be using an updated version of PIM to be able to assign a Azure AD role to a group. You could be using an older version of PIM because your Azure AD organization leverages the PIM API. Send email to pim_preview@microsoft.com to move your organization and update your API. For more information, see [Azure AD roles and features in PIM](../privileged-identity-management/azure-ad-roles-features.md).
+> You must be using an updated version of PIM to be able to assign a Azure AD role to a group. You could be using an older version of PIM because your Azure AD organization leverages the PIM API. Send email to pim_preview@microsoft.com to move your organization and update your API. For more information, see [Azure AD roles and features in PIM](../privileged-identity-management/pim-configure.md).
 
 ## Scenarios not supported
 
@@ -82,7 +78,7 @@ The following are known issues with role-assignable groups:
 
 ## License requirements
 
-Using this feature requires an Azure AD Premium P1 license. To also use Privileged Identity Management for just-in-time role activation, requires an Azure AD Premium P2 license. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
+Using this feature requires an Azure AD Premium P1 license. To also use Privileged Identity Management for just-in-time role activation, requires an Azure AD Premium P2 license. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## Next steps
 

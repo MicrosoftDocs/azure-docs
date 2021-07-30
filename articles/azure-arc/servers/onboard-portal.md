@@ -1,13 +1,13 @@
 ---
 title: Connect hybrid machines to Azure from the Azure portal
-description: In this article, you learn how to install the agent and connect machines to Azure by using Azure Arc enabled servers from the Azure portal.
-ms.date: 11/05/2020
+description: In this article, you learn how to install the agent and connect machines to Azure by using Azure Arc-enabled servers from the Azure portal.
+ms.date: 07/16/2021
 ms.topic: conceptual
 ---
 
 # Connect hybrid machines to Azure from the Azure portal
 
-You can enable Azure Arc enabled servers for one or a small number of Windows or Linux machines in your environment by performing a set of steps manually. Or you can use an automated method by running a template script that we provide. This script automates the download and installation of both agents.
+You can enable Azure Arc-enabled servers for one or a small number of Windows or Linux machines in your environment by performing a set of steps manually. Or you can use an automated method by running a template script that we provide. This script automates the download and installation of both agents.
 
 This method requires that you have administrator permissions on the machine to install and configure the agent. On Linux, by using the root account, and on Windows, you are member of the Local Administrators group.
 
@@ -81,7 +81,7 @@ msiexec.exe /i AzureConnectedMachineAgent.msi /?
     ```
 
     >[!NOTE]
-    >The agent does not support setting proxy authentication in this preview.
+    >The agent does not support setting proxy authentication.
     >
 
 3. After installing the agent, you need to configure it to communicate with the Azure Arc service by running the following command:
@@ -153,7 +153,7 @@ If the agent fails to start after setup is finished, check the logs for detailed
 
 ## Verify the connection with Azure Arc
 
-After you install the agent and configure it to connect to Azure Arc enabled servers, go to the Azure portal to verify that the server has successfully connected. View your machines in the [Azure portal](https://aka.ms/hybridmachineportal).
+After you install the agent and configure it to connect to Azure Arc-enabled servers, go to the Azure portal to verify that the server has successfully connected. View your machines in the [Azure portal](https://aka.ms/hybridmachineportal).
 
 ![A successful server connection](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 
@@ -161,6 +161,6 @@ After you install the agent and configure it to connect to Azure Arc enabled ser
 
 - Troubleshooting information can be found in the [Troubleshoot Connected Machine agent guide](troubleshoot-agent-onboard.md).
 
-- Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verify the machine is reporting to the expected Log Analytics workspace, enable monitoring with [Azure Monitor with VMs](../../azure-monitor/vm/vminsights-enable-policy.md), and much more.
+- Review the [Planning and deployment guide](plan-at-scale-deployment.md) to plan for deploying Azure Arc-enabled servers at any scale and implement centralized management and monitoring.
 
-- Learn more about the [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md). The Log Analytics agent for Windows and Linux is required when you want to collect operating system and workload monitoring data with Azure Monitor for VMs, manage it using Automation runbooks or features like Update Management, or use other Azure services like [Azure Security Center](../../security-center/security-center-introduction.md).
+- Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verify the machine is reporting to the expected Log Analytics workspace, enable monitoring with [VM insights](../../azure-monitor/vm/vminsights-enable-policy.md), and much more.

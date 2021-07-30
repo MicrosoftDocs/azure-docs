@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 06/23/2021
+ms.date: 07/01/2021
 ms.author: lajanuar
 keywords: on-premises, Docker, container, identify
 ---
@@ -16,11 +16,11 @@ keywords: on-premises, Docker, container, identify
 
 > [!IMPORTANT]
 >
-> Form Recognizer containers are in gated preview. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and have it approved. See [**Request approval to run container**](#request-approval-to-run-the-container) below for more information.
+> Form Recognizer containers are in gated preview. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and receive approval. See [**Request approval to run container**](#request-approval-to-run-the-container) below for more information.
 
 Azure Form Recognizer is an Azure Applied AI Service that lets you build automated data processing software using machine learning technology. Form Recognizer enables you to identify and extract text, key/value pairs, selection marks, table data, and more from your form documents and output structured data that includes the relationships in the original file.
 
-In this article you'll learn how to download, install, and run Form Recognizer containers. Containers enable you to run the Form Recognizer service in your own environment. Containers are great for specific security and data governance requirements. Form Recognizer features are supported by seven Form Recognizer containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, **Custom API**, and **Custom Supervised** (for reciept, business cards and ID Document containers you will also need the **Read** OCR container). 
+In this article you'll learn how to download, install, and run Form Recognizer containers. Containers enable you to run the Form Recognizer service in your own environment. Containers are great for specific security and data governance requirements. Form Recognizer features are supported by six Form Recognizer feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, and **Custom** (for Receipt, Business Card and ID Document containers you will also need the **Read** OCR container). 
 
 ## Prerequisites
 
@@ -93,7 +93,7 @@ The following host machine requirements are applicable to **train and analyze** 
 
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
-| Custom API| 0.3 cores, 0.5-GB memory| 0.6 cores, 1-GB memory |
+| Custom API| 0.5 cores, 0.5-GB memory| 1 cores, 1-GB memory |
 |Custom Supervised | 4 cores, 2-GB memory | 8 cores, 4-GB memory|
 
 If you are only making analyze calls, the host machine requirements are as follows:
