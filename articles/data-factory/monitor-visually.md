@@ -6,7 +6,7 @@ ms.author: hemin
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 07/30/2021
 ---
 
 # Visually monitor Azure Data Factory
