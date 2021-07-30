@@ -85,7 +85,7 @@ For more information on My Apps, read [Sign in and start apps from the My Apps p
 
 ---
 
-### Public preview - Application authentication method policies
+### Public preview -  Application authentication method policies
 
 **Type:** New feature  
 **Service category:** MS Graph  
@@ -95,7 +95,7 @@ Application authentication method policies in MS Graph which allow IT admins to 
  
 ---
 
-### Public Preview - Authentication Methods nudge to download Microsoft Authenticator
+### Public preview -  Authentication Methods nudge to download Microsoft Authenticator
 
 **Type:** New feature  
 **Service category:** Microsoft Authenticator App  
@@ -107,7 +107,7 @@ The Nudge comes with the ability for an admin to scope users and groups by inclu
  
 ---
 
-### Public Preview - Separation of duties check 
+### Public preview -  Separation of duties check 
 
 **Type:** New feature  
 **Service category:** User Access Management  
@@ -117,7 +117,7 @@ In Azure AD entitlement management, an administrator can define that an access p
  
 ---
 
-### Public Preview - Identity Protection logs in Log Analytics, Storage Accounts, and Event Hubs
+### Public preview -  Identity Protection logs in Log Analytics, Storage Accounts, and Event Hubs
 
 **Type:** New feature  
 **Service category:** Identity Protection  
@@ -127,7 +127,7 @@ You can now send the risky users and risk detections logs to Azure Monitor, Stor
  
 ---
 
-### Public Preview - Application Proxy API addition for backend SSL certificate validation
+### Public preview -  Application Proxy API addition for backend SSL certificate validation
 
 **Type:** New feature  
 **Service category:** App Proxy  
@@ -137,7 +137,7 @@ The onPremisesPublishing resource type now includes the property, "isBackendCert
  
 ---
 
-### General Availability - Improved Authenticator setup experience for add Azure AD account in Microsoft Authenticator app by directly signing into the app.
+### General availability - Improved Authenticator setup experience for add Azure AD account in Microsoft Authenticator app by directly signing into the app.
 
 **Type:** New feature  
 **Service category:** Microsoft Authenticator App  
@@ -149,7 +149,7 @@ This improves the user credential provisioning process for the Microsoft Authent
  
 ---
 
-### General Availability - Set manager as reviewer in Azure AD entitlement management access packages
+### General availability - Set manager as reviewer in Azure AD entitlement management access packages
 
 **Type:** New feature  
 **Service category:** User Access Management  
@@ -159,7 +159,7 @@ Access packages in Azure AD entitlement management now support setting the user'
 
 ---
 
-### General Availability - Enable external users to self-service sign-up in AAD using MSA accounts
+### General availability - Enable external users to self-service sign-up in AAD using MSA accounts
 
 **Type:** New feature  
 **Service category:** B2B  
@@ -169,7 +169,7 @@ Users can now enable external users to self-service sign-up in Azure Active Dire
  
 ---
  
-### General Availability - External Identities Self-Service Sign-Up with Email One-time Passcode
+### General availability - External Identities Self-Service Sign-Up with Email One-time Passcode
 
 **Type:** New feature  
 **Service category:** B2B  
@@ -180,7 +180,7 @@ Now users can enable external users to self-service sign-up in Azure Active Dire
  
 ---
 
-### General Availability - Anomalous Token
+### General availability - Anomalous token
 
 **Type:** New feature  
 **Service category:** Identity Protection  
@@ -190,13 +190,13 @@ Anomalous token detection is now available in Identity Protection. This feature 
  
 ---
 
-### General Availability - Register or join devices in Conditional Access
+### General availability - Register or join devices in Conditional Access
 
 **Type:** New feature  
 **Service category:** Conditional Access  
 **Product capability:** Identity Security & Protection
  
-The Register or join devices user action in Conditional access is now in general availability. This user action allows you to control Multi-factor authentication (MFA) policies for Azure AD device registration. 
+The Register or join devices user action in Conditional access is now in general availability. This user action allows you to control Multi-factor Authentication (MFA) policies for Azure AD device registration. 
 
 Currently, this user action only allows you to enable MFA as a control when users register or join devices to Azure AD. Other controls that are dependent on or not applicable to Azure AD device registration continue to be disabled with this user action. [Learn more](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions). 
 
@@ -223,7 +223,7 @@ For more information about how to better secure your organization by using autom
 
 ---
 
-### Changes to Security and Microsoft 365 group settings in Azure portal
+### Changes to security and Microsoft 365 group settings in Azure portal
 
 **Type:** Changed feature  
 **Service category:** Group Management  
@@ -256,7 +256,7 @@ For the Risky users, Risky sign-ins, and Risk detections reports in Identity Pro
  
 ---
 
-### Public preview - create Azure AD access reviews of Service Principals that are assigned to privileged roles
+### Public preview -  create Azure AD access reviews of Service Principals that are assigned to privileged roles
 
 **Type:** New feature  
 **Service category:** Access Reviews  
@@ -266,7 +266,7 @@ For the Risky users, Risky sign-ins, and Risk detections reports in Identity Pro
  
 ---
 
-### Public preview - group owners in Azure AD can create and manage Azure AD access reviews for their groups
+### Public preview -  group owners in Azure AD can create and manage Azure AD access reviews for their groups
 
 **Type:** New feature  
 **Service category:** Access Reviews  
@@ -276,7 +276,7 @@ Now group owners in Azure AD can create and manage Azure AD access reviews on th
  
 ---
 
-### Public preview - customers can scope access reviews of privileged roles to just users with eligible or active access
+### Public preview -  customers can scope access reviews of privileged roles to just users with eligible or active access
 
 **Type:** New feature  
 **Service category:** Access Reviews  
@@ -286,7 +286,7 @@ When admins create access reviews of assignments to privileged roles, they can s
  
 ---
 
-### Public preview - Microsoft Graph APIs for Mobility (MDM/MAM) management policies
+### Public preview -  Microsoft Graph APIs for Mobility (MDM/MAM) management policies
 
 **Type:** New feature  
 **Service category:** Other  
@@ -316,7 +316,7 @@ Access  packages in Entitlement Management now support multi-geo SharePoint site
  
 ---
 
-### General Availability - Knowledge Admin and Knowledge Manager built-in roles
+### General availability - Knowledge Admin and Knowledge Manager built-in roles
 
 **Type:** New feature  
 **Service category:** RBAC  
@@ -467,7 +467,7 @@ Starting October 1, 2021, Azure AD Identity Protection will no longer generate t
  
 ## May 2021
 
-### Public preview - Azure AD verifiable credentials
+### Public preview -  Azure AD verifiable credentials
 
 **Type:** New feature  
 **Service category:** Other  
@@ -477,7 +477,7 @@ Azure AD customers can now easily design and issue verifiable credentials. Verif
 
 ---
 
-### Public Preview - Device code flow now includes an app verification prompt
+### Public preview -  Device code flow now includes an app verification prompt
 
 **Type:** New feature  
 **Service category:** User Authentication  
@@ -489,7 +489,7 @@ To help prevent phishing attacks where an attacker tricks the user into signing 
 
 ---
 
-### Public Preview - build and test expressions for user provisioning
+### Public preview -  build and test expressions for user provisioning
 
 **Type:** New feature  
 **Service category:** App Provisioning  
@@ -499,7 +499,7 @@ The expression builder allows you to create and test expressions, without having
 
 ---
 
-### Public preview - enhanced audit logs for Conditional Access policy changes
+### Public preview -  enhanced audit logs for Conditional Access policy changes
 
 **Type:** New feature  
 **Service category:** Conditional Access  
@@ -511,7 +511,7 @@ As well as showing who made a policy change and when, the audit logs will now al
 
 ---
 
-### Public preview - Sign-in logs include authentication methods used during sign-in
+### Public preview -  Sign-in logs include authentication methods used during sign-in
 
 **Type:** New feature  
 **Service category:** MFA  
@@ -524,7 +524,7 @@ To access these details, go to the Azure AD sign-in logs, select a sign-in, and 
 
 ---
 
-### Public preview - PIM adds support for ABAC conditions in Azure Storage roles
+### Public preview -  PIM adds support for ABAC conditions in Azure Storage roles
 
 **Type:** New feature  
 **Service category:** Privileged Identity Management  
@@ -603,7 +603,7 @@ Additionally, to prevent admins from defining problematically named locations, e
 
 ---
 
-### General Availability - Restricted guest access permissions in Azure AD
+### General availability - Restricted guest access permissions in Azure AD
 
 **Type:** New feature  
 **Service category:** User Management  
@@ -737,7 +737,7 @@ Users will no longer be limited to create security and Microsoft 365 groups only
 
 ---
 
-### Public Preview - External Identities Self-Service Sign-up in AAD using Email One-Time Passcode accounts
+### Public preview -  External Identities Self-Service Sign-up in AAD using Email One-Time Passcode accounts
 
 **Type:** New feature  
 **Service category:** B2B  
@@ -747,7 +747,7 @@ External users can now use Email One-Time Passcode accounts to sign up or sign i
 
 ---
 
-### General Availability - External Identities Self-Service Sign Up
+### General availability - External Identities Self-Service Sign Up
 
 **Type:** New feature  
 **Service category:** B2B  
@@ -869,7 +869,7 @@ For more information, see [Enable support for TLS 1.2 in your environment for Az
 
 ---
 
-### Public Preview - Azure AD Entitlement management now supports multi-geo SharePoint Online
+### Public preview -  Azure AD Entitlement management now supports multi-geo SharePoint Online
 
 **Type:** New feature  
 **Service category:** Other  
@@ -879,7 +879,7 @@ For organizations using multi-geo SharePoint Online, you can now include sites f
 
 ---
 
-### Public Preview - Restore deleted apps from App registrations
+### Public preview -  Restore deleted apps from App registrations
 
 **Type:** New feature  
 **Service category:** Other  
@@ -889,19 +889,19 @@ Customers can now view, restore, and permanently remove deleted app registration
  
 ---
 
-### Public preview - New "User action" in Conditional Access for registering or joining devices
+### Public preview -  New "User action" in Conditional Access for registering or joining devices
 
 **Type:** New feature  
 **Service category:** Conditional Access  
 **Product capability:** Identity Security & Protection
  
- A new user action called "Register or join devices" in Conditional access is available. This user action allows you to control Multi-factor authentication (MFA) policies for Azure AD device registration. 
+ A new user action called "Register or join devices" in Conditional access is available. This user action allows you to control Multi-factor Authentication (MFA) policies for Azure AD device registration. 
 
 Currently, this user action only allows you to enable MFA as a control when users register or join devices to Azure AD. Other controls that are dependent on or not applicable to Azure AD device registration are disabled with this user action. [Learn more](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions). 
  
 ---
 
-### Public Preview - Optimize connector groups to use the closest Application Proxy cloud service
+### Public preview -  Optimize connector groups to use the closest Application Proxy cloud service
 
 **Type:** New feature  
 **Service category:** App Proxy  
@@ -911,7 +911,7 @@ With this new capability, connector groups can be assigned to the closest region
  
 ---
 
-### Public Preview - External Identities Self-Service Sign-up in AAD using Email One-Time Passcode accounts
+### Public preview -  External Identities Self-Service Sign-up in AAD using Email One-Time Passcode accounts
 
 **Type:** New feature  
 **Service category:** B2B  
@@ -921,7 +921,7 @@ External users will now be able to use Email One-Time Passcode accounts to sign 
 
 ---
 
-### Public Preview - Availability of AD FS Sign-Ins in Azure AD
+### Public preview -  Availability of AD FS Sign-Ins in Azure AD
 
 **Type:** New feature  
 **Service category:** Authentications (Logins)  
@@ -943,7 +943,7 @@ Staged rollout to cloud authentication is now generally available. The staged ro
 
 ---
 
-### General Availability - User Type attribute can now be updated in the Azure admin portal
+### General availability - User Type attribute can now be updated in the Azure admin portal
 
 **Type:** New feature  
 **Service category:** User Experience and Management  
@@ -953,7 +953,7 @@ Customers can now update the user type of Azure AD users when they update their 
  
 ---
 
-### General Availability - Replica Sets for Azure Active Directory Domain Services
+### General availability - Replica Sets for Azure Active Directory Domain Services
 
 **Type:** New feature  
 **Service category:** Azure AD Domain Services  
@@ -1068,7 +1068,7 @@ To reduce the number of unnecessary Conditional Access prompts, Azure AD is chan
  
 ---
  
-### Public Preview - Use a Temporary Access Pass to register Passwordless credentials
+### Public preview -  Use a Temporary Access Pass to register Passwordless credentials
 
 **Type:** New feature  
 **Service category:** MFA  
@@ -1078,7 +1078,7 @@ Temporary Access Pass is a time-limited passcode that serves as strong credentia
 
 ---
 
-### Public preview - Keep me signed in (KMSI) in next generation of user flows
+### Public preview -  Keep me signed in (KMSI) in next generation of user flows
 
 **Type:** New feature  
 **Service category:** B2C - Consumer Identity Management  
@@ -1088,7 +1088,7 @@ The next generation of B2C user flows now supports the [keep me signed in (KMSI)
 
 ---
 
-### Public Preview - Reset redemption status for a guest user
+### Public preview -  Reset redemption status for a guest user
 
 **Type:** New feature  
 **Service category:** B2B  
@@ -1098,7 +1098,7 @@ Customers can now reinvite existing external guest users to reset their redempti
  
 ---
 
-### Public Preview - /synchronization (provisioning) APIs now support application permissions
+### Public preview -  /synchronization (provisioning) APIs now support application permissions
 
 **Type:** New feature  
 **Service category:** App Provisioning  
@@ -1108,7 +1108,7 @@ Customers can now use application.readwrite.ownedby as an application permission
  
 ---
 
-### General Availability - Authentication Policy Administrator built-in role
+### General availability - Authentication Policy Administrator built-in role
 
 **Type:** New feature  
 **Service category:** RBAC  
@@ -1134,7 +1134,7 @@ Users can now create their own groupings of apps on the My Apps app launcher. Th
 **Service category:** Microsoft Authenticator App  
 **Product capability:** Identity Security & Protection
  
-Microsoft Authenticator provides multi-factor authentication (MFA) and account management capabilities, and now also will autofill passwords on sites and apps users visit on their mobile (iOS and Android). 
+Microsoft Authenticator provides Multi-factor Authentication (MFA) and account management capabilities, and now also will autofill passwords on sites and apps users visit on their mobile (iOS and Android). 
 
 To use autofill on Authenticator, users need to add their personal Microsoft account to Authenticator and use it to sync their passwords. Work or school accounts cannot be used to sync passwords at this time. [Learn more](../user-help/user-help-auth-app-faq.md#autofill-for-it-admins).
 
@@ -1150,7 +1150,7 @@ Customers can now invite internal guests to use B2B collaboration instead of sen
 
 ---
 
-### General Availability - Domain Name Administrator built-in role
+### General availability - Domain Name Administrator built-in role
 
 **Type:** New feature  
 **Service category:** RBAC  
@@ -1198,7 +1198,7 @@ For more information, read [Automate user provisioning to SaaS applications with
 
 ---
 
-### General Availability - 10 Azure Active Directory roles now renamed
+### General availability - 10 Azure Active Directory roles now renamed
 
 **Type:** Changed feature  
 **Service category:** RBAC  
@@ -1220,7 +1220,7 @@ In the past, company logos weren't used on Azure Active Directory sign-in pages.
 
 ---
 
-### General Availability - Second level manager can be set as alternate approver
+### General availability - Second level manager can be set as alternate approver
 
 **Type:** Changed feature  
 **Service category:** User Access Management  
