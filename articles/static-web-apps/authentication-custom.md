@@ -30,11 +30,11 @@ To avoid putting secrets in source control, the configuration looks into [applic
 
 ### Configuration
 
-Setting up custom authentication requires that you reference a few secrets stored as [Application Settings](./application-settings.md). 
+Setting up custom authentication requires that you reference a few secrets stored as [application settings](./application-settings.md). 
 
 # [Azure Active Directory](#tab/aad)
 
-First, create the following Application Settings:
+First, create the following application settings:
 
 | Setting Name | Value |
 | --- | --- |
@@ -86,7 +86,7 @@ For more information on how to configure Azure Active Directory, see the [App Se
 
 # [Apple](#tab/apple)
 
-First, create the following Application Settings:
+First, create the following application settings:
 
 | Setting Name | Value |
 | --- | --- |
@@ -114,7 +114,7 @@ For more information on how to configure Apple as an authentication provider, se
 
 # [Facebook](#tab/facebook)
 
-First, create the following Application Settings:
+First, create the following application settings:
 
 | Setting Name | Value |
 | --- | --- |
@@ -143,7 +143,7 @@ For more information on how to configure Facebook as an authentication provider,
 # [GitHub](#tab/github)
 
 
-First, create the following Application Settings:
+First, create the following application settings:
 
 | Setting Name | Value |
 | --- | --- |
@@ -170,7 +170,7 @@ Next, use the following sample to configure the provider.
 # [Google](#tab/google)
 
 
-First, create the following Application Settings:
+First, create the following application settings:
 
 | Setting Name | Value |
 | --- | --- |
@@ -198,7 +198,7 @@ For more information on how to configure Google as an authentication provider, s
 
 # [Twitter](#tab/twitter)
 
-First, create the following Application Settings:
+First, create the following application settings:
 
 | Setting Name | Value |
 | --- | --- |
@@ -238,7 +238,7 @@ This section shows you how to configure Azure Static Web Apps to use a custom au
 
 You're required to register your application's details with an identity provider. Check with the provider regarding the steps needed to generate a **client ID** and **client secret** for your application.
 
-Next, create the following Application Settings:
+Next, create the following application settings:
 
 | Setting Name | Value |
 | --- | --- |
