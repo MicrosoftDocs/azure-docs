@@ -20,7 +20,7 @@ From the onset of skillset processing to its conclusion, skills read and write t
 
 :::image type="content" source="media/cognitive-search-working-with-skillsets/skillset-def-enrichment-tree.png" alt-text="Skills read and write from enrichment tree" border="false":::
 
-Ultimately, nodes from an enriched document are then [mapped to fields](ognitive-search-output-field-mapping.md) in a search index or knowledge store, so that the content can be queried or consumed by other apps.
+Ultimately, nodes from an enriched document are then [mapped to fields](cognitive-search-output-field-mapping.md) in a search index or knowledge store, so that the content can be queried or consumed by other apps.
 
 ## Illustrative example
 

@@ -8,12 +8,10 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 07/30/2021
 ---
 
 # Knowledge store "projections" in Azure Cognitive Search
-
-Azure Cognitive Search enables content enrichment through built-in cognitive skills and custom skills as part of indexing. Enrichments create new information where none previously existed: extracting information from images, detecting sentiment, key phrases, and entities from text, to name a few. Enrichments also add structure to undifferentiated text. All of these processes result in documents that make full text search more effective. In many instances, enriched documents are useful for scenarios other than search, such as for knowledge mining.
 
 Projections, a component of [knowledge store](knowledge-store-concept-intro.md), are views of enriched documents that can be saved to physical storage for knowledge mining purposes. A projection lets you "project" your data into a shape that aligns with your needs, preserving relationships so that tools like Power BI can read the data with no additional effort.
 
@@ -21,9 +19,9 @@ Projections can be tabular, with data stored in rows and columns in Azure Table 
 
 The knowledge store supports three types of projections:
 
-+ **Tables**: For data that's best represented as rows and columns, table projections allow you to define a schematized shape or projection in Table storage. Only valid JSON objects can be projected as tables, the enriched document can contain nodes that are not named JSON objects and when projecting these objects, create a valid JSON object with a shaper skill or inline shaping.
++ **Tables**: For data that's best represented as rows and columns, table projections allow you to define a schematized shape or projection in Table storage. Only valid JSON objects can be projected as tables. Since an enriched document can contain nodes that are not named JSON objects, you'll add a [Shaper skill or use inline shaping](knowledge-store-projection-shape.md) within a skill to create valid JSON. 
 
-+ **Objects**: When you need a JSON representation of your data and enrichments, object projections are saved as blobs. Only valid JSON objects can be projected as objects, the enriched document can contain nodes that are not named JSON objects and when projecting these objects, create a valid JSON object with a shaper skill or inline shaping.
++ **Objects**: When you need a JSON representation of your data and enrichments, use object projections to save the output as blobs. As with table projections, only valid JSON objects can be projected as objects, and shaping can help you do that.
 
 + **Files**: When you need to save the images extracted from the documents, file projections allow you to save the normalized images to blob storage.
 
@@ -31,13 +29,15 @@ To see projections defined in context, step through [Create a knowledge store in
 
 ## Table projections
 
-Because it makes importing easier, we recommend table projections for data exploration with Power BI. Additionally, table projections allow for changing the cardinality between table relationships. 
+Because it makes importing easier, we recommend table projections for data exploration with Power BI.
 
-You can project a single document in your index into multiple tables, preserving the relationships. When projecting to multiple tables, the complete shape will be projected into each table, unless a child node is the source of another table within the same group.
+<!-- Additionally, table projections allow for changing the cardinality between table relationships. 
+
+You can project the same enriched document into multiple tables, preserving the relationships. When projecting to multiple tables, the complete shape will be projected into each table, unless a child node is the source of another table within the same group. -->
 
 ### Defining a table projection
 
-When defining a table projection within the `knowledgeStore` element of your skillset, start by mapping a node on the enrichment tree to the table source. Typically this node is the output of a **Shaper** skill that you added to the list of skills to produce a specific shape that you need to project into tables. The node you choose to project can be sliced to project into multiple tables. The tables definition is a list of tables that you want to project.
+When defining a table projection within the `knowledgeStore` element of your skillset, start by mapping a node on the enrichment tree to the table source. Typically this node is the output of a Shaper skill that you added to the list of skills to produce a specific shape that you need to project into tables. The node you choose to project can be sliced to project into multiple tables. The tables definition is a list of tables that you want to project.
 
 Each table requires three properties:
 
@@ -45,9 +45,9 @@ Each table requires three properties:
 
 + generatedKeyName: The column name for the key that uniquely identifies this row.
 
-+ source: The node from the enrichment tree you are sourcing your enrichments from. This node is usually the output of a shaper, but could be the output of any of the skills.
++ source: The node from the enrichment tree you are sourcing your enrichments from. This node is usually the output of a shaper, but could be the output of any of the skills if the output is valid JSON
 
-Here is an example of table projections.
+Here is an example of table projections:
 
 ```json
 {
@@ -86,6 +86,12 @@ As demonstrated in this example, the key phrases and entities are modeled into d
 
 Object projections are JSON representations of the enrichment tree that can be sourced from any node. In many cases, the same **Shaper** skill that creates a table projection can be used to generate an object projection. 
 
+Generating an object projection requires a few object-specific attributes:
+
++ storageContainer: The blob container where the objects will be saved
+
++ source: The path to the node of the enrichment tree that is the root of the projection
+
 ```json
 {
     "name": "your-skillset",
@@ -118,14 +124,15 @@ Object projections are JSON representations of the enrichment tree that can be s
 }
 ```
 
-Generating an object projection requires a few object-specific attributes:
+## File projections
+
+File projections only act on the `normalized_images` collection, but are otherwise similar to object projections in that they are saved in a blob container, with a folder prefix of the base64 encoded value of the document ID. 
+
+File projections cannot share the same container as object projections and need to be projected into a different container. File projections have the same properties as object projections:
 
 + storageContainer: The blob container where the objects will be saved
+
 + source: The path to the node of the enrichment tree that is the root of the projection
-
-## File projection
-
-File projections are similar to object projections and only act on the `normalized_images` collection. Similar to object projections, file projections are saved in the blob container with folder prefix of the base64 encoded value of the document ID. File projections cannot share the same container as object projections and need to be projected into a different container.
 
 ```json
 {
@@ -172,11 +179,11 @@ This independence implies that you can have the same data shaped differently, ye
 
 Projection groups now allow you to project your documents across projection types while preserving the relationships across projection types. All content projected within a single projection group preserves relationships within the data across projection types. Within tables, relationships are based on a generated key and each child node retains a reference to the parent node. Across types (tables, objects and files), relationships are preserved when a single node is projected across different types. For example, consider a scenario where you have a document containing images and text. You could project the text to tables or objects and the images to files where the tables or objects have a column/property containing the file URL.
 
-## Input shaping
+## Projection shaping
 
-Getting your data in the right shape or structure is key to effective use, be it tables or objects. The ability to shape or structure your data based on how you plan to access and use it is a key capability exposed as the **Shaper** skill within the skillset.  
+Getting your data in the right shape or structure is key to effective use, be it tables or objects. The ability to shape or structure your data based on planned usage is typically achieved by adding a [Shaper skill](cognitive-search-skill-shaper.md) to your skillset.  
 
-Projections are easier to define when you have an object in the enrichment tree that matches the schema of the projection. The updated [Shaper skill](cognitive-search-skill-shaper.md) allows you to compose an object from different nodes of the enrichment tree and parent them under a new node. The **Shaper** skill allows you to define complex types with nested objects.
+Projections are easier to define when you have an object in the enrichment tree that matches the schema of the projection. The **Shaper** skill allows you to compose an object from different nodes of the enrichment tree and parent them under a new node. It also allows you to define complex types with nested objects.
 
 When you have a new shape defined that contains all the elements you need to project out, you can now use this shape as the source for your projections or as an input to another skill.
 

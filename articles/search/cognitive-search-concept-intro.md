@@ -13,11 +13,13 @@ ms.custom: references_regions
 ---
 # AI enrichment in Azure Cognitive Search
 
-In Azure Cognitive Search, AI enrichment is about using AI to create new structures and information from raw content in external data sources. AI enrichment is defined by a [skillset](cognitive-search-working-with-skillsets.md) that's attached to an [indexer](search-indexer-overview.md). The indexer will extract and set up the content, while the skillset identifies, analyzes, and creates new information and structures from images, blobs, and other unstructured data sources. The purpose of enrichment is make content more accessible in output objects, which is either a [search index](search-what-is-an-index.md) or a [knowledge store](knowledge-store-concept-intro.md).
+Azure Cognitive Search enables content enrichment through built-in cognitive skills and custom skills as part of indexing. Enrichments create new information where none previously existed: extracting information from images, detecting sentiment, key phrases, and entities from text, to name a few. Enrichments also add structure to undifferentiated text. All of these processes result in documents that make full text search more effective. In many instances, enriched documents are useful for scenarios other than search, such as for knowledge mining.
+
+AI enrichment is defined by a [skillset](cognitive-search-working-with-skillsets.md) that's attached to an [indexer](search-indexer-overview.md). The indexer will extract and set up the content, while the skillset identifies, analyzes, and creates new information and structures from images, blobs, and other unstructured data sources. The output of enrichment is either a [search index](search-what-is-an-index.md) or a [knowledge store](knowledge-store-concept-intro.md).
 
 A skillset can contain built-in skills from Cognitive Search or embed external processing that you provide in a [*custom skill*](cognitive-search-create-custom-skill-example.md). Examples of a custom skill might be a custom entity module or document classifier targeting a specific domain such as finance, scientific publications, or medicine.
 
-Built-in skills fall into these categories: 
+Built-in skills fall into these categories:
 
 + **Natural language processing** skills include [entity recognition](cognitive-search-skill-entity-recognition-v3.md), [language detection](cognitive-search-skill-language-detection.md), [key phrase extraction](cognitive-search-skill-keyphrases.md), text manipulation, [sentiment detection (including opinion mining)](cognitive-search-skill-sentiment-v3.md), and [PII detection](cognitive-search-skill-pii-detection.md). With these skills, unstructured text is mapped as searchable and filterable fields in an index.
 
@@ -117,13 +119,8 @@ The index is like any other you might create for Azure Cognitive Search: you can
 Indexes are generated from an index schema that defines the fields, attributes, and other constructs attached to a specific index, such as scoring profiles and synonym maps. Once an index is defined and populated, you can index incrementally to pick up new and updated source documents. Certain modifications require a full rebuild. You should use a small data set until the schema design is stable. For more information, see [How to rebuild an index](search-howto-reindex.md).
 
 ## Checklist: A typical workflow
-<<<<<<< HEAD
-=======
 
-1. Understand the data you are working with so that you can anticipate which skills to use, and have an idea of what you want to achieve (index or knowledge store). When beginning a project, it's helpful to work with a subset of data. Indexer and skillset design is an iterative process, and you'll iterate more quickly if you're working with a small, representative data set.
->>>>>>> e37f7a8730c47448c972318b9c4e3ee0c4076daa
-
-1. Know the data you are starting with, and the end result you are after (index or knowledge store). When beginning a project, it's helpful to work with a subset of data. Indexer and skillset design is an iterative process, and you'll iterate more quickly if you're working with a small, representative data set.
+1. When beginning a project, it's helpful to work with a subset of data. Indexer and skillset design is an iterative process, and you'll iterate more quickly if you're working with a small, representative data set.
 
 1. Create a [data source object](/rest/api/searchservice/create-data-source) in Azure Cognitive Search to provide a connection string for data retrieval.
 
@@ -133,11 +130,7 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 
 1. Define the [indexer](/rest/api/searchservice/create-indexer) referencing the data source, skillset, and index.
 
-<<<<<<< HEAD
-1. Within the indexer, add *outputFieldMappings*. This section maps output from the skillset to the inputs fields in the index schema.
-=======
- Within the indexer, add *outputFieldMappings*. This section maps output from the skillset to the inputs fields in the index schema.
->>>>>>> e37f7a8730c47448c972318b9c4e3ee0c4076daa
+1. Within the indexer, add *outputFieldMappings*. These properties map connect a skillset's output to the correct fields in the index schema.
 
 1. Send *Create Indexer* request you just created (a POST request with an indexer definition in the request body) to express the indexer in Azure Cognitive Search. This step is how you run the indexer, invoking the pipeline.
 

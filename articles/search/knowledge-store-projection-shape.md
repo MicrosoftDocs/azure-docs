@@ -10,7 +10,8 @@ ms.topic: conceptual
 ms.date: 07/30/2021
 ---
 
-<!-- HOTEL REVIEWS -->
+<!-- NEW FILE, COPIED FROM SKILLSET ARTICLE, HOTEL REVIEW REFERENCES, 
+FOLLOWED SKILLSET EXAMPLE (see new file for that content.  Should these be consolidated?) -->
 
 # Define data structures in a knowledge store
 

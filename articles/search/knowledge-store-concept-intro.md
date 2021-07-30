@@ -135,6 +135,44 @@ Once the enrichments exist in storage, any tool or technology that connects to A
 
 + [Azure Data Factory](../data-factory/index.yml) for further manipulation.
 
+<!-- ## Knowledge Store composition
+
+The knowledge store consists of an annotation cache and projections. The *cache* is used by the service internally to cache the results from skills and track changes. A *projection* defines the schema and structure of the enrichments that match your intended use. 
+
+Within Azure storage, projections can be articulated as tables or objects:
+
++ As an object, the projection maps to Blob storage, where the projection is saved to a container, within which are the objects or hierarchical representations in JSON for scenarios like a data science pipeline.
+
++ As a table, the projection maps to Table storage. A tabular representation preserves relationships for scenarios like data analysis or export as data frames for machine learning. The enriched projections can then be easily imported into other data stores. 
+
+You can create multiple projections in a knowledge store to accommodate various constituencies in your organization. A developer might need access to the full JSON representation of an enriched document, while data scientists or analysts might want granular or modular data structures shaped by your skillset.
+
+For instance, if one of the goals of the enrichment process is to also create a dataset used to train a model, projecting the data into the object store would be one way to use the data in your data science pipelines. Alternatively, if you want to create a quick Power BI dashboard based on the enriched documents the tabular projection would work well.
+
+ -->
+
+## Content lifecycle
+
+Each time you run the indexer and skillset, the knowledge store is updated if the skillset or underlying source data has changed. Any changes picked up by the indexer are propagated through the enrichment process to the projections in the knowledge store, ensuring that your projected data is a current representation of content in the originating data source. 
+
+Generally, pipeline processing can be an all-or-nothing operation, but you can [enable caching of enriched documents](cognitive-search-incremental-indexing-conceptual.md) to reuse existing enrichments in subsequent runs of the indexer and skillset.
+
+<!-- When a source document is new or updated, all skills are run on that document. If only the skillset changes, reprocessing is scoped to just those skills and documents affected by your edit. -->
+
+### Changes to a skillset
+
+Suppose that you have a pipeline composed of multiple skills, operating over a large body of static data (for example, scanned documents). Now suppose you need to tweak one of the skills in the skillset. Rather than starting over,an indexer can determine which skill is affected, and reprocess only that skill. Projections that are unaffected by the change remain intact in the knowledge store.
+
+### Changes in the data
+
+Scenarios can vary considerably, but lets suppose instead of static data, you have volatile data that changes between indexer invocations. Given no changes to the skillset, you are charged for processing the delta of new and modified documents. The timestamp information varies by data source, but in a blob container, the indexer looks at the `lastmodified` date to determine which blobs need to be ingested.
+
+> [!Note]
+> While you can edit the data in the projections, any edits will be overwritten on the next pipeline invocation, assuming the document in source data is updated. 
+
+### Deletions
+
+Although an indexer creates and updates structures and content in Azure Storage, it does not delete them. Projections continue to exist even when the indexer or skillset is deleted. As the owner of the storage account, you should delete a projection if it is no longer needed. 
 
 ## Next steps
 

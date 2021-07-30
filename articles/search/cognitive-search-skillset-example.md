@@ -11,6 +11,12 @@ ms.topic: conceptual
 ms.date: 07/30/2021
 ---
 
+<!-- NEW FILE, CONTENT COPIED FROM SKILLSETS 
+
+https://docs.microsoft.com/en-us/azure/search/cognitive-search-working-with-skillsets#generate-enriched-data 
+
+ -->
+
 # Skillset example using Hotel Reviews demo data
 
 Using the [hotel reviews skillset](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotelreviews/HotelReviews_skillset.json) as a reference point, this article describes:
@@ -77,7 +83,7 @@ While the language detection skill is the third (skill #3) skill defined in the 
 
 ## Skills #3 and #4 (sentiment analysis and key phrase detection)
 
-Customer feedback reflects a range of positive and negative experiences. The sentiment analysis skill analyzes the feedback and assigns a score along a continuum of positive to negative ratings, or neutral if sentiment is undetermined. Parallel to sentiment analysis, key phrase detection identifies and extracts words and short phrases that appear consequential.
+Customer feedback reflects a range of positive and negative experiences. The sentiment analysis skill analyzes the feedback and assigns a score along a continuum of negative to positive numbers, or neutral if sentiment is undetermined. Parallel to sentiment analysis, key phrase detection identifies and extracts words and short phrases that appear consequential.
 
 Given the context of `/document/reviews_text/pages/*`, both sentiment analysis and key phrase skills will be invoked once for each of the items in the `pages` collection. The output from the skill will be a node under the associated page element. 
 
@@ -165,4 +171,4 @@ If output includes a knowledge store, add a Shaper skill as a last step. Alterna
 The hotel reviews skillset includes a knowledge store definition that projects enriched content into tables and blob containers. As a next step, learn more about how these projections are defined:
 
 > [!div class="nextstepaction"]
-> [Define data structures in a knowledge store](knowledge-store-define-projections.md)
+> [Shape projections in a knowledge store](knowledge-store-projection-shape.md)
