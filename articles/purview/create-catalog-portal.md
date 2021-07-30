@@ -11,7 +11,7 @@ ms.custom:
   - mode-portal
 # Customer intent: As a data steward, I want create a new Azure Purview Account so that I can scan and classify my data.
 ---
-# Quickstart: Create an Azure Purview account in the Azure portal
+# Quickstart: Create an Azure Purview account in the Azure portal.
 
 This quickstart describes the steps to create an Azure Purview account by using the Azure portal.
 
