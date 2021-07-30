@@ -17,6 +17,10 @@ ms.custom: references_regions
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
+## August 2021
+
+* Version `3.2-preview.1` which includes a public preview for [extractive summarization](how-tos/extractive-summarization.md).
+
 ## July 2021
 
 ### GA release updates
