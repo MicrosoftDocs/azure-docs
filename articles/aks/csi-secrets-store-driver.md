@@ -190,7 +190,7 @@ spec:
     objects:  |
       array:
         - |
-          objectName: <secret-name>         
+          objectName: <secret-name>      # In this example, 'ExampleSecret'   
           objectType: secret             # Object types: secret, key or cert
           objectVersion: ""              # [OPTIONAL] object versions, default to latest if empty
     tenantId: "<tenant-id>"              # the tenant ID containing the Azure Key Vault instance
