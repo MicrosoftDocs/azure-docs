@@ -58,7 +58,7 @@ This article lists the significant changes to AzureMonitor docs during the month
 
 ### Updated articles
 
-- [How to query logs from Container insights](containers/container-insights-log-search.md)
+- [How to query logs from Container insights](containers/container-insights-log-query.md)
 
 ## Essentials
 

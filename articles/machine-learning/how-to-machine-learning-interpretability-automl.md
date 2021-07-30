@@ -36,15 +36,7 @@ In this article, you learn how to:
 Retrieve the explanation from the `best_run`, which includes explanations for both raw and engineered features.
 
 > [!NOTE]
-> Interpretability, best model explanation, is not available for Auto ML forecasting experiments that recommend the following algorithms as the best model: 
-> * TCNForecaster
-> * AutoArima
-> * ExponentialSmoothing
-> * Prophet
-> * Average 
-> * Naive
-> * Seasonal Average 
-> * Seasonal Naive
+> Interpretability, model explanation, is not available for the TCNForecaster model recommended by Auto ML forecasting experiments.
 
 ### Download the engineered feature importances from the best run
 

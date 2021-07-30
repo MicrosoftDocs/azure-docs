@@ -102,7 +102,7 @@ To verify if your Azure account is an “owner” or “contributor” within th
     :::image type="content" source="./media/quickstart-percept-dk-setup/main-08-copy-code.png" alt-text="Copy device code.":::
 
     > [!NOTE]
-    > If you receive this error message when trying to receive the Device Code: *Unable to get device code. Please make sure the device is connected to internet*. The most common cause is your on-site network.  Try plugging in an Ethernet cable to the dev kit or connecting to a different Wi-Fi network and try again.  Less common causes could be your host computer's date/time are off. 
+    > If you receive this error: *Unable to get device code. Please make sure the device is connected to internet*. The most common cause is your on-site network.  Try plugging in an Ethernet cable to the dev kit or connecting to a different Wi-Fi network and try again.  Less common causes could be your host computer's date/time are off. 
 
 1. A new browser tab will open with a window that says **Enter code**. Paste the code into the window and select **Next**. Do NOT close the **Welcome** tab with the setup experience.
 
