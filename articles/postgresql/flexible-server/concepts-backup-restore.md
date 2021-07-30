@@ -143,7 +143,7 @@ After restoring the database, you can perform the following tasks to get your us
 
 * **Where can I see the backup usage?**
   
-    In the Azure Portal, under Monitoring, click Metrics, you can find “Backup Usage metric” in which you can monitor the total backup usage.
+    In the Azure portal, under Monitoring, click Metrics, you can find “Backup Usage metric” in which you can monitor the total backup usage.
 
 * **What happens to my backups if I delete my server?**
   
@@ -169,7 +169,7 @@ After restoring the database, you can perform the following tasks to get your us
 
 * **How do I restore my server?**
 
-    Azure supports Point In Time Restore (for all servers) allowing users to restore to latest or custom restore point using Azure Portal, Azure CLI and API. 
+    Azure supports Point In Time Restore (for all servers) allowing users to restore to latest or custom restore point using Azure portal, Azure CLI and API. 
 
     To restore your server from the backups taken manually using tools like pg_dump, you can first create a flexible server and restore your database(s) into the server using [pg_restore](https://www.postgresql.org/docs/current/app-pgrestore.html).
 
