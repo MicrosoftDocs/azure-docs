@@ -172,7 +172,7 @@ Possible reasons for failure:
 - **DSREG_AUTOJOIN_DISC_WAIT_TIMEOUT**  (0x801c001f/-2145648609)
    - Reason: Operation timed out while performing Discovery.
    - Resolution: Ensure that `https://enterpriseregistration.windows.net` is accessible in the SYSTEM context. For more information, see the section [Network connectivity requirements](hybrid-azuread-join-managed-domains.md#prerequisites).
-- **DSREG_AUTOJOIN_USERREALM_DISCOVERY_FAILED** (0x801c0021/-2145648611)
+- **DSREG_AUTOJOIN_USERREALM_DISCOVERY_FAILED** (0x801c003d/-2145648579)
    - Reason: Generic Realm Discovery failure. Failed to determine domain type (managed/federated) from STS.
    - Resolution: Find the suberror below to investigate further.
 
