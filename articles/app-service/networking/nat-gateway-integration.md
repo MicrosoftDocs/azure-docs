@@ -16,7 +16,7 @@ ms.custom: seodec18
 
 # Virtual Network NAT gateway integration
 
-NAT gateway is a fully managed, highly resilient service associated with one or more subnets and ensures that all outbound Internet facing traffic is routed through the gateway. With App Service, there are two important scenarios that you can use NAT gateway for. The NAT gateway gives you a static predictable IP for outbound traffic as it is associated with one or more Public IPs.
+NAT gateway is a fully managed, highly resilient service, which can be associated with one or more subnets and ensures that all outbound Internet facing traffic will be routed through the gateway. With App Service, there are two important scenarios that you can use NAT gateway for. The NAT gateway gives you a static predictable IP for outbound traffic as it is associated with one or more Public IPs.
 It also significantly increases the available SNAT ports in scenarios where you have a high number of concurrent connections to the same public address/port combination.
 
 For more information and pricing. Go to the [NAT gateway overview](/azure/virtual-network/nat-gateway/nat-overview).
@@ -28,7 +28,7 @@ For more information and pricing. Go to the [NAT gateway overview](/azure/virtua
 
 ## Configuring NAT gateway integration
 
-For a walk-through of configuring NAT gateway through the portal, you can follow [this tutorial](/azure/azure-functions/functions-how-to-use-nat-gateway) for Azure Functions as the setup is identical. Make sure that [Route All](../web-sites-integrate-with-vnet#routes) is enabled in your application routing settings to ensure that public traffic is routed through the VNet integration.
+For a walk-through of configuring NAT gateway through the portal, you can follow [this tutorial](/azure/azure-functions/functions-how-to-use-nat-gateway) for Azure Functions. Make sure [Route All](../web-sites-integrate-with-vnet#routes) is enabled in your application routing settings. Enabling Route All will ensure all public traffic is routed through the VNet integration.
 
 If you prefer using CLI to configure your environment, these are the important commands. As a prerequisite, you should create a Web App with VNet integration configured.
 
