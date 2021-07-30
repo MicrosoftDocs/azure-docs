@@ -151,7 +151,7 @@ Use the following steps to register and scan one or more Power BI tenants in Azu
    ```
 8. Create a cross-tenant Service Principal. 
 
-   1. Create an App Registration in your Azure Active Directory tenant where Power BI is located. Make sure you update `password` field with a strong password and update `app_display_name` with a non-existant application name in your Azure AD tenant where Power BI tenant is hosted.
+   1. Create an App Registration in your Azure Active Directory tenant where Power BI is located. Make sure you update `password` field with a strong password and update `app_display_name` with a non-existent application name in your Azure AD tenant where Power BI tenant is hosted.
 
     ```powershell   
     $SecureStringPassword = ConvertTo-SecureString -String <'password'> -AsPlainText -Force
