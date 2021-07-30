@@ -212,25 +212,6 @@ In the following example, the *Recovering SharePoint item* has been accidentally
     ![MABS SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. At this point, follow the recovery steps earlier in this article to recover a SharePoint content database from disk.
 
-## Remove a database from a SharePoint farm
-
-When a database is removed from a SharePoint farm, MABS will skip the backup of that database, continue to back up other databases in the SharePoint farm, and alert the backup administrator.
-
-### MABS Alert - Farm Configuration Changed
-
-This is a warning alert that is generated in Microsoft Azure Backup Server (MABS) when automatic protection of a SharePoint database fails. See the alert Details pane for more information about the cause of this alert.
-
-To resolve this alert, follow these steps:
-
-1. Verify with the SharePoint administrator if the database has actually been removed from the farm. If the database has been removed from the farm, then it must be removed from active protection in MABS.
-1. To remove the database from active protection:
-   1. In **MABS Administrator Console**, click **Protection** on the navigation bar.
-   1. In the **Display** pane, right-click the protection group for the SharePoint farm, and then click **Stop Protection of member**.
-   1. In the **Stop Protection** dialog box, click **Retain Protected Data**.
-   1. Click **Stop Protection**.
-
-You can add the SharePoint farm back for protection by using the **Modify Protection Group** wizard. During re-protection, select the SharePoint front-end server and click **Refresh** to update the SharePoint database cache, then select the SharePoint farm and proceed.
-
 ## Switching the Front-End Web Server
 
 If you have more than one front-end web server, and want to switch the server that MABS uses to protect the farm, follow the instructions:
@@ -268,6 +249,25 @@ The following procedure uses the example of a server farm with two front-end Web
    A consistency check will start.
 
 1. If you performed step 6, you can now remove the volume from the protection group.
+
+## Remove a database from a SharePoint farm
+
+When a database is removed from a SharePoint farm, MABS will skip the backup of that database, continue to back up other databases in the SharePoint farm, and alert the backup administrator.
+
+### MABS Alert - Farm Configuration Changed
+
+This is a warning alert that is generated in Microsoft Azure Backup Server (MABS) when automatic protection of a SharePoint database fails. See the alert **Details** pane for more information about the cause of this alert.
+
+To resolve this alert, follow these steps:
+
+1. Verify with the SharePoint administrator if the database has actually been removed from the farm. If the database has been removed from the farm, then it must be removed from active protection in MABS.
+1. To remove the database from active protection:
+   1. In **MABS Administrator Console**, click **Protection** on the navigation bar.
+   1. In the **Display** pane, right-click the protection group for the SharePoint farm, and then click **Stop Protection of member**.
+   1. In the **Stop Protection** dialog box, click **Retain Protected Data**.
+   1. Click **Stop Protection**.
+
+You can add the SharePoint farm back for protection by using the **Modify Protection Group** wizard. During re-protection, select the SharePoint front-end server and click **Refresh** to update the SharePoint database cache, then select the SharePoint farm and proceed.
 
 ## Next steps
 
