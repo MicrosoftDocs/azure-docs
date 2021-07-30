@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 07/22/2021
+ms.date: 07/30/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: prishet
@@ -56,21 +56,22 @@ The following table summarizes the Azure Storage data protection options accordi
 | Data protection option | Protects an account from deletion | Protects a container from deletion | Protects a blob from deletion | Protects a blob from overwrites |
 |--|--|--|--|--|
 | Azure Resource Manager lock | Yes | No<sup>1</sup> | No | No |
-| Immutability policy on a blob version (preview) | Yes<sup>2</sup> | Yes<sup>3</sup> | Yes | Yes |
-| Immutability policy on a container | Yes<sup>4</sup> | Yes | Yes | Yes |
+| Immutability policy on a blob version (preview) | Yes<sup>2</sup> | Yes<sup>3</sup> | Yes | Yes<sup>4</sup> |
+| Immutability policy on a container | Yes<sup>5</sup> | Yes | Yes | Yes |
 | Container soft delete | No | Yes | No | No |
-| Blob versioning<sup>5</sup> | No | No | Yes | Yes |
+| Blob versioning<sup>6</sup> | No | No | Yes | Yes |
 | Blob soft delete | No | No | Yes | Yes |
-| Point-in-time restore<sup>5</sup> | No | No | Yes | Yes |
+| Point-in-time restore<sup>6</sup> | No | No | Yes | Yes |
 | Blob snapshot | No | No | No | Yes |
-| Roll-your-own solution for copying data to a second account<sup>6</sup> | No | Yes | Yes | Yes |
+| Roll-your-own solution for copying data to a second account<sup>7</sup> | No | Yes | Yes | Yes |
 
 <sup>1</sup> An Azure Resource Manager lock does not protect a container from deletion.<br />
 <sup>2</sup> Storage account deletion fails if there is at least one container with version-level immutable storage enabled.<br />
-<sup>3</sup>Container deletion fails if at least one blob exists in the container, regardless of whether policy is locked or unlocked.
-<sup>4</sup> While a legal hold or a locked time-based retention policy is in effect for a container, the storage account is also protected from deletion.<br />
-<sup>5</sup> Not currently supported for Data Lake Storage workloads.<br />
-<sup>6</sup> AzCopy and Azure Data Factory are options that are supported for both Blob Storage and Data Lake Storage workloads. Object replication is supported for Blob Storage workloads only.<br />
+<sup>3</sup> Container deletion fails if at least one blob exists in the container, regardless of whether policy is locked or unlocked.
+<sup>4</sup> Overwriting the contents of a blob creates a new version. An immutability policy protects a version's metadata from being overwritten.
+<sup>5</sup> While a legal hold or a locked time-based retention policy is in effect at container scope, the storage account is also protected from deletion.<br />
+<sup>6</sup> Not currently supported for Data Lake Storage workloads.<br />
+<sup>7</sup> AzCopy and Azure Data Factory are options that are supported for both Blob Storage and Data Lake Storage workloads. Object replication is supported for Blob Storage workloads only.<br />
 
 ## Recover deleted or overwritten data
 
