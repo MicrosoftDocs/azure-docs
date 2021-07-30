@@ -1141,7 +1141,8 @@ Users with this role can manage Azure AD identity governance configuration, incl
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.directory/accessReviews/allProperties/allTasks | Create and delete access reviews, and read and update all properties of access reviews in Azure AD |
+> | microsoft.directory/accessReviews/allProperties/allTasks | Create and delete access reviews, read and update all properties of access reviews, and manage access reviews of groups in Azure AD |
+> | microsoft.directory/accessReviews/definitions.applications/allTasks  | Manage access reviews of application role assignments in Azure AD | 
 > | microsoft.directory/entitlementManagement/allProperties/allTasks | Create and delete resources, and read and update all properties in Azure AD entitlement management |
 > | microsoft.directory/groups/members/update | Update members of Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Update service principal role assignments |
