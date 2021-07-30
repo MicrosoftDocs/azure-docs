@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/13/2021
+ms.date: 07/30/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to manage disks on a VM running on an Azure Stack Edge Pro device so that I can use it to run applications using Edge compute before sending it to Azure.
 ---
@@ -151,7 +151,7 @@ Follow these steps to detach or remove a data disk associated with a virtual mac
 
 ## Delete a data disk
 
-Follow these steps to delete a data disk that's not attached to a VM deployed on your device:
+Follow these steps to delete a data disk that's not attached to a VM deployed on your device.
 
 > [!NOTE]
 > Before deleting a data disk, you must [detach the data disk from the VM](#detach-a-data-disk) if the disk is in use.
