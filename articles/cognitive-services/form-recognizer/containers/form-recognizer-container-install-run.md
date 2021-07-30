@@ -16,7 +16,9 @@ keywords: on-premises, Docker, container, identify
 
 > [!IMPORTANT]
 >
-> Form Recognizer containers are in gated preview. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and receive approval. See [**Request approval to run container**](#request-approval-to-run-the-container) below for more information.
+> * Form Recognizer containers are in gated preview. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and receive approval. See [**Request approval to run container**](#request-approval-to-run-the-container) below for more information.
+>
+> * The online request form requires that you provide a valid email address that belongs to the organization that owns the Azure subscription ID and that you have or have been granted access to that subscription.
 
 Azure Form Recognizer is an Azure Applied AI Service that lets you build automated data processing software using machine learning technology. Form Recognizer enables you to identify and extract text, key/value pairs, selection marks, table data, and more from your form documents and output structured data that includes the relationships in the original file.
 
@@ -400,11 +402,11 @@ http {
 
 * Gather a set of at least six forms of the same type. You'll use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*). Download the training files to the **shared** folder you created above.
 
-* If you want to label your data, download the [Form OCR Test Tool (FOTT) for Windows](https://github.com/microsoft/OCR-Form-Tools/releases/tag/v2.1-ga). The download will import the labeling tool .exe file that you'll use to label the data present on your local file system. You can ignore any warnings that occur during the download process.
+* If you want to label your data, download the [Form Recognizer sample labeling tool for Windows](https://github.com/microsoft/OCR-Form-Tools/releases/tag/v2.1-ga). The download will import the labeling tool .exe file that you'll use to label the data present on your local file system. You can ignore any warnings that occur during the download process.
 
-#### Create a new FOTT project
+#### Create a new sample labeling tool project
 
-* Open the labeling tool but double-clicking on the FOTT .exe file.
+* Open the labeling tool by double-clicking on the sample labeling tool .exe file.
 * On the left pane of the tool, select the connections tab.
 * Select to create a new project and give it a name and description.
 * For the provider, choose the local file system option. For the local folder, make sure you enter the path to the folder where you stored the sample data files.

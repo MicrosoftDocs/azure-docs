@@ -5,7 +5,7 @@ description: Describes how to conditionally deploy a resource in Bicep.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/15/2021
+ms.date: 07/30/2021
 ---
 
 # Conditional deployment in Bicep
@@ -38,7 +38,7 @@ module dnsZone 'dnszones.bicep' = if (deployZone) {
 }
 ```
 
-Conditions may be used with dependency declarations. If the identifier of conditional resource is specified in `dependsOn` of another resource (explicit dependency), the dependency is ignored if the condition evaluates to false at template deployment time. If the condition evaluates to true, the dependency is respected. Referencing a property of a conditional resource (implicit dependency) is allowed but may produce a runtime error in some cases.
+Conditions may be used with dependency declarations. For [explicit dependencies](resource-declaration.md#set-resource-dependencies), Azure Resource Manager automatically removes it from the required dependencies when the resource isn't deployed. For implicit dependencies, referencing a property of a conditional resource is allowed but may produce a deployment error.
 
 ## New or existing resource
 
@@ -100,8 +100,6 @@ resource vmName_omsOnboarding 'Microsoft.Compute/virtualMachines/extensions@2017
 
 output mgmtStatus string = ((!empty(logAnalytics)) ? 'Enabled monitoring for VM!' : 'Nothing to enable')
 ```
-
-You set a [resource as dependent](./resource-declaration.md#set-resource-dependencies) on a conditional resource exactly as you would any other resource. When a conditional resource isn't deployed, Azure Resource Manager automatically removes it from the required dependencies.
 
 ## Next steps
 

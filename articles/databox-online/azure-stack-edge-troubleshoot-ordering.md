@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 02/22/2021
+ms.date: 06/21/2021
 ms.author: alkohli
 ---
 # Troubleshoot your Azure Stack Edge ordering issues
@@ -15,12 +15,6 @@ ms.author: alkohli
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 This article describes how to troubleshoot Azure Stack Edge ordering issues.
-
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
->
-> * Troubleshoot ordering issues
 
 ## Unsupported subscription or region
 
@@ -38,7 +32,12 @@ There's the possibility that Microsoft may allow a subscription type upgrade on 
 
 **Error:** You have an EA, CSP, or sponsored subscription and you get the following error:
 
-*The selected subscription type is not supported. Make sure that you use a supported subscription. [Learn more](azure-stack-edge-deploy-prep.md#prerequisites). If using a supported subscription type, make sure that the `Microsoft.DataBoxEdge` provider is registered. For information on how to register, see [Register resource provider](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers)*.
+*The selected subscription type is not supported. Make sure that you use a supported subscription. [Learn more](azure-stack-edge-deploy-prep.md#prerequisites). If using a supported subscription type, make sure:
+ 
+- That the  `Microsoft.DataBoxEdge` provider is registered, when placing orders via the classic portal.
+- That the `Microsoft.EdgeOrder`provider is registered, when placing orders via the Azure Edge Hardware Center (Preview).
+ 
+For information on how to register, see [Register resource provider](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers)*.
 
 **Suggested solution:** Follow these steps to register your Azure Stack Edge resource provider:
 
@@ -54,11 +53,13 @@ If you don't have owner or contributor access to register the resource provider,
 
 For more information, see [Register resource providers](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
 
-## Microsoft.DataBoxEdge not registered for subscription
+## Resource provider not registered for subscription
 
-**Error:** In Azure portal, you select a subscription to use for Azure Stack Edge or Data Box Gateway and get the following error:
+**Error:** In Azure portal, you select a subscription to use for Azure Stack Edge or Data Box Gateway and get one of the following error:
 
 *Resource provider(s): Microsoft.DataBoxEdge are not registered for subscription &lt;subscription name&gt; and you don't have permissions to register a resource provider for subscription &lt;subscription name&gt;*.
+
+*Resource provider(s): Microsoft.EdgeOrder are not registered for subscription &lt;subscription name&gt; and you don't have permissions to register a resource provider for subscription &lt;subscription name&gt;*.
 
 **Suggested solution:** Elevate your subscription access or find someone with owner or contributor access to register the resource provider.
 
@@ -72,4 +73,4 @@ For more information, see [Register resource providers](azure-stack-edge-manage-
 
 ## Next steps
 
-* Learn more about how to [Troubleshoot your Azure Stack Edge issues](azure-stack-edge-troubleshoot.md).
+* Learn more about how to [Troubleshoot your Azure Stack Edge issues](azure-stack-edge-gpu-troubleshoot.md).
