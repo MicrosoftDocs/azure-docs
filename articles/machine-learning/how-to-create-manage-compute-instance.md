@@ -143,7 +143,7 @@ SSH access is disabled by default.  SSH access cannot be changed after creation.
 
 Once the compute instance is created and running, see [Connect with SSH access](how-to-create-attach-compute-studio.md#ssh-access).
 
-### <a name ="schedule"></a> Add a start or shutdown schedule (preview)
+### <a name ="schedule-studio"></a> Add a start or shutdown schedule (preview)
 
 Define multiple schedules for auto-shutdown and auto-start. For instance, create a schedule to start at 9 AM and stop at 6 PM from Monday-Thursday, and a second schedule to start at 9 AM and stop at 4 PM for Friday.  You can create a total of four schedules per compute instance.
 
@@ -308,7 +308,7 @@ Logs from the setup script execution appear in the logs folder in the compute in
 
 ## <a name="schedule"></a> Schedule automatic start and stop (preview)
 
-You can schedule the automatic start and stop of a compute instance by using the [studio](?tabs=azure-studio#create) or a Resource Manager template.  In a Resource Manager template, use either cron or LogicApps expressions to define a schedule to start or stop the instance.  
+You can schedule the automatic start and stop of a compute instance by using the [studio](&tabs=azure-studio#schedule-studio) or a Resource Manager template.  In a Resource Manager template, use either cron or LogicApps expressions to define a schedule to start or stop the instance.  
 
 ```json
 "schedules": {
