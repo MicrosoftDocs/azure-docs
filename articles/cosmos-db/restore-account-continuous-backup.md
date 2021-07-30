@@ -69,7 +69,7 @@ You can use Azure portal to completely restore a deleted account within 30 days 
    :::image type="content" source="./media/restore-account-continuous-backup/restore-deleted-account-portal.png" alt-text="Restore a deleted account from Azure portal." border="true" lightbox="./media/restore-account-continuous-backup/restore-deleted-account-portal.png":::
 
    > [!NOTE]
-   > Note: The restore blade in Azure portal is only populated if you have the `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` permission. To learn more about how to set this permission, see the [Backup and restore permissions](continuous-backup-restore-permissions.md) article.
+   > The restore blade in Azure portal is only populated if you have the `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` permission. To learn more about how to set this permission, see the [Backup and restore permissions](continuous-backup-restore-permissions.md) article.
 
 1. Select an account to restore and input the following details to restore a deleted account:
 
