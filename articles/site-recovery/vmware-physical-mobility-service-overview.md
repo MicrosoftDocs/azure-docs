@@ -95,7 +95,7 @@ During a push installation of the Mobility service, the following steps are perf
 ## Install the Mobility service using command prompt (Classic)
 
 >[!NOTE]
-> This section is applicable to Azure Site Recovery - Classic. [Here ae the installation instructions for preview](#install-the-mobility-service-using-command-prompt-preview).
+> This section is applicable to Azure Site Recovery - Classic. [Here are the installation instructions for preview](#install-the-mobility-service-using-command-prompt-preview).
 
 ### Prerequisites
 
