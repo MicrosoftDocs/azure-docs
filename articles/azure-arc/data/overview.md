@@ -39,6 +39,8 @@ Azure Arc also provides other cloud benefits such as fast deployment and automat
 
 Using familiar tools such as the Azure portal, Azure Data Studio, and the Azure CLI (`az`) with the `arcdata` extension, you can now gain a unified view of all your data assets deployed with Azure Arc. You are able to not only view and manage a variety of relational databases across your environment and Azure, but also get logs and telemetry from Kubernetes APIs to analyze the underlying infrastructure capacity and health. Besides having localized log analytics and performance monitoring, you can now leverage Azure Monitor for comprehensive operational insights across your entire estate.
 
+[!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
+
 ## Disconnected scenario support
 
 Many of the services such as self-service provisioning, automated backups/restore, and monitoring can run locally in your infrastructure with or without a direct connection to Azure. Connecting directly to Azure opens up additional options for integration with other Azure services such as Azure Monitor and the ability to use the Azure portal and Azure Resource Manager APIs from anywhere in the world to manage your Azure Arc-enabled data services.

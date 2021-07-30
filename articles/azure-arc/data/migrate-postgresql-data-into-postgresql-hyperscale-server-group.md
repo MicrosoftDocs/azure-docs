@@ -40,6 +40,8 @@ To do this backup/restore operation, you can use any tool that is capable of doi
 - `psql`
 - ...
 
+   [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
+
 ## Example
 Let's illustrate those steps using the `pgAdmin` tool.
 Consider the following setup:

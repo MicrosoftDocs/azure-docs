@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, azla
 ms.topic: how-to
-ms.date: 07/28/2021
+ms.date: 07/29/2021
 ---
 
 # Secure access and data in Azure Logic Apps
@@ -1058,7 +1058,7 @@ On Request triggers, you can use [Azure Active Directory Open Authentication (Az
 | Property (designer) | Property (JSON) | Required | Value | Description |
 |---------------------|-----------------|----------|-------|-------------|
 | **Authentication** | `type` | Yes | **Active Directory OAuth** <br>or <br>`ActiveDirectoryOAuth` | The authentication type to use. Logic Apps currently follows the [OAuth 2.0 protocol](../active-directory/develop/v2-overview.md). |
-| **Authority** | `authority` | No | <*URL-for-authority-token-issuer*> | The URL for the authority that provides the access token. By default, this value is `https://login.windows.net`. |
+| **Authority** | `authority` | No | <*URL-for-authority-token-issuer*> | The URL for the authority that provides the access token, such as `https://login.microsoftonline.com/` for Azure global service regions. For other national clouds, review [Azure AD authentication endpoints - Choosing your identity authority](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints). |
 | **Tenant** | `tenant` | Yes | <*tenant-ID*> | The tenant ID for the Azure AD tenant |
 | **Audience** | `audience` | Yes | <*resource-to-authorize*> | The resource that you want to use for authorization, for example, `https://management.core.windows.net/` |
 | **Client ID** | `clientId` | Yes | <*client-ID*> | The client ID for the app requesting authorization |
