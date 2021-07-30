@@ -1,6 +1,6 @@
 ---
 title: Upgrade Mobility Service and appliance components - preview
-description: This article describes about automatic updates for mobility agent and the procedure involved with manu updates - preview.
+description: This article describes about automatic updates for mobility agent and the procedure involved with manual updates - preview.
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/30/2021
@@ -11,7 +11,7 @@ ms.date: 07/30/2021
 
 By default, automatic updates are enabled on a vault. Automatic updates will be triggered at 12:00 AM local time every day, if a new version is available.
 
-To avail the latest features, enhancements and fixes, we recommend you to choose **Allow Site Recovery to manage** option on the **Mobility agent upgrade settings (Preview). Automatic updates do not require a reboot or affect on-going replication of your virtual machines. Automatic updates also ensure that all the replication appliances in the vault are automatically updated.
+To avail the latest features, enhancements and fixes, we recommend you to choose **Allow Site Recovery to manage** option on the **Mobility agent upgrade settings (Preview)**. Automatic updates do not require a reboot or affect on-going replication of your virtual machines. Automatic updates also ensure that all the replication appliances in the vault are automatically updated.
 
 ![Automatic updates on for Mobility agent](./media/upgrade-mobility-service-preview/automatic-updates-on.png)
 
@@ -52,10 +52,10 @@ To update mobility agent of a protected item, follow these steps:
 
 3. Click **New update available**, latest available version is displayed. Click **Update to this version** to initiate the update job.
 
-  ![mobility agent update details](./media/upgrade-mobility-service-preview/agent-update-details.png)
+   ![mobility agent update details](./media/upgrade-mobility-service-preview/agent-update-details.png)
 
-  > [!NOTE]
-  > If upgrade is blocked, check and resolve the errors as detailed [here](#resolve-blocking-issues-for-agent-upgrade).
+   > [!NOTE]
+   > If upgrade is blocked, check and resolve the errors as detailed [here](#resolve-blocking-issues-for-agent-upgrade).
 
 ## Mobility agent on latest version
 
