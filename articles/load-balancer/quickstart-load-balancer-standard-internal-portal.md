@@ -156,6 +156,8 @@ During the creation of the load balancer, you'll configure:
     | Type          | Select **Internal**.                                        |
     | SKU           | Leave the default **Standard**. |
 
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-standard-internal-load-balancer.png" alt-text="Screenshot of create standard load balancer basics tab." border="true":::
+
 4. Select **Next: Frontend IP configuration** at the bottom of the page.
 
 5. In **Frontend IP configuration**, select **+ Add a frontend IP**.
@@ -364,6 +366,8 @@ During the creation of the load balancer, you'll configure:
     | Region         | Select **(Europe) West Europe**.                                        |
     | Type          | Select **Internal**.                                        |
     | SKU           | Select **Basic**. |
+
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-basic-internal-load-balancer.png" alt-text="Screenshot of create standard load balancer basics tab." border="true":::
 
 4. Select **Next: Frontend IP configuration** at the bottom of the page.
 
