@@ -300,7 +300,7 @@ You can automate management of custom domains with scripts by using the [Azure C
 
 The following command adds a configured custom DNS name to an App Service app.
 
-```bash 
+```azurecli 
 az webapp config hostname add \
     --webapp-name <app-name> \
     --resource-group <resource_group_name> \

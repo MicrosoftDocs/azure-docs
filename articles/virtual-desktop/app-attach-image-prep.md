@@ -1,15 +1,17 @@
 ---
-title: Windows Virtual Desktop prepare MSIX app attach image - Azure
-description: How to create an MSIX app attach image for a Windows Virtual Desktop host pool.
+title: Azure Virtual Desktop prepare MSIX app attach image - Azure
+description: How to create an MSIX app attach image for a Azure Virtual Desktop host pool.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
 ---
-# Prepare an MSIX image for Windows Virtual Desktop
+# Prepare an MSIX image for Azure Virtual Desktop
 
 MSIX app attach is an application layering solution that allows you to dynamically attach apps from an MSIX package to a user session. The MSIX package system separates apps from the operating system, making it easier to build images for virtual machines. MSIX packages also give you greater control over which apps your users can access in their virtual machines. You can even separate apps from the master image and give them to users later.
+
+Instructions on how to convert a desktop installer (such as MSI, EXE, ClickOnce, App-V, or Script) to MSIX are available in [Create an MSIX package from any desktop installer (MSI, EXE, ClickOnce, or App-V)](/windows/msix/packaging-tool/create-app-package).
 
 ## Create a VHD or VHDX package for MSIX
 
@@ -93,11 +95,11 @@ After you've created the MSIX package, you'll need to upload the resulting VHD, 
 
 ## Next steps
 
-Ask our community questions about this feature at the [Windows Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
+Ask our community questions about this feature at the [Azure Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 
-You can also leave feedback for Windows Virtual Desktop at the [Windows Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
+You can also leave feedback for Azure Virtual Desktop at the [Azure Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
 
 Here are some other articles you might find helpful:
 
 - [MSIX app attach glossary](app-attach-glossary.md)
-- [MSIX app attach FAQ](app-attach-faq.md)
+- [MSIX app attach FAQ](app-attach-faq.yml)

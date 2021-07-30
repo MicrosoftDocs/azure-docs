@@ -10,17 +10,17 @@ ms.service: iot-hub-device-update
 
 # Device Update for IoT Hub and IoT Plug and Play
 
-Device Update for IoT Hub uses [IoT Plug and Play](../iot-pnp/index.yml) to discover and manage devices that are over-the-air update capable. The Device Update service will send and receive properties and messages to and from devices using PnP interfaces. Device Update for IoT Hub requires IoT devices to implement the following interfaces and model-id as described below.
+Device Update for IoT Hub uses [IoT Plug and Play](../iot-develop/index.yml) to discover and manage devices that are over-the-air update capable. The Device Update service will send and receive properties and messages to and from devices using PnP interfaces. Device Update for IoT Hub requires IoT devices to implement the following interfaces and model-id as described below.
 
 Concepts: 
-* Understand the [IoT Plug and Play device client](https://docs.microsoft.com/azure/iot-pnp/concepts-developer-guide-device?pivots=programming-language-csharp#implement-telemetry,-properties,-and-commands). 
+* Understand the [IoT Plug and Play device client](../iot-develop/concepts-developer-guide-device.md?pivots=programming-language-csharp#implement-telemetry-properties-and-commands). 
 * See how the [Device Update agent is implemented](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md).
 
 ## ADU Core Interface
 
 The 'ADUCoreInterface' interface is used to send update actions and metadata to devices and receive update status from devices. The 'ADU Core' interface is split into two Object properties.
 
-The expected component name in your model is **"azureDeviceUpdateAgent"** when implementing this interface. [Learn more about Azure IoT PnP Components](../iot-pnp/concepts-modeling-guide.md)
+The expected component name in your model is **"azureDeviceUpdateAgent"** when implementing this interface. [Learn more about Azure IoT PnP Components](../iot-develop/concepts-modeling-guide.md)
 
 ### Agent Metadata
 
@@ -52,8 +52,8 @@ It is the set of properties that contain the manufacturer and model.
 
 |Name|Schema|Direction|Description|
 |----|------|---------|-----------|
-|manufacturer|string|device to cloud|The device manufacturer of the device, reported through `deviceProperties`. This property is read from one of two places-the 'AzureDeviceUpdateCore' interface will first attempt to read the 'aduc_manufacturer' value from the [Configuration file](device-update-configuration-file.md) file.  If the value is not populated in the configuration file, it will default to reporting the compile-time definition for ADUC_DEVICEPROPERTIES_MANUFACTURER. This property will only be reported at boot time.|
-|model|string|device to cloud|The device model of the device, reported through `deviceProperties`. This property is read from one of two places-the AzureDeviceUpdateCore interface will first attempt to read the 'aduc_model' value from the [Configuration file](device-update-configuration-file.md) file.  If  the value is not populated in the configuration file, it will default to reporting the compile-time definition for ADUC_DEVICEPROPERTIES_MODEL. This property will only be reported at boot time.|
+|manufacturer|string|device to cloud|The device manufacturer of the device, reported through `deviceProperties`. This property is read from one of two places-the 'AzureDeviceUpdateCore' interface will first attempt to read the 'aduc_manufacturer' value from the [Configuration file](device-update-configuration-file.md) file.  If the value is not populated in the configuration file, it will default to reporting the compile-time definition for ADUC_DEVICEPROPERTIES_MANUFACTURER. This property will only be reported at boot time. Default value 'Contoso'|
+|model|string|device to cloud|The device model of the device, reported through `deviceProperties`. This property is read from one of two places-the AzureDeviceUpdateCore interface will first attempt to read the 'aduc_model' value from the [Configuration file](device-update-configuration-file.md) file.  If  the value is not populated in the configuration file, it will default to reporting the compile-time definition for ADUC_DEVICEPROPERTIES_MODEL. This property will only be reported at boot time. Default value 'Video'|
 |aduVer|string|device to cloud|Version of the Device Update agent running on the device. This value is read from the build only if during compile time ENABLE_ADU_TELEMETRY_REPORTING is set to 1 (true). Customers can choose to opt-out of version reporting by setting the value to 0 (false). [How to customize Device Update agent properties](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md).|
 |doVer|string|device to cloud|Version of the Delivery Optimization agent running on the device. The value is read from the build only if during compile time ENABLE_ADU_TELEMETRY_REPORTING is set to 1 (true). Customers can choose to opt-out of the version reporting by setting the value to 0 (false).[How to customize Delivery Optimization agent properties](https://github.com/microsoft/do-client/blob/main/README.md#building-do-client-components).|
 
@@ -77,7 +77,7 @@ IoT Hub Device Twin sample
 ```
 
 Note: 
-The device or module must add the {"__t": "c"} marker to indicate that the element refers to a component, learn more [here](https://docs.microsoft.com/azure/iot-pnp/concepts-convention#sample-multiple-components-writable-property).
+The device or module must add the {"__t": "c"} marker to indicate that the element refers to a component, learn more [here](../iot-develop/concepts-convention.md#sample-multiple-components-writable-property).
 
 ### Service Metadata
 
@@ -103,9 +103,9 @@ Service Metadata contains fields that the Device Update services uses to communi
 
 ## Device Information Interface
 
-The Device Information Interface is a concept used within [IoT Plug and Play architecture](../iot-pnp/overview-iot-plug-and-play.md). It contains device to cloud properties that provide information about the hardware and operating system of the device. Device Update for IoT Hub uses the DeviceInformation.manufacturer and DeviceInformation.model properties for telemetry and diagnostics. To learn more about Device Information interface, see this [example](https://devicemodels.azure.com/dtmi/azure/devicemanagement/deviceinformation-1.json).
+The Device Information Interface is a concept used within [IoT Plug and Play architecture](../iot-develop/overview-iot-plug-and-play.md). It contains device to cloud properties that provide information about the hardware and operating system of the device. Device Update for IoT Hub uses the DeviceInformation.manufacturer and DeviceInformation.model properties for telemetry and diagnostics. To learn more about Device Information interface, see this [example](https://devicemodels.azure.com/dtmi/azure/devicemanagement/deviceinformation-1.json).
 
-The expected component name in your model is **deviceInformation** when implementing this interface. [Learn about Azure IoT PnP Components](../iot-pnp/concepts-modeling-guide.md)
+The expected component name in your model is **deviceInformation** when implementing this interface. [Learn about Azure IoT PnP Components](../iot-develop/concepts-modeling-guide.md)
 
 |Name|Type|Schema|Direction|Description|Example|
 |----|----|------|---------|-----------|-----------|
@@ -120,6 +120,6 @@ The expected component name in your model is **deviceInformation** when implemen
 
 ## Model ID 
 
-Model ID is how smart devices advertise their capabilities to Azure IoT applications with IoT Plug and Play.To learn more on how to build smart devices to advertise their capabilities to Azure IoT applications visit [IoT Plug and Play device developer guide](../iot-pnp/concepts-developer-guide-device.md).
+Model ID is how smart devices advertise their capabilities to Azure IoT applications with IoT Plug and Play.To learn more on how to build smart devices to advertise their capabilities to Azure IoT applications visit [IoT Plug and Play device developer guide](../iot-develop/concepts-developer-guide-device.md).
 
-Device Update for IoT Hub requires the IoT Plug and Play smart device to announce a model ID with a value of **"dtmi:AzureDeviceUpdate;1"** as part of the device connection. [Learn how to announce a model ID](../iot-pnp/concepts-developer-guide-device.md#model-id-announcement).
+Device Update for IoT Hub requires the IoT Plug and Play smart device to announce a model ID with a value of **"dtmi:AzureDeviceUpdate;1"** as part of the device connection. [Learn how to announce a model ID](../iot-develop/concepts-developer-guide-device.md#model-id-announcement).

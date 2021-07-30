@@ -16,13 +16,13 @@ ms.date: 04/07/2021
 - Owner
 - Manager
 
-Once you've [created a Partner Center account](./create-account.md), you can use the [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) to manage your account and offers.
+Once you've [created a Partner Center account](./create-account.md), you can use the [commercial marketplace dashboard](https://go.microsoft.com/fwlink/?linkid=2166002) to manage your account and offers.
 
 ## Access your account settings
 
-If you have not already done so, you (or your organization's administrator) should access the [account settings](https://partner.microsoft.com/dashboard/account/management) for your Partner Center account.
+If you have not already done so, you (or your organization's administrator) should access the [account settings](https://go.microsoft.com/fwlink/?linkid=2165291) for your Partner Center account.
 
-1. Sign in to the [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace) in Partner Center with the account you want to access. If you’re part of multiple accounts and have signed in with a different, you can [switch accounts](switch-accounts.md).
+1. Sign in to the [commercial marketplace dashboard](https://go.microsoft.com/fwlink/?linkid=2165290) in Partner Center with the account you want to access. If you’re part of multiple accounts and have signed in with a different, you can [switch accounts](switch-accounts.md).
 1. In the top-right, select **Settings** (gear icon), and then select **Account settings**.
 
     [ ![Screenshot of the account settings menu in Partner Center.](./media/manage-accounts/settings-account.png) ](./media/manage-accounts/settings-account.png#lightbox)
@@ -105,7 +105,7 @@ The **Agreements** page lets you view a list of the publishing agreements that y
 
 To access the Agreements page:
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165507).
 1. In the top-right, select **Settings** > **Account settings**.
 1. Under **Account settings**, select **Agreements**.
 
@@ -117,7 +117,7 @@ A payout profile is the bank account to which proceeds are sent from your sales.
 
 To set up your payout profile:
 
-1. Go to the [commercial marketplace overview page](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) in Partner Center.
+1. Go to the [commercial marketplace overview](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) page in Partner Center.
 2. In the **Profile** section, next to **Payout Profile**, select **Update**.
 3. **Choose a payment method**: Bank account or PayPal.
 4. **Add payment information**: This may include choosing an account type (checking or savings), entering the account holder name, account number, and routing number, billing address, phone number, or PayPal email address. For more information about using PayPal as your account payment method and to find out whether it is supported in your market or region, see [PayPal info](/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
@@ -174,7 +174,7 @@ The device management settings apply only to universal windows platform (UWP) pu
 
 ## Create a billing profile
 
-If you are publishing a [Dynamics 365 for Customer Engagement & Power Apps](dynamics-365-customer-engage-offer-setup.md) or [Dynamics 365 for Operations](./partner-center-portal/create-new-operations-offer.md) offer, you need to complete your *billing profile*.
+If you are publishing a [Dynamics 365 for Customer Engagement & Power Apps](dynamics-365-customer-engage-offer-setup.md) or [Dynamics 365 for Operations](./dynamics-365-operations-offer-setup.md) offer, you need to complete your *billing profile*.
 
 The billing address is pre-populated from your legal entity, and you can update this address later. The TAX and VAT ID fields are required for some countries and optional for others. The country/region name and company name cannot be edited.
 

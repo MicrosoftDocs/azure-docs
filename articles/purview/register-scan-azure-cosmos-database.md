@@ -47,7 +47,7 @@ When authentication method selected is **Account Key**, you need to get your acc
 To register a new Azure Cosmos Database (SQL API) account in your data catalog, do the following:
 
 1. Navigate to your Purview account
-1. Select **Sources** on the left navigation
+1. Select **Data Map** on the left navigation.
 1. Select **Register**
 1. On **Register sources**, select **Azure Cosmos DB (SQL API)**
 1. Select **Continue**
@@ -62,11 +62,38 @@ On the **Register sources (Azure Cosmos DB (SQL API))** screen, do the following
 4. Select a collection or create a new one (Optional).
 5. Select **Register** to register the data source.
 
-
 :::image type="content" source="media/register-scan-azure-cosmos-database/register-sources.png" alt-text="register sources options" border="true":::
 
 
-[!INCLUDE [create and manage scans](includes/manage-scans.md)]
+## Creating and running a scan
+
+To create and run a new scan, do the following:
+
+1. Select the **Data Map** tab on the left pane in the Purview Studio.
+
+1. Select the Azure Cosmos DB data source that you registered.
+
+1. Select **New scan**
+
+1. Select the credential to connect to your data source. 
+
+   :::image type="content" source="media/register-scan-azure-cosmos-database/set-up-scan-cosmos.png" alt-text="Set up scan":::
+
+1. You can scope your scan to specific databases by choosing the appropriate items in the list.
+
+   :::image type="content" source="media/register-scan-azure-cosmos-database/cosmos-database-scope-your-scan.png" alt-text="Scope your scan":::
+
+1. Then select a scan rule set. You can choose between the system default, existing custom rule sets, or create a new rule set inline.
+
+   :::image type="content" source="media/register-scan-azure-cosmos-database/select-scan-rule-set.png" alt-text="Scan rule set":::
+
+1. Choose your scan trigger. You can set up a schedule or run the scan once.
+
+   :::image type="content" source="media/register-scan-azure-cosmos-database/trigger-scan.png" alt-text="trigger":::
+
+1. Review your scan and select **Save and run**.
+
+[!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
 ## Next steps
 

@@ -75,14 +75,15 @@ Use the following procedure to view events:
 
 1. Select the workbook named *Access Package Activity*. 
 
-1. In that workbook, select a time range (change to **All** if not sure), and select an access package Id from the drop-down list of all access packages that had activity during that time range. The events related to the access package that occurred during the selected time range will be displayed.  
+1. In that workbook, select a time range (change to **All** if not sure), and select an access package ID from the drop-down list of all access packages that had activity during that time range. The events related to the access package that occurred during the selected time range will be displayed.
 
     ![View access package events](./media/entitlement-management-logs-and-reporting/view-events-access-package.png) 
 
-    Each row includes the time, access package Id, the name of the operation, the object Id, UPN, and the display name of the user who started the operation.  Additional details are included in JSON.   
+    Each row includes the time, access package ID, the name of the operation, the object ID, UPN, and the display name of the user who started the operation.  Additional details are included in JSON.
 
-1. If you would like to see if there have been changes to application role assignments for an application that were not due to access package assignments, such as by a global administrator directly assigning a user to an application roles, then you can select the workbook named *Application role assignment activity*.
+1. If you would like to see if there have been changes to application role assignments for an application that were not due to access package assignments, such as by a global administrator directly assigning a user to an application role, then you can select the workbook named *Application role assignment activity*.
 
+    ![View app role assignments](./media/entitlement-management-access-package-incompatible/workbook-ara.png)
 
 ## Create custom Azure Monitor queries using the Azure portal
 You can create your own queries on Azure AD audit events, including entitlement management events.  
@@ -109,7 +110,7 @@ If you would like to know the oldest and newest audit events held in Azure Monit
 AuditLogs | where TimeGenerated > ago(3653d) | summarize OldestAuditEvent=min(TimeGenerated), NewestAuditEvent=max(TimeGenerated) by Type
 ```
 
-For more information on the columns that are stored for audit events in Azure Monitor, see [Interpret the Azure AD audit logs schema in Azure Monitor](../reports-monitoring/reference-azure-monitor-audit-log-schema.md).
+For more information on the columns that are stored for audit events in Azure Monitor, see [Interpret the Azure AD audit logs schema in Azure Monitor](../reports-monitoring/overview-reports.md).
 
 ## Create custom Azure Monitor queries using Azure PowerShell
 
@@ -162,7 +163,7 @@ $subs | ft
  
 You can reauthenticate and associate your PowerShell session to that subscription using a command such as `Connect-AzAccount –Subscription $subs[0].id`. To learn more about how to authenticate to Azure from PowerShell, including non-interactively, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
-If you have multiple Log Analytics workspaces in that subscription, then the cmdlet [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) returns the list of workspaces. Then you can find the one that has the Azure AD logs. The `CustomerId` field returned by this cmdlet is the same as the value of the "Workspace Id" displayed in the Azure portal in the Log Analytics workspace overview.
+If you have multiple Log Analytics workspaces in that subscription, then the cmdlet [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) returns the list of workspaces. Then you can find the one that has the Azure AD logs. The `CustomerId` field returned by this cmdlet is the same as the value of the "Workspace ID" displayed in the Azure portal in the Log Analytics workspace overview.
  
 ```powershell
 $wks = Get-AzOperationalInsightsWorkspace

@@ -4,8 +4,8 @@ description: Configure IoT Edge Module offer listing details on Azure Marketplac
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: keferna
-ms.author: keferna
+author: aarathin
+ms.author: aarathin
 ms.date: 05/21/2021
 ---
 

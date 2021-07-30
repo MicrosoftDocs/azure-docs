@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/19/2021
+ms.date: 06/04/2021
 
 ms.author: mimart
 author: msmimart
@@ -55,7 +55,7 @@ By default, all users, including guests, can invite guest users.
 
    - **Anyone in the organization can invite guest users including guests and non-admins (most inclusive)**: To allow guests in the organization to invite other guests including those who are not members of an organization, select this radio button.
    - **Member users and users assigned to specific admin roles can invite guest users including guests with member permissions**: To allow member users and users who have specific administrator roles to invite guests, select this radio button.
-   - **Only users assigned to specific admin roles can invite guest users**: To allow only those users with certain administrator roles to invite guests, select this radio button.
+   - **Only users assigned to specific admin roles can invite guest users**: To allow only those users with administrator roles to invite guests, select this radio button. The administrator roles include [Global Administrator](../roles/permissions-reference.md#global-administrator), [User Administrator](../roles/permissions-reference.md#user-administrator), and [Guest Inviter](../roles/permissions-reference.md#guest-inviter).
    - **No one in the organization can invite guest users including admins (most restrictive)**: To deny everyone in the organization from inviting guests, select this radio button.
      > [!NOTE]
      > If **Members can invite** is set to **No** and **Admins and users in the guest inviter role can invite** is set to **Yes**, users in the **Guest Inviter** role will still be able to invite guests.
@@ -96,5 +96,4 @@ See the following articles on Azure AD B2B collaboration:
 
 - [What is Azure AD B2B collaboration?](what-is-b2b.md)
 - [Add B2B collaboration guest users without an invitation](add-user-without-invite.md)
-- [Adding a B2B collaboration user to a role](add-guest-to-role.md)
-
+- [Adding a B2B collaboration user to a role](./add-users-administrator.md)

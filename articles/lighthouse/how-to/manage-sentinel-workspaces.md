@@ -1,6 +1,6 @@
 ---
 title: Manage Azure Sentinel workspaces at scale
-description: Learn how to effectively manage Azure Sentinel on delegated customer resources.
+description: Azure Lighthouse helps you effectively manage Azure Sentinel across delegated customer resources.
 ms.date: 03/02/2021
 ms.topic: how-to
 ---

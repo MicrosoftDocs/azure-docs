@@ -202,6 +202,8 @@ The status of "Connected" means that at least one HCM is configured with that Hy
 * Does your host have outbound access to Azure on port 443? You can test from your HCM host using the PowerShell command *Test-NetConnection Destination -P Port* 
 * Is your HCM potentially in a bad state? Try restarting the ‘Azure Hybrid Connection Manager Service" local service.
 
+* Do you have conflicting software installed? Hybrid Connection Manager cannot coexist with Biztalk Hybrid Connection Manager or Service Bus for Windows Server. Hence when installing HCM, any versions of these packages should be removed first.
+
 If your status says **Connected** but your app cannot reach your endpoint then:
 
 * make sure you are using a DNS name in your Hybrid Connection. If you use an IP address then the required client DNS lookup may not happen. If the client running in your web app does not do a DNS lookup, then the Hybrid Connection will not work

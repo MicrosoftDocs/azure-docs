@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 04/21/2021
+ms.date: 06/01/2021
 ms.author: justinha
 author: justinha
 ms.reviewer: rhicock
@@ -47,7 +47,7 @@ To finish this tutorial, you need the following resources and privileges:
 Azure AD lets you enable SSPR for *None*, *Selected*, or *All* users. This granular ability lets you choose a subset of users to test the SSPR registration process and workflow. When you're comfortable with the process and the time is right to communicate the requirements with a broader set of users, you can select a group of users to enable for SSPR. Or, you can enable SSPR for everyone in the Azure AD tenant.
 
 > [!NOTE]
-> Currently, you can only enable one Azure AD group for SSPR using the Azure portal. As part of a wider deployment of SSPR, Azure AD supports nested groups. Make sure that the users in the group(s) you choose have the appropriate licenses assigned. There's currently no validation process of these licensing requirements.
+> Currently, you can only enable one Azure AD group for SSPR using the Azure portal. As part of a wider deployment of SSPR, Azure AD supports nested groups. 
 
 In this tutorial, set up SSPR for a set of users in a test group. Use the *SSPR-Test-Group* and provide your own Azure AD group as needed:
 

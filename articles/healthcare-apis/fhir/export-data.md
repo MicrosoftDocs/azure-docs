@@ -80,7 +80,7 @@ This option provides two different configurations depending on whether the stora
 Select a storage account from the Azure portal, and then select the **Networking** blade. Select **Selected networks** under the **Firewalls and virtual networks** tab.
 
 > [!IMPORTANT]
-> Ensure that you’ve granted access permission to the storage account for Azure API for FHIR using its managed identity. For more details, see [Configure export setting and set up the storage account](https://docs.microsoft.com/azure/healthcare-apis/fhir/configure-export-data).
+> Ensure that you’ve granted access permission to the storage account for Azure API for FHIR using its managed identity. For more details, see [Configure export setting and set up the storage account](./configure-export-data.md).
 
   :::image type="content" source="media/export-data/storage-networking.png" alt-text="Azure Storage Networking Settings." lightbox="media/export-data/storage-networking.png":::
 
@@ -128,7 +128,7 @@ Azure API for FHIR service is provisioned.
 | West US 2            | 40.64.135.77      |
 
 > [!NOTE]
-> The above steps are similar to the configuration steps described in the document How to convert data to FHIR (Preview). For more information, see [Host and use templates](https://docs.microsoft.com/azure/healthcare-apis/fhir/convert-data#host-and-use-templates)
+> The above steps are similar to the configuration steps described in the document How to convert data to FHIR (Preview). For more information, see [Host and use templates](./convert-data.md#host-and-use-templates)
 
 ### Allowing specific IP addresses for the Azure storage account in the same region
 

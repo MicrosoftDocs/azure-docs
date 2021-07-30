@@ -30,7 +30,7 @@ For a list of the Azure network layer alerts, see the [Reference table of alerts
 >
 > 1. From Security Center's menu, select **Pricing & settings**.
 > 1. Select the subscription you want to change.
-> 1. Select **Threat detection**.
+> 1. Select **Integrations**.
 > 1. Clear **Allow Microsoft Cloud App Security to access my data**, and select **Save**.
 
 

@@ -22,10 +22,6 @@ The Azure SQL Database Managed Instance data source supports the following funct
 
 - **Lineage** between data assets for ADF copy and dataflow activities.
 
-### Known limitations
-
-Azure Purview doesn't support scanning of [views](/sql/relational-databases/views/views?view=azuresqldb-mi-current&preserve-view=true) in Azure SQL Managed Instance.
-
 ## Prerequisites
 
 - Create a new Purview account if you don't already have one.
@@ -105,9 +101,9 @@ It is required to get the service principal's application ID and secret:
 
 1. Navigate to your Purview account.
 
-1. Select **Sources** on the left navigation.
+1. Select **Data Map** on the left navigation.
 
-1. Select **Register**.
+1. Select **Register**
 
 1. Select **Azure SQL Database Managed Instance** and then **Continue**.
 
@@ -121,7 +117,35 @@ It is required to get the service principal's application ID and secret:
 
     E.g. `foobar.public.123.database.windows.net,3342`
 
-[!INCLUDE [create and manage scans](includes/manage-scans.md)]
+## Creating and running a scan
+
+To create and run a new scan, do the following:
+
+1. Select the **Data Map** tab on the left pane in the Purview Studio.
+
+1. Select the Azure SQL Database Managed Instance source that you registered.
+
+1. Select **New scan**
+
+1. Select the credential to connect to your data source.
+
+   :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/set-up-scan-sql-mi.png" alt-text="Set up scan":::
+
+1. You can scope your scan to specific tables by choosing the appropriate items in the list.
+
+   :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/scope-your-scan.png" alt-text="Scope your scan":::
+
+1. Then select a scan rule set. You can choose between the system default, existing custom rule sets, or create a new rule set inline.
+
+   :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/scan-rule-set.png" alt-text="Scan rule set":::
+
+1. Choose your scan trigger. You can set up a schedule or run the scan once.
+
+   :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/trigger-scan.png" alt-text="trigger":::
+
+1. Review your scan and select **Save and run**.
+
+[!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
 > [!NOTE]
 > Deleting your scan does not delete your assets from previous Azure SQL Database Managed Instance scans.

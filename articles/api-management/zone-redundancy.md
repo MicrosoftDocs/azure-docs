@@ -5,7 +5,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 05/07/2021
+ms.date: 07/08/2021
 ms.author: apimpm
 ms.custom: references_regions
 
@@ -33,6 +33,7 @@ Configuring API Management for zone redundancy is currently supported in the fol
 * France Central
 * Japan East
 * North Europe
+* South Africa North
 * South Central US
 * Southeast Asia
 * UK South
@@ -67,6 +68,6 @@ In the portal, optionally enable zone redundancy when you add a location to your
 ## Next steps
 
 * Learn more about [deploying an Azure API Management service instance to multiple Azure regions](api-management-howto-deploy-multi-region.md).
-* You can also enable zone redundancy using an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-api-management-simple-zones).
+* You can also enable zone redundancy using an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-simple-zones).
 * Learn more about [Azure services that support availability zones](../availability-zones/az-region.md).
-* Learn more about building for [reliability](/azure/architecture/framework/resiliency/overview) in Azure.
+* Learn more about building for [reliability](/azure/architecture/framework/resiliency/app-design) in Azure.

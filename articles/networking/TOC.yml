@@ -146,7 +146,7 @@
 - name: Resources
   items:
   - name: Author templates
-    href: ../azure-resource-manager/templates/template-syntax.md?toc=%2fazure%2fnetworking%2ftoc.json
+    href: ../azure-resource-manager/templates/syntax.md?toc=%2fazure%2fnetworking%2ftoc.json
   - name: Providers
     href: networking-partners-msp.md
   - name: Azure Roadmap

@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 07/29/2021
 ms.author: cherylmc
 
 ---
@@ -67,13 +67,13 @@ In this section, you generate and download the configuration profile files. Thes
 
 ## <a name="clients"></a>Configure VPN clients
 
-Use the downloaded profile to configure the remote access clients. The procedure for each operating system is different, follow the instructions that apply to your system.
+Use the downloaded profile to configure the remote access clients. The procedure for each operating system is different, follow the instructions that apply to your system. The following instructions are for Windows VPN clients.
 
 [!INCLUDE [Configure clients](../../includes/virtual-wan-p2s-configure-clients-include.md)]
 
 ## <a name="connect-spoke"></a>Connect the spoke VNet
 
-In this section, you attach the spoke virtual network to the virtual WAN hub.
+In this section, you create a connection between your hub and the spoke VNet.
 
 [!INCLUDE [Connect spoke virtual network](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 

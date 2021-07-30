@@ -68,7 +68,7 @@ This quickstart uses an Azure Storage account, which includes a container with a
 
 ## Create a data factory
 
-To create an Azure data factory, run the [az datafactory factory create](/cli/azure/datafactory/factory#az_datafactory_factory_create) command:
+To create an Azure data factory, run the [az datafactory factory create](/cli/azure/datafactory#az_datafactory_create) command:
 
 ```azurecli
 az datafactory factory create --resource-group ADFQuickStartRG \
@@ -78,7 +78,7 @@ az datafactory factory create --resource-group ADFQuickStartRG \
 > [!IMPORTANT]
 > Replace `ADFTutorialFactory` with a globally unique data factory name, for example, ADFTutorialFactorySP1127.
 
-You can see the data factory that you created by using the [az datafactory factory show](/cli/azure/datafactory/factory#az_datafactory_factory_show) command:
+You can see the data factory that you created by using the [az datafactory factory show](/cli/azure/datafactory#az_datafactory_factory_show) command:
 
 ```azurecli
 az datafactory factory show --resource-group ADFQuickStartRG \
@@ -89,7 +89,7 @@ az datafactory factory show --resource-group ADFQuickStartRG \
 
 Next, create a linked service and two datasets.
 
-1. Get the connection string for your storage account by using the [az storage account show-connection-string](/cli/azure/datafactory/factory#az_datafactory_factory_show) command:
+1. Get the connection string for your storage account by using the [az storage account show-connection-string](/cli/azure/datafactory#az_datafactory_factory_show) command:
 
    ```azurecli
    az storage account show-connection-string --resource-group ADFQuickStartRG \

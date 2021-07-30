@@ -1,8 +1,8 @@
 ---
 title:  "Expose applications to the Internet using Application Gateway and Azure Firewall"
 description: How to expose applications to Internet using Application Gateway and Azure Firewall
-author:  MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/17/2020
@@ -19,7 +19,7 @@ This document explains how to expose applications to the Internet using Applicat
 
 ## Define variables
 
-Define variables for the resource group and virtual network you created as directed in [Deploy Azure Spring Cloud in Azure virtual network (VNet injection)](./how-to-deploy-in-azure-virtual-network.md). Customize the values based on your real environment.
+Define variables for the resource group and virtual network you created as directed in [Deploy Azure Spring Cloud in Azure virtual network (VNet injection)](./how-to-deploy-in-azure-virtual-network.md). Customize the values based on your real environment.  When you define SPRING_APP_PRIVATE_FQDN, remove 'https' from the uri.
 
 ```
 SUBSCRIPTION='subscription-id'
@@ -104,7 +104,7 @@ az network application-gateway rewrite-rule create \
     --resource-group ${RESOURCE_GROUP} \
     --rule-set-name ${APPLICATION_GATEWAY_REWRITE_SET_NAME} \
     --name ${APPLICATION_GATEWAY_REWRITE_RULE_NAME} \
-    --request-headers X-Forwarded-Proto=""
+    --request-headers X-Forwarded-Proto="https"
 az network application-gateway rule update \
     --gateway-name ${APPLICATION_GATEWAY_NAME} \
     --resource-group ${RESOURCE_GROUP} \

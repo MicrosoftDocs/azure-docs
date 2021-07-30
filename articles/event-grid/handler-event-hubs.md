@@ -18,7 +18,7 @@ See the following examples:
 | [Quickstart: Route custom events to Azure Event Hubs with Azure CLI](custom-event-to-eventhub.md) | Sends a custom event to an event hub for processing by an application. |
 | [Resource Manager template: Create an Event Grid custom topic and send events to an event hub](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventgrid/event-grid-event-hubs-handler)| A Resource Manager template that creates a subscription for a custom topic. It sends events to an Azure Event Hubs. |
 
-[!INCLUDE [event-grid-message-headers](../../includes/event-grid-message-headers.md)]
+[!INCLUDE [event-grid-message-headers](./includes/event-grid-message-headers.md)]
 
 
 ## REST examples (for PUT)

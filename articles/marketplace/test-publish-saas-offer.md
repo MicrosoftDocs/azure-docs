@@ -48,7 +48,7 @@ Use the following steps to preview your offer.
 
 1. To validate the end-to-end purchase and setup flow, purchase the plans in your offer while it's in preview. First, notify Microsoft with a [support ticket](https://aka.ms/marketplacesupport) to ensure we don't process a charge.
 
-1. If your SaaS offer supports [metered billing using the commercial marketplace metering service](./partner-center-portal/saas-metered-billing.md), review and follow the testing best practices detailed in [Marketplace metered billing APIs](./partner-center-portal/marketplace-metering-service-apis.md#development-and-testing-best-practices).
+1. If your SaaS offer supports [metered billing using the commercial marketplace metering service](./partner-center-portal/saas-metered-billing.md), review and follow the testing best practices detailed in [Marketplace metered billing APIs](marketplace-metering-service-apis.md#development-and-testing-best-practices).
 
 1. Review and follow the testing instructions in [SaaS fulfillment APIs version 2 in the Microsoft commercial marketplace](./partner-center-portal/pc-saas-fulfillment-api-v2.md#development-and-testing) to ensure your offer is successfully integrated with the APIs before you publish your offer live.
 
@@ -69,4 +69,4 @@ After these validation checks are complete, your offer will be live in the marke
 
 ## Next steps
 
-- [Access analytic reports for the commercial marketplace in Partner Center](./partner-center-portal/analytics.md)
+- [Access analytic reports for the commercial marketplace in Partner Center](analytics.md)

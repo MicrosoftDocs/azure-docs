@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 04/02/2021
+ms.date: 07/15/2021
 ms.author: victorh
 ---
 
@@ -30,7 +30,7 @@ Azure Firewall includes the following features:
 - Multiple public IP addresses
 - Azure Monitor logging
 - Forced tunneling
-- Web categories (preview)
+- Web categories
 - Certifications
 
 ## Built-in high availability
@@ -54,7 +54,7 @@ For more information about Availability Zones, see [Regions and Availability Zon
 
 ## Unrestricted cloud scalability
 
-Azure Firewall can scale up as much as you need  to accommodate changing network traffic flows, so you don't need to budget for your peak traffic.
+Azure Firewall can scale out as much as you need  to accommodate changing network traffic flows, so you don't need to budget for your peak traffic.
 
 ## Application FQDN filtering rules
 
@@ -109,9 +109,9 @@ Azure Firewall Workbook provides a flexible canvas for Azure Firewall data analy
 
 You can configure Azure Firewall to route all Internet-bound traffic to a designated next hop instead of going directly to the Internet. For example, you may have an on-premises edge firewall or other network virtual appliance (NVA) to process network traffic before it's passed to the Internet. For more information, see [Azure Firewall forced tunneling](forced-tunneling.md).
 
-## Web categories (preview)
+## Web categories
 
-Web categories lets administrators allow or deny user access to web site categories such as gambling websites, social media websites, and others. Web categories are included in Azure Firewall Standard, but it's more fine-tuned in Azure Firewall Premium Preview. As opposed to the Web categories capability in the Standard SKU that matches the category based on an FQDN, the Premium SKU matches the category according to the entire URL for both HTTP and HTTPS traffic. For more information about Azure Firewall Premium Preview, see [Azure Firewall Premium Preview features](premium-features.md).
+Web categories lets administrators allow or deny user access to web site categories such as gambling websites, social media websites, and others. Web categories are included in Azure Firewall Standard, but it's more fine-tuned in Azure Firewall Premium. As opposed to the Web categories capability in the Standard SKU that matches the category based on an FQDN, the Premium SKU matches the category according to the entire URL for both HTTP and HTTPS traffic. For more information about Azure Firewall Premium, see [Azure Firewall Premium features](premium-features.md).
 
 For example, if Azure Firewall intercepts an HTTPS request for `www.google.com/news`, the following categorization is expected: 
 
@@ -120,18 +120,6 @@ For example, if Azure Firewall intercepts an HTTPS request for `www.google.com/n
 - Firewall Premium – the complete URL will be examined, so `www.google.com/news` will be categorized as *News*.
 
 The categories are organized based on severity under **Liability**, **High-Bandwidth**, **Business Use**, **Productivity Loss**, **General Surfing**, and **Uncategorized**.
-
-### Categorization change
-
-You can request a categorization change if you:
-
- - think an FQDN or URL should be under a different category 
- 
-or 
-
-- have a suggested category for an uncategorized FQDN or URL
-
-You're welcome to submit a request at [https://aka.ms/azfw-webcategories-request](https://aka.ms/azfw-webcategories-request).
 
 ### Category exceptions
 
@@ -145,4 +133,4 @@ Azure Firewall is Payment Card Industry (PCI), Service Organization Controls (SO
 
 ## Next steps
 
-- [Azure Firewall Premium Preview features](premium-features.md)
+- [Azure Firewall Premium features](premium-features.md)

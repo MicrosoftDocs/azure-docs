@@ -45,7 +45,7 @@ Most browser Developer Tools have a "Network" tab that allows you to capture net
 
 ### Microsoft Edge (Chromium)
 
-1. Open the [DevTools](https://docs.microsoft.com/microsoft-edge/devtools-guide-chromium/)
+1. Open the [DevTools](/microsoft-edge/devtools-guide-chromium/)
     * Select `F12` 
     * Select `Ctrl`+`Shift`+`I` \(Windows/Linux\) or `Command`+`Option`+`I` \(macOS\)
     * Select `Settings and more` and then `More Tools > Developer Tools`  

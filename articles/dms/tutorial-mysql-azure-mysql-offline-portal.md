@@ -19,12 +19,12 @@ ms.date: 04/11/2021
 You can use Azure Database Migration Service to perform a one-time full database migration on-premises MySQL instance to [Azure Database for MySQL](../mysql/index.yml) with high speed data migration capability. In this tutorial, we will migrate a sample database from an on-premises instance of MySQL 5.7 to Azure Database for MySQL (v5.7) by using an offline migration activity in Azure Database Migration Service. Although the articles assumes the source to be a MySQL database instance and target to be Azure Database for MySQL, it can be used to migrate from one Azure Database for MySQL to another just by changing the source server name and credentials. Also, migration from lower version MySQL servers (v5.6 and above) to higher versions is also supported.
 
 > [!IMPORTANT]
-> For online migrations, you can use open-source tools such as [MyDumper/MyLoader](https://centminmod.com/mydumper.html) with [data-in replication](/azure/mysql/concepts-data-in-replication). 
+> For online migrations, you can use open-source tools such as [MyDumper/MyLoader](https://centminmod.com/mydumper.html) with [data-in replication](../mysql/concepts-data-in-replication.md). 
 
 [!INCLUDE [preview features callout](../../includes/dms-boilerplate-preview.md)]
 
 > [!NOTE]
-> For a PowerShell-based scriptable version of this migration experience, see [scriptable offline migration to Azure Database for MySQL](https://docs.microsoft.com/azure/dms/migrate-mysql-to-azure-mysql-powershell).
+> For a PowerShell-based scriptable version of this migration experience, see [scriptable offline migration to Azure Database for MySQL](./migrate-mysql-to-azure-mysql-powershell.md).
 
 > [!NOTE]
 > Amazon Relational Database Service (RDS) for MySQL and Amazon Aurora (MySQL-based) are also supported as sources for migration.
@@ -45,6 +45,7 @@ To complete this tutorial, you need to:
 
 * Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 * Have an on-premises MySQL database with version 5.7. If not, then download and install [MySQL community edition](https://dev.mysql.com/downloads/mysql/) 5.7.
+* The MySQL Offline migration is supported only on the Premium DMS SKU.
 * [Create an instance in Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-portal.md). Refer to the article [Use MySQL Workbench to connect and query data](../mysql/connect-workbench.md) for details about how to connect and create a database using the Workbench application. The Azure Database for MySQL version should be equal to or higher than the on-premises MySQL version . For example, MySQL 5.7 can migrate to Azure Database for MySQL 5.7 or upgraded to 8. 
 * Create a Microsoft Azure Virtual Network for Azure Database Migration Service by using Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](../expressroute/expressroute-introduction.md) or [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). For more information about creating a virtual network, see the [Virtual Network Documentation](../virtual-network/index.yml), and especially the quickstart articles with step-by-step details.
 
@@ -126,19 +127,7 @@ GROUP BY SchemaName
 
 Run the generated drop trigger query (DropQuery column) in the result to drop triggers in the target database. The add trigger query can be saved, to be used post data migration completion.
 
-## Register the Microsoft.DataMigration resource provider
-
-Registration of the resource provider needs to be done on each Azure subscription only once. Without the registration, you will not be able to create an instance of **Azure Database Migration Service**.
-
-1. Sign in to the Azure portal, select **All services**, and then select **Subscriptions**.
-
-   ![Show portal subscriptions](media/tutorial-mysql-to-azure-mysql-offline-portal/01-dms-portal-select-subscription.png)
-
-2. Select the subscription in which you want to create the instance of Azure Database Migration Service, and then select **Resource providers**.
-
-3. Search for migration, and then to the right of **Microsoft.DataMigration**, select **Register**.
-
-    ![Register resource provider](media/tutorial-mysql-to-azure-mysql-offline-portal/02-dms-portal-register-rp.png)
+[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]
 
 ## Create a Database Migration Service instance
 
@@ -152,7 +141,7 @@ Registration of the resource provider needs to be done on each Azure subscriptio
   
 3. On the **Create Migration Service** screen, specify a name for the service, the subscription, and a new or existing resource group.
 
-4. Select a pricing tier and move to the networking screen. Offline migration capability is available in both Standard and Premium pricing tier.
+4. Select a pricing tier and move to the networking screen. Offline migration capability is available only on the Premium pricing tier.
 
     For more information on costs and pricing tiers, see the [pricing page](https://aka.ms/dms-pricing).
 
@@ -199,7 +188,7 @@ After the service is created, locate it within the Azure portal, open it, and th
 
     ![Add target details screen](media/tutorial-mysql-to-azure-mysql-offline-portal/11-dms-portal-project-mysql-target.png)
 
-3. On the **Select databases** screen, map the source and the target database for migration, and select **Next : Configure migration settings>>**. You can select the **Make Source Server Readonly** option to make the source as read-only, but be cautious that this is a server level setting. If selected, it sets the entire server to read-only, not just the selected databases.
+3. On the **Select databases** screen, map the source and the target database for migration, and select **Next : Configure migration settings>>**. You can select the **Make Source Server Read Only** option to make the source as read-only, but be cautious that this is a server level setting. If selected, it sets the entire server to read-only, not just the selected databases.
     
     If the target database contains the same database name as the source database, Azure Database Migration Service selects the target database by default.
     ![Select database details screen](media/tutorial-mysql-to-azure-mysql-offline-portal/12-dms-portal-project-mysql-select-db.png)

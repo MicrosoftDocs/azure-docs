@@ -4,7 +4,7 @@ titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you'll learn how to add PSTN calling capabilities to your app using Azure Communication Services.
 author: nikuklic
 ms.author: nikuklic
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
@@ -15,15 +15,15 @@ zone_pivot_groups: acs-plat-web-ios-android
 Get started with Azure Communication Services by using the Communication Services Calling SDK to add PSTN calling to your app.
 
 ::: zone pivot="platform-web"
-[!INCLUDE [Calling with JavaScript](./includes/pstn-call-js.md)]
+[!INCLUDE [Calling with JavaScript](./includes/pstn/pstn-call-js.md)]
 ::: zone-end
 
 ::: zone pivot="platform-android"
-[!INCLUDE [Calling with Android](./includes/pstn-call-android.md)]
+[!INCLUDE [Calling with Android](./includes/pstn/pstn-call-android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [Calling with iOS](./includes/pstn-call-ios.md)]
+[!INCLUDE [Calling with iOS](./includes/pstn/pstn-call-ios.md)]
 ::: zone-end
 
 ## Clean up resources

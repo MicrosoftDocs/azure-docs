@@ -1,12 +1,12 @@
 ---
 title: Configure export settings in Azure API for FHIR
 description: This article describes how to configure export settings in Azure API for FHIR
-author: matjazl
+author: CaitlinV39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 5/11/2021
-ms.author: matjazl
+ms.author: cavoeg
 ---
 
 # Configure export setting and set up the storage account
@@ -37,7 +37,7 @@ After you've created a storage account, go to the **Access Control (IAM)** in th
 
 For more information about assigning roles in the Azure portal, see [Azure built-in roles](../../role-based-access-control/role-assignments-portal.md).
 
-It is here that you'll add the role [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) to our service name, and then select **Save**.
+It is here that you'll add the role [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) to our service name, and then select **Save**.
 
 ![Add role assignment page](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 

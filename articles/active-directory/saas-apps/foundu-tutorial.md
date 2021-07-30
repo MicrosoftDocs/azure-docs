@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/20/2021
+ms.date: 05/27/2021
 ms.author: jeedes
 
 ---
@@ -128,7 +128,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Perform the following steps in the **Single Sign-on Settings** page.
 
-    ![Screenshot for foundU sso configuration](./media/foundu-tutorial/configuration.png)
+    ![Screenshot for foundU sso configuration](./media/foundu-tutorial/configuration-1.png)
 
     a. Copy **Identifier(Entity ID)** value, paste this value into the **Identifier** text box in the **Basic SAML Configuration section** in the Azure portal.
 

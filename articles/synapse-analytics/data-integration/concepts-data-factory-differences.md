@@ -28,7 +28,7 @@ Check below table for features availability:
 |                          | Time to Live | ✓ | ✗ |
 | **Pipelines Activities** | SSIS Package Activity | ✓ | ✗ |
 |                          | Support for Power Query Activity | ✓ | ✗ |
-| **Template Gallery and Knowledge Center** | Solution Templates | ✓<br><small>*Azure Data Factory Template Gallery* | ✓<br><small>*Synapse Workspace Knowledge Center* |
+| **Template Gallery and Knowledge center** | Solution Templates | ✓<br><small>*Azure Data Factory Template Gallery* | ✓<br><small>*Synapse Workspace Knowledge center* |
 | **GIT Repository Integration** | GIT Integration | ✓ | ✓ |
 | **Monitoring**           | Monitoring of Spark Jobs for Data Flow | ✗ | ✓<br><small>*Leverage the Synapse Spark pools* |
 |                          | Integration with Azure Monitor | ✓ | ✗ |

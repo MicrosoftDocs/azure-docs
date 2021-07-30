@@ -318,7 +318,7 @@ Here are some examples of NCRONTAB expressions you can use for the timer trigger
 | `0 30 9 * Jan Mon` | at 9:30 AM every Monday in January |
 
 > [!NOTE]
-> NCRONTAB expression require a **six field** format. The sixth field position is a value for seconds which is placed at the beginning of the expression. Five field cron expressions are not supported in Azure.
+> NCRONTAB expression supports both **five field** and **six field** format. The sixth field position is a value for seconds which is placed at the beginning of the expression.
 
 ### NCRONTAB time zones
 

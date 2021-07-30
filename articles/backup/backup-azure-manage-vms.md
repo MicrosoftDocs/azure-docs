@@ -2,7 +2,7 @@
 title: Manage and monitor Azure VM backups
 description: Learn how to manage and monitor Azure VM backups by using the Azure Backup service.
 ms.topic: conceptual
-ms.date: 08/02/2020
+ms.date: 07/27/2021
 ---
 # Manage Azure VM backups with Azure Backup service
 
@@ -15,7 +15,7 @@ In the Azure portal, the Recovery Services vault dashboard provides access to va
 * The total size of all backup snapshots.
 * The number of VMs that are enabled for backups.
 
-You can manage backups by using the dashboard and by drilling down to individual VMs. To begin machine backups, open the vault on the dashboard.
+You can manage backups by using the dashboard and by drilling down to individual VMs. To begin machine backups, open the vault on the dashboard:
 
 ![Full dashboard view with slider](./media/backup-azure-manage-vms/bottom-slider.png)
 
@@ -134,6 +134,10 @@ A notification lets you know that the backup jobs have been stopped.
 ### Stop protection and delete backup data
 
 To stop protection and delete data of a VM:
+
+>[!Note]
+>For recovery points in archive that haven't stayed for a duration of 180 days in Archive Tier, deletion of those recovery points lead to early deletion cost. [Learn more](/azure/storage/blobs/storage-blob-storage-tiers#cool-and-archive-early-deletion).
+
 
 1. On the [vault item's dashboard](#view-vms-on-the-dashboard), select **Stop backup**.
 2. Choose **Delete Backup Data**, and confirm your selection as needed. Enter the name of the backup item and add a comment if you want.

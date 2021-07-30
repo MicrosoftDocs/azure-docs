@@ -71,6 +71,10 @@ You can also choose to automate these steps to configure this setting for multip
 
 [Learn more on managing default network access rules for Azure Storage using PowerShell and CLI](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#powershell)
 
+## Network isolation for an existing lab
+
+As a lab owner, you can choose to isolate the network for an existing lab. [This sample script](https://github.com/Azure/azure-devtestlab/blob/master/Tools/ConvertDtlLabToIsolatedNetwork/Convert-DtlLabToIsolatedNetwork.ps1) demonstrates how to convert an existing lab and associated lab resources to an isolated network mode. 
+
 ## Things to remember while using a lab in a network isolated mode
 
 ### Accessing lab's storage account outside the lab 

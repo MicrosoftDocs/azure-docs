@@ -32,15 +32,15 @@ For more information, see [Azure Object Anchors overview](overview.md).
 
 **Q: What are the maximum object dimensions that can be processed for model conversion?**
 
-**A:** Each dimension of a CAD model should be less than 10 meters.
+**A:** Each dimension of a CAD model should be less than 10 meters. For more information, see [Asset Requirements](overview.md).
 
 **Q: What is the maximum CAD model size that can be processed for conversion?**
 
-**A:** The model file size should be less than 150 MB.
+**A:** The model file size should be less than 150 MB. For more information, see [Asset Requirements](overview.md).
 
 **Q: What are the supported CAD formats?**
 
-**A:** We currently support `fbx`, `ply`, `obj`, `glb`, and `gltf` file types.
+**A:** We currently support `fbx`, `ply`, `obj`, `glb`, and `gltf` file types. For more information, see [Asset Requirements](overview.md).
 
 **Q: What is the gravity direction and unit required by the model conversion service? How can we figure them out?**
 
@@ -61,7 +61,7 @@ The unit represents the unit of measurement of the model. Supported units can be
 
 **Q: What devices does Object Anchors support?**
 
-**A:** HoloLens 2 
+**A:** HoloLens 2.
 
 **Q: Which OS build should my HoloLens run?**
 
@@ -88,13 +88,17 @@ For smaller objects within 2 meters in each dimension, detection can occur withi
  8. Start object detection and visualize the rendering based on estimated pose.
  9. Lock detected object or stop tracking once the pose is stable and accurate to preserve battery life.
 
+**Q: Which version of the Mixed Reality Toolkit (MRTK) should my HoloLens Unity application use to be able to work with the Object Anchors Unity SDK?**
+
+**A:** The Azure Object Anchors Unity SDK doesn't depend on the Mixed Reality Toolkit in any way, which means you are free to use any version you like. For more information, see [Introducing MRTK for Unity](/windows/mixed-reality/develop/unity/mrtk-getting-started).
+
 **Q: How accurate is an estimated pose?**
 
 **A:** It depends on object size, material, environment, etc. For small objects, the estimated pose can be within 2 cm error. For large objects, like a car, the error can be up to 2-8 cm.
 
 **Q: Can Object Anchors handle moving objects?**
 
-**A:** We don't support **continuously moving** or **dynamic** objects.
+**A:** We don't support **continuously moving** or **dynamic** objects. We do support objects in an entirely new position in the space once they have been physically moved there, but cannot track it while it is being moved.
 
 **Q: Can Object Anchors handle deformation or articulations?**
 
@@ -102,7 +106,7 @@ For smaller objects within 2 meters in each dimension, detection can occur withi
 
 **Q: How many different objects can Object Anchors detect at the same time?**
 
-**A:** We currently support detecting a single object model at a time. 
+**A:** We currently support detecting a single object model at a time.
 
 **Q: Can Object Anchors detect multiple instances of the same object model?**
 
@@ -114,10 +118,11 @@ For smaller objects within 2 meters in each dimension, detection can occur withi
 
 * Ensure the room has enough textures by adding a few posters.
 * Scan the object more completely.
-* Adjust the model parameters as described above.
+* Adjust the model parameters as described below.
 * Provide a tight bounding box as search area that includes all or most of the object.
 * Clear spatial mapping cache and rescan the object.
 * Capture diagnostics and send the data to us.
+* Adjust the `MinSurfaceCoverage` property from the `ObjectQuery` class. For more information, see [How to detect a difficult object](detect-difficult-object.md).
 
 **Q: How to choose object query parameters?**
 
@@ -127,6 +132,7 @@ For smaller objects within 2 meters in each dimension, detection can occur withi
 * Default `ObjectQuery.MinSurfaceCoverage` from object model usually is good, otherwise use a smaller value to get a quicker detection.
 * Use a small value for `ObjectQuery.ExpectedMaxVerticalOrientationInDegrees` if object is expected to be up-right.
 * An app should always use a `1:1` object model for detection. The estimated scale should be close to 1 ideally within 1% error. An app could set `ObjectQuery.MaxScaleChange` to `0` or `0.1` to disable or enable scale estimation, and qualitatively evaluate the instance pose.
+* For more information, see [How to detect a difficult object](detect-difficult-object.md).
 
 **Q: How do I get Object Anchors diagnostics data from the HoloLens?**
 

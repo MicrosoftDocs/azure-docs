@@ -3,7 +3,6 @@ title: Index data using Power Query connectors (preview)
 titleSuffix: Azure Cognitive Search
 description: Import data from different data sources using the Power Query connectors.
 
-manager: luisca
 author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
@@ -17,7 +16,7 @@ ms.custom: references_regions
 > [!IMPORTANT] 
 > Power Query connector support is currently in a **gated public preview**. [Sign up](https://aka.ms/azure-cognitive-search/indexer-preview) to request access.
 
-If you are using an indexer to crawl external data sources for indexing, you can now use select [Power Query](https://docs.microsoft.com/power-query/power-query-what-is-power-query) connectors for your data source connection in Azure Cognitive Search.
+If you are using an indexer to crawl external data sources for indexing, you can now use select [Power Query](/power-query/power-query-what-is-power-query) connectors for your data source connection in Azure Cognitive Search.
 
 Power Query connectors can reach a broader range of data sources, including those on other cloud providers. New data sources supported in this preview include:
 
@@ -44,11 +43,15 @@ Before you start pulling data from one of the supported data sources, you'll wan
 + Azure Cognitive Search service
     + Azure Cognitive Search service set up in a [supported region](search-how-to-index-power-query-data-sources.md#regional-availability).
     + Ensure that the Azure Cognitive Search team has enabled your search service for the preview. You can sign up for the preview by filling out [this form](https://aka.ms/azure-cognitive-search/indexer-preview). 
-+ Azure Blob storage account
-    + A Blob storage account is required for the preview to be used as an intermediary for your data. The data will flow from your data source, then to Blob storage, then to the index. This requirement only exists with the initial gated preview.
++ Azure Blob Storage account
+    + A Blob Storage account is required for the preview to be used as an intermediary for your data. The data will flow from your data source, then to Blob Storage, then to the index. This requirement only exists with the initial gated preview.
 
 ## Getting started using the Azure portal
 The Azure portal provides support for the Power Query connectors. By sampling data and reading metadata on the container, the Import data wizard in Azure Cognitive Search can create a default index, map source fields to target index fields, and load the index in a single operation. Depending on the size and complexity of source data, you could have an operational full text search index in minutes.
+
+ The following video shows how to set up a Power Query connector in Azure Cognitive Search.
+ 
+> [!VIDEO https://www.youtube.com/embed/uy-l4xFX1EE]
 
 ### Step 1 – Prepare source data
 Make sure your data source contains data. The Import data wizard reads metadata and performs data sampling to infer an index schema, but it also loads data from your data source. If the data is missing, the wizard will stop and return and error. 
@@ -69,9 +72,9 @@ Once you've selected your data source, select **Next: Configure your data** to m
 ### Step 4 – Configure your data
 Once you've selected your data source, you'll configure your connection. Each data source will require different information. For a few data sources, the Power Query documentation provides additional details on how to connect to your data. 
 
-+ [PostgreSQL](https://docs.microsoft.com/power-query/connectors/postgresql)
-+ [Salesforce Objects](https://docs.microsoft.com/power-query/connectors/salesforceobjects)
-+ [Salesforce Reports](https://docs.microsoft.com/power-query/connectors/salesforcereports)
++ [PostgreSQL](/power-query/connectors/postgresql)
++ [Salesforce Objects](/power-query/connectors/salesforceobjects)
++ [Salesforce Reports](/power-query/connectors/salesforcereports)
 
 Once you've provided your connection credentials, select **Next**.
 
@@ -89,7 +92,7 @@ It's not required that you transform your data before importing it into Azure Co
 
 ![Transform your data](./media/search-power-query-connectors/power-query-transform-your-data.png "Transform your data") 
 
-For more information about transforming data with Power Query, look at [Using Power Query in Power BI Desktop](https://docs.microsoft.com/power-query/power-query-quickstart-using-power-bi). 
+For more information about transforming data with Power Query, look at [Using Power Query in Power BI Desktop](/power-query/power-query-quickstart-using-power-bi). 
 
 Once you're done transforming your data, select **Next**.
 

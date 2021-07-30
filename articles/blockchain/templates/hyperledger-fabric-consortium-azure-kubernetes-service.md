@@ -16,6 +16,11 @@ After reading this article, you will:
 - Have a working knowledge of Hyperledger Fabric and the components that form the building blocks of a Hyperledger Fabric blockchain network.
 - Know how to deploy and configure a Hyperledger Fabric consortium network on Azure Kubernetes Service for your production scenarios.
 
+>[!IMPORTANT] 
+>
+>The template supports Azure Kubernetes Service version 1.18.x and below only. Due to the recent [update in Kubernetes](https://kubernetes.io/blog/2020/12/02/dont-panic-kubernetes-and-docker/) for underneath runtime environment from docker to "containerd", the chaincode containers will not be functional, customers will have to move to running external chaincode as a service which is possible on HLF 2.2x only. Until AKS v1.18.x is supported by Azure, one will be able to deploy this template through following the steps [here](https://github.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service).
+
+
 [!INCLUDE [Preview note](./includes/preview.md)]
 
 ## Choose an Azure Blockchain solution

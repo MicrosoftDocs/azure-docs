@@ -4,7 +4,7 @@ description: Learn how to provision the Azure-SSIS integration runtime in Azure 
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 04/02/2021
+ms.date: 07/19/2021
 author: swinarko
 ms.author: sawinark
 ---
@@ -48,7 +48,7 @@ In this tutorial, you complete the following steps:
 
   - Add the IP address of the client machine, or a range of IP addresses that includes the IP address of the client machine, to the client IP address list in the firewall settings for the database server. For more information, see [Azure SQL Database server-level and database-level firewall rules](../azure-sql/database/firewall-configure.md).
 
-  - You can connect to the database server by using SQL authentication with your server admin credentials, or by using Azure AD authentication with the managed identity for your data factory. For the latter, you need to add the managed identity for your data factory into an Azure AD group with access permissions to the database server. For more information, see [Create an Azure-SSIS IR with Azure AD authentication](./create-azure-ssis-integration-runtime.md).
+  - You can connect to the database server by using SQL authentication with your server admin credentials, or by using Azure Active Directory (Azure AD) authentication with the specified system/user-assigned managed identity for your data factory. For the latter, you need to add the specified system/user-assigned managed identity for your data factory into an Azure AD group with access permissions to the database server. For more information, see [Create an Azure-SSIS IR with Azure AD authentication](./create-azure-ssis-integration-runtime.md).
 
   - Confirm that your database server does not have an SSISDB instance already. The provisioning of an Azure-SSIS IR does not support using an existing SSISDB instance.
 
@@ -65,9 +65,9 @@ After your data factory is created, open its overview page in the Azure portal. 
 
 ### From the Data Factory overview
 
-1. On the **Let's get started** page, select the **Configure SSIS Integration** tile. 
+1. On the home page, select the **Configure SSIS** tile. 
 
-   !["Configure SSIS Integration Runtime" tile](./media/tutorial-create-azure-ssis-runtime-portal/configure-ssis-integration-runtime-tile.png)
+   ![Screenshot that shows the Azure Data Factory home page.](./media/doc-common-process/get-started-page.png)
 
 1. For the remaining steps to set up an Azure-SSIS IR, see the [Provision an Azure-SSIS integration runtime](#provision-an-azure-ssis-integration-runtime) section. 
 
@@ -137,13 +137,13 @@ If you select the check box, complete the following steps to bring your own data
 
       If you select an Azure SQL Database server with IP firewall rules/virtual network service endpoints or a managed instance with private endpoint to host SSISDB, or if you require access to on-premises data without configuring a self-hosted IR, you need to join your Azure-SSIS IR to a virtual network. For more information, see [Create an Azure-SSIS IR in a virtual network](./create-azure-ssis-integration-runtime.md).
 
-   1. Select the **Use Azure AD authentication with the managed identity for your ADF** check box to choose the authentication method for your database server to host SSISDB. You'll choose either SQL authentication or Azure AD authentication with the managed identity for your data factory.
+   1. Select either the **Use AAD authentication with the system managed identity for Data Factory** or **Use AAD authentication with a user-assigned managed identity for Data Factory** check box to choose Azure AD authentication method for Azure-SSIS IR to access your database server that hosts SSISDB. Don't select any of the check boxes to choose SQL authentication method instead.
 
-      If you select the check box, you'll need to add the managed identity for your data factory into an Azure AD group with access permissions to your database server. For more information, see [Create an Azure-SSIS IR with Azure AD authentication](./create-azure-ssis-integration-runtime.md).
-   
-   1. For **Admin Username**, enter the SQL authentication username for your database server to host SSISDB. 
+      If you select any of the check boxes, you'll need to add the specified system/user-assigned managed identity for your data factory into an Azure AD group with access permissions to your database server. If you select the **Use AAD authentication with a user-assigned managed identity for Data Factory** check box, you can then select any existing credentials created using your specified user-assigned managed identities or create new ones. For more information, see [Create an Azure-SSIS IR with Azure AD authentication](./create-azure-ssis-integration-runtime.md).
 
-   1. For **Admin Password**, enter the SQL authentication password for your database server to host SSISDB. 
+   1. For **Admin Username**, enter the SQL authentication username for your database server that hosts SSISDB. 
+
+   1. For **Admin Password**, enter the SQL authentication password for your database server that hosts SSISDB. 
 
    1. Select the **Use dual standby Azure-SSIS Integration Runtime pair with SSISDB failover** check box to configure a dual standby Azure SSIS IR pair that works in sync with Azure SQL Database/Managed Instance failover group for business continuity and disaster recovery (BCDR).
    
@@ -202,13 +202,15 @@ On the **Add package store** pane, complete the following steps.
 
                 1. For **Database name**, enter `msdb`.
                
-            1. For **Authentication type**, select **SQL Authentication**, **Managed Identity**, or **Service Principal**.
+            1. For **Authentication type**, select **SQL Authentication**, **Managed Identity**, **Service Principal**, or **User-Assigned Managed Identity**.
 
                 - If you select **SQL Authentication**, enter the relevant **Username** and **Password** or select your **Azure Key Vault** where it's stored as a secret.
 
-                -  If you select **Managed Identity**, grant your ADF managed identity access to your Azure SQL Managed Instance.
+                -  If you select **Managed Identity**, grant the system managed identity for your ADF access to your Azure SQL Managed Instance.
 
                 - If you select **Service Principal**, enter the relevant **Service principal ID** and **Service principal key** or select your **Azure Key Vault** where it's stored as a secret.
+                
+                -  If you select **User-Assigned Managed Identity**, grant the specified user-assigned managed identity for your ADF access to your Azure SQL Managed Instance. You can then select any existing credentials created using your specified user-assigned managed identities or create new ones.
 
       1. If you select **File system**, enter the UNC path of folder where your packages are deployed for **Host**, as well as the relevant **Username** and **Password** or select your **Azure Key Vault** where it's stored as a secret.
 

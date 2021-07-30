@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 05/05/2021
+ms.date: 07/07/2021
 ms.author: memildin
 
 ---
@@ -37,8 +37,8 @@ This article describes how to configure continuous export to Log Analytics works
 |----|:----|
 |Release state:|General Availability (GA)|
 |Pricing:|Free|
-|Required roles and permissions:|<ul><li>**Security admin** or **Owner** on the resource group</li><li>Write permissions for the target resource</li><li>If you're using the Azure Policy 'DeployIfNotExist' policies described below you'll also need permissions for assigning policies</li></ul>|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov, Other Gov<br>![Yes](./media/icons/yes-icon.png) China Gov|
+|Required roles and permissions:|<ul><li>**Security admin** or **Owner** on the resource group</li><li>Write permissions for the target resource.</li><li>If you're using the Azure Policy 'DeployIfNotExist' policies described below you'll also need permissions for assigning policies</li><li>To export data to Event Hub, you'll need Write permission on the Event Hub Policy.</li><li>To export to a Log Analytics workspace:<ul><li>if it **has the SecurityCenterFree solution**, you'll need a minimum of read permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/read`</li><li>if it **doesn't have the SecurityCenterFree solution**, you'll need write permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/action`</li><li>Learn more about [Azure Monitor and Log Analytics workspace solutions](../azure-monitor/insights/solutions.md)</li></ul></li></ul>|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (US Gov, Azure China)| 
 |||
 
 
@@ -46,14 +46,16 @@ This article describes how to configure continuous export to Log Analytics works
 
 Continuous export can export the following data types whenever they change:
 
-- Security alerts
-- Security recommendations 
-- Security findings which can be thought of as 'sub' recommendations like findings from vulnerability assessment scanners or specific system updates. You can select to include them with their 'parent' recommendations such as "System updates should be installed on your machines".
-- Secure score (per subscription or per control)
-- Regulatory compliance data
+- Security alerts.
+- Security recommendations.
+- Security findings. These can be thought of as 'sub' recommendations and belong to a 'parent' recommendation. For example:
+    - The recommendation "System updates should be installed on your machines" will have a ‘sub’ recommendation for every outstanding system update.
+    - The recommendation “Vulnerabilities in your virtual machines should be remediated” will have a ‘sub’ recommendation for every vulnerability identified by the vulnerability scanner.
+    > [!NOTE]
+    > If you’re configuring a continuous export with the REST API, always include the parent with the findings. 
+- Secure score per subscription or per control.
+- Regulatory compliance data.
 
-> [!NOTE]
-> The exporting of secure score and regulatory compliance data is a preview feature. 
 
 ## Set up a continuous export 
 
@@ -66,28 +68,31 @@ You can configure continuous export from the Security Center pages in Azure port
 The steps below are necessary whether you're setting up a continuous export to Log Analytics workspace or Azure Event Hubs.
 
 1. From Security Center's sidebar, select **Pricing & settings**.
+
 1. Select the specific subscription for which you want to configure the data export.
+
 1. From the sidebar of the settings page for that subscription, select **Continuous Export**.
 
-    :::image type="content" source="./media/continuous-export/continuous-export-options-page.png" alt-text="Export options in Azure Security Center":::
+    :::image type="content" source="./media/continuous-export/continuous-export-options-page.png" alt-text="Export options in Azure Security Center.":::
 
     Here you see the export options. There's a tab for each available export target. 
 
 1. Select the data type you'd like to export and choose from the filters on each type (for example, export only high severity alerts).
+
 1. Select the appropriate export frequency:
-    - **Streaming** – assessments will be sent in real-time when a resource’s health state is updated (if no updates occur, no data will be sent).
-    - **Snapshots** – a snapshot of the current state of all regulatory compliance assessments will be sent every week (this is a preview feature for weekly snapshots of secure scores and regulatory compliance data).
+    - **Streaming** – assessments will be sent when a resource’s health state is updated (if no updates occur, no data will be sent).
+    - **Snapshots** – a snapshot of the current state of all regulatory compliance assessments will be sent once a week per subscription. This preview feature provides weekly snapshots of secure scores and regulatory compliance data. To identify snapshot data, look for the field ``IsSnapshot``.
 
 1. Optionally, if your selection includes one of these recommendations, you can include the vulnerability assessment findings together with them:
-    - Vulnerability Assessment findings on your SQL databases should be remediated
-    - Vulnerability Assessment findings on your SQL servers on machines should be remediated (Preview)
+    - SQL databases should have vulnerability findings resolved
+    - SQL servers on machines should have vulnerability findings resolved
     - Vulnerabilities in Azure Container Registry images should be remediated (powered by Qualys)
     - Vulnerabilities in your virtual machines should be remediated
     - System updates should be installed on your machines
 
     To include the findings with these recommendations, enable the **include security findings** option.
 
-    :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Include security findings toggle in continuous export configuration" :::
+    :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Include security findings toggle in continuous export configuration." :::
 
 1. From the "Export target" area, choose where you'd like the data saved. Data can be saved in a target on a different subscription (for example on a Central Event Hub instance or a central Log Analytics workspace).
 1. Select **Save**.
@@ -115,10 +120,6 @@ The API provides additional functionality not available from the Azure portal, f
 
 Learn more about the automations API in the [REST API documentation](/rest/api/securitycenter/automations).
 
-
-
-
-
 ### [**Deploy at scale with Azure Policy**](#tab/azure-policy)
 
 ### Configure continuous export at scale using the supplied policies
@@ -140,11 +141,11 @@ To deploy your continuous export configurations across your organization, use th
     > [!TIP]
     > You can also find these by searching Azure Policy:
     > 1. Open Azure Policy.
-    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Accessing Azure Policy":::
+    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Accessing Azure Policy.":::
     > 2. From the Azure Policy menu, select **Definitions** and search for them by name. 
 
 1. From the relevant Azure Policy page, select **Assign**.
-    :::image type="content" source="./media/continuous-export/export-policy-assign.png" alt-text="Assigning the Azure Policy":::
+    :::image type="content" source="./media/continuous-export/export-policy-assign.png" alt-text="Assigning the Azure Policy.":::
 
 1. Open each tab and set the parameters as desired:
     1. In the **Basics** tab, set the scope for the policy. To use centralized management, assign the policy to the Management Group containing the subscriptions that will use continuous export configuration. 
@@ -153,7 +154,7 @@ To deploy your continuous export configurations across your organization, use th
         > Each parameter has a tooltip explaining the options available to you.
         >
         > Azure Policy's parameters tab (1) provides access to similar configuration options as Security Center's continuous export page (2).
-        > :::image type="content" source="./media/continuous-export/azure-policy-next-to-continuous-export.png" alt-text="Comparing the parameters in continuous export with Azure Policy" lightbox="./media/continuous-export/azure-policy-next-to-continuous-export.png":::
+        > :::image type="content" source="./media/continuous-export/azure-policy-next-to-continuous-export.png" alt-text="Comparing the parameters in continuous export with Azure Policy." lightbox="./media/continuous-export/azure-policy-next-to-continuous-export.png":::
     1. Optionally, to apply this assignment to existing subscriptions, open the **Remediation** tab and select the option to create a remediation task.
 1. Review the summary page and select **Create**.
 
@@ -172,7 +173,7 @@ The name of the Log Analytics solution containing these tables depends on whethe
 > [!TIP]
 > To see the data on the destination workspace, you must enable one of these solutions **Security and Audit** or **SecurityCenterFree**.
 
-![The *SecurityAlert* table in Log Analytics](./media/continuous-export/log-analytics-securityalert-solution.png)
+![The *SecurityAlert* table in Log Analytics.](./media/continuous-export/log-analytics-securityalert-solution.png)
 
 To view the event schemas of the exported data types, visit the [Log Analytics table schemas](https://aka.ms/ASCAutomationSchemas).
 
@@ -187,7 +188,7 @@ To view alerts and recommendations from Security Center in Azure Monitor, config
 
 1. From Azure Monitor's **Alerts** page, select **New alert rule**.
 
-    ![Azure Monitor's alerts page](./media/continuous-export/azure-monitor-alerts.png)
+    ![Azure Monitor's alerts page.](./media/continuous-export/azure-monitor-alerts.png)
 
 1. In the create rule page, configure your new rule (in the same way you'd configure a [log alert rule in Azure Monitor](../azure-monitor/alerts/alerts-unified-log.md)):
 
@@ -196,7 +197,7 @@ To view alerts and recommendations from Security Center in Azure Monitor, config
     * For **Condition**, select **Custom log search**. In the page that appears, configure the query, lookback period, and frequency period. In the search query, you can type *SecurityAlert* or *SecurityRecommendation* to query the data types that Security Center continuously exports to as you enable the Continuous export to Log Analytics feature. 
     
     * Optionally, configure the [Action Group](../azure-monitor/alerts/action-groups.md) that you'd like to trigger. Action groups can trigger email sending, ITSM tickets, WebHooks, and more.
-    ![Azure Monitor alert rule](./media/continuous-export/azure-monitor-alert-rule.png)
+    ![Azure Monitor alert rule.](./media/continuous-export/azure-monitor-alert-rule.png)
 
 You'll now see new Azure Security Center alerts or recommendations (depending on your configured continuous export rules and the condition you defined in your Azure Monitor alert rule) in Azure Monitor alerts, with automatic triggering of an action group (if provided).
 
@@ -204,7 +205,7 @@ You'll now see new Azure Security Center alerts or recommendations (depending on
 
 To download a CSV report for alerts or recommendations, open the **Security alerts** or **Recommendations** page and select the **Download CSV report** button.
 
-:::image type="content" source="./media/continuous-export/download-alerts-csv.png" alt-text="Download alerts data as a CSV file" lightbox="./media/continuous-export/download-alerts-csv.png":::
+:::image type="content" source="./media/continuous-export/download-alerts-csv.png" alt-text="Download alerts data as a CSV file." lightbox="./media/continuous-export/download-alerts-csv.png":::
 
 > [!NOTE]
 > These reports contain alerts and recommendations for resources from the currently selected subscriptions.
@@ -227,8 +228,8 @@ No. Continuous export is built for streaming of **events**:
 
 - **Alerts** received before you enabled export won't be exported.
 - **Recommendations** are sent whenever a resource's compliance state changes. For example, when a resource turns from healthy to unhealthy. Therefore, as with alerts, recommendations for resources that haven't changed state since you enabled export won't be exported.
-- **Secure score (preview)** per security control or subscription is sent when a security control's score  changes by 0.01 or more. 
-- **Regulatory compliance status (preview)** is sent when the status of the resource's compliance changes.
+- **Secure score** per security control or subscription is sent when a security control's score changes by 0.01 or more. 
+- **Regulatory compliance status** is sent when the status of the resource's compliance changes.
 
 
 

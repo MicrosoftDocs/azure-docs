@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 03/02/2021
+ms.date: 07/13/2021
 ms.topic: how-to
 ---
 
@@ -28,14 +28,23 @@ To create the Azure Arc data Controller using Kubernetes tools you will need to 
 
 ### Cleanup from past installations
 
-If you installed Azure Arc data controller in the past, on the same cluster and deleted the Azure Arc data controller using `azdata arc dc delete` command, there may be some cluster level objects that would still need to be deleted. Run the following commands to delete Azure Arc data controller cluster level objects:
+If you installed the Azure Arc data controller in the past on the same cluster and deleted the Azure Arc data controller, there may be some cluster level objects that would still need to be deleted. Run the following commands to delete the Azure Arc data controller cluster level objects:
 
 ```console
 # Cleanup azure arc data service artifacts
-kubectl delete crd datacontrollers.arcdata.microsoft.com 
-kubectl delete crd sqlmanagedinstances.sql.arcdata.microsoft.com 
-kubectl delete crd postgresql-11s.arcdata.microsoft.com 
-kubectl delete crd postgresql-12s.arcdata.microsoft.com
+kubectl delete crd datacontrollers.arcdata.microsoft.com
+kubectl delete crd postgresqls.arcdata.microsoft.com
+kubectl delete crd sqlmanagedinstances.sql.arcdata.microsoft.com
+kubectl delete crd sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com
+kubectl delete crd dags.sql.arcdata.microsoft.com
+kubectl delete crd exporttasks.tasks.arcdata.microsoft.com
+kubectl delete crd monitors.arcdata.microsoft.com
+
+kubectl delete clusterrole arc:cr-arc-metricsdc-reader
+kubectl delete clusterrolebinding arc:crb-arc-metricsdc-reader
+
+kubectl delete apiservice v1beta1.arcdata.microsoft.com
+kubectl delete apiservice v1beta1.sql.arcdata.microsoft.com
 ```
 
 ## Overview
@@ -46,7 +55,7 @@ Creating the Azure Arc data controller has the following high level steps:
 3. Create the bootstrapper service including the replica set, service account, role, and role binding.
 4. Create a secret for the data controller administrator username and password.
 5. Create the data controller.
-   
+
 ## Create the custom resource definitions
 
 Run the following command to create the custom resource definitions.  **[Requires Kubernetes Cluster Administrator Permissions]**
@@ -63,7 +72,7 @@ Run a command similar to the following to create a new, dedicated namespace in w
 kubectl create namespace arc
 ```
 
-If other people will be using this namespace that are not cluster administrators, we recommend creating a namespace admin role and granting that role to those users through a role binding.  The namespace admin should have full permissions on the namespace.  More information will be provided later on how to provide more granular role-based access to users.
+If other people will be using this namespace that are not cluster administrators, we recommend creating a namespace admin role and granting that role to those users through a role binding.  The namespace admin should have full permissions on the namespace.  More granular roles and example role bindings can be found on the [Azure Arc GitHub repository](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/yaml/rbac).
 
 ## Create the bootstrapper service
 
@@ -87,33 +96,20 @@ The bootstrapper.yaml template file defaults to pulling the bootstrapper contain
 - Add an image pull secret to the bootstrapper container. See example below.
 - Change the image location for the bootstrapper image. See example below.
 
-The example below assumes that you created a image pull secret name `regcred` as indicated in the Kubernetes documentation.
+The example below assumes that you created a image pull secret name `arc-private-registry`.
 
 ```yaml
-#just showing only the relevant part of the bootstrapper.yaml template file here
-containers:
-      - env:
-        - name: ACCEPT_EULA
-          value: "Y"
-        #image: mcr.microsoft.com/arcdata/arc-bootstrapper:public-preview-dec-2020  <-- template value to change
-        image: <your registry DNS name or IP address>/<your repo>/arc-bootstrapper:<your tag>
-        imagePullPolicy: IfNotPresent
-        name: bootstrapper
-        resources: {}
-        securityContext:
-          runAsUser: 21006
-        terminationMessagePath: /dev/termination-log
-        terminationMessagePolicy: File
-      dnsPolicy: ClusterFirst
+#Just showing only the relevant part of the bootstrapper.yaml template file here
+    spec:
+      serviceAccountName: sa-bootstrapper
+      nodeSelector:
+        kubernetes.io/os: linux
       imagePullSecrets:
-      - name: regcred
-      restartPolicy: Always
-      schedulerName: default-scheduler
-      securityContext: {}
-      serviceAccount: sa-mssql-controller
-      serviceAccountName: sa-mssql-controller
-      terminationGracePeriodSeconds: 30
-
+      - name: arc-private-registry #Create this image pull secret if you are using a private container registry
+      containers:
+      - name: bootstrapper
+        image: mcr.microsoft.com/arcdata/arc-bootstrapper:latest #Change this registry location if you are using a private container registry.
+        imagePullPolicy: Always
 ```
 
 ## Create a secret for the data controller administrator
@@ -170,8 +166,8 @@ Edit the following as needed:
 **RECOMMENDED TO REVIEW AND POSSIBLY CHANGE DEFAULTS**
 - **storage..className**: the storage class to use for the data controller data and log files.  If you are unsure of the available storage classes in your Kubernetes cluster, you can run the following command: `kubectl get storageclass`.  The default is `default` which assumes there is a storage class that exists and is named `default` not that there is a storage class that _is_ the default.  Note: There are two className settings to be set to the desired storage class - one for data and one for logs.
 - **serviceType**: Change the service type to `NodePort` if you are not using a LoadBalancer.  Note: There are two serviceType settings that need to be changed.
-- On Azure Red Hat OpenShift or Red Hat OpenShift container platform, you must apply the security context constraint before you create the data controller. Follow the instructions at [Apply a security context constraint for Azure Arc enabled data services on OpenShift](how-to-apply-security-context-constraint.md).
-- **Security** For Azure Red Hat OpenShift or Red Hat OpenShift container platform, replace the `security:` settings with the following values in the data controller yaml file. 
+- On Azure Red Hat OpenShift or Red Hat OpenShift Container Platform, you must apply the security context constraint before you create the data controller. Follow the instructions at [Apply a security context constraint for Azure Arc-enabled data services on OpenShift](how-to-apply-security-context-constraint.md).
+- **Security** For Azure Red Hat OpenShift or Red Hat OpenShift Container Platform, replace the `security:` settings with the following values in the data controller yaml file.
 
 ```yml
   security:
@@ -186,27 +182,33 @@ Edit the following as needed:
 - **displayName**: Set this to the same value as the name attribute at the top of the file.
 - **registry**: The Microsoft Container Registry is the default.  If you are pulling the images from the Microsoft Container Registry and [pushing them to a private container registry](offline-deployment.md), enter the IP address or DNS name of your registry here.
 - **dockerRegistry**: The image pull secret to use to pull the images from a private container registry if required.
-- **repository**: The default repository on the Microsoft Container Registry is `arcdata`.  If you are using a private container registry, enter the path the folder/repository containing the Azure Arc enabled data services container images.
+- **repository**: The default repository on the Microsoft Container Registry is `arcdata`.  If you are using a private container registry, enter the path the folder/repository containing the Azure Arc-enabled data services container images.
 - **imageTag**: the current latest version tag is defaulted in the template, but you can change it if you want to use an older version.
 
 The following example shows a completed data controller yaml file. Update the example for your environment, based on your requirements, and the information above.
 
-```yaml
-apiVersion: arcdata.microsoft.com/v1alpha1
+```yml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: sa-mssql-controller
+---
+apiVersion: arcdata.microsoft.com/v1beta1
 kind: datacontroller
 metadata:
   generation: 1
-  name: arc
+  name: arc-dc
 spec:
   credentials:
     controllerAdmin: controller-login-secret
-    #dockerRegistry: arc-private-registry - optional if you are using a private container registry that requires authentication using an image pull secret
+    dockerRegistry: arc-private-registry #Create a registry secret named 'arc-private-registry' if you are going to pull from a private registry instead of MCR.
     serviceAccount: sa-mssql-controller
   docker:
     imagePullPolicy: Always
-    imageTag: public-preview-dec-2020 
+    imageTag: latest
     registry: mcr.microsoft.com
     repository: arcdata
+  infrastructure: other #Must be a value in the array [alibaba, aws, azure, gcp, onpremises, other]
   security:
     allowDumps: true
     allowNodeMetricsCollection: true
@@ -215,31 +217,31 @@ spec:
   services:
   - name: controller
     port: 30080
-    serviceType: LoadBalancer
+    serviceType: LoadBalancer # Modify serviceType based on your Kubernetes environment
   - name: serviceProxy
     port: 30777
-    serviceType: LoadBalancer
+    serviceType: LoadBalancer # Modify serviceType based on your Kubernetes environment
   settings:
     ElasticSearch:
       vm.max_map_count: "-1"
     azure:
-      connectionMode: Indirect
-      location: eastus
-      resourceGroup: myresourcegroup
-      subscription: c82c901a-129a-435d-86e4-cc6b294590ae
+      connectionMode: indirect
+      location: eastus # Choose a different Azure location if you want
+      resourceGroup: <your resource group>
+      subscription: <your subscription GUID>
     controller:
-      displayName: arc
+      displayName: arc-dc
       enableBilling: "True"
       logs.rotation.days: "7"
       logs.rotation.size: "5000"
   storage:
     data:
       accessMode: ReadWriteOnce
-      className: default
+      className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
       size: 15Gi
     logs:
       accessMode: ReadWriteOnce
-      className: default
+      className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
       size: 10Gi
 ```
 
@@ -270,15 +272,15 @@ kubectl get pods --namespace arc
 You can also check on the creation status of any particular pod by running a command like below.  This is especially useful for troubleshooting any issues.
 
 ```console
-kubectl describe po/<pod name> --namespace arc
+kubectl describe pod/<pod name> --namespace arc
 
 #Example:
-#kubectl describe po/control-2g7bl --namespace arc
+#kubectl describe pod/control-2g7bl --namespace arc
 ```
 
-Azure Arc extension for Azure Data Studio provides a notebook to walk you through the experience of how to set up Azure Arc enabled Kubernetes and configure it to monitor a git repository that contains a sample SQL Managed Instance yaml file. When everything is connected, a new SQL Managed Instance will be deployed to your Kubernetes cluster.
+Azure Arc extension for Azure Data Studio provides a notebook to walk you through the experience of how to set up Azure Arc-enabled Kubernetes and configure it to monitor a git repository that contains a sample SQL Managed Instance yaml file. When everything is connected, a new SQL Managed Instance will be deployed to your Kubernetes cluster.
 
-See the **Deploy a SQL Managed Instance using Azure Arc enabled Kubernetes and Flux** notebook in the Azure Arc extension for Azure Data Studio.
+See the **Deploy a SQL Managed Instance using Azure Arc-enabled Kubernetes and Flux** notebook in the Azure Arc extension for Azure Data Studio.
 
 ## Troubleshooting creation problems
 

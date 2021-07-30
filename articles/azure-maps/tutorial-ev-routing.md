@@ -163,9 +163,9 @@ for loc in range(len(searchPolyResponse["results"])):
                 reachableLocations.append(location)
 ```
 
-## Upload the reachable range and charging points to Azure Maps Data service (Preview)
+## Upload the reachable range and charging points to Azure Maps Data service
 
-On a map, you'll want to visualize the charging stations and the boundary for the maximum reachable range of the electric vehicle. To do so, upload the boundary data and charging stations data as geojson objects to Azure Maps Data service (Preview). Use the [Data Upload API](/rest/api/maps/data/uploadpreview). 
+On a map, you'll want to visualize the charging stations and the boundary for the maximum reachable range of the electric vehicle. To do so, upload the boundary data and charging stations data as geojson objects to Azure Maps Data service. Use the [Data Upload API](/rest/api/maps/data-v2/upload-preview). 
 
 To upload the boundary and charging point data to Azure Maps Data service, run the following two cells:
 
@@ -186,8 +186,8 @@ rangeData = {
   ]
 }
 
-# Upload the range data to Azure Maps Data service (Preview).
-uploadRangeResponse = await session.post("https://atlas.microsoft.com/mapData/upload?subscription-key={}&api-version=1.0&dataFormat=geojson".format(subscriptionKey), json = rangeData)
+# Upload the range data to Azure Maps Data service.
+uploadRangeResponse = await session.post("https://us.atlas.microsoft.com/mapData?subscription-key={}&api-version=2.0&dataFormat=geojson".format(subscriptionKey), json = rangeData)
 
 rangeUdidRequest = uploadRangeResponse.headers["Location"]+"&subscription-key={}".format(subscriptionKey)
 
@@ -215,8 +215,8 @@ poiData = {
   ]
 }
 
-# Upload the electric vehicle charging station data to Azure Maps Data service (Preview).
-uploadPOIsResponse = await session.post("https://atlas.microsoft.com/mapData/upload?subscription-key={}&api-version=1.0&dataFormat=geojson".format(subscriptionKey), json = poiData)
+# Upload the electric vehicle charging station data to Azure Maps Data service.
+uploadPOIsResponse = await session.post("https://us.atlas.microsoft.com/mapData?subscription-key={}&api-version=2.0&dataFormat=geojson".format(subscriptionKey), json = poiData)
 
 poiUdidRequest = uploadPOIsResponse.headers["Location"]+"&subscription-key={}".format(subscriptionKey)
 
@@ -328,13 +328,13 @@ routeData = {
 
 ## Visualize the route
 
-To help visualize the route, you first upload the route data as a geojson object to Azure Maps Data service (Preview). To do so, use the Azure Maps [Data Upload API](/rest/api/maps/data/uploadpreview). Then, call the rendering service, [Get Map Image API](/rest/api/maps/render/getmapimage), to render the route on the map, and visualize it.
+To help visualize the route, you first upload the route data as a geojson object to Azure Maps Data service . To do so, use the Azure Maps [Data Upload API](/rest/api/maps/data-v2/upload-preview). Then, call the rendering service, [Get Map Image API](/rest/api/maps/render/getmapimage), to render the route on the map, and visualize it.
 
 To get an image for the rendered route on the map, run the following script:
 
 ```python
-# Upload the route data to Azure Maps Data service (Preview).
-routeUploadRequest = await session.post("https://atlas.microsoft.com/mapData/upload?subscription-key={}&api-version=1.0&dataFormat=geojson".format(subscriptionKey), json = routeData)
+# Upload the route data to Azure Maps Data service .
+routeUploadRequest = await session.post("https://atlas.microsoft.com/mapData?subscription-key={}&api-version=2.0&dataFormat=geojson".format(subscriptionKey), json = routeData)
 
 udidRequestURI = routeUploadRequest.headers["Location"]+"&subscription-key={}".format(subscriptionKey)
 
@@ -385,7 +385,7 @@ To explore the Azure Maps APIs that are used in this tutorial, see:
 
 * [Get Route Range](/rest/api/maps/route/getrouterange)
 * [Post Search Inside Geometry](/rest/api/maps/search/postsearchinsidegeometry)
-* [Data Upload](/rest/api/maps/data/uploadpreview)
+* [Data Upload](/rest/api/maps/data-v2/upload-preview)
 * [Render - Get Map Image](/rest/api/maps/render/getmapimage)
 * [Post Route Matrix](/rest/api/maps/route/postroutematrix)
 * [Get Route Directions](/rest/api/maps/route/getroutedirections)

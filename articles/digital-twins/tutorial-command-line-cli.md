@@ -53,7 +53,7 @@ To get the files on your machine, use the navigation links above and copy the fi
 
 To work with Azure Digital Twins in this article, you first need to **set up an Azure Digital Twins instance** and the required permissions for using it. If you already have an Azure Digital Twins instance set up from previous work, you can use that instance.
 
-Otherwise, follow the instructions in [How-to: Set up an instance and authentication](how-to-set-up-instance-cli.md). The instructions also contain steps to verify that you've completed each step successfully and are ready to move on to using your new instance.
+Otherwise, follow the instructions in [Set up an instance and authentication](how-to-set-up-instance-cli.md). The instructions also contain steps to verify that you've completed each step successfully and are ready to move on to using your new instance.
 
 After you set up your Azure Digital Twins instance, make a note of the following values that you'll need to connect to the instance later:
 * the instance's **_host name_**
@@ -136,7 +136,7 @@ To create a digital twin, you use the [az dt twin create](/cli/azure/dt/twin?vie
 
     ```azurecli-interactive
     az dt twin create --dt-name <Azure-Digital-Twins-instance-name> --dtmi "dtmi:example:Room;2" --twin-id room0 --properties '{"RoomName":"Room0", "Temperature":70, "HumidityLevel":30}'
-    az dt twin create --dt-name <Azure-Digital-Twins-instance-name> --dtmi "dtmi:example:Room;2" --twin-id room1 --properties '{"RoomName":"Room1", "Temperature":"80", "HumidityLevel":"60"}'
+    az dt twin create --dt-name <Azure-Digital-Twins-instance-name> --dtmi "dtmi:example:Room;2" --twin-id room1 --properties '{"RoomName":"Room1", "Temperature":80, "HumidityLevel":60}'
     az dt twin create --dt-name <Azure-Digital-Twins-instance-name> --dtmi "dtmi:example:Floor;1" --twin-id floor0
     az dt twin create --dt-name <Azure-Digital-Twins-instance-name> --dtmi "dtmi:example:Floor;1" --twin-id floor1
     ```
@@ -321,4 +321,4 @@ In this tutorial, you got started with Azure Digital Twins by building a graph i
 
 Continue to the next tutorial to combine Azure Digital Twins with other Azure services to complete a data-driven, end-to-end scenario:
 > [!div class="nextstepaction"]
-> [Tutorial: Connect an end-to-end solution](tutorial-end-to-end.md)
+> [Connect an end-to-end solution](tutorial-end-to-end.md)

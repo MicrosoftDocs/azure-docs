@@ -23,6 +23,12 @@ Install a code editor, such as [Visual Studio Code](https://code.visualstudio.co
 
 Install the [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (version 2.7.1505 or higher) to run Azure Function apps locally.
 
+# [C#](#tab/csharp)
+
+Install a code editor, such as [Visual Studio Code](https://code.visualstudio.com/).
+
+Install the [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (version 3 or higher) to run Azure Function apps locally.
+
 ---
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -46,6 +52,8 @@ While the service is deploying, let's switch to working with code. Clone the [sa
 - In the browser, open the **Azure portal** and confirm the Web PubSub Service instance you deployed earlier was successfully created. Navigate to the instance.
 - Select **Keys** and copy out the connection string.
 
+:::image type="content" source="media/quickstart-serverless/copy-connection-string.png" alt-text="Screenshot of copying the Web PubSub connection string.":::
+
 # [JavaScript](#tab/javascript)
 
 - Update function configuration.
@@ -53,8 +61,8 @@ While the service is deploying, let's switch to working with code. Clone the [sa
   Open the */samples/functions/js/simplechat* folder in the cloned repository. Edit *local.settings.json* to add service connection string.
   In *local.settings.json*, you need to make these changes and then save the file.
     - Replace the place holder *<connection-string>* to the real one copied from **Azure portal** for **`WebPubSubConnectionString`** setting. 
-    - For **`AzureWebJobsStorage`** setting, this is required due to [Azure Functions requires an Azure Storage account](https://docs.microsoft.com/azure/azure-functions/storage-considerations).
-        - If you have Azure Storage Emulator run in local, keep the original settings of "UseDevelopmentStorage=true".
+    - For **`AzureWebJobsStorage`** setting, this is required due to [Azure Functions requires an Azure Storage account](../azure-functions/storage-considerations.md).
+        - If you have [Azure Storage Emulator](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) run in local, keep the original settings of "UseDevelopmentStorage=true".
         - If you have an Azure storage connection string, replace the value with it.
  
 - JavaScript functions are organized into folders. In each folder are two files: `function.json` defines the bindings that are used in the function, and `index.js` is the body of the function. There are several triggered functions in this function app:
@@ -71,11 +79,39 @@ While the service is deploying, let's switch to working with code. Clone the [sa
     func start
     ```
 
+# [C#](#tab/csharp)
+
+- Update function configuration.
+
+  Open the */samples/functions/csharp/simplechat* folder in the cloned repository. Edit *local.settings.json* to add service connection string.
+  In *local.settings.json*, you need to make these changes and then save the file.
+    - Replace the place holder *<connection-string>* to the real one copied from **Azure portal** for **`WebPubSubConnectionString`** setting. 
+    - For **`AzureWebJobsStorage`** setting, this is required due to [Azure Functions requires an Azure Storage account](../azure-functions/storage-considerations.md).
+        - If you have [Azure Storage Emulator](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) run in local, keep the original settings of "UseDevelopmentStorage=true".
+        - If you have an Azure storage connection string, replace the value with it.
+
+- C# functions are organized by file Functions.cs. There are several triggered functions in this function app:
+
+    - **login** - This is the HTTP triggered function. It uses the *webPubSubConnection* input binding to generate and return valid service connection information.
+    - **connected** - This is the `WebPubSubTrigger` triggered function. Receives a chat message in the request body and broadcast the message to all connected client applications with multiple tasks.
+    - **broadcast** - This is the `WebPubSubTrigger` triggered function. Receives a chat message in the request body and broadcast the message to all connected client applications with single task.
+    - **connect** and **disconnect** - These are the `WebPubSubTrigger` triggered functions. Handle the connect and disconnect events.
+
+- In the terminal, ensure that you are in the */samples/functions/csharp/simplechat* folder. Install the extensions and run the function app.
+
+    ```bash
+    func extensions install
+
+    func start
+    ```
+
+---
+
 - The local function will use port defined in the `local.settings.json` file. To make it available in public network, you need to work with [ngrok](https://ngrok.com) to expose this endpoint. Run command below and you'll get a forwarding endpoint, for example: http://{ngrok-id}.ngrok.io -> http://localhost:7071.
 
     ```bash
     ngrok http 7071
-    ```    
+    ``` 
 
 - Set `Event Handler` in Azure Web PubSub service. Go to **Azure portal** -> Find your Web PubSub resource -> **Settings**. Add a new hub settings mapping to the one function in use as below. Replace the {ngrok-id} to yours.
 
@@ -84,7 +120,7 @@ While the service is deploying, let's switch to working with code. Clone the [sa
    - User Event Pattern: *
    - System Events: connect, connected, disconnected.
 
----
+:::image type="content" source="media/quickstart-serverless/set-event-hanlder.png" alt-text="Screenshot of setting the event handler.":::
 
 ## Run the web application
 
@@ -109,3 +145,16 @@ If you're not going to continue to use this app, delete all resources created by
 1. In the window that opens, select the resource group, and then select **Delete resource group**.
 
 1. In the new window, type the name of the resource group to delete, and then select **Delete**.
+
+## Next steps
+
+In this quickstart, you learned how to run a serverless simple chat application. Now, you could start to build your own application. 
+
+> [!div class="nextstepaction"]
+> [Quick start: Create a simple chatroom with Azure Web PubSub](https://azure.github.io/azure-webpubsub/getting-started/create-a-chat-app/js-handle-events)
+
+> [!div class="nextstepaction"]
+> [Azure Web PubSub bindings for Azure Functions](https://azure.github.io/azure-webpubsub/references/functions-bindings)
+
+> [!div class="nextstepaction"]
+> [Explore more Azure Web PubSub samples](https://github.com/Azure/azure-webpubsub/tree/main/samples)

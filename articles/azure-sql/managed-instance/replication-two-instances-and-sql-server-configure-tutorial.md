@@ -6,8 +6,8 @@ ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.topic: tutorial
-author: stevestein
-ms.author: sstein
+author: rothja
+ms.author: jroth
 ms.reviewer:
 ms.date: 11/21/2019
 ---

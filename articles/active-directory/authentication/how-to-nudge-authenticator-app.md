@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/27/2021
+ms.date: 07/26/2021
 
 ms.author: justinha
 author: mjsantani
@@ -69,7 +69,7 @@ In addition to choosing who can be nudged, you can define how many days a user c
 
 ## Enable the nudge policy
 
-To enable the nudge, you must use the Authentication Methods Policy using Graph APIs or PowerShell commands. **Global administrators** and **Authentication Method Policy administrators** can update the policy. 
+To enable the nudge, you must use the Authentication Methods Policy using Graph APIs. **Global administrators** and **Authentication Method Policy administrators** can update the policy. 
 
 To configure the policy using Graph Explorer:
 
@@ -212,7 +212,7 @@ Here are a few sample JSONs you can use to get started!
 
    ![User object ID](./media/how-to-nudge-authenticator-app/object-id.png)
 
-### Identify the GUIDs of users to insert in the JSONs
+### Identify the GUIDs of groups to insert in the JSONs
 
 1. Navigate to the Azure portal.
 1. Tap **Azure Active Directory**.

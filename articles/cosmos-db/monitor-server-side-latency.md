@@ -3,8 +3,8 @@ title: How to monitor the server-side latency for operations in Azure Cosmos DB
 description: Learn how to monitor server latency for operations in Azure Cosmos DB account or a container. Owners of an Azure Cosmos DB account can understand the server-side latency issues with your Azure Cosmos accounts.
 ms.service:  cosmos-db
 ms.topic: how-to
-author: kanshiG  
-ms.author: govindk
+ms.author: esarroyo
+author: StefArroyo 
 ms.date: 04/07/2020
 ---
 

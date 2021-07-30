@@ -3,17 +3,65 @@ title: Troubleshoot Azure Automation Update Management issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 04/18/2021
+ms.date: 06/10/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot Update Management issues
 
-This article discusses issues that you might run into when deploying the Update Management feature on your machines. There's an agent troubleshooter for the Hybrid Runbook Worker agent to determine the underlying problem. To learn more about the troubleshooter, see [Troubleshoot Windows update agent issues](update-agent-issues.md) and [Troubleshoot Linux update agent issues](update-agent-issues-linux.md). For other feature deployment issues, see [Troubleshoot feature deployment issues](onboarding.md).
+This article discusses issues that you might run into when using the Update Management feature to assess and manage updates on your machines. There's an agent troubleshooter for the Hybrid Runbook Worker agent to help determine the underlying problem. To learn more about the troubleshooter, see [Troubleshoot Windows update agent issues](update-agent-issues.md) and [Troubleshoot Linux update agent issues](update-agent-issues-linux.md). For other feature deployment issues, see [Troubleshoot feature deployment issues](onboarding.md).
 
 >[!NOTE]
 >If you run into problems when deploying Update Management on a Windows machine, open the Windows Event Viewer, and check the **Operations Manager** event log under **Application and Services Logs** on the local machine. Look for events with event ID 4502 and event details that contain `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
+
+## <a name="windows-defender-update-missing-status"></a>Scenario: Windows Defender update always show as missing
+
+### Issue
+
+Definition update for Windows Defender (**KB2267602**) always shows as missing in an assessment when it's installed and shows as up to date when verified from Windows Update history.
+
+### Cause
+
+Definition updates are published multiple times in a single day. As a result, you could see multiple releases of KB2267602 published in a single day, but with a different update ID and version.
+
+Update Management assessment runs once in 11 hours. In this example, at 10:00 AM an assessment ran and version 1.237.316.0 was available at the time. When you search the **Update** table in your Log Analytics workspace, the Definition update 1.237.316.0 is shown with an **UpdateState** of **Needed**. If a scheduled deployment runs a few hours later, let's say 1:00 PM and version 1.237.316.0 is still available or a newer version is, the newer version is installed and this is reflected in the record written to the **UpdateRunProgress** table. However, in the **Update** table, it would still show version 1.237.316.0 as **Needed** until the next assessment is run. When the assessment runs again, there may not be a newer definition update available, so the **Update** table would not show the definition update version 1.237.316.0 as missing or a newer version available as needed. Because of the frequency of definition updates, there could be multiple versions returned in the log search. 
+
+### Resolution
+
+Run the following log query to confirm definition updates installed are being properly reported. This query returns the time generated, version, and update ID of KB2267602 in the **Updates** table. Replace the value for *Computer* with the fully qualified name of the machine.
+
+```kusto
+Update
+| where TimeGenerated > ago(14h) and OSType != "Linux" and (Optional == false or Classification has "Critical" or Classification has "Security") and SourceComputerId in ((
+    Heartbeat
+    | where TimeGenerated > ago(12h) and OSType =~ "Windows" and notempty(Computer)
+    | summarize arg_max(TimeGenerated, Solutions) by SourceComputerId
+    | where Solutions has "updates"
+    | distinct SourceComputerId))
+| summarize hint.strategy=partitioned arg_max(TimeGenerated, *) by Computer, SourceComputerId, UpdateID
+| where UpdateState =~ "Needed" and Approved != false and Computer == "<computerName>"
+| render table
+```
+
+Your query results should return something similar to the following:
+
+:::image type="content" source="./media/update-management/example-query-updates-table.png" alt-text="Example showing results of log query from Updates table.":::
+
+Run the following log query to get the time generated, version, and update ID of KB2267602 in the **UpdatesRunProgress** table. This query helps us understand if it was installed from Update Management or if it was auto-installed on the machine from Microsoft Update. You need to replace the value for *CorrelationId* with the runbook job GUID (that is, the **MasterJOBID** property value from the **Patch-MicrosoftOMSComputer** runbook job) for the update, and *SourceComputerId* with the GUID of the machine.
+
+```kusto
+UpdateRunProgress
+| where OSType!="Linux" and CorrelationId=="<master job id>" and SourceComputerId=="<source computer id>"
+| summarize arg_max(TimeGenerated, Title, InstallationStatus) by UpdateId
+| project TimeGenerated, id=UpdateId, displayName=Title, InstallationStatus
+```
+
+Your query results should return something similar to the following:
+
+:::image type="content" source="./media/update-management/example-query-updaterunprogress-table.png" alt-text="Example showing results of log query from UpdatesRunProgress table.":::
+
+If the **TimeGenerated** value for the log query results from the **Updates** table is earlier than the timestamp (that is, value of **TimeGenerated**) of the update installation on machine or from the log query results from the **UpdateRunProgress** table, then wait for the next assessment. Afterwards, run the log query against the **Updates** table again. Either an update for KB2267602 won't appear or it appears with a newer version. However, even after the most recent assessment if same version shows up as **Needed** in the **Updates** table but it is already installed, you should open an Azure support incident.
 
 ## <a name="updates-linux-installed-different"></a>Scenario: Linux updates shown as pending and those installed vary
 
@@ -285,7 +333,17 @@ Machines do appear in Azure Resource Graph query results, but still don't show u
 
 4. Validate that the hybrid worker is present for that machine.
 
-5. If the machine is not set up as a system Hybrid Runbook Worker, review the methods to enable the machine under the [Enable Update Management](../update-management/overview.md#enable-update-management) section of the Update Management Overview article. The method to enable is based on the environment the machine is running in.
+5. If the machine is not set up as a system Hybrid Runbook Worker, review the methods to enable using one of the following methods:
+
+   - From your [Automation account](../update-management/enable-from-automation-account.md) for one or more Azure and non-Azure machines, including Arc enabled servers.
+
+   - Using the **Enable-AutomationSolution** [runbook](../update-management/enable-from-runbook.md) to automate onboarding Azure VMs.
+
+   - For a [selected Azure VM](../update-management/enable-from-vm.md) from the **Virtual machines** page in the Azure portal. This scenario is available for Linux and Windows VMs.
+
+   - For [multiple Azure VMs](../update-management/enable-from-portal.md) by selecting them from the **Virtual machines** page in the Azure portal.
+
+   The method to enable is based on the environment the machine is running in.
 
 6. Repeat the steps above for all machines that have not been displaying in the preview.
 
@@ -321,7 +379,7 @@ Update
 
 #### Communication with Automation account blocked
 
-Go to [Network planning](../update-management/overview.md#ports) to learn about which addresses and ports must be allowed for Update Management to work.
+Go to [Network planning](../update-management/plan-deployment.md#ports) to learn about which addresses and ports must be allowed for Update Management to work.
 
 #### Duplicate computer name
 
@@ -411,7 +469,7 @@ You can retrieve more details programmatically by using the REST API. See [Softw
 
 When applicable, use [dynamic groups](../update-management/configure-groups.md) for your update deployments. In addition, you can take the following steps.
 
-1. Verify that your machine or server meets the [requirements](../update-management/overview.md#system-requirements).
+1. Verify that your machine or server meets the [requirements](../update-management/operating-system-requirements.md).
 2. Verify connectivity to the Hybrid Runbook Worker using the Hybrid Runbook Worker agent troubleshooter. To learn more about the troubleshooter, see [Troubleshoot update agent issues](update-agent-issues.md).
 
 ## <a name="updates-nodeployment"></a>Scenario: Updates are installed without a deployment
@@ -509,7 +567,7 @@ The default maintenance window for updates is 120 minutes. You can increase the 
 
 To understand why this occurred during an update run after it starts successfully, [check the job output](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) from the affected machine in the run. You might find specific error messages from your machines that you can research and take action on.  
 
-You can retrieve more details programmatically by using the REST API. See [Software Update Configuration Machine Runs](https://docs.microsoft.com/rest/api/automation/softwareupdateconfigurationmachineruns) for information on retrieving either a list of update configuration machine runs, or a single software update configuration machine run by ID.
+You can retrieve more details programmatically by using the REST API. See [Software Update Configuration Machine Runs](/rest/api/automation/softwareupdateconfigurationmachineruns) for information on retrieving either a list of update configuration machine runs, or a single software update configuration machine run by ID.
 
 Edit any failing scheduled update deployments, and increase the maintenance window.
 
@@ -544,7 +602,7 @@ If you see an HRESULT, double-click the exception displayed in red to see the en
 |Exception  |Resolution or action  |
 |---------|---------|
 |`Exception from HRESULT: 0x……C`     | Search the relevant error code in [Windows update error code list](https://support.microsoft.com/help/938205/windows-update-error-code-list) to find additional details about the cause of the exception.        |
-|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | These indicate network connectivity issues. Make sure your machine has network connectivity to Update Management. See the [network planning](../update-management/overview.md#ports) section for a list of required ports and addresses.        |
+|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | These indicate network connectivity issues. Make sure your machine has network connectivity to Update Management. See the [network planning](../update-management/plan-deployment.md#ports) section for a list of required ports and addresses.        |
 |`0x8024001E`| The update operation didn't complete because the service or system was shutting down.|
 |`0x8024002E`| Windows Update service is disabled.|
 |`0x8024402C`     | If you're using a WSUS server, make sure the registry values for `WUServer` and `WUStatusServer` under the  `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` registry key specify the correct WSUS server.        |
@@ -610,7 +668,7 @@ Updates are often superseded by other updates. For more information, see [Update
 
 ### Installing updates by classification on Linux
 
-Deploying updates to Linux by classification ("Critical and security updates") has important caveats, especially for CentOS. These limitations are documented on the [Update Management overview page](../update-management/overview.md#linux).
+Deploying updates to Linux by classification ("Critical and security updates") has important caveats, especially for CentOS. These limitations are documented on the [Update Management overview page](../update-management/overview.md#update-classifications).
 
 ### KB2267602 is consistently missing
 

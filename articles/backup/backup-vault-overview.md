@@ -42,21 +42,20 @@ Sign in to the Azure portal at <https://portal.azure.com>.
 ### Create Backup vault
 
 1. Type **Backup vaults** in the search box.
-1. Under **Services**, select **Backup vaults**.
-1. In the **Backup vaults** page, select **Add**.
-1. In the **Basics tab**, under **Project details**, make sure the correct subscription is selected and then choose **Create new** resource group. Type *myResourceGroup* for the name.
+2. Under **Services**, select **Backup vaults**.
+3. On the **Backup vaults** page, select **Add**.
+4. On the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose **Create new** resource group. Type *myResourceGroup* for the name.
 
-  ![Create new resource group](./media/backup-vault-overview/new-resource-group.png)
+    ![Create new resource group](./media/backup-vault-overview/new-resource-group.png)
 
-1. Under **Instance details**, type *myVault* for the **Backup vault name** and choose your region of choice, in this case *East US* for your **Region**.
-1. Now choose your **Storage redundancy**. Storage redundancy cannot be changed after protecting items to the vault.
-1. We recommend that if you're using Azure as a primary backup storage endpoint, continue to use the default **Geo-redundant** setting.
-1. If you don't use Azure as a primary backup storage endpoint, then choose **Locally redundant**, which reduces the Azure storage costs.
-1. Learn more about [geo](../storage/common/storage-redundancy.md#geo-redundant-storage) and [local](../storage/common/storage-redundancy.md#locally-redundant-storage) redundancy.
+5. Under **Instance details**, type *myVault* for the **Backup vault name** and choose your region of choice, in this case *East US* for your **Region**.
+6. Now choose your **Storage redundancy**. Storage redundancy cannot be changed after protecting items to the vault.
+7. We recommend that if you're using Azure as a primary backup storage endpoint, continue to use the default **Geo-redundant** setting.
+8. If you don't use Azure as a primary backup storage endpoint, choose **Locally redundant**, which reduces the Azure storage costs. Learn more about [geo](../storage/common/storage-redundancy.md#geo-redundant-storage) and [local](../storage/common/storage-redundancy.md#locally-redundant-storage) redundancy.
 
-  ![Choose storage redundancy](./media/backup-vault-overview/storage-redundancy.png)
+    ![Choose storage redundancy](./media/backup-vault-overview/storage-redundancy.png)
 
-1. Select the Review + create button at the bottom of the page.
+9. Select the Review + create button at the bottom of the page.
 
     ![Select Review + Create](./media/backup-vault-overview/review-and-create.png)
 
@@ -74,6 +73,10 @@ You can't delete a Backup vault with any of the following dependencies:
 If you try to delete the vault without removing the dependencies, you'll encounter the following error messages:
 
 >Cannot delete the Backup vault as there are existing backup instances or backup policies in the vault. Delete all backup instances and backup policies that are present in the vault and then try deleting the vault.
+
+Ensure that you cycle through the **Datasource type** filter options in **Backup center** to not miss any existing Backup Instance or policy that needs to be removed, before being able to delete the Backup Vault.
+
+![Datasource Types](./media/backup-vault-overview/datasource-types.png)
 
 ### Proper way to delete a vault
 

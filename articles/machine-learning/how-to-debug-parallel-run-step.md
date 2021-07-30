@@ -28,10 +28,14 @@ For general tips on troubleshooting a pipeline, see [Troubleshooting machine lea
 ##  Script requirements
 
 The script for a `ParallelRunStep` *must contain* two functions:
-- `init()`: Use this function for any costly or common preparation for later inference. For example, use it to load the model into a global object. This function will be called only once at beginning of process.
+- `init()`: Use this function for any costly or common preparation for later processing. For example, use it to load the model into a global object. This function will be called only once at beginning of process.
+    > [!NOTE]
+    > If your `init` method creates an output directory, specify that `exist_ok=True`. The `init` method is called from each worker process on every node on which the job is running.
 -  `run(mini_batch)`: The function will run for each `mini_batch` instance.
     -  `mini_batch`: `ParallelRunStep` will invoke run method and pass either a list or pandas `DataFrame` as an argument to the method. Each entry in mini_batch will be a file path if input is a `FileDataset` or a pandas `DataFrame` if input is a `TabularDataset`.
     -  `response`: run() method should return a pandas `DataFrame` or an array. For append_row output_action, these returned elements are appended into the common output file. For summary_only, the contents of the elements are ignored. For all output actions, each returned output element indicates one successful run of input element in the input mini-batch. Make sure that enough data is included in run result to map input to run output result. Run output will be written in output file and not guaranteed to be in order, you should use some key in the output to map it to input.
+        > [!NOTE]
+        > One output element is expected for one input element.  
 
 ```python
 %%writefile digit_identification.py
@@ -95,6 +99,7 @@ file_path = os.path.join(script_dir, "<file_name>")
     - For `TabularDataset`, it's the size of data. Example values are `1024`, `1024KB`, `10MB`, and `1GB`. The recommended value is `1MB`. The mini-batch from `TabularDataset` will never cross file boundaries. For example, if you have .csv files with various sizes, the smallest file is 100 KB and the largest is 10 MB. If you set `mini_batch_size = 1MB`, then files with a size smaller than 1 MB will be treated as one mini-batch. Files with a size larger than 1 MB will be split into multiple mini-batches.
         > [!NOTE]
         > TabularDatasets backed by SQL cannot be partitioned. 
+        > TabularDatasets from a single parquet file and single row group cannot be partitioned.
 
 - `error_threshold`: The number of record failures for `TabularDataset` and file failures for `FileDataset` that should be ignored during processing. If the error count for the entire input goes above this value, the job will be aborted. The error threshold is for the entire input and not for individual mini-batch sent to the `run()` method. The range is `[-1, int.max]`. The `-1` part indicates ignoring all failures during processing.
 - `output_action`: One of the following values indicates how the output will be organized:
@@ -261,7 +266,10 @@ def run(mini_batch):
 
 User can pass reference data to script using side_inputs parameter of ParalleRunStep. All datasets provided as side_inputs will be mounted on each worker node. User can get the location of mount by passing argument.
 
-Construct a [Dataset](/python/api/azureml-core/azureml.core.dataset.dataset) containing the reference data, specify a local mount path and register it with your workspace. Pass it to the `side_inputs` parameter of your `ParallelRunStep`. Additionally, you can add its path in the `arguments` section to easily access its mounted path:
+Construct a [Dataset](/python/api/azureml-core/azureml.core.dataset.dataset) containing the reference data, specify a local mount path and register it with your workspace. Pass it to the `side_inputs` parameter of your `ParallelRunStep`. Additionally, you can add its path in the `arguments` section to easily access its mounted path.
+
+> [!NOTE]
+> Use FileDatasets only for side_inputs. 
 
 ```python
 local_path = "/tmp/{}".format(str(uuid.uuid4()))

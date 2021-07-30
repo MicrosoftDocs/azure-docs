@@ -14,7 +14,7 @@ To build an application with Azure Web PubSub service, you need to create the We
 
 ## Create Azure Web PubSub instance with Azure portal 
 
-The [Azure portal](https://docs.microsoft.com/azure/azure-portal/) is a web-based, unified console that provides an alternative to command-line tools. You can manage your Azure subscription with the Azure portal. Build, manage, and monitor everything from simple web apps to complex cloud deployments. You could also create Azure Web PubSub service instance with Azure portal.
+The [Azure portal](../azure-portal/index.yml) is a web-based, unified console that provides an alternative to command-line tools. You can manage your Azure subscription with the Azure portal. Build, manage, and monitor everything from simple web apps to complex cloud deployments. You could also create Azure Web PubSub service instance with Azure portal.
 
 1. Select the New button found on the upper left-hand corner of the Azure portal. In the New screen, type *Web PubSub* in the search box and press enter. (You could also search the Azure Web PubSub from the `Web` category.)
 
@@ -39,6 +39,4 @@ The [Azure portal](https://docs.microsoft.com/azure/azure-portal/) is a web-base
 
 ## Create Azure Web PubSub instance with Azure CLI
 
-The [Azure command-line interface (Azure CLI)](https://docs.microsoft.com/cli/azure) is a set of commands used to create and manage Azure resources. The Azure CLI is available across Azure services and is designed to get you working quickly with Azure, with an emphasis on automation. You could also create Azure Web PubSub service instance with Azure CLI after GA.
-
-
+The [Azure command-line interface (Azure CLI)](/cli/azure) is a set of commands used to create and manage Azure resources. The Azure CLI is available across Azure services and is designed to get you working quickly with Azure, with an emphasis on automation. You could also create Azure Web PubSub service instance with Azure CLI after GA.

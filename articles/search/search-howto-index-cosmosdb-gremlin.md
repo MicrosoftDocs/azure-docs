@@ -1,40 +1,38 @@
 ---
-title: Search over Azure Cosmos DB Gremlin API data (preview)
+title: Index data from Gremlin API (preview)
 titleSuffix: Azure Cognitive Search
-description: Import data from Azure Cosmos DB Gremlin API into a searchable index in Azure Cognitive Search. Indexers automate data ingestion for selected data sources like Azure Cosmos DB.
+description: Set up an Azure Cosmos DB indexer to automate indexing of Gremlin API content for full text search in Azure Cognitive Search.
 
-author: vkurpad 
-manager: luisca
-ms.author: vikurpad
+author: MarkHeff
+ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/11/2021
 ---
 
-# How to index data available through Cosmos DB Gremlin API using an indexer (preview)
+# Index data using Azure Cosmos DB Gremlin API
 
 > [!IMPORTANT]
-> The Cosmos DB Gremlin API indexer is currently in preview. Preview functionality is provided without a service level agreement and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> You can request access to the preview by filling out [this form](https://aka.ms/azure-cognitive-search/indexer-preview).
-> For this preview, we recommend using the [REST API version 2020-06-30-Preview](search-api-preview.md). There is currently limited portal support and no .NET SDK support.
+> The Cosmos DB Gremlin API indexer is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [Request access](https://aka.ms/azure-cognitive-search/indexer-preview) to this feature, and after access is enabled, use a [preview REST API (2020-06-30-preview or later)](search-api-preview.md) to index your content. There is currently limited portal support and no .NET SDK support.
 
-> [!WARNING]
-> In order for Azure Cognitive Search to index data in Cosmos DB through the Gremlin API, [Cosmos DB's own indexing](../cosmos-db/index-overview.md) must also be enabled and set to [Consistent](../cosmos-db/index-policy.md#indexing-mode). This is the default configuration for Cosmos DB. Azure Cognitive Search indexing will not work without Cosmos DB indexing already enabled.
+This article shows you how to configure an Azure Cosmos DB indexer to extract content and make it searchable in Azure Cognitive Search. This workflow creates a search index on Azure Cognitive Search and loads it with existing content extracted from Azure Cosmos DB using the Gremlin API.
 
-[Azure Cosmos DB indexing](../cosmos-db/index-overview.md) and [Azure Cognitive Search indexing](search-what-is-an-index.md) are distinct operations, unique to each service. Before you start Azure Cognitive Search indexing, your Azure Cosmos DB database must already exist.
+Because terminology can be confusing, it's worth noting that [Azure Cosmos DB indexing](../cosmos-db/index-overview.md) and [Azure Cognitive Search indexing](search-what-is-an-index.md) are distinct operations, unique to each service. Before you start Azure Cognitive Search indexing, your Azure Cosmos DB database must already exist and contain data.
 
-This article shows you how to configure Azure Cognitive Search to index content from Azure Cosmos DB using the Gremlin API. This workflow creates an Azure Cognitive Search index and loads it with existing text extracted from Azure Cosmos DB using the Gremlin API.
+## Prerequisites
+
+In order for Azure Cognitive Search to index data in Cosmos DB through the Gremlin API, [Cosmos DB's own indexing](../cosmos-db/index-overview.md) must also be enabled and set to [Consistent](../cosmos-db/index-policy.md#indexing-mode). This is the default configuration for Cosmos DB. Azure Cognitive Search indexing will not work without Cosmos DB indexing already enabled.
 
 ## Get started
 
-You can use the [preview REST API](https://docs.microsoft.com/rest/api/searchservice/index-preview) to index Azure Cosmos DB data that's available through the Gremlin API by following a three-part workflow common to all indexers in Azure Cognitive Search: create a data source, create an index, create an indexer. In the process below, data extraction from Cosmos DB starts when you submit the Create Indexer request.
+You can use the [preview REST API](/rest/api/searchservice/index-preview) to index Azure Cosmos DB data that's available through the Gremlin API by following a three-part workflow common to all indexers in Azure Cognitive Search: create a data source, create an index, create an indexer. In the process below, data extraction from Cosmos DB starts when you submit the Create Indexer request.
 
 By default the Azure Cognitive Search Cosmos DB Gremlin API indexer will make every vertex in your graph a document in the index. Edges will be ignored. Alternatively, you could set the query to only index the edges.
 
 ### Step 1 - Assemble inputs for the request
 
-For each request, you must provide the service name and admin key for Azure Cognitive Search (in the POST header). You can use [Postman](search-get-started-postman.md) or any REST API client to send HTTPS requests to Azure Cognitive Search.
+For each request, you must provide the service name and admin key for Azure Cognitive Search (in the POST header). You can use [Postman](./search-get-started-rest.md) or any REST API client to send HTTPS requests to Azure Cognitive Search.
 
 Copy and save the following values for use in your request:
 
@@ -174,7 +172,7 @@ Once the index and data source have been created, you're ready to create the ind
 
 This indexer will start running after it's created and only run once. You can add the optional schedule parameter to the request to set your indexer to run on a schedule. For more information about defining indexer schedules, see [How to schedule indexers for Azure Cognitive Search](search-howto-schedule-indexers.md).
 
-For more details on the Create Indexer API, check out [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+For more details on the Create Indexer API, check out [Create Indexer](/rest/api/searchservice/create-indexer).
 
 <a name="DataDeletionDetectionPolicy"></a>
 

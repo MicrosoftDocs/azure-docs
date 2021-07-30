@@ -5,7 +5,7 @@ description: Learn how to create a DNS zone and record in Azure DNS. This is a s
 services: dns
 author: duongau
 ms.author: duau
-ms.date: 09/8/2020
+ms.date: 6/2/2021
 ms.topic: quickstart
 ms.service: dns
 ms.custom: devx-track-azurepowershell
@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-azure-dns-new-zone).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azure-dns-new-zone).
 
 In this quickstart, you'll create a unique DNS zone with a suffix of `azurequickstart.org`. An `A` record pointing to two IP addresses will also be placed in the zone.
 

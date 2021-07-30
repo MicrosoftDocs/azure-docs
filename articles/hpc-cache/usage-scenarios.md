@@ -14,7 +14,7 @@ Azure HPC Cache can speed access to data for high-performance computing jobs in 
 
 The [Overview](hpc-cache-overview.md) article also gives a short outline of when to use Azure HPC Cache and some examples of use cases.
 
-Also read [this article](nfs-blob-considerations.md) about how to make effective use of [NFS-mounted blob storage](../storage/blobs/network-file-system-protocol-support.md), which is in preview.
+Also read [this article](nfs-blob-considerations.md) about how to make effective use of [NFS-mounted blob storage](../storage/blobs/network-file-system-protocol-support.md).
 
 ## NFS version 3.0 applications
 
@@ -49,4 +49,4 @@ By using Azure HPC Cache, you don't have to re-architect the work pipeline to ma
 ## Next steps
 
 * Learn more about how to plan and configure a cache in the [Overview](hpc-cache-overview.md) and [Prerequisites](hpc-cache-prerequisites.md) articles
-* Read considerations for using [NFS-enabled Blob storage](nfs-blob-considerations.md) (PREVIEW) with Azure HPC Cache
+* Read considerations for using [NFS-enabled Blob storage](nfs-blob-considerations.md) with Azure HPC Cache

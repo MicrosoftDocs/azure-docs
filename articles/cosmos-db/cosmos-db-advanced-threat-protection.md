@@ -4,7 +4,7 @@ description: Learn how Azure Cosmos DB provides encryption of data at rest and h
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/13/2019
+ms.date: 06/08/2021
 ms.custom: seodec18
 ms.author: memildin
 author: memildin
@@ -71,7 +71,7 @@ Use the following PowerShell cmdlets:
 
 Use an Azure Resource Manager (ARM) template to set up Cosmos DB with Advanced Threat Protection enabled.
 For more information, see
-[Create a CosmosDB Account with Advanced Threat Protection](https://azure.microsoft.com/resources/templates/201-cosmosdb-advanced-threat-protection-create-account/).
+[Create a CosmosDB Account with Advanced Threat Protection](https://azure.microsoft.com/resources/templates/cosmosdb-advanced-threat-protection-create-account/).
 
 # [Azure Policy](#tab/azure-policy)
 
