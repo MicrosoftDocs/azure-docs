@@ -139,24 +139,24 @@ To create an assessment, follow these steps:
 Validate the default data type mappings and change them based on requirements, if necessary. To do so, follow these steps: 
 
 
-1. On the **Tools** menu, select **Project Settings**. 
-1. Select the **Type Mappings** tab. 
+1. On the **Tools** menu, select **Project Settings**.
+1. Select the **Type Mappings** tab.
 
    ![Screenshot that shows the Type Mappings tab.](./media/oracle-to-sql-on-azure-vm-guide/type-mappings.png)
 
-1. You can change the type mapping for each table by selecting the table in **Oracle Metadata Explorer**. 
+1. You can change the type mapping for each table by selecting the table in **Oracle Metadata Explorer**.
 
 ### Convert the schema
 
-To convert the schema, follow these steps: 
+To convert the schema, follow these steps:
 
 1. (Optional) To convert dynamic or ad-hoc queries, right-click the node and select **Add statement**.
 
-1. Select **Connect to SQL Server** in the top menu. 
-     1. Enter connection details for your SQL Server on Azure VM. 
-     1. Select your target database from the list, or provide a new name. If you provide a new name, a database will be created on the target server. 
-     1. Provide authentication details. 
-     1. Select **Connect**. 
+1. Select **Connect to SQL Server** in the top menu.
+     1. Enter connection details for your SQL Server on Azure VM.
+     1. Select your target database from the list, or provide a new name. If you provide a new name, a database will be created on the target server.
+     1. Provide authentication details.
+     1. Select **Connect**.
 
 
    ![Screenshot that shows how to connect to SQL Server.](./media/oracle-to-sql-on-azure-vm-guide/connect-to-sql-vm.png)
@@ -182,10 +182,10 @@ To convert the schema, follow these steps:
 
 ## Migrate
 
-After you have the necessary prerequisites in place and have completed the tasks associated with the pre-migration stage, you're ready to start the schema and data migration. Migration involves two steps: publishing the schema and migrating the data. 
+After you have the necessary prerequisites in place and have completed the tasks associated with the pre-migration stage, you're ready to start the schema and data migration. Migration involves two steps: publishing the schema and migrating the data.
 
 
-To publish your schema and migrate the data, follow these steps: 
+To publish your schema and migrate the data, follow these steps:
 
 1. Publish the schema: right-click the database in **SQL Server Metadata Explorer** and select **Synchronize with Database**. Doing so publishes the Oracle schema to SQL Server on Azure Virtual Machines. 
 
@@ -213,12 +213,12 @@ To publish your schema and migrate the data, follow these steps:
 
    ![Screenshot that shows a SQL Server instance in SSMA.](./media/oracle-to-sql-on-azure-vm-guide/validate-in-ssms.png)
 
-Instead of using SSMA, you could use SQL Server Integration Services (SSIS) to migrate the data. To learn more, see: 
+Instead of using SSMA, you could use SQL Server Integration Services (SSIS) to migrate the data. To learn more, see:
 - The article [SQL Server Integration Services](/sql/integration-services/sql-server-integration-services).
 - The white paper [SSIS for Azure and Hybrid Data Movement](https://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/SSIS%20Hybrid%20and%20Azure.docx).
 
 
-## Post-migration 
+## Post-migration
 
 After you complete the migration stage, you need to complete a series of post-migration tasks to ensure that everything is running as smoothly and efficiently as possible.
 
@@ -239,6 +239,91 @@ To test your database migration, complete these activities:
 3. **Run validation tests**. Run the validation tests against the source and the target, and then analyze the results.
 
 4. **Run performance tests**. Run performance test against the source and the target, and then analyze and compare the results.
+
+### Data Validation
+
+Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows you to test the migrated database objects the migrated data. The tester is primarily used to verify that converted objects behave in the same way.
+
+Few common scenarios
+• Are the changes in table data identical?
+• Are the values of output parameters for procedures and functions identical?
+• Do functions return the same results?
+• Are the result sets identical?
+
+#### Create test case
+
+1. In SSMA for oracle, select Tester followed by New Test Case.
+ ![Screenshot that shows new test case.](./media/oracle-to-sql-database-guide/ssma_tester_new.PNG)
+
+2.On the Test Case wizard, provide the following information.
+
+Name: Enter the name to identify the test case.
+Creation date: Today's current date, defined automatically.
+Last Modified date: filled in automatically, should not be changed.
+Description: Enter any additional information to identify the purpose of the test case.
+ ![Screenshot - Initialize a test case .](./media/oracle-to-sql-database-guide/tester_init_test_case.PNG)
+
+3.In the Oracle object tree located on the left side, select the objects you want to evaluate  during the testing process.
+ ![Screenshot - select and configure object .](./media/oracle-to-sql-database-guide/tester_Select_configure_objects.png)
+ 
+In this example,  stored procedure ADD_REGION and table REGION are selected.
+
+ To learn more, see  [Selecting and configuring objects to test.](https://docs.microsoft.com/sql/ssma/oracle/selecting-and-configuring-objects-to-test-oracletosql)
+
+4.In the next step, select and configure affected objects, select  the tables and foreign keys from the Oracle object tree located on the left window.
+![Screenshot - select and configure affected object .](./media/oracle-to-sql-database-guide/tester_select_configure_affected.PNG)
+
+To learn more, see [Selecting and configuring affected objects.](https://docs.microsoft.com/sql/ssma/oracle/selecting-and-configuring-affected-objects-oracletosql)
+
+5.In this call ordering step,  select the order in which the objects to test will be evaluated. You can change the order by clicking the buttons in the grid.
+![Screenshot - ordering object .](./media/oracle-to-sql-database-guide/test_call_ordering.png)
+
+6.The finalize test case page provides  test case information, test objects and the objects that will be analyzed. In addition, on this page you can set the test execution options.
+![Screenshot - finalize object .](./media/oracle-to-sql-database-guide/tester_finalize_case.PNG)
+
+For more information on test case settings,[Finishing test case preparation](https://docs.microsoft.com/sql/ssma/oracle/finishing-test-case-preparation-oracletosql)
+
+7.Click on finish to create the test case.
+![Screenshot - test repo .](./media/oracle-to-sql-database-guide/tester_test_repo.PNG)
+
+#### Run and view test case
+
+When SSMA Tester runs a test case, the test engine executes the objects selected for testing and generates a verification report.
+
+1.In the test repository page, you can select the test case and then click run.
+![Screenshot - test repo view .](./media/oracle-to-sql-database-guide/tester_repo_run.PNG)
+
+2.Next, it  will launch run Test case page. Click run.
+
+![Screenshot - test launch .](./media/oracle-to-sql-database-guide/tester_run_test_case.png)
+
+3.Next, you would be prompted to provide source oracle credentials. Click connect after entering the credentials.
+
+![Screenshot - oracle connect .](./media/oracle-to-sql-database-guide/tester_oracle_connect.png)
+
+4.In the next step, you need to  provide target SQL Server credentials. Click connect after entering the user details.
+
+![Screenshot - sql target connect .](./media/oracle-to-sql-database-guide/tester_Sqlservervm_connect.PNG)
+
+On success, it will go to initialization stage.
+
+5.The test run will proceed with the evaluation process and will show the real-time progress.
+
+![Screenshot - tester test progress .](./media/oracle-to-sql-database-guide/tester_run_status.png)
+
+6.Once the test case is executed, tester module will generate a report, which provides the statistics, any errors during the test run and a detail report.
+
+![Screenshot - tester test report.](./media/oracle-to-sql-database-guide/tester_test_result.png)
+
+7.Click details to get more information.
+
+![Screenshot - tester success report.](./media/oracle-to-sql-database-guide/tester_test_success.png)
+
+Example of positive data validation.
+
+![Screenshot - tester failure report.](./media/oracle-to-sql-database-guide/tester_test_failed.png)
+
+Example of failed data validation.
 
 ### Optimize
 
