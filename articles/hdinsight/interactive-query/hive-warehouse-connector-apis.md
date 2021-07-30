@@ -110,7 +110,7 @@ Complete the [Hive Warehouse Connector setup](./apache-hive-warehouse-connector.
     createTableBuilder.create()
     ```
 
-    **NOTE**: This API creates an ORC formatted table at default location.
+    **Note**: This API creates an ORC formatted table at default location.
    For other features/options or to create table using hive queries, use `executeUpdate` API.
 
 
@@ -241,7 +241,7 @@ Complete the [Hive Warehouse Connector setup](./apache-hive-warehouse-connector.
     // .option("metastoreKrbPrincipal", principal), add if executing in ESP cluster
        .save()
     ```
-    **NOTE**: Stream writes always append data.
+    **Note**: Stream writes always append data.
 
 
 16. Writing a spark stream to a Hive Table
