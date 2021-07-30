@@ -1,50 +1,52 @@
 ---
-title: Troubleshoot network connection to Azure Data Box
-description: Describes how to identify network issue preventing connection to Azure Data Box.
+title: Troubleshoot share connections in Azure Data Box
+description: Describes how to identify network issues preventing share connections in Azure Data Box.
 services: databox
 author: v-dalc
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 07/29/2021
+ms.date: 07/30/2021
 ms.author: alkohli
 ---
 
-# Troubleshoot lost connection to Azure Data Box
+# Troubleshoot share connection issues in Azure Data Box
 
-<!--[!INCLUDE [<title>](<filepath>)] - Will a SKU tag be needed?-->
+<!--[!INCLUDE [<title>](<filepath>)] - I will write to the Data Box SKU. Support document addresses also: Data Box Gateway, and Azure Stack Edge. Support document: https://internal.support.services.microsoft.com/en-us/help/4535661-->
 
-This article describes how to troubleshoot network issues when you can't connect to your Azure Data Box device.<!--Source KB is for Data Box, Data Box Gateway, and Azure Stack Edge devices. Make an include?-->
+This article describes how to troubleshoot network issues that can cause SMB data copy to fail on your Azure Data Box device.<!--Source KB is for Data Box, Data Box Gateway, and Azure Stack Edge devices. Make an include?-->
 
-## Unable to connect to Data Box device
+## Unable to connect to an SMB share
+
+<!--GLOBAL: This article isn't about device connections. It's about share connections.-->
 
 ### Possible causes
 
-The most common reasons for being unable to connect to your Data Box are:
+The most common reasons for being unable to connect to an SMB share FROM A HOST COMPUTER are:
 
 - a domain issue
 - a group policy that's preventing a connection
-- a permissions issue<!--What about certificates?-->
+- a permissions issue
 
-### Troubleshoot a connection problem
+### Troubleshoot a share connection problem
 
 If you can't log in on your Data Box device, do the following steps to identify and fix the problem: 
 
-1. To check for a domain issue, try to [connect to your device](data-box-quickstart-portal.md) entering your credentials in one of the following formats:
+1. To check for a domain issue, try to [connect to your device](data-box-quickstart-portal.md) entering your credentials in one of the following formats:<!--Part of the share path.-->
 
        - `<device IP address>\<user name>`
        - `\<user name>`
 
    If this doesn't work, the problem isn't a domain issue.
 
-1. Next, check whether a group policy is preventing the connection. If possible, move the client/host machine to an organizational unit (OU) that doesn't have any group policies applied.<!--Can we link to a procedure? I can't find any.-->
+1. Next, check whether a group policy is preventing the connection. If possible, move the client/host machine to an organizational unit (OU) that doesn't have any group policies applied.<!--Sources: 1) StorSimple best practices, "Group policy" (https://docs.microsoft.com/en-us/azure/storsimple/storsimple-ova-best-practices#group-policy; 2) "Block inheritance" (https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731076(v=ws.11). 3) Or look through the Group policy tree.-->
 
 1. If you can't connect to your device in an OU that doesn't have any group policies, it's time to run some diagnostics:
 
-   1. In the local web UI for the device, go to **Troubleshooting**, and then to **Diagnostic test**. Run diagnostics and collect device logs. *HOW?*<!--"Tracking and event logging for your Azure Data Box and Azure Data Box Heavy import order" (https://docs.microsoft.com/en-us/azure/databox/data-box-logs#query-activity-logs-during-setup - MD:data-box-event-logs.md) doesn't discuss Smbserver.security event logs in the \etw folder.-->
+   1. In the local web UI for the device, go to **Troubleshooting**, and then to **Diagnostic test**. Run diagnostics and collect device logs.<!--SEE NOTES FROM 09/30 SYNC FOR GUIDANCE. "Tracking and event logging for your Azure Data Box and Azure Data Box Heavy import order" (https://docs.microsoft.com/en-us/azure/databox/data-box-logs#query-activity-logs-during-setup - MD:data-box-event-logs.md) doesn't discuss Smbserver.security event logs in the \etw folder.-->
 
-   1. Review the `Smbserver.Security` event logs in the `etw` folder for an error similar to one of the errors identified (in bold) in the following sample entry.<!--Take a screenshot of the output to allow highlighting of the two errors.-->
+   1. Review the `Smbserver.Security` event logs in the `etw` folder for an error similar to one of the errors identified (in bold) in the following sample entry.<!--1) Take a screenshot of the text in Word. 2) Make a quick check for other articles with log samples to see what text formats they use. 3) Add error text to search for in text. 4) Break the screenshots in two - one for each error?-->
    
       ```output
       SMB Session Authentication Failure
@@ -83,7 +85,7 @@ If you can't log in on your Data Box device, do the following steps to identify 
 
          ![Screenshot of Security Options with Network Security: LAN Manager authentication level selected](media/data-box-troubleshoot-device-connection/security-policy-01.png)
 
-      1. To change the setting, select and click **Network Security: LAN Manager authentication level**. Then select **Send NTLMv2 response only. Refuse LM & NTLM**, and select **OK**.
+      1. To change the setting, select and click **Network Security: LAN Manager authentication level**. Then select **Send NTLMv2 response only. Refuse LM & NTLM**, and select **OK**.<!--Awkward wording. Check how registry updates are described elsewhere.-->
 
          ![Screenshot that shows the "Send NTLMv2 response only. Refuse LM & NTLM." option selected as the LAN Manager authentication level](media/data-box-troubleshoot-device-connection/security-policy-02.png)
 
@@ -91,7 +93,7 @@ If you can't log in on your Data Box device, do the following steps to identify 
 
     1. To open the Registry Editor, open a command prompt, and run `regedt32`.
 
-    1. Go to HKEY_LOCAL_MACHINE > SYSTEM > CurrentControlSet > Control > LSA.
+    1. Go to **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **LSA**.
 
        ![Screenshot showing the location of the LSA folder in the Registry Editor](media/data-box-troubleshoot-device-connection/security-policy-03.png)
 
@@ -103,9 +105,9 @@ If you can't log in on your Data Box device, do the following steps to identify 
 
     1. Restart your computer so that the Registry changes take effect.
 
-1. [Connect to your Data Box device](data-box-quickstart-portal.md).
+1. Connect to the share.
 
 ## Next steps
 
-- [Copy data via SMB](data-box-deploy-copy-data.md)<!--Other options: via REST, via NFS, To managed disks-->
+- [Copy data via SMB](data-box-deploy-copy-data.md)
 - [Copy data via network-attached storage (NAS)](data-box-deploy-copy-data-via-copy-service.md)
