@@ -11,17 +11,17 @@ author: mingshen-ms
 
 # Commercial marketplace transact capabilities
 
-This article describes pricing, billing, invoicing, and payout considerations for the commercial marketplace.
+This article describes pricing, billing, invoicing and payout considerations for *transactable* offers sold through the commercial marketplace.  For information about publishing non-transactable (free or BYOL) offers, see ______ <link>.
 
 ## Transactions by listing option
 
 Either the publisher or Microsoft is responsible for managing software license transactions for offers in the commercial marketplace. The listing option you choose for your offer determines who manages the transaction. For availability and explanations of each publishing option, see [Introduction to listing options](determine-your-listing-type.md)
 
-### Contact me, free trial, and BYOL options
+Move to non-transact article: <strike>### Contact me, free trial, and BYOL options
 
 Publishers can choose the *Contact me* and *Free trial*, options for promotional and user acquisition purposes. For some offer types, publishers can choose the *bring your own license* (BYOL) option to enable customers to purchase a subscription to your offer using a license they’ve purchased directly from you. With these options, Microsoft doesn't participate directly in the publisher's software license transactions and there's no associated transaction fee, so publishers keep all of that revenue.
 
-With these options, publishers are responsible for supporting all aspects of the software license transaction. This includes but is not limited to order, fulfillment, metering, billing, invoicing, payment, and collection. With the Contact me listing option, publishers keep 100% of publisher software licensing fees collected from the customer.
+With these options, publishers are responsible for supporting all aspects of the software license transaction. This includes but is not limited to order, fulfillment, metering, billing, invoicing, payment, and collection. With the Contact me listing option, publishers keep 100% of publisher software licensing fees collected from the customer.</strike>
 
 ### Transact publishing option
 
@@ -58,21 +58,23 @@ For **SaaS Apps**, the publisher must account for Azure infrastructure usage fee
 
 Depending on the transaction option used, subscription charges are as follows:
 
+<strike>
+
 - **Get it now (Free)**: No charge for software licenses. Free offers can’t be converted to a paid offer. Customers must order a paid offer.
 - **Bring your own license** (BYOL): If an offer is listed in the commercial marketplace, any applicable charges for software licenses are managed directly between the publisher and customer. Microsoft only charges applicable Azure infrastructure usage fees to the customer’s Azure subscription account.
+- **Free trial**: No charge for software licenses that range from 30 days up to six months, depending on the offer type. If publishers provide a free trial on multiple plans within the same offer, customers can switch to a free trial on another plan, but the trial period does not restart. For virtual machine offers, customers are charged Azure infrastructure costs for using the offer during a trial period. Upon expiration of the trial period, customers are automatically charged for the last plan they tried based on standard rates unless they cancel before the end of the trial period.</strike>
 - **Subscription pricing**: Software license fees are presented as a monthly or annual, recurring subscription fee billed as a flat rate or per-seat. Recurrent subscription fees are not prorated for mid-term customer cancellations, or unused services. Recurrent subscription fees may be prorated if the customer upgrades or downgrades their subscription in the middle of the subscription term.
 - **Usage-based pricing**: For Azure Virtual Machine offers, customers are charged based on the extent of their use of the offer. For Virtual Machine images, customers are charged an hourly Azure Marketplace fee, as set by the publisher, for use of virtual machines deployed from the VM images. The hourly fee may be uniform or varied across virtual machine sizes. Partial hours are charged by the minute. Plans are billed monthly.
 - **Metered pricing**: For Azure Application offers and SaaS offers, publishers can use the [Marketplace metering service](marketplace-metering-service-apis.md) to bill for consumption based on the custom meter dimensions they configure. These changes are in addition to monthly or annual charges included in the contract (entitlement). Examples of custom meter dimensions are bandwidth, tickets, or emails processed. Publishers can define one or more metered dimensions for each plan but a maximum of 30 per offer. Publishers are responsible for tracking individual customer usage, with each meter defined in the offer. Events should be reported to Microsoft within an hour. Microsoft charges customers based on the usage information reported by publishers for the applicable billing period.
-- **Free trial**: No charge for software licenses that range from 30 days up to six months, depending on the offer type. If publishers provide a free trial on multiple plans within the same offer, customers can switch to a free trial on another plan, but the trial period does not restart. For virtual machine offers, customers are charged Azure infrastructure costs for using the offer during a trial period. Upon expiration of the trial period, customers are automatically charged for the last plan they tried based on standard rates unless they cancel before the end of the trial period.
 
 > [!NOTE]
 > Offers that are billed according to consumption after a solution has been used are not eligible for refunds.
 
 Publishers who want to change the usage fees associated with an offer, should first remove the offer (or the specific plan within the offer) from the commercial marketplace. Removal should be done in accordance with the requirements of the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement). Then the publisher can publish a new offer (or plan within an offer) that includes the new usage fees. For information, about removing an offer or plan, see [Stop distribution of an offer or plan](./update-existing-offer.md#stop-distribution-of-an-offer-or-plan).
 
-### Determine offer type and pricing plan
+### Determine tansactable? offer type and pricing plan
 
-Use this flowchart to determine the appropriate transactable offer type and pricing plan for selling software through the commercial marketplace.
+Use this flowchart to determine the appropriate *transactable* offer type and pricing plan for selling software through the commercial marketplace.
 
 [![Shows a flowchart for determining offer type and pricing plan.](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png)](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png#lightbox)
 &nbsp;&nbsp;&nbsp;<sup>(1)</sup> Choose an [offer type](/azure/marketplace/publisher-guide-by-offer-type) or contact [support](/azure/marketplace/support).<br>
@@ -80,9 +82,9 @@ Use this flowchart to determine the appropriate transactable offer type and pric
 &nbsp;&nbsp;&nbsp;<sup>(3)</sup> VM offer images can be included in the Azure App offer to increase pricing flexibility.<br>
 &nbsp;&nbsp;&nbsp;<sup>(4)</sup> Customer pays the infrastructure costs since Azure services are deployed on the customer tenant for VM and Azure App offers.
 
-### Free, Contact me, and Bring-your-own-license (BYOL) pricing
+MOVE OUT <strike>### Free, Contact me, and Bring-your-own-license (BYOL) pricing
 
-When publishing an offer with the Get it now (Free), Contact me, or BYOL option, Microsoft does not play a role in facilitating the sales transaction for your software license fees. The publisher keeps 100% of the software license fees.
+When publishing an offer with the Get it now (Free), Contact me, or BYOL option, Microsoft does not play a role in facilitating the sales transaction for your software license fees. The publisher keeps 100% of the software license fees.</strike>
 
 ### Usage-based and subscription pricing
 
