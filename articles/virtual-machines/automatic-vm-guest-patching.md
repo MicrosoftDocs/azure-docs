@@ -51,7 +51,7 @@ For a group of virtual machines undergoing an update, the Azure platform will or
 
 **Within a region:**
 - VMs in different Availability Zones are not updated concurrently with the same update.
-- VMs not part of an availability set are batched on a best effort basis to avoid concurrent updates for all VMs in a subscription.
+- VMs that are not part of an availability set are batched on a best effort basis to avoid concurrent updates for all VMs in a subscription.
 
 **Within an availability set:**
 - All VMs in a common availability set are not updated concurrently.
@@ -68,7 +68,7 @@ As the Automatic VM Guest Patching does not configure the patch source, two simi
 
 For OS types that release patches on a fixed cadence, VMs configured to the public repository for the OS can expect to receive the same set of patches across the different rollout phases in a month. For example, Windows VMs configured to the public Windows Update repository.
 
-As a new rollout is triggered every month, a VM will receive at least one patch rollout every month if the VM is powered on during off-peak hours. This ensures that the VM is patched with the latest available security and critical patches on a monthly basis. To ensure consistency in the set of patches installed, you can configure your VMs to assess and download patches from your own private repositories.
+As a new rollout is triggered every month, a VM will receive at least one patch rollout every month if the VM is powered on during off-peak hours. This process ensures that the VM is patched with the latest available security and critical patches on a monthly basis. To ensure consistency in the set of patches installed, you can configure your VMs to assess and download patches from your own private repositories.
 
 ## Supported OS images
 Only VMs created from certain OS platform images are currently supported in the preview. Custom images are currently not supported in the preview.
@@ -309,7 +309,7 @@ If automatic VM guest patching is already enabled for your VM, a periodic patch 
 
 You can also trigger an on-demand patch installation for your VM at any time. Patch installation can take a few minutes to complete and the status of the latest installation is updated on the VM's instance view.
 
-You can use on-demand patch installation to install all patches of one or more patch classifications. You can also choose include or exclude specific packages for Linux or specific KB IDs for Windows. When triggering an on-demand patch installation, ensure that you specify at least one patch classification or at least one patch (package for Linux, KB ID for Windows) in the inclusion list.
+You can use on-demand patch installation to install all patches of one or more patch classifications. You can also choose to include or exclude specific packages for Linux or specific KB IDs for Windows. When triggering an on-demand patch installation, ensure that you specify at least one patch classification or at least one patch (package for Linux, KB ID for Windows) in the inclusion list.
 
 ### REST API
 Use the [Install Patches](/rest/api/compute/virtual-machines/install-patches) API to install patches on your virtual machine.
@@ -347,7 +347,7 @@ Example request body for Windows:
 ```
 
 ### Azure PowerShell
-Use the [Invoke-AzVMInstallPatch](/powershell/module/az.compute/invoke-azvminstallpatch) cmdlet to ainstall patches on your virtual machine.
+Use the [Invoke-AzVMInstallPatch](/powershell/module/az.compute/invoke-azvminstallpatch) cmdlet to install patches on your virtual machine.
 
 Example to install certain packages on a Linux VM:
 ```azurepowershell-interactive

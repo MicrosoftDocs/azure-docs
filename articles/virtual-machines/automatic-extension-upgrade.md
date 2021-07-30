@@ -51,7 +51,7 @@ For a group of virtual machines undergoing an update, the Azure platform will or
 
 **Within a region:**
 - VMs in different Availability Zones are not updated concurrently with the same update.
-- Single VMs not part of an availability set are batched on a best effort basis to avoid concurrent updates for all VMs in a subscription.  
+- Single VMs that are not part of an availability set are batched on a best effort basis to avoid concurrent updates for all VMs in a subscription.  
 
 **Within a 'set':**
 - All VMs in a common availability set or scale set are not updated concurrently.  

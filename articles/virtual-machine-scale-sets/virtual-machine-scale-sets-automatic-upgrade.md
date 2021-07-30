@@ -39,7 +39,7 @@ The availability-first model for platform orchestrated updates described below e
 - An update will move across Azure globally in a phased manner to prevent Azure-wide deployment failures.
 - A 'phase' can have one or more regions, and an update moves across phases only if eligible VMs in the previous phase update successfully.
 - Geo-paired regions will not be updated concurrently and cannot be in the same regional phase.
-- The success of an update is measured by tracking the health of a VM post update. VM health is tracked .
+- The success of an update is measured by tracking the health of a VM post update.
 
 **Within a region:**
 - VMs in different Availability Zones are not updated concurrently with the same update.
@@ -93,7 +93,7 @@ The following platform SKUs are currently supported (and more are added periodic
 - Use application health probes or [Application Health extension](virtual-machine-scale-sets-health-extension.md) for non-Service Fabric scale sets, or Service Fabric scale sets on Bronze durability with Stateless-only node types.
 - Use Compute API version 2018-10-01 or higher.
 - Ensure that external resources specified in the scale set model are available and updated. Examples include SAS URI for bootstrapping payload in VM extension properties, payload in storage account, reference to secrets in the model, and more.
-- For scale sets using Windows virtual machines, starting with Compute API version 2019-03-01, the property *virtualMachineProfile.osProfile.windowsConfiguration.enableAutomaticUpdates* property must set to *false* in the scale set model definition. The *enableAutomaticUpdates* property enables in-VM patching where "Windows Update" applies operating system patches without replacing the OS disk. With automatic OS image upgrades enabled on your scale set, an additional patching process through Windows Update is not required.
+- For scale sets using Windows virtual machines, starting with Compute API version 2019-03-01, the property *virtualMachineProfile.osProfile.windowsConfiguration.enableAutomaticUpdates* property must set to *false* in the scale set model definition. The *enableAutomaticUpdates* property enables in-VM patching where "Windows Update" applies operating system patches without replacing the OS disk. With automatic OS image upgrades enabled on your scale set, an extra patching process through Windows Update is not required.
 
 ### Service Fabric requirements
 
