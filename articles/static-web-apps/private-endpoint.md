@@ -62,4 +62,5 @@ Since your application is no longer publicly available, the only way to access i
 
 ## Next steps
 
-> [!div class="nextstepaction"] > [Learn more about private endpoints](../private-link/private-endpoint-overview.md)
+> [!div class="nextstepaction"]
+> [Learn more about private endpoints](../private-link/private-endpoint-overview.md)
