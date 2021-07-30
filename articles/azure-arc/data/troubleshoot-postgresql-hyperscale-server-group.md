@@ -38,11 +38,14 @@ Read the article about [getting logs for Azure Arc-enabled data services](troubl
 
 
 ## Interactive troubleshooting with Jupyter notebooks in Azure Data Studio
+
 Notebooks can document procedures by including markdown content to describe what to do/how to do it. It can also provide executable code to automate a procedure.  This pattern is useful for everything from standard operating procedures to troubleshooting guides.
 
 For example, let's troubleshoot a PostgreSQL Hyperscale server group that might have some problems using Azure Data Studio.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
+[!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
 
 ### Install tools
 
