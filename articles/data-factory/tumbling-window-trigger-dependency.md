@@ -1,6 +1,6 @@
 ---
 title: Create tumbling window trigger dependencies
-description: Learn how to create dependency on a tumbling window trigger in Azure Data Factory.
+description: Learn how to create dependency on a tumbling window trigger in Azure Data Factory and Synapse Analytics.
 ms.author: chez
 author: chez-charlie
 ms.service: data-factory
@@ -14,15 +14,15 @@ ms.date: 09/03/2020
 
 This article provides steps to create a dependency on a tumbling window trigger. For general information about Tumbling Window triggers, see [How to create tumbling window trigger](how-to-create-tumbling-window-trigger.md).
 
-In order to build a dependency chain and make sure that a trigger is executed only after the successful execution of another trigger in the data factory, use this advanced feature to create a tumbling window dependency.
+In order to build a dependency chain and make sure that a trigger is executed only after the successful execution of another trigger within the service, use this advanced feature to create a tumbling window dependency.
 
-For a demonstration on how to create dependent pipelines in your Azure Data Factory using tumbling window trigger, watch the following video:
+For a demonstration on how to create dependent pipelines using tumbling window trigger, watch the following video:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Create-dependent-pipelines-in-your-Azure-Data-Factory/player]
 
-## Create a dependency in the Data Factory UI
+## Create a dependency in the UI
 
-To create dependency on a trigger, select **Trigger > Advanced > New**, and then choose the trigger to depend on with the appropriate offset and size. Select **Finish** and publish the data factory changes for the dependencies to take effect.
+To create dependency on a trigger, select **Trigger > Advanced > New**, and then choose the trigger to depend on with the appropriate offset and size. Select **Finish** and publish the changes for the dependencies to take effect.
 
 ![Dependency Creation](media/tumbling-window-trigger-dependency/tumbling-window-dependency-01.png "Dependency Creation")
 
