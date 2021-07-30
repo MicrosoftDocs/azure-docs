@@ -14,11 +14,11 @@ ms.date: 11/06/2020
 # Migration guide: Oracle to SQL Server on Azure Virtual Machines
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-This guide teaches you to migrate your Oracle schemas to SQL Server on Azure Virtual Machines by using SQL Server Migration Assistant for Oracle. 
+This guide teaches you to migrate your Oracle schemas to SQL Server on Azure Virtual Machines by using SQL Server Migration Assistant for Oracle.
 
-For other migration guides, see [Database Migration](/data-migration). 
+For other migration guides, see [Database Migration](/data-migration).
 
-## Prerequisites 
+## Prerequisites
 
 To migrate your Oracle schema to SQL Server on Azure Virtual Machines, you need:
 
@@ -26,23 +26,23 @@ To migrate your Oracle schema to SQL Server on Azure Virtual Machines, you need:
 - [SQL Server Migration Assistant (SSMA) for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258).
 - A target [SQL Server VM](../../virtual-machines/windows/sql-vm-create-portal-quickstart.md).
 - The [necessary permissions for SSMA for Oracle](/sql/ssma/oracle/connecting-to-oracle-database-oracletosql) and the [provider](/sql/ssma/oracle/connect-to-oracle-oracletosql).
-- Connectivity and sufficient permissions to access the source and the target. 
+- Connectivity and sufficient permissions to access the source and the target.
 
 
 ## Pre-migration
 
 To prepare to migrate to the cloud, verify that your source environment is supported and that you've addressed any prerequisites. Doing so will help to ensure an efficient and successful migration.
 
-This part of the process involves: 
+This part of the process involves:
 - Conducting an inventory of the databases that you need to migrate.
-- Assessing those databases for potential migration problems or blockers. 
-- Resolving any problems that you uncover. 
+- Assessing those databases for potential migration problems or blockers.
+- Resolving any problems that you uncover.
 
 ### Discover
 
 Use [MAP Toolkit](https://go.microsoft.com/fwlink/?LinkID=316883) to identify existing data sources and details about the features your business is using. Doing so will give you a better understanding of the migration and help you plan for it. This process involves scanning the network to identify your organization's Oracle instances and the versions and features you're using.
 
-To use MAP Toolkit to do an inventory scan, follow these steps: 
+To use MAP Toolkit to do an inventory scan, follow these steps:
 
 
 1. Open [MAP Toolkit](https://go.microsoft.com/fwlink/?LinkID=316883).
@@ -52,7 +52,7 @@ To use MAP Toolkit to do an inventory scan, follow these steps:
 
    ![Screenshot that shows the Create/Select database option.](./media/oracle-to-sql-on-azure-vm-guide/select-database.png)
 
-1. Select **Create an inventory database**. Enter a name for the new inventory database you're creating, provide a brief description, and then select **OK**: 
+1. Select **Create an inventory database**. Enter a name for the new inventory database you're creating, provide a brief description, and then select **OK**:
 
    :::image type="content" source="media/oracle-to-sql-on-azure-vm-guide/create-inventory-database.png" alt-text="Screenshot that shows the interface for creating an inventory database.":::
 
@@ -65,7 +65,7 @@ To use MAP Toolkit to do an inventory scan, follow these steps:
 
    ![Screenshot that shows the Inventory Scenarios page of the Inventory and Assessment Wizard.](./media/oracle-to-sql-on-azure-vm-guide/choose-oracle.png)
 
-1. Select the computer search option that best suits your business needs and environment, and then select **Next**: 
+1. Select the computer search option that best suits your business needs and environment, and then select **Next**:
 
    ![Screenshot that shows the Discovery Methods page of the Inventory and Assessment Wizard.](./media/oracle-to-sql-on-azure-vm-guide/choose-search-option.png)
 
@@ -89,7 +89,7 @@ To use MAP Toolkit to do an inventory scan, follow these steps:
    ![Screenshot that shows the Summary page of the Inventory and Assessment Wizard.](./media/oracle-to-sql-on-azure-vm-guide/review-summary.png)
 
 
-1. After the scan finishes, view the **Data Collection** summary. The scan might take a few minutes, depending on the number of databases. Select **Close** when you're done: 
+1. After the scan finishes, view the **Data Collection** summary. The scan might take a few minutes, depending on the number of databases. Select **Close** when you're done:
 
    ![Screenshot that shows the Data Collection summary.](./media/oracle-to-sql-on-azure-vm-guide/collection-summary-report.png)
 
@@ -101,12 +101,12 @@ To use MAP Toolkit to do an inventory scan, follow these steps:
 
 After you identify the data sources, use [SQL Server Migration Assistant for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258) to assess the Oracle instances migrating to the SQL Server VM. The assistant will help you understand the gaps between the source and destination databases. You can review database objects and data, assess databases for migration, migrate database objects to SQL Server, and then migrate data to SQL Server.
 
-To create an assessment, follow these steps: 
+To create an assessment, follow these steps:
 
 
-1. Open [SQL Server Migration Assistant for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258). 
-1. On the **File** menu, select **New Project**. 
-1. Provide a project name and a location for your project, and then select a SQL Server migration target from the list. Select **OK**: 
+1. Open [SQL Server Migration Assistant for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258).
+1. On the **File** menu, select **New Project**.
+1. Provide a project name and a location for your project, and then select a SQL Server migration target from the list. Select **OK**:
 
    ![Screenshot that shows the New Project dialog box.](./media/oracle-to-sql-on-azure-vm-guide/new-project.png)
 
@@ -115,7 +115,7 @@ To create an assessment, follow these steps:
 
    ![Screenshot that shows the Connect to Oracle dialog box.](./media/oracle-to-sql-on-azure-vm-guide/connect-to-oracle.png)
 
-   Select the Oracle schemas that you want to migrate: 
+   Select the Oracle schemas that you want to migrate:
 
    ![Screenshot that shows the list of Oracle schemas that can be migrated.](./media/oracle-to-sql-on-azure-vm-guide/select-schema.png)
 
@@ -126,7 +126,7 @@ To create an assessment, follow these steps:
 
 1. Review the HTML report for conversion statistics, errors, and warnings. Analyze it to understand conversion problems and resolutions.
 
-    You can also open the report in Excel to get an inventory of Oracle objects and the effort required to complete schema conversions. The default location for the report is the report folder in SSMAProjects. 
+    You can also open the report in Excel to get an inventory of Oracle objects and the effort required to complete schema conversions. The default location for the report is the report folder in SSMAProjects.
 
    For example: `drive:\<username>\Documents\SSMAProjects\MyOracleMigration\report\report_2016_11_12T02_47_55\`
 
@@ -136,7 +136,7 @@ To create an assessment, follow these steps:
 
 ### Validate data types
 
-Validate the default data type mappings and change them based on requirements, if necessary. To do so, follow these steps: 
+Validate the default data type mappings and change them based on requirements, if necessary. To do so, follow these steps:
 
 
 1. On the **Tools** menu, select **Project Settings**.
@@ -170,13 +170,13 @@ To convert the schema, follow these steps:
 
    ![Screenshot that shows a comparison of two schemas.](./media/oracle-to-sql-on-azure-vm-guide/table-mapping.png)
 
-   Compare the converted Transact-SQL text to the original stored procedures and review the recommendations: 
+   Compare the converted Transact-SQL text to the original stored procedures and review the recommendations:
 
    ![Screenshot that shows Transact-SQL, stored procedures, and a warning.](./media/oracle-to-sql-on-azure-vm-guide/procedure-comparison.png)
 
    You can save the project locally for an offline schema remediation exercise. To do so, select **Save Project** on the **File** menu. Saving the project locally lets you evaluate the source and target schemas offline and perform remediation before you publish the schema to SQL Server.
 
-1. Select **Review results** in the **Output** pane, and then review errors in the **Error list** pane. 
+1. Select **Review results** in the **Output** pane, and then review errors in the **Error list** pane.
 1. Save the project locally for an offline schema remediation exercise. Select **Save Project** on the **File** menu. This gives you an opportunity to evaluate the source and target schemas offline and perform remediation before you publish the schema to SQL Server on Azure Virtual Machines.
 
 
@@ -187,7 +187,7 @@ After you have the necessary prerequisites in place and have completed the tasks
 
 To publish your schema and migrate the data, follow these steps:
 
-1. Publish the schema: right-click the database in **SQL Server Metadata Explorer** and select **Synchronize with Database**. Doing so publishes the Oracle schema to SQL Server on Azure Virtual Machines. 
+1. Publish the schema: right-click the database in **SQL Server Metadata Explorer** and select **Synchronize with Database**. Doing so publishes the Oracle schema to SQL Server on Azure Virtual Machines.
 
    ![Screenshot that shows the Synchronize with Database command.](./media/oracle-to-sql-on-azure-vm-guide/synchronize-database.png)
 
@@ -226,7 +226,7 @@ After you complete the migration stage, you need to complete a series of post-mi
 
 After the data is migrated to the target environment, all the applications that previously consumed the source need to start consuming the target. Making those changes might require changes to the applications.
 
-[Data Access Migration Toolkit](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit) is an extension for Visual Studio Code. It allows you to analyze your Java source code and detect data access API calls and queries. The toolkit provides a single-pane view of what needs to be addressed to support the new database back end. To learn more, see [Migrate your Java application from Oracle](https://techcommunity.microsoft.com/t5/microsoft-data-migration/migrate-your-java-applications-from-oracle-to-sql-server-with/ba-p/368727). 
+[Data Access Migration Toolkit](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit) is an extension for Visual Studio Code. It allows you to analyze your Java source code and detect data access API calls and queries. The toolkit provides a single-pane view of what needs to be addressed to support the new database back end. To learn more, see [Migrate your Java application from Oracle](https://techcommunity.microsoft.com/t5/microsoft-data-migration/migrate-your-java-applications-from-oracle-to-sql-server-with/ba-p/368727).
 
 ### Perform tests
 
@@ -253,7 +253,7 @@ Few common scenarios
 #### Create test case
 
 1. In SSMA for oracle, select Tester followed by New Test Case.
- ![Screenshot that shows new test case.](./media/oracle-to-sql-database-guide/ssma_tester_new.PNG)
+ ![Screenshot that shows new test case.](./media/oracle-to-sql-on-azure-vm-guide/ssma_tester_new.PNG)
 
 2.On the Test Case wizard, provide the following information.
 
@@ -261,25 +261,25 @@ Name: Enter the name to identify the test case.
 Creation date: Today's current date, defined automatically.
 Last Modified date: filled in automatically, should not be changed.
 Description: Enter any additional information to identify the purpose of the test case.
- ![Screenshot - Initialize a test case .](./media/oracle-to-sql-database-guide/tester_init_test_case.PNG)
+ ![Screenshot - Initialize a test case .](./media/oracle-to-sql-on-azure-vm-guide/tester_init_test_case.PNG)
 
 3.In the Oracle object tree located on the left side, select the objects you want to evaluate  during the testing process.
- ![Screenshot - select and configure object .](./media/oracle-to-sql-database-guide/tester_Select_configure_objects.png)
+ ![Screenshot - select and configure object .](./media/oracle-to-sql-on-azure-vm-guide/tester_Select_configure_objects.png)
  
 In this example,  stored procedure ADD_REGION and table REGION are selected.
 
  To learn more, see  [Selecting and configuring objects to test.](https://docs.microsoft.com/sql/ssma/oracle/selecting-and-configuring-objects-to-test-oracletosql)
 
 4.In the next step, select and configure affected objects, select  the tables and foreign keys from the Oracle object tree located on the left window.
-![Screenshot - select and configure affected object .](./media/oracle-to-sql-database-guide/tester_select_configure_affected.PNG)
+![Screenshot - select and configure affected object .](./media/oracle-to-sql-on-azure-vm-guide/tester_select_configure_affected.PNG)
 
 To learn more, see [Selecting and configuring affected objects.](https://docs.microsoft.com/sql/ssma/oracle/selecting-and-configuring-affected-objects-oracletosql)
 
 5.In this call ordering step,  select the order in which the objects to test will be evaluated. You can change the order by clicking the buttons in the grid.
-![Screenshot - ordering object .](./media/oracle-to-sql-database-guide/test_call_ordering.png)
+![Screenshot - ordering object .](./media/oracle-to-sql-on-azure-vm-guide/test_call_ordering.png)
 
 6.The finalize test case page provides  test case information, test objects and the objects that will be analyzed. In addition, on this page you can set the test execution options.
-![Screenshot - finalize object .](./media/oracle-to-sql-database-guide/tester_finalize_case.PNG)
+![Screenshot - finalize object .](./media/oracle-to-sql-on-azure-vm-guide/tester_finalize_case.PNG)
 
 For more information on test case settings,[Finishing test case preparation](https://docs.microsoft.com/sql/ssma/oracle/finishing-test-case-preparation-oracletosql)
 
@@ -291,37 +291,37 @@ For more information on test case settings,[Finishing test case preparation](htt
 When SSMA Tester runs a test case, the test engine executes the objects selected for testing and generates a verification report.
 
 1.In the test repository page, you can select the test case and then click run.
-![Screenshot - test repo view .](./media/oracle-to-sql-database-guide/tester_repo_run.PNG)
+![Screenshot - test repo view .](./media/oracle-to-sql-on-azure-vm-guide/tester_repo_run.PNG)
 
 2.Next, it  will launch run Test case page. Click run.
 
-![Screenshot - test launch .](./media/oracle-to-sql-database-guide/tester_run_test_case.png)
+![Screenshot - test launch .](./media/oracle-to-sql-on-azure-vm-guide/tester_run_test_case.png)
 
 3.Next, you would be prompted to provide source oracle credentials. Click connect after entering the credentials.
 
-![Screenshot - oracle connect .](./media/oracle-to-sql-database-guide/tester_oracle_connect.png)
+![Screenshot - oracle connect .](./media/oracle-to-sql-on-azure-vm-guide/tester_oracle_connect.png)
 
 4.In the next step, you need to  provide target SQL Server credentials. Click connect after entering the user details.
 
-![Screenshot - sql target connect .](./media/oracle-to-sql-database-guide/tester_Sqlservervm_connect.PNG)
+![Screenshot - sql target connect .](./media/oracle-to-sql-on-azure-vm-guide/tester_Sqlservervm_connect.PNG)
 
 On success, it will go to initialization stage.
 
 5.The test run will proceed with the evaluation process and will show the real-time progress.
 
-![Screenshot - tester test progress .](./media/oracle-to-sql-database-guide/tester_run_status.png)
+![Screenshot - tester test progress .](./media/oracle-to-sql-on-azure-vm-guide/tester_run_status.png)
 
 6.Once the test case is executed, tester module will generate a report, which provides the statistics, any errors during the test run and a detail report.
 
-![Screenshot - tester test report.](./media/oracle-to-sql-database-guide/tester_test_result.png)
+![Screenshot - tester test report.](./media/oracle-to-sql-on-azure-vm-guide/tester_test_result.png)
 
 7.Click details to get more information.
 
-![Screenshot - tester success report.](./media/oracle-to-sql-database-guide/tester_test_success.png)
+![Screenshot - tester success report.](./media/oracle-to-sql-on-azure-vm-guide/tester_test_success.png)
 
 Example of positive data validation.
 
-![Screenshot - tester failure report.](./media/oracle-to-sql-database-guide/tester_test_failed.png)
+![Screenshot - tester failure report.](./media/oracle-to-sql-on-azure-vm-guide/tester_test_failed.png)
 
 Example of failed data validation.
 
@@ -333,7 +333,7 @@ The post-migration phase is crucial for reconciling any data accuracy problems a
 > For more information about these problems and specific steps to mitigate them, see the [Post-migration validation and optimization guide](/sql/relational-databases/post-migration-validation-and-optimization-guide).
 
 
-## Migration resources 
+## Migration resources
 
 For more help with completing this migration scenario, see the following resources, which were developed to support a real-world migration project.
 
