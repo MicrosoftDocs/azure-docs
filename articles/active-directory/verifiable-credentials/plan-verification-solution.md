@@ -253,7 +253,7 @@ You can use information in presented VCs to build a user profile. If you want to
 
    * Define a mechanism to deprovision the user profile from the application. Due to the decentralized nature of the Azure AD Verifiable Credentials system, there is no application user provisioning lifecycle.
 
-   * Do not store personally data claims returned in the VC token.
+   * Do not store personal data claims returned in the VC token.
 
    * Only store claims needed for the logic of the relying party. 
 
