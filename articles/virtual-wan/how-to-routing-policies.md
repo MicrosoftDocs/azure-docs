@@ -43,7 +43,7 @@ While Private Traffic  includes both branch and Virtual Network address prefixes
 1. Currently, Private Traffic Routing Policies are not supported in Hubs with Encrypted ExpressRoute connections (Site-to-site VPN Tunnel running over ExpressRoute Private connectivity). 
 1. In the Managed Preview of Virtual WAN Hub routing policies, inter-hub traffic is only inspected by Azure Firewall if the Virtual WAN Hubs are in the same region. Azure inter-region traffic inspection will be available shortly.
 1. The Virtual WAN Azure Portal view of Routing Intent and Routing Policies is currently under development and will be available shortly.
-1. Routing Intent and Routing Policies currently must be configured via the Custom Portal Link provided in Step 3 of  **Prerequisites**.
+1. Routing Intent and Routing Policies currently must be configured via the Custom Portal Link provided in Step 3 of  **Prerequisites**. Routing Intents and Policies are not supported via Terraform, Powershell and CLI. 
 
 ## Prerequisites
 1. Create a Virtual WAN. Make sure you create at least two Virtual Hubs in the **same** region. Azure inter-region traffic inspection will be available shortly. For instance, you may create a Virtual WAN with 2 Virtual Hubs in East US. 
