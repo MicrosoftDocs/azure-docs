@@ -1,5 +1,5 @@
 ---
-title: Migrate your VNet injected caches to Private Link caches
+title: Migrate from VNet injection caches to Private Link caches
 description: Learn how to migrate your Azure Cache for Redis Virtual Network (VNet) caches to Private Link caches.
 author: curib
 
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 07/19/2021
 ---
 
-# Migrate your VNet injected caches to Private Link caches
+# Migrate from VNet injection caches to Private Link caches
 This article describes a number of approaches to migrate an Azure Cache for Redis Virtual Network (VNet) injected cache instances to Azure Cache for Redis Private Link cache instances. 
 
 [Azure Private Link](../private-link/private-link-overview.md) simplifies the network architecture and secures the connection between endpoints in Azure. You can connect to an Azure Cache instance from your virtual network via a private endpoint, which is assigned a private IP address in a subnet within the virtual network. Advantages of using Azure Private Link for Azure Cache for Redis include: 
@@ -18,25 +18,20 @@ This article describes a number of approaches to migrate an Azure Cache for Redi
 
 * **Azure Policy Support** – Ensure all caches in your organization are created with Private Link and audit your organization’s existing caches to verify they all utilize Private Link. 
 
-* **Simplified NSG Rule Management** - External cache dependencies are not affected by VNet NSG rules.  
+* **Simplified Network Security Group (NSG) Rule Management** - NSG rules do not need to be configured such that the client's network traffic is allowed to reach the Azure Cache for Redis instance.  
 
 ## Migration options
 
-There are different ways that you can switch from VNet injection to Private Link. Depending on where your cache is and how your application interacts with it, one method will be more useful than the others. Some of the frequently used migration strategies are detailed below. Your options will vary based off which type of VNet your cache utilizes; ARM VNet or classic VNet. To verify if you’re using a classic or ARM VNet, please navigate to your resource group in the Azure portal. Under ‘type’ for your VNet, it will specify in parentheses if it is a classic VNet. For more information on the deployment models, please reference [this](../azure-resource-manager/management/deployment-models.md) document.
+You can switch from VNet injection to Private Link using a few different ways. Depending on where your cache is and how your application interacts with it, one method will be more useful than the others. Some of the frequently used migration strategies are detailed below. 
 
 ### If you're using any combination of geo-replication, clustering, or ARM VNet:
 
    | Option       | Advantages | Disadvantages |
    | ------------ | ---------- | ------------- |
    | Dual-write data to two caches | No data loss or downtime. Uninterrupted operations of the existing cache. Easier testing of the new cache. | Needs two caches for an extended period of time. | 
-   | Create a new cache | Simplest to implement. | Need to repopulate data to the new cache, which may not work with many applications. |
+   | Create a new cache | Simplest to implement. | Need to repopulate data to the new cache, which might not work with many applications. |
    | Export and import data via RDB file | Data migration is required. | Some data could be lost, if they're written to the existing cache after the RDB file is generated. | 
    | Migrate data programmatically | Full control over how data are moved. | Requires custom code. | 
-
-### If you're using a classic VNet:
-   | Option       | Advantages | Disadvantages |
-   | ------------ | ---------- | ------------- |
-   | Peer your classic VNet to an ARM VNet | No downtime. | No data migration. | 
 
 ### Write to two Redis caches simultaneously during migration period
 
@@ -92,7 +87,7 @@ General steps to implement this option are:
 
 ### Migrate programmatically
 
-You can create a custom migration process by programmatically reading data from an existing cache and writing them into Azure Cache for Redis. This [open-source tool](https://github.com/deepakverma/redis-copy) can be used to copy data from one Azure Cache for Redis instance to another. This tool is useful for moving data between cache instances in different Azure Cache regions. A [compiled version](https://github.com/deepakverma/redis-copy/releases/download/alpha/Release.zip) is available as well. You may also find the source code to be a useful guide for writing your own migration tool.
+Create a custom migration process by programmatically reading data from an existing cache and writing them into Azure Cache for Redis. This [open-source tool](https://github.com/deepakverma/redis-copy) can be used to copy data from one Azure Cache for Redis instance to another. This tool is useful for moving data between cache instances in different Azure Cache regions. A [compiled version](https://github.com/deepakverma/redis-copy/releases/download/alpha/Release.zip) is available as well. You may also find the source code to be a useful guide for writing your own migration tool.
 
 > [!NOTE]
 > This tool isn't officially supported by Microsoft. 
@@ -111,11 +106,6 @@ General steps to implement this option are:
     >
 
 4. Use an application such as the open-source tool above to automate the copying of data from the source cache to the target. Remember that the copy process could take a while to complete depending on the size of your dataset.
-
-### Peer your classic VNet to an ARM VNet
-Creating a private endpoint on a classic VNet is not supported, you will have to deploy a private endpoint on an ARM VNet and peer it with your classic VNet. Then, set up geo-replication between the two cache instances. 
-
-For more information, see [Azure Virtual Network Peering](../virtual-network/virtual-network-peering-overview.md) and [configure geo-replication for Premium Azure Cache for Redis instances](cache-how-to-geo-replication.md).
 
 
 ## Next steps

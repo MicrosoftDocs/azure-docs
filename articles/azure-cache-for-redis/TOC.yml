@@ -110,7 +110,7 @@
       href: cache-reserved-pricing.md
     - name: Migrate to Azure Cache for Redis
       href: cache-migration-guide.md
-    - name: Migrate from VNet injection to Private cache-private-link
+    - name: Migrate from VNet injection to Private Link
       href: cache-vnet-migration.md
     - name: Planning FAQs
       href: cache-planning-faq.yml
