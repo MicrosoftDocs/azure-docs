@@ -145,6 +145,7 @@ Azure Arc-enabled SQL Managed Instance supports various data tools that can help
 
 <sup>1</sup> The Azure portal can be used to create, view, and delete Azure Arc-enabled SQL Managed Instances.  Updates cannot be done through the Azure portal currently.
 
+   [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
 
 ### <a name="Unsupported"></a> Unsupported Features & Services
 
