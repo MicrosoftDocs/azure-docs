@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 06/23/2021
+ms.date: 07/30/2021
 ms.author: alkohli
 ---
 
@@ -38,7 +38,7 @@ Azure Stack Edge service also integrates with the following dependent services a
 
 - Azure Arc enabled Kubernetes
 - Azure IoT Hub and Azure IoT Edge
-- Azure Key Vault 
+<!--- Azure Key Vault -->
 
 
 ## Azure Stack Edge classic ordering and management resource 
@@ -75,11 +75,12 @@ For more information, see [Use the Kubernetes dashboard to monitor the Kubernete
 
 Azure Arc enabled Kubernetes, Azure IoT Hub and Azure IoT Edge, and Azure Key Vault are services that integrate with Azure Stack Edge.
 
-### Azure Arc enabled Kubernetes clusters
+### Azure Arc enabled Kubernetes 
 
-Azure Arc enabled Kubernetes clusters is available as an add-on for Azure Stack Edge. For Singapore (Southeast Asia), Azure Arc data resides only within Singapore and is not replicated in Hong Kong. If there is a region-wide outage, the service is not resilient.
+Azure Arc enabled Kubernetes is available as an add-on for Azure Stack Edge. For Singapore (Southeast Asia), Azure Arc data resides only within Singapore and is not replicated in Hong Kong. <!--If there is a region-wide outage, the service is not resilient.-->
 
-For all other regions, Azure Arc supports Azure Regional Pair and is resilient to any region-wide outages. <!--For more information, see [Data residency and resiliency for Azure Arc enabled Kubernetes clusters]().-->
+<!--For all other regions, Azure Arc supports Azure Regional Pair and is resilient to any region-wide outages.--> 
+<!--For more information, see [Data residency and resiliency for Azure Arc enabled Kubernetes clusters]().-->
 
 
 ### Azure IoT
@@ -89,11 +90,12 @@ Azure IoT is available as an add-on for Azure Stack Edge. For Singapore (Southea
 <!--For more information, see [Data residency and resiliency for Azure IoT]().-->
 
 
-### Azure Key Vault
+<!--### Azure Key Vault
 
 Azure Key Vault currently uses Azure Regional Pair for region outage resiliency. For new Azure Key Vault resources, an option is now available that can be enabled at the subscription level. When enabled, if your service is deployed in Singapore (Southeast Asia), you can control the data replication to Hong Kong. 
 
-If you choose to store and process the data only in Singapore region, then the service will not be resilient to region-wide outages. <!--For more information, see [Data residency and resiliency for Azure Key Vault]().-->
+If you choose to store and process the data only in Singapore region, then the service will not be resilient to region-wide outages. -->
+<!--For more information, see [Data residency and resiliency for Azure Key Vault]().-->
 
 ## Next steps
 
