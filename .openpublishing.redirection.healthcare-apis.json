@@ -70,7 +70,7 @@
     {
         "source_path_from_root": "/articles/healthcare-apis/azure-api-for-fhir-additional-settings.md",
         "redirect_url": "/azure/healthcare-apis/fhir/azure-api-for-fhir-additional-settings",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/healthcare-apis/configure-azure-rbac.md",
@@ -86,11 +86,6 @@
         "source_path_from_root": "/articles/healthcare-apis/configure-database.md",
         "redirect_url": "/azure/healthcare-apis/fhir/configure-database.md",
         "redirect_document_id": false
-    },
-    {
-        "source_path_from_root": "/articles/healthcare-apis/configure-export-data.md",
-        "redirect_url": "/azure/healthcare-apis/data-transformation/configure-export-data",
-        "redirect_document_id": true
     },
     {
         "source_path_from_root": "/articles/healthcare-apis/configure-local-rbac.md",
@@ -113,18 +108,8 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/healthcare-apis/de-identified-export.md",
-        "redirect_url": "/azure/healthcare-apis/data-transformation/de-identified-export",
-        "redirect_document_id": true
-    },
-    {
         "source_path_from_root": "/articles/healthcare-apis/enable-diagnostic-logging.md",
         "redirect_url": "/azure/healthcare-apis/fhir/enable-diagnostic-logging",
-        "redirect_document_id": true
-    },
-    {
-        "source_path_from_root": "/articles/healthcare-apis/export-data.md",
-        "redirect_url": "/azure/healthcare-apis/data-transformation/export-data",
         "redirect_document_id": true
     },
     {
