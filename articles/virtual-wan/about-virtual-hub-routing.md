@@ -32,7 +32,7 @@ A virtual hub route table can contain one or more routes. A route includes its n
 >  
 >To obtain access to this preview, please reach out to previewinterhub@microsoft.com with the Virtual WAN ID, Subscription ID and Azure Region you wish to configure Routing Policies in. Please expect a response within 24-48 hours with confirmation of feature enablement. 
 >
-> For more information on how to configure Routing Intent and Policies please view the following [document](../how-to-routing-policies.md).
+> For more information on how to configure Routing Intent and Policies please view the following [document](how-to-routing-policies.md).
 
 
 Customers using Azure Firewall manager to set up policies for public and private traffic now can set up their networks in a much simpler manner using Routing Intent and Routing Policies.
@@ -47,7 +47,7 @@ While Private Traffic includes both branch and Virtual Network address prefixes,
 
 * **Private Traffic Routing Policy**: When a Private Traffic Routing Policy is configured on a Virtual WAN hub, **all** branch and Virtual Network traffic in and out of the Virtual WAN Hub including inter-hub traffic will be forwarded to the Next Hop Azure Firewall resource that was specified in the Private Traffic Routing Policy. 
 
-For more information on how to configure Routing Intent and Policies please view the following [document](../how-to-routing-policies.md).
+For more information on how to configure Routing Intent and Policies please view the following [document](how-to-routing-policies.md).
 
 ### <a name="connection"></a>Connections
 
