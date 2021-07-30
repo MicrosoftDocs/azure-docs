@@ -147,7 +147,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     f. If successful, information such as the **Entity ID** of your IdP will be displayed in the **IdP Entity ID** textbox.
 
-    g. In the **Attribute Mapping** section, fill the required fields manually which you have copied from the Azure Portal.
+    g. In the **Attribute Mapping** section, fill the required fields manually which you have copied from the Azure portal.
 
     h. In the **General Configuration** section, enable **Allow Just In Time(JIT)Account Creation** and click **Save**.
 
