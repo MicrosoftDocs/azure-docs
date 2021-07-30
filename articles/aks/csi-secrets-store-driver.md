@@ -73,7 +73,7 @@ First, create an Azure resource group:
 az group create -n myResourceGroup -l eastus2
 ```
 
-To create an AKS cluster with Secrets Store CSI Driver capability, use the [az aks create][az-aks-create] command with the addon `azure-keyvault-secrets-provider`. In this example, we'll be using the system-assigned managed identity created by the addon to connect:
+To create an AKS cluster with Secrets Store CSI Driver capability, use the [az aks create][az-aks-create] command with the addon `azure-keyvault-secrets-provider`.
 
 ```azurecli-interactive
 az aks create -n myAKSCluster -g myResourceGroup --enable-addons azure-keyvault-secrets-provider --enable-managed-identity
@@ -183,17 +183,17 @@ metadata:
 spec:
   provider: azure
   parameters:
-    keyvaultName: "<keyvault-name>"      # The name of the Azure Key Vault
+    keyvaultName: "<keyvault-name>"       # The name of the Azure Key Vault
     useVMManagedIdentity: "true"         
-    userAssignedIdentityID: "<client-Id>"   # The clientId of the addon-created managed identity
-    cloudName: ""                        # [OPTIONAL for Azure] if not provided, Azure environment will default to AzurePublicCloud 
+    userAssignedIdentityID: "<client-Id>" # The clientId of the addon-created managed identity
+    cloudName: ""                         # [OPTIONAL for Azure] if not provided, Azure environment will default to AzurePublicCloud 
     objects:  |
       array:
         - |
-          objectName: <secret-name>      # In this example, 'ExampleSecret'   
-          objectType: secret             # Object types: secret, key or cert
-          objectVersion: ""              # [OPTIONAL] object versions, default to latest if empty
-    tenantId: "<tenant-id>"              # the tenant ID containing the Azure Key Vault instance
+          objectName: <secret-name>       # In this example, 'ExampleSecret'   
+          objectType: secret              # Object types: secret, key or cert
+          objectVersion: ""               # [OPTIONAL] object versions, default to latest if empty
+    tenantId: "<tenant-id>"               # the tenant ID containing the Azure Key Vault instance
 ```
 
 For more information, see [Create your own SecretProviderClass Object][sample-secret-provider-class]. Be sure to use the values you took note of above.
