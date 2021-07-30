@@ -56980,6 +56980,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/twilio-dotnet-how-to-use-for-voice-sms.md",
+      "redirect_url": "https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/sendgrid-dotnet-how-to-send-email.md",
       "redirect_url": "https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-account",
       "redirect_document_id": false
