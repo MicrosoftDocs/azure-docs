@@ -217,6 +217,8 @@
         href: benefithub-tutorial.md
       - name: Benefitsolver
         href: benefitsolver-tutorial.md
+      - name: BenQ IAM
+        href: benq-iam-tutorial.md  
       - name: BenSelect
         href: benselect-tutorial.md
       - name: Bersin
