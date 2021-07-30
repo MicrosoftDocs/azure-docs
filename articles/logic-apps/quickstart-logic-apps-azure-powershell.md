@@ -59,7 +59,7 @@ You can create a logic app workflow from Azure PowerShell using the cmdlet [`New
 
 ### Example - create logic app
 
-In this example, a workflow named `testLogicApp` is created in the resource group `testResourceGroup` in the location `westus`. The JSON file `testDefinition.json` contains the workflow definition.
+This example creates a workflow named `testLogicApp` in the resource group `testResourceGroup` with the location `westus`. The JSON file `testDefinition.json` contains the workflow definition.
 
 ```azurepowershell-interactive
 New-AzLogicApp -ResourceGroupName testResourceGroup -Location westus -Name testLogicApp -DefinitionFilePath .\testDefinition.json
