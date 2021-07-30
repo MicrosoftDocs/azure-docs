@@ -190,7 +190,7 @@ To learn more, see [Selecting and configuring affected objects.](https://docs.mi
 6.The finalize test case page provides  test case information, test objects and the objects that will be analyzed. In addition, on this page you can set the test execution options.
 ![Screenshot - finalize object .](./media/oracle-to-sql-database-guide/tester_finalize_case.PNG)
 
-For more information on test case settings,[Finishing test case preparation](https://docs.microsoft.com/sql/ssma/oracle/finishing-test-case-preparation-oracletosql)
+For more information on test case settings,[Finishing test case preparation](/sql/ssma/oracle/finishing-test-case-preparation-oracletosql)
 
 7.Click on finish to create the test case.
 ![Screenshot - test repo .](./media/oracle-to-sql-database-guide/tester_test_repo.PNG)
