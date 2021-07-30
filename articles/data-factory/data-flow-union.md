@@ -1,6 +1,6 @@
 ---
 title: Union transformation in mapping data flow
-description: Azure Data Factory mapping data flow New Branch Transformation
+description: Learn about the mapping data flow New Branch Transformation in Azure Data Factory and Synapse Analytics
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
@@ -17,7 +17,7 @@ Union will combine multiple data streams into one, with the SQL Union of those s
 
 You can combine n-number of streams in the settings table by selecting the "+" icon next to each configured row, including both source data as well as streams from existing transformations in your data flow.
 
-Here is a short video walk-through of the union transformation in ADF's mapping data flow:
+Here is a short video walk-through of the union transformation in the mapping data flow:
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4vngz]
 
