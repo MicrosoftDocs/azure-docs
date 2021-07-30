@@ -28,7 +28,6 @@ This behavior is by design to help avoid unnecessary collection of personal data
 >
 > To learn more about handling personal data in Application Insights, consult the [guidance for personal data](../logs/personal-data-mgmt.md).
 
-To learn more about handling personal data in Application Insights, consult the [guidance for personal data](../logs/personal-data-mgmt.md).
 
 ## Storage of IP address data
 
