@@ -22,6 +22,8 @@ Many of the creation experiences for Azure Arc start in the Azure portal even th
 
 When you use the indirect connect mode of Azure Arc-enabled data services, you can use the Azure portal to generate a notebook for you that can then be downloaded and run in Azure Data Studio against your Kubernetes cluster. 
 
+   [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
+
 When you use direct connect mode, you can provision the data controller directly from the Azure portal. You can read more about [connectivity modes](connectivity.md).
 
 ## Use the Azure portal to create an Azure Arc data controller

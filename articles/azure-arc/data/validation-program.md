@@ -1,5 +1,5 @@
 ---
-title: "Azure Arc-enabled data services validation program"
+title: "Azure Arc-enabled data services validation"
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,7 +11,7 @@ description: "Describes validation program for Kubernetes distributions for Azur
 keywords: "Kubernetes, Arc, Azure, K8s, validation, data services, SQL Managed Instance"
 ---
 
-# Azure Arc-enabled data services Kubernetes validation program
+# Azure Arc-enabled data services Kubernetes validation
 
 Azure Arc-enabled data services team has worked with industry partners to validate specific distributions and solutions to host Azure Arc-enabled data services. This validation extends the [Azure Arc-enabled Kubernetes validation](../kubernetes/validation-program.md) for the data services. This article identifies partner solutions, versions, Kubernetes versions, SQL Server versions, and PostgreSQL Hyperscale versions that have been verified to support the data services. 
 

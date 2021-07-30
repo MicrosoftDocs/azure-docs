@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/13/2021
+ms.date: 07/30/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how install GPU extension on GPU virtual machines (VMs) on my Azure Stack Edge Pro GPU device.
 ---
@@ -19,7 +19,7 @@ ms.author: alkohli
 This article describes how to install GPU driver extension to install appropriate Nvidia drivers on the GPU VMs running on your Azure Stack Edge device. The article covers installation steps for installing a GPU extension using Azure Resource Manager templates on both Windows and Linux VMs.
 
 > [!NOTE]
-> In the Azure portal, you can install a GPU extension during VM creation or after the VM is deployed. For steps and requirements, see [Install a GPU virtual machine](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md).
+> In the Azure portal, you can install a GPU extension during VM creation or after the VM is deployed. For steps and requirements, see [Deploy GPU virtual machines](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md).
 
 
 ## Prerequisites
@@ -498,8 +498,8 @@ Requestld IsSuccessStatusCode StatusCode ReasonPhrase
 
 Learn how to:
 
-- [Troubleshoot GPU extension issues](azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md)
-- [Monitor VM activity on your device](azure-stack-edge-gpu-monitor-virtual-machine-activity.md)
+- [Troubleshoot GPU extension issues](azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md).
+- [Monitor VM activity on your device](azure-stack-edge-gpu-monitor-virtual-machine-activity.md).
 - [Manage VM disks](azure-stack-edge-gpu-manage-virtual-machine-disks-portal.md).
 - [Manage VM network interfaces](azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md).
 - [Manage VM sizes](azure-stack-edge-gpu-manage-virtual-machine-resize-portal.md).
