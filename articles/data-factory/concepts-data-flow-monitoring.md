@@ -1,6 +1,6 @@
 ---
 title: Monitoring mapping data flows
-description: How to visually monitor mapping data flows in Azure Data Factory
+description: How to visually monitor mapping data flows in Azure Data Factory and Synapse Analytics
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
@@ -13,11 +13,11 @@ ms.date: 06/18/2021
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-After you have completed building and debugging your data flow, you want to schedule your data flow to execute on a schedule within the context of a pipeline. You can schedule the pipeline from Azure Data Factory using Triggers. For testing and debugging you data flow from a pipeline, you can use the Debug button on the toolbar ribbon or Trigger Now option from the Azure Data Factory Pipeline Builder to execute a single-run execution to test your data flow within the pipeline context.
+After you have completed building and debugging your data flow, you want to schedule your data flow to execute on a schedule within the context of a pipeline. You can schedule the pipeline using Triggers. For testing and debugging you data flow from a pipeline, you can use the Debug button on the toolbar ribbon or Trigger Now option from the Pipeline Builder to execute a single-run execution to test your data flow within the pipeline context.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4P5pV]
 
-When you execute your pipeline, you can monitor the pipeline and all of the activities contained in the pipeline including the Data Flow activity. Click on the monitor icon in the left-hand Azure Data Factory UI panel. You can see a screen similar to the one below. The highlighted icons allow you to drill into the activities in the pipeline, including the Data Flow activity.
+When you execute your pipeline, you can monitor the pipeline and all of the activities contained in the pipeline including the Data Flow activity. Click on the monitor icon in the left-hand UI panel. You can see a screen similar to the one below. The highlighted icons allow you to drill into the activities in the pipeline, including the Data Flow activity.
 
 ![Screenshot shows icons to select for pipelines for more information.](media/data-flow/monitor-new-001.png "Data Flow Monitoring")
 
@@ -31,7 +31,7 @@ When you're in the graphical node monitoring view, you can see a simplified view
 
 ## View Data Flow Execution Plans
 
-When your Data Flow is executed in Spark, Azure Data Factory determines optimal code paths based on the entirety of your data flow. Additionally, the execution paths may occur on different scale-out nodes and data partitions. Therefore, the monitoring graph represents the design of your flow, taking into account the execution path of your transformations. When you select individual nodes, you can see "stages" that represent code that was executed together on the cluster. The timings and counts that you see represent those groups or stages as opposed to the individual steps in your design.
+When your Data Flow is executed in Spark, the service determines optimal code paths based on the entirety of your data flow. Additionally, the execution paths may occur on different scale-out nodes and data partitions. Therefore, the monitoring graph represents the design of your flow, taking into account the execution path of your transformations. When you select individual nodes, you can see "stages" that represent code that was executed together on the cluster. The timings and counts that you see represent those groups or stages as opposed to the individual steps in your design.
 
 ![Screenshot shows the page for a data flow.](media/data-flow/monitor-new-005.png "Data Flow Monitoring")
 
@@ -60,7 +60,7 @@ When your Data Flow is executed in Spark, Azure Data Factory determines optimal 
 
 Each transformation stage includes a total time for that stage to complete with each partition execution time totaled together. When you click on the Sink you will see "Sink Processing Time". This time includes the total of the transformation time *plus* the I/O time it took to write your data to your destination store. The difference between the Sink Processing Time and the total of the transformation is the I/O time to write the data.
 
-You can also see detailed timing for each partition transformation step if you open the JSON output from your data flow activity in the ADF pipeline monitoring view. The JSON contains millisecond timing for each partition, whereas the UX monitoring view is an aggregate timing of partitions added together:
+You can also see detailed timing for each partition transformation step if you open the JSON output from your data flow activity in the pipeline monitoring view. The JSON contains millisecond timing for each partition, whereas the UX monitoring view is an aggregate timing of partitions added together:
 
 ```
  {
