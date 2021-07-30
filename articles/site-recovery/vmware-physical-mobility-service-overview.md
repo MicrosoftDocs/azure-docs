@@ -419,6 +419,8 @@ Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath
 
 This will download the Mobility Service configuration file. Copy this file to a local folder in your source machine. You can place it in the same folder as the Mobility Service installer.
 
+See information about [upgrading the mobility services](upgrade-mobility-service-preview.md). 
+
 ## Next steps
 
 [Set up push installation for the Mobility service](vmware-azure-install-mobility-service.md).

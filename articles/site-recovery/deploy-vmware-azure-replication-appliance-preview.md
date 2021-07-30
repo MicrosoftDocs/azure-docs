@@ -216,8 +216,7 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 
     After successful registration, proceed to configure vCenter details.
 
-    ![Configuration fof vCenter](./media/deploy-vmware-azure-replication-appliance-preview/vcenter-information.png)
-
+    ![Configuration of vCenter](./media/deploy-vmware-azure-replication-appliance-preview/vcenter-information.png)
 
 8. Select **Add vCenter Server** to add vCenter information. Enter the server name or IP address of the vCenter and port information. Post that, provide username, password and friendly name and is used to fetch details of [virtual machine managed through the vCenter](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery). The user account details will be encrypted and stored locally in the machine.
 

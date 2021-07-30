@@ -332,6 +332,8 @@
       items:
       - name: Manage the Mobility agent
         href: vmware-physical-manage-mobility-service.md
+        - name: Upgrade the Mobility agent (Preview)
+          href: upgrade-mobility-service-preview.md
       - name: Manage the configuration server for VMware
         href: vmware-azure-manage-configuration-server.md
       - name: Manage process servers

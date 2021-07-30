@@ -7,7 +7,7 @@ ms.date: 07/30/2021
 ---
 
 
-# Upgrade Mobility Service and appliance components (Preview)
+# Upgrade Mobility Service and Appliance components (Preview)
 
 By default, automatic updates are enabled on a vault. Automatic updates will be triggered at 12:00 AM local time every day, if a new version is available.
 
@@ -36,8 +36,8 @@ To manually update mobility agent on multiple protected items, follow these step
 
 2. Choose the source machines to update and then click **OK**.
 
-  >[!NOTE]
-  >If prerequisites to upgrade Mobility service are not met, then the VM cannot be selected. See information on [how to resolve](#resolve-blocking-issues-for-agent-upgrade).
+   >[!NOTE]
+   >If prerequisites to upgrade Mobility service are not met, then the VM cannot be selected. See information on [how to resolve](#resolve-blocking-issues-for-agent-upgrade).
 
 
 4. After initiating the upgrade, a Site Recovery job is created in the vault for each upgrade operation and can be tracked by navigating to **Monitoring** > **Site Recovery jobs**.
@@ -55,7 +55,7 @@ To update mobility agent of a protected item, follow these steps:
   ![mobility agent update details](./media/upgrade-mobility-service-preview/agent-update-details.png)
 
   > [!NOTE]
-  > If upgrade is blocked, check and resolve the errors as detailed [here](#resolve-blockig-issues-for-agent-upgrade).
+  > If upgrade is blocked, check and resolve the errors as detailed [here](#resolve-blocking-issues-for-agent-upgrade).
 
 ## Mobility agent on latest version
 
