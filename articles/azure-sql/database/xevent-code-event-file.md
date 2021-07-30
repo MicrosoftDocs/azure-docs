@@ -9,7 +9,7 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 06/06/2020
 ---
 # Event File target code for extended events in Azure SQL Database
