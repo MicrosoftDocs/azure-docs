@@ -99,7 +99,7 @@ items:
   - name: Specify model version
     href: concepts/specify-model-version.md
   - name: Send batch requests asynchronously
-    href: ../concepts/asynchronous-use.md
+    href: concepts/asynchronous-use.md
 - name: Enterprise readiness
   items:
     - name: Region support
