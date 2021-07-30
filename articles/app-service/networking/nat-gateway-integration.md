@@ -28,7 +28,7 @@ For more information and pricing. Go to the [NAT gateway overview](/azure/virtua
 
 ## Configuring NAT gateway integration
 
-For a walk-through of configuring NAT gateway through the portal, you can follow [this tutorial](/azure/azure-functions/functions-how-to-use-nat-gateway) for Azure Functions. Make sure [Route All](../web-sites-integrate-with-vnet#routes) is enabled in your application routing settings. Enabling Route All will ensure all public traffic is routed through the VNet integration.
+For a walk-through of configuring NAT gateway through the portal, you can follow [this tutorial](/azure/azure-functions/functions-how-to-use-nat-gateway) for Azure Functions. Make sure [Route All](/azure/app-service/web-sites-integrate-with-vnet#routes) is enabled in your application routing settings. Enabling Route All will ensure all public traffic is routed through the VNet integration.
 
 If you prefer using CLI to configure your environment, these are the important commands. As a prerequisite, you should create a Web App with VNet integration configured.
 
