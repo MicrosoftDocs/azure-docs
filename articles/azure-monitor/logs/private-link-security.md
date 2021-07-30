@@ -302,7 +302,7 @@ This zone covers the global endpoints that Azure Monitor uses. These endpoints s
 
 #### privatelink-oms-opinsights-azure-com
 
-This zone covers workspace-specific mapping to Operations Management Suite (OMS) endpoints. You should see an entry for each workspace linked to the Azure Monitor Private Link Scope connected with this private endpoint.
+This zone covers workspace-specific mapping to Operations Management Suite (OMS) endpoints. You should see an entry for each workspace linked to the Azure Monitor Private Link Scope that's connected with this private endpoint.
 
 [![Screenshot of the private D N S zone for mapping to O M S endpoints.](./media/private-link-security/dns-zone-privatelink-oms-opinsights-azure-com.png)](./media/private-link-security/dns-zone-privatelink-oms-opinsights-azure-com-expanded.png#lightbox)
 
@@ -416,7 +416,7 @@ For more information on bringing your own storage account, see [Customer-owned s
 
 ### Azure Monitor Private Link Scope
 
-When you're planning your Private Link setup, consider the [limits on the Azure Monitor Private Link Scope object](#ampls-limits).
+When you're planning your Private Link setup, consider the [limits on the Azure Monitor Private Link Scope object](#azure-monitor-private-link-scope-limits).
 
 ### Agents
 
