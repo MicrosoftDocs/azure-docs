@@ -186,7 +186,7 @@ The data scientist you create the compute instance for needs the following be [A
 * *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/applicationaccess/action*
-* *Microsoft.MachineLearningServices/workspaces/computes/updateSchedules/action* 
+* *Microsoft.MachineLearningServices/workspaces/computes/updateSchedules/action*
 
 The data scientist can start, stop, and restart the compute instance. They can use the compute instance for:
 * Jupyter
@@ -308,7 +308,7 @@ Logs from the setup script execution appear in the logs folder in the compute in
 
 ## <a name="schedule"></a> Schedule automatic start and stop (preview)
 
-In a Resource Manager template, use cron or LogicApps expressions to define a schedule to start or stop the instance.  
+You can schedule the automatic start and stop of a compute instance by using the [studio](?tabs=azure-studio#create) or a Resource Manager template.  In a Resource Manager template, use either cron or LogicApps expressions to define a schedule to start or stop the instance.  
 
 ```json
 "schedules": {
@@ -384,7 +384,7 @@ Use Azure policy to enforce a shutdown schedule exists for every compute instanc
 
 Start, stop, restart, and delete a compute instance. A compute instance does not automatically scale down, so make sure to stop the resource to prevent ongoing charges. Stopping a compute instance deallocates it. Then start it again when you need it. While stopping the compute instance stops the billing for compute hours, you will still be billed for disk, public IP, and standard load balancer. 
 
-You can [create a schedule](?tabs=azure-studio#schedule) for the compute instance to automatically start and stop based on a time and day of week.
+You can [create a schedule](#schedule) for the compute instance to automatically start and stop based on a time and day of week.
 
 > [!TIP]
 > The compute instance has 120GB OS disk. If you run out of disk space, [use the terminal](how-to-access-terminal.md) to clear at least 1-2 GB before you stop or restart the compute instance. Please do not stop the compute instance by issuing sudo shutdown from the terminal.
@@ -500,6 +500,7 @@ These actions can be controlled by Azure RBAC:
 * *Microsoft.MachineLearningServices/workspaces/computes/start/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/updateSchedules/action*
 
 To create a compute instance you'll need permissions for the following actions:
 * *Microsoft.MachineLearningServices/workspaces/computes/write*
