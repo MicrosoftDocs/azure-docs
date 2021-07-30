@@ -113,7 +113,7 @@ You can get a specific logic app workflow using the command [`Get-AzLogicApp`](/
 
 ### Example - get logic app
 
-In this example, the logic app `testLogicApp` in the resource group `testResourceGroup` is returned.
+This example returns the logic app `testLogicApp` in the resource group `testResourceGroup`.
 
 ```azurepowershell-interactive
 Get-AzLogicApp -ResourceGroupName testResourceGroup -Name testLogicApp
