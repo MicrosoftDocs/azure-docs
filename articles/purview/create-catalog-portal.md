@@ -30,7 +30,7 @@ This quickstart describes the steps to create an Azure Purview account by using 
     1. Choose a  **Location**
     1. Enter a **Managed resource group name** and Select **Next: Networking**.
     
-2. On the **Networking** tab, you can optionally configure private endpoints. By default all networks will be able to access Purview account[Private Endpoints](create-private-link.md) 
+2. On the **Networking** tab, you can optionally configure private endpoints [Private Endpoints](create-private-link.md). By default all networks will be able to access Purview account.  
 
 3. On the **Tags** tab, you can optionally add one or more tags. These tags are for use only in the Azure portal, not Azure Purview. 
 
