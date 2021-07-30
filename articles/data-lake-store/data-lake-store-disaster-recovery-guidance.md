@@ -18,7 +18,7 @@ Data Lake Storage Gen1 provides locally redundant storage (LRS). Therefore, the 
 It's critical for you to prepare a disaster recovery plan. Review the information in this article and these additional resources to help you create your own plan.
 
 * [Disaster recovery and high availability for Azure applications](/azure/architecture/framework/resiliency/backup-and-recovery)
-* [Azure resiliency technical guidance](/azure/architecture/framework/resiliency/overview)
+* [Azure resiliency technical guidance](/azure/architecture/framework/resiliency/app-design)
 
 ### Best practice recommendations
 
