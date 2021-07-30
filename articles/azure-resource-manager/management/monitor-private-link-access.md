@@ -15,6 +15,8 @@ Logging for resource management private link is a tenant-level diagnostic log. F
 
 For resource management private links, setting up logging is similar to [integrating Azure Active Directory logs with Azure Monitor logs](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md#send-logs-to-azure-monitor). Both services support tenant-level diagnostic logs.
 
+Select **PublicAccessLogs** for the category.
+
 After configuring the log, all calls across the tenant are recorded to the log. The resource you used for configuring the log doesn't affect what is recorded.
 
 ## Log schema
