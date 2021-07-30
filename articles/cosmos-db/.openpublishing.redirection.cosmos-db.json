@@ -1643,12 +1643,12 @@
   {
     "source_path_from_root": "/articles/cosmos-db/continuous-backup-restore-template.md",
     "redirect_url": "/azure/cosmos-db/provision-account-continuous-backup",
-    "redirect_document_id": true
+    "redirect_document_id": false
   },
   {
     "source_path_from_root": "/articles/cosmos-db/continuous-backup-restore-command-line.md",
     "redirect_url": "/azure/cosmos-db/provision-account-continuous-backup",
-    "redirect_document_id": true
+    "redirect_document_id": false
   },
   {
     "source_path_from_root": "/articles/cosmos-db/continuous-backup-restore-portal.md",
@@ -1658,7 +1658,7 @@
   {
     "source_path_from_root": "/articles/cosmos-db/continuous-backup-restore-powershell.md",
     "redirect_url": "/azure/cosmos-db/provision-account-continuous-backup",
-    "redirect_document_id": true
+    "redirect_document_id": false
   },
   {
     "source_path_from_root": "/articles/cosmos-db/tutorial-functions-http-trigger.md",
