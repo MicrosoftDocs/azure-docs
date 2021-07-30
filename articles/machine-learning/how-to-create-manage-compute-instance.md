@@ -100,9 +100,74 @@ For more information, see the [az ml computetarget create computeinstance](/cli/
 
 # [Studio](#tab/azure-studio)
 
-In your workspace in Azure Machine Learning studio, create a new compute instance from either the **Compute** section or in the **Notebooks** section when you are ready to run one of your notebooks.
+You can schedule times for a compute instance to start and stop (preview) in the studio.  
 
-You can schedule times for a compute instance to start and stop (preview) in the studio.  For information on creating a compute instance in the studio, see [Create compute targets in Azure Machine Learning studio](how-to-create-attach-compute-studio.md#compute-instance).
+1. Navigate to [Azure Machine Learning studio](https://ml.azure.com).
+ 
+1. Under __Manage__, select __Compute__.
+
+1. Select **Compute instance** at the top.
+
+1. If you have no compute instances, select  **Create** in the middle of the page.
+  
+    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="Create compute target":::
+
+1. If you see a list of compute resources, select **+New** above the list.
+
+    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="Select new":::
+
+1. Fill out the form:
+
+
+|Field  |Description  |
+|---------|---------|
+|Compute name     |  <li>Name is required and must be between 3 to 24 characters long.</li><li>Valid characters are upper and lower case letters, digits, and the  **-** character.</li><li>Name must start with a letter</li><li>Name needs to be unique across all existing computes within an Azure region. You will see an alert if the name you choose is not unique</li><li>If **-**  character is used, then it needs to be followed by at least one letter later in the name</li>     |
+|Virtual machine type |  Choose CPU or GPU. This type cannot be changed after creation     |
+|Virtual machine size     |  Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
+
+Select **Create** unless you want to configure advanced settings for the compute instance.
+
+### Advanced settings
+
+Select **Next: Advanced Settings** if you want to:
+
+* Enable SSH access.  Follow the [detailed SSH access instructions](#enable-ssh) below.
+* Enable virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). For more information, see these [network requirements](./how-to-secure-training-vnet.md) for vnet. 
+* Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](d#on-behalf).
+* Provision with a setup script - for more details about how to create and use a setup script, see [Customize the compute instance with a script](#setup-script).
+* Add schedule (preview). Schedule times for the compute instance to automatically start and/or shutdown. See [schedule details](#schedule) below.
+
+### <a name="enable-ssh"></a> Enable SSH access
+
+SSH access is disabled by default.  SSH access cannot be changed after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md).  
+
+[!INCLUDE [amlinclude-info](../../includes/machine-learning-enable-ssh.md)]
+
+Once the compute instance is created and running, see [Connect with SSH access](how-to-create-attach-compute-studio#ssh-access).
+
+### <a name ="schedule"></a> Add a start or shutdown schedule (preview)
+
+Define multiple schedules for auto-shutdown and auto-start. For instance, create a schedule to start at 9 AM and stop at 6 PM from Monday-Thursday, and a second schedule to start at 9 AM and stop at 4 PM for Friday.  You can create a total of four schedules per compute instance.
+
+Schedules can also be defined for [create on behalf of](#on-behalf) compute instances. You can create schedule to create a compute instance in a stopped state. This is particularly useful when a user creates a compute instance on behalf of another user. 
+
+
+After you have selected **Next: Advanced Settings**:
+
+1. Select **Add schedule** to add a new schedule.
+
+    :::image type="content" source="media/how-to-create-attach-studio/create-schedule.png" alt-text="Screenshot: Add schedule in advanced settings.":::
+
+1. Select **Start compute instance** or **Stop compute instance**.
+1. Select the **Time zone**.
+1. Select the **Startup time** or **Shutdown time**.
+1. Select the days when this schedule is active.
+
+    :::image type="content" source="media/how-to-create-attach-studio/stop-compute-schedule.png" alt-text="Screenshot: schedule a compute instance to shut down.":::
+
+1. Select **Add schedule** again if you want to create another schedule.
+
+Once the compute instance is created, you can view, edit, or add new schedules from the compute instance details section.
 
 ---
 
@@ -118,10 +183,12 @@ As an administrator, you can create a compute instance on behalf of a data scien
 * REST API
 
 The data scientist you create the compute instance for needs the following be [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) permissions:
+
 * *Microsoft.MachineLearningServices/workspaces/computes/start/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/applicationaccess/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/updateSchedules/action* 
 
 The data scientist can start, stop, and restart the compute instance. They can use the compute instance for:
 * Jupyter
@@ -243,7 +310,7 @@ Logs from the setup script execution appear in the logs folder in the compute in
 
 ## <a name="schedule"></a> Schedule automatic start and stop (preview)
 
-In a Resource Manager template, use cron or LogicApps expressions to define a schedule to start or stop the instance.  This example uses cron:
+In a Resource Manager template, use cron or LogicApps expressions to define a schedule to start or stop the instance.  
 
 ```json
 "schedules": {
