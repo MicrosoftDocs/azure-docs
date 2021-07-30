@@ -124,7 +124,7 @@ sections:
       - question: |
           Should I timestamp my MSIX packages?
         answer: |
-          Microsoft's recommendation on timestamping can be found here [MSIX packaging overview](/windows/msix/package/signing-package-overview#timestamping)
+          Check the [MSIX packaging overview](/windows/msix/package/signing-package-overview#timestamping) to see Microsoft's recommendations for using timestamps.
       
 additionalContent: |
 
