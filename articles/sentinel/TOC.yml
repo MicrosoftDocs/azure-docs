@@ -29,11 +29,11 @@
     href: prerequisites.md
   - name: Best practices
     items:
-    - name: Workspace architecture best practices
-      href: best-practices-workspace-architecture.md
-    - name: General best practices
+    - name: Overview
       href: best-practices.md
-    - name: Data collection best practices
+    - name: Workspace architecture
+      href: best-practices-workspace-architecture.md
+    - name: Data collection
       href: best-practices-data.md
   - name: Architecture
     items:
@@ -85,8 +85,16 @@
       href: bring-your-own-ml.md
 - name: How-tos
   items:
-  - name: Plan and manage costs
-    href: azure-sentinel-billing.md
+  - name: Design your workspace architecture
+    items:
+    - name: Overview
+      href: design-your-workspace-architecture.md
+    - name: Sample workspace designs
+      href: sample-workspace-designs.md
+    - name: Plan and manage costs
+      href: azure-sentinel-billing.md
+    - name: Manage workspace access
+      href: resource-context-rbac.md
   - name: Migrate to Azure Sentinel
     href: migration.md
   - name: Collect data
@@ -355,12 +363,6 @@
       href: playbook-triggers-actions.md
   - name: Manage Azure Sentinel
     items:
-    - name: Design your workspace architecture
-      href: design-your-workspace-architecture.md
-    - name: Sample workspace designs
-      href: sample-workspace-designs.md
-    - name: Manage workspace access
-      href: resource-context-rbac.md
     - name: Azure Sentinel for MSSPs
       items:
       - name: Manage multiple tenants (MSSP)
