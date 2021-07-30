@@ -13,11 +13,7 @@ ms.custom: references_regions
 ---
 # AI enrichment in Azure Cognitive Search
 
-<<<<<<< HEAD
-In Azure Cognitive Search, AI enrichment is about using AI to create new structures and information from raw content in external data sources. AI enrichment is defined by a [skillset](cognitive-search-working-with-skillsets.md) that's attached to an [indexer](search-indexer-overview.md). The indexer will extract and set up the content, while the skillset identifies, analyzes, and creates new information and structures from images, blobs, and other unstructured data sources. The purpose of enrichment is make content more accessible in output objects, which is either a [search index](search-what-is-an-index.md) or a [knowledge store](knowledge-store-concept-intro.md). 
-=======
 In Azure Cognitive Search, AI enrichment is about using AI to create new structures and information from raw content in external data sources. AI enrichment is defined by a [skillset](cognitive-search-working-with-skillsets.md) that's attached to an [indexer](search-indexer-overview.md). The indexer will extract and set up the content, while the skillset identifies, analyzes, and creates new information and structures from images, blobs, and other unstructured data sources. The purpose of enrichment is make content more accessible in output objects, which is either a [search index](search-what-is-an-index.md) or a [knowledge store](knowledge-store-concept-intro.md).
->>>>>>> e37f7a8730c47448c972318b9c4e3ee0c4076daa
 
 A skillset can contain built-in skills from Cognitive Search or embed external processing that you provide in a [*custom skill*](cognitive-search-create-custom-skill-example.md). Examples of a custom skill might be a custom entity module or document classifier targeting a specific domain such as finance, scientific publications, or medicine.
 
@@ -35,11 +31,7 @@ Natural language and image processing is applied during the data ingestion phase
 
 ## Feature availability
 
-<<<<<<< HEAD
-AI enrichment is available in regions where Azure Cognitive Services is also available.  You can check the current availability of AI enrichment on the [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page.  AI enrichment is available in all supported regions except:
-=======
 AI enrichment is available in regions where Azure Cognitive Services is also available. You can check the current availability of AI enrichment on the [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page. AI enrichment is available in all supported regions except:
->>>>>>> e37f7a8730c47448c972318b9c4e3ee0c4076daa
 
 + Australia Southeast
 + China North 2
@@ -76,11 +68,7 @@ Custom skills can support more complex scenarios, such as recognizing forms, or 
 
 ## Enrichment steps <a name="enrichment-steps"></a>
 
-<<<<<<< HEAD
-An enrichment pipeline consists of [*indexers*](search-indexer-overview.md) that have [*skillsets*](cognitive-search-working-with-skillsets.md). A skillset defines the enrichment steps, and the indexer drives the skillset. When configuring an indexer, you can include properties like output field mappings that send enriched content to a search index or knowledge store. 
-=======
-An enrichment pipeline consists of [*indexers*](search-indexer-overview.md) that have [*skillsets*](cognitive-search-working-with-skillsets.md). A skillset defines the enrichment steps, and the indexer drives the skillset. When configuring an indexer, you can include properties like output field mappings that send enriched content to a search index or knowledge store.
->>>>>>> e37f7a8730c47448c972318b9c4e3ee0c4076daa
+An enrichment pipeline consists of [*indexers*](search-indexer-overview.md) that have [*skillsets*](cognitive-search-working-with-skillsets.md). A skillset defines the enrichment steps, and the indexer drives the skillset. When configuring an indexer, you can include properties like output field mappings that send enriched content to a [search index](search-what-is-an-index.md) or a [knowledge store](knowledge-store-concept-intro.md).
 
 Post-indexing, you can access content via search requests through all [query types supported by Azure Cognitive Search](search-query-overview.md).
 
@@ -106,9 +94,9 @@ Internally, the pipeline generates a collection of enriched documents. You can d
 
 ### Step 3: Indexing
 
-Indexing is the process wherein raw and enriched content is ingested into a search index. A search index has fields, and those fields contain values used in queries, filters, expressions, and potentially in projections in a knowledge store.
+Indexing is the process wherein raw and enriched content is ingested as fields in a search index, and as [projections](knowledge-store-projection-overview.md) if you are also creating a knowledge store. The same enriched content can appear in both, using implicit or explicit field mappings to send the content to the correct fields.
 
-Enriched content is generated during skillset execution, and is temporary unless you save it. In order for enriched content to appear in a search index, the indexer must have mapping information so that it can send enriched content to a field in a search index. [Output field mappings](cognitive-search-output-field-mapping.md) are the mechanism by which this association is made.
+The mechanics of indexing are internal to the service, and the search engine sets up the physical structures and inverted indexes required for your content. In the case of a knowledge store, you'll specify the physical structure of the output. 
 
 ## Saving enriched output
 
