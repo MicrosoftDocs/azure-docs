@@ -10,7 +10,7 @@ ms.date: 07/29/2021
 
 # Hive Warehouse Connector APIs in Azure HDInsight
 
-This articles lists all the APIs supported by Hive warehouse connector. All the examples shown below are run using spark-shell and hive warehouse connector session.
+This article lists all the APIs supported by Hive warehouse connector. All the examples shown below are run using spark-shell and hive warehouse connector session.
 
 How to create Hive warehouse connector session:
 
@@ -110,8 +110,8 @@ Complete the [Hive Warehouse Connector setup](./apache-hive-warehouse-connector.
     createTableBuilder.create()
     ```
 
-    **Note**: This API creates an ORC formatted table at default location.
-   For other features/options or to create table using hive querys, please use `executeUpdate` API.
+    **NOTE**: This API creates an ORC formatted table at default location.
+   For other features/options or to create table using hive queries, use `executeUpdate` API.
 
 
 9. Read a table
@@ -241,7 +241,7 @@ Complete the [Hive Warehouse Connector setup](./apache-hive-warehouse-connector.
     // .option("metastoreKrbPrincipal", principal), add if executing in ESP cluster
        .save()
     ```
-    SaveMode type is not applicable using this method as it always appends the data.
+    **NOTE**: Stream writes always append data.
 
 
 16. Writing a spark stream to a Hive Table
