@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Secure an Azure API Management API with Azure AD B2C
 
-Learn how to restrict access to your Azure API Management (APIM) API to clients that have authenticated with Azure Active Directory B2C (Azure AD B2C). Follow the instructions in this article to create and test an inbound policy in APIM that restricts access to only those requests that include a valid Azure AD B2C-issued access token.
+Learn how to restrict access to your Azure API Management API to clients that have authenticated with Azure Active Directory B2C (Azure AD B2C). Follow the instructions in this article to create and test an inbound policy in Azure API Management that restricts access to only those requests that include a valid Azure AD B2C-issued access token.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ Before you begin, make sure that you have the following resources in place:
 
 ## Get Azure AD B2C application ID
 
-When you secure an API in Azure API Management with Azure AD B2C, you need several values for the [inbound policy](../api-management/api-management-howto-policies.md) that you create in APIM. First, record the application ID of an application you've previously created in your Azure AD B2C tenant. If you're using the application you created to satisfy the prerequisites, use the application ID for *webapp1*.
+When you secure an API in Azure API Management with Azure AD B2C, you need several values for the [inbound policy](../api-management/api-management-howto-policies.md) that you create in Azure API Management. First, record the application ID of an application you've previously created in your Azure AD B2C tenant. If you're using the application you created to satisfy the prerequisites, use the application ID for *webapp1*.
 
 To register an application in your Azure AD B2C tenant, you can use our new, unified *App registrations* experience or our legacy *Applications* experience. Learn more about the [new registrations experience](./app-registrations-training-guide.md).
 
@@ -115,7 +115,7 @@ You're now ready to add the inbound policy in Azure API Management that validate
 
 To ensure that only authenticated callers can access your API, you can validate your Azure API Management configuration by calling the API with [Postman](https://www.getpostman.com/).
 
-To call the API, you need both an access token that's issued by Azure AD B2C and an APIM subscription key.
+To call the API, you need both an access token that's issued by Azure AD B2C and an Azure API Management subscription key.
 
 ### Get an access token
 
@@ -148,7 +148,7 @@ A client application (in this case, Postman) that calls a published API must inc
 
 ### Test a secure API call
 
-With the access token and APIM subscription key recorded, you're now ready to test whether you've correctly configured secure access to the API.
+With the access token and Azure API Management subscription key recorded, you're now ready to test whether you've correctly configured secure access to the API.
 
 1. Create a new `GET` request in [Postman](https://www.getpostman.com/). For the request URL, specify the speakers list endpoint of the API you published as one of the prerequisites. For example:
 
@@ -159,7 +159,7 @@ With the access token and APIM subscription key recorded, you're now ready to te
     | Key | Value |
     | --- | ----- |
     | `Authorization` | The encoded token value you recorded earlier, prefixed with `Bearer ` (include the space after "Bearer") |
-    | `Ocp-Apim-Subscription-Key` | The APIM subscription key you recorded earlier. |
+    | `Ocp-Apim-Subscription-Key` | The Azure API Management subscription key you recorded earlier. |
     | | |
 
     Your **GET** request URL and **Headers** should appear similar to those shown in the following image:
@@ -214,7 +214,7 @@ If you see a `401` status code, you've verified that only callers with a valid a
 
 ## Support multiple applications and issuers
 
-Several applications typically interact with a single REST API. To enable your API to accept tokens intended for multiple applications, add their application IDs to the `<audiences>` element in the APIM inbound policy.
+Several applications typically interact with a single REST API. To enable your API to accept tokens intended for multiple applications, add their application IDs to the `<audiences>` element in the Azure API Management inbound policy.
 
 ```xml
 <!-- Accept tokens intended for these recipient applications -->
@@ -224,7 +224,7 @@ Several applications typically interact with a single REST API. To enable your A
 </audiences>
 ```
 
-Similarly, to support multiple token issuers, add their endpoint URIs to the `<issuers>` element in the APIM inbound policy.
+Similarly, to support multiple token issuers, add their endpoint URIs to the `<issuers>` element in the Azure API Management inbound policy.
 
 ```xml
 <!-- Accept tokens from multiple issuers -->
@@ -236,15 +236,15 @@ Similarly, to support multiple token issuers, add their endpoint URIs to the `<i
 
 ## Migrate to b2clogin.com
 
-If you have an APIM API that validates tokens issued by the legacy `login.microsoftonline.com` endpoint, you should migrate the API and the applications that call it to use tokens issued by [b2clogin.com](b2clogin.md).
+If you have an Azure API ManagementM API that validates tokens issued by the legacy `login.microsoftonline.com` endpoint, you should migrate the API and the applications that call it to use tokens issued by [b2clogin.com](b2clogin.md).
 
 You can follow this general process to perform a staged migration:
 
-1. Add support in your APIM inbound policy for tokens issued by both b2clogin.com and login.microsoftonline.com.
+1. Add support in your Azure API Management inbound policy for tokens issued by both b2clogin.com and login.microsoftonline.com.
 1. Update your applications one at a time to obtain tokens from the b2clogin.com endpoint.
 1. After all your applications are correctly obtaining tokens from b2clogin.com, remove support for login.microsoftonline.com-issued tokens from the API.
 
-The following example APIM inbound policy illustrates how to accept tokens that are issued by both b2clogin.com and login.microsoftonline.com. Additionally, the policy supports API requests from two applications.
+The following example Azure API Management inbound policy illustrates how to accept tokens that are issued by both b2clogin.com and login.microsoftonline.com. Additionally, the policy supports API requests from two applications.
 
 ```xml
 <policies>
@@ -270,6 +270,6 @@ The following example APIM inbound policy illustrates how to accept tokens that 
 
 ## Next steps
 
-For additional information about Azure API Management policies, see the [APIM policy reference index](../api-management/api-management-policies.md).
+For additional information about Azure API Management policies, see the [Azure API Management policy reference index](../api-management/api-management-policies.md).
 
 For information about migrating OWIN-based web APIs and their applications to b2clogin.com, see [Migrate an OWIN-based web API to b2clogin.com](multiple-token-endpoints.md).
