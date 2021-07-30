@@ -93,11 +93,11 @@ After you create the user properties, you can monitor them in the monitoring lis
 
 ## Rerun pipelines and activities
  
- Rerun behavior of the container activities is as follows :
+ Rerun behavior of the container activities is as follows:
  
 - `Wait`- Activity will behave as before.
 - `Set Variable` - Activity will behave as before.
-- `Filter` - Acitvity will behave as before.
+- `Filter` - Activity will behave as before.
 - `Until` Activity will evaluate the expression and will loop until the condition is satisfied. Inner activities may still be skipped based on the rerun rules.
 - `Foreach` Activity will always loop on the items it receives. Inner activities may still be skipped based on the rerun rules.
 - `If and switch` - Conditions will always be evaluated. Inner activities may still be skipped based on the rerun rules.
