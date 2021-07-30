@@ -4,6 +4,8 @@
   items:
     - name: What is Event Hubs?
       href: event-hubs-about.md
+    - name: Terminology
+      href: event-hubs-features.md
 - name: Quickstarts
   expanded: true
   items:
@@ -73,26 +75,28 @@
       href: event-hubs-samples.md
 - name: Concepts
   items:
-    - name: Event Hubs terminology
-      href: event-hubs-features.md
-    - name: Event Hubs Premium
-      href: event-hubs-premium-overview.md      
+    - name: Tiers 
+      items: 
+      - name: Event Hubs Premium
+        href: event-hubs-premium-overview.md      
+      - name: Event Hubs Dedicated
+        href: event-hubs-dedicated-overview.md
     - name: Event Hubs for Apache Kafka
       href: event-hubs-for-kafka-ecosystem-overview.md
     - name: Event Hubs Capture
       href: event-hubs-capture-overview.md
-    - name: Event Hubs Dedicated
-      href: event-hubs-dedicated-overview.md
-    - name: Azure Schema Registry in Event Hubs (Preview)
+    - name: Azure Schema Registry in Event Hubs
       href: schema-registry-overview.md      
-    - name: Event processor host (legacy SDK)
-      href: event-hubs-event-processor-host.md
-    - name: Event processor (latest SDK)
-      href: event-processor-balance-partition-load.md
     - name: Availability and consistency
       href: event-hubs-availability-and-consistency.md
     - name: Scalability
       href: event-hubs-scalability.md
+    - name: Event processing using SDKs
+      items: 
+      - name: Event processor host (legacy SDK)
+        href: event-hubs-event-processor-host.md
+      - name: Event processor (latest SDK)
+        href: event-processor-balance-partition-load.md
     - name: Federation 
       items:
         - name: Multi-site and multi-region federation
