@@ -77,34 +77,74 @@ The device calls the [Create File Upload SAS URI](/rest/api/iothub/device/create
 **Method**: POST
 
 ```json
+POST https://myfileuploadhub.azure-devices.net/devices/mydevice/files?api-version=2020-03-13 HTTP/1.1
+Authorization: SharedAccessSignature sr=MyFileUploadHub.azure-devices.net%2Fdevices%2Fmydevice&sig=pD7ytXr0ZmaWiXfY...tNW0rF1NIZ2yYmKGbsW0LM%3D&se=1627625040
+Host: myfileuploadhub.azure-devices.net
+Content-Length: 29
+Content-Type: application/json
+
 {
-    "blobName": "{name of the file for which a SAS URI will be generated}"
+    "blobName":"myfile.txt"
 }
+
 ```
+| Property | Description |
+|----------|-------------|
+| blobName | The name of the blob to generate the SAS URI for. |
 
 IoT Hub returns the following data, subject to its throttling and per-device upload limits:
 
 ```json
+HTTP/1.1 200 OK
+Content-Length: 362
+Content-Type: application/json; charset=utf-8
+Vary: Origin
+Server: Microsoft-HTTPAPI/2.0
+x-ms-request-id: 05e3646c-5e68-4327-941b-e5ba8d4f8f18
+Date: Fri, 30 Jul 2021 05:11:10 GMT
+
 {
-    "correlationId": "somecorrelationid",
-    "hostName": "yourstorageaccount.blob.core.windows.net",
-    "containerName": "testcontainer",
-    "blobName": "test-device1/image.jpg",
-    "sasToken": "1234asdfSAStoken"
+    "correlationId":"MjAyMTA3MzAwNjIxXzBiNjgwOGVkLWZjNzQtN...MzYzLWRlZmI4OWQxMzdmNF9teWZpbGUudHh0X3ZlcjIuMA==","hostName":"contosostorageaccount.blob.core.windows.net",
+    "containerName":"device-upload-container",
+    "blobName":"mydevice/myfile.txt",
+    "sasToken":"?sv=2018-03-28&sr=b&sig=mBLiODhpKXBs0y9RVzwk1S...l1X9qAfDuyg%3D&se=2021-07-30T06%3A11%3A10Z&sp=rw"
 }
 ```
+| Property | Description |
+|----------|-------------|
+| correlationId | The identifier for the device to use when sending the file upload complete notification to IoT Hub. |
+| hostName | The Azure storage account host name for the storage account configured on the IoT hub |
+| containerName | The name of the blob container configured on the IoT hub. |
+| blobName | The location where the blob will be stored in the container. The name is of the following format: `{device ID of the device making the request}/{blobName in the request}` | 
+| sasToken | A SAS token that grants read/write access on the blob. The token is generated and signed by IoT Hub. |
 
-The device:
+When it receives the response, the device:
 
-* Saves the correlation ID to include in the file upload notification when the upload completes. 
+* Saves the correlation ID to include in the file upload complete notification to IoT hub when it completes the upload. 
 
-* Uses the other properties to construct a SAS URI to authenticate with Azure Storage. The SAS URI is of the following form:
+* Uses the other properties to construct a SAS URI for the blob that it uses to authenticate with Azure storage. The SAS URI is of the following form: `https://{hostMane}/{containerName}/{blobName}{sasToken}` (The `sasToken` property in the response contains a leading '?' character.) The braces are not included. For more information about the SAS URI and SAS token, see [Create a service SAS](/rest/api/storageservices/create-service-sas) in the Azure storage documentation. 
+
 
 ## Device: Upload file using Azure Storage APIs
 
 The device uses the [Azure Blob storage REST APIs](/rest/api/storageservices/blob-service-rest-api) or equivalent Azure storage SDK APIs to upload the file to the blob in Azure storage. 
 
-**Supported protocols**: HTTP/S (HTTPS highly recommended)
+**Supported protocols**: HTTPS
+
+The following example shows a [Put Blob](/rest/api/storageservices/put-blob) request to create or update a small block blob. Notice that the URI used for this request is the SAS URI returned by IoT Hub in the previous section. The `x-ms-blob-type` header indicates that this request is for a block blob. If the request is successful, Azure storage returns a `201 Created`.
+
+```http
+PUT https://contosostorageaccount.blob.core.windows.net/device-upload-container/mydevice/myfile.txt?sv=2018-03-28&sr=b&sig=mBLiODhpKXBs0y9RVzwk1S...l1X9qAfDuyg%3D&se=2021-07-30T06%3A11%3A10Z&sp=rw HTTP/1.1
+Content-Length: 11
+Content-Type: text/plain; charset=UTF-8
+Host: contosostorageaccount.blob.core.windows.net
+x-ms-blob-type: BlockBlob
+
+hello world
+```
+
+For more information about 
+
 
 ## Device: Notify IoT Hub of a completed file upload
 
@@ -115,15 +155,26 @@ The device calls the [Update File Upload Status](/rest/api/iothub/device/update-
 **Method**: POST 
 
 ```json
-{
-    "correlationId": "{correlation ID received from the initial request}",
-    "isSuccess": bool,
-    "statusCode": XXX,
-    "statusDescription": "Description of status"
-}
-```
+POST https://myfileuploadhub.azure-devices.net/devices/mydevice/files/notifications?api-version=2020-03-13 HTTP/1.1
+Content-Length: 227
+Content-Type: application/json
+Authorization: SharedAccessSignature sr=MyFileUploadHub.azure-devices.net%2Fdevices%2Fmydevice&sig=pD7ytXr0ZmaWiXfY2N2wutNW0rF1NIZ2yYmKGbsW0LM%3D&se=1627625040
+Host: myfileuploadhub.azure-devices.net
 
-The value of `isSuccess` is a Boolean that indicates whether the file was uploaded successfully. The status code for `statusCode` is the status for the upload of the file to storage, and the `statusDescription` corresponds to the `statusCode`.  
+{
+    "correlationId": "MjAyMTA3MzAwNjIxXzBiNjgwOGVkLWZjNzQtN...MzYzLWRlZmI4OWQxMzdmNF9teWZpbGUudHh0X3ZlcjIuMA==",
+    "isSuccess": true,
+    "statusCode": 200,
+    "statusDescription": "File uploaded successfully"
+}
+
+```
+ Property | Description |
+|----------|-------------|
+| correlationId | The correlation ID received in the initial SAS URI request. |
+| isSuccess | A boolean that indicates whether the file upload was successful. |
+| statusCode | An integer that represents the status code of the file upload. Typically 3 digits; for example 200, 201, etc. |
+| statusDescription | A human-readable description of the file upload status. |
 
 When it receives a file upload complete notification from the device, IoT Hub:
 
@@ -180,7 +231,7 @@ You can set these properties on your IoT hub using the Azure portal, Azure CLI, 
 
 ## File upload using an SDK
 
-The following how-to guides provide complete step-by-step instructions to perform file uploads in a variety of SDK languages. These guides show you how to use the Azure portal to associate a storage account with an IoT hub. They also contain code snippets or refer to samples that guide you through the upload process.
+The following how-to guides provide complete step-by-step instructions to perform file uploads in a variety of SDK languages. They show you how to use the Azure portal to associate a storage account with an IoT hub. They also contain code snippets or refer to samples that guide you through the upload process.
 
 | How-to guide | Device SDK example | Service SDK example |
 |---------|--------|---------|
@@ -190,15 +241,7 @@ The following how-to guides provide complete step-by-step instructions to perfor
 | [Python](iot-hub-python-python-file-upload.md) | Yes | No service SDK available in Python |
 
 > [!NOTE]
-> The C device SDK uses a single call on the device client to perform file uploads. For more information, see [IoTHubDeviceClient_UploadToBlobAsync()](/azure/iot-hub/iot-c-sdk-ref/iothub-device-client-h/iothubdeviceclient-uploadtoblobasync) and [IoTHubDeviceClient_UploadMultipleBlocksToBlobAsync()](/azure/iot-hub/iot-c-sdk-ref/iothub-device-client-h/iothubdeviceclient-uploadmultipleblockstoblobasync). These functions perform all aspects of the file upload - from initiating the upload to notifying IoT Hub when it completes -- in a single call. Make sure that access to both the IoT Hub endpoint and the Azure storage endpoint (HTTPS) is available to the device as these functions will make calls to Azure storage APIs.
-
-> [!NOTE]
-> The [Azure IoT SDKs](iot-hub-devguide-sdks.md) automatically handle retrieving the shared access signature URI, uploading the file, and notifying IoT Hub of a completed upload. If a firewall blocks access to the Blob Storage endpoint but allows access to the IoT Hub endpoint, the file upload process fails and shows the following error for the IoT C# device SDK:
->
-> `---> System.Net.Http.HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond`
->
-> For the file upload feature to work, access to both the IoT Hub endpoint and the Blob Storage endpoint must be available to the device.
-> 
+> The C device SDK uses a single call on the device client to perform file uploads. For more information, see [IoTHubDeviceClient_UploadToBlobAsync()](/azure/iot-hub/iot-c-sdk-ref/iothub-device-client-h/iothubdeviceclient-uploadtoblobasync) and [IoTHubDeviceClient_UploadMultipleBlocksToBlobAsync()](/azure/iot-hub/iot-c-sdk-ref/iothub-device-client-h/iothubdeviceclient-uploadmultipleblockstoblobasync). These functions perform all aspects of the file upload - initiating the upload, uploading the file to Azure storage, and notifying IoT Hub when it completes -- in a single call. Make sure that access to both the IoT Hub endpoint and the Azure storage endpoint (HTTPS) is available to the device as these functions will make calls to Azure storage APIs.
 
 ## Next steps
 
