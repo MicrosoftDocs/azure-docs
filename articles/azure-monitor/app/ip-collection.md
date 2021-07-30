@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights IP address collection | Microsoft Docs
-description: Understand how Azure Application Insights handles IP addresses and geolocation.
+description: Understand how Application Insights handles IP addresses and geolocation.
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.custom: devx-track-js, devx-track-azurepowershell
