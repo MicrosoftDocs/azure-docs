@@ -186,10 +186,10 @@ Use the following steps to register and scan one or more Power BI tenants in Azu
 
 10.  Create a user account in Azure Active Directory tenant where Power BI tenant is located and assign Azure AD role, **Power BI Administrator**. Update `pbi_admin_username` and `pbi_admin_password` with corresponding information and execute the following lines in the PowerShell terminal:
 
-    ```powershell
-    $UserName = '<pbi_admin_username>'
-    $Password = '<pbi_admin_password>'
-    ```
+        ```powershell
+        $UserName = '<pbi_admin_username>'
+        $Password = '<pbi_admin_password>'
+        ```
 
 11.  In Azure Purview subscription, locate your Purview account and using Azure RBAC roles, assign _Purview Data Source Administrator_ to the Service Principal and the Power BI user.
 
