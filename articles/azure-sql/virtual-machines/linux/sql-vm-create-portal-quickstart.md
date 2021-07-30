@@ -8,6 +8,7 @@ tags: azure-service-management
 
 ms.topic: quickstart
 ms.service: virtual-machines-sql
+ms.subservice: deployment-configuration
 ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
