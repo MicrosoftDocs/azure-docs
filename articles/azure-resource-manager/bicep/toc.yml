@@ -32,6 +32,7 @@
       items:
       - name: Resource declaration
         href: resource-declaration.md
+        displayName: existing
       - name: Conditional deployment
         href: conditional-resource-deployment.md
         displayName: runtime
@@ -153,6 +154,8 @@
     items:
     - name: All operators
       href: operators.md
+    - name: Accessor operators
+      href: operators-access.md
     - name: Comparison operators
       href: operators-comparison.md
     - name: Logical operators

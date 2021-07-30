@@ -71,7 +71,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Front Door | [Logging for Front Door](../../frontdoor/front-door-diagnostics.md) |
 | IoT Hub | [IoT Hub Operations](../../iot-hub/monitor-iot-hub-reference.md#resource-logs) |
 | Key Vault |[Azure Key Vault Logging](../../key-vault/general/logging.md) |
-| Kubernetes Service |[Azure Kubernetes Logging](../../aks/view-control-plane-logs.md#log-event-schema) |
+| Kubernetes Service |[Azure Kubernetes Logging](../../aks/monitor-aks-reference.md#resource-logs) |
 | Load Balancer |[Log analytics for Azure Load Balancer](../../load-balancer/monitor-load-balancer.md) |
 | Logic Apps |[Logic Apps B2B custom tracking schema](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Media Services | [Media services monitoring schemas](../../media-services/latest/monitoring/monitor-media-services-data-reference.md#schemas) |

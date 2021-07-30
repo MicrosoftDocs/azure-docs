@@ -249,4 +249,4 @@ You can learn more from the following resources:
 
 * To learn how to configure devices using device twin's desired properties, see the [Use desired properties to configure devices](tutorial-device-twins.md) tutorial.
 
-* To learn how to control devices interactively, such as turning on a fan from a user-controlled app, see the [Use direct methods](quickstart-control-device-dotnet.md) tutorial.
+* To learn how to control devices interactively, such as turning on a fan from a user-controlled app, see the [Use direct methods](/azure/iot-hub/quickstart-control-device?pivots=programming-language-csharp) quickstart.

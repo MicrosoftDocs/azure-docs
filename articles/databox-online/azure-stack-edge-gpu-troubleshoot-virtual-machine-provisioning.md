@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 06/21/2021
+ms.date: 07/19/2021
 ms.author: alkohli
 ---
 # Troubleshoot VM deployment in Azure Stack Edge Pro GPU
@@ -188,12 +188,11 @@ If you try to deploy a VM on a GPU device that already has Kubernetes enabled, n
 **Possible causes:**
 If Kubernetes is enabled before the VM is created, Kubernetes will use all the available GPUs, and you won’t be able to create any GPU-size VMs. You can create as many GPU-size VMs as the number of available GPUs. Your Azure Stack Edge device can be equipped with 1 or 2 GPUs.
 
-**Suggested solution:** For VM deployment options on a 1-GPU or 2-GPU device with Kubernetes configured, see [GPU VMs and Kubernetes](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#gpu-vms-and-kubernetes).
+**Suggested solution:** For VM deployment options on a 1-GPU or 2-GPU device with Kubernetes configured, see [GPU VMs and Kubernetes](azure-stack-edge-gpu-overview-gpu-virtual-machines.md#gpu-vms-and-kubernetes).
 
 
 ## Next steps
 
-* [Collect a Support package that includes guest logs for a failed VM](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)
-* [Troubleshoot issues with a failed GPU extension installation](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)
-* [Troubleshoot issues with Azure Resource Manager](azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md)
-
+- [Collect a Support package that includes guest logs for a failed VM](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)<!--Does a failed VM have a guest log? Does it have GPU and memory metrics?-->
+- [Troubleshoot issues with a failed GPU extension installation](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)
+- [Troubleshoot issues with Azure Resource Manager](azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md)

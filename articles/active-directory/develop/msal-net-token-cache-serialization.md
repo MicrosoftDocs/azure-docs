@@ -76,7 +76,8 @@ Here are examples of possible distributed caches:
 // or use a distributed Token Cache by adding
    services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
            .AddMicrosoftIdentityWebApp(Configuration)
-             .EnableTokenAcquisitionToCallDownstreamApi(new string[] { scopesToRequest })
+             .EnableTokenAcquisitionToCallDownstreamApi(new string[] { scopesToRequest }
+               .AddDistributedTokenCaches();
 
 // and then choose your implementation
 
