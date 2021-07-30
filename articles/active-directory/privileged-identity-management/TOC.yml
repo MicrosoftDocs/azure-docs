@@ -8,6 +8,8 @@
   items:
   - name: License requirements
     href: subscription-requirements.md
+  - name: Privileged Access groups
+    href: groups-features.md
   - name: Roles you can't manage with PIM 
     href: pim-roles.md
   - name: Secure privileged access in Azure AD
