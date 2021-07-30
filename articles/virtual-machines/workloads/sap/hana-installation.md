@@ -11,7 +11,7 @@ ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 6/3/2021
+ms.date: 7/16/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
 
@@ -84,14 +84,14 @@ After you receive the HANA Large Instances from Microsoft, establish access and 
 
     If you order more instances into your tenant, you need to adapt the time zone of the newly delivered instances. Microsoft has no insight into the system time zone you set up with the instances after the handover. So newly deployed instances might not be set in the same time zone as the one you changed to. It's up to you to adapt the time zone of the instance(s) that were handed over, as needed. 
 
-6. Check etc/hosts. As the blades get handed over, they have different IP addresses assigned for different purposes. Check the etc/hosts file. When units are added into an existing tenant, etc/hosts of the newly deployed systems may not be maintained correctly with the IP addresses of systems delivered earlier. Ensure that a newly deployed instance can interact and resolve the names of the units you deployed earlier in your tenant. 
+6. Check etc/hosts. As the blades get handed over, they have different IP addresses assigned for different purposes. It's important to check the etc/hosts file when units are added into an existing tenant. The etc/hosts file of the newly deployed systems may not be maintained correctly with the IP addresses of systems delivered earlier. Ensure that a newly deployed instance can resolve the names of the units you deployed earlier in your tenant. 
 
 
 ## Operating system
 
 The swap space of the delivered OS image is set to 2 GB according to the [SAP support note #1999997 - FAQ: SAP HANA memory](https://launchpad.support.sap.com/#/notes/1999997/E). If you want a different setting, you must set it yourself.
 
-[SUSE Linux Enterprise Server 12 SP1 for SAP applications](https://www.suse.com/products/sles-for-sap/download/) is the distribution of Linux that's installed for SAP HANA on Azure (Large Instances). This particular distribution provides SAP-specific capabilities "out of the box" (including pre-set parameters for running SAP on SLES effectively).
+[SUSE Linux Enterprise Server 12 SP1 for SAP applications](https://www.suse.com/products/sles-for-sap/download/) is the distribution of Linux that's installed for SAP HANA on Azure (Large Instances). This distribution provides SAP-specific capabilities, including pre-set parameters for running SAP on SLES effectively.
 
 For several useful resources related to deploying SAP HANA on SLES, see:
 - [Resource library/white papers](https://www.suse.com/products/sles-for-sap/resource-library#white-papers) on the SUSE website.
@@ -102,7 +102,7 @@ These resources include information on setting up high availability, security ha
 Here are more resources for SAP on SUSE:
 
 - [SAP HANA on SUSE Linux site](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+SUSE)
-- [Best practices for SAP: Enqueue replication – SAP NetWeaver on SUSE Linux Enterprise 12](https://www.scribd.com/document/351887168/SLES4SAP-NetWeaver-ha-guide-EnqRepl-12-color-en-pdf)
+- [Best Practice for SAP: Enqueue replication – SAP NetWeaver on SUSE Linux Enterprise 12](https://www.scribd.com/document/351887168/SLES4SAP-NetWeaver-ha-guide-EnqRepl-12-color-en-pdf)
 - [ClamSAP – SLES virus protection for SAP](https://scn.sap.com/community/linux/blog/2014/04/14/clamsap--suse-linux-enterprise-server-integrates-virus-protection-for-sap) (including SLES 12 for SAP applications)
 
 The following documents are SAP support notes applicable to implementing SAP HANA on SLES 12:
@@ -129,7 +129,7 @@ The following documents are SAP support notes applicable to implementing SAP HAN
 
 SAP applications built on the SAP NetWeaver architecture are sensitive to time differences for the components of the SAP system. SAP ABAP short dumps with the error title of ZDATE\_LARGE\_TIME\_DIFF are probably familiar. That's because these short dumps appear when the system time of different servers or virtual machines (VMs) is drifting too far apart.
 
-For SAP HANA on Azure (Large Instances), time synchronization in Azure doesn't apply to the compute units in the Large Instance stamps. It also doesn't apply to running SAP applications in native Azure VMs, because Azure ensures that a system's time is properly synchronized. 
+For SAP HANA on Azure (Large Instances), time synchronization in Azure doesn't apply to the compute units in the Large Instance stamps. It also doesn't apply to running SAP applications in native Azure VMs, because Azure ensures a system's time is properly synchronized. 
 
 As a result, you need to set up a separate time server. This server will be used by SAP application servers running on Azure VMs. It will also be used by the SAP HANA database instances running on HANA Large Instances. The storage infrastructure in Large Instance stamps is time-synchronized with Network Time Protocol (NTP) servers.
 
@@ -146,7 +146,7 @@ For more information about Ethernet details for your architecture, see [HLI supp
 
 ## Storage
 
-The storage layout for SAP HANA (Large Instances) is configured by SAP HANA on Azure Service Management through SAP recommended guidelines. These guidelines are documented in [SAP HANA storage requirements](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). 
+The storage layout for SAP HANA (Large Instances) is configured by SAP HANA on Azure Service Management using SAP recommended guidelines. These guidelines are documented in [SAP HANA storage requirements](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). 
 
 The rough sizes of the different volumes with the different HANA Large Instances SKUs is documented in [SAP HANA (Large Instances) overview and architecture on Azure](hana-overview-architecture.md).
 
@@ -164,7 +164,7 @@ The naming conventions of the storage volumes are listed in the following table:
 
 *Tenant* is an internal enumeration of operations when deploying a tenant.
 
-HANA usr/sap share the same volume. The nomenclature of the mountpoints includes the system ID of the HANA instances and the mount number. In scale-up deployments, there's only one mount, such as mnt00001. In scale-out deployments, you'll see as many mounts as you have worker and master nodes. 
+HANA usr/sap share the same volume. The nomenclature of the mountpoints includes the system ID of the HANA instances and the mount number. In scale-up deployments, there's only one mount, such as mnt00001. In scale-out deployments, you'll see as many mounts as you have worker and primary nodes. 
 
 For scale-out environments, data, log, and log backup volumes are shared and attached to each node in the scale-out configuration. For configurations that are multiple SAP instances, a different set of volumes is created and attached to the HANA Large Instance. For storage layout details for your scenario, see [HLI supported scenarios](hana-supported-scenario.md).
 
@@ -192,7 +192,7 @@ The output of the command df -h on a S72m HANA Large Instance looks like:
 ![Screenshot showing output of the command for HANA Large Instance.](./media/hana-installation/image2_df_output.PNG)
 
 
-The storage controller and nodes in the Large Instance stamps are synchronized to NTP servers. Synchronizing the SAP HANA on Azure (Large Instances) and Azure VMs against an NTP server should eliminate significant time drift between the infrastructure and the compute units in Azure or Large Instance stamps.
+The storage controller and nodes in the Large Instance stamps are synchronized to NTP servers. Synchronizing the SAP HANA on Azure (Large Instances) and Azure VMs against an NTP server is important. It eliminates significant time drift between the infrastructure and the compute units in Azure or Large Instance stamps.
 
 To optimize SAP HANA to the storage used underneath, set the following SAP HANA configuration parameters:
 

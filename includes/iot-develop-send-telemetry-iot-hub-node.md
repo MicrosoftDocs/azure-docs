@@ -9,6 +9,10 @@
  ms.custom: include file
 ---
 
+[![Browse code](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/pnp)
+
+In this quickstart, you learn a basic Azure IoT application development workflow. You use the Azure CLI to create an Azure IoT hub and a device. Then you use an Azure IoT device SDK sample to run a simulated temperature controller, connect it securely to the hub, and send telemetry.
+
 ## Prerequisites
 - If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Git](https://git-scm.com/downloads).
@@ -84,7 +88,7 @@ In this section, you will use the Node.js SDK to send messages from your simulat
     node pnpTemperatureController.js
     ```
     > [!NOTE]
-    > This code sample uses Azure IoT Plug and Play, which lets you integrate smart devices into your solutions without any manual configuration.  By default, most samples in this documentation use IoT Plug and Play. To learn more about the advantages of IoT PnP, and cases for using or not using it, see [What is IoT Plug and Play?](../articles/iot-pnp/overview-iot-plug-and-play.md).
+    > This code sample uses Azure IoT Plug and Play, which lets you integrate smart devices into your solutions without any manual configuration.  By default, most samples in this documentation use IoT Plug and Play. To learn more about the advantages of IoT PnP, and cases for using or not using it, see [What is IoT Plug and Play?](../articles/iot-develop/overview-iot-plug-and-play.md).
 
 As the Node.js code sends a simulated telemetry message from your device to the IoT hub, the message appears in your CLI app that is monitoring events:
 

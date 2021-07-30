@@ -48,7 +48,7 @@ An Automation account can be granted two types of identities:
 - A user-assigned identity is a standalone Azure resource that can be assigned to your app. An app can have multiple user-assigned identities.
 
 > [!NOTE]
-> User assigned identities are supported for cloud jobs only. To learn more about the different managed identities, see [Manage identity types](/active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
+> User assigned identities are supported for cloud jobs only. To learn more about the different managed identities, see [Manage identity types](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
 
 For details on using managed identities, see [Enable managed identity for Azure Automation (preview)](enable-managed-identity-for-automation.md).
 

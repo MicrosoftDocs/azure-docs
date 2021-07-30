@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file to retrieve values a
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/16/2021
+ms.date: 07/30/2021
 ---
 
 # Resource functions for Bicep
@@ -108,9 +108,9 @@ Built-in policy definitions are tenant level resources. For an example of deploy
 
 ## getSecret
 
-`getSecret([secretName])`
+`keyVaultName.getSecret(secretName)`
 
-Returns the secret value stored in Azure Key Vault. You can use the getSecret function to obtain a key vault secret and pass the return value to a string parameter of a Bicep module. The getSecret function can only be called on a `Microsoft.KeyVault/vaults` resource and can be used only with parameter with `@secure()` decorator.
+Returns a secret from an Azure Key Vault. The `getSecret` function can only be called on a `Microsoft.KeyVault/vaults` resource. Use this function to pass a secret to a secure string parameter of a Bicep module. The function can be used only with a parameter that has the `@secure()` decorator.
 
 ### Parameters
 
@@ -168,16 +168,19 @@ module sql './sql.bicep' = {
 
 ## list*
 
-`list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)`
+`resourceName.list([apiVersion], [functionValues])`
 
-The syntax for this function varies by name of the list operations. Each implementation returns values for the resource type that supports a list operation. The operation name must start with `list` and may have a suffix. Some common usages are `list`, `listKeys`, `listKeyValue`, and `listSecrets`.
+You can call a list function for any resource type with an operation that starts with `list`. Some common usages are `list`, `listKeys`, `listKeyValue`, and `listSecrets`. 
+
+The syntax for this function varies by the name of the list operation. The returned values also vary by operation. Bicep doesn't currently support completions and validation for `list*` functions.
+
+With **Bicep version 0.4.412 or later**, you call the list function by using the [accessor operator](operators-access.md#function-accessor). For example, `stg.listKeys()`. 
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| resourceName or resourceIdentifier |Yes |string |Unique identifier for the resource. |
-| apiVersion |Yes |string |API version of resource runtime state. Typically, in the format, **yyyy-mm-dd**. |
+| apiVersion |No |string |If you don't provide this parameter, the API version for the resource is used. Only provide a custom API version when you need the function to be run with a specific version. Use the format, **yyyy-mm-dd**. |
 | functionValues |No |object | An object that has values for the function. Only provide this object for functions that support receiving an object with parameter values, such as **listAccountSas** on a storage account. An example of passing function values is shown in this article. |
 
 ### Valid uses
@@ -185,6 +188,75 @@ The syntax for this function varies by name of the list operations. Each impleme
 The list functions can be used in the properties of a resource definition. Don't use a list function that exposes sensitive information in the outputs section of a Bicep file. Output values are stored in the deployment history and could be retrieved by a malicious user.
 
 When used with [property loop](./loop-properties.md), you can use the list functions for `input` because the expression is assigned to the resource property. You can't use them with `count` because the count must be determined before the list function is resolved.
+
+If you use a **list** function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the **list** function refers to a resource that doesn't exist. Use the [conditional expression **?:** operator](./operators-logical.md#conditional-expression--) to make sure the function is only evaluated when the resource is being deployed.
+
+### Return value
+
+The returned object varies by the list function you use. For example, the listKeys for a storage account returns the following format:
+
+```json
+{
+  "keys": [
+    {
+      "keyName": "key1",
+      "permissions": "Full",
+      "value": "{value}"
+    },
+    {
+      "keyName": "key2",
+      "permissions": "Full",
+      "value": "{value}"
+    }
+  ]
+}
+```
+
+Other list functions have different return formats. To see the format of a function, include it in the outputs section as shown in the example Bicep file.
+
+### List example
+
+The following example deploys a storage account and then calls listKeys on that storage account. The key is used when setting a value for [deployment scripts](../templates/deployment-script-template.md).
+
+```bicep
+resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+  name: 'dscript${uniqueString(resourceGroup().id)}'
+  location: location
+  kind: 'StorageV2'
+  sku: {
+    name: 'Standard_LRS'
+  }
+}
+
+resource dScript 'Microsoft.Resources/deploymentScripts@2019-10-01-preview' = {
+  name: 'scriptWithStorage'
+  location: location
+  ...
+  properties: {
+    azCliVersion: '2.0.80'
+    storageAccountSettings: {
+      storageAccountName: stg.name
+      storageAccountKey: stg.listKeys().keys[0].value
+    }
+    ...
+  }
+}
+```
+
+The next example shows a list function that takes a parameter. In this case, the function is **listAccountSas**. Pass an object for the expiry time. The expiry time must be in the future.
+
+```bicep
+param accountSasProperties object {
+  default: {
+    signedServices: 'b'
+    signedPermission: 'r'
+    signedExpiry: '2020-08-20T11:00:00Z'
+    signedResourceTypes: 's'
+  }
+}
+...
+sasToken: stg.listAccountSas('2021-04-01', accountSasProperties).accountSasToken
+```
 
 ### Implementations
 
@@ -334,61 +406,6 @@ To determine which resource types have a list operation, you have the following 
   ```azurecli
   az provider operation show --namespace Microsoft.Storage --query "resourceTypes[?name=='storageAccounts'].operations[].name | [?contains(@, 'list')]"
   ```
-
-### Return value
-
-The returned object varies by the list function you use. For example, the listKeys for a storage account returns the following format:
-
-```json
-{
-  "keys": [
-    {
-      "keyName": "key1",
-      "permissions": "Full",
-      "value": "{value}"
-    },
-    {
-      "keyName": "key2",
-      "permissions": "Full",
-      "value": "{value}"
-    }
-  ]
-}
-```
-
-Other list functions have different return formats. To see the format of a function, include it in the outputs section as shown in the example Bicep file.
-
-### Remarks
-
-Specify the resource by using either the resource name or the [resourceId function](#resourceid). When using a list function in the same Bicep file that deploys the referenced resource, use the resource name.
-
-If you use a **list** function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the **list** function refers to a resource that doesn't exist. Use the [conditional expression **?:** operator](./operators-logical.md#conditional-expression--) to make sure the function is only evaluated when the resource is being deployed.
-
-### List example
-
-The following example uses listKeys when setting a value for [deployment scripts](../templates/deployment-script-template.md).
-
-```bicep
-storageAccountSettings: {
-  storageAccountName: storageAccountName
-  storageAccountKey: listKeys(resourceId('Microsoft.Storage/storageAccounts', storageAccountName), '2019-06-01').keys[0].value
-}
-```
-
-The next example shows a list function that takes a parameter. In this case, the function is **listAccountSas**. Pass an object for the expiry time. The expiry time must be in the future.
-
-```bicep
-param accountSasProperties object {
-  default: {
-    signedServices: 'b'
-    signedPermission: 'r'
-    signedExpiry: '2020-08-20T11:00:00Z'
-    signedResourceTypes: 's'
-  }
-}
-...
-sasToken: listAccountSas(storagename, '2018-02-01', accountSasProperties).accountSasToken
-```
 
 ## pickZones
 
@@ -573,12 +590,6 @@ param builtInRoleType string {
       'description': 'Built-in role to assign'
   }
 }
-param roleNameGuid string {
-  default: newGuid()
-  metadata: {
-    'description': 'A new GUID used to identify the role assignment'
-  }
-}
 
 var roleDefinitionId = {
   Owner: {
@@ -593,7 +604,7 @@ var roleDefinitionId = {
 }
 
 resource myRoleAssignment 'Microsoft.Authorization/roleAssignments@2018-09-01-preview' = {
-  name: roleNameGuid
+  name: guid(resourceGroup().id, principalId, roleDefinitionId[builtInRoleType].id)
   properties: {
     roleDefinitionId: roleDefinitionId[builtInRoleType].id
     principalId: principalId

@@ -6,7 +6,7 @@ ms.service: mysql
 ms.author: jtoland
 ms.custom: mvc
 ms.topic: conceptual
-ms.date: 06/18/2021
+ms.date: 07/28/2021
 ---
 
 # What's new in Azure Database for MySQL - Flexible Server (Preview)?
@@ -16,6 +16,18 @@ ms.date: 06/18/2021
 [Azure Database for MySQL - Flexible Server](./overview.md#azure-database-for-mysql---flexible-server-preview) is a deployment mode that's designed to provide more granular control and flexibility over database management functions and configuration settings than does the Single Server deployment mode. The service currently supports community version of MySQL 5.7 and 8.0.
 
 This article summarizes new releases and features in Azure Database for MySQL - Flexible Server beginning in January 2021. Listings appear in reverse chronological order, with the most recent updates first.
+
+## July 2021
+
+This release of Azure Database for MySQL - Flexible Server includes the following updates.
+
+- **Online migration from Single Server to Flexible Server**
+
+  Customers can now migrate an instance of Azure Database for MySQL – Single Server to Flexible Server with minimum downtime to their applications by using Data-in Replication. For detailed, step-by-step instructions, see [Migrate Azure Database for MySQL – Single Server to Flexible Server with minimal downtime](https://docs.microsoft.com/azure/mysql/howto-migrate-single-flexible-minimum-downtime).
+
+- **Availability in West US and Germany West Central**
+
+  The public preview of Azure Database for MySQL - Flexible Server is now available in the West US  and Germany West Central Azure regions.
 
 ## June 2021
 

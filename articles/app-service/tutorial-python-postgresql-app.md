@@ -23,7 +23,7 @@ In this tutorial, you use the Azure CLI to complete the following tasks:
 > * View diagnostic logs
 > * Manage the web app in the Azure portal
 
-You can also use the [Azure portal version of this tutorial](/azure/developer/python/tutorial-python-postgresql-app-portal&pivots=postgres-single-server).
+You can also use the [Azure portal version of this tutorial](/azure/developer/python/tutorial-python-postgresql-app-portal?pivots=postgres-single-server).
 
 :::zone-end
 
@@ -41,7 +41,7 @@ In this tutorial, you use the Azure CLI to complete the following tasks:
 > * View diagnostic logs
 > * Manage the web app in the Azure portal
 
-You can also use the [Azure portal version of this tutorial](/azure/developer/python/tutorial-python-postgresql-app-portal&pivots=postgres-flexible-server).
+You can also use the [Azure portal version of this tutorial](/azure/developer/python/tutorial-python-postgresql-app-portal?pivots=postgres-flexible-server).
 
 :::zone-end
 

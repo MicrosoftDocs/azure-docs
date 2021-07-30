@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 08/20/2020
+ms.date: 07/27/2021
 ms.custom: seoapril2019, seodec18
 #Customer intent: As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
 ---

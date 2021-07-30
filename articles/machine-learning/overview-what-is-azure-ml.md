@@ -49,7 +49,7 @@ Azure Machine Learning provides all the tools developers and data scientists nee
 
 You can even use [MLflow to track metrics and deploy models](how-to-use-mlflow.md) or Kubeflow to [build end-to-end workflow pipelines](https://www.kubeflow.org/docs/azure/).
 
-## Build ML models in with the Python SDK
+## Build ML models with the Python SDK
 
 Start training on your local machine using the Azure Machine Learning <a href="/python/api/overview/azure/ml/intro" target="_blank">Python SDK</a>. Then, you can scale out to the cloud. 
 
