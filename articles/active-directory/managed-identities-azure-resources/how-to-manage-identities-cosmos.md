@@ -40,14 +40,19 @@ To create an Azure VM with the system-assigned managed identity enabled, your ac
 
 # [Portal](#tab/azure-portal)
 
-### Create a Linux VM
+- From the **Azure portal** search for **virtual machines**.
+- Choose **Create**
+- In the **Basics** tab provide the required information.
+- Choose **Next: Disks >**
+- Continue filling out information as needed and in the **Management** tab find the ‘Identity’ section and check the box next to **System assigned managed identity**
 
-[Create a Linux virtual machine with a system assigned managed identity](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal)
 
-### Create a Windows VM
+:::image type="content" source="/media/how-to-manage-identities-vm-cosmos/create-vm-system-assigned-managed-identities.png" alt-text="Image showing how to enable system assigned managed identities while creating a VM":::
 
-[Create a Windows virtual machine with a system assigned managed identity](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
+For more information, review the Azure virtual machines documentation:
 
+- [Linux](../../virtual-machines/linux/quick-create-portal.md)
+- [Windows](../../virtual-machines/windows/quick-create-portal.md)
 
 # [PowerShell](#tab/azure-powershell)
 
