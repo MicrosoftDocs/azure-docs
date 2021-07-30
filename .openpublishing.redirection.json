@@ -5550,6 +5550,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-arc/data/how-to-apply-security-context-constraint.md",
+      "redirect_url": "/azure/azure-arc/data",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-arc/data/deploy-data-controller-direct-mode-prerequisites.md",
       "redirect_url": "/azure/azure-arc/data/create-data-controller-direct-cli",
       "redirect_document_id": false
@@ -34575,13 +34580,13 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-android-get-started.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-android-get-started",
+      "source_path_from_root": "/articles/app-service-mobile/index.yml",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/index",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-android-get-started-offline-data.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-android-get-started-offline-data",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/xamarin-android/offline",
       "redirect_document_id": false
     },
     {
@@ -34592,6 +34597,11 @@
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-android-get-started-users.md",
       "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-android-get-started-users",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-android-get-started.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-android-get-started",
       "redirect_document_id": false
     },
     {
@@ -34610,13 +34620,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-cordova-get-started.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-cordova-get-started",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-cordova-get-started-offline-data.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-cordova-get-started-offline-data",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/cordova/offline",
       "redirect_document_id": false
     },
     {
@@ -34626,7 +34631,12 @@
     },
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-cordova-get-started-users",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/cordova/authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-cordova-get-started.md",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/howto/client/cordova",
       "redirect_document_id": false
     },
     {
@@ -34636,22 +34646,17 @@
     },
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/howto/server/dotnet-framework",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/howto/client/dotnet",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-html-how-to-use-client-library.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-html-how-to-use-client-library",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-ios-get-started.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/howto/client/cordova",
       "redirect_document_id": false
     },
     {
@@ -34670,33 +34675,33 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-ios-get-started.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md",
       "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-ios-how-to-use-client-library",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/howto/server/nodejs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-offline-data-sync.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-offline-data-sync",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/howto/data-sync",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-value-prop.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-value-prop",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-offline-data.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-offline-data",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/uwp/offline",
       "redirect_document_id": false
     },
     {
@@ -34706,17 +34711,17 @@
     },
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-users.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-users",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/uwp/authentication",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-xamarin-android-get-started.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-android-get-started",
+      "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started.md",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/uwp",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-xamarin-android-get-started-offline-data.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-android-get-started-offline-data",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/xamarin-android/offline",
       "redirect_document_id": false
     },
     {
@@ -34726,17 +34731,17 @@
     },
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-xamarin-android-get-started-users.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-android-get-started-users",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/xamarin-android/authentication",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-xamarin-forms-get-started.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-forms-get-started",
+      "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-xamarin-android-get-started.md",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/xamarin-android",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-xamarin-forms-get-started-offline-data.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-forms-get-started-offline-data",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/xamarin-forms/offline",
       "redirect_document_id": false
     },
     {
@@ -34746,17 +34751,17 @@
     },
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-xamarin-forms-get-started-users.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-forms-get-started-users",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/xamarin-forms",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-xamarin-ios-get-started.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-ios-get-started",
+      "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-xamarin-forms-get-started.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-forms-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-xamarin-ios-get-started-offline-data.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-ios-get-started-offline-data",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/xamarin-ios/offline",
       "redirect_document_id": false
     },
     {
@@ -34766,12 +34771,12 @@
     },
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-ios-get-started-users",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/xamarin-ios/authentication",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/app-service-mobile/index.yml",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/index",
+      "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-xamarin-ios-get-started.md",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/xamarin-ios",
       "redirect_document_id": false
     },
     {
@@ -55305,6 +55310,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-monitor/insights/container-insights-reports.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-reports",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/view-metrics.md",
+      "redirect_url": "/azure/aks/monitor-aks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/view-control-plane-logs.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-log-query#resource-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/containers/container-insights-log-search.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-log-query",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/load-balancer/tutorial-load-balancer-standard-manage-portal.md",
       "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-portal",
       "redirect_document_id": false
@@ -56956,6 +56981,11 @@
     },
     {
       "source_path_from_root": "/articles/partner-twilio-ruby-how-to-use-voice-sms.md",
+      "redirect_url": "https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/twilio-dotnet-how-to-use-for-voice-sms.md",
       "redirect_url": "https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp",
       "redirect_document_id": false
     },
