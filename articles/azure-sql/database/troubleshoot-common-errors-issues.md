@@ -8,7 +8,7 @@ ms.topic: troubleshooting
 ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: ramakoni1
 ms.author: ramakoni
-ms.reviewer: sstein,vanto
+ms.reviewer: mathoma,vanto
 ms.date: 01/14/2021
 ---
 
