@@ -96,7 +96,7 @@ This feature triggers brings the primary server down and initiates the failover 
   | 2 | Application encounters downtime as the primary server is down. | Yes |
   | 3 | Internal monitoring system detects the failure and initiates a failover to the standby server. | Yes |
   | 4 | Standby server enters recovery mode before being fully promoted as an independent server. | Yes |
-  | 5 | The failover process waits for the standby recovery to complete | Yes |
+  | 5 | The failover process waits for the standby recovery to complete. | Yes |
   | 6 | Once the server is up, DNS record is updated with the same hostname, but using the standby's IP address. | Yes |
   | 7 | Application can reconnect to the new primary server and resume the operation. | No |
   | 8 | A standby server in the preferred zone is established. | No |
@@ -114,7 +114,7 @@ When executing this feature, the standby server is first prepared to make sure i
 
 | **Step** | **Description** | **App downtime expected?** |
   | ------- | ------ | ----- |
-  | 1 | Wait for the standby server to have caught-up with primary | No |
+  | 1 | Wait for the standby server to have caught-up with primary. | No |
   | 2 | Internal monitoring system initiates the failover workflow. | No |
   | 3 | Application writes are blocked when the standby server is close to primary log sequence number (LSN). | Yes |
   | 4 | Standby server is promoted to be an independent server. | Yes |
@@ -209,7 +209,7 @@ Flexible servers that are configured with high availability, log data is replica
 * **Can I choose the AZ for the standby?** <br>
     No. Currently you cannot choose the AZ for the standby. We plan to add that capability in future.
 
- **Can I configure HA between private (VNET) and public access?** <br>
+* **Can I configure HA between private (VNET) and public access?** <br>
     No. You can either configure HA within a VNET (spanned across AZs within a region) or public access. 
 
 * **Can I configure HA across regions?** <br>

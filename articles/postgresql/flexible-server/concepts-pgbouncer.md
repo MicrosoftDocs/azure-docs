@@ -31,12 +31,12 @@ You can configure PgBouncer, settings with these parameters:
 | Parameter Name             | Description | Default | 
 |----------------------|--------|-------------|
 | pgbouncer.default_pool_size | Set this parameter value to the number of connections per user/database pair      | 50       | 
-| pgBouncer.max_client_conn | Set this parameter value to the highest number of client connections to PgBouncer that you want to support      | 5000     | 
+| pgBouncer.max_client_conn | Set this parameter value to the highest number of client connections to PgBouncer that you want to support .     | 5000     | 
 | pgBouncer.pool_mode | Set this parameter value to TRANSACTION for transaction pooling (which is the recommended setting for most workloads).      | TRANSACTION     |
 | pgBouncer.min_pool_size | Add more server connections to pool if below this number.    |   0 (Disabled)   |
-| pgbouncer.ignore_startup_parameters | Comma-separated list of parameters that PgBouncer can ignore. For example, you can let PgBouncer ignore `extra_float_digits` parameter|   |
+| pgbouncer.ignore_startup_parameters | Comma-separated list of parameters that PgBouncer can ignore. For example, you can let PgBouncer ignore `extra_float_digits` parameter.|   |
 | pgbouncer.query_wait_timeout | Maximum time (in seconds) queries are allowed to spend waiting for execution. If the query is not assigned to a server during that time, the client is disconnected. | 120s |
-| pgBouncer.stats_users | Optional. Set this parameter value to the name of an existing user, to be able to log in to the special PgBouncer statistics database (named “PgBouncer”)    |      |
+| pgBouncer.stats_users | Optional. Set this parameter value to the name of an existing user, to be able to log in to the special PgBouncer statistics database (named “PgBouncer”).    |      |
 
 For more details on the PgBouncer configurations, please see [pgbouncer.ini](https://www.pgbouncer.org/config.html).
 
