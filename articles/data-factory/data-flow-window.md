@@ -1,6 +1,6 @@
 ---
 title: Window transformation in mapping data flow
-description: Azure Data Factory mapping data flow Window Transformation
+description: Learn how to use the mapping data flow Window Transformation in Azure Data Factory and Synapse Analytics pipelines.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
@@ -41,7 +41,7 @@ Lastly, use the Expression Builder to define the aggregations you wish to use wi
 
 ![Screenshot shows the result of the windowing action.](media/data-flow/windows7.png "windows 7")
 
-The full list of aggregation and analytical functions available for you to use in the ADF Data Flow Expression Language via the Expression Builder are listed here: https://aka.ms/dataflowexpressions.
+The full list of aggregation and analytical functions available for you to use in the Data Flow Expression Language via the Expression Builder are listed in [Data transformation expressions in mapping data flow](data-flow-expression-functions.md).
 
 ## Next steps
 
