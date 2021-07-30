@@ -5,7 +5,7 @@ author: srijang
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
-ms.date: 07/07/2021
+ms.date: 07/28/2021
 ms.author: srijangupta
 
 ---
@@ -14,7 +14,6 @@ ms.author: srijangupta
 
 Ubuntu now publishes official Azure VHDs for download at [https://cloud-images.ubuntu.com/](https://cloud-images.ubuntu.com/). If you need to build your own specialized Ubuntu image for Azure, rather than use the manual procedure below it is recommended to start with these known working VHDs and customize as needed. The latest image releases can always be found at the following locations:
 
-* Ubuntu 16.04/Xenial: [xenial-server-cloudimg-amd64-azure.vhd.zip](https://cloud-images.ubuntu.com/xenial/current/xenial-server-cloudimg-amd64-azure.vhd.zip)
 * Ubuntu 18.04/Bionic: [bionic-server-cloudimg-amd64-azure.vhd.zip](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64-azure.vhd.zip)
 * Ubuntu 20.04/Focal:  [focal-server-cloudimg-amd64-azure.vhd.zip](https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64-azure.vhd.zip)
 
@@ -47,7 +46,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
     # sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
     ```
 
-	Ubuntu 16.04 and Ubuntu 18.04:
+	Ubuntu 18.04 and Ubuntu 20.04:
 
     ```console
     # sudo sed -i 's/http:\/\/archive\.ubuntu\.com\/ubuntu\//http:\/\/azure\.archive\.ubuntu\.com\/ubuntu\//g' /etc/apt/sources.list
@@ -57,7 +56,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 4. The Ubuntu Azure images are now using the [Azure-tailored kernel](https://ubuntu.com/blog/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel). Update the operating system to the latest Azure-tailored kernel and install Azure Linux tools (including Hyper-V dependencies) by running the following commands:
 
-    Ubuntu 16.04 and Ubuntu 18.04:
+    Ubuntu 18.04 and Ubuntu 20.04:
 
     ```console
     # sudo apt update
