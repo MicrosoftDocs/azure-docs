@@ -121,7 +121,7 @@ You can call the `explain()` method in MimicWrapper with the transformed test sa
 engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=automl_explainer_setup_obj.X_test_transform)
 print(engineered_explanations.get_feature_importance_dict())
 ```
-For models trained with automated ML, you can get the best model using the `get_output()` method and compute explanations locally.  You can visualize the explanation results with `ExplanationDashboard` from `raiwidgets` package.
+For models trained with automated ML, you can get the best model using the `get_output()` method and compute explanations locally.  You can visualize the explanation results with `ExplanationDashboard` from the `raiwidgets` package.
 
 ```python
 best_run, fitted_model = remote_run.get_output()
