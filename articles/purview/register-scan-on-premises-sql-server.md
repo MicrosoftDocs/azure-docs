@@ -91,7 +91,7 @@ If you would like to create a new login and user to be able to scan your SQL ser
 
 1. Under Sources and scanning in the left navigation, select **Integration runtimes**. Make sure a self-hosted integration runtime is set up. If it is not set up, follow the steps mentioned [here](manage-integration-runtimes.md) to create a self-hosted integration runtime for scanning on an on-premises or Azure VM that has access to your on-premises network.
 
-1. Select **Sources** on the left navigation
+1. Select **Data Map** on the left navigation.
 
 1. Select **Register**
 
