@@ -72,7 +72,7 @@ If you only need to modify the behavior for a single Application Insights resour
     > [!NOTE]
     > If you experience the following error (as shown in the screenshot), you can resolve it: "The resource group is in a location that is not supported by one or more resources in the template. Please choose a different resource group." Temporarily select a different resource group from the dropdown list and then re-select your original resource group.
 
-4. In the JSON template locate `properties` inside of `resources`, add a comma to the last JSON field, then add the following new line: `"DisableIpMasking": true`. Then select **Save**.
+4. In the JSON template locate `properties` inside `resources`, add a comma to the last JSON field, and then add the following new line: `"DisableIpMasking": true`. Then select **Save**.
 
     ![Screenshot that shows the addition of a comma and a new line after the property for request source.](media/ip-collection/save.png)
 
