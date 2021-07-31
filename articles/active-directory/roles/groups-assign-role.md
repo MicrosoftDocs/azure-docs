@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 05/14/2021
+ms.date: 07/30/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -24,7 +24,7 @@ This section describes how an IT admin can assign Azure Active Directory (Azure 
 
 - Azure AD Premium P1 or P2 license
 - Privileged Role Administrator or Global Administrator
-- AzureADPreview module when using PowerShell
+- AzureAD module when using PowerShell
 - Admin consent when using Graph explorer for Microsoft Graph API
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
