@@ -103,7 +103,7 @@ IoT Hub returns the following data, subject to its throttling and per-device upl
 | correlationId | The identifier for the device to use when sending the file upload complete notification to IoT Hub. |
 | hostName | The Azure storage account host name for the storage account configured on the IoT hub |
 | containerName | The name of the blob container configured on the IoT hub. |
-| blobName | The location where the blob will be stored in the container. The name is of the following format: `{device ID of the device making the request}/{blobName in the request}` | 
+| blobName | The location where the blob will be stored in the container. The name is in- the following format: `{device ID of the device making the request}/{blobName in the request}` | 
 | sasToken | A SAS token that grants read/write access on the blob. The token is generated and signed by IoT Hub. |
 
 When it receives the response, the device:
@@ -166,37 +166,35 @@ When it receives a file upload complete notification from the device, IoT Hub:
 
 ## Service: File upload notifications
 
-If file upload notifications are enabled on your IoT hub, IoT Hub generates a notification message for backend services when a device notifies it that a file upload is complete. This message contains the name and storage location of the file. Your service can use this message to manage uploads. For example, it can trigger its own processing of the blob data, trigger processing of the blob data using other Azure services, or log the file upload notification for later review.
-
-IoT Hub delivers file upload notifications through a service-facing endpoint. The receive semantics for file upload notifications are the same as for cloud-to-device messages and have the same [message life cycle](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-life-cycle). The service SDKs expose APIs to handle file upload notifications. 
+If file upload notifications are enabled on your IoT hub, IoT Hub generates a notification message for backend services when a device notifies it that a file upload is complete. IoT Hub delivers file upload notifications through a service-facing endpoint. The receive semantics for file upload notifications are the same as for cloud-to-device messages and have the same [message life cycle](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-life-cycle). The service SDKs expose APIs to handle file upload notifications. 
 
 **Supported protocols** AMQP, AMQP-WS <br/>
 **Endpoint**: `{iot hub}.azure-devices.net/messages/servicebound/fileuploadnotifications` <br/>
 **Method** GET
 
-Each message retrieved from the file upload notification endpoint is a JSON record with the following properties:
-
-| Property | Description |
-| --- | --- |
-| EnqueuedTimeUtc |Timestamp indicating when the notification was created. |
-| DeviceId |**DeviceId** of the device which uploaded the file. |
-| BlobUri |URI of the uploaded file. |
-| BlobName |Name of the uploaded file. |
-| LastUpdatedTime |Timestamp indicating when the file was last updated. |
-| BlobSizeInBytes |Size of the uploaded file. |
-
-**Example**. This example shows the body of a file upload notification message.
+Each message retrieved from the file upload notification endpoint is a JSON record:
 
 ```json
 {
     "deviceId":"mydevice",
-    "blobUri":"https://{storage account}.blob.core.windows.net/{container name}/mydevice/myfile.jpg",
-    "blobName":"mydevice/myfile.jpg",
-    "lastUpdatedTime":"2016-06-01T21:22:41+00:00",
-    "blobSizeInBytes":1234,
-    "enqueuedTimeUtc":"2016-06-01T21:22:43.7996883Z"
+    "blobUri":"https://contosostorageaccount.blob.core.windows.net/device-upload-container/mydevice/myfile.txt",
+    "blobName":"mydevice/myfile.txt",
+    "lastUpdatedTime":"2021-07-31T00:26:50+00:00",
+    "blobSizeInBytes":11,
+    "enqueuedTimeUtc":"2021-07-31T00:26:51.5134008Z"
 }
 ```
+
+| Property | Description |
+| --- | --- |
+| enqueuedTimeUtc | Timestamp indicating when the notification was created. |
+| deviceId | The Device ID of the device that uploaded the file. |
+| blobUri | The URI of the uploaded file. |
+| blobName | The name of the uploaded file. The name is in the following format: `{device ID of the device }/{name of the blob}`|
+| LastUpdatedTime |Timestamp indicating when the file was last updated. |
+| BlobSizeInBytes | An integer that represents the size of the uploaded file in bytes. |
+
+Service can use notifications to manage uploads. For example, they can trigger their own processing of the blob data, trigger processing of the blob data using other Azure services, or log the file upload notification for later review.
 
 ## File upload notification configuration settings
 
