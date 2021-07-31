@@ -2,7 +2,7 @@
 title: Support matrix for VMware/physical disaster recovery in Azure Site Recovery.
 description: Summarizes support for disaster recovery of VMware VMs and physical server to Azure using Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.date: 07/31/2021
 ---
 
 # Support matrix for disaster recovery  of VMware VMs and physical servers to Azure
@@ -60,7 +60,7 @@ Operating system has to be installed with English locale. Conversion of locale p
 
 ## Replicated machines
 
-In preview, replication is done by the Azure Site Recovery replication appliance. For detailed information about replication appliance, see [this article](#deploy-vmware-azure-replication--preview.md)
+In preview, replication is done by the Azure Site Recovery replication appliance. For detailed information about replication appliance, see [this article](deploy-vmware-azure-replication-appliance-preview.md)
 
 Site Recovery supports replication of any workload running on a supported machine.
 

@@ -29,7 +29,7 @@ Complete the previous tutorials:
 
 1. Make sure you've [set up Azure](tutorial-prepare-azure.md) for on-premises disaster recovery of VMware VMs.
 2. Prepare your on-premises [VMware](vmware-azure-tutorial-prepare-on-premises.md) environment for disaster recovery.
-3. Set up disaster recovery for [VMware VMs](vmware-to-azure-quickstart-preview.md).
+3. Set up disaster recovery for [VMware VMs](vmware-azure-set-up-replication-tutorial-preview.md).
 4. Run a [disaster recovery drill](tutorial-dr-drill-azure.md) to make sure that everything's working as expected.
 
 ## Verify VM properties
