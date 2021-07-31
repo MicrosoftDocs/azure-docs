@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/23/2021
+ms.date: 06/17/2021
 ms.author: duau
 
 ---
