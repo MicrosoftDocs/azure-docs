@@ -103,6 +103,9 @@ In this tutorial, you learn to:
     > [!NOTE]
     > If you are not using the sample app, the values for `app_location`, `api_location`, and `output_location` need  to change to match the values in your application.
 
+    > [!NOTE]
+    > If your primary git branch is named something else besides `main`, then be sure to update the `trigger` section in the YAML pipeline.
+
     [!INCLUDE [static-web-apps-folder-structure](../../includes/static-web-apps-folder-structure.md)]
 
     The `azure_static_web_apps_api_token` value is self managed and is manually configured.
