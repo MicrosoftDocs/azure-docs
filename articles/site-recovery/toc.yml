@@ -9,8 +9,6 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Replicate VMware VMs to Azure (preview)
-    href: vmware-to-azure-quickstart-preview.md
   - name: Replicate an Azure VM to another region
     href: azure-to-azure-quickstart.md
   - name: Create a vault - ARM template
