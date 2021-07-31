@@ -88,10 +88,6 @@ In this section, you create a connection between your virtual hub and your VNet.
 
 ## Modify settings
 
-You can modify settings easily on your virtual hub **User VPN (Point to site)** page. To open the edit page, click any value link, as shown in the screenshot.
-
-:::image type="content" source="./media/virtual-wan-point-to-site-portal/modify.png" alt-text="Screenshot of Virtual Hub and modify section outlined.":::
-
 ### <a name="address-pool"></a>Modify client address pool
 
 [!INCLUDE [Modify client address pool](../../includes/virtual-wan-client-address-pool-include.md)]
