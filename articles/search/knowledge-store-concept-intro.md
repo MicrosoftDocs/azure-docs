@@ -135,40 +135,24 @@ Once the enrichments exist in storage, any tool or technology that connects to A
 
 + [Azure Data Factory](../data-factory/index.yml) for further manipulation.
 
-<!-- ## Knowledge Store composition
-
-The knowledge store consists of an annotation cache and projections. The *cache* is used by the service internally to cache the results from skills and track changes. A *projection* defines the schema and structure of the enrichments that match your intended use. 
-
-Within Azure storage, projections can be articulated as tables or objects:
-
-+ As an object, the projection maps to Blob storage, where the projection is saved to a container, within which are the objects or hierarchical representations in JSON for scenarios like a data science pipeline.
-
-+ As a table, the projection maps to Table storage. A tabular representation preserves relationships for scenarios like data analysis or export as data frames for machine learning. The enriched projections can then be easily imported into other data stores. 
-
-You can create multiple projections in a knowledge store to accommodate various constituencies in your organization. A developer might need access to the full JSON representation of an enriched document, while data scientists or analysts might want granular or modular data structures shaped by your skillset.
-
-For instance, if one of the goals of the enrichment process is to also create a dataset used to train a model, projecting the data into the object store would be one way to use the data in your data science pipelines. Alternatively, if you want to create a quick Power BI dashboard based on the enriched documents the tabular projection would work well.
-
- -->
-
 ## Content lifecycle
 
 Each time you run the indexer and skillset, the knowledge store is updated if the skillset or underlying source data has changed. Any changes picked up by the indexer are propagated through the enrichment process to the projections in the knowledge store, ensuring that your projected data is a current representation of content in the originating data source. 
 
-Generally, pipeline processing can be an all-or-nothing operation, but you can [enable caching of enriched documents](cognitive-search-incremental-indexing-conceptual.md) to reuse existing enrichments in subsequent runs of the indexer and skillset.
+> [!Note]
+> While you can edit the data in the projections, any edits will be overwritten on the next pipeline invocation, assuming the document in source data is updated. 
 
-<!-- When a source document is new or updated, all skills are run on that document. If only the skillset changes, reprocessing is scoped to just those skills and documents affected by your edit. -->
+### Changes in source data
+
+For data sources that support change tracking, an indexer will process new and changed documents, and bypass existing documents that have already been processed. Timestamp information varies by data source, but in a blob container, the indexer looks at the `lastmodified` date to determine which blobs need to be ingested.
 
 ### Changes to a skillset
 
-Suppose that you have a pipeline composed of multiple skills, operating over a large body of static data (for example, scanned documents). Now suppose you need to tweak one of the skills in the skillset. Rather than starting over,an indexer can determine which skill is affected, and reprocess only that skill. Projections that are unaffected by the change remain intact in the knowledge store.
+If you are making changes to a skillset, you should [enable caching of enriched documents](cognitive-search-incremental-indexing-conceptual.md) to reuse existing enrichments where possible.
 
-### Changes in the data
+Without incremental caching, the indexer will always process documents in order of the high water mark, without going backwards. For blobs, the indexer would process blobs sorted by `lastModified`, regardless of any changes to indexer settings or the skillset. If you change a skillset, previously processed documents aren't updated to reflect the new skillset. Documents processed after the skillset change will use the new skillset, resulting in index documents being a mix of old and new skillsets.
 
-Scenarios can vary considerably, but lets suppose instead of static data, you have volatile data that changes between indexer invocations. Given no changes to the skillset, you are charged for processing the delta of new and modified documents. The timestamp information varies by data source, but in a blob container, the indexer looks at the `lastmodified` date to determine which blobs need to be ingested.
-
-> [!Note]
-> While you can edit the data in the projections, any edits will be overwritten on the next pipeline invocation, assuming the document in source data is updated. 
+With incremental caching, and after a skillset update, the indexer will reuse any enrichments that are unaffected by the skillset change. Upstream enrichments are pulled from cache, as are any enrichments that are independent and isolated from the skill that was changed.
 
 ### Deletions
 
@@ -178,9 +162,9 @@ Although an indexer creates and updates structures and content in Azure Storage,
 
 Knowledge store offers persistence of enriched documents, useful when designing a skillset, or the creation of new structures and content for consumption by any client applications capable of accessing an Azure Storage account.
 
-The simplest approach for creating enriched documents is [through the portal](knowledge-store-create-portal.md), but you can also use Postman and the REST API, which is more useful if you want insight into how objects are created and referenced.
+The simplest approach for creating enriched documents is [through the portal](knowledge-store-create-portal.md), but you can also use Postman and the REST API, which is more useful if you want insight into how objects are created and referenced programmatically.
 
 > [!div class="nextstepaction"]
 > [Create a knowledge store using Postman and REST](knowledge-store-create-rest.md)
 
-You could also take closer look at [projections](knowledge-store-projection-overview.md). For a tutorial that demonstrates advanced projections concepts like slicing, inline shaping and relationships, start with [Projection patterns for analysis in Power BI](knowledge-store-projections-examples.md).
+Or, take a closer look at [projections](knowledge-store-projection-overview.md). To walk through an example that demonstrates advanced projections concepts like slicing, inline shaping, and relationships, start with [Projection patterns for analysis in Power BI](knowledge-store-projections-examples.md).

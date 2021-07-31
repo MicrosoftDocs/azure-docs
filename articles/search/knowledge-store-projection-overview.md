@@ -27,6 +27,20 @@ The knowledge store supports three types of projections:
 
 To see projections defined in context, step through [Create a knowledge store in REST](knowledge-store-create-rest.md).
 
+<!-- ## Knowledge Store composition
+
+The knowledge store consists of an annotation cache and projections. The *cache* is used by the service internally to cache the results from skills and track changes. A *projection* defines the schema and structure of the enrichments that match your intended use.
+
+Within Azure Storage, projections can be articulated as tables, objects, or files.
+
++ As an object, the projection maps to Blob storage, where the projection is saved to a container, within which are the objects or hierarchical representations in JSON for scenarios like a data science pipeline.
+
++ As a table, the projection maps to Table storage. A tabular representation preserves relationships for scenarios like data analysis or export as data frames for machine learning. The enriched projections can then be easily imported into other data stores. 
+
+You can create multiple projections in a knowledge store to accommodate various constituencies in your organization. A developer might need access to the full JSON representation of an enriched document, while data scientists or analysts might want granular or modular data structures shaped by your skillset.
+
+For instance, if one of the goals of the enrichment process is to also create a dataset used to train a model, projecting the data into the object store would be one way to use the data in your data science pipelines. Alternatively, if you want to create a quick Power BI dashboard based on the enriched documents the tabular projection would work well. -->
+
 ## Table projections
 
 Because it makes importing easier, we recommend table projections for data exploration with Power BI.
