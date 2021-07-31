@@ -12,9 +12,6 @@ ms.topic: include
 
 1. On the virtual network connection page, select **+Add connection**.
 
-1. The **Add connection** page opens.
-
-   :::image type="content" source="./media/virtual-wan-connect-vnet-hub/add-connection.png" alt-text="Screenshot of Add connection page.":::
 1. On the **Add connection** page, fill in the following fields:
 
     * **Connection name** - Name your connection.
