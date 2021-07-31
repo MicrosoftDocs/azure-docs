@@ -20,7 +20,7 @@ There are many scenarios in which you can't easily map the data your devices sen
 * Vibration data sampled at high frequency
 * Some form of preprocessed data
 
-When you need to upload larger files from a device, you can still use the security and reliability of IoT Hub. Instead of brokering messages through itself, however, IoT Hub acts as a dispatcher to an associated Azure Storage account. To upload a file, a device requests a SAS URI from IoT Hub. IoT Hub returns a SAS URI that is specific to the Azure storage blob that the device will upload the file to. The device uses the SAS URI and Azure storage APIs to upload the file to storage.
+When you need to upload larger files from a device, you can still use the security and reliability of IoT Hub. Instead of brokering messages through itself, however, IoT Hub acts as a dispatcher to an associated Azure Storage account. To upload a file, a device requests a SAS URI from IoT Hub. IoT Hub returns a SAS URI that is specific to the Azure storage blob that the device will upload the file to. The device then uses the SAS URI and Azure storage APIs to upload the file to storage.
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
@@ -166,7 +166,7 @@ When it receives a file upload complete notification from the device, IoT Hub:
 
 ## Service: File upload notifications
 
-If file upload notifications are enabled on your IoT hub, IoT Hub generates a notification message for backend services when a device notifies it that a file upload is complete. IoT Hub delivers file upload notifications through a service-facing endpoint. The receive semantics for file upload notifications are the same as for cloud-to-device messages and have the same [message life cycle](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-life-cycle). The service SDKs expose APIs to handle file upload notifications. 
+If file upload notifications are enabled on your IoT hub, IoT Hub generates a notification message for backend services when it receives notification from a device that a file upload is complete. IoT Hub delivers these file upload notifications through a service-facing endpoint. The receive semantics for file upload notifications are the same as for cloud-to-device messages and have the same [message life cycle](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-life-cycle). The service SDKs expose APIs to handle file upload notifications. 
 
 **Supported protocols** AMQP, AMQP-WS <br/>
 **Endpoint**: `{iot hub}.azure-devices.net/messages/servicebound/fileuploadnotifications` <br/>
@@ -194,7 +194,7 @@ Each message retrieved from the file upload notification endpoint is a JSON reco
 | LastUpdatedTime |Timestamp indicating when the file was last updated. |
 | BlobSizeInBytes | An integer that represents the size of the uploaded file in bytes. |
 
-Service can use notifications to manage uploads. For example, they can trigger their own processing of the blob data, trigger processing of the blob data using other Azure services, or log the file upload notification for later review.
+Services can use notifications to manage uploads. For example, they can trigger their own processing of the blob data, trigger processing of the blob data using other Azure services, or log the file upload notification for later review.
 
 ## File upload notification configuration settings
 
