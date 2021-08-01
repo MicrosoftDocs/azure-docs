@@ -90,7 +90,7 @@ Open the following ports in your firewall:
 
 You can also download, and install the [Azure public IP ranges](https://www.microsoft.com/download/details.aspx?id=56519) for the Azure resources that are specified above along with their region.
 
-> [!Note} 
+> [!Note] 
 > The Azure public IP range may change over time.
 
 Hostnames for Azure resources:
