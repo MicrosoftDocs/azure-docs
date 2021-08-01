@@ -13,6 +13,130 @@ ms.subservice: azure-sentinel
 
 # Troubleshooting your Azure Sentinel SAP solution deployment
 
+## Useful Docker commands
+
+When troubleshooting your SAP data connector, you may find the following commands useful:
+
+|Function  |Command  |
+|---------|---------|
+|**Stop the Docker container**     |  `docker stop sapcon-[SID]`       |
+|**Start the Docker container**     |`docker start sapcon-[SID]`         |
+|**View Docker system logs**     |  `docker logs -f sapcon-[SID]`       |
+|**Enter the Docker container**     |   `docker exec -it sapcon-[SID] bash`      |
+|     |         |
+
+For more information, see the [Docker CLI documentation](https://docs.docker.com/engine/reference/commandline/docker/).
+
+## Review system logs
+
+We highly recommend that you review the system logs after installing or resetting the data connector.
+
+Run:
+
+```bash
+docker logs -f sapcon-[SID]
+```
+## Enable debug mode printing
+
+To enable debug mode printing:
+
+1. Copy the following file to your **sapcon/[SID]** directory, and then rename it as `loggingconfig.yaml`: https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/loggingconfig_DEV.yaml
+
+1. [Reset the SAP data connector](#reset-the-sap-data-connector).
+
+For example, for SID A4H:
+
+```bash
+wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/loggingconfig_DEV.y
+              cp loggingconfig.yaml ~/sapcon/A4H
+              docker restart sapcon-A4H
+```
+
+## View all Docker execution logs
+
+To view all Docker execution logs for your Azure Sentinel SAP data connector deployment, run one of the following commands:
+
+```bash
+docker exec -it sapcon-[SID] bash && cd /sapcon-app/sapcon/logs
+```
+
+or
+
+```bash
+docker exec –it sapcon-[SID] cat /sapcon-app/sapcon/logs/[FILE_LOGNAME]
+```
+
+Output similar to the following should be displayed:
+
+```bash
+Logs directory:
+root@644c46cd82a9:/sapcon-app# ls sapcon/logs/ -l
+total 508
+-rwxr-xr-x 1 root root      0 Mar 12 09:22 ' __init__.py'
+-rw-r--r-- 1 root root    282 Mar 12 16:01  ABAPAppLog.log
+-rw-r--r-- 1 root root   1056 Mar 12 16:01  ABAPAuditLog.log
+-rw-r--r-- 1 root root    465 Mar 12 16:01  ABAPCRLog.log
+-rw-r--r-- 1 root root    515 Mar 12 16:01  ABAPChangeDocsLog.log
+-rw-r--r-- 1 root root    282 Mar 12 16:01  ABAPJobLog.log
+-rw-r--r-- 1 root root    480 Mar 12 16:01  ABAPSpoolLog.log
+-rw-r--r-- 1 root root    525 Mar 12 16:01  ABAPSpoolOutputLog.log
+-rw-r--r-- 1 root root      0 Mar 12 15:51  ABAPTableDataLog.log
+-rw-r--r-- 1 root root    495 Mar 12 16:01  ABAPWorkflowLog.log
+-rw-r--r-- 1 root root 465311 Mar 14 06:54  API.log # view this log to see submits of data into Azure Sentinel
+-rw-r--r-- 1 root root      0 Mar 12 15:51  LogsDeltaManager.log
+-rw-r--r-- 1 root root      0 Mar 12 15:51  PersistenceManager.log
+-rw-r--r-- 1 root root   4830 Mar 12 16:01  RFC.log
+-rw-r--r-- 1 root root   5595 Mar 12 16:03  SystemAdmin.log
+```
+
+To copy your logs to the host operating system, run:
+
+```bash
+docker cp sapcon-[SID]:/sapcon-app/sapcon/logs /directory
+```
+
+For example:
+
+```bash
+docker cp sapcon-A4H:/sapcon-app/sapcon/logs /tmp/sapcon-logs-extract
+```
+
+## Review and update the SAP data connector configuration
+
+If you want to check the SAP data connector configuration file and make manual updates, perform the following steps:
+
+1. On your VM, in the user's home directory, open the **~/sapcon/[SID]/systemconfig.ini** file.
+1. Update the configuration if needed, and then restart the container:
+
+    ```bash
+    docker restart sapcon-[SID]
+    ```
+
+## Reset the SAP data connector
+
+The following steps reset the connector and re-ingest SAP logs from the last 24 hours.
+
+1.	Stop the connector. Run:
+
+    ```bash
+    docker stop sapcon-[SID]
+    ```
+
+1.	Delete the **metadata.db** file from the **sapcon/[SID]** directory.
+
+    > [!NOTE]
+    > The **metadata.db** file contains the last timestamp for each of the logs, and works to prevent duplication.
+
+1. Start the connector again. Run:
+
+    ```bash
+    docker start sapcon-[SID]
+    ```
+
+Make sure to [Review system logs](#review-system-logs) when you're done.
+
+
+
 ## Common issues
 
 After having deployed both the SAP data connector and security content, you may experience the following errors or issues:
@@ -137,116 +261,6 @@ For example, use `javatz = GMT+12` or `abaptz = GMT-3**`.
 
 If you're not able to import the [required SAP log change requests](sap-solution-detailed-requirements.md#required-sap-log-change-requests) and are getting an error about an invalid component version, add `ignore invalid component version` when you import the change request.
 
-## Reset the SAP data connector
-
-The following steps reset the connector and re-ingest SAP logs from the last 24 hours.
-
-1.	Stop the connector. Run:
-
-    ```bash
-    docker stop sapcon-SID
-    ```
-
-1.	Delete the **metadata.db** file from the **sapcon/SID** directory.
-
-    > [!NOTE]
-    > The **metadata.db** file contains the last timestamp for each of the logs, and works to prevent duplication.
-
-1. Start the connector again. Run:
-
-    ```bash
-    docker start sapcon-SID
-    ```
-
-Make sure to [Review system logs](#review-system-logs) when you're done.
-
-## Review system logs
-
-We highly recommend that you review the system logs after installing or resetting the data connector.
-
-Run:
-
-```bash
-docker logs -f sapcon-[SID]
-```
-
-## Enable debug mode printing
-
-To enable debug mode printing:
-
-1. Copy the following file to your **sapcon/SID** directory, and then rename it as `loggingconfig.yaml`: https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/loggingconfig_DEV.yaml
-
-1. [Reset the SAP data connector](#reset-the-sap-data-connector).
-
-For example, for SID A4H:
-
-```bash
-wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/loggingconfig_DEV.y
-              cp loggingconfig.yaml ~/sapcon/A4H
-              docker restart sapcon-A4H
-```
-
-## View all Docker execution logs
-
-To view all Docker execution logs for your Azure Sentinel SAP data connector deployment, run one of the following commands:
-
-```bash
-docker exec -it sapcon-[SID] bash && cd /sapcon-app/sapcon/logs
-```
-
-or
-
-```bash
-docker exec –it sapcon-[SID] cat /sapcon-app/sapcon/logs/[FILE_LOGNAME]
-```
-
-Output similar to the following should be displayed:
-
-```bash
-Logs directory:
-root@644c46cd82a9:/sapcon-app# ls sapcon/logs/ -l
-total 508
--rwxr-xr-x 1 root root      0 Mar 12 09:22 ' __init__.py'
--rw-r--r-- 1 root root    282 Mar 12 16:01  ABAPAppLog.log
--rw-r--r-- 1 root root   1056 Mar 12 16:01  ABAPAuditLog.log
--rw-r--r-- 1 root root    465 Mar 12 16:01  ABAPCRLog.log
--rw-r--r-- 1 root root    515 Mar 12 16:01  ABAPChangeDocsLog.log
--rw-r--r-- 1 root root    282 Mar 12 16:01  ABAPJobLog.log
--rw-r--r-- 1 root root    480 Mar 12 16:01  ABAPSpoolLog.log
--rw-r--r-- 1 root root    525 Mar 12 16:01  ABAPSpoolOutputLog.log
--rw-r--r-- 1 root root      0 Mar 12 15:51  ABAPTableDataLog.log
--rw-r--r-- 1 root root    495 Mar 12 16:01  ABAPWorkflowLog.log
--rw-r--r-- 1 root root 465311 Mar 14 06:54  API.log # view this log to see submits of data into Azure Sentinel
--rw-r--r-- 1 root root      0 Mar 12 15:51  LogsDeltaManager.log
--rw-r--r-- 1 root root      0 Mar 12 15:51  PersistenceManager.log
--rw-r--r-- 1 root root   4830 Mar 12 16:01  RFC.log
--rw-r--r-- 1 root root   5595 Mar 12 16:03  SystemAdmin.log
-```
-
-## Review and update the SAP data connector configuration
-
-If you want to check the SAP data connector configuration file and make manual updates, perform the following steps:
-
-1. On your VM, in the user's home directory, open the **~/sapcon/[SID]/systemconfig.ini** file.
-1. Update the configuration if needed, and then restart the container:
-
-    ```bash
-    docker restart sapcon-[SID]
-    ```
-
-## Useful Docker commands
-
-When troubleshooting your SAP data connector, you may find the following commands useful:
-
-|Function  |Command  |
-|---------|---------|
-|**Stop the Docker container**     |  `docker stop sapcon-[SID]`       |
-|**Start the Docker container**     |`docker start sapcon-[SID]`         |
-|**View Docker system logs**     |  `docker logs -f sapcon-[SID]`       |
-|**Enter the Docker container**     |   `docker exec -it sapcon-[SID] bash`      |
-|     |         |
-
-For more information, see the [Docker CLI documentation](https://docs.docker.com/engine/reference/commandline/docker/).
 
 ## Next steps
 
