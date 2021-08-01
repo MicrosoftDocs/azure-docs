@@ -19,11 +19,16 @@ Security secrets require the following items to be in place.
 - Grant access a Key Vault secret access to the identity.
 - Reference the Key Vault secret from the Static Web Apps application settings.
 
-This article demonstrates how to set up each of these items in your application.
+This article demonstrates how to set up each of these items in production for [bring your own functions applications](./functions-bring-your-own.md).
+
+Key Vault integration is not available for:
+
+- [Staging versions of your static web app](./review-publish-pull-requests.md). Key Vault integration is only supported in the production environment.
+- [Static web apps using managed functions](./apis.md). 
 
 ## Prerequisites
 
-- Existing Azure Static Web Apps site.
+- Existing Azure Static Web Apps site using [bring your own functions](./functions-bring-your-own.md).
 - Existing Key Vault resource with a secret value.
 
 ## Create identity

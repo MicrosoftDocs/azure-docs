@@ -459,6 +459,10 @@
     - name: Networking
       href: flexible-server/concepts-networking.md
       displayName: virtual networks, vnet, IP address, public access
+    - name: Firewall rules
+      href: flexible-server/concepts-firewall-rules.md
+    - name: Security
+      href: flexible-server/concepts-security.md
     - name: Limits
       href: flexible-server/concepts-limits.md
     - name: Extensions

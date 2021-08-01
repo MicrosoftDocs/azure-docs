@@ -382,6 +382,7 @@ Multi-container is currently in preview. The following App Service platform feat
 - Managed Identities
 - CORS
 - VNET integration is not supported for Docker Compose scenarios
+- Docker Compose on Azure App Services currently has a limit of 4,000 characters at this time.
 
 ### Docker Compose options
 

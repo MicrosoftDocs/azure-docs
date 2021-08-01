@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 07/22/2021
+ms.date: 08/03/2021
 ms.author: memildin
 
 ---
@@ -26,6 +26,8 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 Updates in July include:
 
 - [Microsoft Defender for Endpoint for Linux now supported by Azure Defender for servers (in preview)](#microsoft-defender-for-endpoint-for-linux-now-supported-by-azure-defender-for-servers-in-preview)
+- [Azure Sentinel connector now includes optional bi-directional alert synchronization (in preview)](#azure-sentinel-connector-now-includes-optional-bi-directional-alert-synchronization-in-preview)
+- [Logical reorganization of Azure Defender for Resource Manager alerts](#logical-reorganization-of-azure-defender-for-resource-manager-alerts)                                           
 - [Enhancements to recommendation to enable Azure Disk Encryption (ADE)](#enhancements-to-recommendation-to-enable-azure-disk-encryption-ade)                                     
 - [Continuous export of secure score and regulatory compliance data released for General Availability (GA)](#continuous-export-of-secure-score-and-regulatory-compliance-data-released-for-general-availability-ga)
 - [Workflow automations can be triggered by changes to regulatory compliance assessments (GA)](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-ga)
@@ -41,6 +43,54 @@ When Defender for Endpoint detects a threat, it triggers an alert. The alert is 
 In this preview, Security Center can deploy the [Defender for Endpoint for Linux](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux) sensor to supported Linux machines. 
 
 Learn more in [Onboard Linux machines when you have an existing integration with Defender for Endpoint for Windows](security-center-wdatp.md#onboard-linux-machines-when-you-have-an-existing-windows-integration).
+### Azure Sentinel connector now includes optional bi-directional alert synchronization (in preview)
+
+Security Center natively integrates with [Azure Sentinel](../sentinel/index.yml), Azure's cloud-native SIEM and SOAR solution. 
+
+Azure Sentinel includes built-in connectors for Azure Security Center at the subscription and tenant levels. Learn more in [Stream alerts to Azure Sentinel](export-to-siem.md#stream-alerts-to-azure-sentinel).
+
+When you connect Azure Defender to Azure Sentinel, the status of Azure Defender alerts that get ingested into Azure Sentinel is synchronized between the two services. So, for example, when an alert is closed in Azure Defender, that alert will display as closed in Azure Sentinel as well. Changing the status of an alert in Azure Defender will *not* affect the status of any Azure Sentinel **incidents** that contain the synchronized Azure Sentinel alert, only that of the synchronized alert itself.
+
+Enabling this preview feature, **bi-directional alert synchronization**, will automatically sync the status of the original Azure Defender alerts with Azure Sentinel incidents that contain the copies of those Azure Defender alerts. So, for example, when an Azure Sentinel incident containing an Azure Defender alert is closed, the corresponding original alert will be closed in Azure Defender automatically.
+
+Learn more in [Connect Azure Defender alerts from Azure Security Center](../sentinel/connect-azure-security-center.md).
+
+### Logical reorganization of Azure Defender for Resource Manager alerts
+
+The alerts listed below were provided as part of the [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) plan.
+
+As part of a logical reorganization of some of the Azure Defender plans, we've moved some alerts from **Azure Defender for Resource Manager** to **Azure Defender for servers**.
+
+The alerts are organized according to two main principles:
+
+- Alerts that provide control-plane protection - across many Azure resource types - are part of Azure Defender for Resource Manager
+- Alerts that protect specific workloads are in the Azure Defender plan that relates to the corresponding workload
+
+These are the alerts that were part of Azure Defender for Resource Manager, and which, as a result of this change, are now part of Azure Defender for servers:
+
+- ARM_AmBroadFilesExclusion
+- ARM_AmDisablementAndCodeExecution
+- ARM_AmDisablement
+- ARM_AmFileExclusionAndCodeExecution
+- ARM_AmTempFileExclusionAndCodeExecution
+- ARM_AmTempFileExclusion
+- ARM_AmRealtimeProtectionDisabled
+- ARM_AmTempRealtimeProtectionDisablement
+- ARM_AmRealtimeProtectionDisablementAndCodeExec
+- ARM_AmMalwareCampaignRelatedExclusion
+- ARM_AmTemporarilyDisablement
+- ARM_UnusualAmFileExclusion
+- ARM_CustomScriptExtensionSuspiciousCmd
+- ARM_CustomScriptExtensionSuspiciousEntryPoint
+- ARM_CustomScriptExtensionSuspiciousPayload
+- ARM_CustomScriptExtensionSuspiciousFailure
+- ARM_CustomScriptExtensionUnusualDeletion
+- ARM_CustomScriptExtensionUnusualExecution
+- ARM_VMAccessUnusualConfigReset
+- ARM_VMAccessUnusualPasswordReset
+- ARM_VMAccessUnusualSSHReset
+
+Learn more about the [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) and [Azure Defender for servers](defender-for-servers-introduction.md).
 
 
 ### Enhancements to recommendation to enable Azure Disk Encryption (ADE)

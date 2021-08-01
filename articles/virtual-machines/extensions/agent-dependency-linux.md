@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor Dependency virtual machine extension for Linux 
+title: Azure Monitor Dependency virtual machine extension for Linux
 description: Deploy the Azure Monitor Dependency agent on Linux virtual machine by using a virtual machine extension.
 ms.topic: article
 ms.service: virtual-machines
@@ -22,7 +22,7 @@ The Azure VM Dependency agent extension for Linux can be run against the support
 
 ## Extension schema
 
-The following JSON shows the schema for the Azure VM Dependency agent extension on an Azure Linux VM. 
+The following JSON shows the schema for the Azure VM Dependency agent extension on an Azure Linux VM.
 
 ```json
 {
@@ -96,7 +96,7 @@ The following example assumes the Dependency agent extension is nested inside th
 }
 ```
 
-When you place the extension JSON at the root of the template, the resource name includes a reference to the parent virtual machine. The type reflects the nested configuration. 
+When you place the extension JSON at the root of the template, the resource name includes a reference to the parent virtual machine. The type reflects the nested configuration.
 
 ```json
 {
@@ -127,31 +127,22 @@ az vm extension set \
     --vm-name myVM \
     --name DependencyAgentLinux \
     --publisher Microsoft.Azure.Monitoring.DependencyAgent \
-    --version 9.5 
+    --version 9.5
 ```
 
-## Automatic upgrade (preview)
-A new feature to automatically upgrade minor versions of Dependency extension is now available in public preview. You must perform the following configuration changes to enable this feature.
+## Automatic extension upgrade (preview)
+A new feature to [automatically upgrade minor versions](../automatic-extension-upgrade.md) of Dependency extension is now available in public preview.
 
--	Use one of the methods at [Enabling preview access](../automatic-extension-upgrade.md#enabling-preview-access) to enable the feature for your subscription.
-- Add the `enableAutomaticUpgrade` attribute to the template.
+To enable automatic extension upgrade for an extension, you must ensure the property `enableAutomaticUpgrade` is set to `true` and added to the extension template. This property must be enabled on every VM or VM scale set individually. Use one of the methods described in the [enablement](../automatic-extension-upgrade.md#enabling-automatic-extension-upgrade) section enable the feature for your VM or VM scale set.
 
-Dependency Agent extension versioning scheme follows the following format:
+When automatic extension upgrade is enabled on a VM or VM scale set, the extension is upgraded automatically whenever the extension publisher releases a new version for that extension. The upgrade is applied safely following availability-first principles as described [here](../automatic-extension-upgrade.md#how-does-automatic-extension-upgrade-work).
 
-```
-<MM.mm.bb.rr> where M = Major version number, m = minor version number, b = bug number, r = revision number.
-```
+The `enableAutomaticUpgrade` attribute's functionality is different from that of the `autoUpgradeMinorVersion`. The  `autoUpgradeMinorVersion` attributes does not automatically trigger a minor version update when the extension publisher releases a new version. The `autoUpgradeMinorVersion` attribute indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 
-The `enableAutomaticUpgrade` and `autoUpgradeMinorVersion` attributes work together to determine how upgrades will be handled for virtual machines in the subscription.
-
-| enableAutomaticUpgrade | autoUpgradeMinorVersion | Effect |
-|:---|:---|:---|
-| true | false | Upgrade dependency agent if a newer version of bb.rr exists. For example if you are running 9.6.0.1355 and the newer version is 9.6.2.1366, then your virtual machines in enabled subscriptions will be upgraded to 9.6.2.1366. |
-| true | true |  This will upgrade dependency agent if a newer version of mm.bb.rr or bb.rr exists. For example if you are running 9.6.0.1355 and the newer version is 9.7.1.1416, then your virtual machines in enabled subscriptions will be upgraded to 9.7.1.1416. Also if you are running 9.6.0.1355 and the newer version is 9.6.2.1366, then your virtual machines in enabled subscriptions will be upgraded to 9.6.2.1366. |
-| false | true or false | Automatic upgrade is disabled.
+To keep your extension version updated, we recommend using `enableAutomaticUpgrade` with your extension deployment.
 
 > [!IMPORTANT]
-> If you add the `enableAutomaticUpgrade` to your template, make sure that you use at least API version 2019-12-01.
+> If you add the `enableAutomaticUpgrade` to your template, make sure that you use at API version 2019-12-01 or higher.
 
 ## Troubleshoot and support
 
@@ -166,7 +157,7 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 Extension execution output is logged to the following file:
 
 ```
-/opt/microsoft/dependency-agent/log/install.log 
+/opt/microsoft/dependency-agent/log/install.log
 ```
 
 ### Support
