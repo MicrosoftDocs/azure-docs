@@ -26,7 +26,7 @@ This article describes how to deploy the Azure Sentinel SAP data connector in an
 
 The basic prerequisites for deploying your Azure Sentinel SAP data connector are the same regardless of your deployment method.
 
-Make sure that your system complies with the prerequisites documented in the main [SAP data connector deployment tutorial](sap-deploy-solution.md#prerequisites) before you start.
+Make sure that your system complies with the prerequisites documented in the main [SAP data connector deployment procedure](sap-deploy-solution.md#prerequisites) before you start.
 
 For more information, see [Azure Sentinel SAP solution detailed SAP requirements (public preview)](sap-solution-detailed-requirements.md).
 
