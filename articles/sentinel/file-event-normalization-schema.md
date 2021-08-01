@@ -97,7 +97,7 @@ Event fields are common to all schemas and describe the activity itself and the 
 | **EventOriginalUid**    | Optional    | String     |   A unique ID of the original record, if provided by the source.<br><br>Example: `69f37748-ddcd-4331-bf0f-b137f1ea83b`|
 | **EventOriginalType**   | Optional    | String     |   The original event type or ID, if provided by the source.<br><br>Example: `4663`|
 | <a name ="eventproduct"></a>**EventProduct**        | Mandatory   | String     |             The product generating the event. <br><br>Example: `Sysmon`<br><br>**Note**: This field may not be available in the source record. In such cases, this field must be set by the parser.           |
-| **EventProductVersion** | Optional    | String     | The version of the product generating the event. <br><br>Example: `12.1`      |
+| **EventProductVersion** | Optional    | String     | The version of the product generating the event. <br><br>Example: `12.1`<br><br>**Note**: This field may not be available in the source record. In such cases, this field must be set by the parser.           |      |
 | **EventVendor**         | Mandatory   | String     |           The vendor of the product generating the event. <br><br>Example: `Microsoft`  <br><br>**Note**: This field may not be available in the source record. In such cases, this field must be set by the parser.  |
 | **EventSchemaVersion**  | Mandatory   | String     |    The version of the schema. The version of the schema documented here is `0.1`         |
 | **EventReportUrl**      | Optional    | String     | A URL provided in the event for a resource that provides additional information about the event.|
