@@ -23,7 +23,7 @@ The following table provides a high-level comparison between Single Server and F
 | PostgreSQL | Community | Community |
 | Versions | 9.6, 10, 11 | 11, 12, 13 |
 | Underlying O/S | Windows | Linux  |
-| AZ selection for application co-location | No | Yes |
+| AZ selection for application colocation | No | Yes |
 | Built-in connection pooler | No | Yes (PgBouncer)|
 | **Connectivity** | | |
 | Username in connection string | <username>@server_name. For example, `pgadmusr@mypgServer` | Just username. For example, `pgadmusr` | 
@@ -41,10 +41,10 @@ The following table provides a high-level comparison between Single Server and F
 | Burstable SKUs | No | Yes |
 | Ability to scale across compute tiers | Cannot scale Basic tier | Yes. Can scale across tiers |
 | Stop/Start | No | Yes (for all compute SKUs). Only compute is stopped/started |
-| Max. Storage size | 1TB (Basic), 4TB or 16TB (GP,MO). Note: Not all regions support 16TB. | 16TB |
-| Min storage size | 5GB (Basic), 100GB (GP, MO) | 32GB |
-| Storage auto-grow | Yes (1GB increments) | No |
-| Max IOPS | Basic - Variable. GP/MO: up to 20K | Up to 20K |
+| Max. Storage size | 1 TB (Basic), 4 TB or 16 TB (GP,MO). Note: Not all regions support 16 TB. | 16 TB |
+| Min storage size | 5 GB (Basic), 100 GB (GP, MO) | 32 GB |
+| Storage auto-grow | Yes (1 GB increments) | No |
+| Max IOPS | Basic - Variable. GP/MO: up to 20K  | Up to 20K |
 | **Networking/Security** | | |
 | Supported networking | Virtual network, private link, public access | Private access (VNET injection in a delegated subnet), public access) |
 | Public access control | Firewall | Firewall |
@@ -83,6 +83,12 @@ The following table provides a high-level comparison between Single Server and F
 | Ability to restore on a different zone | N/A | Yes |
 | Ability to restore to a different VNET | No | Yes |
 | Ability to restore to a different region | Yes (Geo-redundant) | No |
+| Ability to restore a deleted server | Limited via API | No |
+| **Read Replica** | | |
+| Support for read replicas | Yes | No |
+| Number of read replicas | 5 | N/A |
+| Mode of replication | Async | N/A |
+| Cross-region support | Yes | N/A |
 | **Maintenance Window** | | |
 | System scheduled window | Yes | Yes |
 | Customer scheduled window| No | Yes (can choose any 1hr on any day) |
@@ -100,3 +106,9 @@ The following table provides a high-level comparison between Single Server and F
 | Minor version upgrades | Yes. Automatic during maintenance window | Yes. Automatic during maintenance window |
 | Extension TimescaleDB | Yes | No |
 | Extension PgAudit | Preview | Fully supported |
+
+## Next steps
+
+- Understand [what’s available for compute and storage options - Flexible server](concepts-compute-storage.md)
+- Learn about [supported PostgreSQL Database Versions in Flexible Server](concepts-supported-versions.md)
+- Learn about [current limitations in Flexible Server](concepts-limits.md)
