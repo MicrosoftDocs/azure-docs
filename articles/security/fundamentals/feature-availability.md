@@ -5,7 +5,7 @@ author: TerryLanfear
 ms.author: terrylan
 ms.service: security
 ms.topic: reference
-ms.date: 07/26/2021
+ms.date: 08/01/2021
 ---
 
 
@@ -85,6 +85,10 @@ For more information, see the [Azure Information Protection product documentatio
 | - Office 365 DoD | - | GA |
 | |  |  |
 
+<sup><a name="aipnote1" /></a>1</sup> The scanner can function without Office 365 to scan files only. The scanner cannot apply labels to files without Office 365.
+
+<sup><a name="aipnote2" /></a>2</sup> The classification and labeling add-in is only supported for government customers with Microsoft 365 Apps (version 9126.1001 or higher). Office 2010, Office 2013, and other Office 2016 versions are not supported.
+
 ### Office 365 features
 
 |Feature/Service  |Office 365 GCC  |Office 365 GCC High |Office 365 DoD  |
@@ -99,32 +103,29 @@ For more information, see the [Azure Information Protection product documentatio
 |**Key management**      |         |         |         |
 |- [Bring Your Own Key (BYOK)](/azure/information-protection/byok-price-restrictions)      |   GA       |    GA     |   GA   |
 |- [Double Key Encryption (DKE)](/azure/information-protection/plan-implement-tenant-key)     |    GA       |    GA     |   GA    |
-|**Office files**<sup>[6](#aipnote6)</sup>      |         |         |         |
-|- [Protection for Microsoft Exchange Online, Microsoft SharePoint Online, and Microsoft OneDrive for Business](/azure/information-protection/requirements-applications)      |     GA    |  GA<sup>[5](#aipnote5)</sup>       |   GA<sup>[5](#aipnote5)</sup>      |
-|- [Protection for on-premises Exchange and SharePoint content via the Rights Management connector](/azure/information-protection/deploy-rms-connector)     |    GA      |  Not available       |     Not available         |
+|**Office files**<sup>[3](#aipnote6)</sup>      |         |         |         |
+|- [Protection for Microsoft Exchange Online, Microsoft SharePoint Online, and Microsoft OneDrive for Business](/azure/information-protection/requirements-applications)      |     GA    |  GA<sup>[4](#aipnote3)</sup>       |   GA<sup>[4](#aipnote3)</sup>      |
+|- [Protection for on-premises Exchange and SharePoint content via the Rights Management connector](/azure/information-protection/deploy-rms-connector)     |    GA<sup>[5](#aipnote5)</sup>      |  Not available       |     Not available         |
 |- [Office 365 Message Encryption](/microsoft-365/compliance/set-up-new-message-encryption-capabilities)      |     GA       |    GA     |   GA        |
 |- [Set labels to automatically apply pre-configured M/MIME protection in Outlook](/azure/information-protection/rms-client/clientv2-admin-guide-customizations)      |         GA       |    GA     |   GA        |
-|- [Control oversharing of information when using Outlook](/azure/information-protection/rms-client/clientv2-admin-guide-customizations)     |      GA   |  GA<sup>[4](#aipnote4)</sup>        |    GA<sup>[4](#aipnote4)</sup>      |
-|**Classification and labeling**<sup>[2](#aipnote2)</sup>      |         |         |         |
+|- [Control oversharing of information when using Outlook](/azure/information-protection/rms-client/clientv2-admin-guide-customizations)     |      GA   |  GA<sup>[6](#aipnote6)</sup>        |    GA<sup>[6](#aipnote6)</sup>      |
+|**Classification and labeling**<sup>[2](#aipnote2)</sup><sup>[7](#aipnote7)</sup>      |         |         |         |
 |- Custom templates, including departmental templates     |     GA       |    GA     |   GA         |
 |- Manual, default, and mandatory document classification     |       GA       |    GA     |   GA       |
 |- Configure conditions for automatic and recommended classification      GA       |    GA     |   GA        |
 |- [Protection for non-Microsoft Office file formats, including PTXT, PJPG, and PFILE (generic protection)](/azure/information-protection/rms-client/clientv2-admin-guide-file-types)     |        GA       |    GA     |   GA       |
 |     |         |         |         |
 
-<sup><a name="aipnote1" /></a>1</sup> The scanner can function without Office 365 to scan files only. The scanner cannot apply labels to files without Office 365.
 
-<sup><a name="aipnote2" /></a>2</sup> The classification and labeling add-in is only supported for government customers with Microsoft 365 Apps (version 9126.1001 or higher). Office 2010, Office 2013, and other Office 2016 versions are not supported.
+<sup><a name="aipnote3" /></a>3</sup> The Mobile Device Extension for AD RMS is currently not available for government customers.
 
-<sup><a name="aipnote3" /></a>3</sup> Information Rights Management (IRM) is supported only for Microsoft 365 Apps (version 9126.1001 or higher). Office 2010, Office 2013, and other Office 2016 versions are not supported.
+<sup><a name="aipnote4" /></a>4</sup> Information Rights Management with SharePoint Online (IRM-protected sites and libraries) is currently not available.
 
-<sup><a name="aipnote4" /></a>4</sup> Sharing of protected documents and emails from government clouds to users in the commercial cloud is not currently available. Includes Microsoft 365 Apps users in the commercial cloud, non-Microsoft 365 Apps users in the commercial cloud, and users with an RMS for Individuals license.
+<sup><a name="aipnote5" /></a>5</sup> Information Rights Management (IRM) is supported only for Microsoft 365 Apps (version 9126.1001 or higher). Office 2010, Office 2013, and other Office 2016 versions are not supported.
 
-<sup><a name="aipnote5" /></a>5</sup> Information Rights Management with SharePoint Online (IRM-protected sites and libraries) is currently not available.
+<sup><a name="aipnote6" /></a>6</sup> Sharing of protected documents and emails from government clouds to users in the commercial cloud is not currently available. Includes Microsoft 365 Apps users in the commercial cloud, non-Microsoft 365 Apps users in the commercial cloud, and users with an RMS for Individuals license.
 
-<sup><a name="aipnote6" /></a>6</sup> The Mobile Device Extension for AD RMS is currently not available for government customers.
-
-
+<sup><a name="aipnote7" /></a>7</sup> The number of [Sensitive Information Types](/microsoft-365/compliance/sensitive-information-type-entity-definitions) in your Microsoft 365 Security & Compliance Center may vary based on region.
 ## Azure Security Center
 
 Azure Security Center is a unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - as well as on premises.
