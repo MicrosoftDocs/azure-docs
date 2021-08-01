@@ -69,19 +69,18 @@ When you use Security Center to monitor your machines, a Defender for Endpoint t
 
 Confirm that your machine meets the necessary requirements for Defender for Endpoint:
 
-1. Ensure the machine is connected to Azure as required:
+1. Ensure the machine is connected to Azure and the internet as required:
 
-    
-    |Environment                                                | Required steps  |
-    |-----------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    |Windows (all)                                              | Configure the network settings described in [Configure device proxy and Internet connectivity settings](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet).         |
-    |Linux                                                      | Confirm that your target machines have the MicrosoftMonitoringAgent extension.<br>Ensure your target machines are connected to the internet.                                                                          |
-    |Windows Server 2019                                        | Confirm that your target machines have the MicrosoftMonitoringAgent extension.                                                                                                                               |
-    |[Windows Virtual Desktop](../virtual-desktop/overview.md)  | Confirm that your target machines have the MicrosoftMonitoringAgent extension.                                                                                                                               |
-    |On-premises machines                                       | 1. Connect them to Azure Arc as explained in [Connect hybrid machines with Azure Arc enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).<br>2. Use the relevant Security Center recommendation to deploy the Log Analytics agent:<br>[Log Analytics agent should be installed on your **Linux-based** Azure Arc machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/720a3e77-0b9a-4fa9-98b6-ddf0fd7e32c1)<br>[Log Analytics agent should be installed on your **Windows-based** Azure Arc machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/27ac71b1-75c5-41c2-adc2-858f5db45b08)        |
-    |                                                           |                                                                                                                                                                                             |
+    - **Azure virtual machines (Windows or Linux)**:
+        - Confirm that your target machines have the Log Analytics agent. Use the Security Center recommendation to deploy the Log Analytics agent where necessary: [Log Analytics agent should be installed on your virtual machine](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/d1db3318-01ff-16de-29eb-28b344515626).
+        - Configure the network settings described in configure device proxy and internet connectivity settings: [Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet) or [Linux](security/defender-endpoint/linux-static-proxy-configuration)
+
+    - **On-premises machines**:
+        1. Connect your target machines to Azure Arc as explained in [Connect hybrid machines with Azure Arc enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
+        1. Use the relevant Security Center recommendation to deploy the Log Analytics agent:<br>[Log Analytics agent should be installed on your **Linux-based** Azure Arc machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/720a3e77-0b9a-4fa9-98b6-ddf0fd7e32c1)<br>[Log Analytics agent should be installed on your **Windows-based** Azure Arc machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/27ac71b1-75c5-41c2-adc2-858f5db45b08)
 
 1. Enable **Azure Defender for servers**. See [Quickstart: Enable Azure Defender](enable-azure-defender.md).
+
 1. If you've moved your subscription between Azure tenants, some manual preparatory steps are also required. For full details, [contact Microsoft support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 
@@ -103,22 +102,32 @@ Confirm that your machine meets the necessary requirements for Defender for Endp
 
 ### [**Linux** (preview)](#tab/linux)
 
-During the preview period, to provide complete control over when and whether to deploy Defender for Endpoint to your Linux machines, we've added the button shown below. 
+During the preview period, you'll deploy Defender for Endpoint to your Linux machines in one of two ways depending on whether you've already deployed it to your Windows machines:
 
-If you're already an Azure Defender customer with Microsoft Defender for Endpoint integration enabled, you'll see this option to add Linux machines to your integration.
+- [Existing users of Azure Defender and Microsoft Defender for Endpoint for Windows](#existing-users-of-azure-defender-and-microsoft-defender-for-endpoint-for-windows)
+- [New users who've never enabled the integration with Microsoft Defender for Endpoint for Windows](#new-users-whove-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows)
 
-> [!TIP]
-> If you've never enabled the integration for Windows, the **Allow Microsoft Defender for Endpoint to access my data** option will enable Security Center to deploy Defender for Endpoint to your Windows and Linux machines.
+
+### Existing users of Azure Defender and Microsoft Defender for Endpoint for Windows
+
+If you've already enabled the integration with **Defender for Endpoint for Windows** you have complete control over when and whether to deploy Defender for Endpoint to your **Linux** machines.
 
 1. From Security Center's menu, select **Pricing & settings** and select the subscription with the Linux machines that you want to receive Defender for Endpoint.
 
 1. Select **Integrations**.
 
-1. If you've never enabled the integration for Windows, select **Allow Microsoft Defender for Endpoint to access my data**, and select **Save**.
+    You'll know that the integration is enabled, if the checkbox for **Allow Microsoft Defender for Endpoint to access my data** is selected as shown:
 
-1. Select **Enable for Linux machines**, and select **Save**.
+    :::image type="content" source="./media/security-center-wdatp/integration-enabled.png" alt-text="The integration between Azure Security Center and Microsoft's EDR solution, Microsoft Defender for Endpoint is enabled":::
 
-    :::image type="content" source="./media/security-center-wdatp/enable-for-linux.png" alt-text="Enable the integration between Security Center and Microsoft Defender for Endpoint for Linux":::
+    > [!NOTE]
+    > If it isn't selected, use the instructions in [New users who've never enabled the integration with Microsoft Defender for Endpoint for Windows](#new-users-whove-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows).
+
+1. With this preview, a new button, **Enable for Linux machines**, has been added below this checkbox:
+
+    :::image type="content" source="./media/security-center-wdatp/deploy-to-linux.png" alt-text="The preview introduces a button to manually control when to deploy Defender for Endpoint for Linux":::
+
+    To add your Linux machines to your integration, select **Enable for Linux machines**, and select **Save**.
 
 1. In the confirmation prompt, verify the information and select **Enable** if you're happy to proceed. 
 
@@ -132,7 +141,7 @@ If you're already an Azure Defender customer with Microsoft Defender for Endpoin
 
     Onboarding might take up to 24 hours.
 
-1. To verify installation of Defender for Endpoint on a Linux machine, run the following shell command on your servers:
+1. To verify installation of Defender for Endpoint on a Linux machine, run the following shell command on your machines:
 
     `mdatp health`
 
@@ -147,37 +156,28 @@ If you're already an Azure Defender customer with Microsoft Defender for Endpoin
 > [!NOTE]
 > The next time you return to this page of the Azure portal, the **Enable for Linux machines** button won't be shown. To disable the integration for Linux, you'll need to disable it for Windows too by clearing the checkbox for **Allow Microsoft Defender for Endpoint to access my data**, and selecting **Save**.
 
---- 
 
 
 
-## Onboard Linux machines when you have an existing Windows integration
+### New users who've never enabled the integration with Microsoft Defender for Endpoint for Windows
 
-During the preview period, to provide complete control over when and whether to deploy Defender for Endpoint to your Linux machines, we've added the button shown below. 
-
-If you're already an Azure Defender customer with Microsoft Defender for Endpoint integration enabled, you'll see this option to add Linux machines to your integration.
+If you've never enabled the integration for Windows, the **Allow Microsoft Defender for Endpoint to access my data** option will enable Security Center to deploy Defender for Endpoint to *both* your Windows and Linux machines.
 
 1. From Security Center's menu, select **Pricing & settings** and select the subscription with the Linux machines that you want to receive Defender for Endpoint.
 
 1. Select **Integrations**.
 
-1. Select **Enable for Linux machines**, and select **Save**.
-
-    :::image type="content" source="./media/security-center-wdatp/enable-for-linux.png" alt-text="Enable the integration between Security Center and Defender for Endpoint for Linux":::
-
-1. In the confirmation prompt, verify the information and select **Enable** if you're happy to proceed. 
-
-    :::image type="content" source="./media/security-center-wdatp/enable-for-linux-result.png" alt-text="Confirmation of the results of adding Linux machines":::
+1. Select **Allow Microsoft Defender for Endpoint to access my data**, and select **Save**.
 
     Azure Security Center will:
 
-    - Automatically onboard your Linux machines to Defender for Endpoint
-    - Ignore any machines that are running other fanotify-based solutions (see details of the `fanotify` kernel option required in [Linux system requirements](https://docs.microsoft.com/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#system-requirements))
+    - Automatically onboard your Windows and Linux machines to Defender for Endpoint
+    - Ignore any Linux machines that are running other fanotify-based solutions (see details of the `fanotify` kernel option required in [Linux system requirements](https://docs.microsoft.com/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#system-requirements))
     - Detect any previous installations of Defender for Endpoint and reconfigure them to integrated mode
 
     Onboarding might take up to 24 hours.
 
-1. To verify installation of Defender for Endpoint on a Linux machine, run the following shell command on your servers:
+1. To verify installation of Defender for Endpoint on a Linux machine, run the following shell command on your machines:
 
     `mdatp health`
 
@@ -193,6 +193,8 @@ If you're already an Azure Defender customer with Microsoft Defender for Endpoin
 > The next time you return to this page of the Azure portal, the **Enable for Linux machines** button won't be shown. To disable the integration for Linux, you'll need to disable it for Windows too by clearing the checkbox for **Allow Microsoft Defender for Endpoint to access my data**, and selecting **Save**.
 
 
+
+--- 
 
 ## Access the Microsoft Defender for Endpoint portal
 

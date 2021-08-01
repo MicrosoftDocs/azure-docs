@@ -33,9 +33,13 @@ Updates in August include:
 
 When Defender for Endpoint detects a threat, it triggers an alert. The alert is shown in Security Center. From Security Center, you can also pivot to the Defender for Endpoint console, and perform a detailed investigation to uncover the scope of the attack.
 
-In this preview, Security Center can deploy the [Defender for Endpoint for Linux](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux) sensor to supported Linux machines. 
+During the preview period, you'll deploy the [Defender for Endpoint for Linux](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux) sensor to supported Linux machines in one of two ways depending on whether you've already deployed it to your Windows machines:
+
+- [Existing users of Azure Defender and Microsoft Defender for Endpoint for Windows](security-center-wdatp.md#linux-previewtablinux)
+- [New users who've never enabled the integration with Microsoft Defender for Endpoint for Windows](security-center-wdatp.md#linux-previewtablinux)
 
 Learn more in [Onboard Linux machines when you have an existing integration with Defender for Endpoint for Windows](security-center-wdatp.md#onboard-linux-machines-when-you-have-an-existing-windows-integration).
+
 
 ## July 2021
 
