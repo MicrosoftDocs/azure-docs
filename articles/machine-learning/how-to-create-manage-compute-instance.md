@@ -21,12 +21,10 @@ Use a compute instance as your fully configured and managed development environm
 
 In this article, you learn how to:
 
-* Create a compute instance
-* Manage (start, stop, restart, delete) a compute instance
-* Create  a schedule to automatically start and stop the compute instance (preview)
-* Access the terminal window
-* Install R or Python packages
-* Create new environments or Jupyter kernels
+* [Create](#create) a compute instance
+* [Manage](#manage) (start, stop, restart, delete) a compute instance
+* [Create  a schedule](#schedule-studio) to automatically start and stop the compute instance (preview)
+* [Use a setup script](#setup-script#) to customize and configure the compute instance
 
 Compute instances can run jobs securely in a [virtual network environment](how-to-secure-training-vnet.md), without requiring enterprises to open up SSH ports. The job executes in a containerized environment and packages your model dependencies in a Docker container.
 
@@ -47,7 +45,7 @@ Compute instances can run jobs securely in a [virtual network environment](how-t
 
 Creating a compute instance is a one time process for your workspace. You can reuse the compute as a development workstation or as a compute target for training. You can have multiple compute instances attached to your workspace. 
 
-Use the  [studio](&tabs=azure-studio#schedule-studio) or a [Resource Template](#schedule) to schedule the compute to automatically start and stop (preview). For instance, create a schedule to start at 9 AM and stop at 6 PM from Monday-Thursday, and a second schedule to start at 9 AM and stop at 4 PM for Friday.
+Use the  [studio](#schedule-studio&tabs=azure-studio) or a [Resource Template](#schedule) to schedule the compute to automatically start and stop (preview). For instance, create a schedule to start at 9 AM and stop at 6 PM from Monday-Thursday, and a second schedule to start at 9 AM and stop at 4 PM for Friday.
 
 The dedicated cores per region per VM family quota and total regional quota, which applies to compute instance creation, is unified and shared with Azure Machine Learning training compute cluster quota. Stopping the compute instance does not release quota to ensure you will be able to restart the compute instance. It is not possible to change the virtual machine size of compute instance once it is created.
 
@@ -308,7 +306,7 @@ Logs from the setup script execution appear in the logs folder in the compute in
 
 ## <a name="schedule"></a> Schedule automatic start and stop (preview)
 
-You can schedule the automatic start and stop of a compute instance by using the [studio](&tabs=azure-studio#schedule-studio) or a Resource Manager template.  In a Resource Manager template, use either cron or LogicApps expressions to define a schedule to start or stop the instance.  
+You can schedule the automatic start and stop of a compute instance by using the [studio](#schedule-studio&tabs=azure-studio) or a Resource Manager template.  In a Resource Manager template, use either cron or LogicApps expressions to define a schedule to start or stop the instance.  
 
 ```json
 "schedules": {
