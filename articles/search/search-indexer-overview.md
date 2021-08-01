@@ -70,7 +70,7 @@ Document cracking is the process of opening files and extracting content. Text-b
 
 Depending on the data source, the indexer will try different operations to extract potentially indexable content:
 
-+ When the document is a [PDF or other supported Azure Blob Storage file format](search-howto-indexing-azure-blob-storage.md#supported-document-formats), the indexer will extract text, images, and metadata. Indexers can also open files from [SharePoint](search-howto-index-sharepoint-online.md#supported-document-formats) and [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md#supported-document-formats).
++ When the document is a file, such as a PDF or other supported file format in [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md#supported-document-formats), the indexer will open the file and extract text, images, and metadata. Indexers can also open files from [SharePoint](search-howto-index-sharepoint-online.md#supported-document-formats) and [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md#supported-document-formats).
 
 + When the document is a record in [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), the indexer will extract non-binary content from each field in each record.
 
