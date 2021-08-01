@@ -45,9 +45,8 @@ The credential is used by the elastic query to connect to your remote databases.
 
 ```sql
 CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';
-CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
-SECRET = '<password>'
-[;]
+CREATE DATABASE SCOPED CREDENTIAL [<credential_name>]  WITH IDENTITY = '<username>',  
+SECRET = '<password>';
 ```
 
 > [!NOTE]
