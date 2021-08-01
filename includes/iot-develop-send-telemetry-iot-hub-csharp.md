@@ -4,7 +4,7 @@
  author: timlt
  ms.service: iot-develop
  ms.topic: include
- ms.date: 05/05/2021
+ ms.date: 07/31/2021
  ms.author: timlt
  ms.custom: include file
 ---
@@ -42,33 +42,6 @@ To run the sample application in Visual Studio:
 
 1. Save the updated **TemperatureController** project file.
 
-1. In your CLI app, run the [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) command to begin monitoring for events on your simulated IoT device.  Event messages print in the terminal as they arrive.
-
-    ```azurecli-interactive
-    az iot hub monitor-events --output table --hub-name {YourIoTHubName}
-    ```
-
 1. In Visual Studio, press CTRL + F5 to run the sample.
-
-    After your simulated device connects to your IoT Central application, it begins to send telemetry. The connection details and telemetry output appear in the console: 
-    
-    ```output
-    Starting event monitor, use ctrl-c to stop...
-    event:
-      component: thermostat1
-      interface: dtmi:com:example:TemperatureController;2
-      module: ''
-      origin: myDevice
-      payload:
-        temperature: 39.8
-    
-    event:
-      component: thermostat2
-      interface: dtmi:com:example:TemperatureController;2
-      module: ''
-      origin: myDevice
-      payload:
-        temperature: 36.7
-    ```
 
 [!INCLUDE [iot-hub-include-view-telemetry-iot-explorer](iot-hub-include-view-telemetry-iot-explorer.md)]

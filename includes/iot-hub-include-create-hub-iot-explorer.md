@@ -5,7 +5,7 @@ author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.topic: include
-ms.date: 01/14/2021
+ms.date: 07/31/2021
 ---
 
 ## Create an IoT hub
