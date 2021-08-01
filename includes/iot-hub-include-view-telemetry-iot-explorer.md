@@ -12,7 +12,7 @@ ms.date: 07/31/2021
 
 After the simulated device connects to IoT Hub, it begins sending telemetry. You can view the device telemetry with IoT Explorer. Optionally, you can view telemetry using Azure CLI.
 
-In this section, you'll use the Plug and Play capabilities surfaced in IoT Explorer to manage and interact with the simulated device. These capabilities rely on the device model published in the public model repository. You configured IoT Explorer to search this repository for device models earlier in this quickstart. In many cases, you can perform the same action without using plug and play by selecting the same action from the left side menu of your device pane in IoT Explorer; however, using plug and play often provides an enhanced experience. This is because IoT Explorer can read the device model specified by a plug and play device and present information specific to that device.  
+In this section, you'll use the Plug and Play features in IoT Explorer to manage and interact with the simulated device. These features rely on the device model published in the public model repository. You configured IoT Explorer to search this repository for device models earlier in this quickstart. In many cases, you can do the same thing without using plug and play by selecting the same action from the left side menu of your device pane in IoT Explorer. With plug and play, however, IoT Explorer can read the device model specified by a plug and play device and present information in a format customized for that device. This capability can provide a more intuitive and user-friendly experience. 
 
 To view telemetry in Azure IoT Explorer:
 
