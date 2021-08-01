@@ -65,7 +65,7 @@ For more information, see the [Azure Information Protection product documentatio
 
 |Feature/Service  |Azure  |Azure Gov  |
 |---------|---------|---------|
-|**[Azure Information Protection scanner](/azure/information-protection/deploy-aip-scanner)**<sup>[1](#aipnote1)</sup>       |         |         |
+|**[Azure Information Protection scanner](/azure/information-protection/deploy-aip-scanner)** <sup>[1](#aipnote1)</sup>       |         |         |
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
 | - Office 365 DoD | - | GA |
@@ -74,7 +74,7 @@ For more information, see the [Azure Information Protection product documentatio
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
 | - Office 365 DoD | - | GA |
-| **Classification and labeling**<sup>[2](#aipnote2)</sup>   |         |         |
+| **Classification and labeling** <sup>[2](#aipnote2)</sup>   |         |         |
 | [AIP scanner to apply a *default label* to all files in an on-premises file server / repository](/azure/information-protection/deploy-aip-scanner-configure-install?tabs=azure-portal-only)    |         |         |
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
@@ -103,13 +103,13 @@ For more information, see the [Azure Information Protection product documentatio
 |**Key management**      |         |         |         |
 |- [Bring Your Own Key (BYOK)](/azure/information-protection/byok-price-restrictions)      |   GA       |    GA     |   GA   |
 |- [Double Key Encryption (DKE)](/azure/information-protection/plan-implement-tenant-key)     |    GA       |    GA     |   GA    |
-|**Office files**<sup>[3](#aipnote6)</sup>      |         |         |         |
-|- [Protection for Microsoft Exchange Online, Microsoft SharePoint Online, and Microsoft OneDrive for Business](/azure/information-protection/requirements-applications)      |     GA    |  GA<sup>[4](#aipnote3)</sup>       |   GA<sup>[4](#aipnote3)</sup>      |
-|- [Protection for on-premises Exchange and SharePoint content via the Rights Management connector](/azure/information-protection/deploy-rms-connector)     |    GA<sup>[5](#aipnote5)</sup>      |  Not available       |     Not available         |
+|**Office files** <sup>[3](#aipnote6)</sup>      |         |         |         |
+|- [Protection for Microsoft Exchange Online, Microsoft SharePoint Online, and Microsoft OneDrive for Business](/azure/information-protection/requirements-applications)      |     GA    |  GA <sup>[4](#aipnote3)</sup>       |   GA <sup>[4](#aipnote3)</sup>      |
+|- [Protection for on-premises Exchange and SharePoint content via the Rights Management connector](/azure/information-protection/deploy-rms-connector)     |    GA <sup>[5](#aipnote5)</sup>      |  Not available       |     Not available         |
 |- [Office 365 Message Encryption](/microsoft-365/compliance/set-up-new-message-encryption-capabilities)      |     GA       |    GA     |   GA        |
 |- [Set labels to automatically apply pre-configured M/MIME protection in Outlook](/azure/information-protection/rms-client/clientv2-admin-guide-customizations)      |         GA       |    GA     |   GA        |
-|- [Control oversharing of information when using Outlook](/azure/information-protection/rms-client/clientv2-admin-guide-customizations)     |      GA   |  GA<sup>[6](#aipnote6)</sup>        |    GA<sup>[6](#aipnote6)</sup>      |
-|**Classification and labeling**<sup>[2](#aipnote2)</sup><sup>[7](#aipnote7)</sup>      |         |         |         |
+|- [Control oversharing of information when using Outlook](/azure/information-protection/rms-client/clientv2-admin-guide-customizations)     |      GA   |  GA <sup>[6](#aipnote6)</sup>        |    GA <sup>[6](#aipnote6)</sup>      |
+|**Classification and labeling** <sup>[2](#aipnote2) / [7](#aipnote7)</sup>      |         |         |         |
 |- Custom templates, including departmental templates     |     GA       |    GA     |   GA         |
 |- Manual, default, and mandatory document classification     |       GA       |    GA     |   GA       |
 |- Configure conditions for automatic and recommended classification      GA       |    GA     |   GA        |
