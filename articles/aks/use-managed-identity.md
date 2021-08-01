@@ -40,7 +40,7 @@ AKS uses several managed identities for built-in services and add-ons.
 | Identity                       | Name    | Use case | Default permissions | Bring your own identity
 |----------------------------|-----------|----------|
 | Control plane | not visible | Used by AKS control plane components to manage cluster resources including ingress load balancers and AKS managed public IPs, and Cluster Autoscaler operations | Contributor role for Node resource group | Supported
-| Kubelet | AKS Cluster Name-agentpool | Authentication with Azure Container Registry (ACR) | NA (for kubernetes v1.15+) | Supported (Preview)
+| Kubelet | AKS Cluster Name-agentpool | Authentication with Azure Container Registry (ACR) | NA (for kubernetes v1.15+) | Supported
 | Add-on | AzureNPM | No identity required | NA | No
 | Add-on | AzureCNI network monitoring | No identity required | NA | No
 | Add-on | azure-policy (gatekeeper) | No identity required | NA | No
@@ -131,8 +131,7 @@ A custom control plane identity enables access to be granted to the existing ide
 You must have the Azure CLI, version 2.15.1 or later installed.
 
 ### Limitations
-* Azure Government isn't currently supported.
-* Azure China 21Vianet isn't currently supported.
+* USDOD Central, USDOD East, USGov Iowa in Azure Government aren't currently supported.
 
 If you don't have a managed identity yet, you should go ahead and create one for example by using [az identity CLI][az-identity-create].
 

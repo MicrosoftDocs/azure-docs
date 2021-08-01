@@ -22,17 +22,28 @@ ms.author: yelevin
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-The Windows Security Events connector lets you stream security events from any Windows server (physical or virtual, on-premises or in any cloud) connected to your Azure Sentinel workspace. This enables you to view Windows security events in your dashboards, to use them in creating custom alerts, and to rely on them to improve your investigations, giving you more insight into your organization's network and expanding your security operations capabilities. 
+The Windows Security Events connector lets you stream security events from any Windows server (physical or virtual, on-premises or in any cloud) connected to your Azure Sentinel workspace. This enables you to view Windows security events in your dashboards, to use them in creating custom alerts, and to rely on them to improve your investigations, giving you more insight into your organization's network and expanding your security operations capabilities.
 
-There are now two versions of this connector: **Security events** is the legacy version, based on the Log Analytics Agent (sometimes known as the MMA or OMS agent), and **Windows Security Events** is the new version, currently in **preview** and based on the new Azure Monitor Agent (AMA). This document presents information on both connectors. You can choose from the tabs below to see the information relevant to your chosen connector.
+## Connector options
+
+The Windows Security Events connector supports the following versions:
+
+|Connector version  |Description  |
+|---------|---------|
+|**Security events**     |Legacy version, based on the Log Analytics Agent, and sometimes known as the Microsoft Monitoring Agent (MMA) or the OMS agent. <br><br>Limited to 10,000 events per second. To ensure optimal performance, make sure to keep to 8,500 events per second or fewer.       |
+|**Windows Security Events**     |Newer version, currently in preview, and based on the Azure Monitor Agent (AMA.)   <br><br>Supports additional features, such as pre-ingestion log filtering and individual data collection rules for certain groups of machines.      |
+|     |         |
+
 
 > [!NOTE]
-> To collect security events from any system that is not an Azure virtual machine, the system must have [**Azure Arc**](../azure-monitor/agents/azure-monitor-agent-install.md) installed and enabled *before* you enable either of these connectors.
+> The MMA for Linux does not support multi-homing, which sends logs to multiple workspaces. If you require multi-homing, we recommend that you use the **Windows Security Events** connector.
+
+> [!TIP]
+> If you need multiple agents, you may want to use a virtual machine scale that's set to run multiple agents for log ingestion, or use several machines. Both the Security events and Windows Security events connector can then be used with a load balancer to ensure that the machines are not overloaded, and to prevent data duplication.
 >
-> This includes:
-> - Windows servers installed on physical machines
-> - Windows servers installed on on-premises virtual machines
-> - Windows servers installed on virtual machines in non-Azure clouds
+
+This article presents information on both versions of the connector. Select from the tabs below to view the information relevant to your selected connector.
+
 
 # [Log Analytics Agent (Legacy)](#tab/LAA)
 
@@ -71,6 +82,14 @@ This document shows you how to create data collection rules.
 > The Azure Monitor agent can coexist with the existing agents, so you can continue to use the legacy connector during evaluation or migration. This is particularly important while the new connector is in preview,due to the limited support for existing solutions. You should be careful though in collecting duplicate data since this could skew query results and result in additional charges for data ingestion and retention.
 
 ---
+## Collect security events from non-Azure machines
+
+To collect security events from any system that is not an Azure virtual machine, the system must have [**Azure Arc**](../azure-monitor/agents/azure-monitor-agent-install.md) installed and enabled *before* you enable either of these connectors.
+
+This includes:
+- Windows servers installed on physical machines
+- Windows servers installed on on-premises virtual machines
+- Windows servers installed on virtual machines in non-Azure clouds
 
 ## Set up the Windows Security Events connector
 
@@ -152,7 +171,7 @@ You'll see all your data collection rules (including those created through the A
 
 ### Create data collection rules using the API
 
-You can also create data collection rules using the API ([see schema](/rest/api/monitor/data-collection-rules)), which can make life easier if you're creating a lot of rules (if you're an MSSP, for example). Here's an example you can use as a template for creating a rule:
+You can also create data collection rules using the API ([see schema](/rest/api/monitor/data-collection-rules)), which can make life easier if you're creating many rules (if you're an MSSP, for example). Here's an example you can use as a template for creating a rule:
 
 **Request URL and header**
 

@@ -76,7 +76,7 @@ To open the wizard:
 
 Select the machine learning model type for the experiment, based on the question you're trying to answer. Because `fareAmount` is the target column, and it's a numeric value, we recommend that you select **Regression** here. Then select **Continue**.
 
-![Screenshot of Enrich with new model, with Regression highlighted.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00b.png)
+![Screenshot of Train a new model, with Regression highlighted.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00b.png)
 
 ## Additional configurations
 
@@ -110,7 +110,7 @@ To generate a notebook, select **Open In Notebook**. Then select **Run all**. Th
 ![Screenshot of a notebook, with Run all highlighted.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00e.png)
 
 After you've successfully submitted the run, you see a link to the experiment run in the Azure Machine Learning workspace in the notebook output. Select the link to monitor your automated run in Azure Machine Learning.
-![Screenshot of Azure Synapse Analytics with a link highlighted.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00f.png))
+![Screenshot of Azure Synapse Analytics with a link highlighted.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00f.png)
 
 ## Next steps
 

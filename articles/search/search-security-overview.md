@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/24/2021
+ms.date: 07/15/2021
 ms.custom: references_regions
 ---
 
@@ -26,9 +26,9 @@ Cognitive Search has three basic network traffic patterns:
 + Outbound requests issued by the search service to other services on Azure and elsewhere
 + Internal service-to-service requests over the secure Microsoft backbone network
 
-Inbound requests range from creating objects, loading data, and querying. For inbound access to data and operations, you can implement a progression of security measures, starting with API keys on the request (required). You can then supplement with either inbound rules in an IP firewall, or create private endpoints that fully shield your service from the public internet.
+Inbound requests range from creating objects, loading data, and querying. For inbound access to data and operations, you can implement a progression of security measures, starting with API keys on the request. You can then supplement with either inbound rules in an IP firewall, or create private endpoints that fully shield your service from the public internet.
 
-Outbound requests can include both read and write operations. The primary agent of an outbound call is an indexer and constituent skillsets. For indexers, read operations include document cracking and data ingestion. An indexer can also write to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions. Finally, a skillset can also include custom skills that run external code, for example in Azure Functions or in a web app.
+Outbound requests can include both read and write operations. The primary agent of an outbound call is an indexer and constituent skillsets. For indexers, read operations include [document cracking](search-indexer-overview.md#document-cracking) and data ingestion. An indexer can also write to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions. Finally, a skillset can also include custom skills that run external code, for example in Azure Functions or in a web app.
 
 Internal requests include service-to-service calls for tasks like diagnostic logging, encryption, authentication and authorization through Azure Active Directory, private endpoint connections, and requests made to Cognitive Services for built-in skills.
 
@@ -52,7 +52,7 @@ To further control access to your search service, you can create inbound firewal
 
 You can use the portal to [configure inbound access](service-configure-firewall.md).
 
-Alternatively, you can use the management REST APIs. Starting with API version 2020-03-13, with the [IpRule](/rest/api/searchmanagement/services/createorupdate#iprule) parameter, you can restrict access to your service by identifying IP addresses, individually or in a range, that you want to grant access to your search service.
+Alternatively, you can use the management REST APIs. Starting with API version 2020-03-13, with the [IpRule](/rest/api/searchmanagement/2020-08-01/services/create-or-update#iprule) parameter, you can restrict access to your service by identifying IP addresses, individually or in a range, that you want to grant access to your search service.
 
 ### Connect to a private endpoint (network isolation, no Internet traffic)
 
@@ -76,7 +76,7 @@ Indexers and skillsets are both objects that can make external connections. You'
 
 ## Authentication
 
-For inbound requests to the search service, authentication is through a [mandatory API key](search-security-api-keys.md) (a string composed of randomly generated numbers and letters) that proves the request is from a trustworthy source. Cognitive Search does not currently support Azure Active Directory authentication for inbound requests.
+For inbound requests to the search service, authentication is through an [API key](search-security-api-keys.md) (a string composed of randomly generated numbers and letters) that proves the request is from a trustworthy source. Alternatively, there is new support for Azure Active Directory authentication and role-based authorization, [currently in preview](search-security-rbac.md).
 
 Outbound requests made by an indexer are subject to authentication by the external service. The indexer subservice in Cognitive Search can be made a trusted service on Azure, connecting to other services using a managed identity. For more information, see [Set up an indexer connection to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
 
@@ -94,13 +94,16 @@ Authorization to content, and operations related to content, is either write acc
 
 In application code, you specify the endpoint and an API key to allow access to content and options. An endpoint might be the service itself, the indexes collection, a specific index, a documents collection, or a specific document. When chained together, the endpoint, the operation (for example, a create or update request) and the permission level (full or read-only rights based on the key) constitute the security formula that protects content and operations.
 
+> [!NOTE]
+> Authorization for data plane operations using Azure role-based access control (RBAC) is now in preview. You can use this preview capability if you want to [use role assignments instead of API keys](search-security-rbac.md).
+
 ### Controlling access to indexes
 
 In Azure Cognitive Search, an individual index is not a securable object. Instead, access to an index is determined at the service layer (read or write access based on which API key you provide), along with the context of an operation.
 
-For read-only access, you can structure query requests to connect using a [query key](search-security-rbac.md), and include the specific index used by your app. In a query request, there is no concept of joining indexes or accessing multiple indexes simultaneously so all requests target a single index by definition. As such, construction of the query request itself (a key plus a single target index) defines the security boundary.
+For read-only access, you can structure query requests to connect using a [query key](search-security-api-keys.md), and include the specific index used by your app. In a query request, there is no concept of joining indexes or accessing multiple indexes simultaneously so all requests target a single index by definition. As such, construction of the query request itself (a key plus a single target index) defines the security boundary.
 
-Administrator and developer access to indexes is undifferentiated: both need write access to create, delete, and update objects managed by the service. Anyone with an [admin key](search-security-rbac.md) to your service can read, modify, or delete any index in the same service. For protection against accidental or malicious deletion of indexes, your in-house source control for code assets is the remedy for reversing an unwanted index deletion or modification. Azure Cognitive Search has failover within the cluster to ensure availability, but it does not store or execute your proprietary code used to create or load indexes.
+Administrator and developer access to indexes is undifferentiated: both need write access to create, delete, and update objects managed by the service. Anyone with an [admin key](search-security-api-keys.md) to your service can read, modify, or delete any index in the same service. For protection against accidental or malicious deletion of indexes, your in-house source control for code assets is the remedy for reversing an unwanted index deletion or modification. Azure Cognitive Search has failover within the cluster to ensure availability, but it does not store or execute your proprietary code used to create or load indexes.
 
 For multitenancy solutions requiring security boundaries at the index level, such solutions typically include a middle tier, which customers use to handle index isolation. For more information about the multitenant use case, see [Design patterns for multitenant SaaS applications and Azure Cognitive Search](search-modeling-multitenant-saas-applications.md).
 
