@@ -1,7 +1,7 @@
 ---
 title: Configure SPAN for Hyper-V
 description: This article explains how to configure SPAN for Hyper-V.
-ms.date: 07/28/2021
+ms.date: 08/01/2021
 ms.topic: how-to
 ---
 
@@ -14,7 +14,7 @@ The default behavior of Hyper-V Manager allows port mirroring between VA instanc
 - Ensure that no ClearPass VA instance is running.
 
 - Ensure that SPAN is enabled only on the data port, and not the management port. Also, before you begin the 
--
+
 - In the SPAN configuration on the data port, ensure that the data port is not configured with an IP address.
 
 ## Create a Virtual Switch 
@@ -59,7 +59,7 @@ These steps can be performed through Windows PowerShell, or through Hyper-V Mana
 
 1. Select **OK**.
 
-The newly added adapter hardware name will be Monitor” when adding using the above commands, and “Network Adapter” when added using Hyper-V Manager.
+By using these commands, the name of the newly added adapter hardware is ``Monitor``. If you are using Hyper-V Manager, the name of the newly added adapter hardware is `Network Adapter`.
 
 **To attach a ClearPass SPAN Virtual Interface to the Virtual Switch with Hyper-V Manager**:
 
