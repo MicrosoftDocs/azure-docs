@@ -142,7 +142,7 @@ For example: `JohnDoe` (**Actor**) uses `Windows File Explorer` (**Acting proces
 |**User** | Alias| | Alias to the [ActorUsername](#actorusername) field. <br><br>Example: `CONTOSO\dadmin`|
 | **ActorUserType**|Optional | Enumerated| The type of **Actor**. Supported values include: <br><br>- `Regular`<br>- `Machine`<br>- `Admin`<br>- `System`<br>- `Application`<br>- `Service Principal`<br>- `Other` <br><br>**Note**: The source may provide only a value for the [ActorOriginalUserType](#actororiginalusertype) field, which must be analyzed to get the **ActorUserType** value.|
 |<a name="actororiginalusertype"></a>**ActorOriginalUserType** |Optional |String | The **Actor** user type, as provided by the reporting device. |
-|**HttpUserAgent** |Optional | String |When the operation is initiated using HTTP or HTTPS, this value is the `user_agent` HTTP header provided by the acting application when performing the authentication. <br><br>Example: `Mozilla/5.0 (iPhone; CPU iPhone OS 12_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Mobile/15E148 Safari/604.1`|
+|**HttpUserAgent** |Optional | String |When the operation is initiated using HTTP or HTTPS, this value is the `user_agent` HTTP header provided by the acting application when performing the authentication. <br><br>Example: `Mozilla/5.0 (Windows NT 10.0; Win64; x64)`<br>`AppleWebKit/537.36 (KHTML, like Gecko)`<br>` Chrome/42.0.2311.135`<br>`Safari/537.36 Edge/12.246`|
 | **NetworkApplicationProtocol**| Optional|String | When the operation is initiated by a remote system, this value is the application layer protocol used in the OSI model. <br><br>While this is not an enumerated field, and any value is accepted, preferable values include: `HTTP`, `HTTPS`, `SMB`,`FTP`, and `SSH`<br><br>Example: `SMB`|
 |**SrcIpAddr** |Recommended |IP Address | When the operation is initiated by a remote system, the IP address of this system.<br><br>Example: `185.175.35.214`|
 | **SrcFileCreationTime**|Optional |Date/Time |The time at which the source file was created. |
@@ -152,9 +152,9 @@ For example: `JohnDoe` (**Actor**) uses `Windows File Explorer` (**Acting proces
 |**SrcFileName** |Optional |String | The name of the source file, without a path or a location, but with an extension if relevant. This field should be similar to the last element in the [SrcFilePath](#srcfilepath) field. <br><br>**Note**: A parser can provide this value if the value available in the log source and does not need to be extracted from the full path.|
 | <a name="srcfilepath"></a>**SrcFilePath**| Mandatory|String |The full, normalized path of the source file, including the folder or location, the file name, and the extension. <br><br>For more information, see [Path structure](#path-structure).<br><br>Example: `/etc/init.d/networking` |
 |**SrcFilePathFormat** |Mandatory | Enumerated| The type of [SrcFilePath](#srcfilepath). For more information, see [Path structure](#path-structure).|
-|**SrcFileMD5**|Optional |MD5 |	The MD5 hash of the source file. <br><br>Example: `75a599802f1fa166cdadb360960b1dd0` |
-|**SrcFileSHA1**|Optional |SHA1 |The SHA-1 hash of the source file.<br><br>Example: `d55c5a4df19b46db8c54c801c4665d3338acdab0` |
-|**SrcFileSHA256** | Optional|SHA256 |The SHA-256 hash of the source file. <br><br>Example: `e81bb824c4a09a811af17deae22f22dd2e1ec8cbb00b22629d2899f7c68da274`|
+|**SrcFileMD5**|Optional |MD5 |	The MD5 hash of the source file. <br><br>Example:           `75a599802f1fa166cdadb360960b1dd0` |
+|**SrcFileSHA1**|Optional |SHA1 |The SHA-1 hash of the source file.<br><br>Example:         `d55c5a4df19b46db8c54`<br>`c801c4665d3338acdab0` |
+|**SrcFileSHA256** | Optional|SHA256 |The SHA-256 hash of the source file. <br><br>Example: `e81bb824c4a09a811af17deae22f22dd`<br>`2e1ec8cbb00b22629d2899f7c68da274`|
 |**SrcFileSHA512** |Optional | SHA512|The SHA-512 hash of the source file. |
 |**SrcFileSize**| Optional|Integer | The size of the source file in bytes.|
 |**TargetFileCreationTime** | Optional|Date/Time |The time at which the target file was created. |
@@ -166,12 +166,12 @@ For example: `JohnDoe` (**Actor**) uses `Windows File Explorer` (**Acting proces
 |**TargetFilePathFormat** | Mandatory|Enumerated | The type of [TargetFilePath](#targetfilepath). For more information, see [Path structure](#path-structure).	|
 |**FilePath** |Alias | | Alias to the [TargetFilePath](#targetfilepath) field.|
 | **TargetFileMD5**| Optional| MD5|The MD5 hash of the target file. <br><br>Example: `75a599802f1fa166cdadb360960b1dd0` |
-|**TargetFileSHA1** |Optional |SHA1 |The SHA-1 hash of the target file. <br><br>Example: `d55c5a4df19b46db8c54c801c4665d3338acdab0`|
-|**TargetFileSHA256** | Optional|SHA256 |The SHA-256 hash of the target file. <br><br>Example: `e81bb824c4a09a811af17deae22f22dd2e1ec8cbb00b22629d2899f7c68da274`  |
+|**TargetFileSHA1** |Optional |SHA1 |The SHA-1 hash of the target file. <br><br>Example: `d55c5a4df19b46db8c54`<br>`c801c4665d3338acdab0`|
+|**TargetFileSHA256** | Optional|SHA256 |The SHA-256 hash of the target file. <br><br>Example: `e81bb824c4a09a811af17deae22f22dd`<br>`2e1ec8cbb00b22629d2899f7c68da274`  |
 | **TargetFileSHA512**| Optional| SHA512|The SHA-512 hash of the source file. |
 |**Hash**|Alias | |Alias to the best available Target File hash. |
 |**TargetFileSize** |Optional | Integer|The size of the target file in bytes. |
-| **TargetUrl**|Optional | String|When the operation is initiated using HTTP or HTTPS, the URL used. <br><br>Example: `https://console.aws.amazon.com/console/home?fromtb=true&hashArgs=%23&isauthcode=true&nc2=h_ct&src=header-signin&state=hashArgsFromTB_us-east-1_7596bc16c83d260b` |
+| **TargetUrl**|Optional | String|When the operation is initiated using HTTP or HTTPS, the URL used. <br><br>Example: `https://console.aws.amazon.com/console/home?...` |
 | | | | |
 
 
