@@ -211,7 +211,7 @@ Use the **RSAU_CONFIG_LOG** transaction for this step.
 
 ### Missing SAP change request
 
-If you see errors that you're missing a required [SAP change request](sap-solution-detailed-requirements.md#required-sap-log-change-requests), make sure you've imported the correct SAP change requiest for your system.
+If you see errors that you're missing a required [SAP change request](sap-solution-detailed-requirements.md#required-sap-log-change-requests), make sure you've imported the correct SAP change request for your system.
 
 For more information, see [Configure your SAP system](sap-deploy-solution.md#configure-your-sap-system).
 
