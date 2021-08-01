@@ -93,18 +93,23 @@ Event fields are common to all schemas and describe the activity itself and the 
 | **EventEndTime**        | Mandatory   | Alias      |      Alias to the [TimeGenerated](#timegenerated) field.    |
 | **EventType**           | Mandatory   | Enumerated |    Describes the operation reported by the record. <br><br>For File records, supported values include: <br><br>- `FileCreated`<br>- `FileModified`<br>- `FileDeleted`<br>- `FileRenamed`<br>- `FileCopied`<br>- `FileMoved` |
 | **EventResult**         | Mandatory   | Enumerated |  Describes the result of the event, normalized to one of the following supported values: <br><br>- `Success`<br>- `Partial`<br>- `Failure`<br>- `NA` (not applicable) <br><br>The source may provide only a value for the [EventOriginalResultDetails](#eventoriginalresultdetails) field, which must be analyzed to get the **EventResult** value. |
-| <a name="eventoriginalresultdetails"></a>**EventOriginalResultDetails**         | Optional   | String |  Describes the result of the event. Note that this value is not normalized, and is intended for the original value, as provided by the source. At this time, there is no related normalized field, i.e. EventResultDetails, for this schema |
-| **EventOriginalUid**    | Optional    | String     |   A unique ID of the original record, if provided by the source.<br><br>Example: `69f37748-ddcd-4331-bf0f-b137f1ea83b`|
-| **EventOriginalType**   | Optional    | String     |   The original event type or ID, if provided by the source.<br><br>Example: `4663`|
-| <a name ="eventproduct"></a>**EventProduct**        | Mandatory   | String     |             The product generating the event. <br><br>Example: `Sysmon`<br><br>**Note**: This field may not be available in the source record. In such cases, this field must be set by the parser.           |
-| **EventProductVersion** | Optional    | String     | The version of the product generating the event. <br><br>Example: `12.1`<br><br>**Note**: This field may not be available in the source record. In such cases, this field must be set by the parser.           |      |
-| **EventVendor**         | Mandatory   | String     |           The vendor of the product generating the event. <br><br>Example: `Microsoft`  <br><br>**Note**: This field may not be available in the source record. In such cases, this field must be set by the parser.  |
-| **EventSchemaVersion**  | Mandatory   | String     |    The version of the schema. The version of the schema documented here is `0.1`         |
+| <a name="eventoriginalresultdetails"></a>**EventOriginalResultDetails**        
+                          | Optional    | String     | Describes the result of the event. Note that this value is not normalized, and is intended for the original value, as provided by the source. At this time, there is no related normalized field, i.e. EventResultDetails, for this schema |
+| **EventOriginalUid**    | Optional    | String     | A unique ID of the original record, if provided by the source.<br><br>Example: `69f37748-ddcd-4331-bf0f-b137f1ea83b`|
+| **EventOriginalType**   | Optional    | String     | The original event type or ID, if provided by the source.<br><br>Example: `4663`|
+| <a name ="eventproduct"></a>**EventProduct**      
+                          | Mandatory   | String     | The product generating the event. <br><br>Example: `Sysmon`<br><br>**Note**: This field may not be available in the source record. In such cases, this field must be set by the parser.           |
+| **EventProductVersion** | Optional    | String     | The version of the product generating the event. <br><br>Example: `12.1`<br><br>**Note**: This field may not be available in the source record. In such cases, this field must be set by the parser.           |
+| **EventVendor**         | Mandatory   | String     | The vendor of the product generating the event. <br><br>Example: `Microsoft`  <br><br>**Note**: This field may not be available in the source record. In such cases, this field must be set by the parser.  |
+| **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.1`         |
 | **EventReportUrl**      | Optional    | String     | A URL provided in the event for a resource that provides additional information about the event.|
-| **Dvc** | Alias       | String     |                A unique identifier of the device on which the event occurred. <br><br>For example: `ContosoDc.Contoso.Azure`<br><br>This field may alias the [DvcId](#dvcid), [DvcHostname](#dvchostname), or [DvcIpAddr](#dvcipaddr) fields. For cloud sources, for which there is no apparent device, use the same value as the [EventProduct](#eventproduct) field.            |
-| <a name ="dvcipaddr"></a>**DvcIpAddr**           | Recommended | IP Address |         The IP Address of the device on which the file event occurred.  <br><br>Example: `45.21.42.12`    |
-| <a name ="dvchostname"></a>**DvcHostname**         | Recommended | Hostname   |               The hostname of the device on which the file event occurred. <br><br>Example: `ContosoDc.Contoso.Azure`               |
-| <a name ="dvcid"></a>**DvcId**               | Optional    | String     |  The unique ID of the device on which the file event occurred. <br><br>Example: `41502da5-21b7-48ec-81c9-baeea8d7d669`   |
+| **Dvc**                 | Alias       | String     | A unique identifier of the device on which the event occurred. <br><br>For example: `ContosoDc.Contoso.Azure`<br><br>This field may alias the [DvcId](#dvcid), [DvcHostname](#dvchostname), or [DvcIpAddr](#dvcipaddr) fields. For cloud sources, for which there is no apparent device, use the same value as the [EventProduct](#eventproduct) field.            |
+| <a name ="dvcipaddr"></a>**DvcIpAddr**           
+                          | Recommended | IP Address | The IP Address of the device on which the file event occurred.  <br><br>Example: `45.21.42.12`    |
+| <a name ="dvchostname"></a>**DvcHostname**         
+                          | Recommended | Hostname   | The hostname of the device on which the file event occurred. <br><br>Example: `ContosoDc.Contoso.Azure` |
+| <a name ="dvcid"></a>**DvcId**               
+                          | Optional    | String     |  The unique ID of the device on which the file event occurred. <br><br>Example: `41502da5-21b7-48ec-81c9-baeea8d7d669`   |
 | **DvcMacAddr**          | Optional    | MAC        |   The MAC  of device on which the file event occurred.  <br><br>Example: `00:1B:44:11:3A:B7`       |
 | **DvcOs**               | Optional    | String     |         The operating system running on the device on which the file event occurred.    <br><br>Example: `Windows`    |
 | **DvcOsVersion**        | Optional    | String     |   The version of the operating system on the device on which the file event occurred. <br><br>Example: `10` |
