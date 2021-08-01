@@ -139,6 +139,7 @@ For example: `JohnDoe` (**Actor**) uses `Windows File Explorer` (**Acting proces
 | **ActorUserIdType**| Recommended  | String     |  The type of the ID stored in the [ActorUserId](#actoruserid) field. For more information, see [The User entity](normalization.md#the-user-entity). <br><br>Example: `SID`         |
 | <a name="actorusername"></a>**ActorUsername**  | Mandatory    | String     | The user name of the user who initiated the event. <br><br>Example: `CONTOSO\WIN-GG82ULGC9GO$`     |
 | **ActorUsernameType**              | Mandatory    | Enumerated |   Specifies the type of the user name stored in the [ActorUsername](#actorusername) field. For more information, see [The User entity](normalization.md#the-user-entity). <br><br>Example: `Windows`       |
+|**User** | Alias| | Alias to the [ActorUsername](#actorusername) field. <br><br>Example: `CONTOSO\dadmin`|
 | **ActorUserType**|Optional | Enumerated| The type of **Actor**. Supported values include: <br><br>- `Regular`<br>- `Machine`<br>- `Admin`<br>- `System`<br>- `Application`<br>- `Service Principal`<br>- `Other` <br><br>**Note**: The source may provide only a value for the [ActorOriginalUserType](#actororiginalusertype) field, which must be analyzed to get the **ActorUserType** value.|
 |<a name="actororiginalusertype"></a>**ActorOriginalUserType** |Optional |String | The **Actor** user type, as provided by the reporting device. |
 |**HttpUserAgent** |Optional | String |When the operation is initiated using HTTP or HTTPS, this value is the `user_agent` HTTP header provided by the acting application when performing the authentication. <br><br>Example: `Mozilla/5.0 (iPhone; CPU iPhone OS 12_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Mobile/15E148 Safari/604.1`|
@@ -155,23 +156,22 @@ For example: `JohnDoe` (**Actor**) uses `Windows File Explorer` (**Acting proces
 |**SrcFileSHA1**|Optional |SHA1 |The SHA-1 hash of the source file.<br><br>Example: `d55c5a4df19b46db8c54c801c4665d3338acdab0` |
 |**SrcFileSHA256** | Optional|SHA256 |The SHA-256 hash of the source file. <br><br>Example: `e81bb824c4a09a811af17deae22f22dd2e1ec8cbb00b22629d2899f7c68da274`|
 |**SrcFileSHA512** |Optional | SHA512|The SHA-512 hash of the source file. |
-|**Hash**|Alias | |Alias to the best available hash. |
 |**SrcFileSize**| Optional|Integer | The size of the source file in bytes.|
 |**TargetFileCreationTime** | Optional|Date/Time |The time at which the target file was created. |
 |**TargetFileDirectory** | Optional|String |The target file folder or location. This field should be similar to the [TargetFilePath](#targetfilepath) field, without the final element. <br><br>**Note**:  A parser can provide this value if the value available in the log source and does not need to be extracted from the full path.|
 |**TargetFileExtension** |Optional |String | The target file extension.<br><br>**Note**:  A parser can provide this value if the value available in the log source and does not need to be extracted from the full path.|
-| **TargetFileMD5**| Optional| MD5|The MD5 hash of the target file. <br><br>Example: `75a599802f1fa166cdadb360960b1dd0` |
 | **TargetFileMimeType**|Optional | Enumerated| The Mime, or Media, type of the target file. Allowed values are listed in the [IANA Media Types](https://www.iana.org/assignments/media-types/media-types.xhtml) repository.|
 | **TargetFileName**|Optional |String |The name of the target file, without a path or a location, but with an extension if relevant. This field should be similar to the final element in the [TargetFilePath](#targetfilepath) field.<br><br>**Note**:  A parser can provide this value if the value available in the log source and does not need to be extracted from the full path.|
 |<a name="targetfilepath"></a>**TargetFilePath** | Mandatory| String| The full, normalized path of the target file, including the folder or location, the file name, and the extension. For more information, see [Path structure](#path-structure). <br><br>**Note**: If the record does not include folder or location information, store the filename only here. <br><br>Example: `C:\Windows\System32\notepad.exe`|
 |**TargetFilePathFormat** | Mandatory|Enumerated | The type of [TargetFilePath](#targetfilepath). For more information, see [Path structure](#path-structure).	|
 |**FilePath** |Alias | | Alias to the [TargetFilePath](#targetfilepath) field.|
+| **TargetFileMD5**| Optional| MD5|The MD5 hash of the target file. <br><br>Example: `75a599802f1fa166cdadb360960b1dd0` |
 |**TargetFileSHA1** |Optional |SHA1 |The SHA-1 hash of the target file. <br><br>Example: `d55c5a4df19b46db8c54c801c4665d3338acdab0`|
 |**TargetFileSHA256** | Optional|SHA256 |The SHA-256 hash of the target file. <br><br>Example: `e81bb824c4a09a811af17deae22f22dd2e1ec8cbb00b22629d2899f7c68da274`  |
 | **TargetFileSHA512**| Optional| SHA512|The SHA-512 hash of the source file. |
+|**Hash**|Alias | |Alias to the best available Target File hash. |
 |**TargetFileSize** |Optional | Integer|The size of the target file in bytes. |
 | **TargetUrl**|Optional | String|When the operation is initiated using HTTP or HTTPS, the URL used. <br><br>Example: `https://console.aws.amazon.com/console/home?fromtb=true&hashArgs=%23&isauthcode=true&nc2=h_ct&src=header-signin&state=hashArgsFromTB_us-east-1_7596bc16c83d260b` |
-|**User** | Alias| | Alias to the [ActorUsername](#actorusername) field. <br><br>Example: `CONTOSO\dadmin`|
 | | | | |
 
 
