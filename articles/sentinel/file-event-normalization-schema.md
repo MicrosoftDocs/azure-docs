@@ -134,30 +134,29 @@ For example: `JohnDoe` (**Actor**) uses `Windows File Explorer` (**Acting proces
 |**ActingProcessGuid** |Optional     | String     |  A generated unique identifier (GUID) of the acting process. Enables identifying the process across systems.  <br><br> Example: `EF3BD0BD-2B74-60C5-AF5C-010000001E00`            |
 | **ActingProcessId**| Mandatory    | Integer        | The process ID (PID) of the acting process.<br><br>Example:  `48610176`           <br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows and Linux this value must be numeric. <br><br>If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.    |
 | <a name="actingprocessname"></a>**ActingProcessName**              | Optional     | String     |   The name of the acting process. This name is commonly derived from the image or executable file that's used to define the initial code and data that's mapped into the process' virtual address space.<br><br>Example: `C:\Windows\explorer.exe`  |
+|**Process**| Alias| | Alias to [ActingProcessName](#actingprocessname)|
 | <a name="actoruserid"></a>**ActorUserId**    | Recommended  | String     |   A unique ID of the **Actor**. The specific ID depends on the system generating the event. For more information, see [The User entity](normalization.md#the-user-entity).  <br><br>Example: `S-1-5-18`    |
 | **ActorUserIdType**| Recommended  | String     |  The type of the ID stored in the [ActorUserId](#actoruserid) field. For more information, see [The User entity](normalization.md#the-user-entity). <br><br>Example: `SID`         |
 | <a name="actorusername"></a>**ActorUsername**  | Mandatory    | String     | The user name of the user who initiated the event. <br><br>Example: `CONTOSO\WIN-GG82ULGC9GO$`     |
 | **ActorUsernameType**              | Mandatory    | Enumerated |   Specifies the type of the user name stored in the [ActorUsername](#actorusername) field. For more information, see [The User entity](normalization.md#the-user-entity). <br><br>Example: `Windows`       |
 | **ActorUserType**|Optional | Enumerated| The type of **Actor**. Supported values include: <br><br>- `Regular`<br>- `Machine`<br>- `Admin`<br>- `System`<br>- `Application`<br>- `Service Principal`<br>- `Other` <br><br>**Note**: The source may provide only a value for the [ActorOriginalUserType](#actororiginalusertype) field, which must be analyzed to get the **ActorUserType** value.|
 |<a name="actororiginalusertype"></a>**ActorOriginalUserType** |Optional |String | The **Actor** user type, as provided by the reporting device. |
-|**FilePath** |Alias | | Alias to the [TargetFilePath](#targetfilepath) field.|
-| **Hash**|Alias | |Alias to the best available hash. |
 |**HttpUserAgent** |Optional | String |When the operation is initiated using HTTP or HTTPS, this value is the `user_agent` HTTP header provided by the acting application when performing the authentication. <br><br>Example: `Mozilla/5.0 (iPhone; CPU iPhone OS 12_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Mobile/15E148 Safari/604.1`|
 | **NetworkApplicationProtocol**| Optional|String | When the operation is initiated by a remote system, this value is the application layer protocol used in the OSI model. <br><br>While this is not an enumerated field, and any value is accepted, preferable values include: `HTTP`, `HTTPS`, `SMB`,`FTP`, and `SSH`<br><br>Example: `SMB`|
-| **Process**| Alias| | Alias to [ActingProcessName](#actingprocessname|
+|**SrcIpAddr** |Recommended |IP Address | When the operation is initiated by a remote system, the IP address of this system.<br><br>Example: `185.175.35.214`|
 | **SrcFileCreationTime**|Optional |Date/Time |The time at which the source file was created. |
 |**SrcFileDirectory** | Optional| String| The source file folder or location. This field should be similar to the [SrcFilePath](#srcfilepath) field, without the final element. <br><br>**Note**: A parser can provide this value if the value is available in the log source, and does not need to be extracted from the full path.|
 | **SrcFileExtension**|Optional | String|The source file extension. <br><br>**Note**: A parser can provide this value the value is available in the log source, and does not need to be extracted from the full path.|
-| **SrcFileMD5**|Optional |MD5 |	The MD5 hash of the source file. <br><br>Example: `75a599802f1fa166cdadb360960b1dd0` |
 |**SrcFileMimeType** |Optional |Enumerated |	The Mime or Media type of the source file. Supported values are listed in the [IANA Media Types](https://www.iana.org/assignments/media-types/media-types.xhtml) repository. |
 |**SrcFileName** |Optional |String | The name of the source file, without a path or a location, but with an extension if relevant. This field should be similar to the last element in the [SrcFilePath](#srcfilepath) field. <br><br>**Note**: A parser can provide this value if the value available in the log source and does not need to be extracted from the full path.|
 | <a name="srcfilepath"></a>**SrcFilePath**| Mandatory|String |The full, normalized path of the source file, including the folder or location, the file name, and the extension. <br><br>For more information, see [Path structure](#path-structure).<br><br>Example: `/etc/init.d/networking` |
 |**SrcFilePathFormat** |Mandatory | Enumerated| The type of [SrcFilePath](#srcfilepath). For more information, see [Path structure](#path-structure).|
-| **SrcFileSHA1**|Optional |SHA1 |The SHA-1 hash of the source file.<br><br>Example: `d55c5a4df19b46db8c54c801c4665d3338acdab0` |
+|**SrcFileMD5**|Optional |MD5 |	The MD5 hash of the source file. <br><br>Example: `75a599802f1fa166cdadb360960b1dd0` |
+|**SrcFileSHA1**|Optional |SHA1 |The SHA-1 hash of the source file.<br><br>Example: `d55c5a4df19b46db8c54c801c4665d3338acdab0` |
 |**SrcFileSHA256** | Optional|SHA256 |The SHA-256 hash of the source file. <br><br>Example: `e81bb824c4a09a811af17deae22f22dd2e1ec8cbb00b22629d2899f7c68da274`|
 |**SrcFileSHA512** |Optional | SHA512|The SHA-512 hash of the source file. |
-| **SrcFileSize**| Optional|Integer | The size of the source file in bytes.|
-|**SrcIpAddr** |Recommended |IP Address | When the operation is initiated by a remote system, the IP address of this system.<br><br>Example: `185.175.35.214`|
+|**Hash**|Alias | |Alias to the best available hash. |
+|**SrcFileSize**| Optional|Integer | The size of the source file in bytes.|
 |**TargetFileCreationTime** | Optional|Date/Time |The time at which the target file was created. |
 |**TargetFileDirectory** | Optional|String |The target file folder or location. This field should be similar to the [TargetFilePath](#targetfilepath) field, without the final element. <br><br>**Note**:  A parser can provide this value if the value available in the log source and does not need to be extracted from the full path.|
 |**TargetFileExtension** |Optional |String | The target file extension.<br><br>**Note**:  A parser can provide this value if the value available in the log source and does not need to be extracted from the full path.|
@@ -166,6 +165,7 @@ For example: `JohnDoe` (**Actor**) uses `Windows File Explorer` (**Acting proces
 | **TargetFileName**|Optional |String |The name of the target file, without a path or a location, but with an extension if relevant. This field should be similar to the final element in the [TargetFilePath](#targetfilepath) field.<br><br>**Note**:  A parser can provide this value if the value available in the log source and does not need to be extracted from the full path.|
 |<a name="targetfilepath"></a>**TargetFilePath** | Mandatory| String| The full, normalized path of the target file, including the folder or location, the file name, and the extension. For more information, see [Path structure](#path-structure). <br><br>**Note**: If the record does not include folder or location information, store the filename only here. <br><br>Example: `C:\Windows\System32\notepad.exe`|
 |**TargetFilePathFormat** | Mandatory|Enumerated | The type of [TargetFilePath](#targetfilepath). For more information, see [Path structure](#path-structure).	|
+|**FilePath** |Alias | | Alias to the [TargetFilePath](#targetfilepath) field.|
 |**TargetFileSHA1** |Optional |SHA1 |The SHA-1 hash of the target file. <br><br>Example: `d55c5a4df19b46db8c54c801c4665d3338acdab0`|
 |**TargetFileSHA256** | Optional|SHA256 |The SHA-256 hash of the target file. <br><br>Example: `e81bb824c4a09a811af17deae22f22dd2e1ec8cbb00b22629d2899f7c68da274`  |
 | **TargetFileSHA512**| Optional| SHA512|The SHA-512 hash of the source file. |
