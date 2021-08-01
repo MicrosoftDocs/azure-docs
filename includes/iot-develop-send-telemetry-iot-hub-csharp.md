@@ -22,7 +22,7 @@ In this quickstart, you learn a basic Azure IoT application development workflow
     - Use the Azure Cloud Shell, an interactive shell that runs CLI commands in your browser. This option is recommended because you don't need to install anything. If you're using Cloud Shell for the first time, log into the [Azure portal](https://portal.azure.com). Follow the steps in [Cloud Shell quickstart](../articles/cloud-shell/quickstart.md) to **Start Cloud Shell** and **Select the Bash environment**.
     - Optionally, run Azure CLI on your local machine. If Azure CLI is already installed, run `az upgrade` to upgrade the CLI and extensions to the current version. To install Azure CLI, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
-[!INCLUDE [iot-hub-include-create-hub-cli](iot-hub-include-create-hub-iot-explorer.md)]
+[!INCLUDE [iot-hub-include-create-hub-iot-explorer](iot-hub-include-create-hub-iot-explorer.md)]
 
 ## Run a simulated device
 In this section, you configure your local environment, and run a sample that creates a simulated temperature controller.
@@ -71,7 +71,4 @@ To run the sample application in Visual Studio:
         temperature: 36.7
     ```
 
-## View Telemetry
-
-
-
+[!INCLUDE [iot-hub-include-view-telemetry-iot-explorer](iot-hub-include-view-telemetry-iot-explorer.md)]
