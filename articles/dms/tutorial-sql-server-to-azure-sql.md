@@ -212,19 +212,7 @@ To migrate the **Adventureworks2016** schema to a single database or pooled data
 
     ![Deploy Schema](media/tutorial-sql-server-to-azure-sql/dma-schema-deploy.png)
 
-## Register the Microsoft.DataMigration resource provider
-
-1. Sign in to the Azure portal. Search for and select **Subscriptions**.
-
-   ![Show portal subscriptions](media/tutorial-sql-server-to-azure-sql/portal-select-subscription-1.png)
-
-2. Select the subscription in which you want to create the instance of Azure Database Migration Service, and then select **Resource providers**.
-
-    ![Show resource providers](media/tutorial-sql-server-to-azure-sql/portal-select-resource-provider.png)
-
-3. Search for migration, and then select **Register** for **Microsoft.DataMigration**.
-
-    ![Register resource provider](media/tutorial-sql-server-to-azure-sql/portal-register-resource-provider.png)    
+[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]   
 
 ## Create an instance
 

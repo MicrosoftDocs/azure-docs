@@ -51,7 +51,7 @@ an OAuth2 authentication pattern.
 To register a new Looker server in your data catalog, do the following:
 
 1. Navigate to your Purview account.
-2. Select **Sources** on the left navigation.
+2. Select **Data Map** on the left navigation.
 3. Select **Register.**
 4. On Register sources, select **Looker**. Select **Continue.**
     :::image type="content" source="media/register-scan-looker-source/register-sources.png" alt-text="register looker source" border="true":::

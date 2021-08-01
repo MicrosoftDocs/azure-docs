@@ -3,7 +3,7 @@ title: Concepts - Storage
 description: Learn about storage capacity, storage policies, fault tolerance, and storage integration in Azure VMware Solution private clouds.
 ms.topic: conceptual
 ms.custom: contperf-fy21q4
-ms.date: 04/26/2021
+ms.date: 07/28/2021
 ---
 
 # Azure VMware Solution storage concepts
@@ -60,9 +60,10 @@ Microsoft provides alerts when capacity consumption exceeds 75%.  You can monito
 
 Now that you've covered Azure VMware Solution storage concepts, you may want to learn about:
 
-- [Scale clusters in the private cloud][tutorial-scale-private-cloud]
-- [Azure NetApp Files with Azure VMware Solution](netapp-files-with-azure-vmware-solution.md)
-- [vSphere role-based access control for Azure VMware Solution](concepts-identity.md)
+- [Attach disk pools to Azure VMware Solution hosts (Preview)](attach-disk-pools-to-azure-vmware-solution-hosts.md) - You can use disks as the persistent storage for Azure VMware Solution for optimal cost and performance.
+- [Scale clusters in the private cloud][tutorial-scale-private-cloud] - You can scale the clusters and hosts in a private cloud as required for your application workload. Performance and availability limitations for specific services should be addressed on a case by case basis.
+- [Azure NetApp Files with Azure VMware Solution](netapp-files-with-azure-vmware-solution.md) - You can use Azure NetApp to migrate and run the most demanding enterprise file-workloads in the cloud: databases, SAP, and high-performance computing applications, with no code changes. 
+- [vSphere role-based access control for Azure VMware Solution](concepts-identity.md) - You use vCenter to manage VM workloads and NSX-T Manager to manage and extend the private cloud. Access and identity management use the CloudAdmin role for vCenter and restricted administrator rights for NSX-T Manager.
 
 
 <!-- LINKS - external-->
