@@ -102,7 +102,7 @@ sections:
       - question: |
           Can I create radar and satellite tile animations? 
         answer: |
-          Yes. In addition to real-time radar and satellite tiles, Azure Maps customers can request past and future tiles to enhance data visualizations with map overlays. Customers can call the [Get Map Tile v2 API](/rest/api/maps/renderv2/getmaptilepreview) or request tiles via Azure Maps web SDK. Radar tiles are available for up to 1.5 hours in the past, and for up to 2 hours in the future. The tiles are available in 5-minute intervals. Infrared tiles are provided for up to 3 hours in the past, and are available in 10-minute intervals. For more information, see the open-source Weather Tile Animation [code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Animated%20tile%20layer).  
+          Yes. In addition to real-time radar and satellite tiles, Azure Maps customers can request past and future tiles to enhance data visualizations with map overlays. Customers can call the [Get Map Tile v2 API](/rest/api/maps/render-v2/get-map-tile) or request tiles via Azure Maps web SDK. Radar tiles are available for up to 1.5 hours in the past, and for up to 2 hours in the future. The tiles are available in 5-minute intervals. Infrared tiles are provided for up to 3 hours in the past, and are available in 10-minute intervals. For more information, see the open-source Weather Tile Animation [code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Animated%20tile%20layer).  
           
       - question: |
           Do you offer icons for different weather conditions? 

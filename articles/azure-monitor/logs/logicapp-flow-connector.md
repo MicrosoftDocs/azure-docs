@@ -16,8 +16,7 @@ For example, you can create a logic app to use Azure Monitor log data in an emai
 
 ## Connector limits
 The Azure Monitor Logs connector has these limits:
-* Max data size: 16 MB
-* Max query response size 100 MB
+* Max query response size ~16.7 MB MB (16 MiB)
 * Max number of records: 500,000
 * Max query timeout 110 second.
 * Chart visualizations could be available in Logs page and missing in the connector since the connector and Logs page don't use the same charting libraries currently.
