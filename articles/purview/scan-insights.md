@@ -57,7 +57,7 @@ In Azure Purview, you can register and scan source types. You can view the scan 
 
     :::image type="content" source="./media/scan-insights/main-graph.png" alt-text="View Scan status over time":::
 
-4. You can explore a specific scan further, by clicking on the **scan name** that will connect you to the scan history within the **Sources** experience of Azure Purview. From the run history page, you can get the run ID that will help in further failure investigation.
+4. You can explore a specific scan further, by clicking on the **scan name** that will connect you to the scan history within the **Data Map** experience of Azure Purview. From the run history page, you can get the run ID that will help in further failure investigation.
 
     :::image type="content" source="./media/scan-insights/scan-status.png" alt-text="View Scan details":::
 
@@ -70,4 +70,4 @@ In Azure Purview, you can register and scan source types. You can view the scan 
 * Learn more about Azure Purview **Insights** with
 [Data Insights](./concept-insights.md)
 
-* Learn more about Azure Purview's **Sources** experience with [Manage data sources](./manage-data-sources.md)
+* Learn more about Azure Purview's **Data Map** experience with [Manage data sources](./manage-data-sources.md)

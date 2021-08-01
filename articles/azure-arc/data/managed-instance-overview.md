@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 03/02/2021
+ms.date: 07/30/2021
 ms.topic: overview
 ---
 
@@ -15,7 +15,6 @@ ms.topic: overview
 
 Azure Arc-enabled SQL Managed Instance is an Azure SQL data service that can be created on the infrastructure of your choice. 
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Description
 
