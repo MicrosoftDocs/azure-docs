@@ -104,7 +104,7 @@ For more information, see [Permissions in Azure Sentinel](roles.md).
 The following image shows a simplified version of a workspace architecture where security and operations teams need access to different sets of data, and resource-context RBAC is used to provide the required permissions.
 
 
-[ ![Sample architecture for resource-context RBAC.](media/resource-context-rbac/resource-context-rbac-sample.png) ](media/resource-context-rbac/resource-context-rbac-sample.png#lightbox)
+[ ![Diagram of a sample architecture for resource-context RBAC.](media/resource-context-rbac/resource-context-rbac-sample.png) ](media/resource-context-rbac/resource-context-rbac-sample.png#lightbox)
 
 In this image, the Azure Sentinel workspace is placed in a separate subscription to better isolate permissions.
 
