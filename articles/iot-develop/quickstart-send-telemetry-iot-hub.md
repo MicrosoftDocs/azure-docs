@@ -46,7 +46,7 @@ zone_pivot_groups: iot-develop-set1
 
 :::zone-end
 
-## View telemetry
+## View metrics
 After the simulated device connects to IoT Hub, it begins sending telemetry. You can view the telemetry metrics and other details about your Iot hub and devices in the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).

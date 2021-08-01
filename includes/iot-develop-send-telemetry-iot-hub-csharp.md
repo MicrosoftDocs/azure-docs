@@ -70,3 +70,8 @@ To run the sample application in Visual Studio:
       payload:
         temperature: 36.7
     ```
+
+## View Telemetry
+
+
+

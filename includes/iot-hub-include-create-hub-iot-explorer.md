@@ -78,7 +78,7 @@ To add the public model repository:
 
 ### Register a device
 
-In this section, you create a new device instance and register it with the IoT hub you created. You will use the connection information for the newly registered device to securely connect your physical device in a later section.
+In this section, you create a new device instance and register it with the IoT hub you created. You'll use the connection information for the newly registered device to securely connect your physical device in a later section.
 
 To register a device:
 
