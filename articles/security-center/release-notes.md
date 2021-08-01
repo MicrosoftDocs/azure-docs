@@ -35,10 +35,10 @@ When Defender for Endpoint detects a threat, it triggers an alert. The alert is 
 
 During the preview period, you'll deploy the [Defender for Endpoint for Linux](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux) sensor to supported Linux machines in one of two ways depending on whether you've already deployed it to your Windows machines:
 
-- [Existing users of Azure Defender and Microsoft Defender for Endpoint for Windows](security-center-wdatp.md#linux-previewtablinux)
-- [New users who've never enabled the integration with Microsoft Defender for Endpoint for Windows](security-center-wdatp.md#linux-previewtablinux)
+- [Existing users of Azure Defender and Microsoft Defender for Endpoint for Windows](security-center-wdatp.md#mde-linux)
+- [New users who've never enabled the integration with Microsoft Defender for Endpoint for Windows](security-center-wdatp.md#mde-linux)
 
-Learn more in [Onboard Linux machines when you have an existing integration with Defender for Endpoint for Windows](security-center-wdatp.md#onboard-linux-machines-when-you-have-an-existing-windows-integration).
+Learn more in [Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](security-center-wdatp.md).
 
 
 ## July 2021
@@ -134,7 +134,7 @@ With this update, these two options are released for General Availability (GA).
 
 ### Workflow automations can be triggered by changes to regulatory compliance assessments (GA)
 
-In February 2021, we added a **preview** third data type to the trigger options for your workflow automations: changes to regulatory compliance assessments. Learn more in [Workflow automations can be triggered by changes to regulatory compliance assessments](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-in-preview).
+In February 2021, we added a **preview** third data type to the trigger options for your workflow automations: changes to regulatory compliance assessments. Learn more in [Workflow automations can be triggered by changes to regulatory compliance assessments](release-notes-archive.md#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-in-preview).
 
 With this update, this trigger option is released for General Availability (GA).
 

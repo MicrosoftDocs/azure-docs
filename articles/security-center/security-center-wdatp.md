@@ -73,7 +73,7 @@ Confirm that your machine meets the necessary requirements for Defender for Endp
 
     - **Azure virtual machines (Windows or Linux)**:
         - Confirm that your target machines have the Log Analytics agent. Use the Security Center recommendation to deploy the Log Analytics agent where necessary: [Log Analytics agent should be installed on your virtual machine](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/d1db3318-01ff-16de-29eb-28b344515626).
-        - Configure the network settings described in configure device proxy and internet connectivity settings: [Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet) or [Linux](security/defender-endpoint/linux-static-proxy-configuration)
+        - Configure the network settings described in configure device proxy and internet connectivity settings: [Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet) or [Linux](/microsoft-365/security/defender-endpoint/linux-static-proxy-configuration)
 
     - **On-premises machines**:
         1. Connect your target machines to Azure Arc as explained in [Connect hybrid machines with Azure Arc enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
@@ -100,7 +100,7 @@ Confirm that your machine meets the necessary requirements for Defender for Endp
 
     Azure Security Center will automatically onboard your machines to Microsoft Defender for Endpoint. Onboarding might take up to 24 hours.
 
-### [**Linux** (preview)](#tab/linux)
+### <a name="mde-linux"></a>[**Linux** (preview)](#tab/linux)
 
 During the preview period, you'll deploy Defender for Endpoint to your Linux machines in one of two ways depending on whether you've already deployed it to your Windows machines:
 
@@ -136,7 +136,7 @@ If you've already enabled the integration with **Defender for Endpoint for Windo
     Azure Security Center will:
 
     - Automatically onboard your Linux machines to Defender for Endpoint
-    - Ignore any machines that are running other fanotify-based solutions (see details of the `fanotify` kernel option required in [Linux system requirements](https://docs.microsoft.com/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#system-requirements))
+    - Ignore any machines that are running other fanotify-based solutions (see details of the `fanotify` kernel option required in [Linux system requirements](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#system-requirements))
     - Detect any previous installations of Defender for Endpoint and reconfigure them to integrated mode
 
     Onboarding might take up to 24 hours.
@@ -172,7 +172,7 @@ If you've never enabled the integration for Windows, the **Allow Microsoft Defen
     Azure Security Center will:
 
     - Automatically onboard your Windows and Linux machines to Defender for Endpoint
-    - Ignore any Linux machines that are running other fanotify-based solutions (see details of the `fanotify` kernel option required in [Linux system requirements](https://docs.microsoft.com/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#system-requirements))
+    - Ignore any Linux machines that are running other fanotify-based solutions (see details of the `fanotify` kernel option required in [Linux system requirements](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#system-requirements))
     - Detect any previous installations of Defender for Endpoint and reconfigure them to integrated mode
 
     Onboarding might take up to 24 hours.
