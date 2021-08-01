@@ -37,6 +37,7 @@ Azure Sentinel provides the following built-in, product-specific file event pars
 - **Sysmon file activity events** (Events 11, 23, and 26), collected using the Log Analytics Agent or Azure Monitor Agent.
 - **Microsoft Office 365 Sharepoint and Onedrive events**, collected using the Office Activity connector.
 - **Microsoft 365 Defender for Endpoints file events**
+- **Azure Storage**, including Blob, File, Queue, and Table Storage.
 
 To use the source-agnostic parser that unifies all of the built-in parsers, and ensure that your analysis runs across all the configured sources, use imFileEvent as the table name in your query.
 
