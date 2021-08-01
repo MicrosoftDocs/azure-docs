@@ -38,8 +38,8 @@ Network peering is used in various topologies, other than hub-spoke. Such networ
 
 ### Testing with a local bypass: Edit your machine's hosts file instead of the DNS 
 As a local bypass to the All or Nothing behavior, you can select not to update your DNS with the Private Link records, and instead edit the hosts files on select machines so only these machines would send requests to the Private Link endpoints.
-* Set up a Private Link as show below, but when [connecting to a Private Endpoint](#connect-to-a-private-endpoint) choose **not** to auto-integrate with the DNS (step 5b).
-* Configure the relevant endpoints on your machines' hosts files. To review the Azure Monitor endpoints that need mapping, see [Reviewing your Endpoint's DNS settings](#reviewing-your-endpoints-dns-settings).
+* Set up a Private Link, but when connecting to a Private Endpoint choose **not** to auto-integrate with the DNS (step 5b).
+* Configure the relevant endpoints on your machines' hosts files. To review the Azure Monitor endpoints that need mapping, see [Reviewing your Endpoint's DNS settings](./private-link-setup#reviewing-your-endpoints-dns-settings).
 
 That approach isn't recommended for production environments.
 
@@ -70,7 +70,7 @@ In the below diagram:
 ## Log Analytics considerations
 
 ### Log Analytics solution packs download
-Log Analytics agents need to access a global storage account to download solution packs. Private Link setups created at or after April 19, 2021 (or starting June 2021 on Azure Sovereign clouds) can reach the agents' solution packs storage over the private link. This capability is made possible through the new DNS zone created for [blob.core.windows.net](#privatelink-blob-core-windows-net).
+Log Analytics agents need to access a global storage account to download solution packs. Private Link setups created at or after April 19, 2021 (or starting June 2021 on Azure Sovereign clouds) can reach the agents' solution packs storage over the private link. This capability is made possible through a DNS zone created for 'blob.core.windows.net'.
 
 If your Private Link setup was created before April 19, 2021, it won't reach the solution packs storage over a private link. To handle that you can either:
 * Re-create your AMPLS and the Private Endpoint connected to it
@@ -119,12 +119,12 @@ To use the REST API, [CLI](/cli/azure/monitor) or PowerShell with Azure Monitor 
 Bundle the JavaScript code in your script so that the browser doesn't attempt to download code from a CDN. An example is provided on [GitHub](https://github.com/microsoft/ApplicationInsights-JS#npm-setup-ignore-if-using-snippet-setup)
 
 ### Browser DNS settings
-If you're connecting to your Azure Monitor resources over a Private Link, traffic to these resources must go through the private endpoint that is configured on your network. To enable the private endpoint, update your DNS settings as explained in [Connect to a private endpoint](#connect-to-a-private-endpoint). Some browsers use their own DNS settings instead of the ones you set. The browser might attempt to connect to Azure Monitor public endpoints and bypass the Private Link entirely. Verify that your browsers settings don't override or cache old DNS settings. 
+If you're connecting to your Azure Monitor resources over a Private Link, traffic to these resources must go through the private endpoint that is configured on your network. To enable the private endpoint, update your DNS settings as explained in [Connect to a private endpoint](./private-links-setup#connect-to-a-private-endpoint). Some browsers use their own DNS settings instead of the ones you set. The browser might attempt to connect to Azure Monitor public endpoints and bypass the Private Link entirely. Verify that your browsers settings don't override or cache old DNS settings. 
 
 ### Querying limitation: externaldata operator
 The [`externaldata` operator](/azure/data-explorer/kusto/query/externaldata-operator?pivots=azuremonitor) isn't supported over a Private Link, as it reads data from storage accounts but doesn't guarantee the storage is accessed privately.
 
 ## Next steps
-- Learn how to [setup your Azure Monitor Private Link](private-link-setup.md)
+- Learn how to [setup your Azure Monitor Private Link](private-links-setup.md)
 - Learn about [private storage](private-storage.md)
 - Learn about [Private Link for Automation](../../automation/how-to/private-link-security.md)
