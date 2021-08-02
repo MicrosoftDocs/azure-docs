@@ -100,7 +100,7 @@ Confirm that your machine meets the necessary requirements for Defender for Endp
 
     Azure Security Center will automatically onboard your machines to Microsoft Defender for Endpoint. Onboarding might take up to 24 hours.
 
-### <a name="mde-linux"></a>[**Linux** (preview)](#tab/linux)
+### [**Linux** (preview)](#tab/linux)
 
 During the preview period, you'll deploy Defender for Endpoint to your Linux machines in one of two ways depending on whether you've already deployed it to your Windows machines:
 

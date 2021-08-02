@@ -35,8 +35,8 @@ When Defender for Endpoint detects a threat, it triggers an alert. The alert is 
 
 During the preview period, you'll deploy the [Defender for Endpoint for Linux](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux) sensor to supported Linux machines in one of two ways depending on whether you've already deployed it to your Windows machines:
 
-- [Existing users of Azure Defender and Microsoft Defender for Endpoint for Windows](security-center-wdatp.md#mde-linux)
-- [New users who've never enabled the integration with Microsoft Defender for Endpoint for Windows](security-center-wdatp.md#mde-linux)
+- [Existing users of Azure Defender and Microsoft Defender for Endpoint for Windows](security-center-wdatp.md&tabs=linux#existing-users-of-azure-defender-and-microsoft-defender-for-endpoint-for-windows)
+- [New users who've never enabled the integration with Microsoft Defender for Endpoint for Windows](security-center-wdatp.md&tabs=linux#new-users-whove-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows)
 
 Learn more in [Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](security-center-wdatp.md).
 
