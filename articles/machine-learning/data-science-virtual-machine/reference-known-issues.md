@@ -24,7 +24,7 @@ Virtual Machine.
 
 The ND A100 v4 series virtual machine is a new flagship addition to the Azure GPU family, designed for high-end Deep Learning training and tightly-coupled scale-up and scale-out HPC workloads.
 
-Due to different architecture it requires different setup for your high-demanding workloads to benefit from GPU acceleration using TensorFlow or Pytorch frameworks.
+Due to different architecture it requires different setup for your high-demanding workloads to benefit from GPU acceleration using TensorFlow or PyTorch frameworks.
 
 We are working towards supporting the ND A100 machines GPUs out-of-the-box. Meanwhile you can make your GPU working by adding NVIDIA's Fabric Manager and updating drivers. 
 
@@ -45,7 +45,7 @@ Follow these simple steps while in Terminal:
     ```
     sudo systemctl enable nvidia-fabricmanager
     sudo systemctl start nvidia-fabricmanager
-    ``
+    ```
 
 You can now check your drivers and GPU working by running:
 ```
