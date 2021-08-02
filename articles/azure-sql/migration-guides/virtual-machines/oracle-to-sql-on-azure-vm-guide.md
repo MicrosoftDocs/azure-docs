@@ -253,13 +253,17 @@ Few common scenarios
 #### Create test case
 
 1. In SSMA for oracle, select Tester followed by New Test Case.
+
    :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/ssma-tester-new.png" alt-text="Screenshot that shows new test case.":::
 
 2.On the Test Case wizard, provide the following information.
 
 Name: Enter the name to identify the test case.
+
 Creation date: Today's current date, defined automatically.
+
 Last Modified date: filled in automatically, should not be changed.
+
 Description: Enter any additional information to identify the purpose of the test case.
 
   :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/tester-init-test-case.png" alt-text="Screenshot that shows step to initialize a test case.":::
