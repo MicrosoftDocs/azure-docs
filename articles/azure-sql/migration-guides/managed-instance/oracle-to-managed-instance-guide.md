@@ -182,6 +182,7 @@ In this example,  stored procedure ADD_REGION and table REGION are selected.
  To learn more, see  [Selecting and configuring objects to test.](/sql/ssma/oracle/selecting-and-configuring-objects-to-test-oracletosql)
 
 4.In the next step, select and configure affected objects, select  the tables and foreign keys from the Oracle object tree located on the left window.
+
 ![Screenshot that shows the step to select and configure affected object .](./media/oracle-to-managed-instance-guide/tester-select-configure-affected.png)
 
 To learn more, see [Selecting and configuring affected objects.](/sql/ssma/oracle/selecting-and-configuring-affected-objects-oracletosql)

@@ -173,13 +173,15 @@ Description: Enter any additional information to identify the purpose of the tes
  ![Screenshot that shows steps to initialize a test case .](./media/oracle-to-sql-database-guide/tester-init-test-case.png)
 
 3.In the Oracle object tree located on the left side, select the objects you want to evaluate  during the testing process.
+
  ![Screenshot that shows how to select and configure object .](./media/oracle-to-sql-database-guide/tester-select-configure-objects.png)
- 
+
 In this example,  stored procedure ADD_REGION and table REGION are selected.
 
  To learn more, see  [Selecting and configuring objects to test.](/sql/ssma/oracle/selecting-and-configuring-objects-to-test-oracletosql)
 
 4.In the next step, select and configure affected objects, select  the tables and foreign keys from the Oracle object tree located on the left window.
+
 ![Screenshot that shows   to link affected objects  .](./media/oracle-to-sql-database-guide/tester-select-configure-affected.png)
 
 To learn more, see [Selecting and configuring affected objects.](/sql/ssma/oracle/selecting-and-configuring-affected-objects-oracletosql)
