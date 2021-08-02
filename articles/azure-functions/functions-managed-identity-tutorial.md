@@ -10,17 +10,17 @@ ms.date: 7/26/2021
 
 This tutorial shows you how to configure a secretless function app using identity-based connections instead of connection strings. To learn more about identity-based connections, see [configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
 
-While the procedures shown work for all languages, this tutorial currently shows only C# code examples. 
+While the procedures shown work generally for all languages, this tutorial currently supports C# class library functions specifically. 
 
 
 In this tutorial, you'll learn how to:
 > [!div class="checklist"]
-> * Create a function app using an ARM template.
+> * Create a function app in Azure using an ARM template.
 > * Enable managed identity on the function app.
-> * Create a function app and manually create a deployment package.
-> * Upload a deployment package to Blob Storage
+> * Create a timer triggered function project and build a deployment package.
+> * Upload a deployment package to Blob Storage.
 > * Use managed identity for the default storage account.
-> * Update your extension bundle (non-C# languages).
+<!--- >* Update your extension bundle (non-C# languages). --->
 
 ## Prerequisites
 
@@ -33,9 +33,11 @@ Before you begin, you must have the following:
 + The [Azure Functions Core Tools](functions-run-local.md#v2) version 3.x.
 
 
-## Create a Function App without Azure Files
+## Create a function app without Azure Files
 
-Azure Files currently doesn't support managed identity for SMB file shares. This means that the function app you create can't use Azure Files. Because the Azure portal doesn't support creating function apps without Azure files, you need to use an ARM template to create your function app in Azure. To learn more, see [Create an app without Azure Files](storage-considerations.md#create-an-app-without-azure-files).
+Azure Files currently doesn't support managed identity for SMB file shares. This means that the function app you create can't use Azure Files, which is used by default for Windows deployments on Premium and Consumption plans. 
+
+Because the Azure portal doesn't support creating function apps without Azure Files, you instead need to generate and edit an ARM template, which you then use to create your function app in Azure. To learn more, see [Create an app without Azure Files](storage-considerations.md#create-an-app-without-azure-files).
 
 > [!IMPORTANT]
 > Don't create the function app until after you edit the ARM template.
@@ -96,7 +98,7 @@ You must enable managed identities so that your function app works without havin
 
     :::image type="content" source="./media/functions-secretless-tutorial/4-add-system-assigned-id.png" alt-text="Screenshot how to add a system assigned identity.":::
 
-1. Switch the **Status** to **On**, and select **Save**.
+1. Switch the **Status** to **On**, and select **Save**. If promoted to **enable system assigned managed identity**, select **Yes**.
 
 1. Select **Azure role assignments** and then **Azure role assignment (Preview)**.
 
@@ -111,13 +113,13 @@ You must enable managed identities so that your function app works without havin
     |**Resource**| Your storage account | The storage account for your function app. |
     | **Role** | Storage Blob Data Owner | A role is a collection of permissions. Grants full access to manage all resources, including the ability to assign roles in Azure RBAC. |
 
-1. Select **Save**.
+1. Select **Save**. It might take a minute or two for the role to show up when you refresh the Azure role assignments list. 
 
 Congratulations! You've created a system-assigned Storage Blob Data Owner role. Now your app can use managed identity to pull packages from Blob Storage. This means that when you configure your functions to run from the deployment package, you won't need to use a shared access signature (SAS) key to access the package from your storage account. 
 
 Next, you'll deploy a timer triggered function to confirm things are configured correctly. A timer trigger is used because it doesn't require you to have a configured storage account and the `AzureWebJobsStorage` app setting.
 
-## Deploy to the function app and run from the package
+## Deploy packaged project files to the function app
 
 To deploy a zipped package without a connected storage account, you must manually create a .zip compressed deployment package and upload it to a Blob Storage container. 
 
@@ -152,9 +154,9 @@ To deploy a zipped package without a connected storage account, you must manuall
 
 1. Select **+ Container** to create a new Blob Storage container in your account.
 
-1. In the **New container** page, provide a **Name**, and select **Create**.
+1. In the **New container** page, provide a **Name**, make sure the **Public access level** is **Private**, and select **Create**.
 
-1. Select the container you created, select **Upload**, choose the .zip file you created with your project, and select **Upload**.
+1. Select the container you created, select **Upload**, browse to the location of the .zip file you created with your project, and select **Upload**.
 
     :::image type="content" source="./media/functions-secretless-tutorial/8-upload-zip.png" alt-text="Screenshot of how to go to upload a package.":::
 
@@ -196,12 +198,14 @@ Congratulations! You've successfully run your timer trigger in Azure. Now, you c
 
     :::image type="content" source="./media/functions-secretless-tutorial/13-update-azurewebjobsstorage.png" alt-text="Screenshot of how to update the AzureWebJobsStorage app setting.":::
 
-1. Select the **AzureWebJobsStorage** app setting, and configure it with the following settings.
+1. Select the **Edit** button next to the **AzureWebJobsStorage** application setting, and change it based on the following values.
 
     | Setting      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
     | **Name** |  AzureWebJobsStorage__accountName | Update the name from **AzureWebJobsStorage** to use the identity instead of secrets. |
     | **Value** | Your account name | Update the name from the connection string to just your **AccountName** to use the identity instead of secrets. Ex. `DefaultEndpointsProtocol=https;AccountName=identityappstore;AccountKey=...` would become `identityappstore`|
+
+1. Select **OK** and then **Save** > **Continue** to save your changes. 
 
 1. Go back to the **Functions** page and again start your timer trigger to make sure everything is still working correctly.
 
@@ -211,7 +215,8 @@ Congratulations! You've successfully removed all secrets in your function app by
 
 ## Next steps 
 
-This tutorial showed how to create and deploy a basic function app with a simple timer trigger using identity-based connections. Consider completing one of the following tutorials that further use managed identities when your function app must interact with more Azure services:
+This tutorial showed how to create and deploy a basic function app with a simple timer trigger using identity-based connections.  
+Consider completing one of the following tutorials that extend this basic scenario:
 
 | Use managed identities... | Description |
 | --- | --- |
