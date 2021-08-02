@@ -3,13 +3,16 @@ title: Deploy Azure Site Recovery replication appliance - Preview
 description: This article describes support and requirements when deploying the replication appliance for VMware disaster recovery to Azure with Azure Site Recovery - Preview
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/30/2021
+ms.date: 08/02/2021
 ---
 
 # Deploy Azure Site Recovery replication appliance - Preview
 
 >[!NOTE]
 > The information in this article applies to Azure Site Recovery - Preview. For information about configuration server requirements in Classic releases, [see this article](vmware-azure-configuration-server-requirements.md).
+
+>[!NOTE]
+> Ensure you create a new Recovery Services vault for setting up the preview appliance. Don't use an existing vault.
 
 You deploy an on-premises replication appliance when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs and physical servers to Azure.
 
@@ -114,7 +117,7 @@ You need to set up an Azure Site Recovery replication appliance in the on-premis
 Go to **Recovery Services Vault** > **Getting Started**. In VMware machines to Azure, select
 **Prepare Infrastructure** and proceed with the sections detailed below:
 
-![Recovery Services Vault Preview](./media/deploy-vmware-azure-replication-appliance-preview/vault.png)
+![Recovery Services Vault Preview](./media/deploy-vmware-azure-replication-appliance-preview/prepare-infra.png)
 
 To set up a new appliance, you can use an OVF template (recommended) or PowerShell. Ensure you meet all the [hardware ](#hardware-requirements) and [software requirements](#software-requirements), and any other prerequisites.
 
