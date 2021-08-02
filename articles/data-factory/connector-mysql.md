@@ -1,6 +1,6 @@
 ---
-title: Copy data from MySQL using Azure Data Factory 
-description: Learn about MySQL connector in Azure Data Factory that lets you copy data from a MySQL database to a data store supported as a sink.
+title: Copy data from MySQL
+description: Learn about MySQL connector in Azure Data Factory and Synapse Analytics that lets you copy data from a MySQL database to a data store supported as a sink.
 author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
@@ -8,14 +8,14 @@ ms.date: 09/09/2020
 ms.author: jianleishen
 ---
 
-# Copy data from MySQL using Azure Data Factory
+# Copy data from MySQL using Azure Data Factory or Synapse Analytics
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-onprem-mysql-connector.md)
 > * [Current version](connector-mysql.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data from a MySQL database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from a MySQL database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 >[!NOTE]
 >To copy data from or to [Azure Database for MySQL](../mysql/overview.md) service, use the specialized [Azure Database for MySQL connector](connector-azure-database-for-mysql.md).
@@ -41,7 +41,7 @@ The Integration Runtime provides a built-in MySQL driver starting from version 3
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties that are used to define Data Factory entities specific to MySQL connector.
+The following sections provide details about properties that are used to define entities specific to MySQL connector.
 
 ## Linked service properties
 
@@ -212,9 +212,9 @@ If you were using `RelationalSource` typed source, it is still supported as-is, 
 
 ## Data type mapping for MySQL
 
-When copying data from MySQL, the following mappings are used from MySQL data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
+When copying data from MySQL, the following mappings are used from MySQL data types to interim data types used by the service internally. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
-| MySQL data type | Data factory interim data type |
+| MySQL data type | Interim service data type |
 |:--- |:--- |
 | `bigint` |`Int64` |
 | `bigint unsigned` |`Decimal` |
@@ -263,4 +263,4 @@ When copying data from MySQL, the following mappings are used from MySQL data ty
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
