@@ -235,8 +235,7 @@ Azure Backup offers the flexibility to restore the managed Azure VM with [Manage
 
 If you choose to select system-assigned or User-assigned Managed identities, check for the below actions for Managed Identity on the target staging Storage Account.
 
-```dotnetcli
-
+```json
 "permissions": [
             {
                 "actions": [
