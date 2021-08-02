@@ -428,7 +428,7 @@ Calling db.collection.watch() on each resume token (one thread per token), will 
 ```
 
 ### Example
-Run the custom command to get a resume token for each physical shard/partition
+Run the custom command to get a resume token for each physical shard/partition.
 
 ```javascript
 use test
@@ -436,16 +436,18 @@ db.runCommand({customAction: "GetChangeStreamTokens", collection: "<Name of the 
 ```
 
 Run a watch() thread/process for each resume token returned from the GetChangeStreamTokens custom command. Below is an example for one thread.
+
 ```javascript
 db.test_coll.watch([{ $match: { "operationType": { $in: ["insert", "update", "replace"] } } }, { $project: { "_id": 1, "fullDocument": 1, "ns": 1, "documentKey": 1 } }], 
 {fullDocument: "updateLookup", 
 resumeAfter: { "_data" : BinData(0,"eyJWIjoyLCJSaWQiOiJQeFVhQUxuMFNLRT0iLCJDb250aW51YXRpb24iOlt7IkZlZWRSYW5nZSI6eyJ0eXBlIjoiRWZmZWN0aXZlIFBhcnRpdGlvbiBLZXkgUmFuZ2UiLCJ2YWx1ZSI6eyJtaW4iOiIiLCJtYXgiOiJGRiJ9fSwiU3RhdGUiOnsidHlwZSI6ImNvbnRpbndkFLbiIsInZhbHVlIjoiXCIxODQ0XCIifX1dfQ=="), "_kind" : NumberInt(1)}})
-
-{ "_id" : { "_data" : BinData(0,"eyJWIjoyLCJSaWQiOiJQeFVhQUxuMFNLRT0iLCJDfdsfdsfdsft7IkZlZWRSYW5nZSI6eyJ0eXBlIjoiRWZmZWN0aXZlIFBhcnRpdGlvbiBLZXkgUmFuZ2UiLCJ2YWx1ZSI6eyJtaW4iOiIiLCJtYXgiOiJGRiJ9fSwiU3RhdGUiOnsidHlwZSI6ImNvbnRpbnVhdGlvbiIsInZhbHVlIjoiXCIxOTgwXCIifX1dfQ=="), "_kind" : 1 },
- "fullDocument" : { "_id" : ObjectId("60da41ec9d1065b9f3b238fc"), "name" : John, "age" : 6 }, "ns" : { "db" : "test-db", "coll" : "test_coll" }, "documentKey" : { "_id" : ObjectId("60da41ec9d1065b9f3b238fc") }}
 ```
 
-The document (value) in the resumeAfter field represents the resume token. Watch() will return a curser for all documents that were inserted, updated, or replaced from that physical partition since the GetChangeStreamTokens custom command was run. 
+The document (value) in the resumeAfter field represents the resume token. watch() will return a curser for all documents that were inserted, updated, or replaced from that physical partition since the GetChangeStreamTokens custom command was run. A sample of the data returned is below.
+
+```javascript
+{ "_id" : { "_data" : BinData(0,"eyJWIjoyLCJSaWQiOiJQeFVhQUxuMFNLRT0iLCJDfdsfdsfdsft7IkZlZWRSYW5nZSI6eyJ0eXBlIjoiRWZmZWN0aXZlIFBhcnRpdGlvbiBLZXkgUmFuZ2UiLCJ2YWx1ZSI6eyJtaW4iOiIiLCJtYXgiOiJGRiJ9fSwiU3RhdGUiOnsidHlwZSI6ImNvbnRpbnVhdGlvbiIsInZhbHVlIjoiXCIxOTgwXCIifX1dfQ=="), "_kind" : 1 },
+ "fullDocument" : { "_id" : ObjectId("60da41ec9d1065b9f3b238fc"), "name" : John, "age" : 6 }, "ns" : { "db" : "test-db", "coll" : "test_coll" }, "documentKey" : { "_id" : ObjectId("60da41ec9d1065b9f3b238fc") }}
 
 Note that each document returned includes a resume token (they are all the same for each page). This resume token should be stored and reused if the thread/process dies. This resume token will pick up from where you left off, and receive data only from that physical partition.
 
