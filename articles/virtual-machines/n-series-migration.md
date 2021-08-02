@@ -1,6 +1,6 @@
 ---
-title: n-series-migration
-description: NC, ND, NCv2-series migration guide
+title: Migration Guide for GPU Compute Workloads in Azure
+description: NC, ND, NCv2-series migration guide.
 author: iafinder
 ms.service: virtual-machines
 ms.subservice: vm-sizes-gpu
@@ -83,9 +83,11 @@ After assessing your current usage, decide what type of GPU VM you need. Dependi
 
 **NOTE:** A best practice is to select a VM size based on both cost and performance. The recommendations in this guide are based on a general-purpose, one-to-one comparison of performance metrics and the nearest match in another VM series. Before deciding on the right size, get a cost comparison using the Azure Pricing Calculator.
 
-\* All legacy NC, NC v2 and ND-Series sizes are available in multi-GPU sizes, including 4-GPU sizes with and without InfiniBand interconnect for scale-out, tightly-coupled workloads that demand more compute power than a single 4-GPU VM, or a single K80, P40, or P100 GPU can supply respectively. Although the recommendations above offer a straightforward path forward, users of these sizes should consider achieving their performance goals with more powerful NVIDIA V100 GPU-based VM series like the NC v3-Series and [ND v2-series](./ndv2-series.md), which typically enable the same level of workload performance at lower costs and with improved manageability by providing considerably greater performance per GPU and per VM before multi-GPU and multi-node configurations are required, respectively.
+> [!IMPORTANT]
+> All legacy NC, NC v2 and ND-Series sizes are available in multi-GPU sizes, including 4-GPU sizes with and without InfiniBand interconnect for scale-out, tightly-coupled workloads that demand more compute power than a single 4-GPU VM, or a single K80, P40, or P100 GPU can supply respectively. Although the recommendations above offer a straightforward path forward, users of these sizes should consider achieving their performance goals with more powerful NVIDIA V100 GPU-based VM series like the NC v3-Series and [ND v2-series](./ndv2-series.md), which typically enable the same level of workload performance at lower costs and with improved manageability by providing considerably greater performance per GPU and per VM before multi-GPU and multi-node configurations are required, respectively.
+<br>
 
-Get quota for the target VM family
+### Get quota for the target VM family
 
 Follow the guide to [request an increase in vCPU quota by VM family.](https://docs.microsoft.com/en-us/azure/azure-portal/supportability/per-vm-quota-requests) Select the target VM size you have selected for migration.
 
