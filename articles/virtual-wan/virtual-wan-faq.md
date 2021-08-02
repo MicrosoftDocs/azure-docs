@@ -103,7 +103,7 @@ Virtual WAN supports up to 20 Gbps aggregate throughput both for VPN and Express
 
 ### How is Virtual WAN different from an Azure virtual network gateway?
 
-A virtual network gateway VPN is limited to 30 tunnels. For connections, you should use Virtual WAN for large-scale VPN. You can connect up to 1,000 branch connections per region (virtual hub) with aggregate of 20 Gbps per hub. A connection is an active-active tunnel from the on-premises VPN device to the virtual hub. You can have one hub per region, which means you can connect more than 1,000 branches across hubs.
+A virtual network gateway VPN is limited to 30 tunnels. For connections, you should use Virtual WAN for large-scale VPN. You can connect up to 1,000 branch connections per region (virtual hub) with aggregate of 20 Gbps per hub. A connection is an active-active tunnel from the on-premises VPN device to the virtual hub. You can have multiple virtual hubs per region, which means you can connect more than 1,000 branches across hubs.
 
 ### What is a Virtual WAN gateway scale unit?
 
