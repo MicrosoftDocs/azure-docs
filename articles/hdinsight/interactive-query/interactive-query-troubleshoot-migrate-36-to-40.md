@@ -151,7 +151,7 @@ Workaround:
 
 * Set configuration `metastore.storage.schema.reader.impl` to `org.apache.hadoop.hive.metastore.SerDeStorageSchemaReader` in `custom-hive-site` in Ambari
 
-* Restart Hive and all stale services
+* Restart all stale hive services
 
 ## Next steps
 
