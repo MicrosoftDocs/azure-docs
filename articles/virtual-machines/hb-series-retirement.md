@@ -12,7 +12,7 @@ ms.author: amverma
 # Migrate your HB-series virtual machines by August 31, 2024
 As Microsoft Azure has introduced HBv2 and HBv3-series virtual machines for high performance computing (HPC), we recommend migrating workloads from original HB-series virtual machines to our newer offerings.  
 
-Azure [HBv2](hbv2-series) and [HBv3](hbv3-series) virtual machines have greater memory bandwidth, improved remote direct memory access (RDMA) networking capabilities, larger and faster local solid-state drives, and better cost/performance across a broad variety of HPC workloads. Consequently, we are retiring our HB-series Azure Virtual Machine sizes on 31 August 2024.
+Azure [HBv2](hbv2-series.md) and [HBv3](hbv3-series.md) virtual machines have greater memory bandwidth, improved remote direct memory access (RDMA) networking capabilities, larger and faster local solid-state drives, and better cost/performance across a broad variety of HPC workloads. Consequently, we are retiring our HB-series Azure Virtual Machine sizes on 31 August 2024.
 
 ## How does the HB-series migration affect me?  
 
@@ -24,7 +24,7 @@ After 31 August 2024, any remaining HB size virtual machines subscriptions will 
 
 You will need to resize or deallocate your H-series virtual machines. We recommend migrating workloads from original H-series (inclusive of H-series promo) virtual machines to our newer offerings.
 
-[HBv2](hbv2-series), and [HBv3](hbv3-series) VMs offer substantially higher levels of HPC workload performance and cost efficiency due to large improvements in CPU core architecture, higher memory bandwidth, larger L3 caches, and enhanced InfiniBand networking as compared to HB-series. As a result, HBv2 and HBv3-series will in general offer substantially better performance per unit of cost (i.e. maximizing performance for a fixed amount of spend) as well as cost per performance (i.e. minimizing cost for a fixed amount of performance).
+[HBv2](hbv2-series.md), and [HBv3](hbv3-series.md) VMs offer substantially higher levels of HPC workload performance and cost efficiency due to large improvements in CPU core architecture, higher memory bandwidth, larger L3 caches, and enhanced InfiniBand networking as compared to HB-series. As a result, HBv2 and HBv3-series will in general offer substantially better performance per unit of cost (i.e. maximizing performance for a fixed amount of spend) as well as cost per performance (i.e. minimizing cost for a fixed amount of performance).
 
 All regions containing HB-series VMs contain HBv2 and HBv3-series virtual machines, so existing workloads running on HB-series VMs can be migrated without concern for geographic placement or for access to additional services in those regions. 
 
