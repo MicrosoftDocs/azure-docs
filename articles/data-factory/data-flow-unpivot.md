@@ -1,6 +1,6 @@
 ---
 title: Unpivot transformation in mapping data flow
-description: Azure Data Factory mapping data flow Unpivot Transformation
+description: Learn about the mapping data flow Unpivot Transformation in Azure Data Factory and Synapse Analytics.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
@@ -13,7 +13,7 @@ ms.date: 07/14/2020
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Use Unpivot in ADF mapping data flow as a way to turn an unnormalized dataset into a more normalized version by expanding values from multiple columns in a single record into multiple records with the same values in a single column.
+Use Unpivot in a mapping data flow as a way to turn an unnormalized dataset into a more normalized version by expanding values from multiple columns in a single record into multiple records with the same values in a single column.
 
 ![Screenshot shows Unpivot selected from the menu.](media/data-flow/unpivot1.png "Unpivot options 1")
 
@@ -29,7 +29,7 @@ First, set the columns that you wish to ungroup by for your unpivot aggregation.
 
 ![Screenshot shows the Unpivot Settings with the Unpivot key tab selected.](media/data-flow/unpivot6.png "Unpivot options 3")
 
-The Unpivot Key is the column that ADF will pivot from column to row. By default, each unique value in the dataset for this field will pivot to a row. However, you can optionally enter the values from the dataset that you wish to pivot to row values.
+The Unpivot Key is the column that the service will pivot from column to row. By default, each unique value in the dataset for this field will pivot to a row. However, you can optionally enter the values from the dataset that you wish to pivot to row values.
 
 ## Unpivoted Columns
 
