@@ -63,7 +63,7 @@ The NC v2-series virtual machines are a flagship platform originally designed fo
 
 ## **Migration Steps**
 
-General Changes
+### General Changes
 
 1.  Choose a series and size for migration. Leverage the [pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/) for further insights.
 
@@ -75,9 +75,9 @@ General Changes
 
         1.  This may also be a good time to update the operating system used by your Virtual Machine image, or adopt one of the HPC images with drivers pre-installed as your starting point.
 
-## **Breaking Changes**
+### **Breaking Changes**
 
-### Select target size for migration
+#### Select target size for migration
 
 After assessing your current usage, decide what type of GPU VM you need. Depending on the workload requirements you have few different choices.
 
@@ -87,11 +87,11 @@ After assessing your current usage, decide what type of GPU VM you need. Dependi
 > All legacy NC, NC v2 and ND-Series sizes are available in multi-GPU sizes, including 4-GPU sizes with and without InfiniBand interconnect for scale-out, tightly-coupled workloads that demand more compute power than a single 4-GPU VM, or a single K80, P40, or P100 GPU can supply respectively. Although the recommendations above offer a straightforward path forward, users of these sizes should consider achieving their performance goals with more powerful NVIDIA V100 GPU-based VM series like the [NC v3-Series](./ncv3-series.md) and [ND v2-series](./ndv2-series.md), which typically enable the same level of workload performance at lower costs and with improved manageability by providing considerably greater performance per GPU and per VM before multi-GPU and multi-node configurations are required, respectively.
 <br>
 
-### Get quota for the target VM family
+#### Get quota for the target VM family
 
 Follow the guide to [request an increase in vCPU quota by VM family.](https://docs.microsoft.com/en-us/azure/azure-portal/supportability/per-vm-quota-requests) Select the target VM size you have selected for migration.
 
-### Resize the current virtual machine
+#### Resize the current virtual machine
 
 You can [resize the virtual machine through Azure portal or Powershell](./windows/resize-vm.md). You can also [resize the virtual machine using Azure CLI](./linux/change-vm-size.md).
 
