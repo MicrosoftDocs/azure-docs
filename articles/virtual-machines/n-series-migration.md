@@ -91,7 +91,7 @@ After assessing your current usage, decide what type of GPU VM you need. Dependi
 
 Follow the guide to [request an increase in vCPU quota by VM family.](https://docs.microsoft.com/en-us/azure/azure-portal/supportability/per-vm-quota-requests) Select the target VM size you have selected for migration.
 
-Resize the current virtual machine
+### Resize the current virtual machine
 
 You can [resize the virtual machine through Azure portal or Powershell](./windows/resize-vm.md). You can also [resize the virtual machine using Azure CLI](./linux/change-vm-size.md).
 
