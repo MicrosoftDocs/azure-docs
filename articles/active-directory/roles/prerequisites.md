@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 05/13/2021
+ms.date: 07/30/2021
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -30,7 +30,7 @@ To use PowerShell commands to do the following:
 
 You must have the following module installed:
 
-- [AzureAD](https://www.powershellgallery.com/packages/AzureAD) version 2.0.2.130 or later
+- [AzureAD](https://www.powershellgallery.com/packages/AzureAD) version 2.0.2.137 or later
 
 
 #### Check AzureAD version
@@ -46,7 +46,7 @@ You should see output similar to the following:
 ```powershell
 Version    Name                                Repository           Description
 -------    ----                                ----------           -----------
-2.0.2.130  AzureAD                             PSGallery            Azure Active Directory V2 General Availability M...
+2.0.2.137  AzureAD                             PSGallery            Azure Active Directory V2 General Availability M...
 ```
 
 #### Install AzureAD
@@ -92,7 +92,7 @@ To use AzureAD, follow these steps to make sure it is imported into the current 
     ```powershell
     ModuleType Version    Name                                ExportedCommands
     ---------- -------    ----                                ----------------
-    Binary     2.0.2.130  AzureAD                             {Add-AzureADApplicationOwner, Add-AzureADDeviceRegisteredO...
+    Binary     2.0.2.137  AzureAD                             {Add-AzureADApplicationOwner, Add-AzureADDeviceRegisteredO...
     ```
 
 ## AzureADPreview module
