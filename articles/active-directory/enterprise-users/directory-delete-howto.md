@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 07/14/2021
 ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
@@ -25,7 +25,7 @@ When an Azure AD organization (tenant) is deleted, all resources that are contai
 
 You can't delete a organization in Azure AD until it passes several checks. These checks reduce risk that deleting an Azure AD organization negatively impacts user access, such as the ability to sign in to Microsoft 365 or access resources in Azure. For example, if the organization associated with a subscription is unintentionally deleted, then users can't access the Azure resources for that subscription. The following conditions are checked:
 
-* There can be no users in the Azure AD organization (tenant) except one global administrator who is to delete the organization. Any other users must be deleted before the organization can be deleted. If users are synchronized from on-premises, then sync must first be turned off, and the users must be deleted in the cloud organization using the Azure portal or Azure PowerShell cmdlets.
+* There can be no users in the Azure AD tenant except one global administrator who is to delete the organization. Any other users must be deleted before the organization can be deleted. If users are synchronized from on-premises, then sync must first be turned off, and the users must be deleted in the cloud organization using the Azure portal or Azure PowerShell cmdlets.
 * There can be no applications in the organization. Any applications must be removed before the organization can be deleted.
 * There can be no multi-factor authentication providers linked to the organization.
 * There can be no subscriptions for any Microsoft Online Services such as Microsoft Azure, Microsoft 365, or Azure AD Premium associated with the organization. For example, if a default Azure AD organization was created for you in Azure, you cannot delete this organization if your Azure subscription still relies on this organization for authentication. Similarly, you can't delete a organization if another user has associated a subscription with it.
@@ -90,6 +90,15 @@ You can put a subscription into the **Deprovisioned** state to be deleted in thr
 8. Once you have deleted a subscription in your organization and 72 hours have elapsed, you can sign back into the Azure AD admin center again and there should be no required action and no subscriptions blocking your organization deletion. You should be able to successfully delete your Azure AD organization.
   
    ![pass subscription check at deletion screen](./media/directory-delete-howto/delete-checks-passed.png)
+
+## Enterprise apps with no way to delete
+
+If you find that there are still enterprise applications that you can't delete in the portal, you can use the following PowerShell commands to remove them. For more information on this PowerShell command, see [Remove-AzureADServicePrincipal](/powershell/module/azuread/remove-azureadserviceprincipal?view=azureadps-2.0&preserve-view=true).
+
+1. Open PowerShell as an administrator
+1. Run `Connect-AzAccount -tenant <TENANT_ID>`
+1. Sign in the Azure AD Global Administrator role
+1. Run `Get-AzADServicePrincipal | ForEach-Object {​​​​​ Remove-AzADServicePrincipal -ObjectId $_.Id -Force}​`​​​​
 
 ## I have a trial subscription that blocks deletion
 

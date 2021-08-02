@@ -3,13 +3,13 @@ title: Speech-to-text overview - Speech service
 titleSuffix: Azure Cognitive Services
 description: Speech-to-text software enables real-time transcription of audio streams into text. Your applications, tools, or devices can consume, display, and take action on this text input. This article is an overview of the benefits and capabilities of the speech-to-text service.
 services: cognitive-services
-author: trevorbye
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.author: trbye
+ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
 keywords: speech to text, speech to text software
 ---

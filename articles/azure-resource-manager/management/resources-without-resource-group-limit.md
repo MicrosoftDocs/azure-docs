@@ -168,6 +168,7 @@ For some resource types, you need to contact support to have the 800 instance li
 * privateDnsZones/virtualNetworkLinks
 * privateEndpoints
 * privateLinkServices
+* publicIPAddresses
 * serviceEndpointPolicies
 * trafficmanagerprofiles
 * virtualNetworkTaps
