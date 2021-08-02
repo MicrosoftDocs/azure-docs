@@ -73,8 +73,6 @@
       href: reference/v3-0-reference.md
     - name: Languages
       href: reference/v3-0-languages.md
-    - name: Request limits
-      href: request-limits.md
     - name: Translate
       href: reference/v3-0-translate.md
     - name: Transliterate
@@ -87,6 +85,8 @@
       href: reference/v3-0-dictionary-lookup.md
     - name: Dictionary Examples
       href: reference/v3-0-dictionary-examples.md
+    - name: Request limits
+      href: request-limits.md
 - name: Document Translation
   items:
     - name: What is Document Translation?

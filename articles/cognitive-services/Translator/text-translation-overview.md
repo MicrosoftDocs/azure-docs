@@ -16,7 +16,13 @@ keywords: translator, text translation, machine translation, translation service
 
 # What is Text Translation?
 
-Text translation is a REST API that enables the following requests:
+Text translation is a REST API that enables you to easily translate text in real time. You add Text Translation to your applications using REST APIs or client SDKs. The [REST API]() text projects 
+
+Translate text between thousands of language pairs.
+Detect text language.
+Provides alternative translations for a word or idiomatic phrases.
+Converts text in one language from one script to another script.
+Retrieve a list of supported languages for translation by Microsoft Translator Text.
 
 * **Languages**. Get a list of the languages supported by Translate, Transliterate and Dictionary Lookup requests. This request does not require authentication; just copy and paste the following GET request into Postman or your favorite API tool:
 
