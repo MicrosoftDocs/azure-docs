@@ -92,20 +92,6 @@ You can also capture an existing VM as an image, from the portal. For more infor
 
 ### [CLI](#tab/cli)
 
-You can see a list of VMs that are available using [az vm list](/cli/azure/vm#az_vm_list). 
-
-```azurecli-interactive
-az vm list --output table
-```
-
-Once you know the VM name and what resource group it is in, get the ID of the VM using [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view). 
-
-```azurecli-interactive
-az vm get-instance-view -g MyResourceGroup -n MyVm --query id
-```
-
-**Create an image definition**
-
 Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them.
 
 Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes, and periods. 
@@ -136,15 +122,20 @@ az sig image-definition create \
 
 **Create the image version**
 
-Create an image using [az sig image version create](/cli/azure/sig/image-version#az_sig_image_version_create).  
+Create an image version using [az sig image version create](/cli/azure/sig/image-version#az_sig_image_version_create).  
 
-The syntax for creating the image will change, depending on what you are using as your source:
+The syntax for creating the image will change, depending on what you are using as your source: You can mix the source types, as long as you only have one OS source. You can have different sources for each data disk. 
 
-| Source  | parameter set |
+| Source  | Parameter set |
 |---|---|
-| VM, managed image, or another image version | `--managed-image <ID>` |
+| **OS Disk**| |
+| VM | VM ID | `--managed-image /subscriptions/00000000-0000-0000-0000-00000000xxxx/resourceGroups/imageGroups/providers/Microsoft.Compute/virtualMachines/MyVM` |
+| Managed image or another image version | `--managed-image <ID>` |
 | Snapshot or managed disk | `--os-snapshot <ID>`. If you have data disks to include, add `--data-snapshots <IDs>` |
 | VHD in a storage account | `--os-vhd-uri <URI> --os-vhd-storage-account <account>`. If you have data disks to include, add `--data-vhds-sa <account> --data-vhds-uris <URIs> --data-vhds-luns <LUN>` | 
+| **Data disk** |
+| Snapshot or managed disk | `--data-snapshots /subscriptions/00000000-0000-0000-0000-00000000xxxx/resourceGroups/imageGroups/providers/Microsoft.Compute/snapshots/MyDiskSnapshot --data-snapshot-luns 0` |
+| VHD in a storage account | `--data-vhds-sa <storageaccountname> --data-vhds-uris <URI> --data-vhds-luns 0` |
 
 
 In this example, we are creating an image from a VM. The version of our image is *1.0.0* and we are going to create 2 replicas in the *West Central US* region, 1 replica in the *South Central US* region and 1 replica in the *East US 2* region using zone-redundant storage. The replication regions must include the region the source VM is located.

@@ -1,24 +1,27 @@
 ---
-title: Share a gallery
-description: Learn how to share a gallery.
+title: Share a gallery using RBAC
+description: Learn how to share a gallery using role-based access control (RBAC).
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 07/15/2021
+ms.date: 08/02/2021
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: template-how-to 
 
 ---
 
-# Share a gallery 
+# Use RBAC to share image gallery resources
 
-We recommend that you share access at the gallery level.
+As the Shared Image Gallery, image Definition, and image version are all resources, they can be shared using the built-in native Azure RBAC controls. Using Azure RBAC you can share these resources to other users, service principals, and groups. You can even share access to individuals outside of the tenant they were created within. Once a user has access to the Shared Image version, they can deploy a VM or a Virtual Machine Scale Set.  
 
+We recommend sharing at the Gallery level for the best experience. We do not recommend sharing individual image versions. For more information about Azure RBAC, see [Assign Azure roles](../role-based-access-control/role-assignments-portal.md).
 
+If the user is outside of your organization, they will get an email invitation to join the organization. The user needs to accept the invitation, then they will be able to see the gallery and all of the image definitions and versions in their list of resources.
 
+## Share a gallery
 
 ### [Portal](#tab/portal)
 
