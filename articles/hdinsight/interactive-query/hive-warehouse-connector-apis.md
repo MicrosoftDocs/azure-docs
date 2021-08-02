@@ -26,22 +26,22 @@ Complete the [Hive Warehouse Connector setup](./apache-hive-warehouse-connector.
 
 ## Supported APIs
 
-1. Set the database:
+- Set the database:
     ```scala
     hive.setDatabase("<database-name>")
     ```
 
-2. List all databases:
+- List all databases:
     ```scala
     hive.showDatabases()
     ```
 
-3. List all tables in the current database
+- List all tables in the current database
     ```scala
     hive.showTables()
     ```
 
-4. Describe a table
+- Describe a table
     
     ```scala
    // Describes the table <table-name> in the current database
@@ -53,27 +53,27 @@ Complete the [Hive Warehouse Connector setup](./apache-hive-warehouse-connector.
     hive.describeTable("<database-name>.<table-name>")
     ```
 
-5. Drop a database
+- Drop a database
     
     ```scala
    // ifExists and cascade are boolean variables
     hive.dropDatabase("<database-name>", ifExists, cascade)
     ```
 
-6.  Drop a table in the current database
+- Drop a table in the current database
     
     ```scala
     // ifExists and purge are boolean variables
     hive.dropTable("<table-name>", ifExists, purge)
     ```
 
-7. Create a database
+- Create a database
     ```scala
    // ifNotExists is boolean variable
     hive.createDatabase("<database-name>", ifNotExists)
     ```
 
-8. Create a table in current database
+- Create a table in current database
     ```scala
    // Returns a builder to create table
     val createTableBuilder = hive.createTable("<table-name>")
@@ -110,18 +110,18 @@ Complete the [Hive Warehouse Connector setup](./apache-hive-warehouse-connector.
     createTableBuilder.create()
     ```
 
-    **Note**: This API creates an ORC formatted table at default location.
-   For other features/options or to create table using hive queries, use `executeUpdate` API.
+    > [!NOTE]
+    > This API creates an ORC formatted table at default location. For other features/options or to create table using hive queries, use `executeUpdate` API.
 
 
-9. Read a table
+- Read a table
 
     ```scala
    // Returns a Dataset<Row> that contains data of <table-name> in the current database
     hive.table("<table-name>")
     ```
 
-10. Execute DDL commands on HiveServer2 
+- Execute DDL commands on HiveServer2 
 
     ```scala
     // Executes the <hive-query> against HiveServer2
@@ -136,28 +136,28 @@ Complete the [Hive Warehouse Connector setup](./apache-hive-warehouse-connector.
     hive.executeUpdate("<hive-query>", propagateException) // propagate exception is boolean value
     ```
 
-11. Execute Hive query and load result in Dataset
+- Execute Hive query and load result in Dataset
     
-    a. Executing query via LLAP daemons. **[Recommended]**
+  - Executing query via LLAP daemons. **[Recommended]**
     ```scala
     // <hive-query> should be a hive query 
     hive.executeQuery("<hive-query>")
     ```
-    b. Executing query through HiveServer2 via JDBC.
+  - Executing query through HiveServer2 via JDBC.
 
     Set `spark.datasource.hive.warehouse.smartExecution` to `false` in spark configs before starting spark session to use this API
     ```scala
     hive.execute("<hive-query>")
     ```
 
-12. Close Hive warehouse connector session
+- Close Hive warehouse connector session
     ```scala
     // Closes all the open connections and
     // release resources/locks from HiveServer2
     hive.close()
     ```
 
-13. Execute Hive Merge query
+- Execute Hive Merge query
     
     This API creates a Hive merge query of below format
     
@@ -203,27 +203,27 @@ Complete the [Hive Warehouse Connector setup](./apache-hive-warehouse-connector.
     mergeBuilder.merge()
     ```
 
-14. Write a Dataset to Hive Table in batch
+- Write a Dataset to Hive Table in batch
     ```scala
     df.write.format("com.hortonworks.spark.sql.hive.llap.HiveWarehouseConnector")
        .option("table", tableName)
        .mode(SaveMode.Type)
        .save()
     ```
-    * TableName should be of form `<db>.<table>` or `<table>`. If no database name is provided, the table will searched/created in the current database
+   - TableName should be of form `<db>.<table>` or `<table>`. If no database name is provided, the table will searched/created in the current database
     
-    * SaveMode types are:
+   - SaveMode types are:
     
-        a. Append: Appends the dataset to the given table
+     - Append: Appends the dataset to the given table
     
-        b. Overwrite: Overwrites the data in the given table with dataset
+     - Overwrite: Overwrites the data in the given table with dataset
     
-        c. Ignore: Skips write if table already exists, no error thrown
+     - Ignore: Skips write if table already exists, no error thrown
     
-        d. ErrorIfExists: Throws error if table already exists
+     - ErrorIfExists: Throws error if table already exists
 
 
-15. Write a Dataset to Hive Table using HiveStreaming
+- Write a Dataset to Hive Table using HiveStreaming
     ```scala
     df.write.format("com.hortonworks.spark.sql.hive.llap.HiveStreamingDataSource")
        .option("database", databaseName)
@@ -241,10 +241,11 @@ Complete the [Hive Warehouse Connector setup](./apache-hive-warehouse-connector.
     // .option("metastoreKrbPrincipal", principal), add if executing in ESP cluster
        .save()
     ```
-    **Note**: Stream writes always append data.
+    > [!NOTE]
+    > Stream writes always append data.
 
 
-16. Writing a spark stream to a Hive Table
+- Writing a spark stream to a Hive Table
     ```scala
     stream.writeStream
         .format("com.hortonworks.spark.sql.hive.llap.streaming.HiveStreamingDataSource")
