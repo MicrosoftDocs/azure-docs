@@ -29,6 +29,8 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 
 :::code language="yaml" source="~/azureml-examples-main/cli/.schemas/yamls/latest/azureDataLakeGen1.schema.yml":::
 
+---
+
 ## Remarks
 
 The `az ml datastore` command can be used for managing Azure Machine Learning datastores.

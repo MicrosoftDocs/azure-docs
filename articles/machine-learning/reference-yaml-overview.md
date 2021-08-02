@@ -25,7 +25,7 @@ Reference | URI
 - | -
 [Workspace](reference-yaml-workspace.md) | https://azuremlschemas.azureedge.net/latest/workspace.schema.json
 [Compute](reference-yaml-compute.md) | https://azuremlschemas.azureedge.net/latest/compute.schema.json
-[Environment](reference-yaml-environment) | https://azuremlschemas.azureedge.net/latest/environment.schema.json
+[Environment](reference-yaml-environment.md) | https://azuremlschemas.azureedge.net/latest/environment.schema.json
 [Dataset](reference-yaml-dataset.md) | https://azuremlschemas.azureedge.net/latest/dataset.schema.json
 [Model](reference-yaml-model.md) | https://azuremlschemas.azureedge.net/latest/model.schema.json
 

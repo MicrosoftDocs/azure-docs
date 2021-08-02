@@ -19,15 +19,17 @@ ms.reviewer: laobri
 
 ## Schema
 
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/azureFiles.schema.json. The schema is provided below in JSON and YAML formats for convenience.
+The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/azureFile.schema.json. The schema is provided below in JSON and YAML formats for convenience.
 
 # [JSON](#tab/json)
 
-:::code language="json" source="~/azureml-examples-main/cli/.schemas/jsons/latest/azureFiles.schema.json":::
+:::code language="json" source="~/azureml-examples-main/cli/.schemas/jsons/latest/azureFile.schema.json":::
 
 # [YAML](#tab/yaml)
 
-:::code language="yaml" source="~/azureml-examples-main/cli/.schemas/yamls/latest/azureFiles.schema.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/.schemas/yamls/latest/azureFile.schema.yml":::
+
+---
 
 ## Remarks
 

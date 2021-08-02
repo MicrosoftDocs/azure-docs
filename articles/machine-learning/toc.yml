@@ -701,7 +701,7 @@
             - name: Environment
               href: reference-yaml-environment.md
             - name: Model
-              href: refrence-yaml-model.md
+              href: reference-yaml-model.md
         - name: Datastores
           items:
             - name: Azure Blob
@@ -723,7 +723,7 @@
             - name: Managed online (real-time)
               href: reference-yaml-endpoint-managed-online.md
             - name: Managed batch
-              href: reference-yaml-endpoint-batch.md
+              href: reference-yaml-endpoint-managed-batch.md
             - name: Kubernetes (k8s) online
               href: reference-yaml-endpoint-k8s-online.md
         - name: Deployments
@@ -731,7 +731,7 @@
             - name: Managed online (real-time)
               href: reference-yaml-deployment-managed-online.md
             - name: Managed batch
-              href: reference-yaml-deployment-batch.md
+              href: reference-yaml-deployment-managed-batch.md
             - name: Kubernetes (k8s) online
               href: reference-yaml-deployment-k8s-online.md
     - name: CLI (v1)
@@ -742,8 +742,6 @@
       href: algorithm-module-reference/module-reference.md
     - name: Monitor data reference
       href: monitor-resource-reference.md
-    - name: Managed online endpoint YAML reference
-      href: reference-online-endpoint-yaml.md
     - name: Machine learning CLI (v1) pipeline YAML reference
       href: reference-pipeline-yaml.md
     - name: Azure Policy built-ins
