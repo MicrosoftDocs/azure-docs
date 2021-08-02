@@ -109,4 +109,4 @@ This article uses the following Azure CLI commands:
 ## Next steps
 
 - [Azure Monitor CLI samples](cli-samples.md)
-- [Understand how metric alerts work in Azure Monitor](alerts-metric-overview.md)
+- [Understand how metric alerts work in Azure Monitor](alerts/alerts-metric-overview.md)
