@@ -379,7 +379,7 @@ Based on the above configuration, review the following scenarios.
 
 ## Restrictions
 
-The following restrictions exist for the _staticwebapps.config.json_ file.
+The following restrictions exist for the _staticwebapp.config.json_ file.
 
 - Max file size is 100 KB
 - Max of 50 distinct roles

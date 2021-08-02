@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure Migrate appliance deployment and discovery
-description: Get help with appliance deployment and server discovery.
+title: Troubleshoot Azure Migrate appliance
+description: Get help to troubleshoot problems that might occur with the Azure Migrate appliance.
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
@@ -9,7 +9,7 @@ ms.date: 07/01/2020
 ---
 
 
-# Troubleshoot the Azure Migrate appliance and discovery
+# Troubleshoot the Azure Migrate appliance
 
 This article helps you troubleshoot issues when deploying the [Azure Migrate](migrate-services-overview.md) appliance, and using the appliance to discover on-premises servers.
 
@@ -40,7 +40,7 @@ You are getting an error in the connectivity check on the appliance.
 
 **Remediation**
 
-1. Ensure that you can connect to the required [URLs](/azure/migrate/migrate-appliance#url-access) from the appliance
+1. Ensure that you can connect to the required [URLs](/azure/migrate/migrate-appliance#url-access) from the appliance.
 1. Check if there is a proxy or firewall blocking access to these URLs. If you are required to create an allowlist, make sure that you include all of the URLs.
 1. If there is a proxy server configured on-premises, make sure that you provide the proxy details correctly by selecting **Setup proxy** in the same step. Make sure that you provide the authorization credentials if the proxy needs them.
 1. Ensure that the server has not been previously used to set up the [replication appliance](/azure/migrate/migrate-replication-appliance) or that you have the mobility service agent installed on the server.
@@ -90,6 +90,10 @@ An error about time synchronization indicates that the server clock might be out
 
 ## VDDK check failing during 'Set up prerequisites' on VMware appliance
 
+**Error**
+
+The VDDK check failed as appliance could not find the required VDDK kit installed on the appliance. This can result in failures with ongoing replication.
+
 **Remediation**
 
 1. Ensure that you have downloaded VDDK kit 6.7 and have copied its files to- **C:\Program Files\VMware\VMware Virtual Disk Development Kit** on the appliance server.
@@ -97,7 +101,8 @@ An error about time synchronization indicates that the server clock might be out
 
 ## Getting project key related error during appliance registration
 
-**Error**
+**Error** 
+
 You are having issues when you try to register the appliance using the Azure Migrate project key copied from the project.
 
 **Remediation**
@@ -109,13 +114,14 @@ You are having issues when you try to register the appliance using the Azure Mig
 
 **Error**
 
-After a successful login with an Azure user account, the appliance registration step fails with the message, "Failed to connect to the Azure Migrate project. Check the error detail and follow the remediation steps by clicking Retry"**.
+After a successful login with an Azure user account, the appliance registration step fails with the message, **"Failed to connect to the Azure Migrate project. Check the error detail and follow the remediation steps by clicking Retry"**.
 
-This issue happens when the Azure user account that was used to log in from the appliance configuration manager is different from the user account that was used to generate the Azure Migrate project key on the portal. 
+This issue happens when the Azure user account that was used to log in from the appliance configuration manager is different from the user account that was used to generate the Azure Migrate project key on the portal.
 
 **Remediation**
-1. To complete the registration of the appliance, use the same Azure user account that generated the Azure Migrate project key on the portal OR
-2. Assign the required roles and [permissions](/azure/migrate/tutorial-prepare-vmware#prepare-azure) to the other Azure user account being used for appliance registration
+1. To complete the registration of the appliance, use the same Azure user account that generated the Azure Migrate project key on the portal 
+   OR
+1. Assign the required roles and [permissions](/azure/migrate/tutorial-prepare-vmware#prepare-azure) to the other Azure user account being used for appliance registration
 
 ## "Azure Active Directory (AAD) operation failed with status Forbidden" during appliance registration
 
@@ -138,8 +144,8 @@ This usually happens when the Azure user account that was used to register the a
 **Remediation**
 
 1. Ensure that the currently logged in user account on the appliance has the required permissions on the Key Vault (mentioned in the error message). The user account needs permissions as mentioned [here](/azure/migrate/tutorial-discover-vmware#prepare-an-azure-user-account).
-2. Go to the Key Vault and ensure that your user account has an access policy with all the _Key, Secret and Certificate_ permissions assigned under Key vault Access Policy. Learn more [/azure/key-vault/general/assign-access-policy-portal]
-3. If you have enabled the appliance for **private endpoint connectivity**, ensure that the appliance is either hosted in the same VNet where the Key Vault has been created or it is connected to the Azure VNet (where Key Vault has been created) over a private link. Make sure that the Key Vault private link is resolvable from the appliance. Go to Azure Migrate: Discovery and assessment> Properties to find the details of private endpoints for resources like the Key Vault created during the Azure Migrate key creation. [Learn more](https://go.microsoft.com/fwlink/?linkid=2162447)
+2. Go to the Key Vault and ensure that your user account has an access policy with all the _Key, Secret and Certificate_ permissions assigned under Key vault Access Policy. [Learn more](/azure/key-vault/general/assign-access-policy-portal)
+3. If you have enabled the appliance for **private endpoint connectivity**, ensure that the appliance is either hosted in the same VNet where the Key Vault has been created or it is connected to the Azure VNet (where Key Vault has been created) over a private link. Make sure that the Key Vault private link is resolvable from the appliance. Go to **Azure Migrate**: **Discovery** and **assessment**> **Properties** to find the details of private endpoints for resources like the Key Vault created during the Azure Migrate key creation. [Learn more](https://go.microsoft.com/fwlink/?linkid=2162447)
 4. If you have the required permissions and connectivity, re-try the registration on the appliance after some time.
 
 ## Unable to connect to vCenter Server during validation
