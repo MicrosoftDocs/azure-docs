@@ -2,10 +2,10 @@
 author: craigktreasure
 ms.service: azure-object-anchors
 ms.topic: include
-ms.date: 03/02/2021
+ms.date: 02/08/2021
 ms.author: crtreasu
 ---
-### Upload your model
+## Upload your model
 
 Before you run the app, you'll need to make your models available to the app.
 If you don't already have an Object Anchors model, follow the instructions in [Create a model](../articles/object-anchors/quickstarts/get-started-model-conversion.md) to create one. Then, return here.

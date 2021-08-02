@@ -6,7 +6,7 @@ manager: virivera
 services: azure-object-anchors
 
 ms.author: crtreasu
-ms.date: 03/02/2021
+ms.date: 02/08/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
 ---
@@ -70,6 +70,16 @@ You can also do other actions using the <a href="https://microsoft.github.io/Mix
 * **Start Tracing** – Capture diagnostics data and save it to the device. See more detail in section **Debug Detection Issues and Capture Diagnostics**.
 * **Upload Tracing** – Upload diagnostics data to the Object Anchors service. A user must provide their subscription account in `subscription.json` and upload it to the `LocalState` folder. A sample `subscription.json` file can be found below.
 
+Example `subscription.json`:
+
+```json
+{
+  "AccountId": "<your account id>",
+  "AccountKey": "<your account key>",
+  "AccountDomain": "<your account domain>"
+}
+```
+
     :::image type="content" source="./media/mrtk-hand-menu-primary.png" alt-text="Unity primary hand menu":::
 
 ##### Tracker settings menu
@@ -88,20 +98,6 @@ You can also do other actions using the <a href="https://microsoft.github.io/Mix
 * **Cycle Mesh** – Cycles through visualizing the loaded meshes inside the search area.  This option can help users align the search box for hard to detect objects.
 
     :::image type="content" source="./media/mrtk-hand-menu-search-area.png" alt-text="Unity search area hand menu":::
-
-Example `subscription.json`:
-
-```json
-{
-  "AccountId": "<your account id>",
-  "AccountKey": "<your account key>",
-  "AccountDomain": "<your account domain>"
-}
-```
-
-[!INCLUDE [Unity setup Windows Device Portal](../../../includes/object-anchors-quickstart-unity-setup-device-portal.md)]
-
-[!INCLUDE [Unity upload your model](../../../includes/object-anchors-quickstart-unity-upload-model.md)]
 
 [!INCLUDE [Unity troubleshooting](../../../includes/object-anchors-quickstart-unity-troubleshooting.md)]
 
