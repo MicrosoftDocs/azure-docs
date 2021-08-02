@@ -260,6 +260,12 @@ Or, add the role assignment on the staging location (Storage Account) to have [S
 
 :::image type="content" source="./media/backup-azure-arm-restore-vms/add-role-assignment-on-staging-location.png" alt-text="Screenshot for adding the role assignment on the staging location":::
 
+You can also select the [user-managed identity](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) by providing the input as their MSI Resource ID as provided in the figure below.   
+
+:::image type="content" source="./media/backup-azure-arm-restore-vms/select-user-managed-identity-by-providing-input-as-msi-resource-id.png" alt-text="Screenshot for selecting the user-managed identity by providing the input as their MSI Resource ID":::
+
+The support is available for only Managed VMs, and not supported for Classic VMs and Unmanaged VMs. For the [storage accounts that are restricted with firewalls](/azure/storage/common/storage-network-security?tabs=azure-portal), system MSI is only supported.
+
 ## Track the restore operation
 
 After you trigger the restore operation, the backup service creates a job for tracking. Azure Backup displays notifications about the job in the portal. If they aren't visible, select the **Notifications** symbol, and then select **More events in the activity log** to see the Restore Process Status.
