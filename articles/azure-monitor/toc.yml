@@ -109,6 +109,8 @@
     href: powershell-samples.md
   - name: Azure Resource Graph queries
     href: ./resource-graph-samples.md
+  - name: Azure CLI metric alerts
+    href: azure-cli-metrics-alert-sample.md
 - name: Concepts
   items:
   - name: What can you monitor?
