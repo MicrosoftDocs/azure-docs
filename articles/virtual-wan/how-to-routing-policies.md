@@ -30,7 +30,7 @@ While Private Traffic  includes both branch and Virtual Network address prefixes
 > In the Managed Preview of Virtual WAN Hub routing policies, inter-hub traffic is only inspected by Azure Firewall if the Virtual WAN Hubs are in the same region. Azure inter-region traffic inspection will be available shortly.
 
 
-* **Internet Traffic Routing Policy**:  When an Internet Traffic Routing Policy is configured on a Virtual WAN hub, all branch (User VPN (Point-to-site VPN), Site-to-site VPN, and ExpressRoute) and Virtual Network connections to that Virtual WAN Hub will forward Internet-bound traffic to the Azure Firewall resource or Third Party Security provider specified as part of the Routing Policy.
+* **Internet Traffic Routing Policy**:  When an Internet Traffic Routing Policy is configured on a Virtual WAN hub, all branch (User VPN (Point-to-site VPN), Site-to-site VPN, and ExpressRoute) and Virtual Network connections to that Virtual WAN Hub will forward Internet-bound traffic to the Azure Firewall resource or Third-Party Security provider specified as part of the Routing Policy.
  
 
 * **Private Traffic Routing Policy**: When a Private Traffic Routing Policy is configured on a Virtual WAN hub, **all** branch and Virtual Network traffic in and out of the Virtual WAN Hub including inter-hub traffic will be forwarded to the Next Hop Azure Firewall resource that was specified in the Private Traffic Routing Policy. 
@@ -48,7 +48,7 @@ While Private Traffic  includes both branch and Virtual Network address prefixes
 ## Prerequisites
 1. Create a Virtual WAN. Make sure you create at least two Virtual Hubs in the **same** region. Azure inter-region traffic inspection will be available shortly. For instance, you may create a Virtual WAN with two Virtual Hubs in East US. 
 2. Convert your Virtual WAN Hub into a Secured Virtual WAN Hub by deploying an Azure Firewall into the Virtual Hubs in the chosen region. For more information on converting your Virtual WAN Hub to a Secured Virtual WAN Hub, please see this [document](howto-firewall.md).
-3. Reach out to **previewinterhub@microsoft.com**  with the **Virtual WAN Resource ID** and the **Azure Virtual hub Region** you wish to configure Routing Policies in. To locate the Virtual WAN ID, open Azure portal, navigate to your Virtual WAN resource and sel on Settings > Properties > Resource ID. For example: 
+3. Reach out to **previewinterhub@microsoft.com**  with the **Virtual WAN Resource ID** and the **Azure Virtual hub Region** you wish to configure Routing Policies in. To locate the Virtual WAN ID, open Azure portal, navigate to your Virtual WAN resource and select Settings > Properties > Resource ID. For example: 
 ```
     /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualWans/<virtualWANname>
 ```
