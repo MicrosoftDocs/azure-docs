@@ -1,5 +1,5 @@
 ---
-title: What's th difference between Privileged Access groups and role-assignable groups - Azure AD | Microsoft Docs
+title: What's eth difference between Privileged Access groups and role-assignable groups - Azure AD | Microsoft Docs
 description: Learn how to tell the difference between Privileged Access groups and role-assignable groups in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 
-# What's the difference between Privileged Access groups and role-assignable groups
+# What's the difference between Privileged Access groups and role-assignable groups?
 
 Privileged Identity Management (PIM) supports the ability to enable privileged access on role-assignable groups. But because an available role-assignable group is a prerequisite for creating a privileged access group, this article explains the differences and how to take advantage of them.
 
@@ -48,4 +48,6 @@ Either of these methods will work for the end-to-end scenario. We recommend that
 
 ## Next steps
 
-- 
+- [Approve or deny requests for Azure AD roles](azure-ad-pim-approval-workflow.md)\
+- [Approve or deny requests for Azure resource roles](pim-resource-roles-approval-workflow.md)
+- [Approve activation requests for privileged access group members and owners (preview)](groups-approval-workflow.md)
