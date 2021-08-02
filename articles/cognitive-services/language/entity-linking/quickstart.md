@@ -20,31 +20,31 @@ Use this article to get started with Entity Linking using the Language Services 
 
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE [C# quickstart](../includes/quickstarts/csharp-sdk.md)]
+[!INCLUDE [C# quickstart](includes/quickstarts/csharp-sdk.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
 
-[!INCLUDE [Java quickstart](../includes/quickstarts/java-sdk.md)]
+[!INCLUDE [Java quickstart](includes/quickstarts/java-sdk.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 
-[!INCLUDE [NodeJS quickstart](../includes/quickstarts/nodejs-sdk.md)]
+[!INCLUDE [NodeJS quickstart](includes/quickstarts/nodejs-sdk.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [Python quickstart](../includes/quickstarts/python-sdk.md)]
+[!INCLUDE [Python quickstart](includes/quickstarts/python-sdk.md)]
 
 ::: zone-end
 
 ::: zone pivot="rest-api"
 
-[!INCLUDE [REST API quickstart](../includes/quickstarts/rest-api.md)]
+[!INCLUDE [REST API quickstart](includes/quickstarts/rest-api.md)]
 
 ::: zone-end
 
