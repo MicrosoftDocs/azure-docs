@@ -24,7 +24,7 @@ Over the years customer running SAP BW system sees an exponential growth in data
 
 This guide will provide you the guidelines for planning, deploying, and configuring SAP BW near-line storage (NLS) with SAP IQ on Azure. This guide is intended to cover common Azure services and features that are relevant for SAP IQ - NLS deployment and doesn't cover any NLS partner solutions. This guide isn’t intended to replace SAP’s standard documentation on NLS deployment with SAP IQ, instead it complements its official installation and administration documentations. 
 
-## Solution Overview
+## Solution overview
 
 In an operative BW system, the volume of data increases constantly and this data is required for longer period because of the business and legal requirement. The large volume of data can affect the performance of the system and increases the administration effort, which results in the need of implementing a data aging strategy. If you want to keep the amount of data in your SAP BW system without deleting, you can use data archiving. The data is first moved to archive or near-line storage and then deleted from the BW system. You can either access the data directly or load it back as required depending on how the data has been archived. 
 
@@ -105,7 +105,7 @@ Azure provides a network infrastructure, which allows the mapping of all scenari
 
 ## Deploy SAP IQ on Windows
 
-### Server Preparation and installation
+### Server preparation and installation
 
 Follow the latest guide by SAP to prepare servers for NLS implementation with SAP IQ on Windows. For the most up-to-date information, refer to first guidance document published by SAP, which you can find in SAP Note [2780668 - SAP First Guidance - BW NLS Implementation with SAP IQ](https://launchpad.support.sap.com/#/notes/0002780668). It covers the comprehensive information related to pre-requisites for SAP BW systems, IQ filesystem layout, installation, post configuration, and BW NLS integration with IQ.
 
@@ -117,7 +117,7 @@ To set up SAP IQ high availability on Windows for simplex server architecture, y
 
 ### Back up and restore
 
-In Azure, you can schedule SAP IQ database backup as described by SAP in [IQ Administration: Backup, Restore, and Data Recovery](https://help.sap.com/viewer/a893f37e84f210158511c41edb6a6367/16.1.4.7/en-US/5b8309b37f4e46b089465e380c24df59.html). SAP IQ provides different types of database backups and details about of each backup type can be found in [Backup Scenarios](https://help.sap.com/viewer/a893f37e84f210158511c41edb6a6367/16.1.4.7/en-US/a880dc1f84f21015af84f1a6b629dd7a.html).
+In Azure, you can schedule SAP IQ database backup as described by SAP in [IQ Administration: Backup, Restore, and Data Recovery](https://help.sap.com/viewer/a893f37e84f210158511c41edb6a6367/16.1.4.7/5b8309b37f4e46b089465e380c24df59.html). SAP IQ provides different types of database backups and details about of each backup type can be found in [Backup Scenarios](https://help.sap.com/viewer/a893f37e84f210158511c41edb6a6367/16.1.4.7/a880dc1f84f21015af84f1a6b629dd7a.html).
 
 - Full backup - It makes a complete copy of the database. 
 - Incremental backup - It copies all transactions since the last backup of any type. 
@@ -126,7 +126,7 @@ In Azure, you can schedule SAP IQ database backup as described by SAP in [IQ Adm
 
 Depending on your IQ database size, you can schedule your database backup from any of the backup scenarios. But if you are using SAP IQ with NLS interface delivered by SAP and want to automate the backup process for IQ database, which ensures that the SAP IQ database can always be recovered to a consistent state without data loss with respect to the data movement processes between the primary database and the SAP IQ database. Refer SAP Note [2741824 - How to setup backup automation for SAP IQ Cold Store/Near-line Storage](https://launchpad.support.sap.com/#/notes/2741824), which provide details on setting up automation for SAP IQ near-line storage. 
 
-For large IQ database, you can use virtual backup in SAP IQ. For more information on virtual backup, see [Virtual Backups](https://help.sap.com/viewer/a893f37e84f210158511c41edb6a6367/16.1.4.7/en-US/a880672184f21015a08dceedc7d19776.html), [Introduction Virtual Backup in SAP Sybase IQ](https://wiki.scn.sap.com/wiki/display/SYBIQ/Introduction+Virtual+BackUp+(+general++back+up+method+)+in+SAP+Sybase+IQ) and SAP Note [2461985 - How to Backup Large SAP IQ Database](https://launchpad.support.sap.com/#/notes/0002461985).
+For large IQ database, you can use virtual backup in SAP IQ. For more information on virtual backup, see [Virtual Backups](https://help.sap.com/viewer/a893f37e84f210158511c41edb6a6367/16.1.4.7/a880672184f21015a08dceedc7d19776.html), [Introduction Virtual Backup in SAP Sybase IQ](https://wiki.scn.sap.com/wiki/display/SYBIQ/Introduction+Virtual+BackUp+(+general++back+up+method+)+in+SAP+Sybase+IQ) and SAP Note [2461985 - How to Backup Large SAP IQ Database](https://launchpad.support.sap.com/#/notes/0002461985).
 
 If you are using network drive (SMB protocol) to back up and restore SAP IQ server on Windows, make sure to use UNC path for backup. Three backslash ‘\\\\\’ is required when using UNC path for backup/restore.
 
@@ -148,7 +148,7 @@ To set up SAP IQ high availability on Linux for simplex server architecture, you
 
 ### Back up and restore
 
-In Azure, you can schedule SAP IQ database backup as described by SAP in [IQ Administration: Backup, Restore, and Data Recovery](https://help.sap.com/viewer/a893f37e84f210158511c41edb6a6367/16.1.4.7/en-US/5b8309b37f4e46b089465e380c24df59.html). SAP IQ provides different types of database backups and details about of each backup type can be found in [Backup Scenarios](https://help.sap.com/viewer/a893f37e84f210158511c41edb6a6367/16.1.4.7/en-US/a880dc1f84f21015af84f1a6b629dd7a.html).
+In Azure, you can schedule SAP IQ database backup as described by SAP in [IQ Administration: Backup, Restore, and Data Recovery](https://help.sap.com/viewer/a893f37e84f210158511c41edb6a6367/16.1.4.7/5b8309b37f4e46b089465e380c24df59.html). SAP IQ provides different types of database backups and details about of each backup type can be found in [Backup Scenarios](https://help.sap.com/viewer/a893f37e84f210158511c41edb6a6367/16.1.4.7/a880dc1f84f21015af84f1a6b629dd7a.html).
 
 - Full backup - It makes a complete copy of the database. 
 - Incremental backup - It copies all transactions since the last backup of any type. 
@@ -157,9 +157,9 @@ In Azure, you can schedule SAP IQ database backup as described by SAP in [IQ Adm
 
 Depending on your IQ database size, you can schedule the database backup. But if you're using SAP IQ with NLS interface delivered by SAP and want to automate the backup process for IQ database, which ensures that the SAP IQ database can always be recovered to a state without data loss with respect to the data movement processes between the primary database and the SAP IQ database. Refer SAP Note [2741824 - How to setup backup automation for SAP IQ Cold Store/Near-line Storage](https://launchpad.support.sap.com/#/notes/2741824), which provide details on setting up automation for SAP IQ near-line storage. 
 
-For large IQ database, you can use virtual backup in SAP IQ. For more information on virtual backup, see [Virtual Backups](https://help.sap.com/viewer/a893f37e84f210158511c41edb6a6367/16.1.4.7/en-US/a880672184f21015a08dceedc7d19776.html), [Introduction Virtual Backup in SAP Sybase IQ](https://wiki.scn.sap.com/wiki/display/SYBIQ/Introduction+Virtual+BackUp+(+general++back+up+method+)+in+SAP+Sybase+IQ) and SAP Note [2461985 - How to Backup Large SAP IQ Database](https://launchpad.support.sap.com/#/notes/0002461985).
+For large IQ database, you can use virtual backup in SAP IQ. For more information on virtual backup, see [Virtual Backups](https://help.sap.com/viewer/a893f37e84f210158511c41edb6a6367/16.1.4.7/a880672184f21015a08dceedc7d19776.html), [Introduction Virtual Backup in SAP Sybase IQ](https://wiki.scn.sap.com/wiki/display/SYBIQ/Introduction+Virtual+BackUp+(+general++back+up+method+)+in+SAP+Sybase+IQ) and SAP Note [2461985 - How to Backup Large SAP IQ Database](https://launchpad.support.sap.com/#/notes/0002461985).
 
-## Disaster Recovery
+## Disaster recovery
 
 This section explains the strategy to provide disaster recovery (DR) protection for SAP IQ - NLS solution. It complements the [Disaster recovery for SAP](../../../site-recovery/site-recovery-sap.md) document, which represents the primary resources for an overall SAP DR approach. The process described in this document is presented at an abstract level. But you need to validate the exact steps and do thorough test of your DR strategy. 
 
@@ -173,7 +173,7 @@ For SAP IQ, see SAP Note [2566083](https://launchpad.support.sap.com/#/notes/000
 
   If you have installed SAP IQ as a highly available system where IQ binaries and database files are on Azure shared disk (Windows only) or on the network drive like Azure NetApp Files (Linux only). In such setup, you need to identify whether you need a same highly available SAP IQ on DR site, or a standalone SAP IQ will suffice your business requirement. In case you need standalone SAP IQ on DR site, you can use [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md)  to replicate primary SAP IQ virtual machine on the secondary region. It replicates the servers and all the local attached managed disks to the secondary region, but it won’t replicate Azure shared disk or network drive like Azure NetApp Files. To copy data from Azure shared disk or network drive, you can use any file-base copy tool to replicate data between Azure regions. For more information on how to copy Azure NetApp Files volume in another region, see [FAQs about Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-faqs.md#how-do-i-create-a-copy-of-an-azure-netapp-files-volume-in-another-azure-region).
 
-## Next Steps
+## Next steps
 
 - [Set up disaster recovery for a multi-tier SAP app deployment](../../../site-recovery/site-recovery-sap.md)
 - [Azure Virtual Machines planning and implementation for SAP](planning-guide.md)
