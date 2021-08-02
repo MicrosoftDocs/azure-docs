@@ -265,7 +265,7 @@ for the same definitions using the same parameter values as machines in the prim
 
 Guest configuration stores/processes customer data. By default, customer data is replicated to the
 [paired region.](../../../best-practices-availability-paired-regions.md)
-For single resident region all customer data stays in the region.
+For single resident region all customer data is stored and processed in the region.
 
 ## Troubleshooting guest configuration
 
