@@ -1,7 +1,7 @@
 ---
-title: Become a Microsoft-Compatible FIDO2 Security Key Vendor
+title: Become a Microsoft-Compatible FIDO2 Security Key Vendor for sign-in to Azure AD
 description: Explains process to become a FIDO2 hardware partner
-ms.date: 04/20/2021
+ms.date: 08/02/2021
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -36,21 +36,30 @@ You can become a Microsoft-compatible FIDO2 security key vendor through the foll
 
 ## Current partners
 
+The following table lists partners who are Microsoft-compatible FIDO2 security key vendors.
+
 | **Provider** | **Link** |
 | --- | --- |
 | AuthenTrend | [https://authentrend.com/about-us/#pg-35-3](https://authentrend.com/about-us/#pg-35-3) |
 | Ensurity | [https://www.ensurity.com/contact](https://www.ensurity.com/contact) |
 | Excelsecu | [https://www.excelsecu.com/productdetail/esecufido2secu.html](https://www.excelsecu.com/productdetail/esecufido2secu.html) |
 | Feitian | [https://ftsafe.us/pages/microsoft](https://ftsafe.us/pages/microsoft) |
-| Gemalto (Thales Group) | [https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/](https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/) |
-| Go-Trust ID | [https://www.gotrustid.com/](https://www.gotrustid.com/) |
+| Go-Trust ID | [https://www.gotrustid.com/](https://www.gotrustid.com/idem-key) |
 | HID | [https://www.hidglobal.com/contact-us](https://www.hidglobal.com/contact-us) |
 | Hypersecu | [https://www.hypersecu.com/hyperfido](https://www.hypersecu.com/hyperfido) |
 | IDmelon Technologies Inc. | [https://www.idmelon.com/#idmelon](https://www.idmelon.com/#idmelon) |
 | Kensington  | [https://www.kensington.com/solutions/product-category/why-biometrics/](https://www.kensington.com/solutions/product-category/why-biometrics/) |
 | KONA I | [https://konai.com/business/security/fido](https://konai.com/business/security/fido) |
+| Nymi   | [https://www.nymi.com/product](https://www.nymi.com/product) |
 | OneSpan Inc. | [https://www.onespan.com/products/fido](https://www.onespan.com/products/fido) |
+| Thales | [https://cpl.thalesgroup.com/access-management/authenticators/fido-devices](https://cpl.thalesgroup.com/access-management/authenticators/fido-devices) |
+| Thetis | [https://thetis.io/collections/fido2](https://thetis.io/collections/fido2) |
 | Token2 Switzerland | [https://www.token2.swiss/shop/product/token2-t2f2-alu-fido2-u2f-and-totp-security-key](https://www.token2.swiss/shop/product/token2-t2f2-alu-fido2-u2f-and-totp-security-key) |
 | TrustKey Solutions | [https://www.trustkeysolutions.com/security-keys/](https://www.trustkeysolutions.com/security-keys/) |
 | VinCSS | [https://passwordless.vincss.net](https://passwordless.vincss.net/) |
 | Yubico | [https://www.yubico.com/solutions/passwordless/](https://www.yubico.com/solutions/passwordless/) |
+
+## Next steps
+
+[FIDO2 Compatibility](fido2-compatibility.md)
+
