@@ -1,9 +1,9 @@
 ---
 title: "Quickstart: Azure Blob storage library v12 - JavaScript in a browser"
 description: In this quickstart, you learn how to use the Azure Blob storage client library version 12 for JavaScript in a browser. You create a container and an object in Blob storage. Next, you learn how to list all of the blobs in a container. Finally, you learn how to delete blobs and delete a container.
-author: mhopkins-msft
+author: twooley
 
-ms.author: mhopkins
+ms.author: twooley
 ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
@@ -23,7 +23,7 @@ Additional resources:
 * [API reference documentation](/javascript/api/@azure/storage-blob)
 * [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)
 * [Package (npm)](https://www.npmjs.com/package/@azure/storage-blob)
-* [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+* [Samples](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ This section walks you through preparing a project to work with the Azure Blob s
 
 ### Create a CORS rule
 
-Before your web application can access blob storage from the client, you must configure your account to enable [cross-origin resource sharing](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services), or CORS.
+Before your web application can access blob storage from the client, you must configure your account to enable [cross-origin resource sharing](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services), or CORS.
 
 In the Azure portal, select your storage account. To define a new CORS rule, navigate to the **Settings** section and select **CORS**. For this quickstart, you create an open CORS rule:
 
@@ -91,7 +91,7 @@ The shared access signature (SAS) is used by code running in the browser to auth
 Follow these steps to get the Blob service SAS URL:
 
 1. In the Azure portal, select your storage account.
-2. Navigate to the **Settings** section and select **Shared access signature**.
+2. Navigate to the **Security + networking** section and select **Shared access signature**.
 3. Scroll down and click the **Generate SAS and connection string** button.
 4. Scroll down further and locate the **Blob service SAS URL** field
 5. Click the **Copy to clipboard** button at the far-right end of the **Blob service SAS URL** field.

@@ -1,9 +1,9 @@
 ---
-title: "Use Azure Policy to apply cluster configurations at scale (Preview)"
+title: "Use Azure Policy to apply cluster configurations at scale"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 05/19/2020
+ms.date: 03/03/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
@@ -11,44 +11,63 @@ description: "Use Azure Policy to apply cluster configurations at scale"
 keywords: "Kubernetes, Arc, Azure, K8s, containers"
 ---
 
-# Use Azure Policy to apply cluster configurations at scale (Preview)
+# Use Azure Policy to apply GitOps configurations at scale
 
-## Overview
+You can use Azure Policy to apply configurations (`Microsoft.KubernetesConfiguration/sourceControlConfigurations` resource type) at scale on Azure Arc enabled Kubernetes clusters (`Microsoft.Kubernetes/connectedclusters`).
 
-Use Azure Policy to enforce that each `Microsoft.Kubernetes/connectedclusters` resource or Git-Ops enabled `Microsoft.ContainerService/managedClusters` resource has specific `Microsoft.KubernetesConfiguration/sourceControlConfigurations` applied on it. To use Azure Policy you select an existing policy definition and create a policy assignment. When creating the policy assignment you set the scope for the assignment: this will be an Azure resource group or subscription. You also set the parameters for the `sourceControlConfiguration` that will be created. Once the assignment is created the Policy engine will identify all `connectedCluster` or `managedCluster` resources that are located within the scope and will apply the `sourceControlConfiguration` to each one.
+To use Azure Policy, select a built-in GitOps policy definition and create a policy assignment. When creating the policy assignment:
+1. Set the scope for the assignment.
+    * The scope will be all resource groups in a subscription or management group or specific resource groups.
+2. Set the parameters for the GitOps configuration that will be created. 
 
-If you are using multiple Git repos as the sources of truth for each cluster (for instance, one repo for central IT/cluster operator and other repos for application teams), you can enable this by using multiple policy assignments, each policy assignment configured to use a different Git repo.
+Once the assignment is created, the Azure Policy engine identifies all Azure Arc enabled Kubernetes clusters located within the scope and applies the GitOps configuration to each cluster.
+
+To enable separation of concerns, you can create multiple policy assignments, each with a different GitOps configuration pointing to a different Git repo. For example, one repo may be used by cluster admins and other repositories may be used by application teams.
+
+>[!TIP]
+> There are built-in policies for these scenarios:
+> * Public repo or private repo with SSH keys created by Flux: `Configure Kubernetes clusters with specified GitOps configuration using no secrets`
+> * Private repo with user-provided SSH keys: `Configure Kubernetes clusters with specified GitOps configuration using SSH secrets`
+> * Private repo with user-provided HTTPS keys: `Configure Kubernetes clusters with specified GitOps configuration using HTTPS secrets`
 
 ## Prerequisite
 
-Ensure that you have `Microsoft.Authorization/policyAssignments/write` permissions on the scope (subscription or resource group) where you want to create this policy assignment.
+Verify you have `Microsoft.Authorization/policyAssignments/write` permissions on the scope (subscription or resource group) where you'll create this policy assignment.
 
 ## Create a policy assignment
 
-1. In the Azure portal, navigate to Policy, and in the **Authoring** section of the sidebar, select **Definitions**.
-2. Choose the "Deploy GitOps to Kubernetes cluster" built-in policy in the "Kubernetes" category, and click on **Assign**.
-3. Set the **Scope** to the management group, subscription, or resource group where the policy assignment will apply.
-4. If you want to exclude any resources from the policy scope, then set **Exclusions**.
-5. Give the policy assignment a **Name** and **Description** that you can use to identify it easily.
-6. Ensure that **Policy enforcement** is set to *Enabled*.
-7. Select **Next**.
-8. Set parameter values that will be used during the creation of the `sourceControlConfiguration`.
-9. Select **Next**.
-10. Enable **Create a remediation task**.
-11. Assure that **Create a managed identity** is checked, and that the identity will have **Contributor** permissions. See [this doc](../../governance/policy/assign-policy-portal.md) and [the comment in this doc](../../governance/policy/how-to/remediate-resources.md) for more information on the permissions you need.
-12. Select **Review + create**.
+1. In the Azure portal, navigate to **Policy**.
+1. In the **Authoring** section of the sidebar, select **Definitions**.
+1. In the "Kubernetes" category, choose the "Configure Kubernetes clusters with specified GitOps configuration using no secrets" built-in policy. 
+1. Click on **Assign**.
+1. Set the **Scope** to the management group, subscription, or resource group to which the policy assignment will apply.
+    * If you want to exclude any resources from the policy scope, set **Exclusions**.
+1. Give the policy assignment an easily identifiable **Name** and **Description**.
+1. Ensure **Policy enforcement** is set to **Enabled**.
+1. Select **Next**.
+1. Set the parameter values to be used while creating the `sourceControlConfiguration`.
+    * For more information about parameters, see the [tutorial on deploying GitOps configurations](./tutorial-use-gitops-connected-cluster.md).
+1. Select **Next**.
+1. Enable **Create a remediation task**.
+1. Verify **Create a managed identity** is checked, and that the identity will have **Contributor** permissions. 
+    * For more information, see the [Create a policy assignment quickstart](../../governance/policy/assign-policy-portal.md) and the [Remediate non-compliant resources with Azure Policy article](../../governance/policy/how-to/remediate-resources.md).
+1. Select **Review + create**.
 
-After the policy assignment is created, for any new `connectedCluster` resource (or `managedCluster` resource with the GitOps agents installed) that is located within the scope of the assignment, the `sourceControlConfiguration` will be applied. For existing clusters, you will need to manually run a remediation task. It typically takes from 10-20 minutes for the policy assignment to take effect.
+After creating the policy assignment, the configuration is applied to new Azure Arc enabled Kubernetes clusters created within the scope of policy assignment.
+
+For existing clusters, you may need to manually run a remediation task. This task typically takes 10 to 20 minutes for the policy assignment to take effect.
 
 ## Verify a policy assignment
 
-1. In the Azure portal, navigate to one of your `connectedCluster` resources, and in the **Settings** section of the sidebar, select **Policies**. (The UX for AKS cluster is not implemented yet, but is coming.)
-2. In the list, you should see the policy assignment that you created above, and the **Compliance state** should be *Compliant*.
-3. In the **Settings** section of the sidebar, select **Configurations**.
-4. In the list, you should see the `sourceControlConfiguration` that the policy assignment created.
-5. Use **kubectl** to interrogate the cluster: you should see the namespace and artifacts that were created by the `sourceControlConfiguration`.
-6. Within 5 minutes, you should see in the cluster the artifacts that are described in the manifests in the configured Git repo.
+1. In the Azure portal, navigate to one of your Azure Arc enabled Kubernetes clusters.
+1. In the **Settings** section of the sidebar, select **Policies**. 
+    * In the policies list, you should see the policy assignment that you created earlier with the **Compliance state** set as *Compliant*.
+1. In the **Settings** section of the sidebar, select **GitOps**.
+    * In the configurations list, you should see the configuration created by the policy assignment.
+1. Use `kubectl` to interrogate the cluster. 
+    * You should see the namespace and artifacts that were created by the GitOps configuration.
+    * You should see the objects described by the manifests in the Git repo getting deployed on the cluster.
 
 ## Next steps
 
-* [Set up Azure Monitor for Containers with Arc enabled Kubernetes clusters](../../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md)
+[Set up Azure Monitor for Containers with Azure Arc enabled Kubernetes clusters](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md).

@@ -5,7 +5,8 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: overview
-ms.date: 07/30/2020
+ms.date: 02/23/2021
+ms.custom: references_regions
 ---
 # What is Azure Data Share?
 
@@ -39,9 +40,9 @@ Data providers can offer their data consumers incremental updates to the data sh
 
 ![data share flow](media/data-share-flow.png)
 
-When a data consumer accepts a data share, they are able to receive the data in a data store of their choice. For example, if the data provider shares data using Azure Blob Storage, the data consumer can receive this data in Azure Data Lake Store. Similarly, if the data provider shares data from an Azure Synapse Analytics (formerly SQL Data Warehouse), the data consumer can choose whether they want to receive the data into an Azure Data Lake Store, an Azure SQL Database or an Azure Synapse Analytics. In the case of sharing from SQL-based sources, the data consumer can also choose whether they receive data in parquet or csv. 
+When a data consumer accepts a data share, they are able to receive the data in a data store of their choice. For example, if the data provider shares data using Azure Blob Storage, the data consumer can receive this data in Azure Data Lake Store. Similarly, if the data provider shares data from an Azure Synapse Analytics, the data consumer can choose whether they want to receive the data into an Azure Data Lake Store, an Azure SQL Database or an Azure Synapse Analytics. In the case of sharing from SQL-based sources, the data consumer can also choose whether they receive data in parquet or csv. 
 
-With in-place sharing, data providers can share data where it resides without copying the data. After sharing relationship is established through the invitation flow, a symbolic link is created between the data provider's source data store and the data consumer's target data store. Data consumer can read and query the data in real time using its own data store. Changes to the source data store is available to the data consumer immediately. In-place sharing is currently in preview for Azure Data Explorer.
+With in-place sharing, data providers can share data where it resides without copying the data. After sharing relationship is established through the invitation flow, a symbolic link is created between the data provider's source data store and the data consumer's target data store. Data consumer can read and query the data in real time using its own data store. Changes to the source data store is available to the data consumer immediately. In-place sharing is currently available for Azure Data Explorer.
 
 ## Key capabilities
 
@@ -67,9 +68,7 @@ Azure Data Share enables data consumers to:
 
 * Accept data shared with you into a [supported data store](supported-data-stores.md).
 
-* Trigger a full or incremental snapshot of a Data Share that an organization has shared with you
-
-* Subscribe to a data share to receive the latest copy of the data through incremental snapshot
+* Access data in place or trigger a full or incremental snapshot of shared data
 
 All key capabilities listed above are supported through the Azure portal or via REST APIs. For more details on using Azure Data Share through REST APIs, check out our reference documentation. 
 
@@ -77,7 +76,7 @@ All key capabilities listed above are supported through the Azure portal or via 
 
 For a list of Azure regions that make Azure Data Share available, please refer to the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=data-share) page and search for Azure Data Share. 
 
-Azure Data Share does not store a copy of the data itself. The data is stored in the underlying data store that is being shared. For example, if a data producer stores their data in an Azure Data Lake Store account located in West US, that is where the data is stored. If they are sharing data with an Azure Storage account located in West Europe via snapshot, typically the data is transferred directly to the Azure Storage account located in West Europe.
+For metadata stored by Azure Data Share, in Southeast Asia (Singapore), it is stored within the region and for all other supported regions, it is stored in the geo. Azure Data Share does not store a copy of the shared data itself. The data is stored in the underlying data store that is being shared. For example, if a data provider stores their data in an Azure Data Lake Storage account located in West US, that is where the data is stored. If they are sharing data with an Azure Storage account located in West Europe via snapshot, typically the data is transferred directly to the Azure Storage account located in West Europe. 
 
 The Azure Data Share service does not have to be available in your region to leverage the service. For example, if you have data stored in an Azure Storage account located in a region where Azure Data Share is not yet available, you can still leverage the service to share your data. 
 

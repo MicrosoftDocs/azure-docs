@@ -3,26 +3,26 @@ title: Spatial Analysis camera placement
 titleSuffix: Azure Cognitive Services
 description: Learn how to set up a camera for use with Spatial Analysis
 services: cognitive-services
-author: aahill
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/11/2020
-ms.author: aahi
+ms.date: 06/08/2021
+ms.author: pafarley
 ---
 
 
 # Camera placement guide
 
-This article provides camera placement recommendations for spatial analysis (public preview). It includes general guidelines as well as specific recommendations for height, angle, and camera-to-focal-point-distance for all the included operations. 
+This article provides camera placement recommendations for Spatial Analysis (public preview). It includes general guidelines as well as specific recommendations for height, angle, and camera-to-focal-point-distance for all the included operations. 
 
 > [!NOTE]
 > This guide is designed for the Axis M3045-V camera. This camera will use resolution 1920x1080, 106 degree horizontal field of view, 59 degree vertical field of view and a fixed 2.8mm focal length. The principles below will apply to all cameras, but specific guidelines around camera height and camera-to-focal-point distance will need to be adjusted for use with other cameras. 
 
 ## General guidelines
 
-Consider the following general guidelines when positioning cameras for spatial analysis:
+Consider the following general guidelines when positioning cameras for Spatial Analysis:
 
 * **Lighting height.** Place cameras below lighting fixtures so the fixtures don't block the cameras.
 * **Obstructions.** To avoid obstructing camera views, take note of obstructions such as poles, signage, shelving, walls, and existing LP cameras.
@@ -33,7 +33,7 @@ Consider the following general guidelines when positioning cameras for spatial a
 
 ## Height, focal-point distance, and angle
 
-You need to consider three things when deciding how to install a camera for spatial analysis:
+You need to consider three things when deciding how to install a camera for Spatial Analysis:
 - Camera height
 - Camera-to-focal-point distance
 - The angle of the camera relative to the floor plane
@@ -48,7 +48,7 @@ The following illustration shows the elevation view for person walking direction
 
 ## Camera height
 
-Generally, cameras should be mounted 12-14 feet from the ground. When planning your camera mounting in this range, consider obstructions (for example: shelving, hanging lights, hanging signage, and displays) that might affect the camera view, and then adjust the height as necessary.
+Generally, cameras should be mounted 12-14 feet from the ground. For Face mask detection, we recommend cameras to be mounted 8-12 feet from the ground. When planning your camera mounting in this range, consider obstructions (for example: shelving, hanging lights, hanging signage, and displays) that might affect the camera view, and then adjust the height as necessary.
 
 ## Camera-to-focal-point distance
 
@@ -64,16 +64,16 @@ From above, it looks like this:
 
 ![How camera-to-focal-point-distance is measured from above](./media/spatial-analysis/camera-focal-point-above.png)
 
-Use the table below to determine the camera's distance from the focal point based on specific mounting heights. These distances are for optimal placement. Note that the table provides guidance below the 12'-14' recommendation since some ceilings can limit height.
+Use the table below to determine the camera's distance from the focal point based on specific mounting heights. These distances are for optimal placement. Note that the table provides guidance below the 12'-14' recommendation since some ceilings can limit height. For Face mask detection, recommended camera-to-focal-point distance (min/max) is 4’-10’ for camera height between 8’ to 12’.
 
 | Camera height | Camera-to-focal-point distance (min/max) |  
 | ------------- | ---------------------------------------- |  
-| 8'            | 10'-13'                                  |  
-| 10'           | 7'-13'                                   |  
-| 12'           | 10'-17'                                  |  
-| 14'           | 11'-18'                                  |  
-| 16'           | 12'-22'                                  |  
-| 20'           | 15'-30'                                  |  
+| 8'            | 4.6'-8'                                  |  
+| 10'           | 5.8'-10'                                 |  
+| 12'           | 7'-12'                                   |  
+| 14'           | 8'-14''                                  |  
+| 16'           | 9.2'-16'                                 |  
+| 20'           | 11.5'-20'                                |  
 
 The following illustration simulates camera views from the closest and farthest camera-to-focal-point distances.
 
@@ -87,15 +87,9 @@ This section describes acceptable camera angle mounting ranges. These mounting r
 
 ### Line configuration
 
-The following table shows recommendations for cameras configured for the **cognitiveservices.vision.spatialanalysis-personcrossingline** operation. 
+For the **cognitiveservices.vision.spatialanalysis-personcrossingline** operation, +/-5° is the optimal camera mounting angle to maximize accuracy.
 
-| Camera height | Camera-to-focal-point distance | Optimal camera mounting angle (min/max) |  
-| ------------- | ------------------------------ | ------------------------------------------ |  
-| 8'            | 9'                             | +/-40°                                     |  
-| 10'           | 10'                            | +/-30°                                     |  
-| 12'           | 13'                            | +/-20°                                     |  
-| 16'           | 18'                            | +/-10°                                     |  
-| 20'           | 22'                            | +/-10°                                     |  
+For Face mask detection, +/-30 degrees is the optimal camera mounting angle for camera height between 8’ to 12’.
 
 The following illustration simulates camera views using the leftmost (-) and rightmost (+) mounting angle recommendations for using **cognitiveservices.vision.spatialanalysis-personcrossingline** to do entrance counting in a door way.
 
@@ -160,6 +154,6 @@ Organic queue lines form organically. This style of queue is acceptable if queue
 ## Next steps
 
 * [Deploy a People Counting web application](spatial-analysis-web-app.md)
-* [Configure spatial analysis operations](./spatial-analysis-operations.md)
+* [Configure Spatial Analysis operations](./spatial-analysis-operations.md)
 * [Logging and troubleshooting](spatial-analysis-logging.md)
 * [Zone and line placement guide](spatial-analysis-zone-line-placement.md)

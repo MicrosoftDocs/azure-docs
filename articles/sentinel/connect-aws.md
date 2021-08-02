@@ -1,6 +1,6 @@
 ---
 title: Connect AWS CloudTrail to Azure Sentinel | Microsoft Docs
-description: Use the AWS connector to delegate Azure Sentinel access to AWS resource logs, creating a trust relationship between AWS CloudTrail and Sentinel.
+description: Use the AWS connector to delegate Azure Sentinel access to AWS resource logs, creating a trust relationship between AWS CloudTrail and Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -24,6 +24,7 @@ Azure Sentinel. This is accomplished on AWS by creating a role that gives permis
 
 > [!NOTE]
 > AWS CloudTrail has [built-in limitations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) in its LookupEvents API. It allows no more than two transactions per second (TPS) per account, and each query can return a maximum of 50 records. Consequently, if a single tenant constantly generates more than 100 records per second in one region, backlogs and delays in data ingestion will result.
+> Currently, you can only connect your AWS Commercial CloudTrail to Azure Sentinel and not AWS GovCloud CloudTrail.
 
 ## Prerequisites
 
@@ -77,11 +78,11 @@ You must have write permission on the Azure Sentinel workspace.
 
 1. To use the relevant schema in Log Analytics for AWS events, search for **AWSCloudTrail**.
 
-
+    > [!IMPORTANT]
+    > As of December 1, 2020, the **AwsRequestId** field has been replaced by the **AwsRequestId_** field (note the added underscore). The data in the old **AwsRequestId** field will be preserved through the end of the customer's specified data retention period.
 
 ## Next steps
 In this document, you learned how to connect AWS CloudTrail to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
 - [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
-

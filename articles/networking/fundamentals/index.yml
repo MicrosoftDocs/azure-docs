@@ -1,0 +1,161 @@
+### YamlMime:Landing
+
+title: Azure Networking Fundamentals documentation 
+summary: Azure networking services enable you to access connect Azure resources and on-premises resources, protect, deliver, and monitor your applications in the Azure network.
+metadata:
+  title: Azure Networking Fundamentals Documentation
+  description: Learn about networking services in Azure that provide connectivity between Azure resources, connectivity from an on-premises network to Azure resources, help protect your network resources, scale application delivery, and help monitor your network.
+  ms.service: networking
+  ms.topic: landing-page
+  ms.collection: collection
+  author: KumudD
+  ms.author: kumud
+  ms.date: 03/30/2021
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+                    
+ # Card (optional)
+  - title: About Azure Networking
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Networking?
+            url: networking-overview.md
+      - linkListType: concept
+        links:
+          - text: What is Microsoft global network?
+            url: ../microsoft-global-network.md
+      - linkListType: learn
+        links:
+          - text: Build your network infrastructure in Azure
+            url: /learn/paths/architect-network-infrastructure/
+          - text: Explore Azure networking services
+            url: /learn/modules/azure-networking-fundamentals/
+  
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Virtual Network?
+            url: ../../virtual-network/virtual-networks-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Create a virtual network
+            url: ../../virtual-network/quick-create-portal.md  
+
+  # Card (optional)
+  - title: Communicate to the internet
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is a public IP address?
+            url: ../../virtual-network/virtual-networks-overview.md
+          - text: What is virtual network NAT Gateway?
+            url: ../../virtual-network/nat-gateway/nat-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create a public IP address
+            url: ../../virtual-network/create-public-ip-portal.md
+          - text: Create a NAT gateway
+            url: ../../virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md
+      - linkListType: learn
+        links:
+          - text: Design an IP addressing schema for your Azure deployment
+            url: /learn/modules/design-ip-addressing-for-azure/
+
+ 
+ # Card
+  - title: Connect virtual networks
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Virtual network peering
+            url: ../../virtual-network/virtual-network-peering-overview.md
+      - linkListType: tutorial
+        links:
+          - text: Connect virtual networks with virtual network peering
+            url: ../../virtual-network/tutorial-connect-virtual-networks-portal.md
+
+  # Card
+  - title: Private access to network resources
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Private Endpoint?
+            url: ../../private-link/private-endpoint-overview.md
+      - linkListType: tutorial
+        links:
+          - text: Create a Private Endpoint
+            url: ../../private-link/create-private-endpoint-portal.md 
+ 
+   # Card
+  - title: Load balance your applications
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Network load balancer
+            url: ../../load-balancer/load-balancer-overview.md
+          - text: Secure cloud CDN and global load balancer
+            url: ../../frontdoor/front-door-overview.md
+          - text: Web application load balancer
+            url: ../../application-gateway/overview.md
+          - text: Dns-based load balancer
+            url: ../../traffic-manager/traffic-manager-overview.md
+      - linkListType: tutorial
+        links:
+          - text: Create a network load balancer
+            url: ../../load-balancer/quickstart-load-balancer-standard-public-portal.md
+          - text: Deploy a secure cloud CDN and global load balancer
+            url: ../../frontdoor/quickstart-create-front-door.md
+          - text: Create a web application load balancer
+            url: ../../application-gateway/quick-create-portal.md
+          - text: Create a dns-based load balancer
+            url: ../../traffic-manager/quickstart-create-traffic-manager-profile.md
+ 
+  # Card
+  - title: Secure your virtual network
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Network security groups
+            url: ../../virtual-network/network-security-groups-overview.md 
+          - text: Azure DDoS Protection Standard
+            url: ../../ddos-protection/ddos-protection-overview.md
+          - text: Azure Firewall
+            url: ../../firewall/overview.md
+      - linkListType: tutorial
+        links:
+          - text: Restrict network access to PaaS resources
+            url: ../../virtual-network/tutorial-restrict-network-access-to-resources.md
+          - text: Create and configure Azure DDoS Protection Standard
+            url: ../../ddos-protection/manage-ddos-protection.md
+          - text: Deploy and configure Azure Firewall
+            url: ../../firewall/tutorial-firewall-deploy-portal.md
+      - linkListType: learn
+        links:
+          - text: Secure network connectivity on Azure
+            url: /learn/modules/secure-network-connectivity-azure/
+    
+  # Card
+  
+  - title: Connect on-premises networks to virtual networks
+    linkLists:
+       - linkListType: overview
+         links:
+           - text: VPN connections - VPN Gateway
+             url: ../../vpn-gateway/vpn-gateway-about-vpngateways.md
+           - text: Dedicated private connections - ExpressRoute
+             url: ../../expressroute/expressroute-introduction.md
+           - text: VPN and dedicated private connections - Virtual WAN
+             url: ../../virtual-wan/virtual-wan-about.md
+       - linkListType: tutorial
+         links:
+          - text: Connect on-premises network to a virtual network - VPN encryption
+            url: ../../vpn-gateway/tutorial-site-to-site-portal.md
+          - text: Extend on-premises network to Azure using ExpressRoute
+            url: ../../expressroute/expressroute-howto-circuit-portal-resource-manager.md

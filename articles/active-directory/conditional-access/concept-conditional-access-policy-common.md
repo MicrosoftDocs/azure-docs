@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 05/13/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: calebb, rogoya
+ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
 ---
@@ -25,7 +25,7 @@ ms.collection: M365-identity-device-management
 
 More information about emergency access accounts and why they are important can be found in the following articles: 
 
-* [Manage emergency access accounts in Azure AD](../users-groups-roles/directory-emergency-access.md)
+* [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md)
 * [Create a resilient access control management strategy with Azure Active Directory](../authentication/concept-resilient-controls.md)
 
 ## Typical policies deployed by organizations

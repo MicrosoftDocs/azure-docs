@@ -1,19 +1,19 @@
 ---
 title: Deploy and make predictions with ONNX
 titleSuffix: SQL machine learning
-description: Learn how to train a model, convert it to ONNX, deploy it to Azure SQL Edge or Azure SQL Managed Instance (preview), and then run native PREDICT on data using the uploaded ONNX model.
+description: Learn how to train a model, convert it to ONNX, deploy it to Azure SQL Edge or Azure SQL Managed Instance, and then run native PREDICT on data using the uploaded ONNX model.
 keywords: deploy SQL Edge
 ms.prod: sql
 ms.technology: machine-learning
-ms.topic: conceptual
+ms.topic: quickstart
 author: dphansen
 ms.author: davidph
-ms.date: 10/13/2020
+ms.date: 05/06/2021
 ---
 
 # Deploy and make predictions with an ONNX model and SQL machine learning
 
-In this quickstart, you'll learn how to train a model, convert it to ONNX, deploy it to [Azure SQL Edge](onnx-overview.md) or [Azure SQL Managed Instance (preview)](../azure-sql/managed-instance/machine-learning-services-overview.md), and then run native PREDICT on data using the uploaded ONNX model.
+In this quickstart, you'll learn how to train a model, convert it to ONNX, deploy it to [Azure SQL Edge](onnx-overview.md) or [Azure SQL Managed Instance](../azure-sql/managed-instance/machine-learning-services-overview.md), and then run native PREDICT on data using the uploaded ONNX model.
 
 This quickstart is based on **scikit-learn** and uses the [Boston Housing dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html).
 
@@ -21,11 +21,11 @@ This quickstart is based on **scikit-learn** and uses the [Boston Housing datase
 
 * If you're using Azure SQL Edge, and you haven't deployed an Azure SQL Edge module, follow the steps of [deploy SQL Edge using the Azure portal](deploy-portal.md).
 
-* Install [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download).
+* Install [Azure Data Studio](/sql/azure-data-studio/download).
 
 * Install Python packages needed for this quickstart:
 
-  1. Open [New Notebook](https://docs.microsoft.com/sql/azure-data-studio/sql-notebooks) connected to the Python 3 Kernel. 
+  1. Open [New Notebook](/sql/azure-data-studio/sql-notebooks) connected to the Python 3 Kernel. 
   1. Click **Manage Packages**
   1. In the **Installed** tab, look for the following Python packages in the list of installed packages. If any of these packages are not installed, select the **Add New** tab, search for the package, and click **Install**.
      - **scikit-learn**
@@ -393,4 +393,4 @@ FROM PREDICT(MODEL = @model, DATA = predict_input, RUNTIME=ONNX) WITH (variable1
 ## Next Steps
 
 * [Machine Learning and AI with ONNX in SQL Edge](onnx-overview.md)
-* [Machine Learning Services in Azure SQL Managed Instance (preview)](../azure-sql/managed-instance/machine-learning-services-overview.md)
+* [Machine Learning Services in Azure SQL Managed Instance](../azure-sql/managed-instance/machine-learning-services-overview.md)

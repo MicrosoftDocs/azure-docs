@@ -1,18 +1,20 @@
 ---
 title: Limits of Azure Cosmos DB Gremlin
 description: Reference documentation for runtime limitations of Graph engine
-author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 10/04/2019
-ms.author: sngun
+author: manishmsfte
+ms.author: mansha
 ---
 
 # Azure Cosmos DB Gremlin limits
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+
 This article talks about the limits of Azure Cosmos DB Gremlin engine and explains how they may impact customer traversals.
 
-Cosmos DB Gremlin is built on top of Cosmos DB infrastructure. Due to this, all limits explained in [Azure Cosmos DB service limits](https://docs.microsoft.com/azure/cosmos-db/concepts-limits) still apply.
+Cosmos DB Gremlin is built on top of Cosmos DB infrastructure. Due to this, all limits explained in [Azure Cosmos DB service limits](./concepts-limits.md) still apply.
 
 ## Limits
 

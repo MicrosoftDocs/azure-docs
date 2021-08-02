@@ -5,13 +5,10 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 07/09/2020
+ ms.date: 07/29/2021
  ms.author: cherylmc
  ms.custom: include file
 ---
-
-In this step, you create the connection between your hub and a VNet. Repeat these steps for each VNet that you want to connect.
-
 1. On the page for your virtual WAN, select **Virtual network connections**.
 1. On the virtual network connection page, select **+Add connection**.
 1. On the **Add connection** page, fill in the following fields:

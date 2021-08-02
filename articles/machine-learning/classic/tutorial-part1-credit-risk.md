@@ -1,27 +1,26 @@
 ---
 title: 'ML Studio (classic) tutorial: Predict credit risk - Azure'
-description: A detailed tutorial showing how to create a predictive analytics solution for credit risk assessment in Azure Machine Learning Studio (classic). This tutorial is part one of a three-part tutorial series.  It shows how to create a workspace, upload data, and create an experiment.
+description: A detailed tutorial showing how to create a predictive analytics solution for credit risk assessment in Machine Learning Studio (classic). 
 keywords: credit risk, predictive analytics solution,risk assessment
 author: sdgilley
 ms.author: sgilley
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: tutorial
 ms.date: 02/11/2019
 ---
-# Tutorial 1: Predict credit risk - Azure Machine Learning Studio (classic)
+# Tutorial 1: Predict credit risk - Machine Learning Studio (classic)
 
-**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
-
+**APPLIES TO:**  ![This is a check mark, which means that this article applies to Machine Learning Studio (classic).](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (classic)   ![This is an X, which means that this article does not apply to Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
-In this tutorial, you take an extended look at the process of developing a predictive analytics solution. You develop a simple model in Machine Learning Studio (classic).  You then deploy the model as an Azure Machine Learning web service.  This deployed model can make predictions using new data. This tutorial is **part one of a three-part tutorial series**.
+In this tutorial, you take an extended look at the process of developing a predictive analytics solution. You develop a simple model in Machine Learning Studio (classic).  You then deploy the model as a Machine Learning web service.  This deployed model can make predictions using new data. This tutorial is **part one of a three-part tutorial series**.
 
 Suppose you need to predict an individual's credit risk based on the information they gave on a credit application.  
 
-Credit risk assessment is a complex problem, but this tutorial will simplify it a bit. You'll use it as an example of how you can create a predictive analytics solution using Microsoft Azure Machine Learning Studio (classic). You'll use Azure Machine Learning Studio (classic) and a Machine Learning web service for this solution.  
+Credit risk assessment is a complex problem, but this tutorial will simplify it a bit. You'll use it as an example of how you can create a predictive analytics solution using Machine Learning Studio (classic). You'll use aMachine Learning Studio (classic) and a Machine Learning web service for this solution.  
 
 In this three-part tutorial, you start with publicly available credit risk data.  You then develop and train a predictive model.  Finally you deploy the model as a web service.
 
@@ -38,7 +37,7 @@ You can then use this experiment to [train models in part 2](tutorial-part2-cred
 
 This tutorial assumes that you've used Machine Learning Studio (classic) at least once before, and that you have some understanding of machine learning concepts. But it doesn't assume you're an expert in either.
 
-If you've never used **Azure Machine Learning Studio (classic)** before, you might want to start with the quickstart, [Create your first data science experiment in Azure Machine Learning Studio (classic)](create-experiment.md). The quickstart takes you through Machine Learning Studio (classic) for the first time. It shows you the basics of how to drag-and-drop modules onto your experiment, connect them together, run the experiment, and look at the results.
+If you've never used **Machine Learning Studio (classic)** before, you might want to start with the quickstart, [Create your first data science experiment in Machine Learning Studio (classic)](create-experiment.md). The quickstart takes you through Machine Learning Studio (classic) for the first time. It shows you the basics of how to drag-and-drop modules onto your experiment, connect them together, run the experiment, and look at the results.
 
 
 > [!TIP] 
@@ -48,9 +47,9 @@ If you've never used **Azure Machine Learning Studio (classic)** before, you mig
 
 ## Create a Machine Learning Studio (classic) workspace
 
-To use Machine Learning Studio (classic), you need to have a Microsoft Azure Machine Learning Studio (classic) workspace. This workspace contains the tools you need to create, manage, and publish experiments.  
+To use Machine Learning Studio (classic), you need to have a Machine Learning Studio (classic) workspace. This workspace contains the tools you need to create, manage, and publish experiments.  
 
-To create a workspace, see [Create and share an Azure Machine Learning Studio (classic) workspace](create-workspace.md).
+To create a workspace, see [Create and share a Machine Learning Studio (classic) workspace](create-workspace.md).
 
 After your workspace is created, open Machine Learning Studio (classic) ([https://studio.azureml.net/Home](https://studio.azureml.net/Home)). If you have more than one workspace, you can select the workspace in the toolbar in the upper-right corner of the window.
 
@@ -114,7 +113,7 @@ Once the data has been converted to CSV format, you need to upload it into Machi
 
 1. Open the Machine Learning Studio (classic) home page ([https://studio.azureml.net](https://studio.azureml.net)). 
 
-2. Click the menu ![Menu](./media/tutorial-part1-credit-risk/menu.png) in the upper-left corner of the window, click **Azure Machine Learning**, select **Studio**, and sign in.
+2. Click the menu ![This is the menu icon - three stacked lines.](./media/tutorial-part1-credit-risk/menu.png) in the upper-left corner of the window, click **Azure Machine Learning**, select **Studio**, and sign in.
 
 3. Click **+NEW** at the bottom of the window.
 
@@ -142,7 +141,7 @@ You can manage datasets that you've uploaded to Studio (classic) by clicking the
 
 ![Manage datasets](./media/tutorial-part1-credit-risk/dataset-list.png)
 
-For more information about importing other types of data into an experiment, see [Import your training data into Azure Machine Learning Studio (classic)](import-data.md).
+For more information about importing other types of data into an experiment, see [Import your training data into Machine Learning Studio (classic)](import-data.md).
 
 ## Create an experiment
 
@@ -308,6 +307,6 @@ You are now ready to train and evaluate models for this data.
 > [Tutorial 2 - Train and evaluate models](tutorial-part2-credit-risk-train.md)
 
 <!-- Module References -->
-[execute-r-script]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/execute-r-script
-[edit-metadata]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/edit-metadata
-[split]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/split-data
+[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script
+[edit-metadata]: /azure/machine-learning/studio-module-reference/edit-metadata
+[split]: /azure/machine-learning/studio-module-reference/split-data

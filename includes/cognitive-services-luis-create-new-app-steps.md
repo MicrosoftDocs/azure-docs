@@ -2,14 +2,14 @@
 title: include file
 description: include file 
 services: cognitive-services
-author: diberry
-manager: cjgronlund
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 06/03/2019
-ms.author: diberry
+ms.date: 12/29/2020
+ms.author: aahi
 ---
 
 1. Sign in to the LUIS portal with the URL of [https://www.luis.ai](https://www.luis.ai). 

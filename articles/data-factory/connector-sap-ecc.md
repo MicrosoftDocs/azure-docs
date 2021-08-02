@@ -1,16 +1,12 @@
 ---
 title: Copy data from SAP ECC
 description: Learn how to copy data from SAP ECC to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-services: data-factory
-ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
+ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/03/2020
+ms.date: 10/28/2020
 ---
 
 # Copy data from SAP ECC by using Azure Data Factory
@@ -42,6 +38,13 @@ Specifically, this SAP ECC connector supports:
 
 - Copying data by using basic authentication.
 
+The version 7.0 or later refers to SAP NetWeaver version instead of SAP ECC version. For example, SAP ECC 6.0 EHP 7 in general has NetWeaver version >=7.4. In case you are unsure about your environment, here are the steps to confirm the version from your SAP system:
+
+1. Use SAP GUI to connect to the SAP System. 
+2. Go to **System** -> **Status**. 
+3. Check the release of the SAP_BASIS, ensure it is equal to or larger than 701.  
+      ![Check SAP_BASIS](./media/connector-sap-table/sap-basis.png)
+
 >[!TIP]
 >To copy data from SAP ECC via an SAP table or view, use the [SAP table](connector-sap-table.md) connector, which is faster and more scalable.
 
@@ -53,11 +56,11 @@ To use this SAP ECC connector, you need to expose the SAP ECC entities via OData
 
 - **Activate and configure the SAP OData service**. You can activate the OData service through TCODE SICF in seconds. You can also configure which objects need to be exposed. For more information, see the [step-by-step guidance](https://blogs.sap.com/2012/10/26/step-by-step-guide-to-build-an-odata-service-based-on-rfcs-part-1/).
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## Get started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define the Data Factory entities specific to the SAP ECC connector.
 

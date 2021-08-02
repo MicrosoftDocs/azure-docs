@@ -28,7 +28,7 @@ Only EA admins, Account Owners, and Department Admins have access to download us
 
 Because Azure usage files are in CSV format, you need to prepare the data for use in Excel. Use the following steps to format the data as table.
 
-1. Download the Usage Details Version 2 with All Charges (usage and purchases) file using the instructions at [Download usage for EA customers](./download-azure-invoice-daily-usage-date.md#download-usage-for-ea-customers).
+1. Download the Usage Details Version 2 with All Charges (usage and purchases) file using the instructions at [Download usage for EA customers](../understand/download-azure-daily-usage.md).
 1. Open the file in Excel.
 1. The unformatted data resembles the following example.  
     :::image type="content" source="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/raw-csv-data-ea.png" alt-text="Example showing unformatted data in Excel" lightbox="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/raw-csv-data-ea.png" :::
@@ -75,6 +75,8 @@ A single resource can incur several charges for different services. For example,
     :::image type="content" source="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-month-expand-collapse.png" alt-text="Example showing the + symbol" :::
 
 [!INCLUDE [Transform data before using large usage files](../../../includes/cost-management-billing-transform-data-before-using-large-usage-files.md)]
+
+[!INCLUDE [Troubleshoot usage spikes](../../../includes/cost-management-billing-troubleshoot-usage-spikes.md)]
 
 ## Next steps
 

@@ -2,8 +2,8 @@
 title: 'Tutorial: Query data from a Cassandra API account in Azure Cosmos DB'
 description: This tutorial shows how to query user data from an Azure Cosmos DB Cassandra API account by using a Java application.
 ms.service: cosmos-db
-author: kanshiG
-ms.author: govindk
+author: TheovanKraay
+ms.author: thvankra
 ms.reviewer: sngun
 ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
@@ -12,6 +12,7 @@ ms.date: 09/24/2018
 ---
 
 # Tutorial: Query data from a Cassandra API account in Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 As a developer, you might have applications that use key/value pairs. You can use a Cassandra API account in Azure Cosmos DB to store and query the key/value data. This tutorial shows how to query user data from a Cassandra API account in Azure Cosmos DB by using a Java application. The Java application uses the [Java driver](https://github.com/datastax/java-driver) and queries user data such as user ID, user name, and user city. 
 

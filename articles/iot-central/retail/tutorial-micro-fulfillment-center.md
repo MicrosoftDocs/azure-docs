@@ -11,7 +11,13 @@ ms.date: 01/09/2020
 
 # Tutorial: Deploy and walk through a micro-fulfillment center application template
 
-In this tutorial, you use the Azure IoT Central micro-fulfillment center application template to build a retail solution. You learn about how to deploy the template, what's included in it, and what you might want to do next.
+In this tutorial, you use the Azure IoT Central micro-fulfillment center application template to build a retail solution.
+
+In this tutorial, you learn:
+
+> [!div class="checklist"]
+> * How to deploy the application template
+> * How to use the application template
 
 ## Prerequisites
 To complete this tutorial series, you need an Azure subscription. You can optionally use a free 7-day trial. If you don't have an Azure subscription, you can create one on the [Azure sign-up page](https://aka.ms/createazuresubscription).
@@ -31,7 +37,7 @@ To create a new Azure IoT Central application:
 1. Select **Retail**.  The retail page displays several retail application templates.
 
 To create a new micro-fulfillment center application that uses preview features:  
-1. Select the **Micro-fulfillment center** application template. This template includes device templates for all devices used in the tutorial. The template also provides an operator dashboard for monitoring conditions within your fulfillment center, as well as the conditions for your robotic carriers. 
+1. Select the **Micro-fulfillment center** application template. This template includes device templates for all devices used in the tutorial. The template also provides a dashboard for monitoring conditions within your fulfillment center, as well as the conditions for your robotic carriers. 
 
     ![Screenshot of Azure IoT Central Build your IoT application page](./media/tutorial-micro-fulfillment-center-app/iotc-retail-homepage-mfc.png)
     
@@ -42,26 +48,26 @@ To create a new micro-fulfillment center application that uses preview features:
 
 1. If you have an Azure subscription, enter your directory, Azure subscription, and region. If you don't have a subscription, you can enable 7-day free trial, and complete the required contact information.  
 
-    For more information about directories and subscriptions, see the [Create an application](../core/quick-deploy-iot-central.md) quickstart.
-
 1. Select **Create**.
 
     ![Screenshot of Azure IoT Central New application page](./media/tutorial-micro-fulfillment-center-app/iotc-retail-create-app-mfc.png)
 
+    ![Screenshot of Azure IoT Central billing info](./media/tutorial-micro-fulfillment-center-app/iotc-retail-create-app-mfc-billing.png)
+
 ## Walk through the application 
 
-After successfully deploying the app template, you see the **Northwind Traders micro-fulfillment center dashboard**. Northwind Traders is a fictitious retailer that has a micro-fulfillment center being managed in this Azure IoT Central application. On this operator dashboard, you see information and telemetry about the devices in this template, along with a set of commands, jobs, and actions that you can take. The dashboard is logically split into two sections. On the left, you can monitor the environmental conditions within the fulfillment structure, and on the right, you can monitor the health of a robotic carrier within the facility.  
+After successfully deploying the app template, you see the **Northwind Traders micro-fulfillment center dashboard**. Northwind Traders is a fictitious retailer that has a micro-fulfillment center being managed in this Azure IoT Central application. On this dashboard, you see information and telemetry about the devices in this template, along with a set of commands, jobs, and actions that you can take. The dashboard is logically split into two sections. On the left, you can monitor the environmental conditions within the fulfillment structure, and on the right, you can monitor the health of a robotic carrier within the facility.  
 
 From the dashboard, you can:
    * See device telemetry, such as the number of picks, the number of orders processed, and properties, such as the structure system status.  
    * View the floor plan and location of the robotic carriers within the fulfillment structure.
    * Trigger commands, such as resetting the control system, updating the carrier's firmware, and reconfiguring the network.
 
-     ![Screenshot of the top half of the Northwind Traders micro-fulfillment center dashboard.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard1.png)
+     ![Screenshot of the top half of the Northwind Traders micro-fulfillment center dashboard.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard-1.png)
    * See an example of the dashboard that an operator can use to monitor conditions within the fulfillment center. 
    * Monitor the health of the payloads that are running on the gateway device within the fulfillment center.    
 
-     ![Screenshot of the botton half of the Northwind Traders micro-fulfillment center dashboard.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard2.png)
+     ![Screenshot of the botton half of the Northwind Traders micro-fulfillment center dashboard.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard-2.png)
 
 ## Device template
 If you select the device templates tab, you see that there are two different device types that are part of the template: 
@@ -87,8 +93,7 @@ If you're not going to continue to use this application, delete the application 
 
 ## Next steps
 
-Learn more about
+Learn more about:
+
 > [!div class="nextstepaction"]
 > [micro-fulfillment center solution architecture](./architecture-micro-fulfillment-center.md)
-* Learn more about the [Azure IoT Central retail templates](./overview-iot-central-retail.md)
-* Learn more about [Azure IoT Central](../core/overview-iot-central.md)

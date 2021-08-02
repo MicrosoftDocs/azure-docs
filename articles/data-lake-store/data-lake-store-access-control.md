@@ -30,8 +30,6 @@ There are two kinds of access control lists (ACLs), **Access ACLs** and **Defaul
 
 Both Access ACLs and Default ACLs have the same structure.
 
-
-
 > [!NOTE]
 > Changing the Default ACL on a parent does not affect the Access ACL or Default ACL of child items that already exist.
 >
@@ -70,7 +68,7 @@ Following are some common scenarios to help you understand which permissions are
 | Operation | Object              |    /      | Seattle/   | Portland/   | Data.txt       |
 |-----------|---------------------|-----------|------------|-------------|----------------|
 | Read      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
-| Append to | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| Append to | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `-W-`          |
 | Delete    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Create    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | List      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
@@ -276,11 +274,19 @@ Entries in the ACLs are stored as GUIDs that correspond to users in Azure AD. Th
 
 ### Why do I sometimes see GUIDs in the ACLs when I'm using the Azure portal?
 
-A GUID is shown when the user doesn't exist in Azure AD anymore. Usually this happens when the user has left the company or if their account has been deleted in Azure AD.
+A GUID is shown when the user doesn't exist in Azure AD anymore. Usually this happens when the user has left the company or if their account has been deleted in Azure AD. Also, ensure that you're using the right ID for setting ACLs (details in question below).
+
+### When using service principal, what ID should I use to set ACLs?
+
+On the Azure Portal, go to **Azure Active Directory -> Enterprise applications** and select your application. The **Overview** tab should display an Object ID and this is what should be used when adding ACLs for data access (and not Application Id).
 
 ### Does Data Lake Storage Gen1 support inheritance of ACLs?
 
-No, but Default ACLs can be used to set ACLs for child files and folder newly created under the parent folder.  
+No, but Default ACLs can be used to set ACLs for child files and folder newly created under the parent folder.
+
+### What are the limits for ACL entries on files and folders?
+
+32 ACLs can be set per file and per directory. Access and default ACLs each have their own 32 ACL entry limit. Use security groups for ACL assignments if possible. By using groups, you're less likely to exceed the maximum number of ACL entries per file or directory.
 
 ### Where can I learn more about POSIX access control model?
 

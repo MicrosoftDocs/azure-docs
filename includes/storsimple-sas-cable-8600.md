@@ -17,7 +17,7 @@ ms.author: alkohli
    |:--- |:--- |
    | 1 |Primary enclosure |
    | 2 |EBOD enclosure |
-2. Locate the serial numbers on the primary and the EBOD enclosures. The serial number sticker is affixed to the back ear of each enclosure. The serial numbers must be identical on both enclosures. [Contact Microsoft Support](../articles/storsimple/storsimple-contact-microsoft-support.md) immediately if the serial numbers do not match. See the following illustration to locate the serial numbers.
+2. Locate the serial numbers on the primary and the EBOD enclosures. The serial number sticker is affixed to the back ear of each enclosure. The serial numbers must be identical on both enclosures. [Contact Microsoft Support](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) immediately if the serial numbers do not match. See the following illustration to locate the serial numbers.
    
     ![Rear view of enclosure showing serial number](./media/storsimple-sas-cable-8600/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
    
@@ -46,4 +46,3 @@ ms.author: alkohli
       | 4 |EBOD Controller 1 |
       | 5, 6 |SAS ports on primary enclosure (labeled EBOD) |
       | 7, 8 |SAS ports on EBOD enclosure (Port A) |
-

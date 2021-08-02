@@ -41,7 +41,7 @@ In this quickstart, you create a simulated IoT device on a Windows computer. The
     git clone https://github.com/Azure/azure-utpm-c.git --recursive
     ```
 
-1. Navigate to the GitHub root folder and run the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simulator to be the [HSM](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) for the simulated device. It listens over a socket on ports 2321 and 2322. Do not close this command window; you need to keep this simulator running until the end of this quickstart guide: 
+1. Navigate to the GitHub root folder and run the [TPM](/windows/device-security/tpm/trusted-platform-module-overview) simulator to be the [HSM](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) for the simulated device. It listens over a socket on ports 2321 and 2322. Do not close this command window; you need to keep this simulator running until the end of this quickstart guide: 
 
     ```cmd/sh
     .\azure-utpm-c\tools\tpm_simulator\Simulator.exe

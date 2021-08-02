@@ -3,19 +3,19 @@ title: Service tiers - DTU-based purchase model
 description: Learn about service tiers in the DTU-based purchase model for Azure SQL Database to provide compute and storage sizes.  
 services: sql-database
 ms.service: sql-database
-ms.subservice: service
+ms.subservice: service-overview
 ms.custom: references_regions
 ms.devlang: 
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.date: 10/15/2020
-ms.reviewer:
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: mathoma
+ms.date: 5/4/2021
 ---
 # Service tiers in the DTU-based purchase model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Service tiers in the DTU-based purchase model are differentiated by a range of compute sizes with a fixed amount of included storage, fixed retention period for backups, and fixed price. All service tiers in the DTU-based purchase model provide flexibility of changing compute sizes with minimal [downtime](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/); however, there is a switch over period where connectivity is lost to the database for a short amount of time, which can be mitigated using retry logic. Single databases and elastic pools are billed hourly based on service tier and compute size.
+Service tiers in the DTU-based purchase model are differentiated by a range of compute sizes with a fixed amount of included storage, fixed retention period for backups, and fixed price. All service tiers in the DTU-based purchase model provide flexibility of changing compute sizes with minimal [downtime](https://azure.microsoft.com/support/legal/sla/azure-sql-database); however, there is a switch over period where connectivity is lost to the database for a short amount of time, which can be mitigated using retry logic. Single databases and elastic pools are billed hourly based on service tier and compute size.
 
 > [!IMPORTANT]
 > [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) does not support a DTU-based purchasing model. 
@@ -34,7 +34,7 @@ Choosing a service tier depends primarily on business continuity, storage, and p
 |**Uptime SLA**|99.99%|99.99%|99.99%|
 |**Maximum backup retention**|7 days|35 days|35 days|
 |**CPU**|Low|Low, Medium, High|Medium, High|
-|**IOPS (approximate)**\* |1-4 IOPS per DTU| 1-4 IOPS per DTU | 25 IOPS per DTU|
+|**IOPS (approximate)**\* |1-4 IOPS per DTU| 1-4 IOPS per DTU | >25 IOPS per DTU|
 |**IO latency (approximate)**|5 ms (read), 10 ms (write)|5 ms (read), 10 ms (write)|2 ms (read/write)|
 |**Columnstore indexing** |N/A|S3 and above|Supported|
 |**In-memory OLTP**|N/A|N/A|Supported|
@@ -48,7 +48,7 @@ Choosing a service tier depends primarily on business continuity, storage, and p
 >
 
 > [!TIP]
-> To see actual [resource governance](resource-limits-logical-server.md#resource-governance) limits for a database or elastic pool, query the [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) view.
+> To see actual [resource governance](resource-limits-logical-server.md#resource-governance) limits for a database or elastic pool, query the [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) view.
 
 > [!NOTE]
 > You can get a free database in Azure SQL Database at the Basic service tier in conjunction with an Azure free account to explore Azure. For information, see [Create a managed cloud database with your Azure free account](https://azure.microsoft.com/free/services/sql-database/).

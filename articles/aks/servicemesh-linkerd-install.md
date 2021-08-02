@@ -30,7 +30,7 @@ In this article, you learn how to:
 
 ## Before you begin
 
-The steps detailed in this article assume that you've created an AKS cluster (Kubernetes `1.13` and above, with RBAC enabled) and have established a `kubectl` connection with the cluster. If you need help with any of these items, then see the [AKS quickstart][aks-quickstart].
+The steps detailed in this article assume that you've created an AKS cluster (Kubernetes `1.13` and above, with Kubernetes RBAC enabled) and have established a `kubectl` connection with the cluster. If you need help with any of these items, then see the [AKS quickstart][aks-quickstart].
 
 All Linkerd pods must be scheduled to run on Linux nodes - this setup is the default in the installation method detailed below and requires no additional configuration.
 
@@ -265,7 +265,7 @@ You can also follow additional scenarios using:
 <!-- LINKS - external -->
 
 [linkerd]: https://linkerd.io/
-[linkerd-cncf]: https://landscape.cncf.io/selected=linkerd
+[linkerd-cncf]: https://landscape.cncf.io/?selected=linkerd
 [linkerd-faq]: https://linkerd.io/2/faq/
 [linkerd-architecture]: https://linkerd.io/2/reference/architecture/
 [linkerd-getting-started]: https://linkerd.io/2/getting-started/

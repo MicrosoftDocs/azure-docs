@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/19/2017
+ms.date: 07/16/2021
 ms.author: alkohli
 
 ---
@@ -29,7 +29,7 @@ A volume container has the following attributes:
 * **Volumes** – The tiered or locally pinned StorSimple volumes that are contained within the volume container. 
 * **Encryption** – An encryption key that can be defined for each volume container. This key is used for encrypting the data that is sent from your StorSimple device to the cloud. A military-grade AES-256 bit key is used with the user-entered key. To secure your data, we recommend that you always enable cloud storage encryption.
 * **Storage account** – The Azure storage account that is used to store the data. All the volumes residing in a volume container share this storage account. You can choose a storage account from an existing list, or create a new account when you create the volume container and then specify the access credentials for that account.
-* **Cloud bandwidth** – The bandwidth consumed by the device when the data from the device is being sent to the cloud. You can enforce a bandwidth control by specifying a value between 1 Mbps and 1,000 Mbps when you create this container. If you want the device to consume all available bandwidth, set this field to **Unlimited**. You can also create and apply a bandwidth template to allocate bandwidth based on schedule.
+* **Cloud bandwidth** – The bandwidth consumed by the device when the data from the device is being sent to the cloud. If you want the device to consume all available bandwidth, set this field to **Unlimited**. You can also create and apply a bandwidth template to allocate bandwidth based on a schedule.
 
 The following procedures explain how to use the StorSimple **Volume containers** blade to complete the following common operations:
 

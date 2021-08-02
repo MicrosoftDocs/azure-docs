@@ -7,7 +7,7 @@ ms.topic: reference
 ms.date: 09/01/2020
 ---
 
-# Question and answer pair concepts
+# Question and answer pair
 
 A knowledge base consists of question and answer (QnA) pairs.  Each pair has one answer and a pair contains all the information associated with that _answer_. An answer can loosely resemble a database row or a data structure instance.
 

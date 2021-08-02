@@ -1,13 +1,13 @@
 ---
 title: Get started w/ Azure IoT Hub module identity & module twin (.NET)
 description: Learn how to create module identity and update module twin using IoT SDKs for .NET.
-author: chrissie926
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/07/2019
-ms.author: menchi
+ms.author: robinsh
 ms.custom: "amqp, devx-track-csharp"
 ---
 
@@ -176,4 +176,4 @@ To continue getting started with IoT Hub and to explore other IoT scenarios, see
 
 * [Getting started with device management](iot-hub-node-node-device-management-get-started.md)
 
-* [Getting started with IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Getting started with IoT Edge](../iot-edge/quickstart-linux.md)

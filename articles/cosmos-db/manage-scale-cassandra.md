@@ -3,16 +3,18 @@ title: Elastically scale with Cassandra API in Azure Cosmos DB
 description: Learn about the options available to scale an Azure Cosmos DB Cassandra API account and their advantages/disadvantages
 author: TheovanKraay
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: thvankra
 ---
 
 # Elastically scale an Azure Cosmos DB Cassandra API account
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 There are a variety of options to explore the elastic nature of the Azure Cosmos DB API for Cassandra. To understand how to scale effectively in Azure Cosmos DB, it is important to understand how to provision the right amount of request units (RU/s) to account for the performance demands in your system. To learn more about request units, see the [request units](request-units.md) article. 
 
-For the Cassandra API, you can retrieve the Request Unit charge for individual queries using the [.NET and Java SDKs](https://docs.microsoft.com/azure/cosmos-db/find-request-unit-charge#cassandra-api). This is helpful in determining the amount of RU/s you will need to provision in the service.
+For the Cassandra API, you can retrieve the Request Unit charge for individual queries using the [.NET and Java SDKs](./find-request-unit-charge-cassandra.md). This is helpful in determining the amount of RU/s you will need to provision in the service.
 
 :::image type="content" source="./media/request-units/request-units.png" alt-text="Database operations consume Request Units" border="false":::
 
@@ -20,7 +22,7 @@ For the Cassandra API, you can retrieve the Request Unit charge for individual q
 
 Azure Cosmos DB will return rate-limited (429) errors if clients consume more resources (RU/s) than the amount that you have provisioned. The Cassandra API in Azure Cosmos DB translates these exceptions to overloaded errors on the Cassandra native protocol. 
 
-If your system is not sensitive to latency, it may be sufficient to handle the throughput rate-limiting by using retries. See the [Java code sample](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) for how to handle rate limiting transparently by using the [Azure Cosmos DB extension](https://github.com/Azure/azure-cosmos-cassandra-extensions) for [Cassandra retry policy](https://docs.datastax.com/en/developer/java-driver/4.4/manual/core/retries/) in Java. You can also use the [Spark extension](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) to handle rate-limiting.
+If your system is not sensitive to latency, it may be sufficient to handle the throughput rate-limiting by using retries. See Java code samples for [version 3](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample) and [version 4](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample-v4) of the Apache Cassandra Java drivers for how to handle rate limiting transparently. These samples implements a custom version of the default [Cassandra retry policy](https://docs.datastax.com/en/developer/java-driver/4.4/manual/core/retries/) in Java. You can also use the [Spark extension](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) to handle rate-limiting. When using Spark, ensure you follow our guidance on [Optimizing Spark connector throughput configuration](cassandra-spark-generic.md#optimizing-spark-connector-throughput-configuration).
 
 ## Manage scaling
 
@@ -41,7 +43,7 @@ The advantage of this method is that it is a straightforward turnkey way to mana
 
 ## <a id="use-control-plane"></a>Use the control plane
 
-The Azure Cosmos DB's API for Cassandra provides the capability to adjust throughput programmatically by using our various control-plane features. See the [Azure Resource Manager](manage-cassandra-with-resource-manager.md), [PowerShell](powershell-samples.md), and [Azure CLI](cli-samples.md) articles for guidance and samples.
+The Azure Cosmos DB's API for Cassandra provides the capability to adjust throughput programmatically by using our various control-plane features. See the [Azure Resource Manager](./templates-samples-cassandra.md), [PowerShell](powershell-samples.md), and [Azure CLI](cli-samples.md) articles for guidance and samples.
 
 The advantage of this method is that you can automate the scaling up or down of resources based on a timer to account for peak activity, or periods of low activity. Take a look at our sample [here](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler) for how to accomplish this using Azure Functions and PowerShell.
 
@@ -57,7 +59,7 @@ The advantage of this approach is that it allows you to respond to scale needs d
 
 In addition to standard (manual) or programmatic way of provisioning throughput, you can also configure Azure cosmos containers in autoscale provisioned throughput. Autoscale will automatically and instantly scale to your consumption needs within specified RU ranges without compromising SLAs. To learn more, see the [Create Azure Cosmos containers and databases in autoscale](provision-throughput-autoscale.md) article.
 
-The advantage of this approach is that it is the easiest way to manage the scaling needs in your system. It guarantees not to apply rate-limiting **within the configured RU ranges**. The disadvantage is that, if the scaling needs in your system are predictable, autoscale may be a less cost-effective way of handling your scaling needs than using the bespoke control plane or SDK level approaches mentioned above.
+The advantage of this approach is that it is the easiest way to manage the scaling needs in your system. It will not apply rate-limiting **within the configured RU ranges**. The disadvantage is that, if the scaling needs in your system are predictable, autoscale may be a less cost-effective way of handling your scaling needs than using the bespoke control plane or SDK level approaches mentioned above.
 
 To set or alter max throughput (RUs) for autoscale using CQL, use the following (replacing keyspace/table name accordingly):
 

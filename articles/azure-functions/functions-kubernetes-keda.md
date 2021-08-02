@@ -1,11 +1,10 @@
 ---
 title: Azure Functions on Kubernetes with KEDA
 description: Understand how to run Azure Functions in Kubernetes in the cloud or on-premises using KEDA, Kubernetes-based event driven autoscaling.
-author: jeffhollan
-
+author: eamonoreilly
 ms.topic: conceptual
 ms.date: 11/18/2019
-ms.author: jehollan
+ms.author: eamono
 ---
 
 # Azure Functions on Kubernetes with KEDA
@@ -24,11 +23,14 @@ To run Functions on your Kubernetes cluster, you must install the KEDA component
 
 ### Installing with Helm
 
-There are various ways to install KEDA in any Kubernetes cluster including Helm.  Deployment options are documented on the [KEDA site](https://keda.sh/docs/1.4/deploy/).
+There are various ways to install KEDA in any Kubernetes cluster including Helm.  Deployment options are documented on the [KEDA site](https://keda.sh/docs/deploy/).
 
 ## Deploying a function app to Kubernetes
 
 You can deploy any function app to a Kubernetes cluster running KEDA.  Since your functions run in a Docker container, your project needs a `Dockerfile`.  If it doesn't already have one, you can add a Dockerfile by running the following command at the root of your Functions project:
+
+> [!NOTE]
+> The Core Tools automatically create the Dockerfile for Azure Functions written in .NET, Node, Python, or PowerShell. For function apps written in Java, the Dockerfile must be created manually. Use the Azure Functions [image list](https://github.com/Azure/azure-functions-docker) to find the correct image to base the Azure Function.
 
 ```cli
 func init --docker-only
@@ -45,7 +47,10 @@ func kubernetes deploy --name <name-of-function-deployment> --registry <containe
 
 > Replace `<name-of-function-deployment>` with the name of your function app.
 
-This creates a Kubernetes `Deployment` resource, a `ScaledObject` resource, and `Secrets`, which includes environment variables imported from your `local.settings.json` file.
+The deploy command executes a series of actions:
+1. The Dockerfile created earlier is used to build a local image for the function app.
+2. The local image is tagged and pushed to the container registry where the user is logged in.
+3. A manifest is created and applied to the cluster that defines a Kubernetes `Deployment` resource, a `ScaledObject` resource, and `Secrets`, which includes environment variables imported from your `local.settings.json` file.
 
 ### Deploying a function app from a private registry
 
@@ -63,7 +68,7 @@ kubectl delete secret <name-of-function-deployment>
 
 ## Uninstalling KEDA from Kubernetes
 
-Steps to uninstall KEDA are documented [on the KEDA site](https://keda.sh/docs/1.4/deploy/).
+Steps to uninstall KEDA are documented [on the KEDA site](https://keda.sh/docs/deploy/).
 
 ## Supported triggers in KEDA
 

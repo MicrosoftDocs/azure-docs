@@ -1,17 +1,20 @@
 ---
-title: Communication for Roles in Cloud Services | Microsoft Docs
+title: Communication for Roles in Cloud Services (classic) | Microsoft Docs
 description: Role instances in Cloud Services can have endpoints (http, https, tcp, udp) defined for them that communicate with the outside or between other role instances.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-manager: carmonm
-ms.service: cloud-services
 ms.topic: article
-ms.date: 12/14/2016
-ms.author: tagore
-
+ms.service: cloud-services
+ms.date: 10/14/2020
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# Enable communication for role instances in azure
+
+# Enable communication for role instances in Azure Cloud Services (classic)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 Cloud service roles communicate through internal and external connections. External connections are called **input endpoints** while internal connections are called **internal endpoints**. This topic describes how to modify the [service definition](cloud-services-model-and-package.md#csdef) to create endpoints.
 
 ## Input endpoint
@@ -101,7 +104,7 @@ The **Instances** property returns a collection of **RoleInstance** objects. Thi
 > 
 > 
 
-To determine the port number for an internal endpoint on a role instance, you can use the [InstanceEndpoints](/previous-versions/azure/reference/ee741917(v=azure.100)) property to return a Dictionary object that contains endpoint names and their corresponding IP addresses and ports. The [IPEndpoint](/previous-versions/azure/reference/ee741919(v=azure.100)) property returns the IP address and port for a specified endpoint. The **PublicIPEndpoint** property returns the port for a load balanced endpoint. The IP address portion of the **PublicIPEndpoint** property is not used.
+To determine the port number for an internal endpoint on a role instance, you can use the [`InstanceEndpoints`](/previous-versions/azure/reference/ee741917(v=azure.100)) property to return a Dictionary object that contains endpoint names and their corresponding IP addresses and ports. The [`IPEndpoint`](/previous-versions/azure/reference/ee741919(v=azure.100)) property returns the IP address and port for a specified endpoint. The `PublicIPEndpoint` property returns the port for a load balanced endpoint. The IP address portion of the `PublicIPEndpoint` property is not used.
 
 Here is an example that iterates role instances.
 

@@ -1,18 +1,18 @@
 ---
-title: Use the Azure portal to troubleshoot Azure Stack Edge Pro | Microsoft Docs 
-description: Learn how to troubleshoot issues on your Azure Stack Edge Pro. You can run diagnostics, collect information for Support, and use logs to troubleshoot.
+title: Troubleshoot Azure Stack Edge Pro FPGA via the Azure portal 
+description: Learn how to troubleshoot issues on your Azure Stack Edge Pro FPGA. You can run diagnostics, collect information for Support, and use logs to troubleshoot.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 08/11/2020
+ms.date: 06/08/2021
 ms.author: alkohli
 ---
-# Troubleshoot your Azure Stack Edge Pro issues
+# Troubleshoot your Azure Stack Edge Pro FPGA issues
 
-This article describes how to troubleshoot issues on your Azure Stack Edge Pro. 
+This article describes how to troubleshoot issues on your Azure Stack Edge Pro FPGA. 
 
 In this article, you learn how to:
 
@@ -21,6 +21,7 @@ In this article, you learn how to:
 > * Run diagnostics
 > * Collect Support package
 > * Use logs to troubleshoot
+> * Troubleshoot IoT Edge errors
 
 ## Run diagnostics
 
@@ -60,7 +61,7 @@ Any errors experienced during the upload and refresh processes are included in t
 
       ![Connect to and view share contents](media/azure-stack-edge-troubleshoot/troubleshoot-logs-1.png)
 
-2. Select the _Microsoft Azure Stack Edge Pro folder_. This folder has two subfolders:
+2. Select the _Microsoft Azure Stack Edge folder_. This folder has two subfolders:
 
     * Upload folder that has log files for upload errors.
     * Refresh folder for errors during refresh.
@@ -77,6 +78,10 @@ Any errors experienced during the upload and refresh processes are included in t
 
     [!INCLUDE [data-box-edge-edge-upload-error-reference](../../includes/data-box-edge-gateway-upload-error-reference.md)]
 
+## Troubleshoot IoT Edge errors
+
+[!INCLUDE [Troubleshoot IoT Edge runtime](../../includes/azure-stack-edge-iot-troubleshoot-compute.md)]
+
 ## Next steps
 
-* Learn more about the [known issues in this release](data-box-gateway-release-notes.md).
+* Learn more about the [known issues in this release](../databox-gateway/data-box-gateway-release-notes.md).

@@ -1,0 +1,97 @@
+### YamlMime:Landing
+
+title: Azure AD roles documentation - Azure AD
+summary: Azure AD role-based access control manages access to Azure AD resources. Create custom roles, assign roles that use administrative units to restrict scope of control, assign application access to groups or users, manage eligibility with Privileged Identity Management (PIM), or delegate permissions to distribute identity management tasks. 
+
+
+metadata:
+  title: Azure Active Directory roles documentation
+  description: Learn how to use Azure AD roles to manage access in your organization.
+  services: active-directory
+  ms.service: active-directory
+  ms.subservice: roles
+  manager: daveba
+  ms.topic: landing-page
+  ms.date: 10/19/2020
+  author: curtand
+  ms.author: curtand
+
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: About Azure AD roles
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure AD role-based access control overview
+            url: custom-overview.md
+      - linkListType: concept
+        links:
+          - text: Understand Azure AD roles
+            url: concept-understand-roles.md
+          - text: Understand administrative units in Azure AD
+            url: administrative-units.md
+          - text: Use groups to manage role assignments
+            url: groups-concept.md
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Grant permission to create unlimited app registrations
+            url: quickstart-app-registration-limits.md
+
+  # Card
+  - title: Delegate roles
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Delegate roles by task
+            url: delegate-by-task.md
+          - text: Delegate application management
+            url: delegate-app-roles.md
+
+  # Card
+  - title: Assign roles to users
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create custom roles
+            url: custom-create.md
+          - text: Assign roles using Graph API
+            url: custom-assign-graph.md
+          - text: Assign using PowerShell
+            url: custom-assign-powershell.md
+          - text: Assign roles using Graph API
+            url: custom-assign-graph.md
+
+  # Card
+  - title: Assign roles to groups
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create role-assignable groups
+            url: groups-create-eligible.md
+          - text: Assign roles to groups
+            url: groups-assign-role.md
+          - text: Make a group eligible for PIM
+            url: groups-pim-eligible.md
+          - text: View assignments for a group
+            url: groups-view-assignments.md
+
+  # Card
+  - title: Manage scope with administrative units
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Add and remove administrative units
+            url: admin-units-manage.md
+          - text: Assign users to units
+            url: admin-units-add-manage-users.md
+          - text: Assign groups to units  
+            url: admin-units-add-manage-groups.md
+          - text: Assign groups with scope  
+            url: admin-units-assign-roles.md

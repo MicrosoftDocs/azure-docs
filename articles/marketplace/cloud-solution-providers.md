@@ -1,5 +1,5 @@
 ---
-title: Cloud Solution Provider - Microsoft commercial marketplace
+title: Cloud Solution Provider - Microsoft commercial marketplace - Azure
 description: Learn how to sell your offers through the Microsoft Cloud Solution Provider (CSP) program partner channel in the commercial marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -29,7 +29,7 @@ The following offers are eligible to be opted in to be sold by partners in the C
 
 ## How to configure an offer
 
-Configure the CSP program opt-in setting when you create the offer in Partner Center. [Learn more about the changing publisher experience](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293).
+Configure the CSP program opt-in setting when you create the offer in Partner Center.
 
 ### Partner Center opt-in
 
@@ -76,7 +76,7 @@ Select **Save draft** to register your changes.
 If this offer is unpublished, you'll need to publish your offer to make it available to your selected partners.
 
 >[!NOTE]
->If you authorize a partner in the CSP program in a given region, they can sell the offer to any customer that belongs to that particular region. For more information on how CSP offers are classified under regions, see [Cloud Solution Provider program regional markets and currency](https://docs.microsoft.com/partner-center/regional-authorization-overview).
+>If you authorize a partner in the CSP program in a given region, they can sell the offer to any customer that belongs to that particular region. For more information on how CSP offers are classified under regions, see [Cloud Solution Provider program regional markets and currency](/partner-center/regional-authorization-overview).
 
 If you're updating the CSP list of an already published offer, add the additional partners and select **Sync CSP audience**.
 
@@ -94,7 +94,7 @@ If you've authorized a partner in the CSP program and that partner has already r
 
 If a partner in the CSP program has not sold your product to their customers and you'd like to remove the CSP after your offer has been published, use the following instructions:
 
-1. Go to the [Support request page](https://aka.ms/marketplacepublishersupport). The first few dropdown menus are automatically filled in for you.
+1. Go to the [Support request page](https://go.microsoft.com/fwlink/?linkid=2165533). The first few dropdown menus are automatically filled in for you.
 
    > [!NOTE]
    > Don't change the pre-populated dropdown menu selections.
@@ -113,7 +113,7 @@ Use this section to navigate between the three CSP reseller options.
 
 If your offer is currently **Option 1: Any partner in the CSP program** and you'd like to navigate to either of the other two options, use the following instructions to create a request:
 
-1. Go to the [Support request page](https://aka.ms/marketplacepublishersupport). The first few dropdown menus are automatically filled in for you.
+1. Go to the [Support request page](https://go.microsoft.com/fwlink/?linkid=2165533). The first few dropdown menus are automatically filled in for you.
 
    > [!NOTE]
    > Don't change the pre-populated dropdown menu selections.
@@ -131,7 +131,7 @@ If your offer is currently **Option 1: Any partner in the CSP program** and you'
 
 If your offer is currently **Option 2: Specific partners in the CSP program I select** and you'd like to navigate to **Option one: Any partner in the CSP program**, use the following instructions to create a request:
 
-1. Go to the [Support request page](https://aka.ms/marketplacepublishersupport). The first few dropdown menus are automatically filled in for you.
+1. Go to the [Support request page](https://go.microsoft.com/fwlink/?linkid=2165533). The first few dropdown menus are automatically filled in for you.
 
    > [!NOTE]
    > Don't change the pre-populated dropdown menu selections.
@@ -144,7 +144,7 @@ If your offer is currently **Option 2: Specific partners in the CSP program I se
 
  If your offer is currently **Option 2: Specific partners in the CSP program I select** and you'd like to navigate to **Option 3: No partners in the CSP program**, you'll only be able to navigate to that option if the partners in the CSP program you'd previously authorized have not resold your offer to end customers. Use the following instructions to create a request:
 
-1. Go to the [Support request page](https://aka.ms/marketplacepublishersupport). The first few dropdown menus are automatically filled in for you.
+1. Go to the [Support request page](https://go.microsoft.com/fwlink/?linkid=2165533). The first few dropdown menus are automatically filled in for you.
 
    > [!NOTE]
    > Don't change the pre-populated dropdown menu selections.

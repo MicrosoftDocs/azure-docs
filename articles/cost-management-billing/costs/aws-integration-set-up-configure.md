@@ -3,7 +3,7 @@ title: Set up AWS integration with Azure Cost Management
 description: This article walks you through setting up and configuring AWS Cost and Usage report integration with Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/28/2020
+ms.date: 06/08/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -22,7 +22,7 @@ Watch the video [How to set up Connectors for AWS in Cost Management](https://ww
 
 ## Create a Cost and Usage report in AWS
 
-Using a Cost and Usage report is the AWS-recommended way to collect and process AWS costs. For more information, see the [AWS Cost and Usage Report](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-reports-costusage.html) documentation.
+Using a Cost and Usage report is the AWS-recommended way to collect and process AWS costs. The Cost Management cross cloud connector supports cost and usage reports configured at the management (consolidated) account level. For more information, see the [AWS Cost and Usage Report](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-reports-costusage.html) documentation.
 
 Use the **Cost & Usage Reports** page of the Billing and Cost Management console in AWS to create a Cost and Usage report with the following steps:
 
@@ -34,14 +34,12 @@ Use the **Cost & Usage Reports** page of the Billing and Cost Management console
 6. For **Data refresh settings**, select whether you want the AWS Cost and Usage report to refresh if AWS applies refunds, credits, or support fees to your account after finalizing your bill. When a report refreshes, a new report is uploaded to Amazon S3. We recommend that you leave the setting selected.
 7. Select **Next**.
 8. For **S3 bucket**, choose **Configure**.
-9. In the Configure S3 Bucket dialog box, do one of the following tasks:
-    1. Select an existing bucket from the drop-down list and choose **Next**.
-    2. Enter a bucket name and the Region where you want to create a new bucket and choose **Next**.
-10.    Select **I have confirmed that this policy is correct**, then click **Save**.
-11.    (Optional) For Report path prefix, enter the report path prefix that you want prepended to the name of your report.
+9. In the Configure S3 Bucket dialog box, enter a bucket name and the Region where you want to create a new bucket and choose **Next**.
+10. Select **I have confirmed that this policy is correct**, then click **Save**.
+11. (Optional) For Report path prefix, enter the report path prefix that you want prepended to the name of your report.
 If you don't specify a prefix, the default prefix is the name that you specified for the report. The date range has the `/report-name/date-range/` format.
 12. For **Time unit**, choose  **Hourly**.
-13.    For **Report versioning**, choose whether you want each version of the report to overwrite the previous version, or if you want additional new reports.
+13. For **Report versioning**, choose whether you want each version of the report to overwrite the previous version, or if you want additional new reports.
 14. For **Enable data integration for**, no selection is required.
 15. For **Compression**, select **GZIP**.
 16. Select **Next**.
@@ -50,6 +48,9 @@ If you don't specify a prefix, the default prefix is the name that you specified
     Note the report name. You'll use it in later steps.
 
 It can take up to 24 hours for AWS to start delivering reports to your Amazon S3 bucket. After delivery starts, AWS updates the AWS Cost and Usage report files at least once a day. You can continue configuring your AWS environment without waiting for delivery to start.
+
+> [!NOTE]
+> Cost and usage reports configured at the member (linked) account level aren't currently supported.
 
 ## Create a role and policy in AWS
 
@@ -144,13 +145,22 @@ The policy JSON should resemble the following example. Replace _bucketname_ with
 
 ## Set up a new connector for AWS in Azure
 
-Use the following information to create an AWS connector and start monitoring your AWS costs:
+Use the following information to create an AWS connector and start monitoring your AWS costs.
+
+### Prerequisites
+
+- Ensure you have at least one management group enabled. A management group is required to link your subscription to the AWS service. For more information about creating a management group, see [Create a management group in Azure](../../governance/management-groups/create-management-group-portal.md). 
+- Ensure that you're an administrator of the subscription.
+- Complete the set up required for a new AWS connector, as described in the [Create a Cost and Usage report in AWS](#create-a-cost-and-usage-report-in-aws) section.
+
+
+### Create a new connector
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Go to **Cost Management + Billing** > **Cost Management**.
-3. Under **Settings**, select **Connectors for AWS**.  
-4. Select **+Add** at the top of the page to create a connector.  
-    :::image type="content" source="./media/aws-integration-setup-configure/aws-connector.png" alt-text="Example showing the Connectors for AWS setting" :::
+1. Navigate to **Cost Management + Billing** and select a billing scope, if necessary.
+1. Select **Cost analysis** and then select **Settings**. 
+1. Select **Connectors for AWS**.
+1. Select **Add connector**.
 1. On the **Create connector** page, in **Display name**, enter a name for your connector.  
     :::image type="content" source="./media/aws-integration-setup-configure/create-aws-connector01.png" alt-text="Example of the page for creating an AWS connector" :::
 1. Optionally, select the default management group. It will store all discovered linked accounts. You can set it up later.

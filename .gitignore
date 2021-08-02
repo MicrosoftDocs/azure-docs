@@ -24,3 +24,7 @@ AzureMigration.ps1
 .gitignore
 **/.vscode/settings.json
 !/.vscode/settings.json
+
+desktop.ini
+.fake
+.ionide

@@ -2,15 +2,15 @@
 title: Network planning and connections for Azure AD Domain Services | Microsoft Docs
 description: Learn about some of the virtual network design considerations and resources used for connectivity when you run Azure Active Directory Domain Services.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/06/2020
-ms.author: joflore
+ms.date: 07/06/2021
+ms.author: justinha
 
 ---
 # Virtual network design considerations and configuration options for Azure Active Directory Domain Services
@@ -90,9 +90,9 @@ A managed domain creates some networking resources during deployment. These reso
 | Azure resource                          | Description |
 |:----------------------------------------|:---|
 | Network interface card                  | Azure AD DS hosts the managed domain on two domain controllers (DCs) that run on Windows Server as Azure VMs. Each VM has a virtual network interface that connects to your virtual network subnet. |
-| Dynamic standard public IP address      | Azure AD DS communicates with the synchronization and management service using a standard SKU public IP address. For more information about public IP addresses, see [IP address types and allocation methods in Azure](../virtual-network/public-ip-addresses.md). |
-| Azure standard load balancer            | Azure AD DS uses a standard SKU load balancer for network address translation (NAT) and load balancing (when used with secure LDAP). For more information about Azure load balancers, see [What is Azure Load Balancer?](../load-balancer/load-balancer-overview.md) |
-| Network address translation (NAT) rules | Azure AD DS creates and uses three NAT rules on the load balancer - one rule for secure HTTP traffic, and two rules for secure PowerShell remoting. |
+| Dynamic standard public IP address      | Azure AD DS communicates with the synchronization and management service using a Standard SKU public IP address. For more information about public IP addresses, see [IP address types and allocation methods in Azure](../virtual-network/public-ip-addresses.md). |
+| Azure standard load balancer            | Azure AD DS uses a Standard SKU load balancer for network address translation (NAT) and load balancing (when used with secure LDAP). For more information about Azure load balancers, see [What is Azure Load Balancer?](../load-balancer/load-balancer-overview.md) |
+| Network address translation (NAT) rules | Azure AD DS creates and uses two Inbound NAT rules on the load balancer for secure PowerShell remoting. If a Standard SKU load balancer is used, it will have an Outbound NAT Rule too. For the Basic SKU load balancer, no Outbound NAT rule is required. |
 | Load balancer rules                     | When a managed domain is configured for secure LDAP on TCP port 636, three rules are created and used on a load balancer to distribute the traffic. |
 
 > [!WARNING]
@@ -100,15 +100,14 @@ A managed domain creates some networking resources during deployment. These reso
 
 ## Network security groups and required ports
 
-A [network security group (NSG)](../virtual-network/security-overview.md) contains a list of rules that allow or deny network traffic to traffic in an Azure virtual network. A network security group is created when you deploy a managed domain that contains a set of rules that let the service provide authentication and management functions. This default network security group is associated with the virtual network subnet your managed domain is deployed into.
+A [network security group (NSG)](../virtual-network/network-security-groups-overview.md) contains a list of rules that allow or deny network traffic to traffic in an Azure virtual network. A network security group is created when you deploy a managed domain that contains a set of rules that let the service provide authentication and management functions. This default network security group is associated with the virtual network subnet your managed domain is deployed into.
 
 The following network security group rules are required for the managed domain to provide authentication and management services. Don't edit or delete these network security group rules for the virtual network subnet your managed domain is deployed into.
 
 | Port number | Protocol | Source                             | Destination | Action | Required | Purpose |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-| 443         | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Yes      | Synchronization with your Azure AD tenant. |
-| 3389        | TCP      | CorpNetSaw                         | Any         | Allow  | Yes      | Management of your domain. |
 | 5986        | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Yes      | Management of your domain. |
+| 3389        | TCP      | CorpNetSaw                         | Any         | Allow  | Optional      | Debugging for support. |
 
 An Azure standard load balancer is created that requires these rules to be place. This network security group secures Azure AD DS and is required for the managed domain to work correctly. Don't delete this network security group. The load balancer won't work correctly without it.
 
@@ -123,28 +122,6 @@ If needed, you can [create the required network security group and rules using A
 >
 > The Azure SLA doesn't apply to deployments where an improperly configured network security group and/or user defined route tables have been applied that blocks Azure AD DS from updating and managing your domain.
 
-### Port 443 - synchronization with Azure AD
-
-* Used to synchronize your Azure AD tenant with your managed domain.
-* Without access to this port, your managed domain can't sync with your Azure AD tenant. Users may not be able to sign in as changes to their passwords wouldn't be synchronized to your managed domain.
-* Inbound access to this port to IP addresses is restricted by default using the **AzureActiveDirectoryDomainServices** service tag.
-* Do not restrict outbound access from this port.
-
-### Port 3389 - management using remote desktop
-
-* Used for remote desktop connections to domain controllers in your managed domain.
-* The default network security group rule uses the *CorpNetSaw* service tag to further restrict traffic.
-    * This service tag permits only secure access workstations on the Microsoft corporate network to use remote desktop to the managed domain.
-    * Access is only allowed with business justification, such as for management or troubleshooting scenarios.
-* This rule can be set to *Deny*, and only set to *Allow* when required. Most management and monitoring tasks are performed using PowerShell remoting. RDP is only used in the rare event that Microsoft needs to connect remotely to your managed domain for advanced troubleshooting.
-
-> [!NOTE]
-> You can't manually select the *CorpNetSaw* service tag from the portal if you try to edit this network security group rule. You must use Azure PowerShell or the Azure CLI to manually configure a rule that uses the *CorpNetSaw* service tag.
->
-> For example, you can use the following script to create a rule allowing RDP: 
->
-> `Get-AzureRmNetworkSecurityGroup -Name "nsg-name" -ResourceGroupName "resource-group-name" | Add-AzureRmNetworkSecurityRuleConfig -Name "new-rule-name" -Access "Allow" -Protocol "TCP" -Direction "Inbound" -Priority "priority-number" -SourceAddressPrefix "CorpNetSaw" -SourcePortRange "" -DestinationPortRange "3389" -DestinationAddressPrefix "" | Set-AzureRmNetworkSecurityGroup`
-
 ### Port 5986 - management using PowerShell remoting
 
 * Used to perform management tasks using PowerShell remoting in your managed domain.
@@ -156,6 +133,23 @@ If needed, you can [create the required network security group and rules using A
     > In 2017, Azure AD Domain Services became available to host in an Azure Resource Manager network. Since then, we have been able to build a more secure service using the Azure Resource Manager's modern capabilities. Because Azure Resource Manager deployments fully replace classic deployments, Azure AD DS classic virtual network deployments will be retired on March 1, 2023.
     >
     > For more information, see the [official deprecation notice](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/)
+
+### Port 3389 - management using remote desktop
+
+* Used for remote desktop connections to domain controllers in your managed domain.
+* The default network security group rule uses the *CorpNetSaw* service tag to further restrict traffic.
+    * This service tag permits only secure access workstations on the Microsoft corporate network to use remote desktop to the managed domain.
+    * Access is only allowed with business justification, such as for management or troubleshooting scenarios.
+* This rule can be set to *Deny*, and only set to *Allow* when required. Most management and monitoring tasks are performed using PowerShell remoting. RDP is only used in the rare event that Microsoft needs to connect remotely to your managed domain for advanced troubleshooting.
+
+
+You can't manually select the *CorpNetSaw* service tag from the portal if you try to edit this network security group rule. You must use Azure PowerShell or the Azure CLI to manually configure a rule that uses the *CorpNetSaw* service tag.
+
+For example, you can use the following script to create a rule allowing RDP: 
+
+```powershell
+Get-AzNetworkSecurityGroup -Name "nsg-name" -ResourceGroupName "resource-group-name" | Add-AzNetworkSecurityRuleConfig -Name "new-rule-name" -Access "Allow" -Protocol "TCP" -Direction "Inbound" -Priority "priority-number" -SourceAddressPrefix "CorpNetSaw" -SourcePortRange "*" -DestinationPortRange "3389" -DestinationAddressPrefix "*" | Set-AzNetworkSecurityGroup
+```
 
 ## User-defined routes
 
@@ -172,4 +166,4 @@ For more information about some of the network resources and connection options 
 
 * [Azure virtual network peering](../virtual-network/virtual-network-peering-overview.md)
 * [Azure VPN gateways](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md)
-* [Azure network security groups](../virtual-network/security-overview.md)
+* [Azure network security groups](../virtual-network/network-security-groups-overview.md)

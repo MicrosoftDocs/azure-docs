@@ -9,7 +9,7 @@ ms.custom: devx-track-js
 
 :::row:::
     :::column span="3":::
-        The Speech SDK for JavaScript is available as an npm package, see <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">microsoft-cognitiveservices-speech-sdk <span class="docon docon-navigate-external x-hidden-focus"></span></a> and its companion GitHub repository <a href="https://github.com/Microsoft/cognitive-services-speech-sdk-js" target="_blank">cognitive-services-speech-sdk-js <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+        The Speech SDK for JavaScript is available as an npm package, see <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">microsoft-cognitiveservices-speech-sdk </a> and its companion GitHub repository <a href="https://github.com/Microsoft/cognitive-services-speech-sdk-js" target="_blank">cognitive-services-speech-sdk-js </a>.
     :::column-end:::
     :::column:::
         <br>
@@ -20,7 +20,7 @@ ms.custom: devx-track-js
 :::row-end:::
 
 > [!TIP]
-> Although the Speech SDK for JavaScript is available as an npm package, thus both Node.js and client web browsers can consume it - consider the various architectural implications of each environment. For example, the <a href="https://en.wikipedia.org/wiki/Document_Object_Model" target="_blank">document object model (DOM) <span class="docon docon-navigate-external x-hidden-focus"></span></a> is not available for server-side applications just as the <a href="https://nodejs.org/api/fs.html" target="_blank">file system <span class="docon docon-navigate-external x-hidden-focus"></span></a> is not available to client-side applications.
+> Although the Speech SDK for JavaScript is available as an npm package, thus both Node.js and client web browsers can consume it - consider the various architectural implications of each environment. For example, the <a href="https://en.wikipedia.org/wiki/Document_Object_Model" target="_blank">document object model (DOM) </a> is not available for server-side applications just as the <a href="https://nodejs.org/api/fs.html" target="_blank">file system </a> is not available to client-side applications.
 
 ### Node.js Package Manager (NPM)
 
@@ -30,4 +30,4 @@ To install the Speech SDK for JavaScript, run the following `npm install` comman
 npm install microsoft-cognitiveservices-speech-sdk
 ```
 
-For more information, see the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node" target="_blank">Node.js Speech SDK quickstart <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+For more information, see the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node" target="_blank">Node.js Speech SDK quickstart </a>.

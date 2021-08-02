@@ -1,13 +1,15 @@
 ---
 title: Azure Database for MySQL Videos
 description: This page lists video content relevant for learning Azure Database for MySQL, Microsoft’s managed MySQL offering in Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ---
 # Azure Database for MySQL videos
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 This page provides video content for learning about Azure Database for MySQL.
 

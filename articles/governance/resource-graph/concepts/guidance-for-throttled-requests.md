@@ -1,7 +1,7 @@
 ---
 title: Guidance for throttled requests
 description: Learn to group, stagger, paginate, and query in parallel to avoid requests being throttled by Azure Resource Graph.
-ms.date: 10/14/2020
+ms.date: 04/09/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ---
@@ -33,9 +33,9 @@ In every query response, Azure Resource Graph adds two throttling headers:
 - `x-ms-user-quota-resets-after` (hh:mm:ss): The time duration until a user's quota consumption is
   reset.
 
-When a security principal has access to more than 5000 subscriptions within the tenant or management
-group [query scope](./query-language.md#query-scope), the response is limited to the first 5000
-subscriptions and the `x-ms-tenant-subscription-limit-hit` header is returned as `true`.
+When a security principal has access to more than 5,000 subscriptions within the tenant or
+management group [query scope](./query-language.md#query-scope), the response is limited to the
+first 5,000 subscriptions and the `x-ms-tenant-subscription-limit-hit` header is returned as `true`.
 
 To illustrate how the headers work, let's look at a query response that has the header and values of
 `x-ms-user-quota-remaining: 10` and `x-ms-user-quota-resets-after: 00:00:03`.
@@ -142,7 +142,7 @@ sending 60 queries at the same time, stagger the queries into four 5-second wind
   |---------------------|-----|------|-------|-------|
   | Time Interval (sec) | 0-5 | 5-10 | 10-15 | 15-20 |
 
-Here is an example of respecting throttling headers when querying Azure Resource Graph:
+Here's an example of respecting throttling headers when querying Azure Resource Graph:
 
 ```csharp
 while (/* Need to query more? */)
@@ -168,7 +168,7 @@ while (/* Need to query more? */)
 
 Even though grouping is recommended over parallelization, there are times where queries can't be
 easily grouped. In these cases, you may want to query Azure Resource Graph by sending multiple
-queries in a parallel fashion. Here is an example of how to _backoff_ based on throttling headers
+queries in a parallel fashion. Here's an example of how to _backoff_ based on throttling headers
 in such scenarios:
 
 ```csharp
@@ -187,7 +187,7 @@ async Task ExecuteQueries(IEnumerable<string> queries)
         var azureOperationResponse = await this.resourceGraphClient
             .ResourcesWithHttpMessagesAsync(userQueryRequest, header)
             .ConfigureAwait(false);
-        
+
         var responseHeaders = azureOperationResponse.response.Headers;
         int remainingQuota = /* read and parse x-ms-user-quota-remaining from responseHeaders */
         TimeSpan resetAfter = /* read and parse x-ms-user-quota-resets-after from responseHeaders */
@@ -203,7 +203,7 @@ async Task ExecuteQueries(IEnumerable<string> queries)
 
 ## Pagination
 
-Since Azure Resource Graph returns at most 1000 entries in a single query response, you may need to
+Since Azure Resource Graph returns at most 1,000 entries in a single query response, you may need to
 [paginate](./work-with-data.md#paging-results) your queries to get the complete dataset you're
 looking for. However, some Azure Resource Graph clients handle pagination differently than others.
 
@@ -238,7 +238,7 @@ looking for. However, some Azure Resource Graph clients handle pagination differ
 - Azure CLI / Azure PowerShell
 
   When using either Azure CLI or Azure PowerShell, queries to Azure Resource Graph are automatically
-  paginated to fetch at most 5000 entries. The query results return a combined list of entries from
+  paginated to fetch at most 5,000 entries. The query results return a combined list of entries from
   all paginated calls. In this case, depending on the number of entries in the query result, a
   single paginated query may consume more than one query quota. For example, in the following
   examples, a single run of the query may consume up to five query quota:
@@ -253,8 +253,8 @@ looking for. However, some Azure Resource Graph clients handle pagination differ
 
 ## Still get throttled?
 
-If you're getting throttled after exercising the above recommendations, contact the team at
-[resourcegraphsupport@microsoft.com](mailto:resourcegraphsupport@microsoft.com).
+If you're getting throttled after exercising the above recommendations, contact the [Azure Resource
+Graph team](mailto:resourcegraphsupport@microsoft.com).
 
 Provide these details:
 

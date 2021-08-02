@@ -15,7 +15,7 @@ After creating a self-signed root certificate, export the root certificate publi
 
 1. To obtain a .cer file from the certificate, open **Manage user certificates**. Locate the self-signed root certificate, typically in 'Certificates - Current User\Personal\Certificates', and right-click. Click **All Tasks**, and then click **Export**. This opens the **Certificate Export Wizard**. If you can't find the certificate under Current User\Personal\Certificates, you may have accidentally opened "Certificates - Local Computer", rather than "Certificates - Current User"). If you want to open Certificate Manager in current user scope using PowerShell, you type *certmgr* in the console window.
 
-   ![Screenshot shows the Certificates window for the current user with Certificates selected and a contextual menu with All Tasks then Export selected.](./media/vpn-gateway-certificates-export-public-key-include/export.png)
+   ![Screenshot shows the Certificates window for the current user with Certificates selected and a contextual menu with Export selected from All Tasks.](./media/vpn-gateway-certificates-export-public-key-include/export.png)
 2. In the Wizard, click **Next**.
 
    ![Export certificate](./media/vpn-gateway-certificates-export-public-key-include/exportwizard.png)
@@ -30,7 +30,7 @@ After creating a self-signed root certificate, export the root certificate publi
    ![Screenshot shows the Certificate Export Wizard with a File Name text box and a Browse option.](./media/vpn-gateway-certificates-export-public-key-include/browse.png)
 6. Click **Finish** to export the certificate.
 
-   ![Screenshot shows the Certificate Export Wizard final page with the selected settings.](./media/vpn-gateway-certificates-export-public-key-include/finish.png)
+   ![Screenshot shows the Certificate Export Wizard with the selected settings.](./media/vpn-gateway-certificates-export-public-key-include/finish.png)
 7. Your certificate is successfully exported.
 
    ![Screenshot shows a message that the export was successful.](./media/vpn-gateway-certificates-export-public-key-include/success.png)

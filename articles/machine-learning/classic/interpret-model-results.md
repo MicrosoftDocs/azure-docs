@@ -3,21 +3,20 @@ title: 'ML Studio (classic): Interpret model results - Azure'
 description: How to choose the optimal parameter set for an algorithm using and visualizing score model outputs.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 
 author: likebupt
 ms.author: keli19
 ms.date: 11/29/2017
 ---
-# Interpret model results in Azure Machine Learning Studio (classic)
+# Interpret model results in Machine Learning Studio (classic)
 
-**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APPLIES TO:**  ![This is a check mark, which means that this article applies to Machine Learning Studio (classic).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![This is an X, which means that this article does not apply to Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
+This topic explains how to visualize and interpret prediction results in Machine Learning Studio (classic). After you have trained a model and done predictions on top of it ("scored the model"), you need to understand and interpret the prediction result.
 
-This topic explains how to visualize and interpret prediction results in Azure Machine Learning Studio (classic). After you have trained a model and done predictions on top of it ("scored the model"), you need to understand and interpret the prediction result.
-
-There are four major kinds of machine learning models in Azure Machine Learning Studio (classic):
+There are four major kinds of machine learning models in Machine Learning Studio (classic):
 
 * Classification
 * Clustering
@@ -42,12 +41,12 @@ There are two subcategories of classification problems:
 * Problems with only two classes (two-class or binary classification)
 * Problems with more than two classes (multi-class classification)
 
-Azure Machine Learning Studio (classic) has different modules to deal with each of these types of classification, but the methods for interpreting their prediction results are similar.
+Machine Learning Studio (classic) has different modules to deal with each of these types of classification, but the methods for interpreting their prediction results are similar.
 
 ### Two-class classification
 **Example experiment**
 
-An example of a two-class classification problem is the classification of iris flowers. The task is to classify iris flowers based on their features. The Iris data set provided in Azure Machine Learning Studio (classic) is a subset of the popular [Iris data set](https://en.wikipedia.org/wiki/Iris_flower_data_set) containing instances of only two flower species (classes 0 and 1). There are four features for each flower (sepal length, sepal width, petal length, and petal width).
+An example of a two-class classification problem is the classification of iris flowers. The task is to classify iris flowers based on their features. The Iris data set provided in Machine Learning Studio (classic) is a subset of the popular [Iris data set](https://en.wikipedia.org/wiki/Iris_flower_data_set) containing instances of only two flower species (classes 0 and 1). There are four features for each flower (sepal length, sepal width, petal length, and petal width).
 
 ![Screenshot of iris experiment](./media/interpret-model-results/1.png)
 
@@ -221,7 +220,7 @@ For recommender systems, you can use the restaurant recommendation problem as an
 * Customer feature data
 * Restaurant feature data
 
-There are several things we can do with the [Train Matchbox Recommender][train-matchbox-recommender] module in Azure Machine Learning Studio (classic):
+There are several things we can do with the [Train Matchbox Recommender][train-matchbox-recommender] module in Machine Learning Studio (classic):
 
 * Predict ratings for a given user and item
 * Recommend items to a given user
@@ -232,7 +231,7 @@ You can choose what you want to do by selecting from the four options in the **R
 
 ![Matchbox recommender](./media/interpret-model-results/19_1.png)
 
-A typical Azure Machine Learning Studio (classic) experiment for a recommender system looks like Figure 20. For information about how to use those recommender system modules, see [Train matchbox recommender][train-matchbox-recommender] and [Score matchbox recommender][score-matchbox-recommender].
+A typical Machine Learning Studio (classic) experiment for a recommender system looks like Figure 20. For information about how to use those recommender system modules, see [Train matchbox recommender][train-matchbox-recommender] and [Score matchbox recommender][score-matchbox-recommender].
 
 ![Recommender system experiment](./media/interpret-model-results/20.png)
 
@@ -299,10 +298,10 @@ Running the web service, the returned result looks like Figure 26. The five reco
 Figure 26. Web service result of restaurant recommendation problem
 
 <!-- Module References -->
-[assign-to-clusters]: https://msdn.microsoft.com/library/azure/eed3ee76-e8aa-46e6-907c-9ca767f5c114/
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[score-matchbox-recommender]: https://msdn.microsoft.com/library/azure/55544522-9a10-44bd-884f-9a91a9cec2cd/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[train-clustering-model]: https://msdn.microsoft.com/library/azure/bb43c744-f7fa-41d0-ae67-74ae75da3ffd/
-[train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
+[assign-to-clusters]: /azure/machine-learning/studio-module-reference/assign-data-to-clusters
+[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[score-matchbox-recommender]: /azure/machine-learning/studio-module-reference/score-matchbox-recommender
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[train-clustering-model]: /azure/machine-learning/studio-module-reference/train-clustering-model
+[train-matchbox-recommender]: /azure/machine-learning/studio-module-reference/train-matchbox-recommender

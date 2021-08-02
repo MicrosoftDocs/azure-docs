@@ -1,16 +1,12 @@
 ---
 title: Azure Function Activity in Azure Data Factory 
 description: Learn how to use the Azure Function activity to run an Azure Function in a Data Factory pipeline
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
-ms.reviewer: maghan
+author: nabhishek
+ms.author: abnarain
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 07/30/2021
 ---
 
 # Azure Function activity in Azure Data Factory
@@ -23,7 +19,11 @@ For an eight-minute introduction and demonstration of this feature, watch the fo
 
 ## Azure Function linked service
 
+
 The return type of the Azure function has to be a valid `JObject`. (Keep in mind that [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) is *not* a `JObject`.) Any return type other than `JObject` fails and raises the user error *Response Content is not a valid JObject*.
+
+Function Key provides secure access to function name with each one having separate unique keys or master key within a function app. Managed identity provides secure access to the entire function app. User is free to provide no key and/or Managed Identity to access function name. Please refer function documentation for more details about [Function access key]( https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#configuration)
+
 
 | **Property** | **Description** | **Required** |
 | --- | --- | --- |
@@ -41,7 +41,7 @@ The return type of the Azure function has to be a valid `JObject`. (Keep in mind
 | linked service | The Azure Function linked service for the corresponding Azure Function App  | Linked service reference | yes |
 | function name  | Name of the function in the Azure Function App that this activity calls | String | yes |
 | method  | REST API method for the function call | String Supported Types: "GET", "POST", "PUT"   | yes |
-| header  | Headers that are sent to the request. For example, to set the language and type on a request: "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | String (or expression with resultType of string) | No |
+| header  | Headers that are sent to the request. For example, to set the language and type on a request: "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | String (or expression with resultType of string) | No |
 | body  | body that is sent along with the request to the function api method  | String (or expression with resultType of string) or object.   | Required for PUT/POST methods |
 |   |   |   | |
 

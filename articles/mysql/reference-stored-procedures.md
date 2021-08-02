@@ -1,14 +1,16 @@
 ---
 title: Management stored procedures - Azure Database for MySQL
 description: Learn which stored procedures in Azure Database for MySQL are useful to help you configure data-in replication, set the timezone, and kill queries.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ---
 
 # Azure Database for MySQL management stored procedures
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Stored procedures are available on Azure Database for MySQL servers to help manage your MySQL server. This includes managing your server's connections, queries, and setting up Data-in Replication.  
 

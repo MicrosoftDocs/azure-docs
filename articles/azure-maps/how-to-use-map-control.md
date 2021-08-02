@@ -15,13 +15,15 @@ ms.custom: devx-track-js
 
 The Map Control client-side JavaScript library allows you to render maps and embedded Azure Maps functionality into your web or mobile application.
 
+This documentation uses the Azure Maps Web SDK, however the Azure Maps services can be used with any map control. [Here](open-source-projects.md#third-part-map-control-plugins) are some popular open-source map controls that the Azure Maps team has created plugin's for.
+
 ## Prerequisites
 
 To use the Map Control in a web page, you must have one of the following prerequisites:
 
 * [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account) and [obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
 
-* Obtain your Azure Active Directory (AAD) credentials with [authentication options](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions).
+* Obtain your Azure Active Directory (AAD) credentials with [authentication options](/javascript/api/azure-maps-control/atlas.authenticationoptions).
 
 ## Create a new map in a web page
 
@@ -78,7 +80,7 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
     </body>
    ```
 
-5. Now, we'll initialize the map control. In order to authenticate the control, you'll either need to own an Azure Maps subscription key or use Azure Active Directory (AAD) credentials with [authentication options](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions).
+5. Now, we'll initialize the map control. In order to authenticate the control, you'll either need to own an Azure Maps subscription key or use Azure Active Directory (AAD) credentials with [authentication options](/javascript/api/azure-maps-control/atlas.authenticationoptions).
 
     If you're using a subscription key for authentication, copy and paste the following script element inside the `<head>` element, and below the first `<script>` element. Replace `<Your Azure Maps Key>` with your Azure Maps primary subscription key.
 
@@ -94,8 +96,8 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
                     authType: 'subscriptionKey',
                     subscriptionKey: '<Your Azure Maps Key>'
                 }
-            }
-        });
+            });
+       }
     </script>
     ```
 
@@ -115,8 +117,8 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
                     aadAppId: '<Your AAD App Id>',
                     aadTenant: '<Your AAD Tenant Id>'
                 }
-            }
-        });
+            });
+        }
     </script>
    ```
 
@@ -251,10 +253,10 @@ If directly accessing the Azure Maps REST services, change the URL domain to `at
 
 If developing using a JavaScript framework, one of the following open-source projects may be useful:
 
-- [ng-azure-maps](https://github.com/arnaudleclerc/ng-azure-maps) - Angular 10 wrapper around Azure maps.
-- [AzureMapsControl.Components](https://github.com/arnaudleclerc/AzureMapsControl.Components) - An Azure Maps Blazor component.
-- [Azure Maps React Component](https://github.com/WiredSolutions/react-azure-maps) - A react wrapper for the Azure Maps control.
-- [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps) - An Azure Maps component for Vue application.
+* [ng-azure-maps](https://github.com/arnaudleclerc/ng-azure-maps) - Angular 10 wrapper around Azure maps.
+* [AzureMapsControl.Components](https://github.com/arnaudleclerc/AzureMapsControl.Components) - An Azure Maps Blazor component.
+* [Azure Maps React Component](https://github.com/WiredSolutions/react-azure-maps) - A react wrapper for the Azure Maps control.
+* [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps) - An Azure Maps component for Vue application.
 
 ## Next steps
 
@@ -268,13 +270,13 @@ Learn how to style a map:
 > [!div class="nextstepaction"]
 > [Choose a map style](choose-map-style.md)
 
-To add more data to your map:
+Learn best practices and see samples:
 
 > [!div class="nextstepaction"]
-> [Create a map](map-create.md)
+> [Best practices](web-sdk-best-practices.md)
 
 > [!div class="nextstepaction"]
-> [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Code samples](/samples/browse/?products=azure-maps)
 
 For a list of samples showing how to integrate Azure Active Directory (AAD) with Azure Maps, see:
 

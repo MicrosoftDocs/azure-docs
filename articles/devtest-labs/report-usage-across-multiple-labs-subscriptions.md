@@ -20,7 +20,7 @@ This section discusses how to export resource usage for a single lab.
 Before you can export resource usage of DevTest Labs, you have to set up an Azure Storage account to allow the different files that contain the usage data to be stored. There are two common ways to execute the export of data:
 
 * [DevTest Labs REST API](/rest/api/dtl/labs/exportresourceusage) 
-* The PowerShell Az.Resource module [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-2.5.0&viewFallbackFrom=azps-2.3.2) with the action of `exportResourceUsage`, the lab resource ID, and the necessary parameters. 
+* The PowerShell Az.Resource module [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) with the action of `exportResourceUsage`, the lab resource ID, and the necessary parameters. 
 
     The [export or delete personal data](personal-data-delete-export.md) article contains a sample PowerShell script with detailed information on the data that is exported. 
 
@@ -77,5 +77,5 @@ Once the system is set up and data is moving to the long-term storage, the next 
     Are users selecting high performance (more expensive) VM sizes?
 -	Which Marketplace images are being used?
 
-    Are custom images the most common VM base, should a common Image store be built like [Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md) or [Image factory](image-factory-create.md).
+    Are custom images the most common VM base, should a common Image store be built like [Shared Image Gallery](../virtual-machines/shared-image-galleries.md) or [Image factory](image-factory-create.md).
 -	Which custom images are being used, or not used?

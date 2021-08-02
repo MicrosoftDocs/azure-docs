@@ -1,9 +1,6 @@
 ---
 title: Configure service endpoint policies - Azure HDInsight
 description: Learn how to configure service endpoint policies for your virtual network with Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 07/15/2020

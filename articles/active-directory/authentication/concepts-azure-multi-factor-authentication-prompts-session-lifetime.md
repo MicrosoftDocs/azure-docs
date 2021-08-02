@@ -1,6 +1,6 @@
 ---
-title: Azure Multi-Factor Authentication prompts and session lifetime
-description: Learn about the recommended configuration for reauthentication prompts with Azure Multi-Factor Authentication and how session lifetime is applied.
+title: Azure AD Multi-Factor Authentication prompts and session lifetime
+description: Learn about the recommended configuration for reauthentication prompts with Azure AD Multi-Factor Authentication and how session lifetime is applied.
 
 services: multi-factor-authentication
 ms.service: active-directory
@@ -8,13 +8,13 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 08/31/2020
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
 ---
-# Optimize reauthentication prompts and understand session lifetime for Azure Multi-Factor Authentication
+# Optimize reauthentication prompts and understand session lifetime for Azure AD Multi-Factor Authentication
 
 Azure Active Directory (Azure AD) has multiple settings that determine how often users need to reauthenticate. This reauthentication could be with a first factor such as password, FIDO, or passwordless Microsoft Authenticator, or to perform multi-factor authentication (MFA). You can configure these reauthentication settings as needed for your own environment and the user experience you want.
 
@@ -37,7 +37,7 @@ To give your users the right balance of security and ease of use by asking them 
     * Keep the *Remain signed-in* option enabled and guide your users to accept it.
 * For mobile devices scenarios, make sure your users use the Microsoft Authenticator app. This app is used as a broker to other Azure AD federated apps, and reduces authentication prompts on the device.
 
-Our research shows that these settings are right for most tenants. Some combinations of these settings, such as *Remember MFA* and *Remain singed-in*, can result in prompts for your users to authenticate too often. Regular reauthentication prompts are bad for user productivity and can make them more vulnerable to attacks.
+Our research shows that these settings are right for most tenants. Some combinations of these settings, such as *Remember MFA* and *Remain signed-in*, can result in prompts for your users to authenticate too often. Regular reauthentication prompts are bad for user productivity and can make them more vulnerable to attacks.
 
 ## Azure AD session lifetime configuration settings
 
@@ -104,7 +104,7 @@ To configure or review the *Remain signed-in* option, complete the following ste
 1. Select **Company Branding**, then for each locale, choose **Show option to remain signed in**.
 1. Choose *Yes*, then select **Save**.
 
-To remember Multi-factor authentication settings, complete the following steps:
+To remember Multi-factor authentication settings on trusted devices, complete the following steps:
 
 1. In the Azure AD portal, search for and select *Azure Active Directory*.
 1. Select **Security**, then **MFA**.
@@ -117,7 +117,7 @@ To configure Conditional Access policies for sign-in frequency and persistent br
 1. Select **Security**, then **Conditional Access**.
 1. Configure a policy using the recommended session management options detailed in this article.
 
-To review token lifetimes, [use Azure AD PowerShell to query any Azure AD policies](../develop/configure-token-lifetimes.md#prerequisites). Disable any policies that you have in place.
+To review token lifetimes, [use Azure AD PowerShell to query any Azure AD policies](../develop/configure-token-lifetimes.md#get-started). Disable any policies that you have in place.
 
 If more than one setting is enabled in your tenant, we recommend updating your settings based on the licensing available for you. For example, if you have Azure AD premium licenses you should only use the Conditional Access policy of *Sign-in Frequency* and *Persistent browser session*. If you have Microsoft 365 apps or Azure AD free licenses, you should use the *Remain signed-in?* configuration.
 
@@ -132,4 +132,4 @@ The following table summarizes the recommendations based on licenses:
 
 ## Next steps
 
-To get started, complete the tutorial to [Secure user sign-in events with Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md) or [Use risk detections for user sign-ins to trigger Azure Multi-Factor Authentication](tutorial-risk-based-sspr-mfa.md).
+To get started, complete the tutorial to [Secure user sign-in events with Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md) or [Use risk detections for user sign-ins to trigger Azure AD Multi-Factor Authentication](tutorial-risk-based-sspr-mfa.md).

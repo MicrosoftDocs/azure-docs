@@ -8,7 +8,7 @@ ms.date: 01/23/2018
 ms.author: alkohli
 
 ---
-# Use Azuer Active Directory (AD) authentication for your StorSimple
+# Use Azure Active Directory (AD) authentication for your StorSimple
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 

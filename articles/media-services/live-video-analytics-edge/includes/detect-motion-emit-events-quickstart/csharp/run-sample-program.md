@@ -12,12 +12,20 @@ Follow these steps to run the sample code:
 1. In Visual Studio Code, go to *src/cloud-to-device-console-app/operations.json*.
 1. On the **GraphTopologySet** node, make sure you see the following value:
 
-    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/motion-detection/topology.json"`
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/motion-detection/2.0/topology.json"`
 1. On the **GraphInstanceSet** and **GraphTopologyDelete**  nodes, ensure that the value of `topologyName` matches the value of the `name` property in the graph topology:
 
     `"topologyName" : "MotionDetection"`
     
 1. Start a debugging session by selecting the F5 key. The **TERMINAL** window will display some messages.
+
+    Starting a debugging session with F5 will prompt you for environment type and project the first time. This is creating and configuring the launch.json file in your folder. Use the following for the purposes of this demo:
+    * Envrionment - .Net Core
+    * Project - c2d-console-app
+    
+    Edit the launch.json file after it is created. Change the console configuration to 'integratedTeminal'.
+    
+    `"console": "integratedTerminal"`
 1. The *operations.json* file starts off with calls to `GraphTopologyList` and `GraphInstanceList`. If you cleaned up resources after you finished previous quickstarts, then this process will return empty lists and then pause. To continue, select the Enter key.
 
     ```
@@ -25,7 +33,7 @@ Follow these steps to run the sample code:
     Executing operation GraphTopologyList
     -----------------------  Request: GraphTopologyList  --------------------------------------------------
     {
-        "@apiVersion": "1.0"
+        "@apiVersion": "2.0"
     }
     ---------------  Response: GraphTopologyList - Status: 200  ---------------
     {
@@ -42,7 +50,7 @@ Follow these steps to run the sample code:
          
     ```
     {
-      "@apiVersion": "1.0",
+      "@apiVersion": "2.0",
       "name": "Sample-Graph",
       "properties": {
         "topologyName": "MotionDetection",

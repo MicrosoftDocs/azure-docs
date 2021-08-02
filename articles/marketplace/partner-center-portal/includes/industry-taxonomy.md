@@ -5,7 +5,7 @@ documentationcenter: partner-center-commercial-marketplace
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
-ms.date: 06/17/2020
+ms.date: 12/14/2020
 ms.custom: include file
 author: mingshen-ms
 ms.author: mingshen

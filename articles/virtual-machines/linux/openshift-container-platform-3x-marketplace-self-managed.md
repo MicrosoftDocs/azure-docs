@@ -3,8 +3,9 @@ title: Deploy OpenShift Container Platform 3.11 Self-Managed Marketplace Offer i
 description: Deploy OpenShift Container Platform 3.11 Self-Managed Marketplace Offer in Azure.
 author: haroldwongms
 manager: mdotson
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -19,7 +20,7 @@ Before using the Marketplace offer to deploy a self-managed OpenShift Container 
  
 ## Deploy using the Marketplace offer
 
-The simplest way to deploy a self-managed OpenShift Container Platform 3.11 cluster into Azure is to use the [Azure Marketplace offer](https://azuremarketplace.microsoft.com/marketplace/apps/osatesting.open-shift-azure-proxy).
+The simplest way to deploy a self-managed OpenShift Container Platform 3.11 cluster into Azure is to use the Azure Marketplace offer.
 
 This option is the simplest, but it also has limited customization capabilities. The Marketplace offer deploys OpenShift Container Platform 3.11.82 and includes the following configuration options:
 

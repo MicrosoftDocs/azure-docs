@@ -3,9 +3,8 @@ title: Sentiment cognitive skill
 titleSuffix: Azure Cognitive Search
 description: Extract a positive-negative sentiment score from text in an AI enrichment pipeline in Azure Cognitive Search.
 
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
@@ -106,11 +105,9 @@ Parameters are case-sensitive.
 }
 ```
 
-## Notes
-If empty, a sentiment score is not returned for those records.
-
-## Error cases
-If a language is not supported, an error is generated and no sentiment score is returned.
+## Warning cases
+If your text is empty, a warning is generated and no sentiment score is returned.
+If a language is not supported, a warning is generated and no sentiment score is returned.
 
 ## See also
 

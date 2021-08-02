@@ -4,8 +4,8 @@ titleSuffix: Azure Cognitive Search
 description: This article provides information and solutions to common errors and warnings you might encounter during AI enrichment in Azure Cognitive Search.
 
 manager: nitinme
-author: amotley
-ms.author: abmotley
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/23/2020
@@ -224,7 +224,7 @@ If you want to provide a default value in case of missing input, you can use the
 
 | Reason | Details/Example | Resolution |
 | --- | --- | --- |
-| Skill input is the wrong type | "Required skill input was not of the expected type `String`. Name: `text`, Source: `/document/merged_content`."  "Required skill input was not of the expected format. Name: `text`, Source: `/document/merged_content`."  "Cannot iterate over non-array `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`."  "Unable to select `0` in non-array `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`" | Certain skills expect inputs of particular types, for example [Sentiment skill](cognitive-search-skill-sentiment.md) expects `text` to be a string. If the input specifies a non-string value, then the skill doesn't execute and generates no outputs. Ensure your data set has input values uniform in type, or use a [Custom Web API skill](cognitive-search-custom-skill-web-api.md) to preprocess the input. If you're iterating the skill over an array, check the skill context and input have `*` in the correct positions. Usually both the context and input source should end with `*` for arrays. |
+| Skill input is the wrong type | "Required skill input was not of the expected type `String`. Name: `text`, Source: `/document/merged_content`."  "Required skill input was not of the expected format. Name: `text`, Source: `/document/merged_content`."  "Cannot iterate over non-array `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`."  "Unable to select `0` in non-array `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`" | Certain skills expect inputs of particular types, for example [Sentiment skill](cognitive-search-skill-sentiment-v3.md) expects `text` to be a string. If the input specifies a non-string value, then the skill doesn't execute and generates no outputs. Ensure your data set has input values uniform in type, or use a [Custom Web API skill](cognitive-search-custom-skill-web-api.md) to preprocess the input. If you're iterating the skill over an array, check the skill context and input have `*` in the correct positions. Usually both the context and input source should end with `*` for arrays. |
 | Skill input is missing | "Required skill input is missing. Name: `text`, Source: `/document/merged_content`"  "Missing value `/document/normalized_images/0/imageTags`."  "Unable to select `0` in array `/document/pages` of length `0`." | If all your documents get this warning, most likely there is a typo in the input paths and you should double check property name casing, extra or missing `*` in the path, and make sure that the documents from the data source provide the required inputs. |
 | Skill language code input is invalid | Skill input `languageCode` has the following language codes `X,Y,Z`, at least one of which is invalid. | See more details [below](cognitive-search-common-errors-warnings.md#skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid) |
 
@@ -232,6 +232,8 @@ If you want to provide a default value in case of missing input, you can use the
 
 ## Warning:  Skill input 'languageCode' has the following language codes 'X,Y,Z', at least one of which is invalid.
 One or more of the values passed into the optional `languageCode` input of a downstream skill is not supported. This can occur if you are passing the output of the [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) to subsequent skills, and the output consists of more languages than are supported in those downstream skills.
+
+Note you may also get a warning similar to this one if an invalid `countryHint` input gets passed to the LanguageDetectionSkill. If that happens, please validate that the field you are using from your data source for that input contains valid ISO 3166-1 alpha-2 two letter country codes. If some are valid and some are invalid, continue with the following guidance but replace `languageCode` with `countryHint` and `defaultLanguageCode` with `defaultCountryHint` to match your use case.
 
 If you know that your data set is all in one language, you should remove the [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) and the `languageCode` skill input and use the `defaultLanguageCode` skill parameter for that skill instead, assuming the language is supported for that skill.
 
@@ -251,7 +253,7 @@ If you know that your data set contains multiple languages and thus you need the
 ```
 
 Here are some references for the currently supported languages for each of the skills that may produce this error message:
-* [Text Analytics Supported Languages](../cognitive-services/text-analytics/language-support.md) (for the [KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md), [SentimentSkill](cognitive-search-skill-sentiment.md), and [PIIDetectionSkill](cognitive-search-skill-pii-detection.md))
+* [Text Analytics Supported Languages](../cognitive-services/text-analytics/language-support.md) (for the [KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition-v3.md), [EntityLinkingSkill](cognitive-search-skill-entity-linking-v3.md), [SentimentSkill](cognitive-search-skill-sentiment-v3.md), and [PIIDetectionSkill](cognitive-search-skill-pii-detection.md))
 * [Translator Supported Languages](../cognitive-services/translator/language-support.md) (for the [Text TranslationSkill](cognitive-search-skill-text-translation.md))
 * [Text SplitSkill](cognitive-search-skill-textsplit.md) Supported Languages: `da, de, en, es, fi, fr, it, ko, pt`
 
@@ -344,8 +346,8 @@ To work around this warning, determine what the text encoding for this blob is a
 
 ## Warning: Cosmos DB collection 'X' has a Lazy indexing policy. Some data may be lost
 
-Collections with [Lazy](/azure/cosmos-db/index-policy#indexing-mode) indexing policies can't be queried consistently, resulting in your indexer missing data. To work around this warning, change your indexing policy to Consistent.
+Collections with [Lazy](../cosmos-db/index-policy.md#indexing-mode) indexing policies can't be queried consistently, resulting in your indexer missing data. To work around this warning, change your indexing policy to Consistent.
 
 ## Warning: The document contains very long words (longer than 64 characters). These words may result in truncated and/or unreliable model predictions.
 
-This warning is passed from the Text Analytics service.  In some cases, it is safe to ignore this warning, such as when your document contains a long URL (which likely isn't a key phrase or driving sentiment, etc.).  Be aware that when a word is longer than 64 characters, it will be truncated to 64 characters which can affect model predictions.  
+This warning is passed from the Text Analytics service.  In some cases, it is safe to ignore this warning, such as when your document contains a long URL (which likely isn't a key phrase or driving sentiment, etc.).  Be aware that when a word is longer than 64 characters, it will be truncated to 64 characters which can affect model predictions.

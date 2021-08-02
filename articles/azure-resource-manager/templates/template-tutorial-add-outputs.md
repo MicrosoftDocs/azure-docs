@@ -1,16 +1,16 @@
 ---
 title: Tutorial - add outputs to template
-description: Add outputs to your Azure Resource Manager template to simplify the syntax.
+description: Add outputs to your Azure Resource Manager template (ARM template) to simplify the syntax.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
-ms.author: jgao 
+ms.author: jgao
 ms.custom:
 ---
 
 # Tutorial: Add outputs to your ARM template
 
-In this tutorial, you learn how to return a value from your Azure Resource Manager (ARM) template. You use outputs when you need a value from a deployed resource. This tutorial takes **7 minutes** to complete.
+In this tutorial, you learn how to return a value from your Azure Resource Manager template (ARM template). You use outputs when you need a value from a deployed resource. This tutorial takes **7 minutes** to complete.
 
 ## Prerequisites
 
@@ -36,17 +36,17 @@ The following example highlights the change to your template to add an output va
 
 There are some important items to note about the output value you added.
 
-The type of returned value is set to **object**, which means it returns a JSON object.
+The type of returned value is set to `object`, which means it returns a JSON object.
 
 It uses the [reference](template-functions-resource.md#reference) function to get the runtime state of the storage account. To get the runtime state of a resource, you pass in the name or ID of a resource. In this case, you use the same variable you used to create the name of the storage account.
 
-Finally, it returns the **primaryEndpoints** property from the storage account
+Finally, it returns the `primaryEndpoints` property from the storage account.
 
 ## Deploy template
 
 You're ready to deploy the template and look at the returned value.
 
-If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the **templateFile** variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
+If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the `templateFile` variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -87,7 +87,7 @@ In the output for the deployment command, you'll see an object similar to the fo
 ```
 
 > [!NOTE]
-> If the deployment failed, use the **verbose** switch to get information about the resources being created. Use the **debug** switch to get more information for debugging.
+> If the deployment failed, use the `verbose` switch to get information about the resources being created. Use the `debug` switch to get more information for debugging.
 
 ## Review your work
 

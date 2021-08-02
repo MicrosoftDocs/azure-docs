@@ -5,7 +5,8 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 03/26/2020
+ms.date: 03/26/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure a virtual machine scale set with an existing Azure Load Balancer using Azure PowerShell

@@ -2,7 +2,7 @@
 title: Join a CentOS VM to Azure AD Domain Services | Microsoft Docs
 description: Learn how to configure and join a CentOS Linux virtual machine to an Azure Active Directory Domain Services managed domain.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 
 ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
@@ -10,8 +10,8 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/13/2020
-ms.author: joflore
+ms.date: 06/17/2021
+ms.author: justinha
 
 ---
 # Join a CentOS Linux virtual machine to an Azure Active Directory Domain Services managed domain
@@ -75,7 +75,7 @@ When done, save and exit the *hosts* file using the `:wq` command of the editor.
 The VM needs some additional packages to join the VM to the managed domain. To install and configure these packages, update and install the domain-join tools using `yum`:
 
 ```console
-sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
+sudo yum install adcli realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
 ```
 
 ## Join VM to the managed domain
@@ -105,7 +105,7 @@ Now that the required packages are installed on the VM, join the VM to the manag
 1. Finally, join the VM to the managed domain using the `realm join` command. Use the same user account that's a part of the managed domain that you specified in the previous `kinit` command, such as `contosoadmin@AADDSCONTOSO.COM`:
 
     ```console
-    sudo realm join --verbose AADDSCONTOSO.COM -U 'contosoadmin@AADDSCONTOSO.COM'
+    sudo realm join --verbose AADDSCONTOSO.COM -U 'contosoadmin@AADDSCONTOSO.COM' --membership-software=adcli
     ```
 
 It takes a few moments to join the VM to the managed domain. The following example output shows the VM has successfully joined to the managed domain:

@@ -16,7 +16,7 @@ This article provides an overview of various tools that can be used to monitor c
 
 If your machine is hosted in Azure and is using a managed or unmanaged disk for storage, then you can easily track performance, by tracking disk metrics. This enables you to closely monitor and make the right disk selection to suit your application usage pattern. You can also use it to create alerts, diagnosis, and build automation. [Learn more](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/).
 
-Once you have protected your machines with Azure Site Recovery, you can monitor your machines by using Azure Monitor Logs and Log Analytics. [Learn more](https://docs.microsoft.com/azure/site-recovery/monitor-log-analytics).
+Once you have protected your machines with Azure Site Recovery, you can monitor your machines by using Azure Monitor Logs and Log Analytics. [Learn more](./monitor-log-analytics.md).
 
 There are also some operating system-specific tools that you can use.
 
@@ -57,7 +57,7 @@ Once you have identified the applications causing high churn on your machine, yo
 
     ![Performance Monitor Step3](./media/monitoring-high-churn/perfmon-step3.png)
 
-Learn more about Performance Monitor [here](https://docs.microsoft.com/dynamics365/business-central/dev-itpro/administration/monitor-use-performance-monitor-collect-event-trace-data).
+Learn more about Performance Monitor [here](/dynamics365/business-central/dev-itpro/administration/monitor-use-performance-monitor-collect-event-trace-data).
 
 ## For Linux machines
 

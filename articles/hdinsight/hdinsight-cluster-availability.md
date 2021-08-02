@@ -1,9 +1,6 @@
 ---
 title: How to monitor cluster availability with Apache Ambari in Azure HDInsight
 description: Learn how to use Apache Ambari to monitor cluster health and availability.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
@@ -20,34 +17,34 @@ This article shows how to use Ambari to monitor your cluster and walks through s
 
 The Ambari dashboard can be accessed by selecting the **Ambari home** link in the **Cluster dashboards** section of the HDInsight Overview in Azure portal as shown below. Alternatively, it can be accessed by navigating to `https://CLUSTERNAME.azurehdinsight.net` in a browser where CLUSTERNAME is the name of your cluster.
 
-![HDInsight resource portal view](media/hdinsight-cluster-availability/azure-portal-dashboard-ambari.png)
+:::image type="content" source="media/hdinsight-cluster-availability/azure-portal-dashboard-ambari.png" alt-text="HDInsight resource portal view":::
 
 You'll then be prompted for a cluster login username and password. Enter the credentials you chose when you created the cluster.
 
 You'll then be taken to the Ambari dashboard, which contains widgets that show a handful of metrics to give you a quick overview of your HDInsight cluster's health. These widgets show metrics such as the number of live DataNodes (worker nodes) and JournalNodes (zookeeper node), NameNodes (head nodes) uptime, as well metrics specific to certain cluster types, like YARN ResourceManager uptime for
 Spark and Hadoop clusters.
 
-![Apache Ambari use dashboard display](media/hdinsight-cluster-availability/apache-ambari-dashboard.png)
+:::image type="content" source="media/hdinsight-cluster-availability/apache-ambari-dashboard.png" alt-text="Apache Ambari use dashboard display":::
 
 ## Hosts – view individual node status
 
 You can also view status information for individual nodes. Select the **Hosts** tab to view a list of all nodes in your cluster and see basic information about each node. The green check to the left of each node name indicates all components are up on the node. If a component is down on a node, you'll see a red alert triangle instead of the green check.
 
-![HDInsight Apache Ambari hosts view](media/hdinsight-cluster-availability/apache-ambari-hosts1.png)
+:::image type="content" source="media/hdinsight-cluster-availability/apache-ambari-hosts1.png" alt-text="HDInsight Apache Ambari hosts view":::
 
 You can then select on the **name** of a node to view more detailed host metrics for that particular node. This view shows the status/availability of each individual component.
 
-![Apache Ambari hosts single node view](media/hdinsight-cluster-availability/apache-ambari-hosts-node.png)
+:::image type="content" source="media/hdinsight-cluster-availability/apache-ambari-hosts-node.png" alt-text="Apache Ambari hosts single node view":::
 
 ## Ambari alerts
 
 Ambari also offers several configurable alerts that can provide notification of certain events. When alerts are triggered, they're shown in the upper-left corner of Ambari in a red badge containing the number of alerts. Selecting this badge shows a list of current alerts.
 
-![Apache Ambari current alerts count](media/hdinsight-cluster-availability/apache-ambari-alerts.png)
+:::image type="content" source="media/hdinsight-cluster-availability/apache-ambari-alerts.png" alt-text="Apache Ambari current alerts count":::
 
 To view a list of alert definitions and their statuses, select the **Alerts** tab, as shown below.
 
-![Ambari alerts definitions view](media/hdinsight-cluster-availability/ambari-alerts-definitions.png)
+:::image type="content" source="media/hdinsight-cluster-availability/ambari-alerts-definitions.png" alt-text="Ambari alerts definitions view":::
 
 Ambari offers many predefined alerts related to availability, including:
 
@@ -58,15 +55,14 @@ Ambari offers many predefined alerts related to availability, including:
 | Percent JournalNodes Available    | This alert is triggered if the number of down JournalNodes in the cluster is greater than the configured critical threshold. It aggregates the results of JournalNode process checks. |
 | Percent DataNodes Available       | This alert is triggered if the number of down DataNodes in the cluster is greater than the configured critical threshold. It aggregates the results of DataNode process checks.|
 
-A full list of Ambari alerts that help monitor the availability of a cluster can be found [here](https://docs.microsoft.com/azure/hdinsight/hdinsight-high-availability-linux#ambari-web-ui),
 
 To view details for an alert or modify criteria, select the **name** of the alert. Take **DataNode Health Summary** as an example. You can see a description of the alert as well as the specific criteria that will trigger a 'warning' or 'critical' alert and the check interval for the criteria. To edit the configuration, select the **Edit** button in the upper-right corner of the Configuration box.
 
-![Apache Ambari alert configuration](media/hdinsight-cluster-availability/ambari-alert-configuration.png)
+:::image type="content" source="media/hdinsight-cluster-availability/ambari-alert-configuration.png" alt-text="Apache Ambari alert configuration":::
 
 Here, you can edit the description and, more importantly, the check interval and thresholds for warning or critical alerts.
 
-![Ambari alert configurations edit view](media/hdinsight-cluster-availability/ambari-alert-configuration-edit.png)
+:::image type="content" source="media/hdinsight-cluster-availability/ambari-alert-configuration-edit.png" alt-text="Ambari alert configurations edit view":::
 
 In this example, you could make 2 unhealthy DataNodes trigger a critical alert and 1 unhealthy DataNode only trigger a warning. Select **Save** when you're done editing.
 
@@ -74,7 +70,7 @@ In this example, you could make 2 unhealthy DataNodes trigger a critical alert a
 
 You can also optionally configure email notifications for Ambari alerts. To do this, when on the **Alerts** tab, click the **Actions** button in the upper-left, then **Manage Notifications.**
 
-![Ambari manage notifications action](media/hdinsight-cluster-availability/ambari-manage-notifications.png)
+:::image type="content" source="media/hdinsight-cluster-availability/ambari-manage-notifications.png" alt-text="Ambari manage notifications action":::
 
 A dialog for managing alert notifications will open. Select the **+** at the bottom of the dialog and fill out the required fields to provide Ambari with email server details from which to send emails.
 
@@ -83,7 +79,7 @@ A dialog for managing alert notifications will open. Select the **+** at the bot
 
 ## Next steps
 
-- [Availability and reliability of Apache Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md)
+- [Availability and reliability of Apache Hadoop clusters in HDInsight](./hdinsight-business-continuity.md)
 - [Cluster availability - Azure Monitor logs](./cluster-availability-monitor-logs.md)
 - [Use Azure Monitor logs](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 - [Apache Ambari email notifications](apache-ambari-email.md)

@@ -67,7 +67,7 @@ For more information, see [Decision Forests](https://go.microsoft.com/fwlink/?Li
 4.  For **Number of decision trees**, type the maximum number of decision trees that can be created in the ensemble. By creating more decision trees, you can potentially get better coverage, but training time increases.  
   
     > [!NOTE]
-    >  This value also controls the number of trees displayed when visualizing the trained model. If you want to see or print a single tree, you can set the value to 1. However, only one tree can be produced (the tree with the initial set of parameters) and no further iterations are performed.
+    >  If you set the value to 1. However, only one tree can be produced (the tree with the initial set of parameters) and no further iterations are performed.
   
 5.  For **Maximum depth of the decision trees**, type a number to limit the maximum depth of any decision tree. Increasing the depth of the tree might increase precision, at the risk of some overfitting and increased training time.
   

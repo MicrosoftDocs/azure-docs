@@ -1,22 +1,17 @@
 ---
 title: Copy data from Azure Data Lake Storage Gen1 to Gen2
 description: 'Use Azure Data Factory to copy data from Azure Data Lake Storage Gen1 to Gen2'
-services: data-factory
-documentationcenter: ''
-ms.author: jingwang
-author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/13/2019
+ms.date: 07/05/2021
 ---
 
 # Copy data from Azure Data Lake Storage Gen1 to Gen2 with Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics that's built into [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md). You can use it to interface with your data by using both file system and object storage paradigms.
 
@@ -53,15 +48,15 @@ This article shows you how to use the Data Factory copy data tool to copy data f
 3. Select **Create**.
 4. After creation is finished, go to your data factory. You see the **Data Factory** home page as shown in the following image: 
    
-   ![Data factory home page](./media/load-azure-data-lake-storage-gen2-from-gen1/data-factory-home-page.png)
+   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
 
-5. Select the **Author & Monitor** tile to launch the Data Integration application in a separate tab.
+5. Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Data Integration application in a separate tab.
 
 ## Load data into Azure Data Lake Storage Gen2
 
-1. On the **Get started** page, select the **Copy Data** tile to launch the copy data tool. 
+1. On the home page, select the **Ingest** tile to launch the copy data tool. 
 
-   ![Copy data tool tile](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-data-tool-tile.png)
+   ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png )
 2. On the **Properties** page, specify **CopyFromADLSGen1ToGen2** for the **Task name** field. Select **Next**.
 
     ![Properties page](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-data-tool-properties-page.png)
@@ -92,7 +87,7 @@ This article shows you how to use the Data Factory copy data tool to copy data f
 
 7. Specify the copy behavior by selecting the **Copy files recursively** and **Binary copy** options. Select **Next**.
 
-    ![Specify output folder](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-binary-copy.png)
+    ![Screenshot shows the Choose the input file or folder where you can select Copy file recursively and Binary Copy.](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-binary-copy.png)
     
 8. On the **Destination data store** page, select **+ Create new connection** > **Azure Data Lake Storage Gen2** > **Continue**.
 
@@ -108,7 +103,7 @@ This article shows you how to use the Data Factory copy data tool to copy data f
 
 10. On the **Choose the output file or folder** page, enter **copyfromadlsgen1** as the output folder name, and select **Next**. Data Factory creates the corresponding Azure Data Lake Storage Gen2 file system and subfolders during copy if they don't exist.
 
-    ![Specify output folder](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-path.png)
+    ![Screenshot shows the folder path you enter.](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-path.png)
 
 11. On the **Settings** page, select **Next** to use the default settings.
 

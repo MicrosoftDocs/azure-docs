@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/13/2019
+ms.date: 05/05/2021
 
 ms.author: mimart
 author: msmimart
@@ -28,21 +28,19 @@ An Azure Active Directory (Azure AD) B2B guest user can decide to leave an organ
 
 To leave an organization, follow these steps.
 
-1. Go to your Access Panel Profile page by doing one of the following steps:
-   
-   - In the [Azure portal](https://portal.azure.com), click your name in the upper right and select **View account**.
-   - Open your [Access Panel](https://myapps.microsoft.com), click your name in the upper right, and next to **Organizations**, select the settings icon (gear).
- 
-   ![Screenshot showing user settings in Access Panel](media/leave-the-organization/UserSettings.png) 
-
+1. Go to your **My Account** page by doing one of the following:
+- If you're using a work or school account, go to https://myaccount.microsoft.com and sign in.
+- If you're using a personal account, go to https://myapps.microsoft.com and sign in, and then click your account icon in the upper right and select **View account**.
    > [!NOTE]
-   > If you’re not already signed in to the organization you want to leave, under **Organizations**, click the **Sign in to leave organization** link next to the organization’s name. After you’re signed in, click your name again in the upper right and next to **Organizations**, select the settings icon (gear).
+   > When using a personal account, another option is to go directly to your My Account page by adding the tenant name or tenant ID to the URL, for example: `https://myaccount.microsoft.com?tenantId=wingtiptoys.onmicrosoft.com` or `https://myaccount.microsoft.com?tenantId=ab123456-cd12-ef12-gh12-ijk123456789`
 
-3. Under **Organizations**, find the organization that you want to leave, and select **Leave organization**.
+2. Under **Organizations**, find the organization that you want to leave, and select **Leave organization**.
 
-   ![Screenshot showing Leave organization option in the user interface](media/leave-the-organization/LeaveOrg.png)
+   ![Screenshot showing Leave organization option in the user interface](media/leave-the-organization/leave-org.png)
+3. When asked to confirm, select **Leave**.
 
-4. When asked to confirm, select **Leave**. 
+> [!NOTE]
+   > You cannot leave your home organization.
 
 ## Account removal
 

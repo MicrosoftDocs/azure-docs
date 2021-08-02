@@ -1,27 +1,26 @@
 ---
-title: Connect to Azure Arc enabled SQL Managed Instance
-description: Connect to Azure Arc enabled SQL Managed Instance
+title: Connect to Azure Arc-enabled SQL Managed Instance
+description: Connect to Azure Arc-enabled SQL Managed Instance
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: vin-yu
-ms.author: vinsonyu
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
-# Connect to Azure Arc enabled SQL Managed Instance
+# Connect to Azure Arc-enabled SQL Managed Instance
 
-This article explains how you can connect to your Azure Arc enabled SQL Managed Instance. 
+This article explains how you can connect to your Azure Arc-enabled SQL Managed Instance. 
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## View Azure Arc enabled SQL Managed Instances
+## View Azure Arc-enabled SQL Managed Instances
 
-To view the Azure Arc enabled SQL Managed Instance and the external endpoints use the following command:
+To view the Azure Arc-enabled SQL Managed Instance and the external endpoints use the following command:
 
-```console
-azdata arc sql mi list
+```azurecli
+az sql mi-arc list
 ```
 
 Output should look like this:
@@ -62,7 +61,7 @@ sqlcmd -S 52.229.9.30,30913 -U sa
 
 If you are using an Azure virtual machine, then the endpoint IP address will not show the public IP address. To locate the external IP address, use the following command:
 
-```console
+```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 
@@ -72,15 +71,15 @@ You may also need to expose the port of the sql instance through the network sec
 
 To set a rule you will need to know the name of your NSG which you can find out using the command below:
 
-```console
+```azurecli
 az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 ```
 
 Once you have the name of the NSG, you can add a firewall rule using the following command. The example values here create an NSG rule for port 30913 and allows connection from **any** source IP address.  This is not a security best practice!  You can lock things down better by specifying a -source-address-prefixes value that is specific to your client IP address or an IP address range that covers your team's or organization's IP addresses.
 
-Replace the value of the `--destination-port-ranges` parameter below with the port number you got from the `azdata sql instance list`F command above.
+Replace the value of the `--destination-port-ranges` parameter below with the port number you got from the `az sql mi-arc list` command above.
 
-```console
+```azurecli
 az network nsg rule create -n db_port --destination-port-ranges 30913 --source-address-prefixes '*' --nsg-name azurearcvmNSG --priority 500 -g azurearcvm-rg --access Allow --description 'Allow port through for db access' --destination-address-prefixes '*' --direction Inbound --protocol Tcp --source-port-ranges '*'
 ```
 

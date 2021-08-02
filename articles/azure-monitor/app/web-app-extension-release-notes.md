@@ -24,6 +24,24 @@ This article contains the releases notes for Azure Web Apps Extension for runtim
 
 ## Release notes
 
+### 2.8.38
+
+- JAVA extension: upgraded to [Java Agent 3.0.2 (GA)](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.0.2) from 2.5.1.
+- Node.js extension: Updated AI SDK to [1.8.8](https://github.com/microsoft/ApplicationInsights-node.js/releases/tag/1.8.8) from 1.8.7.
+- .NET Core: Removed out-of-support versions (2.0, 2.2, 3.0). Supported versions are 2.1 and 3.1.
+
+### 2.8.37
+
+- AppSvc Windows extension: Made .Net Core work with any version of System.Diagnostics.DiagnosticSource.dll.
+
+### 2.8.36
+
+- AppSvc Windows extension: Enabled Inter-op with AI SDK in .NET Core.
+
+### 2.8.35
+
+- AppSvc Windows extension: Added .NET Core 3.1 support.
+
 ### 2.8.33
 
 - .NET, .NET core, Java, and Node.js agents and the Windows Extension: Support for sovereign clouds. Connections strings can be used to send data to sovereign clouds.

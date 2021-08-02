@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/02/2019
+ms.date: 03/17/2021
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -21,6 +21,9 @@ ms.collection: M365-identity-device-management
 ---
 # Changing the ADSync service account password
 If you change the ADSync service account password, the Synchronization Service will not be able start correctly until you have abandoned the encryption key and reinitialized the ADSync service account password. 
+
+>[!IMPORTANT]
+> If you use Connect with a build from 2017 March or earlier, then you should not reset the password on the service account since Windows destroys the encryption keys for security reasons. You cannot change the account to any other account without reinstalling Azure AD Connect. If you upgrade to a build from 2017 April or later, then it is supported to change the password on the service account, but you cannot change the account used. 
 
 Azure AD Connect, as part of the Synchronization Services uses an encryption key to store the passwords of the AD DS Connector account and ADSync service account.  These accounts are encrypted before they are stored in the database. 
 
@@ -101,11 +104,14 @@ As the existing passwords stored inside the database can no longer be decrypted,
 #### Reinitialize the password of the ADSync service account
 You cannot directly provide the password of the Azure AD service account to the Synchronization Service. Instead, you need to use the cmdlet **Add-ADSyncAADServiceAccount** to reinitialize the Azure AD service account. The cmdlet resets the account password and makes it available to the Synchronization Service:
 
-1. Start a new PowerShell session on the Azure AD Connect server.
-2. Run cmdlet `Add-ADSyncAADServiceAccount`.
-3. In the pop-up dialog, provide the Azure AD Global admin credentials for your Azure AD tenant.
-![Azure AD Connect Sync Encryption Key Utility](./media/how-to-connect-sync-change-serviceacct-pass/key7.png)
-4. If it is successful, you will see the PowerShell command prompt.
+1. Sign in to the Azure AD Connect sync server and open PowerShell.
+2. To provide the Azure AD Global admin credentials, run `$credential = Get-Credential`.
+3. Run the cmdlet `Add-ADSyncAADServiceAccount -AADCredential $credential`.
+ 
+   If the cmdlet is successful, the PowerShell command prompt appears. 
+   
+The cmdlet resets the password for the service account and updates it both in Azure AD and the sync engine.
+
 
 #### Start the Synchronization Service
 Now that the Synchronization Service has access to the encryption key and all the passwords it needs, you can restart the service in the Windows Service Control Manager:

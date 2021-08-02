@@ -1,13 +1,10 @@
 ---
 title: Understanding Azure Data Factory pricing through examples 
 description: This article explains and demonstrates the Azure Data Factory pricing model with detailed examples
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
-ms.reviewer: maghan
+author: shirleywangmsft
+ms.author: shwang
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/14/2020
 ---
@@ -43,7 +40,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 | Get Pipeline | 1 Read/Write entity |
 | Run Pipeline | 2 Activity runs (1 for trigger run, 1 for activity runs) |
 | Copy Data Assumption: execution time = 10 min | 10 \* 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, see [this article](copy-activity-performance.md) |
-| Monitor Pipeline Assumption: Only 1 run occurred | 2 Monitoring run records retried (1 for pipeline run, 1 for activity run) |
+| Monitor Pipeline Assumption: Only 1 run occurred | 2 Monitoring run records retrieved (1 for pipeline run, 1 for activity run) |
 
 **Total Scenario pricing: $0.16811**
 
@@ -74,7 +71,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 | Get Pipeline | 1 Read/Write entity |
 | Run Pipeline | 3 Activity runs (1 for trigger run, 2 for activity runs) |
 | Copy Data Assumption: execution time = 10 min | 10 \* 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, see [this article](copy-activity-performance.md) |
-| Monitor Pipeline Assumption: Only 1 run occurred | 3 Monitoring run records retried (1 for pipeline run, 2 for activity run) |
+| Monitor Pipeline Assumption: Only 1 run occurred | 3 Monitoring run records retrieved (1 for pipeline run, 2 for activity run) |
 | Execute Databricks activity Assumption: execution time = 10 min | 10 min External Pipeline Activity Execution |
 
 **Total Scenario pricing: $0.16916**
@@ -108,7 +105,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 | Get Pipeline | 1 Read/Write entity |
 | Run Pipeline | 4 Activity runs (1 for trigger run, 3 for activity runs) |
 | Copy Data Assumption: execution time = 10 min | 10 \* 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, see [this article](copy-activity-performance.md) |
-| Monitor Pipeline Assumption: Only 1 run occurred | 4 Monitoring run records retried (1 for pipeline run, 3 for activity run) |
+| Monitor Pipeline Assumption: Only 1 run occurred | 4 Monitoring run records retrieved (1 for pipeline run, 3 for activity run) |
 | Execute Lookup activity Assumption: execution time = 1 min | 1 min Pipeline Activity execution |
 | Execute Databricks activity Assumption: execution time = 10 min | 10 min External Pipeline Activity execution |
 
@@ -155,7 +152,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 | Get Pipeline | 1 Read/Write entity |
 | Run Pipeline | 2 Activity runs (1 for trigger run, 1 for activity runs) |
 | Data Flow Assumptions: execution time = 10 min + 10 min TTL | 10 \* 16 cores of General Compute with TTL of 10 |
-| Monitor Pipeline Assumption: Only 1 run occurred | 2 Monitoring run records retried (1 for pipeline run, 1 for activity run) |
+| Monitor Pipeline Assumption: Only 1 run occurred | 2 Monitoring run records retrieved (1 for pipeline run, 1 for activity run) |
 
 **Total Scenario pricing: $1.4631**
 
@@ -183,22 +180,22 @@ To accomplish the scenario, you need to create two pipelines with the following 
 | Create Pipeline | 6 Read/Write entities (2 for pipeline creation, 4 for dataset references) |
 | Get Pipeline | 2 Read/Write entity |
 | Run Pipeline | 6 Activity runs (2 for trigger run, 4 for activity runs) |
-| Execute Delete Activity: each execution time = 5 min. The Delete Activity execution in first pipeline is from 10:00 AM UTC to 10:05 AM UTC. The Delete Activity execution in second pipeline is from 10:02 AM UTC to 10:07 AM UTC.|Total 7 min pipeline activity execution in Managed VNET. Pipeline activity supports up to 50 concurrency in Managed VNET. |
-| Copy Data Assumption: each execution time = 10 min. The Copy execution in first pipeline is from 10:06 AM UTC to 10:15 AM UTC. The Delete Activity execution in second pipeline is from 10:08 AM UTC to 10:17 AM UTC. | 10 * 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, see [this article](copy-activity-performance.md) |
-| Monitor Pipeline Assumption: Only 2 runs occurred | 6 Monitoring run records retried (2 for pipeline run, 4 for activity run) |
+| Execute Delete Activity: each execution time = 5 min. The Delete Activity execution in first pipeline is from 10:00 AM UTC to 10:05 AM UTC. The Delete Activity execution in second pipeline is from 10:02 AM UTC to 10:07 AM UTC.|Total 7 min pipeline activity execution in Managed VNET. Pipeline activity supports up to 50 concurrency in Managed VNET. There is a 60 minutes Time To Live (TTL) for pipeline activity|
+| Copy Data Assumption: each execution time = 10 min. The Copy execution in first pipeline is from 10:06 AM UTC to 10:15 AM UTC. The Copy Activity execution in second pipeline is from 10:08 AM UTC to 10:17 AM UTC. | 10 * 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, see [this article](copy-activity-performance.md) |
+| Monitor Pipeline Assumption: Only 2 runs occurred | 6 Monitoring run records retrieved (2 for pipeline run, 4 for activity run) |
 
 
-**Total Scenario pricing: $0.45523**
+**Total Scenario pricing: $1.45523**
 
 - Data Factory Operations = $0.00023
   - Read/Write = 20*00001 = $0.0002 [1 R/W = $0.50/50000 = 0.00001]
   - Monitoring = 6*000005 = $0.00003 [1 Monitoring = $0.25/50000 = 0.000005]
-- Pipeline Orchestration & Execution = $0.455
+- Pipeline Orchestration & Execution = $1.455
   - Activity Runs = 0.001*6 = 0.006 [1 run = $1/1000 = 0.001]
   - Data Movement Activities = $0.333 (Prorated for 10 minutes of execution time. $0.25/hour on Azure Integration Runtime)
-  - Pipeline Activity = $0.116 (Prorated for 7 minutes of execution time. $1/hour on Azure Integration Runtime)
+  - Pipeline Activity = $1.116 (Prorated for 7 minutes of execution time plus 60 minutes TTL. $1/hour on Azure Integration Runtime)
 
-> [!NOTE]
+> [!NOTE] 
 > These prices are for example purposes only.
 
 **FAQ**

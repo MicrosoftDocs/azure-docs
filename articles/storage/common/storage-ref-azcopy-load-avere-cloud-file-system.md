@@ -33,7 +33,7 @@ This command lets you transfer data without using the cache. For example, to pre
 The destination is an empty Azure Storage Container. When the transfer is complete, the destination container can be used with an Azure HPC Cache instance or Avere vFXT for Azure cluster.
 
 > [!NOTE] 
-> This is a preview release of the load command. Please report any issues on the AzCopy Github repo.
+> This is a preview release of the load command. Please report any issues on the AzCopy GitHub repo.
 
 ```
 azcopy load clfs [local dir] [container URL] [flags]
@@ -42,9 +42,8 @@ azcopy load clfs [local dir] [container URL] [flags]
 ## Related conceptual articles
 
 - [Get started with AzCopy](storage-use-azcopy-v10.md)
-- [Transfer data with AzCopy and Blob storage](storage-use-azcopy-blobs.md)
+- [Transfer data with AzCopy and Blob storage](./storage-use-azcopy-v10.md#transfer-data)
 - [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
-- [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
 
 ## Examples
 

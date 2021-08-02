@@ -4,21 +4,22 @@ description: Learn how to identify, diagnose, and troubleshoot Azure Cosmos DB S
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 09/12/2020
+ms.date: 02/16/2021
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
 ---
 # Troubleshoot query issues when using Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. Although you shouldn't consider the steps outlined in this article a complete defense against potential query issues, we've included the most common performance tips here. You should use this article as a starting place for troubleshooting slow or expensive queries in the Azure Cosmos DB core (SQL) API. You can also use [diagnostics logs](cosmosdb-monitor-resource-logs.md) to identify queries that are slow or that consume significant amounts of throughput.
+This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. Although you shouldn't consider the steps outlined in this article a complete defense against potential query issues, we've included the most common performance tips here. You should use this article as a starting place for troubleshooting slow or expensive queries in the Azure Cosmos DB core (SQL) API. You can also use [diagnostics logs](cosmosdb-monitor-resource-logs.md) to identify queries that are slow or that consume significant amounts of throughput. If you are using Azure Cosmos DB's API for MongoDB, you should use [Azure Cosmos DB's API for MongoDB query troubleshooting guide](mongodb-troubleshoot-query.md)
 
-You can broadly categorize query optimizations in Azure Cosmos DB:
+Query optimizations in Azure Cosmos DB are broadly categorized as follows:
 
 - Optimizations that reduce the Request Unit (RU) charge of the query
 - Optimizations that just reduce latency
 
-If you reduce the RU charge of a query, you'll almost certainly decrease latency as well.
+If you reduce the RU charge of a query, you'll typically decrease latency as well.
 
 This article provides examples that you can re-create by using the [nutrition dataset](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
 
@@ -55,6 +56,8 @@ Refer to the following sections to understand the relevant query optimizations f
 - [Include necessary paths in the indexing policy.](#include-necessary-paths-in-the-indexing-policy)
 
 - [Understand which system functions use the index.](#understand-which-system-functions-use-the-index)
+
+- [Improve string system function execution.](#improve-string-system-function-execution)
 
 - [Understand which aggregate queries use the index.](#understand-which-aggregate-queries-use-the-index)
 
@@ -185,29 +188,85 @@ Updated indexing policy:
 
 **RU charge:** 2.98 RUs
 
-You can add properties to the indexing policy at any time, with no effect on write availability or performance. If you add a new property to the index, queries that use the property will immediately use the new available index. The query will use the new index while it's being built. So query results might be inconsistent while the index rebuild is in progress. If a new property is indexed, queries that use only existing indexes won't be affected during the index rebuild. You can [track index transformation progress](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
+You can add properties to the indexing policy at any time, with no effect on write or read availability. You can [track index transformation progress](./how-to-manage-indexing-policy.md#dotnet-sdk).
 
 ### Understand which system functions use the index
 
-If an expression can be translated into a range of string values, it can use the index. Otherwise, it can't.
+Most system functions use indexes. Here's a list of some common string functions that use indexes:
 
-Here's the list of some common string functions that can use the index:
+- StartsWith
+- Contains
+- RegexMatch
+- Left
+- Substring - but only if the first num_expr is 0
 
-- STARTSWITH(str_expr1, str_expr2, bool_expr)  
-- CONTAINS(str_expr, str_expr, bool_expr)
-- LEFT(str_expr, num_expr) = str_expr
-- SUBSTRING(str_expr, num_expr, num_expr) = str_expr, but only if the first num_expr is 0
-
-Following are some common system functions that don't use the index and must load each document:
+Following are some common system functions that don't use the index and must load each document when used in a `WHERE` clause:
 
 | **System function**                     | **Ideas   for optimization**             |
 | --------------------------------------- |------------------------------------------------------------ |
-| UPPER/LOWER                             | Instead of using the system function to normalize data for comparisons, normalize the casing upon insertion. A query like ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` becomes ```SELECT * FROM c WHERE c.name = 'BOB'```. |
+| Upper/Lower                         | Instead of using the system function to normalize data for comparisons, normalize the casing upon insertion. A query like ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` becomes ```SELECT * FROM c WHERE c.name = 'BOB'```. |
+| GetCurrentDateTime/GetCurrentTimestamp/GetCurrentTicks | Calculate the current time before query execution and use that string value in the `WHERE` clause. |
 | Mathematical functions (non-aggregates) | If you need to compute a value frequently in your query, consider storing the value as a property in your JSON document. |
 
-------
+These system functions can use indexes, except when used in queries with aggregates:
 
-Other parts of the query might still use the index even though the system functions don't.
+| **System function**                     | **Ideas   for optimization**             |
+| --------------------------------------- |------------------------------------------------------------ |
+| Spatial system functions                        | Store the query result in a real-time materialized view |
+
+When used in the `SELECT` clause, inefficient system functions will not affect how queries can use indexes.
+
+### Improve string system function execution
+
+For some system functions that use indexes, you can improve query execution by adding an `ORDER BY` clause to the query. 
+
+More specifically, any system function whose RU charge increases as the cardinality of the property increases may benefit from having `ORDER BY` in the query. These queries do an index scan, so having the query results sorted can make the query more efficient.
+
+This optimization can improve execution for the following system functions:
+
+- StartsWith (where case-insensitive = true)
+- StringEquals (where case-insensitive = true)
+- Contains
+- RegexMatch
+- EndsWith
+
+For example, consider the below query with `CONTAINS`. `CONTAINS` will use indexes but sometimes, even after adding the relevant index, you may still observe a very high RU charge when running the below query.
+
+Original query:
+
+```sql
+SELECT *
+FROM c
+WHERE CONTAINS(c.town, "Sea")
+```
+
+You can improve query execution by adding `ORDER BY`:
+
+```sql
+SELECT *
+FROM c
+WHERE CONTAINS(c.town, "Sea")
+ORDER BY c.town
+```
+
+The same optimization can help in queries with additional filters. In this case, it's best to also add properties with equality filters to the `ORDER BY` clause.
+
+Original query:
+
+```sql
+SELECT *
+FROM c
+WHERE c.name = "Samer" AND CONTAINS(c.town, "Sea")
+```
+
+You can improve query execution by adding `ORDER BY` and [a composite index](index-policy.md#composite-indexes) for (c.name, c.town):
+
+```sql
+SELECT *
+FROM c
+WHERE c.name = "Samer" AND CONTAINS(c.town, "Sea")
+ORDER BY c.name, c.town
+```
 
 ### Understand which aggregate queries use the index
 
@@ -464,7 +523,7 @@ Here's the relevant composite index:
 
 ## Optimizations that reduce query latency
 
-In many cases, the RU charge might be acceptable when query latency is still too high. The following sections give an overview of tips for reducing query latency. If you run the same query multiple times on the same dataset, it will have the same RU charge each time. But query latency might vary between query executions.
+In many cases, the RU charge might be acceptable when query latency is still too high. The following sections give an overview of tips for reducing query latency. If you run the same query multiple times on the same dataset, it will typically have the same RU charge each time. But query latency might vary between query executions.
 
 ### Improve proximity
 
@@ -486,5 +545,6 @@ Queries are designed to pre-fetch results while the current batch of results is 
 See the following articles for information on how to measure RUs per query, get execution statistics to tune your queries, and more:
 
 * [Get SQL query execution metrics by using .NET SDK](profile-sql-api-query.md)
-* [Tuning query performance with Azure Cosmos DB](sql-api-sql-query-metrics.md)
+* [Tuning query performance with Azure Cosmos DB](./sql-api-query-metrics.md)
 * [Performance tips for .NET SDK](performance-tips.md)
+* [Performance tips for Java v4 SDK](performance-tips-java-sdk-v4-sql.md)

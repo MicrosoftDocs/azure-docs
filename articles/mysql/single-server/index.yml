@@ -21,8 +21,8 @@ landingContent:
             url: ../single-server-overview.md
       - linkListType: whats-new
         links:
-          - text: Check out our blog
-            url: https://techcommunity.microsoft.com/t5/Azure-Database-for-MySQL/bg-p/ADforMySQL
+          - text: What's new in Single Server?
+            url: ../single-server-whats-new.md
  # Card 2
   - title: Get started
     linkLists:
@@ -102,6 +102,9 @@ landingContent:
             url: ../concepts-migrate-dump-restore.md
           - text: Migrate using import and export
             url: ../concepts-migrate-import-export.md
+          - text: Migrate RDS MySQL using MySQL Workbench
+            url: ../how-to-migrate-rds-mysql-workbench.md
+# Card 5
 # Card 5
   - title: Business Continuity
     linkLists:
@@ -119,7 +122,7 @@ landingContent:
             url: ../howto-data-in-replication.md
           - text: Restore a server using Azure portal
             url: ../howto-restore-server-portal.md
-          - text: Restore a server using Azure portal
+          - text: Restore a server using Azure CLI
             url: ../howto-restore-server-cli.md
 
 # Card 6
@@ -134,7 +137,7 @@ landingContent:
       - linkListType: deploy
         links:
           - text: Azure CLI scripts for common tasks
-            url: /azure/mysql/sample-scripts-azure-cli
+            url: ../sample-scripts-azure-cli.md
           - text: Azure Resource Manager templates
             url: /azure/templates/microsoft.dbformysql/allversions
       - linkListType: reference
@@ -144,5 +147,4 @@ landingContent:
           - text: REST API developer reference
             url: /rest/api/mysql/
           - text: PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.mysql
-
+            url: /powershell/module/az.mysql

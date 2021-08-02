@@ -63,10 +63,10 @@ In this article, you learn about various Azure DevTest Labs features that can be
    | Task | What you learn |
    | --- | --- |
    | [Define lab policies](devtest-lab-set-lab-policy.md) |Control costs by setting policies in the lab. |
-   | [Delete all the lab VMs using a PowerShell script](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Delete all the labs in one operation when the training is complete. |
+   | [Delete all the lab VMs using a PowerShell script](/azure/devtest-labs/devtest-lab-faq#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Delete all the labs in one operation when the training is complete. |
 5. **Share the lab with each trainee**
    
-    Labs can be directly accessed using a link that you share with your trainees. Your trainees don't even have to have an Azure account, as long as they have a [Microsoft account](devtest-lab-faq.md#what-is-a-microsoft-account). Trainees cannot see VMs created by other trainees.  
+    Labs can be directly accessed using a link that you share with your trainees. Your trainees don't even have to have an Azure account, as long as they have a [Microsoft account](/azure/devtest-labs/devtest-lab-faq#what-is-a-microsoft-account). Trainees cannot see VMs created by other trainees.  
    
     Learn more by clicking on the links in the following table:
    
@@ -74,7 +74,7 @@ In this article, you learn about various Azure DevTest Labs features that can be
    | --- | --- |
    | [Add a trainee to a lab in Azure DevTest Labs](devtest-lab-add-devtest-user.md) |Use the Azure portal to add trainees to your training lab. |
    | [Add trainees to the lab using a PowerShell script](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell) |Use PowerShell to automate adding trainees to your training lab. |
-   | [Get a link to the lab](devtest-lab-faq.md#how-do-i-share-a-direct-link-to-my-lab) |Learn how a lab can be directly accessed via a hyperlink. |
+   | [Get a link to the lab](/azure/devtest-labs/devtest-lab-faq#how-do-i-share-a-direct-link-to-my-lab) |Learn how a lab can be directly accessed via a hyperlink. |
 6. **Reuse the lab again and again** 
    
     You can automate lab creation, including custom settings, by creating a Resource Manager template and using it to create identical labs again and again. 
@@ -83,6 +83,6 @@ In this article, you learn about various Azure DevTest Labs features that can be
    
    | Task | What you learn |
    | --- | --- |
-   | [Create a lab using a Resource Manager template](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Create labs in Azure DevTest Labs using Resource Manager templates. |
+   | [Create a lab using a Resource Manager template](/azure/devtest-labs/devtest-lab-faq#how-do-i-create-a-lab-from-a-resource-manager-template) |Create labs in Azure DevTest Labs using Resource Manager templates. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]

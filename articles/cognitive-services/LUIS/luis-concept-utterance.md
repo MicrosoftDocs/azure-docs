@@ -23,7 +23,7 @@ Collect utterances that you think users will enter. Include utterances, which me
 
 ## How to choose varied utterances
 
-When you first get started by [adding example utterances](luis-how-to-add-example-utterances.md) to your LUIS model, here are some principles to keep in mind.
+When you first get started by [adding example utterances](./luis-how-to-add-entities.md) to your LUIS model, here are some principles to keep in mind.
 
 ### Utterances aren't always well formed
 
@@ -48,7 +48,7 @@ Take these example utterances:
 |I want to get a computer, how do I go about it?|
 |When can I have a computer?|
 
-The core term here, "computer," isn't varied. Use alternatives such as desktop computer, laptop, workstation, or even just machine. LUIS can intelligently infer synonyms from context, but when you create utterances for training, it's always better to vary them.
+The core term here, *computer*, isn't varied. Use alternatives such as desktop computer, laptop, workstation, or even just machine. LUIS can intelligently infer synonyms from context, but when you create utterances for training, it's always better to vary them.
 
 ## Example utterances in each intent
 
@@ -141,5 +141,4 @@ If you wanted an event entity to find all event data, label the word `fair` in t
 
 
 ## Next steps
-See [Add example utterances](luis-how-to-add-example-utterances.md) for information on training a LUIS app to understand user utterances.
-
+See [Add example utterances](./luis-how-to-add-entities.md) for information on training a LUIS app to understand user utterances.

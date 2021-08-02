@@ -37,10 +37,6 @@ The tools on these sites measure DNS latencies and display the resolved IP addre
 
 ## Sample tools to measure DNS performance
 
-* [SolveDNS](https://www.solvedns.com/dns-comparison/)
-
-    SolveDNS offers many performance tools. The DNS Comparison tool can show you how long it takes to resolve your DNS name and how that compares to other DNS service providers.
-
 * [WebSitePulse](https://www.websitepulse.com/help/tools.php)
 
     One of the simplest tools is WebSitePulse. Enter the URL to see DNS resolution time, First Byte, Last Byte, and other performance statistics. You can choose from three different test locations. In this example, you see that the first execution shows that DNS lookup takes 0.204 sec.
@@ -75,7 +71,6 @@ The tools on these sites measure DNS latencies and display the resolved IP addre
 
 [Test your Traffic Manager settings](traffic-manager-testing-settings.md)
 
-[Operations on Traffic Manager (REST API Reference)](https://go.microsoft.com/fwlink/?LinkId=313584)
+[Operations on Traffic Manager (REST API Reference)](/previous-versions/azure/reference/hh758255(v=azure.100))
 
-[Azure Traffic Manager Cmdlets](https://docs.microsoft.com/powershell/module/az.trafficmanager)
-
+[Azure Traffic Manager Cmdlets](/powershell/module/az.trafficmanager)

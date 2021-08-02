@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 07/30/2021
 ---
 
 # Logical replication and logical decoding in Azure Database for PostgreSQL - Flexible Server
@@ -13,7 +13,11 @@ ms.date: 09/23/2020
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - Flexible Server is in preview
 
-PostgreSQL's logical replication and logical decoding features are supported in Azure Database for PostgreSQL - Flexible Server, for Postgres version 11.
+Azure Database for PostgreSQL - Flexible Server supports the following logical data extraction and replication methodologies:
+1. **Logical replication**
+   1. Using PostgreSQL [native logical replication](https://www.postgresql.org/docs/12/logical-replication.html) to replicate data objects. Logical replication allows fine-grained control over the data replication, including table-level data replication.
+   2. Using [pglogical](https://github.com/2ndQuadrant/pglogical) extension that provides logical streaming replication and additional capabilities such as copying initial schema of the database, support for TRUNCATE, ability to replicate DDL etc. 
+2. **Logical decoding** which is implemented by [decoding](https://www.postgresql.org/docs/12/logicaldecoding-explanation.html) the content of write-ahead log (WAL). 
 
 ## Comparing logical replication and logical decoding
 Logical replication and logical decoding have several similarities. They both
@@ -31,23 +35,28 @@ Logical replication
 
 Logical decoding 
 * extracts changes across all tables in a database 
-* cannot directly send data between PostgreSQL instances
+* cannot directly send data between PostgreSQL instances.
 
+>[!NOTE]
+> As at this time, Flexible server does not support cross-region read replicas. Depending on the type of workload, you may choose to use logical replication feature for cross-region disaster recovery (DR) purpose.
 
 ## Pre-requisites for logical replication and logical decoding
 
-1. Set the server parameter `wal_level` to `logical`.
-2. Restart the server to apply the `wal_level` change.
-3. Confirm that your PostgreSQL instance allows network traffic from your connecting resource.
-4. Grant the admin user replication permissions.
+1. Go to server parameters page on the portal.
+2. Set the server parameter `wal_level` to `logical`.
+3. If you want to use pglogical extension, search for the `shared_preload_libaries` parameter, and select `pglogical` from the drop-down box.
+4. Update `max_worker_processes` parameter value to at least 16. Otherwise, you may run into issues like `WARNING: out of background worker slots`.
+5. Save the changes and restart the server to apply the `wal_level` change.
+6. Confirm that your PostgreSQL instance allows network traffic from your connecting resource.
+7. Grant the admin user replication permissions.
    ```SQL
    ALTER ROLE <adminname> WITH REPLICATION;
    ```
-
+8. You may want to make sure the role you are using has [privileges](https://www.postgresql.org/docs/current/sql-grant.html) on the schema that you are replicating. Otherwise, you may run into errors such as `Permission denied for schema`. 
 
 ## Using logical replication and logical decoding
 
-### Logical replication
+### Native logical replication
 Logical replication uses the terms 'publisher' and 'subscriber'. 
 * The publisher is the PostgreSQL database you are sending data **from**. 
 * The subscriber is the PostgreSQL database you are sending data **to**.
@@ -80,10 +89,60 @@ Here's some sample code you can use to try out logical replication.
    ```SQL
    SELECT * FROM basic;
    ```
+   You can add more rows to the publisher's table and view the changes on the subscriber.
 
-You can add more rows to the publisher's table and view the changes on the subscriber.
+   If you are not able to see the data, enable the login privilege for `azure_pg_admin` and check the table content. 
+   ```SQL 
+   ALTER ROLE azure_pg_admin login;
+   ```
+
 
 Visit the PostgreSQL documentation to understand more about [logical replication](https://www.postgresql.org/docs/current/logical-replication.html).
+
+### pglogical extension
+
+Here is an example of configuring pglogical at the provider database server and the subscriber. Please refer to pglogical extension documentation for more details. Also make sure you have performed pre-requisite tasks listed above.
+
+1. Install pglogical extension in the database in both the provider and the subscriber database servers.
+    ```SQL
+   \C myDB
+   CREATE EXTENSION pglogical;
+   ```
+2. At the **provider** (source/publisher) database server, create the provider node.
+   ```SQL
+   select pglogical.create_node( node_name := 'provider1', 
+   dsn := ' host=myProviderServer.postgres.database.azure.com port=5432 dbname=myDB user=myUser password=myPassword');
+   ```
+3. Create a replication set.
+   ```SQL
+   select pglogical.create_replication_set('myreplicationset');
+   ```
+4. Add all tables in the database to the replication set.
+   ```SQL
+   SELECT pglogical.replication_set_add_all_tables('myreplicationset', '{public}'::text[]);
+   ```
+
+   As an alternate method, ou can also add tables from a specific schema (for example, testUser) to a default replication set.
+   ```SQL
+   SELECT pglogical.replication_set_add_all_tables('default', ARRAY['testUser']);
+   ```
+
+5. At the **subscriber** database server, create a subscriber node.
+   ```SQL
+   select pglogical.create_node( node_name := 'subscriber1', 
+   dsn := ' host=mySubscriberServer.postgres.database.azure.com port=5432 dbname=myDB user=myUser password=myPasword' );
+   ```
+6. Create a subscription to start the synchronization and the replication process.
+    ```SQL
+   select pglogical.create_subscription (
+   subscription_name := 'subscription1',
+   replication_sets := array['myreplicationset'],
+   provider_dsn := 'host=myProviderServer.postgres.database.azure.com port=5432 dbname=myDB user=myUser password=myPassword');
+   ```
+7. You can then verify the subscription status.
+   ```SQL
+   SELECT subscription_name, status FROM pglogical.show_subscription_status();
+   ```
 
 ### Logical decoding
 Logical decoding can be consumed via the streaming protocol or SQL interface. 
@@ -167,11 +226,11 @@ The 'active' column in the pg_replication_slots view will indicate whether there
 ```SQL
 SELECT * FROM pg_replication_slots;
 ```
-
 [Set alerts](howto-alert-on-metrics.md) on the **Maximum Used Transaction IDs** and **Storage Used** flexible server metrics to notify you when the values increase past normal thresholds. 
 
 ## Limitations
-* **Read replicas** - Azure Database for PostgreSQL read replicas are not currently supported for flexible servers.
+* **Logical replication** limitations apply as documented [here](https://www.postgresql.org/docs/12/logical-replication-restrictions.html).
+* **Read replicas** - Azure Database for PostgreSQL read replicas are not currently supported with flexible servers.
 * **Slots and HA failover** - Logical replication slots on the primary server are not available on the standby server in your secondary AZ. This applies to you if your server uses the zone-redundant high availability option. In the event of a failover to the standby server, logical replication slots will not be available on the standby.
 
 ## Next steps

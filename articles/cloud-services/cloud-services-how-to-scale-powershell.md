@@ -1,16 +1,20 @@
 ---
-title: Scale an Azure cloud service in Windows PowerShell | Microsoft Docs
+title: Scale an Azure cloud service (classic) in Windows PowerShell | Microsoft Docs
 description: (classic) Learn how to use PowerShell to scale a web role or worker role in or out in Azure.
-services: cloud-services
-author: mmccrory
-ms.service: cloud-services
 ms.topic: article
-ms.date: 12/01/2016
-ms.author: memccror 
-ms.custom: devx-track-azurepowershell
-
+ms.service: cloud-services
+ms.subservice: autoscale
+ms.date: 10/14/2020
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# How to scale a cloud service in PowerShell
+
+# How to scale an Azure Cloud Service (classic) in PowerShell
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
 
 You can use Windows PowerShell to scale a web role or worker role in or out by adding or removing instances.  
 

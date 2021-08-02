@@ -4,27 +4,28 @@ titleSuffix: Azure SQL Managed Instance
 description: Learn about Server Trust Group and how to manage trust between Azure SQL Managed Instances.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: service-overview
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
 author: sasapopo
 ms.author: sasapopo
-ms.reviewer: sstein, bonova
+ms.reviewer: mathoma
 ms.date: 10/08/2020
 ---
 # Use Server Trust Groups to set up and manage trust between SQL Managed Instances
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Server Trust Group is a concept used for managing trust between Azure SQL Managed Instances. By creating a group, a certificate-based trust is established between its members. This trust can be used for different cross-instance scenarios. Removing servers from the group or deleting the group removes the trust between the servers. To create or delete Server Trust Group user needs to have write permissions on Managed Instance.
-[Server Trust Group](https://aka.ms/mi-server-trust-group-arm) is an Azure Resource Manager object which has been labeled as **SQL trust group** in Azure portal.
+[Server Trust Group](/azure/templates/microsoft.sql/allversions) is an Azure Resource Manager object which has been labeled as **SQL trust group** in Azure portal.
 
 > [!NOTE]
 > Server Trust Group is introduced in public preview of Distributed transactions between Azure SQL Managed Instances and currently has some limitations that will be described later in this article.
 
 ## Server Trust Group setup
 
-The following section describes setup of Server Trust Group.
+Server Trust Group can be setup via [Azure PowerShell](/powershell/module/az.sql/new-azsqlservertrustgroup) or [Azure CLI](/cli/azure/sql/stg). 
+The following section describes setup of Server Trust Group using Azure portal.
 
 1. Go to the [Azure portal](https://portal.azure.com/).
 
@@ -60,7 +61,7 @@ Following section describes Server trust group deletion process.
    :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete-confirm.png" alt-text="Confirm Server trust group deletion":::
 
 > [!NOTE]
-> Deleting the Server Trust Group might not immediately remove the trust between the two Managed Instances. Trust removal can be enforced by invoking a [failover](https://docs.microsoft.com/powershell/module/az.sql/Invoke-AzSqlInstanceFailover) of Managed Instances. Check the [Known issues](https://docs.microsoft.com/azure/azure-sql/database/doc-changes-updates-release-notes?tabs=managed-instance#known-issues) for the latest updates on this.
+> Deleting the Server Trust Group might not immediately remove the trust between the two Managed Instances. Trust removal can be enforced by invoking a [failover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover) of Managed Instances. Check the [Known issues](../database/doc-changes-updates-release-notes.md?tabs=managed-instance#known-issues) for the latest updates on this.
 
 ## Limitations
 
@@ -71,7 +72,7 @@ During public  preview the following limitations apply to Server Trust Groups.
  * Distributed transactions are the only applicable scope for the Server Trust Groups.
  * Server Trust Group can only be managed from Azure portal. PowerShell and CLI support will come later.
  * Server Trust Group cannot be edited on the Azure portal. It can only be created or dropped.
- * Additional limitations of distributed transactions may be related to your scenario. Most notable one is that there must be connectivity between Managed Instances over private endpoints, via VNET or VNET peering. Make sure that you're aware of the current [distributed transactions limitations for Managed Instance](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview#limitations).
+ * Additional limitations of distributed transactions may be related to your scenario. Most notable one is that there must be connectivity between Managed Instances over private endpoints, via VNET or VNET peering. Make sure that you're aware of the current [distributed transactions limitations for Managed Instance](../database/elastic-transactions-overview.md#limitations).
 
 ## Next steps
 

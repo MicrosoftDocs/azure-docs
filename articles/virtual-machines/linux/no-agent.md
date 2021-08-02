@@ -2,8 +2,9 @@
 title: Create Linux images without a provisioning agent 
 description: Create generalized Linux images without a provisioning agent in Azure.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: imaging
+ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 09/01/2020
@@ -150,7 +151,7 @@ wireserver_conn.close()
 
 If your VM doesn't have Python installed or available, you can programmatically reproduce this above script logic with the following steps:
 
-1. Retrieve the `ContainerId` and `InstanceId` by parsing the response from the WireServer: `curl -X GET -H 'x-ms-version: 2012-11-30' http://$168.63.129.16/machine?comp=goalstate`.
+1. Retrieve the `ContainerId` and `InstanceId` by parsing the response from the WireServer: `curl -X GET -H 'x-ms-version: 2012-11-30' http://168.63.129.16/machine?comp=goalstate`.
 
 2. Construct the following XML data, injecting the parsed `ContainerId` and `InstanceId` from the above step:
    ```xml
@@ -176,7 +177,7 @@ If your VM doesn't have Python installed or available, you can programmatically 
 
 This demo uses systemd, which is the most common init system in modern Linux distros. So the easiest and most native way to ensure this report ready mechanism runs at the right time is to create a systemd service unit. You can add the following unit file to `/etc/systemd/system` (this example names the unit file `azure-provisioning.service`):
 
-```
+```bash
 [Unit]
 Description=Azure Provisioning
 
@@ -195,12 +196,12 @@ WantedBy=multi-user.target
 This systemd service does three things for basic provisioning:
 
 1. Reports ready to Azure (to indicate that it came up successfully).
-1. Renames the VM based off of the user-supplied VM name by pulling this data from [Azure Instance Metadata Service (IMDS)](./instance-metadata-service.md). **Note** IMDS also provides other [instance metadata](./instance-metadata-service.md#accessing-azure-instance-metadata-service), such as SSH Public Keys, so you can set more than the hostname.
+1. Renames the VM based off of the user-supplied VM name by pulling this data from [Azure Instance Metadata Service (IMDS)](./instance-metadata-service.md). **Note** IMDS also provides other [instance metadata](./instance-metadata-service.md#access-azure-instance-metadata-service), such as SSH Public Keys, so you can set more than the hostname.
 1. Disables itself so that it only runs on first boot and not on subsequent reboots.
 
 With the unit on the filesystem, run the following to enable it:
 
-```
+```bash
 $ sudo systemctl enable azure-provisioning.service
 ```
 
@@ -210,14 +211,14 @@ Now the VM is ready to be generalized and have an image created from it.
 
 Back on your development machine, run the following to prepare for image creation from the base VM:
 
-```
+```bash
 $ az vm deallocate --resource-group demo1 --name demo1
 $ az vm generalize --resource-group demo1 --name demo1
 ```
 
 And create the image from this VM:
 
-```
+```bash
 $ az image create \
     --resource-group demo1 \
     --source demo1 \
@@ -227,7 +228,7 @@ $ az image create \
 
 Now we are ready to create a new VM (or multiple VMs) from the image:
 
-```
+```bash
 $ IMAGE_ID=$(az image show -g demo1 -n demo1img --query id -o tsv)
 $ az vm create \
     --resource-group demo12 \
@@ -245,7 +246,7 @@ $ az vm create \
 
 This VM should provisioning successfully. Logging into the newly-provisioning VM, you should be able to see the output of the report ready systemd service:
 
-```
+```bash
 $ sudo journalctl -u azure-provisioning.service
 -- Logs begin at Thu 2020-06-11 20:28:45 UTC, end at Thu 2020-06-11 20:31:24 UTC. --
 Jun 11 20:28:49 thstringnopa systemd[1]: Starting Azure Provisioning...

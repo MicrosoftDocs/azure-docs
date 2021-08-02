@@ -9,8 +9,9 @@ ms.date: 05/26/2020
 
 # Customer intent: As a user, I want to access my company's data all in one place so I can easily build reports or presentations from it.
 ---
-
 # Quickstart: Create an Azure Data Catalog
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 Azure Data Catalog is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data assets. For a detailed overview, see [What is Azure Data Catalog](overview.md).
 

@@ -11,7 +11,8 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: damendo
+ms.author: damendo 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create an Azure Network Watcher instance
@@ -98,7 +99,7 @@ armclient put "https://management.azure.com/subscriptions/${subscriptionId}/reso
 
 ## Create a Network Watcher using Azure Quickstart Template
 
-To create an instance of Network Watcher refer this [Quickstart Template](https://azure.microsoft.com/resources/templates/101-networkwatcher-create/)
+To create an instance of Network Watcher refer this [Quickstart Template](https://azure.microsoft.com/resources/templates/networkwatcher-create/)
 
 ## Delete a Network Watcher in the portal
 
@@ -124,7 +125,7 @@ Remove-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroup Networ
 
 Now that you have an instance of Network Watcher, learn about the features available:
 
-* [Topology](network-watcher-topology-overview.md)
+* [Topology](./view-network-topology.md)
 * [Packet capture](network-watcher-packet-capture-overview.md)
 * [IP flow verify](network-watcher-ip-flow-verify-overview.md)
 * [Next hop](network-watcher-next-hop-overview.md)

@@ -1,7 +1,7 @@
 ---
 title: "Pattern: The count operator in a policy definition"
 description: This Azure Policy pattern provides an example of how to use the count operator in a policy definition.
-ms.date: 10/14/2020
+ms.date: 03/31/2021
 ms.topic: sample
 ---
 # Azure Policy pattern: the count operator
@@ -18,7 +18,7 @@ allow inbound Remote Desktop Protocol (RDP) traffic.
 ### Explanation
 
 The core components of the **count** operator are _field_, _where_, and the condition. Each is
-highlighted in the snippet below.
+highlighted in the following snippet.
 
 - _field_ tells count which [alias](../concepts/definition-structure.md#aliases) to evaluate members
   of. Here, we're looking at the **securityRules\[\*\]** alias _array_ of the network security

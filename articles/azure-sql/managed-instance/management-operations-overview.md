@@ -4,14 +4,14 @@ titleSuffix: Azure SQL Managed Instance
 description: Learn about Azure SQL Managed Instance management operations duration and best practices.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: deployment-configuration
 ms.custom: 
 ms.devlang: 
 ms.topic: overview
 author: urosmil
 ms.author: urmilano
-ms.reviewer: sstein, MashaMSFT
-ms.date: 07/10/2020
+ms.reviewer: mathoma, MashaMSFT
+ms.date: 06/08/2021
 ---
 
 # Overview of Azure SQL Managed Instance management operations
@@ -65,12 +65,14 @@ The following tables summarize operations and typical overall durations, based o
 |Operation  |Long-running segment  |Estimated duration  |
 |---------|---------|---------|
 |Instance property change (admin password, Azure AD login, Azure Hybrid Benefit flag)|N/A|Up to 1 minute.|
-|Instance storage scaling up/down (General Purpose service tier)|Attaching database files|90% of operations finish in 5 minutes.|
+|Instance storage scaling up/down (General Purpose service tier)|No long-running segment<sup>1</sup>|99% of operations finish in 5 minutes.|
 |Instance storage scaling up/down (Business Critical service tier)|- Virtual cluster resizing<br>- Always On availability group seeding|90% of operations finish in 2.5 hours + time to seed all databases (220 GB/hour).|
 |Instance compute (vCores) scaling up and down (General Purpose)|- Virtual cluster resizing<br>- Attaching database files|90% of operations finish in 2.5 hours.|
 |Instance compute (vCores) scaling up and down (Business Critical)|- Virtual cluster resizing<br>- Always On availability group seeding|90% of operations finish in 2.5 hours + time to seed all databases (220 GB/hour).|
 |Instance service tier change (General Purpose to Business Critical and vice versa)|- Virtual cluster resizing<br>- Always On availability group seeding|90% of operations finish in 2.5 hours + time to seed all databases (220 GB/hour).|
 | | | 
+
+<sup>1</sup> Scaling General Purpose managed instance storage will not cause a failover at the end of operation. In this case operation consists of updating meta data and propagating response for submitted request.
 
 **Category: Delete**
 
@@ -85,6 +87,9 @@ The following tables summarize operations and typical overall durations, based o
 ## Instance availability
 
 SQL Managed Instance **is available during update operations**, except a short downtime caused by the failover that happens at the end of the update. It typically lasts up to 10 seconds even in case of interrupted long-running transactions, thanks to [accelerated database recovery](../accelerated-database-recovery.md).
+
+> [!NOTE]
+> Scaling General Purpose managed instance storage will not cause a failover at the end of update.
 
 SQL Managed Instance is not available to client applications during deployment and deletion operations.
 
@@ -115,7 +120,7 @@ Management operations consist of multiple steps. With [Operations API introduced
 |Old SQL instance cleanup |Removing old SQL process from the virtual cluster |
 
 > [!NOTE]
-> As a result of scaling instances, underlying virtual cluster will go through process of releasing unused capacity and possible capacity defragmentation, which could impact instances that did not participate in creation / scaling operations. 
+> Once instance scaling is completed, underlying virtual cluster will go through process of releasing unused capacity and possible capacity defragmentation, which could impact instances from the same subnet that did not participate in scaling operation, causing their failover. 
 
 
 ## Management operations cross-impact

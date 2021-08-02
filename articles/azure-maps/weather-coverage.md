@@ -1,9 +1,9 @@
 ---
-title: Weather coverage in Microsoft Azure Maps
-description: Learn about Weather coverage in Microsoft Azure Maps.
+title:  Microsoft Azure Maps Weather services coverage
+description: Learn about Microsoft Azure Maps Weather services coverage
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 09/17/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -11,9 +11,9 @@ ms.custom: references_regions
 manager: philmea
 ---
 
-# Azure Maps weather coverage
+# Azure Maps Weather services coverage
 
-This article provides coverage information for Azure Maps [Weather services](https://aka.ms/AzureMapsWeatherService). Azure Maps Weather data services returns details such as radar tiles, current weather conditions, weather forecasts, and the weather along a route.
+This article provides coverage information for Azure Maps [Weather services](/rest/api/maps/weather). Azure Maps Weather data services returns details such as radar tiles, current weather conditions, weather forecasts, and the weather along a route.
 
 Azure Maps doesn't have the same level of information and accuracy for all countries and regions.
 
@@ -294,4 +294,4 @@ The following table provides information about what kind of weather information 
 | Turkey                 | ✓ |   | | ✓| 
 | Ukraine                | ✓ |   | | ✓| 
 | United Kingdom         | ✓ | ✓ | ✓| ✓| 
-| Vatican City           | ✓ |   |✓ | ✓| 
+| Vatican City           | ✓ |   |✓ | ✓|

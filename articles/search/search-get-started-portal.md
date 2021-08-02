@@ -1,36 +1,32 @@
 ---
 title: Create a search index in the Azure portal
 titleSuffix: Azure Cognitive Search
-description: In this Azure portal quickstart, use the Import Data wizard to create, load, and query your first search index in Azure Cognitive Search. 
+description: Create, load, and query your first search index using the Import Data wizard in the Azure portal. This quickstart uses a fictitious hotel dataset for sample data.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 09/16/2020
-
-#Customer intent: As a developer, I want a low-impact introduction to index design.
+ms.date: 03/02/2021
 ---
 # Quickstart: Create an Azure Cognitive Search index in the Azure portal
 
-**Import data** wizard is an Azure portal tool that guides you through the creation of a search index so that you can write interesting queries within minutes. 
+Create your first search index using the **Import data** wizard and a built-in sample data source consisting of fictitious hotel data. The wizard guides you through the creation of a search index (hotels-sample-index) so that you can write interesting queries within minutes. 
 
-The wizard also has pages for AI enrichment so that you can extract text and structure from image files and unstructured text. Content processing with AI includes Optical Character Recognition (OCR), key phrase and entity extraction, and image analysis.
+Although you won't use the options in this quickstart, the wizard includes a page for AI enrichment so that you can extract text and structure from image files and unstructured text. For a similar walkthrough that includes AI enrichment, see [Quickstart: Create a cognitive skillset](cognitive-search-quickstart-blob.md).
 
 ## Prerequisites
 
-Before you begin, you must have the following:
-
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-+ An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
++ An Azure Cognitive Search service (any tier, any region). [Create a service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
 ### Check for space
 
-Many customers start with the free service. This version is limited to three indexes, three data sources, and three indexers. Make sure you have room for extra items before you begin. This tutorial creates one of each object.
+Many customers start with the free service. The free tier is limited to three indexes, three data sources, and three indexers. Make sure you have room for extra items before you begin. This tutorial creates one of each object.
 
-Sections on the service dashboard show how many indexes, indexers, and data sources you already have. 
+Check the service overview page to find out how many indexes, indexers, and data sources you already have. 
 
 :::image type="content" source="media/search-get-started-portal/tiles-indexers-datasources.png" alt-text="Lists of indexes, indexers, and datasources":::
 
@@ -67,27 +63,28 @@ We'll skip this step for now, and move directly on to **Customize target index**
 
 ### Step 3 - Configure index
 
-Typically, index creation is a code-based exercise, completed prior to loading data. However, as this tutorial indicates, the wizard can generate a basic index for any data source it can crawl. Minimally, an index requires a name and a fields collection; one of the fields should be marked as the document key to uniquely identify each document. Additionally, you can specify language analyzers or suggesters if you want autocomplete or suggested queries.
+For the built-in hotels sample index, a default index schema is defined for you. With the exception of a few advanced filter examples, queries in the documentation and samples that target the hotel-samples index will run on this index definition:
+
+:::image type="content" source="media/search-get-started-portal/hotelsindex.png" alt-text="Generated hotels index":::
+
+Typically, in a code-based exercise, index creation is completed prior to loading data. The Import data wizard condenses these steps by generating a basic index for any data source it can crawl. Minimally, an index requires a name and a fields collection; one of the fields should be marked as the document key to uniquely identify each document. Additionally, you can specify language analyzers or suggesters if you want autocomplete or suggested queries.
 
 Fields have data types and attributes. The check boxes across the top are *index attributes* controlling how the field is used.
 
-* **Retrievable** means that it shows up in search results list. You can mark individual fields as off limits for search results by clearing this checkbox, for example for fields used only in filter expressions.
-* **Key** is the unique document identifier. It's always a string, and it is required.
-* **Filterable**, **Sortable**, and **Facetable** determine whether fields are used in a filter, sort, or faceted navigation structure.
-* **Searchable** means that a field is included in full text search. Strings are searchable. Numeric fields and Boolean fields are often marked as not searchable.
++ **Retrievable** means that it shows up in search results list. You can mark individual fields as off limits for search results by clearing this checkbox, for example for fields used only in filter expressions.
++ **Key** is the unique document identifier. It's always a string, and it is required.
++ **Filterable**, **Sortable**, and **Facetable** determine whether fields are used in a filter, sort, or faceted navigation structure.
++ **Searchable** means that a field is included in full text search. Strings are searchable. Numeric fields and Boolean fields are often marked as not searchable.
 
 Storage requirements do not vary as a result of your selection. For example, if you set the **Retrievable** attribute on multiple fields, storage requirements do not go up.
 
 By default, the wizard scans the data source for unique identifiers as the basis for the key field. *Strings* are attributed as **Retrievable** and **Searchable**. *Integers* are attributed as **Retrievable**, **Filterable**, **Sortable**, and **Facetable**.
 
-1. Accept the defaults. 
+1. Accept the defaults.
 
    If you rerun the wizard a second time using an existing hotels data source, the index won't be configured with default attributes. You'll have to manually select attributes on future imports. 
 
-   :::image type="content" source="media/search-get-started-portal/hotelsindex.png" alt-text="Generated hotels index":::
-
-2. Continue to the next page.
-
+1. Continue to the next page.
 
 ### Step 4 - Configure indexer
 
@@ -101,8 +98,7 @@ Click **Submit** to create and simultaneously run the indexer.
 
 ## Monitor progress
 
-The wizard should take you to the Indexers list where you can monitor progress. For self-navigation, go to the Overview page and click 
-**Indexers**.
+The wizard should take you to the Indexers list where you can monitor progress. For self-navigation, go to the Overview page and click the **Indexers** tab.
 
 It can take a few minutes for the portal to update the page, but you should see the newly created indexer in the list, with status indicating "in progress" or success, along with the number of documents indexed.
 
@@ -110,7 +106,7 @@ It can take a few minutes for the portal to update the page, but you should see 
 
 ## View the index
 
-The main service page provides links to the resources created in your Azure Cognitive Search service.  To view the index you just created, click **Indexes** from the list of links. 
+The service overview page provides links to the resources created in your Azure Cognitive Search service.  To view the index you just created, click **Indexes** from the list of links. 
 
 Wait for the portal page to refresh. After a few minutes, you should see the index with a document count and storage size.
 
@@ -118,7 +114,9 @@ Wait for the portal page to refresh. After a few minutes, you should see the ind
 
 From this list, you can click on the *hotels-sample* index that you just created, view the index schema. and optionally add new fields. 
 
-The **Fields** tab shows the index schema. Scroll to the bottom of the list to enter a new field. In most cases, you cannot change existing fields. Existing fields have a physical representation in Azure Cognitive Search and are thus non-modifiable, not even in code. To fundamentally change an existing field, create a new index, dropping the original.
+The **Fields** tab shows the index schema. If you are writing queries and need to check whether a field is filterable or sortable, this tab shows you the attributes.
+
+Scroll to the bottom of the list to enter a new field. While you can always create a new field, in most cases, you cannot change existing fields. Existing fields have a physical representation in your search service and are thus non-modifiable, not even in code. To fundamentally change an existing field, create a new index, dropping the original.
 
    :::image type="content" source="media/search-get-started-portal/sample-index-def.png" alt-text="sample index definition":::
 
@@ -140,11 +138,11 @@ Moving forward, you should now have a search index that's ready to query using t
 
    :::image type="content" source="media/search-get-started-portal/search-explorer-cmd.png" alt-text="Search explorer command":::
 
-2. From the **Index** dropdown, choose  *hotels-sample-index*. Click the **API Version** dropdown, to see which REST APIs are available. For the queries below, use the generally available version (2020-06-30).
+1. From the **Index** dropdown, choose  *hotels-sample-index*. Click the **API Version** dropdown, to see which REST APIs are available. For the queries below, use the generally available version (2020-06-30).
 
    :::image type="content" source="media/search-get-started-portal/search-explorer-changeindex.png" alt-text="Index and API commands":::
 
-3. In the search bar, paste in the query strings below and click **Search**.
+1. In the search bar, paste in the query strings below and click **Search**.
 
    :::image type="content" source="media/search-get-started-portal/search-explorer-query-string-example.png" alt-text="Query string and search button":::
 
@@ -156,19 +154,19 @@ You can enter terms and phrases, similar to what you might do in a Bing or Googl
 
 #### Example (string query): `search=spa`
 
-* The **search** parameter is used to input a keyword search for full text search, in this case, returning hotel data for those containing *spa* in any searchable field in the document.
++ The **search** parameter is used to input a keyword search for full text search, in this case, returning hotel data for those containing *spa* in any searchable field in the document.
 
-* **Search explorer** returns results in JSON, which is verbose and hard to read if documents have a dense structure. This is intentional; visibility into the entire document is important for development purposes, especially during testing. For a better user experience, you will need to write code that [handles search results](search-pagination-page-layout.md) to bring out important elements.
++ **Search explorer** returns results in JSON, which is verbose and hard to read if documents have a dense structure. This is intentional; visibility into the entire document is important for development purposes, especially during testing. For a better user experience, you will need to write code that [handles search results](search-pagination-page-layout.md) to bring out important elements.
 
-* Documents are composed of all fields marked as "retrievable" in the index. To view index attributes in the portal, click *hotels-sample* in the **Indexes** list.
++ Documents are composed of all fields marked as "retrievable" in the index. To view index attributes in the portal, click *hotels-sample* in the **Indexes** list.
 
 #### Example (parameterized query): `search=spa&$count=true&$top=10`
 
-* The **&** symbol is used to append search parameters, which can be specified in any order.
++ The **&** symbol is used to append search parameters, which can be specified in any order.
 
-* The **$count=true** parameter returns the total count of all documents returned. This value appears near the top of the search results. You can verify filter queries by monitoring changes reported by **$count=true**. Smaller counts indicate your filter is working.
++ The **$count=true** parameter returns the total count of all documents returned. This value appears near the top of the search results. You can verify filter queries by monitoring changes reported by **$count=true**. Smaller counts indicate your filter is working.
 
-* The **$top=10** returns the highest ranked 10 documents out of the total. By default, Azure Cognitive Search returns the first 50 best matches. You can increase or decrease the amount via **$top**.
++ The **$top=10** returns the highest ranked 10 documents out of the total. By default, Azure Cognitive Search returns the first 50 best matches. You can increase or decrease the amount via **$top**.
 
 ### <a name="filter-query"></a> Filter the query
 
@@ -176,9 +174,9 @@ Filters are included in search requests when you append the **$filter** paramete
 
 #### Example (filtered): `search=beach&$filter=Rating gt 4`
 
-* The **$filter** parameter returns results matching the criteria you provided. In this case, ratings greater than 4.
++ The **$filter** parameter returns results matching the criteria you provided. In this case, ratings greater than 4.
 
-* Filter syntax is an OData construction. For more information, see [Filter OData syntax](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
++ Filter syntax is an OData construction. For more information, see [Filter OData syntax](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 ### <a name="facet-query"></a> Facet the query
 
@@ -186,19 +184,18 @@ Facet filters are included in search requests. You can use the facet parameter t
 
 #### Example (faceted with scope reduction): `search=*&facet=Category&$top=2`
 
-* **search=*** is an empty search. Empty searches search over everything. One reason for submitting an empty query is to  filter or facet over the complete set of documents. For example, you want a faceting navigation structure to consist of all hotels in the index.
-* **facet** returns a navigation structure that you can pass to a UI control. It returns categories and a count. In this case, categories are based on a field conveniently called *Category*. There is no aggregation in Azure Cognitive Search, but you can approximate aggregation via `facet`, which gives a count of documents in each category.
++ **search=*** is an empty search. Empty searches search over everything. One reason for submitting an empty query is to  filter or facet over the complete set of documents. For example, you want a faceting navigation structure to consist of all hotels in the index.
++ **facet** returns a navigation structure that you can pass to a UI control. It returns categories and a count. In this case, categories are based on a field conveniently called *Category*. There is no aggregation in Azure Cognitive Search, but you can approximate aggregation via `facet`, which gives a count of documents in each category.
 
-* **$top=2** brings back two documents, illustrating that you can use `top` to both reduce or increase results.
++ **$top=2** brings back two documents, illustrating that you can use `top` to both reduce or increase results.
 
 #### Example (facet on numeric values): `search=spa&facet=Rating`
 
-* This query is facet for rating, on a text search for *spa*. The term *Rating* can be specified as a facet because the field is marked as retrievable, filterable, and facetable in the index, and the values it contains (numeric, 1 through 5), are suitable for categorizing listings into groups.
++ This query is facet for rating, on a text search for *spa*. The term *Rating* can be specified as a facet because the field is marked as retrievable, filterable, and facetable in the index, and the values it contains (numeric, 1 through 5), are suitable for categorizing listings into groups.
 
-* Only filterable fields can be faceted. Only retrievable fields can be returned in the results.
++ Only filterable fields can be faceted. Only retrievable fields can be returned in the results.
 
-* The *Rating* field is double-precision floating point and the grouping will be by precise value. For more information on grouping by interval (for instance, "3 star ratings," "4 star ratings," etc.), see [How to implement faceted navigation in Azure Cognitive Search](./search-faceted-navigation.md#filter-based-on-a-range).
-
++ The *Rating* field is double-precision floating point and the grouping will be by precise value. For more information on grouping by interval (for instance, "3 star ratings," "4 star ratings," etc.), see [How to implement faceted navigation in Azure Cognitive Search](./search-faceted-navigation.md#filter-based-on-a-range).
 
 ### <a name="highlight-query"></a> Highlight search results
 
@@ -206,13 +203,13 @@ Hit highlighting refers to formatting on text matching the keyword, given matche
 
 #### Example (highlighter): `search=beach&highlight=Description`
 
-* In this example, the formatted word *beach* is easier to spot in the description field.
++ In this example, the formatted word *beach* is easier to spot in the description field.
 
 #### Example (linguistic analysis): `search=beaches&highlight=Description`
 
-* Full text search recognizes basic variations in word forms. In this case, search results contain highlighted text for "beach", for hotels that have that word in their searchable fields, in response to a keyword search on "beaches". Different forms of the same word can appear in results because of linguistic analysis. 
++ Full text search recognizes basic variations in word forms. In this case, search results contain highlighted text for "beach", for hotels that have that word in their searchable fields, in response to a keyword search on "beaches". Different forms of the same word can appear in results because of linguistic analysis. 
 
-* Azure Cognitive Search supports 56 analyzers from both Lucene and Microsoft. The default used by Azure Cognitive Search is the standard Lucene analyzer.
++ Azure Cognitive Search supports 56 analyzers from both Lucene and Microsoft. The default used by Azure Cognitive Search is the standard Lucene analyzer.
 
 ### <a name="fuzzy-search"></a> Try fuzzy search
 

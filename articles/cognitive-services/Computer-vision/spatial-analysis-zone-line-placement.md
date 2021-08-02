@@ -3,21 +3,21 @@ title: Spatial Analysis zone and line placement
 titleSuffix: Azure Cognitive Services
 description: Learn how to set up zones and lines with Spatial Analysis
 services: cognitive-services
-author: aahill
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/01/2020
-ms.author: aahi
+ms.date: 06/08/2021
+ms.author: pafarley
 ---
 
 
 # Zone and Line Placement Guide
 
-This article provides guidelines for how to define zones and lines for spatial analysis operations to achieve accurate analysis of peoples movements in a space. This applies to all operations. 
+This article provides guidelines for how to define zones and lines for Spatial Analysis operations to achieve accurate analysis of peoples movements in a space. This applies to all operations. 
 
-Zones and lines are defined using the JSON SPACEANALYSIS_CONFIG parameter. See the [spatial analysis operations](spatial-analysis-operations.md) article for more information.
+Zones and lines are defined using the JSON SPACEANALYSIS_CONFIG parameter. See the [Spatial Analysis operations](spatial-analysis-operations.md) article for more information.
 
 ## Guidelines for drawing zones
 
@@ -27,7 +27,7 @@ If you want to see a specific section of your camera view, create the largest zo
 
 ### Example of a well-shaped zone
 
-The zone should be big enough to accommodate three people standing along each edge and focused on the area of interest. Spatial analysis will identify people whose feet are placed in the zone, so when drawing zones on the 2D image, imagine the zone as a carpet laying on the floor.
+The zone should be big enough to accommodate three people standing along each edge and focused on the area of interest. Spatial Analysis will identify people whose feet are placed in the zone, so when drawing zones on the 2D image, imagine the zone as a carpet laying on the floor.
 
 ![Well-shaped zone](./media/spatial-analysis/zone-good-example.png)
 
@@ -57,7 +57,7 @@ The following examples show poorly shaped zones. In these examples, the area of 
 
 ### Example of a well-shaped line
 
-The line should be long enough to accommodate the entire entrance. Spatial analysis will identify people whose feet cross the line, so when drawing lines on the 2D image imagine you're drawing them as if they lie on the floor. 
+The line should be long enough to accommodate the entire entrance. Spatial Analysis will identify people whose feet cross the line, so when drawing lines on the 2D image imagine you're drawing them as if they lie on the floor. 
 
 If possible, extend the line wider than the actual entrance. If this will not result in extra crossings (as in the image below when the line is against a wall) then extend it.
 
@@ -78,6 +78,6 @@ The following examples show poorly defined lines.
 ## Next steps
 
 * [Deploy a People Counting web application](spatial-analysis-web-app.md)
-* [Configure spatial analysis operations](./spatial-analysis-operations.md)
+* [Configure Spatial Analysis operations](./spatial-analysis-operations.md)
 * [Logging and troubleshooting](spatial-analysis-logging.md)
 * [Camera placement guide](spatial-analysis-camera-placement.md)

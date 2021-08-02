@@ -34,7 +34,7 @@ To use Lab Services for your hackathon, ensure that both lab account and your la
 
 - **Decide whether to restrict lab access**. 
 
-    When adding users to the lab, there is a restrict access option that's enabled by default. This feature requires you to add all of your hackathon participants’ emails to the list before they can register and access the lab using the registration link. If you have a hackathon where you don’t know who the participants will be before the event, you can choose to disable the restrict access option, which allows anyone to register to the lab using the registration link. For more information, see the [how-to guide on adding users](how-to-configure-student-usage.md#add-users-to-a-lab).
+    When adding users to the lab, there is a restrict access option that's enabled by default. This feature requires you to add all of your hackathon participants’ emails to the list before they can register and access the lab using the registration link. If you have a hackathon where you don’t know who the participants will be before the event, you can choose to disable the restrict access option, which allows anyone to register to the lab using the registration link. For more information, see the [how-to guide on adding users](how-to-configure-student-usage.md).
 
 - **Verify schedule, quota, and autoshutdown settings**. 
 
@@ -78,7 +78,7 @@ This section outlines the steps to complete the day of your hackathon.
     - Credentials that should be used to connect to the machine. This step applies only if your lab uses a Windows-based image and you configured all VMs to use the same password.
     - Instructions on how participants SSH and\or RDP to their machines.
 
-        For more information, See [how-to guide on sending invitations to users](how-to-configure-student-usage.md?branch=master#send-invitations-to-users) and [connecting to Linux VMs](how-to-use-remote-desktop-linux-student.md?branch=master). 
+        For more information, See [how-to guide on sending invitations to users](how-to-configure-student-usage.md#send-invitations-to-users) and [connecting to Linux VMs](how-to-use-remote-desktop-linux-student.md). 
 
 ## Next steps
-Start with creating a lab account in Classroom Labs by following instructions in the article: [Tutorial: Setup a lab account with Azure Lab Services](tutorial-setup-lab-account.md).
+Start with creating a lab account in labs by following instructions in the article: [Tutorial: Setup a lab account with Azure Lab Services](tutorial-setup-lab-account.md).

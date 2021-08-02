@@ -22,6 +22,18 @@
         href: hb-series-overview.md
       - name: Performance
         href: hb-series-performance.md  
+    - name: HBv2-series
+      items:
+      - name: Overview
+        href: hbv2-series-overview.md
+      - name: Performance
+        href: hbv2-performance.md
+    - name: HBv3-series
+      items:
+      - name: Overview
+        href: hbv3-series-overview.md
+      - name: Performance
+        href: hbv3-performance.md
     - name: HC-series
       items:
       - name: Overview
@@ -30,4 +42,3 @@
         href: hc-series-performance.md   
     - name: Known issues with H-series and N-series VMs
       href: hb-hc-known-issues.md
-      

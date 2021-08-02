@@ -54,7 +54,7 @@ Click **Add** to open the **Add a shared access policy** blade.  You can enter t
 
 Click **Create** to add this newly created policy to the existing list.
 
-For more detailed information about the access granted by specific permissions, see [IoT Hub permissions](./iot-hub-devguide-security.md#iot-hub-permissions).
+For more detailed information about the access granted by specific permissions, see [IoT Hub permissions](./iot-hub-dev-guide-sas.md#access-control-and-permissions).
 
 ## Register a new device in the IoT hub
 
@@ -119,5 +119,4 @@ To delete an Iot hub, find the IoT hub you want to delete, then click the **Dele
 Follow these links to learn more about managing Azure IoT Hub:
 
 * [Message routing with IoT Hub](tutorial-routing.md)
-* [IoT Hub metrics](iot-hub-metrics.md)
-* [Operations monitoring](iot-hub-operations-monitoring.md)
+* [Monitor your IoT hub](monitor-iot-hub.md)

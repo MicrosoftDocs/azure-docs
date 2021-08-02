@@ -59,7 +59,7 @@ Slack has the notion of inbound web hooks. When configuring an inbound web hook,
 ![Slack Web Hook](./media/api-management-sample-send-request/api-management-slack-webhook.png)
 
 ### Is fire and forget good enough?
-There are certain tradeoffs when using a fire-and-forget style of request. If for some reason, the request fails, then the failure is not be reported. In this particular situation, the complexity of having a secondary failure reporting system and the additional performance cost of waiting for the response is not warranted. For scenarios where it is essential to check the response, then the [send-request](./api-management-advanced-policies.md#SendRequest) policy is a better option.
+There are certain tradeoffs when using a fire-and-forget style of request. If for some reason, the request fails, then the failure will not be reported. In this particular situation, the complexity of having a secondary failure reporting system and the additional performance cost of waiting for the response is not warranted. For scenarios where it is essential to check the response, then the [send-request](./api-management-advanced-policies.md#SendRequest) policy is a better option.
 
 ## Send-Request
 The `send-request` policy enables using an external service to perform complex processing functions and return data to the API management service that can be used for further policy processing.

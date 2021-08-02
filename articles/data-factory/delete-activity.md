@@ -1,15 +1,9 @@
 ---
 title: Delete Activity in Azure Data Factory 
 description: Learn how to delete files in various file stores with the Delete Activity in Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: douglasl
-manager: anandsub
 ms.service: data-factory
-ms.workload: data-services
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/12/2020
 ---
@@ -46,7 +40,9 @@ Here are some recommendations for using the Delete activity:
 -   [FTP](connector-ftp.md)
 -   [SFTP](connector-sftp.md)
 -   [Amazon S3](connector-amazon-simple-storage-service.md)
+-   [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md)
 -   [Google Cloud Storage](connector-google-cloud-storage.md)
+-   [Oracle Cloud Storage](connector-oracle-cloud-storage.md)
 -   [HDFS](connector-hdfs.md)
 
 ## Syntax

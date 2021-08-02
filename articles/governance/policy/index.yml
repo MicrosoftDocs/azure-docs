@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 09/30/2020
+  ms.date: 06/02/2021
 
 landingContent:
   - title: About Azure Policy
@@ -30,10 +30,12 @@ landingContent:
             url: ./concepts/assignment-structure.md
           - text: Exemption structure
             url: ./concepts/exemption-structure.md
-      - linkListType: video
+      - linkListType: architecture
         links:
-          - text: Azure Policy at Build 2018
-            url: https://channel9.msdn.com/events/Build/2018/THR2030
+          - text: Cloud Adoption Framework (Govern)
+            url: /azure/cloud-adoption-framework/govern/
+          - text: Enterprise-scale landing zones
+            url: /azure/cloud-adoption-framework/ready/enterprise-scale/
 
   - title: Get started
     linkLists:
@@ -55,14 +57,20 @@ landingContent:
             url: ./assign-policy-rest-api.md
           - text: Assign a policy (ARM template)
             url: ./assign-policy-template.md
+          - text: Assign a policy (Bicep)
+            url: ./assign-policy-bicep.md
+          - text: Assign a policy (Terraform)
+            url: ./assign-policy-terraform.md
       - linkListType: tutorial
         links:
           - text: Create and manage policies
             url: ./tutorials/create-and-manage.md
           - text: Use VS Code extension
             url: ./how-to/extension-for-vscode.md
-          - text: Design Policy as Code workflows
+          - text: Design Azure Policy as Code workflows
             url: ./concepts/policy-as-code.md
+          - text: Implement Azure Policy as Code with GitHub
+            url: ./tutorials/policy-as-code-github.md
       - linkListType: deploy
         links:
           - text: Index of policy samples
@@ -88,9 +96,9 @@ landingContent:
         links:
           - text: Regulatory Compliance
             url: ./concepts/regulatory-compliance.md
-          - text: Policy for Kubernetes
+          - text: Azure Policy for Kubernetes
             url: ./concepts/policy-for-kubernetes.md
-          - text: Policy for VMs
+          - text: Azure Policy for VMs
             url: ./concepts/guest-configuration.md
 
   - title: Review & Remediate resources
@@ -126,19 +134,11 @@ landingContent:
           - text: Azure CLI
             url: /cli/azure/policy
           - text: Azure PowerShell (Policy)
-            url: /powershell/module/az.resources/#policies
+            url: /powershell/module/az.resources/#policy
           - text: Azure PowerShell (Policy Insights)
-            url: /powershell/module/az.policyinsights#policy_insights
-          - text: REST (Policy Insights)
-            url: /rest/api/policy-insights/
-          - text: REST (Assignments)
-            url: /rest/api/resources/policyassignments
-          - text: REST (Definitions)
-            url: /rest/api/resources/policydefinitions
-          - text: REST (Exemptions)
-            url: /rest/api/resources/policyexemptions
-          - text: REST (Initiatives)
-            url: /rest/api/resources/policysetdefinitions
+            url: /powershell/module/az.policyinsights#policy-insights
+          - text: REST
+            url: /rest/api/policy/
           - text: Resource Manager templates
             url: /azure/templates/microsoft.authorization/allversions
 

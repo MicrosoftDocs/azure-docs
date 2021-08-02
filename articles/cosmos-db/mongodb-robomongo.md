@@ -5,11 +5,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/23/2020
-author: timsander1
-ms.author: tisande
+author: gahl-levy
+ms.author: gahllevy
 
 ---
 # Use Robo 3T with Azure Cosmos DB's API for MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 To connect to Cosmos account using Robo 3T, you must:
 

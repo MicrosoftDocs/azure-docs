@@ -3,12 +3,14 @@ title: Spatial functions in Azure Cosmos DB query language
 description: Learn about spatial SQL system functions in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ---
 # Spatial functions (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Cosmos DB supports the following Open Geospatial Consortium (OGC) built-in functions for geospatial querying. 
 
@@ -32,4 +34,4 @@ The following scalar functions perform an operation on a spatial object input va
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduction to Azure Cosmos DB](introduction.md)
 - [User Defined Functions](sql-query-udfs.md)
-- [Aggregates](sql-query-aggregates.md)
+- [Aggregates](sql-query-aggregate-functions.md)

@@ -46,7 +46,7 @@ Now, invoke a direct method from a back-end app.
 
 Direct method invocations on a device are HTTPS calls that are made up of the following items:
 
-* The *request URI* specific to the device along with the [API version](https://docs.microsoft.com/rest/api/iothub/service/devices/invokemethod):
+* The *request URI* specific to the device along with the [API version](/rest/api/iothub/service/devices/invokemethod):
 
     ```http
     https://fully-qualified-iothubname.azure-devices.net/twins/{deviceId}/methods?api-version=2018-06-30
@@ -219,5 +219,5 @@ Now you have learned how to use direct methods, you may be interested in the fol
 
 If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorial:
 
-* [Use direct methods](quickstart-control-device-node.md)
+* [Use direct methods](quickstart-control-device.md)
 * [Device management with Azure IoT Tools for VS Code](iot-hub-device-management-iot-toolkit.md)

@@ -17,5 +17,5 @@ ms.author: aahi
 * [Docker engine][docker-engine] and validate that the Docker CLI works in a console window.
 
 [free-account]: https://azure.microsoft.com/free
-[azure-cli]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli]: /cli/azure/install-azure-cli
 [docker-engine]: https://www.docker.com/products/docker-engine

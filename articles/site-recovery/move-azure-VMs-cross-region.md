@@ -48,7 +48,7 @@ You might want to move Azure infrastructure as a service (IaaS) virtual machines
     - For Windows VMs, install the latest Windows updates so that all the trusted root certificates are on the machine. In a disconnected environment, follow the standard Windows Update and certificate-update processes for your organization.
     - For Linux VMs, follow guidance from your Linux distributor to get the latest trusted root certificates and certificate revocation list.
 2. Make sure that you're not using an authentication proxy to control network connectivity for VMs that you plan to move.
-3. If a VM that you want to move doesn't have access to the internet and is using a firewall proxy to control outbound access, check the [requirements](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
+3. If a VM that you want to move doesn't have access to the internet and is using a firewall proxy to control outbound access, check the [requirements](azure-to-azure-tutorial-enable-replication.md#set-up-vm-connectivity).
 4. Document the source networking layout and all resources that you're currently using, including (but not limited to) load balancers, network security groups, and public IP addresses for verification.
 
 ## Prepare the target region
@@ -95,7 +95,6 @@ Site Recovery retrieves a list of the VMs that are associated with the subscript
 4. Choose to use the default target resources or those that you pre-created.
 5. Select **Enable replication** to start the job.
 
-   ![Enable replication](media/tutorial-migrate-azure-to-azure/settings.png)
 
  
 

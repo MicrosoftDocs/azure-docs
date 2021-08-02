@@ -1,6 +1,6 @@
 ---
 title: Temporary tables
-description: Essential guidance for using temporary tables in Synapse SQL pool, highlighting the principles of session level temporary tables. 
+description: Essential guidance for using temporary tables in dedicated SQL pool, highlighting the principles of session level temporary tables. 
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,23 +12,25 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 
-# Temporary tables in Synapse SQL pool
+# Temporary tables in dedicated SQL pool
+
 This article contains essential guidance for using temporary tables and highlights the principles of session level temporary tables. 
 
 Using the information in this article can help you modularize your code, improving both reusability and ease of maintenance.
 
 ## What are temporary tables?
-Temporary tables are useful when processing data, especially during transformation where the intermediate results are transient. In SQL pool, temporary tables exist at the session level.  
+
+Temporary tables are useful when processing data, especially during transformation where the intermediate results are transient. In dedicated SQL pool, temporary tables exist at the session level.  
 
 Temporary tables are only visible to the session in which they were created and are automatically dropped when that session logs off.  
 
 Temporary tables offer a performance benefit because their results are written to local rather than remote storage.
 
-Temporary tables are useful when processing data, especially during transformation where the intermediate results are transient. With SQL pool, temporary tables exist at the session level.  They're only visible to the session in which they were created. As such, they're automatically dropped when that session logs off. 
+Temporary tables are useful when processing data, especially during transformation where the intermediate results are transient. With dedicated SQL pool, temporary tables exist at the session level.  They're only visible to the session in which they were created. As such, they're automatically dropped when that session logs off. 
 
-## Temporary tables in SQL pool
+## Temporary tables in dedicated SQL pool
 
-In the SQL pool resource, temporary tables offer a performance benefit because their results are written to local rather than remote storage.
+In the dedicated SQL pool resource, temporary tables offer a performance benefit because their results are written to local rather than remote storage.
 
 ### Create a temporary table
 
@@ -200,7 +202,7 @@ This stored procedure drops an existing #stats_ddl to ensure it doesn't fail if 
 
 However, since there is no `DROP TABLE` at the end of the stored procedure, when the stored procedure completes, it leaves the created table so that it can be read outside of the stored procedure.  
 
-In SQL pool, unlike other SQL Server databases, it's possible to use the temporary table outside of the procedure that created it.  SQL pool temporary tables can be used **anywhere** inside the session. This feature can lead to more modular and manageable code as in the following example:
+In dedicated SQL pool, unlike other SQL Server databases, it's possible to use the temporary table outside of the procedure that created it.  Dedicated SQL pool temporary tables can be used **anywhere** inside the session. This feature can lead to more modular and manageable code as in the following example:
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
@@ -222,11 +224,11 @@ DROP TABLE #stats_ddl;
 ```
 
 ## Temporary table limitations
-SQL pool does impose a couple of limitations when implementing temporary tables.  Currently, only session scoped temporary tables are supported.  Global Temporary Tables aren't supported.  
+Dedicated SQL pool does impose a couple of limitations when implementing temporary tables.  Currently, only session scoped temporary tables are supported.  Global Temporary Tables aren't supported.  
 
 Also, views can't be created on temporary tables.  Temporary tables can only be created with hash or round robin distribution.  Replicated temporary table distribution isn't supported. 
 
 ## Next steps
 
-To learn more about developing tables, see the [Designing tables using the Synapse SQL resources](sql-data-warehouse-tables-overview.md) article.
+To learn more about developing tables, see the [Designing tables using dedicated SQL pool](sql-data-warehouse-tables-overview.md) article.
 

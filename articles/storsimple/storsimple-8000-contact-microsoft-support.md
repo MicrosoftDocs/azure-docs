@@ -16,7 +16,7 @@ The StorSimple Device Manager provides the capability to **log a new support req
 * How to manage a support request lifecycle from within the portal.
 * How to start a support session in the Windows PowerShell interface of your StorSimple device.
 
-Review the [StorSimple 8000 Series Support SLAs and information](https://msdn.microsoft.com/library/mt433077.aspx) before you create a Support request.
+Review the [StorSimple 8000 Series Support SLAs and information](./storsimple-8000-support-options.md) before you create a Support request.
 
 ## Create a support request
 

@@ -8,9 +8,9 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 08/06/2020
-ms.topic: conceptual
-ms.custom: how-to, contperfq1
+ms.date: 07/16/2021
+ms.topic: how-to
+ms.custom: contperf-fy21q1
 ---
 # Create compute targets for model training and deployment in Azure Machine Learning studio
 
@@ -26,7 +26,7 @@ In this article, learn how to create and manage compute targets in Azure Machine
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today
+* If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today
 * An [Azure Machine Learning workspace](how-to-manage-workspace.md)
 
 ## What's a compute target? 
@@ -45,7 +45,7 @@ To see all compute targets for your workspace, use the following steps:
 
     :::image type="content" source="media/how-to-create-attach-studio/view-compute-targets.png" alt-text="View list of compute targets":::
 
-## <a id="portal-create"></a>Create compute target
+## <a id="portal-create"></a>Start creation process
 
 Follow the previous steps to view the list of compute targets. Then use these steps to create a compute target:
 
@@ -62,10 +62,10 @@ Follow the previous steps to view the list of compute targets. Then use these st
 
 1. Fill out the form for your compute type:
 
-  * [Compute instance](#compute-instance)
-  * [Compute clusters](#amlcompute)
-  * [Inference clusters](#inference-clusters)
-  * [Attached compute](#attached-compute)
+    * [Compute instance](#compute-instance)
+    * [Compute clusters](#amlcompute)
+    * [Inference clusters](#inference-clusters)
+    * [Attached compute](#attached-compute)
 
 1. Select __Create__.
 
@@ -74,47 +74,77 @@ Follow the previous steps to view the list of compute targets. Then use these st
     :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="View compute status from a list":::
 
 
-### Compute instance
+## <a name="compute-instance"></a> Create compute instance
 
-Use the [steps above](#portal-create) to create the compute instance.  Then fill out the form as follows:
-
-:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="Create a new compute instance":::
-
+Use the [steps above](#portal-create) to start creation of the compute instance.  Then fill out the form as follows:
 
 |Field  |Description  |
 |---------|---------|
 |Compute name     |  <li>Name is required and must be between 3 to 24 characters long.</li><li>Valid characters are upper and lower case letters, digits, and the  **-** character.</li><li>Name must start with a letter</li><li>Name needs to be unique across all existing computes within an Azure region. You will see an alert if the name you choose is not unique</li><li>If **-**  character is used, then it needs to be followed by at least one letter later in the name</li>     |
 |Virtual machine type |  Choose CPU or GPU. This type cannot be changed after creation     |
 |Virtual machine size     |  Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
-|Enable/disable SSH access     |   SSH access is disabled by default.  SSH access cannot be. changed after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md)   |
-|Advanced settings     |  Optional. Configure a virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). For more information, see these [network requirements](how-to-enable-virtual-network.md#compute-instance) for vnet.  |
 
-### <a name="amlcompute"></a> Compute clusters
+Select **Create** unless you want to configure advanced settings for the compute instance.
+
+### Advanced settings
+
+Select **Next: Advanced Settings** if you want to:
+
+* Enable SSH access.  Follow the [detailed instructions](#enable-ssh) below.
+* Enable virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). For more information, see these [network requirements](./how-to-secure-training-vnet.md) for vnet. 
+* Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](how-to-create-manage-compute-instance.md#on-behalf).
+* Provision with a setup script - for more details about how to create and use a setup script, see [Customize the compute instance with a script](how-to-create-manage-compute-instance.md#setup-script).
+
+### <a name="enable-ssh"></a> Enable SSH access
+
+SSH access is disabled by default.  SSH access cannot be changed after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md).  
+
+After you have selected **Next: Advanced Settings**:
+
+1. Turn on **Enable SSH access**.
+1. In the **SSH public key source**, select one of the options from the dropdown:
+    * If you **Generate new key pair**:
+        1. Enter a name for the key in **Key pair name**.
+        1. Select **Create**.
+        1. Select **Download private key and create compute**.  The key is usually downloaded into the **Downloads** folder.  
+    * If you select **Use existing public key stored in Azure**, search for and select the key in **Stored key**.
+    * If you select **Use existing public key**, provide an RSA public key in the single-line format (starting with "ssh-rsa") or the multi-line PEM format. You can generate SSH keys using ssh-keygen on Linux and OS X, or PuTTYGen on Windows.
+
+Once the compute instance is created and running, see [Connect with SSH access](#ssh-access).
+
+## <a name="amlcompute"></a> Create compute clusters
 
 Create a single or multi node compute cluster for your training, batch inferencing or reinforcement learning workloads. Use the [steps above](#portal-create) to create the compute cluster.  Then fill out the form as follows:
 
+|Field  |Description  |
+|---------|---------|
+| Location | The Azure region where the compute cluster will be created. By default, this is the same location as the workspace. Setting the location to a different region than the workspace is in __preview__, and is only available for __compute clusters__, not compute instances.</br>When using a different region than your workspace or datastores, you may see increased network latency and data transfer costs. The latency and costs can occur when creating the cluster, and when running jobs on it. |
+|Virtual machine type |  Choose CPU or GPU. This type cannot be changed after creation     |
+|Virtual machine priority | Choose **Dedicated** or **Low priority**.  Low priority virtual machines are cheaper but don't guarantee the compute nodes. Your job may be preempted.
+|Virtual machine size     |  Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
+
+Select **Next** to proceed to **Advanced Settings** and fill out the form as follows:
 
 |Field  |Description  |
 |---------|---------|
 |Compute name     |  <li>Name is required and must be between 3 to 24 characters long.</li><li>Valid characters are upper and lower case letters, digits, and the  **-** character.</li><li>Name must start with a letter</li><li>Name needs to be unique across all existing computes within an Azure region. You will see an alert if the name you choose is not unique</li><li>If **-**  character is used, then it needs to be followed by at least one letter later in the name</li>     |
-|Virtual machine type |  Choose CPU or GPU. This type cannot be changed after creation     |
-|Virtual machine priority | Choose **Dedicated** or **Low priority**.  Low priority virtual machines are cheaper but don't guarantee the compute nodes. Your job may be preempted.
-|Virtual machine size     |  Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Minimum number of nodes | Minimum number of nodes that you want to provision. If you want a dedicated number of nodes, set that count here. Save money by setting the minimum to 0, so you won't pay for any nodes when the cluster is idle. |
 |Maximum number of nodes | Maximum number of nodes that you want to provision. The compute will autoscale to a maximum of this node count when a job is submitted. |
-|Advanced settings     |  Optional. Configure a virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). For more information, see these [network requirements](how-to-enable-virtual-network.md#compute-instance) for vnet.   Also attach [managed identities](#managed-identity) to grant access to resources     |
+| Idle seconds before scale down | Idle time before scaling the cluster down to the minimum node count. |
+| Enable SSH access | Use the same instructions as [Enable SSH access](#enable-ssh) for a compute instance (above). |
+|Advanced settings     |  Optional. Configure a virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). For more information, see these [network requirements](./how-to-secure-training-vnet.md) for vnet.   Also attach [managed identities](#managed-identity) to grant access to resources     |
 
-#### <a name="managed-identity"></a> Set up managed identity
+### <a name="managed-identity"></a> Set up managed identity
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-intro.md)]
 
 During cluster creation or when editing compute cluster details, in the **Advanced settings**, toggle **Assign a managed identity** and specify a system-assigned identity or user-assigned identity.
 
-#### Managed identity usage
+### Managed identity usage
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-default.md)]
 
-### Inference clusters
+## <a name="inference-clusters"></a> Create inference clusters
 
 > [!IMPORTANT]
 > Using Azure Kubernetes Service with Azure Machine Learning has multiple configuration options. Some scenarios, such as networking, require additional setup and configuration. For more information on using AKS with Azure ML, see [Create and attach an Azure Kubernetes Service cluster](how-to-create-attach-kubernetes.md).
@@ -130,10 +160,10 @@ Create or attach an Azure Kubernetes Service (AKS) cluster for large scale infer
 |Virtual machine size     |  Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Cluster purpose  | Select **Production** or **Dev-test** |
 |Number of nodes | The number of nodes multiplied by the virtual machine’s number of cores (vCPUs) must be greater than or equal to 12. |
-| Network configuration | Select **Advanced** to  create the compute within an existing virtual network. For more information about AKS in a virtual network, see [Network isolation during training and inference with private endpoints and virtual networks](how-to-enable-virtual-network.md#aksvnet). |
+| Network configuration | Select **Advanced** to  create the compute within an existing virtual network. For more information about AKS in a virtual network, see [Network isolation during training and inference with private endpoints and virtual networks](./how-to-secure-inferencing-vnet.md). |
 | Enable SSL configuration | Use this to configure SSL certificate on the compute |
 
-### Attached compute
+## <a name="attached-compute"></a> Attach other compute
 
 To use compute targets created outside the Azure Machine Learning workspace, you must attach them. Attaching a compute target makes it available to your workspace.  Use **Attached compute** to attach a compute target for **training**.  Use **Inference clusters** to attach an AKS cluster for **inferencing**.
 
@@ -141,21 +171,57 @@ Use the [steps above](#portal-create) to attach a compute.  Then fill out the fo
 
 1. Enter a name for the compute target. 
 1. Select the type of compute to attach. Not all compute types can be attached from Azure Machine Learning studio. The compute types that can currently be attached for training include:
-    * A remote VM
+    * An Azure Virtual Machine (to attach a Data Science Virtual Machine)
     * Azure Databricks (for use in machine learning pipelines)
     * Azure Data Lake Analytics (for use in machine learning pipelines)
     * Azure HDInsight
+    * Kubernetes (preview)
 
 1. Fill out the form and provide values for the required properties.
 
     > [!NOTE]
     > Microsoft recommends that you use SSH keys, which are more secure than passwords. Passwords are vulnerable to brute force attacks. SSH keys rely on cryptographic signatures. For information on how to create SSH keys for use with Azure Virtual Machines, see the following documents:
     >
-    > * [Create and use SSH keys on Linux or macOS](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
-    > * [Create and use SSH keys on Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
+    > * [Create and use SSH keys on Linux or macOS](../virtual-machines/linux/mac-create-ssh-keys.md)
+    > * [Create and use SSH keys on Windows](../virtual-machines/linux/ssh-from-windows.md)
 
-1. Select __Attach__. 
+1. Select __Attach__.
 
+[!INCLUDE [arc-enabled-machine-learning-create-training-compute](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
+
+> [!IMPORTANT]
+> To attach an Azure Kubernetes Services (AKS) or Arc enabled Kubernetes cluster, you must be subscription owner or have permission to access AKS cluster resources under the subscription. Otherwise, the cluster list on "attach new compute" page will be blank.
+
+To detach your compute use the following steps:
+
+1. In Azure Machine Learning studio, select __Compute__, __Attached compute__, and the compute you wish to remove.
+1. Use the __Detach__ link to detach your compute.
+
+## <a name="ssh-access"></a> Connect with SSH access
+
+If you created your compute instance or compute cluster with SSH access enabled, use these steps for access.
+
+1. Find the compute in your workspace resources:
+    1. On the left, select **Compute**.
+    1. Use the tabs at the top to select **Compute instance** or **Compute cluster** to find your machine.
+1. Select the compute name in the list of resources.
+1. Find the connection string:
+
+    * For a **compute instance**, select **Connect** at the top of the **Details** section.
+
+        :::image type="content" source="media/how-to-create-attach-studio/details.png" alt-text="Screenshot: Connect tool at the top of the Details page.":::
+
+    * For a **compute cluster**, select **Nodes** at the top, then select the **Connection string** in the table for your node.
+        :::image type="content" source="media/how-to-create-attach-studio/compute-nodes.png" alt-text="Screenshot: Connection string for a node in a compute cluster.":::
+
+1. Copy the connection string.
+1. For Windows, open PowerShell or a command prompt:
+    1. Go into the directory or folder where your key is stored
+    1. Add the -i flag to the connection string to locate the private key and point to where it is stored:
+    
+        ```ssh -i <keyname.pem> azureuser@... (rest of connection string)```
+
+1. For Linux users, follow the steps from [Create and use an SSH key pair for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md)
 
 ## Next steps
 
@@ -170,4 +236,4 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 * [Tutorial: Train a model](tutorial-train-models-with-aml.md) uses a managed compute target to train a model.
 * Learn how to [efficiently tune hyperparameters](how-to-tune-hyperparameters.md) to build better models.
 * Once you have a trained model, learn [how and where to deploy models](how-to-deploy-and-where.md).
-* [Use Azure Machine Learning with Azure Virtual Networks](how-to-enable-virtual-network.md)
+* [Use Azure Machine Learning with Azure Virtual Networks](./how-to-network-security-overview.md)
