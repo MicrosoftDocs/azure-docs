@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 07/14/2021
 ---
 # Azure SQL Database and Azure Synapse IP firewall rules

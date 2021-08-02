@@ -44,13 +44,15 @@
     - name: Understand limits
       href: azure-stack-edge-limits.md 
     - name: Security overview
-      href: azure-stack-edge-security.md 
+      href: azure-stack-edge-security.md
     - name: Review specifications
       items:
       - name: Device specifications
         href: azure-stack-edge-gpu-technical-specifications-compliance.md
       - name: Power cord specifications
         href: azure-stack-edge-technical-specifications-power-cords-regional.md
+    - name: Understand data residency
+      href: azure-stack-edge-gpu-data-residency.md 
 
 - name: Azure Stack Edge Pro R
   items:
@@ -70,6 +72,8 @@
       href: azure-stack-edge-pro-r-security.md 
     - name: Review specifications
       href: azure-stack-edge-pro-r-technical-specifications-compliance.md
+    - name: Understand data residency
+      href: azure-stack-edge-gpu-data-residency.md 
   - name: Tutorials
     items:
     - name: 0 - Get checklist
@@ -118,6 +122,8 @@
       href: azure-stack-edge-pro-r-security.md 
     - name: Review specifications
       href: azure-stack-edge-mini-r-technical-specifications-compliance.md
+    - name: Understand data residency
+      href: azure-stack-edge-gpu-data-residency.md 
   - name: Tutorials
     items:
     - name: 0 - Get checklist
