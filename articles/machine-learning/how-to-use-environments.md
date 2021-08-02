@@ -66,7 +66,7 @@ Use the `Environment.get` method to select one of the curated environments:
 from azureml.core import Workspace, Environment
 
 ws = Workspace.from_config()
-env = Environment.get(workspace=ws, name="AzureML-Minimal")
+env = Environment.get(workspace=ws, name="AzureML-sklearn-0.24-ubuntu18.04-py37-cpu")
 ```
 
 You can list the curated environments and their packages by using the following code:
@@ -85,7 +85,7 @@ for env in envs:
 
 To customize a curated environment, clone and rename the environment. 
 ```python 
-env = Environment.get(workspace=ws, name="AzureML-Minimal")
+env = Environment.get(workspace=ws, name="AzureML-sklearn-0.24-ubuntu18.04-py37-cpu")
 curated_clone = env.clone("customize_curated")
 ```
 
@@ -142,7 +142,7 @@ Please note that Python is an implicit dependency in Azure Machine Learning so a
 ```python
 # Specify docker steps as a string. 
 dockerfile = r"""
-FROM mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04
+FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04
 RUN echo "Hello from custom container!"
 """
 
