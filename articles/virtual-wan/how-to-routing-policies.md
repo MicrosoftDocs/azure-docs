@@ -48,9 +48,12 @@ While Private Traffic  includes both branch and Virtual Network address prefixes
 ## Prerequisites
 1. Create a Virtual WAN. Make sure you create at least two Virtual Hubs in the **same** region. Azure inter-region traffic inspection will be available shortly. For instance, you may create a Virtual WAN with 2 Virtual Hubs in East US. 
 2. Convert your Virtual WAN Hub into a Secured Virtual WAN Hub by deploying an Azure Firewall into the Virtual Hubs in the chosen region. For more information on converting your Virtual WAN Hub to a Secured Virtual WAN Hub, please see this [document](howto-firewall.md).
-3. Reach out to **previewinterhub@microsoft.com**  with the **Virtual WAN Resource ID** and the **Azure Virtual hub Region** you wish to configure Routing Policies in. INCLUDE A NOTE ON HOW TO GET THE ID
-1.  Please expect a response within 24-48 hours with confirmation of feature enablement. 
-1. Ensure that your Virtual Hubs do **not** have any Custom Route Tables or any  routes you may have added into the defaultRouteTable. You will **not** be able to enable routing policies on your deployments with existing Custom Route tables configured or if there are static routes configured in your Default Route Table. 
+3. Reach out to **previewinterhub@microsoft.com**  with the **Virtual WAN Resource ID** and the **Azure Virtual hub Region** you wish to configure Routing Policies in. To locate the Virtual WAN ID, open Azure portal, navigate to your Virtual WAN resource and click on Settings > Properties > Resource ID. For example: 
+```
+    /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualWans/<virtualWANname>
+```
+4.  Please expect a response within 24-48 hours with confirmation of feature enablement. 
+5. Ensure that your Virtual Hubs do **not** have any Custom Route Tables or any  routes you may have added into the defaultRouteTable. You will **not** be able to enable routing policies on your deployments with existing Custom Route tables configured or if there are static routes configured in your Default Route Table. 
 
 ## Configuring Routing Policies
 1. On the Custom Portal Link provided in the confirmation email from Step 3 in the **Prerequisites** section, navigate to the Virtual WAN Hub that you want to configure Routing Policies on.
