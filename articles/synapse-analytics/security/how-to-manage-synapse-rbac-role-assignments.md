@@ -1,7 +1,7 @@
 ---
 title: How to manage Synapse RBAC assignments in Synapse Studio
 description: This article describes how to assign and revoke Synapse RBAC roles to AAD security principals
-author: meenalsri 
+author: meenalsri
 ms.service: synapse-analytics 
 ms.topic: how-to
 ms.subservice: security

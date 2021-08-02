@@ -1,7 +1,7 @@
 ---
 title: Managed private endpoints
 description: An article that explains Managed private endpoints in Azure Synapse Analytics
-author: meenalsri 
+author: meenalsri
 ms.service: synapse-analytics 
 ms.topic: overview
 ms.subservice: security
