@@ -477,17 +477,14 @@ The following table lists the message size limits that apply to B2B protocols:
 
 If your environment has strict network requirements or firewalls that limit traffic to specific IP addresses, your environment or firewall needs to allow access for *both* the [inbound](#inbound) and [outbound](#outbound) IP addresses used by the Azure Logic Apps service or runtime in the Azure region where your logic app resource exists. To set up this access, you can create Azure Firewall [rules](/firewall/rule-processing). *All* logic apps in the same region use the same IP address ranges.
 
+> [!NOTE]
+> If you're using [Power Automate](/power-automate/getting-started), some actions, such as **HTTP** and **HTTP + OpenAPI**, 
+> go directly through the Azure Logic Apps service and come from the IP addresses that are listed here. For more information 
+> about the IP addresses used by Power Automate, see [Limits and configuration for Power Automate](/flow/limits-and-config#ip-address-configuration).
+
 For example, suppose your logic apps are deployed in the West US region. To support calls that your logic apps send or receive through built-in triggers and actions, such as the [HTTP trigger or action](../connectors/connectors-native-http.md), your firewall needs to allow access for *all* the Azure Logic Apps service inbound IP addresses *and* outbound IP addresses that exist in the West US region.
 
-<a name="ip-setup-considerations"></a>
-
-### Firewall IP configuration considerations
-
-Before you set up your firewall with IP addresses, review these considerations:
-
-If your workflow also uses [managed connectors](../connectors/managed.md), such as the Office 365 Outlook connector or SQL connector, or uses [custom connectors](/connectors/custom-connectors/), the firewall also needs to allow access for *all* the [managed connector outbound IP addresses](/connectors/common/outbound-ip-addresses) in your logic app's Azure region.
-
-If you use custom connectors that access on-premises resources through the [on-premises data gateway resource in Azure](logic-apps-gateway-connection.md), you need to set up the gateway installation to allow access for the corresponding [*managed connector* outbound IP addresses](/connectors/common/outbound-ip-addresses). For more information about setting up communication settings on the gateway, review these topics:
+If your workflow uses [managed connectors](../connectors/managed.md), such as the Office 365 Outlook connector or SQL connector, or uses [custom connectors](/connectors/custom-connectors/), the firewall also needs to allow access for *all* the [managed connector outbound IP addresses](/connectors/common/outbound-ip-addresses) in your logic app's Azure region. If your workflow uses custom connectors that access on-premises resources through the [on-premises data gateway resource in Azure](logic-apps-gateway-connection.md), you need to set up the gateway installation to allow access for the corresponding [*managed connector* outbound IP addresses](/connectors/common/outbound-ip-addresses). For more information about setting up communication settings on the gateway, review these topics:
 
 * [Adjust communication settings for the on-premises data gateway](/data-integration/gateway/service-gateway-communication)
 * [Configure proxy settings for the on-premises data gateway](/data-integration/gateway/service-gateway-proxy)
@@ -497,7 +494,11 @@ If you use custom connectors that access on-premises resources through the [on-p
 > So, you can't set up firewall rules for logic apps that use these connectors in this cloud. For the Azure Logic Apps service IPs, review the 
 > [documentation version for Azure operated by 21Vianet](https://docs.azure.cn/en-us/logic-apps/logic-apps-limits-and-config#firewall-ip-configuration).
 
-If you're using [Power Automate](/power-automate/getting-started), some actions, such as **HTTP** and **HTTP + OpenAPI**, go directly through the Azure Logic Apps service and come from the IP addresses that are listed here. For more information about the IP addresses used by Power Automate, see [Limits and configuration for Power Automate](/flow/limits-and-config#ip-address-configuration).
+<a name="ip-setup-considerations"></a>
+
+### Firewall IP configuration considerations
+
+Before you set up your firewall with IP addresses, review these considerations:
 
 * If your logic app workflows run in single-tenant Azure Logic Apps, you need to find the fully qualified domain names (FQDNs) for your connections. For more information, review the corresponding sections in these topics:
 
