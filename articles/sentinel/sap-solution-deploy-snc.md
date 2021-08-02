@@ -1,5 +1,5 @@
 ---
-title: Deploy the Azure Sentinel SAP data connector with SNC  | Microsoft Docs
+title: Deploy the Azure Sentinel SAP data connector with Secure Network Communications (SNC)  | Microsoft Docs
 description: Learn how to deploy the Azure Sentinel data connector for SAP environments with a secure connection via SNC.
 author: batamig
 ms.author: bagol
@@ -151,7 +151,7 @@ After deploying your SAP data connector, perform the following SAP system proced
 
 1. Define an environment variable named **SECUDIR**, with a value of the full path to the `<sec>` directory.
 
-1. Create a personal security environment (PSE). The **sapgenspe** command line tool is available in your `<sec>` directory on your SAP data connector VM.
+1. Create a personal security environment (PSE). The **sapgenspe** command-line tool is available in your `<sec>` directory on your SAP data connector VM.
 
     For example:
 
