@@ -152,12 +152,18 @@ If you don't need the sign-up functionality enabled by default in the developer 
 1. In the Azure portal, navigate to your API Management instance.
 1. Under **Developer portal** in the menu, select **Identities**.
 1. Delete each identity provider that appears in the list. Select each provider, select the context menu (**...**), and select **Delete**.
-        :::image type="content" source="media/developer-portal-faq/delete-identity-providers.png" alt-text="Delete identity providers":::
+ 
+   :::image type="content" source="media/developer-portal-faq/delete-identity-providers.png" alt-text="Delete identity providers":::
+ 
 1. Navigate to the developer portal administrative interface.
 1. Remove **Sign up** links and navigation items in the portal content. For information about customizing portal content, see [Tutorial: Access and customize the developer portal](api-management-howto-developer-portal-customize.md).
-        :::image type="content" source="media/developer-portal-faq/delete-navigation-item.png" alt-text="Delete navigation item":::
+ 
+   :::image type="content" source="media/developer-portal-faq/delete-navigation-item.png" alt-text="Delete navigation item":::
+ 
 1. Modify the **Sign up** page content to remove fields used to enter identity data, in case users navigate directly to it.
-    * Optionally delete the **Sign up** page. Currently, you use the [contentItem](/rest/api/apimanagement/2021-01-01-preview/content-item) REST APIs to list and delete this page.
+   
+   Optionally, delete the **Sign up** page. Currently, you use the [contentItem](/rest/api/apimanagement/2021-01-01-preview/content-item) REST APIs to list and delete this page.
+ 
 1. Save your changes, and [republish the portal](api-management-howto-developer-portal-customize.md#publish).
 
 ## How can I remove the developer portal content provisioned to my API Management service?
