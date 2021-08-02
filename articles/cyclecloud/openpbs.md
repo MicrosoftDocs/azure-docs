@@ -1,17 +1,17 @@
 ---
-title: Open PBS Integration
-description: Open PBS scheduler configuration in Azure CycleCloud.
+title: OpenPBS Integration
+description: OpenPBS scheduler configuration in Azure CycleCloud.
 author: adriankjohnson
 ms.date: 07/29/2021
 ms.author: adjohnso
 ---
 
-# Open PBS
+# OpenPBS
 
 [//]: # (Need to link to the scheduler README on Github)
 
 ::: moniker range="=cyclecloud-7"
-[Open PBS](http://openpbs.org/) can easily be enabled on a CycleCloud cluster by modifying the "run_list" in the configuration section of your cluster definition. The two basic components of a PBS Professional cluster are the 'master' node which provides a shared filesystem on which the PBS Professional software runs, and the 'execute' nodes which are the hosts that mount the shared filesystem and execute the jobs submitted. For example, a simple cluster template snippet may look like:
+[OpenPBS](http://openpbs.org/) can easily be enabled on a CycleCloud cluster by modifying the "run_list" in the configuration section of your cluster definition. The two basic components of a PBS Professional cluster are the 'master' node which provides a shared filesystem on which the PBS Professional software runs, and the 'execute' nodes which are the hosts that mount the shared filesystem and execute the jobs submitted. For example, a simple cluster template snippet may look like:
 
 ``` ini
 [cluster my-pbspro]
@@ -32,29 +32,6 @@ ms.author: adjohnso
 ```
 
 Importing and starting a cluster with definition in CycleCloud will yield a single 'master' node. Execute nodes can be added to the cluster via the `cyclecloud add_node` command. For example, to add 10 more execute nodes:
-::: moniker-end
-
-::: moniker range=">=cyclecloud-8"
-[Open PBS](http://openpbs.org/) can easily be enabled on a CycleCloud cluster by modifying the "run_list" in the configuration section of your cluster definition. The two basic components of a PBS Professional cluster are the 'server' node which provides a shared filesystem on which the PBS Professional software runs, and the 'execute' nodes which are the hosts that mount the shared filesystem and execute the jobs submitted. For example, a simple cluster template snippet may look like:
-
-``` ini
-[cluster my-pbspro]
-
-[[node server]]
-    ImageName = cycle.image.centos7
-    MachineType = Standard_A4 # 8 cores
-
-    [[[configuration]]]
-    run_list = role[pbspro_server_role]
-
-[[nodearray execute]]
-    ImageName = cycle.image.centos7
-    MachineType = Standard_A1  # 1 core
-
-    [[[configuration]]]
-    run_list = role[pbspro_execute_role]
-```
-::: moniker-end
 
 ```azurecli-interactive
 cyclecloud add_node my-pbspro -t execute -c 10
@@ -116,6 +93,149 @@ The following are the PBS Professional specific configuration options you can to
 | pbspro.slots                           | The number of slots for a given node to report to PBS Pro. The number of slots is the number of concurrent jobs a node can execute, this value defaults to the number of CPUs on a given machine. You can override this value in cases where you don't run jobs based on CPU but on memory, GPUs, etc.                                                               |
 | pbspro.slot_type                       | The name of type of 'slot' a node provides. The default is 'execute'. When a job is tagged with the hard resource 'slot_type=<type>', that job will *only* run on a machine of the same slot type. This allows you to create different software and hardware configurations per node and ensure an appropriate job is always scheduled on the correct type of node.  |
 | pbspro.version                         | Default: '18.1.3-0'. This is the PBS Professional version to install and run. This is currently the default and *only* option. In the future additional versions of the PBS Professional software may be supported. |
+
+::: moniker-end
+
+::: moniker range=">=cyclecloud-8"
+
+## Connect PBS with CycleCloud
+
+CycleCloud manages [OpenPBS](http://openpbs.org/)  clusters through an installable agent called 
+[`azpbs`](https://github.com/Azure/cyclecloud-pbspro). This agent connect to 
+CycleCloud to read cluster and VM configurations and also integrates with OpenPBS
+to effectively process the job and host information. All `azpbs` configurations
+are found in the `autoscale.json` file, normally `/opt/cycle/pbspro/autoscale.json`. 
+
+```
+  "password": "260D39rWX13X",
+  "url": "https://cyclecloud1.contoso.com",
+  "username": "cyclecloud_api_user",
+  "logging": {
+    "config_file": "/opt/cycle/pbspro/logging.conf"
+  },
+  "cluster_name": "mechanical_grid",
+```
+
+### Relevant Logs
+
+_autoscale.log_ is the main log for all azpbs invocations.
+_/opt/cycle/pbspro/autoscale.log_
+
+_qcmd.log_ every PBS executable invocation and the response, so you can see exactly 
+what commands are being run.
+/opt/cycle/pbspro/qcmd.log
+
+Every autoscale iteration, azpbs prints out a table of all of the nodes, their 
+resources, their assigned jobs and more. This log contains these values and nothing else.
+_/opt/cycle/pbspro/demand.log_
+
+
+### Defining OpenPBS Resources
+This project allows for a generally association of OpenPBS resources with Azure 
+VM resources via the cyclecloud-pbspro (azpbs) project. This resource relationship 
+defined in `autoscale.json`.
+
+The default resources defined with the cluster template we ship with are
+
+```json
+{"default_resources": [
+   {
+      "select": {},
+      "name": "ncpus",
+      "value": "node.vcpu_count"
+   },
+   {
+      "select": {},
+      "name": "group_id",
+      "value": "node.placement_group"
+   },
+   {
+      "select": {},
+      "name": "host",
+      "value": "node.hostname"
+   },
+   {
+      "select": {},
+      "name": "mem",
+      "value": "node.memory"
+   },
+   {
+      "select": {},
+      "name": "vm_size",
+      "value": "node.vm_size"
+   },
+   {
+      "select": {},
+      "name": "disk",
+      "value": "size::20g"
+   }]
+}
+```
+
+The OpenPBS resource named `mem` is equated to a node attribute named `node.memory`,
+which is the total memory of any virtual machine. This configuration allows `azpbs`
+to process a resource request such as `-l mem=4gb` by comparing the value of the
+job resource requirements to node resources. 
+
+Note that disk is currently hardcoded to `size::20g`. 
+Here is an example of handling VM Size specific disk size
+```json
+   {
+      "select": {"node.vm_size": "Standard_F2"},
+      "name": "disk",
+      "value": "size::20g"
+   },
+   {
+      "select": {"node.vm_size": "Standard_H44rs"},
+      "name": "disk",
+      "value": "size::2t"
+   }
+```
+
+### Autoscale and Scalesets
+
+CycleCloud treats spanning and serial jobs differently in OpenPBS clusters. 
+Spanning jobs will land on nodes that are part of the same placement group. The
+placement group has a particular platform meaning (VirtualMachineScaleSet with 
+SinglePlacementGroup=true) and CC will managed a named placement group for each
+spanned node set. Use the pbs resource `group_id` for this placement group name.
+
+The `hpc` queue appends
+the equivalent of `-l place=scatter:group=group_id` by using native queue defaults.
+
+
+### Installing the CycleCloud OpenPBS Agent `azpbs`
+
+The OpenPBS CycleCloud cluster will manage the installation and configuration of 
+the agent on the server node. The preparation includes setting PBS resources, 
+queues, and hooks. A scripted install can be done outside of CycleCloud as well.
+
+```bash
+# Prerequisite: python3, 3.6 or newer, must be installed and in the PATH
+wget https://github.com/Azure/cyclecloud-pbspro/releases/download/2.0.5/cyclecloud-pbspro-pkg-2.0.5.tar.gz
+tar xzf cyclecloud-pbspro-pkg-2.0.5.tar.gz
+cd cyclecloud-pbspro
+
+# Optional, but recommended. Adds relevant resources and enables strict placement
+./initialize_pbs.sh
+
+# Optional. Sets up workq as a colocated, MPI focused queue and creates htcq for non-MPI workloads.
+./initialize_default_queues.sh
+
+# Creates the azpbs autoscaler
+./install.sh  --venv /opt/cycle/pbspro/venv
+
+# Otherwise insert your username, password, url, and cluster name here.
+./generate_autoscale_json.sh --install-dir /opt/cycle/pbspro \
+                             --username user \
+                             --password password \
+                             --url https://fqdn:port \
+                             --cluster-name cluster_name
+
+azpbs validate
+```
+
+::: moniker-end
 
 [!INCLUDE [scheduler-integration](~/includes/scheduler-integration.md)]
 
