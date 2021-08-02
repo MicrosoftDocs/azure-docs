@@ -111,7 +111,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
     <!-- ![image](./media/configure-hybrid-cluster/show-cluster.png) -->
 
     > [!NOTE]
-    > Note that the certificates returned from the above command contain linebreaks, for example `\r\n`. You should format each certificate and write to a file before attempting to import into your existing datacenter's trust store. For example:
+    > Note that the certificates returned from the above command contain line breaks represented as text, for example `\r\n`. You should copy each certificate to a file, then format it before attempting to import it into your existing datacenter's trust store. For example:
     > ```bash
     >    var=$(<cert.txt) 
     >    echo -e $var >> cert-formatted.txt
