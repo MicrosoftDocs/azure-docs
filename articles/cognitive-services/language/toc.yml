@@ -10,6 +10,8 @@ items:
   items:
   - name: Overview
     href: entity-linking/overview.md
+  - name: Quickstart
+    href: entity-linking/quickstart.md
   - name: Language support
     href: entity-linking/language-support.md
   - name: How-to guides

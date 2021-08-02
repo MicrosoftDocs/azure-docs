@@ -1,0 +1,56 @@
+---
+title: "Quickstart: Entity linking client library for Java | Microsoft Docs"
+description: Get started with Entity linking using the client library for Java.
+author: aahill
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: text-analytics
+ms.topic: include
+ms.date: 07/15/2021
+ms.custom: devx-track-java
+ms.author: aahi
+---
+
+[Reference documentation](/java/api/overview/azure/ai-textanalytics-readme?preserve-view=true&view=azure-java-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics) | [Package](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples)
+
+## Prerequisites
+
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
+* [Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html) (JDK) with version 8 or above
+* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language Services resource"  target="_blank">create a Language Services resource </a> in the Azure portal to get your key and endpoint.  After it deploys, click **Go to resource**.
+    * You will need the key and endpoint from the resource you create to connect your application to the Language Services API. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* To use the Analyze feature, you will need a Language Services resource with the standard (S) pricing tier.
+
+## Setting up
+
+### Add the client library
+
+# [Version 3.1](#tab/version-3-1)
+
+Create a Maven project in your preferred IDE or development environment. Then add the following dependency to your project's *pom.xml* file. You can find the implementation syntax [for other build tools](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0-beta.7) online.
+
+```xml
+<dependencies>
+     <dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>tbd</artifactId>
+        <version>x.y.z</version>
+    </dependency>
+</dependencies>
+```
+
+## Code example
+
+> [!TIP]
+> Want to view the whole quickstart code file at once? You can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/TextAnalytics/TextAnalyticsSamples.java), which contains the code examples in this quickstart. 
+
+
+
+Create a Java file named `EntityLinking.java`. Open the file and copy the below code. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. 
+
+[!INCLUDE [find the key and endpoint for a resource](../../../includes/find-azure-resource-info.md)]
+
+```java
+
+```
