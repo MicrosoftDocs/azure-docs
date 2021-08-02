@@ -1,6 +1,6 @@
 ---
 title: Sort transformation in mapping data flow
-description: Azure Data Factory Mapping Data Sort Transformation
+description: Learn about the Mapping Data Sort Transformation in Azure Data Factory and Synapse Analytics pipelines.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
