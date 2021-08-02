@@ -50,9 +50,9 @@ Output information similar to the following appears in the console.
 Change to the [release build configuration](/visualstudio/debugger/how-to-set-debug-and-release-configurations#change-the-build-configuration), and then run the project.
 
 >[!NOTE]
-> If you use the debug configuration, Visual Studio might try to start the legacy storage emulator that is built into Visual Studio. This is blocked because Azurite is using the listening ports that are required by the legacy storage emulator.
+> If you start the project by using the debug build configuration, you might receive an error. That's because Visual Studio might try to start the legacy storage emulator that is built into Visual Studio. Any attempt to start the legacy emulator will be blocked because Azurite is using the listening ports that are required by the legacy storage emulator.
 
-The following image shows the command line that appears when you run an Azure Function project.
+The following image shows the command line output that appears when you run an Azure Function project.
 
 ![Command line output after running project](media/storage-use-azurite/azurite-command-line-output-2.png)
 
