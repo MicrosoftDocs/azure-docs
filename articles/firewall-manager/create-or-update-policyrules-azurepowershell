@@ -1,0 +1,152 @@
+
+# Azure Firewall Manager Policy update using Azure Powershell
+
+
+In this QuickStart, you use an Azure Powershell to create an Azure firewall manager Policy. You also going to create an Azure firewall manager Policy operation as shown below.
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Create Azure Firewall Manager Policy
+> * Create Azure firewall Manager Policy Network Rule collection and add new rules
+> * Create an Azure Firewall Manager Policy Network Rules in Existing Rule collection
+> * Create Azure firewall Manager Policy Application Rule collection and add new rules
+> * Create an Azure Firewall Manager Policy Application Rule in Existing Rule collection
+
+## Prerequisites
+
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+- PowerShell 7
+
+   This tutorial requires that you run Azure PowerShell locally on PowerShell 7. To install PowerShell 7, see [Migrating from Windows PowerShell 5.1 to PowerShell 7](/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7&preserve-view=true).
+
+## Sign in to Azure
+
+```azurepowershell
+Connect-AzAccount
+Select-AzSubscription -Subscription "<sub name>"
+```
+
+## Initial Variable Declarations
+
+As a first step, you need to set some variables and create the resource group, the virtual WAN instance, and the virtual hub:
+
+```
+# Variable Definition
+$resourcegroup ="RG"
+$Firewallpolicyname =  "contosofwmpolicy"
+$location= "EastUS"
+$rulename = "rule1"
+$description = $rulename
+$SourceAddressPrefix = "10.1.0.0/24"
+$Protocol1 = "TCP"
+$protocol2 = "UDP"
+$DestinationAddressPrefix = "192.168.0.5/32"
+$DestinationPortRange1 = "80,443"
+$DestinationPortRange2 = "1434"
+$rulecollectionname = "newrulecollection1"
+$newRulepriority = "1000"
+$apprulecollectionname  = "newapprrulecollectionname"
+$apprulename1 = "apprulename1"
+$apprulename2 = "apprulename2"
+$SourceAddress1 = "10.1.0.0/24"
+$SourceAddress2 = "192.168.1.0/24"
+$TargetFQDN1 = "*.contoso1.com"
+$TargetFQDN2 = "*.contoso2.com"
+$Protocol3 = "80"
+$Protocol4 = "443"
+```
+
+
+## Create Azure Firewall Manager Policy
+You will now create an Azure firewall Policy.For more information, refer [Azure Firewall Manager policy overview](https://docs.microsoft.com/en-us/azure/firewall-manager/policy-overview)
+```
+New-AzFirewallManagerPolicy  -Name  $Firewallpolicyname  -ResourceGroup  $resorucegroup  -Location  $location
+$firewallpolicy = Get-AzFirewallPolicy -Name $Firewallpolicyname -ResourceGroupName $RG
+```
+
+### Create new Firewall Manager Policy Network rules
+```
+$rule1= New-AzFirewallPolicyNetworkRule -Name $rulename -Description $description  -SourceAddress $SourceAddressPrefix.Split(",") -Protocol $Protocol -DestinationAddress $DestinationAddressPrefix.Split(",") -DestinationPort $DestinationPortRange.Split(",")
+$rule2= New-AzFirewallPolicyNetworkRule -Name $rulename -Description $description  -SourceAddress $SourceAddressPrefix.Split(",") -Protocol $Protocol2 -DestinationAddress $DestinationAddressPrefix.Split(",") -DestinationPort $DestinationPortRange2.Split(",")
+ ```
+### Create new Firewall Manager Policy Application Rules
+```
+$apprule1= New-AzFirewallPolicyApplicationRule -Name $apprulename1 -Description $apprulename1 -SourceAddress $SourceAddress1 -TargetFqdn $TargetFQDN1 -Protocol $Protocol1
+$apprule2= New-AzFirewallPolicyApplicationRule -Name $apprulename2 -Description $apprulename2  -SourceAddress $SourceAddress2-TargetFqdn $TargetFQDN2 -Protocol $Protocol2
+```
+ 
+## Create Azure firewall Manager Policy Network Rule collection and add new rules
+### Create and add new Rule Collection 
+```
+$newrulecollection=New-AzFirewallPolicyFilterRuleCollection -Name $rulecollectionname -Priority $newRulepriority -Rule $rule1,$rule2 -ActionType Allow
+$newrulecollection = $networkgroupcollection.Properties.RuleCollection.Add($newrulecollection)
+ ```
+ 
+### Update Network Rule Collection Group with new rule collection and rules
+```
+Set-AzFirewallPolicyRuleCollectionGroup -Name "DefaultNetworkRuleCollectionGroup" -Priority "200" -FirewallPolicyObject $firewallpolicy -RuleCollection $networkgroupcollection.Properties.RuleCollection 
+ ```
+### Output
+```
+$output = $networkgroupcollection.Properties.GetRuleCollectionByName($rulecollectionname)
+Write-Output = $output
+ ```
+## Create an Azure Firewall Manager Policy Network rules in existing rule collection
+ ### Get Existing Network Rule Group collection
+```
+$firewallpolicy = Get-AzFirewallPolicy -Name $Firewallpolicyname -ResourceGroupName $resourcegroup
+$networkgroupcollection = Get-AzFirewallPolicyRuleCollectionGroup -Name "DefaultNetworkRuleCollectionGroup" -ResourceGroupName $resourcegroup -AzureFirewallPolicyName $Firewallpolicyname
+ ```
+### Add Rules to the Rule collection 
+```
+$rulecollectionname = $networkgroupcollection.Properties.RuleCollection | where {$_.Name -match "rule collection name"}
+$rulecollectionname.Rules.Add($rule1,$rule2)
+ ```
+### Update Azure Firewall Manager Policy Network Rule Collection Group
+```
+Set-AzFirewallPolicyRuleCollectionGroup -Name "DefaultNetworkRuleCollectionGroup" -FirewallPolicyObject $firewallpolicy -Priority 200 -RuleCollection $networkgroupcollection.Properties.RuleCollection 
+```
+ 
+### Output
+```
+$output = $networkgroupcollection.Properties.GetRuleCollectionByName($rulecollectionname).Name
+Write-output $output
+ ```
+
+## Create Azure firewall Manager Policy Application Rule collection and add new rules
+### Create new Application rule collection 
+```
+$apprulecollectiongroup =Get-AzFirewallPolicyRuleCollectionGroup -Name "DefaultApplicationRuleCollectionGroup" -ResourceGroupName $resourcegroup -AzureFirewallPolicyName $Firewallpolicyname
+$apprulecollection=New-AzFirewallPolicyFilterRuleCollection -Name $apprulecollectionname -Priority $newRulepriority -Rule $apprule1,$apprule2 -ActionType Allow 
+$newrulecollection = $apprulecollectiongroup.Properties.RuleCollection.Add($apprulecollection) 
+```
+### Update Application Rule Collection Group with new rule collection and rules
+```
+Set-AzFirewallPolicyRuleCollectionGroup -Name "DefaultApplicationRuleCollectionGroup" -FirewallPolicyObject $firewallpolicy -Priority 300 -RuleCollection $apprulecollectiongroup.Properties.RuleCollection 
+ ```
+### Output
+```
+$output = $apprulecollectiongroup.Properties.GetRuleCollectionByName($apprulecollectionname)
+$output
+```
+## Create an Azure Firewall Manager Policy Application Rule in existing Rule collection
+### Update Application Rule collection with  new rules
+```
+$rulecollection = $networkgroupcollection.Properties.RuleCollection | where {$_.Name -match "rule collection name"}
+$rulecollection.Rules.Add($apprule1,$apprule2)
+```
+### Update Network Rule Collection Group with new rule collection and rules
+```
+Set-AzFirewallPolicyRuleCollectionGroup -Name "DefaultApplicationRuleCollectionGroup" -FirewallPolicyObject $firewallpolicy -Priority 300 -RuleCollection $apprulecollectiongroup.Properties.RuleCollection
+ ```
+### Output
+```
+$output =$apprulecollectiongroup.Properties.GetRuleCollectionByName($apprulecollectionname)
+$output
+```
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Learn about trusted security partners](trusted-security-partners.md)
