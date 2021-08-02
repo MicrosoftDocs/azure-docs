@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 # Teams interoperability
 
 > [!IMPORTANT]
-> BYOI interoperability is in public preview and broadly available on request. To enable/disable [Teams tenant interoperability](../concepts/teams-interop.md), complete [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).
+> BYOI interoperability is in public preview and available to all Communication Services applications and Teams organizations.
 >
 > Microsoft 365 authenticated interoperability is in private preview, and restricted using service controls to Azure Communication Services early adopters. To join early access program, complete [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8MfnD7fOYZEompFbYDoD4JUMkdYT0xKUUJLR001ODdQRk1ITTdOMlRZNSQlQCN0PWcu).
 >
@@ -39,6 +39,7 @@ Azure Communication Services supports two types of Teams interoperability depend
 Applications can implement both authentication schemes and leave the choice of authentication up to the end user.
 
 ## Bring your own identity
+
 Bring your own identity (BYOI) is the common model for using Azure Communication Services and Teams interoperability. It supports any identity provider and authentication scheme. Your app can join Microsoft Teams meetings, and Teams will treat these users as anonymous external accounts. The name of Communication Services users displayed in Teams is configurable via the Communication Services Calling SDK.
 
 This capability is ideal for business-to-consumer applications that bring together employees (familiar with Teams) and external users (using a custom application experience) into a meeting experience. Meeting details that need to be shared with external users of your application can be retrieved via the Graph API or from the calendar in Microsoft Teams.
