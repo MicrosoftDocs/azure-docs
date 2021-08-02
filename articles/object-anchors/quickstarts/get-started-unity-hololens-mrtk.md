@@ -70,16 +70,16 @@ You can also do other actions using the <a href="https://microsoft.github.io/Mix
 * **Start Tracing** – Capture diagnostics data and save it to the device. See more detail in section **Debug Detection Issues and Capture Diagnostics**.
 * **Upload Tracing** – Upload diagnostics data to the Object Anchors service. A user must provide their subscription account in `subscription.json` and upload it to the `LocalState` folder. A sample `subscription.json` file can be found below.
 
-Example `subscription.json`:
-
-```json
-{
-  "AccountId": "<your account id>",
-  "AccountKey": "<your account key>",
-  "AccountDomain": "<your account domain>"
-}
-```
-
+    Example `subscription.json`:
+    
+    ```json
+    {
+        "AccountId": "<your account id>",
+        "AccountKey": "<your account key>",
+        "AccountDomain": "<your account domain>"
+    }
+    ```
+    
     :::image type="content" source="./media/mrtk-hand-menu-primary.png" alt-text="Unity primary hand menu":::
 
 ##### Tracker settings menu
