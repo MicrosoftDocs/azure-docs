@@ -37,14 +37,15 @@ Development of FHIR applications often involves debugging access issues. If a cl
 
 FHIR servers typically expect a [JSON Web Token](https://en.wikipedia.org/wiki/JSON_Web_Token) (JWT, sometimes pronounced "jot"). It consists of three parts:
 
-1. A header, which could look like:
+* A header, which could look like:
     ```json
     {
       "alg": "HS256",
       "typ": "JWT"
     }
     ```
-1. The payload (the claims), for example:
+
+* The payload (the claims), for example:
     ```json
     {
      "oid": "123",
@@ -55,7 +56,8 @@ FHIR servers typically expect a [JSON Web Token](https://en.wikipedia.org/wiki/J
       ]
     }
     ```
-1. A signature, which is calculated by concatenating the Base64 encoded contents of the header and the payload and calculating a cryptographic hash of them based on the algorithm (`alg`) specified in the header. A server will be able to obtain public keys from the identity provider and validate that this token was issued by a specific identity provider and it hasn't been tampered with.
+
+* A signature, which is calculated by concatenating the Base64 encoded contents of the header and the payload and calculating a cryptographic hash of them based on the algorithm (`alg`) specified in the header. A server will be able to obtain public keys from the identity provider and validate that this token was issued by a specific identity provider and it hasn't been tampered with.
 
 The full token consists of the Base64 encoded (actually Base64 url encoded) versions of those three segments. The three segments are concatenated and separated with a `.` (dot).
 
