@@ -62,7 +62,11 @@ This how-to guide outlines the steps to create an Azure SQL logical [server](log
 
 12. On the Security tab, under **Identity (preview)**, click **Configure Identities**.
 
+    :::image type="content" source="media/transparent-data-encryption-byok-create-server/configure-identity.png" alt-text="screenshot of security settings and configuring identities in the Azure portal":::
+
 13. On the **Identity (preview)** blade, select **User assigned managed identity** click **Add**. Select the desired **Subscription** and then under **User assigned managed identities** select the desired user assigned managed identity from the selected subscription. Then click **Select**. 
+
+    :::image type="content" source="media/transparent-data-encryption-byok-create-server/identity-configuration-managed-identity.png" alt-text="screenshot of user assigned managed identity when configuring server identity":::
 
     :::image type="content" source="media/transparent-data-encryption-byok-create-server/selecting-user-assigned-managed-identity.png" alt-text="screenshot of user assigned managed identity when configuring server identity":::
 
