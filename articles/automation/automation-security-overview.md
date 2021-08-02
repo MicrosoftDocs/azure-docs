@@ -54,7 +54,7 @@ For details on using managed identities, see [Enable managed identity for Azure 
 
 ## Run As accounts
 
-Run As accounts in Azure Automation provide authentication for managing Azure Resource Manager resources or resources deployed on the classic deployment model.
+Run As accounts in Azure Automation provide authentication for managing Azure Resource Manager resources or resources deployed on the classic deployment model. There are two types of Run As accounts in Azure Automation:
 
 To create or renew a Run As account, permissions are needed at three levels:
 
@@ -88,7 +88,7 @@ To be able to create or update the Automation account, you need to be a member o
 - [Contributor](./automation-role-based-access-control.md#contributor)
 - [Custom Azure Automation Contributor](./automation-role-based-access-control.md#custom-azure-automation-contributor-role)
 
-To learn more about Azure Automation account authentication, permissions required to manage the Run as account, and guidance related to process automation scenarios, see [Automation Account authentication overview](automation-security-overview.md).
+To learn more about the Azure Resource Manager and Classic deployment models, see [Resource Manager and classic deployment](../azure-resource-manager/management/deployment-models.md).
 
 >[!NOTE]
 >Azure Cloud Solution Provider (CSP) subscriptions support only the Azure Resource Manager model. Non-Azure Resource Manager services are not available in the program. When you are using a CSP subscription, the Azure Classic Run As account is not created, but the Azure Run As account is created. To learn more about CSP subscriptions, see [Available services in CSP subscriptions](/azure/cloud-solution-provider/overview/azure-csp-available-services).
