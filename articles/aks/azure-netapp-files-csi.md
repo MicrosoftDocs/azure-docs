@@ -8,16 +8,16 @@ author: balaramesh
 
 ---
 
-# Use Azure NetApp Files Container Storage Interface (CSI) driver in Azure Kubernetes Service (AKS) with Trident
+# Use Azure NetApp Files Container Storage Interface (CSI) driver in Azure Kubernetes Service (AKS) with Astra Trident
 
-Azure NetApp Files provides a production-ready CSI driver for Kubernetes users to directly consume volumes through AKS. This is achieved using Trident, NetApp's open-source dynamic storage orchestrator for Kubernetes. Trident is an enterprise-grade storage orchestrator purpose-built for Kubernetes that is **fully supported** by NetApp. It simplifies access to storage across Kubernetes environments by automating storage provisioning. Consumers can take advantage of Trident's CSI driver for Azure NetApp Files to abstract underlying details and create/expand/snapshot volumes on-demand.
+Azure NetApp Files provides a production-ready CSI driver for Kubernetes users to directly consume volumes through AKS. This is achieved using Astra Trident, NetApp's open-source dynamic storage orchestrator for Kubernetes. It is an enterprise-grade storage orchestrator purpose-built for Kubernetes that is **fully supported** by NetApp. It simplifies access to storage across Kubernetes environments by automating storage provisioning. Consumers can take advantage of Astra Trident's CSI driver for Azure NetApp Files to abstract underlying details and create/expand/snapshot volumes on-demand.
 
-To understand how you can install Trident and provision Azure NetApp Files volumes using the CSI driver, please refer to [Dynamically create and use a persistent volume with Azure NetApp Files in Azure Kubernetes Service (AKS)][azure-netapp-files-dynamic]. The article walks you through all the steps involved in deploying Trident and provisioning Azure NetApp Files volumes using the `azure-netapp-files` CSI storage driver.
+To understand how you can install Astra Trident and provision Azure NetApp Files volumes using the CSI driver, please refer to [Dynamically create and use a persistent volume with Azure NetApp Files in Azure Kubernetes Service (AKS)][azure-netapp-files-dynamic]. The article walks you through all the steps involved in deploying Astra Trident and provisioning Azure NetApp Files volumes using the `azure-netapp-files` CSI storage driver.
 
 ## Next steps
 
 - For more information on Azure NetApp Files, see [What is Azure NetApp Files][anf].
-- You can also learn more about Trident and how Azure NetApp Files can be configured to work with Trident from the detailed [Backend Configuration Guide](https://netapp-trident.readthedocs.io/en/latest/kubernetes/operations/tasks/backends/anf.html).
+- You can also learn more about Astra Trident and how Azure NetApp Files can be configured to work with it from the detailed [Backend Configuration Guide](https://netapp-trident.readthedocs.io/en/latest/kubernetes/operations/tasks/backends/anf.html).
 - If you would rather like to create Azure NetApp Files volumes statically, see [Manually create and use a volume with Azure NetApp Files in Azure Kubernetes Service (AKS)][azure-netapp-files]
 
 <!-- LINKS - external -->

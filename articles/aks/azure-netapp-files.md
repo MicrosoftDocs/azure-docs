@@ -12,7 +12,7 @@ ms.date: 05/10/2021
 
 [Azure NetApp Files][anf] is an enterprise-class, high-performance, metered file storage service running on Azure. This article shows you how to **manually create** an Azure NetApp Files (ANF) volume to use for Read-Write-Many (RWX) workloads in AKS.
 
-You can also create ANF volumes **on-demand** using [Trident](https://netapp-trident.readthedocs.io/), NetApp's dynamic storage provisioner for Kubernetes. To learn how that works, see [Dynamic Provisioning of ANF volumes with Trident][az-netapp-files-dynamic].
+You can also create ANF volumes **on-demand** using [Astra Trident](https://netapp-trident.readthedocs.io/), NetApp's dynamic storage provisioner for Kubernetes. To learn how that works, see [Dynamic Provisioning of ANF volumes with Astra Trident][az-netapp-files-dynamic].
 
 ## Before you begin
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
@@ -29,7 +29,7 @@ The following considerations apply when you use Azure NetApp Files:
 * Azure NetApp Files is only available [in selected Azure regions][anf-regions].
 * Before you can use Azure NetApp Files, you must be granted access to the Azure NetApp Files service. To apply for access, you can use the [Azure NetApp Files waitlist submission form][anf-waitlist] or go to https://azure.microsoft.com/services/netapp/#getting-started. You can't access the Azure NetApp Files service until you receive the official confirmation email from the Azure NetApp Files team.
 * After the initial deployment of an AKS cluster, users can choose to provision ANF volumes statically or dynamically. This article explains the steps involved in creating ANF volumes manually.
-* To use dynamic provisioning with Azure NetApp Files, install and configure [NetApp Trident](https://netapp-trident.readthedocs.io/) version 19.07 or later. This is covered in detail under [Dynamic Provisioning of ANF volumes with Trident][az-netapp-files-dynamic].
+* To use dynamic provisioning with Azure NetApp Files, install and configure [Astra Trident](https://netapp-trident.readthedocs.io/) version 19.07 or later. This is covered in detail under [Dynamic Provisioning of ANF volumes with Astra Trident][az-netapp-files-dynamic].
 
 ## Configure Azure NetApp Files
 
