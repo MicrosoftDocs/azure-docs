@@ -87,9 +87,9 @@ In this section, you'll create a
 
 13. Enter **myBackendPool-cr** in **Name** in **Add backend pool**.
 
-14. In **Load balancers**, select **myLoadBalancer-r1** or your first regional load balancer in the **Load balancer** pull down box. Verify the **Frontend IP configuration** and **IP address** correspond with **myLoadBalancer-r1**.
+14. In **Load balancers**, select **myLoadBalancer-r1** or your first regional load balancer in the **Load balancer** pull-down box. Verify the **Frontend IP configuration** and **IP address** correspond with **myLoadBalancer-r1**.
 
-15. Select **myLoadBalancer-r2** or your second regional load balancer in the **Load balancer** pull down box. erify the **Frontend IP configuration** and **IP address** correspond with **myLoadBalancer-r2**.
+15. Select **myLoadBalancer-r2** or your second regional load balancer in the **Load balancer** pull-down box. Verify the **Frontend IP configuration** and **IP address** correspond with **myLoadBalancer-r2**.
 
 16. Select **Add**.
 
