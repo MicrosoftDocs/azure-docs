@@ -14,15 +14,12 @@ ms.topic: how-to
 # Install client tools for deploying and managing Azure Arc-enabled data services
 
 > [!IMPORTANT]
-> If you are updating to a new release, please be sure to also update to the latest version of Azure Data Studio, the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] tool, the Azure CLI and Azure Arc extensions for Azure Data Studio.
-
-[!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
+> If you are updating to a new release, please be sure to also update to the latest version of Azure Data Studio, the Azure Arc extension for Azure Data Studio, and the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)].
 
 > [!IMPORTANT]
-> The Arc enabled data services command groups in the Azure Data CLI (azdata) are deprecated and will be removed in the next release.  Please move to using the [`arcdata` extension for Azure CLI instead](reference/reference-az-arcdata-dc.md).
+> For a command line interface, use the [`arcdata` extension for Azure CLI instead](reference/reference-az-arcdata-dc.md).
 
-This document walks you through the steps for installing the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)], Azure Data Studio, Azure CLI (az), and the Kubernetes CLI tool (kubectl) on your client machine.
-
+This points you to resources to install the tools to manage Arc-enabled data services.
 
 ## Tools for creating and managing Azure Arc-enabled data services
 
@@ -30,9 +27,10 @@ The following table lists common tools required for creating and managing Azure 
 
 | Tool | Required | Description | Installation |
 |---|---|---|---|
-| Azure CLI (az)<sup>1</sup> | Yes | Modern command-line interface for managing Azure services. Used to manage Azure services in general and also specifically Arc-enabled data services using the CLI or in scripts for both indirectly connected mode (available now) and directly connected mode (available soon). ([More info](/cli/azure/)). | [Install](/cli/azure/install-azure-cli) |
-| Azure (az) CLI extension for Azure Arc-enabled data services | Yes | Command-line tool for managing Arc enabled data services as an extension to the Azure CLI (az) | [Install](install-arcdata-extension.md). |
-| Azure Data Studio | Yes | Rich experience tool for connecting to and querying a variety of databases including Azure SQL, SQL Server, PostrgreSQL, and MySQL. Extensions to Azure Data Studio provide an administration experience for Azure Arc-enabled data services. | [Install](/sql/azure-data-studio/download-azure-data-studio) |
+| Azure CLI (`az`)<sup>1</sup> | Yes | Modern command-line interface for managing Azure services. Used to manage Azure services in general and also specifically Arc-enabled data services using the CLI or in scripts for both indirectly connected mode (available now) and directly connected mode (available soon). ([More info](/cli/azure/)). | [Install](/cli/azure/install-azure-cli) |
+| `arcdata` extension for Azure (`az`) CLI | Yes | Command-line tool for managing Arc enabled data services as an extension to the Azure CLI (`az`) | [Install](install-arcdata-extension.md). |
+| Azure Data Studio | Yes | Rich experience tool for connecting to and querying a variety of databases including Azure SQL, SQL Server, PostrgreSQL, and MySQL. Extensions to Azure Data Studio provide an administration experience for Azure Arc-enabled data services. | [Install](/sql/azure-data-studio/download-azure-data-studio) <br><br>
+[!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)] |
 | Azure Arc extension for Azure Data Studio | Yes | Extension for Azure Data Studio that provides a management experience for Azure Arc-enabled data services.| Install from the extensions gallery in Azure Data Studio.|
 | PostgreSQL extension in Azure Data Studio | No | PostgreSQL extension for Azure Data Studio that provides management capabilities for PostgreSQL. | <!--{need link} [Install](../azure-data-studio/data-virtualization-extension.md) --> Install from extensions gallery in Azure Data Studio.|
 | Kubernetes CLI (kubectl)<sup>2</sup> | Yes | Command-line tool for managing the Kubernetes cluster ([More info](https://kubernetes.io/docs/tasks/tools/install-kubectl/)). | [Windows](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-with-powershell-from-psgallery) \| [Linux](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-using-native-package-management) |
