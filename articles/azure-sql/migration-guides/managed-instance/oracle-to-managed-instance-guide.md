@@ -203,7 +203,7 @@ For more information on test case settings,[Finishing test case preparation](/sq
 
 #### Run and view test case
 
-When SSMA Tester runs a test case, the test engine executes the objects selected for testing and generates a verification report.
+When SSMA Tester runs a test case, the test engine executes the objects selected for testing and generates a verification  report.
 
 1.In the test repository page, select the test case and then click run.
 
@@ -211,7 +211,7 @@ When SSMA Tester runs a test case, the test engine executes the objects selected
 
 2.Next, review the launch test case  and click run.
 
-:::image type="content" source="./media/oracle-to-managed-instance-guide/t  ester-run-test-case.png" alt-text="Screenshot that shows step to launch  test case.":::
+:::image type="content" source="./media/oracle-to-managed-instance-guide/tester-run-test-case.png" alt-text="Screenshot that shows step to launch  test case.":::
 
 3.Next, provide  oracle  source credentials. Click connect after entering the credentials.
 
