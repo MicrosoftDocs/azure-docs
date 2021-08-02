@@ -66,7 +66,7 @@ Each connection is associated to one route table. Associating a connection to a 
 
 By default, all connections are associated to a **Default route table** in a virtual hub. Each virtual hub has its own Default route table, which can be edited to add a static route(s). Routes added statically take precedence over dynamically learned routes for the same prefixes.
 
-:::image type="content" source="./media/about-virtual-hub-routing/concepts-association.png" alt-text="Association"lightbox="./media/nat-rules-vpn-gateway/edit-site-bgp.png"::::::
+:::image type="content" source="./media/about-virtual-hub-routing/concepts-association.png" alt-text="Association"lightbox="./media/nat-rules-vpn-gateway/edit-site-bgp.png":::
 
 ### <a name="propagation"></a>Propagation
 
