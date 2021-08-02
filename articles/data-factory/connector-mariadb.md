@@ -1,16 +1,16 @@
 ---
-title: Copy data from MariaDB using Azure Data Factory  
-description: Learn how to copy data from MariaDB to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
+title: Copy data from MariaDB
+description: Learn how to copy data from MariaDB to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jianleishen
 ---
-# Copy data from MariaDB using Azure Data Factory
+# Copy data from MariaDB using Azure Data Factory or Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data from MariaDB. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from MariaDB. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
 
@@ -21,7 +21,7 @@ This MariaDB connector is supported for the following activities:
 
 You can copy data from MariaDB to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Azure Data Factory provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
+The service provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
 
 This connector currently supports MariaDB of version 10.0 to 10.2.
 
@@ -33,7 +33,7 @@ This connector currently supports MariaDB of version 10.0 to 10.2.
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties that are used to define Data Factory entities specific to MariaDB connector.
+The following sections provide details about properties that are used to define entities specific to MariaDB connector.
 
 ## Linked service properties
 
@@ -163,4 +163,4 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
