@@ -2,7 +2,7 @@
 title: Install VMware HCX in Azure VMware Solution
 description: Install VMware HCX in your Azure VMware Solution private cloud.
 ms.topic: how-to
-ms.date: 08/02/2021
+ms.date: 07/30/2021
 ---
 
 # Install and activate VMware HCX in Azure VMware Solution
@@ -40,9 +40,9 @@ After you're finished, follow the recommended next steps at the end to continue 
 
 1. Select the **I agree with terms and conditions** checkbox and then select **Install**.
 
-   It could take up to 45 minutes to install HCX Advanced. Once installed, the HCX Manager URL and the HCX keys needed for the HCX on-premises connector site pairing displays on the **Migration using HCX** tab.
+   It will take around 35 minutes to install HCX Advanced and configure the Cloud Manager. Once installed, the HCX Manager URL and the HCX keys needed for the HCX on-premises connector site pairing displays on the **Migration using HCX** tab.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/deployed-hcx-migration-using-hcx-tab.png" alt-text="Screenshot showing the Migration using HCX tab under Connectivity." lightbox="media/tutorial-vmware-hcx/deployed-hcx-migration-using-hcx-tab.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/deployed-hcx-migration-using-hcx-tab.png" alt-text="Screenshot showing the Migration using HCX tab under Connectivity.":::
 
 
 ## Download and deploy the VMware HCX Connector OVA 
@@ -51,9 +51,9 @@ In this step, you'll download the VMware HCX Connector OVA file and then you'll 
 
 1. Open a browser window, sign in to the Azure VMware Solution HCX Manager on `https://x.x.x.9` port 443 with the **cloudadmin\@vsphere.local** user credentials
 
-1. Select **Administration** > **System Updates** and then select **Request Download Link**.
+1. Under **Administration** > **System Updates** select **Request Download Link**. If the box is greyed, wait a few seconds for it to generate a link.
 
-1. Select the option of your choice to download the VMware HCX Connector OVA file.
+1. Select either download or receive a link for the VMware HCX Connector OVA file which needs to be deployed on your local vCenter.
 
 1. In your on-premises vCenter, select an [OVF template](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-17BEDA21-43F6-41F4-8FB2-E01D275FE9B4.html) to deploy the VMware HCX Connector to your on-premises vCenter.
 
@@ -69,7 +69,7 @@ In this step, you'll download the VMware HCX Connector OVA file and then you'll 
 
 1. In **Customize template**, enter all required information and then select **Next**.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/customize-template.png" alt-text="Screenshot of the boxes for customizing a template.":::
+   :::image type="content" source="media/tutorial-vmware-hcx/customize-template.png" alt-text="Screenshot of the boxes for customizing a template." lightbox="media/tutorial-vmware-hcx/customize-template.png":::
 
 1. Verify and then select **Finish** to deploy the VMware HCX Connector OVA.
 
@@ -79,7 +79,7 @@ In this step, you'll download the VMware HCX Connector OVA file and then you'll 
 
 ## Activate VMware HCX
 
-After you deploy the VMware HCX Connector OVA on-premises and start the appliance, you're ready to activate it. First, you'll need to get a license key from the Azure VMware Solution portal and then you'll activate it in VMware HCX Manager.
+After you deploy the VMware HCX Connector OVA on-premises and start the appliance, you're ready to activate it. First, you'll need to get a license key from the Azure VMware Solution portal and then you'll activate it in VMware HCX Manager. You will need a key for each on premises HCX connector that is deployed.
 
 1. In the Azure VMware Solution portal, go to **Manage** > **Connectivity**, select the **HCX** tab, and then select **Add**.
 
