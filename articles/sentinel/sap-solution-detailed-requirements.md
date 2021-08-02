@@ -24,6 +24,9 @@ Use this article as a reference if you're an admin, or if you're [deploying the 
 > The Azure Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
+> [!NOTE]
+> Additional requirements are listed if you're deploying your SAP data connector using a secure SNC connection. For more information, see [Deploy the Azure Sentinel SAP data connector with SNC](sap-solution-deploy-snc.md).
+>
 ## Recommended virtual machine sizing
 
 The following table describes the recommended sizing for your virtual machine, depending on your intended usage:
@@ -135,6 +138,7 @@ Required authorizations are listed by log type. You only need the authorizations
 For more information, see:
 
 - [Deploy the Azure Sentinel solution for SAP](sap-deploy-solution.md)
+- [Deploy the Azure Sentinel SAP data connector with SNC](sap-solution-deploy-snc.md)
 - [Expert configuration options, on-premises deployment and SAPControl log sources](sap-solution-deploy-alternate.md)
 - [Azure Sentinel SAP solution logs reference](sap-solution-log-reference.md)
 - [Azure Sentinel SAP solution: available security content](sap-solution-security-content.md)

@@ -389,6 +389,8 @@
       href: sap-solution-log-reference.md
     - name: SAP workbook, rules, and watchlists
       href: sap-solution-security-content.md
+    - name: Use an SNC connection to deploy your SAP data connector
+      href: sap-solution-deploy-snc.md
     - name: Expert configuration options
       href: sap-solution-deploy-alternate.md
     - name: Troubleshooting your SAP solution deployment

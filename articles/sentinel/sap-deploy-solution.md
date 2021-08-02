@@ -31,13 +31,16 @@ To ingest SAP logs into Azure Sentinel, you must have the Azure Sentinel SAP dat
 
 After the SAP data connector is deployed, deploy the  SAP solution security content to smoothly gain insight into your organization's SAP environment and improve any related security operation capabilities.
 
-In this tutorial, you learn:
+In this article, you learn:
 
 > [!div class="checklist"]
 > * How to prepare your SAP system for the SAP data connector deployment
 > * How to use a Docker container and an Azure VM to deploy the SAP data connector
 > * How to deploy the SAP solution security content in Azure Sentinel
 
+> [!NOTE]
+> Extra steps are required to deploy your SAP data connector over a secure SNC connection. For more information, see [Deploy the Azure Sentinel SAP data connector with SNC](sap-solution-deploy-snc.md).
+>
 ## Prerequisites
 
 In order to deploy the Azure Sentinel SAP data connector and security content as described in this tutorial, you must have the following prerequisites:
@@ -333,6 +336,7 @@ If you have SAP HANA database audit logs configured with Syslog, you'll need als
 
 Learn more about the Azure Sentinel SAP solutions:
 
+- [Deploy the Azure Sentinel SAP data connector with SNC](sap-solution-deploy-snc.md)
 - [Expert configuration options, on-premises deployment and SAPControl log sources](sap-solution-deploy-alternate.md)
 - [Azure Sentinel SAP solution detailed SAP requirements](sap-solution-detailed-requirements.md)
 - [Azure Sentinel SAP solution logs reference](sap-solution-log-reference.md)

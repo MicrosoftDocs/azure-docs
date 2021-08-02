@@ -268,6 +268,7 @@ For more information, see:
 
 - [Deploy SAP continuous threat monitoring (public preview)](sap-deploy-solution.md)
 - [Azure Sentinel SAP solution logs reference (public preview)](sap-solution-log-reference.md)
+- [Deploy the Azure Sentinel SAP data connector with SNC](sap-solution-deploy-snc.md)
 - [Expert configuration options, on-premises deployment and SAPControl log sources](sap-solution-deploy-alternate.md)
 - [Azure Sentinel SAP solution: security content reference (public preview)](sap-solution-security-content.md)
 - [Azure Sentinel SAP solution detailed SAP requirements (public preview)](sap-solution-detailed-requirements.md)
