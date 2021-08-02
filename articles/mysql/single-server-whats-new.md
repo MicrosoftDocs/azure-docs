@@ -50,7 +50,7 @@ This release of Azure Database for MySQL - Single Server includes the following 
 
 - **Known issue**
 
-  If you are using a PHP application connected to Azure database for MySQL with redirection enabled [Learn more]( https://docs.microsoft.com/en-us/azure/mysql/howto-redirection), you might face a data encoding issue which will impact your insert transactions , resolve the issue by disabling the redirection by setting the parameter redirect_enabled to “OFF” in Azure portal , or you can explicitly set the charset related parameters based on your settings at the session level after connection established , for example “set names utf8mb4”.
+  If you are using a PHP application connected to Azure database for MySQL with redirection enabled [Learn more]( https://docs.microsoft.com/en-us/azure/mysql/howto-redirection), you might face a data encoding issue which will impact your insert transactions , resolve the issue by disabling the redirection by setting the parameter redirect_enabled to “OFF” in Azure portal , or you can explicitly set the charset related parameters based on your settings at the session level after connection established , for example “set names utf8mb4”, and make sure to restart the PHP application to clear the driver cache after your changes.
 
 ## February 2021
 
