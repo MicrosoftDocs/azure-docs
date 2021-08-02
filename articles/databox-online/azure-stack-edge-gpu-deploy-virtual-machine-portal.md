@@ -106,7 +106,7 @@ Follow these steps to create a VM on your Azure Stack Edge Pro GPU device.
 
     The **Deployments** pane updates to indicate the status of the deployment.
 
-    ![Screenshot that shows the Deployments pane in Virtual Machines view of an Azure Stack Edge device. The entry for a deployed VM is highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-10.png)
+    ![Screenshot showing the Deployments pane in Virtual Machines view of an Azure Stack Edge device. The entry for a deployed VM is highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-10.png)
 
     The newly added image is also displayed on the **Overview** page.
 
