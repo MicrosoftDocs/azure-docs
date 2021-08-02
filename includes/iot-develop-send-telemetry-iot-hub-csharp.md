@@ -44,4 +44,48 @@ To run the sample application in Visual Studio:
 
 1. In Visual Studio, press CTRL + F5 to run the sample.
 
-[!INCLUDE [iot-hub-include-view-telemetry-iot-explorer](iot-hub-include-view-telemetry-iot-explorer.md)]
+## View telemetry
+
+After the simulated device connects to IoT Hub, it begins sending telemetry. You can view the device telemetry with IoT Explorer. Optionally, you can view telemetry using Azure CLI.
+
+To view telemetry in Azure IoT Explorer:
+
+1. From the your Iot hub in IoT Explorer, select **View devices in this hub**, then select your device from the list. 
+1. On the left menu for your device, select **Telemetry**.
+1. Confirm that **Use built-in event hub** is set to *Yes* and then select **Start**.
+1. View the telemetry as the device sends messages to the cloud.
+
+    :::image type="content" source="media/iot-develop-send-telemetry-iot-hub-csharp/iot-explorer-device-telemetry.png" alt-text="Screenshot of device telemetry in IoT Explorer":::
+
+1. Select **Stop** to end receiving events.
+
+To use Azure CLI to view device telemetry:
+
+1. In your CLI app, run the [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) command to monitor events sent from the simulated device to your IoT hub. Use the names that you created previously in Azure IoT for your device and IoT hub.
+
+    ```azurecli
+    az iot hub monitor-events --output table --device-id mydevice --hub-name {YourIoTHubName}
+    ```
+
+1. View the connection details and telemetry output in the console.
+
+    ```output
+    Starting event monitor, use ctrl-c to stop...
+    event:
+      component: thermostat1
+      interface: dtmi:com:example:TemperatureController;2
+      module: ''
+      origin: myDevice
+      payload:
+        temperature: 39.8
+    
+    event:
+      component: thermostat2
+      interface: dtmi:com:example:TemperatureController;2
+      module: ''
+      origin: myDevice
+      payload:
+        temperature: 36.7
+    ```
+
+1. Select CTRL+C to end monitoring.
