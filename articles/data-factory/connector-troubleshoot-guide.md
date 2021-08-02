@@ -955,7 +955,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Cause**: This error occurs when Azure Data Factory talks to the REST endpoint over HTTP protocol, and the request operation fails.
 
-- **Recommendation**: Check the HTTP status code or the requested URL or the response payload in the error message and fix the remote server issue.
+- **Recommendation**: Check the HTTP status code or the request URL or the response payload in the error message and fix the remote server issue.
 
 ### Unexpected network response from the REST connector
 
