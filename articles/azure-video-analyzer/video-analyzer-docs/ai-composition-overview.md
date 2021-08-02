@@ -8,7 +8,7 @@ ms.date: 04/14/2021
 
 # AI composition
 
-This article gives a high-level overview of Azure Video Analyzer support for three kinds of AI composition. The topic also provides scenarios for each kind of AI composition.
+This article gives a high-level overview of Azure Video Analyzer support for three kinds of AI composition. 
 
 * [Sequential](#sequential-ai-composition)
 * [Parallel](#parallel-ai-composition)
@@ -23,49 +23,34 @@ AI nodes can be sequentially composed. This allows a downstream node to augment 
  
 ### Key aspects
 
-* Graph extensions act as media passthrough nodes:
+* Graph extensions act as media passthrough nodes and can be configured such that external AI servers receive frames at different rates, formats and resolutions. Additionally, configuration can be specified such that external AI servers can receive all frames or only frames, which already contain inferences.
+* Inferences are added to the frames as they go through the different extension nodes, an unlimited number of such nodes can be added in sequence.
+* Other scenarios such as continous video recording or event based video recording can be combined with sequential AI composition.
 
-    * External AI servers can choose to receive frames at different rates.
-    * External AI servers can choose to receive frames at different format and resolutions.
-    * External AI servers can choose to receive all frames or only frames, which already contain inferences.
-* Inferences are added to the frames as they go through the different extension nodes.
-* An unlimited number of nodes can be added in sequence.
-* Other scenarios can be combined with this:
-    
-    * Clip recording
-    * Continuous video recoding
-    * Other
     
 ## Parallel AI composition
 
-AI nodes can be parallel composed. This allows independent inferences to be performed on the ingested video stream.
+AI nodes can also be composed in parallel instead of in sequence. This allows independent inferences to be performed on the ingested video stream, saving ingest bandwidth on the edge.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/ai-composition/parallel.svg" alt-text="Parallel AI composition":::
  
 ### Key aspects
 
-* Video can be split into parallel branches.
-
-    * An arbitrary number of parallel branches can be created.
-* Split can happen at any point after the following nodes.
+* Video can be split into an arbitrary number of parallel branches and such split can happen at any point after the following nodes.
     
     * RTSP source
-    * Motion
-    * AV filter
+    * Motion Detector
     * Graph extension
 
 ## Combined AI composition
 
-Sequential and parallel nodes can be combined.
+Both sequential and parallel composition constructs can be combined to develop complex composable AI pipelines. This is possible since  AVA pipelines allow extension nodes to be combined sequentially and/or with a parallel composition indefinitely alongside other supported nodes.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/ai-composition/complex.svg" alt-text="Combined AI composition":::
  
-### Key aspects
 
-* Extension nodes can be combined sequentially and/or with a parallel composition indefinitely.
-* Other supported nodes can be added to the graph. 
 
 ## Next steps
 
