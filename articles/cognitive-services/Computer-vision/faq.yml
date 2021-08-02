@@ -25,6 +25,26 @@ sections:
   - name: Ignored
     questions:
       - question: |
+          How can I increase the transactions-per-second (TPS) allowed by the service?
+        answer: |
+          The free (S0) tier only allows 20 transaction per minute. Upgrate to the S1 tier to get up to 10 transactions per second. [Computer Vision pricing](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/#pricing).
+
+      - question: |
+          The service is throwing an error because my image file is too large. How can I work around this? 
+        answer: |
+          The file size limit for the REST API is 4MB, but the client library SDKs can handle files up to 6MB.
+
+      - question: |
+          How can I process multiple pages of documents in a single call?
+        answer: |
+          Optical Character Recognition supports batch processing of PDF files (the other services don't currently support batch processing). Note that if you have the free (S0) tier, it can only process two PDF pages at a time.
+
+      - question: |
+          How many languages are supported for Image Analysis?
+        answer: |
+          Image Analysis allows captioning and tagging in five languages. We're working to bring this functionality to more languages.
+
+      - question: |
           Can I train Computer Vision API to use custom tags?  For example, I would like to feed in pictures of cat breeds to 'train' the AI, then receive the breed value on an AI request.
         answer: |
           This function is currently not available. However, our engineers are working to bring this functionality to Computer Vision.
