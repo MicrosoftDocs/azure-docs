@@ -150,15 +150,9 @@
       items:
       - name: Retail
         items:
-        - name: In-store analytics checkout
-          href: retail/store-analytics-architecture.md
-          items:
-            - name: Create a retail application
-              href: 
-            - name:
-              href:
-                
-        - name: In-store analytics checkout 
+        - name: Overview
+          href: retail/overview-iot-central-retail.md
+        - name: In-store analytics checkout architecture
           href: retail/store-analytics-architecture.md
         - name: Smart inventory management architecture
           href: retail/architecture-smart-inventory-management.md
