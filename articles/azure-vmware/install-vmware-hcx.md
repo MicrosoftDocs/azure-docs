@@ -2,7 +2,7 @@
 title: Install VMware HCX in Azure VMware Solution
 description: Install VMware HCX in your Azure VMware Solution private cloud.
 ms.topic: how-to
-ms.date: 07/30/2021
+ms.date: 08/02/2021
 ---
 
 # Install and activate VMware HCX in Azure VMware Solution
@@ -42,7 +42,7 @@ After you're finished, follow the recommended next steps at the end to continue 
 
    It could take up to 45 minutes to install HCX Advanced. Once installed, the HCX Manager URL and the HCX keys needed for the HCX on-premises connector site pairing displays on the **Migration using HCX** tab.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/deployed-hcx-migration-using-hcx-tab.png" alt-text="Screenshot showing the Migration using HCX tab under Connectivity.":::
+   :::image type="content" source="media/tutorial-vmware-hcx/deployed-hcx-migration-using-hcx-tab.png" alt-text="Screenshot showing the Migration using HCX tab under Connectivity." lightbox="media/tutorial-vmware-hcx/deployed-hcx-migration-using-hcx-tab.png":::
 
 
 ## Download and deploy the VMware HCX Connector OVA 
@@ -69,7 +69,7 @@ In this step, you'll download the VMware HCX Connector OVA file and then you'll 
 
 1. In **Customize template**, enter all required information and then select **Next**.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/customize-template.png" alt-text="Screenshot of the boxes for customizing a template." lightbox="media/tutorial-vmware-hcx/customize-template.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/customize-template.png" alt-text="Screenshot of the boxes for customizing a template.":::
 
 1. Verify and then select **Finish** to deploy the VMware HCX Connector OVA.
 

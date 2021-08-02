@@ -2,14 +2,14 @@
 title: Configure VMware HCX in Azure VMware Solution
 description: Configure the on-premises VMware HCX Connector for your Azure VMware Solution private cloud. 
 ms.topic: tutorial
-ms.date: 07/30/2021
+ms.date: 08/02/2021
 ---
 
 # Configure on-premises VMware HCX Connector
 
 Once you've [installed the VMware HCX add-on](install-vmware-hcx.md), you're ready to configure the on-premises VMware HCX Connector for your Azure VMware Solution private cloud.  
 
-In this how-to, you'll':
+In this how-to, you'll:
 
 * Pair your on-premises VMware HCX Connector with your Azure VMware Solution HCX Cloud Manager
 * Configure the network profile, compute profile, and service mesh
@@ -75,7 +75,7 @@ VMware HCX Connector deploys a subset of virtual appliances (automated) that req
 
 1. For each network profile, select the network and port group, provide a name, and create the segment's IP pool. Then select **Create**.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/example-configurations-network-profile.png" alt-text="Screenshot showing the details for a new network profile.":::
+   :::image type="content" source="media/tutorial-vmware-hcx/example-configurations-network-profile.png" alt-text="Screenshot showing the details for a new network profile." lightbox="media/tutorial-vmware-hcx/example-configurations-network-profile.png":::
 
 For an end-to-end overview of this procedure, view the [Azure VMware Solution: HCX Network Profile](https://www.youtube.com/embed/O0rU4jtXUxc) video.
 
@@ -214,7 +214,7 @@ This is an optional step to extend any networks from your on-premises environmen
 
    It takes a few minutes for the network extension to finish. When it does, you see the status change to **Extension complete**.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/extension-complete.png" alt-text="Screenshot that shows the status of Extension complete." lightbox="media/tutorial-vmware-hcx/extension-complete.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/extension-complete.png" alt-text="Screenshot that shows the status of Extension complete.":::
 
 For an end-to-end overview of this procedure, view the [Azure VMware Solution: Network Extension](https://www.youtube.com/embed/gYR0nftKui0) video.
 
