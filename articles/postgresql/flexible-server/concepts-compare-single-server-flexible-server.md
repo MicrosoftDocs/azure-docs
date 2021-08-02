@@ -13,9 +13,9 @@ ms.date: 08/02/2021
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - Flexible Server is in preview
 
-The following table provides a high-level comparison between Single Server and Flexible Server.
+The following table provides a high-level features and capabilities comparisons between Single Server and Flexible Server.
 
-| **Component** | **Single Server** | **Flexible Server** |
+| **Feature / Capability** | **Single Server** | **Flexible Server** |
 | ---- | ---- | ---- |
 | **General**  | | |
 | General availability | GA since 2018 | Public Preview |
