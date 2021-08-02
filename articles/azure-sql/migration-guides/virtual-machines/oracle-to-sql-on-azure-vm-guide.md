@@ -261,8 +261,7 @@ Creation date: Today's current date, defined automatically.
 Last Modified date: filled in automatically, should not be changed.
 Description: Enter any additional information to identify the purpose of the test case.
 
- ![Screenshot that shows step to initialize a test case .](./media/oracle-to-sql-on-azure-vm-guide/tester-init-test-case.png)
-  :::image type="content" source=" alt-text="Screenshot that shows step to initialize a test case.":::
+  :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/tester-init-test-case.png)" alt-text="Screenshot that shows step to initialize a test case.":::
  
 3.In the Oracle object tree located on the left side, select the objects you want to evaluate  during the testing process.
 
