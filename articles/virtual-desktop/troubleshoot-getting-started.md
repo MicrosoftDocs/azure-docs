@@ -200,7 +200,7 @@ The user group for the validation users is located in the "USERS" container. How
     "status": "Failed",
     "error": {
         "code": "ResourceDeploymentFailure",
-        "message": "The resource operation completed with terminal prvisioning state ‘Failed’."
+        "message": "The resource operation completed with terminal provisioning state ‘Failed’."
     }
 }
 ```
