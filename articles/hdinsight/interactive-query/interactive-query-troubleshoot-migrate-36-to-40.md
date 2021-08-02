@@ -145,11 +145,13 @@ MetaStoreAuthzAPIAuthorizerEmbedOnly effectively disables security checks becaus
 ## Unable to query table with OpenCSVSerde
 
 Issue: Reading data from `csv` format table may throw exception like:
-`MetaException(message:java.lang.UnsupportedOperationException: Storage schema reading not supported)`
+```text
+MetaException(message:java.lang.UnsupportedOperationException: Storage schema reading not supported)
+```
 
 Workaround:
 
-* Set configuration `metastore.storage.schema.reader.impl` to `org.apache.hadoop.hive.metastore.SerDeStorageSchemaReader` in `custom-hive-site` in Ambari
+* Add configuration `metastore.storage.schema.reader.impl`=`org.apache.hadoop.hive.metastore.SerDeStorageSchemaReader` in `Custom hive-site` via Ambari UI
 
 * Restart all stale hive services
 
