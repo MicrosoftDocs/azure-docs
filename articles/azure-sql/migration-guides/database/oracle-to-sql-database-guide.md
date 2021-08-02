@@ -173,7 +173,7 @@ Description: Enter any additional information to identify the purpose of the tes
  ![Screenshot that shows steps to initialize a test case .](./media/oracle-to-sql-database-guide/tester-init-test-case.png)
 
 3.In the Oracle object tree located on the left side, select the objects you want to evaluate  during the testing process.
-  :::image type="content" source="./media/oracle-to-sql-database-guidetester-select-configure-objects.png" alt-text="Screenshot that shows step to  select and configure object.":::
+  :::image type="content" source="./media/oracle-to-sql-database-guide/tester-select-configure-objects.png" alt-text="Screenshot that shows step to  select and configure object.":::
 
 In this example,  stored procedure ADD_REGION and table REGION are selected.
 
@@ -209,11 +209,11 @@ When SSMA Tester runs a test case, the test engine executes the objects selected
 
 2.Next, it  will launch run Test case page. Click run.
 
-:::image type="content" source="./media/oracle-to-sql-database-guide/tester-run-test-case.png" alt-text="Screenshot that shows step to connect to  oracle source.":::
+:::image type="content" source="./media/oracle-to-sql-database-guide/tester-run-test-case.png" alt-text="Screenshot that shows step to run test case":::
 
 3.Next, you would be prompted to provide source oracle credentials. Click connect after entering the credentials.
 
-  :::image type="content" source="./media/oracle-to-sql-database-guide/tester-oracle-connect.png" alt-text="Screenshot that shows step to connect to  sql target.":::
+  :::image type="content" source="./media/oracle-to-sql-database-guide/tester-oracle-connect.png" alt-text="Screenshot that shows step to connect to  oracle source":::
 
 4.In the next step, you need to  provide target SQL Server credentials. Click connect after entering the user details.
 
@@ -227,7 +227,8 @@ On success, it will go to initialization stage.
 
 6.Once the test case is executed, tester module will generate a report, which provides the statistics, any errors during the test run and a detail report.
 
-  :::image type="content" source="(./media/oracle-to-sql-database-guide/tester-test-result.png" alt-text="Screenshot that shows a sample tester test report":::
+ :::image type="content" source="./media/oracle-to-sql-database-guide/tester-test-result.png" alt-text="Screenshot that shows a sample tester test report":::
+
 
 7.Click details to get more information.
 

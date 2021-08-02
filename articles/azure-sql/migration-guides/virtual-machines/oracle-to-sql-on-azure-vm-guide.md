@@ -244,12 +244,6 @@ To test your database migration, complete these activities:
 
 Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows you to test the migrated database objects the migrated data. The tester is primarily used to verify that converted objects behave in the same way.
 
-Few common scenarios
-• Are the changes in table data identical?
-• Are the values of output parameters for procedures and functions identical?
-• Do functions return the same results?
-• Are the result sets identical?
-
 #### Create test case
 
 1. In SSMA for oracle, select Tester followed by New Test Case.
@@ -305,7 +299,7 @@ When SSMA Tester runs a test case, the test engine executes the objects selected
 
 2.Next, it  will launch run Test case page. Click run.
 
-:::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/tester-repo-run.png" alt-text="Screenshot that shows step to launch  test case.":::
+:::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/tester-run-test-case.png" alt-text="Screenshot that shows step to launch  test case.":::
 
 3.Next, you would be prompted to provide source oracle credentials. Click connect after entering the credentials.
 
