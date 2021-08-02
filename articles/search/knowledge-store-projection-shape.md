@@ -17,11 +17,63 @@ FOLLOWED SKILLSET EXAMPLE (see new file for that content.  Should these be conso
 
 When enriching content in Azure Cognitive Search, you can send the output to a [knowledge store](knowledge-store-concept-intro.md) in Azure Storage. This article explains how to shape a projection to get the data structures you want for analysis in Power BI or other knowledge mining apps.
 
-*Projection* is the process of selecting the nodes from the enrichment tree and creating a physical expression of them in the knowledge store. Projections are custom shapes of the document (content and enrichments) that can be output as either table or object projections. 
+In Azure Cognitive Search, *projection* is the process of taking nodes from the enrichment tree and creating a physical expression of them in the knowledge store. Projections are custom shapes of the document (content and enrichments) that can be output as either table or object projections. 
 
-A projection is also an element in a skillset definition. How you set up a projection determines what goes into blobs, tables, and files in Azure Storage. For more information, see [working with projections](knowledge-store-projection-overview.md).
+A [projection](knowledge-store-projection-overview.md) is also an element in a skillset definition. How you set up a projection determines what goes into blobs, tables, and files in Azure Storage. 
 
-![Field mapping options](./media/cognitive-search-working-with-skillsets/field-mapping-options.png "Field mapping options for enrichment pipeline")
+```json
+"knowledgeStore" : {
+"storageConnectionString": "{{storage-connection-string}}",
+"projections": [
+        {
+            "tables": [
+                {
+                    "tableName": "crossDocument",
+                    "generatedKeyName": "Id",
+                    "source": "/document/crossProjection"
+                },
+                {
+                    "tableName": "crossEntities",
+                    "generatedKeyName": "EntityId",
+                    "source": "/document/crossProjection/entities/*"
+                },
+                {
+                    "tableName": "crossKeyPhrases",
+                    "generatedKeyName": "KeyPhraseId",
+                    "source": "/document/crossProjection/keyPhrases/*"
+                },
+                {
+                    "tableName": "crossReference",
+                    "generatedKeyName": "CrossId",
+                    "source": "/document/crossProjection/images/*"
+                }
+                    
+            ],
+            "objects": [
+                {
+                    "storageContainer": "crossobject",
+                    "generatedKeyName": "crosslayout",
+                    "source": null,
+                    "sourceContext": "/document/crossProjection/images/*/layoutText",
+                    "inputs": [
+                        {
+                            "name": "OcrLayoutText",
+                            "source": "/document/crossProjection/images/*/layoutText"
+                        }
+                    ]
+                }
+            ],
+            "files": [
+                    {
+                    "storageContainer": "crossimages",
+                    "generatedKeyName": "crossimages",
+                    "source": "/document/crossProjection/images/*/image"
+                }
+                ]
+            
+        }
+    ]
+```
 
 ## Approaches for defining projections
 
