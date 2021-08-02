@@ -1,6 +1,6 @@
 ---
-title: Copy data from Concur using Azure Data Factory (Preview) 
-description: Learn how to copy data from Concur to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
+title: Copy data from Concur (Preview) 
+description: Learn how to copy data from Concur to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 author: jianleishen
 
 ms.service: data-factory
@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: jianleishen
 ---
-# Copy data from Concur using Azure Data Factory (Preview)
+# Copy data from Concur using Azure Data Factory or Synapse Analytics(Preview)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Concur. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Concur. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!IMPORTANT]
 > This connector is currently in preview. You can try it out and give us feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
@@ -33,7 +33,7 @@ You can copy data from Concur to any supported sink data store. For a list of da
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties that are used to define Data Factory entities specific to Concur connector.
+The following sections provide details about properties that are used to define entities specific to Concur connector.
 
 ## Linked service properties
 
@@ -48,9 +48,9 @@ The following properties are supported for Concur linked service:
 | host | The endpoint of the Concur server, e.g. `implementation.concursolutions.com`.  | Yes |
 | baseUrl | The base URL of your Concur's authorization URL. | Yes for `OAuth_2.0_Bearer` authentication |
 | clientId | Application client ID supplied by Concur App Management.  | Yes |
-| clientSecret | The client secret corresponding to the client ID. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes for `OAuth_2.0_Bearer` authentication |
+| clientSecret | The client secret corresponding to the client ID. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes for `OAuth_2.0_Bearer` authentication |
 | username | The user name that you use to access Concur service. | Yes |
-| password | The password corresponding to the user name that you provided in the username field. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| password | The password corresponding to the user name that you provided in the username field. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
 | useHostVerification | Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over TLS. The default value is true.  | No |
 | usePeerVerification | Specifies whether to verify the identity of the server when connecting over TLS. The default value is true.  | No |
@@ -186,4 +186,4 @@ To copy data from Concur, set the source type in the copy activity to **ConcurSo
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
