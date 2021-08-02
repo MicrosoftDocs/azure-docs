@@ -16,7 +16,7 @@ keywords: translator, text translation, machine translation, translation service
 
 # What is Text Translation?
 
-Text translation is a REST API that enables you to easily translate text in real time. You add Text Translation to your applications using REST APIs or client SDKs. The [REST API]() text projects 
+ Text translation is a cloud-based REST API translation service that uses AI and Neural Machine Translation (NMT) technology to quickly and accurately translate source-to-target language text in real time. Using a Text Translation uses N) technology 
 
 Translate text between thousands of language pairs.
 Detect text language.

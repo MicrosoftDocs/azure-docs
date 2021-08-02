@@ -71,6 +71,8 @@
     items:
     - name: v3 Translator reference
       href: reference/v3-0-reference.md
+     - name: Text Translator REST APIs
+       href:  
     - name: Languages
       href: reference/v3-0-languages.md
     - name: Translate
@@ -103,7 +105,7 @@
         href: document-translation/managed-identity.md
     - name: Reference
       items:
-      - name:  REST API reference guide
+      - name:  Document Translation REST APIs
         href: document-translation/reference/rest-api-guide.md
       - name: Get supported document formats
         href: document-translation/reference/get-supported-document-formats.md
