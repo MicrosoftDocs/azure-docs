@@ -169,8 +169,6 @@
     items:
     - name: Monitor Azure Files
       href: storage-files-monitoring.md
-    - name: Scenarios and best practices
-      href: storage-files-monitor-scenarios.md
   - name: Migrate
     items:
     - name: Migrate to Azure file shares

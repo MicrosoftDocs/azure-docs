@@ -535,7 +535,7 @@ items:
     - name: Monitor
       items:
       - name: Scenarios and best practices
-        href: blob-storage-scenarios.md
+        href: blob-storage-monitoring-scenarios.md
       - name: Use Storage insights
         href: ../common/storage-insights-overview.md
       - name: Monitor (classic)
