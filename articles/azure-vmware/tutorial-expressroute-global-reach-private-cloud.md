@@ -15,7 +15,7 @@ After you deploy your Azure VMware Solution private cloud, you'll connect it to 
 >[!NOTE]
 >You can connect through VPN, but that's out of scope for this quick start guide.
 
-In this article, you'll':
+In this article, you'll:
 
 > [!div class="checklist"]
 > * Create an ExpressRoute auth key in the on-premises ExpressRoute circuit
