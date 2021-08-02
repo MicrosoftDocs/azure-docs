@@ -103,7 +103,7 @@ If you're using a local CQLSH client, change the `--connect-timeout` or `--reque
 
 If the count still times out, you can get a count of records from the Azure Cosmos DB back-end telemetry by going to the metrics tab in the Azure portal, selecting the metric `document count`, and then adding a filter for the database or collection (the analog of the table in Azure Cosmos DB). You can then hover over the resulting graph for the point in time at which you want a count of the number of records.
 
-:::image type="content" source="./media/cassandra-troubleshoot/metrics.png" alt-text="metrics view":::
+:::image type="content" source="./media/troubleshoot-common-issues/metrics.png" alt-text="metrics view":::
 
 ## Configure ReconnectionPolicy for the Java driver
 

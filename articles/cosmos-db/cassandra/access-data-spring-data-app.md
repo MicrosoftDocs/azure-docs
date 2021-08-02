@@ -146,10 +146,10 @@ For more information about using Azure with Java, see the [Azure for Java Develo
 
 <!-- IMG List -->
 
-[COSMOSDB01]: media/configure-spring-data-apache-cassandra-with-cosmos-db/create-cosmos-db-01.png
-[COSMOSDB02]: media/configure-spring-data-apache-cassandra-with-cosmos-db/create-cosmos-db-02.png
-[COSMOSDB03]: media/configure-spring-data-apache-cassandra-with-cosmos-db/create-cosmos-db-03.png
-[COSMOSDB04]: media/configure-spring-data-apache-cassandra-with-cosmos-db/create-cosmos-db-04.png
-[COSMOSDB05]: media/configure-spring-data-apache-cassandra-with-cosmos-db/create-cosmos-db-05.png
-[COSMOSDB05-1]: media/configure-spring-data-apache-cassandra-with-cosmos-db/create-cosmos-db-05-1.png
-[COSMOSDB06]: media/configure-spring-data-apache-cassandra-with-cosmos-db/create-cosmos-db-06.png
+[COSMOSDB01]: media/access-data-spring-data-app/create-cosmos-db-01.png
+[COSMOSDB02]: media/access-data-spring-data-app/create-cosmos-db-02.png
+[COSMOSDB03]: media/access-data-spring-data-app/create-cosmos-db-03.png
+[COSMOSDB04]: media/access-data-spring-data-app/create-cosmos-db-04.png
+[COSMOSDB05]: media/access-data-spring-data-app/create-cosmos-db-05.png
+[COSMOSDB05-1]: media/access-data-spring-data-app/create-cosmos-db-05-1.png
+[COSMOSDB06]: media/access-data-spring-data-app/create-cosmos-db-06.png

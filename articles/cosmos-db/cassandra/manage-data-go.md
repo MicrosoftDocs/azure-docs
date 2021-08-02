@@ -223,7 +223,7 @@ As previously mentioned, the application accepts connectivity and credentials in
 
 1. In your Azure Cosmos DB account in the [Azure portal](https://portal.azure.com/), select **Connection String**. 
 
-    :::image type="content" source="./media/create-cassandra-go/copy-username-connection-string-azure-portal.png" alt-text="View and copy details from the Connection String page in Azure portal":::
+    :::image type="content" source="./media/manage-data-go/copy-username-connection-string-azure-portal.png" alt-text="View and copy details from the Connection String page in Azure portal":::
 
 Copy the values for the following attributes (`CONTACT POINT`, `PORT`, `USERNAME` and `PRIMARY PASSWORD`) and set them to the respective environment variables
 
@@ -250,7 +250,7 @@ go run main.go
 
 4. In the Azure portal, open **Data Explorer** to query, modify, and work with this new data. 
 
-    :::image type="content" source="./media/create-cassandra-go/view-data-explorer-go-app.png" alt-text="View the data in Data Explorer - Azure Cosmos DB":::
+    :::image type="content" source="./media/manage-data-go/view-data-explorer-go-app.png" alt-text="View the data in Data Explorer - Azure Cosmos DB":::
 
 ## Review SLAs in the Azure portal
 

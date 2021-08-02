@@ -118,9 +118,9 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In the [Azure portal](https://portal.azure.com/), select **Connection String**.
 
-1. Use the :::image type="icon" source="./media/create-cassandra-dotnet/copy.png"::: button on the right side of the screen to copy the USERNAME value.
+1. Use the :::image type="icon" source="./media/manage-data-dotnet/copy.png"::: button on the right side of the screen to copy the USERNAME value.
 
-   :::image type="content" source="./media/create-cassandra-dotnet/keys.png" alt-text="View and copy an access key in the Azure portal, Connection String page":::
+   :::image type="content" source="./media/manage-data-dotnet/keys.png" alt-text="View and copy an access key in the Azure portal, Connection String page":::
 
 1. In Visual Studio, open the Program.cs file. 
 
@@ -155,13 +155,13 @@ Now go back to the Azure portal to get your connection string information and co
     ```
 3. Press CTRL + F5 to run the application. Your app displays in your console window. 
 
-    :::image type="content" source="./media/create-cassandra-dotnet/output.png" alt-text="View and verify the output":::
+    :::image type="content" source="./media/manage-data-dotnet/output.png" alt-text="View and verify the output":::
 
     Press CTRL + C to stop execution of the program and close the console window. 
     
 4. In the Azure portal, open **Data Explorer** to query, modify, and work with this new data.
 
-    :::image type="content" source="./media/create-cassandra-dotnet/data-explorer.png" alt-text="View the data in Data Explorer":::
+    :::image type="content" source="./media/manage-data-dotnet/data-explorer.png" alt-text="View the data in Data Explorer":::
 
 ## Review SLAs in the Azure portal
 

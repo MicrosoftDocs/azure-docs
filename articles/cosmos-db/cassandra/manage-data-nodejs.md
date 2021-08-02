@@ -179,9 +179,9 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In your Azure Cosmos DB account in the [Azure portal](https://portal.azure.com/), select **Connection String**. 
 
-1. Use the :::image type="icon" source="./media/create-cassandra-nodejs/copy.png"::: button on the right side of the screen to copy the top value, the CONTACT POINT.
+1. Use the :::image type="icon" source="./media/manage-data-nodejs/copy.png"::: button on the right side of the screen to copy the top value, the CONTACT POINT.
 
-    :::image type="content" source="./media/create-cassandra-nodejs/keys.png" alt-text="View and copy the CONTACT POINT, USERNAME,and PASSWORD from the Azure portal, connection string page":::
+    :::image type="content" source="./media/manage-data-nodejs/keys.png" alt-text="View and copy the CONTACT POINT, USERNAME,and PASSWORD from the Azure portal, connection string page":::
 
 1. Open the `config.js` file. 
 
@@ -224,13 +224,13 @@ Now go back to the Azure portal to get your connection string information and co
 
 4. Verify the results as expected from the command line.
 
-    :::image type="content" source="./media/create-cassandra-nodejs/output.png" alt-text="View and verify the output":::
+    :::image type="content" source="./media/manage-data-nodejs/output.png" alt-text="View and verify the output":::
 
     Press CTRL+C to stop execution of the program and close the console window. 
 
 5. In the Azure portal, open **Data Explorer** to query, modify, and work with this new data. 
 
-    :::image type="content" source="./media/create-cassandra-nodejs/data-explorer.png" alt-text="View the data in Data Explorer"::: 
+    :::image type="content" source="./media/manage-data-nodejs/data-explorer.png" alt-text="View the data in Data Explorer"::: 
 
 ## Review SLAs in the Azure portal
 
