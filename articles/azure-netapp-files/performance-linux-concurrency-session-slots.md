@@ -124,7 +124,7 @@ The following table shows a sample study of concurrency with arbitrary latencies
 
 ### How to calculate concurrency settings by connection count
 
-For example, if the workload is an EDA farm, and 1,250 clients all drive workload to the same storage end point (a storage endpoint is a storage IP address), then you calculate the required I/O rate and divide the concurrency across the farm.
+For example, if the workload is an EDA farm and 1,250 clients all drive workload to the same storage end point (a storage endpoint is a storage IP address), then you calculate the required I/O rate and divide the concurrency across the farm.
 
 Assume that the workload is 4,000 MiB/s using a 256-KiB average operation size and an average latency of 10 ms. To calculate concurrency, use the following formula:
 
