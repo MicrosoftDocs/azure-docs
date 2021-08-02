@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 07/22/2021
 ms.author: aahi
 ---
 
@@ -71,7 +71,7 @@ Use bind mounts to read and write data to and from the container. You can specif
 
 The Standard Speech containers don't use input or output mounts to store training or service data. However, custom speech containers rely on volume mounts.
 
-The exact syntax of the host mount location varies depending on the host operating system. Additionally, the [host computer](speech-container-howto.md#the-host-computer)'s mount location may not be accessible due to a conflict between permissions used by the docker service account and the host mount location permissions.
+The exact syntax of the host mount location varies depending on the host operating system. Additionally, the [host computer](speech-container-howto.md#host-computer-requirements-and-recommendations)'s mount location may not be accessible due to a conflict between permissions used by the docker service account and the host mount location permissions.
 
 | Optional | Name | Data type | Description |
 | -------- | ---- | --------- | ----------- |

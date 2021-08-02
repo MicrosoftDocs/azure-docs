@@ -1,18 +1,12 @@
 ---
- title: include file
- description: include file
- services: virtual-wan
- author: cherylmc
- ms.service: virtual-wan
- ms.topic: include
- ms.date: 10/06/2020
- ms.author: cherylmc
- ms.custom: include file
+ms.author: cherylmc
+author: cherylmc
+ms.date: 07/29/2021
+ms.service: virtual-wan
+ms.topic: include
 ---
 
-#### Microsoft Windows
-
-##### OpenVPN
+**Open VPN**
 
 1. Download and install the OpenVPN client from the official website.
 1. Download the VPN profile for the gateway. This can be done from the User VPN configurations tab in Azure portal, or New-AzureRmVpnClientConfiguration in PowerShell.
@@ -23,7 +17,7 @@
 1. Copy the vpnconfig.ovpn file to C:\Program Files\OpenVPN\config folder.
 1. Right-click the OpenVPN icon in the system tray and select **connect**.
 
-##### IKEv2
+**IKEv2**
 
 1. Select the VPN client configuration files that correspond to the architecture of the Windows computer. For a 64-bit processor architecture, choose the 'VpnClientSetupAmd64' installer package. For a 32-bit processor architecture, choose the 'VpnClientSetupX86' installer package.
 1. Double-click the package to install it. If you see a SmartScreen popup, select **More info**, then **Run anyway**.

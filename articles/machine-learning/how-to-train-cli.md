@@ -10,7 +10,7 @@ author: lostmygithubaccount
 ms.author: copeters
 ms.date: 06/18/2021
 ms.reviewer: laobri
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devplatv2
 ---
 
 # Train models (create jobs) with the 2.0 CLI (preview)

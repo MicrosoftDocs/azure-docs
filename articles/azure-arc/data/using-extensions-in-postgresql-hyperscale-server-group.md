@@ -8,7 +8,7 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
@@ -54,12 +54,12 @@ For details about that are `shared_preload_libraries`, read the PostgreSQL docum
 - this step isn't required for extensions that are not required to pre-load by shared_preload_libraries. For these extensions you may jump the next paragraph [Create extensions](#create-extensions).
 
 ### Add an extension at the creation time of a server group
-```console
-azdata arc postgres server create -n <name of your postgresql server group> --extensions <extension names>
+```azurecli
+az postgres arc-server create -n <name of your postgresql server group> --extensions <extension names>
 ```
 ### Add an extension to an instance that already exists
-```console
-azdata arc postgres server edit -n <name of your postgresql server group> --extensions <extension names>
+```azurecli
+az postgres arc-server server edit -n <name of your postgresql server group> --extensions <extension names>
 ```
 
 
@@ -68,9 +68,9 @@ azdata arc postgres server edit -n <name of your postgresql server group> --exte
 ## Show the list of extensions added to shared_preload_libraries
 Run either of the following command.
 
-### With an azdata CLI command
-```console
-azdata arc postgres server show -n <server group name>
+### With CLI command
+```azurecli
+az postgres arc-server show -n <server group name>
 ```
 Scroll in the output and notice the engine\extensions sections in the specifications of your server group. For example:
 ```console
@@ -180,8 +180,8 @@ SELECT name, address FROM coffee_shops ORDER BY geom <-> ST_SetSRID(ST_MakePoint
 
 Now, let's enable `pg_cron` on our PostgreSQL server group by adding it to the shared_preload_libraries:
 
-```console
-azdata postgres server update -n pg2 -ns arc --extensions pg_cron
+```azurecli
+az postgres arc-server update -n pg2 -ns arc --extensions pg_cron
 ```
 
 Your server group will restart complete the installation of the  extensions. It may take 2 to 3 minutes.
