@@ -1,7 +1,6 @@
-
 ---
 title: n-series-migration
-description: N*-series migration guide
+description: NC, ND, NCv2-series migration guide
 author: iafinder
 ms.service: virtual-machines
 ms.subservice: vm-sizes-gpu
