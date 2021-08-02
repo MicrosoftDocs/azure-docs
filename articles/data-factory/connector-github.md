@@ -8,12 +8,11 @@ ms.date: 06/03/2020
 ms.author: jingwang
 ---
 
-
 # Use GitHub to read Common Data Model entity references
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-The GitHub connector in Azure Data Factory is only used to receive the entity reference schema for the [Common Data Model](format-common-data-model.md) format in mapping data flow.
+The GitHub connector in Azure Data Factory and Synapse Analytics pipelines is only used to receive the entity reference schema for the [Common Data Model](format-common-data-model.md) format in mapping data flow.
 
 ## Linked service properties
 
