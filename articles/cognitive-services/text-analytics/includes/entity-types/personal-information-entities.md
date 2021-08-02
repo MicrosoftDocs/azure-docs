@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include 
-ms.date: 04/14/2021
+ms.date: 08/02/2021
 ms.author: aahi
 ---
 
@@ -308,7 +308,7 @@ This category contains the following entity:
 
 :::row-end:::
 
-### Category: IPaddress
+### Category: IPAddress
 
 This category contains the following entity:
 
