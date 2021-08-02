@@ -95,7 +95,7 @@ For more information, see [Managed HSM soft-delete overview](soft-delete-overvie
     az keyvault update-hsm --subscription {SUBSCRIPTION ID} -g {RESOURCE GROUP} --hsm-name {HSM NAME} --enable-purge-protection true
     ```
 
-### Keys 
+### Keys (CLI)
 
 * To delete a key:
 
@@ -142,7 +142,7 @@ For more information, see [Managed HSM soft-delete overview](soft-delete-overvie
 > Additional Managed HSM soft-delete and purge protection PowerShell commands will be enabled soon.
 
 
-### Keys 
+### Keys (PowerShell)
 
 * To delete a key:
 
