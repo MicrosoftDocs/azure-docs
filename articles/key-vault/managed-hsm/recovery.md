@@ -54,7 +54,7 @@ For more information, see [Managed HSM soft-delete overview](soft-delete-overvie
 
 # [Azure CLI](#tab/azure-cli)
 
-### Managed HSMs 
+### Managed HSMs (CLI) 
 
 * To check the status of soft-delete and purge protection for a managed HSM:
 
@@ -125,7 +125,7 @@ For more information, see [Managed HSM soft-delete overview](soft-delete-overvie
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-### Managed HSMs
+### Managed HSMs (PowerShell)
 
 * To check the status of soft-delete and purge protection for a managed HSM:
 

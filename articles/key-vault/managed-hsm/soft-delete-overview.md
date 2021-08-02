@@ -41,7 +41,7 @@ When purge protection is on, an HSM or key in the deleted state can't be purged 
 
 The default retention period is 90 days. You can set the retention policy interval to a value from 7 to 90 days when you create an HSM. The retention policy interval can be set only when you create an HSM. It can't be changed later.
 
-See [How to use Managed HSM soft-delete with CLI](./recovery.md?tabs=azure-cli#managed-hsm-cli) or [How to use Managed HSM soft-delete with PowerShell](./recovery.md?tabs=azure-powershell#managed-hsm-powershell).
+See [How to use Managed HSM soft-delete with CLI](./recovery.md?tabs=azure-cli#managed-hsms-cli) or [How to use Managed HSM soft-delete with PowerShell](./recovery.md?tabs=azure-powershell#managed-hsms-powershell).
 
 ## Managed HSM recovery
 
