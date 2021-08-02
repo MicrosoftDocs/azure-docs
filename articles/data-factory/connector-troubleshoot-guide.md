@@ -957,12 +957,6 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Recommendation**: Check the HTTP status code or the requested URL or the response payload in the error message and fix the remote server issue.
 
-### Error code: RestSinkUNSupportedCompressionType
-
-- **Message**: `User Configured CompressionType is Not Supported By Azure Data Factory：%message;`
-
-- **Recommendation**: Check the supported compression types for the REST sink.
-
 ### Unexpected network response from the REST connector
 
 - **Symptoms**: The endpoint sometimes receives an unexpected response (400, 401, 403, 500) from the REST connector.
