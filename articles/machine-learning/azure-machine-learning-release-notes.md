@@ -22,12 +22,10 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 
 ### Azure Machine Learning SDK for Python v1.33.0
   + **azureml-automl-core**
-    + Hierarchical timeseries (HTS) is enabled for forecasting tasks through pipelines.
     + Improved error handling around XGBoost model retrieval.
     + Added possibility to convert the predictions from float to integers for forecasting and regression tasks.
     + Updated default value for enable_early_stopping in AutoMLConfig to True.
   + **azureml-automl-runtime**
-    + Switch to using blob store for caching in Automated ML.
     + Added possibility to convert the predictions from float to integers for forecasting and regression tasks.
     + Updated default value for enable_early_stopping in AutoMLConfig to True.
   + **azureml-contrib-automl-pipeline-steps**
@@ -50,9 +48,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + updated azureml-interpret to interpret-community 0.19.*
   + **azureml-pipeline-core**
     + Hierarchical timeseries (HTS) is enabled for forecasting tasks through pipelines.
-  + **azureml-responsibleai**
-    + A new sample notebook, automl-ml-regression-responsibleai, shows using the new, experimental azureml-responsibleai package to return model explanations for a specific model.
-    + Remove unused `column_transformer` argument from RAI `ModelAnalysis`
   + **azureml-train-automl-client**
     + Switch to using blob store for caching in Automated ML.
     + Hierarchical timeseries (HTS) is enabled for forecasting tasks through pipelines.
