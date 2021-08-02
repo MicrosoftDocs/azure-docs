@@ -60,9 +60,9 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
  
     You also need, at minimum, the seed nodes from your existing datacenter, and the gossip certificates required for node-to-node encryption. Azure Managed Instance for Apache Cassandra requires node-to-node encryption for communication between datacenters. If you do not have node-to-node encryption implemented in your existing cluster, you would need to implement it - see documentation [here](https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/configuration/secureSSLNodeToNode.html). You should supply the path to the location of the certificates. Each certificate should be in PEM format, e.g. `-----BEGIN CERTIFICATE-----\n...PEM format 1...\n-----END CERTIFICATE-----`. In general, there are two ways of implementing certificates:
 
-    1. Self signed certs. This means a private and public (no CA) certificate for each node - in this case we need all public certificates; the root CA certificate, and each node's certificate that was signed with the root CA (refer to instructions on [preparing SSL certificates for production](https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/configuration/secureSSLCertWithCA.html)). 
+    1. Self signed certs. This means a private and public (no CA) certificate for each node - in this case we need all public certificates.
 
-    1. Certs signed by a CA. In this case we only need the root CA certs.
+    1. Certs signed by a CA. This can be a self-signed CA or even a public one. In this case we need the root CA certificate (refer to instructions on [preparing SSL certificates for production](https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/configuration/secureSSLCertWithCA.html)), and all intermediaries (if applicable).
 
     Optionally, if you have also implemented client-to-node certificates (see [here](https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/configuration/secureSSLClientToNode.html)), you also need to provide them in the same format when creating the hybrid cluster. See sample below.
 
