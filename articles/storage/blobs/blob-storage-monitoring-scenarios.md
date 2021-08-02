@@ -23,17 +23,17 @@ Storage Insights is a dashboard on top of Azure Storage metrics and logs. You ca
 From the [Storage Insights view in Azure monitor](../../azure-monitor/insights/storage-insights-overview.md#view-from-azure-monitor), sort your accounts in ascending order by using the **Transactions** column. The following image shows an account with low transaction volume over the specified period. 
 
 > [!div class="mx-imgBorder"]
-> ![transaction volume in Storage Insights](./media/blob-storage-scenarios/storage-insights-transaction-volume.png)
+> ![transaction volume in Storage Insights](./media/blob-storage-monitoring-scenarios/storage-insights-transaction-volume.png)
 
 Click the account link to learn more about these transactions. In this example, most requests are made to the Blob Storage service. 
 
 > [!div class="mx-imgBorder"]
-> ![transaction by service type](./media/blob-storage-scenarios/storage-insights-transactions-by-storage-type.png)
+> ![transaction by service type](./media/blob-storage-monitoring-scenarios/storage-insights-transactions-by-storage-type.png)
 
 To determine what sorts of requests are being made, drill into the **Transactions by API name** chart. 
 
 > [!div class="mx-imgBorder"]
-> ![Storage transaction APIs](./media/blob-storage-scenarios/storage-insights-transaction-apis.png)
+> ![Storage transaction APIs](./media/blob-storage-monitoring-scenarios/storage-insights-transaction-apis.png)
 
 In this example, all requests are listing operations or requests for account property information. There are no read and write transactions. This might lead you to believe that the account is not being used in a significant way. 
 
@@ -42,7 +42,7 @@ In this example, all requests are listing operations or requests for account pro
 From the **Capacity** tab of the [Storage Insights view in Azure monitor](../common/storage-insights-overview.md#view-from-azure-monitor), sort your accounts in ascending order by using the **Account used capacity** column. The following image shows an account with lower capacity volume than other accounts. 
 
 > [!div class="mx-imgBorder"]
-> ![Used storage capacity](./media/blob-storage-scenarios/storage-insights-capacity-used.png)
+> ![Used storage capacity](./media/blob-storage-monitoring-scenarios/storage-insights-capacity-used.png)
 
 To examine the blobs associated with this used capacity, you can use Storage Explorer. For large numbers of blobs, consider generating a report by using a [Blob Inventory policy](blob-inventory.md). 
 
@@ -94,20 +94,20 @@ The section shows you how to identify the "when", "who", "what" and "how" inform
 Resource Manager operations are captured in the [Azure activity log](../../azure-monitor/essentials/activity-log.md). To view the activity log, open your storage account in the Azure portal, and then select **Activity log**.
 
 > [!div class="mx-imgBorder"]
-> ![Activity Log](./media/blob-storage-scenarios/activity-log.png)
+> ![Activity Log](./media/blob-storage-monitoring-scenarios/activity-log.png)
 
 
 Open any log entry to view JSON that describes the activity. The following JSON shows the "when", "what" and "how" information of a control plane operation:
 
 > [!div class="mx-imgBorder"]
-> ![Activity Log JSON](./media/blob-storage-scenarios/activity-log-json.png)
+> ![Activity Log JSON](./media/blob-storage-monitoring-scenarios/activity-log-json.png)
 
 The availability of the  "who" information depends on the method of authentication that was used to perform the control plane operation. If the authorization was performed by an Azure AD security principal, the object identifier of that security principal would also appear in this JSON output (For example: `"http://schemas.microsoft.com/identity/claims/objectidentifier": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"`). Because you might not always see other identity-related information such as an email address or name, the object identifier is always the best way to uniquely identify the security principal. 
 
 You can find the friendly name of that security principal by taking the value of the object identifier, and searching for the security principal in Azure AD page of the Azure portal. The following screenshot shows a search result in Azure AD.
 
 > [!div class="mx-imgBorder"]
-> ![Search Azure Active Directory](./media/blob-storage-scenarios/search-azure-active-directory.png)
+> ![Search Azure Active Directory](./media/blob-storage-monitoring-scenarios/search-azure-active-directory.png)
 
 ### Auditing data plane operations
 
@@ -132,7 +132,7 @@ For the "who" portion of your audit, `AuthenticationType` shows which type of au
 If a request was authenticated by using Azure AD, the `RequesterObjectId` field provides the most reliable way to identify the security principal. You can find the friendly name of that security principal by taking the value of the `RequesterObjectId` field, and searching for the security principal in Azure AD page of the Azure portal. The following screenshot shows a search result in Azure AD.
 
 > [!div class="mx-imgBorder"]
-> ![Search Azure Active Directory](./media/blob-storage-scenarios/search-azure-active-directory.png)
+> ![Search Azure Active Directory](./media/blob-storage-monitoring-scenarios/search-azure-active-directory.png)
 
 In some cases, a user principal name or *UPN* might appear in logs. For example, if the security principal is an Azure AD user, the UPN will likely appear. For other types of security principals such as user assigned managed identities, or in certain scenarios such as cross Azure AD tenant authentication, the UPN will not appear in logs. 
 
