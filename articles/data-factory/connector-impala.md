@@ -1,17 +1,17 @@
 ---
-title: Copy data from Impala by using Azure Data Factory 
-description: Learn how to copy data from Impala to supported sink data stores by using a copy activity in a data factory pipeline.
+title: Copy data from Impala
+description: Learn how to copy data from Impala to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jianleishen
 ---
-# Copy data from Impala by using Azure Data Factory
+# Copy data from Impala using Azure Data Factory or Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use Copy Activity in Azure Data Factory to copy data from Impala. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
+This article outlines how to use Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Impala. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 ## Supported capabilities
 
@@ -22,7 +22,7 @@ This Impala  connector is supported for the following activities:
 
 You can copy data from Impala to any supported sink data store. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Data Factory provides a built-in driver to enable connectivity. Therefore, you don't need to manually install a driver to use this connector.
+The service provides a built-in driver to enable connectivity. Therefore, you don't need to manually install a driver to use this connector.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ Data Factory provides a built-in driver to enable connectivity. Therefore, you d
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties that are used to define Data Factory entities specific to the Impala connector.
+The following sections provide details about properties that are used to define entities specific to the Impala connector.
 
 ## Linked service properties
 
@@ -45,7 +45,7 @@ The following properties are supported for Impala linked service.
 | port | The TCP port that the Impala server uses to listen for client connections. The default value is 21050.  | No |
 | authenticationType | The authentication type to use. <br/>Allowed values are **Anonymous**, **SASLUsername**, and **UsernameAndPassword**. | Yes |
 | username | The user name used to access the Impala server. The default value is anonymous when you use SASLUsername.  | No |
-| password | The password that corresponds to the user name when you use UsernameAndPassword. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| password | The password that corresponds to the user name when you use UsernameAndPassword. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | enableSsl | Specifies whether the connections to the server are encrypted by using TLS. The default value is **false**.  | No |
 | trustedCertPath | The full path of the .pem file that contains trusted CA certificates used to verify the server when you connect over TLS. This property can be set only when you use TLS on Self-hosted Integration Runtime. The default value is the cacerts.pem file installed with the integration runtime.  | No |
 | useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is **false**.  | No |
@@ -159,4 +159,4 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
