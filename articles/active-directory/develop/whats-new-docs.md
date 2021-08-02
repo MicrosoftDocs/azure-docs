@@ -22,7 +22,6 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 
 ### New articles
 
-- [Application registration security best practices for Azure AD application registration](app-registration-security-best-practices.md)
 - [Azure AD application registration security best practices](security-best-practices-for-app-registration.md)
 - [Role-based access control for application developers](custom-rbac-for-developers.md)
 
