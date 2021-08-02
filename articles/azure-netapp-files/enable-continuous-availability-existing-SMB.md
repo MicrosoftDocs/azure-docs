@@ -44,7 +44,9 @@ You can enable the SMB Continuous Availability (CA) feature when you [create a n
     get-smbconnection | select -Property servername,ContinuouslyAvailable
     ```
  
-    If you know the server name, you can include the `-servername` parameter in the command. See the [Get-SmbConnection](powershell/module/smbshare/get-smbconnection?view=windowsserver2019-ps&preserve-view=true) powershell command details.
+    You might need to install a newer PowerShell version. 
+
+    If you know the server name, you can use the `-servername` parameter in the command. See the [Get-SmbConnection](/powershell/module/smbshare/get-smbconnection?view=windowsserver2019-ps&preserve-view=true) powershell command details.
 
 ## Next steps  
 
