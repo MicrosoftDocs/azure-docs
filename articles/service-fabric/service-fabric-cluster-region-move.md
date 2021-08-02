@@ -23,7 +23,7 @@ Before engaging in any regional migration, we recommend establishing a testbed a
    -  For stateful workloads: 
       * <p>In order to ensure that your stateful services have reached a stable point, first ensure that you have stopped incoming traffic to those services. How you do this will depend on how traffic is delivered to your services. For example, you might have to cut off the service from Event Hubs or prevent a service like APIM or the Azure Network Load Balancer from routing traffic to the service by removing appropriate routing or forwarding rules. Once traffic has ceased and the services have completed any background work related to those requests, then you can continue. </p>
       
-      * <p>Take a backup from any stateful services by using the [backup restore service](service-fabric-reliable-services-backup-restore.md) and doing an [on-demand backup](service-fabric-backup-restore-service-ondemand-backup.md). Make sure this is done after the traffic has ceased and any background processing work is complete. Once complete, you can then [restore the data](service-fabric-backup-restore-service-trigger-restore.md) into the stateful services in the new region and cluster. Make sure the Azure storage account used to take the backup has to be accessible from new region.</p>
+      * Take a backup from any stateful services by using the [backup restore service](service-fabric-reliable-services-backup-restore.md) and doing an [on-demand backup](service-fabric-backup-restore-service-ondemand-backup.md). Make sure this is done after the traffic has ceased and any background processing work is complete. Once complete, you can then [restore the data](service-fabric-backup-restore-service-trigger-restore.md) into the stateful services in the new region and cluster. Make sure the Azure storage account used to take the backup has to be accessible from new region.
 
    -  For stateless services: 
       * <p>There should be no extra work beyond deploying the services into the new cluster, ideally as a part of the ARM application deployment accomplished in step 2, and ensuring that they are configured the same as in the source cluster.</p>
@@ -41,5 +41,3 @@ Before engaging in any regional migration, we recommend establishing a testbed a
 6. As a final validation, verify that traffic is flowing as expected and that the services in the new region (and potentially the old region) are operating as expected. 
 
 7. If you do not plan to keep the original source region, then at this point the resources in that region can be removed. We recommend waiting for some time before deleting resources, in case some issue is discovered that requires a rollback to the original source region.  
-
-
