@@ -238,7 +238,7 @@ This section shows you how to configure Azure Static Web Apps to use a custom au
 
 You're required to register your application's details with an identity provider. Check with the provider regarding the steps needed to generate a **client ID** and **client secret** for your application.
 
-Next, create the following application settings:
+Once the application is registered with the identity provider, create the following application secrets in the [application settings](application-settings.md) of the Static Web App:
 
 | Setting Name | Value |
 | --- | --- |
