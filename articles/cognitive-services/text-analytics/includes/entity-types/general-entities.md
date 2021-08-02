@@ -524,7 +524,7 @@ This category contains the following entity:
     :::column span="2":::
         **Details**
 
-        network IPAddress addresses. 
+        network IP addresses. 
       
     :::column-end:::
     :::column span="2":::
