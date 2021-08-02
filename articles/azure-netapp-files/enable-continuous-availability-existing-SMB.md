@@ -38,6 +38,14 @@ You can enable the SMB Continuous Availability (CA) feature when you [create a n
     > [!NOTE]
     > Selecting the **Enable Continuous Availability** option alone does not automatically make the existing SMB sessions continuously available. After selecting the option, be sure to reboot the server for the change to take effect.  
 
+5. Use the following command to verify that CA is enabled and used on your system that’s mounting the volume:
+
+    ```powershell-interactive
+    get-smbconnection | select -Property servername,ContinuouslyAvailable
+    ```
+ 
+    If you know the server name, you can include the `-servername` parameter in the command. See the [Get-SmbConnection](en-us/powershell/module/smbshare/get-smbconnection?view=windowsserver2019-ps) powershell command details.
+
 ## Next steps  
 
 * [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md)
