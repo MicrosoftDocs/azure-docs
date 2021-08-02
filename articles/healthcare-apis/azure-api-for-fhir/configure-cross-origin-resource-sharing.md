@@ -14,6 +14,8 @@ Azure API for Fast Healthcare Interoperability Resources (FHIR) supports [cross-
 
 CORS is often used in a single-page app that must call a RESTful API to a different domain.
 
+## Configure CORS settings
+
 To configure a CORS setting in the Azure API for FHIR, specify the following settings:
 
 - **Origins (Access-Control-Allow-Origin)**. A list of domains allowed to make cross-origin requests to the Azure API for FHIR. Each domain (origin) must be entered in a separate line. You can enter an asterisk (*) to allow calls from any domain, but we don't recommend it because it's a security risk.

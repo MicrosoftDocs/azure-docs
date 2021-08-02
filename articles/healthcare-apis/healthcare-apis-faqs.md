@@ -13,6 +13,8 @@ ms.author: ginle
 
 # Frequently asked questions about Azure Healthcare APIs (preview)
 
+These are some of the frequently asked questions for the Azure Healthcare APIs.
+
 ## Azure Healthcare APIs: The basics
 
 ### What is the Azure Healthcare APIs?
