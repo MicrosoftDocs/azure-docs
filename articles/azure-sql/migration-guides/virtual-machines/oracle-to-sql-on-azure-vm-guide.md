@@ -253,25 +253,28 @@ Few common scenarios
 #### Create test case
 
 1. In SSMA for oracle, select Tester followed by New Test Case.
- ![Screenshot that shows new test case.](./media/oracle-to-sql-on-azure-vm-guide/ssma-tester-new.png)
-
+   :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/ssma-tester-new.png" alt-text="Screenshot that shows new test case.":::
 2.On the Test Case wizard, provide the following information.
 
 Name: Enter the name to identify the test case.
 Creation date: Today's current date, defined automatically.
 Last Modified date: filled in automatically, should not be changed.
 Description: Enter any additional information to identify the purpose of the test case.
- ![Screenshot that shows step to initialize a test case .](./media/oracle-to-sql-on-azure-vm-guide/tester-init-test-case.png)
 
-3.In the Oracle object tree located on the left side, select the objects you want to evaluate  during the testing process.
- ![Screenshot that shows step to  select and configure object .](./media/oracle-to-sql-on-azure-vm-guide/tester-select-configure-objects.png)
+ ![Screenshot that shows step to initialize a test case .](./media/oracle-to-sql-on-azure-vm-guide/tester-init-test-case.png)
+  :::image type="content" source=" alt-text="Screenshot that shows step to initialize a test case.":::
  
+3.In the Oracle object tree located on the left side, select the objects you want to evaluate  during the testing process.
+
+  :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/tester-select-configure-objects.png" alt-text="Screenshot that shows step to  select and configure object.":::
+
 In this example,  stored procedure ADD_REGION and table REGION are selected.
 
  To learn more, see  [Selecting and configuring objects to test.](/sql/ssma/oracle/selecting-and-configuring-objects-to-test-oracletosql)
 
 4.In the next step, select and configure affected objects, select  the tables and foreign keys from the Oracle object tree located on the left window.
-![Screenshot that shows step to select and configure affected object .](./media/oracle-to-sql-on-azure-vm-guide/tester-select-configure-affected.png)
+
+  :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/tester-select-configure-affected.png" alt-text="Screenshot that shows step to select and configure affected object.":::
 
 To learn more, see [Selecting and configuring affected objects.](/sql/ssma/oracle/selecting-and-configuring-affected-objects-oracletosql)
 
