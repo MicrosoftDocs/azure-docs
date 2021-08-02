@@ -13,7 +13,7 @@ ms.author: allensu
 
 # Default outbound access in Azure
 
-In Azure, virtual machines created in a virtual network without explicit outbound connectivity defined are assigned a default outbound public IP address. This IP address enables outbound connectivity from the resources to the Internet. This is referred to as default outbound access. 
+In Azure, virtual machines created in a virtual network without explicit outbound connectivity defined are assigned a default outbound public IP address. This IP address enables outbound connectivity from the resources to the Internet. This access is referred to as default outbound access. 
 
 Examples of explicit outbound connectivity, are virtual machines:
 
@@ -29,7 +29,7 @@ The public IPv4 address used for the access is called the default outbound acces
 ## When is default outbound access provided?
 
 If you deploy a virtual machine in Azure and it doesn't have explicit outbound connectivity, it's assigned a default outbound access IP.
-## Why is turning default outbound access off recommended?
+## Why is disabling default outbound access recommended?
 
 * Secure by default
     
@@ -37,27 +37,27 @@ If you deploy a virtual machine in Azure and it doesn't have explicit outbound c
 
 * Explicit vs. implicit
 
-    * It's recommended to have explicit methods of connectivity instead of implicit when granting acccess to resources in your virtual network.
+    * It's recommended to have explicit methods of connectivity instead of implicit when granting access to resources in your virtual network.
 
 * Loss of IP address
 
     * The default outbound access IP isn't owned by customers. This IP is subject to change.  Any dependency on this IP could cause issues in the future.
 
-## How can I turn default outbound access off?
+## How can I disable default outbound access?
 
 There are multiple ways to turn off default outbound access:
 
 1.	Add an explicit outbound connectivity method
 
-    * Associate a NAT gateway to the subnet your virtual machine resides.
+    * Associate a NAT gateway to the subnet of your virtual machine.
 
     * Associate a standard load balancer with outbound rules configured.
 
     * Associate a public IP to the virtual machine's network interface.
 
-2.	Use VMSS Flex
+2.	Use virtual machine scale set Flex
 
-    * VMSS Flex is secure by default. Any instances created via Flex won't have the default outbound access IP associated to it
+    * Virtual machine scale set Flex is secure by default. Any instances created via Flex won't have the default outbound access IP associated to it
 
 ## If I need outbound access, what is the recommended way?
 
