@@ -156,7 +156,7 @@ We'll create an account balance table with the following schema.
    FROM [Account].[Balance] 
    GO
    
-   SELECT * FROM <Your unique history table name>
+   SELECT * FROM [<Your unique history table name>]
    GO 
    
    SELECT * FROM Account.Balance_Ledger
