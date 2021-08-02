@@ -16,22 +16,232 @@ ms.category: sig, disks
 
 # How to store and share application packages (preview)
 
+
+
+### [PowerShell](#tab/powershell)
+### [CLI](#tab/cli)
+### [Portal](#tab/portal)
+### [REST](#tab/rest)
+
+---
+
+
+> [!IMPORTANT]
+> **Feature** is currently in public preview.
+> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+## Prerequisites
+
+Before you get started, make sure you have the following:
+
+- Prereq 
+- Prereq
+
+## Register the feature
+
+<!--Optional. If you need register the feature for preview, these are some basic instructions you can use. Delete this if the feature is auto-registered.
+-->
+
+For the public preview, you first need to register the feature:
+
+### [CLI](#tab/cli)
+
+- This article requires version <!-- version number --> or later of the Azure CLI. If using [Azure Cloud Shell](../cloud-shell/quickstart.md), the latest version is already installed.
+- Run [az version](/cli/azure/reference-index?#az_version) to find the version. 
+- To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade).
+
+
+```azurecli-interactive
+az feature register --namespace <!-- feature namespace --> --name <!-- feature name-->
+```
+
+Check the status of the feature registration.
+
+```azurecli-interactive
+az feature show --namespace <!-- feature namespace --> --name <!-- feature name--> | grep state
+```
+
+Check your provider registration.
+
+```azurecli-interactive
+az provider show -n <!-- feature namespace --> | grep registrationState
+```
+
+If they do not say registered, run the following:
+
+```azurecli-interactive
+az provider register -n <!-- feature -->
+
+```
+
+### [PowerShell](#tab/powershell)
+
+Install the latest [Azure PowerShell version](/powershell/azure/install-az-ps), and sign in to an Azure account using [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
+
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName <!-- feature name--> -ProviderNamespace Microsoft.Compute
+```
+
+It takes a few minutes for the registration to finish. Use `Get-AzProviderFeature` to check the status of the feature registration:
+
+```azurepowershell-interactive
+Get-AzProviderFeature -FeatureName <!-- feature name--> -ProviderNamespace Microsoft.Compute
+```
+
+When `RegistrationState` returns `Registered`, you can move on to the next step.
+
+Check your provider registration. Make sure it returns `Registered`.
+
+```azurepowershell-interactive
+Get-AzResourceProvider -ProviderNamespace Microsoft.Compute | Format-table -Property ResourceTypes,RegistrationState
+```
+
+If it doesn't return `Registered`, use the following code to register the providers:
+
+```azurepowershell-interactive
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
+```
+
+---
+
+## Byte align the files
+A current limitation of VM Applications is only page blobs are
+supported. We will support block blobs in the near future, but in the
+meantime all blobs must be page aligned before uploading. Use the
+following script to byte align all three files.
+
+
+### [PowerShell](#tab/powershell)
+This example modifies the file provided, make a backup before proceeding.
+
+```azurepowershell-interactive
+$inputFile = \<the file you want to pad>
+
+$fileInfo = Get-Item -Path $inputFile
+
+$remainder = $fileInfo.Length % 512
+
+if ($remainder -ne 0){
+
+$difference = 512 - $remainder
+
+$bytesToPad = \[System.Byte\[\]\]::CreateInstance(\[System.Byte\],
+$difference)
+
+Add-Content -Path $inputFile -Value $bytesToPad -Encoding Byte
+}
+```
+
+### [CLI](#tab/cli)
+### [Portal](#tab/portal)
+### [REST](#tab/rest)
+
+---
+## Do something
+
+<!-- Give this section a short title and then an intro paragraph -->
+
+<!-- In this template, we are going to cover multi ways to do something. For this, we use "tabbed content". Each tab starts with a ### and the type of tool. Delete the sections you aren't covering.-->
+
+### [Portal](#tab/portal2)
+
+<!-- Introduction paragraph if needed. The numbering is automatically controlled, so you can put 1. for each step and the rendering engine will fix the numbers in the live content. -->
+
+1. Open the [portal](https://portal.azure.com).
+1. In the search bar, type **<name_of_feature>**.
+1. Select **<name_of_feature>**.
+1. In the left menu under **Settings**, select **<something>**.
+1. In the **<something>** page, select **<something>**.
+
+### [CLI](#tab/cli2)
+<!-- Introduction paragraph if needed-->
+
+```azurecli-interactive
+
+```
+
+### [PowerShell](#tab/powershell2)
+
+<!-- Introduction paragraph if needed -->
+
+```powershell-interactive
+
+```
+
+
+### [REST](#tab/rest2)
+
+<!-- Introduction paragraph if needed -->
+
+```rest
+
+```
+
+---
+
+<!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
+
+## Next steps
+<!-- You can link back to the overview, or whatever seems like the logical next thing to read -->
+- [Overview](preview-overview.md)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------
+
 In this article, we’ll create two simple applications. The
 first will accept a text configuration file and will write the contents
 of that file to a new file. The second will depend on the first and will
 take the file the first application wrote and copy it to another
 location.
 
-**Step 1 - Create the Installer:**
+## Create the installer
 
-Our “installer” will simply read the contents of our “config” and write
+Our installer will simply read the contents of our “config” and write
 it to a new file. Name the file MyAppInstaller.ps1.
+
+```azurepowershell-interactive
 
 $contents = Get-Content -Path .\\FirstVMApp.config
 
 $contents \| Out-File -FilePath .\\AppInstall.txt
+```
 
-Note that though we’re calling our files MyAppInstaller.ps1 and
+Though we’re calling our files MyAppInstaller.ps1 and
 MyAppInstaller.config now, we’re referencing them as FirstVMApp and
 FirstVMApp.config in our files. This is because we currently write the
 files as {VMAppName} and {VMAppName}.config. Therefore, the names
@@ -40,26 +250,28 @@ will always write them to the VM as the name of your application. In the
 near future, we will support automatically renaming these files to
 predefined names.
 
-The ”Installer” for our second app will be even simpler. You can call
-this CopyIt.bat.
+The installer for our second app will be even simpler. You can call
+this file CopyIt.bat.
 
+```bash
 copy .\\AppInstall.txt .\\AppDidInstall.txt
+```
 
-**Step 2 – Create our default config:**
+## Step 2 – Create the default config
 
-Create a text file called MyAppInstaller.config with the following
-contents.
+Create a text file called MyAppInstaller.config with the following contents:
 
-Moien Welt!
+```
+Hello world!
+```
 
-**Step 3 – Byte align all files**
+## Byte align all files
 
-A current limitation of VM Applications is only page blobs are
-supported. We will support block blobs in the near future, but in the
-meantime all blobs must be page aligned before uploading. Use the
-following script to byte align all three files.
+A current limitation of VM Applications is only page blobs are supported. We will support block blobs in the near future, but in the meantime all blobs must be page aligned before uploading. Use the following script to byte align all three files.
 
-# modifies the file provided, make backups if required
+This modifies the file provided, make backups if required.
+
+```azurepowershell-interactive
 
 $inputFile = \<the file you want to pad>
 
@@ -78,11 +290,11 @@ Add-Content -Path $inputFile -Value $bytesToPad -Encoding Byte
 
 }
 
-**Step 4 – Create the package blobs**
+## Create the package blobs
 
-All VM Applications must have a package. Fill in the blanks for the
-following script to upload the byte aligned package to two storage
-blobs.
+All VM Applications must have a package. Fill in the blanks for the following script to upload the byte aligned package to two storage blobs.
+
+```azurepowershell-interactive
 
 Login-AzureRMAccount
 
@@ -125,10 +337,13 @@ $packageBlob = "MySecondAppPackage"
 Set-AzureStorageBlobContent -BlobType Page -File $packageFile -Container
 $containerName -Blob $packageBlob -Context $sa.Context
 
-**Step 5 – Create the default config blob**
+```
 
-The default config is optional, but if provided will be downloaded to
-each VM unless it is overridden.
+## Create the default config blob
+
+The default config is optional, but if provided will be downloaded to each VM unless it is overridden.
+
+```azurepowershell-interactive
 
 Login-AzureRMAccount
 
@@ -158,9 +373,13 @@ $configBlob = "MyAppConfig"
 Set-AzureStorageBlobContent -BlobType Page -File $configFile -Container
 $containerName -Blob $configBlob -Context $sa.Context
 
-Note that the second application has no default configuration.
+```
 
-**Step 6 – Create the gallery**
+The second application has no default configuration.
+
+## Create the gallery
+
+```azurepowershell-interactive
 
 $rg = {your resource group}
 
@@ -170,13 +389,15 @@ $location = {location for the gallery}
 
 New-AzureRmGallery -ResourceGroupName $rg -Name $galleryName -Location
 $location
+```
 
-**Step 7 – Create our two VM Applications**
+## Create our two VM Applications
 
 While soon these steps will be possible via CLI and the Portal, for now
 they require REST calls. Below is one way to do this via Powershell. See
 later in this document for the REST API definitions.
 
+```azurepowershell-interactive
 $subid = {your subscription id}
 
 Set-AzureRmContext -SubscriptionId $subid
@@ -230,96 +451,62 @@ $response = Invoke-RestMethod @params
 
 $response \| convertto-json
 
-**Step 8 – Create the VM Application versions**
+```
 
-VM Application Versions are what we actually deploy to the VM. Each may
-be placed in multiple regions, with up to three replicas per region.
-Again, soon these operations will be available through CLI and Portal.
-In the meantime, direct REST requests are necessary.
+## Create the VM Application versions
+
+VM Application Versions are what we actually deploy to the VM. Each may be placed in multiple regions, with up to three replicas per region. Again, soon these operations will be available through CLI and Portal. In the meantime, direct REST requests are necessary.
 
 The following is the configuration we’ll use for the first application.
 
+```json
 {
-
 "location": "$location",
-
 "properties": {
-
 "publishingProfile": {
-
 "source": {
-
 "mediaLink": "$mediaLink",
-
 "defaultConfigurationLink": "$configLink"
-
 },
-
 "manageActions": {
-
-"install": "move .\\\\MyFirstApp .\\\\MyFirstApp.ps1 & powershell.exe
--File .\\\\FirstVMApp.ps1",
-
+"install": "move .\\\\MyFirstApp .\\\\MyFirstApp.ps1 & powershell.exe -File .\\\\FirstVMApp.ps1",
 "remove": "rm .\\\\MyFirstApp.ps1"
-
 },
-
 "targetRegions": \[
-
 { "name": "$location" }
-
 \]
-
 }
-
 }
-
 }
+```
 
-Note that we first have to rename the file MyFirstApp to MyFirstApp.ps1
-and only then may we execute it. Eventually we will have settings to
-remove this encumbrance. Also note that we execute the Powershell script
-by simply passing it to Powershell.exe.
+Note that we first have to rename the file MyFirstApp to MyFirstApp.ps1 and only then can we run it. Eventually we will have settings to remove this encumbrance. We run the Powershell script by passing it to Powershell.exe.
 
 The second application is simpler, though we still have to rename.
 
+```json
 {
-
 "location": "$location",
-
 "properties": {
-
 "publishingProfile": {
-
 "source": {
-
 "mediaLink": "$mediaLink"
-
 },
-
 "manageActions": {
-
-"install": "move .\\\\MySecondApp .\\\\MySecondApp.bat &
-.\\\\MySecondApp.bat",
-
+"install": "move .\\\\MySecondApp .\\\\MySecondApp.bat & .\\\\MySecondApp.bat",
 "remove": "rm .\\\\AppDidInstall.txt"
-
 },
-
 "targetRegions": \[
-
 { "name": "$location" }
-
 \]
-
 }
-
 }
-
 }
+```
 
-The following will create both VM Application versions.
+The following will create both VM application versions.
 
+```azurepowershell-interactive
 $subid = {your subscription id}
 
 Set-AzureRmContext -SubscriptionId $subid
@@ -385,34 +572,26 @@ $params = @{ Headers = @{'authorization'="Bearer $($token)"}; Method =
 $response = Invoke-RestMethod @params
 
 $response \| convertto-json
+```
 
-**Step 9 – Deploy the applications to the VM**
+## Deploy the applications to the VM
 
 The best way to deploy the applications to the VM is through a
 deployment template. See the appendix at the end of this document for an
 example. The following will be the application profile.
 
+```json
 {
-
 "galleryApplications": {
-
 "order": 1,
-
-"packageReferenceId":
-"/subscriptions/$subid/resourceGroups/$rg/providers/Microsoft.Compute/galleries/$galleryName/applications/MyFirstApp/versions/1.0"
-
+"packageReferenceId":"/subscriptions/$subid/resourceGroups/$rg/providers/Microsoft.Compute/galleries/$galleryName/applications/MyFirstApp/versions/1.0"
 },
-
 {
-
 "order": 2,
-
-"packageReferenceId":
-"/subscriptions/$subid/resourceGroups/$rg/providers/Microsoft.Compute/galleries/$galleryName/applications/MySecondApp/versions/1.0"
-
+"packageReferenceId":"/subscriptions/$subid/resourceGroups/$rg/providers/Microsoft.Compute/galleries/$galleryName/applications/MySecondApp/versions/1.0"
 }
-
 }
+```
 
 ## REST API
 
