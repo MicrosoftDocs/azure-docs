@@ -28,7 +28,7 @@
     items:
     - name: User Management
       href: ./concepts/user-management.md
-    - name: Usage Tracking
+    - name: Cost & Usage Tracking
       href: ./concepts/usage-tracking.md
     - name: Monitoring
       href: ./concepts/monitoring.md
