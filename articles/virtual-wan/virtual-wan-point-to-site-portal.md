@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 07/30/2021
+ms.date: 08/02/2021
 ms.author: cherylmc
 
 ---
@@ -49,9 +49,11 @@ In the following steps, when selecting the authentication method, you have three
    * The **Issuer**. Example: `https://sts.windows.net/your-Directory-ID`.
    * The **Azure AD tenant**. Example: `https://login.microsoftonline.com/your-Directory-ID`.
 
+   For more information, see [Configure Azure AD authentication](virtual-wan-point-to-site-azure-ad.md) and [Prepare Azure AD tenant - OpenVPN](openvpn-azure-ad-tenant.md)
+
 * **Radius-based authentication:** Obtain the Radius server IP, Radius server secret, and certificate information.
 
-* **Azure certificates:** For this configuration, certificates are required. You need to either generate or obtain certificates. A client certificate is required for each client. Additionally, the root certificate information (public key) needs to be uploaded. For more information about the required certificates, see [Generate and export certificates](../vpn-gateway/vpn-gateway-certificates-point-to-site.md).
+* **Azure certificates:** For this configuration, certificates are required. You need to either generate or obtain certificates. A client certificate is required for each client. Additionally, the root certificate information (public key) needs to be uploaded. For more information about the required certificates, see [Generate and export certificates](certificates-point-to-site.md).
 
 [!INCLUDE [Create P2S configuration](../../includes/virtual-wan-p2s-configuration-include.md)]
 
