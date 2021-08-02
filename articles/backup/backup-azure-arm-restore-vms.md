@@ -225,6 +225,41 @@ There are many common scenarios in which you might need to restore VMs.
 
 For more information, see [Back up and restore Active Directory domain controllers](active-directory-backup-restore.md).
 
+## Restore VMs with Managed identities
+
+Managed identities eliminate the need for the user to maintain the credentials. Managed identities provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication.  
+
+Azure Backup offers the flexibility to restore the managed Azure VM with [Managed identities](/azure/active-directory/managed-identities-azure-resources/overview). You can choose to select [system-managed identities](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) or user-managed identities as shown in the figure below. This is introduced as one of the input parameters in the [**Restore configuration** blade](/azure/backup/backup-azure-arm-restore-vms#create-a-vm) of Azure VM. Managed identities used as one of the input parameter is only used for accessing the storage accounts, which is used as staging location during restore and not for any other Azure resource controlling. These Managed identities have to be associated to the vault.
+
+:::image type="content" source="./media/backup-azure-arm-restore-vms/select-system-managed-identities-or-user-managed-identities.png" alt-text="Screenshot for choice to select  system managed identities or user managed identities":::
+
+If you choose to select system-assigned or User-assigned Managed identities, check for the below actions for Managed Identity on the target staging Storage Account.
+
+```dotnetcli
+
+"permissions": [
+            {
+                "actions": [
+                    "Microsoft.Authorization/*/read",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/write"
+                ],
+                "notActions": [],
+                "dataActions": [
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action"
+                ],
+                "notDataActions": []
+            }
+```
+
+Or, add the role assignment on the staging location (Storage Account) to have [Storage account Backup Contributor](/azure/backup/blob-backup-configure-manage#grant-permissions-to-the-backup-vault-on-storage-accounts) and [Storage Blob data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) for the successful restore operation.
+
+:::image type="content" source="./media/backup-azure-arm-restore-vms/add-role-assignment-on-staging-location.png" alt-text="Screenshot for adding the role assignment on the staging location":::
+
 ## Track the restore operation
 
 After you trigger the restore operation, the backup service creates a job for tracking. Azure Backup displays notifications about the job in the portal. If they aren't visible, select the **Notifications** symbol, and then select **More events in the activity log** to see the Restore Process Status.
