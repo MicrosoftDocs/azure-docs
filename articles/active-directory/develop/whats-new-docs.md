@@ -18,6 +18,23 @@ ms.author: marsma
 
 Welcome to what's new in the Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
 
+## July 2021
+
+### New articles
+
+- [Application registration security best practices for Azure AD application registration](app-registration-security-best-practices.md)
+- [Azure AD application registration security best practices](security-best-practices-for-app-registration.md)
+- [Role-based access control for application developers](custom-rbac-for-developers.md)
+
+### Updated articles
+
+- [How to migrate a JavaScript app from ADAL.js to MSAL.js](msal-compare-msal-js-and-adal-js.md)
+- [How to migrate a Node.js app from ADAL to MSAL](msal-node-migration.md)
+- [Migrate confidential client applications from ADAL.NET to MSAL.NET](msal-net-migration-confidential-client.md)
+- [Permissions and consent in the Microsoft identity platform](v2-permissions-and-consent.md)
+- [Protected web API: Verify scopes and app roles](scenario-protected-web-api-verification-scope-app-roles.md)
+- [Quickstart: Add sign-in with Microsoft to an ASP.NET Core web app](quickstart-v2-aspnet-core-webapp.md)
+
 
 ## June 2021
 
