@@ -5,15 +5,13 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 07/26/2021
+ms.date: 08/02/2021
 ms.author: victorh
 ---
 
 # Azure Firewall Premium certificates 
 
-
-
- To properly configure Azure Firewall Premium TLS inspection, you must provide a valid intermediate CA certificate and deposit it in Azure Key vault.
+To properly configure Azure Firewall Premium TLS inspection, you must provide a valid intermediate CA certificate and deposit it in Azure Key vault.
 
 ## Certificates used by Azure Firewall Premium
 
