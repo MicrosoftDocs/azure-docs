@@ -1,10 +1,10 @@
 ---
 title: Use Azurite emulator for local Azure Storage development
 description: The Azurite open-source emulator provides a free local environment for testing your Azure storage applications.
-author: twooley
+author: normesta
 
-ms.author: twooley
-ms.date: 07/19/2021
+ms.author: normesta
+ms.date: 08/02/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
@@ -19,9 +19,42 @@ Azurite is the future storage emulator platform. Azurite supersedes the [Azure S
 
 There are several different ways to install and run Azurite on your local system. Select any of these tabs.
 
+## Install and run Azurite
+
 ### [Visual Studio](#tab/visual-studio)
 
-Put something here.
+In Visual Studio, create an Azure project such as an **Azure Functions** project.
+
+![New Azure Function project](media/storage-use-azurite/visual-studio-azure-function-project.png)
+
+Assuming that you create an **Azure Functions** project, make sure to select **Http trigger**. Then, in the **Authorization level** dropdown list, select **Anonymous**.
+
+![Function project settings](media/storage-use-azurite/visual-studio-azure-function-project-settings.png)
+
+Install [Node.js version 8.0 or later](https://nodejs.org). Node Package Manager (npm) is the package management tool included with every Node.js installation. After installing Node.js, execute the following `npm` command to install Azurite.
+
+```console
+npm install -g azurite
+```
+
+From the command line, start Azurite by using the following command:
+
+```console
+azurite
+```
+
+Output information similar to the following appears in the console.
+
+![Command line output](media/storage-use-azurite/azurite-command-line-output.png)
+
+Change to the [release build configuration](/visualstudio/debugger/how-to-set-debug-and-release-configurations#change-the-build-configuration), and then run the project.
+
+>[!NOTE]
+> If you use the debug configuration, Visual Studio might try to start the legacy storage emulator that is built into Visual Studio. This is blocked because Azurite is using the listening ports that are required by the legacy storage emulator.
+
+The following image shows the command line that appears when you run an Azure Function project.
+
+![Command line output after running project](media/storage-use-azurite/azurite-command-line-output-2.png)
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -136,7 +169,7 @@ After installing and building Azurite, see [Run Azurite from a command line](#ru
 ## Run Azurite from a command line
 
 > [!NOTE]
-> Azurite cannot be run from the command line if you only installed the Visual Studio Code extension. Instead, use the Visual Studio Code command palette. For more information, see [Install and run the Azurite Visual Studio Code extension](#install-and-run-the-azurite-visual-studio-code-extension).
+> Azurite cannot be run from the command line if you only installed the Visual Studio Code extension. Instead, use the Visual Studio Code command palette. 
 
 To get started immediately with the command line, create a directory called *c:\azurite*, then launch Azurite by issuing the following command:
 
