@@ -154,7 +154,7 @@ Using advanced search options changes the search behavior as follows:
 
 |Search behavior  |Description  |
 |---------|---------|
-|**Search button color**     |The color of the search button changes, depending on the types of parameters currently being used in the search. As long as only the default parameters are selected, the button is grey. As soon as different parameters are selected, such as advanced search parameters, the button turns blue.         |
+|**Search button color**     |The color of the search button changes, depending on the types of parameters currently being used in the search. <br><br>- As long as only the default parameters are selected, the button is grey. <br>- As soon as different parameters are selected, such as advanced search parameters, the button turns blue.         |
 |**Auto-refresh**     | Using advanced search parameters prevents you from selecting to automatically refresh your results.        |
 |**Entity parameters**     |All entity parameters are supported for advanced searches. When searching in any entity parameter, the search runs in all entity parameters.         |
 |**Search strings**     |    Searching for a string of words includes all of the words in the search query. Search strings are case sensitive.     |
@@ -169,7 +169,8 @@ Using advanced search options changes the search behavior as follows:
 
 
 ## Next steps
-In this tutorial, you learned how to get started investigating incidents using Azure Sentinel. Continue to the tutorial for [how to respond to threats using automated playbooks](tutorial-respond-threats-playbook.md).
+
+In this article, you learned how to get started investigating incidents using Azure Sentinel. Continue to the tutorial for [how to respond to threats using automated playbooks](tutorial-respond-threats-playbook.md).
 > [!div class="nextstepaction"]
 > [Respond to threats](tutorial-respond-threats-playbook.md) to automate your responses to threats.
 

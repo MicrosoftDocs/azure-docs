@@ -35,16 +35,11 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ### Advanced incident search
 
-By default, incident searches run across the **Incident ID**, **Title**, **Tags**, **Owner**, and **Product name** values only. Azure Sentinel now provides advanced search options to search across more data, including alert details, descriptions, entities, tactics, and more.
+By default, incident searches run across the **Incident ID**, **Title**, **Tags**, **Owner**, and **Product name** values only. Azure Sentinel now provides [advanced search options](tutorial-investigate-cases.md#search-for-incidents) to search across more data, including alert details, descriptions, entities, tactics, and more.
 
 For example:
 
 :::image type="content" source="media/tutorial-investigate-cases/advanced-search.png" alt-text="Screenshot of the Incidents page advanced search options.":::
-
-- In the search pane, select the parameters you want to apply, and then select **Apply**.
-- Select **Set to default** to set the selected parameters to be used the next time you search as well.
-- If you're unable to find the incident you're looking for, remove search parameters to expand your search. 
-- If your search results in too many items, add more filters to narrow down your results.
 
 For more information, see [Search for incidents](tutorial-investigate-cases.md#search-for-incidents).
 
