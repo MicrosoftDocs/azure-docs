@@ -153,12 +153,6 @@ The test approach to database migration consists of the following activities:
 
 Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows you to test the migrated database objects the migrated data. The tester is primarily used to verify that converted objects behave in the same way.
 
-Few common scenarios
-• Are the changes in table data identical?
-• Are the values of output parameters for procedures and functions identical?
-• Do functions return the same results?
-• Are the result sets identical?
-
 #### Create test case
 
 1. In SSMA for oracle, select Tester followed by New Test Case.
@@ -172,24 +166,25 @@ Last Modified date: filled in automatically, should not be changed.
 Description: Enter any additional information to identify the purpose of the test case.
  ![Screenshot that shows steps to initialize a test case .](./media/oracle-to-sql-database-guide/tester-init-test-case.png)
 
-3.In the Oracle object tree located on the left side, select the objects you want to evaluate  during the testing process.
+3.In the Oracle object tree located on the left side, select the objects you want to evaluate during the testing process.
+
   :::image type="content" source="./media/oracle-to-sql-database-guide/tester-select-configure-objects.png" alt-text="Screenshot that shows step to  select and configure object.":::
 
 In this example,  stored procedure ADD_REGION and table REGION are selected.
 
  To learn more, see  [Selecting and configuring objects to test.](/sql/ssma/oracle/selecting-and-configuring-objects-to-test-oracletosql)
 
-4.In the next step, select and configure affected objects, select  the tables and foreign keys from the Oracle object tree located on the left window.
+4.Next, select the tables , foreign keys and other dependent objects from the Oracle object tree located on the left window.
 
   :::image type="content" source="./media//oracle-to-sql-database-guide/tester-select-configure-affected.png" alt-text="Screenshot that shows step to select and configure affected object.":::
 
 To learn more, see [Selecting and configuring affected objects.](/sql/ssma/oracle/selecting-and-configuring-affected-objects-oracletosql)
 
-5.In this call ordering step,  select the order in which the objects to test will be evaluated. You can change the order by clicking the buttons in the grid.
+5.In call ordering step, review the sequence of objects that will be evaluated. Change the order by clicking the buttons in the grid.
 
   :::image type="content" source="./media/oracle-to-sql-database-guide/test-call-ordering.png" alt-text="Screenshot that shows step to sequence test object execution.":::
 
-6.The finalize test case page provides  test case information, test objects and the objects that will be analyzed. Also, you can set the test execution options.
+6.In the finalize test case page review the information provided in the previous steps. Also, configure the test execution options as per the test scenario.
 
   :::image type="content" source="./media/oracle-to-sql-database-guide/tester-finalize-case.png" alt-text="Screenshot that shows step to  finalize object.":::
 
@@ -203,32 +198,31 @@ For more information on test case settings,[Finishing test case preparation](/sq
 
 When SSMA Tester runs a test case, the test engine executes the objects selected for testing and generates a verification report.
 
-1.In the test repository page, you can select the test case and then click run.
+1.In the test repository page, select the test case and then click run.
 
   :::image type="content" source="./media/oracle-to-sql-database-guide/tester-repo-run.png" alt-text="Screenshot that shows to review  test repo.":::
 
-2.Next, it  will launch run Test case page. Click run.
+2.Next, review the launch test case  and click run.
 
 :::image type="content" source="./media/oracle-to-sql-database-guide/tester-run-test-case.png" alt-text="Screenshot that shows step to run test case":::
 
-3.Next, you would be prompted to provide source oracle credentials. Click connect after entering the credentials.
+3.Next, provide  oracle  source credentials. Click connect after entering the credentials.
 
   :::image type="content" source="./media/oracle-to-sql-database-guide/tester-oracle-connect.png" alt-text="Screenshot that shows step to connect to  oracle source":::
 
-4.In the next step, you need to  provide target SQL Server credentials. Click connect after entering the user details.
+4.In the next step,  provide target SQL Server credentials and click connect.
 
   :::image type="content" source="./media/oracle-to-sql-database-guide/tester-sql-connect.png" alt-text="Screenshot that shows step to connect to  sql target.":::
 
 On success, it will go to initialization stage.
 
-5.The test run will continue with the evaluation process and will show the real-time progress.
+5.A real-time progress bar will show the execution status of the test run.
 
   :::image type="content" source="./media/oracle-to-sql-database-guide/tester-run-status.png" alt-text="Screenshot that shows  tester test progress.":::
 
-6.Once the test case is executed, tester module will generate a report, which provides the statistics, any errors during the test run and a detail report.
+6.After the test case is executed, review the report, which provides the statistics, any errors during the test run and a detail report.
 
  :::image type="content" source="./media/oracle-to-sql-database-guide/tester-test-result.png" alt-text="Screenshot that shows a sample tester test report":::
-
 
 7.Click details to get more information.
 
