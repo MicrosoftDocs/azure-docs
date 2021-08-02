@@ -13,12 +13,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/15/2021
+ms.date: 08/15/2021
 ms.author: b-juche
 ---
 # Enable Continuous Availability on existing SMB volumes
 
-You can enable the SMB Continuous Availability (CA) feature when you [create a new SMB volume](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume). You can also enable SMB CA on an existing SMB volume; this article shows you how to do so.  
+You can enable the SMB Continuous Availability (CA) feature when you [create a new SMB volume](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume). You can also enable SMB CA on an existing SMB volume; this article shows you how to do so.
+
+## Considerations
+
+* The [**Hide Snapshot Path**](azure-netapp-files-manage-snapshots.md#edit-the-hide-snapshot-path-option) option currently does not have any effect for CA-enabled SMB volumes.  
+
+* The `~snapshot` directory (which can be used to traverse in other SMB volumes) is not visible for CA-enabled SMB volumes. You can still manually type `~snapshot\<snapshotName>` to access the snapshot.
 
 ## Steps
 
