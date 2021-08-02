@@ -71,5 +71,6 @@ Subscribe to the RSS feed and view the latest Azure Front Door feature updates o
 
 ## Next steps
 
-- Learn how to [create a Front Door](quickstart-create-front-door.md).
+- [Quickstart: Create a Front Door](quickstart-create-front-door.md).
+- [Learn module: Introduction to Azure Front Door](/learn/modules/intro-to-azure-front-door/).
 - Learn [how Front Door works](front-door-routing-architecture.md).

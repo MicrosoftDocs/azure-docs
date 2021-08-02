@@ -188,6 +188,38 @@ _Windows failover clustering configuration in Azure with SIOS DataKeeper_
 > [!NOTE]
 > You don't need shared disks for high availability with some DBMS products, like SQL Server. SQL Server AlwaysOn replicates DBMS data and log files from the local disk of one cluster node to the local disk of another cluster node. In this case, the Windows cluster configuration doesn't need a shared disk.
 >
+## Optional configurations
+
+The following diagrams show multiple SAP instances on Azure VMs running Microsoft Windows Failover Cluster to reduce the total number of VMs.
+
+This can either be local SAP Application Servers on a SAP ASCS/SCS cluster or a SAP ASCS/SCS Cluster Role on Microsoft SQL Server Always On nodes.
+
+> [!IMPORTANT]
+> Installing a local SAP Application Server on a SQL Server Always On node is not supported.
+>
+
+Both, SAP ASCS/SCS and the Microsoft SQL Server database, are single points of failure (SPOF). To protect these SPOFs in a Windows environment WSFC is used.
+
+While the resource consumption of the SAP ASCS/SCS is fairly small, a reduction of the memory configuration for either SQL Server or the SAP Application Server by 2 GB is recommended.
+
+### SAP Application Servers on WSFC nodes using SIOS DataKeeper
+
+![Figure 6: Windows Server failover clustering configuration in Azure with SIOS DataKeeper and locally installed SAP Application Server][sap-ha-guide-figure-1003]
+
+> [!NOTE]
+> Since the SAP Application Servers are installed locally, there is no need for setting up any synchronization as the picture shows.
+>
+### SAP ASCS/SCS on SQL Server Always On nodes using SIOS DataKeeper
+
+![Figure 7: SAP ASCS/SCS on SQL Server Always On nodes using SIOS DataKeeper][sap-ha-guide-figure-1005]
+
+[Optional configuration for SAP Application Servers on WSFC nodes using Windows SOFS][optional-fileshare]
+
+[Optional configuration for SAP Application Servers on WSFC nodes using NetApp Files SMB][optional-smb]
+
+[Optional configuration for SAP ASCS/SCS on SQL Server Always On nodes using Windows SOFS][optional-fileshare-sql]
+
+[Optional configuration for SAP ASCS/SCS on SQL Server Always On nodes using NetApp Files SMB][optional-smb-sql]
 
 ## Next steps
 
@@ -251,7 +283,9 @@ _Windows failover clustering configuration in Azure with SIOS DataKeeper_
 
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
 [sap-ha-guide-figure-1001]:./media/virtual-machines-shared-sap-high-availability-guide/1001-wsfc-on-azure-ilb.png
-[sap-ha-guide-figure-1002]:./media/virtual-machines-shared-sap-high-availability-guide/1002-wsfc-sios-on-azure-ilb.png
+[sap-ha-guide-figure-1003]:./media/virtual-machines-shared-sap-high-availability-guide/ha-sios-as.png
+[sap-ha-guide-figure-1005]:./media/virtual-machines-shared-sap-high-availability-guide/ha-sql-ascs-sios.png
+[sap-ha-guide-figure-1002]:./media/virtual-machines-shared-sap-high-availability-guide/ha-sios.png
 [sap-ha-guide-figure-2000]:./media/virtual-machines-shared-sap-high-availability-guide/2000-wsfc-sap-as-ha-on-azure.png
 [sap-ha-guide-figure-2001]:./media/virtual-machines-shared-sap-high-availability-guide/2001-wsfc-sap-ascs-ha-on-azure.png
 [sap-ha-guide-figure-2003]:./media/virtual-machines-shared-sap-high-availability-guide/2003-wsfc-sap-dbms-ha-on-azure.png
@@ -354,3 +388,7 @@ _Windows failover clustering configuration in Azure with SIOS DataKeeper_
 [virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
+[optional-smb]:high-availability-guide-windows-netapp-files-smb.md#5121771a-7618-4f36-ae14-ccf9ee5f2031 (Optional configuration for SAP Application Servers on WSFC nodes using NetApp Files SMB)
+[optional-fileshare]:sap-high-availability-guide-wsfc-file-share.md#86cb3ee0-2091-4b74-be77-64c2e6424f50 (Optional configuration for SAP Application Servers on WSFC nodes using Windows SOFS)
+[optional-smb-sql]:high-availability-guide-windows-netapp-files-smb.md#01541cf2-0a03-48e3-971e-e03575fa7b4f (Optional configuration for SAP ASCS/SCS on SQL Server Always On nodes using NetApp Files SMB)
+[optional-fileshare-sql]:sap-high-availability-guide-wsfc-file-share.md#db335e0d-09b4-416b-b240-afa18505f503 (Optional configuration for SAP ASCS/SCS on SQL Server Always On nodes using Windows SOFS)

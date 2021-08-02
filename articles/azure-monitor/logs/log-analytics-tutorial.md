@@ -41,7 +41,7 @@ Expand the **Log Management** solution and locate the **AppRequests** table. You
 
 :::image type="content" source="media/log-analytics-tutorial/table-details.png" alt-text="Tables view" lightbox="media/log-analytics-tutorial/table-details.png":::
 
-Click **Learn more** to go to the table reference that documents each table and its columns. Click **Preview data** to have a quick look at a few recent records in the table. This can be useful to ensure that this is the data that you're expecting before you actually run a query with it.
+Click the link below **Useful links** to go to the table reference that documents each table and its columns. Click **Preview data** to have a quick look at a few recent records in the table. This can be useful to ensure that this is the data that you're expecting before you actually run a query with it.
 
 :::image type="content" source="media/log-analytics-tutorial/sample-data.png" alt-text="Sample data" lightbox="media/log-analytics-tutorial/sample-data.png":::
 
