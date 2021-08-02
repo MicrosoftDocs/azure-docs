@@ -48,6 +48,6 @@ Either of these methods will work for the end-to-end scenario. We recommend that
 
 ## Next steps
 
-- [Approve or deny requests for Azure AD roles](azure-ad-pim-approval-workflow.md)\
+- [Approve or deny requests for Azure AD roles](azure-ad-pim-approval-workflow.md)
 - [Approve or deny requests for Azure resource roles](pim-resource-roles-approval-workflow.md)
 - [Approve activation requests for privileged access group members and owners (preview)](groups-approval-workflow.md)
