@@ -1,5 +1,3 @@
-To be published at https://aka.ms/gpucomputemigration
-
 # **Migration Guide for GPU Compute Workloads in Azure**
 
 As more powerful GPUs become available in the marketplace and in Microsoft Azure datacenters, we recommend re-assessing the performance of your workloads and considering migrating to newer GPUs.
