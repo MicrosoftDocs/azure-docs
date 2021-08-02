@@ -161,9 +161,13 @@ Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows 
 2.On the Test Case wizard, provide the following information.
 
 Name: Enter the name to identify the test case.
+
 Creation date: Today's current date, defined automatically.
+
 Last Modified date: filled in automatically, should not be changed.
+
 Description: Enter any additional information to identify the purpose of the test case.
+
  ![Screenshot that shows steps to initialize a test case .](./media/oracle-to-sql-database-guide/tester-init-test-case.png)
 
 3.In the Oracle object tree located on the left side, select the objects you want to evaluate during the testing process.
