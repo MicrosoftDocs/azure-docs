@@ -137,9 +137,7 @@ After choosing the appropriate classification, add some descriptive text in the 
 
 ## Search for incidents
 
-To find a specific incident quickly, enter a search string in the search box above the incidents grid and press **Enter** to modify the list of incidents shown accordingly. If your incident isn't included in the results, you may want to narrow your search by using **Advanced search** options. 
-
-Advanced search is currently in public preview.
+To find a specific incident quickly, enter a search string in the search box above the incidents grid and press **Enter** to modify the list of incidents shown accordingly. If your incident isn't included in the results, you may want to narrow your search by using **Advanced search** options.
 
 To modify the search parameters, select the **Search** button and then select the parameters where you want to run your search.
 
@@ -165,6 +163,9 @@ Using advanced search options changes the search behavior as follows:
 | **Number of search results displayed** | When you're using advanced search parameters, only 50 results are shown at a time. |
 |     |         |
 
+> [!NOTE]
+> Advanced search is currently in public preview.
+>
 
 > [!TIP]
 >  If you're unable to find the incident you're looking for, remove search parameters to expand your search. If your search results in too many items, add more filters to narrow down your results.
