@@ -504,6 +504,8 @@
         href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/speech-service/context/context
       - name: Use customer-managed keys
         href: speech-encryption-of-data-at-rest.md
+      - name: How to backup and recover speech customization resources
+        href: resiliency-and-recovery-plan.md
 - name: Devices
   items:
     - name: Speech devices documentation
