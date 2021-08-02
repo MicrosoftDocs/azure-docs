@@ -30,7 +30,7 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## August 2021
 
-- [Advanced incident search](#advanced-incident-search)
+- [Advanced incident search](#advanced-incident-search-public-preview)
 - [New in docs: Best practice guidance](#new-in-docs-best-practice-guidance)
 
 ### Advanced incident search (Public preview)
