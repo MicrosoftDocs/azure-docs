@@ -48,8 +48,8 @@ In this section, you create a private endpoint for your static web app.
    | ------------------------------- | -------------------------------- |
    | Name                            | Enter **myPrivateEndpoint**.     |
    | Subscription                    | Select your subscription.        |
-   | Virtual Network                 | Select \<your-virtual-network\>. |
-   | Subnet                          | Select \<your-subnet\a>.         |
+   | Virtual Network                 | Select your virtual network. |
+   | Subnet                          | Select your subnet.         |
    | Integrate with private DNS zone | Leave the default of **Yes**.    |
 
    :::image type="content" source="media/create-private-link-dialog.png" alt-text="./media/create-private-link-dialog.png":::
