@@ -106,6 +106,15 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    :::image type="content" source="./media/configure-hybrid-cluster/show-cluster.png" alt-text="Get the certificate details from the cluster." lightbox="./media/configure-hybrid-cluster/show-cluster.png" border="true":::
     <!-- ![image](./media/configure-hybrid-cluster/show-cluster.png) -->
 
+    > [!NOTE]
+    > Note that the certificates returned from the above command contain linebreaks, for example `\r\n`. You should format each certificate and write to a file before attempting to import into your existing datacenter's trust store. For example:
+
+    ```bash
+        var=$(<cert.txt) 
+        echo -e $var >> cert-formatted.txt
+    ```
+
+
 1. Next, create a new datacenter in the hybrid cluster. Make sure to replace the variable values with your cluster details:
 
    ```azurecli-interactive
