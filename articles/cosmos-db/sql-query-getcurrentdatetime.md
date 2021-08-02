@@ -31,7 +31,7 @@ Returns the current UTC date and time ISO 8601 string value in the format `YYYY-
 |DD|two-digit day of month (01 through 31)|
 |T|signifier for beginning of time elements|
 |hh|two-digit hour (00 through 23)|
-|mm|two-digit minutes (00 through 59)|
+|mi|two-digit minutes (00 through 59)|
 |ss|two-digit seconds (00 through 59)|
 |.fffffff|seven-digit fractional seconds|
 |Z|UTC (Coordinated Universal Time) designator|
