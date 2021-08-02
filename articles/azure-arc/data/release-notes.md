@@ -20,8 +20,7 @@ This article highlights capabilities, features, and enhancements recently releas
 
 This release is published July 30, 2021.
 
-The current release announces general availability for the following services:
-- Azure Arc-enabled SQL Managed Instance [general purpose service tier](service-tiers.md) in indirectly connected mode.
+This release announces general availability for Azure Arc-enabled SQL Managed Instance [general purpose service tier](service-tiers.md) in indirectly connected mode.
 
    > [!NOTE]
    > In addition, this release provides the following Azure Arc-enabled services in preview: 
