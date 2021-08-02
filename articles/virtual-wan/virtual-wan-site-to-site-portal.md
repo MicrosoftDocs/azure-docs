@@ -66,6 +66,8 @@ In this step, you connect your VPN site to the hub.
 
 ## <a name="vnet"></a>Connect the VNet to the hub
 
+In this section, you create a connection between your hub and VNet.
+
 [!INCLUDE [Connect](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 
 ## <a name="device"></a>Download VPN configuration

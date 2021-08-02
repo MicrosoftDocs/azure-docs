@@ -5,7 +5,7 @@ services: web-application-firewall
 ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 04/14/2020
+ms.date: 07/30/2021
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
@@ -130,7 +130,7 @@ Must be one of the following operators:
 - BeginsWith
 - EndsWith
 - Regex
-- Geomatch (preview)
+- Geomatch
 
 ### Negate condition [optional]
 
@@ -157,9 +157,9 @@ List of values to match against, which can be thought of as being *OR*'ed. For e
 - Block – Blocks the transaction based on *SecDefaultAction* (detection/prevention mode). Just like the Allow action, once the request is evaluated and added to the block list, evaluation is stopped and the request is blocked. Any request after that meets the same conditions won't be evaluated and will just be blocked. 
 - Log – Lets the rule write to the log, but lets the rest of the rules run for evaluation. The other custom rules are evaluated in order of priority, followed by the managed rules.
 
-## Geomatch custom rules (preview)
+## Geomatch custom rules
 
-Custom rules let you create tailored rules to suit the exact needs of your applications and security policies. You can restrict access to your web applications by country/region. For more information, see [Geomatch custom rules (preview)](geomatch-custom-rules.md).
+Custom rules let you create tailored rules to suit the exact needs of your applications and security policies. You can restrict access to your web applications by country/region. For more information, see [Geomatch custom rules](geomatch-custom-rules.md).
 
 ## Next steps
 

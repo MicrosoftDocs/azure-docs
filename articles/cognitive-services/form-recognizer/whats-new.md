@@ -400,9 +400,9 @@ pip package version 3.1.0b4
 * **Quality improvements** - Extraction improvements including single digit extraction improvements.
 * **New try-it-out feature in the Form Recognizer Sample and Labeling Tool** - Ability to try out prebuilt Invoice, Receipt, and Business Card models and the Layout API using the Form Recognizer Sample Labeling tool. See how your data will be extracted without writing any code.
 
-  > [Try out the Form Recognizer Sample Tool](https://fott-preview.azurewebsites.net/)
+  [**Try the Form Recognizer sample labeling tool**](https://fott-2-1.azurewebsites.net)
 
-  ![FOTT example](./media/ui-preview.jpg)
+  ![Screenshot: Sample labeling tool.](./media/ui-preview.jpg)
 
 * **Feedback Loop** - When Analyzing files via the sample labeling tool you can now also add it to the training set and adjust the labels if necessary and train to improve the model.
 * **Auto Label Documents** - Automatically labels additional documents based on previous labeled documents in the project.
