@@ -30,7 +30,7 @@ Workaround:
 Workaround:
 1. Connect to the hive metastore database for your cluster.
 
-2. Backup the `TBLS` and `TABLE_PARAMS` table using the following command:
+2. Take the backup of `TBLS` and `TABLE_PARAMS` tables using the following command:
     ```sql
         select * into tbls_bak from tbls;
         select * into table_params_bak from table_params;
