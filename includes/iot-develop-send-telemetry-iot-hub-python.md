@@ -17,11 +17,12 @@ In this quickstart, you learn a basic Azure IoT application development workflow
 - If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Python](https://www.python.org/downloads/) version 3.7 or later. To check your Python version, run `python --version`.
+- [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases): Cross-platform utility to  monitor and manage Azure IoT 
 - Azure CLI. You have two options for running Azure CLI commands in this quickstart:
     - Use the Azure Cloud Shell, an interactive shell that runs CLI commands in your browser. This option is recommended because you don't need to install anything. If you're using Cloud Shell for the first time, log into the [Azure portal](https://portal.azure.com). Follow the steps in [Cloud Shell quickstart](../articles/cloud-shell/quickstart.md) to **Start Cloud Shell** and **Select the Bash environment**.
     - Optionally, run Azure CLI on your local machine. If Azure CLI is already installed, run `az upgrade` to upgrade the CLI and extensions to the current version. To install Azure CLI, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
-[!INCLUDE [iot-hub-include-create-hub-cli](iot-hub-include-create-hub-cli.md)]
+[!INCLUDE [iot-hub-include-create-hub-iot-explorer](iot-hub-include-create-hub-iot-explorer.md)]
 
 ## Run a simulated device
 In this section, you use the Python SDK to send messages from your simulated device to your IoT hub.
@@ -70,12 +71,6 @@ In this section, you use the Python SDK to send messages from your simulated dev
     export IOTHUB_DEVICE_SECURITY_TYPE="connectionString"
     ```
 
-1. In your CLI app, run the [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) command to begin monitoring for events on your simulated IoT device.  Event messages print in the terminal as they arrive.
-
-    ```azurecli-interactive
-    az iot hub monitor-events --output table --hub-name {YourIoTHubName}
-    ```
-
 1. In your Python console, run the code for the following sample file. The sample creates a simulated temperature controller with thermostat sensors.
 
     ```console
@@ -84,25 +79,49 @@ In this section, you use the Python SDK to send messages from your simulated dev
     > [!NOTE]
     > This code sample uses Azure IoT Plug and Play, which lets you integrate smart devices into your solutions without any manual configuration.  By default, most samples in this documentation use IoT Plug and Play. To learn more about the advantages of IoT PnP, and cases for using or not using it, see [What is IoT Plug and Play?](../articles/iot-develop/overview-iot-plug-and-play.md).
 
- As the Python code sends a message from your device to the IoT hub, the message appears in your CLI app that is monitoring events:
-
-```output
-Starting event monitor, use ctrl-c to stop...
-event:
-  component: thermostat1
-  interface: dtmi:com:example:TemperatureController;2
-  module: ''
-  origin: myDevice
-  payload:
-    temperature: 29
-
-event:
-  component: thermostat2
-  interface: dtmi:com:example:TemperatureController;2
-  module: ''
-  origin: myDevice
-  payload:
-    temperature: 48
-```
-
 Your device is now securely connected and sending telemetry to Azure IoT Hub.
+
+## View telemetry
+
+After the simulated device connects to IoT Hub, it begins sending telemetry. You can view the device telemetry with IoT Explorer. Optionally, you can view telemetry using Azure CLI.
+
+To view telemetry in Azure IoT Explorer:
+
+1. From the your Iot hub in IoT Explorer, select **View devices in this hub**, then select your device from the list. 
+1. On the left menu for your device, select **Telemetry**.
+1. Confirm that **Use built-in event hub** is set to *Yes* and then select **Start**.
+1. View the telemetry as the device sends messages to the cloud.
+
+    :::image type="content" source="media/iot-develop-send-telemetry-iot-hub-python/iot-explorer-device-telemetry.png" alt-text="Screenshot of device telemetry in IoT Explorer":::
+
+1. Select **Stop** to end receiving events.
+
+To use Azure CLI to view device telemetry:
+
+1. In your CLI app, run the [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) command to monitor events sent from the simulated device to your IoT hub. Use the names that you created previously in Azure IoT for your device and IoT hub.
+
+    ```azurecli
+    az iot hub monitor-events --output table --device-id mydevice --hub-name {YourIoTHubName}
+    ```
+
+1. View the connection details and telemetry output in the console.
+
+    ```output
+    Starting event monitor, use ctrl-c to stop...
+    event:
+      component: thermostat1
+      interface: dtmi:com:example:TemperatureController;2
+      module: ''
+      origin: myDevice
+      payload:
+        temperature: 29
+    
+    event:
+      component: thermostat2
+      interface: dtmi:com:example:TemperatureController;2
+      module: ''
+      origin: myDevice
+      payload:
+        temperature: 48
+    ```
+    
