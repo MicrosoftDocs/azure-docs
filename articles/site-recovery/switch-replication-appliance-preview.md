@@ -49,6 +49,9 @@ As an example, here is the scenario where replication appliance 1 (RA1) has beco
 
 2. Select the replication appliance (RA1) and select  **Switch appliance**.
 
+   ![Select replication appliance to switch](./media/switch-replication-appliance-preview/select-switch-appliance.png)
+
+
 3. Under  **Select machines**, select the machines that you want to failover to another replication appliance (RA2). Select **Next**.
 
    >[!NOTE]
@@ -61,12 +64,11 @@ As an example, here is the scenario where replication appliance 1 (RA1) has beco
    ![Source settings for replication appliance](./media/switch-replication-appliance-preview/source-settings.png)
 
    >[!NOTE]
-   > - In case of a failover, you will be prompted to select the account credentials for all the selected machines, as the previous appliance has failed.
-   > -  If your current appliance has burnt down, then you will be required to select the credentials to access the machines. Otherwise, the field will be disabled.
+   > If your current appliance has burnt down, then you will be required to select the credentials to access the machines. Otherwise, the field will be disabled.
 
-5. Select **Switch appliance**.
+5. Review the selection and then click **Switch appliance**.
 
-   ![Switch replication appliance](./media/switch-replication-appliance-preview/switch-appliance.png)
+   ![review replication appliance](./media/switch-replication-appliance-preview/review-switch-appliance.png)
 
    Once the resync is complete, the replication status turns healthy for the VMs that are moved to a new appliance.
 
