@@ -74,7 +74,7 @@ Microsoft Authenticator is the mobile application that orchestrates the interact
 
 #### Web front end
 
-The relying party web frontend uses the Azure AD VC APIs or SDK to verify VCs by generating deep links or QR codes that are consumed by the subject’s wallet. Depending on the scenario, the frontend can be a publicly accessible or internal website to enable end-user experiences that require verification. However, the endpoints that the wallet accesses must be publicly accessible. Specifically, it controls redirection to the wallet with specific request parameters. This is accomplished using the Microsoft-provided APIs and SDK.
+The relying party web front end uses the Azure AD VC APIs or SDK to verify VCs by generating deep links or QR codes that are consumed by the subject’s wallet. Depending on the scenario, the front end can be a publicly accessible or internal website to enable end-user experiences that require verification. However, the endpoints that the wallet accesses must be publicly accessible. Specifically, it controls redirection to the wallet with specific request parameters. This is accomplished using the Microsoft-provided APIs and SDK.
 
 #### Business logic 
 
@@ -92,7 +92,7 @@ Verifiable credentials can also be used to enable faster onboarding by replacing
 
 #### Additional elements 
 
-**Onboarding portal**: This is a web frontend that orchestrates the Azure AD VC APIs/SDKs calls for VC presentation and validation, and the logic to onboard accounts.
+**Onboarding portal**: This is a web front end that orchestrates the Azure AD VC APIs/SDKs calls for VC presentation and validation, and the logic to onboard accounts.
 
 **Custom logic / workflows**: Specific logic with organization-specific steps before and after updating the user account. This might include approval workflows, additional validations, logging, notifications, etc.
 
@@ -108,7 +108,7 @@ Verifiable credentials can also be used to enable faster onboarding by replacing
 
 * **Storing VC Attributes**: Where possible do not store attributes from VCs in your app-specific store. Be especially careful with personal data. If this information is required by specific flows within your applications, consider asking for the VC to retrieve the claims on demand. 
 
-* **VC Attribute correlation with backend systems**: When defining the attributes of the VC with the issuer, establish a mechanism to correlate information in the backend system after the user presents the VC. This typically uses a time-bound, unique identifier in the context of your RP in combination with the claims you receive. Some examples:
+* **VC Attribute correlation with back-end systems**: When defining the attributes of the VC with the issuer, establish a mechanism to correlate information in the back-end system after the user presents the VC. This typically uses a time-bound, unique identifier in the context of your RP in combination with the claims you receive. Some examples:
 
    * **New employee**: When the HR workflow reaches the point where identity proofing is required, the RP can generate a link with a time-bound unique identifier and send it to the candidate’s email address on the HR system. This unique identifier should be sufficient to correlate information such as firstName, lastName from the VC verification request to the HR record or underlying data. The attributes in the VC can be used to complete user attributes in the HR system, or to validate accuracy of user attributes about the employee.
 
@@ -116,7 +116,7 @@ Verifiable credentials can also be used to enable faster onboarding by replacing
 
    * **External identities** – self-service: When external identities sign up to the target system through self-service (for example, a B2C application) the attributes in the VC can be used to populate the initial attributes of the user account. The VC attributes can also be used to find out if a profile already exists.
 
-* **Interaction with target identity systems**: The service-to-service communication between the web front-end and your target identity systems needs to be secured as a highly privileged system, because it can create accounts. Grant the web front end the least privileged roles possible. Some examples include:
+* **Interaction with target identity systems**: The service-to-service communication between the web front end and your target identity systems needs to be secured as a highly privileged system, because it can create accounts. Grant the web front end the least privileged roles possible. Some examples include:
 
    * To create a new user in Azure AD, the RP website can use a service principal that is granted the MS Graph scope of User.ReadWrite.All to create users, and the scope UserAuthenticationMethod.ReadWrite.All to reset authentication method
 
@@ -132,11 +132,11 @@ Verifiable credentials can be used as additional proof to access to sensitive ap
 
 #### Additional elements 
 
-**Relying party web front-end**: This is the web front-end of the application that is enhanced through Azure AD Verifiable Credential SDK or API calls for VC presentation and validation, based on your business requirements.
+**Relying party web front end**: This is the web front end of the application that is enhanced through Azure AD Verifiable Credential SDK or API calls for VC presentation and validation, based on your business requirements.
 
 **User access authorization logic**: Logic layer in the application that authorizes user access and is enhanced to consume the user attributes inside the VC to make authorization decisions. 
 
-**Other backend services and dependencies**: Represents the rest of the logic of the application, which typically is unchanged by the inclusion of identity proofing through VCs.
+**Other back-end services and dependencies**: Represents the rest of the logic of the application, which typically is unchanged by the inclusion of identity proofing through VCs.
 
 #### Design Considerations
 
@@ -152,7 +152,7 @@ Verifiable credentials can be used as additional proof to access to sensitive ap
 
    * **Step-up authentication**: users start the session with the application with existing authentication mechanisms. Users must present a VC for specific high-value operations within the application such as approvals of business workflows. This is a good fit for scenarios where such high-value operations are easy to identify and update within the application flows.
 
-   * **Session establishment**: Users must present a VC as part of initiating the session with the application. This is a good fit when the nature of the entire application is high value. 
+   * **Session establishment**: Users must present a VC as part of initiating the session with the application. This is a good fit when the nature of the entire application is high-value. 
 
 ### Accessing applications outside organization boundaries
 
@@ -164,7 +164,7 @@ The decentralized nature of verifiable credentials enables this scenario without
 
 #### Additional elements 
 
-**Relying party web front-end**: This is the web front-end of the application that is enhanced through Azure AD Verifiable Credential SDK or API calls for VC presentation and validation, based on your business requirements.
+**Relying party web front end**: This is the web front end of the application that is enhanced through Azure AD Verifiable Credential SDK or API calls for VC presentation and validation, based on your business requirements.
 
 **User access authorization logic**: Logic layer in the application that authorizes user access and is enhanced to consume the user attributes inside the VC to make authorization decisions. 
 
@@ -193,7 +193,7 @@ Note: While the scenario we describe in this section is specific to recover Azur
 
 #### Additional Elements
 
-**Account portal**: This is a web front-end that orchestrates the API or SDK calls for VC presentation and validation. This orchestration can include Microsoft Graph calls to recover accounts in Azure AD.
+**Account portal**: This is a web front end that orchestrates the API or SDK calls for VC presentation and validation. This orchestration can include Microsoft Graph calls to recover accounts in Azure AD.
 
 **Custom logic or workflows**: Logic with organization-specific steps before and after updating the user account. This might include approval workflows, additional validations, logging, notifications, etc.
 
@@ -211,7 +211,7 @@ Similarly, you can use a VC to generate a temporary access pass that will allow 
 
 **Authorization**: Create an authorization mechanism such as a security group that the RP checks before proceeding with the credential recovery. For example, only users in specific groups might be eligible to recover an account with a VC.
 
-**Interaction with Azure AD**: The service-to-service communication between the web frontend and Azure AD must be secured as a highly privileged system because it can reset employees’ credentials. Grant the web frontend the least privileged roles possible. Some examples include:
+**Interaction with Azure AD**: The service-to-service communication between the web front end and Azure AD must be secured as a highly privileged system because it can reset employees’ credentials. Grant the web front end the least privileged roles possible. Some examples include:
 
 * Grant the RP website the ability to use a service principal granted the MS Graph scope UserAuthenticationMethod.ReadWrite.All to reset authentication methods. Don’t grant the User.ReadWrite.All, which enables the ability to create and delete users.
 
@@ -263,7 +263,7 @@ As with any solution, you must plan for performance. Focus areas include latency
 
 The following provides areas to consider when planning for performance:
 
-* The Azure AD Verifiable Credentials issuance service is deployed in West Europe, North Europe, West US 2, and West Central US Azure regions. To limit latency, deploy your verification frontend (website) and key vault in the region listed above that is closest to where requests are expected to originate from.
+* The Azure AD Verifiable Credentials issuance service is deployed in West Europe, North Europe, West US 2, and West Central US Azure regions. To limit latency, deploy your verification front end (website) and key vault in the region listed above that is closest to where requests are expected to originate from.
 
 * Model based on throughput:
 
