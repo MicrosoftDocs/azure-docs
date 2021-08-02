@@ -42,15 +42,15 @@ You must create a storage account under your Azure subscription to store the res
 
 After creating your account, please run the following commands to generate a shared access signature (SAS) URL. The results of your packet capture will be stored via this URL.
    ```azurepowershell-interactive
-  $rgname = “<resource group name containing storage account>” 
+  $rg = “<resource group name containing storage account>” 
 $storeName = “<name of storage account> “
 $containerName = “<name of container you want to store packet capture in>
-$key = Get-AzStorageAccountKey -ResourceGroupName $rgname -Name $storeNAme
+$key = Get-AzStorageAccountKey -ResourceGroupName $rg -Name $storeName
 $context = New-AzStorageContext -StorageAccountName  $storeName -StorageAccountKey $key[0].value
 New-AzStorageContainer -Name $containerName -Context $context
 $container = Get-AzStorageContainer -Name $containerName  -Context $context
 $now = get-date
-$sasurl = New-AzureStorageContainerSASToken -Name $containerName -Context $context -Permission "rwd" -StartTime $now.AddHours(-1) -ExpiryTime $now.AddDays(1) -FullUri
+$sasurl = New-AzStorageContainerSASToken -Name $containerName -Context $context -Permission "rwd" -StartTime $now.AddHours(-1) -ExpiryTime $now.AddDays(1) -FullUri
    ```
 
 ## Start the packet capture

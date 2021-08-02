@@ -149,7 +149,7 @@ Event Grid Web Hooks require validation on creation. You can validate by followi
     :::image type="content" source="./media/event-subscription-view-webhook.png" alt-text="Web Hook shows up in a table on the bottom of the page." :::
 
 > [!NOTE]
-> When subscribing for configuration changes, one or more filters can be used to reduce the number of events sent to your application. These can be configured either as [Event Grid subscription filters](/azure/event-grid/event-filtering.md) or [Service Bus subscription filters](/azure/service-bus-messaging/topic-filters.md). For example, a subscription filter can be used to only subscribe to events for changes in a key that starts with a specific string.
+> When subscribing for configuration changes, one or more filters can be used to reduce the number of events sent to your application. These can be configured either as [Event Grid subscription filters](/azure/event-grid/event-filtering) or [Service Bus subscription filters](/azure/service-bus-messaging/topic-filters). For example, a subscription filter can be used to only subscribe to events for changes in a key that starts with a specific string.
 
 ## Verify and test application
 
