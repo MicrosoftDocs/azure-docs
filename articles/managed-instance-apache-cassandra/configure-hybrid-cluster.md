@@ -159,12 +159,12 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
 1. Finally, use the following CQL query to update the replication strategy in each keyspace to include all datacenters across the cluster:
 
    ```bash
-   ALTER KEYSPACE "ks" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', ‘on-premise-dc': 3, ‘managed-instance-dc': 3};
+   ALTER KEYSPACE "ks" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', 'on-premise-dc': 3, 'managed-instance-dc': 3};
    ```
    You also need to update the password tables:
 
    ```bash
-    ALTER KEYSPACE "system_auth" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', ‘on-premise-dc': 3, ‘managed-instance-dc': 3}
+    ALTER KEYSPACE "system_auth" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', 'on-premise-dc': 3, 'managed-instance-dc': 3}
    ```
 
 ## Troubleshooting
