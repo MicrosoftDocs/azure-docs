@@ -68,6 +68,9 @@ Type `spx` to see help for the Speech CLI.
 > [!WARNING]
 > You cannot use your computer's microphone when you run Speech CLI within a Docker container. However, you can read from and save audio files in your local mounted directory. 
 
+> [!NOTE]
+> The following example pulls a public container image from Docker Hub. We recommend that you authenticate with your Docker Hub account (`docker login`) first instead of making an anonymous pull request. To improve reliability when using public content, import and manage the image in a private Azure container registry. [Learn more about working with public images](../articles/container-registry/buffer-gate-public-content.md)
+
 Follow these steps to install the Speech CLI in a Docker container:
 
 1. <a href="https://www.docker.com/get-started" target="_blank">Install Docker Desktop</a> for your platform if it isn't already installed.
