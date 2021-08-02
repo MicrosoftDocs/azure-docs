@@ -105,6 +105,8 @@ You can take fine-grained control over what commands run during the app or API b
 | `api_build_command` | Defines a custom command to build the Azure Functions API application. |
 
 The following example show how to define custom build commands inside a job's `with` section.
+
+```yml
 ...
 with:
   azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_RIVER_0AFDB141E }}
