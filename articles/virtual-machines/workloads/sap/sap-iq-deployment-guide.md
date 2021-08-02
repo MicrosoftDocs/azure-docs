@@ -26,7 +26,7 @@ This guide will provide you the guidelines for planning, deploying, and configur
 
 ## Solution Overview
 
-In an operative BW system, the volume of data increases constantly and this data is required for longer period because of the business and legal requirement. The large volume of data can affect the performance of the system and increases the administration effort, which results into implementing a data aging strategy. If you want to keep the amount of data in your SAP BW system constant without deleting, you can use data archiving. The data is first moved to archive or near-line storage and then deleted from the BW system. You can either access the data directly or load it back as required depending on how the data has been archived. 
+In an operative BW system, the volume of data increases constantly and this data is required for longer period because of the business and legal requirement. The large volume of data can affect the performance of the system and increases the administration effort, which results in the need of implementing a data aging strategy. If you want to keep the amount of data in your SAP BW system without deleting, you can use data archiving. The data is first moved to archive or near-line storage and then deleted from the BW system. You can either access the data directly or load it back as required depending on how the data has been archived. 
 
 SAP BW users can use SAP IQ as a near-line storage (NLS) solution. The adapter for SAP IQ as a near-line solution is delivered with the BW system. With NLS implemented, frequently used data is stored in SAP BW online database (SAP HANA or any DB) while infrequently accessed data is stored in SAP IQ, which reduces the cost to manage data and improves the performance of SAP BW system. To ensure consistency between online data and near-line data, the archived partitions are locked and are read-only. 
 
@@ -57,7 +57,7 @@ Sizing of SAP IQ is confined to CPU, memory, and storage. The general sizing gui
 >
 > For productive system, we recommend you to use E-Series virtual machines due to its core-to-memory ratio. 
 
-SAP IQ sizing guide and sizing worksheet mentioned in SAP Note [1951789](https://launchpad.support.sap.com/#/notes/1951789) are developed for the native usage of the SAP IQ database and doesn't reflect the resources for the planning of <SID>IQ database, you might end with less needed resources for SAP-NLS.
+SAP IQ sizing guide and sizing worksheet mentioned in SAP Note [1951789](https://launchpad.support.sap.com/#/notes/1951789) are developed for the native usage of the SAP IQ database and doesn't reflect the resources for the planning of <SID>IQ database, you might end up with unused resources for SAP-NLS.
 
 ## Azure resources
 
@@ -67,11 +67,11 @@ If you’re already running your SAP systems on Azure, probably you have your re
 
 ### Availability sets 
 
-To achieve redundancy of SAP systems in Azure infrastructure, application needs to be deployed either in availability sets or availability zones. Technically SAP IQ high availability can be achieved using the IQ multiplex architecture, but the multiplex architecture doesn’t suffice the requirement of NLS solution. To achieve high availability for SAP IQ simplex architecture, two node cluster with custom solution needs to be configured. The two node SAP IQ cluster can be deployed in availability sets or availability zones, but the Azure storage that gets attached to the nodes decides its deployment method. Currently Azure shared premium disk and Azure NetApp Files don't support zonal deployment, which leads to SAP IQ deployment in availability set. 
+To achieve redundancy of SAP systems in Azure infrastructure, application needs to be deployed either in availability sets or availability zones. Technically SAP IQ high availability can be achieved using the IQ multiplex architecture, but the multiplex architecture doesn’t meet the requirement of NLS solution. To achieve high availability for SAP IQ simplex architecture, two node cluster with custom solution needs to be configured. The two node SAP IQ cluster can be deployed in availability sets or availability zones, but the Azure storage that gets attached to the nodes decides its deployment method. Currently Azure shared premium disk and Azure NetApp Files don't support zonal deployment, which only leave the SAP IQ deployment in availability set option. 
 
 ### Virtual machines
 
-Based on SAP IQ sizing, you need to map your requirement to Azure virtual machines, which is supported in Azure for SAP product. SAP Note [1928533](https://launchpad.support.sap.com/#/notes/1928533) is a good starting point that list out supported Azure VM types for SAP products on Windows and Linux. Also a point to keep in mind that beyond the selection of purely supported VM types, you also need to check whether those VM types are available in specific region. You can check the availability of VM type on [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) page. For choosing the pricing model, you can refer to [Azure virtual machines for SAP workload](planning-guide.md#azure-virtual-machines-for-sap-workload). 
+Based on SAP IQ sizing, you need to map your requirement to Azure virtual machines, which is supported in Azure for SAP product. SAP Note [1928533](https://launchpad.support.sap.com/#/notes/1928533) is a good starting point that lists supported Azure VM types for SAP products on Windows and Linux. Also a point to keep in mind that beyond the selection of purely supported VM types, you also need to check whether those VM types are available in specific region. You can check the availability of VM type on [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) page. For choosing the pricing model, you can refer to [Azure virtual machines for SAP workload](planning-guide.md#azure-virtual-machines-for-sap-workload). 
 
 For productive system, we recommend you to use E-Series virtual machines because of its core-to-memory ratio.
 
@@ -111,7 +111,7 @@ Follow the latest guide by SAP to prepare servers for NLS implementation with SA
 
 ### High-availability deployment
 
-SAP IQ supports both a simplex and a multiplex architecture. For NLS solution, only simplex server architecture is available and evaluated. Simplex is a single instance of an SAP IQ server running on a single virtual machine. Technically SAP IQ high availability can be achieved using multiplex server architecture, but the multiplex architecture doesn't suffice the requirement for NLS solution. For simplex server architecture, SAP doesn't provide any features or procedures to run the SAP IQ in high availability configuration. 
+SAP IQ supports both a simplex and a multiplex architecture. For NLS solution, only simplex server architecture is available and evaluated. Simplex is a single instance of an SAP IQ server running on a single virtual machine. Technically SAP IQ high availability can be achieved using multiplex server architecture, but the multiplex architecture doesn't meet the requirement for NLS solution. For simplex server architecture, SAP doesn't provide any features or procedures to run the SAP IQ in high availability configuration. 
 
 To set up SAP IQ high availability on Windows for simplex server architecture, you need to set up a custom solution, which requires extra configuration like Microsoft Windows Server Failover Cluster, shared disk and so on. One such custom solution for SAP IQ on Windows is described in details in [Deploy SAP IQ NLS HA Solution using Azure shared disk on Windows Server](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-iq-nls-ha-solution-using-azure-shared-disk-on-windows/ba-p/2433089) blog.
 
@@ -124,7 +124,7 @@ In Azure, you can schedule SAP IQ database backup as described by SAP in [IQ Adm
 - Incremental since full backup - It back up all changes to the database since the last full backup.
 - Virtual backup - It copies all of the database except the table data and metadata from the IQ store.
 
-Depending on your IQ database size, you can schedule your database backup from any of the backup scenarios. But if you are using SAP IQ with NLS interface delivered by SAP and want to automate the backup process for IQ database, which ensures that the SAP IQ database can always be recovered to a state without data loss with respect to the data movement processes between the primary database and the SAP IQ database. Refer SAP Note [2741824 - How to setup backup automation for SAP IQ Cold Store/Near-line Storage](https://launchpad.support.sap.com/#/notes/2741824), which provide details on setting up automation for SAP IQ near-line storage. 
+Depending on your IQ database size, you can schedule your database backup from any of the backup scenarios. But if you are using SAP IQ with NLS interface delivered by SAP and want to automate the backup process for IQ database, which ensures that the SAP IQ database can always be recovered to a consistent state without data loss with respect to the data movement processes between the primary database and the SAP IQ database. Refer SAP Note [2741824 - How to setup backup automation for SAP IQ Cold Store/Near-line Storage](https://launchpad.support.sap.com/#/notes/2741824), which provide details on setting up automation for SAP IQ near-line storage. 
 
 For large IQ database, you can use virtual backup in SAP IQ. For more information on virtual backup, see [Virtual Backups](https://help.sap.com/viewer/a893f37e84f210158511c41edb6a6367/16.1.4.7/en-US/a880672184f21015a08dceedc7d19776.html), [Introduction Virtual Backup in SAP Sybase IQ](https://wiki.scn.sap.com/wiki/display/SYBIQ/Introduction+Virtual+BackUp+(+general++back+up+method+)+in+SAP+Sybase+IQ) and SAP Note [2461985 - How to Backup Large SAP IQ Database](https://launchpad.support.sap.com/#/notes/0002461985).
 
