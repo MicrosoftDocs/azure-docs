@@ -203,7 +203,7 @@ If you use Azure Container Registry (ACR) as your container image store, you nee
 
 ### Networking
 
-You may use advanced networking where the virtual network and subnet or public IP addresses are in another resource group. Assign the [Network Contributor][rbac-network-contributor] built-in role on the subnet within the virtual network. Alternatively, you can create a [custom role][rbac-custom-role] with permissions to access the network resources in that resource group. See [AKS service permissions][aks-permissions] for more details.
+You may use advanced networking where the virtual network and subnet or public IP addresses are in another resource group. Assign the [Network Contributor][rbac-network-contributor] built-in role to the virtual network. Alternatively, you can create a [custom role][rbac-custom-role] with permissions to access the network resources in that resource group. See [AKS service permissions][aks-permissions] for more details.
 
 ### Storage
 
