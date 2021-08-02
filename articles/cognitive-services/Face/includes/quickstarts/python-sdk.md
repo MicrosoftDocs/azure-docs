@@ -156,7 +156,7 @@ The following code looks in the root of your project for an image _test-image-pe
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_identify_testimage)]
 
-### Output identified face ids
+### Output identified face IDs
 
 The **identify** method takes an array of detected faces and compares them to a **PersonGroup**. If it can match a detected face to a **Person**, it saves the result. This code prints detailed match results to the console.
 
