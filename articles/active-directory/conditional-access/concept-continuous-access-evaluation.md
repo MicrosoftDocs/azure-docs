@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 08/02/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -96,7 +96,7 @@ Before continuous access evaluation, clients would replay the access token from 
 
 ### Token lifetime
 
-Because risk and policy are evaluated in real time, clients that negotiate continuous access evaluation aware sessions will no longer rely on static access token lifetime policies. This change means that the configurable token lifetime policy isn't honored for clients negotiating CAE-aware sessions.
+Because risk and policy are evaluated in real time, clients that negotiate continuous access evaluation aware sessions no longer rely on static access token lifetime policies. This change means that the configurable token lifetime policy isn't honored for clients negotiating CAE-aware sessions.
 
 Token lifetime is increased to long lived, up to 28 hours, in CAE sessions. Revocation is driven by critical events and policy evaluation, not just an arbitrary time period. This change increases the stability of applications without affecting security posture. 
 
@@ -176,7 +176,7 @@ Examples:
 - Your resource provider sees a different IP address from the client after passing through a proxy.
 - The IP address your identity provider sees is part of an allowed IP range in policy but the IP address from the resource provider isn't.
 
-If this scenario exists in your environment, to avoid infinite loops Azure AD will issue a one hour CAE token and won't enforce client location change. Even in this case, security is improved compared to traditional one hour tokens since we're still evaluating the [other events](#critical-event-evaluation) besides client location change events.
+To avoid infinite loops because of these scenarios, Azure AD issues a one hour CAE token and won't enforce client location change. In this case, security is improved compared to traditional one hour tokens since we're still evaluating the [other events](#critical-event-evaluation) besides client location change events.
 
 ### Supported location policies
 
@@ -206,7 +206,7 @@ To reduce this time a SharePoint Administrator can reduce the maximum lifetime o
 
 ### Enable after a user is disabled
 
-If you enable a user right after disabling, there is some latency before the account is recognized as enabled in downstream Microsoft services.
+If you enable a user right after disabling, there's some latency before the account is recognized as enabled in downstream Microsoft services.
 
 - SharePoint Online and Teams typically have a 15-minute delay. 
 - Exchange Online typically has a 35-40 minute delay. 
