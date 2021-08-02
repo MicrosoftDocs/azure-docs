@@ -81,10 +81,10 @@ Azure App Service readiness for web apps is based on feature compatibility check
 ### Azure App Service SKU
 
 After the assessment determines the readiness based on configuration data, it determines the Azure App Service SKU that is suitable for running your apps in Azure App Service.
-Currently, Azure Migrate only recommends I1, P1v2, and P1v3 SKUs. Premium plans are for production workloads and run on dedicated Virtual Machine instances. Each instance can support multiple applications and domains. The Isolated plans host your apps in a private, dedicated Azure environment and are ideal for apps that require secure connections with your on-premise network.
+Premium plans are for production workloads and run on dedicated Virtual Machine instances. Each instance can support multiple applications and domains. The Isolated plans host your apps in a private, dedicated Azure environment and are ideal for apps that require secure connections with your on-premise network.
 
 > [!NOTE]
-> There are more SKUs available in Azure App service. [Learn more](https://azure.microsoft.com/pricing/details/app-service/windows/).
+> Currently, Azure Migrate only recommends I1, P1v2, and P1v3 SKUs. There are more SKUs available in Azure App service. [Learn more](https://azure.microsoft.com/pricing/details/app-service/windows/).
 
 ### Azure App Service Plan
 
