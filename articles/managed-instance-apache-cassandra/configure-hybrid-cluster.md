@@ -20,6 +20,9 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
+> [!NOTE]
+> Please ensure that you have version **0.9.0** or higher of the CLI module `cosmosdb-preview` running in your cloud shell. This is required for all the commands listed below to function properly. You can check extension versions by running `az --version`. If necessary, upgrade using the command `az extension update --name cosmosdb-preview`.
+
 * This article requires the Azure CLI version 2.12.1 or higher. If you are using Azure Cloud Shell, the latest version is already installed.
 
 * [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) with connectivity to your self-hosted or on-premise environment. For more information on connecting on premises environments to Azure, see the [Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/) article.
@@ -51,7 +54,9 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    > [!NOTE]
    > The `assignee` and `role` values in the previous command are fixed service principle and role identifiers respectively.
 
-1. Next, we will configure resources for our hybrid cluster. Since you already have a cluster, the cluster name here will only be a logical resource to identify the name of your existing cluster. Make sure to use the name of your existing cluster when defining `clusterName` and `clusterNameOverride` variables in the following script. You also need the seed nodes, public client certificates (if you have configured a public/private key on your cassandra endpoint), and gossip certificates of your existing cluster.
+1. Next, we will configure resources for our hybrid cluster. Since you already have a cluster, the cluster name here will only be a logical resource to identify the name of your existing cluster. Make sure to use the name of your existing cluster when defining `clusterName` and `clusterNameOverride` variables in the following script. 
+ 
+    You also need, at minimum, the seed nodes from your existing datacenter, and the gossip certificates required for node-to-node encryption. Azure Managed Instance for Apache Cassandra requires node-to-node encryption for communication between datacenters. If you do not have node-to-node encryption implemented in your existing cluster, you would need to implement it - see documentation [here](https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/configuration/secureSSLNodeToNode.html). You should supply the path to the location of the certificates. Each certificate should be in PEM format, e.g. `-----BEGIN CERTIFICATE-----\n...PEM format 1...\n-----END CERTIFICATE-----`. We require both the root CA certificate, and each node's certificate that was signed with root CA (refer to instructions on [preparing SSL certificates for production](https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/configuration/secureSSLCertWithCA.html)). Optionally, if you have also implemented client-to-node certificates (see [here](https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/configuration/secureSSLClientToNode.html)), you also need to provide them in the same format when creating the hybrid cluster. See sample below.
 
    > [!NOTE]
    > The value of the `delegatedManagementSubnetId` variable you will supply below is exactly the same as the value of `--scope` that you supplied in the command above:
@@ -72,13 +77,14 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
       --resource-group $resourceGroupName \
       --location $location \
       --delegated-management-subnet-id $delegatedManagementSubnetId \
-      --external-seed-nodes 10.52.221.2,10.52.221.3,10.52.221.4
-      --client-certificates 'BEGIN CERTIFICATE-----\n...PEM format..\n-----END CERTIFICATE-----','BEGIN CERTIFICATE-----\n...PEM format...\n-----END CERTIFICATE-----' \
-      --external-gossip-certificates 'BEGIN CERTIFICATE-----\n...PEM format 1...\n-----END CERTIFICATE-----','BEGIN CERTIFICATE-----\n...PEM format 2...\n-----END CERTIFICATE-----'
+      --external-seed-nodes 10.52.221.2 10.52.221.3 10.52.221.4 \
+      --external-gossip-certificates /usr/csuser/clouddrive/rootCa.pem /usr/csuser/clouddrive/gossipKeyStore.crt_signed
+      # optional - add client-to-node certificates if implemented:
+      # --client-certificates /usr/csuser/clouddrive/rootCa.pem /usr/csuser/clouddrive/nodeKeyStore.crt_signed 
    ```
 
     > [!NOTE]
-    > You should know where your existing public and/or gossip certificates are kept. If you are uncertain, you should be able to run `keytool -list -keystore <keystore-path> -rfc -storepass <password>` to print the certs. 
+    > If your cluster already has node-to-node and client-to-node encryption, you should know where your existing client and/or gossip SSL certificates are kept. If you are uncertain, you should be able to run `keytool -list -keystore <keystore-path> -rfc -storepass <password>` to print the certs. 
 
 1. After the cluster resource is created, run the following command to get the cluster setup details:
 
@@ -91,7 +97,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
        --resource-group $resourceGroupName \
    ```
 
-1. The previous command returns information about the managed instance environment. You'll need the gossip certificates so that you can install them on the nodes in your existing datacenter. The following screenshot shows the output of the previous command and the format of certificates:
+1. The previous command returns information about the managed instance environment. You'll need the gossip certificates so that you can install them on the trust store for nodes in your existing datacenter. The following screenshot shows the output of the previous command and the format of certificates:
 
    :::image type="content" source="./media/configure-hybrid-cluster/show-cluster.png" alt-text="Get the certificate details from the cluster." lightbox="./media/configure-hybrid-cluster/show-cluster.png" border="true":::
     <!-- ![image](./media/configure-hybrid-cluster/show-cluster.png) -->
@@ -126,7 +132,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
        --data-center-name $dataCenterName 
    ```
 
-1. The previous command outputs the new datacenter's seed nodes. Add the new datacenter's seed nodes to your existing datacenter's configuration within the *cassandra.yaml* file. And install the managed instance gossip certificates that you collected earlier:
+1. The previous command outputs the new datacenter's seed nodes. Now add the new datacenter's seed nodes to your existing datacenter's seed node configuration within the *cassandra.yaml* file. And install the managed instance gossip certificates that you collected earlier to the trust store for each node in your existing cluster:
 
    :::image type="content" source="./media/configure-hybrid-cluster/show-datacenter.png" alt-text="Get datacenter details." lightbox="./media/configure-hybrid-cluster/show-datacenter.png" border="true":::
     <!-- ![image](./media/configure-hybrid-cluster/show-datacenter.png) -->
