@@ -105,6 +105,11 @@ Virtual WAN supports up to 20 Gbps aggregate throughput both for VPN and Express
 
 A virtual network gateway VPN is limited to 30 tunnels. For connections, you should use Virtual WAN for large-scale VPN. You can connect up to 1,000 branch connections per region (virtual hub) with aggregate of 20 Gbps per hub. A connection is an active-active tunnel from the on-premises VPN device to the virtual hub. You can have one hub per region, which means you can connect more than 1,000 branches across hubs.
 
+### What is the recommended Packets per Second limit per IPSEC tunnel?
+
+It is recommended to send around 95,000 PPS with GCMAES256 algorithm for both IPSEC Encryption and Integrity for optimal performance. Though traffic is not blocked if greater than 95,000 PPS are sent, performance degradation such as latency and packet drops can be expected. Please create additional tunnels if greater PPS is required.
+
+
 ### What is a Virtual WAN gateway scale unit?
 
 A scale unit is a unit defined to pick an aggregate throughput of a gateway in Virtual hub. 1 scale unit of VPN = 500 Mbps. 1 scale unit of ExpressRoute = 2 Gbps. Example: 10 scale unit of VPN would imply 500 Mbps * 10 = 5 Gbps

@@ -95,19 +95,19 @@ The ASEv3 is available in the following regions.
 |Normal and dedicated host ASEv3 regions|	AZ ASEv3 regions|
 |---------------------------------------|------------------|
 |Australia East|	Australia East|
-|Australia Southeast|Canada Central|
-|Brazil South	|Central US|
-|Canada Central|	East US|
-|Central India	|	East US 2|
-|Central US	|France Central|
-|East Asia	| Germany West Central|
-|East US	| North Europe|
-|East US 2|	South Central US|
-|France Central	| Southeast Asia|
-|Germany West Central	|	UK South|
-|Korea Central	| West Europe|
-|North Europe	|West US 2|
-|Norway East	|	|
+|Australia Southeast|Brazil South|
+|Brazil South	|Canada Central|
+|Canada Central|Central US|
+|Central India	|East US|
+|Central US	|East US 2|
+|East Asia	| France Central|
+|East US	| Germany West Central|
+|East US 2|	North Europe|
+|France Central	| South Central US|
+|Germany West Central	|	Southeast Asia|
+|Korea Central	| UK South|
+|North Europe	| West Europe|
+|Norway East	| West US 2	|
 |South Africa North| |	
 |South Central US	| |
 |Southeast Asia| |

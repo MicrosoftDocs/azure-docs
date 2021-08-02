@@ -27,14 +27,6 @@ While fewer workspaces are simpler to manage, you may have specific needs for mu
 
 When determining how many tenants and workspaces to use, consider that most Azure Sentinel features operate by using a single workspace or Azure Sentinel instance, and Azure Sentinel ingests all logs housed within the workspace.
 
-<!--
-Therefore, for example, if you have both security-related and non-security logs, or logs that should not be ingested by Azure Sentinel, you may want to create an additional workspace to store the non-Azure Sentinel logs and avoid unwanted costs.
-
-The following image shows an architecture where security and non-security logs go to separate workspaces, with Azure Sentinel ingesting only the security-related logs.
-
-:::image type="content" source="media/best-practices/separate-workspaces-for-different-logs.png" alt-text="Separate workspaces for security-related logs and non-security logs.":::
--->
-
 > [!IMPORTANT]
 > Costs are one of the main considerations when determining Azure Sentinel architecture. For more information, see [Azure Sentinel costs and billing](azure-sentinel-billing.md).
 >
@@ -112,7 +104,7 @@ For more information, see [Permissions in Azure Sentinel](roles.md).
 The following image shows a simplified version of a workspace architecture where security and operations teams need access to different sets of data, and resource-context RBAC is used to provide the required permissions.
 
 
-[ ![Sample architecture for resource-context RBAC.](media/resource-context-rbac/resource-context-rbac-sample.png) ](media/resource-context-rbac/resource-context-rbac-sample.png#lightbox)
+[ ![Diagram of a sample architecture for resource-context RBAC.](media/resource-context-rbac/resource-context-rbac-sample.png) ](media/resource-context-rbac/resource-context-rbac-sample.png#lightbox)
 
 In this image, the Azure Sentinel workspace is placed in a separate subscription to better isolate permissions.
 
