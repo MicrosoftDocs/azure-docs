@@ -248,7 +248,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 | `retrievedDocumentCount` | count | Total number of retrieved documents  | 
 | `retrievedDocumentSize` | bytes | Total size of retrieved documents in bytes  | 
 | `outputDocumentCount` | count | Number of output documents | 
-| `writeOutputTimeInMs` | milliseconds | Query execution time in milliseconds | 
+| `writeOutputTimeInMs` | milliseconds | Time spent writing the output in milliseconds | 
 | `indexUtilizationRatio` | ratio (<=1) | Ratio of number of documents matched by the filter to the number of documents loaded  | 
 
 The client SDKs may internally make multiple query operations to serve the query within each partition. The client makes more than one call per-partition if the total results exceed `x-ms-max-item-count`, if the query exceeds the provisioned throughput for the partition, or if the query payload reaches the maximum size per page, or if the query reaches the system allocated timeout limit. Each partial query execution returns a `x-ms-documentdb-query-metrics` for that page. 

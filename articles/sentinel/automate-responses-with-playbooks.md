@@ -241,7 +241,7 @@ Manual triggering is available from the Azure Sentinel portal in the following b
 
 ### Run a playbook manually on an incident
 
-Not supported yet. <!--make this a note instead? -->
+Not supported yet.
 
 ## Manage your playbooks
 
