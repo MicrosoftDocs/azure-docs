@@ -85,7 +85,7 @@ $convert-data takes a [Parameter](http://hl7.org/fhir/parameters.html) resource 
         ...
         ...
       "request": {
-        "method": "PUT",
+        "method": "POST",
         "url": "Location/50becdb5-ff56-56c6-40a1-6d554dca80f0"
       }
     }
