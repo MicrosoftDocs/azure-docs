@@ -14,11 +14,10 @@ Get started with facial recognition using the Face client library for Python. Fo
 
 Use the Face client library for Python to:
 
-* [Detect faces in an image](#detect-faces-in-an-image)
-* [Find similar faces](#find-similar-faces)
-* [Create and train a PersonGroup](#create-and-train-a-persongroup)
+* [Detect and analyze faces](#detect-and-analyze-faces)
 * [Identify a face](#identify-a-face)
 * [Verify faces](#verify-faces)
+* [Find similar faces](#find-similar-faces)
 
 [Reference documentation](/python/api/overview/azure/cognitiveservices/face-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [Package (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [Samples](/samples/browse/?products=azure&term=face)
 
@@ -78,11 +77,11 @@ The following classes and interfaces handle some of the major features of the Fa
 These code snippets show you how to do the following tasks with the Face client library for Python:
 
 * [Authenticate the client](#authenticate-the-client)
-* [Detect faces in an image](#detect-faces-in-an-image)
-* [Find similar faces](#find-similar-faces)
-* [Create and train a PersonGroup](#create-and-train-a-persongroup)
+* [Detect and analyze faces](#detect-and-analyze-faces)
 * [Identify a face](#identify-a-face)
 * [Verify faces](#verify-faces)
+* [Find similar faces](#find-similar-faces)
+
 
 ## Authenticate the client
 
@@ -90,7 +89,10 @@ Instantiate a client with your endpoint and key. Create a [CognitiveServicesCred
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_auth)]
 
-## Detect faces in an image
+## Detect and analyze faces
+
+Face detection is required in Face Analysis and Identity Verification. This section shows how to return the extra face attribute data. If you only want to detect faces for face identification or verification, skip to the later sections.
+
 
 The following code detects a face in a remote image. It prints the detected face's ID to the console and also stores it in program memory. Then, it detects the faces in an image with multiple people and prints their IDs to the console as well. By changing the parameters in the [detect_with_url](/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.faceoperations#detect-with-url-url--return-face-id-true--return-face-landmarks-false--return-face-attributes-none--recognition-model--recognition-01---return-recognition-model-false--detection-model--detection-01---custom-headers-none--raw-false----operation-config-) method, you can return different information with each [DetectedFace](/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.models.detectedface) object.
 
@@ -107,31 +109,16 @@ The following code outputs the given image to the display and draws rectangles a
 
 ![A young woman with a red rectangle drawn around the face](../../images/face-rectangle-result.png)
 
-## Find similar faces
 
-The following code takes a single detected face (source) and searches a set of other faces (target) to find matches (face search by image). When it finds a match, it prints the ID of the matched face to the console.
 
-### Find matches
 
-First, run the code in the above section ([Detect faces in an image](#detect-faces-in-an-image)) to save a reference to a single face. Then run the following code to get references to several faces in a group image.
+## Identify a face
 
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_detectgroup)]
+The Identify operation takes an image of a person (or multiple people) and looks to find the identity of each face in the image (facial recognition search). It compares each detected face to a **PersonGroup**, a database of different **Person** objects whose facial features are known.
 
-Then add the following code block to find instances of the first face in the group. See the [find_similar](/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.faceoperations#find-similar-face-id--face-list-id-none--large-face-list-id-none--face-ids-none--max-num-of-candidates-returned-20--mode--matchperson---custom-headers-none--raw-false----operation-config-) method to learn how to modify this behavior.
-
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_findsimilar)]
-
-### Print matches
-
-Use the following code to print the match details to the console.
-
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_findsimilar_print)]
-
-## Create and train a PersonGroup
+### Create a PersonGroup
 
 The following code creates a **PersonGroup** with three different **Person** objects. It associates each **Person** with a set of example images, and then it trains to be able to recognize each person. 
-
-### Create PersonGroup
 
 To step through this scenario, you need to save the following images to the root directory of your project: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
 
@@ -154,7 +141,7 @@ The following code sorts your images by their prefix, detects faces, and assigns
 > [!TIP]
 > You can also create a **PersonGroup** from remote images referenced by URL. See the [PersonGroupPersonOperations](/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.persongrouppersonoperations) methods such as **add_face_from_url**.
 
-### Train PersonGroup
+### Train the PersonGroup
 
 Once you've assigned faces, you must train the **PersonGroup** so that it can identify the visual features associated with each of its **Person** objects. The following code calls the asynchronous **train** method and polls the result, printing the status to the console.
 
@@ -163,20 +150,13 @@ Once you've assigned faces, you must train the **PersonGroup** so that it can id
 > [!TIP]
 > The Face API runs on a set of pre-built models that are static by nature (the model's performance will not regress or improve as the service is run). The results that the model produces might change if Microsoft updates the model's backend without migrating to an entirely new model version. To take advantage of a newer version of a model, you can retrain your **PersonGroup**, specifying the newer model as a parameter with the same enrollment images.
 
-## Identify a face
-
-The Identify operation takes an image of a person (or multiple people) and looks to find the identity of each face in the image (facial recognition search). It compares each detected face to a **PersonGroup**, a database of different **Person** objects whose facial features are known.
-
-> [!IMPORTANT]
-> In order to run this example, you must first run the code in [Create and train a PersonGroup](#create-and-train-a-persongroup).
-
 ### Get a test image
 
 The following code looks in the root of your project for an image _test-image-person-group.jpg_ and detects the faces in the image. You can find this image with the images used for **PersonGroup** management: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_identify_testimage)]
 
-### Identify faces
+### Output identified face IDs
 
 The **identify** method takes an array of detected faces and compares them to a **PersonGroup**. If it can match a detected face to a **Person**, it saves the result. This code prints detailed match results to the console.
 
@@ -184,7 +164,7 @@ The **identify** method takes an array of detected faces and compares them to a 
 
 ## Verify faces
 
-The Verify operation takes a face ID and either another face ID or a **Person** object and determines whether they belong to the same person.
+The Verify operation takes a face ID and either another face ID or a **Person** object and determines whether they belong to the same person. Verification can be used to double-check the face match returned by the Identify operation.
 
 The following code detects faces in two source images and then verifies them against a face detected from a target image.
 
@@ -207,6 +187,26 @@ The following code detects faces in the source and target images and saves them 
 The following code compares each of the source images to the target image and prints a message indicating whether they belong to the same person.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify)]
+
+## Find similar faces
+
+The following code takes a single detected face (source) and searches a set of other faces (target) to find matches (face search by image). When it finds a match, it prints the ID of the matched face to the console.
+
+### Find matches
+
+First, run the code in the above section ([Detect and analyze faces](#detect-and-analyze-faces)) to save a reference to a single face. Then run the following code to get references to several faces in a group image.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_detectgroup)]
+
+Then add the following code block to find instances of the first face in the group. See the [find_similar](/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.faceoperations#find-similar-face-id--face-list-id-none--large-face-list-id-none--face-ids-none--max-num-of-candidates-returned-20--mode--matchperson---custom-headers-none--raw-false----operation-config-) method to learn how to modify this behavior.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_findsimilar)]
+
+### Print matches
+
+Use the following code to print the match details to the console.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_findsimilar_print)]
 
 ## Run the application
 
