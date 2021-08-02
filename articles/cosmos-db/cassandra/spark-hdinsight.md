@@ -12,21 +12,21 @@ ms.date: 09/24/2018
 ---
 
 # Access Azure Cosmos DB Cassandra API from Spark on YARN with HDInsight
-[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
+[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
 This article covers how to access Azure Cosmos DB Cassandra API from Spark on YARN with HDInsight-Spark from spark-shell. HDInsight is Microsoft's Hortonworks Hadoop PaaS on Azure that leverages object storage for HDFS, and comes in several flavors including [Spark](../hdinsight/spark/apache-spark-overview.md).  While the content in this document references HDInsight-Spark, it is applicable to all Hadoop distributions.  
 
 ## Prerequisites
 
-* [Provision Azure Cosmos DB Cassandra API](create-cassandra-dotnet.md#create-a-database-account)
+* [Provision Azure Cosmos DB Cassandra API](manage-data-dotnet.md#create-a-database-account)
 
-* [Review the basics of connecting to Azure Cosmos DB Cassandra API](cassandra-spark-generic.md)
+* [Review the basics of connecting to Azure Cosmos DB Cassandra API](cassandra/connect-spark-configuration.md)
 
 * [Provision a HDInsight-Spark cluster](../hdinsight/spark/apache-spark-jupyter-spark-sql.md)
 
-* [Review the code samples for working with Cassandra API](cassandra-spark-generic.md#next-steps)
+* [Review the code samples for working with Cassandra API](cassandra/connect-spark-configuration.md#next-steps)
 
-* [Use cqlsh for validation if you so prefer](cassandra-spark-generic.md#connecting-to-azure-cosmos-db-cassandra-api-from-spark)
+* [Use cqlsh for validation if you so prefer](cassandra/connect-spark-configuration.md#connecting-to-azure-cosmos-db-cassandra-api-from-spark)
 
 * **Cassandra API configuration in Spark2** - The Spark connector for Cassandra requires that the Cassandra connection details to be initialized as part of the Spark context. When you launch a Jupyter notebook, the spark session and context are already initialized and it is not advisable to stop and reinitialize the Spark context unless it's complete with every configuration set as part of the HDInsight default Jupyter notebook start-up. One workaround is to add the Cassandra instance details to Ambari, Spark2 service configuration directly. This is a one-time activity per cluster that requires a Spark2 service restart.
  
@@ -133,4 +133,4 @@ For automated processes in production, Spark programs are submitted to the clust
 
 * [How to connect to Azure Cosmos DB Cassandra API from a Spark Scala program](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-connector-sample/blob/main/src/main/scala/com/microsoft/azure/cosmosdb/cassandra/SampleCosmosDBApp.scala)
 
-* [Complete list of code samples for working with Cassandra API](cassandra-spark-generic.md)
+* [Complete list of code samples for working with Cassandra API](cassandra/connect-spark-configuration.md)

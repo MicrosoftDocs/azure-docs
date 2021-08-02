@@ -12,12 +12,12 @@ ms.author: esarroyo
 
 # Troubleshoot issues with advanced diagnostics queries for Cassandra API
 
-[!INCLUDE[appliesto-all-apis-except-table](includes/appliesto-all-apis-except-table.md)]
+[!INCLUDE[appliesto-all-apis-except-table](../includes/appliesto-all-apis-except-table.md)]
 
 > [!div class="op_single_selector"]
 > * [SQL (Core) API](cosmos-db-advanced-queries.md)
 > * [MongoDB API](queries-mongo.md)
-> * [Cassandra API](queries-cassandra.md)
+> * [Cassandra API](cassandra/diagnostic-queries-cassandra.md)
 > * [Gremlin API](queries-gremlin.md)
 
 

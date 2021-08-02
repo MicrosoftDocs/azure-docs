@@ -15,7 +15,7 @@ ms.date: 09/14/2020
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB Cassandra API through the CQL Binary Protocol v4 [wire protocol](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) compliant open-source Cassandra client [drivers](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver). 
 
-By using the Azure Cosmos DB Cassandra API, you can enjoy the benefits of the Apache Cassandra APIs as well as the enterprise capabilities that Azure Cosmos DB provides. The enterprise capabilities include [global distribution](distribute-data-globally.md), [automatic scale out partitioning](cassandra-partitioning.md), availability and latency guarantees, encryption at rest, backups, and much more.
+By using the Azure Cosmos DB Cassandra API, you can enjoy the benefits of the Apache Cassandra APIs as well as the enterprise capabilities that Azure Cosmos DB provides. The enterprise capabilities include [global distribution](../distribute-data-globally.md), [automatic scale out partitioning](cassandra-partitioning.md), availability and latency guarantees, encryption at rest, backups, and much more.
 
 ## Cassandra protocol 
 
@@ -145,7 +145,7 @@ Azure Cosmos DB supports the following database commands on Cassandra API accoun
 | COMPACT STORAGE | N/A (PaaS service) |
 | CREATE AGGREGATE | No | 
 | CREATE CUSTOM INDEX (SASI) | No |
-| CREATE INDEX | Yes (without [specifying index name](cassandra-secondary-index.md), and indexes on clustering keys or full FROZEN collection not supported) |
+| CREATE INDEX | Yes (without [specifying index name](secondary-indexing.md), and indexes on clustering keys or full FROZEN collection not supported) |
 | CREATE FUNCTION | No |
 | CREATE KEYSPACE (replication settings ignored) | Yes |
 | CREATE MATERIALIZED VIEW | No |
@@ -206,10 +206,10 @@ Azure Cosmos DB supports the following database commands on Cassandra API accoun
 | SERIAL CONSISTENCY * | N/A |
 | SHOW | Yes |
 | SOURCE | Yes |
-| TRACING | N/A (Cassandra API is backed by Azure Cosmos DB - use [diagnostic logging](cosmosdb-monitor-resource-logs.md) for troubleshooting) |
+| TRACING | N/A (Cassandra API is backed by Azure Cosmos DB - use [diagnostic logging](../cosmosdb-monitor-resource-logs.md) for troubleshooting) |
 
 > [!NOTE] 
-> \* Consistency works differently in Azure Cosmos DB, see [here](cassandra-consistency.md) for more information.  
+> Consistency works differently in Azure Cosmos DB, see [here](apache-cassandra-consistency-mapping.md) for more information.  
 
 
 ## JSON Support
@@ -233,7 +233,7 @@ Azure Cosmos DB Cassandra API is a managed service platform. It does not require
 
 ## Hosted CQL shell (preview)
 
-You can open a hosted native Cassandra shell (CQLSH v5.0.1) directly from the Data Explorer in the [Azure portal](data-explorer.md) or the [Azure Cosmos DB Explorer](https://cosmos.azure.com/). Before enabling the CQL shell, you must [enable the Notebooks](enable-notebooks.md) feature in your account (if not already enabled, you will be prompted when clicking on `Open Cassandra Shell`). See the article [Enable notebooks for Azure Cosmos DB accounts](enable-notebooks.md#supported-regions) for supported Azure Regions.
+You can open a hosted native Cassandra shell (CQLSH v5.0.1) directly from the Data Explorer in the [Azure portal](../data-explorer.md) or the [Azure Cosmos DB Explorer](https://cosmos.azure.com/). Before enabling the CQL shell, you must [enable the Notebooks](../enable-notebooks.md) feature in your account (if not already enabled, you will be prompted when clicking on `Open Cassandra Shell`). See the article [Enable notebooks for Azure Cosmos DB accounts](../enable-notebooks.md#supported-regions) for supported Azure Regions.
 
 :::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Open CQLSH":::
 
@@ -291,7 +291,7 @@ foreach (string key in insertResult.Info.IncomingPayload)
 
 ## Consistency mapping 
 
-Azure Cosmos DB Cassandra API provides choice of consistency for read operations.  The consistency mapping is detailed [here](./cassandra-consistency.md#mapping-consistency-levels).
+Azure Cosmos DB Cassandra API provides choice of consistency for read operations.  The consistency mapping is detailed [here](apache-cassandra-consistency-mapping.md#mapping-consistency-levels).
 
 ## Permission and role management
 
@@ -299,7 +299,7 @@ Azure Cosmos DB supports Azure role-based access control (Azure RBAC) for provis
 
 ## Keyspace and Table options
 
-The options for region name, class, replication_factor, and datacenter in the "Create Keyspace" command are ignored currently. The system uses the underlying Azure Cosmos DB's [global distribution](global-dist-under-the-hood.md) replication method to add the regions. If you need the cross-region presence of data, you can enable it at the account level with PowerShell, CLI, or portal, to learn more, see the [how to add regions](how-to-manage-database-account.md#addremove-regions-from-your-database-account) article. Durable_writes can't be disabled because Azure Cosmos DB ensures every write is durable. In every region, Azure Cosmos DB replicates the data across the replica set that is made up of four replicas and this replica set [configuration](global-dist-under-the-hood.md) can't be modified.
+The options for region name, class, replication_factor, and datacenter in the "Create Keyspace" command are ignored currently. The system uses the underlying Azure Cosmos DB's [global distribution](../global-dist-under-the-hood.md) replication method to add the regions. If you need the cross-region presence of data, you can enable it at the account level with PowerShell, CLI, or portal, to learn more, see the [how to add regions](../how-to-manage-database-account.md#addremove-regions-from-your-database-account) article. Durable_writes can't be disabled because Azure Cosmos DB ensures every write is durable. In every region, Azure Cosmos DB replicates the data across the replica set that is made up of four replicas and this replica set [configuration](../global-dist-under-the-hood.md) can't be modified.
  
 All the options are ignored when creating the table, except gc_grace_seconds, which should be set to zero.
 The Keyspace and table have an extra option named "cosmosdb_provisioned_throughput" with a minimum value of 400 RU/s. The Keyspace throughput allows sharing throughput across multiple tables and it is useful for scenarios when all tables are not utilizing the provisioned throughput. Alter Table command allows changing the provisioned throughput across the regions. 
@@ -321,4 +321,4 @@ Azure Cosmos DB is a resource governed system. This means you can do a certain n
 
 ## Next steps
 
-- Get started with [creating a Cassandra API account, database, and a table](create-cassandra-api-account-java.md) by using a Java application
+- Get started with [creating a Cassandra API account, database, and a table](create-account-java.md) by using a Java application

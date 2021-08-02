@@ -1706,7 +1706,7 @@
     "redirect_document_id": true
   },
   {
-    "source_path_from_root": "/articles/cosmos-db/cassandra-spark-generic.md",
+    "source_path_from_root": "/articles/cosmos-db/connect-spark-generic.md",
     "redirect_url": "/azure/cosmos-db/cassandra/connect-spark-configuration",
     "redirect_document_id": true
   },

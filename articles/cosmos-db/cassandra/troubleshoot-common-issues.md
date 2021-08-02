@@ -12,7 +12,7 @@ ms.author: thvankra
 
 # Troubleshoot common issues in the Azure Cosmos DB Cassandra API
 
-[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
+[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
 The Cassandra API in [Azure Cosmos DB](./introduction.md) is a compatibility layer that provides [wire protocol support](cassandra-support.md) for the open-source Apache Cassandra database.
 
@@ -45,7 +45,7 @@ The error might also be an idle timeout issue where the Azure load balancer has 
 
 Requests are throttled because the total number of request units consumed is higher than the number of request units that you provisioned on the keyspace or table.
 
-Consider scaling the throughput assigned to a keyspace or table from the Azure portal (see [Elastically scale an Azure Cosmos DB Cassandra API account](manage-scale-cassandra.md)) or implementing a retry policy.
+Consider scaling the throughput assigned to a keyspace or table from the Azure portal (see [Elastically scale an Azure Cosmos DB Cassandra API account](scale-account-throughput.md)) or implementing a retry policy.
 
 For Java, see retry samples for the [v3.x driver](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) and the [v4.x driver](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample-v4). See also [Azure Cosmos Cassandra Extensions for Java](https://github.com/Azure/azure-cosmos-cassandra-extensions).
 
@@ -169,4 +169,4 @@ datastax-java-driver {
 ## Next steps
 
 - Learn about [supported features](cassandra-support.md) in the Azure Cosmos DB Cassandra API.
-- Learn how to [migrate from native Apache Cassandra to Azure Cosmos DB Cassandra API](cassandra-migrate-cosmos-db-databricks.md).
+- Learn how to [migrate from native Apache Cassandra to Azure Cosmos DB Cassandra API](migrate-data-databricks.md).

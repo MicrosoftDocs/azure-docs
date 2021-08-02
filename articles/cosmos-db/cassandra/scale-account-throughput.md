@@ -10,7 +10,7 @@ ms.author: thvankra
 ---
 
 # Elastically scale an Azure Cosmos DB Cassandra API account
-[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
+[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
 There are a variety of options to explore the elastic nature of the Azure Cosmos DB API for Cassandra. To understand how to scale effectively in Azure Cosmos DB, it is important to understand how to provision the right amount of request units (RU/s) to account for the performance demands in your system. To learn more about request units, see the [request units](request-units.md) article. 
 
@@ -22,7 +22,7 @@ For the Cassandra API, you can retrieve the Request Unit charge for individual q
 
 Azure Cosmos DB will return rate-limited (429) errors if clients consume more resources (RU/s) than the amount that you have provisioned. The Cassandra API in Azure Cosmos DB translates these exceptions to overloaded errors on the Cassandra native protocol. 
 
-If your system is not sensitive to latency, it may be sufficient to handle the throughput rate-limiting by using retries. See Java code samples for [version 3](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample) and [version 4](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample-v4) of the Apache Cassandra Java drivers for how to handle rate limiting transparently. These samples implements a custom version of the default [Cassandra retry policy](https://docs.datastax.com/en/developer/java-driver/4.4/manual/core/retries/) in Java. You can also use the [Spark extension](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) to handle rate-limiting. When using Spark, ensure you follow our guidance on [Optimizing Spark connector throughput configuration](cassandra-spark-generic.md#optimizing-spark-connector-throughput-configuration).
+If your system is not sensitive to latency, it may be sufficient to handle the throughput rate-limiting by using retries. See Java code samples for [version 3](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample) and [version 4](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample-v4) of the Apache Cassandra Java drivers for how to handle rate limiting transparently. These samples implements a custom version of the default [Cassandra retry policy](https://docs.datastax.com/en/developer/java-driver/4.4/manual/core/retries/) in Java. You can also use the [Spark extension](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) to handle rate-limiting. When using Spark, ensure you follow our guidance on [Optimizing Spark connector throughput configuration](cassandra/connect-spark-configuration.md#optimizing-spark-connector-throughput-configuration).
 
 ## Manage scaling
 
@@ -43,7 +43,7 @@ The advantage of this method is that it is a straightforward turnkey way to mana
 
 ## <a id="use-control-plane"></a>Use the control plane
 
-The Azure Cosmos DB's API for Cassandra provides the capability to adjust throughput programmatically by using our various control-plane features. See the [Azure Resource Manager](./templates-samples-cassandra.md), [PowerShell](powershell-samples.md), and [Azure CLI](cli-samples.md) articles for guidance and samples.
+The Azure Cosmos DB's API for Cassandra provides the capability to adjust throughput programmatically by using our various control-plane features. See the [Azure Resource Manager](cassandra/templates-samples.md), [PowerShell](powershell-samples.md), and [Azure CLI](cli-samples.md) articles for guidance and samples.
 
 The advantage of this method is that you can automate the scaling up or down of resources based on a timer to account for peak activity, or periods of low activity. Take a look at our sample [here](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler) for how to accomplish this using Azure Functions and PowerShell.
 
@@ -79,4 +79,4 @@ alter table <keyspace name>.<table name> WITH cosmosdb_autoscale_max_throughput=
 
 ## Next steps
 
-- Get started with [creating a Cassandra API account, database, and a table](create-cassandra-api-account-java.md) by using a Java application
+- Get started with [creating a Cassandra API account, database, and a table](create-account-java.md) by using a Java application

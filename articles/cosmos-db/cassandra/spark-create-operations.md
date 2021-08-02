@@ -12,7 +12,7 @@ ms.date: 09/24/2018
 ---
 
 # Create/Insert data into Azure Cosmos DB Cassandra API from Spark
-[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
+[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
  
 This article describes how to insert sample data into a table in Azure Cosmos DB Cassandra API from Spark.
 
@@ -144,8 +144,8 @@ select * from books;
 
 After inserting data into the Azure Cosmos DB Cassandra API table, proceed to the following articles to perform other operations on the data stored in Cosmos DB Cassandra API:
  
-* [Read operations](cassandra-spark-read-ops.md)
-* [Upsert operations](cassandra-spark-upsert-ops.md)
-* [Delete operations](cassandra-spark-delete-ops.md)
-* [Aggregation operations](cassandra-spark-aggregation-ops.md)
-* [Table copy operations](cassandra-spark-table-copy-ops.md)
+* [Read operations](spark-read-operation.md)
+* [Upsert operations](spark-upsert-operations.md)
+* [Delete operations](spark-delete-operation.md)
+* [Aggregation operations](spark-aggregation-operations.md)
+* [Table copy operations](spark-table-copy-operations.md)

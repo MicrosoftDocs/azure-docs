@@ -23,7 +23,7 @@ Cassandra API in Azure Cosmos DB has become a great choice for enterprise worklo
 
 [Kafka Connect](https://kafka.apache.org/documentation/#connect) is a platform to stream data between [Apache Kafka](https://kafka.apache.org/) and other systems in a scalable and reliable manner. It supports several off the shelf connectors, which means that you don't need custom code to integrate external systems with Apache Kafka.
 
-This article will demonstrate how to use a combination of Kafka connectors to set up a data pipeline to continuously synchronize records from a relational database such as [PostgreSQL](https://www.postgresql.org/) to [Azure Cosmos DB Cassandra API](cassandra-introduction.md).
+This article will demonstrate how to use a combination of Kafka connectors to set up a data pipeline to continuously synchronize records from a relational database such as [PostgreSQL](https://www.postgresql.org/) to [Azure Cosmos DB Cassandra API](cassandra/cassandra-introduction.md).
 
 ## Overview
 
@@ -36,8 +36,8 @@ Data in PostgreSQL table will be pushed to Apache Kafka using the [Debezium Post
 
 ## Prerequisites
 
-* [Provision an Azure Cosmos DB Cassandra API account](create-cassandra-dotnet.md#create-a-database-account)
-* [Use cqlsh or hosted shell for validation](cassandra-support.md#hosted-cql-shell-preview)
+* [Provision an Azure Cosmos DB Cassandra API account](cassandra/manage-data-dotnet.md#create-a-database-account)
+* [Use cqlsh or hosted shell for validation](cassandra/cassandra-support.md#hosted-cql-shell-preview)
 * JDK 8 or above
 * [Docker](https://www.docker.com/) (optional)
 
@@ -254,7 +254,7 @@ You can continue to insert more data into PostgreSQL and confirm that the record
 
 ## Next steps
 
-* [Integrate Apache Kafka and Azure Cosmos DB Cassandra API using Kafka Connect](cassandra-kafka-connect.md)
+* [Integrate Apache Kafka and Azure Cosmos DB Cassandra API using Kafka Connect](cassandra/kafka-connect.md)
 * [Integrate Apache Kafka Connect on Azure Event Hubs (Preview) with Debezium for Change Data Capture](../event-hubs/event-hubs-kafka-connect-debezium.md)
 * [Migrate data from Oracle to Azure Cosmos DB Cassandra API using Blitzz](oracle-migrate-cosmos-db-blitzz.md)
 * [Provision throughput on containers and databases](set-throughput.md) 

@@ -11,7 +11,7 @@ ms.reviewer: thvankra
 ---
 
 # Migrate data from Cassandra to an Azure Cosmos DB Cassandra API account by using Azure Databricks
-[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
+[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
 Cassandra API in Azure Cosmos DB has become a great choice for enterprise workloads running on Apache Cassandra for several reasons:
 
@@ -25,9 +25,9 @@ There are many ways to migrate database workloads from one platform to another. 
 
 ## Prerequisites
 
-* [Provision an Azure Cosmos DB Cassandra API account](create-cassandra-dotnet.md#create-a-database-account).
+* [Provision an Azure Cosmos DB Cassandra API account](manage-data-dotnet.md#create-a-database-account).
 
-* [Review the basics of connecting to an Azure Cosmos DB Cassandra API](cassandra-spark-generic.md).
+* [Review the basics of connecting to an Azure Cosmos DB Cassandra API](cassandra/connect-spark-configuration.md).
 
 * Review the [supported features in the Azure Cosmos DB Cassandra API](cassandra-support.md) to ensure compatibility.
 
@@ -129,4 +129,4 @@ You might see a 429 error code or "request rate is large" error text even if you
 * [Provision throughput on containers and databases](set-throughput.md)
 * [Partition key best practices](partitioning-overview.md#choose-partitionkey)
 * [Estimate RU/s using the Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
-* [Elastic Scale in Azure Cosmos DB Cassandra API](manage-scale-cassandra.md)
+* [Elastic Scale in Azure Cosmos DB Cassandra API](scale-account-throughput.md)

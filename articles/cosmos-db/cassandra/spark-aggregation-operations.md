@@ -12,7 +12,7 @@ ms.date: 09/24/2018
 ---
 
 # Aggregate operations on Azure Cosmos DB Cassandra API tables from Spark 
-[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
+[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
 This article describes basic aggregation operations against Azure Cosmos DB Cassandra API tables from Spark. 
 
@@ -376,4 +376,4 @@ select book_name,book_price from books_vw order by book_price desc limit 3;
 
 To perform table copy operations, see:
 
-* [Table copy operations](cassandra-spark-table-copy-ops.md)
+* [Table copy operations](spark-table-copy-operations.md)

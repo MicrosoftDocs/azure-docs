@@ -11,7 +11,7 @@ ms.reviewer: sngun
 ---
 
 # Migrate data from Cassandra to Azure Cosmos DB Cassandra API account using Blitzz
-[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
+[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
 Cassandra API in Azure Cosmos DB has become a great choice for enterprise workloads running on Apache Cassandra for a variety of reasons such as: 
 
@@ -85,7 +85,7 @@ This section describes the steps required to set up Blitzz and migrates data fro
 
    After filling out the database filter details, save and close the file.
 
-1. Next you will set up the destination database configuration. Before you define the configuration, [create an Azure Cosmos DB Cassandra API account](create-cassandra-dotnet.md#create-a-database-account) and then create a Keyspace, and a table to store the migrated data. Because you are migrating from Apache Cassandra to Cassandra API in Azure Cosmos DB, you can use the same partition key that you have used with Apache cassandra.
+1. Next you will set up the destination database configuration. Before you define the configuration, [create an Azure Cosmos DB Cassandra API account](manage-data-dotnet.md#create-a-database-account) and then create a Keyspace, and a table to store the migrated data. Because you are migrating from Apache Cassandra to Cassandra API in Azure Cosmos DB, you can use the same partition key that you have used with Apache cassandra.
 
 1. Before migrating the data, increase the container throughput to the amount required for your application to migrate quickly. For example, you can increase the throughput to 100000 RUs. Scaling the throughput before starting the migration will help you to migrate your data in less time.
 

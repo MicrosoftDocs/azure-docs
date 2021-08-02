@@ -13,7 +13,7 @@ ms.custom: seodec18
 ---
 
 # Read data from Azure Cosmos DB Cassandra API tables using Spark
-[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
+[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
  This article describes how to read data stored in Azure Cosmos DB Cassandra API from Spark.
 
@@ -140,8 +140,8 @@ select * from books_vw where book_pub_year > 1891
 
 The following are additional articles on working with Azure Cosmos DB Cassandra API from Spark:
  
- * [Upsert operations](cassandra-spark-upsert-ops.md)
- * [Delete operations](cassandra-spark-delete-ops.md)
- * [Aggregation operations](cassandra-spark-aggregation-ops.md)
- * [Table copy operations](cassandra-spark-table-copy-ops.md)
+ * [Upsert operations](spark-upsert-operations.md)
+ * [Delete operations](spark-delete-operation.md)
+ * [Aggregation operations](spark-aggregation-operations.md)
+ * [Table copy operations](spark-table-copy-operations.md)
 

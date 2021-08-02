@@ -89,7 +89,7 @@ This section describes the steps required to setup Blitzz and migrates data from
  
    After filling out the database filter details, save and close the file.
 
-1. Next you will set up the configuration of the destination database. Before you define the configuration, [create an Azure Cosmos DB Cassandra API account](create-cassandra-dotnet.md#create-a-database-account). [Choose the right partition key](partitioning-overview.md#choose-partitionkey) from your data and then create a Keyspace, and a table to store the migrated data.
+1. Next you will set up the configuration of the destination database. Before you define the configuration, [create an Azure Cosmos DB Cassandra API account](cassandra/manage-data-dotnet.md#create-a-database-account). [Choose the right partition key](partitioning-overview.md#choose-partitionkey) from your data and then create a Keyspace, and a table to store the migrated data.
 
 1. Before migrating the data, increase the container throughput to the amount required for your application to migrate quickly. For example, you can increase the throughput to 100000 RUs. Scaling the throughput before starting the migration will help you to migrate your data in less time. 
 

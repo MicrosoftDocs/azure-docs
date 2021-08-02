@@ -10,7 +10,7 @@ ms.date: 10/14/2020
 ms.custom: devx-track-js
 ---
 # Find the request unit charge for operations executed in Azure Cosmos DB Cassandra API
-[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
+[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
 Azure Cosmos DB supports many APIs, such as SQL, MongoDB, Cassandra, Gremlin, and Table. Each API has its own set of database operations. These operations range from simple point reads and writes to complex queries. Each database operation consumes system resources based on the complexity of the operation.
 
@@ -29,7 +29,7 @@ RowSet rowSet = session.Execute("SELECT table_name FROM system_schema.tables;");
 double requestCharge = BitConverter.ToDouble(rowSet.Info.IncomingPayload["RequestCharge"].Reverse().ToArray(), 0);
 ```
 
-For more information, see [Quickstart: Build a Cassandra app by using the .NET SDK and Azure Cosmos DB](create-cassandra-dotnet.md).
+For more information, see [Quickstart: Build a Cassandra app by using the .NET SDK and Azure Cosmos DB](manage-data-dotnet.md).
 
 ## Use the Java SDK
 
@@ -40,7 +40,7 @@ ResultSet resultSet = session.execute("SELECT table_name FROM system_schema.tabl
 Double requestCharge = resultSet.getExecutionInfo().getIncomingPayload().get("RequestCharge").getDouble();
 ```
 
-For more information, see [Quickstart: Build a Cassandra app by using the Java SDK and Azure Cosmos DB](create-cassandra-java.md).
+For more information, see [Quickstart: Build a Cassandra app by using the Java SDK and Azure Cosmos DB](manage-data-java.md).
 
 ## Next steps
 

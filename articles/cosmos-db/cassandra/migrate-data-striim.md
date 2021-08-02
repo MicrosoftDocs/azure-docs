@@ -11,7 +11,7 @@ ms.reviewer: sngun
 ---
 
 # Migrate data to Azure Cosmos DB Cassandra API account using Striim
-[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
+[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
 The Striim image in the Azure marketplace offers continuous real-time data movement from data warehouses and databases to Azure. While moving the data, you can perform in-line denormalization, data transformation, enable real-time analytics, and data reporting scenarios. It’s easy to get started with Striim to continuously move enterprise data to Azure Cosmos DB Cassandra API. Azure provides a marketplace offering that makes it easy to deploy Striim and migrate data to Azure Cosmos DB. 
 
@@ -64,7 +64,7 @@ Download the [ojdbc8.jar](https://www.oracle.com/technetwork/database/features/j
 
 In this section, you will configure the Azure Cosmos DB Cassandra API account as the target for data movement.
 
-1. Create an [Azure Cosmos DB Cassandra API account](create-cassandra-dotnet.md#create-a-database-account) using the Azure portal.
+1. Create an [Azure Cosmos DB Cassandra API account](manage-data-dotnet.md#create-a-database-account) using the Azure portal.
 
 1. Navigate to the **Data Explorer** pane in your Azure Cosmos account. Select **New Table** to create a new container. Assume that you are migrating *products* and *orders* data from Oracle database to Azure Cosmos DB. Create a new Keyspace named **StriimDemo** with an Orders container. Provision the container with **1000 RUs**(this example uses 1000 RUs, but you should use the throughput estimated for your workload), and **/ORDER_ID** as the primary key. These values will differ depending on your source data. 
 

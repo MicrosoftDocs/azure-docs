@@ -11,21 +11,21 @@ ms.date: 09/24/2018
 ---
 
 # Access Azure Cosmos DB Cassandra API data from Azure Databricks
-[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
+[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
 This article details how to work with Azure Cosmos DB Cassandra API from Spark on [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks).
 
 ## Prerequisites
 
-* [Provision an Azure Cosmos DB Cassandra API account](create-cassandra-dotnet.md#create-a-database-account)
+* [Provision an Azure Cosmos DB Cassandra API account](manage-data-dotnet.md#create-a-database-account)
 
-* [Review the basics of connecting to Azure Cosmos DB Cassandra API](cassandra-spark-generic.md)
+* [Review the basics of connecting to Azure Cosmos DB Cassandra API](cassandra/connect-spark-configuration.md)
 
 * [Provision an Azure Databricks cluster](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal)
 
-* [Review the code samples for working with Cassandra API](cassandra-spark-generic.md#next-steps)
+* [Review the code samples for working with Cassandra API](cassandra/connect-spark-configuration.md#next-steps)
 
-* [Use cqlsh for validation if you so prefer](cassandra-spark-generic.md#connecting-to-azure-cosmos-db-cassandra-api-from-spark)
+* [Use cqlsh for validation if you so prefer](cassandra/connect-spark-configuration.md#connecting-to-azure-cosmos-db-cassandra-api-from-spark)
 
 * **Cassandra API instance configuration for Cassandra connector:**
 
@@ -61,8 +61,8 @@ Spark programs to be run as automated processes on Azure Databricks are submitte
 The following are links to help you get started building Spark Scala programs to interact with Azure Cosmos DB Cassandra API.
 * [How to connect to Azure Cosmos DB Cassandra API from a Spark Scala program](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-connector-sample/blob/main/src/main/scala/com/microsoft/azure/cosmosdb/cassandra/SampleCosmosDBApp.scala)
 * [How to run a Spark Scala program as an automated job on Azure Databricks](/azure/databricks/jobs)
-* [Complete list of code samples for working with Cassandra API](cassandra-spark-generic.md#next-steps)
+* [Complete list of code samples for working with Cassandra API](cassandra/connect-spark-configuration.md#next-steps)
 
 ## Next steps
 
-Get started with [creating a Cassandra API account, database, and a table](create-cassandra-api-account-java.md) by using a Java application.
+Get started with [creating a Cassandra API account, database, and a table](create-account-java.md) by using a Java application.

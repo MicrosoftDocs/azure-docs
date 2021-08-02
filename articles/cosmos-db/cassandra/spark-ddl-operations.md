@@ -12,7 +12,7 @@ ms.date: 10/07/2020
 ---
 
 # DDL operations in Azure Cosmos DB Cassandra API from Spark
-[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
+[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
 This article details keyspace and table DDL operations against Azure Cosmos DB Cassandra API from Spark.
 
@@ -144,9 +144,9 @@ DESCRIBE tables;
 
 After creating the keyspace and the table, proceed to the following articles for CRUD operations and more:
  
-* [Create/insert operations](cassandra-spark-create-ops.md)  
-* [Read operations](cassandra-spark-read-ops.md)  
-* [Upsert operations](cassandra-spark-upsert-ops.md)  
-* [Delete operations](cassandra-spark-delete-ops.md)  
-* [Aggregation operations](cassandra-spark-aggregation-ops.md)  
-* [Table copy operations](cassandra-spark-table-copy-ops.md)  
+* [Create/insert operations](spark-create-operations.md)  
+* [Read operations](spark-read-operation.md)  
+* [Upsert operations](spark-upsert-operations.md)  
+* [Delete operations](spark-delete-operation.md)  
+* [Aggregation operations](spark-aggregation-operations.md)  
+* [Table copy operations](spark-table-copy-operations.md)  

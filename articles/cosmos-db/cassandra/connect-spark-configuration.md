@@ -12,14 +12,14 @@ ms.date: 09/01/2019
 ---
 
 # Connect to Azure Cosmos DB Cassandra API from Spark
-[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
+[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
 This article is one among a series of articles on Azure Cosmos DB Cassandra API integration from Spark. The articles cover connectivity, Data Definition Language(DDL) operations, basic Data Manipulation Language(DML) operations, and advanced Azure Cosmos DB Cassandra API integration from Spark. 
 
 ## Prerequisites
-* [Provision an Azure Cosmos DB Cassandra API account.](create-cassandra-dotnet.md#create-a-database-account)
+* [Provision an Azure Cosmos DB Cassandra API account.](manage-data-dotnet.md#create-a-database-account)
 
-* Provision your choice of Spark environment [[Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal) | [Azure HDInsight-Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) | Others].
+* Provision your choice of Spark environment [[Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal) | [Azure HDInsight-Spark](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md) | Others].
 
 ## Dependencies for connectivity
 * **Spark connector for Cassandra:**
@@ -27,7 +27,7 @@ This article is one among a series of articles on Azure Cosmos DB Cassandra API 
 
 
 * **Azure Cosmos DB helper library for Cassandra API:**
-  If you are using a version Spark 2.x then in addition to the Spark connector, you need another library called [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.2.0/jar) with maven coordinates `com.microsoft.azure.cosmosdb:azure-cosmos-cassandra-spark-helper:1.2.0` from Azure Cosmos DB in order to handle [rate limiting](./manage-scale-cassandra.md#handling-rate-limiting-429-errors). This library contains custom connection factory and retry policy classes.
+  If you are using a version Spark 2.x then in addition to the Spark connector, you need another library called [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.2.0/jar) with maven coordinates `com.microsoft.azure.cosmosdb:azure-cosmos-cassandra-spark-helper:1.2.0` from Azure Cosmos DB in order to handle [rate limiting](./scale-account-throughput.md#handling-rate-limiting-429-errors). This library contains custom connection factory and retry policy classes.
 
   The retry policy in Azure Cosmos DB is configured to handle HTTP status code 429("Request Rate Large") exceptions. The Azure Cosmos DB Cassandra API translates these exceptions into overloaded errors on the Cassandra native protocol, and you can retry with back-offs. Because Azure Cosmos DB uses provisioned throughput model, request rate limiting exceptions occur when the ingress/egress rates increase. The retry policy protects your spark jobs against data spikes that momentarily exceed the throughput allocated for your container. If using the Spark 3.x connector, implementing this library is not required. 
 
@@ -55,7 +55,7 @@ Increasing the number of executors can increase the number of threads in a given
 
 The Cassandra Spark connector will saturate throughput in Azure Cosmos DB very efficiently. As a result, even with effective retries, you will need to ensure you have sufficient throughput (RUs) provisioned at the table or keyspace level to prevent rate limiting related errors. The minimum setting of 400 RUs in a given table or keyspace will not be sufficient. Even at minimum throughput configuration settings, the Spark connector can write at a rate corresponding to around **6000 request units** or more.
 
-If the RU setting required for data movement using Spark is higher than what is required for your steady state workload, you can easily scale throughput up and down systematically in Azure Cosmos DB to meet the needs of your workload for a given time period. Read our article on [elastic scale in Cassandra API](manage-scale-cassandra.md) to understand the different options for scaling programmatically and dynamically. 
+If the RU setting required for data movement using Spark is higher than what is required for your steady state workload, you can easily scale throughput up and down systematically in Azure Cosmos DB to meet the needs of your workload for a given time period. Read our article on [elastic scale in Cassandra API](scale-account-throughput.md) to understand the different options for scaling programmatically and dynamically. 
 
 > [!NOTE]
 > The guidance above assumes a reasonably uniform distribution of data. If you have a significant skew in the data (that is, an inordinately large number of reads/writes to the same partition key value), then you might still experience bottlenecks, even if you have a large number of [request units](./request-units.md) provisioned in your table. Request units are divided equally among physical partitions, and heavy data skew can cause a bottleneck of requests to a single partition.
@@ -92,19 +92,19 @@ cqlsh.py YOUR-COSMOSDB-ACCOUNT-NAME.cassandra.cosmosdb.azure.com 10350 -u YOUR-C
 
 ### 1.  Azure Databricks
 The article below covers Azure Databricks cluster provisioning, cluster configuration for connecting to Azure Cosmos DB Cassandra API, and several sample notebooks that cover DDL operations, DML operations and more.<BR>
-[Work with Azure Cosmos DB Cassandra API from Azure Databricks](cassandra-spark-databricks.md)<BR>
+[Work with Azure Cosmos DB Cassandra API from Azure Databricks](spark-databricks.md)<BR>
   
 ### 2.  Azure HDInsight-Spark
 The article below covers HDinsight-Spark service, provisioning, cluster configuration for connecting to Azure Cosmos DB Cassandra API, and several sample notebooks that cover DDL operations, DML operations and more.<BR>
-[Work with Azure Cosmos DB Cassandra API from Azure HDInsight-Spark](cassandra-spark-hdinsight.md)
+[Work with Azure Cosmos DB Cassandra API from Azure HDInsight-Spark](spark-hdinsight.md)
  
 ### 3.  Spark environment in general
 While the sections above were specific to Azure Spark-based PaaS services, this section covers any general Spark environment.  Connector dependencies, imports, and Spark session configuration are detailed below. The "Next steps" section covers code samples for DDL operations, DML operations and more.  
 
 #### Connector dependencies:
 
-1. Add the maven coordinates to get the [Cassandra connector for Spark](cassandra-spark-generic.md#dependencies-for-connectivity)
-2. Add the maven coordinates for the [Azure Cosmos DB helper library](cassandra-spark-generic.md#dependencies-for-connectivity) for Cassandra API
+1. Add the maven coordinates to get the [Cassandra connector for Spark](cassandra/connect-spark-configuration.md#dependencies-for-connectivity)
+2. Add the maven coordinates for the [Azure Cosmos DB helper library](cassandra/connect-spark-configuration.md#dependencies-for-connectivity) for Cassandra API
 
 #### Imports:
 
@@ -143,10 +143,10 @@ spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
 
 The following articles demonstrate Spark integration with Azure Cosmos DB Cassandra API. 
  
-* [DDL operations](cassandra-spark-ddl-ops.md)
-* [Create/insert operations](cassandra-spark-create-ops.md)
-* [Read operations](cassandra-spark-read-ops.md)
-* [Upsert operations](cassandra-spark-upsert-ops.md)
-* [Delete operations](cassandra-spark-delete-ops.md)
-* [Aggregation operations](cassandra-spark-aggregation-ops.md)
-* [Table copy operations](cassandra-spark-table-copy-ops.md)
+* [DDL operations](spark-ddl-operations.md)
+* [Create/insert operations](spark-create-operations.md)
+* [Read operations](spark-read-operation.md)
+* [Upsert operations](spark-upsert-operations.md)
+* [Delete operations](spark-delete-operation.md)
+* [Aggregation operations](spark-aggregation-operations.md)
+* [Table copy operations](spark-table-copy-operations.md)

@@ -13,15 +13,16 @@ ms.custom: devx-track-csharp
 ---
 
 # Quickstart: Build a Cassandra app with .NET SDK and Azure Cosmos DB
-[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
+[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
-> * [.NET](create-cassandra-dotnet.md)
-> * [.NET Core](create-cassandra-dotnet-core.md)
-> * [Java v3](create-cassandra-java.md)
-> * [Java v4](create-cassandra-java-v4.md)
-> * [Node.js](create-cassandra-nodejs.md)
-> * [Python](create-cassandra-python.md)
+> * [.NET](manage-data-dotnet.md)
+> * [.NET Core](manage-data-dotnet-core.md)
+> * [Java v3](manage-data-java.md)
+> * [Java v4](manage-data-java-v4-sdk.md)
+> * [Node.js](manage-data-nodejs.md)
+> * [Python](manage-data-python.md)
+> * [Golang](manage-data-go.md)
 >  
 
 This quickstart shows how to use .NET and the Azure Cosmos DB [Cassandra API](cassandra-introduction.md) to build a profile app by cloning an example from GitHub. This quickstart also shows you how to use the web-based Azure portal to create an Azure Cosmos DB account.
@@ -30,7 +31,7 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 
 ## Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
 
 In addition, you need: 
 * If you don't already have Visual Studio 2019 installed, you can download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
@@ -39,7 +40,7 @@ In addition, you need:
 <a id="create-account"></a>
 ## Create a database account
 
-[!INCLUDE [cosmos-db-create-dbaccount-cassandra](includes/cosmos-db-create-dbaccount-cassandra.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-cassandra](../includes/cosmos-db-create-dbaccount-cassandra.md)]
 
 
 ## Clone the sample application
@@ -165,15 +166,15 @@ Now go back to the Azure portal to get your connection string information and co
 
 ## Review SLAs in the Azure portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](includes/cosmos-db-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## Clean up resources
 
-[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](../includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 
 In this quickstart, you've learned how to create an Azure Cosmos DB account, create a container using the Data Explorer, and run a web app. You can now import additional data to your Cosmos DB account. 
 
 > [!div class="nextstepaction"]
-> [Import Cassandra data into Azure Cosmos DB](cassandra-import-data.md)
+> [Import Cassandra data into Azure Cosmos DB](migrate-data.md)
