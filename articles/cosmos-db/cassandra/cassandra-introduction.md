@@ -11,14 +11,14 @@ ms.date: 11/25/2020
 ---
 
 # Introduction to the Azure Cosmos DB Cassandra API
-[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
+[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
 Azure Cosmos DB Cassandra API can be used as the data store for apps written for [Apache Cassandra](https://cassandra.apache.org). This means that by using existing [Apache drivers](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver) compliant with CQLv4, your existing Cassandra application can now communicate with the Azure Cosmos DB Cassandra API. In many cases, you can switch from using Apache Cassandra to using Azure Cosmos DB's Cassandra API, by just changing a connection string. 
 
 The Cassandra API enables you to interact with data stored in Azure Cosmos DB using the Cassandra Query Language (CQL) , Cassandra-based tools (like cqlsh) and Cassandra client drivers that you're already familiar with.
 
 > [!NOTE]
-> The [serverless capacity mode](serverless.md) is now available on Azure Cosmos DB's Cassandra API.
+> The [serverless capacity mode](../serverless.md) is now available on Azure Cosmos DB's Cassandra API.
 
 ## What is the benefit of using Apache Cassandra API for Azure Cosmos DB?
 
@@ -30,11 +30,11 @@ The Cassandra API enables you to interact with data stored in Azure Cosmos DB us
 
 **Ability to use existing code and tools**: Azure Cosmos DB provides wire protocol level compatibility with existing Cassandra SDKs and tools. This compatibility ensures you can use your existing codebase with Azure Cosmos DB Cassandra API with trivial changes.
 
-**Throughput and storage elasticity**: Azure Cosmos DB provides throughput across all regions and can scale the provisioned throughput with Azure portal, PowerShell, or CLI operations. You can [elastically scale](manage-scale-cassandra.md) storage and throughput for your tables as needed with predictable performance.
+**Throughput and storage elasticity**: Azure Cosmos DB provides throughput across all regions and can scale the provisioned throughput with Azure portal, PowerShell, or CLI operations. You can [elastically scale](scale-account-throughput.md) storage and throughput for your tables as needed with predictable performance.
 
-**Global distribution and availability**: Azure Cosmos DB provides the ability to globally distribute data across all Azure regions and serve the data locally while ensuring low latency data access and high availability. Azure Cosmos DB provides 99.99% high availability within a region and 99.999% read and write availability across multiple regions with no operations overhead. Learn more in [Distribute data globally](distribute-data-globally.md) article. 
+**Global distribution and availability**: Azure Cosmos DB provides the ability to globally distribute data across all Azure regions and serve the data locally while ensuring low latency data access and high availability. Azure Cosmos DB provides 99.99% high availability within a region and 99.999% read and write availability across multiple regions with no operations overhead. Learn more in [Distribute data globally](../distribute-data-globally.md) article. 
 
-**Choice of consistency**: Azure Cosmos DB provides the choice of five well-defined consistency levels to achieve optimal tradeoffs between consistency and performance. These consistency levels are strong, bounded-staleness, session, consistent prefix and eventual. These well-defined, practical, and intuitive consistency levels allow developers to make precise trade-offs between consistency, availability, and latency. Learn more in [consistency levels](consistency-levels.md) article. 
+**Choice of consistency**: Azure Cosmos DB provides the choice of five well-defined consistency levels to achieve optimal tradeoffs between consistency and performance. These consistency levels are strong, bounded-staleness, session, consistent prefix and eventual. These well-defined, practical, and intuitive consistency levels allow developers to make precise trade-offs between consistency, availability, and latency. Learn more in [consistency levels](../consistency-levels.md) article. 
 
 **Enterprise grade**: Azure cosmos DB provides [compliance certifications](https://www.microsoft.com/trustcenter) to ensure users can use the platform securely. Azure Cosmos DB also provides encryption at rest and in motion, IP firewall, and audit logs for control plane activities.
 
@@ -43,15 +43,15 @@ The Cassandra API enables you to interact with data stored in Azure Cosmos DB us
 ## Next steps
 
 * You can quickly get started with building the following language-specific apps to create and manage Cassandra API data:
-  - [Node.js app](create-cassandra-nodejs.md)
-  - [.NET app](create-cassandra-dotnet.md)
-  - [Python app](create-cassandra-python.md)
+  - [Node.js app](manage-data-nodejs.md)
+  - [.NET app](manage-data-dotnet.md)
+  - [Python app](manage-data-python.md)
 
-* Get started with [creating a Cassandra API account, database, and a table](create-cassandra-api-account-java.md) by using a Java application.
+* Get started with [creating a Cassandra API account, database, and a table](create-account-java.md) by using a Java application.
 
-* [Load sample data to the Cassandra API table](cassandra-api-load-data.md) by using a Java application.
+* [Load sample data to the Cassandra API table](load-data-table.md) by using a Java application.
 
-* [Query data from the Cassandra API account](cassandra-api-query-data.md) by using a Java application.
+* [Query data from the Cassandra API account](query-data.md) by using a Java application.
 
 * To learn about Apache Cassandra features supported by Azure Cosmos DB Cassandra API, see [Cassandra support](cassandra-support.md) article.
 

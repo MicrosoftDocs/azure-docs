@@ -11,7 +11,7 @@ metadata:
     
 title: Frequently asked questions about the Cassandra API in Azure Cosmos DB
 summary: |
-  [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
+  [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
   
   This article describes the functionality differences between Apache Cassandra and Cassandra API in Azure Cosmos DB. It also provides answers to frequently asked questions about the Cassandra API in Azure Cosmos DB.
   
@@ -42,9 +42,9 @@ sections:
           Azure Cosmos DB sets the default throughput for your container based on where you create the table from: Azure portal or CQL.
           
           Azure Cosmos DB provides guarantees for performance and latency, with upper bounds on operations. These guarantees are possible when the engine can enforce governance on the tenant's operations. Setting throughput ensures that you get the guaranteed throughput and latency, because the platform reserves this capacity and guarantees operation success.
-          You can [elastically change throughput](manage-scale-cassandra.md) to benefit from the seasonality of your application and save costs.
+          You can [elastically change throughput](scale-account-throughput.md) to benefit from the seasonality of your application and save costs.
           
-          The throughput concept is explained in the [Request Units in Azure Cosmos DB](request-units.md) article. The throughput for a table is equally distributed across the underlying physical partitions.
+          The throughput concept is explained in the [Request Units in Azure Cosmos DB](../request-units.md) article. The throughput for a table is equally distributed across the underlying physical partitions.
           
       - question: |
           What is the throughput of a table that's created through CQL?
@@ -78,19 +78,19 @@ sections:
           
           It's essential to see what operations (and their volume) cause this issue. You can get an idea about consumed capacity going over the provisioned capacity with metrics on the Azure portal. Then you need to ensure that capacity is consumed nearly equally across all underlying partitions. If you see that one partition is consuming most of the throughput, you have skew of workload.
           
-          Metrics are available that show you how throughput is used over hours, over days, and per seven days, across partitions or in aggregate. For more information, see [Monitoring and debugging with metrics in Azure Cosmos DB](use-metrics.md).
+          Metrics are available that show you how throughput is used over hours, over days, and per seven days, across partitions or in aggregate. For more information, see [Monitoring and debugging with metrics in Azure Cosmos DB](../use-metrics.md).
           
-          Diagnostic logs are explained in the [Azure Cosmos DB diagnostic logging](./monitor-cosmos-db.md) article.
+          Diagnostic logs are explained in the [Azure Cosmos DB diagnostic logging](../monitor-cosmos-db.md) article.
           
       - question: |
           Does the primary key map to the partition key concept of Azure Cosmos DB?
         answer: |
-          Yes, the partition key is used to place the entity in the right location. In Azure Cosmos DB, it's used to find the right logical partition that's stored on a physical partition. The partitioning concept is well explained in the [Partition and scale in Azure Cosmos DB](partitioning-overview.md) article. The essential takeaway here is that a logical partition shouldn't go over the 20-GB limit.
+          Yes, the partition key is used to place the entity in the right location. In Azure Cosmos DB, it's used to find the right logical partition that's stored on a physical partition. The partitioning concept is well explained in the [Partition and scale in Azure Cosmos DB](../partitioning-overview.md) article. The essential takeaway here is that a logical partition shouldn't go over the 20-GB limit.
           
       - question: |
           What happens when I get a notification that a partition is full?
         answer: |
-          Azure Cosmos DB is a system based on service-level agreement (SLA). It provides unlimited scale, with guarantees for latency, throughput, availability, and consistency. This unlimited storage is based on horizontal scale-out of data, using partitioning as the key concept. The partitioning concept is well explained in the [Partition and scale in Azure Cosmos DB](partitioning-overview.md) article.
+          Azure Cosmos DB is a system based on service-level agreement (SLA). It provides unlimited scale, with guarantees for latency, throughput, availability, and consistency. This unlimited storage is based on horizontal scale-out of data, using partitioning as the key concept. The partitioning concept is well explained in the [Partition and scale in Azure Cosmos DB](../partitioning-overview.md) article.
           
           You should adhere to the 20-GB limit on the number of entities or items per logical partition. To ensure that your application scales well, we recommend that you *not* create a hot partition by storing all information in one partition and querying it. This error can come only if your data is skewed: that is, you have lot of data for one partition key (more than 20 GB). You can find the distribution of data by using the storage portal. The way to fix this error is to re-create the table and choose a granular primary (partition key), which allows better distribution of data.
           
@@ -122,7 +122,7 @@ sections:
       - question: |
           Can I bring in a lot of data after starting from a normal table?
         answer: |
-          Yes. Assuming uniformly distributed partitions, the storage capacity is automatically managed and increases as you push in more data. So you can confidently import as much data as you need without managing and provisioning nodes and more. But if you're anticipating a lot of immediate data growth, it makes more sense to directly [provision for the anticipated throughput](set-throughput.md) rather than starting lower and increasing it immediately.
+          Yes. Assuming uniformly distributed partitions, the storage capacity is automatically managed and increases as you push in more data. So you can confidently import as much data as you need without managing and provisioning nodes and more. But if you're anticipating a lot of immediate data growth, it makes more sense to directly [provision for the anticipated throughput](../set-throughput.md) rather than starting lower and increasing it immediately.
           
       - question: |
           Can I use YAML file settings to configure API behavior?
@@ -154,9 +154,9 @@ sections:
         answer: |
           Azure Cosmos DB is a platform service that helps you increase productivity and not worry about managing and monitoring infrastructure. For example, you don't need to monitor node status, replica status, gc, and OS parameters earlier with various tools. You just need to take care of throughput that's available in portal metrics to see if you're getting throttled, and then increase or decrease that throughput. You can:
           
-          - Monitor [SLAs](./monitor-cosmos-db.md)
-          - Use [metrics](use-metrics.md)
-          - Use [diagnostic logs](./monitor-cosmos-db.md)
+          - Monitor [SLAs](../monitor-cosmos-db.md)
+          - Use [metrics](../use-metrics.md)
+          - Use [diagnostic logs](../monitor-cosmos-db.md)
           
       - question: |
           Which client SDKs can work with the Cassandra API?
@@ -183,31 +183,31 @@ sections:
         answer: |
           Azure Cosmos DB provides two free full backups taken at four-hour intervals across all APIs. So you don't need to set up a backup schedule. 
           
-          If you want to modify retention and frequency, send email to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) or raise a support case. Information about backup capability is provided in the [Automatic online backup and restore with Azure Cosmos DB](online-backup-and-restore.md) article.
+          If you want to modify retention and frequency, send email to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) or raise a support case. Information about backup capability is provided in the [Automatic online backup and restore with Azure Cosmos DB](../online-backup-and-restore.md) article.
           
       - question: |
           How does the Cassandra API account handle failover if a region goes down?
         answer: |
-          The Cassandra API borrows from the globally distributed platform of Azure Cosmos DB. To ensure that your application can tolerate datacenter downtime, enable at least one more region for the account in the Azure portal. For more information, see [High availability with Azure Cosmos DB](high-availability.md).
+          The Cassandra API borrows from the globally distributed platform of Azure Cosmos DB. To ensure that your application can tolerate datacenter downtime, enable at least one more region for the account in the Azure portal. For more information, see [High availability with Azure Cosmos DB](../high-availability.md).
           
           You can add as many regions as you want for the account and control where it can fail over to by providing a failover priority. To use the database, you need to provide an application there too. When you do so, your customers won't experience downtime.
           
       - question: |
           Does the Cassandra API index all attributes of an entity by default?
         answer: |
-          No. The Cassandra API supports [secondary indexes](cassandra-secondary-index.md), which behave in a similar way to Apache Cassandra. The API does not index every attribute by default.  
+          No. The Cassandra API supports [secondary indexes](secondary-indexing.md), which behave in a similar way to Apache Cassandra. The API does not index every attribute by default.  
           
           
       - question: |
           Can I use the new Cassandra API SDK locally with the emulator?
         answer: |
-          Yes, this is supported. You can find details on how to enable this in the [Use the Azure Cosmos DB Emulator for local development and testing](local-emulator.md#cassandra-api) article.
+          Yes, this is supported. You can find details on how to enable this in the [Use the Azure Cosmos DB Emulator for local development and testing](../local-emulator.md#cassandra-api) article.
           
           
       - question: |
           How can I migrate data from Apache Cassandra clusters to Azure Cosmos DB?
         answer: |
-          You can read about migration options in the [Migrate your data to Cassandra API account in Azure Cosmos DB](cassandra-import-data.md) tutorial.
+          You can read about migration options in the [Migrate your data to Cassandra API account in Azure Cosmos DB](migrate-data.md) tutorial.
           
           
       - question: |
@@ -222,4 +222,4 @@ additionalContent: |
 
   ## Next steps
   
-  - Get started with [elastically scaling an Azure Cosmos DB Cassandra API account](manage-scale-cassandra.md).
+  - Get started with [elastically scaling an Azure Cosmos DB Cassandra API account](scale-account-throughput.md).

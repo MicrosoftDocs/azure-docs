@@ -11,6 +11,7 @@ ms.date: 07/17/2021
 ---
 
 # How to use Spring Data Apache Cassandra API with Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
 This article demonstrates creating a sample application that uses [Spring Data] to store and retrieve information using the [Azure Cosmos DB Cassandra API](/azure/cosmos-db/cassandra-introduction).
 
@@ -29,7 +30,7 @@ The following prerequisites are required in order to complete the steps in this 
 
 ## Create a Cosmos DB Cassandra API account
 
-[!INCLUDE [cosmos-db-create-dbaccount-cassandra](includes/cosmos-db-create-dbaccount-cassandra.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-cassandra](../includes/cosmos-db-create-dbaccount-cassandra.md)]
 
 ## Configure the sample application
 
@@ -120,14 +121,14 @@ Browse to the directory that contains the .pom file to build and test the applic
 
 ## Clean up resources
 
-[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](../includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
 
 > [!div class="nextstepaction"]
-> [Spring on Azure](./index.yml)
+> [Spring on Azure](../../index.yml)
 
 ### Additional Resources
 
