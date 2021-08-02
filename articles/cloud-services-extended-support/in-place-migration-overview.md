@@ -38,7 +38,7 @@ Depending on the application, Cloud Services (extended support) may require subs
 
 Redeploying your services with [Cloud Services (extended support)](overview.md) has the following benefits: 
 
-- Supports web and worker roles, similar to [Cloud Services (classic).
+- Supports web and worker roles, similar to Cloud Services (classic).
 - There are no changes to the design, architecture, or components of web and worker roles. 
 - No changes are required to runtime code as the data plane is the same as cloud services. 
 - Azure GuestOS releases and associated updates are aligned with Cloud Services (classic). 
