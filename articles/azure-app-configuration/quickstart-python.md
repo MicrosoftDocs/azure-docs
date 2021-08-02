@@ -286,7 +286,7 @@ Key: TestApp:Settings:NewSetting, Value: Value has been updated!
 
 ## Next steps
 
-In this quickstart, you created a new App Configuration store and learnt how to access key-values from a Python app.
+In this quickstart, you created a new App Configuration store and learned how to access key-values from a Python app.
 
 For additional code samples, visit:
 

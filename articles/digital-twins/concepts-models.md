@@ -95,6 +95,8 @@ This model describes a Home, with one **property** for an ID. The Home model als
 
 This section goes into more detail about **properties** and **telemetry** in DTDL models.
 
+For a comprehensive list of the fields that may appear as part of a property, please see [Property in the DTDL v2 spec](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#property). For a comprehensive list of the fields that may appear as part of telemetry, please see [Telemetry in the DTDL v2 spec](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#telemetry).
+
 ### Difference between properties and telemetry
 
 Here's some additional guidance on conceptually distinguishing between DTDL **property** and **telemetry** in Azure Digital Twins.
@@ -153,11 +155,16 @@ The following example shows a Sensor model with a semantic-type telemetry for Te
 
 This section goes into more detail about **relationships** in DTDL models.
 
+For a comprehensive list of the fields that may appear as part of a relationship, please see [Relationship in the DTDL v2 spec](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#relationship).
+
 ### Basic relationship example
 
 Here is a basic example of a relationship on a DTDL model. This example shows a relationship on a Home model that allows it to connect to a Floor model.
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/basic-home-example/IHome.json" highlight="12-18":::
+
+>[!NOTE]
+>For relationships, `@id` is an optional field. If no `@id` is provided, the digital twin interface processor will assign one.
 
 ### Targeted and non-targeted relationships
 
@@ -180,6 +187,8 @@ The following example shows another version of the Home model, where the `rel_ha
 ## Components
 
 This section goes into more detail about **components** in DTDL models.
+
+For a comprehensive list of the fields that may appear as part of a component, please see [Component in the DTDL v2 spec](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#component).
 
 ### Basic component example
 

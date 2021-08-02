@@ -48,6 +48,9 @@ To simplify management and removal, we recommend you deploy Start/Stop VMs v2 (p
 
     :::image type="content" source="media/deploy/deployment-results-resource-list.png" alt-text="Start/Stop VMs template deployment resource list":::
 
+> [!NOTE]
+> The naming format for the function app and storage account has changed. To guarantee global uniqueness, a random and unique string is now appended to the names of these resource.  
+
 ## Enable multiple subscriptions
 
 After the Start/Stop deployment completes, perform the following steps to enable Start/Stop VMs v2 (preview) to take action across multiple subscriptions.

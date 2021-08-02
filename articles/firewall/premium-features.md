@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 07/29/2021
 ms.author: victorh
 ms.custom: references_regions
 ---
@@ -92,6 +92,7 @@ Azure Firewall Premium is supported in the following regions:
 - Australia East (Public / Australia)
 - Australia Southeast (Public / Australia)
 - Brazil South (Public / Brazil)
+- Brazil Southeast (Public / Brazil)
 - Canada Central (Public / Canada)
 - Canada East (Public / Canada)
 - Central India (Public / India)

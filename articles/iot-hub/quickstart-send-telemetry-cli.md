@@ -192,4 +192,4 @@ If you are a device developer, the suggested next step is to see the telemetry q
 To learn how to control your simulated device from a back-end application, continue to the next quickstart.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Control a device connected to an IoT hub](quickstart-control-device-dotnet.md)
+> [Quickstart: Control a device connected to an IoT hub](quickstart-control-device.md)

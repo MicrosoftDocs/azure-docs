@@ -235,7 +235,7 @@ mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mG
 
 ### Table API
 
-Once you have the Azure Cosmos DB Emulator running on your desktop, you can use the [Azure Cosmos DB Table API SDK](./tutorial-develop-table-dotnet.md) to interact with the emulator. Start the emulator from [command prompt](emulator-command-line-parameters.md) as an administrator with "/EnableTableEndpoint". Next run the following code to connect to the table API account:
+Once you have the Azure Cosmos DB Emulator running on your desktop, you can use the [Azure Cosmos DB Table API SDK](./table/tutorial-develop-table-dotnet.md) to interact with the emulator. Start the emulator from [command prompt](emulator-command-line-parameters.md) as an administrator with "/EnableTableEndpoint". Next run the following code to connect to the table API account:
 
 ```csharp
 using Microsoft.WindowsAzure.Storage;
