@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 04/21/2021
+ms.date: 08/02/2021
 ---
 
 # Data encryption with Azure Machine Learning
@@ -31,6 +31,9 @@ The `hbi_workspace` flag controls the amount of [data Microsoft collects for dia
 * Starts encrypting the local scratch disk in your Azure Machine Learning compute cluster provided you have not created any previous clusters in that subscription. Else, you need to raise a support ticket to enable encryption of the scratch disk of your compute clusters 
 * Cleans up your local scratch disk between runs
 * Securely passes credentials for your storage account, container registry, and SSH account from the execution layer to your compute clusters using your key vault
+
+> [!TIP]
+> The `hbi_workspace` flag does not impact encryption in transit, only encryption at rest.
 
 ### Azure Blob storage
 
