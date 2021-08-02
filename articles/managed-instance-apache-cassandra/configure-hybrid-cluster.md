@@ -20,10 +20,12 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-> [!NOTE]
-> Please ensure that you have version **0.9.0** or higher of the CLI module `cosmosdb-preview` running in your cloud shell. This is required for all the commands listed below to function properly. You can check extension versions by running `az --version`. If necessary, upgrade using the command `az extension update --name cosmosdb-preview`.
+
 
 * This article requires the Azure CLI version 2.12.1 or higher. If you are using Azure Cloud Shell, the latest version is already installed.
+
+    > [!NOTE]
+    > Please ensure that you have version **0.9.0** (or higher) of the CLI module `cosmosdb-preview` running in your cloud shell. This is required for all the commands listed below to function properly. You can check extension versions by running `az --version`. If necessary, upgrade using the command `az extension update --name cosmosdb-preview`.
 
 * [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) with connectivity to your self-hosted or on-premise environment. For more information on connecting on premises environments to Azure, see the [Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/) article.
 
