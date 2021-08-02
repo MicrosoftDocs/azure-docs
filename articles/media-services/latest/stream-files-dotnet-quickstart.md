@@ -35,7 +35,7 @@ By the end of the tutorial you will be able to stream a video.
 - Install [Visual Studio Code for Windows/macOS/Linux](https://code.visualstudio.com/) or [Visual Studio 2019 for Windows or Mac](https://visualstudio.microsoft.com/).
 - Install [.NET 5.0 SDK](https://dotnet.microsoft.com/download)
 - [Create a Media Services account](./account-create-how-to.md). Be sure to copy the **API Access** details in JSON format or store the values needed to connect to the Media Services account in the *.env* file format used in this sample.
-- Follow the steps in [Access the Azure Media Services API with the Azure CLI](./access-api-howto.md) and **save the credentials**. You'll need to use them to access the API in this sample, or enter them into the *.env* file format.
+- Follow the steps in [Access the Azure Media Services API with the Azure CLI](./access-api-howto.md). Be sure to *save the credentials*. You'll need to use them to access the API in this sample, or enter them into the *.env* file format.
 
 ## Download and configure the sample
 
