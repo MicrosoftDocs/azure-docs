@@ -49,8 +49,6 @@ The FHIR service in the Azure Healthcare APIs is a hosted and managed version of
 
 When you run the FHIR Server for Azure, you have direct access to the underlying services, but are responsible for maintaining and updating the server and all required compliance work if you're storing PHI data.
 
-For a development standpoint, every feature that doesn't apply only to the managed service is first deployed to the open-source Microsoft FHIR Server for Azure. Once it has been validated in open-source, it will be released to the PaaS FHIR service.
-
 ### In which regions is the FHIR service available?
 
 We are expanding the global footprints of the Healthcare APIs continually based on customer demands. The FHIR service is currently available in 25 regions including two U.S. government regions: Australia East, Brazil South*, Canada Central, Central India*, East Asia*, East US 2, East US, Germany North**, Germany West Central, Germany North**, Japan East, Japan West*, Korea Central*, North Central US, North Europe, South Africa North, South Central US, Southeast Asia, Switzerland North, UK South, UK West, West Central US, West Europe, West US 2, USGov Virginia, USGov Arizona.
