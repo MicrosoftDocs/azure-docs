@@ -34,6 +34,8 @@ Virtual machine must be located in one of the following regions:
 - Australia Central
 - Australia East
 - Australia Southeast
+- Brazil South
+- Brazil Southeast
 - Canada Central
 - Central India
 - Central US
@@ -44,13 +46,17 @@ Virtual machine must be located in one of the following regions:
 - France Central
 - Germany West Central
 - Japan East
+- Japan West
 - Korea Central
 - North Central US
 - North Europe
+- Norway East
 - South Central US
 - South Africa North
 - Southeast Asia
 - Switzerland North
+- Switzerland West
+- UAE North
 - UK South
 - UK West
 - West Central US
