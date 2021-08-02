@@ -113,7 +113,7 @@ Steps to disable ACID on HDInsight 4.0:
 * Disabling ACID after creating tables is risky, however in case you want to do it, follow the below steps to avoid potential data loss or inconsistency:
 
     1. Create an external table with same schema and copy the data from original managed table using CTAS command ```create external table e_t1 select * from m_t1```.    
-    2. Drop managed table using ```drop table m_t1```.
+    2. Drop the managed table using ```drop table m_t1```.
     3. Disable ACID using the configs suggested.        
     4. Create m_t1 again and copy data from external table using CTAS command ```create table m_t1 select * from e_t1```.        
     5. Drop external table using ```drop table e_t1```.
@@ -128,7 +128,7 @@ This issue can be resolved by either of the following two options:
 
 2. Change the “Hive Authorization Manager” from ```org.apache.hadoop.hive.ql.security.authorization.StorageBasedAuthorizationProvider``` to ```org.apache.hadoop.hive.ql.security.authorization.MetaStoreAuthzAPIAuthorizerEmbedOnly```.
 
-MetaStoreAuthzAPIAuthorizerEmbedOnly effectively disables security checks because the Hive metastore is not embedded in HDInsight 4.0. However, it may bring other potential issues. Exercise caution when using this option.
+MetaStoreAuthzAPIAuthorizerEmbedOnly effectively disables security checks because the Hive metastore isn't embedded in HDInsight 4.0. However, it may bring other potential issues. Exercise caution when using this option.
 
 ## Permission errors in Hive job after upgrading to HDInsight 4.0
 
