@@ -144,7 +144,7 @@ MetaStoreAuthzAPIAuthorizerEmbedOnly effectively disables security checks becaus
 
 ## Unable to query table with OpenCSVSerde
 
-Issue: Reading data from `csv` format table may through exception like:
+Issue: Reading data from `csv` format table may throw exception like:
 `MetaException(message:java.lang.UnsupportedOperationException: Storage schema reading not supported)`
 
 Workaround:
