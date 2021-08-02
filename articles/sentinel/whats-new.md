@@ -28,14 +28,11 @@ If you're looking for items older than six months, you'll find them in the [Arch
 > You can also contribute! Join us in the [Azure Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 >
 
-## July 2021
+## August 2021
 
-- [Watchlist templates for UEBA data](#watchlist-templates-for-ueba-data)
-- [Watchlists are in general availability](#watchlists-are-in-general-availability)
-- [Support for data residency in more geos](#support-for-data-residency-in-more-geos)
-- [Bidirectional sync in Azure Defender connector](#bidirectional-sync-in-azure-defender-connector)
+- [Watchlist templates for UEBA data](#watchlist-templates-for-ueba-data-public-preview)
 
-### Watchlist templates for UEBA data
+### Watchlist templates for UEBA data (Public preview)
 
 Azure Sentinel now provides built-in watchlist templates for UEBA data, which you can customize for your environment and use during investigations.
 
@@ -51,6 +48,14 @@ Watchlist templates currently include:
 - **Network Mapping**. A list of IP subnets and their respective organizational contexts.
 
 For more information, see [Use Azure Sentinel watchlists](watchlists.md) and [Built-in watchlist schemas](watchlist-schemas.md).
+
+
+## July 2021
+
+- [Watchlists are in general availability](#watchlists-are-in-general-availability)
+- [Support for data residency in more geos](#support-for-data-residency-in-more-geos)
+- [Bidirectional sync in Azure Defender connector](#bidirectional-sync-in-azure-defender-connector)
+
 
 ### Watchlists are in general availability
 

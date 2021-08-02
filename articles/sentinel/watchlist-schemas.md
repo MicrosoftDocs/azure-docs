@@ -11,7 +11,7 @@ ms.subservice: azure-sentinel
 
 ---
 
-# Azure Sentinel built-in watchlist template schemas (public preview)
+# Azure Sentinel built-in watchlist template schemas (Public preview)
 
 This article details the schemas used in each built-in watchlist template provided by Azure Sentinel. For more information, see [Create a new watchlist using a template (Public preview)](watchlists.md#create-a-new-watchlist-using-a-template-public-preview).
 
