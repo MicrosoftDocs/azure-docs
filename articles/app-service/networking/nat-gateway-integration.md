@@ -16,15 +16,15 @@ ms.custom: seodec18
 
 # Virtual Network NAT gateway integration
 
-NAT gateway is a fully managed, highly resilient service, which can be associated with one or more subnets and ensures that all outbound Internet facing traffic will be routed through the gateway. With App Service, there are two important scenarios that you can use NAT gateway for. The NAT gateway gives you a static predictable IP for outbound traffic as it is associated with one or more Public IPs.
-It also significantly increases the available SNAT ports in scenarios where you have a high number of concurrent connections to the same public address/port combination.
+NAT gateway is a fully managed, highly resilient service, which can be associated with one or more subnets and ensures that all outbound Internet facing traffic will be routed through the gateway. With App Service, there are two important scenarios that you can use NAT gateway for. The NAT gateway gives you a static predictable IP for outbound traffic as it is associated with one or more customer owned Public IPs.
+It also significantly increases the available [SNAT ports](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors) in scenarios where you have a high number of concurrent connections to the same public address/port combination.
 
 For more information and pricing. Go to the [NAT gateway overview](/azure/virtual-network/nat-gateway/nat-overview).
 
 :::image type="content" source="./media/nat-gateway-integration/nat-gateway-overview.png" alt-text="Diagram shows internet traffic flowing to a NAT gateway in an Azure Virtual Network.":::
 
 > [!Note] 
-> Using NAT gateway is dependent on regional VNet integration, and thus only Standard and higher App Service SKUs are applicable to the scenario.
+> Using NAT gateway with App Service is dependent on regional VNet integration, and therefore require a **Standard** or **Premium** App Service plan.
 
 ## Configuring NAT gateway integration
 
