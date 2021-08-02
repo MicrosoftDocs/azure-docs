@@ -5,7 +5,7 @@ services: storage
 author: normesta
 
 ms.author: normesta
-ms.date: 06/16/2021
+ms.date: 06/18/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -23,7 +23,7 @@ Blob metadata is not included in this method. The Azure Blob Storage inventory f
 
 ## Enable inventory reports
 
-The first step in this method is to [enable inventory reports](blob-inventory.md#enable-inventory-reports) on your storage account. You may have to wait up to 24 hours after enabling inventory reports for your first report to be generated.
+The first step in this method is to [enable inventory reports](blob-inventory.md#enabling-inventory-reports) on your storage account. You may have to wait up to 24 hours after enabling inventory reports for your first report to be generated.
 
 When you have an inventory report to analyze, grant yourself read access to the container where the report CSV file resides by assigning yourself the **Storage Blob Data Reader** role. Be sure to use the email address of the account you're using to run the report. To learn how to assign an Azure role to a user with Azure role-based access control (Azure RBAC), follow the instructions provided in [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 

@@ -21,6 +21,10 @@ An integrated cache is automatically configured within the dedicated gateway. Th
 
 The integrated cache is a read-through, write-through cache with a Least Recently Used (LRU) eviction policy. The item cache and query cache share the same capacity within the integrated cache and the LRU eviction policy applies to both. In other words, data is evicted from the cache strictly based on when it was least recently used, regardless of whether it is a point read or query.
 
+> [!NOTE]
+> Do you have any feedback about the integrated cache? We want to hear it! Feel free to share feedback directly with the Azure Cosmos DB engineering team:
+cosmoscachefeedback@microsoft.com
+
 ## Workloads that benefit from the integrated cache
 
 The main goal of the integrated cache is to reduce costs for read-heavy workloads. Low latency, while helpful, is not the main benefit of the integrated cache because Azure Cosmos DB is already fast without caching.
@@ -84,11 +88,17 @@ The integrated cache supports eventual [consistency](consistency-levels.md) only
 
 The easiest way to configure eventual consistency for all reads is to [set it at the account-level](consistency-levels.md#configure-the-default-consistency-level). However, if you would only like some of your reads to have eventual consistency, you can also configure consistency at the [request-level](how-to-manage-consistency.md#override-the-default-consistency-level).
 
-## Integrated cache retention time
+## MaxIntegratedCacheStaleness
 
-The cache retention time is the maximum retention for cached data. You can set the cache retention time by configuring the `MaxIntegratedCacheStaleness` for each request. 
+The `MaxIntegratedCacheStaleness` is the maximum acceptable staleness for cached point reads and queries. The `MaxIntegratedCacheStaleness` is configurable at the request-level. For example, if you set a `MaxIntegratedCacheStaleness` of 2 hours, your request will only return cached data if the data is less than 2 hours old. To increase the likelihood of repeated reads utilizing the integrated cache, you should set the `MaxIntegratedCacheStaleness` as high as your business requirements allow.
 
-Your `MaxIntegratedCacheStaleness` is the maximum time in which you are willing to tolerate stale cached data. For example, if you set a `MaxIntegratedCacheStaleness` of 2 hours, your request will only return cached data if the data is less than 2 hours old. To increase the likelihood of repeated reads utilizing the integrated cache, you should set the `MaxIntegratedCacheStaleness` as high as your business requirements allow.
+It's important to understand that the `MaxIntegratedCacheStaleness`, when configured on a request that ends up populating the cache, doesn't impact how long that request will be cached. `MaxIntegratedCacheStaleness` enforces consistency when you try to use cached data. There's no global TTL or cache retention setting, so data will only be evicted from the cache if either the integrated cache is full or a new read is run with a lower `MaxIntegratedCacheStaleness` than the age of the current cached entry.
+
+This is an improvement from how most caches work and allows the following additional customization:
+
+- You can set different staleness requirements for each point read or query
+- Different clients, even if they run the same point read or query, can configure different `MaxIntegratedCacheStaleness` values.
+- If you wanted to modify read consistency when using cached data, changing `MaxIntegratedCacheStaleness` will have an immediate effect on read consistency.
 
 > [!NOTE]
 > When not explicitly configured, the MaxIntegratedCacheStaleness defaults to 5 minutes.

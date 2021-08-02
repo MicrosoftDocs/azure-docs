@@ -161,7 +161,7 @@ docker kill mycontainer
 * [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Create client applications to consume web services](how-to-consume-web-service.md)
 * [Update web service](how-to-deploy-update-web-service.md)
-* [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
+* [How to deploy a model using a custom Docker image](./how-to-deploy-custom-container.md)
 * [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
 * [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
 * [Collect data for models in production](how-to-enable-data-collection.md)

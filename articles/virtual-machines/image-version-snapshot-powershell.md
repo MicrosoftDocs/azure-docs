@@ -103,6 +103,10 @@ $imageDefinition = New-AzGalleryImageDefinition `
    -Sku 'mySKU'
 ```
 
+> [!NOTE]
+> For image definitions that will contain images descended from third-party images, the plan information must match exactly the plan information from the third-party image. Include the plan information in the image definition by adding `-PurchasePlanName`, `-PurchasePlanProduct`, and `-PurchasePlanPublisher` when you create the image definition.
+>
+
 ### Purchase plan information
 
 In some cases, you need to pass purchase plan information in when creating a VM from an image that was based on an Azure Marketplace image. In these cases, we recommend you include the purchase plan information in the image definition. In this case, see [Supply Azure Marketplace purchase plan information when creating images](marketplace-images.md).

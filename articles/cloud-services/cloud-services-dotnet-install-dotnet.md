@@ -4,8 +4,8 @@ description: This article describes how to manually install the .NET Framework o
 ms.topic: article
 ms.service: cloud-services
 ms.date: 10/14/2020
-ms.author: tagore
-author: tanmaygore
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: 
 ---
@@ -29,7 +29,7 @@ To download the web installer for the .NET Framework, choose the version that yo
 
 * [.NET Framework 4.8 Web installer](https://go.microsoft.com/fwlink/?LinkId=2150985)
 * [.NET Framework 4.7.2 web installer](https://go.microsoft.com/fwlink/?LinkId=863262)
-* [.NET Framework 4.6.2 web installer](https://www.microsoft.com/download/details.aspx?id=53345)
+* [.NET Framework 4.6.2 web installer](https://dotnet.microsoft.com/download/dotnet-framework/net462)
 
 To add the installer for a *web* role:
   1. In **Solution Explorer**, under **Roles** in your cloud service project, right-click your *web* role and select **Add** > **New Folder**. Create a folder named **bin**.
@@ -91,7 +91,7 @@ You can use startup tasks to perform operations before a role starts. Installing
    REM ***** To install .NET 4.5.2 set the variable netfx to "NDP452" *****
    REM ***** To install .NET 4.6 set the variable netfx to "NDP46" *****
    REM ***** To install .NET 4.6.1 set the variable netfx to "NDP461" ***** https://go.microsoft.com/fwlink/?LinkId=671729
-   REM ***** To install .NET 4.6.2 set the variable netfx to "NDP462" ***** https://www.microsoft.com/download/details.aspx?id=53345
+   REM ***** To install .NET 4.6.2 set the variable netfx to "NDP462" ***** https://dotnet.microsoft.com/download/dotnet-framework/net462
    REM ***** To install .NET 4.7 set the variable netfx to "NDP47" ***** 
    REM ***** To install .NET 4.7.1 set the variable netfx to "NDP471" ***** https://go.microsoft.com/fwlink/?LinkId=852095
    REM ***** To install .NET 4.7.2 set the variable netfx to "NDP472" ***** https://go.microsoft.com/fwlink/?LinkId=863262

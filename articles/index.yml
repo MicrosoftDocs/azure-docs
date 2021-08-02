@@ -271,7 +271,7 @@ productDirectory:
       imageSrc: ./media/index/metrics-advisor.svg
       azureCategories:
         - ai-machine-learning
-      url: cognitive-services/metrics-advisor/index.yml
+      url: applied-ai-services/metrics-advisor/index.yml
     # Card
     - title: Personalizer
       summary: An AI service that delivers a personalized user experience
@@ -641,11 +641,11 @@ productDirectory:
     # Card
     - title: Azure Virtual Desktop
       summary: The best virtual desktop experience, delivered on Azure
-      imageSrc: https://static.docs.com/ui/media/product/azure/windows-virtual-desktop.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/virtual-desktop.svg
       azureCategories:
         - featured
         - compute
-        - windows-virtual-desktop
+        - azure-virtual-desktop
       url: virtual-desktop/index.yml
     # Card
     - title: Windows Virtual Machines
@@ -662,7 +662,7 @@ productDirectory:
       azureCategories:
         - containers
         - developer-tools
-      url: dev-spaces/index.yml
+      url: /previous-versions/azure/dev-spaces/
     # Card
     - title: Azure Red Hat OpenShift
       summary: Fully managed OpenShift service, jointly operated with Red Hat

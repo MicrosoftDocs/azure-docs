@@ -31,7 +31,7 @@ Azure Disk Encryption requires an Azure Key Vault to control and manage disk enc
 
 ### Create Key Vault with disk encryption enabled
 
-Run the following commands to create a new Key Vault for disk encryption. Make sure the region for your Key Vault is [supported for Service Fabric managed clusters](faq-managed-cluster.md#what-regions-are-supported) and is in the same region as your cluster.
+Run the following commands to create a new Key Vault for disk encryption. Make sure the region for your Key Vault is [supported for Service Fabric managed clusters](./faq-managed-cluster.yml#what-regions-are-supported-) and is in the same region as your cluster.
 
 # [PowerShell](#tab/azure-powershell)
 

@@ -5,7 +5,7 @@
  author: SnehaGunda
  ms.service: cosmos-db
  ms.topic: include
- ms.date: 05/19/2021
+ ms.date: 07/02/2021
  ms.author: sngun
  ms.custom: include file
 ---
@@ -49,7 +49,7 @@
 1. Optionally you can configure additional details in the following tabs:
 
    * **Networking** - Configure [access from a virtual network](../how-to-configure-vnet-service-endpoint.md).
-   * **Backup Policy** - Configure either [periodic](../configure-periodic-backup-restore.md) or [continuous](../continuous-backup-restore-portal.md) backup policy.
+   * **Backup Policy** - Configure either [periodic](../configure-periodic-backup-restore.md) or [continuous](../provision-account-continuous-backup.md) backup policy.
    * **Encryption** - Use either service-managed key or a [customer-managed key](../how-to-setup-cmk.md#create-a-new-azure-cosmos-account).
    * **Tags** - Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups.
 

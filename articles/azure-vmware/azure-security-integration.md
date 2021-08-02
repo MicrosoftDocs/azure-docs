@@ -7,7 +7,7 @@ ms.date: 06/14/2021
 
 # Integrate Azure Security Center with Azure VMware Solution 
 
-Azure Security Center provides advanced threat protection across your Azure VMware Solution and on-premises virtual machines (VMs). It assesses the vulnerability of Azure VMware Solution VMs and raise alerts as needed. These security alerts can be forwarded to Azure Monitor for resolution. You can define security policies in Azure Security Center. For more information, see [Working with security policies](../security-center/tutorial-security-policy.md). 
+Azure Security Center provides advanced threat protection across your Azure VMware Solution and on-premises virtual machines (VMs). It assesses the vulnerability of Azure VMware Solution VMs and raises alerts as needed. These security alerts can be forwarded to Azure Monitor for resolution. You can define security policies in Azure Security Center. For more information, see [Working with security policies](../security-center/tutorial-security-policy.md). 
 
 Azure Security Center offers many features, including:
 - File integrity monitoring
@@ -43,11 +43,11 @@ The diagram shows the integrated monitoring architecture of integrated security 
 
 2. Under Resources, select **Servers** and then **+Add**.
 
-   :::image type="content" source="media/azure-security-integration/add-server-to-azure-arc.png" alt-text="A screenshot showing Azure Arc Servers page for adding an Azure VMware Solution VM to Azure.":::
+   :::image type="content" source="media/azure-security-integration/add-server-to-azure-arc.png" alt-text="Screenshot showing Azure Arc Servers page for adding an Azure VMware Solution VM to Azure.":::
 
 3. Select **Generate script**.
  
-   :::image type="content" source="media/azure-security-integration/add-server-using-script.png" alt-text="A screenshot of Azure Arc page showing option for adding a server using interactive script."::: 
+   :::image type="content" source="media/azure-security-integration/add-server-using-script.png" alt-text="Screenshot of Azure Arc page showing option for adding a server using interactive script."::: 
  
 4. On the **Prerequisites** tab, select **Next**.
 
@@ -71,23 +71,23 @@ The diagram shows the integrated monitoring architecture of integrated security 
 
 ## View recommendations and passed assessments
 
-This provides you with the security health details of your resource. 
+Recommendations and assessments provide you with the security health details of your resource. 
 
 1. In Azure Security Center, select **Inventory** from the left pane.
 
 2. For Resource type, select **Servers - Azure Arc**.
  
-   :::image type="content" source="media/azure-security-integration/select-resource-in-security-center.png" alt-text="A screenshot of the Azure Security Center Inventory page showing Servers - Azure Arc selected under Resource type.":::
+   :::image type="content" source="media/azure-security-integration/select-resource-in-security-center.png" alt-text="Screenshot showing the Azure Security Center Inventory page with the Servers - Azure Arc selected under Resource type.":::
 
 3. Select the name of your resource. A page opens showing the security health details of your resource.
 
 4. Under **Recommendation list**, select the **Recommendations**, **Passed assessments**, and **Unavailable assessments** tabs to view these details.
 
-   :::image type="content" source="media/azure-security-integration/view-recommendations-assessments.png" alt-text="A screenshot of Azure Security Center showing security recommendations and assessments.":::
+   :::image type="content" source="media/azure-security-integration/view-recommendations-assessments.png" alt-text="Screenshot showing the Azure Security Center security recommendations and assessments.":::
 
 ## Deploy an Azure Sentinel workspace
 
-Azure Sentinel is built on top of a Log Analytics workspace, so you'll just need to select the Log Analytics workspace you want to use.
+Since Azure Sentinel is built on top of a Log Analytics workspace, you'll only need to select the workspace you want to use.
 
 1. In the Azure portal, search for **Azure Sentinel**, and select it.
 
@@ -107,6 +107,9 @@ Azure Sentinel is built on top of a Log Analytics workspace, so you'll just need
 
    :::image type="content" source="media/azure-security-integration/select-events-you-want-to-stream.png" alt-text="Screenshot of Security Events page in Azure Sentinel where you can select which events to stream.":::
 
+
+
+
 ## Connect Azure Sentinel with Azure Security Center  
 
 1. On the Azure Sentinel workspace page, select the configured workspace.
@@ -115,7 +118,7 @@ Azure Sentinel is built on top of a Log Analytics workspace, so you'll just need
 
 3. Select **Azure Security Center** from the list and then select **Open connector page**.
 
-    :::image type="content" source="media/azure-security-integration/connect-security-center-with-azure-sentinel.png" alt-text="Screenshot of Data connectors page in Azure Sentinel showing selection to connect Azure Security Center with Azure Sentinel.":::
+   :::image type="content" source="media/azure-security-integration/connect-security-center-with-azure-sentinel.png" alt-text="Screenshot of Data connectors page in Azure Sentinel showing selection to connect Azure Security Center with Azure Sentinel.":::
 
 4. Select **Connect** to connect the Azure Security Center with Azure Sentinel.
 
@@ -143,7 +146,7 @@ After connecting data sources to Azure Sentinel, you can create rules to generat
 
     - Status
 
-5. On the **Set rule logic** tab, enter the required information and then select **Next**.
+5. On the **Set rule logic** tab, enter the required information, and then select **Next**.
 
     - Rule query (here showing our example query)
     
@@ -167,11 +170,11 @@ After connecting data sources to Azure Sentinel, you can create rules to generat
 
 6. On the **Incident settings** tab, enable **Create incidents from alerts triggered by this analytics rule** and select **Next: Automated response**.
  
-    :::image type="content" source="media/azure-security-integration/create-new-analytic-rule-wizard.png" alt-text="Screenshot of the Analytic rule wizard for creating a new rule in Azure Sentinel. Shows Create incidents from alerts triggered by this rule as enabled.":::
+    :::image type="content" source="../sentinel/media/tutorial-detect-threats-custom/general-tab.png" alt-text="Screenshot showing the Analytic rule wizard for creating a new rule in Azure Sentinel.":::
 
 7. Select **Next: Review**.
 
-8. On the **Review and create** tab, review the information and select **Create**.
+8. On the **Review and create** tab, review the information, and select **Create**.
 
 >[!TIP]
 >After the third failed attempt to sign in to Windows server, the created rule triggers an incident for every unsuccessful attempt.
@@ -198,9 +201,9 @@ You can create queries or use the available pre-defined query in Azure Sentinel 
 1. On the Azure Sentinel overview page, under Threat management, select **Hunting**. A list of pre-defined queries is displayed.
 
    >[!TIP]
-   >You can also create a new query by selecting **+New Query**. 
+   >You can also create a new query by selecting **New Query**. 
    >
-   >:::image type="content" source="media/azure-security-integration/create-new-query.png" alt-text="Screenshot of Azure Sentinel Hunting page with + New Query highlighted.":::
+   >:::image type="content" source="../sentinel/media/hunting/save-query.png" alt-text="Screenshot of Azure Sentinel Hunting page with + New Query highlighted.":::
 
 3. Select a query and then select **Run Query**.
 

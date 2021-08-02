@@ -9,7 +9,7 @@ ms.reviewer: laobri
 author: rsethur
 ms.date: 05/25/2021
 ms.topic: tutorial
-ms.custom: tutorial
+ms.custom: tutorial, devplatv2
 
 # Customer intent: As a data scientist, I want to securely access Azure resources for my machine learning model deployment with a managed online endpoint and system assigned managed identity. 
 ---
@@ -32,7 +32,7 @@ This tutorial demonstrates how to take the following actions with the Azure CLI 
 
 ## Prerequisites
 
-* To use Azure machine learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+* To use Azure machine learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
 * You must install and configure the Azure CLI and ML extension. For more information, see [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md). 
 

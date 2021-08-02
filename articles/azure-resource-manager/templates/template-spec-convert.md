@@ -16,7 +16,7 @@ To see if you have any templates to convert, view the [template gallery in the p
 
 To simplify converting templates in the template gallery, use a PowerShell script from the Azure Quickstart Templates repo. When you run the script, you can either create a new template spec for each template or download a template that creates the template spec. The script doesn't delete the template from the template gallery.
 
-1. Copy the [migration script](https://github.com/Azure/azure-quickstart-templates/blob/master/201-templatespec-migrate-create/Migrate-GalleryItems.ps1). Save a local copy with the name *Migrate-GalleryItems.ps1*.
+1. Copy the [migration script](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.resources/templatespec-migrate-create/Migrate-GalleryItems.ps1). Save a local copy with the name *Migrate-GalleryItems.ps1*.
 1. To create new template specs, provide values for the `-ResourceGroupName` and `-Location` parameters.
 
    Set `ItemsToExport` to `MyGalleryItems` to export your templates. Set it to `AllGalleryItems` to export all templates you have access to.

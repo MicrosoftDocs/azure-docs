@@ -7,9 +7,9 @@ ms.subservice: service-overview
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.custom: references_regions
-ms.date: 05/02/2021
+ms.date: 07/22/2021
 ---
 
 # Maintenance window (Preview)
@@ -22,7 +22,7 @@ The maintenance window feature allows you to configure maintenance schedule for 
 
 ## Overview
 
-Azure periodically performs [planned maintenance](planned-maintenance.md) of SQL Database and SQL managed instance resources. During Azure SQL maintenance event, databases are fully available but can be subject to short reconfigurations within respective availability SLAs for [SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database) and [SQL managed instance](https://azure.microsoft.com/support/legal/sla/azure-sql-sql-managed-instance).
+Azure periodically performs [planned maintenance](planned-maintenance.md) of SQL Database and SQL managed instance resources. During Azure SQL maintenance event, databases are fully available but can be subject to short reconfigurations within respective availability SLAs for [SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database) and [SQL managed instance](https://azure.microsoft.com/support/legal/sla/azure-sql-sql-managed-instance).
 
 Maintenance window is intended for production workloads that are not resilient to database or instance reconfigurations and cannot absorb short connection interruptions caused by planned maintenance events. By choosing a maintenance window you prefer, you can minimize the impact of planned maintenance as it will be occurring outside of your peak business hours. Resilient workloads and non-production workloads may rely on Azure SQL's default maintenance policy.
 
@@ -75,21 +75,28 @@ Choosing a maintenance window other than the default is currently available in t
 - Australia SouthEast
 - Brazil South
 - Canada Central
+- Canada East
+- Central India
 - Central US
 - East US
 - East US2
 - East Asia
+- France South
 - Germany West Central
 - Japan East
+- Korea Central*
 - NorthCentral US
 - North Europe
 - SouthCentral US
 - SouthEast Asia
 - UK South
 - UK West
+- West Central US
 - West Europe
 - West US
 - West US2
+
+*Available only for Azure SQL Managed Instance
 
 ## Gateway maintenance for Azure SQL Database
 
@@ -115,7 +122,7 @@ Expected duration of configuring maintenance window on managed instance can be c
 > A short reconfiguration happens at the end of the maintenance operation and typically lasts up to 8 seconds even in case of interrupted long-running transactions. To minimize the impact of the reconfiguration you should schedule the operation outside of the peak hours.
 
 ### IP address space requirements
-Each new virtual cluster in subnet requires additional IP addresses according to the [virtual cluster IP address allocation](../managed-instance/vnet-subnet-determine-size.md#determine-subnet-size). Changing maintenance window for existing managed instance also requires [temporary additional IP capacity](../managed-instance/vnet-subnet-determine-size.md#address-requirements-for-update-scenarios) as in scaling vCores scenario for corresponding service tier.
+Each new virtual cluster in subnet requires additional IP addresses according to the [virtual cluster IP address allocation](../managed-instance/vnet-subnet-determine-size.md#determine-subnet-size). Changing maintenance window for existing managed instance also requires [temporary additional IP capacity](../managed-instance/vnet-subnet-determine-size.md#update-scenarios) as in scaling vCores scenario for corresponding service tier.
 
 ### IP address change
 Configuring and changing maintenance window causes change of the IP address of the instance, within the IP address range of the subnet.

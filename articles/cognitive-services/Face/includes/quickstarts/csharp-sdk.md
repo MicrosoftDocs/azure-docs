@@ -15,12 +15,11 @@ Get started with facial recognition using the Face client library for .NET. Foll
 
 Use the Face client library for .NET to:
 
-* [Detect faces in an image](#detect-faces-in-an-image)
-* [Find similar faces](#find-similar-faces)
-* [Create a PersonGroup](#create-a-persongroup)
+* [Detect and analyze faces](#detect-and-analyze-faces)
 * [Identify a face](#identify-a-face)
+* [Find similar faces](#find-similar-faces)
 
-[Reference documentation](/dotnet/api/overview/azure/cognitiveservices/client/faceapi) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.7.0-preview.1) | [Samples](/samples/browse/?products=azure&term=face)
+[Reference documentation](/dotnet/api/overview/azure/cognitiveservices/face-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.7.0-preview.1) | [Samples](/samples/browse/?products=azure&term=face)
 
 ## Prerequisites
 
@@ -117,10 +116,9 @@ The following classes and interfaces handle some of the major features of the Fa
 The code snippets below show you how to do the following tasks with the Face client library for .NET:
 
 * [Authenticate the client](#authenticate-the-client)
-* [Detect faces in an image](#detect-faces-in-an-image)
-* [Find similar faces](#find-similar-faces)
-* [Create a PersonGroup](#create-a-persongroup)
+* [Detect and analyze faces](#detect-and-analyze-faces)
 * [Identify a face](#identify-a-face)
+* [Find similar faces](#find-similar-faces)
 
 ## Authenticate the client
 
@@ -138,7 +136,8 @@ In your **Main** method, define strings to point to the different recognition mo
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_detect_models)]
 
-## Detect faces in an image
+## Detect and analyze faces
+Face detection is required as a first step in all the other scenarios. This section shows how to return the extra face attribute data. If you only want to detect faces for face identification or verification, skip to the later sections.
 
 ### Get detected face objects
 
@@ -155,31 +154,11 @@ The rest of the `DetectFaceExtract` method parses and prints the attribute data 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_detect_parse)]
 
-## Find similar faces
 
-The following code takes a single detected face (source) and searches a set of other faces (target) to find matches (face search by image). When it finds a match, it prints the ID of the matched face to the console.
-
-### Detect faces for comparison
-
-First, define a second face detection method. You need to detect faces in images before you can compare them, and this detection method is optimized for comparison operations. It doesn't extract detailed face attributes like in the section above, and it uses a different recognition model.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_face_detect_recognize)]
-
-### Find matches
-
-The following method detects faces in a set of target images and in a single source image. Then, it compares them and finds all the target images that are similar to the source image.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_find_similar)]
-
-### Print matches
-
-The following code prints the match details to the console:
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_find_similar_print)]
 
 ## Identify a face
 
-The Identify operation takes an image of a person (or multiple people) and looks to find the identity of each face in the image (facial recognition search). It compares each detected face to a **PersonGroup**, a database of different **Person** objects whose facial features are known. In order to do the Identify operation, you first need to create and train a **PersonGroup**
+The Identify operation takes an image of a person (or multiple people) and looks to find the stored person object associated with each face in the image (facial recognition search). It compares each detected face to a **PersonGroup**, a database of different **Person** objects whose facial data is known. In order to do the Identify operation, you first need to create and train a **PersonGroup**
 
 ### Create a PersonGroup
 
@@ -222,6 +201,30 @@ The following code takes the source image and creates a list of all the faces de
 The next code snippet calls the **IdentifyAsync** operation and prints the results to the console. Here, the service attempts to match each face from the source image to a **Person** in the given **PersonGroup**. This closes out your Identify method.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_identify)]
+
+
+## Find similar faces
+
+The following code takes a single detected face (source) and searches a set of other faces (target) to find matches (face search by image). When it finds a match, it prints the ID of the matched face to the console.
+
+### Detect faces for comparison
+
+First, define a second face detection method. You need to detect faces in images before you can compare them, and this detection method is optimized for comparison operations. It doesn't extract detailed face attributes like in the section above, and it uses a different recognition model.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_face_detect_recognize)]
+
+### Find matches
+
+The following method detects faces in a set of target images and in a single source image. Then, it compares them and finds all the target images that are similar to the source image.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_find_similar)]
+
+### Print matches
+
+The following code prints the match details to the console:
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_find_similar_print)]
+
 
 ## Run the application
 

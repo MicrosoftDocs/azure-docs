@@ -25,7 +25,6 @@ To learn about the JSON syntax and properties for App Services resources, see [M
 |**Configuring an app**| **Description** |
 | [App certificate from Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-certificate-from-key-vault)| Deploys an App Service app certificate from an Azure Key Vault secret and uses it for TLS/SSL binding. |
 | [App with a custom domain and SSL](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-custom-domain-and-ssl)| Deploys an App Service app with a custom host name, and gets an app certificate from Key Vault for TLS/SSL binding. |
-| [App with a GoLang extension](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-with-golang)| Deploys an App Service app with the Golang site extension. You can then run web applications developed on Golang on Azure. |
 | [App with Java 8 and Tomcat 8](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-java-tomcat)| Deploys an App Service app with Java 8 and Tomcat 8 enabled. You can then run Java applications in Azure. |
 | [App with regional VNet integration](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/app-service-regional-vnet-integration)| Deploys an App Service app with regional VNet integration enabled. |
 |**Protecting an app**| **Description** |
@@ -34,7 +33,7 @@ To learn about the JSON syntax and properties for App Services resources, see [M
 | [App on Linux with MySQL](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-linux-managed-mysql) | Deploys an App Service app on Linux with Azure Database for MySQL. |
 | [App on Linux with PostgreSQL](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-linux-managed-postgresql) | Deploys an App Service app on Linux with Azure Database for PostgreSQL. |
 |**App with connected resources**| **Description** |
-| [App with MySQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-managed-mysql)| Deploys an App Service app on Windows with Azure Database for MySQL. |
+| [App with MySQL](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-managed-mysql)| Deploys an App Service app on Windows with Azure Database for MySQL. |
 | [App with PostgreSQL](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-managed-postgresql)| Deploys an App Service app on Windows with Azure Database for PostgreSQL. |
 | [App with a database in Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-sql-database)| Deploys an App Service app and a database in Azure SQL Database at the Basic service level. |
 | [App with a Blob storage connection](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-blob-connection)| Deploys an App Service app with an Azure Blob storage connection string. You can then use Blob storage from the app. |

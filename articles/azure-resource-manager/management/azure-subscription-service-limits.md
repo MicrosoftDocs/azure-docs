@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 06/09/2021
+ms.date: 07/29/2021
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -169,6 +169,10 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 
 [!INCLUDE [monitoring-limits](../../../includes/application-insights-limits.md)]
 
+## Azure NetApp Files
+
+[!INCLUDE [netapp-limits](../../../includes/netapp-service-limits.md)]
+
 ## Azure Policy limits
 
 [!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
@@ -238,6 +242,10 @@ The following table details the features and limits of the Basic, Standard, and 
 ## Database Migration Service Limits
 
 [!INCLUDE [database-migration-service-limits](../../../includes/database-migration-service-limits.md)]
+
+## Device Update for IoT Hub  limits
+
+[!INCLUDE [device-update-for-iot-hub-limits](../../../includes/device-update-for-iot-hub-limits.md)]
 
 ## Digital Twins limits
 
