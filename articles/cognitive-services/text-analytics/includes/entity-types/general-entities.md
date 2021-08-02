@@ -27,7 +27,7 @@ The NER feature for Text Analytics returns the following general (non identifyin
 | [Phone number](#category-phonenumber) | Phone numbers. |
 | [Email](#category-email) | Email addresses. |
 | [URL](#category-url) | URLs to websites. |
-| [IPAddress](#category-ip) | Network IP addresses. |
+| [IPAddress](#category-ipaddress) | Network IP addresses. |
 | [DateTime](#category-datetime) | Dates and times of day. |
 | [Quantity](#category-quantity) | Numerical measurements and units. |
 
