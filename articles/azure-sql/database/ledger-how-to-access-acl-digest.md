@@ -39,7 +39,7 @@ Azure SQL Server calculates the digests of the [ledger databases](ledger-overvie
 Use [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) to run the following query. The output shows the endpoint of the Confidential Ledger instance where the digests are stored.
 
 ```sql
-SELECT * FROM sys.database_ledger_digest_locations WHERE path like '%.confidential-ledger.azure.com%
+SELECT * FROM sys.database_ledger_digest_locations WHERE path like '%.confidential-ledger.azure.com%'
 ```
 
 ## 2. Determine the subledgerid
