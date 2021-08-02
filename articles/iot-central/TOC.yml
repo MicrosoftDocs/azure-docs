@@ -152,18 +152,8 @@
         items:
         - name: Overview
           href: retail/overview-iot-central-retail.md
-        - name: In-store analytics checkout architecture
-          href: retail/store-analytics-architecture.md
-        - name: Smart inventory management architecture
-          href: retail/architecture-smart-inventory-management.md
         - name: Connected logistics architecture
           href: retail/architecture-connected-logistics.md
-        - name: Digital distribution center
-          href: retail/architecture-digital-distribution-center.md
-        - name: Micro-fulfillment center architecture
-          href: retail/architecture-micro-fulfillment-center.md
-        - name: Video analytics - object and motion detection
-          href: retail/architecture-video-analytics.md
       - name: Energy
         items:
         - name: Overview
