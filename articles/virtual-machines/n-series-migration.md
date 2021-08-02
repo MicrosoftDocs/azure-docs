@@ -77,7 +77,7 @@ General Changes
 
 ## **Breaking Changes**
 
-Select target size for migration
+### Select target size for migration
 
 After assessing your current usage, decide what type of GPU VM you need. Depending on the workload requirements you have few different choices.
 
