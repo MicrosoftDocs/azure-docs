@@ -831,7 +831,7 @@
       href: how-to-grant-access-other-resources.md
   - name: Migrate your cluster to a new region
     items:
-    - name: How to move your Azure Service Fabric cluster to a new Region
+    - name: How to move your Azure Service Fabric cluster to a new region
       href: service-fabric-cluster-region-move.md
   - name: Migrate from Cloud Services
     items:
