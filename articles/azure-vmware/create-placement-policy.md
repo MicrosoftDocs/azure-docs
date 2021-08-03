@@ -16,15 +16,15 @@ Placement policies in Azure VMware Solution allow you to control the placement o
 
 A placement policy has at least five required components: 
 
-- **Name** - used to identify the policy and is subject to the naming constraints of [Azure Resources]().
+- **Name** - Defines the name of the policy and is subject to the naming constraints of [Azure Resources]().
 
-- **Type** - defines the type of control you want to apply to the resources contained in the policy.
+- **Type** - Defines the type of control you want to apply to the resources contained in the policy.
 
-- **Cluster** - defines which cluster the policy should be applied to. The scope of a placement policy is a vSphere cluster, so only resources from the same cluster may be part of the same placement policy.
+- **Cluster** - Defines which cluster the policy should be applied to. The scope of a placement policy is a vSphere cluster, so only resources from the same cluster may be part of the same placement policy.
 
-- **State** - defines whether the policy is enabled or disabled. In certain scenarios, a policy might be disabled automatically when a conflicting rule is created. For more information, see [Considerations](#considerations) below.
+- **State** - Defines whether the policy is enabled or disabled. In certain scenarios, a policy might be disabled automatically when a conflicting rule is created. For more information, see [Considerations](#considerations) below.
 
-- **Virtual machine** - Depending on the type of rule you create, your policy may require you to specify some number of virtual machines (VMs) and hosts.  For more information, see [Placement policy types](#placement-policy-types) below.
+- **Virtual machine** - Defines the virtual machines (VMs) and hosts for the policy. Depending on the type of rule you create, your policy may require you to specify some number of virtual machines (VMs) and hosts. For more information, see [Placement policy types](#placement-policy-types) below.
 
 
 
@@ -48,7 +48,7 @@ You must have _Contributor_ level access to the private cloud to manage placemen
       content...
    :::column-end:::
    :::column span="":::
-      VM to host policies
+      ### VM to host policies
       content...
    :::column-end:::
 :::row-end:::
