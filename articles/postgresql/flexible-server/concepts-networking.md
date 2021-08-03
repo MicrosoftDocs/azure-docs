@@ -46,7 +46,7 @@ In the preceding diagram:
    
 ### Virtual network concepts
 
-An Azure virtual network contains a private IP address space that's configured for your use. Your virtual network must be in the same Azure region as your flexible server. To learn more about virtual networks, visit the [Azure Virtual Network overview](../../virtual-network/virtual-networks-overview.md).
+An Azure virtual network contains a private IP address space that's configured for your use. Your virtual network must be in the same Azure region as your flexible server. To learn more about virtual networks, see the [Azure Virtual Network overview](../../virtual-network/virtual-networks-overview.md).
 
 Here are some concepts to be familiar with when you're using virtual networks with PostgreSQL flexible servers:
 
@@ -59,7 +59,12 @@ Here are some concepts to be familiar with when you're using virtual networks wi
 
 * **Network security group (NSG)**. Security rules in NSGs enable you to filter the type of network traffic that can flow in and out of virtual network subnets and network interfaces. For more information, see the [NSG overview](../../virtual-network/network-security-groups-overview.md).
 
-  Application security groups (ASGs) make it easy to control Layer-4 security by using NSGs for flat networks. You can quickly join/remove virtual machines to/from an application security group and dynamically apply/remove rules to/from those virtual machines.  For more information, see the [ASG overview](../../virtual-network/application-security-groups.md). 
+  Application security groups (ASGs) make it easy to control Layer-4 security by using NSGs for flat networks. You can quickly:
+  
+  - Join virtual machines to an ASG, or remove virtual machines from an ASG.
+  - Dynamically apply rules to those virtual machines, or remove rules from those virtual machines. 
+  
+  For more information, see the [ASG overview](../../virtual-network/application-security-groups.md). 
   
   At this time, we don't support NSGs where an ASG is part of the rule with Azure Database for PostgreSQL - Flexible Server. We currently advise using [IP-based source or destination filtering](../../virtual-network/network-security-groups-overview.md#security-rules) in an NSG. 
 
@@ -74,7 +79,7 @@ If you use an Azure API, an Azure Resource Manager template (ARM template), or T
 
 ### Integration with a custom DNS server
 
-If you're using a custom DNS server. you must use a DNS forwarder to resolve the FQDN of Azure Database for PostgreSQL - Flexible Server. The forwarder IP address should be [168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md). 
+If you're using a custom DNS server, you must use a DNS forwarder to resolve the FQDN of Azure Database for PostgreSQL - Flexible Server. The forwarder IP address should be [168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md). 
 
 The custom DNS server should be inside the virtual network or reachable via the virtual network's DNS server setting. To learn more, see [Name resolution that uses your own DNS server](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
@@ -114,7 +119,7 @@ Characteristics of the public access method include:
 
 ### Firewall rules
 
-If a connection attempt comes from an IP address that you haven't allowed through a firewall rule, the originating client will see an error.
+If a connection attempt comes from an IP address that you haven't allowed through a firewall rule, the originating client will get an error.
 
 ### Allowing all Azure IP addresses
 
@@ -124,9 +129,9 @@ If a fixed outgoing IP address isn't available for your Azure service, you can c
 > The **Allow public access from Azure services and resources within Azure** option configures the firewall to allow all connections from Azure, including connections from the subscriptions of other customers. When you select this option, make sure that your sign-in and user permissions limit access to only authorized users.
 
 ### Troubleshooting public access issues
-Consider the following points when access to the Azure Database for PostgreSQL Server service doesn't behave as you expect:
+Consider the following points when access to the Azure Database for PostgreSQL service doesn't behave as you expect:
 
-* **Changes to the allowlist have not taken effect yet**. There might be as much as a five-minute delay for changes to the Azure Database for PostgreSQL Server firewall configuration to take effect.
+* **Changes to the allowlist have not taken effect yet**. There might be as much as a five-minute delay for changes to the firewall configuration of the Azure Database for PostgreSQL server to take effect.
 
 * **Authentication failed**. If a user doesn't have permissions on the Azure Database for PostgreSQL server or the password is incorrect, the connection to the Azure Database for PostgreSQL server is denied. Creating a firewall setting only provides clients with an opportunity to try connecting to your server. Each client must still provide the necessary security credentials.
 
