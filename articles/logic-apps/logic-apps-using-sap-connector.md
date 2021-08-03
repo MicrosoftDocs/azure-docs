@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 07/30/2021
+ms.date: 08/03/2021
 tags: connectors
 ---
 
@@ -625,13 +625,15 @@ This example uses a logic app that triggers when the app receives a message from
 
 1. Now save your logic app so you can start receiving messages from your SAP system. On the designer toolbar, select **Save**.
 
-Your logic app is now ready to receive messages from your SAP system.
+   Your logic app is now ready to receive messages from your SAP system.
 
-> [!NOTE]
-> The SAP trigger isn't a polling trigger but is a webhook-based trigger instead. 
-> If you're using the data gateway, the trigger is called from the data gateway only when a message exists, so no polling is necessary.
+   > [!NOTE]
+   > The SAP trigger isn't a polling trigger but is a webhook-based trigger instead. 
+   > If you're using the data gateway, the trigger is called from the data gateway only when a message exists, so no polling is necessary.
 
-If you receive a **500 Bad Gateway** error with a message similar to **service 'sapgw00' unknown**, replace your gateway service name in your API connection and trigger configuration with its port number. In the following example error, `sapgw00` needs to be replaced with a real port number, for example, `3300`. 
+1. Check in the trigger history of your logic app that the trigger registration succeeds.
+
+   If you receive a **500 Bad Gateway** or **400 Bad Request** error with a message similar to **service 'sapgw00' unknown**, the network service name resolution to port number is failing.
 
 ```json
 {
@@ -651,7 +653,19 @@ If you receive a **500 Bad Gateway** error with a message similar to **service '
 	}
 }
 ```
-
+   **Option 1:** Replace your gateway service name in your API connection and trigger configuration with its port number. In the following example error, `sapgw00` needs to be replaced with a real port number, for example, `3300`. This is the only available option for ISE.
+   
+   **Option 2:** If you are using On-Premises Data Gateway, you may instead add name to port mapping in `%windir%\System32\drivers\etc\services` such as
+```
+sapgw00  3300/tcp
+```
+   Then restart the On-Premises Data Gateway service.
+   
+   You may see similar error for SAP application server or message server name resolution to IP address. For ISE, you must specific the IP address of your SAP application server or message server. For On-Premises Data Gateway, you may instead add name to IP address mapping in `%windir%\System32\drivers\etc\hosts` such as
+```
+10.0.1.9 SAPDBSERVER01 # SAP System Server VPN IP by computer name
+10.0.1.9 SAPDBSERVER01.someguid.xx.xxxxxxx.cloudapp.net # SAP System Server VPN IP by fully qualified computer name
+```
 #### Parameters
 
 Along with simple string and number inputs, the SAP connector accepts the following table parameters (`Type=ITAB` inputs):
