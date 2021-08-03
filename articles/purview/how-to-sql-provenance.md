@@ -1,6 +1,6 @@
 ---
 title: SQL Provenance in Azure Purview
-description: This article describes the data lineage extraction from Power BI source.
+description: This article describes the data provenance extraction from SQL.
 author: chanuengg
 ms.author: csugunan
 ms.service: purview
