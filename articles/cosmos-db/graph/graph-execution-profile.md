@@ -12,7 +12,7 @@ ms.author: mansha
 ---
 
 # How to use the execution profile step to evaluate your Gremlin queries
-[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+[!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
 This article provides an overview of how to use the execution profile step for Azure Cosmos DB Gremlin API graph databases. This step provides relevant information for troubleshooting and query optimizations, and it is compatible with any Gremlin query that can be executed against a Cosmos DB Gremlin API account.
 
@@ -216,10 +216,10 @@ Assume the following execution profile response from a **partitioned graph**:
 
 The following conclusions can be made from it:
 - The query is a single ID lookup, since the Gremlin statement follows the pattern `g.V('id')`.
-- Judging from the `time` metric, the latency of this query seems to be high since it's [more than 10ms for a single point-read operation](./introduction.md#guaranteed-speed-at-any-scale).
-- If we look into the `storeOps` object, we can see that the `fanoutFactor` is `5`, which means that [5 partitions](./partitioning-overview.md) were accessed by this operation.
+- Judging from the `time` metric, the latency of this query seems to be high since it's [more than 10ms for a single point-read operation](../introduction.md#guaranteed-speed-at-any-scale).
+- If we look into the `storeOps` object, we can see that the `fanoutFactor` is `5`, which means that [5 partitions](../partitioning-overview.md) were accessed by this operation.
 
-As a conclusion of this analysis, we can determine that the first query is accessing more partitions than necessary. This can be addressed by specifying the partitioning key in the query as a predicate. This will lead to less latency and less cost per query. Learn more about [graph partitioning](graph-partitioning.md). A more optimal query would be `g.V('tt0093640').has('partitionKey', 't1001')`.
+As a conclusion of this analysis, we can determine that the first query is accessing more partitions than necessary. This can be addressed by specifying the partitioning key in the query as a predicate. This will lead to less latency and less cost per query. Learn more about [graph partitioning](../graph-partitioning.md). A more optimal query would be `g.V('tt0093640').has('partitionKey', 't1001')`.
 
 ### Unfiltered query patterns
 
@@ -384,5 +384,5 @@ These two queries reached the same result, however, the first one will require m
 - The `metrics[0].counts.resultsCount` value is higher as well in the first response, which indicates that the initial working dataset was larger.
 
 ## Next steps
-* Learn about the [supported Gremlin features](gremlin-support.md) in Azure Cosmos DB. 
-* Learn more about the [Gremlin API in Azure Cosmos DB](graph-introduction.md).
+* Learn about the [supported Gremlin features](../gremlin-support.md) in Azure Cosmos DB. 
+* Learn more about the [Gremlin API in Azure Cosmos DB](../graph-introduction.md).
