@@ -15,6 +15,9 @@ ms.reviewer: sngun
 
 Hackolade is a data modeling and schema design tool for NoSQL databases. It has a data modeling Studio, which helps in management of schemas for data-at-rest and data-in-motion.
 
+> [!IMPORTANT] 
+> Solutions mentioned in this article are for information purpose only, the ownership lies to individual solution owner. We recommend users to do thorough evaluation and then choose.
+
 ### How it works?
 This tool provides the data modeling of vertices / edges and their respective properties.  It supports several use cases, some of them are:
 -	Start from a blank page and think through different options to graphically build your Cosmos DB Gremlin model.  Then forward-engineer the model to your Azure instance to evaluate the result and continue the evolution.  All such goodies without writing single line of code.
