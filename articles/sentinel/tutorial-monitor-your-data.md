@@ -1,6 +1,6 @@
 ---
 title: Visualize your data using Azure Monitor Workbooks in Azure Sentinel | Microsoft Docs
-description: Use this tutorial to learn how to visualize your data using workbooks in Azure Sentinel.
+description: Learn how to visualize your data using workbooks in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -10,18 +10,19 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2021
 ms.author: yelevin
 
 ---
-# Tutorial: Visualize and monitor your data
+# Visualize and monitor your data
 
 Once you have [connected your data sources](quickstart-onboard.md) to Azure Sentinel, you can visualize and monitor the data using the Azure Sentinel adoption of Azure Monitor Workbooks, which provides versatility in creating custom dashboards. While the Workbooks are displayed differently in Azure Sentinel, it may be useful for you to see how to [create interactive reports with Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md). Azure Sentinel allows you to create custom workbooks across your data, and also comes with built-in workbook templates to allow you to quickly gain insights across your data as soon as you connect a data source.
 
-This tutorial helps you visualize your data in Azure Sentinel.
+This article describes how to visualize your data in Azure Sentinel.
+
 > [!div class="checklist"]
 > * Use built-in workbooks
 > * Create new workbooks
@@ -119,6 +120,8 @@ To delete a saved workbook (either a saved template or a customized workbook), i
 
 ## Next steps
 
-In this tutorial, you learned how to visualize your data in Azure Sentinel, using Azure Workbooks.
+In this article, you learned how to visualize your data in Azure Sentinel, using Azure Workbooks.
 
 To learn how to automate your responses to threats, see [Set up automated threat responses in Azure Sentinel](tutorial-respond-threats-playbook.md).
+
+To learn about popular built-in workbooks, see [Commonly used Azure Sentinel workbooks](top-workbooks.md). 
