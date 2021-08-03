@@ -83,3 +83,6 @@ While the ASE does deploy into a customer VNet, there are a few networking featu
 * send SMTP traffic. You can still have email triggered alerts but your app can't send outbound traffic on port 25
 * Use of Network Watcher or NSG Flow to monitor outbound traffic
 
+## More resources
+
+- [Environment variables and app settings reference](reference-app-settings.md)
