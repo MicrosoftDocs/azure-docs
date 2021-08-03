@@ -4,7 +4,7 @@ description: This article shows the steps to connect Configuration Manager to wo
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/16/2021
+ms.date: 08/02/2021
 ---
 
 # Connect Configuration Manager to Azure Monitor
