@@ -10,6 +10,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/25/2021
 ms.author: davidmu
+ms.reviewer: lenalepa
 ---
 
 # Plan Azure Active Directory My Apps configuration
