@@ -42,7 +42,7 @@ Choose this networking option if you want the following capabilities:
 In the preceding diagram:
 - Flexible servers are injected into subnet 10.0.1.0/24 of the VNet-1 virtual network.
 - Applications that are deployed on different subnets within the same virtual network can access flexible servers directly.
-- Applications that are deployed on a different virtual network (VNet-2) don't have direct access to flexible servers. You have to perform [virtual network peering for a private DNS zone](#private-dns-zone-and-vnet-peering) before they can access the flexible server.
+- Applications that are deployed on a different virtual network (VNet-2) don't have direct access to flexible servers. You have to perform [virtual network peering for a private DNS zone](#private-dns-zone-and-virtual-network-peering) before they can access the flexible server.
    
 ### Virtual network concepts
 
@@ -59,9 +59,9 @@ Here are some concepts to be familiar with when you're using virtual networks wi
 
 * **Network security group (NSG)**. Security rules in NSGs enable you to filter the type of network traffic that can flow in and out of virtual network subnets and network interfaces. For more information, see the [NSG overview](../../virtual-network/network-security-groups-overview.md).
 
-  Application security groups (ASGs) make it easy to control Layer-4 security by using NSGs for flat networks. You can quickly join/remove virtual machines to/from an application security group and dynamically apply/remove rules to/from those virtual machines.  For more information, see the [ASG overview](https://docs.microsoft.com/azure/virtual-network/application-security-groups). 
+  Application security groups (ASGs) make it easy to control Layer-4 security by using NSGs for flat networks. You can quickly join/remove virtual machines to/from an application security group and dynamically apply/remove rules to/from those virtual machines.  For more information, see the [ASG overview](../../virtual-network/application-security-groups.md). 
   
-  At this time, we don't support NSGs where an ASG is part of the rule with Azure Database for PostgreSQL - Flexible Server. We currently advise using [IP-based source or destination filtering](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview#security-rules) in an NSG. 
+  At this time, we don't support NSGs where an ASG is part of the rule with Azure Database for PostgreSQL - Flexible Server. We currently advise using [IP-based source or destination filtering](../../virtual-network/network-security-groups-overview#security-rules) in an NSG. 
 
 * **Private DNS zone integration**. Azure private DNS zone integration allows you to resolve the private DNS within the current virtual network or any in-region peered virtual network where the private DNS zone is linked. 
 
