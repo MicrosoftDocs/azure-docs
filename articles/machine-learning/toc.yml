@@ -711,9 +711,9 @@
             - name: Azure Files
               href: reference-yaml-datastore-files.md
             - name: Azure Data Lake Gen1
-              href: reference-yaml-datastore-adlsv1.md
+              href: reference-yaml-datastore-data-lake-gen1.md
             - name: Azure Data Lake Gen2
-              href: reference-yaml-datastore-adlsv2.md
+              href: reference-yaml-datastore-data-lake-gen2.md
         - name: Jobs
           items:
             - name: Command

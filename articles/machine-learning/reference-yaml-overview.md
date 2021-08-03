@@ -35,8 +35,8 @@ Reference | URI
 - | -
 [Azure Blob](reference-yaml-datastore-blob.md) | https://azuremlschemas.azureedge.net/latest/azureBlob.schema.json
 [Azure Files](reference-yaml-datastore-files.md) | https://azuremlschemas.azureedge.net/latest/azureFile.schema.json
-[Azure Data Lake Gen1](reference-yaml-datastore-adlsv1.md) | https://azuremlschemas.azureedge.net/latest/azureDataLakeGen1.schema.json
-[Azure Data Lake Gen2](reference-yaml-datastore-adlsv2.md) | https://azuremlschemas.azureedge.net/latest/azureDataLakeGen2.schema.json
+[Azure Data Lake Gen1](reference-yaml-datastore-data-lake-gen1.md) | https://azuremlschemas.azureedge.net/latest/azureDataLakeGen1.schema.json
+[Azure Data Lake Gen2](reference-yaml-datastore-data-lake-gen2.md) | https://azuremlschemas.azureedge.net/latest/azureDataLakeGen2.schema.json
 
 ## Jobs
 
