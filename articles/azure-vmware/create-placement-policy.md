@@ -36,39 +36,32 @@ You must have _Contributor_ level access to the private cloud to manage placemen
 
 
 
-
-
-
 ## Placement policy types
 
+### VM to VM policies
+
+VM to VM policies specify whether selected virtual machines should run on the same host or be kept on separate hosts.
+
+In addition to choosing a name and cluster for the policy, a VM to VM policy requires you to select at least two virtual machines to assign to the policy. The assignment of hosts is not required or permitted for this policy type.
+
+A VM-VM Affinity policy instructs DRS to try to keep the specified virtual machines together on the same host. This can be useful for performance reasons, for example.
+
+A VM-VM Anti-Affinity policy instructs DRS to try to keep the specified virtual machines apart from each other on separate hosts. This can be useful in scenarios where a problem occurring with one host doesn’t affect multiple virtual machines within the same policy.
 
 
+### VM to host policies
 
-:::row:::
-   :::column span="":::
-      ### VM to host policies
-      VM to Host polices are used to specify whether or not selected virtual machines can run on selected hosts. 
+VM to Host polices are used to specify whether or not selected virtual machines can run on selected hosts. 
 In order to avoid interference with platform managed operations such as host maintenance mode and host replacement, VM to host policies in Azure VMware Solution are always preferential (also known as "should" rules). Accordingly, VM to Host policies may not be honored in certain scenarios. See the monitoring section for more information.
 
-      Certain platform operations will dynamically update the list of hosts defined in VM to Host policies. For example, when you delete a host that is a member of a placement policy, the host will be removed from policy if more than one host is part of that policy. Also, if a host is part of a policy and needs to be replaced as part of platform managed operation, the policy is updated dynamically with the new host.
+Certain platform operations will dynamically update the list of hosts defined in VM to Host policies. For example, when you delete a host that is a member of a placement policy, the host will be removed from policy if more than one host is part of that policy. Also, if a host is part of a policy and needs to be replaced as part of platform managed operation, the policy is updated dynamically with the new host.
 
-      In addition to choosing a name and cluster for the policy, a VM to Host policy requires you to select at least one virtual machine and one host to assign to the policy.
+In addition to choosing a name and cluster for the policy, a VM to Host policy requires you to select at least one virtual machine and one host to assign to the policy.
 
-      A VM-Host Affinity policy instructs DRS to try to run the specified virtual machines on the hosts defined in the policy.
+A VM-Host Affinity policy instructs DRS to try to run the specified virtual machines on the hosts defined in the policy.
 
-      A VM-Host Anti-Affinity policy instructs DRS to try to run the specified virtual machines on hosts other than those defined in the policy.
-   :::column-end:::
-   :::column span="":::
-      ### VM to VM policies
-      VM to VM policies specify whether selected virtual machines should run on the same host or be kept on separate hosts.
+A VM-Host Anti-Affinity policy instructs DRS to try to run the specified virtual machines on hosts other than those defined in the policy.
 
-      In addition to choosing a name and cluster for the policy, a VM to VM policy requires you to select at least two virtual machines to assign to the policy. The assignment of hosts is not required or permitted for this policy type.
-
-      A VM-VM Affinity policy instructs DRS to try to keep the specified virtual machines together on the same host. This can be useful for performance reasons, for example.
-
-      A VM-VM Anti-Affinity policy instructs DRS to try to keep the specified virtual machines apart from each other on separate hosts. This can be useful in scenarios where a problem occurring with one host doesn’t affect multiple virtual machines within the same policy.
-   :::column-end:::
-:::row-end:::
 
 
 
