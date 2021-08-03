@@ -29,7 +29,7 @@ This article shows how to use the `Az.CloudService` PowerShell module to deploy 
     New-AzResourceGroup -ResourceGroupName “ContosOrg” -Location “East US” 
     ```
 
-4. Create a storage account and container which will be used to store the Cloud Service package (.cspkg) and Service Configuration (.cscfg) files. A unique name for storage account name is required. This step is optional if using an existing storage account.
+4. Create a storage account and container, which will be used to store the Cloud Service package (.cspkg) and Service Configuration (.cscfg) files. A unique name for storage account name is required. This step is optional if using an existing storage account.
 
     ```azurepowershell-interactive
     $storageAccount = New-AzStorageAccount -ResourceGroupName “ContosOrg” -Name “contosostorageaccount” -Location “East US” -SkuName “Standard_RAGRS” -Kind “StorageV2” 
@@ -167,7 +167,7 @@ If you are using a Static IP, you need to reference it as a Reserved IP in Servi
     ```
  
 
-8. In this example we will add a self signed certificate to a Key Vault. The certificate thumbprint needs to be added in Cloud Service Configuration (.cscfg) file for deployment on cloud service roles. 
+8. In this example, we will add a self-signed certificate to a Key Vault. The certificate thumbprint needs to be added in Cloud Service Configuration (.cscfg) file for deployment on cloud service roles. 
 
     ```azurepowershell-interactive
     $Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=contoso.com" -IssuerName "Self" -ValidityInMonths 6 -ReuseKeyOnRenewal 
@@ -183,7 +183,7 @@ If you are using a Static IP, you need to reference it as a Reserved IP in Servi
     $osProfile = @{secret = @($secretGroup)} 
     ```
 
-10. Create a Role Profile in-memory object. Role profile defines a roles sku specific properties such as name, capacity and tier. In this example, we have defined two roles: frontendRole and backendRole. Role profile information should match the role configuration defined in configuration (cscfg) file and service definition (csdef) file. 
+10. Create a Role Profile in-memory object. Role profile defines a role sku specific properties such as name, capacity and tier. In this example, we have defined two roles: frontendRole and backendRole. Role profile information should match the role configuration defined in configuration (cscfg) file and service definition (csdef) file. 
 
     ```azurepowershell-interactive
     $frontendRole = New-AzCloudServiceRoleProfilePropertiesObject -Name 'ContosoFrontend' -SkuName 'Standard_D1_v2' -SkuTier 'Standard' -SkuCapacity 2 
@@ -191,7 +191,7 @@ If you are using a Static IP, you need to reference it as a Reserved IP in Servi
     $roleProfile = @{role = @($frontendRole, $backendRole)} 
     ```
 
-11. (Optional) Create a Extension Profile in-memory object that you want to add to your cloud service. For this example we will add RDP extension. 
+11. (Optional) Create an Extension Profile in-memory object that you want to add to your cloud service. For this example we will add RDP extension. 
 
     ```azurepowershell-interactive
     $credential = Get-Credential 
