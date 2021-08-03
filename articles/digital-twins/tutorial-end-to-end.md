@@ -196,14 +196,14 @@ The first setting gives the function app the **Azure Digital Twins Data Owner** 
 1. Use the following command to see the details of the system-managed identity for the function. Take note of the **principalId** field in the output.
 
     ```azurecli-interactive	
-    az functionapp identity show --resource-group <your-resource-group> --name <your-App-Service-function-app-name>	
+    az functionapp identity show --resource-group <your-resource-group> --name <your-function-app-name>	
     ```
 
     >[!NOTE]
     > If the result is empty instead of showing details of an identity, create a new system-managed identity for the function using this command:
     > 
     >```azurecli-interactive	
-    >az functionapp identity assign --resource-group <your-resource-group> --name <your-App-Service-function-app-name>	
+    >az functionapp identity assign --resource-group <your-resource-group> --name <your-function-app-name>	
     >```
     >
     > The output will then display details of the identity, including the **principalId** value required for the next step. 
@@ -223,7 +223,7 @@ The second setting creates an **environment variable** for the function with the
 Run the command below, filling in the placeholders with the details of your resources.
 
 ```azurecli-interactive
-az functionapp config appsettings set --resource-group <your-resource-group> --name <your-App-Service-function-app-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
+az functionapp config appsettings set --resource-group <your-resource-group> --name <your-function-app-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
 ```
 
 The output is the list of settings for the Azure Function, which should now contain an entry called **ADT_SERVICE_URL**.

@@ -18,14 +18,14 @@ The Azure function requires a bearer token to be passed to it. To make sure the 
 1. Use the following command to see the details of your function's [system-managed identity](../articles/active-directory/managed-identities-azure-resources/overview.md). Take note of the `principalId` field in the output. You'll use this ID to refer to the function so that you can grant it permissions in the next step.
 
     ```azurecli-interactive	
-    az functionapp identity show --resource-group <your-resource-group> --name <your-App-Service-function-app-name>	
+    az functionapp identity show --resource-group <your-resource-group> --name <your-function-app-name>	
     ```
 
     >[!NOTE]
     > If the result is empty instead of showing identity details, create a new system-managed identity for the function by using this command:
     > 
     >```azurecli-interactive	
-    >az functionapp identity assign --resource-group <your-resource-group> --name <your-App-Service-function-app-name>	
+    >az functionapp identity assign --resource-group <your-resource-group> --name <your-function-app-name>	
     >```
     >
     > The output displays details of the identity, including the `principalId` value required for the next step. 
@@ -46,5 +46,5 @@ Next, make the URL of your **Azure Digital Twins instance** accessible to your f
 The following command sets an environment variable for your instance's URL that your function will use whenever it needs to access the instance.
 
 ```azurecli-interactive	
-az functionapp config appsettings set --resource-group <your-resource-group> --name <your-App-Service-function-app-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
+az functionapp config appsettings set --resource-group <your-resource-group> --name <your-function-app-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
 ```

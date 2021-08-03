@@ -231,7 +231,7 @@ Next, configure the Azure function app that you set up in the [Prerequisites sec
 2. Add the connection string as a variable in the function app settings with the following Azure CLI command. The command can be run in [Cloud Shell](https://shell.azure.com), or locally if you have the [Azure CLI installed on your machine](/cli/azure/install-azure-cli).
 
     ```azurecli-interactive
-    az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event-Hubs-SAS-connection-string-Listen>" --resource-group <resource-group> --name <your-App-Service-function-app-name>
+    az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event-Hubs-SAS-connection-string-Listen>" --resource-group <resource-group> --name <your-function-app-name>
     ```
 
 ### Add a function to retire with IoT Hub lifecycle events
