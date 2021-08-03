@@ -425,41 +425,36 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
     1. Navigate to */home\LogFiles\ApplicationInsights\status* and open *status_557de146e7fa_27_1.json*
             
         Example of JSON file: 
-
-            ```json
-            {
-
-            "AppType":".NETCoreApp,Version=v6.0",
-            
-            "MachineName":"557de146e7fa",
-            
-            "PID":"27",
-            
-            "AppDomainId":"1",
-            
-            "AppDomainName":"dotnet6demo",
-            
-            "InstrumentationEngineLoaded":false,
-            
-            "InstrumentationEngineExtensionLoaded":false,
-            
-            "HostingStartupBootstrapperLoaded":true,
-            
-            "AppAlreadyInstrumented":false,
-            
-            "AppDiagnosticSourceAssembly":"System.Diagnostics.DiagnosticSource, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
-            
-            "AiHostingStartupLoaded":true,
-            
-            "IKeyExists":true,
-            
-            "IKey":"00000000-0000-0000-0000-000000000000",
-            
-            "ConnectionString":"InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://westus-0.in.applicationinsights.azure.com/"
-            
-            }
-            ```
-    
+        ```json
+                "AppType":".NETCoreApp,Version=v6.0",
+                
+                "MachineName":"557de146e7fa",
+                
+                "PID":"27",
+                
+                "AppDomainId":"1",
+                
+                "AppDomainName":"dotnet6demo",
+                
+                "InstrumentationEngineLoaded":false,
+                
+                "InstrumentationEngineExtensionLoaded":false,
+                
+                "HostingStartupBootstrapperLoaded":true,
+                
+                "AppAlreadyInstrumented":false,
+                
+                "AppDiagnosticSourceAssembly":"System.Diagnostics.DiagnosticSource, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
+                
+                "AiHostingStartupLoaded":true,
+                
+                "IKeyExists":true,
+                
+                "IKey":"00000000-0000-0000-0000-000000000000",
+                
+                "ConnectionString":"InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://westus-0.in.applicationinsights.azure.com/"
+        
+        ```
     
     1. Confirm that the `Application Insights Extension Status` is `Pre-Installed Site Extension, version 2.8.12.1527, is running.` 
         If it is not running, follow the [enable Application Insights monitoring instructions](#enable-application-insights)
