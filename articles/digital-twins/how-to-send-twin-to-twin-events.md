@@ -131,20 +131,11 @@ Next, subscribe your Azure function to the event grid topic you created earlier.
 
 To do this, you'll create an **Event Grid subscription** that sends data from the event grid topic that you created earlier to your Azure function.
 
-1. In the [Azure portal](https://portal.azure.com/), navigate to your event grid topic by searching for its name in the top search bar and selecting it from the results.
+Use the following CLI command, filling in placeholders for your subscription ID, resource group, function app, and function name (if you're following the example scenario for this article, the function name is *ProcessDTRoutedData*).
 
-1. Select *+ Event Subscription*.
-
-    :::image type="content" source="media/tutorial-end-to-end/event-subscription-1b.png" alt-text="Screenshot of the Azure portal showing how to create an Event Grid event subscription.":::
-
-1. On the *Create Event Subscription* page, fill in the following fields (other fields can be left on default values): 
-    * *EVENT SUBSCRIPTION DETAILS* > **Name**: Give a name to your event subscription.
-    * *ENDPOINT DETAILS* > **Endpoint Type**: Select *Azure Function* from the menu options.
-    * *ENDPOINT DETAILS* > **Endpoint**: Select the *Select an endpoint* link. This will open a *Select Azure Function* window:
-        - Fill in your **Subscription**, **Resource group**, **Function app** and **Function** (if you're following the example scenario for this article, the function is *ProcessDTRoutedData*). Some of these may auto-populate after selecting the subscription.
-        - Select **Confirm Selection**.
-
-1. Back on the *Create Event Subscription* page, select **Create**.
+```azurecli-interactive
+az eventgrid event-subscription create --name <name-for-your-event-subscription> --source-resource-id /subscriptions/<subscription-ID>/resourceGroups/<your-resource-group>/providers/Microsoft.EventGrid/topics/<your-event-grid-topic> \ --endpoint-type azurefunction --endpoint /subscriptions/<subscription-ID>/resourceGroups/<your-resource-group>/providers/Microsoft.Web/sites/<your-function-app-name>/functions/<function-name> 
+```
 
 Now, your function can receive events through your event grid topic. The data flow setup is complete.
 
