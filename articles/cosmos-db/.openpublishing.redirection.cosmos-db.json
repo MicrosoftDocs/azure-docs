@@ -1886,6 +1886,11 @@
     "redirect_document_id": true
   },
   {
+    "source_path_from_root": "/articles/cosmos-db/graph-execution-profile.md",
+    "redirect_url": "/azure/cosmos-db/graph/graph-execution-profile",
+    "redirect_document_id": true
+  },
+  {
     "source_path_from_root": "/articles/cosmos-db/tutorial-functions-http-trigger.md",
     "redirect_url": "/azure/azure-functions/functions-bindings-cosmosdb",
     "redirect_document_id": false
