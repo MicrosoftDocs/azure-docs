@@ -98,5 +98,5 @@ If you decide to not continue using this application, delete your application wi
 
 ## Next steps
 
-> [Tutorial: Deploy and walk through a Solar panel application template](tutorial-iot-central-digital-distribution-center.md)
+> [Tutorial: Deploy and walk through a Solar panel application template](tutorial-solar-panel-app.md)
 
