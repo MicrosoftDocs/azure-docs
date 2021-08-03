@@ -157,13 +157,11 @@ You can select the subscription and the HDInsight clusters you want to monitor.
 You can see the detail cluster list in each section. 
 
 In the **Overview** tab under **Monitored Clusters**, you can see cluster type, critical Alerts, and resource utilizations.
-
     :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-cluster-alerts.png" alt-text="Cluster monitor alerts screenshot":::
 
 Also you can see the clusters in each workload type, including Spark, HBase, Hive, Kafka, and Storm.
 
-The high-level metrics of each workload type will be presented, including how many active node managers, how many running applications, etc. 
-
+The high-level metrics of each workload type will be presented, including how many active node managers, how many running applications, etc.
     :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/spark-metrics.png" alt-text="Cluster monitor spark metrics":::
     
     :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/spark-metrics-1.png" alt-text="Cluster monitor yarn metrics":::
