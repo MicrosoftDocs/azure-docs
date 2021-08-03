@@ -103,7 +103,7 @@ In this section, you'll create a NAT gateway for outbound connectivity of the vi
 
 6. Select **Create a new public IP address** next to **Public IP addresses** in the **Outbound IP** tab.
 
-7. Enter **myPublicIP-nat** in **Name**.
+7. Enter **myNATgatewayIP** in **Name**.
 
 8. Select **OK**.
 
@@ -139,8 +139,6 @@ In this section, you'll create a load balancer for the virtual machines.
     | SKU           | Leave the default **Standard**. |
     | Tier          | Leave the default **Regional**. |
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png" alt-text="Screenshot of create standard load balancer basics tab." border="true":::
-
 4. Select **Next: Frontend IP configuration** at the bottom of the page.
 
 5. In **Frontend IP configuration**, select **+ Add a frontend IP**.
@@ -159,7 +157,7 @@ In this section, you'll create a load balancer for the virtual machines.
 
 9. Select **Create new** in **Public IP address**.
 
-10. In **Add a public IP address**, enter **myPublicIP-lb* for **Name**.
+10. In **Add a public IP address**, enter **myPublicIP-lb** for **Name**.
 
 11. Select **Zone-redundant** in **Availability zone**.
 
