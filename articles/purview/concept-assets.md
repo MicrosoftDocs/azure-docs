@@ -5,7 +5,7 @@ author: ChandraKavya
 ms.author: kchandra
 ms.service: purview
 ms.topic: conceptual 
-ms.date: 09/27/2021
+ms.date: 08/03/2021
 ms.custom: template-concept
 ---
 
@@ -26,7 +26,7 @@ Required. Set expectations for what the content covers, so customers know the
 content meets their needs. Should NOT begin with a verb.
 -->
 
-# [H1 heading here]
+# [H1 heading here] - Azure Purview asset details
 
 <!-- 2. Introductory paragraph 
 Required. Lead with a light intro that describes what the article covers. Answer the 
@@ -56,8 +56,6 @@ context so the customer can determine why they would click the link.
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
-- [Write concepts](contribute-how-to-write-concept.md)
-- [Links](links-how-to.md)
 
 <!--
 Remove all the comments in this template before you sign-off or merge to the 
