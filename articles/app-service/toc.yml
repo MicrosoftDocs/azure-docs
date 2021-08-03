@@ -129,20 +129,19 @@
       href: ./security-controls-policy.md
     - name: Security overview
       href: overview-security.md
-  - name: Networking features
+  - name: Networking
     items:
     - name: Overview
       href: networking-features.md
     - name: Application Gateway integration
-      href: networking/app-gateway-with-service-endpoints.md
+    - name: Virtual Network Integration
+      href: web-sites-integrate-with-vnet.md
     - name: NAT gateway integration
       href: networking/nat-gateway-integration.md
     - name: Private Endpoint
       href: networking/private-endpoint.md
   - name: Inbound and outbound IPs
     href: overview-inbound-outbound-ips.md
-  - name: Virtual Network Integration
-    href: web-sites-integrate-with-vnet.md
   - name: Hybrid connections
     href: app-service-hybrid-connections.md
   - name: Traffic Manager integration

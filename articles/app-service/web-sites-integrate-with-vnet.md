@@ -90,11 +90,9 @@ When you want your apps in your plan to reach a VNet that's already connected to
 
 There are two types of routing to consider when configuring regional VNet Integration. Application routing defines what traffic is routed from your application and into the VNet. Network routing is the ability to control how traffic is routed from your VNet and out.
 
-:::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-routing.png" alt-text="Traffic routing":::
-
 #### Application routing
 
-When configuring application routing, you can either route all traffic or only private traffic (also known as [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) into your VNet. You configure this through the Route All setting. If Route All is disabled or not set, your app only routes private traffic into your VNet. If you want to route all of your outbound traffic into your VNet, make sure that Route All is enabled.
+When configuring application routing, you can either route all traffic or only private traffic (also known as [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) into your VNet. You configure this through the Route All setting. If Route All is disabled, your app only routes private traffic into your VNet. If you want to route all of your outbound traffic into your VNet, make sure that Route All is enabled.
 
 > [!NOTE]
 > * When Route All is enabled, all traffic is subject to the NSGs and UDRs that are applied to your integration subnet. When all traffic routing is enabled, outbound traffic is still sent from the addresses that are listed in your app properties, unless you provide routes that direct the traffic elsewhere.
@@ -103,14 +101,14 @@ When configuring application routing, you can either route all traffic or only p
 >
 > * Regional VNet Integration isn't able to use port 25.
 
-You can use the following steps to enable Route All in your app through the portal: 
+You can use the following steps to disable Route All in your app through the portal: 
 
-:::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-routealldisabled.png" alt-text="Route All disabled":::
+:::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-routeallenabled.png" alt-text="Route All enabled":::
 
 1. Go to the **VNet Integration** UI in your app portal.
-1. Set **Route All** Enabled.
+1. Set **Route All** to Disabled.
     
-    :::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-routeallenabling.png" alt-text="Enable Route All":::
+    :::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-routealldisabling.png" alt-text="Disable Route All":::
 
 1. Select **Yes**.
 
@@ -121,11 +119,12 @@ az webapp config set --resource-group myRG --name myWebApp --vnet-route-all-enab
 ```
 
 The Route All configuration setting replaces and takes precedence over the legacy `WEBSITE_VNET_ROUTE_ALL` app setting.
-:::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-routeallappsetting.png" alt-text="Route All App Settting":::
+
+:::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-routeallappsetting.png" alt-text="Route All App Setting":::
 
 #### Network routing
 
-You can use route tables to route outbound traffic from your app to wherever you want. Route tables affect your destination traffic. Without Route All enabled in [application routing](#application-routing), only private traffic (RFC1918) is affected by your route tables. Common destinations can include firewall devices or gateways. Routes that are set on your integration subnet won't affect replies to inbound app requests. 
+You can use route tables to route outbound traffic from your app to wherever you want. Route tables affect your destination traffic. When Route All is disabled in [application routing](#application-routing), only private traffic (RFC1918) is affected by your route tables. Common destinations can include firewall devices or gateways. Routes that are set on your integration subnet won't affect replies to inbound app requests. 
 
 If you want to route all outbound traffic on-premises, you can use a route table to send all outbound traffic to your ExpressRoute gateway. If you do route traffic to a gateway, be sure to set routes in the external network to send any replies back.
 
@@ -133,7 +132,7 @@ Border Gateway Protocol (BGP) routes also affect your app traffic. If you have B
 
 ### Network security groups
 
-You can use network security groups (NSG) to block inbound and outbound traffic to resources in a VNet. An app that uses regional VNet Integration can use a [network security group][VNETnsg] to block outbound traffic to resources in your VNet or the internet. To block traffic to public addresses, you must ensure you enable [Route All](#application-routing) to the VNet. When Route All is not enabled, NSGs are only applied to RFC1918 traffic.
+An app that uses regional VNet Integration can use a [network security group][VNETnsg] to block outbound traffic to resources in your VNet or the Internet. To block traffic to public addresses, you must ensure you enable [Route All](#application-routing) to the VNet. When Route All is not enabled, NSGs are only applied to RFC1918 traffic.
 
 An NSG that's applied to your integration subnet is in effect regardless of any route tables applied to your integration subnet. 
 
@@ -143,8 +142,8 @@ The inbound rules in an NSG do not apply to your app because VNet Integration af
 
 Regional VNet Integration enables you to reach Azure services that are secured with service endpoints. To access a service endpoint-secured service, you must do the following:
 
-1. Configure regional VNet Integration with your web app to connect to a specific subnet for integration.
-1. Go to the destination service and configure service endpoints against the integration subnet.
+* Configure regional VNet Integration with your web app to connect to a specific subnet for integration.
+* Go to the destination service and configure service endpoints against the integration subnet.
 
 ### Private endpoints
 
@@ -159,7 +158,7 @@ If you want to make calls to [private endpoints][privateendpoints], then you mus
 After your app integrates with your VNet, it uses the same DNS server that your VNet is configured with, and if no custom DNS is specified it will use Azure default DNS and any private zones linked to the VNet.
 
 > [!NOTE]
-> For Linux Apps you need to enable Route All to use Azure DNS private zones.
+> For Linux Apps Azure DNS private zones only works if Route All is enabled.
 
 ### Limitations
 
