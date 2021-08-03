@@ -338,7 +338,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
 
 3. Copy the public IP address, and then paste it into the address bar of your browser. The custom VM page of the IIS Web server is displayed in the browser.
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-zonal-portal/load-balancer-test.png" alt-text="Screenshot of load balancer test":::
+    :::image type="content" source="./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png" alt-text="Screenshot of load balancer test":::
 
 ## Clean up resources
 
