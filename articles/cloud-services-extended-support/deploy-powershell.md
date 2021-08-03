@@ -12,12 +12,12 @@ ms.custom:
 
 # Deploy a Cloud Service (extended support) using Azure PowerShell
 
-This article shows how to use the `Az.CloudService` PowerShell module to deploy Cloud Services (extended support) in Azure that has multiple roles (WebRole and WorkerRole)
+This article shows how to use the `Az.CloudService` PowerShell module to deploy Cloud Services (extended support) in Azure that has multiple roles (WebRole and WorkerRole).
 
 ## Pre-Requisites
 
 1. Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support) and create the associated resources. 
-2. Install Az.CloudService PowerShell module  
+2. Install Az.CloudService PowerShell module.
 
     ```azurepowershell-interactive
     Install-Module -Name Az.CloudService 
@@ -29,7 +29,7 @@ This article shows how to use the `Az.CloudService` PowerShell module to deploy 
     New-AzResourceGroup -ResourceGroupName “ContosOrg” -Location “East US” 
     ```
 
-4. Create a storage account and container which will be used to store the Cloud Service package (.cspkg) and Service Configuration (.cscfg) files. You must use a unique name for storage account name. This step is optional if using an existing storage account
+4. Create a storage account and container which will be used to store the Cloud Service package (.cspkg) and Service Configuration (.cscfg) files. A unique name for storage account name is required. This step is optional if using an existing storage account.
 
     ```azurepowershell-interactive
     $storageAccount = New-AzStorageAccount -ResourceGroupName “ContosOrg” -Name “contosostorageaccount” -Location “East US” -SkuName “Standard_RAGRS” -Kind “StorageV2” 
@@ -38,42 +38,47 @@ This article shows how to use the `Az.CloudService` PowerShell module to deploy 
     
 ## Deploy a Cloud Services (extended support)
 
-You can use any of the following three powershell cmdlets to deploy Cloud Services (extended support)
+Use any of the following PowerShell cmdlets to deploy Cloud Services (extended support):
 
-- [**Quick Create Cloud Service with Storage Account**](
-    - This parameter set inputs the .cscfg, .cspkg and .csdef files as inputs along with the storage account. 
-    - The cloud service role profile, network profile and OS profile are created by the cmdlet with minimal input from the user. 
-    - For certificate input, the keyvault name is to be specified. The certificate thumbprints in the keyvault are validated against those specified in the .cscfg file
-- **Quick Create Cloud Service with SAS URI** 
-    - This parameter set inputs the SAS URI of the .cspkg along with the local paths of .csdef and .cscfg files. There is no storage account input required. 
-    - The cloud service role profile, network profile and OS profile are created by the cmdlet with minimal input from the user. 
-    - For certificate input, the keyvault name is to be specified. The certificate thumbprints in the keyvault are validated against those specified in the .cscfg file
-- **Create Cloud Service with role, OS, network and extension profile and SAS URIs**
-    - This parameter set inputs the SAS URIs of the .cscfg and .cspkg files
-    - The role, network, OS and extension profile must be specified by the user and must match the values in the .cscfg and .csdef 
+**Create Cloud Service using a Storage Account**
 
-### Quick Create Cloud Service using Storage Account
+- This parameter set inputs the .cscfg, .cspkg and .csdef files as inputs along with the storage account. 
+- The cloud service role profile, network profile and OS profile are created by the cmdlet with minimal input from the user. 
+- For certificate input, the keyvault name is to be specified. The certificate thumbprints in the keyvault are validated against those specified in the .cscfg file.
+    
+ **Create Cloud Service using a SAS URI** 
+ 
+ - This parameter set inputs the SAS URI of the .cspkg along with the local paths of .csdef and .cscfg files. There is no storage account input required. 
+ - The cloud service role profile, network profile and OS profile are created by the cmdlet with minimal input from the user. 
+ - For certificate input, the keyvault name is to be specified. The certificate thumbprints in the keyvault are validated against those specified in the .cscfg file.
+    
+**Create Cloud Service with role, OS, network and extension profile and SAS URIs**
 
-1. Create Cloud Service deployment using .cscfg, .csdef and .cspkg files
+ - This parameter set inputs the SAS URIs of the .cscfg and .cspkg files.
+ - The role, network, OS, and extension profile must be specified by the user and must match the values in the .cscfg and .csdef. 
 
-    ```azurepowershell-interactive
-    $cspkgFilePath = Join-Path $PSScriptRoot $env.CspkgFile
-    $cscfgFilePath = Join-Path $PSScriptRoot $env.CscfgFile3
-    $csdefFilePath = Join-Path $PSScriptRoot $env.CsdefFile
-       
-    # Create Cloud Service       
-    New-AzCloudService
-        -Name "ContosoCS" `
-        -ResourceGroupName "ContosOrg" `
-        -Location "EastUS" `
-        -ConfigurationFile $cscfgFilePath `
-        -DefinitionFile $csdefFilePath `
-        -PackageFile $cspkgFilePath `
-        -StorageAccount $storageAccount `
-        [-KeyVaultName <string>]
-    ```
+### Create Cloud Service using a Storage Account
 
-### Quick Create Cloud Service using SAS URI
+Create Cloud Service deployment using .cscfg, .csdef and .cspkg files.
+
+```azurepowershell-interactive
+$cspkgFilePath = Join-Path $PSScriptRoot $env.CspkgFile
+$cscfgFilePath = Join-Path $PSScriptRoot $env.CscfgFile3
+$csdefFilePath = Join-Path $PSScriptRoot $env.CsdefFile
+      
+# Create Cloud Service       
+New-AzCloudService
+-Name "ContosoCS" `
+-ResourceGroupName "ContosOrg" `
+-Location "EastUS" `
+-ConfigurationFile $cscfgFilePath `
+-DefinitionFile $csdefFilePath `
+-PackageFile $cspkgFilePath `
+-StorageAccount $storageAccount `
+[-KeyVaultName <string>]
+```
+
+### Create Cloud Service using a SAS URI
 
 1. Upload your Cloud Service package (cspkg) to the storage account.
 
@@ -87,7 +92,7 @@ You can use any of the following three powershell cmdlets to deploy Cloud Servic
     $csdefFilePath = Join-Path $PSScriptRoot $env.CsdefFile
     ```
 
- 2. Create Cloud Service deployment using .cscfg, .csdef and .cspkg SAS URI
+ 2. Create Cloud Service deployment using .cscfg, .csdef and .cspkg SAS URI.
 
     ```azurepowershell-interactive
     New-AzCloudService
@@ -127,13 +132,13 @@ You can use any of the following three powershell cmdlets to deploy Cloud Servic
     ```
  
 4. Create a public IP address and set the DNS label property of the public IP address. Cloud Services (extended support) only supports [Basic](../virtual-network/public-ip-addresses.md#basic) SKU Public IP addresses. Standard SKU Public IPs do not work with Cloud Services.
-If you are using a Static IP you need to reference it as a Reserved IP in Service Configuration (.cscfg) file 
+If you are using a Static IP, you need to reference it as a Reserved IP in Service Configuration (.cscfg) file.
 
     ```azurepowershell-interactive
     $publicIp = New-AzPublicIpAddress -Name “ContosIp” -ResourceGroupName “ContosOrg” -Location “East US” -AllocationMethod Dynamic -IpAddressVersion IPv4 -DomainNameLabel “contosoappdns” -Sku Basic 
     ```
 
-5. Create a Network Profile Object and associate the public IP address to the frontend of the load balancer. The Azure platform automatically creates a 'Classic' SKU load balancer resource in the same subscription as the cloud service resource. The load balancer resource is a read-only resource in ARM. Any updates to the resource are supported only via the cloud service deployment files (.cscfg & .csdef)
+5. Create a Network Profile Object and associate the public IP address to the frontend of the load balancer. The Azure platform automatically creates a 'Classic' SKU load balancer resource in the same subscription as the cloud service resource. The load balancer resource is a read-only resource in ARM. Any updates to the resource are supported only via the cloud service deployment files (.cscfg & .csdef).
 
     ```azurepowershell-interactive
     $publicIP = Get-AzPublicIpAddress -ResourceGroupName ContosOrg -Name ContosIp  
@@ -142,7 +147,7 @@ If you are using a Static IP you need to reference it as a Reserved IP in Servic
     $networkProfile = @{loadBalancerConfiguration = $loadBalancerConfig} 
     ```
  
-6. Create a Key Vault. This Key Vault will be used to store certificates that are associated with the Cloud Service (extended support) roles. The Key Vault must be located in the same region and subscription as cloud service and have a unique name. For more information see [Use certificates with Azure Cloud Services (extended support)](certificates-and-key-vault.md).
+6. Create a Key Vault. This Key Vault will be used to store certificates that are associated with the Cloud Service (extended support) roles. The Key Vault must be located in the same region and subscription as cloud service and have a unique name. For more information, see [use certificates with Azure Cloud Services (extended support)](certificates-and-key-vault.md).
 
     ```azurepowershell-interactive
     New-AzKeyVault -Name "ContosKeyVault” -ResourceGroupName “ContosOrg” -Location “East US” 
@@ -155,14 +160,14 @@ If you are using a Static IP you need to reference it as a Reserved IP in Servic
     Set-AzKeyVaultAccessPolicy -VaultName 'ContosKeyVault' -ResourceGroupName 'ContosOrg' -UserPrincipalName 'user@domain.com' -PermissionsToCertificates create,get,list,delete 
     ```
 
-    Alternatively, set access policy via ObjectId (which can be obtained by running `Get-AzADUser`) 
+    Alternatively, set access policy via ObjectId (which can be obtained by running `Get-AzADUser`). 
     
     ```azurepowershell-interactive
     Set-AzKeyVaultAccessPolicy -VaultName 'ContosKeyVault' -ResourceGroupName 'ContosOrg' -ObjectId 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' -PermissionsToCertificates create,get,list,delete 
     ```
  
 
-8. For the purpose of this example we will add a self signed certificate to a Key Vault. The certificate thumbprint needs to be added in Cloud Service Configuration (.cscfg) file for deployment on cloud service roles. 
+8. In this example we will add a self signed certificate to a Key Vault. The certificate thumbprint needs to be added in Cloud Service Configuration (.cscfg) file for deployment on cloud service roles. 
 
     ```azurepowershell-interactive
     $Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=contoso.com" -IssuerName "Self" -ValidityInMonths 6 -ReuseKeyOnRenewal 
@@ -178,7 +183,7 @@ If you are using a Static IP you need to reference it as a Reserved IP in Servic
     $osProfile = @{secret = @($secretGroup)} 
     ```
 
-10. Create a Role Profile in-memory object. Role profile defines a roles sku specific properties such as name, capacity and tier. For this example, we have defined two roles: frontendRole and backendRole. Role profile information should match the role configuration defined in configuration (cscfg) file and service definition (csdef) file. 
+10. Create a Role Profile in-memory object. Role profile defines a roles sku specific properties such as name, capacity and tier. In this example, we have defined two roles: frontendRole and backendRole. Role profile information should match the role configuration defined in configuration (cscfg) file and service definition (csdef) file. 
 
     ```azurepowershell-interactive
     $frontendRole = New-AzCloudServiceRoleProfilePropertiesObject -Name 'ContosoFrontend' -SkuName 'Standard_D1_v2' -SkuTier 'Standard' -SkuCapacity 2 
@@ -198,13 +203,16 @@ If you are using a Static IP you need to reference it as a Reserved IP in Servic
     $wadExtension = New-AzCloudServiceDiagnosticsExtension -Name "WADExtension" -ResourceGroupName "ContosOrg" -CloudServiceName "ContosCS" -StorageAccountName "contosostorageaccount" -StorageAccountKey $storageAccountKey[0].Value -DiagnosticsConfigurationPath $configFile -TypeHandlerVersion "1.5" -AutoUpgradeMinorVersion $true 
     $extensionProfile = @{extension = @($rdpExtension, $wadExtension)} 
     ```
-    Note that configFile should have only PublicConfig tags and should contain a namespace as following:
+    
+    ConfigFile should have only PublicConfig tags and should contain a namespace as following:
+   
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
         ...............
     </PublicConfig>
     ```
+    
 12. (Optional) Define Tags as PowerShell hash table which you want to add to your cloud service. 
 
     ```azurepowershell-interactive
@@ -231,4 +239,4 @@ If you are using a Static IP you need to reference it as a Reserved IP in Servic
 ## Next steps 
 - Review [frequently asked questions](faq.yml) for Cloud Services (extended support).
 - Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md).
-- Visit the [Cloud Services (extended support) samples repository](https://github.com/Azure-Samples/cloud-services-extended-support)
+- Visit the [Cloud Services (extended support) samples repository](https://github.com/Azure-Samples/cloud-services-extended-support).
