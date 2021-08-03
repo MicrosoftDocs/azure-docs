@@ -67,7 +67,11 @@ landingContent:
           - text: Scale up
             url: how-to-scale-compute-storage-portal.md
           - text: Restart a server
-            url: how-to-restart-server-portal.md            
+            url: how-to-restart-server-portal.md 
+          - text: Setup private networking 
+            url:  how-to-manage-virtual-network-portal.md
+          - text: Connect securely using TLS
+            url: how-to-connect-tls-ssl.md        
           - text: Configure and access logs
             url: howto-configure-and-access-logs.md
           - text: Schedule maintenance

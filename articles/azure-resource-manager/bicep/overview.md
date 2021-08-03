@@ -2,14 +2,14 @@
 title: Bicep language for deploying Azure resources
 description: Describes the Bicep language for deploying infrastructure to Azure. It provides an improved authoring experience over using JSON to develop templates.
 ms.topic: conceptual
-ms.date: 07/02/2021
+ms.date: 07/30/2021
 ---
 
 # What is Bicep?
 
-Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. It provides concise syntax, reliable type safety, and support for code reuse. We believe Bicep offers the best authoring experience for your Azure infrastructure as code solutions.
+Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. It provides concise syntax, reliable type safety, and support for code reuse. We believe Bicep offers the best authoring experience for your infrastructure-as-code solutions in Azure.
 
-You can use Bicep instead of JSON to develop your Azure Resource Manager templates (ARM templates). The JSON syntax to create an ARM template can be verbose and require complicated expressions. Bicep syntax reduces that complexity and improves the development experience. Bicep is a transparent abstraction over ARM template JSON and doesn't lose any of the JSON template capabilities. During deployment, Bicep CLI transpiles a Bicep file into ARM template JSON.
+You can use Bicep instead of JSON to develop your Azure Resource Manager templates (ARM templates). The JSON syntax to create an ARM template can be verbose and require complicated expressions. Bicep syntax reduces that complexity and improves the development experience. Bicep is a transparent abstraction over ARM template JSON and doesn't lose any of the JSON template capabilities. During deployment, the Bicep CLI converts a Bicep file into ARM template JSON.
 
 Bicep isn't intended as a general programming language to write applications. A Bicep file declares Azure resources and resource properties, without writing a sequence of programming commands to create resources.
 
@@ -25,12 +25,12 @@ To learn about Bicep, see the following video.
 
 To start with Bicep:
 
-1. **Install the tools**. See [Set up Bicep development and deployment environments](./install.md). Alternatively, you can use [Bicep Playground](./decompile.md#side-by-side-view) to view Bicep and equivalent JSON side by side,  or use the [VS Code Devcontainer/Codespaces repo](https://github.com/Azure/vscode-remote-try-bicep) to get a pre-configured authoring environment.
+1. **Install the tools**. See [Set up Bicep development and deployment environments](./install.md). Or, you can use the [VS Code Devcontainer/Codespaces repo](https://github.com/Azure/vscode-remote-try-bicep) to get a pre-configured authoring environment.
 2. **Complete the [quickstart](./quickstart-create-bicep-use-visual-studio-code.md) and the [Microsoft Learn Bicep modules](./learn-bicep.md)**.
 
-To decompile an existing ARM template to Bicep, see [Decompile ARM templates to Bicep](./decompile.md).
+To decompile an existing ARM template to Bicep, see [Decompile ARM templates to Bicep](./decompile.md). You can use [Bicep Playground](https://bicepdemo.z22.web.core.windows.net/) to view Bicep and equivalent JSON side by side.
 
-Additional Bicep examples can be found in the [Bicep GitHub repo](https://github.com/Azure/bicep/tree/main/docs/examples).
+Bicep examples can be found in the [Bicep GitHub repo](https://github.com/Azure/bicep/tree/main/docs/examples).
 
 ## Benefits of Bicep versus other tools
 
@@ -46,7 +46,7 @@ Bicep provides the following advantages over other options:
 
 ## Bicep improvements
 
-Bicep offers an easier and more concise syntax when compared to the equivalent JSON. You don't use `[...]` expressions. Instead, you directly call functions, and get values from parameters and variables. You give each deployed resource a symbolic name, which makes it easy to reference that resource in your template.
+Bicep offers an easier and more concise syntax when compared to the equivalent JSON. You don't use bracketed expressions `[...]`. Instead, you directly call functions, and get values from parameters and variables. You give each deployed resource a symbolic name, which makes it easy to reference that resource in your template.
 
 For example, the following JSON returns an output value from a resource property.
 
@@ -89,7 +89,7 @@ For customers who have selected ARM templates, we believe Bicep improves the aut
 
 **Is this ready for production use?**
 
-Yes. Starting with v0.3, Bicep is supported by Microsoft support plans. Bicep has parity with what can be accomplished with ARM Templates. There are no breaking changes that are currently planned, but it's possible we'll need to create breaking changes in the future.
+Yes. Starting with version 0.3, Bicep is supported by Microsoft support plans. Bicep has parity with what can be accomplished with ARM Templates. There are no breaking changes that are currently planned, but it's possible we'll need to create breaking changes in the future.
 
 **Is Bicep only for Azure?**
 
@@ -105,7 +105,7 @@ When you're ready, you can [decompile the JSON files to Bicep](./decompile.md).
 
 ## Known limitations
 
-- No support for single-line object and arrays. For example, `['a', 'b', 'c']` is not supported. For more information, see [Arrays](data-types.md#arrays), [Objects](data-types.md#objects).
+- No support for single-line object and arrays. For example, `['a', 'b', 'c']` isn't supported. For more information, see [Arrays](data-types.md#arrays) and [Objects](data-types.md#objects).
 - No support for breaking long lines into multiple lines. For example:
 
     ```bicep
@@ -123,8 +123,8 @@ When you're ready, you can [decompile the JSON files to Bicep](./decompile.md).
         }
     ```
 
-- No support for the concept of apiProfile which is used to map a single apiProfile to a set apiVersion for each resource type.
-- No support for user-defined functions (UDFs).
+- No support for the concept of apiProfile, which is used to map a single apiProfile to a set apiVersion for each resource type.
+- No support for user-defined functions.
 
 ## Next steps
 

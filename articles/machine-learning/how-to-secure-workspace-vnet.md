@@ -44,6 +44,9 @@ In this article you learn how to enable the following workspaces resources in a 
 
 + An existing virtual network and subnet to use with your compute resources.
 
+    > [!TIP]
+    > If you plan on using Azure Container Instances in the virtual network (to deploy models), then the workspace and virtual network must be in the same resource group. Otherwise, they can be in different groups.
+
 + To deploy resources into a virtual network or subnet, your user account must have permissions to the following actions in Azure role-based access control (Azure RBAC):
 
     - "Microsoft.Network/virtualNetworks/join/action" on the virtual network resource.
@@ -59,7 +62,7 @@ In this article you learn how to enable the following workspaces resources in a 
 
 * Your Azure Machine Learning workspace must contain an [Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md).
 
-* Your Azure Container Registry must have [admin user enabled](https://docs.microsoft.com/azure/container-registry/container-registry-authentication?tabs=azure-cli#admin-account).
+* Your Azure Container Registry must have [admin user enabled](/azure/container-registry/container-registry-authentication?tabs=azure-cli#admin-account).
 
 ## Limitations
 

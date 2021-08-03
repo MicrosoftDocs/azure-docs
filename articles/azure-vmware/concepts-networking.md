@@ -64,7 +64,7 @@ Now that you've covered Azure VMware Solution network and interconnectivity conc
 
 - [Azure VMware Solution storage concepts](concepts-storage.md)
 - [Azure VMware Solution identity concepts](concepts-identity.md)
-- [How to enable Azure VMware Solution resource](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider)
+- [How to enable Azure VMware Solution resource](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider)
 
 <!-- LINKS - external -->
 [enable Global Reach]: ../expressroute/expressroute-howto-set-global-reach.md
