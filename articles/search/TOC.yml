@@ -374,8 +374,6 @@
       href: search-howto-incremental-index.md
     - name: Design tips
       href: cognitive-search-concept-troubleshooting.md
-    - name: Example skillset
-      href: cognitive-search-skillset-example.md
     - name: Custom skills
       items:
       - name: Integrate custom skills

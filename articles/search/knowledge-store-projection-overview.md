@@ -31,7 +31,7 @@ To see projections defined in context, step through [Create a knowledge store in
 
 Projections are an array of complex collections under a `knowledgeStore` definition in a skillset object. Each set of tables, objects, and files is a *project group*, and you can have multiple groups if storage requirements include supporting different tools and scenarios. Within a single group, you can have multiple tables, objects, and files. 
 
-Typically only one group is used, but the following example shows two to illustrate the pattern when multiple groups exists.
+Typically only one group is used, but the following example shows two to illustrate the pattern when multiple groups exist.
 
 ```json
 "knowledgeStore" : {
@@ -58,7 +58,7 @@ In some cases, you will need to project your enriched data in different shapes t
 | Principle | Description |
 |-----------|-------------|
 | Mutual exclusivity | All content projected into a single group is independent of data projected into other projection groups. This independence implies that you can have the same data shaped differently, yet repeated in each projection group. Each group obtains data from the same source (enrichment tree) but is fully isolated from the table-object-file combination of any peer project groups.|
-| Relatedness | Projectionss support relatedness within the group. Within a group, content in a table is related to content in an object or file. Across types (tables, objects and files) in the same group, relationships are preserved when a single node of an enrichment tree (for example, `/document/translated_text`) is projected across different tables and objects. Within tables, relationships are based on a generated key and each child node retains a reference to the parent node. For example, consider a scenario where you have a document containing images and text. You could project the text to tables or objects and the images to files where the tables or objects have a column/property containing the file URL.|
+| Relatedness | Projections support relatedness within the group. Within a group, content in a table is related to content in an object or file. Across types (tables, objects and files) in the same group, relationships are preserved when a single node of an enrichment tree (for example, `/document/translated_text`) is projected across different tables and objects. Within tables, relationships are based on a generated key and each child node retains a reference to the parent node. For example, consider a scenario where you have a document containing images and text. You could project the text to tables or objects and the images to files where the tables or objects have a column/property containing the file URL.|
 
 <!-- ## Knowledge Store composition
 
@@ -76,19 +76,15 @@ For instance, if one of the goals of the enrichment process is to also create a 
 
 ## Table projections
 
-Table projections are recommended for scenarios that call for data exploration, such as analysis with Power BI.
-
-### Defining a table projection
-
-The tables definition is a list of tables that you want to project. Each table requires three properties:
+Table projections are recommended for scenarios that call for data exploration, such as analysis with Power BI. The tables definition is a list of tables that you want to project. Each table requires three properties:
 
 + tableName: The name of the table in Azure Table Storage.
 
 + generatedKeyName: The column name for the key that uniquely identifies this row.
 
-+ source: The node from the enrichment tree you are sourcing your enrichments from. This node is usually the output of a output of a Shaper skill that produces valid JSON, but could be the output of any of the skills if the output is valid JSON. The node you choose to project can be sliced to project into multiple tables. 
++ source: The node from the enrichment tree you are sourcing your enrichments from. This node is usually the output of a Shaper skill that produces valid JSON, but could be the output from any skill, if valid JSON. 
 
-Among the tables, common fields such as a document identifier, or a page identifier if you chunked text into pages, provide the basis for table relationships.
+  The node you choose to project can be sliced to project into multiple tables. Among the tables, common fields such as a document identifier, or a page identifier if you chunked text into pages, provide the basis for table relationships.
 
 Here is an example of table projections:
 
