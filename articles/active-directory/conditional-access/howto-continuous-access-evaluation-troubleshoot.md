@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 08/02/2021
+ms.date: 08/03/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Monitor and troubleshoot continuous access evaluation
 
-Administrators can monitor and troubleshoot sign in events where continuous access evaluation (CAE) is applied in multiple ways.
+Administrators can monitor and troubleshoot sign in events where [continuous access evaluation (CAE)](concept-continuous-access-evaluation.md) is applied in multiple ways.
 
 ## Continuous access evaluation sign-in reporting
 

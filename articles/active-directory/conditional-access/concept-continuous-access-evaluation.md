@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/02/2021
+ms.date: 08/03/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -221,3 +221,4 @@ Sign-in Frequency will be honored with or without CAE.
 
 - [How to use Continuous Access Evaluation enabled APIs in your applications](../develop/app-resilience-continuous-access-evaluation.md)
 - [Claims challenges, claims requests, and client capabilities](../develop/claims-challenge.md)
+- [Monitor and troubleshoot continuous access evaluation](howto-continuous-access-evaluation-troubleshoot.md)
