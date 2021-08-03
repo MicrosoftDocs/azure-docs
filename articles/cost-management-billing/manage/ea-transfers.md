@@ -6,7 +6,7 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 07/29/2021
+ms.date: 08/02/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
 ---
@@ -41,6 +41,16 @@ Other points to keep in mind before an account transfer:
 - After the transfer is complete, the transferred account appears inactive under the source enrollment and appears active under the target enrollment.
 - The account shows the end date corresponding to the effective transfer date on the source enrollment and as a start date on the target enrollment.
 - Any usage occurred for the account before the effective transfer date remains under the source enrollment.
+- There's no downtime during an enrollment transfer.
+- Usage may take up to 24 - 48 hours to be reflected in the target enrollment.
+- Cost view settings for Department Administrators or Account Owners don't carry over.
+  - If previously enabled, settings must be enabled for the target enrollment.
+- Any API keys used in the source enrollment must be regenerated for the target enrollment.
+- If the source and destination enrollments are on different cloud instances, the transfer will fail. Azure Support can transfer only within the same cloud instance.
+- For reservations (reserved instances):
+  - The enrollment or account transfer between different currencies affects monthly reservation purchases.
+  - Whenever there's is a currency change during or after an enrollment transfer, reservations paid for monthly are canceled for the source enrollment. This is intentional and affects only the monthly reservation purchases.
+  - You may have to repurchase the canceled monthly reservations from the source enrollment using the new enrollment in the local or new currency.
 
 ## Transfer enterprise enrollment to a new one
 
