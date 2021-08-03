@@ -3,7 +3,7 @@ title: Deploy Azure Site Recovery replication appliance - Preview
 description: This article describes support and requirements when deploying the replication appliance for VMware disaster recovery to Azure with Azure Site Recovery - Preview
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/02/2021
+ms.date: 08/03/2021
 ---
 
 # Deploy Azure Site Recovery replication appliance - Preview
