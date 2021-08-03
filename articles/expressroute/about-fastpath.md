@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 08/06/2021
 ms.author: duau
 
 ---
@@ -36,15 +36,23 @@ To configure FastPath, the virtual network gateway must be either:
 
 ## Limitations
 
-While FastPath supports most configurations, it does not support the following features:
+While FastPath supports most configurations, it doesn't support the following features:
 
 * UDR on the gateway subnet: This UDR has no impact on the network traffic that FastPath sends directly from your on-premises network to the virtual machines in Azure virtual network. 
-
-* VNet Peering: If you have other virtual networks peered with the one that is connected to ExpressRoute, the network traffic from your on-premises network to the other virtual networks (i.e. the so-called "Spoke" VNets) will continue to be sent to the virtual network gateway. The workaround is to connect all the virtual networks to the ExpressRoute circuit directly.
 
 * Basic Load Balancer: If you deploy a Basic internal load balancer in your virtual network or the Azure PaaS service you deploy in your virtual network uses a Basic internal load balancer, the network traffic from your on-premises network to the virtual IPs hosted on the Basic load balancer will be sent to the virtual network gateway. The solution is to upgrade the Basic load balancer to a [Standard load balancer](../load-balancer/load-balancer-overview.md).
 
 * Private Link: If you connect to a [private endpoint](../private-link/private-link-overview.md) in your virtual network from your on-premises network, the connection will go through the virtual network gateway.
+
+## Public preview
+
+The following FastPath features are in Public preview:
+
+**VNet Peering** - FastPath will send traffic directly to any VM deployed in a virtual network peered to the one connected to ExpressRoute, bypassing the ExpressRoute virtual network gateway.
+
+See [How to enroll in ExpressRoute FastPath features](expressroute-howto-linkvnet-arm.md#enroll-in-expressroute-fastpath-features-preview).
+
+Available in all regions.
  
 ## Next steps
 
