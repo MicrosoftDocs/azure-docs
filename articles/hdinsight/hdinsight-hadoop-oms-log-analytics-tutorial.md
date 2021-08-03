@@ -66,7 +66,7 @@ If you want to disable Azure Monitor, you can do the same in this portal.
 
 ## Enable Azure Monitor using Azure PowerShell
 
-You can enable Azure Monitor logs using the Azure PowerShell Az module [Enable-AzHDInsightAzureMonitor](https://docs.microsoft.com/powershell/module/az.hdinsight/enable-azhdinsightazuremonitor?view=azps-6.2.1) cmdlet.
+You can enable Azure Monitor logs using the Azure PowerShell Az module [Enable-AzHDInsightAzureMonitor](/powershell/module/az.hdinsight/enable-azhdinsightazuremonitor?view=azps-6.2.1&preserve-view=true) cmdlet.
 
 ```powershell
 # Enter user information
@@ -98,7 +98,7 @@ Get-AzHDInsightAzureMonitor `
     -ClusterName $cluster
 ```
 
-To disable, the use the [Disable-AzHDInsightAzureMonitor](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightazuremonitor?view=azps-6.2.1) cmdlet:
+To disable, the use the [Disable-AzHDInsightAzureMonitor](/powershell/module/az.hdinsight/disable-azhdinsightazuremonitor?view=azps-6.2.1&preserve-view=true) cmdlet:
 
 ```powershell
 Disable-AzHDInsightAzureMonitor -ResourceGroupName $resourceGroup `
@@ -107,7 +107,7 @@ Disable-AzHDInsightAzureMonitor -ResourceGroupName $resourceGroup `
 
 ## Enable Azure Monitor using Azure CLI
 
-You can enable Azure Monitor logs using the Azure CLI [`az hdinsight azure-monitor enable`](https://docs.microsoft.com/cli/azure/hdinsight/azure-monitor?view=azure-cli-latest) command.
+You can enable Azure Monitor logs using the Azure CLI [`az hdinsight azure-monitor enable`](/cli/azure/hdinsight/azure-monitor?view=azure-cli-latest&preserve-view=true) command.
 
 ```azurecli
 # set variables
@@ -122,7 +122,7 @@ az hdinsight azure-monitor enable --name $cluster --resource-group $resourceGrou
 az hdinsight azure-monitor show --name $cluster --resource-group $resourceGroup
 ```
 
-To disable, the use the [`az hdinsight monitor disable`](https://docs.microsoft.com/cli/azure/hdinsight/monitor#az_hdinsight_monitor_disable) command.
+To disable, the use the [`az hdinsight monitor disable`](/cli/azure/hdinsight/monitor#az_hdinsight_monitor_disable) command.
 
 ```azurecli
 az hdinsight azure-monitor disable --name $cluster --resource-group $resourceGroup
@@ -149,7 +149,7 @@ You can log into Azure portal and select Monitoring. In the **Insights** section
 
 In this view, you can monitor multiple HDInsight clusters in one place.
 
-    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-monitor-insights.png" alt-text="Cluster monitor insights screenshot":::
+:::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-monitor-insights.png" alt-text="Cluster monitor insights screenshot":::
 
 You can select the subscription and the HDInsight clusters you want to monitor. 
  - The **Monitored Clusters** shows the number of clusters you have enabled Azure Monitor integration.
@@ -158,15 +158,15 @@ You can select the subscription and the HDInsight clusters you want to monitor.
 You can see the detail cluster list in each section. 
 In the **Overview** tab under **Monitored Clusters**, you can see cluster type, critical Alerts, and resource utilizations.
 
-    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-cluster-alerts.png" alt-text="Cluster monitor alerts screenshot":::
+:::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-cluster-alerts.png" alt-text="Cluster monitor alerts screenshot":::
 
 Also you can see the clusters in each workload type, including Spark, HBase, Hive, Kafka, and Storm.
 
 The high-level metrics of each workload type will be presented, including how many active node managers, how many running applications, etc. 
 
-    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/spark-metrics.png" alt-text="Cluster monitor spark metrics":::
+:::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/spark-metrics.png" alt-text="Cluster monitor spark metrics":::
 
-    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/spark-metrics-1.png" alt-text="Cluster monitor spark metrics":::
+:::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/spark-metrics-1.png" alt-text="Cluster monitor spark metrics":::
 
 ## Configuring performance counters
 
