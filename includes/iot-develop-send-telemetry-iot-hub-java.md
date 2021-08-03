@@ -65,11 +65,6 @@ In this section, you use the Java SDK to send messages from your simulated devic
     This operation takes several minutes.
 
 ### Run the code
-1. In your CLI app, run the [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) command to begin monitoring for events on your simulated IoT device.  Event messages print in the terminal as they arrive.
-
-    ```azurecli-interactive
-    az iot hub monitor-events --output table --hub-name {YourIoTHubName}
-    ```
 1. In your Java console, navigate to the samples directory.
     ```console
     cd device/iot-device-samples/pnp-device-sample/temperature-controller-device-sample

@@ -98,7 +98,7 @@ In this section, you use the C SDK to send messages from your simulated device t
     ```
 
 ### Run the code
-1. Run the sample code, using the appropriate command for your console:
+1. Run the sample code, using the appropriate command for your console. The sample implements a simulated temperature controller with two thermostat sensors.
 
     **CMD**
     ```console
@@ -112,7 +112,7 @@ In this section, you use the C SDK to send messages from your simulated device t
     > [!NOTE]
     > This code sample uses Azure IoT Plug and Play, which lets you integrate smart devices into your solutions without any manual configuration.  By default, most samples in this documentation use IoT Plug and Play. To learn more about the advantages of IoT PnP, and cases for using or not using it, see [What is IoT Plug and Play?](../articles/iot-develop/overview-iot-plug-and-play.md).
 
-    Your device is now securely connected and sending telemetry to Azure IoT Hub.and begins to send telemetry. The connection details and telemetry output are shown in your console. 
+The sample securely connects to your IoT hub as the device you registered and begins sending telemetry messages. The output appears in your console. 
 
 ## View telemetry
 
@@ -148,7 +148,7 @@ To view device telemetry with Azure CLI:
 1. View the connection details and telemetry output in the console.
 
     ```output
-    Starting event monitor, use ctrl-c to stop...
+    Starting event monitor, filtering on device: mydevice, use ctrl-c to stop...
     event:
       component: ''
       interface: dtmi:com:example:TemperatureController;1

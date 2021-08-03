@@ -71,7 +71,7 @@ In this section, you use the Python SDK to send messages from your simulated dev
     export IOTHUB_DEVICE_SECURITY_TYPE="connectionString"
     ```
 
-1. In your Python console, run the code for the following sample file. The sample creates a simulated temperature controller with thermostat sensors.
+1. In your Python console, run the code for the following sample file. The sample implements a simulated temperature controller with two thermostat sensors.
 
     ```console
     python temp_controller_with_thermostats.py
