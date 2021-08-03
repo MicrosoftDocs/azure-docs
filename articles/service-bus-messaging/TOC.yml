@@ -218,8 +218,6 @@
     items:
     - name: End-to-end tracing and diagnostics
       href: service-bus-end-to-end-tracing.md
-    - name: Diagnostic logs
-      href: service-bus-diagnostic-logs.md
     - name: Monitoring Azure Service Bus
       href: monitor-service-bus.md
   - name: Integrate
