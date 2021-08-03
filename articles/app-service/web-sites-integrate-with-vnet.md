@@ -101,7 +101,7 @@ When configuring application routing, you can either route all traffic or only p
 > 
 > * Route All is currently not supported in Windows containers.
 >
-> * Regional VNet integration isn't able to use port 25.
+> * Regional VNet Integration isn't able to use port 25.
 
 You can use the following steps to enable Route All in your app through the portal: 
 
@@ -114,7 +114,7 @@ You can use the following steps to enable Route All in your app through the port
 
 1. Select **Yes**.
 
-You can also configure Route All using CLI:
+You can also configure Route All using CLI (*Note*: minimum `az version` required is 2.27.0):
 
 ```azurecli-interactive
 az webapp config set --resource-group myRG --name myWebApp --vnet-route-all-enabled [true|false]
@@ -241,12 +241,12 @@ Connecting and disconnecting with a VNet is at an app level. Operations that can
 
 The only operation you can take in the app view of your VNet Integration instance is to disconnect your app from the VNet it's currently connected to. To disconnect your app from a VNet, select **Disconnect**. Your app is restarted when you disconnect from a VNet. Disconnecting doesn't change your VNet. The subnet or gateway isn't removed. If you then want to delete your VNet, first disconnect your app from the VNet and delete the resources in it, such as gateways.
 
-The App Service plan VNet Integration UI shows you all of the VNet integrations used by the apps in your App Service plan. To see details on each VNet, select the VNet you're interested in. There are two actions you can perform here for gateway-required VNet Integration:
+The App Service plan VNet Integration UI shows you all of the VNet Integrations used by the apps in your App Service plan. To see details on each VNet, select the VNet you're interested in. There are two actions you can perform here for gateway-required VNet Integration:
 
 * **Sync network**: The sync network operation is used only for the gateway-dependent VNet Integration feature. Performing a sync network operation ensures that your certificates and network information are in sync. If you add or change the DNS of your VNet, perform a sync network operation. This operation restarts any apps that use this VNet. This operation will not work if you are using an app and a vnet belonging to different subscriptions.
 * **Add routes**: Adding routes drives outbound traffic into your VNet.
 
-The private IP assigned to the instance is exposed via the environment variable, **WEBSITE_PRIVATE_IP**. Kudu console UI also shows the list of environment variables available to the Web App. This IP is assigned from the address range of the integrated subnet. For Regional VNet Integration, the value of WEBSITE_PRIVATE_IP is an IP from the address range of the delegated subnet, and for Gateway-required VNet Integration, the value is an IP from the address range of the Point-to-site address pool configured on the Virtual Network Gateway. This is the IP that will be used by the Web App to connect to the resources through the Virtual Network. 
+The private IP assigned to the instance is exposed via the environment variable, **WEBSITE_PRIVATE_IP**. Kudu console UI also shows the list of environment variables available to the Web App. This IP is assigned from the address range of the integrated subnet. For regional VNet Integration, the value of WEBSITE_PRIVATE_IP is an IP from the address range of the delegated subnet, and for Gateway-required VNet Integration, the value is an IP from the address range of the Point-to-site address pool configured on the Virtual Network Gateway. This is the IP that will be used by the Web App to connect to the resources through the Virtual Network. 
 
 > [!NOTE]
 > The value of WEBSITE_PRIVATE_IP is bound to change. However, it will be an IP within the address range of the integration subnet or the point-to-site address range, so you will need to allow access from the entire address range.
@@ -272,7 +272,7 @@ Three charges are related to the use of the gateway-required VNet Integration fe
 ## Troubleshooting
 
 > [!NOTE]
-> VNET integration is not supported for Docker Compose scenarios in App Service.
+> VNET Integration is not supported for Docker Compose scenarios in App Service.
 > Azure Functions Access Restrictions are ignored if their is a private endpoint present.
 >
 
@@ -294,7 +294,7 @@ Commands:
     list   : List the virtual network integrations on a webapp.
     remove : Remove a regional virtual network integration from webapp.
 
-PowerShell support for regional VNet integration is available too, but you must create generic resource with a property array of the subnet resourceID
+PowerShell support for regional VNet Integration is available too, but you must create generic resource with a property array of the subnet resourceID
 
 ```azurepowershell
 # Parameters
@@ -305,12 +305,12 @@ $location = 'myRegion'
 $integrationsubnetname = 'myIntegrationSubnet'
 $subscriptionID = 'aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee'
 
-#Property array with the SubnetID
+# Property array with the SubnetID
 $properties = @{
   subnetResourceId = "/subscriptions/$subscriptionID/resourceGroups/$resourcegroupname/providers/Microsoft.Network/virtualNetworks/$VNetname/subnets/$integrationsubnetname"
 }
 
-#Creation of the VNet integration
+# Creation of the VNet Integration
 $vNetParams = @{
   ResourceName = "$sitename/VirtualNetwork"
   Location = $location
