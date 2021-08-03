@@ -40,7 +40,7 @@ Sample DDL for source as SQL Server available at [here](https://github.com/Azure
 :::image type="content" source="./media/graph-modeling-tools/hackolade-screenshot.jpg" alt-text="Graph Diagram":::
 <b>Figure-1:</b> Graph Diagram (extracted the graph data model)
 
-After modification of data model, the tool can generate the gremlin script, which may include custom Cosmos DB index script to ensure optimal indexes are created, refer Figure-5 for full flow.
+After modification of data model, the tool can generate the gremlin script, which may include custom Cosmos DB index script to ensure optimal indexes are created, refer Figure-2 for full flow.
 
 
 :::image type="content" source="./media/graph-modeling-tools/cosmos-db-gremlin-hackolade.gif" alt-text="Hackolade in action":::
