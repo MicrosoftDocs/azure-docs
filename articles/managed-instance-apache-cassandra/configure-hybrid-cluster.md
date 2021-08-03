@@ -39,7 +39,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
     <!-- ![image](./media/configure-hybrid-cluster/subnet.png) -->
 
     > [!NOTE]
-    > The Deployment of a Azure Managed Instance for Apache Cassandra requires internet access. Deployment fails in environments where internet access is restricted. Make sure you aren't blocking access within your VNet to the following vital Azure services that are necessary for Managed Cassandra to work properly. You can also find an extensive list of IP address and port dependencies [here](network-rules/md). 
+    > The Deployment of a Azure Managed Instance for Apache Cassandra requires internet access. Deployment fails in environments where internet access is restricted. Make sure you aren't blocking access within your VNet to the following vital Azure services that are necessary for Managed Cassandra to work properly. You can also find an extensive list of IP address and port dependencies [here](network-rules.md). 
     > - Azure Storage
     > - Azure KeyVault
     > - Azure Virtual Machine Scale Sets
