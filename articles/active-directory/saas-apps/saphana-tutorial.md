@@ -190,7 +190,7 @@ If you need to create a user manually, take the following steps:
 4. Add the **External Identity** (in this case, BrittaSimon). Then select **OK**.
 
    > [!Note]
-   > You have to populate the **External Identity** field for the user and that has to match the **NameID** field in the SAML token from Azure AD. Plese refer [this](https://help.sap.com/viewer/b3ee5778bc2e4a089d3299b82ec762a7/2.0.05/en-US/db6db355bb571014b56eb25057daec5f.html) document for more details.
+   > You have to populate the **External Identity** field for the user and that has to match the **NameID** field in the SAML token from Azure AD. **Any** checkbox should not be checked as this option requires the IDP to send SPProvderID property in the NameID Field which is right now not supported by Azure AD. Plese refer [this](https://help.sap.com/viewer/b3ee5778bc2e4a089d3299b82ec762a7/2.0.05/en-US/db6db355bb571014b56eb25057daec5f.html) document for more details.
 
 5. For testing purposes, assign all **XS** roles to the user.
 
