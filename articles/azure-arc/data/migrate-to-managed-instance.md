@@ -25,8 +25,13 @@ This method uses Azure Blob Storage as a temporary storage location that you can
 ### Prerequisites
 
 - [Install Azure Data Studio](install-client-tools.md)
+
+   [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
+
 - [Install Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 - Azure subscription
+
+
 
 ### Step 1: Provision Azure blob storage
 
