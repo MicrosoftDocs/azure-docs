@@ -1,6 +1,6 @@
 ---
 title: Install `arcdata` extension
-description: Install the `arcdata` extension for Azure (az) cli
+description: Install the `arcdata` extension for Azure (az) CLI
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
