@@ -1259,7 +1259,7 @@
         - name: Import graph data
           href: bulk-executor-graph-dotnet.md
         - name: Optimize Gremlin queries
-          href: graph-execution-profile.md
+          href: graph/graph-execution-profile.md
         - name: Create a container - Gremlin API
           href: how-to-create-container-gremlin.md
         - name: Provision throughput- Gremlin API
