@@ -1157,7 +1157,7 @@ Follow these steps to install an SAP application server.
    [root@anftstsapcl2 ~]# pgrep -f enq.sapQAS | xargs kill -9
    ```
 
-   The ASCS instance should immediately fail over to the other node. The ERS instance should also fail over after the ASCS instance is started. Run the following commands as root to clean up the resource state of the ASCS and ERS instance after the test.
+   The ASCS instance should immediately fail over to the other node, in the case of ENSA2. The ERS instance should also fail over after the ASCS instance is started. Run the following commands as root to clean up the resource state of the ASCS and ERS instance after the test.
 
    ```
    [root@anftstsapcl2 ~]# pcs resource cleanup rsc_sap_QAS_ASCS00
