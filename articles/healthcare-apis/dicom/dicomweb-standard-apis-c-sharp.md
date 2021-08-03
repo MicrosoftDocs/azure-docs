@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.date: 07/16/2021
+ms.date: 08/03/2021
 ms.author: aersoy
 ---
 
