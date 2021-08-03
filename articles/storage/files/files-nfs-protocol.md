@@ -85,7 +85,7 @@ The status of items that appear in this tables may change over time as support c
 [!INCLUDE [files-nfs-regional-availability](../../../includes/files-nfs-regional-availability.md)]
 
 ## Performance
-NFS on Azure Files is offered on Premium tier which is SSD-backed. The IOPS and the throughput scales with provisioned capacity. See [Premium Files provisioned model](https://docs.microsoft.com/azure/storage/files/understanding-billing#provisioned-model)to understand the formulas for IOPS,IO bursting and throughput with respect to corresponding capacity. The IO latencies are single-millisecond minimum latency (2ms to 3ms for small IO) while metadata latencies are highler single-digit ms.
+NFS on Azure Files is offered on Premium tier which is SSD-backed. The IOPS and the throughput scales with provisioned capacity. See [Premium Files provisioned model](https://docs.microsoft.com/azure/storage/files/understanding-billing#provisioned-model) to understand the formulas for IOPS, IO bursting and throughput with respect to corresponding capacity. The IO latencies are single-millisecond minimum latency (2ms to 3ms for small IO) while metadata latencies are 5ms+.
 
 ## Validated workloads
 > [!IMPORTANT]
