@@ -141,6 +141,10 @@ If you've already enabled the integration with **Defender for Endpoint for Windo
 
     Onboarding might take up to 24 hours.
 
+    > [!NOTE]
+    > The next time you return to this page of the Azure portal, the **Enable for Linux machines** button won't be shown. To disable the integration for Linux, you'll need to disable it for Windows too by clearing the checkbox for **Allow Microsoft Defender for Endpoint to access my data**, and selecting **Save**.
+
+
 1. To verify installation of Defender for Endpoint on a Linux machine, run the following shell command on your machines:
 
     `mdatp health`
@@ -152,12 +156,6 @@ If you've already enabled the integration with **Defender for Endpoint for Windo
     `licensed: true`
 
     In addition, in the Azure portal you'll see a new Azure extension on your machines called `MDE.Linux`.
-
-> [!NOTE]
-> The next time you return to this page of the Azure portal, the **Enable for Linux machines** button won't be shown. To disable the integration for Linux, you'll need to disable it for Windows too by clearing the checkbox for **Allow Microsoft Defender for Endpoint to access my data**, and selecting **Save**.
-
-
-
 
 ### New users who've never enabled the integration with Microsoft Defender for Endpoint for Windows
 
