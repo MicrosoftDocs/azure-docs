@@ -2,7 +2,7 @@
 title: About failover and failback in Azure Site Recovery - Preview
 description: Learn about failover and failback in Azure Site Recovery - Preview
 ms.topic: conceptual
-ms.date: 07/15/2021
+ms.date: 08/16/2021
 
 ---
 # About on-premises disaster recovery failover/failback - Preview

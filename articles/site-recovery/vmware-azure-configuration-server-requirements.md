@@ -3,7 +3,7 @@ title: VMware disaster recovery-configuration server requirements in Azure Site 
 description: This article describes support and requirements when deploying the configuration server for VMware disaster recovery to Azure with Azure Site Recovery.
 ms.service: site-recovery
 ms.topic: article
-ms.date: 06/23/2021
+ms.date: 08/16/2021
 ---
 
 # Configuration server requirements for VMware disaster recovery to Azure

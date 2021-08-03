@@ -3,7 +3,7 @@ title: VMware disaster recovery with Azure Site Recovery
 description: This article provides an overview of disaster recovery of VMware VMs to Azure using the Azure Site Recovery service.
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/15/2021
+ms.date: 08/16/2021
 ---
 
 # About disaster recovery of VMware VMs to Azure

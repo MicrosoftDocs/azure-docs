@@ -3,7 +3,7 @@ title: Fail over VMware VMs to Azure with Site Recovery - Classic
 description: Learn how to fail over VMware VMs to Azure in Azure Site Recovery - Classic
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 06/28/2021
+ms.date: 08/16/2021
 ms.custom: MVC
 ---
 # Fail over VMware VMs - Classic

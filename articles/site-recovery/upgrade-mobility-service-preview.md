@@ -3,7 +3,7 @@ title: Upgrade Mobility Service and appliance components - preview
 description: This article describes about automatic updates for mobility agent and the procedure involved with manual updates - preview.
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/30/2021
+ms.date: 08/16/2021
 ---
 
 
