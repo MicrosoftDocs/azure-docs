@@ -71,8 +71,8 @@ Considerations:
 ## Prerequisites
 The following prerequisites must be completed before configuring Log Analytics data export:
 
-- Destinations must be created prior to the export rule configuration and should be in the same region as your Log Analytics workspace. If you need to replicate your data to other storage accounts, you can use any of the [Azure Storage redundancy options](../../storage/common/storage-redundancy.md).  
-- The storage account must be StorageV1 or StorageV2. Classic storage is not supported  
+- Destinations must be created prior to the export rule configuration and should be in the same region as your Log Analytics workspace. If you need to replicate your data to other storage accounts, you can use any of the [Azure Storage redundancy options](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) including GRS and GZRS.
+- The storage account must be StorageV1 or above. Classic storage is not supported.
 - If you have configured your storage account to allow access from selected networks, you need to add an exception in your storage account settings to allow Azure Monitor to write to your storage.
 
 ## Enable data export

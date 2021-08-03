@@ -81,7 +81,7 @@ Supported clients:
 
     ```
     >[!NOTE]
-    >The span of the start date and the end date should not be more than 30 days.<br><br>To view recovery points for a different time range, modify the start and the end date accordingly.
+    >To view recovery points for a different time range, modify the start and the end date accordingly.
 ## Use PowerShell
 
 ### Check archivable recovery points
