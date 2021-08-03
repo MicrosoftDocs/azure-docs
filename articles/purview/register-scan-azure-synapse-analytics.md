@@ -116,10 +116,10 @@ When authentication method selected is **SQL Authentication**, you need to get y
 To register a new SQL dedicated pool in Purview, do the following:
 
 1. Navigate to your Purview account.
-1. Select **Sources** on the left navigation.
-1. Select **Register**.
+1. Select **Data Map** on the left navigation.
+1. Select **Register**
 1. On **Register sources**, select **SQL dedicated pool (formerly SQL DW)**.
-1. Select **Continue**.
+1. Select **Continue**
 
 On the **Register sources (Azure Synapse Analytics)** screen, do the following:
 

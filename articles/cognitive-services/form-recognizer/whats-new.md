@@ -33,7 +33,7 @@ Form Recognizer features are now supported by six feature containers—**Layout*
 
 ### Form Recognizer connector released in preview
 
-  The [**Form Recognizer connector**](/connectors/formrecognizer) integrates with  [Azure Logic Apps](/azure/logic-apps/logic-apps-overview),  [Microsoft Power Automate](/power-automate/getting-started), and [Microsoft Power Apps](/powerapps/powerapps-overview). The connector supports workflow actions and triggers to extract and analyze document data and structure from custom and prebuilt forms, invoices, receipts, business cards and ID documents.
+  The [**Form Recognizer connector**](/connectors/formrecognizer) integrates with  [Azure Logic Apps](../../logic-apps/logic-apps-overview.md),  [Microsoft Power Automate](/power-automate/getting-started), and [Microsoft Power Apps](/powerapps/powerapps-overview). The connector supports workflow actions and triggers to extract and analyze document data and structure from custom and prebuilt forms, invoices, receipts, business cards and ID documents.
 
 ### Form Recognizer SDK v3.1.0 patched to v3.1.1 for C#, Java, and Python
 
@@ -400,9 +400,9 @@ pip package version 3.1.0b4
 * **Quality improvements** - Extraction improvements including single digit extraction improvements.
 * **New try-it-out feature in the Form Recognizer Sample and Labeling Tool** - Ability to try out prebuilt Invoice, Receipt, and Business Card models and the Layout API using the Form Recognizer Sample Labeling tool. See how your data will be extracted without writing any code.
 
-  > [Try out the Form Recognizer Sample Tool](https://fott-preview.azurewebsites.net/)
+  [**Try the Form Recognizer sample labeling tool**](https://fott-2-1.azurewebsites.net)
 
-  ![FOTT example](./media/ui-preview.jpg)
+  ![Screenshot: Sample labeling tool.](./media/ui-preview.jpg)
 
 * **Feedback Loop** - When Analyzing files via the sample labeling tool you can now also add it to the training set and adjust the labels if necessary and train to improve the model.
 * **Auto Label Documents** - Automatically labels additional documents based on previous labeled documents in the project.
