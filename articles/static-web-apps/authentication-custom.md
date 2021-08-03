@@ -43,7 +43,7 @@ To create the registration, begin by creating the following application settings
 | `AAD_CLIENT_ID` | The Application (client) ID for the Azure AD app registration. |
 | `AAD_CLIENT_SECRET` | The client secret for the Azure AD app registration. |
 
-#### Version 1
+#### Azure Active Directory Version 1
 
 ```json
 {
@@ -64,7 +64,7 @@ To create the registration, begin by creating the following application settings
 
 Make sure to replace `<TENANT_ID>` with your Azure Active Directory tenant ID.
 
-#### Version 2
+#### Azure Active Directory Version 2
 
 ```json
 {
