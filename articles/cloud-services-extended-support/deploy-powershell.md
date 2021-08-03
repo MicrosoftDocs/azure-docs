@@ -40,13 +40,13 @@ This article shows how to use the `Az.CloudService` PowerShell module to deploy 
 
 Use any of the following PowerShell cmdlets to deploy Cloud Services (extended support):
 
-**Create Cloud Service using a Storage Account**
+** Quick Create Cloud Service using a Storage Account**
 
 - This parameter set inputs the .cscfg, .cspkg and .csdef files as inputs along with the storage account. 
 - The cloud service role profile, network profile and OS profile are created by the cmdlet with minimal input from the user. 
 - For certificate input, the keyvault name is to be specified. The certificate thumbprints in the keyvault are validated against those specified in the .cscfg file.
     
- **Create Cloud Service using a SAS URI** 
+ **Quick Create Cloud Service using a SAS URI** 
  
  - This parameter set inputs the SAS URI of the .cspkg along with the local paths of .csdef and .cscfg files. There is no storage account input required. 
  - The cloud service role profile, network profile and OS profile are created by the cmdlet with minimal input from the user. 
@@ -57,7 +57,7 @@ Use any of the following PowerShell cmdlets to deploy Cloud Services (extended s
  - This parameter set inputs the SAS URIs of the .cscfg and .cspkg files.
  - The role, network, OS, and extension profile must be specified by the user and must match the values in the .cscfg and .csdef. 
 
-### Create Cloud Service using a Storage Account
+### Quick Create Cloud Service using a Storage Account
 
 Create Cloud Service deployment using .cscfg, .csdef and .cspkg files.
 
@@ -78,7 +78,7 @@ New-AzCloudService
 [-KeyVaultName <string>]
 ```
 
-### Create Cloud Service using a SAS URI
+### Quick Create Cloud Service using a SAS URI
 
 1. Upload your Cloud Service package (cspkg) to the storage account.
 
