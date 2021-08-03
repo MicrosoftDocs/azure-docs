@@ -396,7 +396,7 @@ In general, it's helpful to use the logging tools enabled by your web API servic
 ::: zone pivot="b2c-custom-policy"
 To learn how to secure your APIs, see the following articles:
 
-- [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](custom-policy-rest-api-claims-exchange.md)
+- [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](add-api-connector-token-enrichment.md)
 - [Secure your RESTful API](secure-rest-api.md)
 - [Reference: RESTful technical profile](restful-technical-profile.md)
 

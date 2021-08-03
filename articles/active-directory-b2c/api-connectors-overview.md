@@ -267,7 +267,7 @@ Your should design your REST API service and its underlying components (such as 
 See the following articles for examples of using a RESTful technical profile:
 
 - [Walkthrough: Add an API connector to a sign-up user flow](add-api-connector.md)
-- [Walkthrough: Add REST API claims exchanges to custom policies in Azure Active Directory B2C](custom-policy-rest-api-claims-exchange.md)
+- [Walkthrough: Add REST API claims exchanges to custom policies in Azure Active Directory B2C](add-api-connector-token-enrichment.md)
 - [Secure your REST API services](secure-rest-api.md)
 - [Reference: RESTful technical profile](restful-technical-profile.md)
 
