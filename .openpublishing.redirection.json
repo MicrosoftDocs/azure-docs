@@ -2179,6 +2179,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "overview-what-is-azure-ml.md",
+      "redirect_url": "/azure/machine-learning/overview-what-is-azure-machine-learning",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/machine-learning/resource-known-issues.md",
       "redirect_url": "/azure/machine-learning/how-to-configure-auto-train#troubleshooting",
       "redirect_document_id": false
@@ -22450,19 +22455,9 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/machine-learning/service/reference-python-package-overview.md",
-      "redirect_url": "/azure/machine-learning/overview-what-happened-to-workbench",
+      "source_path_from_root": "/articles/machine-learning/service/overview-what-is-machine-learning.md",
+      "redirect_url": "/azure/machine-learning/overview-what-is-machine-learning",
       "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/machine-learning/service/how-to-build-deploy-forecast-models.md",
-      "redirect_url": "/azure/machine-learning/overview-what-is-azure-ml",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/machine-learning/service/overview-what-is-azure-ml.md",
-      "redirect_url": "/azure/machine-learning/overview-what-is-azure-ml",
-      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/machine-learning/compare-azure-ml-to-studio-classic.md",

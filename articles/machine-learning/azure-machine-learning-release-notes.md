@@ -36,7 +36,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + Some properties in `azureml.core.environment.DockerSection` are deprecated, such as `shm_size` property used by Ray workers in reinforcement learning jobs. This property can now be specified in `azureml.contrib.train.rl.WorkerConfiguration` instead.
   + **azureml-core**
     + Fixed a hyperlink in `ScriptRunConfig.distributed_job_config` documentation
-    + Azure Machine Learning compute clusters can now be created in a location different from the location of the workspace. This is useful for maximizing idle capacity allocation and managing quota utilization across different locations without having to create more workspaces just to use quota and create a compute cluster in a particular location For more information, please click [here](https://docs.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?tabs=python)
+    + Azure Machine Learning compute clusters can now be created in a location different from the location of the workspace. This is useful for maximizing idle capacity allocation and managing quota utilization across different locations without having to create more workspaces just to use quota and create a compute cluster in a particular location. For more information, see [Create an Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md?tabs=python).
     + Added display_name as a mutable name field of Run object.
     + Dataset from_files now supports skipping of data extensions for large input data
   + **azureml-dataprep**
@@ -2488,7 +2488,7 @@ At the time, of this release, the following browsers are supported: Chrome, Fire
     + Fix bug in use of InteractiveLoginAuthentication for mlflow tracking_uri
     + Improve resource utilization of remote runs using azureml.mlflow.
     + Improve the documentation of the azureml-mlflow package
-    + Patch bug where mlflow.log_artifacts("my_dir") would save artifacts under "my_dir/<artifact-paths>" instead of "<artifact-paths>"
+    + Patch bug where mlflow.log_artifacts("my_dir") would save artifacts under `my_dir/<artifact-paths>` instead of `<artifact-paths>`
   + **azureml-opendatasets**
     + Pin `pyarrow` of `opendatasets` to old versions (<0.14.0) because of memory issue newly introduced there.
     + Move azureml-contrib-opendatasets to azureml-opendatasets.
@@ -2706,4 +2706,4 @@ The [`PipelineEndpoint`](/python/api/azureml-pipeline-core/azureml.pipeline.core
 
 ## Next steps
 
-Read the overview for [Azure Machine Learning](overview-what-is-azure-ml.md).
+Read the overview for [Azure Machine Learning](overview-what-is-azure-machine-learning.md).
