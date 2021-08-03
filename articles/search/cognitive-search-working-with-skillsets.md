@@ -24,7 +24,7 @@ Ultimately, nodes from an enriched document are then [mapped to fields](cognitiv
 
 ## Illustrative example
 
-Skills have context, and inputs and outputs that are often chained together. The following example demonstrates two [built-in skills](cognitive-search-predefined-skills.md) that work together. After reviewing this example, if you want more detail about how input and output formulation, see [How to reference annotations](cognitive-search-concept-annotations-syntax.md).
+Skills have context, and inputs and outputs that are often chained together. The following example demonstrates two [built-in skills](cognitive-search-predefined-skills.md) that work together and introduces some of the terminology of skillset definition. 
 
 + Skill #1 is a [Text Split skill](cognitive-search-skill-textsplit.md) that accepts the contents of the "reviews_text" source field as input, and splits that content into "pages" of 5000 characters as output. Splitting large text into smaller chunks can produce better outcomes during natural language processing.
 
@@ -77,6 +77,10 @@ Skills have context, and inputs and outputs that are often chained together. The
 }
 ```
 
+Key points to notice about the above example are that inputs and outputs are name-value pairs, you can match the outputs of one skill to the inputs of downstream skills, and that all skills have context that determines where in the enrichment tree the processing occurs.
+
+For more detail about how inputs and outputs are formulated, see [How to reference annotations](cognitive-search-concept-annotations-syntax.md).
+
 ## Enrichment tree
 
 An enriched document is a temporal data structure created during skillset execution that collects all of changes that are introduced through skills. It also includes any unprocessed fields that you want to use verbatim from the external data source. An enriched document exists for the duration of skillset execution, but can be cached or persisted to a knowledge store. 
@@ -91,7 +95,7 @@ Initially, an enriched document is simply the content extracted from a data sour
 
 As skills execute, they add new nodes to the enrichment tree. These new nodes can then be used as inputs for downstream skills, and will eventually be projected into a knowledge store, or mapped to index fields. 
 
-An enrichment tree consists of extracted content, plus any new fields that contain content created by a skill, such as translated_text from the [Text Translation skill](cognitive-search-skill-text-translation.md), keyPhrases from the [Key Phrase Extraction skill](cognitive-search-skill-keyphrases.md), or locations from [Entity Recognition skill](cognitive-search-skill-entity-recognition-v3.md). Although you can [visualize and work with an enrichment tree](cognitive-search-debug-session.md) through a visual editor, it's mostly an internal structure. 
+An enrichment tree consists of extracted content, plus any new fields that contain content created by a skill, such as `translated_text` from the [Text Translation skill](cognitive-search-skill-text-translation.md), `keyPhrases` from the [Key Phrase Extraction skill](cognitive-search-skill-keyphrases.md), or `locations` from [Entity Recognition skill](cognitive-search-skill-entity-recognition-v3.md). Although you can [visualize and work with an enrichment tree](cognitive-search-debug-session.md) through a visual editor, it's mostly an internal structure. 
 
 Enrichments aren't mutable: once created, nodes cannot be edited. As your skillsets get more complex, so will your enrichment tree, but not all nodes in the enrichment tree need to make it to the index or the knowledge store. You can selectively persist just a subset of the enrichment outputs so that you are only keeping what you intend to use.
 

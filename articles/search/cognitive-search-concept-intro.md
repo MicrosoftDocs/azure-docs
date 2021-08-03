@@ -52,15 +52,15 @@ Additionally, you might consider adding a custom skill if you have open-source, 
 
 A [skillset](cognitive-search-defining-skillset.md) that's assembled using built-in skills is well-suited for the following application scenarios:
 
-+ Scanned documents (JPEG) that you want to make full-text searchable. You can attach an optical character recognition (OCR) skill to identify, extract, and ingest text from JPEG files.
++ Optical Character Recognition (OCR) that recognizes typeface and handwritten text in scanned documents (JPEG) is perhaps the most commonly used skill. Attaching the [OCR skill](cognitive-search-skill-ocr.md) will identify, extract, and ingest text from JPEG files.
+
++ Text translation of multilingual content is another commonly used skill. Language detection is built into [Text Translation](cognitive-search-skill-text-translation.md), but you can also run [Language Detection](cognitive-search-skill-language-detection.md) independently if you just want the language codes of the content in your corpus.
 
 + PDFs with combined image and text. Text in PDFs can be extracted during indexing without the use of enrichment steps, but the addition of image and natural language processing can often produce a better outcome than a standard indexing provides.
 
-+ Multi-lingual content against which you want to apply language detection and possibly text translation.
-
 + Unstructured or semi-structured documents containing content that has inherent meaning or context that is hidden in the larger document. 
 
-  Blobs in particular often contain a large body of content that is packed into a single "field". By attaching image and natural language processing skills to an indexer, you can create new information that is extant in the raw content, but not otherwise surfaced as distinct fields. Some ready-to-use built-in cognitive skills that can help: key phrase extraction, sentiment analysis, and entity recognition (people, organizations, and locations).
+  Blobs in particular often contain a large body of content that is packed into a single "field". By attaching image and natural language processing skills to an indexer, you can create new information that is extant in the raw content, but not otherwise surfaced as distinct fields. Some ready-to-use built-in cognitive skills that can help: [key phrase extraction](cognitive-search-skill-keyphrases.md) and [entity recognition](cognitive-search-skill-entity-recognition-v3.md) (people, organizations, and locations to name a few).
 
   Additionally, built-in skills can also be used restructure content through text split, merge, and shape operations.
 
@@ -76,7 +76,7 @@ Post-indexing, you can access content via search requests through all [query typ
 
 ### Step 1: Connection and document cracking phase
 
-Indexers connect to external sources using information provided in an indexer data source. When the indexer connects to the resource, it will ["crack documents"](search-indexer-overview.md#document-cracking) to extract text and images. Image content can be routed to skills that specify image processing, while text content is queued for text processing. 
+Indexers connect to external sources using information provided in an indexer data source. When the indexer connects to the resource, it will ["crack documents"](search-indexer-overview.md#document-cracking) to extract text and images. Image content can be routed to skills that perform image processing, while text content is queued for text processing. 
 
 ![Document cracking phase](./media/cognitive-search-intro/document-cracking-phase-blowup.png "document cracking")
 
@@ -88,9 +88,9 @@ A skillset defines the atomic operations that are performed on each document. Fo
 
 ![Enrichment phase](./media/cognitive-search-intro/enrichment-phase-blowup.png "enrichment phase")
 
-Skillset composition can be [built-in skills](cognitive-search-predefined-skills.md), [custom skills](cognitive-search-create-custom-skill-example.md) that you create, or both. A skillset can be minimal or highly complex, and determines not only the type of processing, but also the order of operations. Most skillsets contain about three to five skills.
+ skillset can be minimal or highly complex, and determines not only the type of processing, but also the order of operations. Most skillsets contain about three to five skills.
 
-A skillset, plus the output field mappings defined as part of an indexer, fully specifies the enrichment pipeline. For more information about pulling all of these pieces together, see [Define a skillset](cognitive-search-defining-skillset.md).
+A skillset, plus the [output field mappings](cognitive-search-output-field-mapping.md) defined as part of an indexer, fully specifies the enrichment pipeline. For more information about pulling all of these pieces together, see [Define a skillset](cognitive-search-defining-skillset.md).
 
 Internally, the pipeline generates a collection of enriched documents. You can decide which parts of the enriched documents should be mapped to indexable fields in your search index. For example, if you applied the key phrase extraction and the entity recognition skills, those new fields would become part of the enriched document, and can be mapped to fields on your index. See [Annotations](cognitive-search-concept-annotations-syntax.md) to learn more about input/output formations.
 
@@ -100,6 +100,8 @@ Indexing is the process wherein raw and enriched content is ingested as fields i
 
 The mechanics of indexing are internal to the service, and the search engine sets up the physical structures and inverted indexes required for your content. In the case of a knowledge store, you'll specify the physical structure of the output. 
 
+After indexing is complete, the results are persisted and accessible to users and apps.
+
 ## Saving enriched output
 
 In Azure Cognitive Search, an indexer saves the output it creates. One of the outputs is always a [searchable index](search-what-is-an-index.md). Specifying an index is a required component of an indexer, and when you attach a skillset, the output of the skillset, plus any fields that are imported directly from the source, are used to populate the index. Usually, the outputs of specific skills, such as key phrases or sentiment scores, are ingested into the index in a field created for that purpose.
@@ -107,6 +109,8 @@ In Azure Cognitive Search, an indexer saves the output it creates. One of the ou
 Optionally, an indexer can also send the output to a [knowledge store](knowledge-store-concept-intro.md) for consumption in other tools or processes. A knowledge store is defined as part of the skillset. Its definition determines whether your enriched documents are projected as tables or objects (files or blobs). Tabular projections are well suited for interactive analysis in tools like Power BI, whereas files and blobs are typically used in data science or similar processes.
 
 Finally, an indexer can [cache enriched documents](cognitive-search-incremental-indexing-conceptual.md) in Azure Blob Storage for potential reuse in subsequent skillset executions. Cached enrichments are consumable by the same skillset that you rerun at a later date. Caching is particularly helpful if your skillset include image analysis or OCR, and you want to avoid the time and expense of re-processing image files.
+
+Indexes and knowledge stores are fully independent of each other. While you must attach an index per indexer requirements, if your sole objective is a knowledge store, you can ignore the index after it's populated. Avoid deleting it though. If you want to rerun the indexer and skillset, you'll need the index in order for the indexer to run.
 
 ## Accessing your content
 
