@@ -6,11 +6,13 @@ ms.date: 8/02/2021
 ---
 # Configure network settings for Service Fabric managed clusters
 
-Service Fabric managed clusters are created with a default networking configuration. This configuration consists of an [Azure Load Balancer](../load-balancer/load-balancer-overview.md) with a public ip, a VNet with one subnet allocated with mandatory NSG service tag based rules for essential cluster functionality, and a few optional rules such as allowing all outbound traffic by default, which are intended to make customer configuration easier.
+Service Fabric managed clusters are created with a default networking configuration. This configuration consists of an [Azure Load Balancer](../load-balancer/load-balancer-overview.md) with a public ip, a VNet with one subnet allocated with mandatory NSG rules for essential cluster functionality, and a few optional rules such as allowing all outbound traffic by default, which are intended to make customer configuration easier.
 
-This document walks through how to modify the default networking configuration to change NSG rules, use a custom/existing Virtual Network, create and use an internal load balancer for secondary node types, and more.
+This document walks through how to modify the default networking configuration to change NSG rules, enable inbound RDP access, use an existing Virtual Network for cluster resources, create and use an internal load balancer for secondary node types, and more.
 
-## NSG rules guidance
+## Modify NSG Rules
+
+### NSG rules guidance
 
 Be aware of these considerations when creating new NSG rules for your managed cluster.
 
@@ -18,9 +20,11 @@ Be aware of these considerations when creating new NSG rules for your managed cl
 * Service Fabric managed clusters reserve the priority range 3001 to 4000 for creating optional NSG rules. These rules are added automatically to make configurations quick and easy. You can override these rules by adding custom NSG rules in priority range 1000 to 3000.
 * Custom NSG rules should have a priority within the range 1000 to 3000.
 
-## Apply NSG rules
+### Apply NSG rules (add portal?)
 
-With classic (non-managed) Service Fabric clusters, you must declare and manage a separate *Microsoft.Network/networkSecurityGroups* resource in order to [apply Network Security Group (NSG) rules to your cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.servicefabric/service-fabric-secure-nsg-cluster-65-node-3-nodetype). Service Fabric managed clusters enable you to assign NSG rules directly within the cluster resource of your deployment template.
+<cut>With classic (non-managed) Service Fabric clusters, you must declare and manage a separate *Microsoft.Network/networkSecurityGroups* resource in order to [apply Network Security Group (NSG) rules to your cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.servicefabric/service-fabric-secure-nsg-cluster-65-node-3-nodetype).</cut>
+
+Service Fabric managed clusters enable you to assign NSG rules directly within the cluster resource of your deployment template.
 
 Use the [networkSecurityRules](/azure/templates/microsoft.servicefabric/managedclusters#managedclusterproperties-object) property of your *Microsoft.ServiceFabric/managedclusters* resource (version `2021-05-01` or later) to assign NSG rules. For example:
 
@@ -83,9 +87,9 @@ Use the [networkSecurityRules](/azure/templates/microsoft.servicefabric/managedc
             }
 ```
 
-## RDP Ports
+## Enable access to RDP ports from internet
 
-Service Fabric managed clusters do not enable access to the RDP ports by default. You can open RDP ports to the internet by setting the following property on a Service Fabric managed cluster resource.
+Service Fabric managed clusters do not enable access to the RDP ports from the internet by default. You can open RDP ports to the internet by setting the following property on a Service Fabric managed cluster resource.
 
 ```json
 "allowRDPAccess": true
@@ -195,7 +199,9 @@ This optional rule enables customers to access SFX, connect to the cluster using
 }
 ```
 
-## Load balancer ports
+## Modify default Load balancer configuration
+
+### Load balancer ports
 
 Service Fabric managed clusters creates an NSG rule in default priority range for all the load balancer (LB) ports configured under "loadBalancingRules" section under *ManagedCluster* properties. This rule opens LB ports for inbound traffic from the internet.  
 
@@ -223,7 +229,7 @@ Service Fabric managed clusters creates an NSG rule in default priority range fo
 }
 ```
 
-## Load balancer probes
+### Load balancer probes
 
 Service Fabric managed clusters automatically creates load balancer probes for fabric gateway ports as well as all ports configured under the "loadBalancingRules" section of managed cluster properties.
 
@@ -281,6 +287,8 @@ Service Fabric managed clusters automatically creates load balancer probes for f
   ]
 }
 ```
+### Multiple Frontends
+Managed multiple frontends with subnets per node type and seperate NSG's
 
 ## IPv6
 Talk about v4 and v6 ip's on Load Balancers and NSG differences.
@@ -291,11 +299,8 @@ To configure this feature set the following property on a Service Fabric managed
 
 ```
 
-## Multiple Frontends
-Managed multiple frontends with subnets per node type and seperate NSG's
-
-
-## Use your own VNet and subnet(s)
+## Advanced Networking changes
+### Use your own VNet and subnet(s)
 This can help some scenarios such as:
 X
 Y
@@ -307,7 +312,9 @@ To configure this feature set the following property on a Service Fabric managed
 TBD
 ```
 
-## Bring your own load balancers
+### Bring your own load balancers
+This requires BYOVNET ?
+
 Bring your own LB/IP.
 Specific scenarios this addresses include internal load balancer(s) option for secondary node types, multiple applications with same frontend port, capacity and performance considerations, and security and management. 
 
