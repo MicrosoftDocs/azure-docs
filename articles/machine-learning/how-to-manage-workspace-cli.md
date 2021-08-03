@@ -12,10 +12,9 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli
 ---
 
-# Create a workspace for Azure Machine Learning with Azure CLI
+# Manage Azure Machine Learning workspaces using Azure CLI
 
-
-In this article, you learn how to create an Azure Machine Learning workspace using the Azure CLI. The Azure CLI provides commands for managing Azure resources. The machine learning extension to the CLI provides commands for working with Azure Machine Learning resources.
+In this article, you learn how to create and manage Azure Machine Learning workspace using the Azure CLI. The Azure CLI provides commands for managing Azure resources. The machine learning extension to the CLI provides commands for working with Azure Machine Learning resources.
 
 ## Prerequisites
 
@@ -46,30 +45,7 @@ If the CLI can open your default browser, it will do so and load a sign-in page.
 
 For other methods of authenticating, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
-## Create a workspace
-
-The Azure Machine Learning workspace relies on the following Azure services or entities:
-
-> [!IMPORTANT]
-> If you do not specify an existing Azure service, one will be created automatically during workspace creation. You must always specify a resource group. When attaching your own storage account, make sure that it meets the following criteria:
->
-> * The storage account is _not_ a premium account (Premium_LRS and Premium_GRS)
-> * Both Azure Blob and Azure File capabilities enabled
-> * Hierarchical Namespace (ADLS Gen 2) is disabled
->
-> These requirements are only for the _default_ storage account used by the workspace.
-
-| Service | Parameter to specify an existing instance |
-| ---- | ---- |
-| **Azure resource group** | `-g <resource-group-name>`
-| **Azure Storage Account** | `--storage-account <service-id>` |
-| **Azure Application Insights** | `--application-insights <service-id>` |
-| **Azure Key Vault** | `--keyvault <service-id>` |
-| **Azure Container Registry** | `--container-registry <service-id>` |
-
-Azure Container Registry (ACR) doesn't currently support unicode characters in resource group names. To mitigate this issue, use a resource group that does not contain these characters.
-
-### Create a resource group
+## Create a resource group
 
 The Azure Machine Learning workspace must be created inside a resource group. You can use an existing resource group or create a new one. To __create a new resource group__, use the following command. Replace `<resource-group-name>` with the name to use for this resource group. Replace `<location>` with the Azure region to use for this resource group:
 
@@ -98,7 +74,30 @@ The response from this command is similar to the following JSON:
 
 For more information on working with resource groups, see [az group](/cli/azure/group).
 
-### Automatically create required resources
+## Create a workspace
+
+The Azure Machine Learning workspace relies on the following Azure services or entities:
+
+> [!IMPORTANT]
+> If you do not specify an existing Azure service, one will be created automatically during workspace creation. You must always specify a resource group. When attaching your own storage account, make sure that it meets the following criteria:
+>
+> * The storage account is _not_ a premium account (Premium_LRS and Premium_GRS)
+> * Both Azure Blob and Azure File capabilities enabled
+> * Hierarchical Namespace (ADLS Gen 2) is disabled
+>
+> These requirements are only for the _default_ storage account used by the workspace.
+
+| Service | Parameter to specify an existing instance |
+| ---- | ---- |
+| **Azure resource group** | `-g <resource-group-name>`
+| **Azure Storage Account** | `--storage-account <service-id>` |
+| **Azure Application Insights** | `--application-insights <service-id>` |
+| **Azure Key Vault** | `--keyvault <service-id>` |
+| **Azure Container Registry** | `--container-registry <service-id>` |
+
+Azure Container Registry (ACR) doesn't currently support unicode characters in resource group names. To mitigate this issue, use a resource group that does not contain these characters.
+
+# [Create with new resources](#tab/createnewresources)
 
 To create a new workspace where the __services are automatically created__, use the following command:
 
@@ -132,50 +131,13 @@ The output of this command is similar to the following JSON:
 }
 ```
 
-### Virtual network and private endpoint
+# [Bring existing resources](#tab/bringexistingresources)
 
-> [!IMPORTANT]
-> Using an Azure Machine Learning workspace with private endpoint is not available in the Azure Government regions.
+To create a new workspace while bringing existing associated resources, use the following command:
 
-If you want to restrict access to your workspace to a virtual network, you can use the following parameters:
-
-* `--pe-name`: The name of the private endpoint that is created.
-* `--pe-auto-approval`: Whether private endpoint connections to the workspace should be automatically approved.
-* `--pe-resource-group`: The resource group to create the private endpoint in. Must be the same group that contains the virtual network.
-* `--pe-vnet-name`: The existing virtual network to create the private endpoint in.
-* `--pe-subnet-name`: The name of the subnet to create the private endpoint in. The default value is `default`.
-
-For more information on using a private endpoint and virtual network with your workspace, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md).
-
-### Customer-managed key and high business impact workspace
-
-By default, metadata for the workspace is stored in an Azure Cosmos DB instance that Microsoft maintains. This data is encrypted using Microsoft-managed keys.
-
-> [!NOTE]
-> Azure Cosmos DB is __not__ used to store information such as model performance, information logged by experiments, or information logged from your model deployments. For more information on monitoring these items, see the [Monitoring and logging](concept-azure-machine-learning-architecture.md) section of the architecture and concepts article.
-
-Instead of using the Microsoft-managed key, you can use the provide your own key. Doing so creates the Azure Cosmos DB instance that stores metadata in your Azure subscription. Use the `--cmk-keyvault` parameter to specify the Azure Key Vault that contains the key, and `--resource-cmk-uri` to specify the URL of the key within the vault.
-
-Before using the `--cmk-keyvault` and `--resource-cmk-uri` parameters, you must first perform the following actions:
-
-1. Authorize the __Machine Learning App__ (in Identity and Access Management) with contributor permissions on your subscription.
-1. Follow the steps in [Configure customer-managed keys](../cosmos-db/how-to-setup-cmk.md) to:
-    * Register the Azure Cosmos DB provider
-    * Create and configure an Azure Key Vault
-    * Generate a key
-
-You do not need to manually create the Azure Cosmos DB instance, one will be created for you during workspace creation. This Azure Cosmos DB instance will be created in a separate resource group using a name based on this pattern: `<your-resource-group-name>_<GUID>`.
-
-[!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
-
-To limit the data that Microsoft collects on your workspace, use the `--hbi-workspace` parameter. 
-
-> [!IMPORTANT]
-> Selecting high business impact can only be done when creating a workspace. You cannot change this setting after workspace creation.
-
-For more information on customer-managed keys and high business impact workspace, see [Enterprise security for Azure Machine Learning](concept-data-encryption.md#encryption-at-rest).
-
-### Use existing resources
+```azurecli-interactive
+az ml workspace create -w <workspace-name> -g <resource-group-name> --file workspace.yml
+```
 
 To create a workspace that uses existing resources, you must provide the ID for the resources. Use the following commands to get the ID for the services:
 
@@ -253,7 +215,55 @@ The output of this command is similar to the following JSON:
 }
 ```
 
-## List workspaces
+---
+
+## Advanced configurations
+### Virtual network and private endpoint
+
+> [!IMPORTANT]
+> Using an Azure Machine Learning workspace with private endpoint is not available in the Azure Government regions.
+
+If you want to restrict access to your workspace to a virtual network, you can use the following parameters:
+
+* `--pe-name`: The name of the private endpoint that is created.
+* `--pe-auto-approval`: Whether private endpoint connections to the workspace should be automatically approved.
+* `--pe-resource-group`: The resource group to create the private endpoint in. Must be the same group that contains the virtual network.
+* `--pe-vnet-name`: The existing virtual network to create the private endpoint in.
+* `--pe-subnet-name`: The name of the subnet to create the private endpoint in. The default value is `default`.
+
+For more information on using a private endpoint and virtual network with your workspace, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md).
+
+### Customer-managed key and high business impact workspace
+
+By default, metadata for the workspace is stored in an Azure Cosmos DB instance that Microsoft maintains. This data is encrypted using Microsoft-managed keys.
+
+> [!NOTE]
+> Azure Cosmos DB is __not__ used to store information such as model performance, information logged by experiments, or information logged from your model deployments. For more information on monitoring these items, see the [Monitoring and logging](concept-azure-machine-learning-architecture.md) section of the architecture and concepts article.
+
+Instead of using the Microsoft-managed key, you can use the provide your own key. Doing so creates the Azure Cosmos DB instance that stores metadata in your Azure subscription. Use the `--cmk-keyvault` parameter to specify the Azure Key Vault that contains the key, and `--resource-cmk-uri` to specify the URL of the key within the vault.
+
+Before using the `--cmk-keyvault` and `--resource-cmk-uri` parameters, you must first perform the following actions:
+
+1. Authorize the __Machine Learning App__ (in Identity and Access Management) with contributor permissions on your subscription.
+1. Follow the steps in [Configure customer-managed keys](../cosmos-db/how-to-setup-cmk.md) to:
+    * Register the Azure Cosmos DB provider
+    * Create and configure an Azure Key Vault
+    * Generate a key
+
+You do not need to manually create the Azure Cosmos DB instance, one will be created for you during workspace creation. This Azure Cosmos DB instance will be created in a separate resource group using a name based on this pattern: `<your-resource-group-name>_<GUID>`.
+
+[!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
+
+To limit the data that Microsoft collects on your workspace, use the `--hbi-workspace` parameter. 
+
+> [!IMPORTANT]
+> Selecting high business impact can only be done when creating a workspace. You cannot change this setting after workspace creation.
+
+For more information on customer-managed keys and high business impact workspace, see [Enterprise security for Azure Machine Learning](concept-data-encryption.md#encryption-at-rest).
+
+## Using the CLI to manage workspaces
+
+### List workspaces
 
 To list all the workspaces for your Azure subscription, use the following command:
 
@@ -280,7 +290,7 @@ The output of this command is similar to the following JSON:
 
 For more information, see the [az ml workspace list](/cli/azure/ml/workspace#az_ml_workspace_list) documentation.
 
-## Get workspace information
+### Get workspace information
 
 To get information about a workspace, use the following command:
 
@@ -313,7 +323,7 @@ The output of this command is similar to the following JSON:
 
 For more information, see the [az ml workspace show](/cli/azure/ml/workspace#az_ml_workspace_show) documentation.
 
-## Update a workspace
+### Update a workspace
 
 To update a workspace, use the following command:
 
@@ -346,7 +356,7 @@ The output of this command is similar to the following JSON:
 
 For more information, see the [az ml workspace update](/cli/azure/ml/workspace#az_ml_workspace_update) documentation.
 
-## Share a workspace with another user
+### Share a workspace with another user
 
 To share a workspace with another user on your subscription, use the following command:
 
@@ -358,7 +368,7 @@ For more information on Azure role-based access control (Azure RBAC) with Azure 
 
 For more information, see the [az ml workspace share](/cli/azure/ml/workspace#az_ml_workspace_share) documentation.
 
-## Sync keys for dependent resources
+### Sync keys for dependent resources
 
 If you change access keys for one of the resources used by your workspace, it takes around an hour for the workspace to synchronize to the new key. To force the workspace to sync the new keys immediately, use the following command:
 
@@ -370,7 +380,7 @@ For more information on changing keys, see [Regenerate storage access keys](how-
 
 For more information, see the [az ml workspace sync-keys](/cli/azure/ml/workspace#az_ml_workspace_sync-keys) documentation.
 
-## Delete a workspace
+### Delete a workspace
 
 To delete a workspace after it is no longer needed, use the following command:
 
