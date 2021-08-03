@@ -7,7 +7,7 @@ author: davidmu1
 manager: celesteDG
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: manage-apps
+ms.subservice: app-mgmt
 ms.topic: how-to
 ms.date: 08/03/2021
 ms.author: davidmu
