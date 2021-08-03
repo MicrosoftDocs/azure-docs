@@ -202,9 +202,9 @@ The following operating systems support using Windows Defender Application Contr
 - Windows 10 Enterprise multi-session
 
 >[!NOTE]
->When using WDAC, we recommend only targeting policies at the device level. Although it's possible to target policies to individual users, once the policy is applied it affects all users on the device equally.
+>When using Windows Defender Access Control, we recommend only targeting policies at the device level. Although it's possible to target policies to individual users, once the policy is applied, it affects all users on the device equally.
 
-## IP Virtualization
+## IP virtualization
 
 IP virtualization is supported on Windows Server 2016. 
 
@@ -219,11 +219,11 @@ HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\WinSock2\Parameters\AppId_Catal
 AppFullPath: C:\Windows\System32\svchost.exe 
 PermittedLspCategories: 0x40000000
 
-2. Restart the VM
+2. Restart the VM.
 
 3. Enable the Virtual IP feature
 
-4. Restart the VM
+4. Restart the VM.
 
 ## Next steps
 
