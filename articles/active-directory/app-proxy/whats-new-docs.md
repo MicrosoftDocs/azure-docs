@@ -14,7 +14,7 @@ manager: mtillman
 # Azure Active Directory application proxy: What's new
 
 Welcome to what's new in Azure Active Directory application proxy documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
-### July 2021
+## July 2021
 
 ### Updated articles
 
