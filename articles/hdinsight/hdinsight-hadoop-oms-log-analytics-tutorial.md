@@ -163,10 +163,8 @@ Also you can see the clusters in each workload type, including Spark, HBase, Hiv
 
 The high-level metrics of each workload type will be presented, including how many active node managers, how many running applications, etc.
 
-Example:
 :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/spark-metrics.png" alt-text="Cluster monitor spark metrics":::
 
-Another Example:
 :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/spark-metrics-1.png" alt-text="Cluster monitor yarn metrics":::
 
 ## Configuring performance counters
