@@ -38,6 +38,8 @@ After you're finished, follow the recommended next steps at the end to continue 
 
 1. Select **Get started** for **HCX Workload Mobility**.
 
+   :::image type="content" source="media/tutorial-vmware-hcx/deployed-hcx-migration-get-started.png" alt-text="Screenshot showing the Get started button for HCX Workload Mobility.":::
+
 1. Select the **I agree with terms and conditions** checkbox and then select **Install**.
 
    It will take around 35 minutes to install HCX Advanced and configure the Cloud Manager. Once installed, the HCX Manager URL and the HCX keys needed for the HCX on-premises connector site pairing displays on the **Migration using HCX** tab.
