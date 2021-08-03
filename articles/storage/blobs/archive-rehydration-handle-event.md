@@ -192,7 +192,7 @@ When you change the tier of a blob that is in the hot or cool tier to a differen
 
 Rehydrating a blob can take up to 15 hours, depending on the rehydration priority setting. If you set the rehydration priority to **High**, rehydration may complete in under one hour for blobs that are less than 10 GB in size. However, a high-priority rehydration incurs a greater cost. For more information, see [Rehydrate blob data from the archive tier](storage-blob-rehydration.md#rehydrate-an-archived-blob-to-an-online-tier).
 
-If you decide to rehydrate a blob with high priority for testing purposes, make sure that you choose a small blob. ???Can we recommend high pri rehydrate for testing purposes???
+???Can we recommend high pri rehydrate for testing purposes? if so, any guidelines? ???
 
 > [!NOTE]
 > If you rehydrate a blob with standard priority using the Azure Function provided above, the logging service may time out before the event is triggered. The default logging service timeout period is two hours. You can change the timeout by changing the App Service setting SCM_LOGSTREAM_TIMEOUT (???I can't find any info about how to do this???), or you can use Application Insights to view live metrics. For more information about using the Application Insights live metrics stream with your Azure Function, see [Enable streaming execution logs in Azure Functions](../../azure-functions/streaming-logs.md) ???this doc is out of date???.
