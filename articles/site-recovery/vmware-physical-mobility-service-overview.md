@@ -361,7 +361,7 @@ Setting | Details
 --- | ---
 Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime >`
 `/SourceConfigFilePath` | Mandatory. Full file path of the Mobility Service configuration file. Use any valid folder.
-`/CSType` |  Optional.  Used to define preview or legacy architecture. (CSPrime or CSLegacy).
+`/CSType` |  Mandatory. Used to define preview or legacy architecture. (CSPrime or CSLegacy).
 
 
 ### Linux machine
