@@ -66,6 +66,6 @@ Get started with the [Connected Waste Management application tutorial](./tutoria
 
 ## Next steps
 
-* Learn about [Water Quality Monitoring concepts](./concepts-waterqualitymonitoring-architecture.md)
-* Learn about [Water Consumption Monitoring concepts](./concepts-waterconsumptionmonitoring-architecture.md)
-* Learn about [Connected Waste Management concepts](./concepts-connectedwastemanagement-architecture.md)  
+* Learn about [Water Quality Monitoring](./tutorial-water-quality-monitoring.md)
+* Learn about [Water Consumption Monitoring](./tutorial-water-consumption-monitoring.md)
+* Learn about [Connected Waste Management](./tutorial-connected-waste-management.md)  
