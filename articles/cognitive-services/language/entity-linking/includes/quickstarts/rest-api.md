@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
-ms.topic: quickstart
+ms.topic: include
 ms.date: 06/08/2021
 ms.author: aahi
 ---
