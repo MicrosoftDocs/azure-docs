@@ -150,7 +150,7 @@ To create the event subscription, follow these steps:
 1. In the **Endpoint details** section, select *Azure Function* from the dropdown menu.
 1. Choose **Select an endpoint** to specify the function that you created in the previous section. In the **Select Azure Function** dialog, choose the subscription, resource group, and function app for your Azure Function. Finally, select the function name from the dropdown and choose **Confirm selection**.
 
-:::image type="content" source="media/archive-rehydration-handle-event/select-azure-function-endpoint-portal.png" alt-text="Screenshot showing how to select an Azure Function as the endpoint for an Event Grid subscription":::
+    :::image type="content" source="media/archive-rehydration-handle-event/select-azure-function-endpoint-portal.png" alt-text="Screenshot showing how to select an Azure Function as the endpoint for an Event Grid subscription":::
 
 1. Select the **Create** button to create the event subscription and begin sending events to the Azure Function event handler.
 
