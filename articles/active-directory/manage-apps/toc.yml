@@ -132,7 +132,7 @@
         href: configure-authentication-for-federated-users-portal.md
       - name: Prevent sign-in auto-acceleration
         href: prevent-domain-hints-with-home-realm-discovery.md
-    - name: Migrate identity management to Azure AD
+    - name: Migrate applications
       items:
       - name: Migration resources
         href: migration-resources.md
