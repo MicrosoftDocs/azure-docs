@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 07/19/2021
+ms.date: 08/03/2021
 ---
 
 # Pick initial size for Hyperscale (Citus) server group
