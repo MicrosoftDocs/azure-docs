@@ -166,6 +166,11 @@ az network vpn-connection create --name ERConnection --resource-group ExpressRou
 ```azurecli-interactive
 az network vpn-connection update --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true
 ```
+
+## Enroll in ExpressRoute FastPath features (preview)
+
+FastPath support for virtual network peering is now in Public preview. Enrollment is only available through Azure PowerShell. See [FastPath preview features](expressroute-howto-linkvnet-arm.md#enroll-in-expressroute-fastpath-features-preview), for instructions on how to enroll.
+
 ## Clean up resources
 
 If you no longer need the ExpressRoute connection, from the subscription where the gateway is located use the `az network vpn-connection delete` command to remove the link between the gateway and the circuit.
