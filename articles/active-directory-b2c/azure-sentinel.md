@@ -87,16 +87,17 @@ In our scenario, we want to receive a notification if someone is trying to force
    - Provide a unique **Name** and a **Description**
      - **Name**: _B2C Non-successful logins_ **Description**: _Notify on two or more non-successful logins within 60 sec_
    - In the **Tactics** field, you can choose from among categories of attacks by which to classify the rule. These are based on the tactics of the [MITRE ATT&CK](https://attack.mitre.org/) framework.
+
      - For our example, we will choose _PreAttack_
 
-   > [!Tip]
-   > MITRE ATT&CK® is a globally accessible knowledge base of adversary tactics and techniques based on real-world observations. The ATT&CK knowledge base is used as a foundation for the development of specific threat models and methodologies.
+       > [!Tip]
+       > MITRE ATT&CK® is a globally accessible knowledge base of adversary tactics and techniques based on real-world observations. The ATT&CK knowledge base is used as a foundation for the development of specific threat models and methodologies.
 
    - Set the alert **Severity** as appropriate.
      - As this is our first rule, we will choose _High_. We can makes changes to our rule later
    - When you create the rule, its **Status** is **Enabled** by default, which means it will run immediately after you finish creating it. If you don’t want it to run immediately, select **Disabled**, and the rule will be added to your **Active rules** tab and you can enable it from there when you need it.
 
-   :::image type="content" source="./media/azure-sentinel/create-new-rule.png" alt-text="provide basic rule properties":::
+     :::image type="content" source="./media/azure-sentinel/create-new-rule.png" alt-text="provide basic rule properties":::
 
 4. Define the rule query logic and configure settings.
 
@@ -147,7 +148,7 @@ In our scenario, we want to receive a notification if someone is trying to force
 
    The results will display the _UserPrincipalName_ of the identity trying to log in the _number_ of attempts.
 
-   :::image type="content" source="./media/azure-sentinel/logs.png" alt-text="details of selected incident":::
+   :::image type="content" source="./media/azure-sentinel/logs2.png" alt-text="details of selected incident":::
 
 ## Automated response
 
