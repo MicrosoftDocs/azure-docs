@@ -360,7 +360,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Cause**: No physical partitions are created for the table. Check your database.
 
-- **Recommendation**: Reference [Create Partitioned Tables and Indexes](/sql/relational-databases/partitions/create-partitioned-tables-and-indexes?view=sql-server-ver15) to solve this issue.
+- **Recommendation**: Reference [Create Partitioned Tables and Indexes](/sql/relational-databases/partitions/create-partitioned-tables-and-indexes?view=sql-server-ver15&preserve-view=true) to solve this issue.
 
 ### Error code: SqlParallelFailedToGetPartitionRangeSynapse
 
