@@ -24,9 +24,9 @@ This release announces general availability for Azure Arc-enabled SQL Managed In
 
    > [!NOTE]
    > In addition, this release provides the following Azure Arc-enabled services in preview: 
-   > - SQL Managed Instance is also available in directly connected mode.
-   > - SQL Managed Instance business critical service tier.
-   > - PostgreSQL Hyperscale continues to be available.
+   > - SQL Managed Instance in directly connected mode
+   > - SQL Managed Instance [business critical service tier](service-tiers.md)
+   > - PostgreSQL Hyperscale
 
 ### Breaking changes
 
