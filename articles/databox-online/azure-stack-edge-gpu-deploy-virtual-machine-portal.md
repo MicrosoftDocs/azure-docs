@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/02/2021
+ms.date: 08/03/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to configure compute on an Azure Stack Edge Pro GPU device so that I can use it to transform data before I send it to Azure.
 ---
@@ -80,7 +80,7 @@ Follow these steps to create a VM on your Azure Stack Edge Pro GPU device.
 
     Select **+ Add image** to download the VHD from the storage account and add it to the device. The download process takes several minutes depending on the size of the VHD and the internet bandwidth available for the download. 
 
-    ![Screenshot of the Overview pane for Virtual Machines, with the Plug Add Image button highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-3.png)
+    ![Screenshot of the Overview pane for Virtual Machines, with the Plus Add Image button highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-3.png)
 
 1. On the **Add image** pane, make the following field entries. Then select **Add**.
 
@@ -147,7 +147,7 @@ Follow these steps to create a VM after you've created a VM image.
 
     1. Select **Create and attach a new disk**. On the **Create new disk** pane, provide a name for the disk and the size in GiB.
 
-        ![Screenshot that shows the Create a new disk screen in Create a new Virtual Machine for Azure Stack Edge. The OK button is highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-disks-2.png)
+        ![Screenshot showing the "Create a new disk" screen in "Add a virtual machine" for Azure Stack Edge. The OK button is highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-disks-2.png)
 
     1. Repeat the preceding process to add more disks. After the disks are created, they show up on the **Disks** tab. Select **Next: Networking**.
 
@@ -159,7 +159,7 @@ Follow these steps to create a VM after you've created a VM image.
     |Subnet     | This field is automatically populated with the subnet associated with the network interface on which you enabled compute.         |
     |IP address     | Provide a static or a dynamic IP for your VM. The static IP should be an available, free IP from the specified subnet range.        |
 
-    ![Screenshot of the Networking tab in Create a New Virtual Machine for Azure Stack Edge. The Networking tab and the Next:Advanced button are highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-networking-1.png)
+    ![Screenshot of the Networking tab in "Add a Virtual Machine" for Azure Stack Edge. The Networking tab and the Next:Advanced button are highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-networking-1.png)
 
     Select **Next: Advanced**. On the **Advanced** tab, you can select an extension to install during VM deployment, and you can specify a `cloud-init` script to customize your VM.
 
@@ -167,7 +167,7 @@ Follow these steps to create a VM after you've created a VM image.
 
     For detailed steps to install a GPU extension during VM deployment, see [Deploy GPU VMs](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms).
 
-    ![Illustration of two steps to add a GPU extension to the Advanced tab of Create a virtual machine. Options to select and add an extension are highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-extension-01.png)
+    ![Illustration of 2 steps to add a GPU extension to the Advanced tab of "Add a virtual machine". Options to select and add an extension are highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-extension-01.png)
 
 1. If you want to use the `cloud-init` utility to customize the new VM on its first boot, on the **Advanced** tab, paste your `cloud-init` script into the **Custom data** box under **Custom data and cloud init**. 
 
@@ -179,7 +179,7 @@ Follow these steps to create a VM after you've created a VM image.
 
 1. On the **Review + Create** tab, review the specifications for the VM. Then select **Create**.
 
-    ![Screenshot that shows the Review Plus Create tab of the Create a new virtual machine wizard in Azure Stack Edge. The Review Plus Create tab is highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-review-create-1.png)
+    ![Screenshot that shows the Review Plus Create tab of the "Add a Virtual Machine" wizard in Azure Stack Edge. The Review Plus Create tab is highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-review-create-1.png)
 
 1. The VM creation starts and can take up to 20 minutes. You can go to **Deployments** to monitor the VM creation.
 
@@ -187,11 +187,11 @@ Follow these steps to create a VM after you've created a VM image.
 
 1. After the VM is successfully created, you'll see your new VM on the **Overview** pane.
 
-    ![Screenshot that shows the Overview pane for Virtual Machines on an Azure Stack Edge device. On the Virtual machines pane, a new VM is highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-overview-page-1.png)
+    ![Screenshot that shows the Overview pane for Virtual Machines on an Azure Stack Edge device. A new virtual machine is highlighted in the list.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-overview-page-1.png)
 
 1. Select the newly created VM to go to **Virtual machines**.
 
-    ![Screenshot that shows Virtual machines view of an Azure Stack Edge device. The Virtual machines label and a virtual machine entry are highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-page-1.png)
+    ![Screenshot showing the Virtual Machines pane of an Azure Stack Edge device. The Virtual Machines label and a virtual machine entry are highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-page-1.png)
 
     Select the VM to see the details.
 
