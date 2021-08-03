@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 04/21/2021
+ms.date: 08/12/2021
 ms.custom: template-tutorial
 ---
 # Tutorial: Create a load balancer with more than one availability set in the backend pool using the Azure portal
@@ -121,105 +121,102 @@ In this section, you'll create a NAT gateway for outbound connectivity of the vi
 
 In this section, you'll create a load balancer for the virtual machines.
 
-1. In the search box at the top of the portal, enter **Load balancer**.
+1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
 
-2. Select **Load balancers** in the search results.
+2. In the **Load balancer** page, select **Create**.
 
-3. Select **+ Create**.
+3. In the **Basics** tab of the **Create load balancer** page, enter, or select the following information: 
 
-4. In the **Basics** tab of **Create load balancer**, enter, or select the following information:
-
-    | Setting | Value |
-    | ------- | ----- |
+    | Setting                 | Value                                              |
+    | ---                     | ---                                                |
     | **Project details** |   |
-    | Subscription | Select your subscription. |
-    | Resource group | Select **TutorLBmultiAVS-rg**. |
+    | Subscription               | Select your subscription.    |    
+    | Resource group         | Select **TutorLBmultiAVS-rg**. |
     | **Instance details** |   |
-    | Name | Enter **myLoadBalancer**. |
-    | Region | Select **(US) West US 2**. |
-    | Type | Leave the default of **Public**. |
-    | SKU | Leave the default of **Standard**. |
-    | Tier | Leave the default of **Regional**. |
-    | **Public IP address** |   |
-    | Public IP address | Leave the default of **Create new**. |
-    | Public IP address name | Enter **myPublicIP-lb**. |
-    | Availability zone | Select **Zone-redundant**. |
-    | Add a public IPv6 address | Leave the default of **No**. |
-    | Routing preference | Leave the default of **Microsoft network**. |
+    | Name                   | Enter **myLoadBalancer**                                   |
+    | Region         | Select **(US) West US 2**.                                        |
+    | Type          | Select **Public**.                                        |
+    | SKU           | Leave the default **Standard**. |
+    | Tier          | Leave the default **Regional**. |
 
-5. Select the **Review + create** tab, or select the blue **Review + create** button at the bottom of the page.
+    :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png" alt-text="Screenshot of create standard load balancer basics tab." border="true":::
 
-6. Select **Create**.
+4. Select **Next: Frontend IP configuration** at the bottom of the page.
 
-### Configure load balancer settings
+5. In **Frontend IP configuration**, select **+ Add a frontend IP**.
 
-In this section, you'll create a backend pool for **myLoadBalancer**.
+6. Enter **LoadBalancerFrontend** in **Name**.
 
-You'll create a health probe to monitor **HTTP** and **Port 80**. The health probe will monitor the health of the virtual machines in the backend pool. 
+7. Select **IPv4** or **IPv6** for the **IP version**.
 
-You'll create a load-balancing rule for **Port 80** with outbound SNAT disabled. The NAT gateway you created earlier will handle the outbound connectivity of the virtual machines.
+    > [!NOTE]
+    > IPv6 isn't currently supported with Routing Preference or Cross-region load-balancing (Global Tier).
 
-1. In the search box at the top of the portal, enter **Load balancer**.
+8. Select **IP address** for the **IP type**.
 
-2. Select **Load balancers** in the search results.
+    > [!NOTE]
+    > For more information on IP prefixes, see [Azure Public IP address prefix](../virtual-network/public-ip-address-prefix.md).
 
-3. Select **myLoadBalancer**.
+9. Select **Create new** in **Public IP address**.
 
-4. In **myLoadBalancer**, select **Backend pools** in **Settings**.
+10. In **Add a public IP address**, enter **myPublicIP-lb* for **Name**.
 
-5. Select **+ Add** in **Backend pools**.
+11. Select **Zone-redundant** in **Availability zone**.
 
-6. In **Add backend pool**, enter or select the following information:
+    > [!NOTE]
+    > In regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../availability-zones/az-overview.md).
 
-    | Setting | Value |
-    | ------- | ----- |
-    | Name | Enter **myBackendPool**. |
-    | Virtual network | Select **myVNet**. |
-    | Backend Pool Configuration | Leave the default of **NIC**. |
-    | IP Version | Leave the default of **IPv4**. |
+12. Leave the default of **Microsoft Network** for **Routing preference**.
 
-7. Select **Add**.
+13. Select **OK**.
 
-8. Select **Health probes**.
+14. Select **Add**.
 
-9. Select **+ Add**.
+15. Select **Next: Backend pools** at the bottom of the page.
 
-10. In **Add health probe**, enter or select the following information:
+16. In the **Backend pools** tab, select **+ Add a backend pool**.
 
-    | Setting | Value |
-    | ------- | ----- |
-    | Name | Enter **myHTTPProbe**. |
-    | Protocol | Select **HTTP**. |
-    | Port | Leave the default of **80**. |
-    | Path | Leave the default of **/**. |
-    | Interval | Leave the default of **5** seconds. |
-    | Unhealthy threshold | Leave the default of **2** consecutive failures. |
+17. Enter **myBackendPool** for **Name** in **Add backend pool**.
 
-11. Select **Add**.
+18. Select **myVNet** in **Virtual network**.
 
-12. Select **Load-balancing rules**. 
+19. Select **NIC** or **IP Address** for **Backend Pool Configuration**.
 
-13. Select **+ Add**.
+20. Select **IPv4** or **IPv6** for **IP version**.
 
-14. Enter or select the following information in **Add load-balancing rule**:
+21. Select **Add**.
+
+22. Select the **Next: Inbound rules** button at the bottom of the page.
+
+23. In **Load balancing rule** in the **Inbound rules** tab, select **+ Add a load balancing rule**.
+
+24. In **Add load balancing rule**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
-    | Name | Enter **myHTTPRule**. |
-    | IP Version | Leave the default of **IPv4**. |
-    | Frontend IP address | Select **LoadBalancerFrontEnd**. |
-    | Protocol | Select the default of **TCP**. |
+    | Name | Enter **myHTTPRule** |
+    | IP Version | Select **IPv4** or **IPv6** depending on your requirements. |
+    | Frontend IP address | Select **LoadBalancerFrontend**. |
+    | Protocol | Select **TCP**. |
     | Port | Enter **80**. |
     | Backend port | Enter **80**. |
     | Backend pool | Select **myBackendPool**. |
-    | Health probe | Select **myHTTPProbe**. |
-    | Session persistence | Leave the default of **None**. |
-    | Idle timeout (minutes) | Change the slider to **15**. |
+    | Health probe | Select **Create new**. </br> In **Name**, enter **myHealthProbe**. </br> Select **HTTP** in **Protocol**. </br> Leave the rest of the defaults, and select **OK**. |
+    | Session persistence | Select **None**. |
+    | Idle timeout (minutes) | Enter or select **15**. |
     | TCP reset | Select **Enabled**. |
-    | Floating IP | Leave the default of **Disabled**. |
+    | Floating IP | Select **Disabled**. |
     | Outbound source network address translation (SNAT) | Leave the default of **(Recommended) Use outbound rules to provide backend pool members access to the internet.** |
 
-5. Select **Add**.
+25. Select **Add**.
+
+26. Select the blue **Review + create** button at the bottom of the page.
+
+27. Select **Create**.
+
+    > [!NOTE]
+    > In this example we created a NAT gateway to provide outbound Internet access. The outbound rules tab in the configuration is bypassed as it's optional isn't needed with the NAT gateway. For more information on Azure NAT gateway, see [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)
+    > For more information about outbound connections in Azure, see [Source Network Address Translation (SNAT) for outbound connections](../load-balancer/load-balancer-outbound-connections.md)
 
 ## Create virtual machines
 
