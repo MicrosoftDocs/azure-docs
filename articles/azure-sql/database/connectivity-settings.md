@@ -23,7 +23,7 @@ This article introduces settings that control connectivity to the server for Azu
 
 The connectivity settings are accessible from the **Firewalls and virtual networks** screen as shown in the following screenshot:
 
- ![Screenshot of the connectivity settings window.][1]
+:::image type="content" source="media/single-database-create-quickstart/manage-connectivity-settings.png" alt-text="Screenshot of the Firewalls and virtual networks settings in Azure portal for SQL server":::
 
 > [!NOTE]
 > These settings take effect immediately after they're applied. Your customers might experience connection loss if they don't meet the requirements for each setting.
@@ -224,5 +224,4 @@ az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 - For information on how to change the connection policy for a server, see [conn-policy](/cli/azure/sql/server/conn-policy).
 
 <!--Image references-->
-[1]: media/single-database-create-quickstart/manage-connectivity-settings.png
 [2]: media/single-database-create-quickstart/manage-connectivity-flowchart.png
