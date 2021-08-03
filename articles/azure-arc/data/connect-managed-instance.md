@@ -20,15 +20,15 @@ This article explains how you can connect to your Azure Arc-enabled SQL Managed 
 To view the Azure Arc-enabled SQL Managed Instance and the external endpoints use the following command:
 
 ```azurecli
-az sql mi-arc list
+az sql mi-arc list --k8s-namespace <namespace> --use-k8s -o table
 ```
 
 Output should look like this:
 
 ```console
-Name    Replicas    ExternalEndpoint    State
-------  ----------  ----------------  -------
-sqldemo 1/1         10.240.0.4:32023  Ready
+Name       PrimaryEndpoint      Replicas    State
+---------  -------------------  ----------  -------
+sqldemo    10.240.0.107,1433    1/1         Ready
 ```
 
 If you are using AKS or kubeadm or OpenShift etc., you can copy the external IP and port number from here and connect to it using your favorite tool for connecting to a SQL Sever/Azure SQL instance such as Azure Data Studio or SQL Server Management Studio.  However, if you are using the quick start VM, see below for special information about how to connect to that VM from outside of Azure. 
