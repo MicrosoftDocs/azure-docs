@@ -116,18 +116,21 @@ are found in the `autoscale.json` file, normally `/opt/cycle/pbspro/autoscale.js
   "cluster_name": "mechanical_grid",
 ```
 
-### Relevant Logs
+### Important Files
 
-_autoscale.log_ is the main log for all azpbs invocations.
-_/opt/cycle/pbspro/autoscale.log_
+The `azpbs` agent parses the PBS configuration each time it's called - jobs, queues, resources.
+Information is provided in the stderr and stdout of the command as well as to a log file, both
+at configurable levels. All PBS management commands (`qcmd`) with arguments are logged to file as well.
 
-_qcmd.log_ every PBS executable invocation and the response, so you can see exactly 
-what commands are being run.
-/opt/cycle/pbspro/qcmd.log
+All these files can be found in the _/opt/cycle/pbspro/_ directory where the agent is installed.
 
-Every autoscale iteration, azpbs prints out a table of all of the nodes, their 
-resources, their assigned jobs and more. This log contains these values and nothing else.
-_/opt/cycle/pbspro/demand.log_
+| File  |  Location | Description |
+|---|---|---|
+| Autoscale Config  | autoscale.json  | Configuration for Autoscale, Resource Map, CycleCloud access information |
+| Autoscale Log  | autoscale.log  | Agent main thread logging including CycleCloud host management |
+| Demand Log | demand.log | Detailed log for resource matching |
+| qcmd Trace Log  | qcmd.log | Logging the agent `qcmd` calls | 
+| Logging Config | logging.conf | Configurations for logging masks and file locations | 
 
 
 ### Defining OpenPBS Resources
@@ -198,7 +201,7 @@ CycleCloud treats spanning and serial jobs differently in OpenPBS clusters.
 Spanning jobs will land on nodes that are part of the same placement group. The
 placement group has a particular platform meaning (VirtualMachineScaleSet with 
 SinglePlacementGroup=true) and CC will managed a named placement group for each
-spanned node set. Use the pbs resource `group_id` for this placement group name.
+spanned node set. Use the PBS resource `group_id` for this placement group name.
 
 The `hpc` queue appends
 the equivalent of `-l place=scatter:group=group_id` by using native queue defaults.
@@ -240,7 +243,7 @@ azpbs validate
 [!INCLUDE [scheduler-integration](~/includes/scheduler-integration.md)]
 
 > [!NOTE]
-> CycleCloud does not support the bursting configuration with PBS Pro.
+> CycleCloud does not support the bursting configuration with Open PBS.
 
 > [!NOTE]
-> Even though Windows is an officially supported PBS Professional platform, CycleCloud does not support running PBS Professional on Windows at this time.
+> Even though Windows is an officially supported Open PBS platform, CycleCloud does not support running Open PBS on Windows at this time.
