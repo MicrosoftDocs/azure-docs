@@ -39,7 +39,7 @@ The following table illustrates the allowed maximum values for `maxShares` by st
 |E30, E40, E50     |5         |
 |E60, E70, E80     |10         |
 
-The IOPS and bandwidth limits for a disk are not affected by the `maxShares` value. For example, the max IOPS of a P15 disk is 1100 whether maxShares = 1 or maxShares > 1.
+The IOPS and bandwidth limits for a disk are not affected by the `maxShares` value. For example, the max IOPS of a E15 disk is 500 whether maxShares = 1 or maxShares > 1.
 
 ### Ultra disk ranges
 

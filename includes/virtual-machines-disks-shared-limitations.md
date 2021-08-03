@@ -40,13 +40,13 @@ Shared ultra disks are available in all regions that support ultra disks by defa
 Shared disks on P1-P15 sizes are currently only available in the following regions:
 - Canada Central
 - Japan East
-- UK South
 - Central US
 - West Central US
 - East US
 - East US 2
 - West US
 - West US 2
+- South Central US
 
 Shared disks on all other other premium SSD sizes are available in all regions that managed disks are available.
 
@@ -67,12 +67,12 @@ Shared disks on all other other premium SSD sizes are available in all regions t
 Shared disks on E1-E20 sizes are currently only available in the following regions:
 - Canada Central
 - Japan East
-- UK South
 - Central US
 - West Central US
 - East US
 - East US 2
 - West US
 - West US 2
+- South Central US
 
 Shared disks on all other other standard SSD sizes are available in all regions that managed disks are available.
