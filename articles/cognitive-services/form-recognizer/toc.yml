@@ -91,18 +91,18 @@
     href: concept-custom.md
 - name: Tutorials
   items:
-  - name: Create low-code solutions with Form Recognizer and AI Builder
+  - name: Low-code solutions with Form Recognizer and AI Builder
     expanded: true 
     items:
-    - name:  Custom model workflow
+    - name:  Custom form processing workflow
       href: /ai-builder/create-form-processing-model?toc=/azure/cognitive-services/form-recognizer/toc.json&bc=/azure/cognitive-services/form-recognizer/breadcrumb/toc.json
-    - name: Business card prebuilt model workflow
+    - name: Business card processing workflow
       href: /ai-builder/flow-business-card-reader?toc=/azure/cognitive-services/form-recognizer/toc.json&bc=/azure/cognitive-services/form-recognizer/breadcrumb/toc.json
-    - name: Identity document prebuilt model workflow
+    - name: Identity document processing workflow
       href: /ai-builder/id-reader?toc=/azure/cognitive-services/form-recognizer/toc.json&bc=/azure/cognitive-services/form-recognizer/breadcrumb/toc.json
-    - name:  Invoice prebuilt model workflow
+    - name:  Invoice processing workflow
       href: /ai-builder/flow-invoice-processing?toc=/azure/cognitive-services/form-recognizer/toc.json&bc=/azure/cognitive-services/form-recognizer/breadcrumb/toc.json
-    - name: Receipt prebuilt model workflow
+    - name: Receipt processing workflow
       href: /ai-builder/flow-receipt-processing?toc=/azure/cognitive-services/form-recognizer/toc.json&bc=/azure/cognitive-services/form-recognizer/breadcrumb/toc.json 
   - name: Use Azure Form Recognizer with Cognitive Search
     href: ../../search/cognitive-search-custom-skill-form.md
