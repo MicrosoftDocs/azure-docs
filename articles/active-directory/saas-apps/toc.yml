@@ -2129,7 +2129,9 @@
       - name: Wdesk
         href: wdesk-tutorial.md
       - name: Webcargo
-        href: webcargo-tutorial.md  
+        href: webcargo-tutorial.md
+      - name: Web Cargo Air
+        href: web-cargo-air-tutorial.md    
       - name: webMethods Integration Suite
         href: webmethods-integration-cloud-tutorial.md
       - name: Wedo
@@ -2150,6 +2152,8 @@
         href: wikispaces-tutorial.md
       - name: Wingspan eTMF
         href: wingspanetmf-tutorial.md
+      - name: WireWheel
+        href: wirewheel-tutorial.md  
       - name: Wisdom by Invictus
         href: wisdom-by-invictus-tutorial.md
       - name: Wizergos Productivity Software
@@ -2212,7 +2216,7 @@
         href: zephyrsso-tutorial.md
       - name: zeroheight
         href: zeroheight-tutorial.md  
-      - name: Zero Trust Remote Access Platform
+      - name: Banyan Security Zero Trust Remote Access Platform
         href: banyan-command-center-tutorial.md
       - name: Ziflow
         href: ziflow-tutorial.md
