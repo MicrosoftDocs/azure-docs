@@ -54,6 +54,9 @@ To create a virtual network, use the following steps:
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/create-vnet-basics.png" alt-text="Image of the basic virtual network config":::
 
+    > [!TIP]
+    > To simplify the instructions, this tutorial uses the same resource group is used for the virtual network and Azure Machine Learning resources. However, the virtual network can be in a different resource group from Azure Machine Learning and other resources.
+
 1. Select __IP Addresses__ tab. The default settings should be similar to the following image:
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/create-vnet-ip-address-default.png" alt-text="Default IP Address screen":::
