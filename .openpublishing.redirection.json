@@ -57011,7 +57011,7 @@
     },
     {
       "source_path_from_root": "/articles/machine-learning/reference-online-endpoint-yaml.md",
-      "redirect_url": "reference-yaml-endpoint-managed-online.md",
+      "redirect_url": "reference-yaml-endpoint-managed-online",
       "redirect_document_id": true
     },
     {
