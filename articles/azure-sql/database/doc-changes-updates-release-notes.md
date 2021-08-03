@@ -83,9 +83,9 @@ This table provides a quick comparison for the change in terminology:
 
 - [Azure Active Directory only authentication for Azure SQL](https://techcommunity.microsoft.com/t5/azure-sql/azure-active-directory-only-authentication-for-azure-sql/ba-p/2417673) - Public Preview for Azure Active Directory only authenticaion on Azure SQL Managed Instance.
 
-- [Use Resource Health to monitor health status of your Azure SQL Managed Instance](https://docs.microsoft.com/en-us/azure/azure-sql/database/resource-health-to-troubleshoot-connectivity) - support for Resource Health monitoring on Azure SQL Managed Instance.
+- [Use Resource Health to monitor health status of your Azure SQL Managed Instance](resource-health-to-troubleshoot-connectivity.md) - support for Resource Health monitoring on Azure SQL Managed Instance.
 
-- [Service-aided subnet configuration for Azure SQL Managed Instance now makes use of service tags for user-defined routes](https://docs.microsoft.com/en-us/azure/azure-sql/managed-instance/connectivity-architecture-overview) - support for User defined route (UDR) table.
+- [Service-aided subnet configuration for Azure SQL Managed Instance now makes use of service tags for user-defined routes](../managed-instance/connectivity-architecture-overview.md) - support for User defined route (UDR) table.
 
 - [Migrate to Managed Instance with Log Replay Service](../managed-instance/log-replay-service-migrate.md) - allows migrating databases from SQL Server to SQL Managed Instance by using Log Replay Service (Public Preview).
 
@@ -97,7 +97,7 @@ This table provides a quick comparison for the change in terminology:
 
 - [Long-term backup retention for Azure SQL Managed Instance](https://azure.microsoft.com/en-gb/updates/longterm-backup-retention-ltr-for-azure-sql-managed-instance-in-public-preview/) - Support for Long-term backup retention up to 10 years on Azure SQL Managed Instance.
 
-- [Dynamic data masking granular permissions for Azure SQL Managed Instance](https://docs.microsoft.com/en-us/azure/azure-sql/database/dynamic-data-masking-overview) - general availability for Dynamic data masking granular permissions for Azure SQL Managed Instance. 
+- [Dynamic data masking granular permissions for Azure SQL Managed Instance](dynamic-data-masking-overview.md) - general availability for Dynamic data masking granular permissions for Azure SQL Managed Instance. 
 
 - [Azure SQL Managed Instance auditing of Microsoft operations](https://azure.microsoft.com/en-gb/updates/azure-sql-auditing-of-microsoft-operations-is-now-generally-available/) - general availability for Azure SQL Managed Instance auditing of Microsoft operations.
 
