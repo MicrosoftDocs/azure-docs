@@ -494,11 +494,14 @@
     topicHref: /azure/cosmos-db/
     items:
     - name: MongoDB API
-      tocHref: /azure/cosmos-db/mongodb-introduction
-      topicHref: /azure/cosmos-db/mongodb-introduction
+      tocHref: /azure/cosmos-db/mongodb
+      topicHref: /azure/cosmos-db/mongodb
     - name: Table API
       tocHref: /azure/cosmos-db/table/
       topicHref: /azure/cosmos-db/table/
+    - name: Cassandra API
+      tocHref: /azure/cosmos-db/cassandra/
+      topicHref: /azure/cosmos-db/cassandra/
   - name: Managed Instance for Apache Cassandra
     tocHref: /azure/managed-instance-apache-cassandra/
     topicHref: /azure/managed-instance-apache-cassandra/
