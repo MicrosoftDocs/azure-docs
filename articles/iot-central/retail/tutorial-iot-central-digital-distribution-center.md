@@ -19,7 +19,7 @@ Use the IoT Central *digital distribution center* application template and the g
 2. Gateway devices sending telemetry and aggregated insights to IoT Central
 3. Data is routed to the desired Azure service for manipulation
 4. Azure services like ASA or Azure Functions can be used to reformat data streams and send to the desired storage accounts
-5. Processed data is stored in hot storage for near real-time actions or cold storage for additional insight enhancements that is based on ML or batch analysis. 
+5. Processed data is stored in hot storage for near real-time actions or cold storage for more insight enhancements that is based on ML or batch analysis. 
 6. Logic Apps can be used to power various business workflows in end-user business applications
 
 ### Video cameras 
@@ -54,7 +54,7 @@ In this tutorial, you learn how to,
 
 Create the application using following steps:
 
-1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Retial** tab:
+1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Retail** tab:
 
    :::image type="content" source="media/tutorial-iot-central-ddc/iotc-retail-homepage.png" alt-text="Screenshot showing how to create an app.":::
 
@@ -112,7 +112,7 @@ Select the rules tab to see two different rules that exist in this application t
 ### Jobs
 
 Select the jobs tab to see five different jobs that exist as part of this application template:
-You can leverage jobs feature to perform solution-wide operations. Here digital distribution center jobs are using the device commands & twin capability to perform tasks such as,
+You can use jobs feature to perform solution-wide operations. Here digital distribution center jobs are using the device commands & twin capability to perform tasks such as,
 
 * calibrating camera before initiating the package detection 
    * calibrating camera before initiating the package detection 

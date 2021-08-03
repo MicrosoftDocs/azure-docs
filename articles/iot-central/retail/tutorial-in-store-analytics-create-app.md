@@ -58,11 +58,8 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-To complete this tutorial series, you need:
-
-- An Azure subscription is recommended. You can optionally use a free 7-day trial. If you don't have an Azure subscription, you can create one on the [Azure sign-up page](https://aka.ms/createazuresubscription).
-- Access to a gateway device and two environmental sensors (you can optionally use simulated devices as described in the tutorial)
-- Device templates for the devices you use (templates are provided for all devices used in the tutorial)
+- There are no specific prerequisites required to deploy this app.
+- You can use the free pricing plan or use an Azure subscription.
 
 ## Create in-store analytics application
 
@@ -199,7 +196,7 @@ Specify the following values to create a custom property to store the location o
 
 1. Enter the value *Location* for the **Display Name**. This value is automatically copied to the **Name** field, which is a friendly name for the property. You can use the copied value or change it.
 
-1. Select *String* in the **Schema** dropdown. A string type enables you to associate a location name string with any device based on the template. For instance, you could associate an area in a store with each device. Optionally, you can set the **Semantic Type** of your property to *Location*, and this automatically sets the **Schema** to *Geopoint*. It enables you to associate GPS coordinates with a device. 
+1. Select *String* in the **Schema** dropdown. A string type enables you to associate a location name string with any device based on the template. For instance, you could associate an area in a store with each device. Optionally, you can set the **Semantic Type** of your property to *Location*, and it automatically sets the **Schema** to *Geopoint*. It enables you to associate GPS coordinates with a device. 
 
 1. Set **Minimum Length** to *2*. 
 
