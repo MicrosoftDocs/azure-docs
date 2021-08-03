@@ -56,6 +56,20 @@ For more information, review the Azure virtual machines documentation:
 
 # [PowerShell](#tab/azure-powershell)
 
+```powershell
+
+New-AzVm `
+    -ResourceGroupName "My VM" `
+    -Name "My resource group" `
+    -Location "East US" `
+    -VirtualNetworkName "myVnet" `
+    -SubnetName "mySubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -SystemAssignedIdentity
+    -OpenPorts 80,3389
+```
+
+
 [Create a Linux virtual machine with a system assigned managed identity](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell)
 [Create a Windows virtual machine with a system assigned managed identity](https://docs.microsoft.com/zure/virtual-machines/windows/quick-create-powershell)
 
