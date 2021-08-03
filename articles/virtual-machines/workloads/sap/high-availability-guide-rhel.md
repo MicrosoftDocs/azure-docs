@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/22/2021
+ms.date: 08/03/2021
 ms.author: radeltch
 
 ---
@@ -360,6 +360,13 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 ### Installing SAP NetWeaver ASCS/ERS
 
+1. **[1]** Configure cluster default properties
+
+   ```
+   pcs resource defaults resource-stickiness=1
+   pcs resource defaults migration-threshold=3
+   ```
+
 1. **[1]** Create a virtual IP resource and health-probe for the ASCS instance
 
    <pre><code>sudo pcs node standby <b>nw1-cl-1</b>
@@ -532,6 +539,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-<b>NW1</b>_ASCS
    
+   sudo pcs resource meta g-<b>NW1</b>_ASCS resource-stickiness=3000
+
    sudo pcs resource create rsc_sap_<b>NW1</b>_ERS<b>02</b> SAPInstance \
     InstanceName=<b>NW1</b>_ERS02_<b>nw1-aers</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS02_<b>nw1-aers</b>" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
@@ -554,19 +563,23 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo pcs resource create rsc_sap_<b>NW1</b>_ASCS00 SAPInstance \
     InstanceName=<b>NW1</b>_ASCS00_<b>nw1-ascs</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ASCS00_<b>nw1-ascs</b>" \
     AUTOMATIC_RECOVER=false \
-    meta resource-stickiness=5000 migration-threshold=1 \
+    meta resource-stickiness=5000 \
     op monitor interval=20 on-fail=restart timeout=60 \
     op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-<b>NW1</b>_ASCS
+
+   sudo pcs resource meta g-<b>NW1</b>_ASCS resource-stickiness=3000
    
    sudo pcs resource create rsc_sap_<b>NW1</b>_ERS<b>02</b> SAPInstance \
     InstanceName=<b>NW1</b>_ERS02_<b>nw1-aers</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS02_<b>nw1-aers</b>" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
     op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
     --group g-<b>NW1</b>_AERS
+
+   sudo pcs resource meta rsc_sap_<b>NW1</b>_<b>ERS02</b> resource-stickiness=3000
       
    sudo pcs constraint colocation add g-<b>NW1</b>_AERS with g-<b>NW1</b>_ASCS -5000
-   sudo pcs constraint order g-<b>NW1</b>_ASCS then g-<b>NW1</b>_AERS kind=Optional symmetrical=false
+   sudo pcs constraint order start g-<b>NW1</b>_ASCS then start g-<b>NW1</b>_AERS kind=Optional symmetrical=false
    sudo pcs constraint order start g-<b>NW1</b>_ASCS then stop g-<b>NW1</b>_AERS kind=Optional symmetrical=false
    
    sudo pcs node unstandby <b>nw1-cl-0</b>
