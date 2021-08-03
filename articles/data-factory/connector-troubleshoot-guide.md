@@ -360,7 +360,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Cause**: No physical partitions are created for the table. Check your database.
 
-- **Recommendation**: Reference [Create Partitioned Tables and Indexes](https://docs.microsoft.com/sql/relational-databases/partitions/create-partitioned-tables-and-indexes?view=sql-server-ver15) to solve this issue.
+- **Recommendation**: Reference [Create Partitioned Tables and Indexes](/sql/relational-databases/partitions/create-partitioned-tables-and-indexes?view=sql-server-ver15) to solve this issue.
 
 ### Error code: SqlParallelFailedToGetPartitionRangeSynapse
 
@@ -368,7 +368,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Cause**: No physical partitions are created for the table. Check your database.
 
-- **Recommendation**: Reference [Partitioning tables in dedicated SQL pool](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) to solve this issue.
+- **Recommendation**: Reference [Partitioning tables in dedicated SQL pool](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-partition.md) to solve this issue.
 
 ### Error message: Conversion failed when converting from a character string to uniqueidentifier
 
