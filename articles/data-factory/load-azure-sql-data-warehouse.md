@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/05/2021
+ms.date: 07/28/2021
 ---
 
 # Load data into Azure Synapse Analytics by using Azure Data Factory
@@ -59,7 +59,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
 1. In the home page of Azure Data Factory, select the **Ingest** tile to launch the Copy Data tool.
 
-2. In the **Properties** page, specify **CopyFromSQLToSQLDW** for the **Task name** field, and select **Next**.
+2. In the **Properties** page,  choose **Built-in copy task** under **Task type**, then select **Next**.
 
     ![Properties page](./media/load-azure-sql-data-warehouse/copy-data-tool-properties-page.png)
 
@@ -68,74 +68,78 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
     >In this tutorial, you use *SQL authentication* as the authentication type for your source data store, but you can choose other supported authentication methods:*Service Principal* and *Managed Identity* if needed. Refer to corresponding sections in [this article](./connector-azure-sql-database.md#linked-service-properties) for details.
     >To store secrets for data stores securely, it's also recommended to use an Azure Key Vault. Refer to [this article](./store-credentials-in-key-vault.md) for detailed illustrations.
 
-    a. click **+ Create new connection**.
+    1. Select **+ New connection**.
 
-    b. Select **Azure SQL Database** from the gallery, and select **Continue**. You can type "SQL" in the search box to filter the connectors.
+    1. Select **Azure SQL Database** from the gallery, and select **Continue**. You can type "SQL" in the search box to filter the connectors.
 
-    ![Select Azure SQL DB](./media/load-azure-sql-data-warehouse/select-azure-sql-db-source.png)
+        ![Select Azure SQL DB](./media/load-azure-sql-data-warehouse/select-azure-sql-db-source.png)
+    
+    1. In the **New connection (Azure SQL Database)** page, select your server name and DB name from the dropdown list, and specify the username and password. Select **Test connection** to validate the settings, then select **Create**.
 
-    c. In the **New Linked Service** page, select your server name and DB name from the dropdown list, and specify the username and password. Click **Test connection** to validate the settings, then select **Create**.
+        ![Configure Azure SQL DB](./media/load-azure-sql-data-warehouse/configure-azure-sql-db.png)
+    
+    1. In the **Source data store** page, select the newly created connection as source in the **Connection** section.
 
-    ![Configure Azure SQL DB](./media/load-azure-sql-data-warehouse/configure-azure-sql-db.png)
+    1. In the **Source tables** section, enter **SalesLT** to filter the tables. Choose the **(Select all)** box to use all of the tables for the copy, and then select **Next**.
 
-    d. Select the newly created linked service as source, then click **Next**.
+    ![Screenshot showing the configuration of 'Source data store' page.](./media/load-azure-sql-data-warehouse/source-data-store-page.png)
 
-4. In the **Select tables from which to copy the data or use a custom query** page, enter **SalesLT** to filter the tables. Choose the **(Select all)** box to use all of the tables for the copy, and then select **Next**.
+4. In the **Apply filter** page, specify your settings or select **Next**. You can preview data and view the schema of the input data by selecting **Preview data** button on this page. 
 
-    ![Select source tables](./media/load-azure-sql-data-warehouse/select-source-tables.png)
+    :::image type="content" source="./media/load-azure-sql-data-warehouse/apply-filter.png" alt-text=" Screenshot showing the 'Apply filter' page.":::
 
-5. In the **Apply filter** page, specify your settings or select **Next**.
-
-6. In the **Destination data store** page, complete the following steps:
+5. In the **Destination data store** page, complete the following steps:
     >[!TIP]
     >In this tutorial, you use *SQL authentication* as the authentication type for your destination data store, but you can choose other supported authentication methods:*Service Principal* and *Managed Identity* if needed. Refer to corresponding sections in [this article](./connector-azure-sql-data-warehouse.md#linked-service-properties) for details.
     >To store secrets for data stores securely, it's also recommended to use an Azure Key Vault. Refer to [this article](./store-credentials-in-key-vault.md) for detailed illustrations.
 
-    a. Click **+ Create new connection** to add a connection
+    1. Select **+ New connection** to add a connection.
 
-    b. Select **Azure Synapse Analytics** from the gallery, and select **Continue**.
+    1. Select **Azure Synapse Analytics** from the gallery, and select **Continue**.
 
-    ![Select Azure Synapse Analytics](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
+        ![Select Azure Synapse Analytics](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
 
-    c. In the **New Linked Service** page, select your server name and DB name from the dropdown list, and specify the username and password. Click **Test connection** to validate the settings, then select **Create**.
+    1. In the **New connection (Azure Synapse Analytics)** page, select your server name and DB name from the dropdown list, and specify the username and password. Select **Test connection** to validate the settings, then select **Create**.
 
-    ![Configure Azure Synapse Analytics](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
+        ![Configure Azure Synapse Analytics](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
 
-    d. Select the newly created linked service as sink, then click **Next**.
+    1. In the **Destination data store** page, select the newly created connection as sink in the **Connection** section.
 
-7. In the **Table mapping** page, review the content, and select **Next**. An intelligent table mapping displays. The source tables are mapped to the destination tables based on the table names. If a source table doesn't exist in the destination, Azure Data Factory creates a destination table with the same name by default. You can also map a source table to an existing destination table.
+    1. In the section of table mapping, review the content, and select **Next**. An intelligent table mapping displays. The source tables are mapped to the destination tables based on the table names. If a source table doesn't exist in the destination, Azure Data Factory creates a destination table with the same name by default. You can also map a source table to an existing destination table.
 
-   ![Table mapping page](./media/load-azure-sql-data-warehouse/table-mapping.png)
+   ![Screenshot showing the configuration of 'Destination data store' page.](./media/load-azure-sql-data-warehouse/destination-data-store-page.png)
 
-8. In the **Column mapping** page, review the content, and select **Next**. The intelligent table mapping is based on the column name. If you let Data Factory automatically create the tables, data type conversion can occur when there are incompatibilities between the source and destination stores. If there's an unsupported data type conversion between the source and destination column, you see an error message next to the corresponding table.
+6. In the **Column mapping** page, review the content, and select **Next**. The intelligent table mapping is based on the column name. If you let Data Factory automatically create the tables, data type conversion can occur when there are incompatibilities between the source and destination stores. If there's an unsupported data type conversion between the source and destination column, you see an error message next to the corresponding table.
 
     ![Column mapping page](./media/load-azure-sql-data-warehouse/schema-mapping.png)
 
-9. In the **Settings** page, complete the following steps:
+7. In the **Settings** page, complete the following steps:
 
-    a. In **Staging settings** section, click **+ New** to new a staging storage. The storage is used for staging the data before it loads into Azure Synapse Analytics by using PolyBase. After the copy is complete, the interim data in Azure Blob Storage is automatically cleaned up.
+    1. Specify **CopyFromSQLToSQLDW** for the **Task name** field.
+    1. In **Staging settings** section, select **+ New** to new a staging storage. The storage is used for staging the data before it loads into Azure Synapse Analytics by using PolyBase. After the copy is complete, the interim data in Azure Blob Storage is automatically cleaned up.
 
-    b. In the **New Linked Service** page, select your storage account, and select **Create** to deploy the linked service.
+    1. In the **New linked service** page, select your storage account, and select **Create** to deploy the linked service.
 
-    c. Deselect the **Use type default** option, and then select **Next**.
+    1. Deselect the **Use type default** option, and then select **Next**.
 
     ![Configure PolyBase](./media/load-azure-sql-data-warehouse/configure-polybase.png)
 
-10. In the **Summary** page, review the settings, and select **Next**.
+8. In the **Summary** page, review the settings, and select **Next**.
 
-    ![Summary page](./media/load-azure-sql-data-warehouse/summary-page.png)
+9. On the **Deployment page**, select **Monitor** to monitor the pipeline (task). 
 
-11. On the **Deployment page**, select **Monitor** to monitor the pipeline (task). 
+    :::image type="content" source="./media/load-azure-sql-data-warehouse/deployment-complete-page.png" alt-text=" Screenshot showing the deployment page.":::
  
-12. Notice that the **Monitor** tab on the left is automatically selected. When the pipeline run completes successfully, select the **CopyFromSQLToSQLDW** link under the **PIPELINE NAME** column to view activity run details or to rerun the pipeline.
+10. Notice that the **Monitor** tab on the left is automatically selected. When the pipeline run completes successfully, select the **CopyFromSQLToSQLDW** link under the **Pipeline name** column to view activity run details or to rerun the pipeline.
 
     [![Monitor pipeline runs](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png)](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png#lightbox)
 
-13. To switch back to the pipeline runs view, select the **All pipeline runs** link at the top. Select **Refresh** to refresh the list.
+11. To switch back to the pipeline runs view, select the **All pipeline runs** link at the top. Select **Refresh** to refresh the list.
 
     ![Monitor activity runs](./media/load-azure-sql-data-warehouse/activity-monitoring.png)
 
-14. To monitor the execution details for each copy activity, select the **Details** link (eyeglasses icon) under **ACTIVITY NAME** in the activity runs view. You can monitor details like the volume of data copied from the source to the sink, data throughput, execution steps with corresponding duration, and used configurations.
+12. To monitor the execution details for each copy activity, select the **Details** link (eyeglasses icon) under **Activity name** in the activity runs view. You can monitor details like the volume of data copied from the source to the sink, data throughput, execution steps with corresponding duration, and used configurations.
+
     ![Monitor activity run details first](./media/load-azure-sql-data-warehouse/monitor-activity-run-details-1.png)
 
     ![Monitor activity run details second](./media/load-azure-sql-data-warehouse/monitor-activity-run-details-2.png)
