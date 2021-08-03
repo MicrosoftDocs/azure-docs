@@ -1195,6 +1195,7 @@
       "redirect_url": "/azure/iot-central/government/concepts-connectedwastemanagement-architecture#business-applications",
       "redirect_document_id": false
     },
+    {
       "source_path_from_root": "/articles/iot-central/healthcare/concept-continuous-patient-monitoring-architecture.md",
       "redirect_url": "/azure/iot-central/healthcare/tutorial-continuous-patient-monitoring",
       "redirect_document_id": false
