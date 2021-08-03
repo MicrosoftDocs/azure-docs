@@ -32,7 +32,7 @@
       href: ./concepts/usage-tracking.md
     - name: Monitoring
       href: ./concepts/monitoring.md
-    - name: Security
+  - name: Security
     items:
     - name: Security Best Practices
       href: ./concepts/security-best-practices.md
@@ -219,9 +219,9 @@
     href: https://feedback.azure.com/forums/914491--azure-cyclecloud
   - name: Release Notes
     items:
-    - name: Current Release - v8.2
+    - name: Current Release - v8.x
       href: release-notes.md
-    - name: Previous Release - v7.9
+    - name: Previous Release - v7.x
       href: release-notes-previous.md
     - name: Older Releases
       href: release-notes-archive.md

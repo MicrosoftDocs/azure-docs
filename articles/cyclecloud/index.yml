@@ -41,14 +41,16 @@ landingContent:
     linkLists:            
       - linkListType: whats-new
         links:
-          - text: CycleCloud 8.2.0 is now generally available
+          - text: CycleCloud 8.2.0 is now available
             url: release-notes.md
           - text: CycleCloud 7.9.10 is now available
             url: release-notes-previous.md
-          - text: Cloud-init is now supported
-            url: how-to/cloud-init.md
-          - text: Event Grid integration is now supported
-            url: events.md
+          - text: PBS is now supported by azpbs agent
+            url: openpbs.md
+          - text: HPCPack is now a supported scheduler
+            url: hpcpack.md
+          - text: Improved cost tracking capabilities
+            url: concepts/usage-tracking.md
 
   # Card
   - title: CycleCloud Concepts
