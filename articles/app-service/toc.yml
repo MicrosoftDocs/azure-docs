@@ -133,8 +133,10 @@
     items:
     - name: Overview
       href: networking-features.md
-    - name: Application Gateway with service endpoints
+    - name: Application Gateway integration
       href: networking/app-gateway-with-service-endpoints.md
+    - name: NAT gateway integration
+      href: networking/nat-gateway-integration.md
     - name: Private Endpoint
       href: networking/private-endpoint.md
   - name: Inbound and outbound IPs

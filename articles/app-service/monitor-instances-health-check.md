@@ -99,6 +99,7 @@ In the scenario where all instances of your application are unhealthy, App Servi
 ## Next steps
 - [Create an Activity Log Alert to monitor all Autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-alert)
 - [Create an Activity Log Alert to monitor all failed Autoscale scale-in/scale-out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-failed-alert)
+- [Environment variables and app settings reference](reference-app-settings.md)
 
 [1]: ./media/app-service-monitor-instances-health-check/health-check-diagram.png
 [2]: ./media/app-service-monitor-instances-health-check/health-check-multi-app-diagram.png
