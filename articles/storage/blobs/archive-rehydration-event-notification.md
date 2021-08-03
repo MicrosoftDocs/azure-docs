@@ -9,7 +9,9 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 08/02/2021
 ms.author: tamram
+ms.topic: how-to
 ms.reviewer: fryu
+ms.custom: devx-track-azurepowershell
 ms.subservice: blobs
 ---
 
@@ -37,7 +39,7 @@ The following table describes the events that are raised when you change the tie
 | When operation initiates | Microsoft.Storage.AsyncOperationInitiated | Microsoft.Storage.AsyncOperationInitiated |
 | When operation completes | Microsoft.Storage.BlobTierChanged | Microsoft.Storage.BlobCreated |
 
-a blob is rehydrated
+For more information about which Azure Storage operations trigger which Event Grid events, see [Azure Blob Storage as Event Grid source](../../event-grid/event-schema-blob-storage.md).
 
 ## Create a function app
 
@@ -170,116 +172,119 @@ To create the event subscription, follow these steps:
 
 To learn more about event subscriptions, see [Azure Event Grid concepts](../../event-grid/concepts.md#event-subscriptions).
 
-## Test the event handler
+## Test the Azure Function event handler
 
+To test the Azure Function, you can trigger an event in the storage account that contains the event subscription. The event subscription is filtering on two events, **Microsoft.Storage.BlobCreated** and **Microsoft.Storage.BlobTierChanged**. Although the goal of this how-to is to handle these events in the context of blob rehydration, for testing purposes it's helpful to observe these events in response to uploading a blob or changing its tier, because the event fires immediately.
 
+This section describes different options for testing the Azure Function by triggering an event. To perform the tests, set up your environment as follows:
 
+1. Open one browser window to a container in the storage account where you created the event subscription.
+1. Open a second browser window to the **Code + Test** page for your Azure Function.
+1. Expand the **Logs** window on the **Code + Test** page, and make sure that the logging service is started. You may need to stop and restart the logging service.
 
-TBD
+### Upload a blob
 
-recommend reading through this article
+When you upload a blob to a container, the **Microsoft.Storage.BlobCreated** event fires immediately. In the **Logs** window, you'll see log output similar to the following example. Note that the operation that triggered the event was a **Put Blob** operation.
 
+```
+2021-08-03T03:51:53.583 [Information] Executing 'Functions.RehydrationEventHandler' (Reason='EventGrid trigger fired at 2021-08-03T03:51:53.4500718+00:00', Id=c8a2a680-dc83-451d-abae-9dd0e09dc97d)
+2021-08-03T03:51:53.930 [Information] PutBlob operation occurred. Blob URL: https://blobrehydrationsamples.blob.core.windows.net/sample-container/blob4.txt
+2021-08-03T03:51:53.931 [Information] Event details:Id=[17237253-801e-0001-7b1a-88b90c060fe9]EventType=[Microsoft.Storage.BlobCreated]EventTime=[8/3/2021 3:51:51 AM]Subject=[/blobServices/default/containers/sample-container/blobs/blob4.txt]Topic=[/subscriptions/32580eb9-bf6f-47b2-9f91-6f52f4c03736/resourceGroups/rehydration-samples/providers/Microsoft.Storage/storageAccounts/blobrehydrationsamples]
+2021-08-03T03:51:53.985 [Information] Executed 'Functions.RehydrationEventHandler' (Succeeded, Id=c8a2a680-dc83-451d-abae-9dd0e09dc97d, Duration=545ms)
+```
 
-## Configure an event handler
+### Change the blob's tier
 
-Azure Event Grid directs an event that is raised by a source such as Blob Storage to an event handler. Your application can integrate with the event handler to process and respond to the event. To handle the event raised on blob rehydration, you must first decide which event handler you want to use. Some Azure services that can serve as event handlers include:
+When you change the tier of a blob that is in the hot or cool tier to a different tier (hot, cool, or archive), the **Microsoft.Storage.BlobTierChanged** event fires immediately. In the **Logs** window, you'll see log output similar to the following example. Note that the operation that triggered the event was a **Set Blob Tier** operation.
 
-- [Web hooks](../../event-grid/handler-webhooks.md#webhooks)
-- [Azure Functions](../../event-grid/handler-functions.md)
-- [Event Hubs](../../event-grid/handler-event-hubs.md)
-- [Service Bus](../../event-grid/handler-service-bus.md)
-- [Relay hybrid connections](../../event-grid/handler-relay-hybrid-connections.md)
-- [Queue Storage](../../event-grid/handler-storage-queues.md)
-- [Azure Automation](../../event-grid/handler-webhooks.md#azure-automation)
-- [Logic Apps](../../event-grid/handler-webhooks.md#logic-apps)
+```
+2021-08-03T04:08:28.588 [Information] Executing 'Functions.RehydrationEventHandler' (Reason='EventGrid trigger fired at 2021-08-03T04:08:28.5367632+00:00', Id=b72776f2-57cd-4160-9eab-0565285e8d9f)
+2021-08-03T04:08:28.591 [Information] SetBlobTier operation occurred on blob https://blobrehydrationsamples.blob.core.windows.net/sample-container/blob4.txt.
+2021-08-03T04:08:28.595 [Information] Event details:Id=[a8182d48-a01e-004b-6a1d-881a83068c6e]EventType=[Microsoft.Storage.BlobTierChanged]EventTime=[8/3/2021 4:08:26 AM]Subject=[/blobServices/default/containers/sample-container/blobs/blob4.txt]Topic=[/subscriptions/32580eb9-bf6f-47b2-9f91-6f52f4c03736/resourceGroups/rehydration-samples/providers/Microsoft.Storage/storageAccounts/blobrehydrationsamples]
+2021-08-03T04:08:28.595 [Information] Executed 'Functions.RehydrationEventHandler' (Succeeded, Id=b72776f2-57cd-4160-9eab-0565285e8d9f, Duration=59ms)
+```
 
-To learn about supported event handlers in Azure, see **Event handlers** in [What is Azure Event Grid?](../../event-grid/overview.md#event-handlers)
+### Rehydrate a blob
 
-The Azure Event Grid documentation provides how-to guidance for setting up some event handlers for Blob Storage events. Use the following links to learn how to configure event handling in the Azure portal, PowerShell, Azure CLI, or with an Azure Resource Manager template. Keep in mind that these links represent only a subset of the possible configuration options.
+Rehydrating a blob can take up to 15 hours, depending on the rehydration priority setting. If you set the rehydration priority to **High**, rehydration may complete in under one hour for blobs that are less than 10 GB in size. However, a high-priority rehydration incurs a greater cost. For more information, see [Rehydrate blob data from the archive tier](storage-blob-rehydration.md#rehydrate-an-archived-blob-to-an-online-tier).
 
-# [Azure portal](#tab/portal)
+If you decide to rehydrate a blob with high priority for testing purposes, make sure that you choose a small blob. ???Can we recommend high pri rehydrate for testing purposes???
 
-- [Web hook](../../event-grid/handler-webhooks.md#webhooks): A web endpoint can serve as an event handler. To learn about using a web endpoint to handle Blob storage events, see [Use Azure Event Grid to route Blob storage events to web endpoint (Azure portal)](../../event-grid/blob-event-quickstart-portal.md).
-- [Azure Functions](../../event-grid/handler-functions.md): Azure Functions are automatically configured to handle events. To learn about using the Azure portal to configure an Azure Function to handle an event, see [Send custom events to Azure Function](../../event-grid/custom-event-to-function.md).
+#### Rehydrate a blob with Set Blob Tier
 
-# [PowerShell](#tab/powershell)
+To rehydrate a blob by changing its tier from archive to hot or cool with a **Set Blob Tier** operation, follow these steps:
 
-- [Web hook](../../event-grid/handler-webhooks.md#webhooks): A web endpoint can serve as an event handler. To learn about using a web endpoint to handle Blob storage events, see [Quickstart: Route storage events to web endpoint with PowerShell](../../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=/azure/event-grid/toc.json)
+1. Locate the blob to rehydrate in the Azure portal.
+1. Select the More button on the right side of the page.
+1. Select **Change tier**.
+1. Select the target access tier from the **Access tier** dropdown.
+1. From the **Rehydrate priority** dropdown, select the desired rehydration priority. Keep in mind that setting the rehydration priority to *High* results in a faster rehydration, but incurs a greater cost.
 
-# [Azure CLI](#tab/azure-cli)
+    :::image type="content" source="media/archive-rehydration-event-notification/rehydrate-change-tier-portal.png" alt-text="Screenshot showing how to rehydrate a blob from the archive tier in the Azure portal ":::
 
-- [Web hook](../../event-grid/handler-webhooks.md#webhooks): A web endpoint can serve as an event handler. To learn about using a web endpoint to handle Blob storage events, see [Quickstart: Route storage events to web endpoint with Azure CLI](../../storage/blobs/storage-blob-event-quickstart.md?toc=/azure/event-grid/toc.json)
-- [Azure Queue Storage](../../event-grid/handler-storage-queues.md): Azure Storage queues are automatically configured to handle events. To learn about using Queue Storage with Azure CLI to handle an event, see [Quickstart: Route custom events to Azure Queue storage with Azure CLI and Event Grid](../../event-grid/custom-event-to-queue-storage.md).
-- [Azure Event Hubs](../../event-grid/handler-event-hubs.md): Azure Event Hubs are  are automatically configured to handle events. To learn about using Event Hubs with Azure CLI to handle an event, see [Quickstart: Route custom events to Azure Event Hubs with Azure CLI and Event Grid](../../event-grid/custom-event-to-eventhub.md)
+1. Select the **Save** button.
 
-# [Template](#tab/template)
+While the blob is rehydrating, you can check its status in the Azure portal by displaying the **Change tier** dialog again:
 
-- [Web hook](../../event-grid/handler-webhooks.md#webhooks): A web endpoint can serve as an event handler. To learn about using a web endpoint to handle Blob storage events, see [Quickstart: Route Blob storage events to web endpoint by using an ARM template](../../event-grid/blob-event-quickstart-template.md?toc=/azure/event-grid/toc.json)
+:::image type="content" source="media/archive-rehydration-event-notification/rehydration-status-portal.png" alt-text="Screenshot showing the rehydration status for a blob in the Azure portal":::
 
----
+When the rehydration is complete, the **Microsoft.Storage.BlobTierChanged** event fires. The Azure Function log displays output similar to the following example:
 
-## Specify which events are published to the event handler
+```
 
-After you configure an event handler, you need create an event subscription from your Azure Storage account. The event subscription indicates which types of events will be published to the event handler.
+```
 
-Blob Storage raises two events that you can handle in order to be notified that a blob has finished rehydrating. Which event you decide to handle depends on your application logic:
+### Rehydrate a blob with Copy Blob
 
-- **Microsoft.Storage.BlobTierChanged**: This event is raised when a [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation completes. In the context of blob rehydration, the **Microsoft.Storage.BlobTierChanged** event indicates that the blob has been rehydrated to an online tier.
-- **Microsoft.Storage.BlobCreated**: This event is raised when a blob is created. In the context of blob rehydration, the **Microsoft.Storage.BlobCreated** event indicates that a [Copy Blob](/rest/api/storageservices/copy-blob) or [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url) operation has copied a blob from the archive tier to an online tier.
-
-The following examples show how to configure an event subscription with Azure Event Grid to handle these events. The event handler for these examples is a web hook:
-
-# [Azure portal](#tab/portal)
-
-To create an event subscription in the Azure portal, follow these steps:
-
-1. Make sure that you have set up an event handler, as described in [Configure an event handler](#configure-an-event-handler).
-1. Navigate to your storage account and select **Events**.
-1. On the **Events** page, select the **More Options** tab, then select **Web Hook**.
-1. Provide a name for the event subscription.
-1. In the **Event Schema** dropdown, select **Event Grid Schema**.
-1. Provide a name for the system topic. For more information about Event Grid topics, see [System topics in Azure Event Grid](../../event-grid/system-topics.md).
-1. Select the types of events to handle. To be notified when Azure Storage has rehydrated a blob, choose either **Blob Tier Changed** or **Blob Created**, depending on how you will be rehydrating the blob.
-1. Select the type of endpoint that is serving as the event handler, then select the endpoint.
+To rehydrate a blob by changing its tier from archive to hot or cool with a **Copy Blob** operation, use PowerShell, Azure CLI, or one of the Azure Storage client libraries to copy the archived blob to a new destination blob in an online tier. The following examples show how to copy an archived blob with PowerShell or Azure CLI:
 
 # [PowerShell](#tab/powershell)
 
-To create an event subscription with PowerShell, call the [New-AzEventGridSubscription](/powershell/module/az.eventgrid/new-azeventgridsubscription) command. Provide a name for the event subscription, the Azure Resource Manager resource ID for the storage account, and the web hook endpoint. Remember to replace the placeholder values in brackets with your own values:
+To copy an archived blob to an online tier with PowerShell, call the [Start-AzStorageBlobCopy](/powershell/module/az.storage/start-azstorageblobcopy) command and specify the target tier and the rehydration priority. Remember to replace placeholders in angle brackets with your own values:
 
-```azurepowershell
-$storageId = (Get-AzStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id
-$endpoint="https://<site-name>.azurewebsites.net/api/updates"
+```powershell
+# Initialize these variables with your values.
+$rgName = "<resource-group>"
+$accountName = "<storage-account>"
+$srcContainerName = "<source-container>"
+$destContainerName = "<dest-container>"
+$srcBlobName = "<source-blob>"
+$destBlobName = "<dest-blob>"
 
-New-AzEventGridSubscription -EventSubscriptionName <event-subscription> `
-  -Endpoint $endpoint `
-  -ResourceId $storageId
+# Get the storage account context
+$ctx = (Get-AzStorageAccount `
+        -ResourceGroupName $rgName `
+        -Name $accountName).Context
+
+# Copy the source blob to a new destination blob in hot tier with standard priority.
+Start-AzStorageBlobCopy -SrcContainer $srcContainerName `
+    -SrcBlob $srcBlobName `
+    -DestContainer $destContainerName `
+    -DestBlob $destBlobName `
+    -StandardBlobTier Hot `
+    -RehydratePriority Standard `
+    -Context $ctx
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
-To create an event subscription with Azure CLI, call the [az eventgrid event-subscription create](/cli/azure/storage/account#az_storage_account_create) command. Provide a name for the event subscription, the Azure Resource Manager resource ID for the storage account, and the web hook endpoint. Remember to replace the placeholder values in brackets with your own values:
+To copy an archived blob to an online tier with Azure CLI, call the [az storage blob copy start](/cli/azure/storage/blob/copy#az_storage_blob_copy_start) command and specify the target tier and the rehydration priority. Remember to replace placeholders in angle brackets with your own values:
 
 ```azurecli
-$storageid = $(az storage account show /
-    --name <storage-account> /
-    --resource-group <resource-group> /
-    --query id /
-    --output tsv)
-
-az eventgrid event-subscription create /
-    --source-resource-id $storageid /
-    --name <event-subscription> /
-    --endpoint https://<site-name>.azurewebsites.net/api/updates
+az storage blob copy start /
+    --source-container <source-container> /
+    --source-blob <source-blob> /
+    --destination-container <dest-container> /
+    --destination-blob <dest-blob> /
+    --account-name <storage-account> /
+    --tier hot /
+    --rehydrate-priority standard /
+    --auth-mode login
 ```
 
-# [Template](#tab/template)
-
-For a sample template that configures an event subscription with a web hook, see **Review the template** in [Send Blob storage events to web endpoint](../../event-grid/blob-event-quickstart-template.md#review-the-template).
-
 ---
-
-Several other types of events are available for Blob Storage. For more information about available events, see [Azure Blob Storage as Event Grid source](../../event-grid/event-schema-blob-storage.md).
 
 ## See also
 
-TBD
+- [Access tiers for Azure Blob Storage - hot, cool, and archive](storage-blob-storage-tiers.md)
+- [Rehydrate blob data from the archive tier](storage-blob-rehydration.md)
