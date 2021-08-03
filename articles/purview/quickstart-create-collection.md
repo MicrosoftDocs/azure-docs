@@ -1,11 +1,11 @@
 ---
-title: Quickstart: Create a Collection in Azure Purview
+title: Create a Collection in Azure Purview
 description: This article describes how to create a collection and add permissions and sources in Azure Purview
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.topic: quickstart
-ms.date: 09/27/2021
+ms.date: 08/27/2021
 ms.custom: template-quickstart 
 ---
 
@@ -27,7 +27,7 @@ Required. Starts with "Quickstart: " Make the first word following "Quickstart:"
 verb. Identify both the technology/service and the language or framework, if applicable.
 -->
 
-# Quickstart: <do something with X>
+# Quickstart: Create a collection in Azure Purview
 
 <!-- 2. Introductory paragraph 
 Required. Lead with a light intro that describes what the article covers. Answer the 
