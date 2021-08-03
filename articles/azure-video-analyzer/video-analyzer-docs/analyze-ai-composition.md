@@ -35,8 +35,11 @@ After completing the steps in this guide, you'll be able to run a simulated live
 
 ## Review the video sample
 
-When you set up the Azure resources, a short video of people walking in hallway is copied to the Linux VM in Azure that you're using as the IoT Edge device. This guide uses the video file to simulate a live stream.
-Open an application such as [VLC media player](https://www.videolan.org/vlc/). Select Ctrl+N and then paste a link to [sample video (.mkv)](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv) to start playback. You see the footage of people in hallway.
+Since you have already completed the quickstart specified in the prerequisite section, you will have an edge device already created. This edge device will have the following input folder - /home/localedgeuser/samples/input- that includes certain video files. Log into the IoT Edge device, change to the directory to: /home/localedgeuser/samples/input/ and run the following command to get the input file we will be using for this how to guide.
+
+wget https://lvamedia.blob.core.windows.net/public/co-final.mkv
+
+Additonally if you like, on your machine that has [VLC media player](https://www.videolan.org/vlc/), select Ctrl+N and then paste a link to [sample video (.mkv)](https://lvamedia.blob.core.windows.net/public/co-final.mkv) to start playback. You see the footage of cars on freeway.
 
 ## Create and deploy the pipeline
 
@@ -48,9 +51,11 @@ Edit the *operations.json* file:
 
 * Change the link to the graph topology:
    `"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/ai-composition/topology.json"`
-* Under `GraphInstanceSet`, edit the name of the graph topology to match the value in the preceding link:
-   `"topologyName" : "AIComposition"`
-* Under `GraphTopologyDelete`, edit the name:
+* Under `livePipelineSet`,  
+   1. ensure : `"topologyName" : "AIComposition"` and 
+   2. Change the `rtspUrl` parameter value to `"rtsp://rtspsim:554/media/co-final.mkv"`.
+    
+* Under `pipelineTopologyDelete`, edit the name:
    `"name" : "AIComposition"`
     
 2. Follow the guidelines in [Generate and deploy the IoT Edge deployment manifest](analyze-live-video-use-your-model-grpc.md#generate-and-deploy-the-iot-edge-deployment-manifest) section but use the following deployment manifest instead - src/edge/deployment.composite.template.json
