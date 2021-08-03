@@ -414,6 +414,8 @@
     href: flexible-server/overview.md
   - name: Release notes
     href: flexible-server/release-notes.md   
+  - name: Compare Single Server and Flexible Server
+    href: flexible-server/concepts-compare-single-server-flexible-server.md   
   - name: Quickstarts
     expanded: true
     items:
