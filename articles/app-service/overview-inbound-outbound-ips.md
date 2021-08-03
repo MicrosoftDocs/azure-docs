@@ -47,7 +47,7 @@ The set of outbound IP addresses for your app changes when you perform one of th
 
 - Delete an app and recreate it in a different resource group (deployment unit may change).
 - Delete the last app in a resource group _and_ region combination and recreate it (deployment unit may change).
-- Scale your app between the lower tiers (**Basic**, **Standard**, and **Premium**) and the **Premium V2** tier (IP addresses may be added to or subtracted from the set).
+- Scale your app between the lower tiers (**Basic**, **Standard**, and **Premium**), the **PremiumV2**, and the **PremiumV3** tier (IP addresses may be added to or subtracted from the set).
 
 You can find the set of all possible outbound IP addresses your app can use, regardless of pricing tiers, by looking for the `possibleOutboundIpAddresses` property or in the **Additional Outbound IP Addresses** field in the **Properties** blade in the Azure portal. See [Find outbound IPs](#find-outbound-ips).
 
