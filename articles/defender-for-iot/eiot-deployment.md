@@ -206,7 +206,7 @@ You will need to download a package, and move it, and your activation file to th
 1. Run the following command to download the installation package to your sensor.
 
     ```bash
-    wget -O eiot.deb "<https://aka.ms/iot-security-enterprise-package-latest>"
+    wget -O eiot.deb "https://aka.ms/iot-security-enterprise-package-latest"
     ```
 
 1. Update APT using the following command:
