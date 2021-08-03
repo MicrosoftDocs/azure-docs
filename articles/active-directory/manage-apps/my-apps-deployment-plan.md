@@ -103,7 +103,7 @@ Azure AD supports multiple SSO options.
 
 For the best user experience with the My Apps page, start with the integration of cloud applications that are available for federated SSO (OpenID Connect or SAML). Federated SSO allows users to have a consistent one-click experience across app launching surfaces and tends to be more robust in configuration control.
 
-For more information on how to configure your software as a service (SaaS) applications for SSO, see the [SaaS SSO deployment plan]../Desktop/plan-sso-deployment.md).
+For more information on how to configure your software as a service (SaaS) applications for SSO, see the [SaaS SSO deployment plan](plan-sso-deployment.md).
 
 ### Considerations for special SSO circumstances
 
