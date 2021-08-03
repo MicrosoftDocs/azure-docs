@@ -44,7 +44,7 @@ The threat detection and protection capabilities provided with Azure Defender fo
 
     When you enable Azure Defender for servers, you can use FIM to validate the integrity of Windows files, your Windows registries, and Linux files. For more information, see [File integrity monitoring in Azure Security Center](security-center-file-integrity-monitoring.md).
 
-- **Adaptive application controls (AAC)** - Adaptive application controls are an intelligent and automated solution for defining allow lists of known-safe applications for your machines.
+- **Adaptive application controls (AAC)** - Adaptive application controls are an intelligent and automated solution for defining allowlists of known-safe applications for your machines.
 
     When you've enabled and configured adaptive application controls, you'll get security alerts if any application runs other than the ones you've defined as safe. For more information, see [Use adaptive application controls to reduce your machines' attack surfaces](security-center-adaptive-application.md).
 
