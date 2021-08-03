@@ -41,7 +41,7 @@ If any of your applications use the Azure Active Directory Authentication Librar
 | AAD B2C accounts | ✔️ | ❌ |
 | Best single sign-on experience | ✔️ | ❌ |
 | **Resilience** | - | - |
-| Azure AD Back-up System | ✔️ | Partial|
+| Azure AD Back-up System | ✔️ | Partially supported|
 | Proactive token renewal | ✔️ | ❌ |
 | Throttling | ✔️ | ❌ |
 
