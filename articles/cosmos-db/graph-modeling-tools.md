@@ -10,6 +10,8 @@ ms.reviewer: sngun
 
 ---
 # Data Modeling Tools for Graph
+
+
 It is important to design the data model and further important to maintain. Here are set of third-party visual design tools which help in designing & maintaining the graph data model.
 
 > [!IMPORTANT] 
@@ -30,7 +32,7 @@ This tool provides the data modeling of vertices / edges and their respective pr
 
 ### Sample
 
-The animation at Figure-5 provides a demonstration of reverse engineering, extraction of entities from RDBMS then Hackolade will discover relations from foreign key relationships then modifications.
+The animation at Figure-2 provides a demonstration of reverse engineering, extraction of entities from RDBMS then Hackolade will discover relations from foreign key relationships then modifications.
 
 Sample DDL for source as SQL Server available at [here](https://github.com/Azure-Samples/northwind-ddl-sample/nw.sql)   
 
