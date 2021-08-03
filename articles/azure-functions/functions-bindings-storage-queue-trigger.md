@@ -446,7 +446,7 @@ The peek-lock pattern happens automatically for queue triggers. As messages are 
 When the function starts, it starts processing a message under the following conditions.
 
 - If the function is successful, then the function execution completes and the message is deleted.
-- If the function fails, then the message visibility is reset. After being reset, the message is reprocessed the next time the function requests a new message. If 
+- If the function fails, then the message visibility is reset. After being reset, the message is reprocessed the next time the function requests a new message.
 - If the function never completes due to a crash, the message visibility expires and the message re-appears in the queue.
 
 All of the visibility mechanics are handled by the Storage service, not the Functions runtime.
