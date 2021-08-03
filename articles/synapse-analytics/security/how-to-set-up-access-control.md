@@ -1,8 +1,6 @@
 ---
-
 title: How to set up access control for your Synapse workspace
 description: This article will teach you how to control access to a Synapse workspace using Azure roles, Synapse roles, SQL permissions, and Git permissions.
-
 services: synapse-analytics 
 author: RonyMSFT 
 ms.service: synapse-analytics 
@@ -301,7 +299,7 @@ The initial configuration for your access control system is complete.
 
 To manage access, you can add and remove users to the security groups you've set up.  Although you can manually assign users to Synapse roles, if you do, it won't configure their permissions consistently. Instead, only add or remove users to the security groups.
 
-## STEP 9: Network Security
+## STEP 9: Network security
 
 As a final step to secure your workspace, you should secure network access, using the [workspace firewall](./synapse-workspace-ip-firewall.md).
 
