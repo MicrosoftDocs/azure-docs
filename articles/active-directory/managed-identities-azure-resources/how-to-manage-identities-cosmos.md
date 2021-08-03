@@ -108,8 +108,6 @@ New-AzVm `
 
 # [PowerShell](#tab/azure-powershell)
 
-
-
 # [Azure CLI](#tab/azure-cli)
 
 [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-cli-windows-vm.md#user-assigned-managed-identity)
