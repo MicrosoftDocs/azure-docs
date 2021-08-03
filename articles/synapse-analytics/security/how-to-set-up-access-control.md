@@ -6,7 +6,7 @@ author: meenalsri
 ms.service: synapse-analytics 
 ms.topic: how-to 
 ms.subservice: security 
-ms.date: 7/27/2021
+ms.date: 8/05/2021
 ms.author: ronytho
 ms.reviewer: jrasnick, wiassaf
 ms.custom: subject-rbac-steps
@@ -124,7 +124,7 @@ In the Azure portal, create a Synapse workspace:
 
 ## STEP 4: Grant the workspace MSI access to the default storage container
 
-To run pipelines and perform system tasks, Synapse requires that the workspace managed service identity (MSI) needs access to `container1` in the default ADLS Gen2 account.
+To run pipelines and perform system tasks, Azure Synapse requires that the workspace managed service identity (MSI) needs access to `container1` in the default ADLS Gen2 account. For more information, see [Azure Synapse workspace managed identity](synapse-workspace-managed-identity.md).
 
 - Open the Azure portal
 - Locate the storage account, `storage1`, and then `container1`
@@ -179,7 +179,7 @@ The workspace creator is automatically set up as the SQL Active Directory Admin 
 By default, all users assigned the Synapse Administrator role are also assigned the SQL `db_owner` role on the serverless SQL pool, 'Built-in', and all its databases.
 
 Access to SQL pools for other users and for the workspace MSI is controlled using SQL permissions.  Assigning SQL permissions requires that SQL scripts are run on each SQL database after creation.  There are three cases that require you run these scripts:
-1. Granting other users access to the serverless SQL pool, 'Built-in', and it's databases
+1. Granting other users access to the serverless SQL pool, 'Built-in', and its databases
 2. Granting any user access to dedicated pool databases
 3. Granting the workspace MSI access to a SQL pool database to enable pipelines that require SQL pool access to run successfully.
 
@@ -270,10 +270,10 @@ After creating the users, run queries to validate that the serverless SQL pool c
 > [!IMPORTANT]
 > To run pipelines successfully that include datasets or activities that reference a SQL pool, the workspace identity needs to be granted access to the SQL pool.
 
-Run the following commands on each SQL pool to allow the workspace managed system identity to run pipelines on the SQL pool database(s):  
+For more information on the workspace managed identity, see [Azure Synapse workspace managed identity](synapse-workspace-managed-identity.md). Run the following commands on each SQL pool to allow the workspace managed system identity to run pipelines on the SQL pool database(s):  
 
 >[!note]
->In the scripts below, for a dedicated SQL pool database, databasename is the same as the pool name.  For a database in the serverless SQL pool 'Built-in', databasename is the name of the database.
+>In the scripts below, for a dedicated SQL pool database, <databasename> is the same as the pool name.  For a database in the serverless SQL pool 'Built-in', <databasename> is the name of the database.
 
 ```sql
 --Create a SQL user for the workspace MSI in database
@@ -323,5 +323,5 @@ This guide has focused on setting up a basic access control system. You can supp
 
 ## Next steps
 
-Learn [how to manage Synapse RBAC role assignments](./how-to-manage-synapse-rbac-role-assignments.md)
-Create a [Synapse Workspace](../quickstart-create-workspace.md)
+ - Learn [how to manage Synapse RBAC role assignments](./how-to-manage-synapse-rbac-role-assignments.md)
+ - Create a [Synapse Workspace](../quickstart-create-workspace.md)
