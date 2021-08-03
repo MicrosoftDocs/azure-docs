@@ -18,7 +18,7 @@ zone_pivot_groups: b2c-policy-type
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-Azure Active Directory B2C (Azure AD B2C) enables identity developers to integrate an interaction with a RESTful API in as part of their user flow. At the end of this walk-through, you'll be able to create an Azure AD B2C user flow that interacts with [RESTful services](api-connectors-overview.md) to enrich tokens with information from external sources.
+Azure Active Directory B2C (Azure AD B2C) enables identity developers to integrate an interaction with a RESTful API in as part of their user flow. At the end of this walk-through, you'll be able to create an Azure AD B2C user flow that interacts with [APIs](api-connectors-overview.md) to enrich tokens with information from external sources.
 
 ::: zone pivot="b2c-user-flow"
 
@@ -41,7 +41,7 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 
    :::image type="content" source="media/add-api-connector/api-connector-new.png" alt-text="Providing the basic configuration like target URL and display name for an API connector during the creation experience.":::
 
-5. Provide a display name for the call. For example, **Validate user information**.
+5. Provide a display name for the call. For example, **Enrich token from external source**.
 6. Provide the **Endpoint URL** for the API call.
 7. Choose the **Authentication type** and configure the authentication information for calling your API. Learn how to [Secure your API Connector](secure-rest-api.md).
 
