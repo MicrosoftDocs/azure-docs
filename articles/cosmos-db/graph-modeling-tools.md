@@ -10,6 +10,8 @@ ms.reviewer: sngun
 
 ---
 # Data Modeling Tools for Graph
+It is important to design the data model and further important to maintain. Here are set of third-party visual design tools which help in designing & maintaining the graph data model.
+
 > [!IMPORTANT] 
 > Solutions mentioned in this article are for information purpose only, the ownership lies to individual solution owner. We recommend users to do thorough evaluation and then select most suitable to you.
 
