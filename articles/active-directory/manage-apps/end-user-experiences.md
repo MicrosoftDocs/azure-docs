@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: davidmu
-ms.reviewer: khotz
+ms.reviewer: lenalepa
 ---
 
 # End-user experiences for applications in Azure Active Directory

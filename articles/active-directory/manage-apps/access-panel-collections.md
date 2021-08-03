@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: davidmu
-ms.reviewer: phsignor
+ms.reviewer: lenalepa
 ms.collection: M365-identity-device-management
 ---
 

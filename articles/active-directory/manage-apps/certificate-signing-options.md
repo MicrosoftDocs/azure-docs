@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: davidmu
-ms.reviewer: ergreenl
+ms.reviewer: saumadan
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
