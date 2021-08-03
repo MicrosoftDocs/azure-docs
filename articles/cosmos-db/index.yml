@@ -193,7 +193,7 @@ landingContent:
           - text: Oracle DB to Cosmos DB Cassandra API using Blitzz
             url: cassandra/oracle-migrate-cosmos-db-blitzz.md 
           - text: Apache Cassandra to Cosmos DB using Blitzz
-            url: migrate-data-blitzz.md 
+            url: cassandra/migrate-data-blitzz.md 
           - text: Migrate 100’s TBs of data
             url: migrate-cosmosdb-data.md 
 

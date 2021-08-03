@@ -11,7 +11,7 @@ ms.reviewer: sngun
 ---
 
 # Migrate data from Oracle to Azure Cosmos DB Cassandra API account using Blitzz
-[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
+[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
 Cassandra API in Azure Cosmos DB has become a great choice for enterprise workloads that are running on Oracle for a variety of reasons such as:
 
@@ -89,13 +89,13 @@ This section describes the steps required to setup Blitzz and migrates data from
  
    After filling out the database filter details, save and close the file.
 
-1. Next you will set up the configuration of the destination database. Before you define the configuration, [create an Azure Cosmos DB Cassandra API account](cassandra/manage-data-dotnet.md#create-a-database-account). [Choose the right partition key](partitioning-overview.md#choose-partitionkey) from your data and then create a Keyspace, and a table to store the migrated data.
+1. Next you will set up the configuration of the destination database. Before you define the configuration, [create an Azure Cosmos DB Cassandra API account](manage-data-dotnet.md#create-a-database-account). [Choose the right partition key](../partitioning-overview.md#choose-partitionkey) from your data and then create a Keyspace, and a table to store the migrated data.
 
 1. Before migrating the data, increase the container throughput to the amount required for your application to migrate quickly. For example, you can increase the throughput to 100000 RUs. Scaling the throughput before starting the migration will help you to migrate your data in less time. 
 
    :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/scale-throughput.png" alt-text="Scale Azure Cosmos container throughout":::
 
-   You must decrease the throughput after the migration is complete. Based on the amount of data stored and RUs required for each operation, you can estimate the throughput required after data migration. To learn more on how to estimate the RUs required, see [Provision throughput on containers and databases](set-throughput.md) and [Estimate RU/s using the Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md) articles.
+   You must decrease the throughput after the migration is complete. Based on the amount of data stored and RUs required for each operation, you can estimate the throughput required after data migration. To learn more on how to estimate the RUs required, see [Provision throughput on containers and databases](../set-throughput.md) and [Estimate RU/s using the Azure Cosmos DB capacity planner](../estimate-ru-with-capacity-planner.md) articles.
 
 1. Get the **Contact Point, Port, Username**, and **Primary Password** of your Azure Cosmos account from the **Connection String** pane. You will use these values in the configuration file.
 
@@ -145,6 +145,6 @@ To learn more on the data migration to destination, real-time migration, see the
 
 ## Next steps
 
-* [Provision throughput on containers and databases](set-throughput.md) 
-* [Partition key best practices](partitioning-overview.md#choose-partitionkey)
-* [Estimate RU/s using the Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md) articles
+* [Provision throughput on containers and databases](../set-throughput.md)
+* [Partition key best practices](../partitioning-overview.md#choose-partitionkey)
+* [Estimate RU/s using the Azure Cosmos DB capacity planner](../estimate-ru-with-capacity-planner.md) articles
