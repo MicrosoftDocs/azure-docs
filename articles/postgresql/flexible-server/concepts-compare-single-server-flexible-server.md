@@ -25,7 +25,7 @@ The following table provides a high-level features and capabilities comparisons 
 | AZ selection for application colocation | No | Yes |
 | Built-in connection pooler | No | Yes (PgBouncer)|
 | **Connectivity** | | |
-| Username in connection string | <username>@server_name. For example, `pgadmusr@mypgServer` | Just username. For example, `pgadmusr` | 
+| Username in connection string | `<user_name>@server_name`. For example, `pgadmusr@mypgServer` | Just username. For example, `pgadmusr` | 
 | lc_collate  | English_United States.1252 | en_US.utf8 |
 | lc_ctype    | English_United States.1252 |en_US.utf8 |
 |lc_messages | English_United States.1252 |en_US.utf8|
