@@ -65,7 +65,7 @@ If you want to use your own DNS server, you need to add the following records:
 
 To configure DNS in Azure DNS Private zones:
 
-1. create an Azure DNS private zone named <ASE name>.appserviceenvironment.net
+1. create an Azure DNS private zone named `<ASE-name>.appserviceenvironment.net`
 1. create an A record in that zone that points * to the inbound IP address
 1. create an A record in that zone that points @ to the inbound IP address
 1. create an A record in that zone that points *.scm to the inbound IP address
@@ -85,4 +85,4 @@ While the ASE does deploy into a customer VNet, there are a few networking featu
 
 ## More resources
 
-- [Environment variables and app settings reference](reference-app-settings.md)
+- [Environment variables and app settings reference](../reference-app-settings.md)
