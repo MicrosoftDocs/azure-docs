@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory application provisioning"
 description: "New and updated documentation for the Azure Active Directory application provisioning."
-ms.date: 07/12/2021
+ms.date: 08/03/2021
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -14,6 +14,23 @@ manager: mtillman
 # Azure Active Directory application provisioning: What's new
 
 Welcome to what's new in Azure Active Directory application provisioning documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the provisioning service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+
+## July 2021
+
+### Updated articles
+
+- [Reference for writing expressions for attribute mappings in Azure Active Directory](functions-for-customizing-application-data.md)
+- [Configure provisioning using Microsoft Graph APIs](application-provisioning-configuration-api.md)
+- [Plan an automatic user provisioning deployment in Azure Active Directory](plan-auto-user-provisioning.md)
+- [Plan cloud HR application to Azure Active Directory user provisioning](plan-cloud-hr-provision.md)
+- [Known issues for application provisioning in Azure Active Directory](known-issues.md)
+- [Azure AD ECMA Connector Host generic SQL connector tutorial](tutorial-ecma-sql-connector.md)
+- [What is app provisioning in Azure Active Directory?](user-provisioning.md)
+- [Troubleshoot ECMA Connector Host issues](on-premises-ecma-troubleshoot.md)
+- [Export a Microsoft Identity Manager connector for use with the Azure AD ECMA Connector Host](on-premises-migrate-microsoft-identity-manager.md)
+- [Azure AD on-premises application provisioning to SCIM-enabled apps](on-premises-scim-provisioning.md)
+- [Azure AD ECMA Connector Host generic SQL connector configuration](on-premises-sql-connector-configure.md)
+
 
 ## June 2021
 
