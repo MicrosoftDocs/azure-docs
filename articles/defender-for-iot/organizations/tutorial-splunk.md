@@ -4,7 +4,7 @@ description: In this tutorial, learn how to integrate Splunk with Azure Defender
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 07/29/2021
+ms.date: 08/03/2021
 ms.custom: template-tutorial
 ---
 
@@ -77,7 +77,7 @@ The Defender for IoT alerts provide information about an extensive range of secu
 
     :::image type="content" source="media/tutorial-splunk/address-scan.png" alt-text="The detections screen.":::
 
-You can configure Defender for IoT to send alerts to the Splunk server, where alert information is displayed in the Splunk Enterprise dashboard.
+You can also configure Defender for IoT to send alerts to the Splunk server, where alert information is displayed in the Splunk Enterprise dashboard.
 
 :::image type="content" source="media/tutorial-splunk/alerts-and-details.png" alt-text="View all of the alerts and their details.":::
 
@@ -118,3 +118,9 @@ To send alert information to the Splunk servers from Defender for IoT, you will 
 
 1. Select **Submit**.
 
+## Next steps
+
+In this tutorial, you learned how to get started with the Splunk integration. Continue on to learn how to [Integrate ServiceNow with Azure Defender for IoT](tutorial-servicenow.md).
+
+> [!div class="nextstepaction"]
+> [Integrate ServiceNow with Azure Defender for IoT](tutorial-servicenow.md)
