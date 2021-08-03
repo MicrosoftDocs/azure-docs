@@ -700,6 +700,8 @@
               href: reference-yaml-compute.md
             - name: Environment
               href: reference-yaml-environment.md
+            - name: Dataset
+              href: reference-yaml-dataset.md
             - name: Model
               href: reference-yaml-model.md
         - name: Datastores
