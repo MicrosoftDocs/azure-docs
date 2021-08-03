@@ -1275,7 +1275,7 @@
         - name: Access system document properties
           href: how-to-access-system-properties-gremlin.md
         - name: Visualize graph data
-          href: graph-visualization.md
+          href: graph-visualization-partners.md
         - name: Monitor using Diagnostics Logs
           href: queries-gremlin.md
         - name: Store and manage Spring Data
@@ -1453,16 +1453,14 @@
       items:
         - name: Manage continuous backup
           items:
-            - name: Continuous backup - Permissions and roles
+            - name: Permissions and roles - Continuous backup
               href: continuous-backup-restore-permissions.md
-            - name: Continuous backup - Portal
-              href: continuous-backup-restore-portal.md
-            - name: Continuous backup - PowerShell
-              href: continuous-backup-restore-powershell.md
-            - name: Continuous backup - CLI
-              href: continuous-backup-restore-command-line.md
-            - name: Continuous backup - Resource Manager
-              href: continuous-backup-restore-template.md
+            - name: Provision account - Continuous backup
+              href: provision-account-continuous-backup.md
+            - name: Restore an account - Continuous backup
+              href: restore-account-continuous-backup.md
+            - name: Migrate to continuous backup
+              href: migrate-continuous-backup.md
         - name: Manage periodic backup
           href: configure-periodic-backup-restore.md 
     - name: Security
