@@ -187,7 +187,7 @@ services.AddDbContext<MyDatabaseContext>(options =>
     SqlAuthenticationProvider.SetProvider(
         SqlAuthenticationMethod.ActiveDirectoryDeviceCodeFlow, 
         new CustomAzureSQLAuthProvider());
-    var sqlConnection = new SqlConnection(Configuration.GetConnectionString("MyDatabaseContext"));
+    var sqlConnection = new SqlConnection(Configuration.GetConnectionString("MyDbConnection"));
     options.UseSqlServer(sqlConnection);
 });
 ```
