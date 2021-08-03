@@ -3,7 +3,7 @@ title: Deploy Azure Site Recovery replication appliance - Preview
 description: This article describes support and requirements when deploying the replication appliance for VMware disaster recovery to Azure with Azure Site Recovery - Preview
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/02/2021
+ms.date: 08/03/2021
 ---
 
 # Deploy Azure Site Recovery replication appliance - Preview
@@ -21,9 +21,11 @@ You deploy an on-premises replication appliance when you use [Azure Site Recover
 
 ## Hardware requirements
 
-|CPU |    Memory |    Cache disk size |    Data change rate |    Protected machines |
-|---|-------|--------|------|-------|
-|16 vCPUs (2 sockets * 8 cores @ 2.5 GHz)    | 32 GB |    1 TB |    >1 TB to 2 TB    | Use to replicate 151 to 200 machines.|
+**Component** | **Requirement**
+--- | ---
+CPU cores | 8
+RAM | 32 GB
+Number of disks | 3, including the OS disk - 80 GB, data disk 1 - 620 GB, data disk 2 - 620 GB
 
 ## Software requirements
 
@@ -248,11 +250,15 @@ You will also be able to see a tab for **Discovered items** that lists all of th
 ![Replication appliance preview](./media/deploy-vmware-azure-replication-appliance-preview/discovered-items.png)
 
 ## Sizing and capacity
-You can create and use multiple replication appliances in a vault.
+An appliance that uses an inbuilt process server to protect the workload can handle up to 200 virtual machines, based on the following configurations:
+
+  |CPU |    Memory |    Cache disk size |    Data change rate |    Protected machines |
+  |---|-------|--------|------|-------|
+  |16 vCPUs (2 sockets * 8 cores @ 2.5 GHz)    | 32 GB |    1 TB |    >1 TB to 2 TB    | Use to replicate 151 to 200 machines.|
 
 - You can perform discovery of all the machines in a vCenter server, using any of the replication appliances in the vault.
 
-- You can [switch a protected machine](switch-replication-appliance-preview.md), between different appliances in the same vault, given the selected appliance is [healthy](switch-replication-appliance-preview.md).
+- You can [switch a protected machine](switch-replication-appliance-preview.md), between different appliances in the same vault, given the selected appliance is healthy.
 
 For detailed information about how to use multiple appliances and failover a replication appliance, see [this article](switch-replication-appliance-preview.md)
 
