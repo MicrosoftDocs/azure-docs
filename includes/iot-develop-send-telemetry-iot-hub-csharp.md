@@ -25,7 +25,7 @@ In this quickstart, you learn a basic Azure IoT application development workflow
 [!INCLUDE [iot-hub-include-create-hub-iot-explorer](iot-hub-include-create-hub-iot-explorer.md)]
 
 ## Run a simulated device
-In this section, you configure your local environment, and run a sample that creates a simulated temperature controller.
+In this section, you configure your local environment, and run a sample that implements a simulated temperature controller with two thermostats.
 
 To run the sample application in Visual Studio:
 
@@ -43,6 +43,8 @@ To run the sample application in Visual Studio:
 1. Save the updated **TemperatureController** project file.
 
 1. In Visual Studio, press CTRL + F5 to run the sample.
+
+A console window opens. The sample securely connects to your IoT hub as the device you registered and begins sending telemetry messages. The output appears in the console.
 
 ## View telemetry
 
@@ -78,7 +80,7 @@ To view device telemetry with Azure CLI:
 1. View the connection details and telemetry output in the console.
 
     ```output
-    Starting event monitor, use ctrl-c to stop...
+    Starting event monitor, filtering on device: mydevice, use ctrl-c to stop...
     event:
       component: thermostat1
       interface: dtmi:com:example:TemperatureController;2
