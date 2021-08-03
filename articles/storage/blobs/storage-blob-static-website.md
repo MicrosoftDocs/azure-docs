@@ -118,31 +118,31 @@ To enable metrics on your static website pages, see [Enable metrics on static we
 
 ## FAQ
 
-### Does the Azure Storage firewall work with a static website?
+##### Does the Azure Storage firewall work with a static website?
 
 The storage account has a built-in [firewall feature](../common/storage-network-security.md), but this firewall does not affect the static website endpoint. It can be used only to protect other storage endpoints, such as the blob, file, table, and queue service endpoints. 
 
-### Do static websites support Azure Active Directory (Azure AD)?
+##### Do static websites support Azure Active Directory (Azure AD)?
 
 Yes. However, there is no option to use Social Identity Providers, such as Google authentication or Facebook, using OpenID.
 
-### How do I use a custom domain with a static website?
+##### How do I use a custom domain with a static website?
 
 You can configure a [custom domain](storage-blob-static-website-custom-domain.md#enable-custom-domain-and-ssl) with a static website by using [Azure Content Delivery Network (Azure CDN)](storage-https-custom-domain-cdn.md). Azure CDN provides consistent low latencies to your website from anywhere in the world. 
 
-### How do I use a custom SSL certificate with a static website?
+##### How do I use a custom SSL certificate with a static website?
 
-You can configure a [custom SSL](storage-blob-static-website-custom-domain#enable-custom-domain-and-ssl.md) certificate with a static website by using [Azure CDN](storage-https-custom-domain-cdn.md). Azure CDN provides consistent low latencies to your website from anywhere in the world.
+You can configure a [custom SSL](storage-blob-static-website-custom-domain.md#enable-custom-domain-and-ssl) certificate with a static website by using [Azure CDN](storage-https-custom-domain-cdn.md). Azure CDN provides consistent low latencies to your website from anywhere in the world.
 
-### How do I add custom headers and rules with a static website?
+##### How do I add custom headers and rules with a static website?
 
 You can configure the host header for a static website by using [Azure CDN - Verizon Premium](../../cdn/cdn-verizon-premium-rules-engine.md). We'd be interested to hear your feedback [here](https://feedback.azure.com/forums/217298-storage/suggestions/34959124-allow-adding-headers-to-static-website-hosting-in).
 
-### Why am I getting an HTTP 404 error from a static website?
+##### Why am I getting an HTTP 404 error from a static website?
 
 This can happen if you refer to a file name by using an incorrect case. For example: `Index.html` instead of `index.html`. File names and extensions in the url of a static website are case-sensitive even though they're served over HTTP. This can also happen if your Azure CDN endpoint is not yet provisioned. Wait up to 90 minutes after you provision a new Azure CDN for the propagation to complete.
 
-### Why isn't the root directory of the website not redirecting to the default index page?
+##### Why isn't the root directory of the website not redirecting to the default index page?
 
 In the Azure portal, open the static website configuration page of your account and locate the name and extension that is set in the **Index document name** field. Ensure that this name is exactly the same as the name of the file located in the **$web** container of the storage account. File names and extensions in the url of a static website are case-sensitive even though they're served over HTTP. 
 
