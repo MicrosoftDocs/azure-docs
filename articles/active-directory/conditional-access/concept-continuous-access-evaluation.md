@@ -189,6 +189,10 @@ To reduce this time a SharePoint Administrator can optionally reduce the maximum
 
 If you enable a user right after it is disabled. There will be some latency before the account can be enabled. SPO and Teams will have 15-mins delay. The delay is 35-40 minutes for EXO.
 
+### IP Address Policies not supported for notifications
+
+If you configure an IP address policy it is not evaulated prior to push notifications being released. This is because push notifications are outbound and do not have an associated IP address to be evaulated against. If a user clicks into that push notification, CAE IP address policies are still enforced before the email can be displayed. Push notifications display a message preview which is thus not protected by the IP address policy. All other CAE checks are performed prior to the push notification being sent so if a user or device has its access terminated enforcement still occurs within the documented SLAs. 
+
 ## FAQs
 
 ### How will CAE work with Sign-in Frequency?
