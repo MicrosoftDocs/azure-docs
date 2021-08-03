@@ -61,7 +61,7 @@ Here are some concepts to be familiar with when you're using virtual networks wi
 
   Application security groups (ASGs) make it easy to control Layer-4 security by using NSGs for flat networks. You can quickly join/remove virtual machines to/from an application security group and dynamically apply/remove rules to/from those virtual machines.  For more information, see the [ASG overview](../../virtual-network/application-security-groups.md). 
   
-  At this time, we don't support NSGs where an ASG is part of the rule with Azure Database for PostgreSQL - Flexible Server. We currently advise using [IP-based source or destination filtering](../../virtual-network/network-security-groups-overview#security-rules) in an NSG. 
+  At this time, we don't support NSGs where an ASG is part of the rule with Azure Database for PostgreSQL - Flexible Server. We currently advise using [IP-based source or destination filtering](../../virtual-network/network-security-groups-overview.md#security-rules) in an NSG. 
 
 * **Private DNS zone integration**. Azure private DNS zone integration allows you to resolve the private DNS within the current virtual network or any in-region peered virtual network where the private DNS zone is linked. 
 
