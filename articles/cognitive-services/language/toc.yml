@@ -10,6 +10,8 @@ items:
   items:
   - name: Overview
     href: entity-linking/overview.md
+  - name: Quickstart
+    href: entity-linking/quickstart.md
   - name: Language support
     href: entity-linking/language-support.md
   - name: How-to guides
@@ -21,7 +23,9 @@ items:
   - name: Overview
     href: health/overview.md
   - name: Language support
-    href: health/language-support.md 
+    href: health/language-support.md
+  - name: Quickstart
+    href: health/quickstart.md 
   - name: How-to guides
     items:
     - name: How to call the API
