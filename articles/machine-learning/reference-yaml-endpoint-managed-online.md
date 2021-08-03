@@ -13,20 +13,12 @@ ms.date: 08/03/2021
 ms.reviewer: laobri
 ---
 
-# Managed online endpoints (preview) YAML reference 
-
-The Azure CLI extension for Azure Machine Learning (CLI 2.0) uses YAML documents to provide configuration for many commands. In this article, learn about the YAML document used when working with managed online endpoints.
-
-For more information on deploying a model, see [How to deploy managed online endpoints](how-to-deploy-managed-online-endpoints.md).
+# CLI (v2) managed online endpoint YAML schema
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 > [!NOTE]
 > A fully specified sample YAML for managed online endpoints is available for [reference](https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.template.yaml)
-
-# CLI (v2) managed online endpoint YAML schema
-
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Schema
 
