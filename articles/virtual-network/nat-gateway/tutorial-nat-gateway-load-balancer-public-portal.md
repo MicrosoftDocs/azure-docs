@@ -112,7 +112,7 @@ During the creation of the load balancer, you'll configure:
     | SKU           | Leave the default **Standard**. |
     | Tier          | Leave the default **Regional**. |
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png" alt-text="Screenshot of create standard load balancer basics tab." border="true":::
+    :::image type="content" source="../load-balancer/media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png" alt-text="Screenshot of create standard load balancer basics tab." border="true":::
 
 4. Select **Next: Frontend IP configuration** at the bottom of the page.
 
@@ -128,7 +128,7 @@ During the creation of the load balancer, you'll configure:
 8. Select **IP address** for the **IP type**.
 
     > [!NOTE]
-    > For more information on IP prefixes, see [Azure Public IP address prefix](../virtual-network/public-ip-address-prefix.md).
+    > For more information on IP prefixes, see [Azure Public IP address prefix](../../virtual-network/public-ip-address-prefix.md).
 
 9. Select **Create new** in **Public IP address**.
 
@@ -137,7 +137,7 @@ During the creation of the load balancer, you'll configure:
 11. Select **Zone-redundant** in **Availability zone**.
 
     > [!NOTE]
-    > In regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../availability-zones/az-overview.md).
+    > In regions with [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../../availability-zones/az-overview.md).
 
 12. Leave the default of **Microsoft Network** for **Routing preference**.
 
@@ -232,7 +232,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | **Load balancing**  |
     | Place this virtual machine behind an existing load-balancing solution? | Select the check box.|
     | **Load balancing settings** |
-    | Load balancing options | Select **Azure load balancer** |
+    | Load-balancing options | Select **Azure load balancer** |
     | Select a load balancer | Select **myLoadBalancer**  |
     | Select a backend pool | Select **myBackendPool** |
    
