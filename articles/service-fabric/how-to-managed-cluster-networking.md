@@ -10,10 +10,9 @@ Service Fabric managed clusters are created with a default networking configurat
 
 - [Modify NSG Rules](#nsgrules)
 - [Multiple managed Load Balancers](#FIXME)
-- [IPv6](#IPv6)
+- [IPv6](#ipv6)
 - [Existing virtual network](#existingvnet)
-- [Static public IP address](#staticpublicip)
-- [Internal load balancer](#internallb)
+- [Bring your own load balancer](#byolb)
 
 
 <a id="nsgrules"></a>
@@ -291,8 +290,10 @@ Service Fabric managed clusters automatically creates load balancer probes for f
   ]
 }
 ```
+
+<a id="multiplefrontends"></a>
 ### Multiple Frontends
-Managed multiple frontends with subnets per node type and separate NSGs
+Multiple frontends for Azure Load Balancer with subnets per node type and separate NSGs
 
 To configure this feature:
 1) Set the following property on a Service Fabric managed cluster resource.
@@ -303,27 +304,41 @@ TBD
 
 2) Deploy the template 
 
+<a id="ipv6"></a>
 ## IPv6
 By default managed clusters do not enable IPv6 to keep the configuration simple. This feature will enable full dual stack IPv4/IPv6 capability from the Load Balancer frontend to the backend resources. 
 TODO:Talk about v4 and v6 ip's on Load Balancers and NSG differences.
 
-1) set the following property on a Service Fabric managed cluster resource.
+[!NOTE]
+> This setting cannot be changed once the cluster is created
+
+1) Set the following property on a Service Fabric managed cluster resource.
 
 ```json
-TBD
+            "apiVersion": "2021-07-01-preview",
+            "type": "Microsoft.ServiceFabric/managedclusters",
+            ...
+            "properties": {
+                "enableIpv6": {
+                "type": "true",
+                },
+            }
 ```
 
 2) Deploy the template
-
-
+TODO
 
 <a id="existingvnet"></a>
 ## Existing virtual network
 This feature allows customers to create dedicated subnet(s) in an existing virtual network the managed cluster will use for ip allocation needs. This can be useful if you already have a configured VNet and related security policies and want to leverage that.
 
 When you setup a cluster to deploy in to an existing virtual network you can also:
-Configure Internal Load balancer(s)
-Use a pre-configured Load Balancer static IP address
+* Bring your own Load balancer(s) for either private or public traffic
+* Use a pre-configured Load Balancer static IP address
+* Configure subnets per node type
+
+[!NOTE]
+> This setting cannot be changed once the cluster is created
 
 In the following example, we start with an existing virtual network named ExistingRG-vnet, in the ExistingRG resource group. The subnet is named default. These default resources are created when you use the Azure portal to create a standard virtual machine (VM). You could create the virtual network and subnet without creating the VM, but the main goal of adding a cluster to an existing virtual network is to provide network connectivity to other VMs. Creating the VM gives a good example of how an existing virtual network typically is used. 
 
@@ -336,11 +351,18 @@ TBD
 ```
 
 2) Deploy the template
+TODO
 
+<a id="byolb"></a>
+## Bring your own Load Balancer
+Managed clusters create a Load Balancer and fully qualified domain name with a static public IP from a dynamic pool of addresses as a frontdoor for both the primary and secondary node types. This feature allows you to directly create or re-use an Azure Load Balancer from an existing VNet. When you bring your own Azure Load Balancer you can:
 
+* Use a pre-configured Load Balancer static IP address for either private or public traffic
+* Leverage existing NSGs
+* Maintain existing policies and controls you may have in place
 
-## Internal Load balancer
-
+[!NOTE]
+> This setting cannot be changed once the cluster is created, or can it??
 
 To configure the feature:
 1) Your cluster must be setup to use an [existing virtual network](#existingvnet)
@@ -352,19 +374,8 @@ TBD
 ```
 
 3) Deploy the template
+TODO
 
-## Static IP address
-When you create a managed cluster the public ip address associated with the default Load Balancer is static, but we do not allow you to modify what address it gets. This feature allows you to re-use an existing VNet and Load Balancer that is already configured with a static IP address you want to continue to use and route that traffic to any secondary node type.
-
-To configure the feature:
-1) Your cluster must be setup to use an [existing virtual network](#existingvnet)
-
-2) Set the following property on a Service Fabric managed cluster resource
-
-```json
-TBD
-```
-3) Deploy the template
 
 
 ## Next steps
