@@ -10,6 +10,8 @@ ms.reviewer: sngun
 
 ---
 # Data Modeling Tools for Graph
+> [!IMPORTANT] 
+> Solutions mentioned in this article are for information purpose only, the ownership lies to individual solution owner. We recommend users to do thorough evaluation and then select most suitable to you.
 
 ## Hackolade
 

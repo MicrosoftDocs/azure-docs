@@ -14,7 +14,7 @@ ms.date: 07/28/2021
 Apart from Azure Monitor, you can use third party monitoring solutions to monitor your Cosmos DB instances.
 
 > [!IMPORTANT] 
-> Solutions mentioned in this article are for information purpose only, the ownership lies to individual solution owner. We recommend user to do thorough evaluation and then choose.
+> Solutions mentioned in this article are for information purpose only, the ownership lies to individual solution owner. We recommend users to do thorough evaluation and then select most suitable to you.
 
 ## Datadog
 {Supports: SQL API, Azure Cosmos DB API for MongoDB, Gremlin API, Cassandra API & Table API}
