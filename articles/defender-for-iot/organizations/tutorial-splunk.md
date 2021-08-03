@@ -63,7 +63,7 @@ To access the Defender for IoT application within Splunk, you will need to downl
 
 ## Send Defender for IoT alerts to Splunk
 
-The Defender for IoT alerts provide information about an extensive range of security events These events include:
+The Defender for IoT alerts provides information about an extensive range of security events. These events include:
 
 - Deviations from the learned baseline network activity.
 
@@ -81,7 +81,7 @@ You can also configure Defender for IoT to send alerts to the Splunk server, whe
 
 :::image type="content" source="media/tutorial-splunk/alerts-and-details.png" alt-text="View all of the alerts and their details.":::
 
-To send alert information to the Splunk servers from Defender for IoT, you will need to use a Defender for IoT Forwarding Rule.
+To send alert information to the Splunk servers from Defender for IoT, you will need to create a Forwarding Rule.
 
 **To create the forwarding rule**:
 
