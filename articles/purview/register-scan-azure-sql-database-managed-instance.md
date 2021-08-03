@@ -101,9 +101,9 @@ It is required to get the service principal's application ID and secret:
 
 1. Navigate to your Purview account.
 
-1. Select **Sources** on the left navigation.
+1. Select **Data Map** on the left navigation.
 
-1. Select **Register**.
+1. Select **Register**
 
 1. Select **Azure SQL Database Managed Instance** and then **Continue**.
 

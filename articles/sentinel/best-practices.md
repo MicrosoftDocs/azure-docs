@@ -17,6 +17,8 @@ This collection of best practices provides guidance to use when deploying, manag
 > [!IMPORTANT]
 > Before deploying Azure Sentinel, review and complete [pre-deployment activities and prerequisites](prerequisites.md).
 >
+
+
 ## Regular SOC activities to perform
 
 Schedule the following Azure Sentinel activities regularly to ensure continued security best practices:
@@ -125,6 +127,7 @@ Use a watchlist that combines data from ingested data and external sources, such
 
 During an incident, use watchlists to contain investigation data, and then delete them when your investigation is done to ensure that sensitive data does not remain in view.
 
+
 ## Additional best practice references
 
 The Azure Sentinel documentation has more best practice guidance scattered throughout our articles. For example, see the following articles for more information:
@@ -132,10 +135,13 @@ The Azure Sentinel documentation has more best practice guidance scattered throu
 - **Admin users**:
 
     - [Pre-deployment activities and prerequisites for deploying Azure Sentinel](prerequisites.md)
+    - [Azure Sentinel workspace architecture best practices](best-practices-workspace-architecture.md)
+    - [Design your Azure Sentinel workspace architecture](design-your-workspace-architecture.md)
+    - [Azure Sentinel sample workspace designs](sample-workspace-designs.md)
+    - [Data collection best practices](best-practices-data.md)
     - [Azure Sentinel costs and billing](azure-sentinel-billing.md)
     - [Permissions in Azure Sentinel](roles.md)
     - [Protecting MSSP intellectual property in Azure Sentinel](mssp-protect-intellectual-property.md)
-    - [Data collection best practices](best-practices-data.md)
     - [Threat intelligence integration in Azure Sentinel](threat-intelligence-integration.md)
     - [Audit Azure Sentinel queries and activities](audit-sentinel-data.md)
 
