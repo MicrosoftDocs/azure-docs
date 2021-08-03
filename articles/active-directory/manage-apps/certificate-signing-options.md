@@ -48,7 +48,7 @@ To change an application's SAML certificate signing options and the certificate 
 
 1. In the [Azure Active Directory portal](https://aad.portal.azure.com/), sign in to your account. The **Azure Active Directory admin center** page appears.
 1. In the left pane, select **Enterprise applications**. A list of the enterprise applications in your account appears.
-1. Select an application. An overview page for the application appears. In this example, we have used the Salesforce application
+1. Select an application. An overview page for the application appears. In this example, the Salesforce application is used.
 
    ![Example: Application overview page](./media/certificate-signing-options/application-overview-page.png)
 
