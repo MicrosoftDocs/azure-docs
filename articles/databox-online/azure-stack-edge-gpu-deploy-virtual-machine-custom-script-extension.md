@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/02/2021
+ms.date: 08/03/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
@@ -234,7 +234,7 @@ The specified files are downloaded into the following folder on the target virtu
 ```cmd
 C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 ```
-where <n> is a decimal integer, which may change between executions of the extension. The 1.* value matches the actual, current `typeHandlerVersion` value of the extension. For example, the actual directory in this instance was `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.10.9\Downloads\0`. 
+where *n* is a decimal integer, which may change between executions of the extension. The 1.* value matches the actual, current `typeHandlerVersion` value of the extension. For example, the actual directory in this instance was `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.10.9\Downloads\0`. 
 
 
 In this instance, the command to execute for the custom extension was: `md C:\\Users\\Public\\Documents\\test`. When the extension is successfully installed, you can verify that the directory was created in the VM at the specified path in the command. 
