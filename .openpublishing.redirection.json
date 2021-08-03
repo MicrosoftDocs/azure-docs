@@ -16195,6 +16195,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/defender-for-iot/organizations/integration-splunk.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/tutorial-splunk",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/jenkins/index.yml",
       "redirect_url": "/azure/developer/jenkins/",
       "redirect_document_id": false
