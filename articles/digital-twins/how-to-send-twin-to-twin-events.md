@@ -78,9 +78,7 @@ Next, **create the twins** based on the models. Use the following commands to cr
 
 ```azurecli-interactive
 az dt twin create  --dt-name <Azure-Digital-Twins-instance> --dtmi "dtmi:com:adt:dtsample:floor;1" --twin-id Floor1 --properties '{"id": "Floor1", "temperature": 0.0, "humidity": 0.0}'
-
 az dt twin create  --dt-name <Azure-Digital-Twins-instance> --dtmi "dtmi:com:adt:dtsample:room;1" --twin-id Room100 --properties '{"id": "Room100", "temperature": 0.0, "humidity": 0.0}'
-
 az dt twin create  --dt-name <Azure-Digital-Twins-instance> --dtmi "dtmi:com:adt:dtsample:room;1" --twin-id Room101 --properties '{"id": "Room101", "temperature": 0.0, "humidity": 0.0}'
 ```
 
@@ -109,7 +107,7 @@ If you're following the [example scenario](#example-twin-update-scenario) for th
 
 1. First, create an Azure Functions project in Visual Studio on your machine. If you're following the example scenario for this tutorial, you can open the sample project you downloaded in the [Prerequisites](#download-the-sample) section, located at *azure-digital-twins-getting-started/azure-functions/twin-updates/TwinUpdatesSample.sln*.
 
-2. Add the following packages to your project (you can use the Visual Studio NuGet package manager or `dotnet` commands in a command-line tool).
+2. Add the following packages to your project (you can use the Visual Studio NuGet package manager or `dotnet` commands in a command-line tool). If you're using the sample solution, they should already be added to the project, but you may need to update them to the latest version.
 
     * [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core/)
     * [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/)
