@@ -6,7 +6,7 @@ manager: virivera
 services: azure-object-anchors
 
 ms.author: crtreasu
-ms.date: 02/08/2021
+ms.date: 08/02/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
 ---
@@ -68,18 +68,8 @@ You can also do other actions using the <a href="https://microsoft.github.io/Mix
 * **Tracker Settings** – Toggles activation of the tracker settings menu.
 * **Search Area Settings** – Toggles activation of the search area settings menu.
 * **Start Tracing** – Capture diagnostics data and save it to the device. See more detail in section **Debug Detection Issues and Capture Diagnostics**.
-* **Upload Tracing** – Upload diagnostics data to the Object Anchors service. A user must provide their subscription account in `subscription.json` and upload it to the `LocalState` folder. A sample `subscription.json` file can be found below.
+* **Upload Tracing** – Upload diagnostics data to the Object Anchors service.    
 
-    Example `subscription.json`:
-    
-    ```json
-    {
-        "AccountId": "<your account id>",
-        "AccountKey": "<your account key>",
-        "AccountDomain": "<your account domain>"
-    }
-    ```
-    
     :::image type="content" source="./media/mrtk-hand-menu-primary.png" alt-text="Unity primary hand menu":::
 
 ##### Tracker settings menu

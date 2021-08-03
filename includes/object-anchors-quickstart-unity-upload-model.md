@@ -2,7 +2,7 @@
 author: craigktreasure
 ms.service: azure-object-anchors
 ms.topic: include
-ms.date: 02/08/2021
+ms.date: 08/02/2021
 ms.author: crtreasu
 ---
 ## Upload your model
