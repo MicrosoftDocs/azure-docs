@@ -18,14 +18,16 @@ zone_pivot_groups: b2c-policy-type
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-Azure Active Directory B2C (Azure AD B2C) enables identity developers to integrate an interaction with a RESTful API in as part of their user flow. At the end of this walk-through, you'll be able to create an Azure AD B2C user flow that interacts with [APIs](api-connectors-overview.md) to enrich tokens with information from external sources.
+Azure Active Directory B2C (Azure AD B2C) enables identity developers to integrate an interaction with a RESTful API in as part of their user flow using [API connectors](api-connectors-overview.md). At the end of this walk-through, you'll be able to create an Azure AD B2C user flow that interacts with APIs to enrich tokens with information from external sources.
 
 ::: zone pivot="b2c-user-flow"
 
-You can use API connectors applied to the "Before sending the token (preview)" in order to enrich tokens for your applications to include information from external sources. When a user signs in or signs up, Azure AD B2C will call the API endpoint configured in the API connector which can query information about a user in downstream services such as cloud services, custom user stores, custom permission systems, legacy identity systems, and more.
+You can use API connectors applied to the **Before sending the token (preview)** step in order to enrich tokens for your applications to include information from external sources. When a user signs in or signs up, Azure AD B2C will call the API endpoint configured in the API connector which can query information about a user in downstream services such as cloud services, custom user stores, custom permission systems, legacy identity systems, and more.
 
 > [!IMPORTANT]
 > API connectors used in this step are in preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+You can create an API endpoint using one of our [samples](api-connector-samples.md#api-connector-rest-api-samples).
 
 ## Prerequisites
 
@@ -39,13 +41,13 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 2. Under **Azure services**, select **Azure AD B2C**.
 4. Select **API connectors**, and then select **New API connector**.
 
-   :::image type="content" source="media/add-api-connector/api-connector-new.png" alt-text="Providing the basic configuration like target URL and display name for an API connector during the creation experience.":::
+   :::image type="content" source="media/add-api-connector-token-enrichment/api-connector-new.png" alt-text="Providing the basic configuration like target URL and display name for an API connector during the creation experience.":::
 
 5. Provide a display name for the call. For example, **Enrich token from external source**.
 6. Provide the **Endpoint URL** for the API call.
 7. Choose the **Authentication type** and configure the authentication information for calling your API. Learn how to [Secure your API Connector](secure-rest-api.md).
 
-    :::image type="content" source="media/add-api-connector/api-connector-config.png" alt-text="Providing authentication configuration for an API connector during the creation experience.":::
+    :::image type="content" source="media/add-api-connector-token-enrichment/api-connector-config.png" alt-text="Providing authentication configuration for an API connector during the creation experience.":::
 
 8. Select **Save**.
 
@@ -57,7 +59,7 @@ Follow these steps to add an API connector to a sign-up user flow.
 2. Under **Azure services**, select **Azure AD B2C**.
 4. Select **User flows**, and then select the user flow you want to add the API connector to.
 5. Select **API connectors**, and then select the API endpoints you want to invoke at the **Before sending the token (preview)** step in the user flow:
-    :::image type="content" source="media/add-api-connector/api-connectors-user-flow-select.png" alt-text="Selecting which API connector to use for a step in the user flow like 'Before creating the user'.":::
+    :::image type="content" source="media/add-api-connector-token-enrichment/api-connectors-user-flow-select.png" alt-text="Selecting which API connector to use for a step in the user flow like 'Before creating the user'.":::
 
 6. Select **Save**.
 
@@ -74,9 +76,6 @@ POST <API-endpoint>
 Content-type: application/json
 
 {
- "clientId": "231c70e8-8424-48ac-9b5d-5623b9e4ccf3",
- "step": "preTokenIssuance",
- "ui_locales":"en-US"
  "email": "johnsmith@fabrikam.onmicrosoft.com",
  "identities": [
      {
@@ -88,6 +87,9 @@ Content-type: application/json
  "displayName": "John Smith",
  "extension_<extensions-app-id>_CustomAttribute1": "custom attribute value",
  "extension_<extensions-app-id>_CustomAttribute2": "custom attribute value",
+ "client_id": "231c70e8-8424-48ac-9b5d-5623b9e4ccf3",
+ "step": "preTokenIssuance",
+ "ui_locales":"en-US"
 }
 ```
 
@@ -114,7 +116,7 @@ When the web API receives an HTTP request from Azure AD during a user flow, it c
 
 ### Continuation response
 
-A continuation response indicates that the user flow should continue to the next step: issue the token.
+A continuation response indicates that the user flow should continue to the next step: issuing the token.
 
 In a continuation response, the API can return additional claims. A claim returned by the API that you wish to return in the token must be a built-in claim or [defined as a custom attribute](user-flow-custom-attributes.md) and be selected in the **Application claims** configuration of the user flow. 
 
@@ -143,7 +145,7 @@ Content-type: application/json
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version     | String | Yes      | The version of your API.                                                    |
 | action                                             | String            | Yes      | Value must be `Continue`.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | No       | Returned values can overwrite values collected from a user. They can also be returned in the token if selected as an **Application claim**.                                              |
+| \<builtInUserAttribute>                            | \<attribute-type> | No       | They can returned in the token if selected as an **Application claim**.                                        |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | The claim does not need to contain `_<extensions-app-id>_`, it is *optional*. They can returned in the token if selected as an **Application claim**.  |
 
 ::: zone-end
@@ -355,10 +357,9 @@ Save the files you changed: *TrustFrameworkBase.xml*, and *TrustFrameworkExtensi
 
 ## Best practices and how to troubleshoot
 
-
 ### Using serverless cloud functions
 
-Serverless functions, like [HTTP triggers in Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md), provide a way create API endpoints to use with the API connector. You can use the serverless cloud function to, [for example](api-connector-samples.md#api-connector-rest-api-samples), perform validation logic and limit sign-ups to specific email domains. The serverless cloud function can also call and invoke other web APIs, data stores, and other cloud services for complex scenarios.
+Serverless functions, like [HTTP triggers in Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md), provide a way create API endpoints to use with the API connector. The serverless cloud function can also call and invoke other web APIs, data stores, and other cloud services for complex scenarios.
 
 ### Best practices
 Ensure that:
