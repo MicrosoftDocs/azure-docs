@@ -105,6 +105,7 @@ To define a custom role, see [Steps to create a custom role](../role-based-acces
 
 > [!NOTE]
 > In tenants configured with [Azure Resource Manager private link](../private-link/private-link-overview.md), Azure Container Registry supports wildcard actions such as `Microsoft.ContainerRegistry/*/read` or `Microsoft.ContainerRegistry/registries/*/write` in custom roles, granting access to all matching actions. If your registry is set up in a tenant without an ARM private link, specify all required actions individually in a custom role.
+
 ---
 
 ### Example: Custom role to import images
