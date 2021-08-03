@@ -151,6 +151,31 @@ The circuit user needs the resource ID and an authorization key from the circuit
 
     :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-summary.png" alt-text="Summary page":::
 
+## Configure ExpressRoute FastPath
+
+You can enable [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) if your virtual network gateway is Ultra Performance or ErGw3AZ. FastPath improves data path performance such as packets per second and connections per second between your on-premises network and your virtual network.
+
+**Configure FastPath on a new connection**
+
+When adding a new connection for your ExpressRoute gateway, select the checkbox for **FastPath**.
+
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/enable-fastpath-portal.png" alt-text="Screenshot of FastPath checkbox in add a connection page.":::
+
+> [!NOTE]
+> Enabling FastPath for a new connection is only available through creating a connection from the gateway resource. New connections created from the ExpressRoute circuit or from the Connection resource page is not supported.
+>
+**Configure FastPath on an existing connection**
+
+1. Go to the existing connection resource either from the ExpressRoute gateway, the ExpressRoute circuit, or the Connection resource page.
+
+1.  Select **Configuration** under *Settings* and then select the **FastPath** checkbox. Select **Save** to enable the feature.
+
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/enable-fastpath-connection.png" alt-text="Screenshot of FastPath checkbox on connection configuration page.":::
+
+## Enroll in ExpressRoute FastPath features (preview)
+
+FastPath support for virtual network peering is now in Public preview. Enrollment is only available through Azure PowerShell. See [FastPath preview features](expressroute-howto-linkvnet-arm.md#enroll-in-expressroute-fastpath-features-preview), for instructions on how to enroll.
+
 ## Clean up resources
 
 You can delete a connection and unlink your VNet to an ExpressRoute circuit by selecting the **Delete** icon on the page for your connection.
