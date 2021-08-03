@@ -48,6 +48,8 @@ items:
   items:
   - name: Overview
     href: language-detection/overview.md
+  - name: Quickstart
+    href: language-detection/quickstart.md 
   - name: How-to
     items:
     - name: Call the API
@@ -68,6 +70,8 @@ items:
     href: key-phrase-extraction/overview.md
   - name: Language support
     href: key-phrase-extraction/language-support.md
+  - name: Quickstart
+    href: key-phrase-extraction/quickstart.md 
   - name: How-to guides
     items:
     - name: Call Key Phrase Analysis
