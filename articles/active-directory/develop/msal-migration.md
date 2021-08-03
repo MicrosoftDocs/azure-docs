@@ -29,23 +29,21 @@ If any of your applications use the Azure Active Directory Authentication Librar
 
 ## Why switch to MSAL?
 
-MSAL has the following features:
-- **Security**: 
-    - Security fixes beyond June 30, 2022.
-    - [Continuous Access Evaluation (CAE)](app-resilience-continuous-access-evaluation.md) that proactively refreshes tokens and can revoke access tokens based on critical event and policy.
-    - [Conditional access authentication context](developer-guide-conditional-access-authentication-context.md) that allows you to apply granular policies to sensitive data and actions.
-    - Proof of possession ensures that access tokens aren't stolen and used to access protected resources using the following mechanisms:
-        - Access tokens are bound to the user/machine that wants to access a protected resource via public/private key pair.
-        - Access tokens are bound to a protected resource, i.e a token that is used to access <code>GET https://contoso.com/transactions</code> cannot be used to access <code>GET https://contoso.com/tranfer/100</code>.
-- **Performance and scalability**:
-    - Standards compliant with OAuth v2.0 and OpenID Connect (OIDC),  which enables you to authenticate several identity types like:
-        - Work or school accounts, provisioned through Azure AD.
-        - Microsoft accounts for Skype, Xbox, and Outlook.com
-    - MSAL.NET talking directly to [Active Directory Federation Service (AD FS)](msal-net-adfs-support.md) authority. 
-    - Authentication for Azure AD B2C, which allows users to sign in using social accounts like Facebook or Google, or non-Microsoft email addresses and passwords.
-    - Better token caching capabilities in confidential client applications, including distributed token caches. 
-- **Resilience**:
-    - Azure AD Cached Credential Service (CSS), which operates as an Azure AD backup.
+| **Feature** | **MSAL** | **ADAL** |
+| -- | -- | -- |
+| **Security features** | - | - |
+| Security fixes beyond 6/30/22 | ✔️ | ❌ |
+| Support for [Continuous Access Evaluation (CAE)](app-resilience-continuous-access-evaluation.md) enabled APIs, such as Microsoft Graph APIs. This feature allows you to proactively refreshes tokens and can revoke access tokens based on critical event and policy. | ✔️ | ❌ |
+| Standards compliant with OAuth v2.0 and OpenID Connect (OIDC) | ✔️ | ❌ |
+| **User accounts and experiences** | - | - |
+| AAD accounts | ✔️ | ✔️ |
+| MSA accounts | ✔️ | ❌ |
+| AAD B2C accounts | ✔️ | ❌ |
+| Best single sign-on experience | ✔️ | ❌ |
+| **Resilience** | - | - |
+| Azure AD Back-up System | ✔️ | Partial|
+| Proactive token renewal | ✔️ | ❌ |
+| Throttling | ✔️ | ❌ |
 
 ## AD FS support in MSAL.NET
 
