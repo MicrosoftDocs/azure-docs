@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 04/06/2020
+ ms.date: 08/03/2021
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -19,7 +19,7 @@ For each disk, you can define a `maxShares` value that represents the maximum nu
 
 ### Premium SSD ranges
 
-The following table illustrates the allowed maximum values for `maxShares` by premium disk sizes:
+The following table illustrates the allowed maximum values for `maxShares` by premium SSD sizes:
 
 |Disk sizes  |maxShares limit  |
 |---------|---------|
@@ -31,7 +31,15 @@ The IOPS and bandwidth limits for a disk are not affected by the `maxShares` val
 
 ### Standard SSD ranges
 
-All standard SSD sizes are supported.
+The following table illustrates the allowed maximum values for `maxShares` by standard SSD sizes:
+
+|Disk sizes  |maxShares limit  |
+|---------|---------|
+|E1,E2,E3,E4,E6,E10,E15,E20     |3         |
+|E30, E40, E50     |5         |
+|E60, E70, E80     |10         |
+
+The IOPS and bandwidth limits for a disk are not affected by the `maxShares` value. For example, the max IOPS of a E15 disk is 500 whether maxShares = 1 or maxShares > 1.
 
 ### Ultra disk ranges
 
