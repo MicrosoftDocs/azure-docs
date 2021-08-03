@@ -76,7 +76,7 @@ In this section, you will use the Node.js SDK to send messages from your simulat
     export IOTHUB_DEVICE_CONNECTION_STRING="<your connection string here>"
     export IOTHUB_DEVICE_SECURITY_TYPE="connectionString"
     ```
-1. In your Node console, run the code for the following sample file. The sample implements a simulated temperature controller with thermostat sensors.
+1. In your Node console, run the code for the following sample file. The sample implements a simulated temperature controller with two thermostat sensors.
 
     To run the Node.js sample from the terminal:
     ```console
@@ -105,7 +105,9 @@ To view telemetry in Azure IoT Explorer:
 To read telemetry sent by individual device components, you can use the plug and play features in IoT Explorer. For example, the temperature controller in this quickstart has two thermostats: thermostat1 and thermostat2. To see the temperature reported by thermostat1: 
 
 1. On your device in IoT Explorer, select **IoT Plug and Play components** from the left menu. Then select **thermostat1** from the list of components.
+
 1. On the **thermostat1** component pane, select **Telemetry** from the top menu.
+
 1. On the **Telemetry** pane, follow the same steps that you did previously. Make sure that **Use built-in event hub** is set to *Yes* and then select **Start**.
 
 To view device telemetry with Azure CLI:
