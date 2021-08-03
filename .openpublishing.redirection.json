@@ -13460,8 +13460,13 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-vmware/configure-nsx-network-components-azure-portal.md",
-      "redirect_url": "/azure/azure-vmware/configure-dhcp-azure-vmware-solution",
+      "source_path_from_root": "/articles/azure-vmware/tutorial-deploy-vmware-hcx.md",
+      "redirect_url": "/azure/azure-vmware/configure-vmware-hcx",
+      "redirect_document_id": false
+    }, 
+    {
+      "source_path_from_root": "/articles/azure-vmware/production-ready-deployment-steps.md",
+      "redirect_url": "/azure/azure-vmware/plan-private-cloud-deployment",
       "redirect_document_id": false
     },
     {
@@ -16182,6 +16187,11 @@
     {
       "source_path_from_root": "/articles/chef/chef-automation.md",
       "redirect_url": "/azure/developer/chef/windows-vm-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-iot/organizations/integration-servicenow.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/tutorial-servicenow",
       "redirect_document_id": false
     },
     {

@@ -56,6 +56,9 @@ This table provides a quick comparison for the change in terminology:
 
 | Feature | Details |
 | ---| --- |
+| [16 TB support for SQL Managed Instance General Purpose](https://techcommunity.microsoft.com/t5/azure-sql/increased-storage-limit-to-16-tb-for-sql-managed-instance/ba-p/2421443) | Support for allocation up to 16 TB of space on SQL Managed Instance General Purpose |
+| [Migration with Log Replay Service](../managed-instance/log-replay-service-migrate.md) | Migrate databases from SQL Server to SQL Managed Instance by using Log Replay Service. |
+| [Maintenance window](./maintenance-window.md)| The maintenance window feature allows you to configure maintenance schedule. |
 | [Distributed transactions](./elastic-transactions-overview.md) | Distributed transactions across Managed Instances. |
 | [Instance pools](../managed-instance/instance-pools-overview.md) | A convenient and cost-efficient way to migrate smaller SQL instances to the cloud. |
 | [Instance-level Azure AD server principals (logins)](/sql/t-sql/statements/create-login-transact-sql) | Create instance-level logins using a [CREATE LOGIN FROM EXTERNAL PROVIDER](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) statement. |
@@ -68,6 +71,14 @@ This table provides a quick comparison for the change in terminology:
 ---
 
 ## New features
+
+### SQL Managed Instance H1 2021 updates
+
+- [Public Preview for Support 16 TB for SQL Managed Instance General Purpose](https://techcommunity.microsoft.com/t5/azure-sql/increased-storage-limit-to-16-tb-for-sql-managed-instance/ba-p/2421443) - support for allocation of up to 16 TB of space for SQL Managed Instance General Purpose (Public Preview)
+ 
+- [Migrate to Managed Instance with Log Replay Service](../managed-instance/log-replay-service-migrate.md) - allows migrating databases from SQL Server to SQL Managed Instance by using Log Replay Service (Public Preview)
+
+- [Maintenance window](./maintenance-window.md) - the maintenance window feature allows you to configure maintenance schedule, see [Maintenance window announcement](https://techcommunity.microsoft.com/t5/azure-sql/maintenance-window-for-azure-sql-database-and-managed-instance/ba-p/2174835) (Public Preview).
 
 ### SQL Managed Instance H2 2019 updates
 
