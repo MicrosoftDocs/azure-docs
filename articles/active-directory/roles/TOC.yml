@@ -80,8 +80,6 @@
       href: admin-units-assign-roles.md
   - name: Delegate
     items:
-    - name: Assign app owners
-      href: assign-app-owners.md
     - name: Delegate app admin role
       href: delegate-app-roles.md
     - name: My Staff delegation

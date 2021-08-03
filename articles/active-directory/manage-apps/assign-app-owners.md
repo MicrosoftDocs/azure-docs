@@ -30,6 +30,8 @@ Users and service principals can be owners of application registrations. Only us
 
 In some cases, enterprise applications created from the application gallery include both an enterprise application and an application registration. When this is true, adding an owner to the enterprise application automatically adds the owner to the corresponding application registration as an owner.
 
+Owners of applications have the same permissions as application administrators scoped to an individual application. For more information, see [Azure AD built-in roles](../roles/permissions-reference#application-administrator). 
+
 ## To assign an owner to an enterprise application
 
 1. Sign in to [your Azure AD organization](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that is eligible for the **Application Administrator** role or the **Cloud Application Administrator** role for the organization.
