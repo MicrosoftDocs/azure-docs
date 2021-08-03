@@ -9,7 +9,7 @@ ms.topic: how-to
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: mathoma, vanto
-ms.date: 07/06/2020
+ms.date: 08/03/2021
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -116,6 +116,10 @@ After you set the minimal TLS version, login attempts from customers who are usi
 Error 47072
 Login failed with invalid TLS version
 ```
+
+## Set the minimal TLS version in Azure portal
+
+In the [Azure portal](https://portal.azure.com), go to your **SQL server** resource. Under the **Security** settings, select **Firewalls and virtual networks**. Select the **Minimum TLS Version** desired for all SQL Databases associated with the server, and select **Save**.
 
 ## Set the minimal TLS version via PowerShell
 
