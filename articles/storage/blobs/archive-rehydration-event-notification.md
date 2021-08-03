@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/23/2021
+ms.date: 08/02/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
@@ -15,6 +15,9 @@ ms.subservice: blobs
 
 # Trigger an event when an archived blob is rehydrated 
 
+This article shows how to create and test an Azure Function in the Azure portal, but you can build Azure Functions from a variety of local development environments. For more information, see [Code and test Azure Functions locally](../../azure-functions/functions-develop-local.md).
+
+To learn more about Azure Event Grid, see [What is Azure Event Grid?](../../event-grid/overview.md).
 
 ## About rehydration
 
@@ -60,9 +63,9 @@ To create a new function app in the Azure portal, follow these steps:
 
     :::image type="content" source="media/archive-rehydration-event-notification/create-function-app-hosting-tab.png" alt-text="Screenshot showing how to create a new function app in Azure - Hosting tab":::
 
-1. Select **Create** to create the new function app.
+1. Select **Review + Create** to create the new function app.
 
-To learn more about configuring your function app, see [Manage your function app](../../azure-functions/functions-how-to-use-azure-function-app-settings.md).
+To learn more about configuring your function app, see [Manage your function app](../../azure-functions/functions-how-to-use-azure-function-app-settings.md) in the Azure Functions documentation.
 
 ## Create an Azure Function as an Event Grid trigger
 
@@ -104,32 +107,25 @@ using Microsoft.Azure.EventGrid.Models;
 
 public static void Run(EventGridEvent eventGridEvent, ILogger log)
 {
-    const string BlobCreatedEvent = "Microsoft.Storage.BlobCreated";
-    const string BlobTierChangedEvent = "Microsoft.Storage.BlobTierChanged";
-
-    // Respond based on which type of event occurred.
-    if (eventGridEvent.EventType == BlobCreatedEvent)
-    {
-        log.LogInformation("Handling BlobCreated event:");
-    }
-    else if (eventGridEvent.EventType == BlobTierChangedEvent)
-    {
-        log.LogInformation("Handling BlobTierChanged event.");
-    }
-    else
-    {
-        log.LogInformation("Handling {0} event.", eventGridEvent.EventType);
-    }
-
     dynamic data = eventGridEvent.Data;
     dynamic api = data.api;
     dynamic url = data.url;
-    dynamic blobType = data.blobType;
 
-    // Write information about the event.
-    log.LogInformation("API operation: {0}", (string)api);
-    log.LogInformation("Blob URL: {0}", (string)url);
-    log.LogInformation("Blob type: {0}", (string)blobType);
+    // Write information about the event to the log.
+    if (eventGridEvent.EventType == "Microsoft.Storage.BlobCreated" && (string)api == "CopyBlob")
+    { 
+        log.LogInformation("CopyBlob operation occurred. Destination blob is {0}.", (string)url);
+    }
+    else if (eventGridEvent.EventType == "Microsoft.Storage.BlobTierChanged" && (string)api == "SetBlobTier")
+    {   
+        log.LogInformation("SetBlobTier operation occurred on blob {0}.", (string)url);
+    }
+    else
+    {
+        log.LogInformation("{0} operation occurred. Blob URL: {1}", (string)api, (string)url);
+    }
+
+    // Log additional information about the event.
     log.LogInformation($@"Event details:
                         Id=[{eventGridEvent.Id}] 
                         EventType=[{eventGridEvent.EventType}] 
@@ -137,20 +133,21 @@ public static void Run(EventGridEvent eventGridEvent, ILogger log)
                         Subject=[{eventGridEvent.Subject}] 
                         Topic=[{eventGridEvent.Topic}]");
 }
-
 ```
 
 When you save the function, the log indicates that the function was changed and whether or not it compiled successfully after the change.
 
 :::image type="content" source="media/archive-rehydration-event-notification/view-compilation-status-log.png" alt-text="Screenshot showing compilation status in the Azure portal log streaming service":::
 
-For more information on developing Azure Functions, see [Guidance for developing Azure Functions](../../azure-functions/functions-reference.md). This article shows how to create and test an Azure Function in the Azure portal, but you can build Azure Functions from a variety of local development environments. For more information, see [Code and test Azure Functions locally](../../azure-functions/functions-develop-local.md).
- 
-To learn more about the information that is included when a Blob Storage event is published to an event handler, see [Azure Blob Storage as Event Grid source](../../event-grid/event-schema-blob-storage?tabs=event-grid-event-schema.md).
+For more information on developing Azure Functions, see [Guidance for developing Azure Functions](../../azure-functions/functions-reference.md).
+
+To learn more about the information that is included when a Blob Storage event is published to an event handler, see [Azure Blob Storage as Event Grid source](../../event-grid/event-schema-blob-storage.md).
 
 ## Subscribe to blob rehydration events from a storage account
 
-You now have a function app that contains an Azure Function that will run in response to a blob rehydration event. The next step is to create an event subscription from your storage account. The event subscription configures the storage account to publish an event through Azure Event Grid in response to an operation on a blob in your storage account and then send it to an event handler. In this case, the event handler is the Azure Function that you created in the previous section. To learn more about how Azure Event Grid works, see [What is Azure Event Grid?](../../event-grid/overview.md).
+You now have a function app that contains an Azure Function that will run in response to a blob rehydration event. The next step is to create an event subscription from your storage account. The event subscription configures the storage account to publish an event through Azure Event Grid in response to an operation on a blob in your storage account. Event Grid then sends the event to the event handler endpoint that you've specified. In this case, the event handler is the Azure Function that you created in the previous section.
+
+When you create the event subscription, you can filter which events are sent to the event handler. The events to capture when rehydrating a blob from the archive tier are **Microsoft.Storage.BlobTierChanged**, corresponding to a [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation, and **Microsoft.Storage.BlobCreated** events, corresponding to a [Copy Blob](/rest/api/storageservices/copy-blob) or [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url) operation. Depending on your scenario, you may want to handle only one of these events.
 
 To create the event subscription, follow these steps:
 
@@ -170,6 +167,8 @@ To create the event subscription, follow these steps:
 :::image type="content" source="media/archive-rehydration-event-notification/select-azure-function-endpoint-portal.png" alt-text="Screenshot showing how to select an Azure Function as the endpoint for an Event Grid subscription":::
 
 1. Select the **Create** button to create the event subscription and begin sending events to the Azure Function event handler.
+
+To learn more about event subscriptions, see [Azure Event Grid concepts](../../event-grid/concepts.md#event-subscriptions).
 
 ## Test the event handler
 
@@ -243,8 +242,6 @@ To create an event subscription in the Azure portal, follow these steps:
 1. Select the types of events to handle. To be notified when Azure Storage has rehydrated a blob, choose either **Blob Tier Changed** or **Blob Created**, depending on how you will be rehydrating the blob.
 1. Select the type of endpoint that is serving as the event handler, then select the endpoint.
 
-    :::image type="content" source="media/archive-rehydration-event-notification/create-event-subscription-portal.png" alt-text="Screenshot showing how to configure event subscription in Azure portal":::
-
 # [PowerShell](#tab/powershell)
 
 To create an event subscription with PowerShell, call the [New-AzEventGridSubscription](/powershell/module/az.eventgrid/new-azeventgridsubscription) command. Provide a name for the event subscription, the Azure Resource Manager resource ID for the storage account, and the web hook endpoint. Remember to replace the placeholder values in brackets with your own values:
@@ -277,7 +274,7 @@ az eventgrid event-subscription create /
 
 # [Template](#tab/template)
 
-For a sample template that configures an event subscription with a web hook, see **Review the template** in [Send Blob storage events to web endpoint](../../event-grid/blob-event-quickstart-template#review-the-template).
+For a sample template that configures an event subscription with a web hook, see **Review the template** in [Send Blob storage events to web endpoint](../../event-grid/blob-event-quickstart-template.md#review-the-template).
 
 ---
 
