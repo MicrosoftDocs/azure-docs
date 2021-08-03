@@ -10,7 +10,7 @@ ms.date: 2/26/2021
 
 # Tutorial: Control Azure Functions outbound IP with an Azure virtual network NAT gateway
 
-Virtual network address translation (NAT) simplifies outbound-only internet connectivity for virtual networks. When configured on a subnet, all outbound connectivity uses your specified static public IP addresses. An NAT can be useful for Azure Functions or Web Apps that need to consume a third-party service that uses an allowlist of IP address as a security measure. To learn more, see [What is Virtual Network NAT?](../virtual-network/nat-overview.md).
+Virtual network address translation (NAT) simplifies outbound-only internet connectivity for virtual networks. When configured on a subnet, all outbound connectivity uses your specified static public IP addresses. An NAT can be useful for Azure Functions or Web Apps that need to consume a third-party service that uses an allowlist of IP address as a security measure. To learn more, see [What is Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md).
 
 This tutorial shows you how to use virtual network NATs to route outbound traffic from an HTTP triggered function. This function lets you check its own outbound IP address. During this tutorial, you'll:
 
@@ -63,6 +63,8 @@ If you've already completed the [integrate Functions with an Azure virtual netwo
 Next, you create a function app in the [Premium plan](functions-premium-plan.md). This plan provides serverless scale while supporting virtual network integration.
 
 ## Create a function app in a Premium plan
+
+This tutorial shows you how to create your function app in a [Premium plan](functions-premium-plan.md). The same functionality is also available when using a [Dedicated (App Service) plan](dedicated-plan.md).
 
 > [!NOTE]  
 > For the best experience in this tutorial, choose .NET for runtime stack and choose Windows for operating system. Also, create you function app in the same region as your virtual network.

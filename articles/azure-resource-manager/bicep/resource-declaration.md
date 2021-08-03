@@ -4,7 +4,7 @@ description: Describes how to declare resources to deploy in Bicep.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 07/30/2021
 ---
 
 # Resource declaration in Bicep
@@ -18,12 +18,12 @@ When adding a resource to your Bicep file, start by setting the resource type an
 The following example shows how to set the resource type and API version for a storage account. The example doesn't show the full resource declaration.
 
 ```bicep
-resource myStorageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   ...
 }
 ```
 
-You set a symbolic name for the resource. In the preceding example, the symbolic name is `myStorageAccount`. You can use any value for the symbolic name but it can't be the same as another resource, parameter, or variable in the Bicep file. The symbolic name isn't the same as the resource name. You use the symbolic name to easily reference the resource in other parts of your Bicep file.
+You set a symbolic name for the resource. In the preceding example, the symbolic name is `stg`. You can use any value for the symbolic name but it can't be the same as another resource, parameter, or variable in the Bicep file. The symbolic name isn't the same as the resource name. You use the symbolic name to reference the resource in other parts of your Bicep file.
 
 Bicep doesn't support `apiProfile`, which is available in [Azure Resource Manager templates (ARM templates) JSON](../templates/syntax.md).
 
@@ -122,13 +122,13 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 
 ## Set resource dependencies
 
-When deploying resources, you may need to make sure some resources exist before other resources. For example, you need a logical SQL server before deploying a database. You establish this relationship by marking one .resource as dependent on the other resource. Order of resource deployment can be influenced in two ways: [implicit dependency](#implicit-dependency) and [explicit dependency](#explicit-dependency)
+When deploying resources, you may need to make sure some resources exist before other resources. For example, you need a logical SQL server before deploying a database. You establish this relationship by marking one resource as dependent on the other resource. Order of resource deployment can be influenced in two ways: [implicit dependency](#implicit-dependency) and [explicit dependency](#explicit-dependency)
 
 Azure Resource Manager evaluates the dependencies between resources, and deploys them in their dependent order. When resources aren't dependent on each other, Resource Manager deploys them in parallel. You only need to define dependencies for resources that are deployed in the same Bicep file.
 
 ### Implicit dependency
 
-An implicit dependency is created when one resource declaration references the identifier of another resource declaration in an expression. For example, *dnsZone* is referenced by the second resource definition in the following example:
+An implicit dependency is created when one resource declaration references another resource in the same deployment. For example, *dnsZone* is referenced by the second resource definition in the following example:
 
 ```bicep
 resource dnsZone 'Microsoft.Network/dnszones@2018-05-01' = {
@@ -159,20 +159,24 @@ resource myParent 'My.Rp/parentType@2020-01-01' = {
 }
 ```
 
-For more information, see [Set name and type for child resources in Bicep](./child-resource-name-type.md).
+When an implicit dependency exists, **don't add an explicit dependency**.
+
+For more information about nested resources, see [Set name and type for child resources in Bicep](./child-resource-name-type.md).
 
 ### Explicit dependency
 
-An explicit dependency is declared via the `dependsOn` property within the resource declaration. The property accept an array of resource identifiers. Here is an example of one DNS zone depending on another explicitly:
+An explicit dependency is declared with the `dependsOn` property. The property accepts an array of resource identifiers, so you can specify more than one dependency. 
+
+The following example shows a DNS zone named `otherZone` that depends on a DNS zone named `dnsZone`:
 
 ```bicep
 resource dnsZone 'Microsoft.Network/dnszones@2018-05-01' = {
-  name: 'myZone'
+  name: 'demoeZone1'
   location: 'global'
 }
 
 resource otherZone 'Microsoft.Network/dnszones@2018-05-01' = {
-  name: 'myZone'
+  name: 'demoZone2'
   location: 'global'
   dependsOn: [
     dnsZone
@@ -182,36 +186,42 @@ resource otherZone 'Microsoft.Network/dnszones@2018-05-01' = {
 
 While you may be inclined to use `dependsOn` to map relationships between your resources, it's important to understand why you're doing it. For example, to document how resources are interconnected, `dependsOn` isn't the right approach. You can't query which resources were defined in the `dependsOn` element after deployment. Setting unnecessary dependencies slows deployment time because Resource Manager can't deploy those resources in parallel.
 
-Even though explicit dependencies are sometimes required, the need for them is rare. In most cases you have a symbolic reference available to imply the dependency between resources. If you find yourself using dependsOn you should consider if there is a way to get rid of it.
+Even though explicit dependencies are sometimes required, the need for them is rare. In most cases, you can use a symbolic name to imply the dependency between resources. If you find yourself setting explicit dependencies, you should consider if there's a way to remove it.
 
 ### Visualize dependencies
 
-Visual Studio Code provides a tool for visualizing the dependencies. Open a Bicep file in Visual Studio Code, and then select the visualizer button on the upper left corner.  The following screenshot shows the dependencies of a visual machine resource that are defined in the Bicep file.
+Visual Studio Code provides a tool for visualizing the dependencies. Open a Bicep file in Visual Studio Code, and then select the visualizer button on the upper left corner.  The following screenshot shows the dependencies of a virtual machine.
 
 :::image type="content" source="./media/resource-declaration/bicep-resource-visualizer.png" alt-text="Screenshot of Visual Studio Code Bicep resource visualizer":::
 
 ## Reference existing resources
 
-You can add references and access runtime properties from resources outside of the current file by using the `existing` keyword in a resource declaration. This is equivalent to using the ARM Template [reference() function](../templates/template-functions-resource.md#reference).
+To reference a resource that's outside of the current Bicep file, use the `existing` keyword in a resource declaration.
 
-When using the `existing` keyword, you must provide the `name` of the resource, and may optionally also set the `scope` property to access a resource in a different scope. See [Resource Scopes](./deploy-to-resource-group.md) for more information on using the scope property.
+When using the `existing` keyword, provide the `name` of the resource. The following example gets an existing storage account in the same resource group as the current deployment.
 
 ```bicep
 resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
-  name: 'exampleStorage'
+  name: 'examplestorage'
 }
 
 output blobEndpoint string = stg.properties.primaryEndpoints.blob
 ```
 
-The preceding example don't deploy the storage account, but the declaration provides access to properties on the existing resource. Using the 'stg' symbolic name, you can access properties on the storage account.
+Optionally, you can set the `scope` property to access a resource in a different scope. The following example references an existing storage account in a different resource group.
 
-The following examples shows how to specify the `scope` property:
-
+```bicep
 resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
-  name: 'exampleStorage'
-  scope: resourceGroup(mySub, myRg)
+  name: 'examplestorage'
+  scope: resourceGroup(exampleRG)
 }
+
+output blobEndpoint string = stg.properties.primaryEndpoints.blob
+```
+
+For more information about setting the scope, see [Scope functions for Bicep](bicep-functions-scope.md).
+
+The preceding examples don't deploy the storage account. Instead, you can access properties on the existing resource by using the symbolic name.
 
 ## Next steps
 

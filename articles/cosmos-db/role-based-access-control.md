@@ -1,11 +1,11 @@
 ---
 title: Azure role-based access control in Azure Cosmos DB 
 description: Learn how Azure Cosmos DB provides database protection with Active directory integration (Azure RBAC).
-author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/27/2021
-ms.author: mjbrown 
+ms.date: 06/17/2021
+author: ThomasWeiss
+ms.author: thweiss
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 > [!NOTE]
-> This article is about role-based access control for management plane operations in Azure Cosmos DB. If you are using data plane operations, see [Azure Cosmos DB RBAC](how-to-setup-rbac.md) for role-based access control applied to your data plane operations.
+> Azure RBAC support in Azure Cosmos DB applies to management plane operations only. This article is about role-based access control for management plane operations in Azure Cosmos DB. If you are using data plane operations, data is secured using primary keys, resource tokens, or the Azure Cosmos DB RBAC. To learn more about role-based access control applied to data plane operations, see [Secure access to data](secure-access-to-data.md) and [Azure Cosmos DB RBAC](how-to-setup-rbac.md) articles.
 
 Azure Cosmos DB provides built-in Azure role-based access control (Azure RBAC) for common management scenarios in Azure Cosmos DB. An individual who has a profile in Azure Active Directory can assign these Azure roles to users, groups, service principals, or managed identities to grant or deny access to resources and operations on Azure Cosmos DB resources. Role assignments are scoped to control-plane access only, which includes access to Azure Cosmos accounts, databases, containers, and offers (throughput).
 
@@ -28,9 +28,6 @@ The following are the built-in roles supported by Azure Cosmos DB:
 |[Cosmos Backup Operator](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)| Can submit a restore request for Azure portal for a periodic backup enabled database or a container. Can modify the backup interval and retention on the Azure portal. Cannot access any data or use Data Explorer.  |
 | [CosmosRestoreOperator](../role-based-access-control/built-in-roles.md) | Can perform restore action for Azure Cosmos DB account with continuous backup mode.|
 |[Cosmos DB Operator](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|Can provision Azure Cosmos accounts, databases, and containers. Cannot access any data or use Data Explorer.|
-
-> [!IMPORTANT]
-> Azure RBAC support in Azure Cosmos DB applies to control plane operations only. Data plane operations are secured using primary keys, resource tokens or the Cosmos DB RBAC. To learn more, see [Secure access to data in Azure Cosmos DB](secure-access-to-data.md)
 
 ## Identity and access management (IAM)
 
@@ -47,7 +44,7 @@ In addition to the built-in roles, users may also create [custom roles](../role-
 
 ## <a id="prevent-sdk-changes"></a>Preventing changes from the Azure Cosmos DB SDKs
 
-The Azure Cosmos DB resource provider can be locked down to prevent any changes to resources from a client connecting using the account keys (that is applications connecting via the Azure Cosmos SDK). This also includes changes made from the Azure portal. This feature may be desirable for users who want higher degrees of control and governance for production environments. Preventing changes from the SDK also enables features such as resource locks and diagnostic logs for control plane operations. The clients connecting from Azure Cosmos DB SDK will be prevented from changing any property for the Azure Cosmos accounts, databases, containers, and throughput. The operations involving reading and writing data to Cosmos containers themselves are not impacted.
+The Azure Cosmos DB resource provider can be locked down to prevent any changes to resources from a client connecting using the account keys (that is applications connecting via the Azure Cosmos SDK). This feature may be desirable for users who want higher degrees of control and governance for production environments. Preventing changes from the SDK also enables features such as resource locks and diagnostic logs for control plane operations. The clients connecting from Azure Cosmos DB SDK will be prevented from changing any property for the Azure Cosmos accounts, databases, containers, and throughput. The operations involving reading and writing data to Cosmos containers themselves are not impacted.
 
 When this feature is enabled, changes to any resource can only be made from a user with the right Azure role and Azure Active Directory credentials including Managed Service Identities.
 
@@ -68,7 +65,7 @@ This setting will prevent any changes to any Cosmos resource from any client con
 
 - Modifying stored procedures, triggers or user-defined functions.
 
-If your applications (or users via Azure portal) perform any of these actions they will need to be migrated to execute via [ARM Templates](./manage-with-templates.md), [PowerShell](manage-with-powershell.md), [Azure CLI](manage-with-cli.md), REST, or [Azure Management Library](https://github.com/Azure-Samples/cosmos-management-net). Note that Azure Management is available in [multiple languages](/azure/index.yml?product=developer-tools#languages-and-tools).
+If your applications (or users via Azure portal) perform any of these actions they will need to be migrated to execute via [ARM Templates](./manage-with-templates.md), [PowerShell](manage-with-powershell.md), [Azure CLI](manage-with-cli.md), REST, or [Azure Management Library](https://github.com/Azure-Samples/cosmos-management-net). Note that Azure Management is available in [multiple languages](/azure/index?product=featured#languages-and-tools).
 
 ### Set via ARM Template
 

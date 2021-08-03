@@ -23,7 +23,7 @@ Shared Image Gallery is a service that helps you build structure and organizatio
 - Sharing across subscriptions, and even between Active Directory (AD) tenants, using Azure RBAC.
 - Scaling your deployments with image replicas in each region.
 
-Using a Shared Image Gallery you can share your images to different users, service principals, or AD groups within your organization. Shared images can be replicated to multiple regions, for quicker scaling of your deployments.
+Using a Shared Image Gallery you can share your images to different users, service principals, or AD groups within and outside your organization. Shared images can be replicated to multiple regions, for quicker scaling of your deployments.
 
 An image is a copy of either a full VM (including any attached data disks) or just the OS disk, depending on how it is created. When you create a VM  from the image, a copy of the VHDs in the image are used to create the disks for the new VM. The image remains in storage and can be used over and over again to create new VMs.
 
@@ -100,7 +100,7 @@ Specialized VMs have not been through a process to remove machine specific infor
 
 ## Regional Support
 
-All public regions can be target regions, but certain regions require that customers go through a request process in order to gain access. To request that a subscription is added to the allow list for a region such as Australia Central or Australia Central 2, submit [an access request](/troubleshoot/azure/general/region-access-request-process)
+All public regions can be target regions, but certain regions require that customers go through a request process in order to gain access. To request that a subscription is added to the allowlist for a region such as Australia Central or Australia Central 2, submit [an access request](/troubleshoot/azure/general/region-access-request-process)
 
 ## Limits 
 
@@ -129,7 +129,7 @@ We always recommend you to overprovision the number of replicas due to factors l
 
 [Azure Zone Redundant Storage (ZRS)](https://azure.microsoft.com/blog/azure-zone-redundant-storage-in-public-preview/) provides resilience against an Availability Zone failure in the region. With the general availability of Shared Image Gallery, you can choose to store your images in ZRS accounts in regions with Availability Zones. 
 
-You can also choose the account type for each of the target regions. The default storage account type is Standard_LRS, but you can choose Standard_ZRS for regions with Availability Zones. Check the regional availability of ZRS [here](../storage/common/storage-redundancy.md).
+You can also choose the account type for each of the target regions. The default storage account type is Standard_LRS, but you can choose Standard_ZRS for regions with Availability Zones. For more information on regional availability of ZRS, see [Data redundancy](../storage/common/storage-redundancy.md).
 
 ![Graphic showing ZRS](./media/shared-image-galleries/zrs.png)
 
@@ -186,7 +186,7 @@ The following SDKs support creating Shared Image Galleries:
 
 - [.NET](/dotnet/api/overview/azure/virtualmachines/management)
 - [Java](/java/azure/)
-- [Node.js](/javascript/api/@azure/arm-compute)
+- [Node.js](/javascript/api/overview/azure/arm-compute-readme)
 - [Python](/python/api/overview/azure/virtualmachines)
 - [Go](/azure/go/)
 
@@ -197,7 +197,6 @@ You can create Shared Image Gallery resource using templates. There are several 
 - [Create a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-create/)
 - [Create an Image Definition in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
 - [Create an Image Version in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
-- [Create a VM from Image Version](https://azure.microsoft.com/resources/templates/vm-from-sig/)
 
 ## Frequently asked questions 
 

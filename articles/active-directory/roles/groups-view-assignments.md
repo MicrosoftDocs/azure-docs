@@ -23,7 +23,7 @@ This section describes how the roles assigned to a group can be viewed using Azu
 
 ## Prerequisites
 
-- AzureADPreview module when using PowerShell
+- AzureAD module when using PowerShell
 - Admin consent when using Graph explorer for Microsoft Graph API
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
@@ -68,5 +68,5 @@ GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$f
 
 ## Next steps
 
-- [Use cloud groups to manage role assignments](groups-concept.md)
-- [Troubleshooting roles assigned to cloud groups](groups-faq-troubleshooting.md)
+- [Use Azure AD groups to manage role assignments](groups-concept.md)
+- [Troubleshoot Azure AD roles assigned to groups](groups-faq-troubleshooting.yml)

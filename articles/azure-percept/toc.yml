@@ -11,16 +11,6 @@
       href: overview-azure-percept-dk.md   
     - name: Azure Percept Audio
       href: overview-azure-percept-audio.md   
-    - name: Azure Percept AI models
-      href: overview-ai-models.md      
-    - name: Advanced development
-      href: overview-advanced-code.md   
-    - name: Azure Percept security
-      href: overview-percept-security.md   
-    - name: 80/20 integration
-      href: overview-8020-integration.md   
-    - name: Device updates
-      href: overview-update-experience.md   
 
 - name: Quickstarts
   items:
@@ -46,14 +36,26 @@
   items:
     - name: Azure Percept DK
       items:
-        - name: Connect Over Cellular
-          href: connect-over-cellular.md
+        - name: 80/20 integration
+          href: overview-8020-integration.md   
+        - name: Device updates
+          href: overview-update-experience.md   
     - name: Azure Percept Audio
       items:
         - name: LED and button behavior
           href: audio-button-led-behavior.md        
+    - name: Advanced development
+      items:
+        - name: Advanced development
+          href: overview-advanced-code.md
+        - name: Azure Percept AI models
+          href: overview-ai-models.md
+        - name: Speech module interface and workflow
+          href: speech-module-interface-workflow.md
     - name: Security
       items:
+        - name: Azure Percept security
+          href: overview-percept-security.md   
         - name: Firewall configuration and security recommendations
           href: concept-security-configuration.md        
 
@@ -89,6 +91,10 @@
       items:
         - name: Connect over Ethernet
           href: how-to-connect-over-ethernet.md
+        - name: Set up advanced network settings
+          href: how-to-set-up-advanced-network-settings.md
+        - name: Connect over a 5G or LTE network
+          href: connect-over-cellular.md
         - name: Connect over SSH
           href: how-to-ssh-into-percept-dk.md
         - name: Connect over serial
@@ -109,6 +115,8 @@
           href: troubleshoot-audio-accessory-speech-module.md
         - name: Known issues
           href: known-issues.md
+        - name: Get hardware support
+          href: how-to-get-hardware-support.md
 
 - name: Reference
   items:

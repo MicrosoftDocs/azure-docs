@@ -30,7 +30,7 @@ For example:
 
 :::image type="content" source="media/sap/sap-workbook.png" alt-text="SAP - System Applications and Products workbook.":::
 
-For more information, see [Tutorial: Visualize and monitor your data](tutorial-monitor-your-data.md).
+For more information, see [Visualize and monitor your data](tutorial-monitor-your-data.md).
 
 ## Built-in analytics rules
 
@@ -84,11 +84,10 @@ The following tables list the built-in [analytics rules](sap-deploy-solution.md#
 |**SAP - Medium - Multiple Spool Executions**     |Identifies multiple spools for a user within a specific time-range. | Create and run multiple spool jobs of any type by a user. (SP01) <br><br>**Data sources**: SAPcon - Spool Log, SAPcon - Audit Log   |  Collection, Exfiltration, Credential Access       |
 |**SAP - Medium - Multiple Spool Output Executions**     |Identifies multiple spools for a user within a specific time-range. | Create and run multiple spool jobs of any type by a user. (SP01) <br><br>**Data sources**: SAPcon - Spool Output Log, SAPcon - Audit Log   |  Collection, Exfiltration, Credential Access       |
 |**SAP - Medium - Spool Takeover**     |Identifies a user printing a spool request that was created by someone else. | Create a spool request using one user, and then output it in using a different user. <br><br>**Data sources**: SAPcon -  Spool Log, SAPcon -  Spool Output Log, SAPcon - Audit Log   |  Collection, Exfiltration, Command and Control      |
-|**SAP - Medium - Insecure FTP servers configuration**     |Identifies insecure FTP server configurations, such as when an FTP allow list is empty or contains placeholders. | Do not maintain or maintain values that contain placeholders in the `SAPFTP_SERVERS` table, using the `SAPFTP_SERVERS_V` maintenance view. (SM30) <br><br>**Data sources**: SAPcon -  Audit Log   |  Initial Access, Command and Control      |
+|**SAP - Medium - Insecure FTP servers configuration**     |Identifies insecure FTP server configurations, such as when an FTP allowlist is empty or contains placeholders. | Do not maintain or maintain values that contain placeholders in the `SAPFTP_SERVERS` table, using the `SAPFTP_SERVERS_V` maintenance view. (SM30) <br><br>**Data sources**: SAPcon -  Audit Log   |  Initial Access, Command and Control      |
 |**SAP - Medium - FTP for non authorized servers**     |Identifies an FTP connection for a non-authorized server. | Create a new FTP connection, such as by using the FTP_CONNECT Function Module. <br><br>**Data sources**: SAPcon -  Audit Log   |  Discovery, Initial Access, Command and Control      |
 |**SAP - Medium - Sensitive Tables Direct Access By RFC Logon**     |Identifies a generic table access by RFC sign in. <br><br> Maintain tables in the [SAP - Sensitive Tables](#tables) watchlist.<br><br> **Note**: Relevant for production systems only.   | Open the table contents using SE11/SE16/SE16N.<br><br>**Data sources**: SAPcon -  Audit Log   |  Collection, Exfiltration, Credential Access     |
 |**SAP - Medium - Sensitive Roles Changes**     |Identifies changes in sensitive roles. <br><br> Maintain sensitive roles in the [SAP - Sensitive Roles](#roles) watchlist.       |  Change a role using PFCG. <br><br>**Data sources**: SAPcon - Change Documents Log, SAPcon – Audit Log   |  Impact, Privilege Escalation, Persistence     |
-|**SAP - Medium - Sensitive Profile Changes**     |Identifies changes in sensitive profiles.  <br><br> Maintain sensitive profiles in the [SAP - Sensitive Profiles](#profiles) watchlist.     |  Change a role using PFCG.  <br><br>**Data sources**: SAPcon - Change Documents Log, SAPcon – Audit Log   | Privilege, Escalation, Persistence, Command and Control |
 |**SAP - Medium - Execution of Obsolete/Insecure Program**     |Identifies the execution of an obsolete or insecure ABAP program. <br><br> Maintain obsolete programs in the [SAP - Obsolete Programs](#programs) watchlist.<br><br> **Note**: Relevant for production systems only.  | Run a program directly using SE38/SA38/SE80, or by using a background job.  <br><br>**Data sources**: SAPcon -  Audit Log   | Discovery, Command and Control |
 |**SAP - Medium - Execution of Obsolete or Insecure Function Module**     |Identifies the execution of an obsolete or insecure ABAP function module. <br><br>Maintain obsolete functions in the [SAP - Obsolete Function Modules](#modules) watchlist. Make sure to activate table logging changes for the `EUFUNC` table in the backend. (SE13)<br><br> **Note**: Relevant for production systems only.  | Run an obsolete or insecure function module directly using SE37. <br><br>**Data sources**: SAPcon -  Table Data Log   | Discovery, Command and Control |
 |     |         |         |         |
@@ -144,7 +143,8 @@ These watchlists provide the configuration for the Azure Sentinel SAP Continuous
 
 For more information, see:
 
-- [Tutorial: Deploy the Azure Sentinel solution for SAP](sap-deploy-solution.md)
+- [Deploy the Azure Sentinel solution for SAP](sap-deploy-solution.md)
 - [Azure Sentinel SAP solution logs reference](sap-solution-log-reference.md)
-- [Deploy the Azure Sentinel SAP data connector on-premises](sap-solution-deploy-alternate.md)
+- [Expert configuration options, on-premises deployment and SAPControl log sources](sap-solution-deploy-alternate.md)
 - [Azure Sentinel SAP solution detailed SAP requirements](sap-solution-detailed-requirements.md)
+- [Troubleshooting your Azure Sentinel SAP solution deployment](sap-deploy-troubleshoot.md)

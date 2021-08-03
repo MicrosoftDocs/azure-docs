@@ -185,10 +185,10 @@ Each pricing tier has different limits for client connections, memory, and bandw
 
 | Azure Cache for Redis metric | More information |
 | --- | --- |
-| Network bandwidth usage |[Cache performance - available bandwidth](cache-planning-faq.md#azure-cache-for-redis-performance) |
+| Network bandwidth usage |[Cache performance - available bandwidth](./cache-planning-faq.yml#azure-cache-for-redis-performance) |
 | Connected clients |[Default Redis server configuration - max clients](#maxclients) |
 | Server load |[Usage charts - Redis Server Load](cache-how-to-monitor.md#usage-charts) |
-| Memory usage |[Cache performance - size](cache-planning-faq.md#azure-cache-for-redis-performance) |
+| Memory usage |[Cache performance - size](./cache-planning-faq.yml#azure-cache-for-redis-performance) |
 
 To upgrade your cache, select **Upgrade now** to change the pricing tier and [scale](#scale) your cache. For more information on choosing a pricing tier, see [Choosing the right tier](cache-overview.md#choosing-the-right-tier)
 
@@ -418,7 +418,7 @@ New Azure Cache for Redis instances are configured with the following default Re
   * P4 (53 GB - 530 GB) - up to 64 databases
   * All premium caches with Redis cluster enabled - Redis cluster only supports use of database 0 so the `databases` limit for any premium cache with Redis cluster enabled is effectively 1 and the [Select](https://redis.io/commands/select) command is not allowed. For more information, see [Do I need to make any changes to my client application to use clustering?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 
-For more information about databases, see [What are Redis databases?](cache-development-faq.md#what-are-redis-databases)
+For more information about databases, see [What are Redis databases?](cache-development-faq.yml#what-are-redis-databases-)
 
 > [!NOTE]
 > The `databases` setting can be configured only during cache creation and only using PowerShell, CLI, or other management clients. For an example of configuring `databases` during cache creation using PowerShell, see [New-AzRedisCache](cache-how-to-manage-redis-cache-powershell.md#databases).
@@ -511,4 +511,4 @@ For information on moving resources from one resource group to another, and from
 
 ## Next steps
 
-* For more information on working with Redis commands, see [How can I run Redis commands?](cache-development-faq.md#how-can-i-run-redis-commands)
+* For more information on working with Redis commands, see [How can I run Redis commands?](cache-development-faq.yml#how-can-i-run-redis-commands-)

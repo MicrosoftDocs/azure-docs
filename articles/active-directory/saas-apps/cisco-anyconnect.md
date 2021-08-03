@@ -68,16 +68,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Set up single sign-on with SAML** page, enter the values for the following fields:
+1. On the **Set up single sign-on with SAML** page, enter the values for the following fields (note that the values are case-sensitive):
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
-    `< YOUR CISCO ANYCONNECT VPN VALUE >`
+   1. In the **Identifier** text box, type a URL using the following pattern:  
+      `https://*.YourCiscoServer.com/saml/sp/metadata/TGTGroup`
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
-    `< YOUR CISCO ANYCONNECT VPN VALUE >`
+   1. In the **Reply URL** text box, type a URL using the following pattern:  
+      `https://YOUR_CISCO_ANYCONNECT_FQDN/+CSCOE+/saml/sp/acs?tgname=TGTGroup`
 
     > [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Cisco AnyConnect Client support team](https://www.cisco.com/c/en/us/support/index.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > For clarification about these values, contact Cisco TAC support. Update these values with the actual Identifier and Reply URL provided by Cisco TAC. Contact the [Cisco AnyConnect Client support team](https://www.cisco.com/c/en/us/support/index.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate file and save it on your computer.
 
@@ -178,6 +178,6 @@ In this section, you test your Azure AD single sign-on configuration with follow
 * Click on Test this application in Azure portal and you should be automatically signed in to the Cisco AnyConnect for which you set up the SSO
 * You can use Microsoft Access Panel. When you click the Cisco AnyConnect tile in the Access Panel, you should be automatically signed in to the Cisco AnyConnect for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
-## Next Steps
+## Next steps
 
 Once you configure Cisco AnyConnect you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
