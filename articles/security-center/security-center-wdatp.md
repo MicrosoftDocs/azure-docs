@@ -137,7 +137,7 @@ If you've already enabled the integration with **Defender for Endpoint for Windo
 
     - Automatically onboard your Linux machines to Defender for Endpoint
     - Ignore any machines that are running other fanotify-based solutions (see details of the `fanotify` kernel option required in [Linux system requirements](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#system-requirements))
-    - Detect any previous installations of Defender for Endpoint and reconfigure them to integrated mode
+    - Detect any previous installations of Defender for Endpoint and reconfigure them to integrate with Security Center
 
     Onboarding might take up to 24 hours.
 
@@ -173,7 +173,7 @@ If you've never enabled the integration for Windows, the **Allow Microsoft Defen
 
     - Automatically onboard your Windows and Linux machines to Defender for Endpoint
     - Ignore any Linux machines that are running other fanotify-based solutions (see details of the `fanotify` kernel option required in [Linux system requirements](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#system-requirements))
-    - Detect any previous installations of Defender for Endpoint and reconfigure them to integrated mode
+    - Detect any previous installations of Defender for Endpoint and reconfigure them to integrate with Security Center
 
     Onboarding might take up to 24 hours.
 
@@ -188,12 +188,6 @@ If you've never enabled the integration for Windows, the **Allow Microsoft Defen
     `licensed: true`
 
     In addition, in the Azure portal you'll see a new Azure extension on your machines called `MDE.Linux`.
-
-> [!NOTE]
-> The next time you return to this page of the Azure portal, the **Enable for Linux machines** button won't be shown. To disable the integration for Linux, you'll need to disable it for Windows too by clearing the checkbox for **Allow Microsoft Defender for Endpoint to access my data**, and selecting **Save**.
-
-
-
 --- 
 
 ## Access the Microsoft Defender for Endpoint portal
