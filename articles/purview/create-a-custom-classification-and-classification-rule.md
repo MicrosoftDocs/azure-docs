@@ -121,8 +121,8 @@ To create a custom classification rule:
 
 1. Under **Data Pattern** you can use the **Minimum match threshold** to set the minimum percentage of the distinct data value matches in a column that must be found by the scanner for the classification to be applied. The suggested value is 60%. You need to be careful with this setting. If you reduce the level below 60%, you might introduce false-positive classifications into your catalog. If you specify multiple data patterns, this setting is disabled and the value is fixed at 60%.
 
-> [!Note]
-> The Minimum match threshold must be at least 1%.
+   > [!Note]
+   > The Minimum match threshold must be at least 1%.
 
 1. You can now verify your rule and **create** it.
 1. Test the classification rule before completing the creation process to validate that it will apply tags to your assets. The classifications in the rule will be applied to the sample data uploaded just as it would in a scan. This means all of the system classifications and your custom classification will be matched to the data in your file.
