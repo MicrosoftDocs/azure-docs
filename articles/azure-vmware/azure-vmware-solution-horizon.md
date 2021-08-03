@@ -11,7 +11,7 @@ ms.date: 09/29/2020
 >[!NOTE]
 >This document focuses on the VMware Horizon product, formerly known as Horizon 7. Horizon is a different solution than Horizon Cloud on Azure, although there are some shared components. Key advantages of the Azure VMware Solution include both a more straightforward sizing method and the integration of VMware Cloud Foundation management into the Azure portal.
 
-[VMware Horizon](https://www.vmware.com/products/horizon.html)®, a virtual desktop and applications platform, run in the data center and provides simple and centralized management. It delivers virtual desktops and applications on any device, anywhere. Horizon lets you create and broker connections to Windows and Linux virtual desktops, Remote Desktop Server (RDS) hosted applications, desktops, and physical machines.
+[VMware Horizon](https://www.vmware.com/products/horizon.html)®, a virtual desktop and applications platform, runs in the data center and provides simple and centralized management. It delivers virtual desktops and applications on any device, anywhere. Horizon lets you create and broker connections to Windows and Linux virtual desktops, Remote Desktop Server (RDS) hosted applications, desktops, and physical machines.
 
 Here, we focus specifically on deploying Horizon on Azure VMware Solution. For general information on VMware Horizon, refer to the Horizon production documentation:
 
@@ -25,18 +25,18 @@ With Horizon's introduction on Azure VMware Solution, there are now two Virtual 
 
 :::image type="content" source="media/vmware-horizon/difference-horizon-azure-vmware-solution-horizon-cloud-azure.png" alt-text="Diagram showing the differences between Horizon on Azure VMware Solution and Horizon Cloud on Azure." border="false":::
 
-Horizon 2006 and later versions on the Horizon 8 release line supports both on-premises deployment and Azure VMware Solution deployment. There are a few Horizon features that are supported on-premises but not on Azure VMware Solution. Other products in the Horizon ecosystem are also supported. For for information, see [feature parity and interoperability](https://kb.vmware.com/s/article/80850).
+Horizon 2006 and later versions on the Horizon 8 release line supports both on-premises deployment and Azure VMware Solution deployment. There are a few Horizon features that are supported on-premises but not on Azure VMware Solution. Other products in the Horizon ecosystem are also supported. For more information, see [feature parity and interoperability](https://kb.vmware.com/s/article/80850).
 
 ## Deploy Horizon in a hybrid cloud
 
-You can deploy Horizon in a hybrid cloud environment when you use Horizon Cloud Pod Architecture (CPA) to interconnect on-premises and Azure datacenters. CPA scales up your deployment, builds a hybrid cloud, and provides redundancy for Business Continuity and Disaster Recovery.  For more information, see [Expanding Existing Horizon 7 Environments](https://techzone.vmware.com/resource/business-continuity-vmware-horizon#_Toc41650874).
+You can deploy Horizon in a hybrid cloud environment when you use Horizon Cloud Pod Architecture (CPA) to interconnect on-premises and Azure data centers. CPA scales up your deployment, builds a hybrid cloud, and provides redundancy for Business Continuity and Disaster Recovery.  For more information, see [Expanding Existing Horizon 7 Environments](https://techzone.vmware.com/resource/business-continuity-vmware-horizon#_Toc41650874).
 
 >[!IMPORTANT]
 >CPA is not a stretched deployment; each Horizon pod is distinct, and all Connection Servers that belong to each of the individual pods are required to be located in a single location and run on the same broadcast domain from a network perspective.
 
 Like on-premises or private data center, Horizon can be deployed in an Azure VMware Solution private cloud. We'll discuss key differences in deploying Horizon on-premises and on Azure VMware Solution in the following sections.
 
-The Azure private cloud is conceptually the same as the VMware SDDC, a term typically used in Horizon documentation. The rest of this document uses the terms Azure private cloud and VMware SDDC interchangeable.
+The Azure private cloud is conceptually the same as the VMware SDDC, a term typically used in Horizon documentation. The rest of this document uses the terms Azure private cloud and VMware SDDC interchangeably.
 
 The Horizon Cloud Connector is required for Horizon on Azure VMware Solution to manage subscription licenses. Cloud Connector can be deployed in Azure Virtual Network alongside Horizon Connection Servers.
 
