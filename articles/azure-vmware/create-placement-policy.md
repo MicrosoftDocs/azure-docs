@@ -8,8 +8,6 @@ ms.date: 8/10/2021
 
 ---
 
-
-
 # Create a placement policy in Azure VMware Solution
 
 In Azure VMware Solution, clusters in a private cloud are a managed resource. As a result, the cloudadmin role can't make certain changes to the cluster from the vSphere Client, including the management of Distributed Resource Scheduler (DRS) rules.
@@ -67,14 +65,22 @@ A VM-Host Anti-Affinity policy instructs DRS to try to run the specified virtual
 
 ## Considerations
 
+
+
 ### Host replacement
 
 
 ### Cluster scale in
 
+AVS will attempt to prevent certain DRS rule violations from occurring when performing cluster scale-in operations.
+You can't remove the last host from a VM-Host policy. If you need to remove the last host from the policy, you can remediate this by adding another host to the policy prior to removing the host from the cluster. Alternatively, you can delete the placement policy prior to removing the host. 
+
+You can't have a VM-VM Anti Affinity policy with more virtual machines than number of hosts in cluster. If the removal of a host would result in fewer hosts in the cluster than virtual machines, then you will receive an error preventing the operation. You can remediate this by first removing virtual machines from the rule and then removing the host from the cluster.
+
 
 ### Rule conflicts
 
+Portal will flag these on creation and will disable a conflicting rule (add more info).
 
 ## Create a policy
 
