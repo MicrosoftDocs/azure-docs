@@ -4,15 +4,17 @@ description: This article will describe monitoring third-party tools helps monit
 author: manishmsfte
 ms.author: mansha
 ms.service: cosmos-db
-ms.subservice: cosmos-db
 ms.topic: how-to
 ms.date: 07/28/2021
 ---
 
 # Monitoring Azure Cosmos DB using third-party solutions
-[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Apart from Azure Monitor, you can use third party monitoring solutions to monitor your Cosmos DB instances.
+
+> [!IMPORTANT] 
+> Solutions mentioned in this article are for information purpose only, the ownership lies to individual solution owner. We recommend user to do thorough evaluation and then choose.
 
 ## Datadog
 {Supports: SQL API, Azure Cosmos DB API for MongoDB, Gremlin API, Cassandra API & Table API}
@@ -43,7 +45,7 @@ Useful links:
 {Supports: SQL API & Azure Cosmos DB API for MongoDB}
 
 [Dynatrace](https://www.dynatrace.com/platform/) delivers software intelligence for the cloud to tame cloud complexity and accelerate digital transformation. With automatic and intelligent observability at scale, the Dynatrace all-in-one Software Intelligence Platform delivers precise answers about the performance and security of applications, the underlying infrastructure, and the experience of all users, so teams can automate cloud operations, release better software faster, and deliver unrivaled digital experiences.  
-Using the Mongo API, Dynatrace collects and delivers CosmosDB metrics which includes the numbers of calls and response times—all visualized according to aggregation, commands, read-, and write operations.  It also tells you exact database statements executed in your environment.  Lastly with the power our of [Davis AI Engine](https://www.dynatrace.com/davis), it can detect exactly which database statement is the root cause of degradation and can see the database identified as the root cause.
+Using the Mongo API, Dynatrace collects and delivers CosmosDB metrics, which includes the numbers of calls and response times—all visualized according to aggregation, commands, read-, and write operations.  It also tells you exact database statements executed in your environment.  Lastly with the power of [Davis AI Engine](https://www.dynatrace.com/davis), it can detect exactly which database statement is the root cause of degradation and can see the database identified as the root cause.
 
 :::image type="content" source="./media/monitor-solutions/dynatrace-demo.gif" alt-text="Dynatrace's various screen to provide monitoring information of Cosmos DB" border="false":::
 <b>Figure:</b> Dynatrace in Action
@@ -59,4 +61,4 @@ Using the Mongo API, Dynatrace collects and delivers CosmosDB metrics which incl
 - [Solution Partners](https://www.dynatrace.com/partners/solution-partners/)
 
 ## Next Steps
-- [Monitoring Cosmos DB data reference](./monitor-cosmos-db-reference)
+- [Monitoring Cosmos DB data reference](./monitor-cosmos-db-reference.md)
