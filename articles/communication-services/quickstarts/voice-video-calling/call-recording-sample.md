@@ -13,6 +13,9 @@ ms.service: azure-communication-services
 zone_pivot_groups: acs-csharp-java
 ---
 # Call Recording API Quickstart
+
+[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
+
 This quickstart gets you started recording voice and video calls. This quickstart assumes you've already used the [Calling client SDK](get-started-with-video-calling.md) to build the end-user calling experience. Using the **Calling Server APIs and SDKs** you can enable and manage recordings. 
 
 ::: zone pivot="programming-language-csharp"

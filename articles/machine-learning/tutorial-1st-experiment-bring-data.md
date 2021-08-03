@@ -156,9 +156,6 @@ optimizer = optim.SGD(
 )
 ```
 
-> [!div class="nextstepaction"]
-> [I adjusted the training script](?success=adjust-training-script#upload) [I ran into an issue](https://www.research.net/r/7C6W7BQ?issue=adjust-training-script)
-
 
 ## <a name="upload"></a> Upload the data to Azure
 
@@ -198,9 +195,6 @@ To run this script in Azure Machine Learning, you need to make your training dat
     Uploaded ./data\cifar-10-batches-py\data_batch_5, 9 files out of an estimated total of 9
     Uploaded 9 files
     ```
-
-> [!div class="nextstepaction"]
-> [I uploaded the data](?success=upload-data#control-script) [I ran into an issue](https://www.research.net/r/7C6W7BQ?issue=upload-data)
 
 ## <a name="control-script"></a> Create a control script
 
@@ -266,17 +260,12 @@ The control script is similar to the one from [part 3 of this series](tutorial-1
    :::column-end:::
 :::row-end:::
 
-> [!div class="nextstepaction"]
-> [I created the control script](?success=control-script#submit-to-cloud) [I ran into an issue](https://www.research.net/r/7C6W7BQ?issue=control-script)
-
 ## <a name="submit-to-cloud"></a> Submit the run to Azure Machine Learning
 
 Select **Save and run script in terminal**  to run the *run-pytorch-data.py* script.  This run will train the model on the compute cluster using the data you uploaded.
 
 This code will print a URL to the experiment in the Azure Machine Learning studio. If you go to that link, you'll be able to see your code running.
 
-> [!div class="nextstepaction"]
-> [I resubmitted the run](?success=submit-to-cloud#inspect-log) [I ran into an issue](https://www.research.net/r/7C6W7BQ?issue=submit-to-cloud)
 
 ### <a name="inspect-log"></a> Inspect the log file
 
@@ -319,8 +308,6 @@ Notice:
 - Azure Machine Learning has mounted Blob Storage to the compute cluster automatically for you.
 - The ``dataset.as_named_input('input').as_mount()`` used in the control script resolves to the mount point.
 
-> [!div class="nextstepaction"]
-> [I inspected the log file](?success=inspect-log#clean-up-resources) [I ran into an issue](https://www.research.net/r/7C6W7BQ?issue=inspect-log)
 
 ## Clean up resources
 
@@ -350,4 +337,5 @@ You saw how to modify your training script to accept a data path via the command
 
 Now that you have a model, learn:
 
-* How to [deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
+> [!div class="nextstepaction"]
+> [How to deploy models with Azure Machine Learning](how-to-deploy-and-where.md).

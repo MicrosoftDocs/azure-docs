@@ -4,7 +4,7 @@ description: This article describes pricing, billing, invoicing, and payout cons
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/05/2021
+ms.date: 07/12/2021
 ms.author: mingshen
 author: mingshen-ms
 ---
@@ -37,7 +37,7 @@ The transact publishing option is currently supported for the following offer ty
 
 | Offer type | Billing cadence | Metered billing | Pricing model |
 | ------------ | ------------- | ------------- | ------------- |
-| Azure Application<br>(Managed application) | Monthly | Yes | Usage-based |
+| Azure Application <br>(Managed application) | Monthly | Yes | Usage-based |
 | Azure Virtual Machine | Monthly * | No | Usage-based, BYOL |
 | Software as a service (SaaS) | Monthly and annual | Yes | Flat rate, per user, usage-based. |
 |||||
@@ -100,8 +100,8 @@ In this scenario, Microsoft bills $1.14 per hour for use of your published VM im
 
 | **Microsoft bills** | **$1.14 per hour**  |
 |---------|---------|
-| Microsoft pays you 80% of your license cost | $0.80 per hour |
-| Microsoft keeps 20% of your license cost  |  $0.20 per hour |
+| Microsoft pays you 97% of your license cost | $0.97 per hour |
+| Microsoft keeps 3% of your license cost  |  $0.03 per hour |
 | Microsoft keeps 100% of the Azure usage cost | $0.14 per hour |
 ||
 
@@ -133,20 +133,16 @@ SaaS subscriptions can be priced at a flat rate or per user on a monthly or annu
 | _Customer is billed by Microsoft_ | _$100.00 per month (publisher must account for any incurred or pass-through infrastructure costs in the license fee)_ |
 ||
 
-In this scenario, Microsoft bills $100.00 for your software license and pays out $80.00 or $90.00 to you depending on whether the offer qualifies for a reduced store service fee.
+In this scenario, Microsoft bills $100.00 for your software license and pays out $97.00.
 
 | **Microsoft bills** | **$100.00 per month** |
 |---------|---------|
-| Microsoft pays you 80% of your license cost <br> \* Microsoft pays you 90% of your license cost for any qualified SaaS apps | $80.00 per month <br> \* $90.00 per month |
-| Microsoft keeps 20% of your license cost <br> \* Microsoft keeps 10% of your license cost for any qualified SaaS apps. | $20.00 per month <br> \* $10.00 |
+| Microsoft pays you 97% of your license cost  | $97.00 per month |
+| Microsoft keeps 3% of your license cost | $3.00 per month |
 
 ### Commercial marketplace service fees
 
-We charge a 20% standard store service fee when customers purchase your transact offer from the commercial marketplace. For details of this fee, see section 5c of the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement).
-
-For certain transact offers that you publish to the commercial marketplace, you may qualify for a reduced store service fee of 10%. For an offer to qualify, it must have been designated by Microsoft as _Azure IP Co-sell incentivized_. Eligibility must be met at least five business days before the end of each calendar month to receive the Reduced Marketplace Service Fee. Once eligibility is met, the reduced service fee is awarded to all transactions effective the first day of the following month until _Azure IP Co-sell incentivized_ status is lost. For details about IP co-sell eligibility, see [Requirements for co-sell status](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
-
-The Reduced Marketplace Service Fee applies to Azure IP Co-sell incentivized SaaS, VMs, Managed apps, and any other qualified transactable IaaS solutions made available through the commercial marketplace. Paid SaaS offers associated with one Microsoft Teams app or at least two Microsoft 365 add-ins (Excel, PowerPoint, Word, Outlook, and SharePoint) and published to Microsoft AppSource can also qualify for this discount.
+We charge a 3% standard store service fee when customers purchase your transact offer from the commercial marketplace.
 
 ### Customer invoicing, payment, billing, and collections
 
@@ -164,7 +160,7 @@ When subscription or Pay-as-You-Go (also called usage-based) pricing models are 
 
 ### Publisher payout and reporting
 
-Any software licensing fees collected by Microsoft as an agent are subject to a 20% transaction fee unless otherwise specified and are deducted at the time of publisher payout.
+Any software licensing fees collected by Microsoft as an agent are subject to a 3% store service fee unless otherwise specified and are deducted at the time of publisher payout.
 
 Customers typically purchase using the Enterprise Agreement or a credit-card enabled pay-as-you-go agreement. The agreement type determines billing, invoicing, collection, and payout timing.
 
