@@ -14,7 +14,7 @@ ms.author: aersoy
 
 This reference guide provides you with an overview of the API version policies for the DICOM service. 
 
-All versions of the DICOM APIs will always conform to the DICOMweb™ Standard specifications, but versions may expose different APIs based on our conformance statement.
+All versions of the DICOM APIs will always conform to the DICOMweb™ Standard specifications, but versions may expose different APIs based on the [DICOM Conformance Statement](dicom-services-conformance-statement.md).
 
 ## Specifying version of REST API in requests
 
