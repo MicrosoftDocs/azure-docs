@@ -48,9 +48,18 @@ This release of Azure Database for MySQL - Single Server includes the following 
 
   This release provides General Availability of planned maintenance notifications in Azure Database for MySQL - Single Server. For more information, see the article [Planned maintenance notification](concepts-planned-maintenance-notification.md).
 
-- **Known issue**
+- **Enabled the parameter redirect_enabled by default**
 
-  If you are using a PHP application connected to Azure database for MySQL with redirection enabled [Learn more]( https://docs.microsoft.com/en-us/azure/mysql/howto-redirection), you might face a data encoding issue which will impact your insert transactions , resolve the issue by disabling the redirection by setting the parameter redirect_enabled to “OFF” in Azure portal , or you can explicitly set the charset related parameters based on your settings at the session level after connection established , for example “set names utf8mb4”, and make sure to restart the PHP application to clear the driver cache after your changes.
+   With this release, the redirect_enabled parameter is enabled by default. Redirection aims to reduce network latency between client applications and MySQL servers by allowing applications to connect directly to backend server nodes. Support for redirection in PHP applications is available through the [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) extension, developed by Microsoft. For more information, see [Connect to Azure Database for MySQL with redirection](https://docs.microsoft.com/en-us/azure/mysql/howto-redirection).
+
+             
+   Note: If you have a PHP application that uses the [mysqlnd_azure](https://docs.microsoft.com/en-us/azure/mysql/howto-redirection) redirection driver to connect to Azure Database for MySQL (with redirection enabled by default), you might face a data encoding issue that impacts your insert transactions.
+
+   To resolve this issue, either:
+
+  - In Azure portal, disable the redirection by setting the redirect_enabled parameter to “OFF”, and restart the PHP application to clear the driver cache after the change.
+  - Explicitly set the charset related parameters at the session level, based on your settings after the connection is established (for example “set names utf8mb4”).
+
 
 ## February 2021
 
