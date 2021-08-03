@@ -63,7 +63,7 @@ ReportApiVersions is turned on, which means we will return the headers api-suppo
 
 * api-supported-versions will list which versions are supported for the requested API. It's only returned when calling an endpoint annotated with `[ApiVersion("<someVersion>")]`.
 
-* api-deprecated-versions will list which versions have been deprecated for the requested API. It's only returned when calling an endpoint annotated with [ApiVersion("<someVersion>", Deprecated = true)].
+* api-deprecated-versions will list which versions have been deprecated for the requested API. It's only returned when calling an endpoint annotated with `[ApiVersion("<someVersion>", Deprecated = true)]`.
 
 Example:
 
@@ -71,5 +71,5 @@ Example:
 
 `[ApiVersion("1.0-prerelease", Deprecated = true)]`
 
-[ ![API supported and deprecated version.](media/api-supported-deprecated-versions.png) ](media/api-supported-deprecated-versions.png#lightbox)
+[ ![API supported and deprecated versions.](media/api-supported-deprecated-versions.png) ](media/api-supported-deprecated-versions.png#lightbox)
 
