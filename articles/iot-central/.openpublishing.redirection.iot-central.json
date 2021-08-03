@@ -1194,6 +1194,16 @@
       "source_path_from_root": "/articles/iot-central/government/how-to-configure-connected-field-services.md",
       "redirect_url": "/azure/iot-central/government/concepts-connectedwastemanagement-architecture#business-applications",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/energy/concept-iot-central-smart-meter-app.md",
+      "redirect_url": "/azure/iot-central/energy/tutorial-smart-meter-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/energy/concept-iot-central-solar-panel-app.md",
+      "redirect_url": "/azure/iot-central/energy/tutorial-solar-panel-app",
+      "redirect_document_id": false
     }
   ]
 }

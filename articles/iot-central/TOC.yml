@@ -168,10 +168,6 @@
         items:
         - name: Overview
           href: energy/overview-iot-central-energy.md
-        - name: Smart meter app architecture
-          href: energy/concept-iot-central-smart-meter-app.md
-        - name: Solar panel app architecture
-          href: energy/concept-iot-central-solar-panel-app.md
       - name: Government
         items:
         - name: Overview
