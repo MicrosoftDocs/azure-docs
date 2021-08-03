@@ -1,13 +1,13 @@
 ---
 title: What is Azure Machine Learning?
-description: Azure Machine Learning solution for data scientists and ML engineers enabling MLOps and accelerating the model lifecycle.
+description: 'Azure Machine Learning is a cloud service for accelerating and managing the machine learning project lifecycle: Train and deploy models, and manage MLOps.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: overview
 ms.author: cgronlun
 author: cjgronlund
-ms.date: 07/14/2021
+ms.date: 08/03/2021
 ms.custom: devx-track-python
 adobe-target: true
 ---
@@ -45,7 +45,7 @@ Developers find familiar interfaces in Azure Machine Learning, such as:
 - [Azure Resource Manager (ARM) REST APIs (preview)](/rest/api/azureml/)
 - [CLI v2 (preview)](/cli/azure/ml)
 
-### Studio UI plus drag-and-drop designer
+### Studio UI 
 
 The Azure Machine Learning studio is a graphical user interface for a project workspace. In the studio, you can:
 
@@ -63,7 +63,7 @@ Plus, the designer has a drag-and-drop interface where you can train and deploy 
 
 ## Enterprise-readiness and security
 
-The Azure cloud platform integrates with Azure Machine Learning to add security to ML projects. 
+Azure Machine Learning integrates with te Azure cloud platform to add security to ML projects. 
 
 Security integrations include:
 
@@ -72,6 +72,8 @@ Security integrations include:
 - Azure Container Registry set up behind a VNet
 
 See [Tutorial: Set up a secure workspace](tutorial-create-secure-workspace.md).
+
+## Azure integrations for complete solutions
 
 Other integrations with Azure support an ML project from end-to-end include:
 
@@ -91,9 +93,13 @@ While the project lifecycle will vary by project, it may often look like this:
 
 A workspace organizes a project and allows for collaboration for many users all working toward a common objective. Users in a workspace can easily share the results of their runs from experimentation in the studio user interface or use versioned assets for jobs like environments and storage references.
 
+For more information, see [Manage Azure Machine Learning workspaces](how-to-manage-workspace.md?tabs=python).
+
 When a project is ready for operationalization, users' work can be automated in a machine learning pipeline and triggered on a schedule or HTTPS request.
 
 Models can be deployed to the managed inferencing solution, for both real-time and batch deployments, abstracting away the infrastructure management typically required for deploying models.
+
+
 
 ## Train models
 

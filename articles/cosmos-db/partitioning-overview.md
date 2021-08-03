@@ -5,7 +5,7 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/07/2021
+ms.date: 07/12/2021
 
 ---
 
@@ -131,3 +131,4 @@ Some things to consider when selecting the *item ID* as the partition key includ
 * Learn about [global distribution in Azure Cosmos DB](distribute-data-globally.md).
 * Learn how to [provision throughput on an Azure Cosmos container](how-to-provision-container-throughput.md).
 * Learn how to [provision throughput on an Azure Cosmos database](how-to-provision-database-throughput.md).
+* See the learn module on how to [Model and partition your data in Azure Cosmos DB.](/learn/modules/model-partition-data-azure-cosmos-db/)

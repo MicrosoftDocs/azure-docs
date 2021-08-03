@@ -258,6 +258,8 @@ To use a custom OIDC provider, use the following URL patterns.
 | Logout             | `/.auth/logout`                          |
 | Purge user details | `/.auth/purge/<PROVIDER_NAME_IN_CONFIG>` |
 
+If you are using Azure Active Directory, use `aad` as the value for the `<AUTHENTICATION_PROVIDER_NAME>` placeholder.
+
 ### Authentication callbacks
 
 Authentication providers require redirect URL to complete the login or logout request. The following endpoints are available as redirect destinations.
@@ -266,6 +268,8 @@ Authentication providers require redirect URL to complete the login or logout re
 | ------ | ----------------------------------------------------------- |
 | Login  | `https://<YOUR_SITE>/.auth/login/<PROVIDER_NAME_IN_CONFIG>/callback`  |
 | Logout | `https://<YOUR_SITE>/.auth/logout/<PROVIDER_NAME_IN_CONFIG>/callback` |
+
+If you are using Azure Active Directory, use `aad` as the value for the `<AUTHENTICATION_PROVIDER_NAME>` placeholder.
 
 > [!Note]
 > These URLs are provided by Azure Static Web Apps to receive the response from the authentication provider, you don't need to create pages at these routes.

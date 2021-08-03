@@ -335,6 +335,9 @@ sections:
       - question: |
           VM images must have 1MB free space
         answer: |
+          >[!NOTE]
+          >As of **30 September, 2021**, if you are publishing images to Azure (with **GPT partition**), **ensure the first 2048 sectors (1 MB) of the OS disk is empty**. Otherwise, your publishing will fail. This requirement is to allow Azure to add important bits to the image (example include bits to improve boot time for customers, billing and other details).
+
           If you are [building your own image](azure-vm-create-using-own-image.md), ensure the first 2048 sectors (1 MB) of the OS disk is empty. Otherwise, your publishing will fail. This requirement is applicable to the OS disk only (not data disks). If you are building your image [from an approved base](azure-vm-create-using-approved-base.md), you can skip this requirement.
           
           ### How to keep 1 MB free space at the start on an empty VHD (2048 sectors, each sector of 512 bytes)

@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 10/02/2020
+ms.date: 07/27/2021
 #Customer intent: As a data scientist, I want to know what a compute instance is and how to use it for Azure Machine Learning.
 ---
 
@@ -38,6 +38,8 @@ A compute instance is a fully managed cloud-based workstation optimized for your
 You can [create a compute instance](how-to-create-manage-compute-instance.md?tabs=python#create) yourself, or an administrator can **[create a compute instance on your behalf](how-to-create-manage-compute-instance.md?tabs=python#on-behalf)**.
 
 You can also **[use a setup script (preview)](how-to-create-manage-compute-instance.md#setup-script)**  for an automated way to customize and configure the compute instance as per your needs.
+
+Compute instance is also a secure training compute target similar to compute clusters but it is single node.
 
 ## <a name="contents"></a>Tools and environments
 
@@ -69,7 +71,6 @@ Following tools and environments are already installed on the compute instance:
 |----|:----:|
 |RStudio Server Open Source Edition (preview)||
 |R kernel||
-|Azure Machine Learning SDK for R|[azuremlsdk](https://azure.github.io/azureml-sdk-for-r/reference/index.html)</br>SDK samples|
 
 |**PYTHON** tools & environments|Details|
 |----|----|
@@ -81,7 +82,7 @@ Following tools and environments are already installed on the compute instance:
 |Conda packages|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Deep learning packages|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
 |ONNX packages|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|
-|Azure Machine Learning Python & R SDK samples||
+|Azure Machine Learning Python samples||
 
 Python packages are all installed in the **Python 3.8 - AzureML** environment. Compute instance has Ubuntu 18.04 as the base OS.
 

@@ -40,11 +40,11 @@ The Azure Sentinel connector in Logic Apps, and its component triggers and actio
 
 | Roles \ Connector components | Triggers | "Get" actions | Update incident,<br>add a comment |
 | ------------- | :-----------: | :------------: | :-----------: |
-| **[Azure Sentinel Reader](/azure/role-based-access-control/built-in-roles#azure-sentinel-reader)** | &#10003; | &#10003; | &#10007; |
-| **Azure Sentinel [Responder](/azure/role-based-access-control/built-in-roles#azure-sentinel-responder)/[Contributor](/azure/role-based-access-control/built-in-roles#azure-sentinel-contributor)** | &#10003; | &#10003; | &#10003; |
+| **[Azure Sentinel Reader](../role-based-access-control/built-in-roles.md#azure-sentinel-reader)** | &#10003; | &#10003; | &#10007; |
+| **Azure Sentinel [Responder](../role-based-access-control/built-in-roles.md#azure-sentinel-responder)/[Contributor](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)** | &#10003; | &#10003; | &#10003; |
 | 
 
-[Learn more about permissions in Azure Sentinel](/azure/sentinel/roles).
+[Learn more about permissions in Azure Sentinel](./roles.md).
 
 ### Authenticate with managed identity
 
@@ -52,15 +52,15 @@ This authentication method allows you to give permissions directly to the playbo
 
 To authenticate with managed identity:
 
-1. [Enable managed identity](/azure/logic-apps/create-managed-service-identity#enable-system-assigned-identity-in-azure-portal) on the Logic Apps workflow resource. To summarize:
+1. [Enable managed identity](../logic-apps/create-managed-service-identity.md#enable-system-assigned-identity-in-azure-portal) on the Logic Apps workflow resource. To summarize:
 
     - On the logic app menu, under **Settings**, select **Identity**. Select **System assigned > On > Save**. When Azure prompts you to confirm, select **Yes**.
 
     - Your logic app can now use the system-assigned identity, which is registered with Azure AD and is represented by an object ID.
 
-1. [Give that identity access](/azure/logic-apps/create-managed-service-identity#assign-access-in-the-azure-portal) to the Azure Sentinel workspace, by assigning it the [Azure Sentinel Contributor](/azure/role-based-access-control/built-in-roles#azure-sentinel-contributor) role.
+1. [Give that identity access](../logic-apps/create-managed-service-identity.md#give-identity-access-to-resources) to the Azure Sentinel workspace, by assigning it the [Azure Sentinel Contributor](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor) role.
 
-    Learn more about the available [roles in Azure Sentinel](/azure/sentinel/roles).
+    Learn more about the available [roles in Azure Sentinel](./roles.md).
 
 1. Enable the managed identity authentication method in the Azure Sentinel Logic Apps connector:
 
@@ -88,7 +88,7 @@ Service principals can be created by registering an Azure AD application. It is 
 
 To use your own application with the Azure Sentinel connector, perform the following steps:
 
-1. Register the application with Azure AD and create a service principal. [Learn how](/azure/active-directory/develop/howto-create-service-principal-portal#register-an-application-with-azure-ad-and-create-a-service-principal).
+1. Register the application with Azure AD and create a service principal. [Learn how](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
 
 1. Get credentials (for future authentication).
 
@@ -105,7 +105,7 @@ To use your own application with the Azure Sentinel connector, perform the follo
 
     1. Select **Add role assignment**.
 
-    1. Select the role you wish to assign to the application. For example, to allow the application to perform actions that will make changes in the Sentinel workspace, like updating an incident, select the **Azure Sentinel Contributor** role. For actions which only read data, the **Azure Sentinel Reader** role is sufficient. [Learn more about the available roles in Azure Sentinel](/azure/sentinel/roles).
+    1. Select the role you wish to assign to the application. For example, to allow the application to perform actions that will make changes in the Sentinel workspace, like updating an incident, select the **Azure Sentinel Contributor** role. For actions which only read data, the **Azure Sentinel Reader** role is sufficient. [Learn more about the available roles in Azure Sentinel](./roles.md).
 
     1. Find the required application and save. By default, Azure AD applications aren't displayed in the available options. To find your application, search for the name and select it.
 

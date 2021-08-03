@@ -4,7 +4,7 @@ description: Information and steps to configure Customer-managed key to encrypt 
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 04/21/2021 
+ms.date: 07/29/2021 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
@@ -23,9 +23,9 @@ Azure Monitor ensures that all data and saved queries are encrypted at rest usin
 
 Customer-managed key is delivered on [dedicated clusters](./logs-dedicated-clusters.md) providing higher protection level and control. Data ingested to dedicated clusters is being encrypted twice — once at the service level using Microsoft-managed keys or customer-managed keys, and once at the infrastructure level using two different encryption algorithms and two different keys. [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) protects against a scenario where one of the encryption algorithms or keys may be compromised. In this case, the additional layer of encryption continues to protect your data. Dedicated cluster also allows you to protect your data with [Lockbox](#customer-lockbox-preview) control.
 
-Data ingested in the last 14 days is also kept in hot-cache (SSD-backed) for efficient query engine operation. This data remains encrypted with Microsoft keys regardless customer-managed key configuration, but your control over SSD data adheres to [key revocation](#key-revocation). We are working to have SSD data encrypted with Customer-managed key in the first half of 2021.
+Data ingested in the last 14 days is also kept in hot-cache (SSD-backed) for efficient query engine operation. This data remains encrypted with Microsoft keys regardless customer-managed key configuration, but your control over SSD data adheres to [key revocation](#key-revocation). We are working to have SSD data encrypted with Customer-managed key in the second half of 2021.
 
-Log Analytics Dedicated Clusters use a Capacity Reservation [pricing model](./logs-dedicated-clusters.md#cluster-pricing-model) starting at 1000 GB/day.
+Log Analytics Dedicated Clusters [pricing model](./logs-dedicated-clusters.md#cluster-pricing-model) requires commitment Tier starting at 500 GB/day and can have values of 500, 1000, 2000 or 5000 GB/day.
 
 ## How Customer-managed key works in Azure Monitor
 
@@ -184,7 +184,7 @@ Content-type: application/json
   },
   "sku": {
     "name": "CapacityReservation",
-    "capacity": 1000
+    "capacity": 500
   }
 }
 ```
@@ -206,7 +206,7 @@ A response to GET request should look like this when the key update is complete:
     },
   "sku": {
     "name": "capacityReservation",
-    "capacity": 1000,
+    "capacity": 500,
     "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
     },
   "properties": {
@@ -446,10 +446,9 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
   -  400 -- The body of the request is null or in bad format.
   -  400 -- SKU name is invalid. Set SKU name to capacityReservation.
   -  400 -- Capacity was provided but SKU is not capacityReservation. Set SKU name to capacityReservation.
-  -  400 -- Missing Capacity in SKU. Set Capacity value to 1000 or higher in steps of 100 (GB).
-  -  400 -- Capacity in SKU is not in range. Should be minimum 1000 and up to the max allowed capacity which is available under ‘Usage and estimated cost’ in your workspace.
+  -  400 -- Missing Capacity in SKU. Set Capacity value to 500, 1000, 2000 or 5000 GB/day.
   -  400 -- Capacity is locked for 30 days. Decreasing capacity is permitted 30 days after update.
-  -  400 -- No SKU was set. Set the SKU name to capacityReservation and Capacity value to 1000 or higher in steps of 100 (GB).
+  -  400 -- No SKU was set. Set the SKU name to capacityReservation and Capacity value to 500, 1000, 2000 or 5000 GB/day.
   -  400 -- Identity is null or empty. Set Identity with systemAssigned type.
   -  400 -- KeyVaultProperties are set on creation. Update KeyVaultProperties after cluster creation.
   -  400 -- Operation cannot be executed now. Async operation is in a state other than succeeded. Cluster must complete its operation before any update operation is performed.

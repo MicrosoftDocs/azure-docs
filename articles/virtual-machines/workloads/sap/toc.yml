@@ -3,8 +3,8 @@
   - name: Get started
     href: get-started.md
   - name: Certifications
-    href: sap-certifications.md
-- name: SAP HANA on Azure (Large Instances)
+    href: sap-certifications.md    
+- name: SAP on Azure Large Instances
   items:
   - name: Overview
     items:
@@ -92,263 +92,262 @@
       href: hana-large-instance-virtual-machine-migration.md
     - name: Buy an SAP HANA Large Instances reservation
       href: ../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md
-- name: SAP HANA on Azure Virtual Machines
-  items:
-  - name: Installation of SAP HANA on Azure  VMs
-    href: hana-get-started.md
-  - name: S/4 HANA or BW/4 HANA SAP CAL deployment guide
-    href: cal-s4h.md
-  - name: SAP HANA infrastructure configurations and operations on Azure
-    href: hana-vm-operations.md
-  - name: SAP HANA Azure virtual machine storage configurations
-    href: hana-vm-operations-storage.md
-  - name: NFS v4.1 volumes on Azure NetApp Files for SAP HANA
-    href: hana-vm-operations-netapp.md
-  - name: SAP HANA Availability in Azure Virtual Machines
-    items:
-    - name: SAP HANA on Azure Availability overview
-      href: sap-hana-availability-overview.md
-    - name: SAP HANA on Azure Availability within one Azure region
-      href: sap-hana-availability-one-region.md
-    - name: SAP HANA on Azure Availability across Azure regions
-      href: sap-hana-availability-across-regions.md
-    - name: Set up SAP HANA System Replication on SLES
-      href: sap-hana-high-availability.md
-    - name: Set up SAP HANA System Replication on RHEL
-      href: sap-hana-high-availability-rhel.md
-    - name: Set up SAP HANA System Replication with ANF on RHEL
-      href: sap-hana-high-availability-netapp-files-red-hat.md
-    - name: SAP HANA scale-out HSR with Pacemaker on SLES
-      href: sap-hana-high-availability-scale-out-hsr-suse.md
-    - name: Troubleshoot SAP HANA scale-out and Pacemaker on SLES
-      href: hana-vm-troubleshoot-scale-out-ha-on-sles.md
-    - name: SAP HANA scale-out HSR with Pacemaker on RHEL
-      href: sap-hana-high-availability-scale-out-hsr-rhel.md
-    - name: SAP HANA scale-out with standby node with Azure NetApp Files on SLES
-      href: sap-hana-scale-out-standby-netapp-files-suse.md
-    - name: SAP HANA scale-out with standby node with Azure NetApp Files on RHEL
-      href: sap-hana-scale-out-standby-netapp-files-rhel.md
-  - name: SAP HANA database backup with Azure Backup
-    items:
-    - name: SAP HANA database backup in Azure VMs
-      href: ../../../backup/sap-hana-db-about.md
-    - name: Back up SAP HANA databases in Azure VMs
-      href: ../../../backup/backup-azure-sap-hana-database.md
-    - name: Restore SAP HANA databases on Azure VMs
-      href: ../../../backup/sap-hana-db-restore.md
-    - name: Manage and monitor
-      href: ../../../backup/sap-hana-db-manage.md
-    - name: Support matrix for backup of SAP HANA databases
-      href: ../../../backup/sap-hana-backup-support-matrix.md
-    - name: FAQ – Back up SAP HANA databases on Azure VMs
-      href: ../../../backup/sap-hana-faq-backup-azure-vm.yml
-    - name: Troubleshoot backup of SAP HANA databases on Azure
-      href: ../../../backup/backup-azure-sap-hana-database-troubleshoot.md
-    - name: Tutorial - Back up SAP HANA databases in an Azure VM
-      href: ../../../backup/tutorial-backup-sap-hana-db.md
-- name: SAP NetWeaver, S/4HANA and Business One on Azure Virtual Machines
-  items:
-  - name: SAP workload planning and deployment checklist
-    href: sap-deployment-checklist.md
+- name: Plan and Deploy (Azure VMs)
+  items: 
+  - name: Supported scenarios
+    href: sap-planning-supported-configurations.md
+  - name: Supported SAP software for Azure deployments
+    href: sap-supported-product-on-azure.md
+  - name: Checklist for deploying SAP workloads on Azure
+    href: sap-deployment-checklist.md 
+  - name: Deploy SAP NetWeaver applications
+    href: deployment-guide.md 
   - name: Plan and implement SAP NetWeaver on Azure
     href: planning-guide.md
-    items:
-    - name: Azure Storage types for SAP workload
-      href: planning-guide-storage.md
-    - name: SAP workload on Azure virtual machine supported scenarios
-      href: sap-planning-supported-configurations.md
-    - name: What SAP software is supported for Azure deployments
-      href: sap-supported-product-on-azure.md
-  - name: SAP NetWeaver Deployment guide
-    href: deployment-guide.md
-  - name: DBMS deployment guides for SAP workload
-    items:
-    - name: General Azure Virtual Machines DBMS deployment for SAP workload
-      href: dbms_guide_general.md
-    - name: SQL Server Azure Virtual Machines DBMS deployment for SAP workload
-      href: dbms_guide_sqlserver.md
-    - name: Oracle Azure Virtual Machines DBMS deployment for SAP workload
-      href: dbms_guide_oracle.md
-    - name: IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload
-      href: dbms_guide_ibm.md
-    - name: High availability of IBM Db2 LUW on Azure VMs on SUSE Linux Enterprise Server
-      href: dbms-guide-ha-ibm.md
-    - name: High availability of IBM Db2 LUW on Azure VMs on Red Hat Enterprise Linux Server
-      href: high-availability-guide-rhel-ibm-db2-luw.md
-    - name: SAP ASE Azure Virtual Machines DBMS deployment for SAP workload
-      href: dbms_guide_sapase.md
-    - name: SAP MaxDB, liveCache and Content Server deployment on Azure
-      href: dbms_guide_maxdb.md
-    - name: SAP HANA Availability in Azure Virtual Machines
-      items:
-      - name: SAP HANA on Azure Availability overview
-        href: sap-hana-availability-overview.md
-      - name: SAP HANA on Azure Availability within one Azure region
-        href: sap-hana-availability-one-region.md
-      - name: SAP HANA on Azure Availability across Azure regions
-        href: sap-hana-availability-across-regions.md
-  - name: SAP Business One on Azure Virtual Machines
+  - name: SAP Business One on Azure VMs
     href: business-one-azure.md
-  - name: SAP IDES on Windows/SQL Server SAP CAL deployment guide
-    href: cal-ides-erp6-erp7-sp3-sql.md
-  - name: SAP LaMa connector for Azure
+  - name: Connect to SAP LaMa
     href: lama-installation.md
-  - name: High Availability (HA) on Windows and Linux
+  - name: Deploy with SAP Cloud Appliance Library
+    href: cal-s4h.md
+  - name: SAP IDES on Windows/SQL Server SAP CAL
+    href: cal-ides-erp6-erp7-sp3-sql.md   
+  - name: SAP BOBI Platform on Azure
     items:
-    - name: Overview
-      href: sap-high-availability-guide-start.md
-    - name: High Availability Architecture
-      items:
-      - name: HA Architecture and Scenarios
-        href: sap-high-availability-architecture-scenarios.md
-      - name: Higher Availability Architecture and Scenarios
-        href: sap-higher-availability-architecture-scenarios.md
-      - name: SAP workload configurations with Azure Availability Zones
-        href: sap-ha-availability-zones.md
-      - name: HA on Windows with Shared Disk for (A)SCS Instance
-        href: sap-high-availability-guide-wsfc-shared-disk.md
-      - name: HA on Windows with SOFS File Share for (A)SCS Instance
-        href: sap-high-availability-guide-wsfc-file-share.md
-      - name: HA for SAP NetWeaver on Windows with Azure NetApp Files (SMB)
-        href: high-availability-guide-windows-netapp-files-smb.md
-      - name: HA on SUSE Linux for (A)SCS Instance
-        href: high-availability-guide-suse.md
-      - name: HA on SUSE Linux for (A)SCS Instance with Azure NetApp Files
-        href: high-availability-guide-suse-netapp-files.md
-      - name: HA on Red Hat Enterprise Linux for (A)SCS Instance
-        href: high-availability-guide-rhel.md
-      - name: HA on Red Hat Enterprise Linux for (A)SCS Instance with Azure NetApp Files
-        href: high-availability-guide-rhel-netapp-files.md
-    - name: Azure Infrastructure Preparation
-      items:
-      - name: Windows with Shared Disk for (A)SCS Instance
-        href: sap-high-availability-infrastructure-wsfc-shared-disk.md
-      - name: Windows with SOFS File Share for (A)SCS Instance
-        href: sap-high-availability-infrastructure-wsfc-file-share.md
-      - name: High availability for NFS on Azure VMs on SLES
-        href: high-availability-guide-suse-nfs.md
-      - name: GlusterFS on Azure VMs on Red Hat Enterprise Linux for SAP NetWeaver
-        href: high-availability-guide-rhel-glusterfs.md
-      - name: Pacemaker on SLES
-        href: high-availability-guide-suse-pacemaker.md
-      - name: Pacemaker on RHEL
-        href: high-availability-guide-rhel-pacemaker.md
-      - name: Public endpoint connectivity for VMs using Azure Standard Load Balancer in SAP high-availability scenarios
-        href: high-availability-guide-standard-load-balancer-outbound-connections.md
-    - name: SAP Installation
-      items:
-      - name: Windows with Shared Disk for (A)SCS Instance
-        href: sap-high-availability-installation-wsfc-shared-disk.md
-      - name: Windows with SOFS File Share for (A)SCS Instance
-        href: sap-high-availability-installation-wsfc-file-share.md
-      - name: HA for SAP NetWeaver on Windows with Azure NetApp Files (SMB)
-        href: high-availability-guide-windows-netapp-files-smb.md
-      - name: SUSE Linux with NFS for (A)SCS Instance
-        href: high-availability-guide-suse.md
-      - name: SUSE Linux with NFS for (A)SCS Instance with Azure NetApp Files
-        href: high-availability-guide-suse-netapp-files.md
-      - name: High availability for SAP NetWeaver on Red Hat Enterprise Linux
-        href: high-availability-guide-rhel.md
-      - name: Red Hat Enterprise Linux with NFS for (A)SCS Instance with Azure NetApp Files
-        href: high-availability-guide-rhel-netapp-files.md
-    - name: SAP Multi-SID
-      items:
-      - name: Windows with Azure Shared Disk for (A)SCS Instance
-        href: sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md
-      - name: Windows with Shared Disk for (A)SCS Instance
-        href: sap-ascs-ha-multi-sid-wsfc-shared-disk.md
-      - name: Windows with SOFS File Share for (A)SCS Instance
-        href: sap-ascs-ha-multi-sid-wsfc-file-share.md
-      - name: SLES with Pacemaker multi-SID for A(SCS) Instance
-        href: high-availability-guide-suse-multi-sid.md
-      - name: RHEL with Pacemaker multi-SID for A(SCS) Instance
-        href: high-availability-guide-rhel-multi-sid.md
-  - name: Azure Site Recovery for SAP Disaster Recovery
-    href: ../../../site-recovery/site-recovery-workload.md#protect-sap
+    - name: SAPI BOBI planning and implementation guide on Azure 
+      href: businessobjects-deployment-guide.md
+    - name: Deployment for Windows on Azure
+      href: businessobjects-deployment-guide-windows.md
+    - name: Deployment for Linux on Azure
+      href: businessobjects-deployment-guide-linux.md    
+- name: Storage (Azure VMs)
+  items: 
+  - name: Azure Storage types for SAP
+    href: planning-guide-storage.md
+  - name: Configure Azure VM storage
+    href: hana-vm-operations-storage.md
+  - name: SAP HANA with Azure NetApp Files
+    href: hana-vm-operations-netapp.md
+- name: DBMS Guides (Azure VMs)
+  items:
+  - name: General DBMS deployment
+    href: dbms_guide_general.md
+  - name: SQL Server on Azure VMs
+    href: dbms_guide_sqlserver.md
+  - name: Oracle on Azure VMs
+    href: dbms_guide_oracle.md
+  - name: IBM Db2 on Azure VMs
+    href: dbms_guide_ibm.md
+  - name: SAP ASE on Azure VMs
+    href: dbms_guide_sapase.md
+  - name: SAP MaxDB, liveCache and Content Server on Azure
+    href: dbms_guide_maxdb.md
+  - name: SAP IQ on Azure VMs
+    href: sap-iq-deployment-guide.md
+  - name: HANA  
+    items: 
+    - name: Install SAP HANA on Azure VMs
+      href: hana-get-started.md
+    - name: Configure SAP HANA on Azure VMs
+      href: hana-vm-operations.md   
+    - name: HANA Backup
+      items:    
+      - name: About SAP HANA database backup in Azure VMs
+        href: ../../../backup/sap-hana-db-about.md?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+      - name: Tutorial - back up SAP HANA databases in Azure VMs
+        href: ../../../backup/tutorial-backup-sap-hana-db.md?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+      - name: FAQ for database backups
+        href: ../../../backup/sap-hana-faq-backup-azure-vm.yml?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+      - name: Back up database
+        href: ../../../backup/backup-azure-sap-hana-database.md?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+      - name: Restore database
+        href: ../../../backup/sap-hana-db-restore.md?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+      - name: Manage and monitor backups
+        href: ../../../backup/sap-hana-db-manage.md?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+      - name: Support matrix for backups
+        href: ../../../backup/sap-hana-backup-support-matrix.md?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+      - name: Troubleshoot backups
+        href: ../../../backup/backup-azure-sap-hana-database-troubleshoot.md?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json            
+- name: High Availability (Azure VMs)
+  items: 
+  - name: About HA for Azure VMs
+    href: sap-high-availability-guide-start.md
+  - name: HA architecture and scenarios
+    href: sap-high-availability-architecture-scenarios.md
+  - name: Azure VM restart for higher availability
+    href: sap-higher-availability-architecture-scenarios.md
+  - name: Azure Availability Zones for SAP workloads
+    href: sap-ha-availability-zones.md
   - name: Azure Proximity Placement Groups for optimal network latency with SAP applications
-    href: sap-proximity-placement-scenarios.md
-- name: SAP BusinessObjects Business Intelligence platform on Azure
-  items:
-  - name: SAP BusinessObjects BI platform planning and implementation guide on Azure 
-    href: businessobjects-deployment-guide.md
-  - name: SAP BusinessObjects BI platform deployment guide for Windows on Azure
-    href: businessobjects-deployment-guide-windows.md
-  - name: SAP BusinessObjects BI platform deployment guide for Linux on Azure
-    href: businessobjects-deployment-guide-linux.md
-- name: Integrate Azure AD with SAP applications
-  items:
-  - name: Provision users from SAP SuccessFactors to Active Directory
-    href: ../../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md
-  - name: Provision users from SAP SuccessFactors to Azure AD
-    href: ../../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md
-  - name: Write-back users from Azure AD to SAP SuccessFactors
-    href: ../../../active-directory/saas-apps/sap-successfactors-writeback-tutorial.md
-  - name: Provision users to SAP Cloud Platform Identity Authentication Service
-    href: ../../../active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md
-  - name: Configure SSO with SAP Cloud Platform Identity Authentication Service
-    href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md
-  - name: Configure SSO with SAP SuccessFactors
-    href: ../../../active-directory/saas-apps/successfactors-tutorial.md
-  - name: Configure SSO with SAP Analytics Cloud
-    href: ../../../active-directory/saas-apps/sapboc-tutorial.md
-  - name: Configure SSO with SAP Fiori
-    href: ../../../active-directory/saas-apps/sap-fiori-tutorial.md
-  - name: Configure SSO with SAP Qualtrics
-    href: ../../../active-directory/saas-apps/qualtrics-tutorial.md
-  - name: Configure SSO with SAP Ariba
-    href: ../../../active-directory/saas-apps/ariba-tutorial.md
-  - name: Configure SSO with SAP Concur Travel and Expense
-    href: ../../../active-directory/saas-apps/concur-travel-and-expense-tutorial.md
-  - name: Configure SSO with SAP Cloud Platform
-    href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-tutorial.md
-  - name: Configure SSO with SAP NetWeaver
-    href: ../../../active-directory/saas-apps/sap-netweaver-tutorial.md
-  - name: Configure SSO with SAP Business ByDesign
-    href: ../../../active-directory/saas-apps/sapbusinessbydesign-tutorial.md
-  - name: Configure SSO with SAP HANA
-    href: ../../../active-directory/saas-apps/saphana-tutorial.md
-  - name: Configure SSO with SAP Cloud for Customer
-    href: ../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md
-  - name: Configure SSO with SAP Fiori Launchpad
-    href: https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad
-- name: Azure Services Integration into SAP
-  items:
-  - name: Use SAP HANA in Power BI Desktop
-    href: /power-bi/desktop-sap-hana
-  - name: DirectQuery and SAP HANA
-    href: /power-bi/desktop-directquery-sap-hana
-  - name: Use the SAP BW Connector in Power BI Desktop
-    href: /power-bi/desktop-sap-bw-connector
-  - name: Azure Data Factory offers SAP HANA and Business Warehouse data integration
-    href: https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration
-- name: Azure Sentinel and continuous threat monitoring for SAP
-  items:
-    - name: Deploy the Azure Sentinel solution for SAP
-      href: ../../../sentinel/sap-deploy-solution.md#deploy-sap-security-content
-    - name: Detailed requirements
-      href: ../../../sentinel/sap-solution-detailed-requirements.md
-    - name: Available SAP logs reference
-      href: ../../../sentinel/sap-solution-log-reference.md
-    - name: SAP security content reference
-      href: ../../../sentinel/sap-solution-security-content.md
+    href: sap-proximity-placement-scenarios.md    
+  - name: Public endpoint connectivity with Azure Load Balancer
+    href: high-availability-guide-standard-load-balancer-outbound-connections.md        
+  - name: DBMS - HANA
+    items:     
+    - name: About SAP HANA availability in Azure VMs
+      href: sap-hana-availability-overview.md
+    - name: Availability scenarios in one Azure region
+      href: sap-hana-availability-one-region.md
+    - name: Availability scenarios in multiple Azure regions
+      href: sap-hana-availability-across-regions.md
+    - name: SUSE Linux Enterprise Server (SLES)
+      items:                  
+      - name: Scale-up with HSR and Pacemaker
+        href: sap-hana-high-availability.md
+      - name: Scale-out  with standby node on Azure NetApp Files
+        href: sap-hana-scale-out-standby-netapp-files-suse.md
+      - name: Scale-out  with HSR and Pacemaker
+        href: sap-hana-high-availability-scale-out-hsr-suse.md
+      - name: Troubleshoot scale-out with HSR and Pacemaker
+        href: hana-vm-troubleshoot-scale-out-ha-on-sles.md                
+      - name: Set up Pacemaker cluster
+        href: high-availability-guide-suse-pacemaker.md                
+    - name: Red Hat Enterprise Linux (RHEL)
+      items:                              
+      - name: Scale-up with HSR and Pacemaker
+        href: sap-hana-high-availability-rhel.md
+      - name: Scale-up with HSR and Pacemaker on Azure NetApp Files
+        href: sap-hana-high-availability-netapp-files-red-hat.md
+      - name: Scale-out with standby node with Azure NetApp Files
+        href: sap-hana-scale-out-standby-netapp-files-rhel.md
+      - name: Scale-out with HSR and Pacemaker
+        href: sap-hana-high-availability-scale-out-hsr-rhel.md    
+      - name: Set up Pacemaker cluster
+        href: high-availability-guide-rhel-pacemaker.md                     
+  - name: DBMS - Db2
+    items:      
+    - name: SLES - IBM Db2 HA
+      href: dbms-guide-ha-ibm.md
+    - name: RHEL - IBM Db2 HA
+      href: high-availability-guide-rhel-ibm-db2-luw.md          
+  - name: SAP Application Layer - SLES
+    items: 
+    - name: Install HA SAP NetWeaver with Azure NetApp Files
+      href: high-availability-guide-suse-netapp-files.md
+    - name: Install HA SAP NetWeaver
+      href: high-availability-guide-suse.md
+    - name: Install HA NFS server
+      href: high-availability-guide-suse-nfs.md
+    - name: Deploy multi-SID clusters with Pacemaker
+      href: high-availability-guide-suse-multi-sid.md
+    - name: Set up Pacemaker cluster
+      href: high-availability-guide-suse-pacemaker.md
+  - name: SAP Application Layer - RHEL
+    items:        
+    - name: Install HA SAP NetWeaver system with Azure NetApp Files 
+      href: high-availability-guide-rhel-netapp-files.md
+    - name: Install HA SAP NetWeaver
+      href: high-availability-guide-rhel.md
+    - name: Install GlusterFS on Azure VMs for SAP NetWeaver
+      href: high-availability-guide-rhel-glusterfs.md
+    - name: Deploy multi-SID clusters with Pacemaker
+      href: high-availability-guide-rhel-multi-sid.md
+    - name: Set up Pacemaker cluster
+      href: high-availability-guide-rhel-pacemaker.md            
+  - name: SAP Application Layer - Windows
+    items:        
+    - name: SAP with shared disk
+      items:               
+      - name: SAP ASCS/SCS instance with WSFC
+        href: sap-high-availability-guide-wsfc-shared-disk.md
+      - name: Prepare Azure infrastructure for SAP HA with WSFC
+        href: sap-high-availability-infrastructure-wsfc-shared-disk.md
+      - name: Install HA SAP NetWeaver with WSFC
+        href: sap-high-availability-installation-wsfc-shared-disk.md    
+      - name: Multi-SID with WSFC and Azure shared disk
+        href: sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md
+      - name: Multi-SID with WSFC and shared disk
+        href: sap-ascs-ha-multi-sid-wsfc-shared-disk.md              
+    - name: SAP with file share
+      items:               
+      - name: Install HA SAP NetWeaver with Azure NetApp Files (SMB)
+        href: high-availability-guide-windows-netapp-files-smb.md     
+      - name: SAP ASCS/SCS instance with WSFC and SOFS file share
+        href: sap-high-availability-guide-wsfc-file-share.md     
+      - name: Prepare Azure infrastructure for SAP HA (SOFS)
+        href: sap-high-availability-infrastructure-wsfc-file-share.md   
+      - name: Install HA SAP NetWeaver with WSFC and SOFS file share
+        href: sap-high-availability-installation-wsfc-file-share.md              
+      - name: Mlti-SID with WSFC and file share
+        href: sap-ascs-ha-multi-sid-wsfc-file-share.md
 - name: Azure Monitor for SAP Solutions
   items:
-  - name: Azure Monitor for SAP Solutions Overview
+  - name: AMS overview
     href: azure-monitor-overview.md
-  - name: Azure Monitor for SAP Solutions Providers
+  - name: AMS providers
     href: azure-monitor-providers.md
-  - name: Configure Azure Monitor for SAP Solutions - Portal
+  - name: Configure AMS - Portal
     href: azure-monitor-sap-quickstart.md
-  - name: Configure Azure Monitor for SAP Solutions - Azure PowerShell
+  - name: Configure Alerts in AMS - Portal
+    href: azure-monitor-alerts-portal.md
+  - name: Configure AMS - Azure PowerShell
     href: azure-monitor-sap-quickstart-powershell.md
-  - name: Azure Monitor for SAP Solutions FAQ
-    href: azure-monitor-faq.md
+  - name: AMS FAQ
+    href: azure-monitor-faq.yml
 - name: Reference
   items:
   - name: Azure CLI
     href: /cli/azure/hanainstance
   - name: Azure PowerShell
     href: /powershell/module/az.hanaonazure/#sap-hana-on-azure
+  - name: Azure Site Recovery for SAP Disaster Recovery
+    href: ../../../site-recovery/site-recovery-workload.md#protect-sap
+  - name: Azure AD integration
+    items:
+    - name: Provision users from SAP SuccessFactors to Active Directory
+      href: ../../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md
+    - name: Provision users from SAP SuccessFactors to Azure AD
+      href: ../../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md
+    - name: Write-back users from Azure AD to SAP SuccessFactors
+      href: ../../../active-directory/saas-apps/sap-successfactors-writeback-tutorial.md
+    - name: Provision users to SAP Cloud Platform Identity Authentication Service
+      href: ../../../active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md
+    - name: Configure SSO with SAP Cloud Platform Identity Authentication Service
+      href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md
+    - name: Configure SSO with SAP SuccessFactors
+      href: ../../../active-directory/saas-apps/successfactors-tutorial.md
+    - name: Configure SSO with SAP Analytics Cloud
+      href: ../../../active-directory/saas-apps/sapboc-tutorial.md
+    - name: Configure SSO with SAP Fiori
+      href: ../../../active-directory/saas-apps/sap-fiori-tutorial.md
+    - name: Configure SSO with SAP Qualtrics
+      href: ../../../active-directory/saas-apps/qualtrics-tutorial.md
+    - name: Configure SSO with SAP Ariba
+      href: ../../../active-directory/saas-apps/ariba-tutorial.md
+    - name: Configure SSO with SAP Concur Travel and Expense
+      href: ../../../active-directory/saas-apps/concur-travel-and-expense-tutorial.md
+    - name: Configure SSO with SAP Cloud Platform
+      href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-tutorial.md
+    - name: Configure SSO with SAP NetWeaver
+      href: ../../../active-directory/saas-apps/sap-netweaver-tutorial.md
+    - name: Configure SSO with SAP Business ByDesign
+      href: ../../../active-directory/saas-apps/sapbusinessbydesign-tutorial.md
+    - name: Configure SSO with SAP HANA
+      href: ../../../active-directory/saas-apps/saphana-tutorial.md
+    - name: Configure SSO with SAP Cloud for Customer
+      href: ../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md
+    - name: Configure SSO with SAP Fiori Launchpad
+      href: https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad
+  - name: Azure Services integration
+    items:
+    - name: Use SAP HANA in Power BI Desktop
+      href: /power-bi/desktop-sap-hana
+    - name: DirectQuery and SAP HANA
+      href: /power-bi/desktop-directquery-sap-hana
+    - name: Use the SAP BW Connector in Power BI Desktop
+      href: /power-bi/desktop-sap-bw-connector
+    - name: Azure Data Factory offers SAP HANA and Business Warehouse data integration
+      href: https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration
+  - name: Azure Sentinel threat monitoring
+    items:
+      - name: Deploy the Azure Sentinel solution for SAP
+        href: ../../../sentinel/sap-deploy-solution.md#deploy-sap-security-content
+      - name: Detailed requirements
+        href: ../../../sentinel/sap-solution-detailed-requirements.md
+      - name: Available SAP logs reference
+        href: ../../../sentinel/sap-solution-log-reference.md
+      - name: SAP security content reference
+        href: ../../../sentinel/sap-solution-security-content.md
 - name: Resources
   items:
   - name: Azure Roadmap

@@ -73,7 +73,7 @@ If the environment definition doesn't already exist in the workspace ACR, a new 
  1. Downloading a base image, and executing any Docker steps
  2. Building a conda environment according to conda dependencies specified in the environment definition.
 
-The second step is omitted if you specify [user-managed dependencies](/python/api/azureml-core/azureml.core.environment.pythonsection). In this case you're responsible for installing any Python packages, by including them in your base image, or specifying custom Docker steps within the first step. You're also responsible for specifying the correct location for the Python executable. It is also possible to use a [custom Docker base image](how-to-deploy-custom-docker-image.md).
+The second step is omitted if you specify [user-managed dependencies](/python/api/azureml-core/azureml.core.environment.pythonsection). In this case you're responsible for installing any Python packages, by including them in your base image, or specifying custom Docker steps within the first step. You're also responsible for specifying the correct location for the Python executable. It is also possible to use a [custom Docker base image](./how-to-deploy-custom-container.md).
 
 ### Image caching and reuse
 
@@ -108,4 +108,3 @@ To update the package, specify a version number to force image rebuild, for exam
 
 * Learn how to [create and use environments](how-to-use-environments.md) in Azure Machine Learning.
 * See the Python SDK reference documentation for the [environment class](/python/api/azureml-core/azureml.core.environment%28class%29).
-* See the R SDK reference documentation for [environments](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-environments).

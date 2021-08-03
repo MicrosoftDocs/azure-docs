@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 04/23/2021
 ---
 
-<!-- Used in production-ready-deployment-steps.md and concepts-private-cloud-clusters.md -->
+<!-- Used in plan-private-cloud-deployment.md and concepts-private-cloud-clusters.md -->
 
 
 Azure VMware Solution clusters are based on hyper-converged, bare-metal infrastructure. The following table shows the RAM, CPU, and disk capacities of the host.

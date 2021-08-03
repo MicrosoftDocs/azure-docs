@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 08/20/2020
+ms.date: 07/27/2021
 ms.custom: seoapril2019, seodec18
 #Customer intent: As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
 ---
@@ -281,10 +281,8 @@ The studio is also where you access the interactive tools that are part of Azure
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 +  Interact with the service in any Python environment with the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro).
-+ Interact with the service in any R environment with the [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (preview).
 + Use [Azure Machine Learning designer](concept-designer.md) to perform the workflow steps without writing code. 
 + Use [Azure Machine Learning CLI](./reference-azure-machine-learning-cli.md) for automation.
-+ The [Many Models Solution Accelerator](https://aka.ms/many-models) (preview) builds on Azure Machine Learning and enables you to train, operate, and manage hundreds or even thousands of machine learning models.
 
 ## Next steps
 
