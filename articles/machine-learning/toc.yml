@@ -4,7 +4,7 @@
   items: 
     - name: What is Azure Machine Learning?
       displayName: AML, services, overview, introduction
-      href: overview-what-is-azure-ml.md
+      href: overview-what-is-azure-machine-learning.md
     - name: What is Azure Machine Learning studio?
       displayName: AML, studio, designer
       href: overview-what-is-machine-learning-studio.md
@@ -508,7 +508,7 @@
         href: how-to-deploy-and-where.md
       - name: Deploy with endpoints
         items: 
-          - name: Online
+          - name: Real-time
             items:
             - name: Deploy an ML model with a managed online endpoint
               href: how-to-deploy-managed-online-endpoints.md

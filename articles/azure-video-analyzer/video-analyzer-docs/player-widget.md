@@ -40,7 +40,7 @@ In this section, we will create a JWT token that we will use later in the articl
 > [!NOTE] 
 > If you are familiar with how to generate a JWT token based on either an RSA or ECC certificate, you can skip this section.
 
-1. Download the [JWTTokenIssuer application](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp/tree/main/src/jwt-token-issuer/).
+1. Clone the [AVA C# samples repository](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp). Then, go to the JWTTokenIssuer application folder *src/jwt-token-issuer* and find the JWTTokenIssuer application.
 
     > [!NOTE] 
     > For more information about configuring your audience values, see [Access policies](./access-policies.md).
@@ -59,14 +59,14 @@ In this section, we will create a JWT token that we will use later in the articl
    :::image type="content" source="media/player-widget/client-api-url.png" alt-text="Screenshot that shows the player widget endpoint.":::
     
 5. On line 78, change the issuer to the issuer value of your certificate. Example: `https://contoso.com`
-6. Save the file.
-7. Select `F5` to run the JWTTokenIssuer application.
+6. Save the file.    
 
    > [!NOTE]
    > You might be prompted with the message `Required assets to build and debug are missing from 'jwt token issuer'. Add them?` Select `Yes`.
    
    :::image type="content" source="media/player-widget/visual-studio-code-required-assets.png" alt-text="Screenshot that shows the required asset prompt in Visual Studio Code.":::
-
+   
+7. Open a Command Prompt window and go to the folder with the JWTTokenIssuer files. Run the following two commands: `dotnet build`, followed by `dotnet run`. If you have the C# extension on Visual Studio Code, you also can select F5 to run the JWTTokenIssuer application.
 
 The application builds and then executes. After it builds, it creates a self-signed certificate and generates the JWT token information from that certificate. You also can run the JWTTokenIssuer.exe file that's located in the debug folder of the directory where the JWTTokenIssuer built from. The advantage of running the application is that you can specify input options as follows:
 
