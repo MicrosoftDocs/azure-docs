@@ -7,14 +7,16 @@ author: asudbring
 # Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region. 
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 02/27/2019
+ms.date: 08/15/2021
 ms.author: allensu
 ms.custom: seodec18
 ---
 
 # Tutorial: Load balance VMs within an availability zone by using the Azure portal
 
-This tutorial creates a public [Azure Standard Load Balancer instance](https://aka.ms/azureloadbalancerstandard) with a zonal frontend that uses a public IP standard address using the Azure portal. In this scenario, you specify a zone for your frontend and backend instances, to align your data path and resources with a specific zone. You learn how to perform the following functions:
+This tutorial creates a public [load balancer](https://aka.ms/azureloadbalancerstandard) with a zonal IP. In the tutorial, you specify a zone for your frontend and backend instances.
+
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a virtual network with an Azure Bastion host for management.
@@ -24,7 +26,7 @@ This tutorial creates a public [Azure Standard Load Balancer instance](https://a
 > * Create a basic Internet Information Services (IIS) site.
 > * Test the load balancer.
 
-For more information about using availability zones with a standard load balancer, see [Standard load balancer and availability zones](load-balancer-standard-availability-zones.md).
+For more information about availability zones and a standard load balancer, see [Standard load balancer and availability zones](load-balancer-standard-availability-zones.md).
 
 ## Prerequisites
 
@@ -232,7 +234,7 @@ During the creation of the load balancer, you'll configure:
 
 ## Create virtual machines
 
-In this section, you'll create three VMs (**myVM1**, **myVM2** and **myVM3**) in one zone (**Zone 1**). 
+In this section, you'll create three VMs (**myVM1**, **myVM2**, and **myVM3**) in one zone (**Zone 1**). 
 
 These VMs are added to the backend pool of the load balancer that was created earlier.
 
@@ -336,7 +338,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
 
 3. Copy the public IP address, and then paste it into the address bar of your browser. The custom VM page of the IIS Web server is displayed in the browser.
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/load-balancer-test.png" alt-text="Screenshot of load balancer test":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-zonal-portal/load-balancer-test.png" alt-text="Screenshot of load balancer test":::
 
 ## Clean up resources
 
@@ -344,6 +346,6 @@ When no longer needed, delete the resource group, load balancer, and all related
 
 ## Next steps
 
-Advance to the next article to learn how to load balance VMs across availability zones..
+Advance to the next article to learn how to load balance VMs across availability zones:
 > [!div class="nextstepaction"]
 > [Load balance VMs across availability zones](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
