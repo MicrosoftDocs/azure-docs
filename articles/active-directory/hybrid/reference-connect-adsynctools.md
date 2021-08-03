@@ -20,7 +20,7 @@ The following documentation provides reference information for the ADSyncTools.p
 ## Install the ADSyncTools PowerShell Module
 To install the ADSyncTools PowerShell Module do the following:
 
-1.  Open Windows PowerShell with administrative priviledges
+1.  Open Windows PowerShell with administrative privileges
 2.  Type or copy and paste the following: 
     ``` powershell
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
@@ -73,7 +73,7 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 #### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 ## Connect-ADSyncToolsSqlDatabase
 ### SYNOPSIS
 Connect to a SQL database for testing purposes
@@ -168,16 +168,16 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 #### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 ## ConvertFrom-ADSyncToolsAadDistinguishedName
 ### SYNOPSIS
-Convert AAD Connector DistinguishedName to ImmutableId
+Convert Azure AD Connector DistinguishedName to ImmutableId
 ### SYNTAX
 ```
 ConvertFrom-ADSyncToolsAadDistinguishedName [-DistinguishedName] <String> [<CommonParameters>]
 ```
 ### DESCRIPTION
-Takes an AAD Connector DistinguishedName like CN={514635484D4B376E38307176645973555049486139513D3D}
+Takes an Azure AD Connector DistinguishedName like CN={514635484D4B376E38307176645973555049486139513D3D}
 and converts to the respective base64 ImmutableID value, e.g.
 QF5HMK7n80qvdYsUPIHa9Q==
 ### EXAMPLES
@@ -199,7 +199,7 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 #### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 ## ConvertFrom-ADSyncToolsImmutableID
 ### SYNOPSIS
 Convert Base64 ImmutableId (SourceAnchor) to GUID value
@@ -233,17 +233,17 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 #### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 ## ConvertTo-ADSyncToolsAadDistinguishedName
 ### SYNOPSIS
-Convert ImmutableId to AAD Connector DistinguishedName
+Convert ImmutableId to Azure AD Connector DistinguishedName
 ### SYNTAX
 ```
 ConvertTo-ADSyncToolsAadDistinguishedName [-ImmutableId] <String> [<CommonParameters>]
 ```
 ### DESCRIPTION
 Takes an ImmutableId (SourceAnchor) like QF5HMK7n80qvdYsUPIHa9Q== and converts to the respective
-AAD Connector DistinguishedName value, e.g.
+Azure AD Connector DistinguishedName value, e.g.
 CN={514635484D4B376E38307176645973555049486139513D3D}
 ### EXAMPLES
 #### EXAMPLE 1
@@ -264,7 +264,7 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 #### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 ## ConvertTo-ADSyncToolsCloudAnchor
 ### SYNOPSIS
 Convert Base64 Anchor to CloudAnchor
@@ -299,7 +299,7 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 #### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 ## ConvertTo-ADSyncToolsImmutableID
 ### SYNOPSIS
 Convert GUID (ObjectGUID / ms-Ds-Consistency-Guid) to a Base64 string
@@ -332,7 +332,7 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 #### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 ## Export-ADSyncToolsAadDisconnectors
 ### SYNOPSIS
 Export Azure AD Disconnector objects
@@ -368,12 +368,14 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 #### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 ### INPUTS
-#### Use ObjectType argument in case you want to export Disconnectors for a given object type only
+Use ObjectType argument in case you want to export Disconnectors for a given object type only
 ### OUTPUTS
-#### Exports a CSV file with Disconnector objects containing: 
-#### UserPrincipalName, Mail, SourceAnchor, DistinguishedName, CsObjectId, ObjectType, ConnectorId and CloudAnchor
+Exports a CSV file with Disconnector objects containing: 
+
+UserPrincipalName, Mail, SourceAnchor, DistinguishedName, CsObjectId, ObjectType, ConnectorId and CloudAnchor
+
 ## Export-ADSyncToolsHybridAadJoinReport
 ### SYNOPSIS
 Generates a report of certificates stored in Active Directory Computer objects, specifically, 
@@ -390,13 +392,12 @@ Export-ADSyncToolsHybridAadJoinReport [-OU] <String> [[-Filename] <String>] [<Co
 ### DESCRIPTION
 This tool checks for all certificates present in UserCertificate property of a Computer object in AD and, for each 
 non-expired certificate present, validates if the certificate was issued for the Hybrid Azure AD join feature 
-(i.e.
-Subject Name is CN={ObjectGUID}).
+(that is, Subject Name is CN={ObjectGUID}).
 Before version 1.4, Azure AD Connect would synchronize to Azure AD any Computer that contained at least one certificate but 
 in Azure AD Connect version 1.4 and later, ADSync engine can identify Hybrid Azure AD join certificates and will "cloudfilter" 
 (exclude) the computer object from synchronizing to Azure AD unless there's a valid Hybrid Azure AD join certificate present.
 Azure AD Device objects that were already synchronized to AD but do not have a valid Hybrid Azure AD join certificate will be 
-deleted from Azure AD (CloudFiltered=TRUE) by AAD Connect.
+deleted from Azure AD (CloudFiltered=TRUE) by Azure AD Connect.
 ### EXAMPLES
 #### EXAMPLE 1
 ```
@@ -444,7 +445,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 #### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 ### RELATED LINKS
 More Information:
 [Understand Azure AD Connect 1.4.xx.x and device disappearance](https://docs.microsoft.com/en-us/troubleshoot/azure/active-directory/reference-connect-device-disappearance)
@@ -539,10 +540,10 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 #### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 ## Export-ADSyncToolsRunHistory
 ### SYNOPSIS
-Export Azure AD Connnect Run History
+Export Azure AD Connect Run History
 ### SYNTAX
 ```
 Export-ADSyncToolsRunHistory [-TargetName] <String> [<CommonParameters>]
@@ -569,7 +570,7 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 #### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 ## Export-ADSyncToolsSourceAnchorReport
 ### SYNOPSIS
 Export ms-ds-Consistency-Guid Report
@@ -639,7 +640,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 #### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 ## Get-ADSyncToolsAadObject
 ### SYNOPSIS
 Get synced objects for a given SyncObjectType
@@ -679,15 +680,15 @@ Default value: None
 Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
+
 #### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+
 ### OUTPUTS
-#### This cmdlet returns the "Shadow" properties that are synchronized by the sync client, 
-#### which might be different than the actual value stored in the respective property of Azure AD.
-#### For instante, a user's UPN that is synchronized with a non-verified domain suffix 'user@nonverified.domain',
-#### will have the UPN suffix in Azure AD converted to the tenant's default domain, 'user@tenantname.onmicrosoft.com'
-#### In this case, Get-ADSyncToolsAadObject will return the "Shadow" value of 'user@nonverified.domain',
-#### and not the actual value in Azure AD 'user@tenantname.onmicrosoft.com'
+
+This cmdlet returns the "Shadow" properties that are synchronized by the sync client, which might be different than the actual value stored in the respective property of Azure AD. For instance, a user's UPN that is synchronized with a non-verified domain suffix 'user@nonverified.domain', will have the UPN suffix in Azure AD converted to the tenant's default domain, 'user@tenantname.onmicrosoft.com'. In this case, Get-ADSyncToolsAadObject will return the "Shadow" value of 'user@nonverified.domain', and not the actual value in Azure AD 'user@tenantname.onmicrosoft.com'.
+
 ## Get-ADSyncToolsMsDsConsistencyGuid
 ### SYNOPSIS
 Get an Active Directory object ms-ds-ConsistencyGuid
@@ -725,16 +726,16 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 #### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 ## Get-ADSyncToolsRunHistory
 ### SYNOPSIS
-Get Azure AD Connnect Run History
+Get Azure AD Connect Run History
 ### SYNTAX
 ```
 Get-ADSyncToolsRunHistory [[-Days] <Int32>] [<CommonParameters>]
 ```
 ### DESCRIPTION
-Function that returns the AAD Connnect Run History in XML format
+Function that returns the Azure AD Connect Run History in XML format
 ### EXAMPLES
 #### EXAMPLE 1
 ```
@@ -758,16 +759,16 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 #### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 ## Get-ADSyncToolsRunHistoryLegacyWmi
 ### SYNOPSIS
-Get AAD Connnect Run History for older versions of AADConnect (WMI)
+Get Azure AD Connect Run History for older versions of Azure AD Connect (WMI)
 ### SYNTAX
 ```
 Get-ADSyncToolsRunHistoryLegacyWmi [[-Days] <Int32>] [<CommonParameters>]
 ```
 ### DESCRIPTION
-Function that returns the AAD Connnect Run History in XML format
+Function that returns the Azure AD Connect Run History in XML format
 ### EXAMPLES
 #### EXAMPLE 1
 ```
@@ -791,7 +792,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 #### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 ## Get-ADSyncToolsSqlBrowserInstances
 ### SYNOPSIS
 Get SQL Server Instances from SQL Browser service
@@ -838,7 +839,8 @@ Get-ADSyncToolsTenantAzureEnvironment -Credential (Get-Credential)
 ```
 ### PARAMETERS
 #### -Credential
-The user's PS Credential object
+The user's PowerShell Credential object:
+
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)
@@ -849,12 +851,14 @@ Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
+
 #### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 ### INPUTS
-#### The user's PS Credential object
+The user's PowerShell Credential object
+
 ### OUTPUTS
-#### The Azure environment (string)
+The Azure environment (string)
 ## Get-ADSyncToolsTls12
 ### SYNOPSIS
 Gets Client\Server TLS 1.2 settings for .NET Framework
@@ -883,7 +887,7 @@ Get-ADSyncToolsTls12
 ```
 ### PARAMETERS
 #### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 ### RELATED LINKS
 More Information:
 [TLS 1.2 enforcement for Azure AD Connect](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/reference-connect-tls-enforcement)
@@ -916,10 +920,10 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 #### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 ## Import-ADSyncToolsRunHistory
 ### SYNOPSIS
-Import Azure AD Connnect Run History
+Import Azure AD Connect Run History
 ### SYNTAX
 ```
 Import-ADSyncToolsRunHistory [-Path] <String> [<CommonParameters>]
@@ -945,10 +949,10 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 #### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 ## Import-ADSyncToolsSourceAnchor
 ### SYNOPSIS
-Import ImmutableID from AAD
+Import ImmutableID from Azure AD
 ### SYNTAX
 ```
 Import-ADSyncToolsSourceAnchor [-Output] <String> [-IncludeSyncUsersFromRecycleBin] [<CommonParameters>]
@@ -991,7 +995,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 #### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 ## Invoke-ADSyncToolsSqlQuery
 ### SYNOPSIS
 Invoke a SQL query against a database for testing purposes
@@ -1037,7 +1041,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 #### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## Remove-ADSyncToolsAadObject
 ### SYNOPSIS
@@ -1140,11 +1144,11 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 #### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 ### INPUTS
-#### InputCsvFilename must point to a CSV file with at least 2 columns: SourceAnchor, SyncObjectType
+InputCsvFilename must point to a CSV file with at least 2 columns: SourceAnchor, SyncObjectType
 ### OUTPUTS
-#### Shows results from ExportDeletions operation
+Shows results from ExportDeletions operation
 DISCLAIMER: Other than User objects that have a Recycle Bin, any other object types DELETED with this function cannot be RECOVERED!
 ## Remove-ADSyncToolsExpiredCertificates
 ### SYNOPSIS
@@ -1210,7 +1214,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 #### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 ## Repair-ADSyncToolsAutoUpgradeState
 ### SYNOPSIS
 Repair Azure AD Connect AutoUpgrade State
@@ -1254,7 +1258,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 #### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 ## Search-ADSyncToolsADobject
 ### SYNOPSIS
 Search an Active Directory object in Active Directory Forest by its UserPrincipalName, sAMAccountName or DistinguishedName
@@ -1291,7 +1295,7 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 #### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 ## Set-ADSyncToolsMsDsConsistencyGuid
 ### SYNOPSIS
 Set an Active Directory object ms-ds-ConsistencyGuid
@@ -1353,7 +1357,7 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 #### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 ## Set-ADSyncToolsTls12
 ### SYNOPSIS
 Sets Client\Server TLS 1.2 settings for .NET Framework
@@ -1400,7 +1404,7 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 #### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 ### RELATED LINKS
 More Information:
 [TLS 1.2 enforcement for Azure AD Connect](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/reference-connect-tls-enforcement)
@@ -1463,8 +1467,7 @@ Trace-ADSyncToolsADImport [-DC] <String> [-RootDN] <String> [[-Filter] <String>]
  [-SSL] [-ADwatermark] <String> [<CommonParameters>]
 ```
 ### DESCRIPTION
-Traces all LDAP queries of an Active Directory Import run from a given Active Directory watermark checkpoint (aka.
-partition cookie). 
+Traces all LDAP queries of an Active Directory Import run from a given Active Directory watermark checkpoint (also called a partition cookie). 
 Creates a trace file '.\ADimportTrace_yyyyMMddHHmmss.log' on the current folder.
 To use -ADConnectorXML, go to the Synchronization Service Manager, right-click your AD Connector and select "Export Connector..."
 ### EXAMPLES
@@ -1567,7 +1570,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 #### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 ## Trace-ADSyncToolsLdapQuery
 ### SYNOPSIS
 Trace LDAP queries
@@ -1645,7 +1648,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 #### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 ## Update-ADSyncToolsSourceAnchor
 ### SYNOPSIS
 Updates users with the new ConsistencyGuid (ImmutableId)
@@ -1742,5 +1745,5 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 #### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
