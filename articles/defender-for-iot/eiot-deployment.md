@@ -5,7 +5,7 @@ author: Elazark
 ms.author: V-ekrieg
 ms.service: defender-for-iot
 ms.topic: how-to
-ms.date: 08/01/2021
+ms.date: 08/03/2021
 ---
 
 # Deploy EIoT 
@@ -88,11 +88,6 @@ Open the following ports in your firewall:
 
 - DNS - 53 TCP
 
-You can also download, and install the [Azure public IP ranges](https://www.microsoft.com/download/details.aspx?id=56519) for the Azure resources that are specified above along with their region.
-
-> [!Note] 
-> The Azure public IP range may change at any time. If this occurs you will need to download, and install the public IP ranges again.
-
 Hostnames for Azure resources:
 
 - **EventHub**: *.servicebus.windows.net
@@ -102,6 +97,11 @@ Hostnames for Azure resources:
 - **IoT Hub**: *.azure-devices.net
 
 - **Download Center**: download.microsoft.com
+
+You can also download, and add the [Azure public IP ranges](https://www.microsoft.com/download/details.aspx?id=56519) to your firewall in order to for the Azure resources that are specified above along with their region.
+
+> [!Note] 
+> The Azure public IP range are updated weekly. New ranges appearing in the file will not be used in Azure for at least one week. Please download the new json file every week and perform the necessary changes at your site to correctly identify services running in Azure.
 
 **Prepare an Azure instance**
 
