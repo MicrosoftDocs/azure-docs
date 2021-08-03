@@ -29,9 +29,9 @@ If any of your applications use the Azure Active Directory Authentication Librar
 
 ## Why switch to MSAL?
 
-|**Feature**|**MSAL**|**ADAL**|
+|**Features**|**MSAL**|**ADAL**|
 |---------|---------|---------|
-|**Security features**|-|-|
+|**Security**|-|-|
 |Security fixes beyond June 30, 2022|✔️|❌|
 |Support for [Continuous Access Evaluation (CAE)](app-resilience-continuous-access-evaluation.md) enabled APIs, such as Microsoft Graph APIs. This feature allows you to proactively refreshes tokens and can revoke access tokens based on critical event and policy.|✔️|❌|
 | Standards compliant with OAuth v2.0 and OpenID Connect (OIDC) |✔️|❌|
