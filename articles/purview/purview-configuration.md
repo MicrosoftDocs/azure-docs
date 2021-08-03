@@ -5,7 +5,7 @@ author: zeinab-mk
 ms.author: zeinam
 ms.service: purview
 ms.topic: overview
-ms.date: 09/27/2021
+ms.date: 08/27/2021
 ---
 
 # Purview Configuration
