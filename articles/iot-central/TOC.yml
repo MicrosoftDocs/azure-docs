@@ -186,8 +186,6 @@
         items:
         - name: Overview
           href: healthcare/overview-iot-central-healthcare.md
-        - name: Continuous patient monitoring architecture
-          href: healthcare/concept-continuous-patient-monitoring-architecture.md
         
     - name: What are device templates?
       href: core/concepts-device-templates.md
