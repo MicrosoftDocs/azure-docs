@@ -46,16 +46,6 @@ You must have _Contributor_ level access to the private cloud to manage placemen
 
 :::row:::
    :::column span="":::
-      ### VM to VM policies
-      VM to VM policies specify whether selected virtual machines should run on the same host or be kept on separate hosts.
-
-      In addition to choosing a name and cluster for the policy, a VM to VM policy requires you to select at least two virtual machines to assign to the policy. The assignment of hosts is not required or permitted for this policy type.
-
-      A VM-VM Affinity policy instructs DRS to try to keep the specified virtual machines together on the same host. This can be useful for performance reasons, for example.
-
-      A VM-VM Anti-Affinity policy instructs DRS to try to keep the specified virtual machines apart from each other on separate hosts. This can be useful in scenarios where a problem occurring with one host doesn’t affect multiple virtual machines within the same policy.
-   :::column-end:::
-   :::column span="":::
       ### VM to host policies
       VM to Host polices are used to specify whether or not selected virtual machines can run on selected hosts. 
 In order to avoid interference with platform managed operations such as host maintenance mode and host replacement, VM to host policies in Azure VMware Solution are always preferential (also known as "should" rules). Accordingly, VM to Host policies may not be honored in certain scenarios. See the monitoring section for more information.
@@ -67,6 +57,16 @@ In order to avoid interference with platform managed operations such as host mai
       A VM-Host Affinity policy instructs DRS to try to run the specified virtual machines on the hosts defined in the policy.
 
       A VM-Host Anti-Affinity policy instructs DRS to try to run the specified virtual machines on hosts other than those defined in the policy.
+   :::column-end:::
+   :::column span="":::
+      ### VM to VM policies
+      VM to VM policies specify whether selected virtual machines should run on the same host or be kept on separate hosts.
+
+      In addition to choosing a name and cluster for the policy, a VM to VM policy requires you to select at least two virtual machines to assign to the policy. The assignment of hosts is not required or permitted for this policy type.
+
+      A VM-VM Affinity policy instructs DRS to try to keep the specified virtual machines together on the same host. This can be useful for performance reasons, for example.
+
+      A VM-VM Anti-Affinity policy instructs DRS to try to keep the specified virtual machines apart from each other on separate hosts. This can be useful in scenarios where a problem occurring with one host doesn’t affect multiple virtual machines within the same policy.
    :::column-end:::
 :::row-end:::
 
