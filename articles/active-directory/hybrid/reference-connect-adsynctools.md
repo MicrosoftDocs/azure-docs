@@ -448,7 +448,7 @@ Accept wildcard characters: False
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 ### RELATED LINKS
 More Information:
-[Understand Azure AD Connect 1.4.xx.x and device disappearance](https://docs.microsoft.com/en-us/troubleshoot/azure/active-directory/reference-connect-device-disappearance)
+[Understand Azure AD Connect 1.4.xx.x and device disappearance](/troubleshoot/azure/active-directory/reference-connect-device-disappearance)
 
 ## Export-ADSyncToolsObjects
 ### SYNOPSIS
@@ -890,7 +890,7 @@ Get-ADSyncToolsTls12
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 ### RELATED LINKS
 More Information:
-[TLS 1.2 enforcement for Azure AD Connect](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/reference-connect-tls-enforcement)
+[TLS 1.2 enforcement for Azure AD Connect](reference-connect-tls-enforcement.md)
 
 ## Import-ADSyncToolsObjects
 ### SYNOPSIS
@@ -1407,7 +1407,7 @@ Accept wildcard characters: False
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 ### RELATED LINKS
 More Information:
-[TLS 1.2 enforcement for Azure AD Connect](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/reference-connect-tls-enforcement)
+[TLS 1.2 enforcement for Azure AD Connect](reference-connect-tls-enforcement.md)
 
 ## Test-ADSyncToolsSqlNetworkPort
 ### SYNOPSIS
