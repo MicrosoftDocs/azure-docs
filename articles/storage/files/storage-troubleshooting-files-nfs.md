@@ -152,10 +152,10 @@ The NFS protocol communicates to its server over port 2049, make sure that this 
 
 Verify that port 2049 is open on your client by running the following command: `telnet <storageaccountnamehere>.file.core.windows.net 2049`. If the port is not open, open it.
 
-## ls (list files) shows incorrect/inconsistent results
+## ls (list files) command shows incorrect/inconsistent results
 
 ### Cause: Inconsistency between cached values and server file metadata values when the file handle is open
-Sometimes the "list files" command displays a non zero size as expected and in the very next list files command instead shows size 0 or a very old time stamp. This is a known issue due to inconsistent caching of file metadata values while the file is open. You may use one of the following workarounds to resolve this:
+Sometimes the "list files" or "df" or "find" command displays a non zero size as expected and in the very next list files command instead shows size 0 or a very old time stamp. This is a known issue due to inconsistent caching of file metadata values while the file is open. You may use one of the following workarounds to resolve this:
 
 #### Workaround 1: For fetching file size, use wc -c instead of ls -l
 Using wc -c will always fetch the latest value from the server and won't have any inconsistency.
@@ -166,6 +166,17 @@ Remount the file system using the "noac" flag with your mount command. This will
 
 ## Unable to mount an NFS share that is restored back from soft-deleted state
 There is a known issue during preview where NFS shares gets soft deleted despite the platform not fully supporting it. These shares will routinely get deleted upon its expiration. You can also early-delete them by "undelete share + disable soft-delete + delete share" flow. However, if you try to recover and use the shares, you will get access denied or permission denied or NFS I/O error on the client.
+
+## ls –la throws I/O error (no data corruption, just incorrect output)
+
+### Cause: A known bug that has been fixed in newer Linux Kernel
+For older kernels NFS4ERR_NOT_SAME causes the client to stop enumerating (instead of restarting for the directory). Newer clients would be unblocked right away, unfortunately, SUSE does not yet have the patch in SUSE Enterprise Linux Server 12 or 15.  The patch is available in kernel 5.12+.  The patch for the client-side fix is described here [PATCH v3 15/17 NFS: Handle NFS4ERR_NOT_SAME and NFSERR_BADCOOKIE from readdir calls](https://www.spinics.net/lists/linux-nfs/msg80096.html).
+
+#### Workaround : Use latest kernel workaround while the fix reaches the region hosting your storage account
+The patch is available in kernel 5.12+. If for some reason, one cannot upgrade to latest kernels, the product team is taking a fix that will workaround this issue for older kernels as well. The fix will be rolling out to production regions following the dafe deployment practice. 
+
+## df and find command shows inconsistent results on clients other than where the writes happen
+This is a known regression that is fixed and will be rolling out to production regions following the dafe deployment practice.
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.
