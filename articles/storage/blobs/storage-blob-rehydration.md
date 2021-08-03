@@ -20,7 +20,7 @@ While a blob is in the archive access tier, it's considered offline and can't be
 1. [Rehydrate an archived blob to an online tier](#rehydrate-an-archived-blob-to-an-online-tier): Rehydrate an archive blob to hot or cool by changing its tier using the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation.
 1. [Copy an archived blob to an online tier](#copy-an-archived-blob-to-an-online-tier): Create a new copy of an archive blob by using the [Copy Blob](/rest/api/storageservices/copy-blob) or [Copy Blob from URL](/rest/api/storageservices/copy-blob-from-url) operation. Specify a different blob name and a destination tier of hot or cool.
 
-You can configure Azure Event Grid to fire an event and send it to an event handler when you move a blob from the archive tier to an online tier using one of these methods. For more information, see [Handle events on blob rehydration](#handle-events-on-blob-rehydration).
+You can configure [Azure Event Grid](../../event-grid/overview.md) to fire an event and send it to an event handler when you move a blob from the archive tier to an online tier using one of these methods. For more information, see [Handle events on blob rehydration](#handle-events-on-blob-rehydration).
 
 ## Rehydration priority
 
@@ -81,7 +81,7 @@ The following table describes the events that are raised when you change the tie
 | When operation initiates | Microsoft.Storage.AsyncOperationInitiated | Microsoft.Storage.AsyncOperationInitiated |
 | When operation completes | Microsoft.Storage.BlobTierChanged | Microsoft.Storage.BlobCreated |
 
-To learn how to capture an event on rehydration and send it to an Azure Function event handler, see [Trigger an event when an archived blob is rehydrated](archive-rehydration-event-notification.md).
+To learn how to capture an event on rehydration and send it to an Azure Function event handler, see [Trigger an event when an archived blob is rehydrated](archive-rehydration-handle-event.md).
 
 For more information on handling events in Blob Storage, see [Reacting to Azure Blob storage events](storage-blob-event-overview.md).
 
@@ -98,4 +98,4 @@ For more information about pricing for block blobs and data rehydration, see [Az
 ## See also
 
 - [Azure Blob Storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md).
-- [Trigger an event when an archived blob is rehydrated](archive-rehydration-event-notification.md)
+- [Trigger an event when an archived blob is rehydrated](archive-rehydration-handle-event.md)
