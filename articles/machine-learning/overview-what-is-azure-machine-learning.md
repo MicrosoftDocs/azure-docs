@@ -75,7 +75,7 @@ See [Tutorial: Set up a secure workspace](tutorial-create-secure-workspace.md).
 
 ## Azure integrations for complete solutions
 
-Other integrations with Azure support an ML project from end-to-end include:
+Other integrations with Azure services support a machine learning project from end-to-end. They include:
 
 - Azure Synapse Analytics to process and stream data with Spark
 - Azure Arc, where you can run Azure services in a Kubernetes environment
