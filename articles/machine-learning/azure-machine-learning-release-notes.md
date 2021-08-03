@@ -18,6 +18,47 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
+## 2021-08-02
+
+### Azure Machine Learning SDK for Python v1.33.0
+  + **azureml-automl-core**
+    + Improved error handling around XGBoost model retrieval.
+    + Added possibility to convert the predictions from float to integers for forecasting and regression tasks.
+    + Updated default value for enable_early_stopping in AutoMLConfig to True.
+  + **azureml-automl-runtime**
+    + Added possibility to convert the predictions from float to integers for forecasting and regression tasks.
+    + Updated default value for enable_early_stopping in AutoMLConfig to True.
+  + **azureml-contrib-automl-pipeline-steps**
+    + Hierarchical timeseries (HTS) is enabled for forecasting tasks through pipelines.
+    + Add Tabular dataset support for inferencing
+    + Custom path can be specified for the inference data
+  + **azureml-contrib-reinforcementlearning**
+    + Some properties in `azureml.core.environment.DockerSection` are deprecated, such as `shm_size` property used by Ray workers in reinforcement learning jobs. This property can now be specified in `azureml.contrib.train.rl.WorkerConfiguration` instead.
+  + **azureml-core**
+    + Fixed a hyperlink in `ScriptRunConfig.distributed_job_config` documentation
+    + Azure Machine Learning compute clusters can now be created in a location different from the location of the workspace. This is useful for maximizing idle capacity allocation and managing quota utilization across different locations without having to create more workspaces just to use quota and create a compute cluster in a particular location. For more information, see [Create an Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md?tabs=python).
+    + Added display_name as a mutable name field of Run object.
+    + Dataset from_files now supports skipping of data extensions for large input data
+  + **azureml-dataprep**
+    + Fixed a bug where to_dask_dataframe would fail because of a race condition.
+    + Dataset from_files now supports skipping of data extensions for large input data
+  + **azureml-defaults**
+    + We are removing the dependency azureml-model-management-sdk==1.0.1b6.post1 from azureml-defaults.
+  + **azureml-interpret**
+    + updated azureml-interpret to interpret-community 0.19.*
+  + **azureml-pipeline-core**
+    + Hierarchical timeseries (HTS) is enabled for forecasting tasks through pipelines.
+  + **azureml-train-automl-client**
+    + Switch to using blob store for caching in Automated ML.
+    + Hierarchical timeseries (HTS) is enabled for forecasting tasks through pipelines.
+    + Improved error handling around XGBoost model retrieval.
+    + Updated default value for enable_early_stopping in AutoMLConfig to True.
+  + **azureml-train-automl-runtime**
+    + Switch to using blob store for caching in Automated ML.
+    + Hierarchical timeseries (HTS) is enabled for forecasting tasks through pipelines.
+    + Updated default value for enable_early_stopping in AutoMLConfig to True.
+
+
 ## 2021-07-06
 
 ### Azure Machine Learning SDK for Python v1.32.0
@@ -2447,7 +2488,7 @@ At the time, of this release, the following browsers are supported: Chrome, Fire
     + Fix bug in use of InteractiveLoginAuthentication for mlflow tracking_uri
     + Improve resource utilization of remote runs using azureml.mlflow.
     + Improve the documentation of the azureml-mlflow package
-    + Patch bug where mlflow.log_artifacts("my_dir") would save artifacts under "my_dir/<artifact-paths>" instead of "<artifact-paths>"
+    + Patch bug where mlflow.log_artifacts("my_dir") would save artifacts under `my_dir/<artifact-paths>` instead of `<artifact-paths>`
   + **azureml-opendatasets**
     + Pin `pyarrow` of `opendatasets` to old versions (<0.14.0) because of memory issue newly introduced there.
     + Move azureml-contrib-opendatasets to azureml-opendatasets.
@@ -2665,4 +2706,4 @@ The [`PipelineEndpoint`](/python/api/azureml-pipeline-core/azureml.pipeline.core
 
 ## Next steps
 
-Read the overview for [Azure Machine Learning](overview-what-is-azure-ml.md).
+Read the overview for [Azure Machine Learning](overview-what-is-azure-machine-learning.md).

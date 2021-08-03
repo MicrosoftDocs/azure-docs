@@ -216,7 +216,7 @@
     "redirect_document_id": false
   },
   {
-    "source_path_from_root": "/articles/documentdb/graph-visualization.md",
+    "source_path_from_root": "/articles/cosmos-db/graph-visualization.md",
     "redirect_url": "/azure/cosmos-db/graph-visualization-partners",
     "redirect_document_id": true
   },
