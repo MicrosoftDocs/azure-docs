@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/06/2020
+ms.date: 08/06/2021
 ms.author: duau
 ms.custom: seodec18, devx-track-azurepowershell
 
@@ -194,6 +194,20 @@ $connection = Get-AzVirtualNetworkGatewayConnection -Name "MyConnection" -Resour
 $connection.ExpressRouteGatewayBypass = $True
 Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection
 ``` 
+
+## Enroll in ExpressRoute FastPath features (preview)
+
+FastPath support for virtual network peering and Private Link is now in Public preview.
+
+### FastPath and virtual network peering
+
+With FastPath and virtual network peering, you can enable ExpressRoute connectivity directly to VMs in a local or peered virtual network, bypassing the ExpressRoute virtual network gateway in the data path.
+
+To enroll in this preview, run the follow Azure PowerShell command in the target Azure subscription:
+
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName ExpressRouteVnetPeeringGatewayBypass -ProviderNamespace Microsoft.Network
+```
 
 ## Clean up resources
 
