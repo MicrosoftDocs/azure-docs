@@ -29,21 +29,21 @@ If any of your applications use the Azure Active Directory Authentication Librar
 
 ## Why switch to MSAL?
 
-| **Feature** | **MSAL** | **ADAL** |
-| -- | -- | -- |
-| **Security features** | - | - |
-| Security fixes beyond June 30, 2022 | ✔️ | ❌ |
-| Support for [Continuous Access Evaluation (CAE)](app-resilience-continuous-access-evaluation.md) enabled APIs, such as Microsoft Graph APIs. This feature allows you to proactively refreshes tokens and can revoke access tokens based on critical event and policy. | ✔️ | ❌ |
-| Standards compliant with OAuth v2.0 and OpenID Connect (OIDC) | ✔️ | ❌ |
-| **User accounts and experiences** | - | - |
-| AAD accounts | ✔️ | ✔️ |
-| MSA accounts | ✔️ | ❌ |
-| AAD B2C accounts | ✔️ | ❌ |
-| Best single sign-on experience | ✔️ | ❌ |
-| **Resilience** | - | - |
-| Azure AD Back-up System | ✔️ | Partially supported|
-| Proactive token renewal | ✔️ | ❌ |
-| Throttling | ✔️ | ❌ |
+|**Feature**|**MSAL**|**ADAL**|
+|---------|---------|---------|
+|**Security features**|-|-|
+|Security fixes beyond June 30, 2022|✔️|❌|
+|Support for [Continuous Access Evaluation (CAE)](app-resilience-continuous-access-evaluation.md) enabled APIs, such as Microsoft Graph APIs. This feature allows you to proactively refreshes tokens and can revoke access tokens based on critical event and policy.|✔️|❌|
+| Standards compliant with OAuth v2.0 and OpenID Connect (OIDC) |✔️|❌|
+|**User accounts and experiences**|-|-|
+|AAD accounts|✔️|✔️|
+| MSA accounts |✔️|❌|
+| AAD B2C accounts |✔️|❌|
+| Best single sign-on experience |✔️|❌|
+|**Resilience**|-|-|
+|Azure AD Back-up System|✔️|Partially supported|
+| Proactive token renewal |✔️|❌|
+| Throttling |✔️|❌|
 
 ## AD FS support in MSAL.NET
 
