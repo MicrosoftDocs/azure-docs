@@ -19,7 +19,6 @@ The following table provides a high-level features and capabilities comparisons 
 | ---- | ---- | ---- |
 | **General**  | | |
 | General availability | GA since 2018 | Public Preview |
-| Uptime SLA | 99.99% | Not available during preview |
 | PostgreSQL | Community | Community |
 | Versions | 9.6, 10, 11 | 11, 12, 13 |
 | Underlying O/S | Windows | Linux  |
