@@ -79,7 +79,7 @@ In this section, you use the Python SDK to send messages from your simulated dev
     > [!NOTE]
     > This code sample uses Azure IoT Plug and Play, which lets you integrate smart devices into your solutions without any manual configuration.  By default, most samples in this documentation use IoT Plug and Play. To learn more about the advantages of IoT PnP, and cases for using or not using it, see [What is IoT Plug and Play?](../articles/iot-develop/overview-iot-plug-and-play.md).
 
-Your device is now securely connected and sending telemetry to Azure IoT Hub.
+The sample securely connects to your IoT hub as the device you registered and begins sending telemetry messages. The output appears in your console.
 
 ## View telemetry
 
@@ -99,7 +99,9 @@ To view telemetry in Azure IoT Explorer:
 To read telemetry sent by individual device components, you can use the plug and play features in IoT Explorer. For example, the temperature controller in this quickstart has two thermostats: thermostat1 and thermostat2. To see the temperature reported by thermostat1: 
 
 1. On your device in IoT Explorer, select **IoT Plug and Play components** from the left menu. Then select **thermostat1** from the list of components.
+
 1. On the **thermostat1** component pane, select **Telemetry** from the top menu.
+
 1. On the **Telemetry** pane, follow the same steps that you did previously. Make sure that **Use built-in event hub** is set to *Yes* and then select **Start**.
 
 To view device telemetry with Azure CLI:
@@ -113,12 +115,12 @@ To view device telemetry with Azure CLI:
 1. View the connection details and telemetry output in the console.
 
     ```output
-    Starting event monitor, use ctrl-c to stop...
+    Starting event monitor, filtering on device: mydevice, use ctrl-c to stop...
     event:
       component: thermostat1
       interface: dtmi:com:example:TemperatureController;2
       module: ''
-      origin: myDevice
+      origin: mydevice
       payload:
         temperature: 29
     
@@ -126,7 +128,7 @@ To view device telemetry with Azure CLI:
       component: thermostat2
       interface: dtmi:com:example:TemperatureController;2
       module: ''
-      origin: myDevice
+      origin: mydevice
       payload:
         temperature: 48
     ```

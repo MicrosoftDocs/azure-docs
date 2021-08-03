@@ -81,7 +81,7 @@ To view device telemetry with Azure CLI:
       component: thermostat1
       interface: dtmi:com:example:TemperatureController;2
       module: ''
-      origin: myDevice
+      origin: mydevice
       payload:
         temperature: 39.8
     
@@ -89,7 +89,7 @@ To view device telemetry with Azure CLI:
       component: thermostat2
       interface: dtmi:com:example:TemperatureController;2
       module: ''
-      origin: myDevice
+      origin: mydevice
       payload:
         temperature: 36.7
     ```

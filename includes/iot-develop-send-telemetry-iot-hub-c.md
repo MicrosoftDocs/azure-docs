@@ -151,14 +151,14 @@ To view device telemetry with Azure CLI:
       component: ''
       interface: dtmi:com:example:TemperatureController;1
       module: ''
-      origin: myDevice
+      origin: mydevice
       payload: '{"workingSet":1251}'
     
     event:
       component: thermostat1
       interface: dtmi:com:example:TemperatureController;1
       module: ''
-      origin: myDevice
+      origin: mydevice
       payload: '{"temperature":22.00}'
     ```
 

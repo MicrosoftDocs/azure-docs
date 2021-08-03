@@ -76,7 +76,7 @@ In this section, you will use the Node.js SDK to send messages from your simulat
     export IOTHUB_DEVICE_CONNECTION_STRING="<your connection string here>"
     export IOTHUB_DEVICE_SECURITY_TYPE="connectionString"
     ```
-1. In your Node console, run the code for the following sample file. This code accesses the simulated IoT device and sends a message to the IoT hub.
+1. In your Node console, run the code for the following sample file. The sample implements a simulated temperature controller with thermostat sensors.
 
     To run the Node.js sample from the terminal:
     ```console
@@ -84,6 +84,8 @@ In this section, you will use the Node.js SDK to send messages from your simulat
     ```
     > [!NOTE]
     > This code sample uses Azure IoT Plug and Play, which lets you integrate smart devices into your solutions without any manual configuration.  By default, most samples in this documentation use IoT Plug and Play. To learn more about the advantages of IoT PnP, and cases for using or not using it, see [What is IoT Plug and Play?](../articles/iot-develop/overview-iot-plug-and-play.md).
+
+The sample securely connects to your IoT hub as the device you registered and begins sending telemetry messages. The output appears in your console.
 
 ## View telemetry
 
@@ -117,12 +119,12 @@ To view device telemetry with Azure CLI:
 1. View the connection details and telemetry output in the console.
 
     ```output
-    Starting event monitor, use ctrl-c to stop...
+    Starting event monitor, filtering on device: mydevice, use ctrl-c to stop...
     event:
       component: thermostat1
       interface: dtmi:com:example:TemperatureController;2
       module: ''
-      origin: myDevice
+      origin: mydevice
       payload:
         temperature: 70.5897683228018
     
@@ -130,7 +132,7 @@ To view device telemetry with Azure CLI:
       component: thermostat2
       interface: dtmi:com:example:TemperatureController;2
       module: ''
-      origin: myDevice
+      origin: mydevice
       payload:
         temperature: 52.87582619316418
     ```

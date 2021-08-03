@@ -92,7 +92,7 @@ To register a device:
 1. Use the copy buttons to copy and note down the **Device ID** and **Primary connection string** fields.
 
 > [!NOTE]
-> If you prefer using Azure CLI, you can use the *[az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) --device-id myDevice --hub-name {YourIoTHubName}* command to register a new device and the *[az iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity/connection-string#az_iot_hub_device_identity_connection_string_show) --device-id myDevice --hub-name {YourIoTHubName}* command to get the connection string for the device.
+> If you prefer using Azure CLI, you can use the *[az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) --device-id mydevice --hub-name {YourIoTHubName}* command to register a new device and the *[az iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity/connection-string#az_iot_hub_device_identity_connection_string_show) --device-id mydevice --hub-name {YourIoTHubName}* command to get the connection string for the device.
 
 Before continuing to the next section, confirm that you've copied the following values:
 
