@@ -423,7 +423,7 @@ Calling db.collection.watch() on each resume token (one thread per token), will 
 {
         customAction: "GetChangeStreamTokens", 
         collection: "<Name of the collection>", 
-        startAtOperationTime: "<BSON Timestamp>" // optional
+        startAtOperationTime: "<BSON Timestamp>" // Optional. Defaults to the time the command is run.
 } 
 ```
 
