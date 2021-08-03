@@ -24,11 +24,31 @@ For more information and pricing. Go to the [NAT gateway overview](/azure/virtua
 :::image type="content" source="./media/nat-gateway-integration/nat-gateway-overview.png" alt-text="Diagram shows internet traffic flowing to a NAT gateway in an Azure Virtual Network.":::
 
 > [!Note] 
-> Using NAT gateway with App Service is dependent on regional VNet integration, and therefore require a **Standard** or **Premium** App Service plan.
+> Using NAT gateway with App Service is dependent on regional VNet integration, and therefore **Standard**, **Premium**, **PremiumV2** or **PremiumV3** App Service plan is required.
 
 ## Configuring NAT gateway integration
 
-For a walk-through of configuring NAT gateway through the portal, you can follow [this tutorial](/azure/azure-functions/functions-how-to-use-nat-gateway) for Azure Functions. Make sure [Route All](/azure/app-service/web-sites-integrate-with-vnet#routes) is enabled in your application routing settings. Enabling Route All will ensure all public traffic is routed through the VNet integration.
+To configure NAT gateway integration with App Service, you need to complete the following steps:
+
+* Configure regional VNet integration with your app as described in [Integrate your app with an Azure virtual network](/azure/app-service/web-sites-integrate-with-vnet)
+* Ensure [Route All](/azure/app-service/web-sites-integrate-with-vnet#routes) is enabled for your VNet integration so the internet bound traffic will be affected by routes in your VNet.
+* Provision a NAT gateway with a Public IP and associate it with the VNet integration subnet.
+
+Setup NAT gateway through the portal:
+
+1. Go to the **Networking** UI in the App Service Portal and select VNet integration in the Outbound Traffic section. Ensure that your app is connected to a subnet and Route All has been enabled.
+:::image type="content" source="./media/nat-gateway-integration/nat-gateway-route-all-enabled.png" alt-text="Screenshot of Route All enabled for VNet integration.":::
+1. On the Azure portal menu or from the **Home** page, select **Create a resource**. The **New** window appears.
+1. Search for "NAT gateway" and select it from the list of results.
+1. Fill in the **Basics** information and pick the region where your app is located.
+:::image type="content" source="./media/nat-gateway-integration/nat-gateway-create-basics.png" alt-text="Screenshot of Basics tab in Create NAT gateway.":::
+1. In the **Outbound IP** tab, create a new or select an existing Public IP.
+:::image type="content" source="./media/nat-gateway-integration/nat-gateway-create-outbound-ip.png" alt-text="Screenshot of Outbound IP tab in Create NAT gateway.":::
+1. In the **Subnet** tab, select the subnet used for VNet integration.
+:::image type="content" source="./media/nat-gateway-integration/nat-gateway-create-subnet.png" alt-text="Screenshot of Subnet tab in Create NAT gateway.":::
+1. Fill in tags if wanted and **Create** the NAT gateway. After the NAT gateway is provisioned, click on the **Go to resource group** and select the new NAT gateway. In the Outbound IP section you will be able to see the Public IP that your outbound traffic will use going forward.
+1. You will now be able to see the Public IP that your outbound traffic from your app will use.
+:::image type="content" source="./media/nat-gateway-integration/nat-gateway-public-ip.png" alt-text="Screenshot of Public IP blade in the NAT gateway portal."::: 
 
 If you prefer using CLI to configure your environment, these are the important commands. As a prerequisite, you should create a Web App with VNet integration configured.
 
@@ -45,6 +65,12 @@ Associate the NAT gateway with the VNet integration subnet:
 ```azurecli-interactive
 az network vnet subnet update --resource-group [myResourceGroup] --vnet-name [myVnet] --name [myIntegrationSubnet] --nat-gateway myNATgateway
 ```
+
+## Scaling NAT gateway
+
+The same NAT gateway can be used across multiple subnets in the same Virtual Network allowing a NAT gateway to be used across multiple apps.
+
+NAT gateway supports both public IP addresses and public IP prefixes. A NAT gateway can support up to 16 IP addresses across individual IP addresses and prefixes. Each IP address allocates 64,000 ports (SNAT ports) allowing up to 1M ports. Learn more in the [Scaling section](/azure/virtual-network/nat-gateway/nat-gateway-resource#scaling) of NAT gateway.
 
 ## Next steps
 For more information on the NAT gateway, see [NAT gateway documentation](/azure/virtual-network/nat-gateway/nat-overview).
