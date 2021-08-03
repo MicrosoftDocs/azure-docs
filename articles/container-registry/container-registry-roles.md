@@ -84,7 +84,7 @@ As with other Azure resources, you can create [custom roles](../role-based-acces
 
 To determine which permissions to apply to a custom role, see the list of Microsoft.ContainerRegistry [actions](../role-based-access-control/resource-provider-operations.md#microsoftcontainerregistry), review the permitted actions of the [built-in ACR roles](../role-based-access-control/built-in-roles.md), or run the following command:
 
-### [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az provider operation show --namespace Microsoft.ContainerRegistry
@@ -95,7 +95,7 @@ To define a custom role, see [Steps to create a custom role](../role-based-acces
 > [!NOTE]
 > In tenants configured with [Azure Resource Manager private link](../private-link/private-link-overview.md), Azure Container Registry supports wildcard actions such as `Microsoft.ContainerRegistry/*/read` or `Microsoft.ContainerRegistry/registries/*/write` in custom roles, granting access to all matching actions. If your registry is set up in a tenant without an ARM private link, specify all required actions individually in a custom role.
 
-### [Azure PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Get-AzProviderOperation -OperationSearchString Microsoft.ContainerRegistry/*
