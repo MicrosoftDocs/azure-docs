@@ -62,9 +62,9 @@ Use any of the following PowerShell cmdlets to deploy Cloud Services (extended s
 Create Cloud Service deployment using .cscfg, .csdef and .cspkg files.
 
 ```azurepowershell-interactive
-$cspkgFilePath = Join-Path $PSScriptRoot $env.CspkgFile
-$cscfgFilePath = Join-Path $PSScriptRoot $env.CscfgFile3
-$csdefFilePath = Join-Path $PSScriptRoot $env.CsdefFile
+$cspkgFilePath = "<Path to cspkg file>"
+$cscfgFilePath = "<Path to cscfg file>"
+$csdefFilePath = "<Path to csdef file>"
       
 # Create Cloud Service       
 New-AzCloudService
@@ -88,8 +88,8 @@ New-AzCloudService
     $cspkgBlob = Set-AzStorageBlobContent -File “./ContosoApp/ContosoApp.cspkg” -Container “contosocontainer” -Blob “ContosoApp.cspkg” -Context $storageAccount.Context 
     $cspkgToken = New-AzStorageBlobSASToken -Container “contosocontainer” -Blob $cspkgBlob.Name -Permission rwd -StartTime $tokenStartTime -ExpiryTime $tokenEndTime -Context $storageAccount.Context 
     $cspkgUrl = $cspkgBlob.ICloudBlob.Uri.AbsoluteUri + $cspkgToken 
-    $cscfgFilePath = Join-Path $PSScriptRoot $env.CscfgFile3
-    $csdefFilePath = Join-Path $PSScriptRoot $env.CsdefFile
+    $cscfgFilePath = "<Path to cscfg file>"
+    $csdefFilePath = "<Path to csdef file>"
     ```
 
  2. Create Cloud Service deployment using .cscfg, .csdef and .cspkg SAS URI.
