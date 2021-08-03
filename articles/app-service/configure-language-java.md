@@ -1044,4 +1044,5 @@ Product support for the [Azure-supported Azul Zulu JDK](https://www.azul.com/dow
 
 Visit the [Azure for Java Developers](/java/azure/) center to find Azure quickstarts, tutorials, and Java reference documentation.
 
-General questions about using App Service for Linux that aren't specific to the Java development are answered in the [App Service Linux FAQ](faq-app-service-linux.yml).
+- [App Service Linux FAQ](faq-app-service-linux.yml)
+- [Environment variables and app settings reference](reference-app-settings.md)
