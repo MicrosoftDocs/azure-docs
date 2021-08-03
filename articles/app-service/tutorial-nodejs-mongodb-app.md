@@ -575,5 +575,5 @@ Advance to the next tutorial to learn how to map a custom DNS name to the app.
 
 Or, check out other resources:
 
-> [!div class="nextstepaction"]
-> [Configure Node.js app](configure-language-nodejs.md)
+- [Configure Node.js app](configure-language-nodejs.md)
+- [Environment variables and app settings reference](reference-app-settings.md)

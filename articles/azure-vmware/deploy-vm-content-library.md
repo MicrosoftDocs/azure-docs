@@ -89,7 +89,7 @@ Now that the content library has been created, you can add an ISO image to deplo
 
 Now that you've created a content library to deploy VMs in Azure VMware Solution, you may want to learn about:
 
-- [Migrating VM workloads to your private cloud](tutorial-deploy-vmware-hcx.md)
+- [Migrating VM workloads to your private cloud](configure-vmware-hcx.md)
 - [Integrating Azure native services in Azure VMware Solution](integrate-azure-native-services.md)
 
 <!-- LINKS - external-->
