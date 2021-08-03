@@ -1,6 +1,6 @@
 ---
-title: Add API connectors to user flows
-description: Configure an API connector to be used in a user flow.
+title: Add API connectors to sign up user flows
+description: Configure an API connector to be used in a sign-up user flow.
 services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
@@ -92,11 +92,12 @@ Only user properties and custom attributes listed in the **Azure AD B2C** > **Us
 
 Custom attributes exist in the **extension_\<extensions-app-id>_CustomAttribute**  format in the directory. Your API should expect to receive claims in this same serialized format. For more information on custom attributes, see [Define custom attributes in Azure AD B2C](user-flow-custom-attributes.md).
 
-Additionally, the claims are typically sent in all request:
+Additionally, these claims are typically sent in all requests:
 - **UI Locales ('ui_locales')** -  An end-user's locale(s) as configured on their device. This can be used by your API to return internationalized responses.
 - **Step ('step')** - The step or point on the user flow that the API connector was invoked for. Values include:
   - `postFederationSignup` - corresponds to "After federating with an identity provider during sign-up"
   - `postAttributeCollection` - corresponds to "Before creating the user"
+  - `preTokenIssuance` - corresponds to "Before sending the token (preview)". [Learn more about this step](add-api-connector-token-enrichment.md)
 - **Client ID ('client_id')** - The `appId` value of the application that an end-user is authenticating to in a user flow. This is *not* the resource application's `appId` in access tokens.
 - **Email Address ('email')** or [**identities ('identities')**](/graph/api/resources/objectidentity) - these claims can be used by your API to identify the end-user that is authenticating to the application.
   
@@ -119,6 +120,8 @@ Follow these steps to add an API connector to a sign-up user flow.
     :::image type="content" source="media/add-api-connector/api-connectors-user-flow-select.png" alt-text="Selecting which API connector to use for a step in the user flow like 'Before creating the user'.":::
 
 6. Select **Save**.
+
+These steps only exist for **Sign up and sign in (Recommended)** and **Sign up (Recommended)** but only apply to the sign-up part of the experience.
 
 ## After federating with an identity provider during sign-up
 
@@ -313,7 +316,7 @@ Content-type: application/json
 | version     | String | Yes      | The version of your API.                                                    |
 | action                                             | String            | Yes      | Value must be `Continue`.                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | No       | Returned values can overwrite values collected from a user. They can also be returned in the token if selected as an **Application claim**.                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | The claim does not need to contain `_<extensions-app-id>_`, it is *optional*. Returned values can overwrite values collected from a user. They can also be returned in the token if selected as an **Application claim**.  |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | The claim does not need to contain `_<extensions-app-id>_`, it is *optional*. Returned values can overwrite values collected from a user. |
 
 ### Example of a blocking response
 
@@ -621,6 +624,7 @@ Ensure that:
 * Your API explicitly checks for null values of received claims that it depends on.
 * Your API implements an authentication method outlined in [secure your API Connector](secure-rest-api.md).
 * Your API responds as quickly as possible to ensure a fluid user experience.
+    * Azure AD B2C will wait for a maximum of **20 seconds** to receive a response. If it doesn't, it will make **one more attempt (retry)** at calling your API.
     * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm" in production. For Azure Functions, it's recommended to use at minimum the [Premium plan](../azure-functions/functions-scale.md) in production.
 * Ensure high availability of your API.
 * Monitor and optimize performance of downstream APIs, databases, or other dependencies of your API.
