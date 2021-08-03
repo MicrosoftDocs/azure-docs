@@ -125,7 +125,7 @@ In this section, you'll create a NAT gateway for outbound internet access for re
 
 ## <a name="create-load-balancer-resources"></a> Create load balancer
 
-In this section, you create a load balancer that load balances virtual machines.
+In this section, you'll create a zone redundant load balancer that load balances virtual machines. With zone-redundancy, one or more availability zones can fail and the data path survives as long as one zone in the region remains healthy.
 
 During the creation of the load balancer, you'll configure:
 
@@ -271,22 +271,13 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Subnet | **myBackendSubnet** |
     | Public IP | Select **None**. |
     | NIC network security group | Select **Advanced**|
-    | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **myNSG** in **Name**. </br> Under **Inbound rules**, select **+Add an inbound rule**. </br> Under  **Destination port ranges**, enter **80**. </br> Under **Priority**, enter **100**. </br> In **Name**, enter **myNSGRule** </br> Select **Add** </br> Select **OK** |
+    | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **myNSG** in **Name**. </br> Under **Inbound rules**, select **+Add an inbound rule**. </br> Under  **Service**, select **HTTP**. </br> Under **Priority**, enter **100**. </br> In **Name**, enter **myNSGRule** </br> Select **Add** </br> Select **OK** |
     | **Load balancing**  |
     | Place this virtual machine behind an existing load-balancing solution? | Select the check box. |
     | **Load balancing settings** |
     | Load-balancing options | Select **Azure load balancing** |
     | Select a load balancer | Select **myLoadBalancer**  |
     | Select a backend pool | Select **myBackendPool** |
-
-5. Select the **Management** tab, or select **Next** > **Management**.
-
-6. In the **Management** tab, select or enter:
-    
-    | Setting | Value |
-    |-|-|
-    | **Monitoring** |  |
-    | Boot diagnostics | Select **Off** |
    
 7. Select **Review + create**. 
   
