@@ -32,6 +32,8 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 
 :::code language="yaml" source="~/azureml-examples-main/cli/.schemas/yamls/latest/managedOnlineEndpoint.schema.yml":::
 
+---
+
 ## Remarks
 
 | Key | Description |
