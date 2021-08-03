@@ -132,7 +132,7 @@ You can configure a [custom domain](storage-blob-static-website-custom-domain.md
 
 ### How do I use a custom SSL certificate with a static website?
 
-You can configure a [custom SSL](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-custom-domain#enable-custom-domain-and-ssl) certificate with a static website by using [Azure CDN](https://docs.microsoft.com/azure/storage/blobs/storage-https-custom-domain-cdn). Azure CDN provides consistent low latencies to your website from anywhere in the world.
+You can configure a [custom SSL](storage-blob-static-website-custom-domain#enable-custom-domain-and-ssl.md) certificate with a static website by using [Azure CDN](storage-https-custom-domain-cdn.md). Azure CDN provides consistent low latencies to your website from anywhere in the world.
 
 ### How do I add custom headers and rules with a static website?
 
