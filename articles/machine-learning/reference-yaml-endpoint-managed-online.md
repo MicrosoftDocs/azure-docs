@@ -9,7 +9,7 @@ ms.topic: how-to
 
 author: rsethur
 ms.author: seramasu
-ms.date: 05/25/2021
+ms.date: 08/03/2021
 ms.reviewer: laobri
 ---
 
@@ -24,7 +24,23 @@ For more information on deploying a model, see [How to deploy managed online end
 > [!NOTE]
 > A fully specified sample YAML for managed online endpoints is available for [reference](https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.template.yaml)
 
+# CLI (v2) managed online endpoint YAML schema
+
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 ## Schema
+
+The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json. The schema is provided below in JSON and YAML formats for convenience.
+
+# [JSON](#tab/json)
+
+:::code language="json" source="~/azureml-examples-main/cli/.schemas/jsons/latest/managedOnlineEndpoint.schema.json":::
+
+# [YAML](#tab/yaml)
+
+:::code language="yaml" source="~/azureml-examples-main/cli/.schemas/yamls/latest/managedOnlineEndpoint.schema.yml":::
+
+## Remarks
 
 | Key | Description |
 | --- | --- |
@@ -68,5 +84,6 @@ For more information on deploying a model, see [How to deploy managed online end
 
 ## Next steps
 
+- [Install and use the CLI (v2)](how-to-configure-cli.md)
 - Learn how to [deploy a model with a managed online endpoint](how-to-deploy-managed-online-endpoints.md)
 - [Troubleshooting managed online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md)
