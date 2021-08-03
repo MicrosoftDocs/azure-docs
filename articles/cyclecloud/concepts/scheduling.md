@@ -34,7 +34,7 @@ The node allocator runs in the CycleCloud application server. It receives the al
 
 > [!NOTE]
 > While the underlying concepts above are common among the schedulers, the implementation details differ between schedulers. See the individual scheduler pages for more in-depth information about each implementation.
-> * [Open PBS](../openpbs.md)
+> * [OpenPBS](../openpbs.md)
 > * [Slurm](../slurm.md)
 > * [LSF](../lsf.md)
 > * [HTCondor](../htcondor.md)

@@ -185,8 +185,8 @@
     href: cycleserver-configuration-reference.md
   - name: Schedulers
     items:
-    - name: PBS Professional OSS
-      href: pbspro.md
+    - name: OpenPBS
+      href: openpbs.md
     - name: Grid Engine
       href: gridengine.md
     - name: Slurm

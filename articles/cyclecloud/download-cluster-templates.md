@@ -33,7 +33,7 @@ cyclecloud import_template -f templates/template-name.template.txt
 | [![no logo](~/media/index/default.png)](https://www.ibm.com/us-en/marketplace/hpc-workload-management) | [Spectrum LSF](https://github.com/Azure/cyclecloud-lsf) | CycleCloud project to enable use of Spectrum LSF job scheduler in Azure CycleCloud HPC clusters.  |     |
 | [![MrBayes](~/media/index/mr-bayes.png)](http://mrbayes.sourceforge.net/)  | [MrBayes](https://github.com/Azure/cyclecloud-mrbayes)  |     |
 | ![NFS](~/media/index/nfs.png) | [Network File System](https://github.com/Azure/cyclecloud-nfs) | CycleCloud project to enable use of NFS filers in HPC clusters in Azure.  |     |
-| ![PBS Professional OSS](~/media/index/openpbs.png)  | [PBSPro](https://github.com/Azure/cyclecloud-openpbs)  | Azure CycleCloud OpenPBS cluster template.  |     |
+| ![OpenPBS](~/media/index/openpbs.png)  | [OpenPBS](https://github.com/Azure/cyclecloud-openpbs)  | Azure CycleCloud OpenPBS cluster template.  |     |
 | [![Redis](~/media/index/default.png)](https://redis.io/) | [Redis](https://github.com/Azure/cyclecloud-redis)  | CycleCloud project to configure and launch a basic Redis cluster.  |     |
 | [![Singularity](~/media/index/singularity.png)](https://www.sylabs.io/)  | [Singularity](https://github.com/Azure/cyclecloud-singularity) | CycleCloud project to enable use of Singularity containers in HPC clusters in Azure. |     |
 | [![slurm](~/media/index/slurm.png)](https://slurm.schedmd.com/)  | [Slurm](https://github.com/Azure/cyclecloud-slurm) | CycleCloud project to enable users to create, configure, and use Slurm HPC clusters.  |     |

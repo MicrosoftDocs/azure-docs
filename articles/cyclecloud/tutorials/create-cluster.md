@@ -17,7 +17,7 @@ Click on **Clusters** in the main menu, which will bring up the list of availabl
 > [!NOTE]
 > Azure CycleCloud ships with a limited number of supported cluster types by default, but many others are maintained in [CycleCloud GitHub](https://github.com/Azure?q=cyclecloud) and can easily be imported into CycleCloud.
 
-In this tutorial, you will create an HPC cluster configured with the [Open PBS](~/openpbs.md). Click the PBS Professional OSS icon under **Schedulers** on the **New Cluster** page to bring up the cluster creation wizard.
+In this tutorial, you will create an HPC cluster configured with [OpenPBS](~/openpbs.md). Click the OpenPBS icon under **Schedulers** on the **New Cluster** page to bring up the cluster creation wizard.
 
 ::: moniker range="=cyclecloud-7"
 :::image type="content" source="../images/version-7/new-pbspro-cluster.png" alt-text="Create New Cluster screen":::
