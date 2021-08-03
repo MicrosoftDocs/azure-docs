@@ -37,7 +37,7 @@ If any of your applications use the Azure Active Directory Authentication Librar
 | Standards compliant with OAuth v2.0 and OpenID Connect (OIDC) |✔️|❌|
 |**User accounts and experiences**|-|-|
 |Azure Active Directory (Azure AD) accounts|✔️|✔️|
-| Microsoft accounts (MSA) |✔️|❌|
+| Microsoft account (MSA) |✔️|❌|
 | Azure AD B2C accounts |✔️|❌|
 | Best single sign-on experience |✔️|❌|
 |**Resilience**|-|-|
