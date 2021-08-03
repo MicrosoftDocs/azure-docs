@@ -36,8 +36,6 @@
     items:
     - name: Security Best Practices
       href: ./concepts/security-best-practices.md
-    - name: Security Baseline
-      href: ./concepts/security-baseline.md
 - name: How-To
   items:
   - name: CycleCloud
