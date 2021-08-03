@@ -14,7 +14,7 @@ ms.author: wellee
 # How to configure Virtual WAN Hub routing intent and routing policies
 
 >[!NOTE] 
-> Hub Routing Intent is currently in Managed Preview. 
+> Hub Routing Intent is currently in gated public preview. 
 > 
 > To obtain access to the preview,  reach out to previewinterhub@microsoft.com with the Virtual WAN ID, Subscription ID and Azure Region you wish to configure Routing Intent in. Expect a response within 48 business hours (Monday-Friday) with confirmation of feature enablement.
 
@@ -27,7 +27,7 @@ Routing Intent and Routing policies allow you to specify how the Virtual WAN hub
 While Private Traffic  includes both branch and Virtual Network address prefixes, Routing Policies considers them as one entity within the Routing Intent Concepts.
 
 >[!NOTE]
-> In the Managed Preview of Virtual WAN Hub routing policies, inter-hub traffic is only inspected by Azure Firewall if the Virtual WAN Hubs are in the same region. 
+> In the gated public preview of Virtual WAN Hub routing policies, inter-hub traffic is only inspected by Azure Firewall if the Virtual WAN Hubs are in the same region. 
 
 
 * **Internet Traffic Routing Policy**:  When an Internet Traffic Routing Policy is configured on a Virtual WAN hub, all branch (User VPN (Point-to-site VPN), Site-to-site VPN, and ExpressRoute) and Virtual Network connections to that Virtual WAN Hub will forward Internet-bound traffic to the Azure Firewall resource or Third-Party Security provider specified as part of the Routing Policy.
@@ -41,7 +41,7 @@ While Private Traffic  includes both branch and Virtual Network address prefixes
 ## Key considerations
 * You will **not** be able to enable routing policies on your deployments with existing Custom Route tables configured or if there are static routes configured in your Default Route Table.
 * Currently, Private Traffic Routing Policies are not supported in Hubs with Encrypted ExpressRoute connections (Site-to-site VPN Tunnel running over ExpressRoute Private connectivity). 
-* In the Managed Preview of Virtual WAN Hub routing policies, inter-hub traffic is only inspected by Azure Firewall if the Virtual WAN Hubs are in the same region.
+* In the gated public preview of Virtual WAN Hub routing policies, inter-hub traffic is only inspected by Azure Firewall if the Virtual WAN Hubs are in the same region.
 * Routing Intent and Routing Policies currently must be configured via the custom portal link provided in Step 3 of  **Prerequisites**. Routing Intents and Policies are not supported via Terraform, PowerShell, and CLI. 
 
 ## Prerequisites
@@ -138,7 +138,7 @@ Consider the following configuration where Hub 1 (Normal) and Hub 2 (Secured) ar
 The following section describes common issues encountered when configuring Routing Policies on your Virtual WAN Hub.  Read the below sections and if your issue is still unresolved,  reach out to previewinterhub@microsoft.com for support. Expect a response within 48 business hours (Monday through Friday). 
 
 ### Troubleshooting configuration issues
-*  Make sure that you have gotten confirmation from previewinterhub@microsoft.com that access to the managed preview has been granted to your subscription and chosen region. You will **not** be able to configure routing policies without being granted access to the preview.
+*  Make sure that you have gotten confirmation from previewinterhub@microsoft.com that access to the gated public preview has been granted to your subscription and chosen region. You will **not** be able to configure routing policies without being granted access to the preview.
 * After enabling the Routing Policy feature  on your deployment,  ensure you **only** use the custom portal link provided as part of your confirmation email. Do not use PowerShell, CLI, or REST API calls to manage your Virtual WAN deployments.  This includes creating new Branch (Site-to-site VPN, Point-to-site VPN or ExpressRoute) connections. 
 
 >[!NOTE]
@@ -165,13 +165,13 @@ The following section describes common issues encountered when configuring Routi
 
 ### Why can't I edit the defaultRouteTable from the custom portal link provided by previewinterhub@microsoft.com?
 
-As part of the managed preview of Routing Policies, your Virtual WAN hub routing is managed entirely by Firewall Manager. Additionally, the managed preview of Routing Policies is **not** supported alongside Custom Routing. Custom Routing with Routing Policies will be supported at a later date. 
+As part of the gated public preview of Routing Policies, your Virtual WAN hub routing is managed entirely by Firewall Manager. Additionally, the managed preview of Routing Policies is **not** supported alongside Custom Routing. Custom Routing with Routing Policies will be supported at a later date. 
 
 However, you can still view the Effective Routes of the DefaultRouteTable by navigating to the **Effective Routes** Tab.
 
 ### Can I configure a Routing Policy for Private Traffic and also send Internet Traffic (0.0.0.0/0) via a Network Virtual Appliance in a Spoke Virtual Network?
 
-This scenario is not supported in the Managed Preview. However,  reach out to previewinterhub@microsoft.com to express interest in implementing this scenario. 
+This scenario is not supported in the gated public preview. However,  reach out to previewinterhub@microsoft.com to express interest in implementing this scenario. 
 
 ### Does the default route (0.0.0.0/0) propagate across hubs?
 
