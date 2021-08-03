@@ -167,10 +167,10 @@ Remount the file system using the "noac" flag with your mount command. This will
 ## Unable to mount an NFS share that is restored back from soft-deleted state
 There is a known issue during preview where NFS shares gets soft deleted despite the platform not fully supporting it. These shares will routinely get deleted upon its expiration. You can also early-delete them by "undelete share + disable soft-delete + delete share" flow. However, if you try to recover and use the shares, you will get access denied or permission denied or NFS I/O error on the client.
 
-## ls –la throws I/O error (no data corruption, just incorrect output)
+## ls –la throws I/O error
 
 ### Cause: A known bug that has been fixed in newer Linux Kernel
-For older kernels NFS4ERR_NOT_SAME causes the client to stop enumerating (instead of restarting for the directory). Newer clients would be unblocked right away, unfortunately, SUSE does not yet have the patch in SUSE Enterprise Linux Server 12 or 15.  The patch is available in kernel 5.12+.  The patch for the client-side fix is described here [PATCH v3 15/17 NFS: Handle NFS4ERR_NOT_SAME and NFSERR_BADCOOKIE from readdir calls](https://www.spinics.net/lists/linux-nfs/msg80096.html).
+This is not data corruption, just incorrect output. For older kernels NFS4ERR_NOT_SAME causes the client to stop enumerating (instead of restarting for the directory). Newer clients would be unblocked right away, unfortunately, SUSE does not yet have the patch in SUSE Enterprise Linux Server 12 or 15.  The patch is available in kernel 5.12+.  The patch for the client-side fix is described here [PATCH v3 15/17 NFS: Handle NFS4ERR_NOT_SAME and NFSERR_BADCOOKIE from readdir calls](https://www.spinics.net/lists/linux-nfs/msg80096.html).
 
 #### Workaround : Use latest kernel workaround while the fix reaches the region hosting your storage account
 The patch is available in kernel 5.12+. If for some reason, one cannot upgrade to latest kernels, the product team is taking a fix that will workaround this issue for older kernels as well. The fix will be rolling out to production regions following the dafe deployment practice. 
