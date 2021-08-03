@@ -24,7 +24,7 @@ highlightedContent:
     # Card
     - title: What is Azure Machine Learning?
       itemType: overview
-      url: overview-what-is-azure-ml.md
+      url: overview-what-is-azure-machine-learning.md
     # Card
     - title: Set up resources
       itemType: get-started
