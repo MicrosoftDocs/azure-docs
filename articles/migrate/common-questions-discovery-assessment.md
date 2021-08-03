@@ -220,7 +220,7 @@ Import-based Azure VM assessments are assessments created with machines that are
 
 ## Why is the suggested migration tool in import-based AVS assessment marked as unknown?
 
-For machines imported via a CSV file, the default migration tool in an AVS assessment is unknown. Though, for VMware machines, it is recommended to use the VMware Hybrid Cloud Extension (HCX) solution. [Learn More](../azure-vmware/tutorial-deploy-vmware-hcx.md).
+For machines imported via a CSV file, the default migration tool in an AVS assessment is unknown. Though, for VMware machines, it is recommended to use the VMware Hybrid Cloud Extension (HCX) solution. [Learn More](../azure-vmware/install-vmware-hcx.md).
 
 
 ## What is dependency visualization?
