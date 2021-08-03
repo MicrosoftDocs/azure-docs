@@ -63,7 +63,7 @@ Point-in-time restore is useful in multiple scenarios. Some of the use cases tha
 
 You can choose between a latest restore point and a custom restore point via [Azure portal](how-to-restore-server-portal.md).
 
--   **Latest restore point**: The latest restore point helps you to restore the server to the timestamp of triggering the restore operation. The timestamp of latest restore point can be approximated as the start time of the restored server deployment displayed on the portal. This option is useful to quickly restore the server to the most updated state.
+-   **Latest restore point**: The latest restore point option helps you to restore the server to the timestamp when the restore operation was triggered. This option is useful to quickly restore the server to the most updated state.
 -   **Custom restore point**: This will allow you to choose any point-in-time within the retention period defined for this flexible server. This option is useful to restore the server at the precise point in time to recover from a user error.
 
 The estimated time of recovery depends on several factors including the database sizes, the transaction log backup size, the compute size of the SKU, and the time of the restore as well. The transaction log recovery is the most time consuming part of the restore process. If the restore time is chosen closer to the snapshot backup schedule, the restore operations are faster since transaction log application is minimal. To estimate the accurate recovery time for your server, we highly recommend testing it in your environment as it has too many environment specific variables.
