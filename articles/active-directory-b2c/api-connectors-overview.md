@@ -59,8 +59,7 @@ An API connector at this step in the sign-up process is invoked after the attrib
 
 ### Before sending the token (preview)
 
-> [!IMPORTANT]
-> This functionality is in preview and is provided without a service-level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 An API connector at this step in the sign-up or sign-in process is invoked before a token is issued. The following are examples of scenarios you might enable at this step:
 - Enriching the token with attributes about the user from sources different than the directory including legacy identity systems, HR systems, external user stores, and more.

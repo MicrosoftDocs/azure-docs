@@ -24,8 +24,7 @@ Azure Active Directory B2C (Azure AD B2C) enables identity developers to integra
 
 You can use API connectors applied to the **Before sending the token (preview)** step in order to enrich tokens for your applications to include information from external sources. When a user signs in or signs up, Azure AD B2C will call the API endpoint configured in the API connector which can query information about a user in downstream services such as cloud services, custom user stores, custom permission systems, legacy identity systems, and more.
 
-> [!IMPORTANT]
-> API connectors used in this step are in preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 You can create an API endpoint using one of our [samples](api-connector-samples.md#api-connector-rest-api-samples).
 
