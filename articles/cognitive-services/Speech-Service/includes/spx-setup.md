@@ -39,7 +39,7 @@ The following Linux distributions are supported for x64 architectures using the 
 * CentOS 7/8
 * Debian 9/10 
 * Red Hat Enterprise Linux (RHEL) 7/8
-* Ubuntu 16.04/18.04/20.04
+* Ubuntu 16.04 (until September), Ubuntu 18.04/20.04
 
 > [!NOTE]
 > Additional architectures are supported by the Speech SDK (not the Speech CLI). For more information, see [About the Speech SDK](../speech-sdk.md).
