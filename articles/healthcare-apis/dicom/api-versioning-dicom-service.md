@@ -40,14 +40,14 @@ An API version with the label "prerelease" indicates that the version is not rea
 
 ## How versions are incremented
 
-We currently only increment the major version whenever there is a breaking change which is considered to be not backwards compatible. All minor versions are implied to be 0. All versions are in the format `Major.0`.
+We currently only increment the major version whenever there is a breaking change, which is considered to be not backwards compatible. All minor versions are implied to be 0. All versions are in the format `Major.0`.
 
 Below are some examples of breaking changes (Major version is incremented):
 
 1. Renaming or removing endpoints.
 2. Removing parameters or adding mandatory parameters.
 3. Changing status code.
-4. Deleting a property in a response, or altering a response type at all, bbut it's okay to add properties to the response.
+4. Deleting a property in a response, or altering a response type at all, but it's okay to add properties to the response.
 5. Changing the type of a property.
 6. Behavior when an API changes such as changes in business logic used to do foo, but it now does bar.
 
