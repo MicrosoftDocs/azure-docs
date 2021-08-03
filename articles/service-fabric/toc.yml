@@ -405,7 +405,7 @@
       href: how-to-managed-cluster-configuration.md
     - name: Add a VM scale set extension to a managed cluster node type
       href: how-to-managed-cluster-vmss-extension.md
-    - name: Configure network settings for Service Fabric managed clusters
+    - name: Configure managed cluster network settings
       href: how-to-managed-cluster-networking.md
     - name: Configure managed cluster Availability Zone spanning
       href: how-to-managed-cluster-availability-zones.md

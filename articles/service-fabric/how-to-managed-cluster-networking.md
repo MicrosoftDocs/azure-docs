@@ -8,7 +8,7 @@ ms.date: 8/02/2021
 
 Service Fabric managed clusters are created with a default networking configuration. This configuration consists of an [Azure Load Balancer](../load-balancer/load-balancer-overview.md) with a public ip, a VNet with one subnet allocated with mandatory NSG rules for essential cluster functionality, and a few optional rules such as allowing all outbound traffic by default, which are intended to make customer configuration easier.
 
-This document walks through how to modify the default networking configuration to change NSG rules, enable inbound RDP access, use an existing Virtual Network for cluster resources, create and use an internal load balancer for secondary node types, and more.
+This document walks through how to modify the default networking configuration to change NSG rules, enable inbound Remote Desktop Protocol (RDP) access, use an existing Virtual Network for cluster resources, create and use an internal load balancer for secondary node types, and more.
 
 ## Modify NSG Rules
 
@@ -231,7 +231,7 @@ Service Fabric managed clusters creates an NSG rule in default priority range fo
 
 ### Load balancer probes
 
-Service Fabric managed clusters automatically creates load balancer probes for fabric gateway ports as well as all ports configured under the "loadBalancingRules" section of managed cluster properties.
+Service Fabric managed clusters automatically creates load balancer probes for fabric gateway ports as well as all ports configured under the `loadBalancingRules` section of managed cluster properties.
 
 ```json
 {
@@ -288,12 +288,12 @@ Service Fabric managed clusters automatically creates load balancer probes for f
 }
 ```
 ### Multiple Frontends
-Managed multiple frontends with subnets per node type and seperate NSG's
+Managed multiple frontends with subnets per node type and separate NSGs
 
 ## IPv6
 Talk about v4 and v6 ip's on Load Balancers and NSG differences.
 
-To configure this feature set the following property on a Service Fabric managed cluster resource.
+To configure this feature, set the following property on a Service Fabric managed cluster resource.
 
 ```json
 
@@ -301,12 +301,12 @@ To configure this feature set the following property on a Service Fabric managed
 
 ## Advanced Networking changes
 ### Use your own VNet and subnet(s)
-This can help some scenarios such as:
+This feature can enable scenarios such as:
 X
 Y
 by allowing you to create the managed cluster resource in an existing VNet you already manage to help further simplify security and operational complexity. This feature will enable this scenario so that customers can create a single dedicated subnet in an existing virtual network the managed cluster will use for ip allocation needs.
 
-To configure this feature set the following property on a Service Fabric managed cluster resource.
+To configure this feature, set the following property on a Service Fabric managed cluster resource.
 
 ```json
 TBD
@@ -318,7 +318,7 @@ This requires BYOVNET ?
 Bring your own LB/IP.
 Specific scenarios this addresses include internal load balancer(s) option for secondary node types, multiple applications with same frontend port, capacity and performance considerations, and security and management. 
 
-To configure this feature set the following property on a Service Fabric managed cluster resource.
+To configure this feature, set the following property on a Service Fabric managed cluster resource.
 
 ```json
 TBD
