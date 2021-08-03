@@ -56,6 +56,9 @@ For more information, review the Azure virtual machines documentation:
 
 # [PowerShell](#tab/azure-powershell)
 
+[New-AZVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm?view=azps-6.3.0) creates resources you reference if they don't exist. To create a VM with a system assigned managed identity enabled pass the parameter **-SystemAssignedIdentity** as shown below. 
+
+
 ```powershell
 
 New-AzVm `
@@ -69,9 +72,9 @@ New-AzVm `
     -OpenPorts 80,3389
 ```
 
+- [Quickstart: Create a Windows virtual machine in Azure with PowerShell](../..//virtual-machines/windows/quick-create-powershell.md)
+- [Quickstart: Create a Linux virtual machine in Azure with PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
 
-[Create a Linux virtual machine with a system assigned managed identity](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell)
-[Create a Windows virtual machine with a system assigned managed identity](https://docs.microsoft.com/zure/virtual-machines/windows/quick-create-powershell)
 
 # [Azure CLI](#tab/azure-cli)
 
