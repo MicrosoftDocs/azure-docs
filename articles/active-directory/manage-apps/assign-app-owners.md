@@ -1,24 +1,21 @@
 ---
-title: Assign application owners - Azure AD | Microsoft Docs
+title: Assign enterprise application owners - Azure AD | Microsoft Docs
 description: Assign owners to applications in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: rolyon
-manager: daveba
+author: davidmu1
+manager: celesteDG
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: roles
+ms.subservice: manage-apps
 ms.topic: how-to
-ms.date: 07/13/2021
-ms.author: rolyon
-ms.reviewer: vincesm
-ms.custom: it-pro
-ms.collection: M365-identity-device-management
-#Customer intent: As an Azure AD administrator, I want to assign owners to applications.
+ms.date: 08/03/2021
+ms.author: davidmu
+#Customer intent: As an Azure AD administrator, I want to assign owners to enterprise applications.
 
 ---
 
-# Assign application owners
+# Assign enterprise application owners
 
 Assigning owners is a simple way to grant the ability to manage all aspects of Azure AD configuration for a specific application registration or enterprise application. As a system behavior, when a user creates a new application registration they are automatically added as the first owner. Ownership permissions give the user the ability to manage all aspects of an application registration or enterprise application that they own. For example, when a user leaves an organization, they can be removed as an owner and additional owners can be added.
 
