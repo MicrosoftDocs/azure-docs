@@ -264,7 +264,7 @@ You can also select the [user-managed identity](/azure/active-directory/managed-
 :::image type="content" source="./media/backup-azure-arm-restore-vms/select-user-managed-identity-by-providing-input-as-msi-resource-id.png" alt-text="Screenshot for selecting the user-managed identity by providing the input as their MSI Resource ID":::
 
 >[!Note]
->The support is available for only Managed VMs, and not supported for Classic VMs and Unmanaged VMs. For the [storage accounts that are restricted with firewalls](/azure/storage/common/storage-network-security?tabs=azure-portal), system MSI is only supported.
+>The support is available for only Managed VMs, and not supported for classic VMs and unmanaged VMs. For the [storage accounts that are restricted with firewalls](/azure/storage/common/storage-network-security?tabs=azure-portal), system MSI is only supported.
 
 ## Track the restore operation
 
