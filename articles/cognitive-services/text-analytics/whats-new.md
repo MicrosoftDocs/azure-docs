@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/12/2021
+ms.date: 08/03/2021
 ms.author: aahi
 ms.custom: references_regions 
 ---
@@ -16,6 +16,9 @@ ms.custom: references_regions
 # What's new in the Text Analytics API?
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
+
+## August 2021
+* [Asynchronous operation](how-tos/text-analytics-how-to-call-api.md?tabs=asynchronous) is now available in the Azure Government and Azure China regions.
 
 ## July 2021
 
