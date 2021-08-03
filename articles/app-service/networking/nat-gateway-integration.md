@@ -25,34 +25,34 @@ For more information and pricing. Go to the [NAT gateway overview](/azure/virtua
 :::image type="content" source="./media/nat-gateway-integration/nat-gateway-overview.png" alt-text="Diagram shows Internet traffic flowing to a NAT gateway in an Azure Virtual Network.":::
 
 > [!Note] 
-> Using NAT gateway with App Service is dependent on regional VNet integration, and therefore **Standard**, **Premium**, **PremiumV2** or **PremiumV3** App Service plan is required.
+> Using NAT gateway with App Service is dependent on regional VNet Integration, and therefore **Standard**, **Premium**, **PremiumV2** or **PremiumV3** App Service plan is required.
 
 ## Configuring NAT gateway integration
 
 To configure NAT gateway integration with App Service, you need to complete the following steps:
 
-* Configure regional VNet integration with your app as described in [Integrate your app with an Azure virtual network](/azure/app-service/web-sites-integrate-with-vnet)
-* Ensure [Route All](/azure/app-service/web-sites-integrate-with-vnet#routes) is enabled for your VNet integration so the Internet bound traffic will be affected by routes in your VNet.
-* Provision a NAT gateway with a public IP and associate it with the VNet integration subnet.
+* Configure regional VNet Integration with your app as described in [Integrate your app with an Azure virtual network](/azure/app-service/web-sites-integrate-with-vnet)
+* Ensure [Route All](/azure/app-service/web-sites-integrate-with-vnet#routes) is enabled for your VNet Integration so the Internet bound traffic will be affected by routes in your VNet.
+* Provision a NAT gateway with a public IP and associate it with the VNet Integration subnet.
 
 Set up NAT gateway through the portal:
 
-1. Go to the **Networking** UI in the App Service portal and select VNet integration in the Outbound Traffic section. Ensure that your app is connected to a subnet and **Route All** has been enabled.
-:::image type="content" source="./media/nat-gateway-integration/nat-gateway-route-all-enabled.png" alt-text="Screenshot of Route All enabled for VNet integration.":::
+1. Go to the **Networking** UI in the App Service portal and select VNet Integration in the Outbound Traffic section. Ensure that your app is integrated with a subnet and **Route All** has been enabled.
+:::image type="content" source="./media/nat-gateway-integration/nat-gateway-route-all-enabled.png" alt-text="Screenshot of Route All enabled for VNet Integration.":::
 1. On the Azure portal menu or from the **Home** page, select **Create a resource**. The **New** window appears.
 1. Search for "NAT gateway" and select it from the list of results.
 1. Fill in the **Basics** information and pick the region where your app is located.
 :::image type="content" source="./media/nat-gateway-integration/nat-gateway-create-basics.png" alt-text="Screenshot of Basics tab in Create NAT gateway.":::
 1. In the **Outbound IP** tab, create a new or select an existing public IP.
 :::image type="content" source="./media/nat-gateway-integration/nat-gateway-create-outbound-ip.png" alt-text="Screenshot of Outbound IP tab in Create NAT gateway.":::
-1. In the **Subnet** tab, select the subnet used for VNet integration.
+1. In the **Subnet** tab, select the subnet used for VNet Integration.
 :::image type="content" source="./media/nat-gateway-integration/nat-gateway-create-subnet.png" alt-text="Screenshot of Subnet tab in Create NAT gateway.":::
 1. Fill in tags if needed and **Create** the NAT gateway. After the NAT gateway is provisioned, click on the **Go to resource group** and select the new NAT gateway. You can to see the public IP that your app will use for outbound Internet-facing traffic in the Outbound IP blade.
 :::image type="content" source="./media/nat-gateway-integration/nat-gateway-public-ip.png" alt-text="Screenshot of Outbound IP blade in the NAT gateway portal."::: 
 
-If you prefer using CLI to configure your environment, these are the important commands. As a prerequisite, you should create a Web App with VNet integration configured.
+If you prefer using CLI to configure your environment, these are the important commands. As a prerequisite, you should create a Web App with VNet Integration configured.
 
-Ensure **Route All** is configured for your VNet integration (*Note*: minimum `az version` required is 2.27):
+Ensure **Route All** is configured for your VNet Integration (*Note*: minimum `az version` required is 2.27):
 
 ```azurecli-interactive
 az webapp config set --resource-group [myResourceGroup] --name [myWebApp] --vnet-route-all-enabled
@@ -66,7 +66,7 @@ az network public-ip create --resource-group [myResourceGroup] --name myPublicIP
 az network nat gateway create --resource-group [myResourceGroup] --name myNATgateway --public-ip-addresses myPublicIP --idle-timeout 10
 ```
 
-Associate the NAT gateway with the VNet integration subnet:
+Associate the NAT gateway with the VNet Integration subnet:
 
 ```azurecli-interactive
 az network vnet subnet update --resource-group [myResourceGroup] --vnet-name [myVnet] --name [myIntegrationSubnet] --nat-gateway myNATgateway
@@ -81,4 +81,4 @@ NAT gateway supports both public IP addresses and public IP prefixes. A NAT gate
 ## Next steps
 For more information on the NAT gateway, see [NAT gateway documentation](/azure/virtual-network/nat-gateway/nat-overview).
 
-For more information on VNet integration, see [VNet integration documentation](/azure/app-service/web-sites-integrate-with-vnet).
+For more information on VNet Integration, see [VNet Integration documentation](/azure/app-service/web-sites-integrate-with-vnet).
