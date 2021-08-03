@@ -16,6 +16,8 @@ ms.author: wellee
 >[!NOTE] 
 > Hub Routing Intent is currently in gated public preview. 
 > 
+> This preview is provided without a service-level agreement and isn't recommended for production workloads. Some features might be unsupported or have constrained capabilities. For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> 
 > To obtain access to the preview,  reach out to previewinterhub@microsoft.com with the Virtual WAN ID, Subscription ID and Azure Region you wish to configure Routing Intent in. Expect a response within 48 business hours (Monday-Friday) with confirmation of feature enablement.
 
 ## Background 
