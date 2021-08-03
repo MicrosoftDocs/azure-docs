@@ -14,7 +14,7 @@ ms.custom:
 
 This article shows how to use the `Az.CloudService` PowerShell module to deploy Cloud Services (extended support) in Azure that has multiple roles (WebRole and WorkerRole).
 
-## Pre-Requisites
+## Pre-requisites
 
 1. Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support) and create the associated resources. 
 2. Install Az.CloudService PowerShell module.
