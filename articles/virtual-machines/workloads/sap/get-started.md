@@ -77,6 +77,7 @@ In this section, you can find information in how to configure SSO with most of t
 In this section, you find documents about Microsoft Power BI integration into SAP data sources as well as Azure Data Factory integration into SAP BW.
 
 ## Change Log
+- August 02, 2021: Change in [HA for SAP NW on Azure VMs on RHEL for SAP applications](./high-availability-guide-rhel.md), [HA for SAP NW on Azure VMs on RHEL with ANF](./high-availability-guide-rhel-netapp-files.md) and [HA for SAP NW on Azure VMs on RHEL multi-SID guide](./high-availability-guide-rhel-multi-sid.md) to adjust cluster resources stickiness, migration thresholds and order constraints  
 - August 02, 2021: Release of [SAP BW-Near Line Storage (NLS) implementation guide with SAP IQ on Azure](./sap-iq-deployment-guide.md) 
 - July 26, 2021: Change in [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) and [Setting up Pacemaker on SLES in Azure](./high-availability-guide-suse-pacemaker.md) to replace role assignment instructions with links to the RBAC documentation in the sections describing the set up for Azure Fence Agent
 - July 22, 2021: Change in [HA for SAP NW on Azure VMs on RHEL for SAP applications](./high-availability-guide-rhel.md), [HA for SAP NW on Azure VMs on RHEL with ANF](./high-availability-guide-rhel-netapp-files.md) and [HA for SAP NW on Azure VMs on RHEL multi-SID guide](./high-availability-guide-rhel-multi-sid.md) to remove `failure-timeout` for the ASCS cluster resource (ENSA2 only)
