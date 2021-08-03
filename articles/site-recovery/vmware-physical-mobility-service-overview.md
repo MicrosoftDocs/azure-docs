@@ -6,7 +6,7 @@ manager: gaggupta
 ms.service: site-recovery
 ms.topic: how-to
 ms.author: sharrai
-ms.date: 07/30/2021
+ms.date: 08/02/2021
 ---
 
 # About the Mobility service for VMware VMs and physical servers
@@ -349,12 +349,11 @@ Locate the installer files for the server’s operating system using the followi
 Setting | Details
 --- | ---
 Syntax | `.\UnifiedAgentInstaller.exe /Platform vmware /Role MS /CSType CSPrime /InstallLocation <Install Location>`
-Setup logs | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log`
 `/Role` | Mandatory installation parameter. Specifies whether the Mobility service (MS) will be installed.
-`/InstallLocation`| Optional parameter. Specifies the Mobility service installation location (any folder).
+`/InstallLocation`| Optional. Specifies the Mobility service installation location (any folder).
 `/Platform` | Mandatory. Specifies the platform on which the Mobility service is installed: <br/> **VMware** for VMware VMs/physical servers. <br/> **Azure** for Azure VMs.<br/><br/> If you're treating Azure VMs as physical machines, specify **VMware**.
 `/Silent`| Optional. Specifies whether to run the installer in silent mode.
-`/CSType`| Optional. Used to define preview or legacy architecture. (CSPrime or CSLegacy)
+`/CSType`| Mandatory. Used to define preview or legacy architecture. (CSPrime or CSLegacy)
 
 #### Registration settings
 
@@ -362,7 +361,7 @@ Setting | Details
 --- | ---
 Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime >`
 `/SourceConfigFilePath` | Mandatory. Full file path of the Mobility Service configuration file. Use any valid folder.
-`/CSType` |  Optional.  Location of the passphrase. Use any valid UNC or local file path.
+`/CSType` |  Optional.  Used to define preview or legacy architecture. (CSPrime or CSLegacy).
 
 
 ### Linux machine
@@ -395,17 +394,16 @@ Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath
     `-d` | Optional. Specifies the Mobility service installation location: `/usr/local/ASR`.
     `-v` | Mandatory. Specifies the platform on which Mobility service is installed. <br/> **VMware** for VMware VMs/physical servers. <br/> **Azure** for Azure VMs.
     `-q` | Optional. Specifies whether to run the installer in silent mode.
-    `-c` | Optional. Used to define preview or legacy architecture. (CSPrime or CSLegacy).
+    `-c` | Mandatory. Used to define preview or legacy architecture. (CSPrime or CSLegacy).
 
 #### Registration settings
 
   Setting | Details
   --- | ---
-    Syntax | `cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CSIP> -P \<PassphraseFilePath>`
-    `-i` | Mandatory. . `<CSIP>` specifies the configuration server's IP address. Use any valid IP address.
-    `-P` |  Mandatory. Full file path of the Mobility Service configuration file. Use any valid folder.
-    `-c` |  Optional. Used to define preview or legacy architecture. (CSPrime or CSLegacy)
-
+    Syntax | `cd <InstallLocation>/Vx/bin UnifiedAgentConfigurator.sh -c CSPrime -S -q`  
+    `-s` | Mandatory. Full file path of the Mobility Service configuration file. Use any valid folder.
+    `-c` |  Mandatory. Used to define preview or legacy architecture. (CSPrime or CSLegacy).
+    `-q` |  Optional. Specifies whether to run the installer in silent mode.
 
 ## Generate Mobility Service configuration file
 
@@ -419,7 +417,7 @@ Syntax | `"<InstallLocation>\UnifiedAgentConfigurator.exe" /SourceConfigFilePath
 
 This will download the Mobility Service configuration file. Copy this file to a local folder in your source machine. You can place it in the same folder as the Mobility Service installer.
 
-See information about [upgrading the mobility services](upgrade-mobility-service-preview.md). 
+See information about [upgrading the mobility services](upgrade-mobility-service-preview.md).
 
 ## Next steps
 
