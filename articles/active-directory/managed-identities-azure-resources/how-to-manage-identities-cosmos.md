@@ -78,9 +78,6 @@ New-AzVm `
 
 # [Azure CLI](#tab/azure-cli)
 
-[Create a Linux virtual machine with a system assigned managed identity](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-cli)
-[Create a Windows virtual machine with a system assigned managed identity](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli)
-
 
 1. Create a [resource group](../../azure-resource-manager/management/overview.md#terminology) for containment and deployment of your VM and its related resources, using [az group create](/cli/azure/group/#az_group_create). You can skip this step if you already have resource group you would like to use instead:
 
@@ -94,17 +91,37 @@ New-AzVm `
    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12
    ```
 
+- [Create a Linux virtual machine with a system assigned managed identity](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-cli)
+- [Create a Windows virtual machine with a system assigned managed identity](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli)
+
 # [Resource Manager Template](#tab/azure-resource-manager)
 
 ---
 
-## Assign a user-assigned managed identity to a service instance
+## User-assigned managed identities
+
+### Create a virtual machine with a user-assigned managed identity assigned (?)
+
+# [Portal](#tab/azure-portal)
+
+[Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md#user-assigned-managed-identity)
+
+# [PowerShell](#tab/azure-powershell)
+
+
+
+# [Azure CLI](#tab/azure-cli)
+
+[Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-cli-windows-vm.md#user-assigned-managed-identity)
+
+# [Resource Manager Template](#tab/azure-resource-manager)
+
+
+### Assign a user-assigned managed identity to a Virtual machine
 
 User-assigned managed identities can be used on multiple resources. To learn more about managed identities, for information on how to create or delete user-assigned managed identities you can review [Manage user-assigned managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots)
 
 To assign a user-assigned identity to a VM, your account needs the Virtual Machine Contributor and Managed Identity Operator role assignments. No additional Azure AD directory role assignments are required.
-
-<!-- Show the steps required to create an instance of your service using a user-assigned managed identity -->
 
 # [Portal](#tab/azure-portal)
 
