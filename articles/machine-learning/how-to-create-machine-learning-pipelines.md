@@ -297,6 +297,9 @@ step = PythonScriptStep(name="Hello World",
                         hash_paths=['hello_world.ipynb'])
 ```
 
+> [!Note]
+> If the names of the data inputs change, the step will rerun, _even if_ the underlying data does not change. You must explicitly set the `name` field of input data (`data.as_input(name=...)`). If you do not explicitly set this value, the `name` field will be set to a random guid and the step's results will not be reused.
+
 ## Submit the pipeline
 
 When you submit the pipeline, Azure Machine Learning checks the dependencies for each step and uploads a snapshot of the source directory you specified. If no source directory is specified, the current local directory is uploaded. The snapshot is also stored as part of the experiment in your workspace.
