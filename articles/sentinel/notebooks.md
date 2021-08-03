@@ -18,20 +18,26 @@ ms.date: 06/24/2021
 
 The foundation of Azure Sentinel is the data store; it combines high-performance querying, dynamic schema, and scales to massive data volumes. The Azure portal and all Azure Sentinel tools use a common API to access this data store. The same API is also available for external tools such as [Jupyter](https://jupyter.org/) notebooks and Python. While many common tasks can be carried out in the portal, Jupyter extends the scope of what you can do with this data. It combines full programmability with a huge collection of libraries for machine learning, visualization, and data analysis. These attributes make Jupyter a compelling tool for security investigation and hunting.
 
-![example notebook](./media/notebooks/sentinel-notebooks-map.png)
+For example, use notebooks to:
+
+- Perform analytics that aren't built-in to Azure Sentinel, such as some Python machine learning features
+- Create data visualizations that aren't built-in to Azure Sentinel, such as custom timelines and process trees
+- Integrate data sources outside of Azure Sentinel, such as an on-premises data set.
 
 We've integrated the Jupyter experience into the Azure portal, making it easy for you to create and run notebooks to analyze your data. The *Kqlmagic* library provides the glue that lets you take queries from Azure Sentinel and run them directly inside a notebook. Queries use the [Kusto Query Language](https://kusto.azurewebsites.net/docs/kusto/query/index.html). Several notebooks, developed by some of Microsoft's security analysts, are packaged with Azure Sentinel. Some of these notebooks are built for a specific scenario and can be used as-is. Others are intended as samples to illustrate techniques and features that you can copy or adapt for use in your own notebooks. Other notebooks may also be imported from the Azure Sentinel Community GitHub.
 
 The integrated Jupyter experience uses [Azure Notebooks](https://notebooks.azure.com/) to store, share, and execute notebooks. You can also run these notebooks locally if you have a Python environment and Jupyter on your computer, or in other JupyterHub environments such as Azure Databricks.
 
-Notebooks have two components:
 
+## Notebook components
+
+Notebooks have two components:
 - **The browser-based interface**, where you enter and run queries and code, and where the results of the execution are displayed.
 - **A *kernel*** that is responsible for parsing and executing the code itself.
 
 The Azure Sentinel notebook's kernel runs on an Azure virtual machine (VM). Several licensing options exist to leverage more powerful virtual machines if your notebooks include complex machine learning models.
 
-The Azure Sentinel notebooks use many popular Python libraries such as pandas, matplotlib, bokeh, and others. There are a great many other Python packages for you to choose from, covering areas such as:
+The Azure Sentinel notebooks use many popular Python libraries such as *pandas*, *matplotlib*, *bokeh*, and others. There are a great many other Python packages for you to choose from, covering areas such as:
 
 - Visualizations and graphics
 - Data processing and analysis
@@ -42,11 +48,12 @@ We've also released some open-source Jupyter security tools in a package named [
 
 The [Azure Sentinel Community GitHub repository](https://github.com/Azure/Azure-Sentinel) is the location for any future Azure Sentinel notebooks built by Microsoft or contributed from the community.
 
-To use the notebooks, you must first have the right permissions, depending on your user role.
 
 ## Manage access to Azure Sentinel notebooks
 
-As Azure Sentinel notebooks run on [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) (Azure ML) platform, you must have appropriate access to both Azure Sentinel workspace and an [Azure ML workspace](../machine-learning/concept-workspace.md).
+To use the notebooks, you must first have the right permissions, depending on your user role.
+
+As Azure Sentinel notebooks run on [Azure Machine Learning](../machine-learning/overview-what-is-azure-machine-learning.md) (Azure ML) platform, you must have appropriate access to both Azure Sentinel workspace and an [Azure ML workspace](../machine-learning/concept-workspace.md).
 
 |Permission  |Description  |
 |---------|---------|

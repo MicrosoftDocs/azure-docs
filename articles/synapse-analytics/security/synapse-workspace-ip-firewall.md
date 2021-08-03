@@ -1,12 +1,12 @@
 ---
 title: Configure IP firewall rules 
 description: An article that teaches you to configure IP firewall rules in Azure Synapse Analytics 
-author: RonyMSFT 
+author: ashinMSFT 
 ms.service: synapse-analytics 
 ms.topic: overview
 ms.subservice: security 
 ms.date: 04/15/2020 
-ms.author: ronytho 
+ms.author: seshin 
 ms.reviewer: jrasnick
 ---
 

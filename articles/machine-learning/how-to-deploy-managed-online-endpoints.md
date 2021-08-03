@@ -10,7 +10,7 @@ ms.reviewer: laobri
 author: rsethur
 ms.date: 05/13/2021
 ms.topic: how-to
-ms.custom: how-to
+ms.custom: how-to, devplatv2
 ---
 
 # Deploy and score a machine learning model by using a managed online endpoint (preview)
@@ -83,9 +83,9 @@ The following snippet shows the *endpoints/online/managed/simple-flow/1-create-e
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/simple-flow/1-create-endpoint-with-blue.yml":::
 
 > [!NOTE]
-> For a full description of the YAML, see [Managed online endpoints (preview) YAML reference](reference-online-endpoint-yaml.md).
+> For a full description of the YAML, see [Managed online endpoints (preview) YAML reference](reference-yaml-endpoint-managed-online.md).
 
-The reference for the endpoint YAML format is described in the following table. To learn how to specify these attributes, see the YAML example in [Prepare your system](#prepare-your-system) or the [online endpoint YAML reference](reference-online-endpoint-yaml.md). For information about limits related to managed endpoints, see [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview).
+The reference for the endpoint YAML format is described in the following table. To learn how to specify these attributes, see the YAML example in [Prepare your system](#prepare-your-system) or the [online endpoint YAML reference](reference-yaml-endpoint-managed-online.md). For information about limits related to managed endpoints, see [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview).
 
 | Key | Description |
 | --- | --- |
@@ -108,7 +108,7 @@ The next table describes the attributes of `deployments`:
 | `scale_settings.scale_type` | Currently, this value must be `manual`. To scale up or scale down after you create the endpoint and deployment, update `instance_count` in the YAML and run the command `az ml endpoint update -n $ENDPOINT_NAME --file <yaml filepath>`.|
 | `scale_settings.instance_count` | The number of instances in the deployment. Base the value on the workload you expect. For high availability, we recommend that you set `scale_settings.instance_count` to at least `3`. |
 
-For more information about the YAML schema, see the [online endpoint YAML reference](reference-online-endpoint-yaml.md).
+For more information about the YAML schema, see the [online endpoint YAML reference](reference-yaml-endpoint-managed-online.md).
 
 > [!NOTE]
 > To use Azure Kubernetes Service (AKS) instead of managed endpoints as a compute target:

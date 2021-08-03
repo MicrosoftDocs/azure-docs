@@ -1,15 +1,21 @@
 ---
-title: Reference - Azure Policy Guest Configuration baseline for Windows
-description: Details of the Windows baseline on Azure implemented through Azure Policy Guest Configuration.
-ms.date: 07/07/2021
+title: Reference - Azure Policy guest configuration baseline for Windows
+description: Details of the Windows baseline on Azure implemented through Azure Policy guest configuration.
+ms.date: 07/29/2021
 ms.topic: reference
 ms.custom: generated
 ---
-# Azure Policy Guest Configuration baseline for Windows
+# Windows security baseline
 
-The following article details what the **\[Preview\] Windows machines should meet requirements for
-the Azure security baseline** Guest Configuration policy initiative audits. For more information,
-see [Azure Policy Guest Configuration](../concepts/guest-configuration.md) and
+This article details the configuration settings for Windows guests as applicable in the following
+implementations:
+
+- **\[Preview\] Windows machines should meet requirements for the Azure compute security baseline**
+  Azure Policy guest configuration definition
+- **Vulnerabilities in security configuration on your machines should be remediated** in Azure
+  Security Center
+
+For more information, see [Azure Policy guest configuration](../concepts/guest-configuration.md) and
 [Overview of the Azure Security Benchmark (V2)](../../../security/benchmarks/overview.md).
 
 ## Administrative Templates - Control Panel
@@ -28,7 +34,7 @@ see [Azure Policy Guest Configuration](../concepts/guest-configuration.md) and
 |Minimize the number of simultaneous connections to the Internet or a Windows Domain<br /><sub>(CCE-38338-0)</sub> |**Description**: This policy setting prevents computers from connecting to both a domain based network and a non-domain based network at the same time. The recommended state for this setting is: `Enabled`.<br />**Key Path**: SOFTWARE\Policies\Microsoft\Windows\WcmSvc\GroupPolicy\fMinimizeConnections<br />**OS**: WS2012, WS2012R2, WS2016<br />**Server Type**: Domain Controller, Domain Member, Workgroup Member |Doesn't exist or \= 1<br /><sub>(Registry)</sub> |Warning |
 |Prohibit installation and configuration of Network Bridge on your DNS domain network<br /><sub>(CCE-38002-2)</sub> |**Description**: You can use this procedure to controls user's ability to install and configure a network bridge. The recommended state for this setting is: `Enabled`.<br />**Key Path**: SOFTWARE\Policies\Microsoft\Windows\Network Connections\NC_AllowNetBridge_NLA<br />**OS**: WS2008, WS2008R2, WS2012, WS2012R2, WS2016<br />**Server Type**: Domain Controller, Domain Member, Workgroup Member |\= 0<br /><sub>(Registry)</sub> |Warning |
 |Prohibit use of Internet Connection Sharing on your DNS domain network<br /><sub>(AZ-WIN-00172)</sub> |**Description**: Although this "legacy" setting traditionally applied to the use of Internet Connection Sharing (ICS) in Windows 2000, Windows XP & Server 2003, this setting now freshly applies to the Mobile Hotspot feature in Windows 10 & Server 2016. The recommended state for this setting is: `Enabled`.<br />**Key Path**: SOFTWARE\Policies\Microsoft\Windows\Network Connections\NC_ShowSharedAccessUI<br />**OS**: WS2008, WS2008R2, WS2012, WS2012R2, WS2016<br />**Server Type**: Domain Controller, Domain Member, Workgroup Member |\= 0<br /><sub>(Registry)</sub> |Warning |
-|Turn off multicast name resolution<br /><sub>(AZ-WIN-00145)</sub> |**Description**: LLMNR is a secondary name resolution protocol. With LLMNR, queries are sent using multicast over a local network link on a single subnet from a client computer to another client computer on the same subnet that also has LLMNR enabled. LLMNR does not require a DNS server or DNS client configuration, and provides name resolution in scenarios in which conventional DNS name resolution is not possible. The recommended state for this setting is: `Enabled`.<br />**Key Path**: SOFTWARE\Policies\Microsoft\Windows NT\DNSClient\EnableMulticast<br />**OS**: WS2016<br />**Server Type**: Domain Member, Workgroup Member |\= 1<br /><sub>(Registry)</sub> |Warning |
+|Turn off multicast name resolution<br /><sub>(AZ-WIN-00145)</sub> |**Description**: LLMNR is a secondary name resolution protocol. With LLMNR, queries are sent using multicast over a local network link on a single subnet from a client computer to another client computer on the same subnet that also has LLMNR enabled. LLMNR does not require a DNS server or DNS client configuration, and provides name resolution in scenarios in which conventional DNS name resolution is not possible. The recommended state for this setting is: `Enabled`.<br />**Key Path**: SOFTWARE\Policies\Microsoft\Windows NT\DNSClient\EnableMulticast<br />**OS**: WS2016<br />**Server Type**: Domain Member, Workgroup Member |\= 0<br /><sub>(Registry)</sub> |Warning |
 
 ## Administrative Templates - System
 
@@ -352,14 +358,14 @@ see [Azure Policy Guest Configuration](../concepts/guest-configuration.md) and
 |Windows Firewall: Public: Settings: Display a notification<br /><sub>(CCE-38043-6)</sub> |**Description**: <p><span>By selecting this option, no notification is displayed to the user when a program is blocked from receiving inbound connections. In a server environment, the popups are not useful as the users is not logged in, popups are not necessary and can add confusion for the administrator.  </span></p><p><span>Configure this policy setting to ‘No’, this will set the registry value to 1.  Windows Firewall will not display a notification when a program is blocked from receiving inbound connections.</span></p><br />**Key Path**: SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile\DisableNotifications<br />**OS**: WS2008, WS2008R2, WS2012, WS2012R2, WS2016<br />**Server Type**: Domain Controller, Domain Member, Workgroup Member |\= 1<br /><sub>(Registry)</sub> |Warning |
 
 > [!NOTE]
-> Availability of specific Azure Policy Guest Configuration settings may vary in Azure Government
+> Availability of specific Azure Policy guest configuration settings may vary in Azure Government
 > and other national clouds.
 
 ## Next steps
 
-Additional articles about Azure Policy and Guest Configuration:
+Additional articles about Azure Policy and guest configuration:
 
-- [Azure Policy Guest Configuration](../concepts/guest-configuration.md).
+- [Azure Policy guest configuration](../concepts/guest-configuration.md).
 - [Regulatory Compliance](../concepts/regulatory-compliance.md) overview.
 - Review other examples at [Azure Policy samples](./index.md).
 - Review [Understanding policy effects](../concepts/effects.md).
