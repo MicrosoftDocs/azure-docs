@@ -1876,6 +1876,16 @@
     "redirect_document_id": true
   },
   {
+    "source_path_from_root": "/articles/cosmos-db/oracle-migrate-cosmos-db-blitzz.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/oracle-migrate-cosmos-db-blitzz",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/postgres-migrate-cosmos-db-kafka.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/postgres-migrate-cosmos-db-kafka",
+    "redirect_document_id": true
+  },
+  {
     "source_path_from_root": "/articles/cosmos-db/tutorial-functions-http-trigger.md",
     "redirect_url": "/azure/azure-functions/functions-bindings-cosmosdb",
     "redirect_document_id": false

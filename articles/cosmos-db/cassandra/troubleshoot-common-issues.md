@@ -14,9 +14,9 @@ ms.author: thvankra
 
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
-The Cassandra API in [Azure Cosmos DB](./introduction.md) is a compatibility layer that provides [wire protocol support](cassandra-support.md) for the open-source Apache Cassandra database.
+The Cassandra API in [Azure Cosmos DB](../introduction.md) is a compatibility layer that provides [wire protocol support](cassandra-support.md) for the open-source Apache Cassandra database.
 
-This article describes common errors and solutions for applications that use the Azure Cosmos DB Cassandra API. If your error isn't listed and you experience an error when you execute a [supported operation in Cassandra](cassandra-support.md), but the error isn't present when using native Apache Cassandra, [create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+This article describes common errors and solutions for applications that use the Azure Cosmos DB Cassandra API. If your error isn't listed and you experience an error when you execute a [supported operation in Cassandra](cassandra-support.md), but the error isn't present when using native Apache Cassandra, [create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 >[!NOTE]
 >As a fully managed cloud-native service, Azure Cosmos DB provides [guarantees on availability, throughput, and consistency](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/) for the Cassandra API. The Cassandra API also facilitates zero-maintenance platform operations and zero-downtime patching.
@@ -29,7 +29,7 @@ This error is a top-level wrapper exception with a large number of possible caus
 
 Common causes and solutions:
 
-- **Idle timeout of Azure LoadBalancers**: This issue might also manifest as `ClosedConnectionException`. To resolve the issue, set the keep-alive setting in the driver (see [Enable keep-alive for the Java driver](#enable-keep-alive-for-the-java-driver)) and increase keep-alive settings in your operating system, or [adjust idle timeout in Azure Load Balancer](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal).
+- **Idle timeout of Azure LoadBalancers**: This issue might also manifest as `ClosedConnectionException`. To resolve the issue, set the keep-alive setting in the driver (see [Enable keep-alive for the Java driver](#enable-keep-alive-for-the-java-driver)) and increase keep-alive settings in your operating system, or [adjust idle timeout in Azure Load Balancer](../../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal).
 
 - **Client application resource exhaustion**: Ensure that client machines have sufficient resources to complete the request.
 
@@ -37,9 +37,9 @@ Common causes and solutions:
 
 You might see this error: "Cannot connect to any host, scheduling retry in 600000 milliseconds."
 
-This error might be caused by source network address translation (SNAT) exhaustion on the client side. Follow the steps at [SNAT for outbound connections](../load-balancer/load-balancer-outbound-connections.md) to rule out this issue.
+This error might be caused by source network address translation (SNAT) exhaustion on the client side. Follow the steps at [SNAT for outbound connections](../../load-balancer/load-balancer-outbound-connections.md) to rule out this issue.
 
-The error might also be an idle timeout issue where the Azure load balancer has four minutes of idle timeout by default. See [Load balancer idle timeout](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal). [Enable keep-alive for the Java driver](#enable-keep-alive-for-the-java-driver) and set the `keepAlive` interval on the operating system to less than four minutes.
+The error might also be an idle timeout issue where the Azure load balancer has four minutes of idle timeout by default. See [Load balancer idle timeout](../../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal). [Enable keep-alive for the Java driver](#enable-keep-alive-for-the-java-driver) and set the `keepAlive` interval on the operating system to less than four minutes.
 
 ## OverloadedException (Java)
 
@@ -55,7 +55,7 @@ The system seems to be throttling requests even though enough throughput is prov
 
 - **Schema level operations**: The Cassandra API implements a system throughput budget for schema-level operations (CREATE TABLE, ALTER TABLE, DROP TABLE). This budget should be enough for schema operations in a production system. However, if you have a high number of schema-level operations, you might exceed this limit.
 
-  Because the budget isn't user-controlled, consider lowering the number of schema operations that you run. If that action doesn't resolve the issue or it isn't feasible for your workload, [create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+  Because the budget isn't user-controlled, consider lowering the number of schema operations that you run. If that action doesn't resolve the issue or it isn't feasible for your workload, [create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 - **Data skew**: When throughput is provisioned in the Cassandra API, it's divided equally between physical partitions, and each physical partition has an upper limit. If you have a high amount of data being inserted or queried from one particular partition, it might be rate-limited even if you provision a large amount of overall throughput (request units) for that table.
 

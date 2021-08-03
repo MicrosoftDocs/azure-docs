@@ -131,7 +131,7 @@ Here is a summary of the attributes:
 
 **SSL configuration**
 
-Azure Cosmos DB enforces [secure connectivity over SSL](database-security.md) and Kafka Connect connector supports SSL as well.
+Azure Cosmos DB enforces [secure connectivity over SSL](../database-security.md) and Kafka Connect connector supports SSL as well.
 
 - `ssl.keystore.path`: path to the JDK keystore in the container - `/etc/alternatives/jre/lib/security/cacerts/`
 - `ssl.keystore.password`: JDK keystore (default) password
@@ -180,10 +180,10 @@ select * from weather.data_by_station where station_id IN ('station-2', 'station
 
 ## Clean up resources
 
-[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](../includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 
-* [Provision throughput on containers and databases](set-throughput.md) 
-* [Partition key best practices](partitioning-overview.md#choose-partitionkey)
-* [Estimate RU/s using the Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md) articles
+* [Provision throughput on containers and databases](../set-throughput.md) 
+* [Partition key best practices](../partitioning-overview.md#choose-partitionkey)
+* [Estimate RU/s using the Azure Cosmos DB capacity planner](../estimate-ru-with-capacity-planner.md) articles

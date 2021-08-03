@@ -106,7 +106,7 @@ When they're no longer needed, you can delete the resource group, the Azure Cosm
 In this tutorial, you've learned how to migrate your data to a Cassandra API account in Azure Cosmos DB. You can now learn about other concepts in Azure Cosmos DB:
 
 > [!div class="nextstepaction"]
-> [Tunable data consistency levels in Azure Cosmos DB](../cosmos-db/consistency-levels.md)
+> [Tunable data consistency levels in Azure Cosmos DB](../consistency-levels.md)
 
 
 

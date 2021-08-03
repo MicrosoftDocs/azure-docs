@@ -980,7 +980,7 @@
         - name: Python
           href: cassandra/manage-data-python.md
         - name: Golang
-          href: cassandra/manage-data-go
+          href: cassandra/manage-data-go.md
     - name: Tutorials
       items:
         - name: 1 - Create and manage data
@@ -988,7 +988,7 @@
         - name: 2 - Load data
           href: cassandra/load-data-table.md
         - name: 3 - Query data
-          href: cassandra/query-data
+          href: cassandra/query-data.md
         - name: 4 - Migrate data
           displayName: import
           href: cassandra/migrate-data.md

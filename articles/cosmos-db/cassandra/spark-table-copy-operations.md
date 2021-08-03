@@ -152,4 +152,4 @@ newBooksDF: org.apache.spark.sql.DataFrame = [book_id: string, book_author: stri
 
  * Get started with [creating a Cassandra API account, database, and a table](create-account-java.md) by using a Java application.
  * [Load sample data to the Cassandra API table](load-data-table.md) by using a Java application.
- * [Query data from the Cassandra API account](query-data) by using a Java application.
+ * [Query data from the Cassandra API account](query-data.md) by using a Java application.

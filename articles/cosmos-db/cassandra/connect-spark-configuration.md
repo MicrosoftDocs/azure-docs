@@ -58,7 +58,7 @@ The Cassandra Spark connector will saturate throughput in Azure Cosmos DB very e
 If the RU setting required for data movement using Spark is higher than what is required for your steady state workload, you can easily scale throughput up and down systematically in Azure Cosmos DB to meet the needs of your workload for a given time period. Read our article on [elastic scale in Cassandra API](scale-account-throughput.md) to understand the different options for scaling programmatically and dynamically. 
 
 > [!NOTE]
-> The guidance above assumes a reasonably uniform distribution of data. If you have a significant skew in the data (that is, an inordinately large number of reads/writes to the same partition key value), then you might still experience bottlenecks, even if you have a large number of [request units](./request-units.md) provisioned in your table. Request units are divided equally among physical partitions, and heavy data skew can cause a bottleneck of requests to a single partition.
+> The guidance above assumes a reasonably uniform distribution of data. If you have a significant skew in the data (that is, an inordinately large number of reads/writes to the same partition key value), then you might still experience bottlenecks, even if you have a large number of [request units](../request-units.md) provisioned in your table. Request units are divided equally among physical partitions, and heavy data skew can cause a bottleneck of requests to a single partition.
     
 ## Spark connector throughput configuration parameters
 
@@ -103,8 +103,8 @@ While the sections above were specific to Azure Spark-based PaaS services, this 
 
 #### Connector dependencies:
 
-1. Add the maven coordinates to get the [Cassandra connector for Spark](cassandra/connect-spark-configuration.md#dependencies-for-connectivity)
-2. Add the maven coordinates for the [Azure Cosmos DB helper library](cassandra/connect-spark-configuration.md#dependencies-for-connectivity) for Cassandra API
+1. Add the maven coordinates to get the [Cassandra connector for Spark](connect-spark-configuration.md#dependencies-for-connectivity)
+2. Add the maven coordinates for the [Azure Cosmos DB helper library](connect-spark-configuration.md#dependencies-for-connectivity) for Cassandra API
 
 #### Imports:
 

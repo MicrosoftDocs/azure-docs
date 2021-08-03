@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp
 
 This article explains the different ways to create a container in Azure Cosmos DB Cassandra API. It shows how to create a container using Azure portal, Azure CLI, PowerShell, or supported SDKs. This article demonstrates how to create a container, specify the partition key, and provision throughput.
 
-This article explains the different ways to create a container in Azure Cosmos DB Cassandra API. If you are using a different API, see [API for MongoDB](how-to-create-container-mongodb.md), [Gremlin API](how-to-create-container-gremlin.md), [Table API](table/how-to-create-container.md), and [SQL API](how-to-create-container.md) articles to create the container.
+This article explains the different ways to create a container in Azure Cosmos DB Cassandra API. If you are using a different API, see [API for MongoDB](../how-to-create-container-mongodb.md), [Gremlin API](../how-to-create-container-gremlin.md), [Table API](../table/how-to-create-container.md), and [SQL API](../how-to-create-container.md) articles to create the container.
 
 > [!NOTE]
 > When creating containers, make sure you don’t create two containers with the same name but different casing. That’s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.
@@ -34,7 +34,7 @@ This article explains the different ways to create a container in Azure Cosmos D
    * Enter a throughput to be provisioned (for example, 1000 RUs).
    * Select **OK**.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-cassandra.png" alt-text="Screenshot of Cassandra API, Add Table dialog box":::
+    :::image type="content" source="../media/how-to-create-container/partitioned-collection-create-cassandra.png" alt-text="Screenshot of Cassandra API, Add Table dialog box":::
 
 > [!NOTE]
 > For Cassandra API, the primary key is used as the partition key.
@@ -53,15 +53,15 @@ If you encounter timeout exception when creating a collection, do a read operati
 
 ## <a id="cli-mongodb"></a>Create using Azure CLI
 
-[Create a Cassandra table with Azure CLI](./scripts/cli/cassandra/create.md). For a listing of all Azure CLI samples across all Azure Cosmos DB APIs see, [Azure CLI samples for Azure Cosmos DB](cli-samples.md).
+[Create a Cassandra table with Azure CLI](../scripts/cli/cassandra/create.md). For a listing of all Azure CLI samples across all Azure Cosmos DB APIs see, [Azure CLI samples for Azure Cosmos DB](cli-samples.md).
 
 ## Create using PowerShell
 
-[Create a Cassandra table with PowerShell](./scripts/powershell/cassandra/create.md). For a listing of all PowerShell samples across all Azure Cosmos DB APIs see, [PowerShell Samples](powershell-samples.md)
+[Create a Cassandra table with PowerShell](../scripts/powershell/cassandra/create.md). For a listing of all PowerShell samples across all Azure Cosmos DB APIs see, [PowerShell Samples](powershell-samples.md)
 
 ## Next steps
 
-* [Partitioning in Azure Cosmos DB](partitioning-overview.md)
-* [Request Units in Azure Cosmos DB](request-units.md)
-* [Provision throughput on containers and databases](set-throughput.md)
-* [Work with Azure Cosmos account](./account-databases-containers-items.md)
+* [Partitioning in Azure Cosmos DB](../partitioning-overview.md)
+* [Request Units in Azure Cosmos DB](../request-units.md)
+* [Provision throughput on containers and databases](../set-throughput.md)
+* [Work with Azure Cosmos account](../account-databases-containers-items.md)

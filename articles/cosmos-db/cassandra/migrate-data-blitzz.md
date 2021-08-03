@@ -91,7 +91,7 @@ This section describes the steps required to set up Blitzz and migrates data fro
 
    :::image type="content" source="./media/migrate-data-blitzz/scale-throughput.png" alt-text="Scale Azure Cosmos container throughout":::
 
-   Decrease the throughput after the migration is complete. Based on the amount of data stored and RUs required for each operation, you can estimate the throughput required after data migration. To learn more on how to estimate the RUs required, see [Provision throughput on containers and databases](set-throughput.md) and [Estimate RU/s using the Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md) articles.
+   Decrease the throughput after the migration is complete. Based on the amount of data stored and RUs required for each operation, you can estimate the throughput required after data migration. To learn more on how to estimate the RUs required, see [Provision throughput on containers and databases](../set-throughput.md) and [Estimate RU/s using the Azure Cosmos DB capacity planner](../estimate-ru-with-capacity-planner.md) articles.
 
 1. Get the **Contact Point, Port, Username**, and **Primary Password** of your Azure Cosmos account from the **Connection String** pane. You will use these values in the configuration file.
 
@@ -140,6 +140,6 @@ To learn more on the data migration to destination, real-time migration, see the
 
 ## Next steps
 
-* [Provision throughput on containers and databases](set-throughput.md) 
-* [Partition key best practices](partitioning-overview.md#choose-partitionkey)
-* [Estimate RU/s using the Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md) articles
+* [Provision throughput on containers and databases](../set-throughput.md) 
+* [Partition key best practices](../partitioning-overview.md#choose-partitionkey)
+* [Estimate RU/s using the Azure Cosmos DB capacity planner](../estimate-ru-with-capacity-planner.md) articles
