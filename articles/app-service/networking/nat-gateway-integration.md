@@ -16,8 +16,9 @@ ms.custom: seodec18
 
 # Virtual Network NAT gateway integration
 
-NAT gateway is a fully managed, highly resilient service, which can be associated with one or more subnets and ensures that all outbound Internet facing traffic will be routed through the gateway. With App Service, there are two important scenarios that you can use NAT gateway for. The NAT gateway gives you a static predictable IP for outbound traffic as it is associated with one or more customer owned Public IPs.
-It also significantly increases the available [SNAT ports](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors) in scenarios where you have a high number of concurrent connections to the same public address/port combination.
+NAT gateway is a fully managed, highly resilient service, which can be associated with one or more subnets and ensures that all outbound Internet facing traffic will be routed through the gateway. With App Service, there are two important scenarios that you can use NAT gateway for. 
+
+The NAT gateway gives you a static predictable IP for outbound traffic as it is associated with one or more customer owned Public IPs. It also significantly increases the available [SNAT ports](/azure/app-service/troubleshoot-intermittent-outbound-connection-errors) in scenarios where you have a high number of concurrent connections to the same public address/port combination.
 
 For more information and pricing. Go to the [NAT gateway overview](/azure/virtual-network/nat-gateway/nat-overview).
 
@@ -34,7 +35,7 @@ To configure NAT gateway integration with App Service, you need to complete the 
 * Ensure [Route All](/azure/app-service/web-sites-integrate-with-vnet#routes) is enabled for your VNet integration so the internet bound traffic will be affected by routes in your VNet.
 * Provision a NAT gateway with a Public IP and associate it with the VNet integration subnet.
 
-Setup NAT gateway through the portal:
+Set up NAT gateway through the portal:
 
 1. Go to the **Networking** UI in the App Service Portal and select VNet integration in the Outbound Traffic section. Ensure that your app is connected to a subnet and Route All has been enabled.
 :::image type="content" source="./media/nat-gateway-integration/nat-gateway-route-all-enabled.png" alt-text="Screenshot of Route All enabled for VNet integration.":::
@@ -46,11 +47,16 @@ Setup NAT gateway through the portal:
 :::image type="content" source="./media/nat-gateway-integration/nat-gateway-create-outbound-ip.png" alt-text="Screenshot of Outbound IP tab in Create NAT gateway.":::
 1. In the **Subnet** tab, select the subnet used for VNet integration.
 :::image type="content" source="./media/nat-gateway-integration/nat-gateway-create-subnet.png" alt-text="Screenshot of Subnet tab in Create NAT gateway.":::
-1. Fill in tags if wanted and **Create** the NAT gateway. After the NAT gateway is provisioned, click on the **Go to resource group** and select the new NAT gateway. In the Outbound IP section you will be able to see the Public IP that your outbound traffic will use going forward.
-1. You will now be able to see the Public IP that your outbound traffic from your app will use.
+1. Fill in tags if wanted and **Create** the NAT gateway. After the NAT gateway is provisioned, click on the **Go to resource group** and select the new NAT gateway. You can to see the Public IP that your app will use for outbound internet-facing traffic.
 :::image type="content" source="./media/nat-gateway-integration/nat-gateway-public-ip.png" alt-text="Screenshot of Public IP blade in the NAT gateway portal."::: 
 
 If you prefer using CLI to configure your environment, these are the important commands. As a prerequisite, you should create a Web App with VNet integration configured.
+
+Ensure **Route All** is configured for your VNet integration (*Note*: minimum `az version` required is 2.27):
+
+```azurecli-interactive
+az webapp config set --resource-group [myResourceGroup] --name [myWebApp] --vnet-route-all-enabled
+```
 
 Create Public IP and NAT gateway:
 
