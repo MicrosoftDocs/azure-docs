@@ -15,8 +15,6 @@ Service Fabric managed clusters are created with a default networking configurat
 - [Static public IP address](#staticpublicip)
 - [Internal load balancer](#internallb)
 
- enable inbound Remote Desktop Protocol (RDP) access, use an existing Virtual Network for cluster resources, create and use an internal load balancer for secondary node types, and more.
-
 
 <a id="nsgrules"></a>
 ## Modify NSG Rules
@@ -29,10 +27,7 @@ Be aware of these considerations when creating new NSG rules for your managed cl
 * Service Fabric managed clusters reserve the priority range 3001 to 4000 for creating optional NSG rules. These rules are added automatically to make configurations quick and easy. You can override these rules by adding custom NSG rules in priority range 1000 to 3000.
 * Custom NSG rules should have a priority within the range 1000 to 3000.
 
-### Apply NSG rules (add portal?)
-
-<cut>With classic (non-managed) Service Fabric clusters, you must declare and manage a separate *Microsoft.Network/networkSecurityGroups* resource in order to [apply Network Security Group (NSG) rules to your cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.servicefabric/service-fabric-secure-nsg-cluster-65-node-3-nodetype).</cut>
-
+### Apply NSG rules
 Service Fabric managed clusters enable you to assign NSG rules directly within the cluster resource of your deployment template.
 
 Use the [networkSecurityRules](/azure/templates/microsoft.servicefabric/managedclusters#managedclusterproperties-object) property of your *Microsoft.ServiceFabric/managedclusters* resource (version `2021-05-01` or later) to assign NSG rules. For example:
