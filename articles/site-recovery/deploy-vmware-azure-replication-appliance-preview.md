@@ -21,11 +21,9 @@ You deploy an on-premises replication appliance when you use [Azure Site Recover
 
 ## Hardware requirements
 
-**Component** | **Requirement**
---- | ---
-CPU cores | 8
-RAM | 32 GB
-Number of disks | 3, including the OS disk - 80 GB, data disk 1 - 620 GB, data disk 2 - 620 GB
+|CPU |    Memory |    Cache disk size |    Data change rate |    Protected machines |
+|---|-------|--------|------|-------|
+|16 vCPUs (2 sockets * 8 cores @ 2.5 GHz)    | 32 GB |    1 TB |    >1 TB to 2 TB    | Use to replicate 151 to 200 machines.|
 
 ## Software requirements
 
@@ -254,7 +252,7 @@ You can create and use multiple replication appliances in a vault.
 
 - You can perform discovery of all the machines in a vCenter server, using any of the replication appliances in the vault.
 
-- You can [switch a protected machine](switch-replication-appliance-preview.md)), between different appliances in the same vault, given the selected appliance is [healthy](switch-replication-appliance-preview.md).
+- You can [switch a protected machine](switch-replication-appliance-preview.md), between different appliances in the same vault, given the selected appliance is [healthy](switch-replication-appliance-preview.md).
 
 For detailed information about how to use multiple appliances and failover a replication appliance, see [this article](switch-replication-appliance-preview.md)
 
