@@ -42,7 +42,7 @@ first H2, if one exists. You can find listed examples in [Write quickstart]
 (contribute-how-to-mvc-quickstart.md)
 -->
 
-If you don’t have a <service> subscription, create a free trial account...
+If you don’t have a \<service> subscription, create a free trial account...
 
 <!-- 4. Prerequisites 
 Required. First prerequisite is a link to a free trial account if one exists. If there 
@@ -72,7 +72,7 @@ linking off to other content - include whatever the customer needs to complete t
 ## [Section 1 heading]
 <!-- Introduction paragraph -->
 
-1. Sign in to the [<service> portal](url).
+1. Sign in to the 
 1. <!-- Step 2 -->
 1. <!-- Step n -->
 
@@ -96,7 +96,7 @@ state that there are no resources to clean up in this section.
 ## Clean up resources
 
 If you're not going to continue to use this application, delete
-<resources> with the following steps:
+\<resources> with the following steps:
 
 1. From the left-hand menu...
 1. ...click Delete, type...and then click Delete
@@ -110,8 +110,6 @@ other cool thing the customer can do.
 ## Next steps
 
 Advance to the next article to learn how to create...
-> [!div class="nextstepaction"]
-> [Next steps button](contribute-how-to-mvc-quickstart.md)
 
 <!--
 Remove all the comments in this template before you sign-off or merge to the 
