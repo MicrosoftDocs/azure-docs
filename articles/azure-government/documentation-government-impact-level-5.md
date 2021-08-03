@@ -13,9 +13,10 @@ ms.workload: azure-government
 ms.custom: references_regions
 author: stevevi
 ms.author: stevevi
-ms.date: 07/26/2021
+ms.date: 07/28/2021
 #Customer intent: As a DoD mission owner, I want to know how to implement a workload at Impact Level 5 in Microsoft Azure Government.
 ---
+
 # Isolation guidelines for Impact Level 5 workloads
 
 Azure Government supports applications that use Impact Level 5 (IL5) data in all available regions. IL5 requirements are defined in the [US Department of Defense (DoD) Cloud Computing Security Requirements Guide (SRG)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html#3INFORMATIONSECURITYOBJECTIVES/IMPACTLEVELS). IL5 workloads have a higher degree of impact to the DoD and must be secured to a higher standard. When you deploy these workloads on Azure Government, you can meet their isolation requirements in various ways. The guidance in this document addresses configurations and settings needed to meet the IL5 isolation requirements. We'll update this document as we enable new isolation options and the Defense Information Systems Agency (DISA) authorizes new services for IL5 data.
@@ -144,10 +145,6 @@ For Analytics services availability in Azure Government, see [Products available
 
 For Compute services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud,azure-vmware,cloud-services,batch,app-service,service-fabric,functions,virtual-machine-scale-sets,virtual-machines&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
 
-### [Azure Functions](https://azure.microsoft.com/services/functions/)
-
-- To accommodate proper network and workload isolation, deploy your Azure functions on App Service plans configured to use the Isolated SKU. For more information, see the [App Service plan documentation](../app-service/overview-hosting-plans.md).
-
 ### [Batch](https://azure.microsoft.com/services/batch/)
 
 - Enable user subscription mode, which will require a Key Vault instance for proper encryption and key storage. For more information, see the documentation on [batch account configurations](../batch/batch-account-create-portal.md).
@@ -214,7 +211,13 @@ For Databases services availability in Azure Government, see [Products available
 
 ### [Azure API for FHIR](https://azure.microsoft.com/services/azure-api-for-fhir/)
 
-- Configure encryption at rest of content in Azure API for FHIR [using customer-managed keys in Azure Key Vault](../healthcare-apis/fhir/customer-managed-key.md).
+Azure API for FHIR supports Impact Level 5 workloads in Azure Government with this configuration:
+
+- Configure encryption at rest of content in Azure API for FHIR [using customer-managed keys in Azure Key Vault](../healthcare-apis/azure-api-for-fhir/customer-managed-key.md)
+
+### [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)
+
+Azure Cache for Redis supports Impact Level 5 workloads in Azure Government with no extra configuration required.
 
 ### [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)
 
@@ -248,10 +251,6 @@ For Databases services availability in Azure Government, see [Products available
 
 For Integration services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid,api-management,service-bus,logic-apps&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
 
-### [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
-
-- Azure Logic Apps supports Impact Level 5 workloads in Azure Government. To meet these requirements, Logic Apps supports the capability for you to create and run workflows in an environment with dedicated resources so that you can avoid sharing computing resources with other tenants. For more information, see [Secure access and data in Azure Logic Apps: Isolation guidance](../logic-apps/logic-apps-securing-a-logic-app.md#isolation-logic-apps).
-
 ### [Service Bus](https://azure.microsoft.com/services/service-bus/)
 
 - Configure encryption of data at rest in Azure Service Bus by [using customer-managed keys in Azure Key Vault](../service-bus-messaging/configure-customer-managed-key.md).
@@ -268,7 +267,7 @@ For Internet of Things services availability in Azure Government, see [Products 
 
 ## Management and governance
 
-For Management and governance services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=azure-automanage,resource-mover,azure-portal,azure-lighthouse,cloud-shell,managed-applications,azure-policy,monitor,automation,scheduler,site-recovery,cost-management,backup,blueprints,advisor&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope).
+For Management and governance services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-automanage,resource-mover,azure-portal,azure-lighthouse,cloud-shell,managed-applications,azure-policy,monitor,automation,scheduler,site-recovery,cost-management,backup,blueprints,advisor&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope).
 
 ### [Automation](https://azure.microsoft.com/services/automation/)
 
@@ -283,7 +282,7 @@ For Management and governance services availability in Azure Government, see [Pr
 - By default, all data and saved queries are encrypted at rest using Microsoft-managed keys. Configure encryption at rest of your data in Azure Monitor [using customer-managed keys in Azure Key Vault](../azure-monitor/logs/customer-managed-keys.md).
 
 > [!IMPORTANT]
-> See additional guidance below for **[Log Analytics]**, which is a feature of Azure Monitor.
+> See additional guidance below for **Log Analytics**, which is a feature of Azure Monitor.
 
 #### [Log Analytics](../azure-monitor/logs/data-platform-logs.md)
 

@@ -216,6 +216,11 @@
     "redirect_document_id": false
   },
   {
+    "source_path_from_root": "/articles/cosmos-db/graph-visualization.md",
+    "redirect_url": "/azure/cosmos-db/graph-visualization-partners",
+    "redirect_document_id": true
+  },
+  {
     "source_path_from_root": "/articles/cosmos-db/create-documentdb-java.md",
     "redirect_url": "/azure/cosmos-db/create-sql-api-java",
     "redirect_document_id": false
@@ -1639,6 +1644,26 @@
     "source_path_from_root": "/articles/cosmos-db/tutorial-query-table.md",
     "redirect_url": "/azure/cosmos-db/table/tutorial-query-table",
     "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/continuous-backup-restore-template.md",
+    "redirect_url": "/azure/cosmos-db/provision-account-continuous-backup",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/continuous-backup-restore-command-line.md",
+    "redirect_url": "/azure/cosmos-db/provision-account-continuous-backup",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/continuous-backup-restore-portal.md",
+    "redirect_url": "/azure/cosmos-db/provision-account-continuous-backup",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/continuous-backup-restore-powershell.md",
+    "redirect_url": "/azure/cosmos-db/provision-account-continuous-backup",
+    "redirect_document_id": false
   },
   {
     "source_path_from_root": "/articles/cosmos-db/tutorial-functions-http-trigger.md",
