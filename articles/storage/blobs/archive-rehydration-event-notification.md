@@ -210,6 +210,9 @@ Rehydrating a blob can take up to 15 hours, depending on the rehydration priorit
 
 If you decide to rehydrate a blob with high priority for testing purposes, make sure that you choose a small blob. ???Can we recommend high pri rehydrate for testing purposes???
 
+> [!NOTE]
+> If you rehydrate a blob with standard priority using the Azure Function provided above, the logging service may time out before the event is triggered. The default logging service timeout period is two hours. You can change the timeout by changing the App Service setting SCM_LOGSTREAM_TIMEOUT (???I can't find any info about how to do this???), or you can use Application Insights to view live metrics. For more information about using the Application Insights live metrics stream with your Azure Function, see [Enable streaming execution logs in Azure Functions](../../azure-functions/streaming-logs.md) ???this doc is out of date???.
+
 #### Rehydrate a blob with Set Blob Tier
 
 To rehydrate a blob by changing its tier from archive to hot or cool with a **Set Blob Tier** operation, follow these steps:
@@ -231,12 +234,17 @@ While the blob is rehydrating, you can check its status in the Azure portal by d
 When the rehydration is complete, the **Microsoft.Storage.BlobTierChanged** event fires. The Azure Function log displays output similar to the following example:
 
 ```
-
+2021-08-03T16:21:02.950 [Information] Executing 'Functions.RehydrationEventHandler' (Reason='EventGrid trigger fired at 2021-08-03T16:21:02.9496370+00:00', Id=17dfc2f8-86a4-4b2d-a36c-4814813b20da)
+2021-08-03T16:21:02.950 [Information] SetBlobTier operation occurred on blob https://blobrehydrationsamples.blob.core.windows.net/sample-container/blob6.txt.
+2021-08-03T16:21:02.951 [Information] Event details:Id=[857426b8-5010-0002-009a-87586806deda]EventType=[Microsoft.Storage.BlobTierChanged]EventTime=[8/3/2021 4:21:02 PM]Subject=[/blobServices/default/containers/sample-container/blobs/blob6.txt]Topic=[/subscriptions/32580eb9-bf6f-47b2-9f91-6f52f4c03736/resourceGroups/rehydration-samples/providers/Microsoft.Storage/storageAccounts/blobrehydrationsamples]
+2021-08-03T16:21:02.951 [Information] Executed 'Functions.RehydrationEventHandler' (Succeeded, Id=17dfc2f8-86a4-4b2d-a36c-4814813b20da, Duration=1ms)
 ```
 
 ### Rehydrate a blob with Copy Blob
 
 To rehydrate a blob by changing its tier from archive to hot or cool with a **Copy Blob** operation, use PowerShell, Azure CLI, or one of the Azure Storage client libraries to copy the archived blob to a new destination blob in an online tier. The following examples show how to copy an archived blob with PowerShell or Azure CLI:
+
+Keep in mind that when you copy an archived blob to an online tier, the source and destination blobs must have different names.
 
 # [PowerShell](#tab/powershell)
 
@@ -280,6 +288,15 @@ az storage blob copy start /
     --tier hot /
     --rehydrate-priority standard /
     --auth-mode login
+```
+
+When the rehydration is complete, the **Microsoft.Storage.BlobCreated** event fires to indicate that the destination blob has been rehydrated. The Azure Function log displays output similar to the following example:
+
+```
+2021-08-03T16:38:02.968 [Information] Executing 'Functions.RehydrationEventHandler' (Reason='EventGrid trigger fired at 2021-08-03T16:38:02.9679048+00:00', Id=17fd3a9d-3852-468d-8ffc-0f888a9028b1)
+2021-08-03T16:38:02.968 [Information] CopyBlob operation occurred. Destination blob is https://blobrehydrationsamples.blob.core.windows.net/sample-container/blob7-copy.txt.
+2021-08-03T16:38:02.968 [Information] Event details:Id=[857426b8-5010-0002-009a-875868064700]EventType=[Microsoft.Storage.BlobCreated]EventTime=[8/3/2021 4:38:02 PM]Subject=[/blobServices/default/containers/sample-container/blobs/blob7-copy.txt]Topic=[/subscriptions/32580eb9-bf6f-47b2-9f91-6f52f4c03736/resourceGroups/rehydration-samples/providers/Microsoft.Storage/storageAccounts/blobrehydrationsamples]
+2021-08-03T16:38:02.968 [Information] Executed 'Functions.RehydrationEventHandler' (Succeeded, Id=17fd3a9d-3852-468d-8ffc-0f888a9028b1, Duration=0ms)
 ```
 
 ---
