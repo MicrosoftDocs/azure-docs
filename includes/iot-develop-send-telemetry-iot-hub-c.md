@@ -112,11 +112,11 @@ In this section, you use the C SDK to send messages from your simulated device t
     > [!NOTE]
     > This code sample uses Azure IoT Plug and Play, which lets you integrate smart devices into your solutions without any manual configuration.  By default, most samples in this documentation use IoT Plug and Play. To learn more about the advantages of IoT PnP, and cases for using or not using it, see [What is IoT Plug and Play?](../articles/iot-develop/overview-iot-plug-and-play.md).
 
-    After your simulated device connects to your IoT Central application, it connects to the device instance you created in the application and begins to send telemetry. The connection details and telemetry output are shown in your console. 
+    Your device is now securely connected and sending telemetry to Azure IoT Hub.and begins to send telemetry. The connection details and telemetry output are shown in your console. 
 
 ## View telemetry
 
-After the simulated device connects to IoT Hub, it begins sending telemetry. You can view the device telemetry with IoT Explorer. Optionally, you can view telemetry using Azure CLI.
+You can view the device telemetry with IoT Explorer. Optionally, you can view telemetry using Azure CLI.
 
 To view telemetry in Azure IoT Explorer:
 
@@ -129,7 +129,13 @@ To view telemetry in Azure IoT Explorer:
 
 1. Select **Stop** to end receiving events.
 
-To use Azure CLI to view device telemetry:
+To read telemetry sent by individual device components, you can use the plug and play features in IoT Explorer. For example, the temperature controller in this quickstart has two thermostats: thermostat1 and thermostat2. To see the temperature reported by thermostat1: 
+
+1. On your device in IoT Explorer, select **IoT Plug and Play components** from the left menu. Then select **thermostat1** from the list of components.
+1. On the **thermostat1** component pane, select **Telemetry** from the top menu.
+1. On the **Telemetry** pane, follow the same steps that you did previously. Make sure that **Use built-in event hub** is set to *Yes* and then select **Start**.
+
+To view device telemetry with Azure CLI:
 
 1. In your CLI app, run the [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) command to monitor events sent from the simulated device to your IoT hub. Use the names that you created previously in Azure IoT for your device and IoT hub.
 
