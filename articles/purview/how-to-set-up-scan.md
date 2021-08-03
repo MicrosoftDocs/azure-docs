@@ -5,7 +5,7 @@ author: evangelinew
 ms.author: evwhite
 ms.service: purview
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 08/27/2021
 ms.custom: template-how-to
 ---
 
@@ -27,7 +27,7 @@ Required. Start your H1 with a verb. Pick an H1 that clearly conveys the task th
 user will complete.
 -->
 
-# [H1 heading here]
+# [H1 heading here] -How to set up a scan in Azure Purview
 
 <!-- 2. Introductory paragraph 
 Required. Lead with a light intro that describes, in customer-friendly language, 
@@ -79,8 +79,6 @@ context so the customer can determine why they would click the link.
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
-- [Write how-to guides](contribute-how-to-write-howto.md)
-- [Links](links-how-to.md)
 
 <!--
 Remove all the comments in this template before you sign-off or merge to the 
