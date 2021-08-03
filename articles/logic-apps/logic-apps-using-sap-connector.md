@@ -661,7 +661,8 @@ sapgw00  3300/tcp
 ```
    Then restart the On-Premises Data Gateway service.
    
-   You may see similar error for SAP application server or message server name resolution to IP address. For ISE, you must specific the IP address of your SAP application server or message server. For On-Premises Data Gateway, you may instead add name to IP address mapping in `%windir%\System32\drivers\etc\hosts` such as
+   You might get a similar error when SAP application server or message server name resolves to the IP address. For ISE, you must specify the IP address for your SAP application server or message server. For the on-premises data gateway, you can instead add the name to the IP address mapping in `%windir%\System32\drivers\etc\hosts`, for example:
+   
 ```
 10.0.1.9 SAPDBSERVER01 # SAP System Server VPN IP by computer name
 10.0.1.9 SAPDBSERVER01.someguid.xx.xxxxxxx.cloudapp.net # SAP System Server VPN IP by fully qualified computer name
