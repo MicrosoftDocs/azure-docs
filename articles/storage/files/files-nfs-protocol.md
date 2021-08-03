@@ -15,6 +15,9 @@ Azure Files offers two industry-standard protocols for mounting Azure file share
 
 This article covers NFS Azure file shares. For information about SMB Azure file shares, see [SMB file shares in Azure Files](files-smb-protocol.md).
 
+> [!IMPORTANT]
+> While the service is in preview, production usage of this service is not recommended. Highly recommend looking at [Troubleshoot Azure NFS file shares](https://docs.microsoft.com/azure/storage/files/storage-troubleshooting-files-nfs) article for list of known issues.
+
 ## Common scenarios
 NFS file shares are often used in the following scenarios:
 
@@ -81,18 +84,23 @@ The status of items that appear in this tables may change over time as support c
 
 [!INCLUDE [files-nfs-regional-availability](../../../includes/files-nfs-regional-availability.md)]
 
+## Performance
+NFS on Azure Files is offered on Premium tier which is SSD-backed. The IOPS and the throughput scales with provisioned capacity. See [Premium Files provisioned model](https://docs.microsoft.com/azure/storage/files/understanding-billing#provisioned-model)to understand the formulas for IOPS,IO bursting and throughput with respect to corresponding capacity. The IO latencies are single-millisecond minimum latency (2ms to 3ms for small IO) while metadata latencies are highler single-digit ms.
+
 ## Validated workloads
-The following is a list of workloads that have been validated to fully work with the NFS in its preview, at the time of publishing this section. This list may change over time.
-- Highly available shared storage for self-deployed Redis cache
-- Machine learning home directories
-- Home directories for high-performance computing
+> [!IMPORTANT]
+> While the service is in preview, production usage of this service is not recommended. Highly recommend looking at [Troubleshoot Azure NFS file shares](https://docs.microsoft.com/azure/storage/files/storage-troubleshooting-files-nfs) article for list of known issues.
 
-The following workloads have open issues:
-- IBM MQ may experience locking issues
+The following is a list of workloads that have been validated to work with the NFS in its preview, at the time of publishing this section. This list may change over time.
+- Home Directories for general purpose file servers
+- Content repositories
+- Shared user space for workloads like machine learning, high-performance computing, etc
+
+The following workloads have open issues and should not be deployed for production:
+- Locking issues with IBM MQ
 - Metadata heavy workloads such as untar may experience high latency
-- dNFS from Oracle is not compatible
-
-Reach out to azurefilesnfs@microsoft .com to validate workloads not in the prior list or to share more successful workloads stories.  
+- Incompatibility with dNFS fearure offered by Oracle Database
+Reach out to azurefilesnfs@microsoft .com to validate workloads not in the prior list or to share more successful workloads stories.
 
 ## Next steps
 - [Create an NFS file share](storage-files-how-to-create-nfs-shares.md)
