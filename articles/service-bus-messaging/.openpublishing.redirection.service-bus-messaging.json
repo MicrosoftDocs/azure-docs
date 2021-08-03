@@ -59,7 +59,12 @@
     "source_path": "service-bus-create-topics-subscriptions.md",
     "redirect_url": "/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions",
     "redirect_document_id": false
-  },
+  },  
+  {
+    "source_path": "service-bus-diagnostic-logs.md",
+    "redirect_url": "/azure/service-bus-messaging/monitor-service-bus-reference#resource-logs",
+    "redirect_document_id": false
+  },  
   {
     "source_path": "service-bus-dotnet-advanced-message-queuing.md",
     "redirect_url": "/azure/service-bus-messaging/service-bus-amqp-dotnet",

@@ -39,7 +39,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
     <!-- ![image](./media/configure-hybrid-cluster/subnet.png) -->
 
     > [!NOTE]
-    > The Deployment of a Azure Managed Instance for Apache Cassandra requires internet access. Deployment fails in environments where internet access is restricted. Make sure you aren't blocking access within your VNet to the following vital Azure services that are necessary for Managed Cassandra to work properly:
+    > The Deployment of a Azure Managed Instance for Apache Cassandra requires internet access. Deployment fails in environments where internet access is restricted. Make sure you aren't blocking access within your VNet to the following vital Azure services that are necessary for Managed Cassandra to work properly. You can also find an extensive list of IP address and port dependencies [here](network-rules.md). 
     > - Azure Storage
     > - Azure KeyVault
     > - Azure Virtual Machine Scale Sets
@@ -111,12 +111,24 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
     <!-- ![image](./media/configure-hybrid-cluster/show-cluster.png) -->
 
     > [!NOTE]
-    > Note that the certificates returned from the above command contain line breaks represented as text, for example `\r\n`. You should copy each certificate to a file, then format it before attempting to import it into your existing datacenter's trust store. For example:
-    > ```bash
-    >    var=$(<cert.txt) 
-    >    echo -e $var >> cert-formatted.txt
-    > ```
+    > The certificates returned from the above command contain line breaks represented as text, for example `\r\n`. You should copy each certificate to a file and format it before attempting to import it into your existing datacenter's trust store.
 
+    > [!TIP]
+    > Copy the `gossipCertificates` array value shown in the above screen shot into a file, and use the following bash script (you would need to [download and install jq](https://stedolan.github.io/jq/download/) for your platform) to format the certs and create separate pem files for each.
+    >
+    > ```bash
+    > readarray -t cert_array < <(jq -c '.[]' gossipCertificates.txt)
+    > # iterate through the certs array, format each cert, write to a numbered file.
+    > num=0
+    > filename=""
+    > for item in "${cert_array[@]}"; do
+    >   let num=num+1
+    >   filename="cert$num.pem"
+    >   cert=$(jq '.pem' <<< $item)
+    >   echo -e $cert >> $filename
+    >   sed -e '1d' -e '$d' -i $filename
+    > done
+    > ```
 
 1. Next, create a new datacenter in the hybrid cluster. Make sure to replace the variable values with your cluster details:
 
@@ -148,13 +160,20 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
        --data-center-name $dataCenterName 
    ```
 
-1. The previous command outputs the new datacenter's seed nodes. Now add the new datacenter's seed nodes to your existing datacenter's seed node configuration within the *cassandra.yaml* file. And install the managed instance gossip certificates that you collected earlier to the trust store for each node in your existing cluster:
+1. The previous command outputs the new datacenter's seed nodes: 
 
    :::image type="content" source="./media/configure-hybrid-cluster/show-datacenter.png" alt-text="Get datacenter details." lightbox="./media/configure-hybrid-cluster/show-datacenter.png" border="true":::
     <!-- ![image](./media/configure-hybrid-cluster/show-datacenter.png) -->
 
-    > [!NOTE]
-    > If you want to add more datacenters, you can repeat the above steps, but you only need the seed nodes. 
+
+1. Now add the new datacenter's seed nodes to your existing datacenter's [seed node configuration](https://docs.datastax.com/en/cassandra-oss/3.0/cassandra/configuration/configCassandra_yaml.html#configCassandra_yaml__seed_provider) within the [cassandra.yaml](https://docs.datastax.com/en/cassandra-oss/3.0/cassandra/configuration/configCassandra_yaml.html) file. And install the managed instance gossip certificates that you collected earlier to the trust store for each node in your existing cluster, using `keytool` command for each cert:
+
+    ```bash
+        keytool -importcert -keystore generic-server-truststore.jks -alias CassandraMI -file cert1.pem -noprompt -keypass myPass -storepass truststorePass
+    ```
+
+   > [!NOTE]
+   > If you want to add more datacenters, you can repeat the above steps, but you only need the seed nodes. 
 
 1. Finally, use the following CQL query to update the replication strategy in each keyspace to include all datacenters across the cluster:
 
