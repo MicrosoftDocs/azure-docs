@@ -149,6 +149,10 @@ items:
     href: get-healthcare-apis-access-token-cli.md
   - name: Troubleshoot failures in Azure IoT Connector for FHIR (preview)
     href: iot-troubleshoot-guide.md
+  - name: Autoscale for Azure API for FHIR
+    href: autoscale-azure-api-fhir.md
+  - name: Disaster recovery for Azure API for FHIR
+    href: disaster-recovery.md
 - name: Concepts
   expanded: false
   items:
