@@ -70,28 +70,28 @@ To run diagnostics on your Data Box, do the following steps:
 
    1. Review the `Smbserver.Security` event logs in the `etw` folder one of the following errors:
       
-      ```xml
-      SMB Session Authentication Failure
-      Client Name: \\<ClientIP>
-      Client Address: <ClientIP:Port>
-      User Name:
-      Session ID: 0x100000000021
-      Status: The attempted logon is invalid. This is either due to a bad username or authentication information. (0xC000006D)
-      SPN: session setup failed before the SPN could be queried
-      SPN Validation Policy: SPN optional / no validation
-      ```
+       ```xml
+       SMB Session Authentication Failure
+       Client Name: \\<ClientIP>
+       Client Address: <ClientIP:Port>
+       User Name:
+       Session ID: 0x100000000021
+       Status: The attempted logon is invalid. This is either due to a bad username or authentication information. (0xC000006D)
+       SPN: session setup failed before the SPN could be queried
+       SPN Validation Policy: SPN optional / no validation
+       ```
       
-      Or this error:
+       Or this error:
 
-      ```xml
+       ```xml
        LmCompatibilityLevel value is different from the default.
        Configured LM Compatibility Level: 5
        Default LM Compatibility Level: 3
-      ```
+       ```
 
 If you find either of these errors,  you'll need to update the LAN Manager authentication level. Use the Local Security Policy editor or by updating the Registry directly.
 
-#### Use the Local Security Policy editor to update the policy 
+#### Use Local Security Policy editor to change the policy 
 
 To use the Local Security Policy editor<!--Short name?--> to update the policy, do these steps:
  
