@@ -102,18 +102,19 @@ New-AzVm `
 
 ### Create a virtual machine with a user-assigned managed identity assigned (?)
 
-#### [Portal](#tab/azure-portal)
+# [Portal](#tab/azure-portal)
 
 [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md#user-assigned-managed-identity)
 
-#### [PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/azure-powershell)
 
-#### [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-cli-windows-vm.md#user-assigned-managed-identity)
 
-#### [Resource Manager Template](#tab/azure-resource-manager)
+# [Resource Manager Template](#tab/azure-resource-manager)
 
+---
 
 ### Assign a user-assigned managed identity to a Virtual machine
 
