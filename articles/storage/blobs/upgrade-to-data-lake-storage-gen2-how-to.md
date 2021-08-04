@@ -163,7 +163,7 @@ az feature show --namespace Microsoft.Storage --name HnsOnMigration
 7. After your account has been successfully validated, expand the **Step 3: Upgrade account** section, and then click **Start upgrade**.
 
    > [!IMPORTANT]
-   > Read and write operations are disabled while your account is being upgraded. 
+   > Write operations are disabled while your account is being upgraded. Read operations aren't disabled, but we strongly recommend that you suspend read operations as they might destabilize the upgrade process.
 
    When the migration has completed successfully, a message similar to the following appears. 
 

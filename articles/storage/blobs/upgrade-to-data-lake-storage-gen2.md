@@ -30,7 +30,7 @@ This article helps you evaluate the impact on workloads, applications, costs, se
 
 ## Downtime during the upgrade process
 
-Read and write operations are disabled while your account is being upgraded. Therefore, plan for some downtime in your account while the process completes.
+Make sure to plan for some downtime in your account while the upgrade process completes. Write operations are disabled while your account is being upgraded. Read operations aren't disabled, but we strongly recommend that you suspend read operations as they might destabilize the upgrade process.
 
 ## Impact on workloads and applications
 
