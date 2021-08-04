@@ -4,7 +4,7 @@ description: Learn how to create a placement policy.
 ms.topic: how-to 
 ms.date: 8/10/2021
 
-#Customer intent: As an Azure service administrator, I want < what? > so that < why? >.
+#Customer intent: As an Azure service administrator, I want control the placement of virtual machines on hosts within a cluster in my private cloud. 
 
 ---
 
@@ -12,7 +12,7 @@ ms.date: 8/10/2021
 
 In Azure VMware Solution, clusters in a private cloud are a managed resource. As a result, the cloudadmin role can't make certain changes to the cluster from the vSphere Client, including the management of Distributed Resource Scheduler (DRS) rules.
 
-Placement policies in Azure VMware Solution allow you to control the placement of virtual machines on hosts within a cluster in your private cloud through the Azure portal. When you create a placement policy, it's comprised of a DRS rule in the specified vSphere cluster and additional logic for interoperability with Azure VMware Solution operations.
+Placement policies in Azure VMware Solution let you control the placement of virtual machines (VMs) on hosts within a cluster in your private cloud through the Azure portal. When you create a placement policy, it's comprised of a DRS rule in the specified vSphere cluster and additional logic for interoperability with Azure VMware Solution operations.
 
 A placement policy has at least five required components: 
 
@@ -24,7 +24,7 @@ A placement policy has at least five required components:
 
 - **State** - Defines whether the policy is enabled or disabled. In certain scenarios, a policy might be disabled automatically when a conflicting rule gets created. For more information, see [Considerations](#considerations) below.
 
-- **Virtual machine** - Defines the virtual machines (VMs) and hosts for the policy. Depending on the type of rule you create, your policy may require you to specify some number of virtual machines (VMs) and hosts. For more information, see [Placement policy types](#placement-policy-types) below.
+- **Virtual machine** - Defines the VMs and hosts for the policy. Depending on the type of rule you create, your policy may require you to specify some number of VMs and hosts. For more information, see [Placement policy types](#placement-policy-types) below.
 
 
 ## Prerequisites
@@ -35,27 +35,26 @@ You must have _Contributor_ level access to the private cloud to manage placemen
 
 ## Placement policy types
 
-### VM to VM policies
+### VM-VM policies
 
-VM to VM policies specifies whether selected virtual machines should run on the same host or be kept on separate hosts.  In addition to choosing a name and cluster for the policy, a VM to VM policy requires that you select at least two VMs to assign to the policy. The assignment of hosts is not required or permitted for this policy type.
+**VM-VM** policies specify whether selected VMs should run on the same host or be kept on separate hosts.  In addition to choosing a name and cluster for the policy, **VM-VM** policies requires that you select at least two VMs to assign. The assignment of hosts is not required or permitted for this policy type.
 
-- A **VM-VM Affinity** policy instructs DRS to try keeping the specified VMs together on the same host. It's useful for performance reasons, for example.
+- **VM-VM Affinity** policies instruct DRS to try keeping the specified VMs together on the same host. It's useful for performance reasons, for example.
 
-- A **VM-VM Anti-Affinity** policy instructs DRS to try keeping the specified VMs apart from each other on separate hosts. It's useful in scenarios where a problem with one host doesn't affect multiple VMs within the same policy.
+- **VM-VM Anti-Affinity** policies instruct DRS to try keeping the specified VMs apart from each other on separate hosts. It's useful in scenarios where a problem with one host doesn't affect multiple VMs within the same policy.
 
 
-### VM to host policies
+### VM-Host policies
 
-VM to Host polices are used to specify whether or not selected virtual machines can run on selected hosts. 
-In order to avoid interference with platform managed operations such as host maintenance mode and host replacement, VM to host policies in Azure VMware Solution are always preferential (also known as "should" rules). Accordingly, VM to Host policies may not be honored in certain scenarios. See the monitoring section for more information.
+**VM-Host** policies specify whether or not selected VMs can run on selected hosts.  To avoid interference with platform-managed operations such as host maintenance mode and host replacement, **VM-Host** policies in Azure VMware Solution are always preferential (also known as "should" rules). Accordingly, **VM-Host** policies may not be honored in certain scenarios. For more information, see [Monitor the operation of a policy](#monitor-the-operation-of-a-policy) below.
 
-Certain platform operations will dynamically update the list of hosts defined in VM to Host policies. For example, when you delete a host that is a member of a placement policy, the host will be removed from policy if more than one host is part of that policy. Also, if a host is part of a policy and needs to be replaced as part of platform managed operation, the policy is updated dynamically with the new host.
+Certain platform operations will dynamically update the list of hosts defined in **VM-Host** policies. For example, when you delete a host that is a member of a placement policy, the host is removed if more than one host is part of that policy. Also, if a host is part of a policy and needs to be replaced as part of a platform-managed operation, the policy is updated dynamically with the new host.
 
-In addition to choosing a name and cluster for the policy, a VM to Host policy requires you to select at least one virtual machine and one host to assign to the policy.
+In addition to choosing a name and cluster for the policy, a **VM-Host** policy requires that you select at least one VM and one host to assign to the policy.
 
-A VM-Host Affinity policy instructs DRS to try to run the specified virtual machines on the hosts defined in the policy.
+- **VM-Host Affinity** policies instruct DRS to try running the specified VMs on the hosts defined.
 
-A VM-Host Anti-Affinity policy instructs DRS to try to run the specified virtual machines on hosts other than those defined in the policy.
+- **VM-Host Anti-Affinity** policies instruct DRS to try running the specified VMs on hosts other than those defined.
 
 
 
@@ -64,39 +63,118 @@ A VM-Host Anti-Affinity policy instructs DRS to try to run the specified virtual
 
 
 
-### Host replacement
-
-
 ### Cluster scale in
 
-AVS will attempt to prevent certain DRS rule violations from occurring when performing cluster scale-in operations.
-You can't remove the last host from a VM-Host policy. If you need to remove the last host from the policy, you can remediate this by adding another host to the policy prior to removing the host from the cluster. Alternatively, you can delete the placement policy prior to removing the host. 
+Azure VMware Solution attempts to prevent certain DRS rule violations from occurring when performing cluster scale-in operations.
 
-You can't have a VM-VM Anti Affinity policy with more virtual machines than number of hosts in cluster. If the removal of a host would result in fewer hosts in the cluster than virtual machines, then you will receive an error preventing the operation. You can remediate this by first removing virtual machines from the rule and then removing the host from the cluster.
+You can't to have a VM-VM Anti Affinity policy with more VMs than the number of hosts in a cluster. If removing a host would result in fewer hosts in the cluster than VMs, you'll receive an error preventing the operation. You can remediate this by first removing VMs from the rule and then removing the host from the cluster.
 
 
 ### Rule conflicts
 
-Portal will flag these on creation and will disable a conflicting rule (add more info).
+If DRS rule conflicts are detected when you create a VM-VM policy, it results in that policy being created in a disabled state following standard [VMware DRS Rule behavior](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.resmgmt.doc/GUID-69C738B6-5FC8-4189-9CB5-DD90A5A05979.html). For more information on viewing rule conflicts, see [Monitor the operation of a policy](#monitor-the-operation-of-a-policy) below.
+
+
 
 ## Create a policy
+
+1. In your Azure VMware Solution private cloud, under **Manage**, select **Placement policies** > **Add placement policy**.
+
+   :::image type="content" source="media/placement-policies/add-placement-policy-1.png" alt-text="Screenshot showing " border="true" lightbox="media/placement-policies/add-placement-policy-1.png":::
+
+1. Provide a descriptive name for the policy that you're creating.
+
+1. Select the policy type
+
+3.	Supply a descriptive name for the policy in the Name field
+4.	Select the policy Type 
+5.	Select the Cluster where the policy should be created
+
+
+
+
+!NOTE: You may also select the Cluster from the Placement Policy overview pane before selecting ‘+ Add placement policy’
+
+
+
+
+6.	If desired, you may deselect the Enabled checkbox. This will create the policy and underlying DRS rule but the policy actions will be ignored until the policy is enabled.
+7.	select ‘+ Add virtual machine’
+8.	On the Select Virtual Machines pane, select the virtual machine to include in the policy by selecting the checkbox next to the virtual machine name in the list. Select multiple as required or desired.
+9.	select ‘+ Add virtual machine’ at the top of the Select Virtual Machines pane.
+
+
+
+!NOTE: See placement policy types section for more information on requirements by policy type.
+
+
+
+10.	If  you see an ‘+ Add host’ option, then your policy type requires the selection of a host. 
+a.	select ‘+ Add host’ to open the Select Hosts pane.
+b.	On the Select Hosts pane, select the host to include in the policy by selecting the checkbox next to the host name in the list. Select multiple as desired.
+
+
+!NOTE: Associated policies & virtual machines blurb next to host - explain 
+
+
+
+c.	select Select at the top of the Select Hosts pane.
+11.	select Next: Review and Create.
+12.	Review the summary page. select Back: Basics to make any desired changes, otherwise select Create Policy.  
+
+
+
 
 
 
 ## Edit a policy
 
+Editing a policy allows you to unassign existing resources in the policy, add new resources to the policy, or change the state of a policy.
+
 
 ### Change the policy state
+
+In order to change the state of a policy to enabled or disabled, perform these steps:
+1.	From the placement policy overview page, for the policy you would like to edit, select on the action wheel dropdown     and then select Edit.
+2.	Uncheck the Enabled checkbox to disable the policy or check it to disable the policy.
+3.	select Next: Review and Update.
+ 
+4.	Review the summary page. select Back: Basics to make any desired changes, otherwise select Update Policy.  
+!TIP: You can disable a policy directly from Placement Policies overview page by selecting on the action wheel and selecting Disable. To enable a policy, you must edit the policy as outlined above. 
+
+
+
+
 
 
 ### Update the resources in a policy
 
+In order to add new resources to a policy or remove existing ones, perform the following steps:
+1.	From the placement policy overview page, for the policy you would like to edit, select on the action wheel dropdown  and then select Edit.
+2.	To remove an existing resource from a policy, select the checkbox next to the resource’s name, then select Unassign. Choose multiple as desired.
+3.	To add a new resource to the policy, select Edit virtual machine or Edit host, select the resource you’d like to add, then select Save & Close.
+4.	select Next: Review and Update.
+5.	Review the summary page. select Back: Basics to make any desired changes, otherwise select Update Policy.  
+
+
+
+
 
 ## Delete a policy
+
+In order to delete a placement policy and its corresponding DRS rule, perform the following steps:
+1.	From the placement policy overview page, for the policy you would like to delete, select on the action wheel dropdown and then select Delete. 
+2.	select Delete on the confirmation message.
+
 
 
 ## Monitor the operation of a policy
 
+Use the vSphere Client to monitor the operation of a placement policy's corresponding DRS rule. 
+
+As a holder of the cloudadmin role, you can view, but not edit, the DRS rules created by a placement policy on the cluster’s Configure tab under VM/Host Rules. This allows you to view some additional information, such as whether the DRS rules are in a conflict state.
+
+Additionally, you can monitor various DRS rule operations, such as recommendations and faults, from the cluster’s Monitor tab.
 
 
 
