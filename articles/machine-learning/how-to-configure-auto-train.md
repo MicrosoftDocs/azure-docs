@@ -517,7 +517,7 @@ To register a model from an automated ML run, use the [`register_model()`](/pyth
 
 ```Python
 
-best_run, fitted_model = run.get_output()
+best_run = run.get_best_child()
 print(fitted_model.steps)
 
 model_name = best_run.properties['model_name']

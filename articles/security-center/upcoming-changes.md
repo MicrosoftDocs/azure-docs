@@ -89,7 +89,7 @@ Learn more in [Quickstart: Enable Azure Defender](enable-azure-defender.md).
 
 ### Changes to recommendations for managing endpoint protection solutions
 
-**Estimated date for change:** September 2021
+**Estimated date for change:** Q4 2021
 
 In August 2021, we added two new **preview** recommendations to deploy and maintain the endpoint protection solutions on your machines. For full details, see [the release note](release-notes.md#two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview).
 

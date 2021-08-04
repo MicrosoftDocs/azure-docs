@@ -251,16 +251,19 @@ def print_model(model, prefix=""):
     for step in model.steps:
         print(prefix + step[0])
         if hasattr(step[1], 'estimators') and hasattr(step[1], 'weights'):
-            pprint({'estimators': list(
-                e[0] for e in step[1].estimators), 'weights': step[1].weights})
+            pprint({'estimators': list(e[0] for e in step[1].estimators), 'weights': step[1].weights})
             print()
             for estimator in step[1].estimators:
-                print_model(estimator[1], estimator[0] + ' - ')
+                print_model(estimator[1], estimator[0]+ ' - ')
+        elif hasattr(step[1], '_base_learners') and hasattr(step[1], '_meta_learner'):
+            print("\nMeta Learner")
+            pprint(step[1]._meta_learner)
+            print()
+            for estimator in step[1]._base_learners:
+                print_model(estimator[1], estimator[0]+ ' - ')
         else:
             pprint(step[1].get_params())
-            print()
-
-print_model(model)
+            print()   
 ```
 
 This helper function returns the following output for a particular run using `LogisticRegression with RobustScalar` as the specific algorithm.
