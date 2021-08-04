@@ -25,6 +25,8 @@ Additionally, the following non-standard API(s) are supported:
 
 - [Delete](#delete)
 
+Our service also makes use of REST API versioning. For information on how to specify the version when making requests visit the [API Versioning for DICOM service Documentation](https://review.docs.microsoft.com/en-us/azure/healthcare-apis/dicom/api-versioning-dicom-service/).
+
 ## Store (STOW-RS)
 
 This transaction uses the POST method to store representations of studies, series, and instances contained in the request payload.
