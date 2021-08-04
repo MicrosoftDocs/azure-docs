@@ -164,4 +164,4 @@ public static string ApiEndpoint = "https://contoso.azurewebsites.net/hello";
 
 ## Next steps
 
-* [Enable authentication in your own web API](enable-authentication-web-api.md)
+* [Configure authentication options in a WPF desktop application using Azure Active Directory B2C](enable-authentication-wpf-desktop-app-options.md)
