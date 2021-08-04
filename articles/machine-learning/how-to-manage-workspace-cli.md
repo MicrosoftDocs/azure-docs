@@ -208,7 +208,7 @@ az ml workspace create -w <workspace-name>
 * `--pe-vnet-name`: The existing virtual network to create the private endpoint in.
 * `--pe-subnet-name`: The name of the subnet to create the private endpoint in. The default value is `default`.
 
-For more details on how to use these commands, see the [CLI reference pages]((/cli/azure/ml(v1)/workspace?view=azure-cli-latest)).
+For more details on how to use these commands, see the [CLI reference pages](/cli/azure/ml(v1)/workspace).
 
 # [2.0 CLI - preview](#tab/vnetpleconfigurationsv2cli)
 
@@ -249,7 +249,7 @@ az ml workspace create -w <workspace-name> -g <resource-group-name> --file works
 
 By default, metadata for the workspace is stored in an Azure Cosmos DB instance that Microsoft maintains. This data is encrypted using Microsoft-managed keys. Instead of using the Microsoft-managed key, you can also provide your own key. Doing so creates an additional set of resources in your Azure subscription to store your data.
 
-To learn more about the resources that are created when you bring your own key for encryption, see [Data encryption with Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/concept-data-encryption#azure-cosmos-db).
+To learn more about the resources that are created when you bring your own key for encryption, see [Data encryption with Azure Machine Learning](/azure/machine-learning/concept-data-encryption#azure-cosmos-db).
 
 Below CLI commands provide examples for creating a workspace that uses customer-managed keys for encryption using the 1.0 CLI and 2.0 CLI versions.
 
