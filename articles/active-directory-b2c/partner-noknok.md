@@ -57,7 +57,7 @@ The following architecture diagram shows the implementation. Nok Nok is acting a
 
 ## Onboard with Nok Nok
 
-Fill out the [Nok Nok cloud form](support@noknok.com) to create your own Nok Nok tenant. Once you submit the form, you'll receive an email explaining how to access your tenant. The email will also include access to Nok Nok guides. Follow the instructions provided in the Nok Nok integration guide to complete the OIDC configuration of your Nok Nok cloud tenant.
+Fill out the [Nok Nok cloud form](https://noknok.com/contact/) to create your own Nok Nok tenant. Once you submit the form, you'll receive an email explaining how to access your tenant. The email will also include access to Nok Nok guides. Follow the instructions provided in the Nok Nok integration guide to complete the OIDC configuration of your Nok Nok cloud tenant.
 
 ## Integrate with Azure AD B2C
 
