@@ -27,7 +27,7 @@ Azure App Service has two variations:
 
 1. The drop-down list contains all of the Azure Resource Manager virtual networks in your subscription in the same region. Underneath that is a list of the Resource Manager virtual networks in all other regions. Select the VNet you want to integrate with.
 
-    :::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-addvnet.png" alt-text="Select the VNet":::
+    :::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-add-vnet.png" alt-text="Select the VNet":::
 
     * If the VNet is in the same region, either create a new subnet or select an empty preexisting subnet.
     * To select a VNet in another region, you must have a VNet gateway provisioned with point to site enabled.
@@ -60,7 +60,7 @@ The feature is fully supported for both Windows and Linux apps, including [custo
 
 Apps in App Service are hosted on worker roles. The Basic and higher pricing plans are dedicated hosting plans where there are no other customers' workloads running on the same workers. Regional VNet Integration works by mounting virtual interfaces with addresses in the delegated subnet. Because the from address is in your VNet, it can access most things in or through your VNet like a VM in your VNet would. The networking implementation is different than running a VM in your VNet. That's why some networking features aren't yet available for this feature.
 
-:::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-regionalworks2.png" alt-text="How regional VNet Integration works":::
+:::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-how-regional-works.png" alt-text="How regional VNet Integration works":::
 
 When regional VNet Integration is enabled, your app makes outbound through your VNet. The outbound addresses that are listed in the app properties portal are the addresses still used by your app. If all traffic routing is enabled, all outbound traffic is sent into your VNet. If all traffic routing is not enabled, only private traffic (RFC1918) and service endpoints configured on the integration subnet will be sent into the VNet and outbound traffic to the internet will go through the same channels as normal.
 
@@ -103,12 +103,12 @@ When configuring application routing, you can either route all traffic or only p
 
 You can use the following steps to disable Route All in your app through the portal: 
 
-:::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-routeallenabled.png" alt-text="Route All enabled":::
+:::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-route-all-enabled.png" alt-text="Route All enabled":::
 
 1. Go to the **VNet Integration** UI in your app portal.
 1. Set **Route All** to Disabled.
     
-    :::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-routealldisabling.png" alt-text="Disable Route All":::
+    :::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-route-all-disabling.png" alt-text="Disable Route All":::
 
 1. Select **Yes**.
 
@@ -120,7 +120,7 @@ az webapp config set --resource-group myRG --name myWebApp --vnet-route-all-enab
 
 The Route All configuration setting replaces and takes precedence over the legacy `WEBSITE_VNET_ROUTE_ALL` app setting.
 
-:::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-routeallappsetting.png" alt-text="Route All App Setting":::
+:::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-route-all-appsetting.png" alt-text="Route All App Setting":::
 
 #### Network routing
 
@@ -211,7 +211,7 @@ If you create the gateway for use with App Service VNet Integration, you don't n
 
 Gateway-required VNet Integration is built on top of point-to-site VPN technology. Point-to-site VPNs limit network access to the virtual machine that hosts the app. Apps are restricted to send traffic out to the internet only through Hybrid Connections or through VNet Integration. When your app is configured with the portal to use gateway-required VNet Integration, a complex negotiation is managed on your behalf to create and assign certificates on the gateway and the application side. The result is that the workers used to host your apps are able to directly connect to the virtual network gateway in the selected VNet.
 
-:::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-gwworks.png" alt-text="How gateway-required VNet Integration works":::
+:::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-how-gateway-works.png" alt-text="How gateway-required VNet Integration works":::
 
 ### Access on-premises resources
 
@@ -292,6 +292,7 @@ Commands:
     add    : Add a regional virtual network integration to a webapp.
     list   : List the virtual network integrations on a webapp.
     remove : Remove a regional virtual network integration from webapp.
+```
 
 PowerShell support for regional VNet Integration is available too, but you must create generic resource with a property array of the subnet resourceID
 
