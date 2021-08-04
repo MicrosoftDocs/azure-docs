@@ -56,22 +56,26 @@ Modify `app\manifests\AndroidManifest.xml` to include the following entries insi
 - It will configure the Google Play Store to download and install ARCore, if it isn't installed already, when your app is installed.
 
 ```xml
-<uses-permission android:name="android.permission.CAMERA" />
-<uses-feature android:name="android.hardware.camera.ar" />
+<manifest ...>
 
-<application>
-    ...
-    <meta-data android:name="com.google.ar.core" android:value="required" />
-    ...
-</application>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera.ar" />
+
+    <application>
+        ...
+        <meta-data android:name="com.google.ar.core" android:value="required" />
+        ...
+    </application>
+
+</manifest>
 ```
 
-Modify `Gradle Scripts\build.gradle (Module: app)` to include the following entry. This code will ensure that your app targets ARCore version 1.8. After this change, you might get a notification from Gradle asking you to sync: click **Sync now**.
+Modify `Gradle Scripts\build.gradle (Module: app)` to include the following entry. This code will ensure that your app targets ARCore version 1.25. After this change, you might get a notification from Gradle asking you to sync: click **Sync now**.
 
 ```
 dependencies {
     ...
-    implementation 'com.google.ar:core:1.11.0'
+    implementation 'com.google.ar:core:1.25.0'
     ...
 }
 ```
@@ -80,7 +84,7 @@ dependencies {
 
 [_Sceneform_](https://developers.google.com/sceneform/develop/) makes it simple to render realistic 3D scenes in Augmented Reality apps, without having to learn OpenGL.
 
-Modify `Gradle Scripts\build.gradle (Module: app)` to include the following entries. This code will allow your app to use language constructs from Java 8, which `Sceneform` requires. It will also ensure your app targets `Sceneform` version 1.8, since it should match the version of ARCore your app is using. After this change, you might get a notification from Gradle asking you to sync: click **Sync now**.
+Modify `Gradle Scripts\build.gradle (Module: app)` to include the following entries. This code will allow your app to use language constructs from Java 8, which `Sceneform` requires. It will also ensure your app targets `Sceneform` version 1.15. After this change, you might get a notification from Gradle asking you to sync: click **Sync now**.
 
 ```
 android {
@@ -94,12 +98,13 @@ android {
 
 dependencies {
     ...
-    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.11.0'
+    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.15.0'
     ...
 }
 ```
 
-Open your `app\res\layout\activity_main.xml`, and replace the existing Hello Wolrd `<TextView>` element with the following ArFragment. This code will cause the camera feed to be displayed on your screen enabling ARCore to track your device position as it moves.
+Open your `app\res\layout\activity_main.xml`, and replace the existing Hello Wolrd `<TextView ... />` element with the following ArFragment. This code will cause the camera feed to be displayed on your screen enabling ARCore to track your device position as it moves.
+
 
 ```xml
 <fragment android:name="com.google.ar.sceneform.ux.ArFragment"
@@ -107,6 +112,9 @@ Open your `app\res\layout\activity_main.xml`, and replace the existing Hello Wol
     android:layout_width="match_parent"
     android:layout_height="match_parent" />
 ```
+
+> [!NOTE]
+> In order to see the raw xml of your main activity click on the "Code" or "Split" button on the top right of Android Studio.
 
 [Redeploy](#trying-it-out) your app to your device to validate it once more. This time, you should be asked for camera permissions. Once approved, you should  see your camera feed rendering on your screen.
 
@@ -132,13 +140,13 @@ Finally, add the following `handleTap()` method, that will tie everything togeth
 
 ## Attach a local Azure Spatial Anchor
 
-Modify `Gradle Scripts\build.gradle (Module: app)` to include the following entry. This sample code snippet targets Azure Spatial Anchors SDK version 2.10.0. Note that SDK version 2.7.0 is currenlty the minimum supported version, and referencing any more recent version of Azure Spatial Anchors should work as well. We recommend using the latest version of Azure Spatial Anchors SDK. You can find the SDK release notes [here.](https://github.com/Azure/azure-spatial-anchors-samples/releases)
+Modify `Gradle Scripts\build.gradle (Module: app)` to include the following entry. This sample code snippet targets Azure Spatial Anchors SDK version 2.10.2. Note that SDK version 2.7.0 is currenlty the minimum supported version, and referencing any more recent version of Azure Spatial Anchors should work as well. We recommend using the latest version of Azure Spatial Anchors SDK. You can find the SDK release notes [here.](https://github.com/Azure/azure-spatial-anchors-samples/releases)
 
 ```
 dependencies {
     ...
-    implementation "com.microsoft.azure.spatialanchors:spatialanchors_jni:[2.10.0]"
-    implementation "com.microsoft.azure.spatialanchors:spatialanchors_java:[2.10.0]"
+    implementation 'com.microsoft.azure.spatialanchors:spatialanchors_jni:[2.10.2]'
+    implementation 'com.microsoft.azure.spatialanchors:spatialanchors_java:[2.10.2]'
     ...
 }
 ```
@@ -155,10 +163,15 @@ repositories {
 
 ```
 
-Right-click `app\java\<PackageName>`->**New**->**Java Class**. Set **Name** to _MyFirstApp_, and **Superclass** to _android.app.Application_. Leave the other options as they are. Click **OK**. A file called `MyFirstApp.java` will be created. Add the following import to it:
+Right-click `app\java\<PackageName>`->**New**->**Java Class**. Set **Name** to _MyFirstApp_, and **Class**. A file called `MyFirstApp.java` will be created. Add the following import to it:
 
 ```java
 import com.microsoft.CloudServices;
+```
+
+Define `android.app.Application` as the superclass 
+```
+public class MyFirstApp extends android.app.Application {...
 ```
 
 Then, add the following code inside the new `MyFirstApp` class, which will ensure Azure Spatial Anchors is initialized with your application's context.
