@@ -39,9 +39,9 @@ The following table describes the recommended sizing for your virtual machine, d
 
 The following SAP log change requests are required for the SAP solution, depending on your SAP Basis version:
 
-- **SAP Basis versions 7.50 and higher**,  install NPLK900131
-- **SAP Basis version 7.40**,  install NPLK900132
-- **To create an SAP role with the required authorizations**, for any supported SAP Basis version, install NPLK900114. For more information, see [Configure your SAP system](sap-deploy-solution.md#configure-your-sap-system) and [Required ABAP authorizations](#required-abap-authorizations).
+- **SAP Basis versions 7.50 and higher**,  install NPLK900144
+- **For lower versions**,  install NPLK900146
+- **To create an SAP role with the required authorizations**, for any supported SAP Basis version, install NPLK900140. For more information, see [Configure your SAP system](sap-deploy-solution.md#configure-your-sap-system) and [Required ABAP authorizations](#required-abap-authorizations).
 
 > [!NOTE]
 > The required SAP log change requests expose custom RFC FMs that are required for the connector, and do not change any standard or custom objects.
@@ -134,7 +134,8 @@ Required authorizations are listed by log type. You only need the authorizations
 
 For more information, see:
 
-- [Tutorial: Deploy the Azure Sentinel solution for SAP](sap-deploy-solution.md)
-- [Deploy the Azure Sentinel SAP data connector on-premises](sap-solution-deploy-alternate.md)
+- [Deploy the Azure Sentinel solution for SAP](sap-deploy-solution.md)
+- [Expert configuration options, on-premises deployment and SAPControl log sources](sap-solution-deploy-alternate.md)
 - [Azure Sentinel SAP solution logs reference](sap-solution-log-reference.md)
 - [Azure Sentinel SAP solution: available security content](sap-solution-security-content.md)
+- [Troubleshooting your Azure Sentinel SAP solution deployment](sap-deploy-troubleshoot.md)

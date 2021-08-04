@@ -2,15 +2,15 @@
 
 title: How to set up access control for your Synapse workspace
 description: This article will teach you how to control access to a Synapse workspace using Azure roles, Synapse roles, SQL permissions, and Git permissions.
-
 services: synapse-analytics 
-author: RonyMSFT 
+author: meenalsri
 ms.service: synapse-analytics 
 ms.topic: how-to 
 ms.subservice: security 
 ms.date: 12/03/2020 
-ms.author: ronytho
+ms.author: mesrivas
 ms.reviewer: jrasnick
+ms.custom: subject-rbac-steps
 ---
 
 # How to set up access control for your Synapse workspace 
@@ -87,23 +87,37 @@ Identify the following information about your storage:
 
 - The ADLS Gen2 account to use for your workspace. This document calls it `storage1`. `storage1` is considered the "primary" storage account for your workspace.
 - The container inside `workspace1` that your Synapse workspace will use by default. This document calls it `container1`. 
+ 
+- Select **Access control (IAM)**.
 
-- Using the Azure portal, assign the following Azure roles on `container1` to the security groups 
+- Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-  - Assign the **Storage Blob Data Contributor** role to `workspace1_SynapseAdmins` 
-  - Assign the **Storage Blob Data Contributor** role to `workspace1_SynapseContributors`
-  - Assign the **Storage Blob Data Contributor** role to `workspace1_SynapseComputeOperators`
+- Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | Role | Storage Blob Data Contributor |
+    | Assign access to |SERVICEPRINCIPAL |
+    | Members |workspace1_SynapseAdmins, workspace1_SynapseContributors, and workspace1_SynapseComputeOperators|
+
+    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ## STEP 3: Create and configure your Synapse Workspace
 
 In the Azure portal, create a Synapse workspace:
 
 - Select your subscription
+
 - Select or create a resource group for which you have the Azure **Owner** role.
+
 - Name the workspace `workspace1`
+
 - Choose `storage1` for the Storage account
+
 - Choose `container1` for the container that is being used as the "filesystem".
+
 - Open WS1 in Synapse Studio
+
 - Navigate to **Manage** > **Access Control** and assign Synapse roles at *workspace scope* to the security groups as follows:
   - Assign the **Synapse Administrator** role to `workspace1_SynapseAdministrators` 
   - Assign the **Synapse Contributor** role to `workspace1_SynapseContributors` 
@@ -115,9 +129,21 @@ To run pipelines and perform system tasks, Synapse requires that the workspace m
 
 - Open the Azure portal
 - Locate the storage account, `storage1`, and then `container1`
-- Using **Access Control (IAM)**, ensure that the **Storage Blob Data Contributor** role is assigned to the workspace MSI
-  - If it's not assigned, assign it.
-  - The MSI has the same name as the workspace. In this article, it would be `workspace1`.
+- Select **Access control (IAM)**.
+- Select **Add** > **Add role assignment** to open the Add role assignment page.
+- Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | Role | Storage Blob Contributor |
+    | Assign access to | MANAGEDIDENTITY |
+    | Members | managed identity name  |
+
+    > [!NOTE]
+    > The managed identity name is also the workspace name.
+
+    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+
 
 ## STEP 5: Grant Synapse administrators the Azure Contributor role on the workspace 
 
@@ -125,7 +151,17 @@ To create SQL pools, Apache Spark pools and Integration runtimes, users must hav
 
 - Open the Azure portal
 - Locate the workspace, `workspace1`
-- Assign the Azure **Contributor** role on `workspace1` to `workspace1_SynapseAdministrators`. 
+- Select **Access control (IAM)**.
+- Select **Add** > **Add role assignment** to open the Add role assignment page.
+- Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | Role | Contributor |
+    | Assign access to | SERVICEPRINCIPAL |
+    | Members | workspace1_SynapseAdministrators  |
+
+    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png) 
 
 ## STEP 6: Assign SQL Active Directory Admin role
 

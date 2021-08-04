@@ -1,12 +1,12 @@
 ---
 title: Create a container in Azure Cosmos DB Gremlin API
 description: Learn how to create a container in Azure Cosmos DB Gremlin API by using Azure portal, .NET and other SDKs. 
-author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 10/16/2020
-ms.author: mjbrown 
+author: manishmsfte
+ms.author: mansha 
 ms.custom: devx-track-csharp
 ---
 
@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp
 
 This article explains the different ways to create a container in Azure Cosmos DB Gremlin API. It shows how to create a container using Azure portal, Azure CLI, PowerShell, or supported SDKs. This article demonstrates how to create a container, specify the partition key, and provision throughput.
 
-This article explains the different ways to create a container in Azure Cosmos DB Gremlin API. If you are using a different API, see [API for MongoDB](how-to-create-container-mongodb.md), [Cassandra API](how-to-create-container-cassandra.md), [Table API](how-to-create-container-table.md), and [SQL API](how-to-create-container.md) articles to create the container.
+This article explains the different ways to create a container in Azure Cosmos DB Gremlin API. If you are using a different API, see [API for MongoDB](how-to-create-container-mongodb.md), [Cassandra API](cassandra/how-to-create-container-cassandra.md), [Table API](table/how-to-create-container.md), and [SQL API](how-to-create-container.md) articles to create the container.
 
 > [!NOTE]
 > When creating containers, make sure you don’t create two containers with the same name but different casing. That’s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.

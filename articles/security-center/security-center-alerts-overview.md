@@ -16,7 +16,7 @@ Security alerts are triggered by advanced detections and are available only with
 
 ## What are security alerts and security incidents? 
 
-**Alerts** are the notifications that Security Center generates when it detects threats on your resources. Security Center prioritizes and lists the alerts, along with the information needed for you to quickly investigate the problem. Security Center also provides recommendations for how you can remediate an attack.
+**Alerts** are the notifications that Security Center generates when it detects threats on your resources. Security Center prioritizes and lists the alerts, along with the information needed for you to quickly investigate the problem. Security Center also provides detailed steps to help you remediate attacks. Alerts data is retained for 90 days.
 
 **A security incident** is a collection of related alerts, instead of listing each alert individually. Security Center uses [Cloud smart alert correlation](#cloud-smart-alert-correlation-in-azure-security-center-incidents) to correlate different alerts and low fidelity signals into security incidents.
 
@@ -50,7 +50,7 @@ Microsoft security researchers are constantly on the lookout for threats. Becaus
 
 To detect real threats and reduce false positives, Security Center collects, analyzes, and integrates log data from your Azure resources and the network. It also works with connected partner solutions, like firewall and endpoint protection solutions. Security Center analyzes this information, often correlating information from multiple sources, to identify threats.
 
-![Security Center Data collection and presentation](./media/security-center-alerts-overview/security-center-detection-capabilities.png)
+![Security Center Data collection and presentation.](./media/security-center-alerts-overview/security-center-detection-capabilities.png)
 
 Security Center employs advanced security analytics, which go far beyond signature-based approaches. Breakthroughs in big data and [machine learning](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) technologies are leveraged to evaluate events across the entire cloud fabric – detecting threats that would be impossible to identify using manual approaches and predicting the evolution of attacks. These security analytics include:
 
@@ -68,20 +68,23 @@ The severity is based on how confident Security Center is in the finding or the 
 > [!NOTE]
 > Alert severity is displayed differently in the portal and versions of the REST API that predate 01-01-2019. If you're using an older version of the API, upgrade for the consistent experience described below.
 
-| Severity          | Recommended response      |
-|---|---|
-| **High**          | There is a high probability that your resource is compromised. You should look into it right away. Security Center has high confidence in both the malicious intent and in the findings used to issue the alert. For example, an alert that detects the execution of a known malicious tool such as Mimikatz, a common tool used for credential theft.                                                                                                               |
-| **Medium**        | This is probably a suspicious activity might indicate that a resource is compromised. Security Center's confidence in the analytic or finding is medium and the confidence of the malicious intent is medium to high. These would usually be machine learning or anomaly-based detections. For example, a sign-in attempt from an anomalous location.                                                                                                                |
+| Severity          | Recommended response                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **High**          | There is a high probability that your resource is compromised. You should look into it right away. Security Center has high confidence in both the malicious intent and in the findings used to issue the alert. For example, an alert that detects the execution of a known malicious tool such as Mimikatz, a common tool used for credential theft.                                                                                                           |
+| **Medium**        | This is probably a suspicious activity might indicate that a resource is compromised. Security Center's confidence in the analytic or finding is medium and the confidence of the malicious intent is medium to high. These would usually be machine learning or anomaly-based detections. For example, a sign-in attempt from an anomalous location.                                                                                                            |
 | **Low**           | This might be a benign positive or a blocked attack. Security Center isn't confident enough that the intent is malicious and the activity might be innocent. For example, log clear is an action that might happen when an attacker tries to hide their tracks, but in many cases is a routine operation performed by admins. Security Center doesn't usually tell you when attacks were blocked, unless it's an interesting case that we suggest you look into. |
-| **Informational** | An incident is typically made up of a number of alerts, some of which might appear on their own to be only informational, but in the context of the other alerts might be worthy of a closer look.                                                                                                                         |
+| **Informational** | An incident is typically made up of a number of alerts, some of which might appear on their own to be only informational, but in the context of the other alerts might be worthy of a closer look.                                                                                                                                                                                                                                                               |
+|                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
 ## Export alerts
 
 You have a range of options for viewing your alerts outside of Security Center, including:
 
 - **Download CSV report** on the alerts dashboard provides a one-time export to CSV.
-- **Continuous export** from pricing & settings allows you to configure streams of security alerts and recommendations to Log Analytics workspaces and Event Hubs. [Learn more about continuous export](continuous-export.md)
-- **Azure Sentinel connector** streams security alerts from Azure Security Center into Azure Sentinel. [Learn more about connecting Azure Security Center with Azure Sentinel](../sentinel/connect-azure-security-center.md)
+- **Continuous export** from pricing & settings allows you to configure streams of security alerts and recommendations to Log Analytics workspaces and Event Hubs. [Learn more about continuous export](continuous-export.md).
+- **Azure Sentinel connector** streams security alerts from Azure Security Center into Azure Sentinel. [Learn more about connecting Azure Security Center with Azure Sentinel](../sentinel/connect-azure-security-center.md).
+
+Learn about all of the export options in [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md) and [Continuously export Security Center data](continuous-export.md).
 
 ## Cloud smart alert correlation in Azure Security Center (incidents)
 
@@ -102,7 +105,7 @@ During an investigation of an incident, analysts often need extra context to rea
 > [!TIP]
 > For a list of security incident alerts that can be produced by the fusion analytics, see the [Reference table of alerts](alerts-reference.md#alerts-fusion).
 
-:::image type="content" source="./media/security-center-alerts-cloud-smart/security-incident.png" alt-text="Screenshot of security incident detected report":::
+:::image type="content" source="./media/security-center-alerts-cloud-smart/security-incident.png" alt-text="Screenshot of security incident detected report.":::
 
 To manage your security incidents, see [How to manage security incidents in Azure Security Center](security-center-incident.md).
 

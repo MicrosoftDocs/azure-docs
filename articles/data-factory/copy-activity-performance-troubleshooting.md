@@ -192,7 +192,7 @@ Activity execution time varies when the dataset is based on different Integratio
 
     - WriteBatchSize is not large enough to fit schema row size. Try to enlarge the property for the issue.
 
-    - Instead of bulk inset, stored procedure is being used, which is expected to have worse performance. 
+    - Instead of bulk insert, stored procedure is being used, which is expected to have worse performance. 
 
 
 ### Timeout or slow performance when parsing large Excel file

@@ -1,12 +1,13 @@
 ---
 title: What is Azure Video Analyzer for Media (formerly Video Indexer)?
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: This article gives an overview of the Azure Video Analyzer for Media (formerly Video Indexer) service.
-services: media-services
+services: azure-video-analyzer
 author: Juliako
 manager: femila
-ms.topic: article
-ms.date: 02/05/2021
+ms.topic: overview
+ms.subservice: azure-video-analyzer-media
+ms.date: 07/15/2021
 ms.author: juliako
 ---
 
@@ -64,11 +65,11 @@ The following list shows the insights you can retrieve from your videos using Vi
 * **Rolling credits**: Identifies the beginning and end of the rolling credits in the end of TV shows and movies.
 * **Animated characters detection** (preview): Detection, grouping, and recognition of characters in animated content via integration with [Cognitive Services custom vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/). For more information, see [Animated character detection](animated-characters-recognition.md).
 * **Editorial shot type detection**: Tagging shots based on their type (like wide shot, medium shot, close up, extreme close up, two shot, multiple people, outdoor and indoor, and so on). For more information, see [Editorial shot type detection](scenes-shots-keyframes.md#editorial-shot-type-detection).
-* **Observed People Tracing**: detects observed people in videos and provides information such as the location of the person in the video frame (using bounding boxes) and the exact timestamp (start, end) and confidence when a person appears. For more information, see [Trace observed people in a video](observed-people-tracing.md).
+* **Observed People Tracking**: detects observed people in videos and provides information such as the location of the person in the video frame (using bounding boxes) and the exact timestamp (start, end) and confidence when a person appears. For more information, see [Trace observed people in a video](observed-people-tracing.md).
 
 ### Audio insights
 
-* **Audio transcription**: Converts speech to text in 12 languages and allows extensions. Supported languages include English, Spanish, French, German, Italian, Mandarin Chinese, Japanese, Arabic, Russian, Portuguese, Hindi, and Korean.
+* **Audio transcription**: Converts speech to text over 50 languages and allows extensions. Supported languages include English US, English United Kingdom, English Australia, Spanish, Spanish(Mexico), French, French(Canada), German, Italian, Mandarin Chinese, Chinese (Cantonese, Traditional), Chinese (Simplified), Japanese, Russian, Portuguese, Hindi, Czech, Dutch, Polish, Danish, Norwegian, Finish, Swedish, Thai, Turkish, Korean, Arabic(Egypt), Arabic(Syrian Arab Republic), Arabic(Israel), Arabic(Iraq), Arabic(Jordan), Arabic(Kuwait), Arabic(Lebanon), Arabic(Oman), Arabic(Qatar), Arabic(Saudi Arabia), Arabic(United Arab Emirates), Arabic(Palestinian Authority) and Arabic Modern Standard (Bahrain) .
 * **Automatic language detection**: Automatically identifies the dominant spoken language. Supported languages include English, Spanish, French, German, Italian, Mandarin Chinese, Japanese, Russian, and Portuguese. If the language can't be identified with confidence, Video Analyzer for Media assumes the spoken language is English. For more information, see [Language identification model](language-identification-model.md).
 * **Multi-language speech identification and transcription**: Automatically identifies the spoken language in different segments from audio. It sends each segment of the media file to be transcribed and then combines the transcription back to one unified transcription. For more information, see [Automatically identify and transcribe multi-language content](multi-language-identification-transcription.md).
 * **Closed captioning**: Creates closed captioning in three formats: VTT, TTML, SRT.

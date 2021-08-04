@@ -2,7 +2,7 @@
 title: Azure Backup support matrix
 description: Provides a summary of support settings and limitations for the Azure Backup service.
 ms.topic: conceptual
-ms.date: 04/14/2021
+ms.date: 06/11/2021
 ms.custom: references_regions 
 ---
 
@@ -34,7 +34,7 @@ The following table describes the features of Recovery Services vaults:
 **Move vaults** | You can [move vaults](./backup-azure-move-recovery-services-vault.md) across subscriptions or between resource groups in the same subscription. However, moving vaults across regions isn't supported.
 **Move data between vaults** | Moving backed-up data between vaults isn't supported.
 **Modify vault storage type** | You can modify the storage replication type (either geo-redundant storage or locally redundant storage) for a vault before backups are stored. After backups begin in the vault, the replication type can't be modified.
-**Zone-redundant storage (ZRS)** | Available in the UK South (UKS) and South East Asia (SEA) regions.
+**Zone-redundant storage (ZRS)** | Supported in preview in UK South, South East Asia, Australia East, North Europe, Central US and Japan East.
 **Private Endpoints** | See [this section](./private-endpoints.md#before-you-start) for requirements to create private endpoints for a recovery service vault.  
 
 ## On-premises backup support
@@ -146,8 +146,8 @@ Azure Backup has added the Cross Region Restore feature to strengthen data avail
 
 | Backup Management type | Supported                                                    | Supported Regions |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Azure VM               | Supported for Azure VMs (including encrypted Azure VMs) with both managed and unmanaged disks. Not supported for classic VMs. | Available in all Azure public regions and sovereign regions except for France Central, Australia Central, South Africa North, UAE North, Switzerland North, Germany West Central, Norway East, UG IOWA, and UG Virginia. <br>For information about use in those regions, contact [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
-| SQL /SAP HANA | In preview                                                      | Available in all Azure public regions and sovereign regions except for France Central, Australia Central, South Africa North, UAE North, Switzerland North, Germany West Central, Norway East, UG IOWA, and UG Virginia. <br>For information about use in those regions, contact [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
+| Azure VM               | Supported for Azure VMs (including encrypted Azure VMs) with both managed and unmanaged disks. Not supported for classic VMs. | Available in all Azure public regions and sovereign regions, except for UG IOWA and UG Virginia. |
+| SQL /SAP HANA | Available      | Available in all Azure public regions and sovereign regions, except for France Central, UG IOWA, and UG Virginia. |
 | MARS Agent/On premises  | No                                                           | N/A               |
 | AFS (Azure file shares)                 | No                                                           | N/A               |
 

@@ -3,13 +3,13 @@ title: What is the Speech service?
 titleSuffix: Azure Cognitive Services
 description: The Speech service is the unification of speech-to-text, text-to-speech, and speech translation into a single Azure subscription. Add speech to your applications, tools, and devices with the Speech SDK, Speech Devices SDK, or REST APIs.
 services: cognitive-services
-author: trevorbye
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
 ms.date: 11/23/2020
-ms.author: trbye
+ms.author: nitinme
 ---
 
 # What is the Speech service?
@@ -28,6 +28,7 @@ The following features are part of the Speech service. Use the links in this tab
 | | [Multi-device Conversation](multi-device-conversation.md) | Connect multiple devices or clients in a conversation to send speech- or text-based messages, with easy support for transcription and translation| Yes | No |
 | | [Conversation Transcription](./conversation-transcription.md) | Enables real-time speech recognition, speaker identification, and diarization. It's perfect for transcribing in-person meetings with the ability to distinguish speakers. | Yes | No |
 | | [Create Custom Speech Models](#customize-your-speech-experience) | If you are using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models to address ambient noise or industry-specific vocabulary. | No | [Yes](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) |
+| | [Pronunciation Assessment](./how-to-pronunciation-assessment.md) | Pronunciation assessment evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. With pronunciation assessment, language learners can practice, get instant feedback, and improve their pronunciation so that they can speak and present with confidence. | [Yes](./how-to-pronunciation-assessment.md) | [Yes](./rest-speech-to-text.md#pronunciation-assessment-parameters) |
 | [Text-to-Speech](text-to-speech.md) | Text-to-speech | Text-to-speech converts input text into human-like synthesized speech using [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). Use neural voices, which are human-like voices powered by deep neural networks. See [Language support](language-support.md). | [Yes](./speech-sdk.md) | [Yes](#reference-docs) |
 | | [Create Custom Voices](#customize-your-speech-experience) | Create custom voice fonts unique to your brand or product. | No | [Yes](#reference-docs) |
 | [Speech Translation](speech-translation.md) | Speech translation | Speech translation enables real-time, multi-language translation of speech to your applications, tools, and devices. Use this service for speech-to-speech and speech-to-text translation. | [Yes](./speech-sdk.md) | No |
@@ -76,9 +77,9 @@ To add a Speech service resource (free or paid tier) to your Azure account:
 -->
 It takes a few moments to deploy your new Speech resource. 
 
-### Find keys and region
+### Find keys and location/region
 
-To find the keys and region of a completed deployment, follow these steps:
+To find the keys and location/region of a completed deployment, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) using your Microsoft account.
 
@@ -126,7 +127,7 @@ Other products offer speech models tuned for specific purposes like healthcare o
 
 | Speech Service | Platform | Description |
 | -------------- | -------- | ----------- |
-| Speech-to-Text | [Custom Speech](https://aka.ms/customspeech) | Customize speech recognition models to your needs and available data. Overcome speech recognition barriers such as speaking style, vocabulary and background noise. |
+| Speech-to-Text | [Custom Speech](./custom-speech-overview.md) | Customize speech recognition models to your needs and available data. Overcome speech recognition barriers such as speaking style, vocabulary and background noise. |
 | Text-to-Speech | [Custom Voice](https://aka.ms/customvoice) | Build a recognizable, one-of-a-kind voice for your Text-to-Speech apps with your speaking data available. You can further fine-tune the voice outputs by adjusting a set of voice parameters. |
 
 ## Deploy on premises using Docker containers

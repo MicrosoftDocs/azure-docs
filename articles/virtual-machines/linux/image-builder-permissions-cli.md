@@ -1,13 +1,14 @@
 ---
 title: Configure Azure Image Builder Service permissions using Azure CLI
 description: Configure requirements for Azure VM Image Builder Service including permissions and privileges using Azure CLI
-author: cynthn
-ms.author: danis
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 04/02/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: linux
+
 ---
 
 # Configure Azure Image Builder Service permissions using Azure CLI
@@ -20,14 +21,6 @@ You must setup permissions and privileges prior to building an image. The follow
 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
-
-## Register the features
-
-First, you must register for the Azure Image Builder Service. Registration grants the service permission to create, manage, and delete a staging resource group. The service also has rights to add resources the group that are required for the image build.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
-```
 
 ## Create an Azure user-assigned managed identity
 

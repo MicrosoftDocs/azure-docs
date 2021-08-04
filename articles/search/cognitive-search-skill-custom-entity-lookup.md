@@ -1,21 +1,31 @@
 ---
 title: Custom Entity Lookup cognitive search skill
 titleSuffix: Azure Cognitive Search
-description: Extract different custom entities from text in an Azure Cognitive Search cognitive search pipeline. This skill is currently in public preview.
+description: Extract different custom entities from text in an Azure Cognitive Search cognitive search pipeline.
 
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ---
 
-#     Custom Entity Lookup cognitive skill
+# Custom Entity Lookup cognitive skill
 
 The **Custom Entity Lookup** skill looks for text from a custom, user-defined list of words and phrases. Using this list, it labels all documents with any matching entities. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not quite exact.  
 
-This skill is not bound to a Cognitive Services API and can be used free of charge during the preview period. You should still [attach a Cognitive Services resource](./cognitive-search-attach-cognitive-services.md), however, to override the daily enrichment limit. The daily limit applies to free access to Cognitive Services when accessed through Azure Cognitive Search.
+This skill is not bound to a Cognitive Services API. You should still [attach a Cognitive Services resource](./cognitive-search-attach-cognitive-services.md), however, to override the daily enrichment limit. The daily limit applies to free access to Cognitive Services when accessed through Azure Cognitive Search.
+
+## Pricing details
+
+Text Records correspond to the number of 1,000-character units within a document that is provided as input to the skill.
+
+|  Pricing tier  |        Price  |
+|--------------|----------------------|
+| 0-500,000 text records | $1 per 1,000 text records |
+| 0.5M-2.5M text records | $0.75 per 1,000 text records |
+| 2.5M-10.0M text records | $0.30 per 1,000 text records |
+| 10M+ text records | $0.25 per 1,000 text records |
 
 ## @odata.type  
 Microsoft.Skills.Text.CustomEntityLookupSkill 

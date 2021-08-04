@@ -1,0 +1,56 @@
+items:
+- name: DICOM Service
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+    - name: About DICOM service
+      href: dicom-services-overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+    - name: Deploy DICOM Services using the Azure portal
+      href: deploy-dicom-services-in-azure.md
+- name: Tutorials
+  expanded: true
+  items:
+    - name: Using DICOMweb Standard APIs with C#
+      href: dicomweb-standard-apis-c-sharp.md
+    - name: Using DICOMweb Standard APIs with cURL
+      href: dicomweb-standard-apis-curl.md
+    - name: Using DICOMweb Standard APIs with Python
+      href: dicomweb-standard-apis-python.md
+- name: Concepts
+  expanded: true
+  items:
+    - name: Using DICOMweb Standard APIs with DICOM service
+      href: dicomweb-standard-apis-with-dicom-services.md
+    - name: DICOM Change Feed Overview
+      href: dicom-change-feed-overview.md
+    - name: Register Azure Active Directory applications for the DICOM service
+      href: dicom-register-azure-active-directory-applications.md
+    - name: Enable Diagnostic Logging in the DICOM service
+      href: enable-diagnostic-logging.md
+- name: How-to guides
+  expanded: true
+  items:
+    - name: Pull DICOM changes using the Change Feed
+      href: pull-dicom-changes-from-change-feed.md
+    - name: Register a service client application
+      href: dicom-register-service-client-application.md
+    - name: Register a public client application
+      href: dicom-register-public-application.md
+    - name: Register a confidential client application
+      href: dicom-register-confidential-client-application.md
+    - name: Configure Azure RBAC for the DICOM service 
+      href: dicom-configure-azure-rbac.md
+    - name: Get access token for the DICOM service using Azure CLI
+      href: dicom-get-access-token-azure-cli.md
+- name: Resources
+  expanded: true
+  items:
+    - name: DICOM Conformance Statement
+      href: dicom-services-conformance-statement.md
+    - name: FAQs
+      href: dicom-services-faqs.yml
+

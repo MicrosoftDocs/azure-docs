@@ -2,15 +2,15 @@
 title: 'Migrate application authentication to Azure Active Directory'
 description: This whitepaper details the planning for and benefits of migrating your application authentication to Azure AD.
 services: active-directory
-author: iantheninja
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 02/05/2021
-ms.author: iangithinji
-ms.reviewer: baselden
+ms.author: davidmu
+ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
 ---
 
@@ -93,7 +93,7 @@ Economics and security benefits drive organizations to adopt Azure AD, but full 
 - Reduce administrative overhead by managing only a single identity for each user across cloud and on-premises environments:
 
   - [Automate provisioning](../app-provisioning/user-provisioning.md) of user accounts (in [Azure AD Gallery](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps))based on Azure AD identities
-  - Access all your apps from MyApps panel in the [Azure portal ](https://portal.azure.com/)
+  - Access all your apps from MyApps panel in the [Azure portal](https://portal.azure.com/)
 
 - Enable developers to secure access to their apps and improve the end-user experience by using the [Microsoft Identity Platform](../develop/v2-overview.md) with the Microsoft Authentication Library (MSAL).
 
@@ -550,11 +550,9 @@ Once you have migrated the apps, you can enrich your user’s experience in many
 
 **Point your user** to the [MyApps](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension)portal experience. Here, they can access all cloud-based apps, apps you make available by using [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md), and apps using [Application Proxy](../app-proxy/application-proxy.md) provided they have permissions to access those apps.
 
-
 You can guide your users on how to discover their apps:
 
 - Use the [Existing Single Sign-on](./view-applications-portal.md) feature to **link your users to any app**
-
 
 - Enable [Self-Service Application Access](./manage-self-service-access.md)to an app and **let users add apps that you curate**
 
@@ -568,7 +566,7 @@ Users can download an **Intune-managed browser**:
 
 - **For Android devices**, from the [Google play store](https://play.google.com/store/apps/details?id=com.microsoft.intune)
 
-- **For Apple devices**, from the [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) or they can download the [My Apps mobile app for iOS ](https://apps.apple.com/us/app/my-apps-azure-active-directory/id824048653)
+- **For Apple devices**, from the [Apple App Store](https://apps.apple.com/us/app/intune-company-portal/id719171358) or they can download the [My Apps mobile app for iOS ](https://appadvice.com/app/my-apps-azure-active-directory/824048653)
 
 **Let users open their apps from a browser extension.**
 
@@ -598,7 +596,7 @@ Azure AD provides a centralized access location to manage your migrated apps. Go
 
 You can also use the [Azure portal](https://portal.azure.com/) to audit all your apps from a centralized location,
 
-- **Audit your app** using **Enterprise Applications, Audit, or access the same information from the [Azure AD Reporting API](../reports-monitoring/concept-reporting-api.md) to integrate into your favorite tools.
+- **Audit your app** using **Enterprise Applications, Audit**, or access the same information from the [Azure AD Reporting API](../reports-monitoring/concept-reporting-api.md) to integrate into your favorite tools.
 
 - **View the permissions for an app** using **Enterprise Applications, Permissions** for apps using OAuth / OpenID Connect.
 

@@ -56,7 +56,9 @@ The ExpressRoute gateway will advertise the *Address Space(s)* of the Azure VNet
 
 ### How many prefixes can be advertised from a VNet to on-premises on ExpressRoute Private Peering?
 
-There is a maximum of 1000 prefixes advertised on a single ExpressRoute connection, or through VNet peering using gateway transit. For example, if you have 999 address spaces on a single VNet connected to an ExpressRoute circuit, all 999 of those prefixes will be advertised to on-premises. Alternatively, if you have a VNet enabled to allow gateway transit with 1 address space and 500 spoke VNets enabled using the "Allow Remote Gateway" option, the VNet deployed with the gateway will advertise 501 prefixes to on-premises.
+There is a maximum of 1000 IPv4 prefixes advertised on a single ExpressRoute connection, or through VNet peering using gateway transit. For example, if you have 999 address spaces on a single VNet connected to an ExpressRoute circuit, all 999 of those prefixes will be advertised to on-premises. Alternatively, if you have a VNet enabled to allow gateway transit with 1 address space and 500 spoke VNets enabled using the "Allow Remote Gateway" option, the VNet deployed with the gateway will advertise 501 prefixes to on-premises.
+
+If you are using a dual-stack circuit, there is a maximum of 100 IPv6 prefixes on a single ExpressRoute connection, or through VNet peering using gateway transit. This in addition to the limits described above.
 
 ### What happens if I exceed the prefix limit on an ExpressRoute connection?
 
@@ -236,7 +238,7 @@ No. From a routing perspective, all virtual networks linked to the same ExpressR
 
 ### Can I have one virtual network connected to more than one ExpressRoute circuit?
 
-Yes. You can link a single virtual network with up to four ExpressRoute circuits in either the same or different peering locations. 
+Yes. You can link a single virtual network with up to four ExpressRoute circuits in the same location or up to 16 ExpressRoute circuits in different peering locations. 
 
 ### Can I access the Internet from my virtual networks connected to ExpressRoute circuits?
 

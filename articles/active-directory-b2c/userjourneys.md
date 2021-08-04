@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 06/27/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -34,6 +34,7 @@ The **UserJourney** element contains the following attribute:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | Id | Yes | An identifier of a user journey that can be used to reference it from other elements in the policy. The **DefaultUserJourney** element of the [relying party policy](relyingparty.md) points to this attribute. |
+| DefaultCpimIssuerTechnicalProfileReferenceId| No | The default token issuer technical profile reference ID. For example, [JWT token issuer](userjourneys.md), [SAML token issuer](saml-issuer-technical-profile.md), or [OAuth2 custom error](oauth2-error-technical-profile.md). If your user journey or sub journey already has another `SendClaims` orchestration step, set the `DefaultCpimIssuerTechnicalProfileReferenceId` attribute to the user journey's token issuer technical profile. |
 
 The **UserJourney** element contains the following elements:
 
@@ -106,33 +107,36 @@ The **OrchestrationStep** element can contain the following elements:
 
 ### Preconditions
 
+Orchestration steps can be conditionally executed based on preconditions defined in the orchestration step. The `Preconditions` element contains a list of preconditions to evaluate. When the precondition evaluation is satisfied, the associated orchestration step skips to the next orchestration step. 
+
+Each precondition evaluates a single claim. There are two types of preconditions:
+ 
+- **Claims exist** - Specifies that the actions should be performed if the specified claims exist in the user's current claim bag.
+- **Claim equals** - Specifies that the actions should be performed if the specified claim exists, and its value is equal to the specified value. The check performs a case-sensitive ordinal comparison. When checking Boolean claim type, use `True`, or `False`.
+
+Azure AD B2C evaluates the preconditions in list order. The oder-based preconditions allows you set the order in which the preconditions are applied. The first precondition that satisfied overrides all the subsequent preconditions. The orchestration step is executed only if all of the preconditions are not satisfied. 
+
 The **Preconditions** element contains the following element:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| Precondition | 1:n | Depending on the technical profile being used, either redirects the client according to the claims provider selection or makes a server call to exchange claims. |
-
+| Precondition | 1:n | A precondition to evaluate. |
 
 #### Precondition
-
-Orchestration steps can be conditionally executed based on preconditions defined in the orchestration step. There are two types of preconditions:
- 
-- **Claims exist** - Specifies that the actions should be performed if the specified claims exist in the user's current claim bag.
-- **Claim equals** - Specifies that the actions should be performed if the specified claim exists, and its value is equal to the specified value. The check performs a case-sensitive ordinal comparison. When checking Boolean claim type, use `True`, or `False`.
 
 The **Precondition** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | `Type` | Yes | The type of check or query to perform for this precondition. The value can be **ClaimsExist**, which specifies that the actions should be performed if the specified claims exist in the user's current claim set, or **ClaimEquals**, which specifies that the actions should be performed if the specified claim exists and its value is equal to the specified value. |
-| `ExecuteActionsIf` | Yes | Use a `true` or `false` test to decide if the actions in the precondition should be performed. |
+| `ExecuteActionsIf` | Yes | Decides how the precondition is considered satisfied. Possible values: `true` (default), or `false`. If the value is set to `true`, it's considered satisfied when the claim matches the precondition.  If the value is set to `false`, it's considered satisfied when the claim doesn't match the precondition.  |
 
 The **Precondition** elements contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | Value | 1:2 | The identifier of a claim type. The claim is already defined in the claims schema section in the policy file, or parent policy file. When the precondition is type of `ClaimEquals`, a second `Value` element contains the value to be checked. |
-| Action | 1:1 | The action that should be performed if the precondition check within an orchestration step is true. If the value of the `Action` is set to `SkipThisOrchestrationStep`, the associated `OrchestrationStep` should not be executed. |
+| Action | 1:1 | The action that should be performed if the precondition evaluation is satisfied. Possible value: `SkipThisOrchestrationStep`. The associated orchestration step skips to the next one. |
 
 #### Preconditions examples
 

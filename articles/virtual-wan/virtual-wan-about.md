@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 06/02/2021
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ---
@@ -15,7 +15,7 @@ ms.author: cherylmc
 
 Azure Virtual WAN is a networking service that brings many networking, security, and routing functionalities together to provide a single operational interface. These functionalities include branch connectivity (via connectivity automation from Virtual WAN Partner devices such as SD-WAN or VPN CPE), Site-to-site VPN connectivity, remote user VPN (Point-to-site) connectivity, private (ExpressRoute) connectivity, intra-cloud connectivity (transitive connectivity for virtual networks), VPN ExpressRoute inter-connectivity, routing, Azure Firewall, and encryption for private connectivity. You do not have to have all of these use cases to start using Virtual WAN. You can simply get started with just one use case, and then adjust your network as it evolves.
 
-The Virtual WAN architecture is a hub and spoke architecture with scale and performance built in for branches (VPN/SD-WAN devices), users (Azure VPN/OpenVPN/IKEv2 clients), ExpressRoute circuits, and virtual networks. It enables [global transit network architecture](virtual-wan-global-transit-network-architecture.md), where the cloud hosted network 'hub' enables transitive connectivity between endpoints that may be distributed across different types of 'spokes'.
+The Virtual WAN architecture is a hub and spoke architecture with scale and performance built in for branches (VPN/SD-WAN devices), users (Azure VPN/OpenVPN/IKEv2 clients), ExpressRoute circuits, and virtual networks. It enables a [global transit network architecture](virtual-wan-global-transit-network-architecture.md), where the cloud hosted network 'hub' enables transitive connectivity between endpoints that may be distributed across different types of 'spokes'.
 
 Azure regions serve as hubs that you can choose to connect to. All hubs are connected in full mesh in a Standard Virtual WAN making it easy for the user to use the Microsoft backbone for any-to-any (any spoke) connectivity. For spoke connectivity with SD-WAN/VPN devices, users can either manually set it up in Azure Virtual WAN, or use the Virtual WAN CPE (SD-WAN/VPN) partner solution to set up connectivity to Azure. We have a list of partners that support connectivity automation (ability to export the device info into Azure, download the Azure configuration and establish connectivity) with Azure Virtual WAN. For more information, see the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) article.
 
@@ -48,7 +48,7 @@ To configure an end-to-end virtual WAN, you create the following resources:
 
 * **virtualWAN:** The virtualWAN resource represents a virtual overlay of your Azure network and is a collection of multiple resources. It contains links to all your virtual hubs that you would like to have within the virtual WAN. Virtual WAN resources are isolated from each other and cannot contain a common hub. Virtual hubs across Virtual WAN do not communicate with each other.
 
-* **Hub:** A virtual hub is a Microsoft-managed virtual network. The hub contains various service endpoints to enable connectivity. From your on-premises network (vpnsite), you can connect to a VPN Gateway inside the virtual hub, connect ExpressRoute circuits to a virtual hub, or even connect mobile users to a Point-to-site gateway in the virtual hub. The hub is the core of your network in a region. There can only be one hub per Azure region.
+* **Hub:** A virtual hub is a Microsoft-managed virtual network. The hub contains various service endpoints to enable connectivity. From your on-premises network (vpnsite), you can connect to a VPN Gateway inside the virtual hub, connect ExpressRoute circuits to a virtual hub, or even connect mobile users to a Point-to-site gateway in the virtual hub. The hub is the core of your network in a region. Multiple virtual hubs can be created in the same region. 
 
   A hub gateway is not the same as a virtual network gateway that you use for ExpressRoute and VPN Gateway. For example, when using Virtual WAN, you don't create a site-to-site connection from your on-premises site directly to your VNet. Instead, you create a site-to-site connection to the hub. The traffic always goes through the hub gateway. This means that your VNets do not need their own virtual network gateway. Virtual WAN lets your VNets take advantage of scaling easily through the virtual hub and the virtual hub gateway.
 
@@ -62,9 +62,7 @@ To configure an end-to-end virtual WAN, you create the following resources:
 
 * **Site:** This resource is used for site-to-site connections only. The site resource is **vpnsite**. It represents your on-premises VPN device and its settings. By working with a Virtual WAN partner, you have a built-in solution to automatically export this information to Azure.
 
-## <a name="connectivity"></a>Types of connectivity
-
-Virtual WAN allows the following types of connectivity: Site-to-Site VPN, User VPN (Point-to-Site), and ExpressRoute.
+## <a name="connectivity"></a>Connectivity
 
 ### <a name="s2s"></a>Site-to-site VPN connections
 
@@ -121,7 +119,7 @@ For location information, see the [Virtual WAN partners and locations](virtual-w
 Route tables now have features for association and propagation. A pre-existing route table is a route table that does not have these features. If you have pre-existing routes in hub routing and would like to use the new capabilities, consider the following:
 
 * **Standard Virtual WAN Customers with pre-existing routes in virtual hub**:
-If you have pre-existing routes in Routing section for the hub in the Azure portal, you will need to first delete them and then attempt creating new route tables (available in the Route Tables section for the hub in Azure portal). It is highly encouraged to do the delete step for all hubs in a Virtual WAN.
+If you have pre-existing routes in the Routing section for the hub in the Azure portal, you will need to first delete them and then attempt creating new route tables (available in the Route Tables section for the hub in Azure portal). It is highly encouraged to do the delete step for all hubs in a Virtual WAN.
 
 * **Basic Virtual WAN Customers with pre-existing routes in virtual hub**:
 If you have pre-existing routes in Routing section for the hub in the Azure portal, you will need to first delete them, then **upgrade** your Basic Virtual WAN to Standard Virtual WAN. See [Upgrade a virtual WAN from Basic to Standard](upgrade-virtual-wan.md). It is highly encouraged to do the delete step for all hubs in a Virtual WAN.
@@ -136,4 +134,6 @@ Subscribe to the RSS feed and view the latest Virtual WAN feature updates on the
 
 ## Next steps
 
-[Create a site-to-site connection using Virtual WAN](virtual-wan-site-to-site-portal.md)
+- [Tutorial: Create a site-to-site connection using Virtual WAN](virtual-wan-site-to-site-portal.md)
+- [Learn module: Introduction to Azure Virtual WAN](/learn/modules/introduction-azure-virtual-wan/)
+

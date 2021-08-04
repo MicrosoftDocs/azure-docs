@@ -7,44 +7,44 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/07/2021
+ms.date: 07/13/2021
 ms.author: tamram
-ms.reviewer: sohamnc
+ms.reviewer: dineshm
 ms.subservice: common 
 ms.custom: devx-track-azurepowershell
 ---
 
 # Assign an Azure role for access to queue data
 
-Azure Active Directory (Azure AD) authorizes access rights to secured resources through [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of Azure built-in roles that encompass common sets of permissions used to access queues.
+Azure Active Directory (Azure AD) authorizes access rights to secured resources through [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of Azure built-in roles that encompass common sets of permissions used to access queue data.
 
-When an Azure role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of the subscription, the resource group, the storage account, or an individual queue. An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+When an Azure role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
-This article shows how to assign Azure roles for data access to queues.
+To learn more about using Azure AD to authorize access to queue data, see [Authorize access to queues using Azure Active Directory](authorize-access-azure-active-directory.md).
 
-## Azure roles for queues
-
-[!INCLUDE [storage-auth-rbac-roles-queue-include](../../../includes/storage-auth-rbac-roles-queue-include.md)]
-
-## Determine resource scope
-
-[!INCLUDE [storage-auth-resource-scope-queue-include](../../../includes/storage-auth-resource-scope-queue-include.md)]
+> [!NOTE]
+> This article shows how to assign an Azure role for access to queue data in a storage account. To learn about assigning roles for management operations in Azure Storage, see [Use the Azure Storage resource provider to access management resources](../common/authorization-resource-provider.md).
 
 ## Assign an Azure role
 
-You can use the Azure portal, PowerShell, or Azure CLI to assign a role for data access.
+You can use the Azure portal, PowerShell, Azure CLI, or an Azure Resource Manager template to assign a role for data access.
 
 # [Azure portal](#tab/portal)
 
-After you have determined the appropriate scope for a role assignment for access to queue data, follow the instructions provided in [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md) to assign the required data access role to the Azure AD security principal.
+To access queue data in the Azure portal with Azure AD credentials, a user must have the following role assignments:
 
-If a user needs to access queue data via the Azure portal using their Azure AD credentials, then also assign the Azure Resource Manager [Reader](../../role-based-access-control/built-in-roles.md#reader) role at the level of the storage account or above. The **Reader** role is an Azure Resource Manager role that permits users to view storage account resources, but not modify them. It does not provide read permissions to data in Azure Storage, but only to account management resources. The **Reader** role is necessary so that users can navigate to queues in the Azure portal.
+- A data access role, such as **Storage Queue Data Contributor**
+- The Azure Resource Manager **Reader** role
 
-For example, if you assign the **Storage Queue Data Contributor** role to user Mary at the level of a queue named **sample-queue**, then Mary is granted read, write, and delete access to all of the messages in that queue. However, if Mary wants to view a queue in the Azure portal, then the **Storage Queue Data Contributor** role by itself will not provide sufficient permissions to navigate through the portal to the queue in order to view it. The additional permissions are required to navigate through the portal and view the other resources that are visible there.
+To learn how to assign these roles to a user, follow the instructions provided in [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+
+The [Reader](../../role-based-access-control/built-in-roles.md#reader) role is an Azure Resource Manager role that permits users to view storage account resources, but not modify them. It does not provide read permissions to data in Azure Storage, but only to account management resources. The **Reader** role is necessary so that users can navigate to queues and messages in the Azure portal.
+
+For example, if you assign the **Storage Queue Data Contributor** role to user Mary at the level of a queue named **sample-queue**, then Mary is granted read, write, and delete access to that queue. However, if Mary wants to view a queue in the Azure portal, then the **Storage Queue Data Contributor** role by itself will not provide sufficient permissions to navigate through the portal to the queue in order to view it. The additional permissions are required to navigate through the portal and view the other resources that are visible there.
 
 A user must be assigned the **Reader** role to use the Azure portal with Azure AD credentials. However, if a user has been assigned a role with **Microsoft.Storage/storageAccounts/listKeys/action** permissions, then the user can use the portal with the storage account keys, via Shared Key authorization. To use the storage account keys, Shared Key access must be permitted for the storage account. For more information on permitting or disallowing Shared Key access, see [Prevent Shared Key authorization for an Azure Storage account](../common/shared-key-authorization-prevent.md).
 
-You can also assign an Azure Resource Manager role that provides permissions greater than the **Reader** role. Assigning the least possible permissions is recommended as a security best practice. For more information, see [Best practices for Azure RBAC](../../role-based-access-control/best-practices.md).
+You can also assign an Azure Resource Manager role that provides additional permissions beyond than the **Reader** role. Assigning the least possible permissions is recommended as a security best practice. For more information, see [Best practices for Azure RBAC](../../role-based-access-control/best-practices.md).
 
 > [!NOTE]
 > Prior to assigning yourself a role for data access, you will be able to access data in your storage account via the Azure portal because the Azure portal can also use the account key for data access. For more information, see [Choose how to authorize access to queue data in the Azure portal](../queues/authorize-data-operations-portal.md).
@@ -91,6 +91,10 @@ az role assignment create \
 ```
 
 For information about assigning roles with PowerShell at the subscription, resource group, or storage account scope, see [Assign Azure roles using Azure CLI](../../role-based-access-control/role-assignments-cli.md).
+
+# [Template](#tab/template)
+
+To learn how to use an Azure Resource Manager template to assign an Azure role, see [Assign Azure roles using Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
 
 ---
 

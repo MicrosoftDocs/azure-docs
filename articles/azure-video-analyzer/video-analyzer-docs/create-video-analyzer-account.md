@@ -3,7 +3,7 @@ title: Create an Azure Video Analyzer account
 description: This topic explains how to create an account for Azure Video Analyzer. 
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 05/01/2021
+ms.date: 06/01/2021
 ---
 
 # Create a Video Analyzer account
@@ -51,7 +51,7 @@ The following resources are defined in the template:
 - [**Microsoft.Storage/storageAccounts/providers/roleAssignments**](/azure/templates/microsoft.authorization/roleassignments): the role assignments that enables Video Analyzer to access the storage account.
 
 <!-- TODO replace with a reference like this:
-:::code language="json" source="~/quickstart-templates/101-vm-simple-linux/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.compute/vm-simple-linux/azuredeploy.json":::
 -->
 
 ```json

@@ -34,7 +34,7 @@ Logs can help you diagnose errors and warnings, or track performance metrics lik
 
 You can log multiple data types including scalar values, lists, tables, images, directories, and more. For more information, and Python code examples for different data types, see the [Run class reference page](/python/api/azureml-core/azureml.core.run%28class%29).
 
-### Logging run metrics 
+## Logging run metrics 
 
 Use the following methods in the logging APIs to influence the metrics visualizations. Note the [service limits](./resource-limits-quotas-capacity.md#metrics) for these logged metrics. 
 
@@ -46,29 +46,43 @@ Use the following methods in the logging APIs to influence the metrics visualiza
 |Log table with 2 numerical columns|`run.log_table(name='Sine Wave', value=sines)`|Two-variable line chart|
 |Log image|`run.log_image(name='food', path='./breadpudding.jpg', plot=None, description='desert')`|Use this method to log an image file or a matplotlib plot to the run. These images will be visible and comparable in the run record|
 
-### Logging with MLflow
-Use MLFlowLogger to log metrics.
+## Logging with MLflow
 
-```python
-from azureml.core import Run
-# connect to the workspace from within your running code
-run = Run.get_context()
-ws = run.experiment.workspace
+We recommend logging your models, metrics and artifacts with MLflow as it's open source and it supports local mode to cloud portability. The following table and code examples show how to use MLflow to log metrics and artifacts from your training runs. 
+[Learn more about MLflow's logging methods and design patterns](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.log_artifact).
 
-# workspace has associated ml-flow-tracking-uri
-mlflow_url = ws.get_mlflow_tracking_uri()
+Be sure to install the `mlflow` and `azureml-mlflow` pip packages to your workspace. 
 
-#Example: PyTorch Lightning
-from pytorch_lightning.loggers import MLFlowLogger
-
-mlf_logger = MLFlowLogger(experiment_name=run.experiment.name, tracking_uri=mlflow_url)
-mlf_logger._run_id = run.id
+```conda
+pip install mlflow
+pip install azureml-mlflow
 ```
 
-## View run metrics
+Set the MLflow tracking URI to point at the Azure Machine Learning backend to ensure that your metrics and artifacts are logged to your workspace. 
 
-## Via the SDK
-You can view the metrics of a trained model using ```run.get_metrics()```. See the example below. 
+```python
+from azureml.core import Workspace
+import mlflow
+from mlflow.tracking import MlflowClient
+
+ws = Workspace.from_config()
+mlflow.set_tracking_uri(ws.get_mlflow_tracking_uri())
+
+mlflow.create_experiment("mlflow-experiment")
+mlflow.set_experiment("mlflow-experiment")
+mlflow_run = mlflow.start_run()
+```
+
+|Logged Value|Example code| Notes|
+|----|----|----|
+|Log a numeric value (int or float) | `mlfow.log_metric('my_metric', 1)`| |
+|Log a boolean value | `mlfow.log_metric('my_metric', 0)`| 0 = True, 1 = False|
+|Log a string | `mlfow.log_text('foo', 'my_string')`| Logged as an artifact|
+|Log numpy metrics or PIL image objects|`mlflow.log_image(img, 'figure.png')`||
+|Log matlotlib plot or image file|` mlflow.log_figure(fig, "figure.png")`||
+
+## View run metrics via the SDK
+You can view the metrics of a trained model using `run.get_metrics()`. 
 
 ```python
 from azureml.core import Run
@@ -76,16 +90,41 @@ run = Run.get_context()
 run.log('metric-name', metric_value)
 
 metrics = run.get_metrics()
-# metrics is of type Dict[str, List[float]] mapping mertic names
+# metrics is of type Dict[str, List[float]] mapping metric names
 # to a list of the values for that metric in the given run.
 
 metrics.get('metric-name')
 # list of metrics in the order they were recorded
 ```
 
+You can also access run information using MLflow through the run object's data and info properties. See the [MLflow.entities.Run object](https://mlflow.org/docs/latest/python_api/mlflow.entities.html#mlflow.entities.Run) documentation for more information. 
+
+After the run completes, you can retrieve it using the MlFlowClient().
+
+```python
+from mlflow.tracking import MlflowClient
+
+# Use MlFlow to retrieve the run that was just completed
+client = MlflowClient()
+finished_mlflow_run = MlflowClient().get_run(mlflow_run.info.run_id)
+```
+
+You can view the metrics, parameters, and tags for the run in the data field of the run object.
+
+```python
+metrics = finished_mlflow_run.data.metrics
+tags = finished_mlflow_run.data.tags
+params = finished_mlflow_run.data.params
+```
+
+>[!NOTE]
+> The metrics dictionary under `mlflow.entities.Run.data.metrics` only returns the most recently logged value for a given metric name. For example, if you log, in order, 1, then 2, then 3, then 4 to a metric called `sample_metric`, only 4 is present in the metrics dictionary for `sample_metric`.
+> 
+> To get all metrics logged for a particular metric name, you can use [`MlFlowClient.get_metric_history()`](https://www.mlflow.org/docs/latest/python_api/mlflow.tracking.html#mlflow.tracking.MlflowClient.get_metric_history).
+
 <a name="view-the-experiment-in-the-web-portal"></a>
 
-## View run metrics in AML studio UI
+## View run metrics in the studio UI
 
 You can browse completed run records, including logged metrics, in the [Azure Machine Learning studio](https://ml.azure.com).
 

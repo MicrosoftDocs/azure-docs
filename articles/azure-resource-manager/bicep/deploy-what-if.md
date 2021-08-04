@@ -218,7 +218,7 @@ az deployment group create \
 
 ### Test modification
 
-After the deployment completes, you're ready to test the what-if operation. This time you deploy a [Bicep file that changes the virtual network](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-after.Bicep). It's missing one the original tags, a subnet has been removed, and the address prefix has changed. Download a copy of the Bicep file.
+After the deployment completes, you're ready to test the what-if operation. This time you deploy a [Bicep file that changes the virtual network](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-after.bicep). It's missing one the original tags, a subnet has been removed, and the address prefix has changed. Download a copy of the Bicep file.
 
 # [PowerShell](#tab/azure-powershell)
 
