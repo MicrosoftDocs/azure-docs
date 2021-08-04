@@ -79,13 +79,16 @@ For more information on working with resource groups, see [az group](/cli/azure/
 When you deploy an Azure Machine Learning workspace, various other services are [required as dependent associated resources](/azure/machine-learning/concept-workspace#resources). When you use the CLI to create the workspace, the CLI can either create new associated resources on your behalf or you could attach existing resources.
 
 > [!IMPORTANT]
-> If you do not specify an existing Azure service, one will be created automatically during workspace creation. You must always specify a resource group. When attaching your own storage account, make sure that it meets the following criteria:
+> If you do not specify an existing Azure service, one will be created automatically during workspace creation. You must always specify a resource group. 
+> 
+> When attaching your own storage account, make sure that it meets the following criteria:
 >
 > * The storage account is _not_ a premium account (Premium_LRS and Premium_GRS)
 > * Both Azure Blob and Azure File capabilities enabled
 > * Hierarchical Namespace (ADLS Gen 2) is disabled
->
 > These requirements are only for the _default_ storage account used by the workspace.
+>
+> When attaching Azure container registry, you must have the the [admin account](../container-registry/container-registry-authentication.md#admin-account) enabled before it can be used with an Azure Machine Learning workspace.
 
 Azure Container Registry (ACR) doesn't currently support unicode characters in resource group names. To mitigate this issue, use a resource group that does not contain these characters.
 
@@ -149,9 +152,6 @@ The Resource ID value looks similar to the following: `"/subscriptions/<service-
 > You don't have to specify all existing resources. You can specify one or more. For example, you can specify an existing storage account and the workspace will create the other resources.
 
 ---
-
-> [!IMPORTANT]
-> The container registry must have the the [admin account](../container-registry/container-registry-authentication.md#admin-account) enabled before it can be used with an Azure Machine Learning workspace.
 
 The output of the workspace creation command is similar to the following JSON. You can use the output values to locate the created resources or pare them as input to subsequent CLI steps.
 
