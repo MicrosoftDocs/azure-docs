@@ -1,6 +1,6 @@
 ---
 title: Parquet format
-titleSuffix: Azure Data Factory & Synapse Analytics
+titleSuffix: Azure Data Factory & Azure Synapse
 description: This topic describes how to deal with Parquet format in Azure Data Factory and Synapse Analytics pipelines.
 author: jianleishen
 ms.service: data-factory

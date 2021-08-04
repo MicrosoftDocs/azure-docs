@@ -1,7 +1,7 @@
 ---
 title: Mapping data flow performance and tuning guide
-titleSuffix: Azure Data Factory & Synapse Analytics
-description: Learn about key factors that affect the performance of mapping data flows in Azure Data Factory and Synapse Analytics pipelines.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn about key factors that affect the performance of mapping data flows in Azure Data Factory and Azure Synapse Analytics pipelines.
 author: kromerm
 ms.topic: conceptual
 ms.author: makromer
@@ -166,7 +166,7 @@ You can read from Azure SQL Database using a table or a SQL query. If you are ex
 
 ### Azure Synapse Analytics sources
 
-When using Azure Synapse Analytics, a setting called **Enable staging** exists in the source options. This allows the service to read from Synapse using ```Staging```, which greatly improves read performance. Enabling ```Staging``` requires you to specify an Azure Blob Storage or Azure Data Lake Storage gen2 staging location in the data flow activity settings.
+When using Azure Synapse Analytics, a setting called **Enable staging** exists in the source options. This allows the service to read from Azure Synapse using ```Staging```, which greatly improves read performance. Enabling ```Staging``` requires you to specify an Azure Blob Storage or Azure Data Lake Storage gen2 staging location in the data flow activity settings.
 
 ![Enable staging](media/data-flow/enable-staging.png "Enable staging")
 
