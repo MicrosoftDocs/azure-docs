@@ -74,12 +74,12 @@ There are two ways to enable application monitoring for Azure App Services hoste
 # [ASP.NET Core](#tab/netcore)
 
 > [!IMPORTANT]
-> The following versions of ASP.NET Core are supported: ASP.NET Core 2.1, 3.1, and 5.0. Versions 2.0, 2.2, and 3.0 have been retired and are no longer supported. Please upgrade to a [supported version](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) of .NET Core for auto-instrumentation to work.
+> The following versions of ASP.NET Core are supported: ASP.NET Core 3.1, and 5.0. Versions 2.0, 2.2, and 3.0 have been retired and are no longer supported. Please upgrade to a [supported version](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) of .NET Core for auto-instrumentation to work.
 
 > [!NOTE]
 > Linux auto-instrumentation App Services portal enablement is in Public Preview. These preview versions are provided without a service level agreement. Certain features might not be supported or might have constrained capabilities.
 
-Targeting the full framework from ASP.NET Core and self-contained deployment are currently **not supported** with agent/extension based monitoring. ([Manual instrumentation](./asp-net-core.md) via code will work in all of the previous scenarios.)
+Targeting the full framework from ASP.NET Core and self-contained deployment are currently **supported in Linux** with agent/extension based monitoring, but **not supported in Windows**. ([Manual instrumentation](./asp-net-core.md) via code will work in all of the previous scenarios.)
 
 1. **Select Application Insights** in the Azure control panel for your app service.
 
@@ -420,7 +420,7 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 #### Linux
 
 1. Check that the application is monitored via `ApplicationInsightsAgent`.
-    * Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of "~2".
+    * Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of "~2" or ,if using .NET 6, "~3".
 2. Ensure that the application meets the requirements to be monitored.
     1. Navigate to */home\LogFiles\ApplicationInsights\status* and open *status_557de146e7fa_27_1.json*
             
