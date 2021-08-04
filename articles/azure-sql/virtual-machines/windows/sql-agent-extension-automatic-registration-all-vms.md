@@ -82,7 +82,7 @@ You can enable the automatic registration feature for multiple Azure subscriptio
 
 To do so, follow these steps:
 
-1. Save [this script](https://github.com/microsoft/tigertoolbox/blob/master/AzureSQLVM/AutoRegTools.psm1).
+1. Save [this script](https://github.com/microsoft/tigertoolbox/blob/master/AzureSQLVM/EnableBySubscription.ps1).
 1. Navigate to where you saved the script by using an administrative Command Prompt or PowerShell window. 
 1. Connect to Azure (`az login`).
 1. Execute the script, passing in SubscriptionIds as parameters such as   

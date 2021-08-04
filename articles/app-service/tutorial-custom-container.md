@@ -453,12 +453,12 @@ To deploy a container to Azure App Service, you first create a web app on App Se
 1. Configure your app to use the managed identity to pull from Azure Container Registry.
 
     ```azurecli-interactive
-    az resource update --ids /subscriptions/<subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<registry-name>/config/web --set properties.acrUseManagedIdentityCreds=True
+    az resource update --ids /subscriptions/<subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<app-name>/config/web --set properties.acrUseManagedIdentityCreds=True
     ```
     
     Replace the following values:
     - `<subscription-id>` with the subscription ID retrieved from the `az account show` command.
-    - `<registry-name>` with the name of your container registry.
+    - `<app-name>` with the name of your web app.
 
     > [!TIP]
     > If your app uses a [user-assigned managed identity](overview-managed-identity.md#add-a-user-assigned-identity), set an additional `AcrUserManagedIdentityID` property to specify its client ID:

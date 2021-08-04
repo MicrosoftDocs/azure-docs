@@ -20,19 +20,22 @@ This article highlights capabilities, features, and enhancements recently releas
 
 This release is published July 30, 2021.
 
-The current release announces general availability for the following services:
-- Azure Arc-enabled SQL Managed Instance general purpose service tier.
+This release announces general availability for Azure Arc-enabled SQL Managed Instance [general purpose service tier](service-tiers.md) in indirectly connected mode.
 
    > [!NOTE]
-   > The services above are generally available in indirectly connected mode.
-   >
-   > These services are also available in directly connected mode, for preview.
-   >
-   > Azure SQL Managed Instance business critical service tier continues to be available in preview.
-   > 
-   > Azure Arc-enabled PostgreSQL Hyperscale continues to be available in preview.
+   > In addition, this release provides the following Azure Arc-enabled services in preview: 
+   > - SQL Managed Instance in directly connected mode
+   > - SQL Managed Instance [business critical service tier](service-tiers.md)
+   > - PostgreSQL Hyperscale
 
 ### Breaking changes
+
+#### Tools
+
+Use the following tools:
+- [Insiders build of Azure Data Studio](https://github.com/microsoft/azuredatastudio#try-out-the-latest-insiders-build-from-main).
+- [`arcdata` extension for Azure (`az`) CLI](install-arcdata-extension.md). 
+
 
 #### Data controller
 
@@ -83,9 +86,6 @@ The current release announces general availability for the following services:
 
 - You can create a data controller, SQL managed instance, or PostgreSQL Hyperscale server group on a directly connected mode cluster with the Azure portal. Directly connected mode deployment is not supported with other Azure Arc-enabled data services tools. Specifically, you can't deploy a data controller in directly connect mode with any of the following tools during this release.
    - Azure Data Studio
-
-      [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
-
    - Kubernetes native tools (`kubectl`)
    - The `arcdata` extension for the Azure CLI (`az`)
 
@@ -130,7 +130,7 @@ The current release announces general availability for the following services:
 
 #### Azure Arc-enabled SQL Managed Instance
 
-##### - Can't see resources in portal
+##### Can't see resources in portal
 
 - Portal does not show Azure Arc-enabled SQL Managed Instance resources created in the June release. Delete the SQL Managed Instance resources from the resource group list view. You may need to delete the custom location resource first.
 
