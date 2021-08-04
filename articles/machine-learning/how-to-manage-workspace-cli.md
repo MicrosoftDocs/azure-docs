@@ -180,14 +180,14 @@ The output of the workspace creation command is similar to the following JSON. Y
 ```
 
 ## Advanced configurations
-### Virtual network and private endpoint
+### Configure workspace for private network connectivity
 
 > [!IMPORTANT]
 > Using an Azure Machine Learning workspace with private endpoint is not available in the Azure Government regions.
 
-# [2.0 CLI](#tab/vnetpleconfigurationsv2cli)
+# [1.0 CLI](#tab/vnetpleconfigurationsv1cli)
 
-If you want to restrict access to your workspace to a virtual network, you can use the following parameters:
+If you want to restrict access to your workspace to a virtual network, you can use the following parameters as part of the `az ml workspace create` command:
 
 * `--pe-name`: The name of the private endpoint that is created.
 * `--pe-auto-approval`: Whether private endpoint connections to the workspace should be automatically approved.
@@ -197,11 +197,37 @@ If you want to restrict access to your workspace to a virtual network, you can u
 
 # [2.0 CLI](#tab/vnetpleconfigurationsv2cli)
 
-<v2 instructions>
+To set up private network connectivity for your workspace using the 2.0 CLI, extend the workspace configuration file to include private link endpoint resource details.
+
+```yaml workspace.yml
+name: azureml888
+location: EastUS
+description: Description of my workspace
+storage_account: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>
+container_registry: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.ContainerRegistry/registries/<registry-name>
+key_vault: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.KeyVault/vaults/<vault-name>
+application_insights: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/microsoft.insights/components/<application-insights-name>
+
+private_endpoints:
+  approval_type: AutoApproval
+  connections:
+    my-endpt1:
+      subscription_id: <subscription-id>
+      resource_group: <resourcegroup>
+      location: <location>
+      vnet_name: <vnet-name>
+      subnet_name: <subnet-name>
+```
+
+Then, you can reference this configuration file as part of the workspace creation CLI command.
+
+```azurecli-interactive
+az ml workspace create -w <workspace-name> -g <resource-group-name> --file workspace.yml
+```
 
 ---
 
-For more information on using a private endpoint and virtual network with your workspace, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md).
+For more information on using a private endpoint and virtual network with your workspace, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md). Also refer to infrastructure-as-code based deployment options including [Azure Resource Manager](how-to-create-workspace-template.md). 
 
 ### Customer-managed key and high business impact workspace
 
