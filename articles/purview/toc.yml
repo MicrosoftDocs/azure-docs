@@ -5,6 +5,8 @@ items:
   items:
   - name: What is Azure Purview?
     href: overview.md
+  - name: Purview structure
+    href: purview-structure.md
 - name: Quickstarts
   expanded: true
   items:
@@ -18,6 +20,10 @@ items:
     href: create-purview-python.md
   - name: Manage Kafka notifications - .NET
     href: manage-kafka-dotnet.md
+  - name: Create a collection - Azure portal
+    href: quickstart-create-collection.md
+  - name: Share data - Azure portal
+    href: quickstart-share-data.md
 - name: Tutorials
   items:
   - name: Onboarding Azure data sources at scale
@@ -50,6 +56,8 @@ items:
     href: deployment-best-practices.md
   - name: Azure Purview limits
     href: how-to-manage-quotas.md
+  - name: Collections
+    href: concept-collection.md
   - name: How scans detect deleted assets
     href: concept-detect-deleted-assets.md
   - name: Understanding resource sets
@@ -72,6 +80,12 @@ items:
     href: concept-asset-normalization.md
   - name: Frequently asked questions
     href: frequently-asked-questions.md
+  - name: Assets
+    href: concept-assets.md
+  - name: Data sharing
+    href: concept-data-sharing.md
+  - name: Understand pricing
+    href: concept-pricing.md
 - name: How-to guides
   items:
   - name: Register & scan
@@ -87,6 +101,8 @@ items:
       href: troubleshoot-connections.md
     - name: Resource set pattern rules
       href: how-to-resource-set-pattern-rules.md
+    - name: Set up a scan
+      href: how-to-set-up-scan.md
     - name: Sources
       items:
       - name: Manage data sources
@@ -191,6 +207,8 @@ items:
       href: how-to-lineage-spark-atlas-connector.md
     - name: SQL Server Integration Services lineage
       href: how-to-lineage-sql-server-integration-services.md
+    - name: SQL provenance
+      href: how-to-sql-provenance.md
   - name: Monitor
     items:
     - name: Monitor with Azure Monitor
@@ -219,6 +237,14 @@ items:
     items:
     - name: Disaster recovery
       href: disaster-recovery.md
+  - name: Create and manage collections
+    href: how-to-create-and-manage-collections.md
+  - name: Manage assets
+    href: how-to-manage-assets.md
+  - name: Share data
+    href: how-to-share-data.md
+  - name: Receive shared data
+    href: how-to-receive-share.md
 - name: Reference
   items:
     - name: Supported classifications
