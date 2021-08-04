@@ -35,7 +35,7 @@ With attribute mapping, you control how attributes are populated in Azure AD. Az
 Along with these basic types, custom attribute mappings support the concept of an optional *default* value assignment. The default value assignment ensures that a target attribute is populated with a value if Azure AD or the target object doesn't have a value. The most common configuration is to leave this blank.
 
 ## Schema updates and mappings
-Cloud sync will occasionally update the schema and the list of default attributes that are [synchronized](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized?context=/azure/active-directory/cloud-provisioning/context/cp-context).  These default attribute mappings will be available for new installations but will not automatically be added to existing installations.  To add these mappings you can follow the steps below.
+Cloud sync will occasionally update the schema and the list of default attributes that are [synchronized](../hybrid/reference-connect-sync-attributes-synchronized.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context).  These default attribute mappings will be available for new installations but will not automatically be added to existing installations.  To add these mappings you can follow the steps below.
 
 
   1. Click on “add attribute mapping”

@@ -17,7 +17,7 @@ ms.date: 11/15/2019
 
 Training is the process of teaching your Language Understanding (LUIS) app to improve its natural language understanding. Train your LUIS app after updates to the model such as adding, editing, labeling, or deleting entities, intents, or utterances.
 
-Training and [testing](luis-concept-test.md) an app is an iterative process. After you train your LUIS app, you test it with sample utterances to see if the intents and entities are recognized correctly. If they're not, make updates to the LUIS app, train, and test again.
+Training and [testing](./luis-interactive-test.md) an app is an iterative process. After you train your LUIS app, you test it with sample utterances to see if the intents and entities are recognized correctly. If they're not, make updates to the LUIS app, train, and test again.
 
 Training is applied to the active version in the LUIS portal.
 
@@ -41,7 +41,7 @@ Training uses a small percentage of negative sampling. You can use all available
 
 ### Using the LUIS portal
 
-Log into the [LUIS portal](https://www.luis.ai/) and click on your app. Select **Manage** at the top of the screen, then select **Settings** and enable or disable the **use-deterministic training** option. When disabled, training will use all available data.
+Log into the [LUIS portal](https://www.luis.ai/) and click on your app. Select **Manage** at the top of the screen, then select **Settings** and enable or disable the **use non-deterministic training** option. When disabled, training will use all available data.
 
 ![A button for enabling or disabling non deterministic training](./media/non-determinstic-training.png)
 

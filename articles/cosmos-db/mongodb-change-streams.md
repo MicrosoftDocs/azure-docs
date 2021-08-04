@@ -1,12 +1,12 @@
 ---
 title: Change streams in Azure Cosmos DB’s API for MongoDB
 description: Learn how to use change streams n Azure Cosmos DB’s API for MongoDB to get the changes made to your data.
-author: Rodrigossz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.author: rosouz
+author: gahl-levy
+ms.author: gahllevy
 ms.custom: devx-track-js, devx-track-csharp
 ---
 
@@ -126,6 +126,9 @@ var cursor = db.coll.watch(
     { fullDocument: "updateLookup" });
 
 ```
+
+## Scaling change streams
+When using change streams at scale, it is best to evenly spread the load. Utilize the [GetChangeStreamTokens custom command](../cosmos-db/mongodb-custom-commands.md) to spread the load across physical shards/partitions.
 
 ## Current limitations
 

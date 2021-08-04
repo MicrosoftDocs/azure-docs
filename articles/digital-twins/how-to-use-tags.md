@@ -39,13 +39,35 @@ Here is an excerpt from a twin model implementing a marker tag as a property:
 
 Once the `tags` property is part of a digital twin's model, you can set the marker tag in the digital twin by setting the value of this property. 
 
-Here is an example that populates the marker `tags` for three twins:
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesMarker":::
-
-Here is a code example on how to set the marker `tags` for a twin using the [.NET SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true):
+Here is a code example on how to set marker `tags` for a twin using the [.NET SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true):
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesCsharp":::
+
+After creating the twin with tag properties according to the example above, the twin will look like this:
+
+```JSON
+{
+  "$dtId": "myTwinID",
+  "$etag": "W/\"e7429259-6833-46b4-b443-200a77a468c2\"",
+  "$metadata": {
+    "$model": "dtmi:example:Room;1",
+    "Temperature": {
+      "lastUpdateTime": "2021-08-03T14:24:42.0850614Z"
+    },
+    "tags": {
+      "lastUpdateTime": "2021-08-03T14:24:42.0850614Z"
+    }
+  },
+  "Temperature": 75,
+  "tags": {
+    "VIP": true,
+    "oceanview": true
+  }
+}
+```
+
+>[!TIP]
+> You can see a twin's JSON representation by [querying](how-to-query-graph.md) it with the CLI or APIs.
 
 ### Query with marker tags
 
@@ -75,11 +97,44 @@ Here is an excerpt from a twin model implementing a value tag as a property:
 
 As with marker tags, you can set the value tag in a digital twin by setting the value of this `tags` property from the model. To use a value tag as a marker tag, you can set the `tagValue` field to the empty string value (`""`). 
 
-Here is an example that populates the value `tags` for three twins:
+Below are the JSON bodies of two twins that have value tags to represent their sizes. The twins in the example also have value tags for "red" or "purple" that are being used as marker tags.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesValue":::
+Example Twin1, with a value tag for size large and a marker tag of "red":
 
-Note that `red` and `purple` are used as marker tags in this example.
+```JSON
+{
+  "$dtId": "Twin1",
+  "$etag": "W/\"d3997593-cc5f-4d8a-8683-957becc2bcdd\"",
+  "$metadata": {
+    "$model": "dtmi:example:ValueTags;1",
+    "tags": {
+      "lastUpdateTime": "2021-08-03T14:43:02.3150852Z"
+    }
+  },
+  "tags": {
+    "red": "",
+    "size": "large"
+  }
+}
+```
+
+Example Twin2, with a value tag for size small and a marker tag of "purple":
+```JSON
+{
+  "$dtId": "Twin2",
+  "$etag": "W/\"e215e586-b14a-4234-8ddb-be69ebfef878\"",
+  "$metadata": {
+    "$model": "dtmi:example:ValueTags;1",
+    "tags": {
+      "lastUpdateTime": "2021-08-03T14:43:53.1517123Z"
+    }
+  },
+  "tags": {
+    "purple": "",
+    "size": "small"
+  }
+}
+```
 
 ### Query with value tags
 
@@ -96,7 +151,7 @@ Here is a query to get all entities that are small (value tag), and not red:
 ## Next steps
 
 Read more about designing and managing digital twin models:
-* [How-to: Manage DTDL models](how-to-manage-model.md)
+* [Manage DTDL models](how-to-manage-model.md)
 
 Read more about querying the twin graph:
-* [How-to: Query the twin graph](how-to-query-graph.md)
+* [Query the twin graph](how-to-query-graph.md)

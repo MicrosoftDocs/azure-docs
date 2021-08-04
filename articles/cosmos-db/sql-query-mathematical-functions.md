@@ -5,7 +5,7 @@ author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/26/2021
+ms.date: 06/22/2021
 ms.author: girobins
 ms.custom: query-reference
 ---
@@ -55,7 +55,7 @@ The following supported built-in mathematical functions perform a calculation, u
 | [SQRT](sql-query-sqrt.md)       | Full scan   | Full scan                                              |                                                              |
 | [SQUARE](sql-query-square.md)   | Full scan   | Full scan                                              |                                                              |
 | [TAN](sql-query-tan.md)         | Full scan   | Full scan                                              |                                                              |
-
+| [TRUNC](sql-query-trunc.md)     | Index seek  | Index seek                                              |                                                              |
 ## Next steps
 
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

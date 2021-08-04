@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio (classic): Evaluate & cross-validate models - Azure'
-description: Learn about the metrics you can use to monitor model performance in Azure Machine Learning Studio (classic).
+description: Learn about the metrics you can use to monitor model performance in Machine Learning Studio (classic).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -11,12 +11,12 @@ ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ---
-# Evaluate model performance in Azure Machine Learning Studio (classic)
+# Evaluate model performance in Machine Learning Studio (classic)
 
 **APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
-In this article, you can learn about the metrics you can use to monitor model performance in Azure Machine Learning Studio (classic).  Evaluating the performance of a model is one of the core stages in the data science process. It indicates how successful the scoring (predictions) of a dataset has been by a trained model. Azure Machine Learning Studio (classic) supports model evaluation through two of its main machine learning modules: 
+In this article, you can learn about the metrics you can use to monitor model performance in Machine Learning Studio (classic).  Evaluating the performance of a model is one of the core stages in the data science process. It indicates how successful the scoring (predictions) of a dataset has been by a trained model. Machine Learning Studio (classic) supports model evaluation through two of its main machine learning modules: 
 + [Evaluate Model][evaluate-model] 
 + [Cross-Validate Model][cross-validate-model]
 
@@ -45,7 +45,7 @@ In the following sections, we will build simple regression and classification mo
 Assume we want to predict a car's price using features such as dimensions, horsepower, engine specs, and so on. This is a typical regression problem, where the target variable (*price*) is a continuous numeric value. We can fit a linear regression model that, given the feature values of a certain car, can predict the price of that car. This regression model can be used to score the same dataset we trained on. Once we have the predicted car prices, we can evaluate the model performance by looking at how much the predictions deviate from the actual prices on average. To illustrate this, we use the *Automobile price data (Raw) dataset* available in the **Saved Datasets** section in Machine Learning Studio (classic).
 
 ### Creating the Experiment
-Add the following modules to your workspace in Azure Machine Learning Studio (classic):
+Add the following modules to your workspace in Machine Learning Studio (classic):
 
 * Automobile price data (Raw)
 * [Linear Regression][linear-regression]
@@ -84,10 +84,10 @@ After running the experiment, you can inspect the evaluation results by clicking
 Figure 4. Cross-Validation Results of a Regression Model.
 
 ## Evaluating a Binary Classification Model
-In a binary classification scenario, the target variable has only two possible outcomes, for example: {0, 1} or {false, true}, {negative, positive}. Assume you are given a dataset of adult employees with some demographic and employment variables, and that you are asked to predict the income level, a binary variable with the values {"<=50 K", ">50 K"}. In other words, the negative class represents the employees who make less than or equal to 50 K per year, and the positive class represents all other employees. As in the regression scenario, we would train a model, score some data, and evaluate the results. The main difference here is the choice of metrics Azure Machine Learning Studio (classic) computes and outputs. To illustrate the income level prediction scenario, we will use the [Adult](https://archive.ics.uci.edu/ml/datasets/Adult) dataset to create a Studio (classic) experiment and evaluate the performance of a two-class logistic regression model, a commonly used binary classifier.
+In a binary classification scenario, the target variable has only two possible outcomes, for example: {0, 1} or {false, true}, {negative, positive}. Assume you are given a dataset of adult employees with some demographic and employment variables, and that you are asked to predict the income level, a binary variable with the values {"<=50 K", ">50 K"}. In other words, the negative class represents the employees who make less than or equal to 50 K per year, and the positive class represents all other employees. As in the regression scenario, we would train a model, score some data, and evaluate the results. The main difference here is the choice of metrics Machine Learning Studio (classic) computes and outputs. To illustrate the income level prediction scenario, we will use the [Adult](https://archive.ics.uci.edu/ml/datasets/Adult) dataset to create a Studio (classic) experiment and evaluate the performance of a two-class logistic regression model, a commonly used binary classifier.
 
 ### Creating the Experiment
-Add the following modules to your workspace in Azure Machine Learning Studio (classic):
+Add the following modules to your workspace in Machine Learning Studio (classic):
 
 * Adult Census Income Binary Classification dataset
 * [Two-Class Logistic Regression][two-class-logistic-regression]
@@ -106,7 +106,7 @@ After running the experiment, you can click on the output port of the [Evaluate 
 
 Accuracy is simply the proportion of correctly classified instances. It is usually the first metric you look at when evaluating a classifier. However, when the test data is unbalanced (where most of the instances belong to one of the classes), or you are more interested in the performance on either one of the classes, accuracy doesn't really capture the effectiveness of a classifier. In the income level classification scenario, assume you are testing on some data where 99% of the instances represent people who earn less than or equal to 50K per year. It is possible to achieve a 0.99 accuracy by predicting the class "<=50K" for all instances. The classifier in this case appears to be doing a good job overall, but in reality, it fails to classify any of the high-income individuals (the 1%) correctly.
 
-For that reason, it is helpful to compute additional metrics that capture more specific aspects of the evaluation. Before going into the details of such metrics, it is important to understand the confusion matrix of a binary classification evaluation. The class labels in the training set can take on only two possible values, which we usually refer to as positive or negative. The positive and negative instances that a classifier predicts correctly are called true positives (TP) and true negatives (TN), respectively. Similarly, the incorrectly classified instances are called false positives (FP) and false negatives (FN). The confusion matrix is simply a table showing the number of instances that fall under each of these four categories. Azure Machine Learning Studio (classic) automatically decides which of the two classes in the dataset is the positive class. If the class labels are Boolean or integers, then the 'true' or '1' labeled instances are assigned the positive class. If the labels are strings, such as with the income dataset, the labels are sorted alphabetically and the first level is chosen to be the negative class while the second level is the positive class.
+For that reason, it is helpful to compute additional metrics that capture more specific aspects of the evaluation. Before going into the details of such metrics, it is important to understand the confusion matrix of a binary classification evaluation. The class labels in the training set can take on only two possible values, which we usually refer to as positive or negative. The positive and negative instances that a classifier predicts correctly are called true positives (TP) and true negatives (TN), respectively. Similarly, the incorrectly classified instances are called false positives (FP) and false negatives (FN). The confusion matrix is simply a table showing the number of instances that fall under each of these four categories. Machine Learning Studio (classic) automatically decides which of the two classes in the dataset is the positive class. If the class labels are Boolean or integers, then the 'true' or '1' labeled instances are assigned the positive class. If the labels are strings, such as with the income dataset, the labels are sorted alphabetically and the first level is chosen to be the negative class while the second level is the positive class.
 
 ![Binary Classification Confusion Matrix](./media/evaluate-model-performance/6a.png)
 
@@ -138,7 +138,7 @@ In this experiment, we will use the popular [Iris](https://archive.ics.uci.edu/m
 The Iris dataset is publicly available on the [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.html), and can be downloaded using an [Import Data][import-data] module.
 
 ### Creating the Experiment
-Add the following modules to your workspace in Azure Machine Learning Studio (classic):
+Add the following modules to your workspace in Machine Learning Studio (classic):
 
 * [Import Data][import-data]
 * [Multiclass Decision Forest][multiclass-decision-forest]

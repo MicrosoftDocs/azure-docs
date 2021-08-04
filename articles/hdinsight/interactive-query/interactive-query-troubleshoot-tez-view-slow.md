@@ -24,4 +24,4 @@ This is an issue that has been fixed in Oct 2017. Recreating your cluster will m
 
 ## Next steps
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

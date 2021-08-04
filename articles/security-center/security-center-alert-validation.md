@@ -28,12 +28,12 @@ Use sample alerts to:
 
 To create sample alerts:
 
-1. As a user with the role **Security admin** or **Subscription Contributor**, from the toolbar on the alerts page, select **Create sample alerts**.
+1. As a user with the role **Subscription Contributor**, from the toolbar on the alerts page, select **Create sample alerts**.
 1. Select the subscription.
 1. Select the relevant Azure Defender plan/s for which you want to see alerts. 
 1. Select **Create sample alerts**.
 
-    :::image type="content" source="media/security-center-alert-validation/create-sample-alerts-procedures.png" alt-text="Steps to create sample alerts in Azure Security Center":::
+    :::image type="content" source="media/security-center-alert-validation/create-sample-alerts-procedures.png" alt-text="Steps to create sample alerts in Azure Security Center.":::
     
     A notification appears letting you know that the sample alerts are being created:
 
@@ -41,7 +41,7 @@ To create sample alerts:
 
     After a few minutes, the alerts appear in the security alerts page. They'll also appear anywhere else that you've configured to receive your Azure Security Center security alerts (connected SIEMs, email notifications, and so on).
 
-    :::image type="content" source="media/security-center-alert-validation/sample-alerts.png" alt-text="Sample alerts in the security alerts list":::
+    :::image type="content" source="media/security-center-alert-validation/sample-alerts.png" alt-text="Sample alerts in the security alerts list.":::
 
     > [!TIP]
     > The alerts are for simulated resources.

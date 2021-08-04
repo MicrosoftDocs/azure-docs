@@ -49,7 +49,7 @@ pip install azure-identity
 
 Creating a `DefaultAzureCredential` object requires you to have `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID` already set as environment variables with their corresponding values from your registered Azure AD application.
 
-For a quick ramp-up on how to get these environment variables, you can follow the [Set up managed identities from CLI quickstart](https://docs.microsoft.com/azure/communication-services/quickstarts/managed-identity-from-cli).
+For a quick ramp-up on how to get these environment variables, you can follow the [Set up service principals from CLI quickstart](../../identity/service-principal-from-cli.md).
 
 Once you have installed the `azure-identity` library, we can continue authenticating the client.
 

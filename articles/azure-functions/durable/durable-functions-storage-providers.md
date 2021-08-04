@@ -12,10 +12,12 @@ ms.author: azfuncdf
 
 Durable Functions automatically persists function parameters, return values, and other state to durable storage to guarantee reliable execution. The default configuration for Durable Functions stores this runtime state in an Azure Storage (classic) account. However, it's possible to configure Durable Functions v2.0 and above to use an alternate durable storage provider.
 
-Durable Functions is a set of Azure Functions triggers and bindings that are internally powered by the [Durable Task Framework](https://github.com/Azure/durabletask) (DTFx). DTFx supports various backend storage providers, including the Azure Storage provider used by Durable Functions. Starting in Durable Functions **v2.4.3**, users can configure their function apps to use DTFx storage providers other than the Azure Storage provider.
+Durable Functions is a set of Azure Functions triggers and bindings that are internally powered by the [Durable Task Framework](https://github.com/Azure/durabletask) (DTFx). DTFx supports various backend storage providers, including the Azure Storage provider used by Durable Functions. Starting in Durable Functions **v2.5.0**, users can configure their function apps to use DTFx storage providers other than the Azure Storage provider.
 
 > [!NOTE]
 > The choice to use storage providers other than Azure Storage should be made carefully. Most function apps running in Azure should use the default Azure Storage provider for Durable Functions. However, there are important cost, scalability, and data management tradeoffs that should be considered when deciding whether to use an alternate storage provider. This article describes many of these tradeoffs in detail.
+>
+> Also note that it's not currently possible to migrate data from one storage provider to another. If you want to use a new storage provider, you should create a new app configured with the new storage provider.
 
 Two alternate DTFx storage providers were developed for use with Durable Functions, the _Netherite_ storage provider and the _Microsoft SQL Server (MSSQL)_ storage provider. This article describes all three supported providers, compares them against each other, and provides basic information about how to get started using them.
 

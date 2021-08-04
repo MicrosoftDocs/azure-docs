@@ -16,7 +16,7 @@ In this article, you'll learn how to configure the Redis software version to be 
 >
 
 > [!IMPORTANT]
-> Once Redis 6.0 is generally available (GA), Redis 6.0 will be the default Redis version for new caches. You will still have the option to create Redis 4.0 caches and you will be able to upgrade your Redis 4.0 caches to Redis 6.0 caches at GA. 
+> Once Redis 6.0 is generally available (GA), Redis 6.0 will be the default Redis version for new caches. You will still have the option to create Redis 4.0 caches. 
 >
 
 ## Prerequisites
@@ -45,7 +45,7 @@ To create a cache, follow these steps:
    
     :::image type="content" source="media/cache-how-to-version/select-redis-version.png" alt-text="Redis version.":::
 
-1. Click **Create**. 
+1. Select **Create**. 
    
     It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
 

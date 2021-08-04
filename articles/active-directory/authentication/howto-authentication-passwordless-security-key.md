@@ -62,7 +62,7 @@ There are some optional settings for managing security keys per tenant.
 **General**
 
 - **Allow self-service set up** should remain set to **Yes**. If set to no, your users will not be able to register a FIDO key through the MySecurityInfo portal, even if enabled by Authentication Methods policy.  
-- **Enforce attestation** setting to **Yes** requires the FIDO security key metadata to be published and verified with the FIDO Alliance Metadata Service, and also pass Microsoft’s additional set of validation testing. For more information, see [What is a Microsoft-compatible security key?](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key)
+- **Enforce attestation** setting to **Yes** requires the FIDO security key metadata to be published and verified with the FIDO Alliance Metadata Service, and also pass Microsoft’s additional set of validation testing. For more information, see [What is a Microsoft-compatible security key?](/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key)
 
 **Key Restriction Policy**
 

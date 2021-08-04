@@ -12,7 +12,7 @@ ms.date: 02/14/2021
 > This article describes how to create older classic metric alerts. Azure Monitor now supports [newer near-real time metric alerts and a new alerts experience](./alerts-overview.md). Classic alerts are [retired](./monitoring-classic-retirement.md) for public cloud users, though still in limited use until **31 May 2021**. Classic alerts for Azure Government cloud and Azure China 21Vianet will retire on **29 February 2024**.
 >
 
-This article shows how you can use an [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) to configure Azure classic metric alerts. This enables you to automatically set up alerts on your resources when they are created to ensure that all resources are monitored correctly.
+This article shows how you can use an [Azure Resource Manager template](../../azure-resource-manager/templates/syntax.md) to configure Azure classic metric alerts. This enables you to automatically set up alerts on your resources when they are created to ensure that all resources are monitored correctly.
 
 The basic steps are as follows:
 

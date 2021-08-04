@@ -423,7 +423,6 @@
       href: how-to-managed-cluster-application-managed-identity.md
     - name: Deploy stateless-only node types to a managed cluster 
       href: how-to-managed-cluster-stateless-node-type.md 
-
     - name: Use managed identity for managed cluster nodes
       href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
   - name: Set up your development environment
@@ -830,6 +829,10 @@
       href: how-to-managed-identity-service-fabric-app-code.md
     - name: Grant access to other Azure resources
       href: how-to-grant-access-other-resources.md
+  - name: Migrate your cluster to a new region
+    items:
+    - name: How to move your Azure Service Fabric cluster to a new region
+      href: service-fabric-cluster-region-move.md
   - name: Migrate from Cloud Services
     items:
     - name: Compare Cloud Services with Service Fabric
@@ -919,8 +922,8 @@
     href: ./policy-reference.md
 - name: Resources
   items:
-  - name: Service Fabric managed clusters common questions
-    href: faq-managed-cluster.md
+  - name: Service Fabric managed clusters FAQ
+    href: faq-managed-cluster.yml
   - name: Common questions
     href: service-fabric-common-questions.md
   - name: Azure Roadmap

@@ -3,7 +3,7 @@ title: Get started with Azure Cost Management for partners
 description: This article explains how partners use Azure Cost Management features and how they enable Cost Management access for their customers.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2021
+ms.date: 07/01/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -17,7 +17,7 @@ Azure Cost Management is natively available for direct partners who have onboard
 
 For direct partners and indirect providers, the global admin and admin agents, can access Cost Management in the partner tenant and manage costs at invoiced prices.
 
-Resellers and customers can access Cost Management in the customer tenant and view consumption costs for the subscriptions, where costs are computed and shown at retail rates. However, they must have Azure RBAC access to the subscription in the customer tenant to view costs. The cost visibility policy must be enabled by the provider for the customer tenant.
+Resellers and customers can access Cost Management in the customer tenant and view consumption costs for each individual subscription, where costs are computed and shown at retail rates. However, they must have Azure RBAC access to the subscription in the customer tenant to view costs. The cost visibility policy must be enabled by the provider for the customer tenant.
 
 Customers can use Cost Management features when enabled by their CSP partner.
 
@@ -162,7 +162,7 @@ The retail rates used to compute costs shown in the view are the same prices sho
 
 ## Analyze costs in cost analysis
 
-Partners with access to billing scopes in the partner tenant can explore and analyze invoiced costs in cost analysis across customers for a specific customer or for an invoice. In the [cost analysis](quick-acm-cost-analysis.md) view, you can also [save views](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) and export data to [CSV and PNG files](quick-acm-cost-analysis.md#download-usage-data).
+Partners with access to billing scopes in the partner tenant can explore and analyze invoiced costs in cost analysis across customers for a specific customer or for an invoice. In the [cost analysis](quick-acm-cost-analysis.md) view, you can also [save views](quick-acm-cost-analysis.md#saving-and-sharing-customized-views).
 
 Azure RBAC users with access to the subscription in the customer tenant can also analyze retail costs for subscriptions in the customer tenant, save views, and export data to CSV and PNG files.
 

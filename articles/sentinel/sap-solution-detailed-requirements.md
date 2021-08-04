@@ -6,7 +6,7 @@ ms.author: bagold
 ms.service: azure-sentinel
 ms.topic: reference
 ms.custom: mvc
-ms.date: 05/12/2021
+ms.date: 06/09/2021
 ms.subservice: azure-sentinel
 
 ---
@@ -24,13 +24,24 @@ Use this article as a reference if you're an admin, or if you're [deploying the 
 > The Azure Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
+## Recommended virtual machine sizing
+
+The following table describes the recommended sizing for your virtual machine, depending on your intended usage:
+
+|Usage  |Recommended sizing  |
+|---------|---------|
+|**Minimum specification**, such as for a lab environment     |   A *Standard_B2s* VM      |
+|**Standard connector** (default)     |   A *DS2_v2* VM, with: <br>- 2 cores<br>- 8 GB memory      |
+|**Multiple connectors**     |A *Standard_B4ms* VM, with: <br>- 4 cores<br>- 16 GB memory         |
+|     |         |
+
 ## Required SAP log change requests
 
 The following SAP log change requests are required for the SAP solution, depending on your SAP Basis version:
 
-- **SAP Basis versions 7.50 and higher**,  install NPLK900131
-- **SAP Basis version 7.40**,  install NPLK900132
-- **To create an SAP role with the required authorizations**, for any supported SAP Basis version, install NPLK900114. For more information, see [Configure your SAP system](sap-deploy-solution.md#configure-your-sap-system) and [Required ABAP authorizations](#required-abap-authorizations).
+- **SAP Basis versions 7.50 and higher**,  install NPLK900144
+- **For lower versions**,  install NPLK900146
+- **To create an SAP role with the required authorizations**, for any supported SAP Basis version, install NPLK900140. For more information, see [Configure your SAP system](sap-deploy-solution.md#configure-your-sap-system) and [Required ABAP authorizations](#required-abap-authorizations).
 
 > [!NOTE]
 > The required SAP log change requests expose custom RFC FMs that are required for the connector, and do not change any standard or custom objects.
@@ -40,9 +51,12 @@ The following SAP log change requests are required for the SAP solution, dependi
 
 If you have an SAP Basis version of 7.50 or lower, install the following SAP notes:
 
-- **SAP Note 2502336**. For systems running SAP versions earlier than SAP BASIS 750 SPS1. Named `RSSCD100 - read only from archive, not from database`.
-- **SAP Note 2173545**. For systems running SAP versions earlier than SAP BASIS 750. Named `CHANGEDOCUMENT_READ_ALL`.
-- **SAP Note 2641084**. For systems running SAP versions earlier than SAP BASIS 750 SPS13. Provides standardized read access for the Security Audit log data.
+|SAP BASIS versions  |Required note |
+|---------|---------|
+|- 750 SP01 to SP12<br>- 751 SP01 to SP06<br>- 752 SP01 to SP03     |  2641084: Standardized read access for the Security Audit log data       |
+|- 700 to 702<br>- 710 to 711, 730, 731, 740, and 750     | 2173545: CD: CHANGEDOCUMENT_READ_ALL        |
+|- 700 to 702<br>- 710 to 711, 730, 731, and 740<br>- 750 to 752     | 2502336: CD (Change Document): RSSCD100 - read only from archive, not from database        |
+|     |         |
 
 Access the SAP notes from the [SAP support Launchpad site](https://support.sap.com/en/index.html).
 
@@ -120,7 +134,8 @@ Required authorizations are listed by log type. You only need the authorizations
 
 For more information, see:
 
-- [Tutorial: Deploy the Azure Sentinel solution for SAP](sap-deploy-solution.md)
-- [Deploy the Azure Sentinel SAP data connector on-premises](sap-solution-deploy-alternate.md)
+- [Deploy the Azure Sentinel solution for SAP](sap-deploy-solution.md)
+- [Expert configuration options, on-premises deployment and SAPControl log sources](sap-solution-deploy-alternate.md)
 - [Azure Sentinel SAP solution logs reference](sap-solution-log-reference.md)
 - [Azure Sentinel SAP solution: available security content](sap-solution-security-content.md)
+- [Troubleshooting your Azure Sentinel SAP solution deployment](sap-deploy-troubleshoot.md)

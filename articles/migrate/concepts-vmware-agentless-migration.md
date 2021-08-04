@@ -64,13 +64,14 @@ A cycle is said to be complete once the disks are consolidated.
 
 When you start replication for the first time, the logged-in user must be assigned the following roles:
 
-- Owner or Contributor and User Access Administrator in the Azure subscription to create an instance of Azure Key Vault
+- Owner or Contributor and User Access Administrator on the Azure Migrate project's Resource Group and the target Resource Group
 
 For the subsequent replications, the logged-in user must be assigned the following roles:
 
-- Owner or Contributor
+- Owner or Contributor on the Azure Migrate project's Resource Group and the target Resource Group
 
-If you have created a custom role for the logged-in user, ensure that the permissions for the custom role map to the permissions of the aforementioned built-in roles.
+In addition to the roles described above, the logged-in user would need the following permission at a subscription level - Microsoft.Resources/subscriptions/resourceGroups/read
+
 
 ## Data integrity
 
@@ -173,7 +174,7 @@ You could create a policy on the Azure Migrate appliance to throttle replication
 > [!NOTE]
 > This is applicable to all the replicating VMs from the Azure Migrate appliance simultaneously.
 
-You can also increase and decrease replication bandwidth based on a schedule using the [sample script](https://go.microsoft.com/fwlink/?linkid=2165036).
+You can also increase and decrease replication bandwidth based on a schedule using the [sample script](./common-questions-server-migration.md).
 
 ### Blackout window
 

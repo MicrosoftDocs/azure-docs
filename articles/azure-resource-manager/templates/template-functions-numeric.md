@@ -570,5 +570,5 @@ The output from the preceding example with the default values is:
 
 ## Next steps
 
-* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](./syntax.md).
 * To iterate a specified number of times when creating a type of resource, see [Resource iteration in ARM templates](copy-resources.md).

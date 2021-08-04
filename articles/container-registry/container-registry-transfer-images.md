@@ -429,11 +429,12 @@ az resource delete \
   * Pipeline run might not have completed. An export or import run can take some time. 
   * For other pipeline issues, provide the deployment [correlation ID](../azure-resource-manager/templates/deployment-history.md) of the export run or import run to the Azure Container Registry team.
 * **Problems pulling the image in a physically isolated environment**
-  * If you see errors regarding foreign layers or attempts to resolve mcr.microsoft.com when attempting to pull an image in a physically isolated environment, your image manifest likely has non-distributable layers. Due to the nature of a physically isolated environment, these images will often fail to pull. You can confirm that this is the case by checking the image manifest for any references to external registries. If this is the case, you will need to push the non-distributable layers to your public cloud ACR prior to deploying an export pipeline-run for that image. For guidance on how to do this, see [How do I push non-distributable layers to a registry?](./container-registry-faq.md#how-do-i-push-non-distributable-layers-to-a-registry)
+  * If you see errors regarding foreign layers or attempts to resolve mcr.microsoft.com when attempting to pull an image in a physically isolated environment, your image manifest likely has non-distributable layers. Due to the nature of a physically isolated environment, these images will often fail to pull. You can confirm that this is the case by checking the image manifest for any references to external registries. If this is the case, you will need to push the non-distributable layers to your public cloud ACR prior to deploying an export pipeline-run for that image. For guidance on how to do this, see [How do I push non-distributable layers to a registry?](./container-registry-faq.yml#how-do-i-push-non-distributable-layers-to-a-registry-)
 
 ## Next steps
 
-To import single container images to an Azure container registry from a public registry or another private registry, see the [az acr import][az-acr-import] command reference.
+* To import single container images to an Azure container registry from a public registry or another private registry, see the [az acr import][az-acr-import] command reference.
+* Learn how to [block creation of export pipelines](data-loss-prevention.md) from a network-restricted container registry.
 
 <!-- LINKS - External -->
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

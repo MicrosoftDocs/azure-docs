@@ -102,7 +102,7 @@ Traffic Analytics equips you with actionable information that helps you audit yo
 ![Geo-map showing traffic across regions 2](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
 
 Related links:
-* [Blog post](https://aka.ms/trafficanalytics), [Documentation](../network-watcher/traffic-analytics.md), [FAQ](../network-watcher/traffic-analytics-faq.md)
+* [Blog post](https://aka.ms/trafficanalytics), [Documentation](../network-watcher/traffic-analytics.md), [FAQ](../network-watcher/traffic-analytics-faq.yml)
 
 ## DNS Analytics
 Built for DNS Administrators, this solution collects, analyzes, and correlates DNS logs to provide security, operations, and performance-related insights.  Some of the capabilities are:
@@ -120,4 +120,4 @@ Related links:
 
 ## Miscellaneous
 
-* [New Pricing](../azure-monitor/insights/network-performance-monitor-pricing-faq.md)
+* [New Pricing](../azure-monitor/insights/network-performance-monitor-pricing-faq.yml)

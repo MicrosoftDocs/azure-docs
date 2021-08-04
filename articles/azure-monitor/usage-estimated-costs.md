@@ -20,7 +20,7 @@ ms.reviewer: Dale.Koetke
 
 The basic Azure Monitor billing model is a cloud-friendly, consumption-based pricing ("Pay-As-You-Go"). You only pay for what you use. Pricing details are available for [alerting, metrics, notifications](https://azure.microsoft.com/pricing/details/monitor/), [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) and [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). 
 
-In addition to the Pay-As-You-Go model for log data, Log Analytics has Capacity Reservations, which enable you to save as much as 25% compared to the Pay-As-You-Go price. The capacity reservation pricing enables you to buy a reservation starting at 100 GB/day. Any usage above the reservation level will be billed at the Pay-As-You-Go rate. [Learn more](https://azure.microsoft.com/pricing/details/monitor/) about Capacity Reservation pricing.
+In addition to the Pay-As-You-Go model for log data, Azure Monitor Log Analytics has Commitment Tiers. These enable you to save as much as 30% compared to the Pay-As-You-Go pricing. Commitment Tiers start at just 100 GB/day. Any usage above the Commitment Tier will be billed at the same price-per-GB as the Commitment Tier. [Learn more](https://azure.microsoft.com/pricing/details/monitor/) about Commitment Tiers pricing.
 
 Some customers will have access to [legacy Log Analytics pricing tiers](logs/manage-cost-storage.md#legacy-pricing-tiers) and the [legacy Enterprise Application Insights pricing tier](app/pricing.md#legacy-enterprise-per-node-pricing-tier). 
 
@@ -61,7 +61,7 @@ This results in a view such as:
 
 From here, you can drill in from this accumulated cost summary to get the finer details in the "Cost by resource" view. In the current pricing tiers, Azure Log data is charged on the same set of meters whether it originates from Log Analytics or Application Insights. To separate costs from your Log Analytics or Application Insights usage, you can add a filter on **Resource type**. To see all Application Insights costs, filter the Resource type to "microsoft.insights/components", and for Log Analytics costs, filter Resource type to "microsoft.operationalinsights/workspaces". 
 
-More detail of your usage is available by [downloading your usage from the Azure portal](../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). 
+More detail of your usage is available by [downloading your usage from the Azure portal](../cost-management-billing/understand/download-azure-daily-usage.md). 
 In the downloaded spreadsheet, you can see usage per Azure resource per day. In this Excel spreadsheet, usage from your Application Insights resources can be found by first filtering on the "Meter Category" column to show "Application Insights" and "Log Analytics", and then adding a filter on the "Instance ID" column which is "contains microsoft.insights/components".  Most Application Insights usage is reported on meters with the Meter Category of Log Analytics, since there is a single logs backend for all Azure Monitor components.  Only Application Insights resources on legacy pricing tiers and multi-step web tests are reported with a Meter Category of Application Insights.  The usage is shown in the "Consumed Quantity" column and the unit for each entry is shown in the "Unit of Measure" column.  More details are available to help you [understand your Microsoft Azure bill](../cost-management-billing/understand/review-individual-bill.md). 
 
 > [!NOTE]
