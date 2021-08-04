@@ -1,7 +1,7 @@
 ---
-title: "Detect faces in an image - Face"
+title: "Call the detect API - Face"
 titleSuffix: Azure Cognitive Services
-description: This guide demonstrates how to use face detection to extract attributes like gender, age, or pose from a given image.
+description: This guide demonstrates how to use face detection to extract attributes like age, emotion, or head pose from a given image.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme

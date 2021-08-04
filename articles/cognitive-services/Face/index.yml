@@ -73,7 +73,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Detect and analyze faces
+          - text: Call the detect API
             url: Face-API-How-to-Topics/howtodetectfacesinimage.md
           - text: Use the HeadPose attribute
             url: Face-API-How-to-Topics/how-to-use-headpose.md
