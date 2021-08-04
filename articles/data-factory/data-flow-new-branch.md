@@ -6,7 +6,7 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: ; seo-dt-2019, synapse
+ms.custom: synapse
 ms.date: 04/16/2021
 ---
 

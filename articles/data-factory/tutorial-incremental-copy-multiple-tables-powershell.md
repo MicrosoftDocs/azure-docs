@@ -6,7 +6,7 @@ author: dearandyxu
 ms.reviewer: douglasl, jburchel
 ms.service: data-factory
 ms.topic: tutorial
-ms.custom: seo-lt-2019; seo-dt-2019, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 ms.date: 07/05/2021
 ---
 

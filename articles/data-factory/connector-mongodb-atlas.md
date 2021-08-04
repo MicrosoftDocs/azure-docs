@@ -6,7 +6,7 @@ author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: ; seo-dt-2019, synapse
+ms.custom: synapse
 ms.date: 06/01/2021
 ---
 
