@@ -105,8 +105,8 @@ The following list contains links to libraries for other programming languages a
 
 ## PowerShell
 
-- [Azure PowerShell](/powershell/module/az.storage/)
+[Azure PowerShell reference](/powershell/module/az.storage/)
 
 ## Azure CLI
 
-- [Azure CLI](/cli/azure/storage)
+[Azure CLI reference](/cli/azure/storage)
