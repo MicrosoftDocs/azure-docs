@@ -47,7 +47,7 @@ User Administrator  |  Can manage all aspects of users and groups, including res
 The following security principals can be assigned to a role with an administrative unit scope:
 
 * Users
-* Role-assignable Azure AD groups (preview)
+* Role-assignable Azure AD groups
 * Service Principal Name (SPN)
 
 ## Assign a scoped role

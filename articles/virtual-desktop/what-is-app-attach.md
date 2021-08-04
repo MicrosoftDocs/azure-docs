@@ -22,7 +22,7 @@ You can deliver apps in Azure Virtual Desktop through one of the following metho
 
 - Put apps in a master image
 - Use tools like SCCM or Intune for central management
-- Dynamic app provisioning (AppV, VMWare AppVolumes, or Citrix AppLayering)
+- Dynamic app provisioning (AppV, VMware AppVolumes, or Citrix AppLayering)
 - Create custom tools or scripts using Microsoft and a third-party tool
 
 ## What does MSIX app attach do?

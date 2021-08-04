@@ -2,7 +2,7 @@
 title: Chat SDK overview for Azure Communication Services	
 titleSuffix: An Azure Communication Services concept document	
 description: Learn about the Azure Communication Services Chat SDK.	
-author: mikben	
+author: knvsl	
 manager: jken	
 services: azure-communication-services	
 ms.author: mikben	

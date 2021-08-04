@@ -121,6 +121,11 @@ sections:
 
           In other words, the host pool's limits would be the same as if you're installing and running the apps locally.          
 
+      - question: |
+          Should I timestamp my MSIX packages?
+        answer: |
+          Check the [MSIX packaging overview](/windows/msix/package/signing-package-overview#timestamping) to see Microsoft's recommendations for using timestamps.
+      
 additionalContent: |
 
   ## Next steps
