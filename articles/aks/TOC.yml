@@ -138,6 +138,8 @@
       items:
         - name: Scale an AKS cluster
           href: scale-cluster.md
+        - name: Stop/Deallocate your nodes in an AKS Cluster
+          href: scale-down-mode.md
         - name: Stop an AKS cluster
           href: start-stop-cluster.md
         - name: Use planned maintenance (preview)
