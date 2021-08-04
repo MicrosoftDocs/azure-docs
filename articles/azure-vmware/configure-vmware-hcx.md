@@ -195,7 +195,7 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: C
    :::image type="content" source="media/tutorial-vmware-hcx/interconnect-appliance-state.png" alt-text="Screenshot that shows selections for checking the status of the appliance." lightbox="media/tutorial-vmware-hcx/interconnect-appliance-state.png":::
 
    >[!NOTE]
-   >After establishing the service mesh, you may notice a new datastore and new host in your private cloud. It's perfectly normal and it's how HCX functions.
+   >After establishing the service mesh, you may notice a new datastore and a new host in your private cloud. This is perfectly normal behavior after establishing a service mesh.
    >
    >:::image type="content" source="media/tutorial-vmware-hcx/hcx-service-mesh-datastore-host.png" alt-text="Screenshot showing the HCX service mesh datastore and host." lightbox="media/tutorial-vmware-hcx/hcx-service-mesh-datastore-host.png":::
 
@@ -226,5 +226,4 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: N
 ## Next steps
 
 If the HCX interconnect tunnel status is **UP** and green, you're ready to migrate and protect Azure VMware Solution VMs using VMware HCX. Azure VMware Solution supports workload migrations (with or without a network extension). You can still migrate workloads in your vSphere environment, along with on-premises creation of networks and deployment of VMs onto those networks. For more information, see the [VMware HCX Documentation](https://docs.vmware.com/en/VMware-HCX/index.html).
-
 
