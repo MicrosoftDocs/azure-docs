@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/23/2021
+ms.date: 08/02/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need a quick way to get rid of resource groups no longer in use that were created for VMs on my Azure Stack Edge Pro GPU devices.
 ---
@@ -26,7 +26,7 @@ Follow these steps to view the Edge resource groups for the current subscription
 
 1. Go to **Virtual machines** on your device, and go to the **Resources** pane. Select **Edge resource groups**.
 
-    ![Screenshot showing Edge resource groups for virtual machines deployed on an Azure Stack Edge device.-1](media/azure-stack-edge-gpu-manage-edge-resource-groups-portal/edge-resource-groups-01.png)
+    ![Screenshot of the Resources view for virtual machines on an Azure Stack Edge device. The Edge Resource groups tab is shown and highlighted.](media/azure-stack-edge-gpu-manage-edge-resource-groups-portal/edge-resource-groups-01.png)
 
     > [!NOTE]
     > You can get the same listing by using [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-6.1.0&preserve-view=true) in Azure Powershell after you set up the Azure Resource Manager environment on your device. For more information, see [Connect to Azure Resource Manager](azure-stack-edge-gpu-connect-resource-manager.md).
@@ -42,17 +42,17 @@ Follow these steps to delete an Edge resource group that's no longer in use.
 
 1. Go to **Virtual machines** on your device, and go to the **Resources** pane. Select **Edge resource groups**.
 
-    ![Screenshot showing Edge resource groups for virtual machines deployed on an Azure Stack Edge device.-2](media/azure-stack-edge-gpu-manage-edge-resource-groups-portal/edge-resource-groups-01.png)
+    ![Screenshot showing Resources view for virtual machines on an Azure Stack Edge device. The Edge Resource groups tab is shown and highlighted.](media/azure-stack-edge-gpu-manage-edge-resource-groups-portal/edge-resource-groups-01.png)
 
 1. Select the resource group that you want to delete. In the far right of the resource group, select the delete icon (trashcan).
 
    The delete icon is only displayed when a resource group doesn't contain any resources.
 
-    ![Screenshot showing an Edge resource group with the delete icon selected.](media/azure-stack-edge-gpu-manage-edge-resource-groups-portal/edge-resource-groups-02.png)
+    ![Screenshot of Resources view, Edge resource groups tab, for VMs on an Azure Stack Edge device. A trashcan icon by a resource group indicates it can be deleted. The icon is highlighted.](media/azure-stack-edge-gpu-manage-edge-resource-groups-portal/edge-resource-groups-02.png)
 
 1. You'll see a message asking you to confirm that you want to delete the Edge resource group. The operation can't be reversed. Select **Yes**.
 
-    ![To delete an Edge resource group, select the trashcan icon to the right of the entry in the list of resource groups](./media/azure-stack-edge-gpu-manage-edge-resource-groups-portal/edge-resource-groups-03.png)
+    ![Screenshot of  the Edge resource groups tab  in Resources view for VMs. The highlighted trashcan icon indicates a resource group can be deleted.](./media/azure-stack-edge-gpu-manage-edge-resource-groups-portal/edge-resource-groups-03.png)
 
     When deletion is complete, the resource group is removed from the list.
 

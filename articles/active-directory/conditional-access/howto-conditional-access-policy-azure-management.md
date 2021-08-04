@@ -23,7 +23,7 @@ Organizations use a variety of Azure services and manage them from Azure Resourc
 * Azure PowerShell
 * Azure CLI
 
-These tools can provide highly privileged access to resources, that can alter subscription-wide configurations, service settings, and subscription billing. To protect these privileged resources, Microsoft recommends requiring multi-factor authentication for any user accessing these resources.
+These tools can provide highly privileged access to resources, that can alter subscription-wide configurations, service settings, and subscription billing. To protect these privileged resources, Microsoft recommends requiring multi-factor authentication for any user accessing these resources. In Azure AD these tools are grouped together in a suite called [Microsoft Azure Management](concept-conditional-access-cloud-apps.md#microsoft-azure-management). For Azure Government, this should be the Azure Government Cloud Management API app. 
 
 ## User exclusions
 
@@ -36,7 +36,7 @@ Conditional Access policies are powerful tools, we recommend excluding the follo
 
 ## Create a Conditional Access policy
 
-The following steps will help create a Conditional Access policy to require those with access to the [Microsoft Azure Management](concept-conditional-access-cloud-apps.md#microsoft-azure-management) app to perform multi-factor authentication.For Azure Government, this should be the Azure Government Cloud Management API app. 
+The following steps will help create a Conditional Access policy to require those who access the [Microsoft Azure Management](concept-conditional-access-cloud-apps.md#microsoft-azure-management) suite to perform multi-factor authentication.
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.

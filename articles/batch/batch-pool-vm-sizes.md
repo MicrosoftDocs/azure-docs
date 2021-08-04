@@ -31,10 +31,11 @@ Batch pools in the Virtual Machine configuration support almost all [VM sizes](.
 | Dv4, Dsv4 | Not supported |
 | Ev3, Esv3 | All sizes, except for E64is_v3 |
 | Eav4, Easv4 | All sizes |
-| Edv4, Edsv4 |  All sizes |
+| Edv4, Edsv4 | All sizes |
 | Ev4, Esv4 | Not supported |
 | F, Fs | All sizes |
 | Fsv2 | All sizes |
+| FX | All sizes |
 | G, Gs | All sizes |
 | H | All sizes |
 | HB | All sizes |

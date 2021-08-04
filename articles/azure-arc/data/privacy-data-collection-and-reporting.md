@@ -23,6 +23,9 @@ Azure Arc-enabled data services may use some or all of the following products:
 - SQL MI – Azure Arc 
 - PostgreSQL Hyperscale – Azure Arc
 - Azure Data Studio
+
+   [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
+
 - Azure CLI (az)
 - Azure Data CLI (`azdata`) 
 

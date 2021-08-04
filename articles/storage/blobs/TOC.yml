@@ -534,6 +534,8 @@ items:
       href: ../common/storage-account-move.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Monitor
       items:
+      - name: Scenarios and best practices
+        href: blob-storage-monitoring-scenarios.md
       - name: Use Storage insights
         href: ../common/storage-insights-overview.md
       - name: Monitor (classic)
