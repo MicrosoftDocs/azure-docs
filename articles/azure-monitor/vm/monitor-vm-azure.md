@@ -81,7 +81,7 @@ You can access the configuration for the workspace directly from VM insights by 
 
 ![Workspace configuration](media/monitor-vm-azure/workspace-configuration.png)
 
-Select **Advanced Settings** from the workspace menu and then **Data** to configure data sources. For Windows agents, select **Windows Event Logs** and add common event logs such as *System* and *Application*. For Linux agents, select **Syslog** and add common facilities such as *kern* and *daemon*. See [Agent data sources in Azure Monitor](../agents/agent-data-sources.md) for a list of the data sources available and details on configuring them. 
+Select **Agents configuration** from the workspace menu to configure data sources. For Windows agents, select **Windows Event Logs** and add common event logs such as *System* and *Application*. For Linux agents, select **Syslog** and add common facilities such as *kern* and *daemon*. See [Agent data sources in Azure Monitor](../agents/agent-data-sources.md) for a list of the data sources available and details on configuring them. 
 
 ![Configure events](media/monitor-vm-azure/configure-events.png)
 

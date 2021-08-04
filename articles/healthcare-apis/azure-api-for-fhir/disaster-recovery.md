@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 07/28/2021
+ms.date: 08/03/2021
 ms.author: zxue
 ---
 
