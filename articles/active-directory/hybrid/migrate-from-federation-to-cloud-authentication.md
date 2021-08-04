@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 # Migrate from federation to cloud authentication 
 
-In this article, you learn how to deploy cloud user authentication with either Azure Active Directory [Password hash synchronization (PHS)](whatis-phs.md) or [Pass-through authentication (PTA)](how-to-connect-pta.md). While we present the use case for moving from [Active Directory Federation Services (AD FS)](whatis-fed.md) to cloud authentication methods, the guidance substantially applies other to on premises systems as well.
+In this article, you learn how to deploy cloud user authentication with either Azure Active Directory [Password hash synchronization (PHS)](whatis-phs.md) or [Pass-through authentication (PTA)](how-to-connect-pta.md). While we present the use case for moving from [Active Directory Federation Services (AD FS)](whatis-fed.md) to cloud authentication methods, the guidance substantially applies to other on premises systems as well.
 
 Before you continue, we suggest that you review our guide on [choosing the right authentication method](choose-ad-authn.md) and compare methods most suitable for your organization.
 
@@ -38,7 +38,7 @@ To learn how to configure staged rollout, see the [staged rollout interactive gu
 
 ## Prerequisites
 
-Before you begin your migration, ensure that you meet these prerequisites:
+Before you begin your migration, ensure that you meet these prerequisites.
 
 ### Required roles
 
@@ -405,7 +405,7 @@ You can move SaaS applications that are currently federated with ADFS to Azure A
 For more information, see – 
 
 - [Moving application authentication from Active Directory Federation Services to Azure Active Directory](/manage-apps/migrate-adfs-apps-to-azure) and
-- [AD FS to Azure AD application migration playbook for developers](/samples/azure-samples/ms-identity-dotnet-adfs-to-aad)
+- [AD FS to Azure AD application migration playbook for developers](/samples/azure-samples/ms-identity-adfs-to-aad/ms-identity-dotnet-adfs-to-aad)
 
 ### Remove relying party trust
 

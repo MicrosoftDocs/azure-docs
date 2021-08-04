@@ -2,7 +2,7 @@
 title: Chat SDK overview for Azure Communication Services	
 titleSuffix: An Azure Communication Services concept document	
 description: Learn about the Azure Communication Services Chat SDK.	
-author: mikben	
+author: knvsl	
 manager: jken	
 services: azure-communication-services	
 ms.author: mikben	
@@ -12,8 +12,6 @@ ms.service: azure-communication-services
 ---	
 
 # Chat SDK overview	
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-chat.md)]
 
 Azure Communication Services Chat SDKs can be used to add rich, real-time chat to your applications.
 	

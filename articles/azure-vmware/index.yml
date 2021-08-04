@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page 
   author: shortpatti 
   ms.author: v-patsho 
-  ms.date: 07/16/2021 
+  ms.date: 08/02/2021 
 
 
 # card 1
@@ -71,14 +71,16 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
-          - text: 1 - Plan the deployment
-            url: production-ready-deployment-steps.md
-          - text: 2 - Deploy Azure VMware Solution
-            url: deploy-azure-vmware-solution.md
-          - text: 3 - Connect to on-premises
-            url: tutorial-expressroute-global-reach-private-cloud.md
-          - text: 4 - Deploy and configure HCX
-            url: tutorial-deploy-vmware-hcx.md
+        - text: 1 - Plan the deployment
+          url: plan-private-cloud-deployment.md
+        - text: 2 - Deploy Azure VMware Solution
+          url: deploy-azure-vmware-solution.md
+        - text: 3 - Connect to on-premises environment
+          url: tutorial-expressroute-global-reach-private-cloud.md
+        - text: 4 - Install VMware HCX Connector
+          url: install-vmware-hcx.md
+        - text: 5 - Configure on-premises VMware HCX Connector
+          url: configure-vmware-hcx.md
       - linkListType: tutorial
         links:
           - text: Network planning checklist 
@@ -89,10 +91,8 @@ landingContent:
             url: tutorial-access-private-cloud.md
           - text: Configure networking
             url: tutorial-configure-networking.md
-          - text: Create an NSX-T network segment 
+          - text: Create a network segment 
             url: tutorial-nsx-t-network-segment.md
-          - text: Peer on-premises to private cloud 
-            url: tutorial-expressroute-global-reach-private-cloud.md
           - text: Expand or shrink clusters in a private cloud 
             url: tutorial-scale-private-cloud.md
           - text: Delete a private cloud
@@ -122,7 +122,7 @@ landingContent:
             url: reserved-instance.md
       - linkListType: how-to-guide
         links:
-          - text: Configure DHCP 
+          - text: Configure DHCP server or relay 
             url: configure-dhcp-azure-vmware-solution.md
           - text: Configure DHCP on L2 stretched networks
             url: configure-l2-stretched-vmware-hcx-networks.md
@@ -243,6 +243,6 @@ landingContent:
       - linkListType: reference
         links:
           - text: Open a support request for deployment failures
-            url: fix-deployment-provisioning-failures.md
+            url: fix-deployment-failures.md
           - text: VMware tools vix error code = 21009
             url: https://kb.vmware.com/s/article/2129927
