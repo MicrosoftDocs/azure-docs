@@ -53,7 +53,7 @@ Restrict access to Azure AD administration portal | <p>Setting this option to No
 Ability to read other users | This setting is available in PowerShell only. Setting this flag to $false prevents all non-admins from reading user information from the directory. This flag does not prevent reading user information in other Microsoft services like Exchange Online. This setting is meant for special circumstances, and setting this flag to $false is not recommended.
 
 >![NOTE]
->It’s assumed the average user would only be using the portal to access Azure AD, and not using PowerShell or CLI to access their resources. Currently, restricting access to users' default permissions only occurs when the user tries to access the directory within the Azure portal.
+>It’s assumed the average user would only use the portal to access Azure AD, and not use PowerShell or CLI to access their resources. Currently, restricting access to users' default permissions only occurs when the user tries to access the directory within the Azure portal.
 
 ## Restrict guest users default permissions
 
