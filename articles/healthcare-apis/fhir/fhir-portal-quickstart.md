@@ -51,6 +51,8 @@ If you wish to configure the FHIR service to use an external or secondary Azure 
 
 To validate that the new FHIR API account is provisioned, fetch a capability statement by browsing to `https://<WORKSPACE NAME>-<ACCOUNT-NAME>.fhir.azurehealthcareapis.com/metadata`.
 
+## Next steps
+
 >[!div class="nextstepaction"]
->[Overview of Heathcare APIs](../healthcare-apis-overview.md)
+>[Access the FHIR service using Postman](../azure-api-for-fhir/access-fhir-postman-tutorial.md)
 
