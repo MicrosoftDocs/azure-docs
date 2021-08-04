@@ -23,7 +23,7 @@ ms.custom: ep-msia
 Remove all the comments in this template before you sign-off or merge to the main branch.
 -->
 
-This article shows you how to use managed identities with a [service name] instance.` [!INCLUDE [managed identities](../../../includes/managed-identities-definition.md)] `.
+This article shows you how to use managed identities with a [service name] instance.` [!INCLUDE [managed identities](~/includes/managed-identities-definition.md)] `.
 
 ## Prerequisites
 
@@ -158,7 +158,27 @@ To assign a user-assigned identity to a VM, your account needs the Virtual Machi
 
 #### [PowerShell](#tab/azure-powershell)
 
+### Assign a user-assigned managed identity to an existing Azure VM
 
+To assign a user-assigned identity to a VM, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) and [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role assignments. No additional Azure AD directory role assignments are required.
+
+1. Create a user-assigned managed identity using the [New-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/new-azuserassignedidentity) cmdlet.  Note the `Id` in the output because you will need this in the next step.
+
+   > [!IMPORTANT]
+   > Creating user-assigned managed identities only supports alphanumeric, underscore and hyphen (0-9 or a-z or A-Z, \_ or -) characters. Additionally, name should be limited from 3 to 128 character length for the assignment to VM/VMSS to work properly. For more information see [FAQs and known issues](known-issues.md)
+
+   ```azurepowershell-interactive
+   New-AzUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGNED IDENTITY NAME>
+   ```
+1. Retrieve the VM properties using the `Get-AzVM` cmdlet. Then to assign a user-assigned managed identity to the Azure VM, use the `-IdentityType` and `-IdentityID` switch on the [Update-AzVM](/powershell/module/az.compute/update-azvm) cmdlet.  The value for the`-IdentityId` parameter is the `Id` you noted in the previous step.  Replace `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, and `<USER ASSIGNED IDENTITY NAME>` with your own values.
+
+   > [!WARNING]
+   > To retain any previously user-assigned managed identities assigned to the VM, query the `Identity` property of the VM object (for example, `$vm.Identity`).  If any user assigned managed identities are returned, include them in the following command along with the new user assigned managed identity you would like to assign to the VM.
+
+   ```azurepowershell-interactive
+   $vm = Get-AzVM -ResourceGroupName <RESOURCE GROUP> -Name <VM NAME>
+   Update-AzVM -ResourceGroupName <RESOURCE GROUP> -VM $vm -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>"
+   ```
 
 #### [Azure CLI](#tab/azure-cli)
 
