@@ -246,26 +246,61 @@ az ml workspace create -w <workspace-name> -g <resource-group-name> --file works
 
 ### Customer-managed key and high business impact workspace
 
-By default, metadata for the workspace is stored in an Azure Cosmos DB instance that Microsoft maintains. This data is encrypted using Microsoft-managed keys.
+By default, metadata for the workspace is stored in an Azure Cosmos DB instance that Microsoft maintains. This data is encrypted using Microsoft-managed keys. Instead of using the Microsoft-managed key, you can also provide your own key. Doing so creates an additional set of resources in your Azure subscription to store your data. To learn more about the resources that are created when you bring your own key for encryption, see [Data encryption with Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/concept-data-encryption#azure-cosmos-db).
 
 > [!NOTE]
 > Azure Cosmos DB is __not__ used to store information such as model performance, information logged by experiments, or information logged from your model deployments. For more information on monitoring these items, see the [Monitoring and logging](concept-azure-machine-learning-architecture.md) section of the architecture and concepts article.
 
-Instead of using the Microsoft-managed key, you can use the provide your own key. Doing so creates the Azure Cosmos DB instance that stores metadata in your Azure subscription. Use the `--cmk-keyvault` parameter to specify the Azure Key Vault that contains the key, and `--resource-cmk-uri` to specify the URL of the key within the vault.
+You can use the Azure CLI to configure your workspace for use with customer-managed keys. The implementation path differs slightly for the 1.0 CLI and 2.0 CLI versions.
 
-Before using the `--cmk-keyvault` and `--resource-cmk-uri` parameters, you must first perform the following actions:
+# [1.0 CLI](#tab/vnetpleconfigurationsv1cli)
 
-1. Authorize the __Machine Learning App__ (in Identity and Access Management) with contributor permissions on your subscription.
-1. Follow the steps in [Configure customer-managed keys](../cosmos-db/how-to-setup-cmk.md) to:
-    * Register the Azure Cosmos DB provider
-    * Create and configure an Azure Key Vault
-    * Generate a key
+Use the `--cmk-keyvault` parameter to specify the Azure Key Vault that contains the key, and `--resource-cmk-uri` to specify the resource id and uri of the key within the vault.
 
-You do not need to manually create the Azure Cosmos DB instance, one will be created for you during workspace creation. This Azure Cosmos DB instance will be created in a separate resource group using a name based on this pattern: `<your-resource-group-name>_<GUID>`.
+To limit the data that Microsoft collects on your workspace, you can additionally specify the `--hbi-workspace` parameter. 
+
+```azurecli-interactive
+az ml workspace create -w <workspace-name>
+                       -g <resource-group-name>
+                       --cmk-keyvault "<cmk keyvault name>"
+                       --resource-cmk-uri "<resource cmk uri>"
+                       --hbi-workspace
+```
+
+# [2.0 CLI](#tab/vnetpleconfigurationsv2cli)
+
+Use the `customer_managed_key` parameter and containing `key_vault` and `key_uri` parameters, to specify the resource id and uri of the key within the vault. To limit the data that Microsoft collects on your workspace, you can additionally specify the `hbi_workspace` property. 
+
+```yaml workspace.yml
+name: azureml888
+location: EastUS
+description: Description of my workspace
+storage_account: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>
+container_registry: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.ContainerRegistry/registries/<registry-name>
+key_vault: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.KeyVault/vaults/<vault-name>
+application_insights: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/microsoft.insights/components/<application-insights-name>
+
+hbi_workspace: true
+customer_managed_key:
+  key_vault: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers//Microsoft.KeyVault/<vaulttype>/<vaultname>
+  key_uri: https://<keyvaultid>.vault.azure.net/keys/<keyname>/<keyversion>
+
+```
+
+Then, you can reference this configuration file as part of the workspace creation CLI command.
+
+```azurecli-interactive
+az ml workspace create -w <workspace-name> -g <resource-group-name> --file workspace.yml
+```
+---
+
+> [!NOTE]
+> Authorize the __Machine Learning App__ (in Identity and Access Management) with contributor permissions on your subscription to manage the data encryption additional resources.
+
+> [!NOTE]
+> Azure Cosmos DB is __not__ used to store information such as model performance, information logged by experiments, or information logged from your model deployments. For more information on monitoring these items, see the [Monitoring and logging](concept-azure-machine-learning-architecture.md) section of the architecture and concepts article.
 
 [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
-
-To limit the data that Microsoft collects on your workspace, use the `--hbi-workspace` parameter. 
 
 > [!IMPORTANT]
 > Selecting high business impact can only be done when creating a workspace. You cannot change this setting after workspace creation.
