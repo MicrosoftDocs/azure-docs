@@ -461,7 +461,8 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
         "ConnectionString":"InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://westus-0.in.applicationinsights.azure.com/"
     
     ```
-
+    
+    Confirm that `AppAlreadyInstrumented` is set to false, `AiHostingStartupLoaded` to true and `IKeyExists` to true.
  
 ##### No Data for Linux ASP.NET Core
 
