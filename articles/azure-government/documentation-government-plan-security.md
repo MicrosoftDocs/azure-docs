@@ -43,7 +43,7 @@ Azure provides extensive options for [encrypting data at rest](../security/funda
 
 Azure provides many options for [encrypting data in transit](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit). Data encryption in transit isolates customer network traffic from other traffic and helps protect data from interception. For more information, see [Data encryption in transit](./azure-secure-isolation-guidance.md#data-encryption-in-transit).
 
-The basic encryption available for connectivity to Azure Government supports Transport Layer Security (TLS) 1.2 protocol and X.509 certificates. Federal Information Processing Standard (FIPS) 140-2 validated cryptographic algorithms are also used for infrastructure network connections between Azure Government datacenters. Windows, Windows Server, and Azure File shares can use SMB 3.0 for encryption between the VM and the file share. Use client-side encryption to encrypt the data before it is transferred into storage in a client application, and to decrypt the data after it is transferred out of storage.
+The basic encryption available for connectivity to Azure Government supports Transport Layer Security (TLS) 1.2 protocol and X.509 certificates. Federal Information Processing Standard (FIPS) 140 validated cryptographic algorithms are also used for infrastructure network connections between Azure Government datacenters. Windows, Windows Server, and Azure File shares can use SMB 3.0 for encryption between the VM and the file share. Use client-side encryption to encrypt the data before it is transferred into storage in a client application, and to decrypt the data after it is transferred out of storage.
 
 ### Best practices for encryption
 
@@ -52,7 +52,7 @@ The basic encryption available for connectivity to Azure Government supports Tra
 
 ## Managing secrets
 
-Proper protection and management of encryption keys is essential for data security. Customers should strive to simplify key management and maintain control of keys used by cloud applications and services to encrypt data. [Azure Key Vault](../key-vault/index.yml) is a cloud service for securely storing and managing secrets. Key Vault enables customers to store their encryption keys in hardware security modules (HSMs) that are FIPS 140-2 validated. For more information, see [Data encryption key management](./azure-secure-isolation-guidance.md#data-encryption-key-management).
+Proper protection and management of encryption keys is essential for data security. Customers should strive to simplify key management and maintain control of keys used by cloud applications and services to encrypt data. [Azure Key Vault](../key-vault/index.yml) is a cloud service for securely storing and managing secrets. Key Vault enables customers to store their encryption keys in hardware security modules (HSMs) that are [FIPS 140](/azure/compliance/offerings/offering-fips-140-2) validated. For more information, see [Data encryption key management](./azure-secure-isolation-guidance.md#data-encryption-key-management).
 
 ### Best practices for managing secrets
 
