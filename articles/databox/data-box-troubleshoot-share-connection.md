@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 08/03/2021
+ms.date: 08/04/2021
 ms.author: alkohli
 ---
 
@@ -25,96 +25,105 @@ The most common reasons for being unable to connect to an SMB share on a Data Bo
 - a group policy is preventing a connection
 - a permissions issue
 
-### Troubleshoot a share connection problem
+## Troubleshoot share connection issues
 
-If you can't connect to a Data Box share from your host computer, do the following steps to identify and fix the problem: 
+If you can't connect to an SMB share on your Data Box device from your host computer, check for the following issues in this order.
 
-1. To check for a domain issue, try to [connect to your device](data-box-quickstart-portal.md) entering your credentials in one of the following formats:<!--Part of the share path.-->
+### Check for a domain issue
+
+To find out whether a domain issue is preventing share access:
+
+1. When you access the share, enter the share password in one of the following formats:
 
        - `<device IP address>\<user name>`
        - `\<user name>`
 
-   If this doesn't work, the problem isn't a domain issue.
+    To access a share associated with your storage account from your host computer, open a command window. At the command prompt, type the following command. You'll be prompted for a password.<!--They already know this?-->
 
-1. Next, check whether a group policy is preventing you from connecting to the Data Box share. If possible, move your client/host machine to an organizational unit (OU) that doesn't have any Group Policy objects (GPOs) applied.<!--Sources: 1) StorSimple best practices, "Group policy" (https://docs.microsoft.com/en-us/azure/storsimple/storsimple-ova-best-practices#group-policy; 2) "Block inheritance" (https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731076(v=ws.11). 3) Or look through the Group policy tree.-->
+    net use \\<IP address of the device>\<share name> /u:<IP address of the device>\<user name for the share>
 
-==========
-IMPORTED FROM StorSimple best practices > Group policy
+    For a procedure, see [Copy data to Data Box via SMB](https://docs.microsoft.com/en-us/azure/databox/data-box-deploy-copy-data).
 
-Group Policy is an infrastructure that allows you to implement specific configurations for users and computers. Group Policy settings are contained in Group Policy objects (GPOs), which are linked to the following Active Directory Domain Services (AD DS) containers: sites, domains, or organizational units (OUs).
+### Check for a blocking group policy
 
-If your Data Box is domain-joined, GPOs can be applied to it. These GPOs can install applications such as an antivirus software that can adversely impact the operation of the Data Box.
+Check whether a group policy on your Data Box is preventing you from connecting to the share. If possible, move your Data Box to an organizational unit (OU) that doesn't have any Group Policy objects (GPOs) applied.
 
-Therefore, we recommend that you:
+Group Policy allows an organization to implement specific configurations for users and computers. Group Policy settings are contained in Group Policy objects (GPOs), which are linked to sites, domains, or organizational units (OUs) in Active Directory Domain Services (AD DS) .
 
-* Ensure that your Data Box is in its own organizational unit (OU) for Active Directory.
+If your Data Box is domain-joined, GPOs can be applied to it. <!--NOT NEEDED IN THIS CONTEXT? These GPOs can install applications such as an antivirus software that can adversely impact the operation of the Data Box.-->
+
+To ensure that no group policies are preventing your access to shares on the Data Box:
+
+* Make sure your Data Box is in its own organizational unit (OU) for Active Directory.
+
 * Make sure that no group policy objects (GPOs) are applied to your Data Box. You can block inheritance to ensure that the Data Box (child node) does not automatically inherit any GPOs from the parent. For more information, go to [block inheritance](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731076(v=ws.11)).
-==========
 
-1. Run diagnostics.
+### Check for a permissions failure
 
-   1. In the local web UI for the device, go to **Troubleshooting**, and then to **Diagnostic test**. Run diagnostics and collect device logs.<!--SEE NOTES FROM 09/30 SYNC FOR GUIDANCE. "Tracking and event logging for your Azure Data Box and Azure Data Box Heavy import order" (https://docs.microsoft.com/en-us/azure/databox/data-box-logs#query-activity-logs-during-setup - MD:data-box-event-logs.md) doesn't discuss Smbserver.security event logs in the \etw folder.-->
+If you still can't connect to the share, you may have a permissions issue. Your next step is to run diagnostics, and review the Smbserver.Security event logs for errors indicating a permissions failure.
 
-   1. Review the `Smbserver.Security` event logs in the `etw` folder for an error similar to one of the errors identified (in bold) in the following sample entry.<!--1) Take a screenshot of the text in Word. 2) Make a quick check for other articles with log samples to see what text formats they use. 3) Add error text to search for in text. 4) Break the screenshots in two - one for each error?-->
-   
-      ```output
+#### Run diagnostics
+
+To run diagnostics on your Data Box, do the following steps:
+
+   1. In the local web UI, go to **Troubleshooting**, and then to **Diagnostic test**.
+
+   1. Review the `Smbserver.Security` event logs in the `etw` folder one of the following errors:
+      
+      ```xml
       SMB Session Authentication Failure
       Client Name: \\<ClientIP>
       Client Address: <ClientIP:Port>
       User Name:
       Session ID: 0x100000000021
-      Status: *The attempted logon is invalid. This is either due to a bad username or authentication information.* (0xC000006D)
+      Status: The attempted logon is invalid. This is either due to a bad username or authentication information. (0xC000006D)
       SPN: session setup failed before the SPN could be queried
       SPN Validation Policy: SPN optional / no validation
-      Guidance:
-      You should expect this error when attempting to connect to shares using incorrect credentials.
-      This error does not always indicate a problem with authorization, but mainly authentication. It is more common with non-Windows clients.
-      This error can occur when using incorrect usernames and passwords with NTLM, mismatched LmCompatibility settings between client and server, an incorrect service principal name, duplicate Kerberos service principal names, incorrect Kerberos ticket-granting service tickets, or Guest accounts without Guest access enabled.
-      You may also find the following error in the Smbserver.Security event logs :
-      *LmCompatibilityLevel value is different from the default.*
-      *Configured LM Compatibility Level: 5*
-      *Default LM Compatibility Level: 3*
-      Guidance:
-      LAN Manager (LM) authentication is the protocol used to authenticate Windows clients for network operations. This includes joining a domain, accessing network resources, and authenticating users or computers. This determines which challenge/response authentication protocol is negotiated between the client and the server computers. Specifically, the LM authentication level determines which authentication protocols the client will try to negotiate or the server will accept. The value set for LmCompatibilityLevel determines which challenge/response authentication protocol is used for network logons. This value affects the level of authentication protocol that clients use, the level of session security negotiated, and the level of authentication accepted by servers.
-      Value (Setting) - Description
-      0 (Send LM & NTLM responses) - Clients use LM and NTLM authentication and never use NTLMv2 session security. Domain controllers accept LM, NTLM, and NTLMv2 authentication.
-      1 (Send LM & NTLM - use NTLMv2 session security if negotiated) - Clients use LM and NTLM authentication, and use NTLMv2 session security if the server supports it. Domain controllers accept LM, NTLM, and NTLMv2 authentication.
-      2 (Send NTLM response only) - Clients use NTLM authentication only and use NTLMv2 session security if the server supports it. Domain controllers accept LM, NTLM, and NTLMv2 authentication.
-      3 (Send NTLM v2 response only) - Clients use NTLMv2 authentication only and use NTLMv2 session security if the server supports it. Domain controllers accept LM, NTLM, and NTLMv2 authentication.
-      4 (Send NTLMv2 response only/refuse LM) - Clients use NTLMv2 authentication only and use NTLMv2 session security if the server supports it. Domain controllers refuse LM and accept only NTLM and NTLMv2 authentication.
-      5 (Send NTLM v2 response only/refuse LM & NTLM) - Clients use NTLMv2 authentication only and use NTLMv2 session security if the server supports it. Domain controllers refuse LM and NTLM and accept only NTLMv2 authentication.
-      Incompatibly configured LmCompatibility levels between a client and server (such as 0 on a client and 5 on a server) prevent access to the server. Non-Microsoft clients and servers also provide these configuration settings.
-      ```     
+      ```
+      
+      Or this error:
 
- 1.  If you find either of these errors in the `Smbserver.Security` event logs, do the following steps to resolve the issue:
+      ```xml
+       LmCompatibilityLevel value is different from the default.
+       Configured LM Compatibility Level: 5
+       Default LM Compatibility Level: 3
+      ```
+
+If you find either of these errors,  you'll need to update the LAN Manager authentication level. Use the Local Security Policy editor or by updating the Registry directly.
+
+#### Use the Local Security Policy editor to update the policy 
+
+To use the Local Security Policy editor<!--Short name?--> to update the policy, do these steps:
  
-     1. To open the Local Security Policy editor, start a PowerShell session, and run `secpol.msc`.
+1. To open the Local Security Policy editor, start a PowerShell session, and run `secpol.msc`.
 
-     1. Expand **Local Policies**, and go to **Security Options**. Then select **Network Security: LAN Manager authentication level**.
+1. Go to **Local Policies** > **Security Options** > **Network Security: LAN Manager authentication level**.
 
-         ![Screenshot of Security Options with Network Security: LAN Manager authentication level selected](media/data-box-troubleshoot-share-connection/security-policy-01.png)
+    ![Screenshot showing the Security Options in the Local Security Policy editor. The "Network Security: LAN Manager authentication level" policy is highlighted.](media/data-box-troubleshoot-share-connection/security-policy-01.png)
 
-      1. To change the setting, select and click **Network Security: LAN Manager authentication level**. Then select **Send NTLMv2 response only. Refuse LM & NTLM**, and select **OK**.<!--Awkward wording. Check how registry updates are described elsewhere.-->
+1. Change the setting **Send NTLMv2 response only. Refuse LM & NTLM**.
 
-         ![Screenshot that shows the "Send NTLMv2 response only. Refuse LM & NTLM." option selected as the LAN Manager authentication level](media/data-box-troubleshoot-share-connection/security-policy-02.png)
+    ![Screenshot showing "Network Security: LAN Manager authentication level" policy in the Local Security Policy editor. The "Send NTLMv2 response only. Refuse LM & NTLM" option is highlighted.](media/data-box-troubleshoot-share-connection/security-policy-02.png)
 
-1. If you can't change the LAN Manager authentication level using the Local Security Policy editor, use the Registry Editor to update the Registry directly:
+#### Update the Registry to change the policy
 
-    1. To open the Registry Editor, open a command prompt, and run `regedt32`.
+If you can't change the LAN Manager authentication level using the Local Security Policy editor, you can update the Registry directly.
 
-    1. Go to **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **LSA**.
+To update the Registry, do these steps:
 
-       ![Screenshot showing the location of the LSA folder in the Registry Editor](media/data-box-troubleshoot-share-connection/security-policy-03.png)
+1. To open the Registry Editor, open a command prompt, and run `regedt32`.
 
-    1. In the **LSA** folder, select and click **LMCompatibilityLevel** to open a window for editing the value data.
+1. Go to **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **LSA**.
 
-    1. In **Value data**, change the setting to 5.
+    ![Screenshot showing the Registry Editor with the LSA folder highlighted.](media/data-box-troubleshoot-share-connection/security-policy-03.png)
 
-        ![Screenshot showing the dialog box for editing the value of a setting in Registry Editor](media/data-box-troubleshoot-share-connection/security-policy-04.png)
+1. In the **LSA** folder, select and click **LMCompatibilityLevel** to open a window for editing the value data.
 
-    1. Restart your computer so that the Registry changes take effect.
+1. In **Value data**, change the setting to 5.
 
-1. Connect to the share.
+    ![Screenshot showing the dialog box for editing the value of a setting in Registry Editor](media/data-box-troubleshoot-share-connection/security-policy-04.png)
+
+1. Restart your computer so that the Registry changes take effect.
 
 ## Next steps
 
