@@ -16,7 +16,7 @@ ms.author: aersoy
 
 This tutorial provides an overview of how to use the DICOMweb&trade; Standard APIs with the DICOM Services.
 
-The DICOM service supports a subset of the DICOMweb&trade; Standard. This support includes:
+The DICOM service supports a subset of the DICOMweb&trade; Standard. This support includes the following:
 
 * Store (STOW-RS)
 * Retrieve (WADO-RS)
