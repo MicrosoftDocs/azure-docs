@@ -101,22 +101,22 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
 ```
 
 # [Bring existing resources (1.0 CLI)](#tab/bringexistingresources1)
-Once you have the IDs for the resource(s) that you want to use with the workspace, use the base `az workspace create -w <workspace-name> -g <resource-group-name>` command and add the parameter(s) and ID(s) for the existing resources. For example, the following command creates a workspace that uses an existing container registry:
+* To create a workspace that uses existing resources, you must provide the ID for the resources. You can get this ID either via the 'properties'  tab on each resource in the Azure Portal, or by running the following commands using the Azure CLI.
 
-```azurecli-interactive
-az ml workspace create -w <workspace-name> \
-                       -g <resource-group-name> \
-                       --container-registry "/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<acr-name>"
-```
+  * **Azure Storage Account**: `az storage account show --name <storage-account-name> --query "id"`
+  * **Azure Application Insights": `az monitor app-insights component show --app <application-insight-name> -g <resource-group-name> --query "id"`
+  * **Azure Key Vault**: `az keyvault show --name <key-vault-name> --query "ID"`
+  * **Azure Container Registry**: `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
 
-To create a workspace that uses existing resources, you must provide the ID for the resources. You can get this ID either via the 'properties'  tab on each resource in the Azure Portal, or by running the following commands using the Azure CLI.
+  The resource IDs value has the following format: `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/<provider>/<subresource>/<resource-name>"`.
 
-* **Azure Storage Account**: `az storage account show --name <storage-account-name> --query "id"`
-* **Azure Application Insights": `az monitor app-insights component show --app <application-insight-name> -g <resource-group-name> --query "id"`
-* **Azure Key Vault**: `az keyvault show --name <key-vault-name> --query "ID"`
-* **Azure Container Registry**: `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
+* Once you have the IDs for the resource(s) that you want to use with the workspace, use the base `az workspace create -w <workspace-name> -g <resource-group-name>` command and add the parameter(s) and ID(s) for the existing resources. For example, the following command creates a workspace that uses an existing container registry:
 
-The resource IDs value has the following format: `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/<provider>/<subresource>/<resource-name>"`.
+  ```azurecli-interactive
+  az ml workspace create -w <workspace-name> \
+                         -g <resource-group-name> \
+                         --container-registry "/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<acr-name>"
+  ```
 
 > [!IMPORTANT]
 > You don't have to specify all existing resources. You can specify one or more. For example, you can specify an existing storage account and the workspace will create the other resources.
@@ -141,7 +141,7 @@ Then, you can reference this configuration file as part of the workspace creatio
 az ml workspace create -w <workspace-name> -g <resource-group-name> --file workspace.yml
 ```
 
-To create a workspace that uses existing resources, you must provide the ID for the resources. You can get this ID either via the 'properties'  tab on each resource in the Azure Portal, or by running the following commands using the Azure CLI.
+If attaching existing resources, you must provide the ID for the resources. You can get this ID either via the 'properties'  tab on each resource in the Azure Portal, or by running the following commands using the Azure CLI.
 
 * **Azure Storage Account**: `az storage account show --name <storage-account-name> --query "id"`
 * **Azure Application Insights": `az monitor app-insights component show --app <application-insight-name> -g <resource-group-name> --query "id"`
@@ -155,7 +155,7 @@ The Resource ID value looks similar to the following: `"/subscriptions/<service-
 
 ---
 
-The output of the workspace creation command is similar to the following JSON. You can use the output values to locate the created resources or pare them as input to subsequent CLI steps.
+The output of the workspace creation command is similar to the following JSON. You can use the output values to locate the created resources or parse them as input to subsequent CLI steps.
 
 ```json
 {
