@@ -32,7 +32,7 @@ This article shows you how to use managed identities with a [service name] insta
 - <!-- prerequisite n -->
 <!-- remove this section if prerequisites are not needed -->
 
-## Create an instance of [service name] with a system assigned managed identity
+## Create a virtual machine with a system assigned managed identity enabled
 
 To create an Azure VM with the system-assigned managed identity enabled, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.  No additional Azure AD directory role assignments are required.
 
@@ -125,9 +125,11 @@ When you're done, the following sections should be added to the `resource` secti
 
 ## User-assigned managed identities
 
-### Create a virtual machine with a user-assigned managed identity assigned (?)
+### Create a virtual machine with a user-assigned managed identity assigned
 
 # [Portal](#tab/azure-portal)
+
+Currently, the Azure portal does not support assigning a user-assigned managed identity during the creation of a VM. You should create a virtual machine and then assign a user assigned managed identity to it.
 
 [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md#user-assigned-managed-identity)
 
