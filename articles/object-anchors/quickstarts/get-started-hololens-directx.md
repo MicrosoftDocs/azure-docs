@@ -67,7 +67,7 @@ Now, build the **AoaSampleApp** project by right-clicking the project and select
 
 After compiling the sample project successfully, you can deploy the app to HoloLens.
 
-Ensure the HoloLens device is powered up and connected to the PC through a USB cable. Make sure **Device** is the chosen deployment target (see above).
+Ensure the HoloLens device is powered on and connected to the PC through a USB cable. Make sure **Device** is the chosen deployment target (see above).
 
 Right-click **AoaSampleApp** project, then click **Deploy** from the pop-up menu to install the app. If no error shows up in Visual Studio's **Output Window**, the app will be installed on HoloLens.
 

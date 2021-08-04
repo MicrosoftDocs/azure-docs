@@ -10,7 +10,7 @@ ms.author: crtreasu
 Before you run the app, you'll need to make your models available to the app.
 If you don't already have an Object Anchors model, follow the instructions in [Create a model](../articles/object-anchors/quickstarts/get-started-model-conversion.md) to create one. Then, return here.
 
-With your HoloLens powered up and connected to the development device (PC), follow these steps to upload a model to the **3D Objects** folder on your HoloLens:
+With your HoloLens powered on and connected to the development device (PC), follow these steps to upload a model to the **3D Objects** folder on your HoloLens:
 
 1. Select and copy the models you want to work with by pressing Ctrl key and C together (Ctrl + C).
 
