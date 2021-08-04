@@ -64,7 +64,7 @@ In the Azure portal, go to your data factory. Select **Open** on the **Open Azur
 
    5. In the section of selecting Open Hub destinations, browse the Open Hub Destinations that are available in your SAP BW. You can preview the data in each destination by selecting the preview button at the end of each row. Select the OHD to copy data from, and then select **Next**.
    
-   :::image type="content" source="./media/load-sap-bw-data/source-data-store-page.png" alt-text="Screenshot showing source data store page.":::
+   :::image type="content" source="./media/load-sap-bw-data/source-data-store-page.png" alt-text="Screenshot showing the 'Source data store' page.":::
 
 5. Specify a filter, if you need one. If your OHD only contains data from a single data-transfer process (DTP) execution with a single request ID, or you're sure that your DTP is finished and you want to copy the data, clear the **Exclude Last Request** check box in **Advanced** section. You can preview the data by selecting **Preview data** button.
 
@@ -82,7 +82,7 @@ In the Azure portal, go to your data factory. Select **Open** on the **Open Azur
 
 8. On the **Destination data store** page, select the newly created connection in the **Connection** section, and enter **copyfromopenhub** as the output folder name. Then select **Next**.
 
-   :::image type="content" source="./media/load-sap-bw-data/destination-data-store-page.png" alt-text="Screenshot showing destination data store page.":::
+   :::image type="content" source="./media/load-sap-bw-data/destination-data-store-page.png" alt-text="Screenshot showing the 'Destination data store' page.":::
 
 9. On the **File format setting** page, select **Next** to use the default settings.
 
@@ -94,7 +94,7 @@ In the Azure portal, go to your data factory. Select **Open** on the **Open Azur
 
 11. On the **Summary** page, review the settings. Then select **Next**.
 
-    :::image type="content" source="./media/load-sap-bw-data/summary-page.png" alt-text="Screenshot showing summary page.":::
+    :::image type="content" source="./media/load-sap-bw-data/summary-page.png" alt-text="Screenshot showing the Summary page.":::
 
 12. On the **Deployment** page, select **Monitor** to monitor the pipeline.
 
