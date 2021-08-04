@@ -8,7 +8,7 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 06/11/2021
+ms.date: 08/04/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security
 
@@ -142,7 +142,7 @@ Azure Machine Learning uses an associated Key Vault instance to store the follow
 * Passwords to Azure Container Repository instances
 * Connection strings to data stores
 
-To use Azure Machine Learning experimentation capabilities with Azure Key Vault behind a virtual network, use the following steps:
+Azure key vault can be configured to use either service endpoints or private endpoints. To use Azure Machine Learning experimentation capabilities with Azure Key Vault behind a virtual network, use the following steps:
 
 1. Go to the Key Vault that's associated with the workspace.
 
@@ -159,6 +159,8 @@ To use Azure Machine Learning experimentation capabilities with Azure Key Vault 
 
 > [!TIP]
 > If you did not use an existing Azure Container Registry when creating the workspace, one may not exist. By default, the workspace will not create an ACR instance until it needs one. To force the creation of one, train or deploy a model using your workspace before using the steps in this section.
+
+Azure Container Registry can configured to use either service endpoints or private endpoints. Use the following steps to configure your workspace to use ACR when it is in the virtual network:
 
 1. Find the name of the Azure Container Registry for your workspace, using one of the following methods:
 
