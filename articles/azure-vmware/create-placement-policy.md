@@ -16,16 +16,15 @@ Placement policies in Azure VMware Solution allow you to control the placement o
 
 A placement policy has at least five required components: 
 
-- **Name** - Defines the name of the policy and is subject to the naming constraints of [Azure Resources]().
+- **Name** - Defines the name of the policy and is subject to the naming constraints of [Azure Resources](../azure-resource-manager/management/resource-name-rules.md).
 
 - **Type** - Defines the type of control you want to apply to the resources contained in the policy.
 
-- **Cluster** - Defines which cluster the policy should be applied to. The scope of a placement policy is a vSphere cluster, so only resources from the same cluster may be part of the same placement policy.
+- **Cluster** - Defines the cluster for the policy. The scope of a placement policy is a vSphere cluster, so only resources from the same cluster may be part of the same placement policy.
 
-- **State** - Defines whether the policy is enabled or disabled. In certain scenarios, a policy might be disabled automatically when a conflicting rule is created. For more information, see [Considerations](#considerations) below.
+- **State** - Defines whether the policy is enabled or disabled. In certain scenarios, a policy might be disabled automatically when a conflicting rule gets created. For more information, see [Considerations](#considerations) below.
 
 - **Virtual machine** - Defines the virtual machines (VMs) and hosts for the policy. Depending on the type of rule you create, your policy may require you to specify some number of virtual machines (VMs) and hosts. For more information, see [Placement policy types](#placement-policy-types) below.
-
 
 
 ## Prerequisites
@@ -38,13 +37,11 @@ You must have _Contributor_ level access to the private cloud to manage placemen
 
 ### VM to VM policies
 
-VM to VM policies specify whether selected virtual machines should run on the same host or be kept on separate hosts.
+VM to VM policies specifies whether selected virtual machines should run on the same host or be kept on separate hosts.  In addition to choosing a name and cluster for the policy, a VM to VM policy requires that you select at least two VMs to assign to the policy. The assignment of hosts is not required or permitted for this policy type.
 
-In addition to choosing a name and cluster for the policy, a VM to VM policy requires you to select at least two virtual machines to assign to the policy. The assignment of hosts is not required or permitted for this policy type.
+- A **VM-VM Affinity** policy instructs DRS to try keeping the specified VMs together on the same host. It's useful for performance reasons, for example.
 
-A VM-VM Affinity policy instructs DRS to try to keep the specified virtual machines together on the same host. This can be useful for performance reasons, for example.
-
-A VM-VM Anti-Affinity policy instructs DRS to try to keep the specified virtual machines apart from each other on separate hosts. This can be useful in scenarios where a problem occurring with one host doesn’t affect multiple virtual machines within the same policy.
+- A **VM-VM Anti-Affinity** policy instructs DRS to try keeping the specified VMs apart from each other on separate hosts. It's useful in scenarios where a problem with one host doesn't affect multiple VMs within the same policy.
 
 
 ### VM to host policies
