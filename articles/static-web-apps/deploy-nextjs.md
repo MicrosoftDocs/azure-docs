@@ -63,18 +63,44 @@ When you click on a framework/library, you should see a details page about the s
 
 ## Generate a static website from Next.js build
 
-When you build a Next.js site using `npm run build`, the app is built as a traditional web app, not a static site. To generate a static site, use the following application configuration.
+The starter template used in this tutorial is setup to build the application as a static site.
+
+The `projects/[path].js` file implements a few functions responsible for instructing Next.js how to generate static files. 
+
+The `getStaticPaths` function returns a list of all possible paths associated with a page.
+ 
+```javascript
+export async function getStaticPaths() {
+
+  const paths = projects.map((project) => ({
+    params: { path: project.slug },
+  }))
+
+  return { paths, fallback: false };
+}
+```
+
+The `projects` data object is used to create an object for each page. The data object holds a `slug` value that maps to the `path` parameter required by Next.js to build indivual pages.
+
+The `getStaticProps` function returns the associated data object required for specific page.
+
+```javascript
+export async function getStaticProps({ params }) {
+  const project = projects.find(proj => proj.slug === params.path);
+  return { props: { project } };
+}
+```
+
+ The function reads the incoming page information via the `params` object and returns the matching page data object.
+
+ Review `projects/[path].js` for full implementaion details.
+
 
 1. To configure static routes, create file named _next.config.js_ at the root of your project and add the following code.
 
     ```javascript
     module.exports = {
       trailingSlash: true,
-      exportPathMap: function() {
-        return {
-          '/': { page: '/' }
-        };
-      }
     };
     ```
 
