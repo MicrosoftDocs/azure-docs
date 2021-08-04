@@ -420,6 +420,7 @@ related resources to match and the template deployment to execute.
   - This property should include the full template deployment as it would be passed to the
     `Microsoft.Resources/deployments` PUT API. For more information, see the
     [Deployments REST API](/rest/api/resources/deployments).
+  - Nested `Microsoft.Resources/deployments` within the template should use unique names to avoid contention between multiple policy evaluations. The parent deployment's name can be used as part of the nested deployment name via `[concat('NestedDeploymentName-', uniqueString(deployment().name))]`. 
 
   > [!NOTE]
   > All functions inside the **Deployment** property are evaluated as components of the template,
