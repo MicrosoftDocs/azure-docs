@@ -182,8 +182,7 @@ The output of the workspace creation command is similar to the following JSON. Y
 ## Advanced configurations
 ### Configure workspace for private network connectivity
 
-> [!IMPORTANT]
-> Using an Azure Machine Learning workspace with private endpoint is not available in the Azure Government regions.
+Dependent on your use case and organizational requirements, you can choose to configure Azure Machine Learning using private network connectivity. You can use the Azure CLI to deploy a workspace and a Private link endpoint for the workspace resource. For more information on using a private endpoint and virtual network with your workspace, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md). For complex resource configurations, also refer to template based deployment options including [Azure Resource Manager](how-to-create-workspace-template.md).
 
 # [1.0 CLI](#tab/vnetpleconfigurationsv1cli)
 
@@ -237,9 +236,10 @@ Then, you can reference this configuration file as part of the workspace creatio
 az ml workspace create -w <workspace-name> -g <resource-group-name> --file workspace.yml
 ```
 
----
+> [!IMPORTANT]
+> Using an Azure Machine Learning workspace with private endpoint is not available in the Azure Government regions.
 
-For more information on using a private endpoint and virtual network with your workspace, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md). Also refer to infrastructure-as-code based deployment options including [Azure Resource Manager](how-to-create-workspace-template.md). 
+---
 
 ### Customer-managed key and high business impact workspace
 
