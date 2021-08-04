@@ -12,7 +12,6 @@ metadata:
     
 title: Frequently asked questions about the DICOM service
 summary: |
-These are the frequently asked questions about the Azure Healthcare APIs DICOM service.
 
 sections:
   - name: Ignored
