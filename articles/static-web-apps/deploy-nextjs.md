@@ -80,7 +80,7 @@ export async function getStaticPaths() {
 }
 ```
 
-The `projects` data object is used to create an object for each page. The data object holds a `slug` value that maps to the `path` parameter required by Next.js to build indivual pages.
+The `projects` data object is used to create an object for each page. The data object holds a `slug` value that maps to the `path` parameter required by Next.js to build individual pages.
 
 The `getStaticProps` function returns the associated data object required for specific page.
 
@@ -95,6 +95,7 @@ export async function getStaticProps({ params }) {
 
  Review `projects/[path].js` for full implementaion details.
 
+ Make the following modifications to your application to complete the static site set up. 
 
 1. To configure static routes, create file named _next.config.js_ at the root of your project and add the following code.
 
