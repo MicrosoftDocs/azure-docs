@@ -251,13 +251,13 @@ By default, metadata for the workspace is stored in an Azure Cosmos DB instance 
 
 To learn more about the resources that are created when you bring your own key for encryption, see [Data encryption with Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/concept-data-encryption#azure-cosmos-db).
 
-You can use the Azure CLI to configure your workspace for use with customer-managed keys. The implementation path differs slightly for the 1.0 CLI and 2.0 CLI versions.
+Below CLI commands provide examples for creating a workspace that uses customer-managed keys for encryption using the 1.0 CLI and 2.0 CLI versions.
 
 # [1.0 CLI](#tab/vnetpleconfigurationsv1cli)
 
 Use the `--cmk-keyvault` parameter to specify the Azure Key Vault that contains the key, and `--resource-cmk-uri` to specify the resource id and uri of the key within the vault.
 
-To limit the data that Microsoft collects on your workspace, you can additionally specify the `--hbi-workspace` parameter. 
+To [limit the data that Microsoft collects](/azure/machine-learning/concept-data-encryption#encryption-at-rest) on your workspace, you can additionally specify the `--hbi-workspace` parameter. 
 
 ```azurecli-interactive
 az ml workspace create -w <workspace-name>
@@ -269,7 +269,9 @@ az ml workspace create -w <workspace-name>
 
 # [2.0 CLI - preview](#tab/vnetpleconfigurationsv2cli)
 
-Use the `customer_managed_key` parameter and containing `key_vault` and `key_uri` parameters, to specify the resource id and uri of the key within the vault. To limit the data that Microsoft collects on your workspace, you can additionally specify the `hbi_workspace` property. 
+Use the `customer_managed_key` parameter and containing `key_vault` and `key_uri` parameters, to specify the resource id and uri of the key within the vault.
+
+To [limit the data that Microsoft collects](/azure/machine-learning/concept-data-encryption#encryption-at-rest) on your workspace, you can additionally specify the `hbi_workspace` property. 
 
 ```yaml workspace.yml
 name: azureml888
