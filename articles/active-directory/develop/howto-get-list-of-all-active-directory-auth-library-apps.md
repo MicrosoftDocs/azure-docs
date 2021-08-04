@@ -55,7 +55,6 @@ After identifying your apps that use ADAL, migrate them to MSAL depending on you
 
 [!INCLUDE [application type](includes/adal-msal-migration.md)]
 
-    
 ## Next steps
 
 For more information about MSAL, including usage information and which libraries are available for different programming languages and application types, see:
