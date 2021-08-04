@@ -2,14 +2,14 @@
 author: DCtheGeek
 ms.service: resource-graph
 ms.topic: include
-ms.date: 07/21/2021
+ms.date: 08/04/2021
 ms.author: dacoulte
 ms.custom: generated
 ---
 
 ### Count of OS update installation done
 
-Returns a list of status of OS update installation runs done for your machines in last 7 days
+Returns a list of status of OS update installation runs done for your machines in last 7 days.
 
 ```kusto
 PatchAssessmentResources
@@ -45,7 +45,7 @@ Search-AzGraph -Query "PatchAssessmentResources | where type !has 'softwarepatch
 
 ### List available OS updates for all your machines grouped by update category
 
-Returns a list of pending OS for your machines
+Returns a list of pending OS for your machines.
 
 ```kusto
 PatchAssessmentResources
@@ -80,7 +80,7 @@ Search-AzGraph -Query "PatchAssessmentResources | where type !has 'softwarepatch
 
 ### List of Linux OS update installation done
 
-Returns a list of status of Windows Server - OS update installation runs done for your machines in last 7 days
+Returns a list of status of Linux Server - OS update installation runs done for your machines in last 7 days.
 
 ```kusto
 PatchAssessmentResources
@@ -117,7 +117,7 @@ Search-AzGraph -Query "PatchAssessmentResources | where type has 'softwarepatche
 
 ### List of Windows Server OS update installation done
 
-Returns a list of status of Windows Server - OS update installation runs done for your machines in last 7 days
+Returns a list of status of Windows Server - OS update installation runs done for your machines in last 7 days.
 
 ```kusto
 PatchAssessmentResources
