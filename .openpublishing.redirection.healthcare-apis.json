@@ -415,12 +415,12 @@
     {
         "source_path_from_root": "/articles/healthcare-apis/azure-api-for-fhir/autoscale-azure-api-fhir.md",
         "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/autoscale-azure-api-fhir",
-        "redirect_document_id": false
+        "redirect_document_id": true
     },
     {
         "source_path_from_root": "/articles/healthcare-apis/azure-api-for-fhir/disaster-recovery.md",
         "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/disaster-recovery",
-        "redirect_document_id": false
+        "redirect_document_id": true
     }
 
   ]
