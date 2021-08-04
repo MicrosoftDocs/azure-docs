@@ -82,8 +82,6 @@ For more information on working with resource groups, see [az group](/cli/azure/
 When you deploy an Azure Machine Learning workspace, various other services are [required as dependent associated resources](/azure/machine-learning/concept-workspace#resources). When you use the CLI to create the workspace, the CLI can either create new associated resources on your behalf or you could attach existing resources.
 
 > [!IMPORTANT]
-> If you do not specify an existing Azure service, one will be created automatically during workspace creation. You must always specify a resource group. 
-> 
 > When attaching your own storage account, make sure that it meets the following criteria:
 >
 > * The storage account is _not_ a premium account (Premium_LRS and Premium_GRS)
@@ -92,8 +90,6 @@ When you deploy an Azure Machine Learning workspace, various other services are 
 > These requirements are only for the _default_ storage account used by the workspace.
 >
 > When attaching Azure container registry, you must have the the [admin account](../container-registry/container-registry-authentication.md#admin-account) enabled before it can be used with an Azure Machine Learning workspace.
-
-Azure Container Registry (ACR) doesn't currently support unicode characters in resource group names. To mitigate this issue, use a resource group that does not contain these characters.
 
 # [Create with new resources](#tab/createnewresources)
 
