@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: davidmu
-ms.reviewer: arvindh, japere
+ms.reviewer: ergreenl
 ---
 
 # Single sign-on options in Azure AD
