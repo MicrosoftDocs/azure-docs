@@ -16,7 +16,7 @@ Service Fabric managed clusters are created with a default networking configurat
 - [Bring your own load balancer](#byolb)
 
 <a id="nsgrules"></a>
-## Manage NSG Rules
+## Manage NSG rules
 
 ### NSG rules guidance
 
@@ -90,7 +90,7 @@ Use the [networkSecurityRules](/azure/templates/microsoft.servicefabric/managedc
             }
 ```
 
-## ClientConnection and HttpGatewayConnection NSG rules
+## ClientConnection and HttpGatewayConnection default and optional rules
 ### NSG rule: SFMC_AllowServiceFabricGatewayToSFRP
 
 A default NSG rule is added to allow the Service Fabric resource provider to access the cluster's clientConnectionPort and httpGatewayConnectionPort. This rule allows access to the ports through the service tag 'ServiceFabric'.
@@ -152,7 +152,7 @@ This optional rule enables customers to access SFX, connect to the cluster using
 <a id="rdp"></a>
 ## Enable access to RDP ports from internet
 
-Service Fabric managed clusters do not enable access to the RDP ports from the internet by default. You can open RDP ports to the internet by setting the following property on a Service Fabric managed cluster resource.
+Service Fabric managed clusters do not enable inbound access to the RDP ports from the internet by default. You can open inbound access to the RDP ports from the internet by setting the following property on a Service Fabric managed cluster resource.
 
 ```json
 "allowRDPAccess": true
@@ -293,7 +293,7 @@ Service Fabric managed clusters automatically creates load balancer probes for f
 ```
 
 <a id="multilb"></a>
-### Manage multiple load balancers
+## Manage multiple load balancers
 By default managed clusters configure one Azure Load Balancer with one subnet and NSG for all node types. This feature enables multiple Azure Load Balancers to be configured with optional support for separate subnets and NSGs per node type.
 
 To configure this feature:
@@ -312,12 +312,19 @@ To configure this feature:
 
 2) Deploy the template 
 
+```powershell
+    New-AzResourceGroup -Name sfnetworkingexistingvnet -Location westus
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
+```
+
+After deployment, your virtual network should include IPv6 config on the Load Balancer frontend, related subnets and NSGs, and the scale set VMs.
+
 <a id="ipv6"></a>
 ## IPv6
 By default managed clusters do not enable IPv6 to keep the configuration simple. This feature will enable full dual stack IPv4/IPv6 capability from the Load Balancer frontend to the backend resources. 
 
 [!NOTE]
-> This setting cannot be changed once the cluster is created
+> This setting is not available in portal and cannot be changed once the cluster is created
 
 1) Set the following property on a Service Fabric managed cluster resource.
 
@@ -334,12 +341,15 @@ By default managed clusters do not enable IPv6 to keep the configuration simple.
 
 2) Deploy the template
 
+See the [provided IPv6 sample template](url to sample json) for an example or build your own using the details above
+
 ```powershell
     New-AzResourceGroup -Name sfnetworkingexistingvnet -Location westus
     New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
 ```
 
-After deployment, your virtual network should include IPv6 config on the Load Balancer frontend, related subnets and NSGs, and the scale set VMs.
+After deployment, your virtual network should include IPv6 config on the Load Balancer frontend, associated subnet with unique IPv6 NSG, and dual-stack on the scale set VMs.
+
 
 TODO:Screenshots/CLI output?
 TODO:Talk about v4 and v6 ip's on Load Balancers and NSG differences.
@@ -374,7 +384,10 @@ To configure this feature:
             }
 ```
 
+
 2) Deploy the template
+
+See the [bring your own virtual network sample template](url to sample json) for an example or build your own using the details above
 
 ```powershell
     New-AzResourceGroup -Name sfnetworkingexistingvnet -Location westus
@@ -493,6 +506,8 @@ and optionally configure NSG rules as shown below or in the available sample tem
 ```
 
 3) Deploy the template
+
+See the [bring your own load balancer sample template](url to sample json) for an example or build your own using the details above
 
 ```powershell
     New-AzResourceGroup -Name sfnetworkingexistingvnet -Location westus
