@@ -1,7 +1,7 @@
 ---
 title: Copy data from/to a file system
 titleSuffix: Azure Data Factory & Synapse Analytics
-description: Learn how to copy data from file system to supported sink data stores (or) from supported source data stores to file system using Azure Data Factory or Synapse Analytics pipelines.
+description: Learn how to copy data from file system to supported sink data stores (or) from supported source data stores to file system using an Azure Data Factory or Azure Synapse pipelines.
 author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
@@ -9,7 +9,7 @@ ms.date: 03/29/2021
 ms.author: jianleishen
 ---
 
-# Copy data to or from a file system by using Azure Data Factory or Synapse Analytics
+# Copy data to or from a file system by using Azure Data Factory or Azure Synapse
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-onprem-file-system-connector.md)
 > * [Current version](connector-file-system.md)
