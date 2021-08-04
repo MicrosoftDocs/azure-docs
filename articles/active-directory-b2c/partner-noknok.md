@@ -14,7 +14,7 @@ ms.author: gasinh
 ms.subservice: B2C
 ---
 
-# Tutorial: Configure Nok Nok S3 authentication suite with Azure Active Directory B2C
+# Tutorial: Configure Nok Nok with Azure Active Directory B2C to enable passwordless FIDO2 authentication
 
 In this sample tutorial, learn how to integrate the Nok Nok S3 authentication suite into your Azure Active Directory (AD) B2C tenant. [Nok Nok](https://noknok.com/) enables FIDO certified multifactor authentication such as FIDO UAF, FIDO U2F, WebAuthn, and FIDO2 for mobile and web applications. Using Nok Nok customers can improve their security posture while balancing user experience.
 
