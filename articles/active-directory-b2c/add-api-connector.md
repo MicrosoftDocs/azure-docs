@@ -639,6 +639,14 @@ In general, it's helpful to use the logging tools enabled by your web API servic
 * Use more aggressive levels of logging (for example "trace" or "debug") in development if needed.
 * Monitor your API for long response times. 
 
+Additionally, Azure AD B2C logs metadata about the API transactions that happen during user authentications via a user flow. To find these:
+1. Go to **Azure AD B2C**
+2. Select **Audit logs** in the **Activities** section
+3. Filter the list view by the length of time you wish and **Activity** to **An API was called as part of a user flow**
+4. Inspect individual logs. Each row represents an API connector attempting to be called during a user flow. If an API call fails and there's a retry, it's still represented as a singular row. There's a `numberOfAttempts` which indicates the number of times your API was called. This can be of values `1`or `2`. Other information about the API call is detailed in the logs.
+
+:::image type="content" source="media/add-api-connector/api-connector-audit-logs.png" alt-text="An example of audit log regarding API connector transaction during an end user authentication to a user flow":::
+
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"

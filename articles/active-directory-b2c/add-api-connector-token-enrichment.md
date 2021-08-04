@@ -362,6 +362,7 @@ Save the files you changed: *TrustFrameworkBase.xml*, and *TrustFrameworkExtensi
 Serverless functions, like [HTTP triggers in Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md), provide a way create API endpoints to use with the API connector. The serverless cloud function can also call and invoke other web APIs, data stores, and other cloud services for complex scenarios.
 
 ### Best practices
+
 Ensure that:
 * Your API is following the API request and response contracts as outlined above. 
 * The **Endpoint URL** of the API connector points to the correct API endpoint.
@@ -382,6 +383,14 @@ In general, it's helpful to use the logging tools enabled by your web API servic
 * A 401 or 403 HTTP status code typically indicates there's an issue with your authentication. Double-check your API's authentication layer and the corresponding configuration in the API connector.
 * Use more aggressive levels of logging (for example "trace" or "debug") in development if needed.
 * Monitor your API for long response times. 
+
+Additionally, Azure AD B2C logs metadata about the API transactions that happen during user authentications via a user flow. To find these:
+1. Go to **Azure AD B2C**
+2. Select **Audit logs** in the **Activities** section
+3. Filter the list view by the length of time you wish and **Activity** to **An API was called as part of a user flow**
+4. Inspect individual logs. Each row represents an API connector attempting to be called during a user flow. If an API call fails and there's a retry, it's still represented as a singular row. There's a `numberOfAttempts` which indicates the number of times your API was called. This can be of values `1`or `2`. Other information about the API call is detailed in the logs.
+
+:::image type="content" source="media/add-api-connector-token-enrichment/api-connector-audit-logs.png" alt-text="An example of audit log regarding API connector transaction during an end user authentication to a user flow":::
 
 ::: zone-end
 
