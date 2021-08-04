@@ -1,6 +1,6 @@
 ---
-title: Deploy code with a ZIP or WAR file
-description: Learn how to deploy your app to Azure App Service with a ZIP file (or a WAR file for Java developers).
+title: Deploy code and other files
+description: Learn how to deploy your app and other files to Azure App Service
 ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: sisirap
@@ -86,7 +86,7 @@ az webapp deploy --resource group <group-name> --name <app-name> --src-path conf
 
 ---
 
-## Deploy artifacts to REST API 
+## Deploy artifacts with REST API 
 
 The deployment REST API allows you to specify the same parameters from the CLI command as URL query parameters. The table below shows the available query parameters, their allowed values, and descriptions.
 
@@ -116,8 +116,17 @@ curl -X POST -u <username> --data-binary @"<war-file-path>" https://<app-name>.s
 
 # [Other artifacts](#tab/other-artifacts)
 
-The following example uses the cURL tool to deploy a library
+The following example uses the cURL tool to deploy a library file for their application. Replace the placeholders `<username>`, `<lib-file-path>`, and `<app-name>`. When prompted by cURL, type in the password.
 
+```bash
+curl -X POST -u <username> --data-binary @"<lib-file-path>" https://<app-name>.scm.azurewebsites.net/api/publish&type=lib&path="/home/site/deployments/tools/my-lib.jar"
+```
+
+The following example uses the cURL tool to deploy a config file for their application. Replace the placeholders `<username>`, `<config-file-path>`, and `<app-name>`. When prompted by cURL, type in the password.
+
+```bash
+curl -X POST -u <username> --data-binary @"<config-file-path>" https://<app-name>.scm.azurewebsites.net/api/publish&type=static&path="/home/site/deployments/tools/my-config.json"
+```
 
 ---
 
@@ -125,7 +134,11 @@ The following example uses the cURL tool to deploy a library
 
 # [ZIP Files](#tab/zipfiles)
 
-TODO
+The following example uses [Publish-AzWebapp](/powershell/module/az.websites/publish-azwebapp) upload the .war file. Replace the placeholders `<group-name>`, `<app-name>`, and `<war-file-path>`.
+
+```powershell
+Publish-AzWebApp -ResourceGroupName Default-Web-WestUS -Name MyApp -ArchivePath C:\project\app.zip
+```
 
 # [WAR Files](#tab/warfiles)
 
@@ -137,7 +150,7 @@ Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <
 
 # [Other artifacts](#tab/other-artifacts)
 
-TODO
+Use the [Azure CLI](#deploy-artifacts-with-azure-cli) or [REST API](#deploy-artifacts-with-rest-api) to deploy other artifacts.
 
 ---
 
@@ -150,8 +163,6 @@ az webapp config appsettings set --resource-group <group-name> --name <app-name>
 ```
 
 For more information, see [Kudu documentation](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
-
-[!INCLUDE [app-service-deploy-zip-push-rest](../../includes/app-service-deploy-zip-push-rest.md)]  
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
