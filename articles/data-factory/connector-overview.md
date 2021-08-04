@@ -9,7 +9,7 @@ ms.date: 05/26/2021
 ms.author: jianleishen
 ---
 
-# Azure Data Factory and Synapse Analytics connector overview
+# Azure Data Factory and Azure Synapse connector overview
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
