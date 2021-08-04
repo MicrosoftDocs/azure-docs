@@ -4,7 +4,7 @@ description: Basic functionality and comparison between tools used for migration
 author: dukicn
 ms.author: nikoduki
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 08/04/2021
 ms.service: storage
 ms.subservice: partner
 ---
@@ -144,4 +144,4 @@ The following comparison matrix shows basic functionality of different tools tha
 - [Migrate to Azure file shares](../../../files/storage-files-migration-overview.md)
 - [Migrate to Data Lake Storage with WANdisco LiveData Platform for Azure](../../../blobs/migrate-gen2-wandisco-live-data-platform.md)
 - [Copy or move data to Azure Storage with AzCopy](../../../common/storage-use-azcopy-v10.md)
-- [Migrate large datasets to Azure Blob Storage with AzReplicate (sample application)](https://github.com/Azure/AzReplicate/tree/master/)
+- [Migrate large datasets to Azure Blob Storage with AzReplicate (sample application)](https://aka.ms/AzReplicate)
