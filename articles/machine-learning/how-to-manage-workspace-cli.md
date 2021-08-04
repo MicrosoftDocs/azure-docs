@@ -145,7 +145,7 @@ To create a workspace that uses existing resources, you must provide the ID for 
 * **Azure Key Vault**: `az keyvault show --name <key-vault-name> --query "ID"`
 * **Azure Container Registry**: `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
 
-The resource IDs value has the following format: `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/<provider>/<subresource>/<resource-name>"`.
+The Resource ID value looks similar to the following: `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/<provider>/<subresource>/<resource-name>"`.
 
 > [!IMPORTANT]
 > You don't have to specify all existing resources. You can specify one or more. For example, you can specify an existing storage account and the workspace will create the other resources.
@@ -154,9 +154,6 @@ The resource IDs value has the following format: `"/subscriptions/<service-GUID>
 > The workspace name is case-insensitive.
 
 ---
-
-> [!IMPORTANT]
-> If you want to use an existing Azure Storage account, it cannot be a premium account (Premium_LRS and Premium_GRS). It also cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage or hierarchical namespace are supported with the _default_ storage account of the workspace. You can use premium storage or hierarchical namespace with _non-default_ storage accounts.
 
 > [!IMPORTANT]
 > The container registry must have the the [admin account](../container-registry/container-registry-authentication.md#admin-account) enabled before it can be used with an Azure Machine Learning workspace.
