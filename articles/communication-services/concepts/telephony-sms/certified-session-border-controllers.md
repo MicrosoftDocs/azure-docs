@@ -33,8 +33,8 @@ If you have any questions about the SBC certification program for Communication 
 
 |Vendor|Product|Software version|
 |:--- |:--- |:--- 
+|AudioCodes|Mediant SBC|7.40A
 |Metaswitch|Perimeta SBC|4.9|
-
 
 Note the certification granted to a major version. That means that firmware with any number in the SBC firmware following the major version is supported.
 
