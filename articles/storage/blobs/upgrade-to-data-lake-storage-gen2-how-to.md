@@ -4,7 +4,7 @@ description: Shows you how to use Resource Manager templates to upgrade from Azu
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 08/04/2021
 ms.author: normesta
 
 ---
@@ -20,9 +20,20 @@ To learn more about these capabilities and evaluate the impact of this upgrade o
 
 ## Enable the ability to upgrade your account
 
-To upgrade your account, you must register the `HnsOnMigration` feature with your subscription. Once you've verified that the feature is registered, you must register the Azure Storage resource provider. 
+To upgrade your account, you must register the `HnsOnMigration` feature with your subscription. 
 
 ### Register the feature
+
+### [Portal](#tab/azure-portal)
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+2. Locate your subscription and in configuration page of your subscription, select **Preview features**.
+
+3. In the **Preview features** page, select the **ADLS enable Hierarchical Namespace for existing account** feature, and then select **Register**.
+
+   > [!div class="mx-imgBorder"]
+   > ![Configuration page](./media/upgrade-to-data-lake-storage-gen2-how-to/register-feature-in-azure-portal.png)
 
 #### [PowerShell](#tab/powershell)
 
@@ -114,11 +125,12 @@ az feature show --namespace Microsoft.Storage --name HnsOnMigration
 
 6. Expand the **Step 2: Validate account before upgrading** section and then click **Start validation**.
 
-   Put something here about what to do if you encounter errors.
-
 7. Expand the **Step 3: Upgrade account** section, and then click **Start upgrade**.
 
-   A message appears which indicates that the migration has completed successfully. 
+   > [!IMPORTANT]
+   > Read and write operations are disabled while your account is being upgraded. 
+
+   When the migration has completed successfully, a message similar to the following appears. 
 
    > [!div class="mx-imgBorder"]
    > ![Migration completed page](./media/upgrade-to-data-lake-storage-gen2-how-to/upgrade-to-an-azure-data-lake-gen2-account-completed.png)
@@ -130,7 +142,7 @@ az feature show --namespace Microsoft.Storage --name HnsOnMigration
    > [!div class="mx-imgBorder"]
    > ![Account endpoints](./media/upgrade-to-data-lake-storage-gen2-how-to/storage-endpoints.png)
   
-3. For Hadoop workloads that use Windows Azure Storage Blob driver or [WASB](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) driver, make sure to modify them to use the the Azure Blob File System driver or [ABFS driver](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html). 
+3. For Hadoop workloads that use Windows Azure Storage Blob driver or [WASB](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) driver, make sure to modify them to use the the [Azure Blob File System (ABFS)](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html) driver. Unlike the WASB driver that makes requests to the **Blob service** endpoint, the ABFS driver will make requests to the **Data Lake Storage** endpoint of your account.
 
 2. Test custom applications to ensure that they work as expected with your upgraded account. 
 

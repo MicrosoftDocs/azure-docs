@@ -4,7 +4,7 @@ description: Description goes here.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 08/04/2021
 ms.author: normesta
 
 ---
@@ -38,7 +38,7 @@ Any Hadoop workloads that use Windows Azure Storage Blob driver or [WASB](https:
 
 ### Data Lake Storage endpoint
 
-Your new account will have a Data Lake storage endpoint. You can find the URL of this endpoint in the Azure portal by opening the **Properties** page of your account.
+Your upgraded account will have a Data Lake storage endpoint. You can find the URL of this endpoint in the Azure portal by opening the **Properties** page of your account.
 
 > [!div class="mx-imgBorder"]
 > ![General purpose v2 category](./media/upgrade-to-data-lake-storage-gen2/data-lake-storage-endpoint.png)
@@ -59,20 +59,20 @@ When you upload a blob, and the path that you specify includes a directory that 
 
 ### List operations
 
-A list operation returns both directories and files. Each is listed separately. Directories appear in the list as zero-length blobs. In a Blob storage account that does not have a hierarchical namespace, a list operation returns only blobs and not directories. 
+A [List Blobs](/rest/api/storageservices/list-blobs) operation returns both directories and files. Each is listed separately. Directories appear in the list as zero-length blobs. In a Blob storage account that does not have a hierarchical namespace, a [List Blobs](/rest/api/storageservices/list-blobs) operation returns only blobs and not directories. If you use the Data Lake Storage Gen2 [Path - List](/rest/api/storageservices/datalakestoragegen2/path/list) operation, directories will appear as directory entries and not as zero-length blobs.
 
 The list order is different as well. Directories and files appear in *depth-first search* order. A Blob storage account that does not have a hierarchical namespace lists blobs in *lexicographical* order. 
 
 ### Operations to rename blobs
 
-Renaming a blob is far more efficient because client applications can rename a blob in a single operation. There is no rename operation in a Blob storage account that *does not* have a hierarchical namespace. Instead, tools and applications have to copy a blob and then delete the source blob.  
+Renaming a blob is far more efficient because client applications can rename a blob in a single operation. In accounts that *do not* have a hierarchical namespace, tools and applications have to copy a blob and then delete the source blob.  
 
 > [!NOTE]
 > When you rename a blob, the last modified time of the blob is not updated. That's because the contents of the blob are unchanged. 
 
 ## Impact on costs
 
-Use these pages to compare data storage costs, data transfer costs, and transaction costs.
+Storage costs aren't impacted, but transactions costs are impacted. Use these pages to assess compare costs. 
 
 - [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
@@ -80,7 +80,7 @@ Use these pages to compare data storage costs, data transfer costs, and transact
 
 You can also use the **Storage Accounts** option in the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the impact of costs after an upgrade. 
 
-Aside from pricing changes, consider the costs savings associated with Data Lake Storage Gen2 capabilities. Overall total of cost of ownership typically declines because of higher throughput and optimized operations. Higher throughput enables you to transfer more data in less time. A hierarchical namespace improves the efficiency of operations. Query acceleration reduces egress by retrieving only the data that you require to perform a given operation. These capabilities lead to lower data transfer and compute costs. 
+Aside from pricing changes, consider the costs savings associated with Data Lake Storage Gen2 capabilities. Overall total of cost of ownership typically declines because of higher throughput and optimized operations. Higher throughput enables you to transfer more data in less time. A hierarchical namespace improves the efficiency of operations.  
 
 ## Impact on service integrations
 
