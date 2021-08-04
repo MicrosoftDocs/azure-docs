@@ -46,7 +46,7 @@ Once Azure accepts a reservation request, it's available to be consumed by VMs o
 The SLA for Capacity Reservation will be defined later when the feature is generally available.  
 
 
-## Limitations and Restrictions 
+## Limitations and restrictions 
 
 - Creating capacity reservations requires quota in the same manner as creating virtual machines. 
 - Spot VMs and Azure Dedicated Host Nodes aren't supported with Capacity Reservation. 
@@ -123,7 +123,7 @@ The status of the Capacity Reservation will now show `capacity` as 2 and length 
 ![Capacity Reservation image 6.](\media\capacity-reservation-overview\capacity-reservation-6.jpg)
 
 
-## Usage and Billing 
+## Usage and billing 
 
 When a Capacity Reservation is empty, VM usage will be reported for the corresponding VM size and the location. [VM Reserved Instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) can cover some or all of the Capacity Reservation usage even when VMs aren't deployed.  
 
