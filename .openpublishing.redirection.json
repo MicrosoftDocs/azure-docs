@@ -2179,7 +2179,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "overview-what-is-azure-ml.md",
+      "source_path_from_root": "/articles/machine-learning/overview-what-is-azure-ml.md",
       "redirect_url": "/azure/machine-learning/overview-what-is-azure-machine-learning",
       "redirect_document_id": true
     },
