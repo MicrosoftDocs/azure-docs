@@ -13,7 +13,7 @@ ms.custom: devx-track-js
 
 # Deploy static-rendered Next.js websites on Azure Static Web Apps
 
-In this tutorial, you learn to deploy a [Next.js](https://nextjs.org) generated static website to [Azure Static Web Apps](overview.md). To begin, you learn to set up, configure, and deploy a Next.js app. During this process, you also learn to deal with common challenges often faced when generating static pages with Next.js
+In this tutorial, you learn to configure deploy a [Next.js](https://nextjs.org) generated static website to [Azure Static Web Apps](overview.md).
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ In this tutorial, you learn to deploy a [Next.js](https://nextjs.org) generated 
 
 ## Set up a Next.js app
 
-Rather than using the Next.js CLI to create an app, you can use a starter repository that includes an existing Next.js app. This repository features a Next.js app with dynamic routes, which highlights a common deployment issue. Dynamic routes need an extra deployment configuration which you will learn more about in a moment.
+Rather than using the Next.js CLI to create your app, you can use a starter repository. The starter repository contains an existing Next.js app. This application is configured with dynamic routes, which highlights a common deployment issue.
 
 To begin, create a new repository under your GitHub account from a template repository.
 
@@ -63,7 +63,7 @@ When you click on a framework/library, you should see a details page about the s
 
 ## Generate a static website from Next.js build
 
-The starter template used in this tutorial is setup to build the application as a static site.
+The starter template used in this tutorial is set up to build the application as a static site.
 
 The `projects/[path].js` file implements a few functions responsible for instructing Next.js how to generate static files. 
 
@@ -93,7 +93,7 @@ export async function getStaticProps({ params }) {
 
  The function reads the incoming page information via the `params` object and returns the matching page data object.
 
- Review `projects/[path].js` for full implementaion details.
+ Review `projects/[path].js` for full implementation details.
 
  Make the following modifications to your application to complete the static site set up. 
 
@@ -131,7 +131,7 @@ export async function getStaticProps({ params }) {
 
 ## Push your static website to GitHub
 
-Azure Static Web Apps deploys your app from a GitHub repository and keeps doing so for every pushed commit to a designated branch. Use the following commands sync your changes to GitHub.
+Azure Static Web Apps deploys your app from a GitHub repository and keeps doing so for every pushed commit to a tracked branch. Use the following commands sync your changes to GitHub.
 
 1. Stage all changed files
 
@@ -179,7 +179,7 @@ The following steps show how to link the app you just pushed to GitHub to Azure 
 
     | Property | Value |
     | --- | --- |
-    | _Organization_ | Select your desired GitHub organization. |
+    | _Organization_ | Select the appropriate GitHub organization. |
     | _Repository_ | Select **nextjs-starter**. |
     | _Branch_ | Select **main**. |
 
@@ -200,7 +200,6 @@ The following steps show how to link the app you just pushed to GitHub to Azure 
 1. On the _Overview_ window, click the *URL* link to open your deployed application.
 
 If the website does note immediately load, then the background GitHub Actions workflow is still running. Once the workflow is complete you can then click refresh the browser to view your web app.
-If the website does note immediately load, then the background GitHub Actions workflow is still running. Once the workflow is complete you can then click refresh the browser to view your web app.
 
 You can check the status of the Actions workflows by navigating to the Actions for your repository:
 
@@ -210,13 +209,13 @@ https://github.com/<YOUR_GITHUB_USERNAME>/nextjs-starter/actions
 
 ### Sync changes
 
-When you created the app, Azure Static Web Apps created a GitHub Actions workflow file in your repository. You need to bring this file down to your local repository so your git history is synchronized.
+When you created the app, Azure Static Web Apps created a GitHub Actions workflow file in your repository. You need to pull this file down to your local repository to synchronize your git history.
 
 Return to the terminal and run the following command `git pull origin main`.
 
 ## Configure dynamic routes
 
-Navigate to the newly-deployed site and click on one of the framework or library logos. Instead of getting a details page, you get a 404 error page.
+Navigate to the newly deployed site and click on one of the framework or library logos. Instead of getting a details page, you get a 404 error page.
 
 :::image type="content" source="media/deploy-nextjs/404-in-production.png" alt-text="404 on dynamic routes":::
 
