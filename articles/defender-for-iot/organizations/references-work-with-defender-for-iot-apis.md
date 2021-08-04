@@ -1,7 +1,7 @@
 ---
 title: Work with Defender for IoT APIs
 description: Use an external REST API to access the data discovered by sensors and management consoles and perform actions with that data.
-ms.date: 12/14/2020
+ms.date: 08/04/2021
 ms.topic: reference
 ---
 
@@ -22,19 +22,19 @@ To generate a token:
    :::image type="content" source="media/references-work-with-defender-for-iot-apis/access-tokens.png" alt-text="Screenshot of System Settings windows highlighting the Access Tokens button.":::
 
 2. Select **Generate new token**.
-   
+
    :::image type="content" source="media/references-work-with-defender-for-iot-apis/new-token.png" alt-text="Select the button to generate a new token.":::
 
 3. Describe the purpose of the new token and select **Next**.
-   
+
    :::image type="content" source="media/references-work-with-defender-for-iot-apis/token-name.png" alt-text="Generate a new token and enter the name of the integration associated with it.":::
 
 4. The access token appears. Copy it, because it won't be displayed again.
-   
+
    :::image type="content" source="media/references-work-with-defender-for-iot-apis/token-code.png" alt-text="Copy your access token for your integration.":::
 
 5. Select **Finish**. The tokens that you create appear in the **Access Tokens** dialog box.
-   
+
    :::image type="content" source="media/references-work-with-defender-for-iot-apis/access-token-window.png" alt-text="Screenshot of Device Tokens dialog box with filled-out tokens":::
 
    **Used** indicates the last time an external call with this token was received.
@@ -68,6 +68,8 @@ This section describes the following sensor APIs:
 - [Change password - /external/authentication/set_password](#change-password---externalauthenticationset_password)
 
 - [User password update by system admin - /external/authentication/set_password_by_admin](#user-password-update-by-system-admin---externalauthenticationset_password_by_admin)
+
+- [Retrieve alert PCAP - /api/v2/alerts/pcap](#retrieve-alert-pcap---apiv2alertspcap)
 
 ### Retrieve device information - /api/v1/devices
 
@@ -1071,7 +1073,6 @@ The device object contains:
     }
 
 ]
-
 ```
 
 #### Curl command
@@ -1318,7 +1319,6 @@ JSON object that represents assessed results. Each key can be nullable. Otherwis
     ]
 
 }
-
 ```
 
 #### Curl command
@@ -1515,7 +1515,6 @@ JSON object that represents assessed results. Each key contains a JSON array of 
     ]
 
 }
-
 ```
 
 #### Curl command
@@ -1582,7 +1581,6 @@ response:
     "msg": "Authentication succeeded."
 
 }
-
 ```
 
 #### Curl command
@@ -1617,7 +1615,6 @@ request:
     "new_password": "Test54321\!"
 
 }
-
 ```
 
 #### Response type
@@ -1648,7 +1645,6 @@ response:
     }
 
 }
-
 ```
 
 #### Device fields
@@ -1746,14 +1742,60 @@ response:
 > |--|--|--|
 > | POST | curl -k -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWORD>","username": "<USER_NAME>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/api/external/authentication/set_password_by_admin | curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https:/<span>/127.0.0.1/api/external/authentication/set_password_by_admin |
 
-## On-premises management console API specifications ##
+### Retrieve alert PCAP - /api/v2/alerts/pcap
+
+Use this API to retrieve a PCAP file related to an alert
+
+This endpoint does not use a regular access token for authorizationץ Instead, it requires a special token created by the `/external/v2/alerts/pcap` API endpoint on the CM.
+
+#### Method
+
+GET
+
+#### Query Parameters
+
+- id: Xsense Alert ID  
+Example:  
+`/api/v2/alerts/pcap/<id>`
+
+#### Response type
+
+JSON
+
+#### Response content
+
+- **Success**: Binary file containing PCAP data
+- **Failure**: JSON object that contains error message
+
+#### Response example
+
+### Error
+
+```json
+{
+  "error": "PCAP file is not available"
+}
+```
+
+#### Curl command
+
+|Type|APIs|Example|
+|-|-|-|
+|GET|`curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v2/alerts/pcap/<ID>'`|`curl -k -H "Authorization: d2791f58-2a88-34fd-ae5c-2651fe30a63c" 'https://10.1.0.2/api/v2/alerts/pcap/1'`|
+
+## On-premises management console API specifications
 
 This section describes on-premises management console APIs for:
-- Alert exclusions
-- Device information
-- Alert information
 
-### Alert Exclusions ###
+- [Alert exclusions](#alert-exclusions)
+
+- [Device information](#retrieve-device-information---externalv1devices-)
+
+- [Alert information](#retrieve-alert-information---externalv1alerts)
+
+- [Request alert PCAP - /external/v2/alerts/pcap](#request-alert-pcap---externalv2alertspcap)
+
+### Alert Exclusions
 
 Define conditions under which alerts won't be sent. For example, define and update stop and start times, devices or subnets that should be excluded when triggering alerts, or Defender for IoT engines that should be excluded. For example, during a maintenance window, you might want to stop delivery of all alerts, except for malware alerts on critical devices. The items you define here appear in the on-premises management console's **Alert Exclusions** window as  read-only exclusion rules.
 
@@ -1769,7 +1811,6 @@ Define conditions under which alerts won't be sent. For example, define and upda
 {
     "msg": "Authentication succeeded."
 }
-
 ```
 
 #### Change password - /external/authentication/set_password 
@@ -2661,6 +2702,67 @@ response:
 > | Type | APIs | Example |
 > |--|--|--|
 > | POST | curl -k -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWORD>","username": "<USER_NAME>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/external/authentication/set_password_by_admin | curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https:/<span>/127.0.0.1/external/authentication/set_password_by_admin |
+
+### Request alert PCAP - /external/v2/alerts/pcap
+
+Use this API to request a PCAP file related to an alert.
+
+#### Method
+
+GET
+
+#### Query Parameters
+
+- id: CM Alert ID  
+Example:  
+`/external/v2/alerts/pcap/<id>`
+
+#### Response type
+
+JSON
+
+#### Response content
+
+- **Success**: JSON object that contains data regarding the requested PCAP file
+- **Failure**: JSON object that contains error message
+
+#### Data fields
+
+|Name|Type|Nullable|List of values|
+|-|-|-|-|
+|id|Numeric|No|-|
+|xsenseId|Numeric|No|-|
+|xsenseAlertId|Numeric|No|-|
+|downloadUrl|String|No|URL|
+|token|String|No|-|
+
+#### Response example
+
+#### Success
+
+```json
+{
+  "downloadUrl": "https://10.1.0.2/api/v2/alerts/pcap/1",
+  "xsenseId": 1,
+  "token": "d2791f58-2a88-34fd-ae5c-2651fe30a63c",
+  "id": 1,
+  "xsenseAlertId": 1
+}
+```
+
+#### Error
+
+```json
+{
+  "error": "alert not found"
+}
+```
+
+### Curl command
+
+|Type|APIs|Example|
+|-|-|-|
+|GET|`curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/external/v2/alerts/pcap/<ID>'`|`curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://10.1.0.1/external/v2/alerts/pcap/1'`
 
 ## Next steps
 
