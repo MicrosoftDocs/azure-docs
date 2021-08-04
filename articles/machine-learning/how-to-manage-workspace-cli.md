@@ -76,7 +76,7 @@ For more information on working with resource groups, see [az group](/cli/azure/
 
 ## Create a workspace
 
-The Azure Machine Learning workspace relies on the following Azure services or entities:
+When you deploy an Azure Machine Learning workspace, various other services are [required as dependent associated resources](/azure/machine-learning/concept-workspace#resources). When you use the CLI to create the workspace, the CLI can either create new associated resources on your behalf or you could attach existing resources.
 
 > [!IMPORTANT]
 > If you do not specify an existing Azure service, one will be created automatically during workspace creation. You must always specify a resource group. When attaching your own storage account, make sure that it meets the following criteria:
@@ -86,14 +86,6 @@ The Azure Machine Learning workspace relies on the following Azure services or e
 > * Hierarchical Namespace (ADLS Gen 2) is disabled
 >
 > These requirements are only for the _default_ storage account used by the workspace.
-
-| Service | Parameter to specify an existing instance |
-| ---- | ---- |
-| **Azure resource group** | `-g <resource-group-name>`
-| **Azure Storage Account** | `--storage-account <service-id>` |
-| **Azure Application Insights** | `--application-insights <service-id>` |
-| **Azure Key Vault** | `--keyvault <service-id>` |
-| **Azure Container Registry** | `--container-registry <service-id>` |
 
 Azure Container Registry (ACR) doesn't currently support unicode characters in resource group names. To mitigate this issue, use a resource group that does not contain these characters.
 
@@ -133,7 +125,19 @@ The output of this command is similar to the following JSON:
 
 # [Bring existing resources](#tab/bringexistingresources)
 
-To create a new workspace while bringing existing associated resources, use the following command:
+To create a new workspace while bringing existing associated resources using the CLI, you will first have to define how your workspace should be configured in a configuration file.
+
+```yaml workspace.yml
+name: azureml888
+location: EastUS
+description: Description of my workspace
+storage_account: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>
+container_registry: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.ContainerRegistry/registries/<registry-name>
+key_vault: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.KeyVault/vaults/<vault-name>
+application_insights: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/microsoft.insights/components/<application-insights-name>
+```
+
+Then, you can reference this configuration file as part of the workspace creation CLI command.
 
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name> --file workspace.yml
