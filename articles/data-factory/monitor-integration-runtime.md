@@ -1,13 +1,12 @@
 ---
 title: Monitor integration runtime in Azure Data Factory 
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to monitor different types of integration runtime in Azure Data Factory.  
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 08/11/2020
 author: minhe-msft
 ms.author: hemin 
-ms.custom: devx-track-azurepowershell, synapse
+ms.custom: devx-track-azurepowershell
 ---
 
 # Monitor an integration runtime in Azure Data Factory

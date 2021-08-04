@@ -1,13 +1,12 @@
 ---
 title: How to run Self-Hosted Integration Runtime in Windows container
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn about how to run Self-Hosted Integration Runtime in Windows container.
 
 ms.author: lle
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019, synapse
+ms.custom: seo-lt-2019
 ms.date: 08/05/2020
 ---
 

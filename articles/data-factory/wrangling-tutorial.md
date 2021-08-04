@@ -1,11 +1,9 @@
 ---
 title: Getting started with wrangling data flow in Azure Data Factory 
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: A tutorial on how to prepare data in Azure Data Factory using wrangling data flow 
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
-ms.custom: synapse
 ms.topic: conceptual
 ms.date: 06/08/2021
 ---

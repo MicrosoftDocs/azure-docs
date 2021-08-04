@@ -1,13 +1,12 @@
 ---
 title: Schema drift in mapping data flow
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Build resilient Data Flows in Azure Data Factory with Schema Drift
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019, synapse
+ms.custom: seo-lt-2019
 ms.date: 04/15/2020
 ---
 

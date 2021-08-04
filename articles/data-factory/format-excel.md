@@ -1,10 +1,8 @@
 ---
-title: Excel file format
-titleSuffix: Azure Data Factory & Synapse Analytics
-description: This topic describes how to deal with the Excel file format in Azure Data Factory and Synapse Analytics pipelines.
+title: Excel format in Azure Data Factory 
+description: 'This topic describes how to deal with Excel format in Azure Data Factory.'
 author: jianleishen
 ms.service: data-factory
-ms.custom: synapse
 ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: jianleishen

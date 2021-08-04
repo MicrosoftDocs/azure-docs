@@ -1,12 +1,11 @@
 ---
 title: Source control
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to configure source control in Azure Data Factory
 ms.service: data-factory
 author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
-ms.custom: seo-lt-2019, synapse
+ms.custom: seo-lt-2019
 ms.date: 06/04/2021
 ---
 

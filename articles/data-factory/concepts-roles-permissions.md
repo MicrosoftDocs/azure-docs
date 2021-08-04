@@ -1,11 +1,9 @@
 ---
 title: Roles and permissions for Azure Data Factory 
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Describes the roles and permissions required to create Data Factories and to work with child resources.
 ms.date: 11/5/2018
 ms.topic: conceptual
 ms.service: data-factory
-ms.custom: synapse
 author: nabhishek
 ms.author: abnarain
 ---

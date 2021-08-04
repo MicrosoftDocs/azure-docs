@@ -1,13 +1,12 @@
 ---
 title: Run an SSIS package with the Execute SSIS Package activity
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: This article describes how to run a SQL Server Integration Services (SSIS) package in an Azure Data Factory pipeline by using the Execute SSIS Package activity.
 ms.service: data-factory
 ms.devlang: powershell
 ms.topic: conceptual
 ms.author: sawinark
 author: swinarko
-ms.custom: seo-lt-2019, devx-track-azurepowershell, synapse
+ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 06/04/2021
 ---
 

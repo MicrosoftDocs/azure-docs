@@ -1,13 +1,12 @@
 ---
 title: Transform data with an Azure Data Factory managed virtual network mapping data flow
-titleSuffix: Azure Data Factory & Synapse Analytics
 description:  This tutorial provides step-by-step instructions for using Azure Data Factory to transform data with mapping data flows.
 author: ssabat
 ms.author: susabat
 ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019, synapse
+ms.custom: seo-lt-2019
 ms.date: 06/04/2021
 ---
 

@@ -1,12 +1,11 @@
 ---
 title: Copy data to and from Azure Table storage
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to copy data from supported source stores to Azure Table storage, or from Table storage to supported sink stores, by using Data Factory.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019, devx-track-azurepowershell, synapse
+ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 03/17/2021
 ---
 

@@ -1,13 +1,14 @@
 ---
 title: "Quickstart: Create an Azure Data Factory using Azure CLI"
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: This quickstart creates an Azure Data Factory, including a linked service, datasets, and a pipeline. You can run the pipeline to do a file copy action.
 author: linda33wj
 ms.author: jingwang
 ms.service: azure-cli
 ms.topic: quickstart
 ms.date: 03/24/2021
-ms.custom: synapse, template-quickstart, devx-track-azurecli
+ms.custom:
+    - template-quickstart
+    - devx-track-azurecli
 ---
 
 # Quickstart: Create an Azure Data Factory using Azure CLI

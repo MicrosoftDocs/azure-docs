@@ -1,13 +1,12 @@
 ---
 title: Enable Azure Active Directory authentication for Azure SSIS integration runtime
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: This article describes how to enable Azure Active Directory authentication with the specified system/user-assigned managed identity for Azure Data Factory to create Azure-SSIS integration runtime.
 ms.service: data-factory
 ms.devlang: powershell
 ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
-ms.custom: seo-lt-2019, synapse
+ms.custom: seo-lt-2019
 ms.date: 07/19/2021
 ---
 

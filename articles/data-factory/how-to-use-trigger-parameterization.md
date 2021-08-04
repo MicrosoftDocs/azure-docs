@@ -1,9 +1,7 @@
 ---
 title: Pass trigger information to pipeline
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to reference trigger metadata in pipeline
 ms.service: data-factory
-ms.custom: synapse
 author: chez-charlie
 ms.author: chez
 ms.reviewer: 

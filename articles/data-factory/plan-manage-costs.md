@@ -1,12 +1,11 @@
 ---
 title: Plan to manage costs for Azure Data Factory
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to plan for and manage costs for Azure Data Factory by using cost analysis in the Azure portal.
 author: shirleywangmsft
 ms.author: shwang
 ms.service: data-factory
 ms.topic: how-to
-ms.custom: subject-cost-optimization, synapse
+ms.custom: subject-cost-optimization
 ms.date: 04/28/2021
 ---
 

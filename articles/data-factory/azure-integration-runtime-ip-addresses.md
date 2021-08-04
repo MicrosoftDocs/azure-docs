@@ -1,12 +1,11 @@
 ---
 title: Azure Integration Runtime IP addresses
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn which IP addresses you must allow inbound traffic from, in order to properly configure firewalls for securing network access to data stores.
 ms.author: lle
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019, synapse
+ms.custom: seo-lt-2019
 ms.date: 01/06/2020
 ---
 

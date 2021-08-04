@@ -1,13 +1,12 @@
 ---
 title: Copy data from an SAP table
-titleSuffix: Azure Data Factory & Synapse Analytics
-description: Learn how to copy data from an SAP table to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
+description: Learn how to copy data from an SAP table to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019, synapse
-ms.date: 07/30/2021
+ms.custom: seo-lt-2019
+ms.date: 05/26/2021
 ---
 
 # Copy data from an SAP table using Azure Data Factory or Synapse Analytics

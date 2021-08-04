@@ -1,12 +1,11 @@
 ---
 title: Copy and transform data in Azure Cosmos DB (SQL API)
-titleSuffix: Azure Data Factory & Synapse Analytics
-description: Learn how to copy data to and from Azure Cosmos DB (SQL API), and transform data in Azure Cosmos DB (SQL API) using Azure Data Factory and Azure Synapse Analytics.
+description: Learn how to copy data to and from Azure Cosmos DB (SQL API), and transform data in Azure Cosmos DB (SQL API) by using Data Factory.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019, synapse
+ms.custom: seo-lt-2019
 ms.date: 05/18/2021
 ---
 

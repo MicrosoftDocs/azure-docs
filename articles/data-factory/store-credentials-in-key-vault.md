@@ -1,10 +1,8 @@
 ---
 title: Store credentials in Azure Key Vault 
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to store credentials for data stores used in an Azure key vault that Azure Data Factory can automatically retrieve at runtime. 
 author: nabhishek
 ms.service: data-factory
-ms.custom: synapse
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: abnarain

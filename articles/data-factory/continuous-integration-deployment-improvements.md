@@ -1,9 +1,7 @@
 ---
 title: Automated publishing for continuous integration and delivery
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to publish for continuous integration and delivery automatically.
 ms.service: data-factory
-ms.custom: synapse
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel

@@ -1,9 +1,7 @@
 ---
 title: Azure PowerShell Samples for Azure Data Factory 
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Azure PowerShell Samples - Scripts to help you create and manage data factories. 
 ms.service: data-factory
-ms.custom: synapse
 author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel

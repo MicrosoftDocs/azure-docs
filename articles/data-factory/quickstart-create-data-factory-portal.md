@@ -1,10 +1,8 @@
 ---
 title: Create an Azure data factory using the Azure Data Factory UI 
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Create a data factory with a pipeline that copies data from one location in Azure Blob storage to another location.
 author: jianleishen
 ms.service: data-factory
-ms.custom: synapse
 ms.topic: quickstart
 ms.date: 07/05/2021
 ms.author: jianleishen

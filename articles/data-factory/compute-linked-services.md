@@ -1,13 +1,12 @@
 ---
 title: Compute environments supported by Azure Data Factory 
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Compute environments that can be used with Azure Data Factory pipelines (such as Azure HDInsight) to transform or process data.
 ms.service: data-factory
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.date: 05/08/2019 
-ms.custom: devx-track-azurepowershell, synapse
+ms.custom: devx-track-azurepowershell
 ---
 
 # Compute environments supported by Azure Data Factory

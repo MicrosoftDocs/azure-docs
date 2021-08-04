@@ -1,12 +1,10 @@
 ---
 title: Rules for naming Azure Data Factory entities 
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Describes naming rules for Data Factory entities.
 author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel
 ms.service: data-factory
-ms.custom: synapse
 ms.topic: conceptual
 ms.date: 10/15/2020
 ---

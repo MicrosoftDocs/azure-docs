@@ -1,12 +1,11 @@
 ---
 title: Bulk copy from a database using control table
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to use a solution template to copy bulk data from a database by using an external control table to store a partition list of source tables by using Azure Data Factory.
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019, synapse
+ms.custom: seo-lt-2019
 ms.date: 12/09/2020
 ---
 
