@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: dsc
 author: mgoedtel
 ms.author: magoedte
-ms.date: 06/17/2021
+ms.date: 08/04/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 manager: carmonm
@@ -40,7 +40,7 @@ To start sending your Automation State Configuration reports to Azure Monitor lo
 
 To begin importing data from Azure Automation State Configuration into Azure Monitor logs, complete the following steps:
 
-1. From your workstation, sign in to your Azure subscription with the PowerShell [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet and follow the on-screen directions.
+1. From your machine, sign in to your Azure subscription with the PowerShell [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet and follow the on-screen directions.
 
     ```powershell
     # Sign in to your Azure subscription
@@ -54,14 +54,14 @@ To begin importing data from Azure Automation State Configuration into Azure Mon
     # Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
     ```
 
-    Initialize a few variables. Replace `automationAccount` with the actual name of your Automation account, and `LAW` with the actual name of your Log Analytics Workspace. Then execute the revised code:
+1. Provide an appropriate value for the variables `automationAccount` with the actual name of your Automation account, and `workspaceName` with the actual name of your Log Analytics workspace. Then execute the script.
 
     ```powershell
     $automationAccount = "automationAccount"
-    $law = "LAW"
+    $law = "workspaceName"
     ```
 
-1. Get the resource ID of your Automation account by running the following PowerShell cmdlet:
+1. Get the resource ID of your Automation account by running the following PowerShell commands.
 
    ```powershell
    # Find the ResourceId for the Automation account
@@ -70,7 +70,7 @@ To begin importing data from Azure Automation State Configuration into Azure Mon
       WHERE {$_.Name -eq $automationAccount}).ResourceId
    ```
 
-1. Get the resource ID of your Log Analytics workspace by running the following PowerShell cmdlet:
+1. Get the resource ID of your Log Analytics workspace by running the following PowerShell commands.
 
    ```powershell
     # Find the ResourceId for the Log Analytics workspace
@@ -79,7 +79,7 @@ To begin importing data from Azure Automation State Configuration into Azure Mon
         WHERE {$_.Name -eq $law}).ResourceId
    ```
 
-1. Sets the logs and metrics by executing the following [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) command:
+1. To configure diagnostic settings on the Automation account to forward DSC node status log data to Azure Monitor Logs, the following PowerShell cmdlet creates a diagnostic setting using that destination.
 
    ```powershell
     Set-AzDiagnosticSetting `
@@ -89,7 +89,7 @@ To begin importing data from Azure Automation State Configuration into Azure Mon
         -Category 'DscNodeStatus'
    ```
 
-   When you want to stop importing data from Azure Automation State Configuration into Azure Monitor logs, run the following code:
+   When you want to stop forwarding log data from Automation State Configuration to Azure Monitor Logs, run the following PowerShell cmdlet.
 
    ```powershell
     Set-AzDiagnosticSetting `
@@ -101,11 +101,11 @@ To begin importing data from Azure Automation State Configuration into Azure Mon
 
 ## View the State Configuration logs
 
-You can search the State Configuration logs for DSC operations by searching in Azure Monitor logs. After you set up integration with Azure Monitor logs for your Automation State Configuration data, navigate to your Automation account in the [Azure portal](https://portal.azure.com/). Then under **Monitoring**, select **Logs**.
+You can search the State Configuration logs for DSC operations by searching in Azure Monitor Logs. After you set up integration with Azure Monitor Logs for your Automation State Configuration data, navigate to your Automation account in the [Azure portal](https://portal.azure.com/). Then under **Monitoring**, select **Logs**.
 
 ![Logs](media/automation-dsc-diagnostics/automation-dsc-logs-toc-item.png)
 
-Close the **Queries** pop-up window. The Log Search pane opens with a query region scoped to your Automation account resource. The records for DSC operations are stored in the `AzureDiagnostics` table. To find nodes that aren't compliant, type the following query.
+Close the **Queries** dialog box. The Log Search pane opens with a query region scoped to your Automation account resource. The records for DSC operations are stored in the `AzureDiagnostics` table. To find nodes that aren't compliant, type the following query.
 
 ```Kusto
 AzureDiagnostics
@@ -124,11 +124,9 @@ To learn more about constructing log queries to find data, see [Overview of log 
 
 ### Send an email when a State Configuration compliance check fails
 
-One of our top customer requests is for the ability to send an email or a text when something goes wrong with a DSC configuration.
+1. Return to your query created earlier.
 
-1. Return to your open query window.
-
-1. Select **+ New alert rule** at the top-right of the query window to open the **Create alert rule** screen.
+1. Press on '+ New Alert Rule' button to start the alert creation flow.
 
 1. In the query below, replace `NODENAME` with the actual name of the managed node, and then paste the revised query in the **Search query** text box:
 
@@ -146,7 +144,7 @@ One of our top customer requests is for the ability to send an email or a text w
 
 ### Find failed DSC resources across all nodes
 
-One advantage of using Azure Monitor logs is that you can search for failed checks across nodes. To find all instances of DSC resources that have failed, use the following query:
+One advantage of using Azure Monitor Logs is that you can search for failed checks across nodes. To find all instances of DSC resources that have failed, use the following query:
 
 ```kusto
 AzureDiagnostics 
