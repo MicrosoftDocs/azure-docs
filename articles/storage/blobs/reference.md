@@ -92,7 +92,7 @@ The following table lists reference information for Blob Storage REST APIs.
 
 ### Other REST reference
 
-- [Azure Storage import-export REST API](/rest/api/storageimportexport/) helps you manage import/export jobs to transfer data to or from Blob Storage.
+[Azure Storage import-export REST API](/rest/api/storageimportexport/) helps you manage import/export jobs to transfer data to or from Blob Storage.
 
 ## Other languages and platforms
 
