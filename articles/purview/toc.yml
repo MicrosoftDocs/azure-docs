@@ -101,7 +101,7 @@ items:
       href: troubleshoot-connections.md
     - name: Resource set pattern rules
       href: how-to-resource-set-pattern-rules.md
-    - name: Set Up Scan
+    - name: Set up a scan
       href: how-to-set-up-scan.md
     - name: Sources
       items:
