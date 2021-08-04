@@ -79,7 +79,7 @@ The Defender for IoT alerts provides information about an extensive range of sec
 
 You can also configure Defender for IoT to send alerts to the Splunk server, where alert information is displayed in the Splunk Enterprise dashboard.
 
-:::image type="content" source="media/tutorial-splunk/alerts-and-details.png" alt-text="View all of the alerts and their details." lightbox="alerts-and-details-expanded.png":::
+:::image type="content" source="media/tutorial-splunk/alerts-and-details.png" alt-text="View all of the alerts and their details." lightbox="media/tutorial-splunk/alerts-and-details-expanded.png":::
 
 To send alert information to the Splunk servers from Defender for IoT, you will need to create a Forwarding Rule.
 
@@ -93,7 +93,7 @@ To send alert information to the Splunk servers from Defender for IoT, you will 
 
 1. In the **Create Forwarding Rule** window, define the rule parameters.
 
-    :::image type="content" source="media/tutorial-splunk/forwarding-rule.png" alt-text="Create the rules for your forwarding rule." lightbox="forwarding-rule-expanded.png":::
+    :::image type="content" source="media/tutorial-splunk/forwarding-rule.png" alt-text="Create the rules for your forwarding rule." lightbox="media/tutorial-splunk/forwarding-rule-expanded.png":::
 
     | Parameter | Description |
     |--|--|
@@ -107,7 +107,7 @@ To send alert information to the Splunk servers from Defender for IoT, you will 
 
 1. Enter the following Splunk parameters.
 
-    :::image type="content" source="media/tutorial-splunk/parameters.png" alt-text="The Splunk parameters you should enter on this screen." lightbox="parameters-expanded.png:::
+    :::image type="content" source="media/tutorial-splunk/parameters.png" alt-text="The Splunk parameters you should enter on this screen." lightbox="media/tutorial-splunk/parameters-expanded.png":::
 
     | Parameter | Description |
     |--|--|
