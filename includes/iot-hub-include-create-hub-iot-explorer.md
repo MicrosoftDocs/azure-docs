@@ -35,15 +35,11 @@ To create an IoT hub and a resource group:
 
     *YourIotHubName*. Replace this placeholder and the surrounding braces in the following command, using the name you chose for your IoT hub. An IoT hub name must be globally unique in Azure. Use your IoT hub name in the rest of this quickstart wherever you see the placeholder.
 
-    ```azurecli-interactive
+    ```azurecli
     az iot hub create --resource-group MyResourceGroup --name {YourIoTHubName}
     ```
     > [!TIP]
     > After creating an IoT hub, in the rest of this quickstart you can continue to use CLI commands to interact with the hub. Optionally, you could use Azure IoT Explorer in place of the CLI commands. IoT Explorer is a GUI application that lets you connect to an existing IoT Hub and add, manage, and monitor devices. To learn more, see [Install and use Azure IoT explorer](../articles/iot-fundamentals/howto-use-iot-explorer.md).
-
-1. After the IoT hub is created, view the JSON output in the console, and copy the `hostName` value to use in a later step. The `hostName` value looks like the following example:
-
-    `{YourIoTHubName}.azure-devices.net`
 
 ### Configure IoT Explorer
 
@@ -78,7 +74,7 @@ To add the public model repository:
 
 ### Register a device
 
-In this section, you create a new device instance and register it with the IoT hub you created. You'll use the connection information for the newly registered device to securely connect your physical device in a later section.
+In this section, you create a new device instance and register it with the IoT hub you created. You'll use the connection information for the newly registered device to securely connect your simulated device in a later section.
 
 To register a device:
 
@@ -89,13 +85,7 @@ To register a device:
 
     :::image type="content" source="media/iot-hub-include-create-hub-iot-explorer/iot-explorer-device-created.png" alt-text="Screenshot of Azure IoT Explorer device identity":::
 
-1. Use the copy buttons to copy and note down the **Device ID** and **Primary connection string** fields.
+1. Use the copy buttons to copy and note down the **Primary connection string** field. You'll need this connection string later.
 
 > [!NOTE]
-> If you prefer using Azure CLI, you can use the *[az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) --device-id mydevice --hub-name {YourIoTHubName}* command to register a new device and the *[az iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity/connection-string#az_iot_hub_device_identity_connection_string_show) --device-id mydevice --hub-name {YourIoTHubName}* command to get the connection string for the device.
-
-Before continuing to the next section, confirm that you've copied the following values:
-
-* `hostName`
-* `deviceId`
-* `primaryConnectionString`
+> If you prefer using Azure CLI, you can use the *[az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) --device-id mydevice --hub-name {YourIoTHubName}* command to register a new device and the *[az iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity/connection-string#az_iot_hub_device_identity_connection_string_show) --device-id mydevice --hub-name {YourIoTHubName}* command to get the primary connection string for the device.

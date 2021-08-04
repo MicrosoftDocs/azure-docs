@@ -25,9 +25,12 @@ In this quickstart, you learn a basic Azure IoT application development workflow
 [!INCLUDE [iot-hub-include-create-hub-iot-explorer](iot-hub-include-create-hub-iot-explorer.md)]
 
 ## Run a simulated device
-In this section, you will use the Node.js SDK to send messages from your simulated device to your IoT hub. 
+In this section, you will use the Node.js SDK to send messages from a simulated device to your IoT hub. You'll run a sample that implements a temperature controller with two thermostat sensors.
 
-1. Open a new console window. You will use this console to install the Node.js SDK and work with Node.js sample code. You should now have two console windows open: the one you just opened, and the Cloud Shell or CLI console that you used previously to enter CLI commands.
+1. Open a new console window. You will use this console to install the Node.js SDK and work with Node.js sample code.
+
+    > [!NOTE]
+    > If you're using a local installation of Azure CLI, you might now have two console windows open. Be sure to enter the commands in this section in the console you just opened, not the one that you've been using for the CLI.
 
 1. In your Node console, clone the [Azure IoT Node.js SDK device samples](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples) to your local machine:
 
@@ -76,7 +79,7 @@ In this section, you will use the Node.js SDK to send messages from your simulat
     export IOTHUB_DEVICE_CONNECTION_STRING="<your connection string here>"
     export IOTHUB_DEVICE_SECURITY_TYPE="connectionString"
     ```
-1. In your Node console, run the code for the following sample file. The sample implements a simulated temperature controller with two thermostat sensors.
+1. In your Node console, run the code for the following sample file. 
 
     To run the Node.js sample from the terminal:
     ```console
@@ -85,7 +88,7 @@ In this section, you will use the Node.js SDK to send messages from your simulat
     > [!NOTE]
     > This code sample uses Azure IoT Plug and Play, which lets you integrate smart devices into your solutions without any manual configuration.  By default, most samples in this documentation use IoT Plug and Play. To learn more about the advantages of IoT PnP, and cases for using or not using it, see [What is IoT Plug and Play?](../articles/iot-develop/overview-iot-plug-and-play.md).
 
-The sample securely connects to your IoT hub as the device you registered and begins sending telemetry messages. The output appears in your console.
+The sample securely connects to your IoT hub as the device you registered and begins sending telemetry messages. The sample output appears in your console.
 
 ## View telemetry
 

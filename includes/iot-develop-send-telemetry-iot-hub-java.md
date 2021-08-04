@@ -26,12 +26,14 @@ In this quickstart, you learn a basic Azure IoT application development workflow
 [!INCLUDE [iot-hub-include-create-hub-iot-explorer](iot-hub-include-create-hub-iot-explorer.md)]
 
 ## Run a simulated device
-In this section, you use the Java SDK to send messages from your simulated device to your IoT hub.
+In this section, you use the Java SDK to send messages from a simulated device to your IoT hub. You'll run a sample that implements a temperature controller with two thermostat sensors.
 
 ### Configure your environment
 1. Open a console to install the Azure IoT Java device SDK, build, and run the code sample.
+
     > [!NOTE]
-    > You should now have two console windows open: the one you just opened, and the Cloud Shell or CLI console that you used previously to enter CLI commands.
+    > If you're using a local installation of Azure CLI, you might now have two console windows open. Be sure to enter the commands in this section in the console you just opened, not the one that you've been using for the CLI.
+    
 1. Set the following environment variables, to enable your simulated device to connect to Azure IoT.
     * Set an environment variable called `IOTHUB_DEVICE_CONNECTION_STRING`. For the variable value, use the device connection string that you saved in the previous section.
     * Set an environment variable called `IOTHUB_DEVICE_SECURITY_TYPE`. For the variable, use the literal string value `connectionString`.
@@ -69,14 +71,15 @@ In this section, you use the Java SDK to send messages from your simulated devic
     ```console
     cd device/iot-device-samples/pnp-device-sample/temperature-controller-device-sample
     ```
-1. In your Java console, run the following code sample. The sample implements a simulated temperature controller with two thermostat sensors.
+1. In your Java console, run the following code sample.
+
     ```console
     mvn exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.device.TemperatureController"
     ```
     > [!NOTE]
     > This code sample uses Azure IoT Plug and Play, which lets you integrate smart devices into your solutions without any manual configuration.  By default, most samples in this documentation use IoT Plug and Play. To learn more about the advantages of IoT PnP, and cases for using or not using it, see [What is IoT Plug and Play?](../articles/iot-develop/overview-iot-plug-and-play.md).
 
-The sample securely connects to your IoT hub as the device you registered and begins sending telemetry messages. The output appears in your console.
+The sample securely connects to your IoT hub as the device you registered and begins sending telemetry messages. The sample output appears in your console.
 
 ## View telemetry
 

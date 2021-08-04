@@ -25,7 +25,7 @@ In this quickstart, you learn a basic Azure IoT application development workflow
 [!INCLUDE [iot-hub-include-create-hub-iot-explorer](iot-hub-include-create-hub-iot-explorer.md)]
 
 ## Run a simulated device
-In this section, you configure your local environment, and run a sample that implements a simulated temperature controller with two thermostats.
+In this section, you will use the C# SDK to send messages from a simulated device to your IoT hub. You'll run a sample that implements a temperature controller with two thermostat sensors.
 
 To run the sample application in Visual Studio:
 
@@ -44,7 +44,7 @@ To run the sample application in Visual Studio:
 
 1. In Visual Studio, press CTRL + F5 to run the sample.
 
-A console window opens. The sample securely connects to your IoT hub as the device you registered and begins sending telemetry messages. The output appears in the console.
+A console window opens. The sample securely connects to your IoT hub as the device you registered and begins sending telemetry messages. The sample output appears in the console.
 
 ## View telemetry
 
