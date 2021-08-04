@@ -8,7 +8,7 @@ ms.author: mimart
 # Used by Azure AD B2C app integration articles under "App integration".
 ---
 
-To grant your app (App ID: 1) permissions, do the following: 
+To grant your app (App ID: 1) permissions, follow these steps: 
 
 1. Select **App registrations**, and then select the app your created (App ID: 1).
 1. Under **Manage**, select **API permissions**.
