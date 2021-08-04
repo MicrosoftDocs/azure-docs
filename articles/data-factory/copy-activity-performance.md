@@ -1,6 +1,6 @@
 ---
 title: Copy activity performance and scalability guide
-titleSuffix: Azure Data Factory & Synapse Analytics
+titleSuffix: Azure Data Factory& Azure Synapse
 description: Learn about key factors that affect the performance of data movement in Azure Data Factory when you use the copy activity.
 services: data-factory
 documentationcenter: ''
