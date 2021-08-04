@@ -33,7 +33,7 @@ The following table shows the features supported across each gateway type.
 
 |**Gateway SKU**|**VPN Gateway and ExpressRoute coexistence**|**FastPath**|**Max Number of Circuit Connections**|
 | --- | --- | --- | --- |
-|**Standard SKU/ERGw1Az**|No|No|4|
+|**Standard SKU/ERGw1Az**|Yes|No|4|
 |**High Perf SKU/ERGw2Az**|Yes|No|8
 |**Ultra Performance SKU/ErGw3Az**|Yes|Yes|16
 
