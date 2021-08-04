@@ -90,7 +90,7 @@ Azure Storage raises an event through Azure Event Grid when a blob rehydration o
 - The **Microsoft.Storage.BlobCreated** event fires when a blob is created. In the context of blob rehydration, this event fires when a copy operation creates a new destination blob in either the hot or cool tier.
 - The **Microsoft.Storage.BlobTierChanged** event fires when a blob's tier is changed. In the context of blob rehydration, this event fires when a [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation successfully changes an archived blob's tier to the hot or cool tier.
 
-To learn how to capture an event on rehydration and send it to an Azure Function event handler, see [Trigger an event when an archived blob is rehydrated](archive-rehydration-handle-event.md).
+To learn how to capture an event on rehydration and send it to an Azure Function event handler, see [Trigger an event when an archived blob is rehydrated](archive-rehydrate-handle-event.md).
 
 For more information on handling events in Blob Storage, see [Reacting to Azure Blob storage events](storage-blob-event-overview.md).
 
@@ -107,4 +107,4 @@ For more information about pricing for block blobs and data rehydration, see [Az
 ## See also
 
 - [Azure Blob Storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md).
-- [Trigger an event when an archived blob is rehydrated](archive-rehydration-handle-event.md)
+- [Trigger an event when an archived blob is rehydrated](archive-rehydrate-handle-event.md)

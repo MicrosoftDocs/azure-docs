@@ -207,7 +207,7 @@ items:
       - name: Access tiers
         href: storage-blob-storage-tiers.md
       - name: Rehydrate data from archive tier
-        href: storage-blob-rehydration.md
+        href: archive-rehydrate-overview.md
       - name: Performance tiers
         href: storage-blob-performance-tiers.md
       - name: Automate access tiers lifecycle
@@ -467,9 +467,9 @@ items:
     - name: Manage data in the archive tier
       items:
       - name: Rehydrate an archived blob
-        href: 
+        href: archive-rehydrate-to-online-tier.md
       - name: Handle events on blob rehydration
-        href: archive-rehydration-handle-event.md
+        href: archive-rehydrate-handle-event.md
     - name: Configure object replication
       href: object-replication-configure.md
     - name: Manage concurrency

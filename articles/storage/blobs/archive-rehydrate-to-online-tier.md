@@ -34,7 +34,7 @@ TBD
 
 1. In the **Blob properties**, select **Change tier**.
 
-1. Select the **Hot** or **Cool** access tier. 
+1. Select the **Hot** or **Cool** access tier.
 
 1. Select a Rehydrate Priority of **Standard** or **High**.
 
@@ -69,7 +69,7 @@ $blob.ICloudBlob.SetStandardBlobTier("Hot", "Standard")
 
 ### Copy an archive blob to a new blob with an online tier
 
-The following PowerShell script can be used to copy an archive blob to a new blob within the same storage account. The `$rgName` variable must be initialized with your resource group name. The `$accountName` variable must be initialized with your storage account name. The `$srcContainerName` and `$destContainerName` variables must be initialized with your container names. The `$srcBlobName` and `$destBlobName` variables must be initialized with your blob names. 
+The following PowerShell script can be used to copy an archive blob to a new blob within the same storage account. The `$rgName` variable must be initialized with your resource group name. The `$accountName` variable must be initialized with your storage account name. The `$srcContainerName` and `$destContainerName` variables must be initialized with your container names. The `$srcBlobName` and `$destBlobName` variables must be initialized with your blob names.
 
 ```powershell
 #Initialize the following with your resource group, storage account, container, and blob names
