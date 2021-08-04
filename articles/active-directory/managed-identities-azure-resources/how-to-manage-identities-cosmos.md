@@ -151,7 +151,10 @@ To assign a user-assigned identity to a VM, your account needs the Virtual Machi
 
 #### [Portal](#tab/azure-portal)
 
-[Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md#user-assigned-managed-identity)
+1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription that contains the VM.
+2. Navigate to the desired VM and click **Identity**, **User assigned** and then **\+Add**.
+3. Click the user-assigned identity you want to add to the VM and then click **Add**.
+
 
 #### [PowerShell](#tab/azure-powershell)
 
