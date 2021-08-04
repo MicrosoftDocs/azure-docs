@@ -47,7 +47,7 @@ Assign the Application Developer role to grant the ability to create application
 
 ## Assign application owners
 
-Assigning owners is a simple way to grant the ability to manage all aspects of Azure AD configuration for a specific application registration or enterprise application. As a system behavior, when a user creates a new application registration they are automatically added as the first owner. The original owner can be removed and additional owners can be added. Ownership permissions give the user the ability to manage all aspects of an application registration or enterprise application that they own. For more information, see [Assign enterprise application owners](../manage-apps/assign-app-owners.md).
+Assigning owners is a simple way to grant the ability to manage all aspects of Azure AD configuration for a specific application registration or enterprise application. For more information, see [Assign enterprise application owners](../manage-apps/assign-app-owners.md).
 
 ## Assign built-in application admin roles
 
