@@ -112,7 +112,7 @@ When detection is applied, select one of the metrics listed in the data feed to 
 
 ## View diagnostic insights
 
-After tuning the detection configuration, you should find that anomalies found reflect actual anomalies in your data. Metrics Advisor performs analysis on multidimensional metrics to locate the root cause to a specific dimension. The service also performs cross-metrics analysis by using the metrics graph feature. 
+After tuning the detection configuration, you should find that detected anomalies reflect actual anomalies in your data. Metrics Advisor performs analysis on multidimensional metrics to locate the root cause to a specific dimension. The service also performs cross-metrics analysis by using the metrics graph feature. 
 
 To view the diagnostic insights, select the red dots on time series visualizations. These red dots represent detected anomalies. A window will appear with a link to the incident analysis page. 
 
