@@ -104,7 +104,9 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
 Once you have the IDs for the resource(s) that you want to use with the workspace, use the base `az workspace create -w <workspace-name> -g <resource-group-name>` command and add the parameter(s) and ID(s) for the existing resources. For example, the following command creates a workspace that uses an existing container registry:
 
 ```azurecli-interactive
-az ml workspace create -w <workspace-name> -g <resource-group-name> --container-registry "/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<acr-name>"
+az ml workspace create -w <workspace-name> \
+                       -g <resource-group-name> \
+                       --container-registry "/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<acr-name>"
 ```
 
 To create a workspace that uses existing resources, you must provide the ID for the resources. You can get this ID either via the 'properties'  tab on each resource in the Azure Portal, or by running the following commands using the Azure CLI.
@@ -185,13 +187,25 @@ The output of the workspace creation command is similar to the following JSON. Y
 
 # [1.0 CLI](#tab/vnetpleconfigurationsv1cli)
 
-If you want to restrict access to your workspace to a virtual network, you can use the following parameters as part of the `az ml workspace create` command:
+If you want to restrict access to your workspace to a virtual network, you can use the following parameters as part of the `az ml workspace create` command or use the `az ml workspace private-endpoint` commands.
+
+```azurecli-interactive
+az ml workspace create -w <workspace-name> \
+                       -g <resource-group-name> \
+                       --pe-name "<pe name>" \
+                       --pe-auto-approval "<pe-autoapproval>" \
+                       --pe-resource-group "<pe name>" \
+                       --pe-vnet-name "<pe name>" \
+                       --pe-subnet-name "<pe name>"
+```
 
 * `--pe-name`: The name of the private endpoint that is created.
 * `--pe-auto-approval`: Whether private endpoint connections to the workspace should be automatically approved.
 * `--pe-resource-group`: The resource group to create the private endpoint in. Must be the same group that contains the virtual network.
 * `--pe-vnet-name`: The existing virtual network to create the private endpoint in.
 * `--pe-subnet-name`: The name of the subnet to create the private endpoint in. The default value is `default`.
+
+You can find more details on the [CLI reference pages]((/cli/azure/ml(v1)/workspace?view=azure-cli-latest)).
 
 # [2.0 CLI](#tab/vnetpleconfigurationsv2cli)
 
