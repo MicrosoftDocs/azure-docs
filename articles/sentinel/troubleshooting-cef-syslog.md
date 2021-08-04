@@ -22,8 +22,6 @@ ms.author: bagold
 
 This article describes common methods for troubleshooting a CEF or Syslog data connector for Azure Sentinel.
 
-If your issue continues to recur, [open a support ticket](resources.md#).
-
 For more information, see [Connect your external solution using Common Event Format](connect-common-event-format.md) and [Collect data from Linux-based sources using Syslog](connect-syslog.md).
 
 ## Verify prerequisites
@@ -38,17 +36,13 @@ If you're using an Azure Virtual Machine as a Syslog collector, verify the follo
 
     You can turn them back on after your data connector is completely setup.
 
-- Before you deploy the [Common Event Format Data connector python script](connect-cef-agent.md), make sure that your Virtual Machine isn't already connected to an existing Syslog workspace.
+- Before you deploy the [Common Event Format Data connector python script](connect-cef-agent.md), make sure that your Virtual Machine isn't already connected to an existing Syslog workspace. You can find this information on the Log Analytics Workspace Virtual Machine list, where a VM that's connected to a Syslog workspace is listed as **Connected**.
 
 - Make sure that Azure Sentinel is connected to the correct Syslog workspace, with the **SecurityInsights** solution installed.
 
-    If you need to install this solution, run:
+    For more information, see [Step 1: Deploy the log forwarder](connect-cef-agent.md).
 
-    ```cli
-    sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py <WorkspaceId> <Primary Key>
-    ```
-
-- Make sure that your Virtual Machine is sized correctly, with a minimum of 4 virtual cores, and 8 GB of memory, allowing 8500 EPS.
+- Make sure that your Virtual Machine is sized correctly with at least the minimum required prerequisites. For more information, see [CEF prerequisites](connect-common-event-format.md#prerequisites).
 
 ### On-premises or a non-Azure Virtual Machine
 
@@ -93,6 +87,8 @@ syslog.=alert;syslog.=crit;syslog.=debug;syslog.=emerg;syslog.=err;syslog.=info;
 This procedure describes how to troubleshoot issues that are certainly derived from the operating system configuration.
 
 **To troubleshoot operating system issues**:
+
+1. If you haven't yet, verify that you're working with a supported operating system and Python version. For more information, see [CEF prerequisites](connect-common-event-format.md#prerequisites) and [Configure your Linux machine or appliance](connect-syslog.md#configure-your-linux-machine-or-appliance).
 
 1. If your Virtual Machine is in Azure, verify that the network security group (NSG) allows inbound TCP/UDP connectivity from your log client (Sender) on port 514.
 
@@ -142,7 +138,11 @@ This procedure describes how to troubleshoot issues that are certainly derived f
 
 ### SELinux blocking connection to the OMS agent
 
-This procedure describes how to confirm whether SELinux is currently in a `permissive` state, or is blocking a connection to the OMS agent, and is relevant when your operating system is a distribution from RedHat or CentOS.
+This procedure describes how to confirm whether SELinux is currently in a `permissive` state, or is blocking a connection to the OMS agent. This procedure is relevant when your operating system is a distribution from RedHat or CentOS.
+
+> [!NOTE]
+> Azure Sentinel support for CEF and Syslog only includes FIPS hardening. Other hardening methods, such as SELinux or CIS are not currently supported.
+>
 
 1. Run:
 
@@ -162,6 +162,10 @@ This procedure describes how to confirm whether SELinux is currently in a `permi
     setenforce 0
     ```
 
+    > [!NOTE]
+    > This step turns off SELinux only until the server reboots. Modify the SELinux configuration to keep it turned off.
+    >
+
 1. To verify whether the change was successful, run:
 
     ```
@@ -176,18 +180,18 @@ This procedure describes how to confirm whether SELinux is currently in a `permi
 > For more information, see [RedHat documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/using_selinux/changing-selinux-states-and-modes_using-selinux).
 
 
-### Blocked firewalld process
+### Blocked firewall policy
 
-This procedure describes how to verify whether the firewalld process is blocking the connection from the rsyslog server to the OMS agent, and how to disable it as needed.
+This procedure describes how to verify whether a firewall policy is blocking the connection from the **Rsyslog daemon to the OMS agent, and how to disable it as needed.
 
 
-1. Run the following command to verify whether there are any rejects in the IP tables:
+1. Run the following command to verify whether there are any rejects in the IP tables, indicating traffic that's being dropped by the firewall policy.
 
     ```config
     watch -n 2 -d iptables -nvL
     ```
 
-1. To keep the firewalld process enabled, create a policy rule to allow the connections. Add rules as needed to allow the TCP/UDP ports 25226 and 25224 through the active firewall.
+1. To keep the firewall policy enabled, create a policy rule to allow the connections. Add rules as needed to allow the TCP/UDP ports 25226 and 25224 through the active firewall.
 
     For example:
 
@@ -205,6 +209,8 @@ This procedure describes how to verify whether the firewalld process is blocking
     Chain OUTPUT (policy ACCEPT 6792K packets, 6348M bytes)
      pkts bytes target     prot opt in     out     source               destination
     ```
+
+    For more information, see the [CentOS Wiki](https://wiki.centos.org/HowTos/Network/IPTables).
 
 1. To create a rule to allow TCP/UDP ports 25226 and 25224 through the active firewall, add rules as needed.
 
