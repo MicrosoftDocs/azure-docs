@@ -13,7 +13,7 @@ You can list, show, and update configuration parameters for an Azure Database fo
 
 ## Prerequisites
 To step through this how-to guide you need:
-- [Azure Database for PostgreSQL - Flexible server](quickstart-create-server-database-portal.md)
+- [Azure Database for PostgreSQL - Flexible server](quickstart-create-server-portal.md)
 
 ## Viewing and editing parameters
 1. Open the [Azure portal](https://portal.azure.com).
