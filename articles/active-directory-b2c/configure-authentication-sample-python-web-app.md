@@ -224,7 +224,7 @@ ENDPOINT = 'https://localhost:44332'
 SCOPE = ["https://contoso.onmicrosoft.com/api/demo.read", "https://contoso.onmicrosoft.com/api/demo.write"] 
 ```
 
-## Run the sample application
+### Run the sample application
 
 1. In your console or terminal, switch to the directory containing the sample. 
 1. Stop the app and rerun it.
