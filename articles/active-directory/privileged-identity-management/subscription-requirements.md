@@ -26,7 +26,7 @@ To use Azure Active Directory (Azure AD) Privileged Identity Management (PIM), a
 
 ## Valid licenses
 
-You will need [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)] to use PIM and all of it's settings. Currently, you can scope an access review to service principals with access to Azure AD and Azure resource roles (Preview) with an Azure Active Directory Premium P2 edition active in your tenant. The licensing model for service principals will be finalized for general availability of this feature and additional licenses may be required.
+You will need an Azure AD license to use PIM and all of it's settings. Currently, you can scope an access review to service principals with access to Azure AD and Azure resource roles (Preview) with an Azure Active Directory Premium P2 edition active in your tenant. The licensing model for service principals will be finalized for general availability of this feature and additional licenses may be required. [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
 ## Licenses you must have
 
