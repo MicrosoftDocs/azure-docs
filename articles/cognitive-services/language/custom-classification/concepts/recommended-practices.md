@@ -34,7 +34,7 @@ Follow the recommended development life cycle for best results:
 
 * **Classify text**: Use your custom modeled for text classification tasks.
 
-:::image type="content" source="../media/dev-lifecycle.png" alt-text="The development lifecycle" lightbox="../media/dev-lifecycle.png":::
+:::image type="content" source="../media/development-lifecycle.png" alt-text="The development lifecycle" lightbox="../media/development-lifecycle.png":::
 
 ## Recommendations
 
