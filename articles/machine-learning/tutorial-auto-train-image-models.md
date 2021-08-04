@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 author: swatig007
-ms.author: sacartac
+ms.author: swatig
 ms.reviewer: nibaccam
 ms.date: 08/03/2021
 ms.custom: devx-track-python, automl, FY21Q4-aml-seo-hack, contperf-fy21q4
@@ -18,7 +18,7 @@ ms.custom: devx-track-python, automl, FY21Q4-aml-seo-hack, contperf-fy21q4
 >[!IMPORTANT]
 > The features presented in this article are in preview. They should be considered [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview features that might change at any time.
 
-In this tutorial, you learn how to train an object detection model using Azure Machine Learning automated ML with the Azure Machine Learning Python SDK. This object detection model identifies whether the object in an image is a can, carton, milk bottle, or water bottle.
+In this tutorial, you learn how to train an object detection model using Azure Machine Learning automated ML with the Azure Machine Learning Python SDK. This object detection model identifies whether the image contains objects, such as a can, carton, milk bottle, or water bottle.
 
 Automated ML accepts training data and configuration settings, and automatically iterates through combinations of different feature normalization/standardization methods, models, and hyperparameter settings to arrive at the best model.
 
@@ -30,8 +30,8 @@ You'll write code using the Python SDK in this tutorial and learn the following 
 > * Train an automated machine learning object detection model
 > * Specify hyperparameter values for your model
 > * Perform a hyperparameter sweep 
-> * Calculate model accuracy
 > * Deploy your model
+> * Visualize detections
 
 ## Prerequisites
 
@@ -40,6 +40,9 @@ You'll write code using the Python SDK in this tutorial and learn the following 
 * Python 3.6 or 3.7 are supported for this feature
 
 * Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md#create-the-workspace) if you don't already have an Azure Machine Learning workspace.
+
+* Download the [**odFridgeObjects.csv**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) data file. The **y** column indicates if a customer subscribed to a fixed term deposit, which is later identified as the target column for predictions in this tutorial.
+
 
 This tutorial is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to run it in your own [local environment](how-to-configure-environment.md#local). To get the required packages,
 * Run `pip install azureml`
@@ -85,124 +88,7 @@ experiment_name = 'automl-image-object-detection'
 experiment = Experiment(ws, name=experiment_name)
 ```
 
-## Download data
-
-In order to generate models for computer vision, you need to bring in labeled image data as input for model training. Your data needs to be in the form of an Azure Machine Learning labeled dataset. You can either use a labeled dataset that's been exported from a data labeling project, or create a new labeled dataset with your labeled training data.
-
-required JSONL format.
-
-This tutorial uses the `odFridgeObjects.zip` data file that contains images of cartons, water bottles, cans and milk bottles on different backgrounds. 
-
-The following code downloads and unzips the data file locally.
-
-```python
-
-import os
-import urllib
-from zipfile import ZipFile
-
-# download data
-download_url = 'https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip'
-data_file = './odFridgeObjects.zip'
-urllib.request.urlretrieve(download_url, filename=data_file)
-
-# extract files
-with ZipFile(data_file, 'r') as zip:
-    print('extracting files...')
-    zip.extractall()
-    print('done')
-    
-# delete zip file
-os.remove(data_file)
-
-# get a sample image from the dataset
-from IPython.display import Image
-Image(filename='./odFridgeObjects/images/31.jpg')
-```
-
-## Transform data
-
-The `odFridgeObjects` data is annotated in Pascal VOC format, where each image corresponds to an .xml file. Each .xml file contains information on where its corresponding image file is located and contains information about the bounding boxes and the object labels.
-
-In order to use this data to create an Azure Machine Learning dataset, it needs to be converted into the accepted JSONL format.
-
-The following script creates two .jsonl files (one for training and one for validation) in the parent folder of the dataset. The train / validation ratio corresponds to 20% of the data going into the validation file.
-
-```python
-import json
-import os
-import xml.etree.ElementTree as ET
-
-src = "./odFridgeObjects/"
-train_validation_ratio = 5
-
-# Retrieving default datastore that got automatically created when we setup a workspace
-workspaceblobstore = ws.get_default_datastore().name
-
-# Path to the annotations
-annotations_folder = os.path.join(src, "annotations")
-
-# Path to the training and validation files
-train_annotations_file = os.path.join(src, "train_annotations.jsonl")
-validation_annotations_file = os.path.join(src, "validation_annotations.jsonl")
-
-# sample json line dictionary
-json_line_sample = \
-    {
-        "image_url": "AmlDatastore://" + workspaceblobstore + "/"
-                     + os.path.basename(os.path.dirname(src)) + "/" + "images",
-        "image_details": {"format": None, "width": None, "height": None},
-        "label": []
-    }
-
-# Read each annotation and convert it to jsonl line
-with open(train_annotations_file, 'w') as train_f:
-    with open(validation_annotations_file, 'w') as validation_f:
-        for i, filename in enumerate(os.listdir(annotations_folder)):
-            if filename.endswith(".xml"):
-                print("Parsing " + os.path.join(src, filename))
-
-                root = ET.parse(os.path.join(annotations_folder, filename)).getroot()
-
-                width = int(root.find('size/width').text)
-                height = int(root.find('size/height').text)
-
-                labels = []
-                for object in root.findall('object'):
-                    name = object.find('name').text
-                    xmin = object.find('bndbox/xmin').text
-                    ymin = object.find('bndbox/ymin').text
-                    xmax = object.find('bndbox/xmax').text
-                    ymax = object.find('bndbox/ymax').text
-                    isCrowd = int(object.find('difficult').text)
-                    labels.append({"label": name,
-                                   "topX": float(xmin)/width,
-                                   "topY": float(ymin)/height,
-                                   "bottomX": float(xmax)/width,
-                                   "bottomY": float(ymax)/height,
-                                   "isCrowd": isCrowd})
-                # build the jsonl file
-                image_filename = root.find("filename").text
-                _, file_extension = os.path.splitext(image_filename)
-                json_line = dict(json_line_sample)
-                json_line["image_url"] = json_line["image_url"] + "/" + image_filename
-                json_line["image_details"]["format"] = file_extension[1:]
-                json_line["image_details"]["width"] = width
-                json_line["image_details"]["height"] = height
-                json_line["label"] = labels
-
-                if i % train_validation_ratio == 0:
-                    # validation annotation
-                    validation_f.write(json.dumps(json_line) + "\n")
-                else:
-                    # train annotation
-                    train_f.write(json.dumps(json_line) + "\n")
-            else:
-                print("Skipping unknown file: {}".format(filename))
-```
-
-
-## Upload data and create datasets
+## Upload data and create dataset
 
 In order to use the data for training, upload it to your workspace via a datastore. The datastore provides a mechanism for you to upload or download data, and interact with it from your remote compute targets.
 
@@ -213,11 +99,10 @@ ds.upload(src_dir='./odFridgeObjects', target_path='odFridgeObjects')
 
 Once uploaded to the datastore, you can create an Azure Machine Learning dataset from the data. Datasets package your data into a consumable object for training. 
 
-The following code creates one dataset for training and one for validation.
-The validation dataset is optional. If no validation dataset is specified, by default 20% of your training data is used for validation. You can control the percentage using the `split_ratio` argument.
+The following code creates a dataset for training 
+Since no validation dataset is specified, by default 20% of your training data is used for validation. 
 
 ``` python
-
 from azureml.contrib.dataset.labeled_dataset import _LabeledDatasetFactory, LabeledDatasetTask
 from azureml.core import Dataset
 
@@ -231,74 +116,22 @@ else:
         task=LabeledDatasetTask.OBJECT_DETECTION, path=ds.path('odFridgeObjects/train_annotations.jsonl'))
     training_dataset = training_dataset.register(workspace=ws, name=training_dataset_name)
     
-# create validation dataset
-validation_dataset_name = "odFridgeObjectsValidationDataset"
-if validation_dataset_name in ws.datasets:
-    validation_dataset = ws.datasets.get(validation_dataset_name)
-    print('Found the validation dataset', validation_dataset_name)
-else:
-    validation_dataset = _LabeledDatasetFactory.from_json_lines(
-        task=LabeledDatasetTask.OBJECT_DETECTION, path=ds.path('odFridgeObjects/validation_annotations.jsonl'))
-    validation_dataset = validation_dataset.register(workspace=ws, name=validation_dataset_name)
-    
-    
 print("Training dataset name: " + training_dataset.name)
-print("Validation dataset name: " + validation_dataset.name)
 ```
-
 
 ## Configuring your AutoML run for image tasks
 
-To configure AutoML runs for image related tasks, use the `AutoMLImageConfig` object.
+To configure AutoML runs for image related tasks, use the `AutoMLImageConfig` object. In your `AutoMLImageConfig`, you can specify the model algorithms with the `model_name` parameter and configure the settings to perform a hyperparameter sweep over a defined parameter space, to find the optimal model.
 
-In your `AutoMLImageConfig` specify the model algorithms with the `model_name parameter`. There are multiple algorithms you can specify for object detection, but this tutorial uses `yolov5`.
+In this example, we use the `AutoMLImageConfig` to train an object detection model using `yolov5` and `fasterrcnn_resnet50_fpn`, both of which are pretrained on COCO, a large-scale object detection, segmentation, and captioning dataset that contains over 200K labeled images with over 80 label cateogories.
 
-```python
-
-from azureml.train.automl import AutoMLImageConfig
-from azureml.train.hyperdrive import GridParameterSampling, choice
-
-image_config_yolov5 = AutoMLImageConfig(task='image-object-detection',
-                                        compute_target=compute_target,
-                                        training_data=training_dataset,
-                                        validation_data=validation_dataset,
-                                        hyperparameter_sampling=GridParameterSampling({'model_name': choice('yolov5')}))
-```
+ sweep over the hyperparameters for each algorithm, choosing from a range of values for `learning_rate`, `optimizer`, `lr_scheduler`, etc, to generate a model with the optimal primary metric. 
 
 ### Using default hyperparameter values for the specified algorithm
 
 Before doing a large sweep to search for the optimal models and hyperparameters, we recommend trying the default values to get a first baseline. Next, you can explore multiple hyperparameters for the same model before sweeping over multiple models and their parameters. This is for employing a more iterative approach, because with multiple models and multiple hyperparameters for each (as we showcase in the next section), the search space grows exponentially and you need more iterations to find optimal configurations.
 
-
-If you wish to use the default hyperparameter values for a given algorithm (say yolov5), you can specify the config for your AutoML Image runs as follows:
-
-```python
-
-from azureml.train.automl import AutoMLImageConfig
-from azureml.train.hyperdrive import GridParameterSampling, choice
-
-image_config_yolov5 = AutoMLImageConfig(task='image-object-detection',
-                                        compute_target=compute_target,
-                                        training_data=training_dataset,
-                                        validation_data=validation_dataset,
-                                        hyperparameter_sampling=GridParameterSampling({'model_name': choice('yolov5')}))
-```
-
-
-## Submit an AutoML run for image tasks
-
-Once you've created the config settings for your run, you can submit an AutoML run using the config in order to train an image model using your training dataset.
-
-```python
-automl_image_run = experiment.submit(image_config_yolov5)
-automl_image_run.wait_for_completion(wait_post_processing=True)
-```
-
-## Hyperparameter sweeping for your AutoML models for image tasks
-
-In this example, we use the AutoMLImageConfig to train an object detection model using yolov5 and fasterrcnn_resnet50_fpn, both of which are pretrained on COCO, a large-scale object detection, segmentation, and captioning dataset that contains over 200K labeled images with over 80 label cateogories.
-
-When using AutoML for image tasks, you can perform a hyperparameter sweep over a defined parameter space, to find the optimal model. In this example, we sweep over the hyperparameters for each algorithm, choosing from a range of values for `learning_rate`, `optimizer`, `lr_scheduler`, etc, to generate a model with the optimal primary metric. 
+### Hyperparameter sweeping for your AutoML models for image tasks
 
 The following uses `RandomParameterSampling` to pick samples from this parameter space and try a total of 20 iterations with these different samples, running 4 iterations at a time on our compute target, which has been previously set up using 4 nodes. Please note that the more parameters the space has, the more iterations you need to find optimal models.
 
@@ -352,6 +185,15 @@ When doing a hyperparameter sweep, it can be useful to visualize the different c
 from azureml.core import Run
 hyperdrive_run = Run(experiment=experiment, run_id=automl_image_run.id + '_HD')
 hyperdrive_run
+```
+
+## Submit an AutoML run for image tasks
+
+Once you've created the config settings for your run, you can submit an AutoML run using the config in order to train an image model using your training dataset.
+
+```python
+automl_image_run = experiment.submit(image_config_yolov5)
+automl_image_run.wait_for_completion(wait_post_processing=True)
 ```
 
 ## Register the best model
@@ -531,7 +373,5 @@ In this automated machine learning tutorial, you did the following tasks:
 
 > [!div class="checklist"]
 > * Configured a workspace and prepared data for an experiment.
-> * Trained by using an automated regression model locally with custom parameters.
+> * Trained by using an automated object detection model locally with custom parameters.
 > * Explored and reviewed training results.
-
-[Deploy your model](tutorial-deploy-models-with-aml.md) with Azure Machine Learning.
