@@ -23,7 +23,7 @@ ms.custom: ep-msia
 Remove all the comments in this template before you sign-off or merge to the main branch.
 -->
 
-This article shows you how to use managed identities with a [service name] instance.` [!INCLUDE [managed identities](../../includes/managed-identities-definition.md)] `.
+This article shows you how to use managed identities with a [service name] instance.` [!INCLUDE [managed identities](../../../includes/managed-identities-definition.md)] `.
 
 ## Prerequisites
 
