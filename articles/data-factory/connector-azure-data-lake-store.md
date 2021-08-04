@@ -9,7 +9,7 @@ ms.custom: seo-lt-2019
 ms.date: 03/17/2021
 ---
 
-# Copy data to or from Azure Data Lake Storage Gen1 using Azure Data Factory or Synapse Analytics
+# Copy data to or from Azure Data Lake Storage Gen1 using Azure Data Factory or Azure Synapse
 
 > [!div class="op_single_selector" title1="Select the version of Azure Data Factory that you're using:"]
 >
@@ -18,7 +18,7 @@ ms.date: 03/17/2021
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to copy data to and from Azure Data Lake Storage Gen1. To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Synapse Analytics](../synapse-analytics/overview-what-is.md).
+This article outlines how to copy data to and from Azure Data Lake Storage Gen1. To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 ## Supported capabilities
 

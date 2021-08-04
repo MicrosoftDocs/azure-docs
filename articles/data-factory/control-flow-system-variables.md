@@ -1,7 +1,7 @@
 ---
 title: System variables
 titleSuffix: Azure Data Factory & Azure Synapse
-description: This article describes system variables supported by Azure Data Factory and Synapse Analytics. You can use these variables in expressions when defining entities within either service.
+description: This article describes system variables supported by Azure Data Factory and Azure Synapse Analytics. You can use these variables in expressions when defining entities within either service.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ---
 
-# System variables supported by Azure Data Factory and Synapse Analytics
+# System variables supported by Azure Data Factory and Azure Synapse
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article describes system variables supported by Azure Data Factory and Synapse Analytics. You can use these variables in expressions when defining entities within either service.
+This article describes system variables supported by Azure Data Factory and Azure Synapse. You can use these variables in expressions when defining entities within either service.
 
 ## Pipeline scope
 

@@ -13,7 +13,7 @@ ms.date: 09/24/2020
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines the copy activity performance optimization features that you can leverage in Azure Data Factory and Synapse Analytics pipelines.
+This article outlines the copy activity performance optimization features that you can leverage in Azure Data Factory and Synapse pipelines.
 
 ## Data Integration Units
 

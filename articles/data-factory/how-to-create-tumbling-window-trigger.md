@@ -26,7 +26,7 @@ Tumbling window triggers are a type of trigger that fires at a periodic time int
 # [Azure Data Factory](#tab/data-factory)
 :::image type="content" source="media/how-to-create-tumbling-window-trigger/create-tumbling-window-trigger.png" alt-text="Create a tumbling window trigger in the Azure portal":::
 
-# [Synapse Analytics](#tab/synapse-analytics)
+# [Azure Synapse](#tab/synapse-analytics)
 :::image type="content" source="media/how-to-create-tumbling-window-trigger/create-tumbling-window-trigger-synapse.png" alt-text="Create a tumbling window trigger in the Azure portal":::
 
 ---
@@ -173,7 +173,7 @@ You can cancel runs for a tumbling window trigger, if the specific window is in 
 
 :::image type="content" source="media/how-to-create-tumbling-window-trigger/cancel-tumbling-window-trigger.png" alt-text="Cancel a tumbling window trigger from Monitoring page":::
 
-# [Synapse Analytics](#tab/synapse-analytics)
+# [Azure Synapse](#tab/synapse-analytics)
 
 :::image type="content" source="media/how-to-create-tumbling-window-trigger/cancel-tumbling-window-trigger-synapse.png" alt-text="Cancel a tumbling window trigger from Monitoring page":::
 
@@ -185,7 +185,7 @@ You can also rerun a canceled window. The rerun will take the _latest_ published
 
 :::image type="content" source="media/how-to-create-tumbling-window-trigger/rerun-tumbling-window-trigger.png" alt-text="Rerun a tumbling window trigger for previously canceled runs":::
 
-# [Synapse Analytics](#tab/synapse-analytics)
+# [Azure Synapse](#tab/synapse-analytics)
 
 :::image type="content" source="media/how-to-create-tumbling-window-trigger/rerun-tumbling-window-trigger-synapse.png" alt-text="Rerun a tumbling window trigger for previously canceled runs":::
 

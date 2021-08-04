@@ -11,19 +11,19 @@ ms.author: jianleishen
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to monitor the copy activity execution in Azure Data Factory and Synapse Analytics pipelines. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to monitor the copy activity execution in Azure Data Factory and Synapse pipelines. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Monitor visually
 
 Once you've created and published a pipeline, you can associate it with a trigger or manually kick off an ad hoc run. You can monitor all of your pipeline runs natively in the user experience. Learn about monitoring in general from [Visually monitor Azure Data Factory and Synapse pipelines](monitor-visually.md).
 
-To monitor the Copy activity run, go to the **Data Factory Studio** or **Synapse Studio** UI for your service instance. On the **Monitor** tab, you see a list of pipeline runs, click the **pipeline name** link to access the list of activity runs in the pipeline run.
+To monitor the Copy activity run, go to the **Data Factory Studio** or **Azure Synapse Studio** UI for your service instance. On the **Monitor** tab, you see a list of pipeline runs, click the **pipeline name** link to access the list of activity runs in the pipeline run.
 
 # [Azure Data Factory](#tab/data-factory)
 
 ![Monitor pipeline run](./media/copy-activity-overview/monitor-pipeline-run.png)
 
-# [Synapse Analytics](#tab/synapse-analytics)
+# [Azure Synapse](#tab/synapse-analytics)
 
 ![Monitor pipeline run](./media/copy-activity-overview/monitor-pipeline-run-synapse.png)
 

@@ -1,7 +1,7 @@
 ---
 title: Parameterize linked services
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to parameterize linked services in Azure Data Factory and Synapse Analytics pipelines, and pass dynamic values at run time.
+description: Learn how to parameterize linked services in Azure Data Factory and Azure Synapse Analytics pipelines, and pass dynamic values at run time.
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/01/2021
@@ -9,7 +9,7 @@ author: chez-charlie
 ms.author: chez
 ---
 
-# Parameterize linked services in Azure Data Factory and Synapse Analytics
+# Parameterize linked services in Azure Data Factory and Azure Synapse
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -68,7 +68,7 @@ Refer to the [JSON sample](#json) to add ` parameters` section to define paramet
 
 ![Create a new parameter](media/parameterize-linked-services/parameterize-linked-services-image2.png)
 
-# [Synapse Analytics](#tab/synapse-analytics)
+# [Azure Synapse](#tab/synapse-analytics)
 
 ![Add dynamic content to the Linked Service definition](media/parameterize-linked-services/parameterize-linked-services-image1-synapse.png)
 

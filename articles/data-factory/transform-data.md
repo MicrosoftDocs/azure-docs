@@ -1,6 +1,6 @@
 ---
 title: Transform data
-description: Transform data or process data in Azure Data Factory using Hadoop, Azure Machine Learning Studio (classic), or Azure Data Lake Analytics.
+description: Transform data or process data in Azure Data Factory or Azure Synapse Analytics using Hadoop, Azure Machine Learning Studio (classic), or Azure Data Lake Analytics.
 ms.service: data-factory
 ms.topic: conceptual
 author: nabhishek
@@ -9,7 +9,7 @@ ms.custom: seo-lt-2019
 ms.date: 07/31/2018
 ---
 
-# Transform data in Azure Data Factory and Synapse Analytics
+# Transform data in Azure Data Factory and Azure Synapse
 
 > [!div class="op_single_selector"]
 > * [Mapping data flow](data-flow-create.md)
@@ -21,7 +21,7 @@ ms.date: 07/31/2018
 > * [Azure Machine Learning Studio (classic)](transform-data-using-machine-learning.md) 
 > * [Stored Procedure](transform-data-using-stored-procedure.md)
 > * [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md)
-> * [Synapse notebook](../synapse-analytics/synapse-notebook-activity.md)
+> * [Azure Synapse notebook](../synapse-analytics/synapse-notebook-activity.md)
 > * [Databricks notebook](transform-data-databricks-notebook.md)
 > * [Databricks Jar](transform-data-databricks-jar.md)
 > * [Databricks Python](transform-data-databricks-python.md)
@@ -30,7 +30,7 @@ ms.date: 07/31/2018
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 ## Overview
-This article explains data transformation activities in Azure Data Factory and Synapse Analytics pipelines that you can use to transform and process your raw data into predictions and insights at scale. A transformation activity executes in a computing environment such as Azure Databricks or Azure HDInsight. It provides links to articles with detailed information on each transformation activity.
+This article explains data transformation activities in Azure Data Factory and Synapse pipelines that you can use to transform and process your raw data into predictions and insights at scale. A transformation activity executes in a computing environment such as Azure Databricks or Azure HDInsight. It provides links to articles with detailed information on each transformation activity.
 
 The service supports the following data transformation activities that can be added to [pipelines](concepts-pipelines-activities.md) either individually or chained with another activity.
 
@@ -38,14 +38,14 @@ The service supports the following data transformation activities that can be ad
 
 ### Mapping data flows
 
-Mapping data flows are visually designed data transformations in Azure Data Factory and Synapse. Data flows allow data engineers to develop graphical data transformation logic without writing code. The resulting data flows are executed as activities within pipelines that use scaled-out Spark clusters. Data flow activities can be operationalized via existing scheduling, control, flow, and monitoring capabilities within the service. For more information, see [mapping data flows](concepts-data-flow-overview.md).
+Mapping data flows are visually designed data transformations in Azure Data Factory and Azure Synapse. Data flows allow data engineers to develop graphical data transformation logic without writing code. The resulting data flows are executed as activities within pipelines that use scaled-out Spark clusters. Data flow activities can be operationalized via existing scheduling, control, flow, and monitoring capabilities within the service. For more information, see [mapping data flows](concepts-data-flow-overview.md).
 
 ### Data wrangling
 
 Power Query in Azure Data Factory enables cloud-scale data wrangling, which allows you to do code-free data preparation at cloud scale iteratively. Data wrangling integrates with [Power Query Online](/power-query/) and makes Power Query M functions available for data wrangling at cloud scale via spark execution. For more information, see [data wrangling in Azure Data Factory](wrangling-overview.md).
 
 > [!NOTE]
-> Power Query is currently only supported in Azure Data Factory, and not in Synapse Analytics.  For a list of specific features supported in each service, see [Available features in Azure Data Factory & Azure Synapse Analytics pipelines](../synapse-analytics/data-integration/concepts-data-factory-differences.md).
+> Power Query is currently only supported in Azure Data Factory, and not in Azure Synapse.  For a list of specific features supported in each service, see [Available features in Azure Data Factory & Azure Synapse Analytics pipelines](../synapse-analytics/data-integration/concepts-data-factory-differences.md).
 
 ## External transformations
 
@@ -64,7 +64,7 @@ The HDInsight MapReduce activity in a pipeline executes MapReduce programs on yo
 The HDInsight Streaming activity in a pipeline executes Hadoop Streaming programs on your own or on-demand Windows/Linux-based HDInsight cluster. See [HDInsight Streaming activity](transform-data-using-hadoop-streaming.md) for details about this activity.
 
 ### HDInsight Spark activity
-The HDInsight Spark activity in a pipeline executes Spark programs on your own HDInsight cluster. For details, see [Invoke Spark programs with Azure Data Factory or Synapse Analytics](transform-data-using-spark.md). 
+The HDInsight Spark activity in a pipeline executes Spark programs on your own HDInsight cluster. For details, see [Invoke Spark programs with Azure Data Factory or Azure Synapse](transform-data-using-spark.md). 
 
 ### Azure Machine Learning Studio (classic) activities
 The service enables you to easily create pipelines that use a published Azure Machine Learning Studio (classic) web service for predictive analytics. Using the [Batch Execution activity](transform-data-using-machine-learning.md) in a pipeline, you can invoke a Studio (classic) web service to make predictions on the data in batch.
@@ -79,9 +79,9 @@ You can use the SQL Server Stored Procedure activity in a Data Factory pipeline 
 ### Data Lake Analytics U-SQL activity
 Data Lake Analytics U-SQL activity runs a U-SQL script on an Azure Data Lake Analytics cluster. See [Data Analytics U-SQL activity](transform-data-using-data-lake-analytics.md) article for details. 
 
-### Synapse Notebook activity 
+### Azure Synapse Notebook activity 
 
-The Azure Synapse Notebook Activity in a Synapse pipeline runs a Synapse notebook in your Azure Synapse workspace. See [Transform data by running a Synapse notebook](../synapse-analytics/synapse-notebook-activity.md).
+The Azure Synapse Notebook Activity in a Synapse pipeline runs a Synapse notebook in your Azure Synapse workspace. See [Transform data by running an Azure Synapse notebook](../synapse-analytics/synapse-notebook-activity.md).
 
 ### Databricks Notebook activity
 

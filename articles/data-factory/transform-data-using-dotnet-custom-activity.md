@@ -1,6 +1,6 @@
 ---
 title: Use custom activities in a pipeline
-description: Learn how to create custom activities by using .NET, and then use the activities in an Azure Data Factory pipeline.
+description: Learn how to create custom activities by using .NET, and then use the activities in an Azure Data Factory or Azure Synapse Analytics pipeline.
 ms.service: data-factory
 author: nabhishek
 ms.author: abnarain
@@ -9,14 +9,14 @@ ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 11/26/2018
 ---
 
-# Use custom activities in an Azure Data Factory or Synapse Analytics pipeline
+# Use custom activities in an Azure Data Factory or Azure Synapse pipeline
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-use-custom-activities.md)
 > * [Current version](transform-data-using-dotnet-custom-activity.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-There are two types of activities that you can use in an Azure Data Factory or Synapse Analytics pipeline.
+There are two types of activities that you can use in an Azure Data Factory or Synapse pipeline.
 
 - [Data movement activities](copy-activity-overview.md) to move data between [supported source and sink data stores](copy-activity-overview.md#supported-data-stores-and-formats).
 - [Data transformation activities](transform-data.md) to transform data using compute services such as Azure HDInsight, Azure Batch, and Azure Machine Learning.

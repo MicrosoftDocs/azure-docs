@@ -1,7 +1,7 @@
 ---
 title: JSON format
 titleSuffix: Azure Data Factory & Azure Synapse
-description: This topic describes how to deal with JSON format in Azure Data Factory and Synapse Analytics pipelines.
+description: This topic describes how to deal with JSON format in Azure Data Factory and Azure Synapse Analytics pipelines.
 author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
@@ -9,7 +9,7 @@ ms.date: 10/29/2020
 ms.author: jianleishen
 ---
 
-# JSON format in Azure Data Factory and Synapse Analytics
+# JSON format in Azure Data Factory and Azure Synapse
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 

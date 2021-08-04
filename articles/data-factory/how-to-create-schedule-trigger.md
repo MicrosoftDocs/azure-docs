@@ -27,12 +27,12 @@ You can create a **schedule trigger** to schedule a pipeline to run periodically
 > [!NOTE]
 > For a complete walkthrough of creating a pipeline and a schedule trigger, which associates the trigger with the pipeline, and runs and monitors the pipeline, see [Quickstart: create a data factory using Data Factory UI](quickstart-create-data-factory-portal.md).
 
-1. Switch to the **Edit** tab in Data Factory or the Integrate tab in Synapse Analytics. 
+1. Switch to the **Edit** tab in Data Factory or the Integrate tab in Azure Synapse. 
 
     # [Azure Data Factory](#tab/data-factory)
     ![Switch to Edit tab](./media/how-to-create-schedule-trigger/switch-edit-tab.png)
 
-    # [Synapse Analytics](#tab/synapse-analytics)
+    # [Azure Synapse](#tab/synapse-analytics)
     ![Switch to Edit tab](./media/how-to-create-schedule-trigger/switch-edit-tab-synapse.png)
 
 ---
@@ -81,7 +81,7 @@ You can create a **schedule trigger** to schedule a pipeline to run periodically
 
     ![Monitor triggered runs](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
 
-    # [Synapse Analytics](#tab/synapse-analytics)
+    # [Azure Synapse](#tab/synapse-analytics)
     ![Monitor triggered runs](./media/how-to-create-schedule-trigger/monitor-triggered-runs-synapse.png)
     
 ---
@@ -92,7 +92,7 @@ You can create a **schedule trigger** to schedule a pipeline to run periodically
 
     ![Monitor trigger runs](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
 
-    # [Synapse Analytics](#tab/synapse-analytics)
+    # [Azure Synapse](#tab/synapse-analytics)
     ![Monitor trigger runs](./media/how-to-create-schedule-trigger/monitor-trigger-runs-synapse.png)
     
 ---

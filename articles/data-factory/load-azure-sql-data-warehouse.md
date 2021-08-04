@@ -15,7 +15,7 @@ ms.date: 07/05/2021
 
 [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) is a cloud-based, scale-out database that's capable of processing massive volumes of data, both relational and non-relational. Azure Synapse Analytics is built on the massively parallel processing (MPP) architecture that's optimized for enterprise data warehouse workloads. It offers cloud elasticity with the flexibility to scale storage and compute independently.
 
-Getting started with Azure Synapse Analytics is now easier than ever. Azure Data Factory and  its equivalent pipelines feature within Synapse itself provide a fully managed cloud-based data integration service. You can use the service to populate an Azure Synapse Analytics with data from your existing system and save time when building your analytics solutions.
+Getting started with Azure Synapse Analytics is now easier than ever. Azure Data Factory and  its equivalent pipelines feature within Azure Synapse itself provide a fully managed cloud-based data integration service. You can use the service to populate an Azure Synapse Analytics with data from your existing system and save time when building your analytics solutions.
 
 Azure Data Factory and Synapse pipelines offer the following benefits for loading data into Azure Synapse Analytics:
 
@@ -39,7 +39,7 @@ This article shows you how to use the Copy Data tool to _load data from Azure SQ
 ## Create a data factory
 
 > [!NOTE]
-> You can skip the creation of a new data factory if you wish to use the pipelines feature within your existing Synapse workspace to load the data.  Synapse embeds the functionality of Azure Data Factory within its pipelines feature.
+> You can skip the creation of a new data factory if you wish to use the pipelines feature within your existing Synapse workspace to load the data.  Azure Synapse embeds the functionality of Azure Data Factory within its pipelines feature.
 
 1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**:
 
@@ -60,7 +60,7 @@ This article shows you how to use the Copy Data tool to _load data from Azure SQ
 
 ## Load data into Azure Synapse Analytics
 
-1. In the home page of Azure Data Factory or Synapse Analytics workspace, select the **Ingest** tile to launch the Copy Data tool.  Then choose the **Built-in copy task**.
+1. In the home page of Azure Data Factory or Azure Synapse workspace, select the **Ingest** tile to launch the Copy Data tool.  Then choose the **Built-in copy task**.
 
 2. In the **Properties** page,  choose **Built-in copy task** under **Task type**, then select **Next**.
 
@@ -138,7 +138,7 @@ This article shows you how to use the Copy Data tool to _load data from Azure SQ
     # [Azure Data Factory](#tab/data-factory)
     :::image type="content" source="./media/load-azure-sql-data-warehouse/pipeline-monitoring.png" alt-text="Monitor pipeline runs":::    
 
-    # [Synapse Analytics](#tab/synapse-analytics)
+    # [Azure Synapse](#tab/synapse-analytics)
     :::image type="content" source="./media/load-azure-sql-data-warehouse/pipeline-monitoring-synapse.png" alt-text="Monitor pipeline runs":::   
 
 --- 

@@ -1,6 +1,6 @@
 ---
 title: Delete Activity in Azure Data Factory 
-description: Learn how to delete files in various file stores with the Delete Activity in Azure Data Factory.
+description: Learn how to delete files in various file stores with the Delete Activity in Azure Data Factory and Azure Synapse Analytics.
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 08/12/2020
 ---
 
-# Delete Activity in Azure Data Factory and Synapse Analytics
+# Delete Activity in Azure Data Factory and Azure Synapse
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -759,6 +759,6 @@ You can also get the template to move files from [here](solution-template-move-f
 
 ## Next steps
 
-Learn more about moving files in Azure Data Factory and Synapse Analytics pipelines.
+Learn more about moving files in Azure Data Factory and Synapse pipelines.
 
 -   [Copy Data tool](copy-data-tool.md)

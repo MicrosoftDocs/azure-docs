@@ -9,11 +9,11 @@ ms.custom: seo-lt-2019
 ms.date: 06/16/2021
 ---
 
-# Copy data to and from Azure Databricks Delta Lake using Azure Data Factory or Synapse Analytics
+# Copy data to and from Azure Databricks Delta Lake using Azure Data Factory or Azure Synapse
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the Copy activity in Azure Data Factory and Synapse Analytics to copy data to and from Azure Databricks Delta Lake. It builds on the [Copy activity](copy-activity-overview.md) article, which presents a general overview of copy activity.
+This article outlines how to use the Copy activity in Azure Data Factory and Azure Synapse to copy data to and from Azure Databricks Delta Lake. It builds on the [Copy activity](copy-activity-overview.md) article, which presents a general overview of copy activity.
 
 ## Supported capabilities
 

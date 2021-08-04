@@ -1,7 +1,7 @@
 ---
 title: Copy data to and from Oracle
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from supported source stores to an Oracle database, or from Oracle to supported sink stores, using Data Factory or Synapse Analytics pipelines.
+description: Learn how to copy data from supported source stores to an Oracle database, or from Oracle to supported sink stores, using Data Factory or Azure Synapse Analytics pipelines.
 author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
@@ -9,7 +9,7 @@ ms.date: 03/17/2021
 ms.author: jianleishen
 ---
 
-# Copy data from and to Oracle by using Azure Data Factory or Synapse Analytics
+# Copy data from and to Oracle by using Azure Data Factory or Azure Synapse
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-onprem-oracle-connector.md)

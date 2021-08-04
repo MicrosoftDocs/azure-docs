@@ -9,11 +9,11 @@ ms.custom: seo-lt-2019
 ms.date: 03/16/2021
 ---
 
-# Copy and transform data in Snowflake using Azure Data Factory or Synapse Analytics
+# Copy and transform data in Snowflake using Azure Data Factory or Azure Synapse
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the Copy activity in Azure Data Factory and Synapse Analytics pipelines to copy data from and to Snowflake, and use Data Flow to transform data in Snowflake. For more information, see the introductory article for [Data Factory](introduction.md) or [Synapse Analytics](../synapse-analytics/overview-what-is.md).
+This article outlines how to use the Copy activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to Snowflake, and use Data Flow to transform data in Snowflake. For more information, see the introductory article for [Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 ## Supported capabilities
 

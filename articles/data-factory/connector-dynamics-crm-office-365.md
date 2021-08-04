@@ -11,7 +11,7 @@ ms.date: 03/17/2021
 # Copy data from and to Dynamics 365 (Microsoft Dataverse) or Dynamics CRM
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
-This article outlines how to use a copy activity in Azure Data Factory or Synapse Analytics pipelines to copy data from and to Microsoft Dynamics 365 and Microsoft Dynamics CRM. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of a copy activity.
+This article outlines how to use a copy activity in Azure Data Factory or Synapse pipelines to copy data from and to Microsoft Dynamics 365 and Microsoft Dynamics CRM. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of a copy activity.
 
 ## Supported capabilities
 

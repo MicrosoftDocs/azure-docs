@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 # How to create and configure Azure Integration Runtime
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-The Integration Runtime (IR) is the compute infrastructure used by Azure Data Factory and Synapse Analytics pipelines to provide data integration capabilities across different network environments. For more information about IR, see [Integration runtime](concepts-integration-runtime.md).
+The Integration Runtime (IR) is the compute infrastructure used by Azure Data Factory and Synapse pipelines to provide data integration capabilities across different network environments. For more information about IR, see [Integration runtime](concepts-integration-runtime.md).
 
 Azure IR provides a fully managed compute to natively perform data movement and dispatch data transformation activities to compute services like HDInsight. It is hosted in Azure environment and supports connecting to resources in public network environment with public accessible endpoints.
 
@@ -45,7 +45,7 @@ Use the following steps to create an Azure IR using UI.
     
     :::image type="content" source="media/doc-common-process/get-started-page-manage-button.png" alt-text="The home page Manage button":::
 
-    # [Synapse Analytics](#tab/synapse-analytics)
+    # [Azure Synapse](#tab/synapse-analytics)
 
     :::image type="content" source="media/doc-common-process/get-started-page-manage-button-synapse.png" alt-text="The home page Manage button":::
 
@@ -57,7 +57,7 @@ Use the following steps to create an Azure IR using UI.
 
     :::image type="content" source="media/doc-common-process/manage-new-integration-runtime.png" alt-text="Screenshot that highlights Integration runtimes in the left pane and the +New button.":::
    
-    # [Synapse Analytics](#tab/synapse-analytics)
+    # [Azure Synapse](#tab/synapse-analytics)
 
     :::image type="content" source="media/doc-common-process/manage-new-integration-runtime-synapse.png" alt-text="Screenshot that highlights Integration runtimes in the left pane and the +New button.":::
 

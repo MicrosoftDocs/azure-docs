@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ---
 
-# Web activity in Azure Data Factory and Synapse Analytics
+# Web activity in Azure Data Factory and Azure Synapse
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 
-Web Activity can be used to call a custom REST endpoint from an Azure Data Factory or Synapse Analytics pipeline. You can pass datasets and linked services to be consumed and accessed by the activity.
+Web Activity can be used to call a custom REST endpoint from an Azure Data Factory or Synapse pipeline. You can pass datasets and linked services to be consumed and accessed by the activity.
 
 > [!NOTE]
 > Web Activity is supported for invoking URLs that are hosted in a private virtual network as well by leveraging self-hosted integration runtime. The integration runtime should have a line of sight to the URL endpoint. 

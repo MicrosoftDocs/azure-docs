@@ -1,6 +1,6 @@
 ---
 title: Excel format in Azure Data Factory 
-description: 'This topic describes how to deal with Excel format in Azure Data Factory.'
+description: This topic describes how to deal with Excel format in Azure Data Factory and Azure Synapse Analytics.
 author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
@@ -8,7 +8,7 @@ ms.date: 12/08/2020
 ms.author: jianleishen
 ---
 
-# Excel file format in Azure Data Factory and Synapse Analytics
+# Excel file format in Azure Data Factory and Azure Synapse
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Follow this article when you want to **parse the Excel files**. The service supports both ".xls" and ".xlsx".

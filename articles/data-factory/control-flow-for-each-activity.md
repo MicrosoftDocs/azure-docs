@@ -1,7 +1,7 @@
 ---
 title: ForEach activity
 titleSuffix: Azure Data Factory & Azure Synapse
-description: The For Each Activity defines a repeating control flow in an Azure Data Factory or Synapse Analytics pipeline. It is used for iterating over a collection and execute specified activities.
+description: The For Each Activity defines a repeating control flow in an Azure Data Factory or Azure Synapse Analytics pipeline. The For Each Activity is used for iterating over a collection to execute actions on each item in the collection individually.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ---
 
-# ForEach activity in Azure Data Factory and Synapse Analytics
+# ForEach activity in Azure Data Factory and Azure Synapse
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 The ForEach Activity defines a repeating control flow in an Azure Data Factory or Synapse pipeline. This activity is used to iterate over a collection and executes specified activities in a loop. The loop implementation of this activity is similar to Foreach looping structure in programming languages.

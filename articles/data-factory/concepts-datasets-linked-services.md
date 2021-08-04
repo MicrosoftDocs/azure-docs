@@ -1,7 +1,7 @@
 ---
 title: Datasets
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn about datasets in Azure Data Factory and Synapse Analytics pipelines. Datasets represent input/output data.
+description: Learn about datasets in Azure Data Factory and Azure Synapse Analytics pipelines. Datasets represent input/output data.
 author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
@@ -11,7 +11,7 @@ ms.custom: seo-lt-2019
 ms.date: 08/24/2020
 ---
 
-# Datasets in Azure Data Factory and Synapse Analytics
+# Datasets in Azure Data Factory and Azure Synapse
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-create-datasets.md)
 > * [Current version](concepts-datasets-linked-services.md)
@@ -21,7 +21,7 @@ ms.date: 08/24/2020
 
 This article describes what datasets are, how they are defined in JSON format, and how they are used in Azure Data Factory and Synapse pipelines.
 
-If you are new to Data Factory, see [Introduction to Azure Data Factory](introduction.md) for an overview.  For more information about Synapse see [What is Azure Synapse](../synapse-analytics/overview-what-is.md)
+If you are new to Data Factory, see [Introduction to Azure Data Factory](introduction.md) for an overview.  For more information about Azure Synapse see [What is Azure Synapse](../synapse-analytics/overview-what-is.md)
 
 ## Overview
 A data factory or Synapse workspace can have one or more pipelines. A **pipeline** is a logical grouping of **activities** that together perform a task. The activities in a pipeline define actions to perform on your data. Now, a **dataset** is a named view of data that simply points or references the data you want to use in your **activities** as inputs and outputs. Datasets identify data within different data stores, such as tables, files, folders, and documents. For example, an Azure Blob dataset specifies the blob container and folder in Blob storage from which the activity should read the data.
@@ -109,7 +109,7 @@ You can create datasets by using one of these tools or SDKs: [.NET API](quicksta
 
 ## Current version vs. version 1 datasets
 
-Here are some differences between datasets in Data Factory current version (and Synapse), and the legacy Data Factory version 1:
+Here are some differences between datasets in Data Factory current version (and Azure Synapse), and the legacy Data Factory version 1:
 
 - The external property is not supported in the current version. It's replaced by a [trigger](concepts-pipeline-execution-triggers.md).
 - The policy and availability properties are not supported in the current version. The start time for a pipeline depends on [triggers](concepts-pipeline-execution-triggers.md).
