@@ -8,9 +8,9 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/28/2020
+ms.date: 07/28/2021
 ms.author: davidmu
-ms.reviewer: arvinh,luleon
+ms.reviewer: ergreenl
 ---
 
 # Understand SAML-based single sign-on

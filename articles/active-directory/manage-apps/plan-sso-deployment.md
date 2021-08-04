@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/10/2020
 ms.author: davidmu
-ms.reviewer: jeedes
+ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 # Customer intent: As an IT admin, I need to learn about single-sign on (SSO) so I can understand the feature and help others in my organization to understand its value.
@@ -30,7 +30,7 @@ The Azure Marketplace has over 3000 applications with pre-integrated SSO connect
 
 ## Licensing
 
-- **Azure AD licensing** - SSO for pre-integrated SaaS applications is free. However, the number of objects in your directory and the features you wish to deploy may require additional licenses. For a full list of license requirements, see [Azure Active Directory Pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+- **Azure AD licensing** - SSO for pre-integrated SaaS applications is free. However, the number of objects in your directory and the features you wish to deploy may require additional licenses. For a full list of license requirements, see [Azure Active Directory Pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 - **Application licensing** - You'll need the appropriate licenses for your SaaS applications to meet your business needs. Work with the application owner to determine whether the users assigned to the application have the appropriate licenses for their roles within the application. If Azure AD manages the automatic provisioning based on roles, the roles assigned in Azure AD must align with the number of licenses owned within the application. Improper number of licenses owned in the application may lead to errors during the provisioning/updating of a user.
 
 ## Plan your SSO team

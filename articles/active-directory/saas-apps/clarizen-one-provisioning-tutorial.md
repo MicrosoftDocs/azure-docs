@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Clarizen One for automatic user provisioning with Az
 description: Learn how to automatically provision and deprovision user accounts from Azure AD to Clarizen One.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: d8021105-eb5b-4a20-8739-f02e0e22c147
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/01/2020
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Clarizen One for automatic user provisioning

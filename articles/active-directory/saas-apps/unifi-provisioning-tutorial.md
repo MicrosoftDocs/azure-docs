@@ -3,8 +3,8 @@ title: 'Tutorial: Configure UNIFI for automatic user provisioning with Azure Act
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to UNIFI.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 924c603f-574e-4e0a-9345-0cb0c7593dbb
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure UNIFI for automatic user provisioning

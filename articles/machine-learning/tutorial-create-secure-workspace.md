@@ -8,7 +8,7 @@ ms.subservice: core
 ms.reviewer: jhirono
 ms.author: larryfr
 author: blackmist
-ms.date: 06/21/2021
+ms.date: 07/27/2021
 ms.topic: how-to
 ms.custom: subject-rbac-steps
 ---
@@ -20,7 +20,6 @@ In this tutorial, you accomplish the following tasks:
 
 > [!div class="checklist"]
 > * Create an Azure Virtual Network (VNet) to __secure communications between services in the virtual network__.
-> * Create a Network Security Group (NSG) to __configure what network traffic is allowed into and out of the VNet__.
 > * Create an Azure Storage Account (blob and file) behind the VNet. This service is used as __default storage for the workspace__.
 > * Create an Azure Key Vault behind the VNet. This service is used to __store secrets used by the workspace__. For example, the security information needed to access the storage account.
 > * Create an Azure Container Registry (ACR). This service is used as a repository for Docker images. __Docker images provide the compute environments needed when training a machine learning model or deploying a trained model as an endpoint__.
@@ -29,6 +28,11 @@ In this tutorial, you accomplish the following tasks:
 > * Configure Azure Machine Learning studio to work behind a VNet. The studio provides a __web interface for Azure Machine Learning__.
 > * Create an Azure Machine Learning compute cluster. A compute cluster is used when __training machine learning models in the cloud__. In configurations where Azure Container Registry is behind the VNet, it is also used to build Docker images.
 > * Connect to the jump box and use the Azure Machine Learning studio.
+
+If your environment meets the prerequisites and you're familiar with using ARM templates, the first five steps in this tutorial can also be completed by selecting the 'Deploy to Azure button'. You can continue reading from [Connect to the workspace](/azure/machine-learning/tutorial-create-secure-workspace#connect-to-the-workspace).
+
+[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.machinelearningservices%2Fmachine-learning-advanced%2Fazuredeploy.json)
+[![Deploy To Azure US Gov](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazuregov.svg?sanitize=true)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.machinelearningservices%2Fmachine-learning-advanced%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -103,61 +107,6 @@ To create a virtual network, use the following steps:
 1. Verify that the information is correct, and then select __Create__.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/create-vnet-review.png" alt-text="Screenshot of the review page":::
-
-## Create network security groups
-
-Use the following steps create a network security group (NSG) and add rules required for using Azure Machine Learning compute clusters and compute instances to train models:
-
-1. In the [Azure portal](https://portal.azure.com), select the portal menu in the upper left corner. From the menu, select __+ Create a resource__ and then enter __Network security group__. Select the __Network security group__ entry, and then select __Create__.
-1. From the __Basics__ tab, select the __subscription__, __resource group__, and __region__ you previously used for the virtual network. Enter a unique __name__ for the new network security group.
-
-    :::image type="content" source="./media/tutorial-create-secure-workspace/create-nsg.png" alt-text="Image of the basic network security group config":::
-
-1. Select __Review + create__. Verify that the information is correct, and then select __Create__.
-
-### Apply security rules
-
-1. Once the network security group has been created, use the __Go to resource__ button and then select __Inbound security rules__. Select __+ Add__ to add a new rule.
-
-    :::image type="content" source="./media/tutorial-create-secure-workspace/nsg-inbound-security-rules.png" alt-text="Add security rules":::
-
-1. Use the following values for the new rule, and then select __Add__ to add the rule to the network security group:
-    * __Source__: Service Tag
-    * __Source service tag__: BatchNodeManagement
-    * __Source port ranges__: *
-    * __Destination__: Any
-    * __Service__: Custom
-    * __Destination port ranges__: 29876-29877
-    * __Protocol__: TCP
-    * __Action__: Allow
-    * __Priority__: 1040
-    * __Name__: AzureBatch
-    * __Description__: Azure Batch management traffic
-
-    :::image type="content" source="./media/tutorial-create-secure-workspace/nsg-batchnodemanagement.png" alt-text="Image of the batchnodemanagement rule":::
-
-
-1. Select __+ Add__ to add another rule. Use the following values for this rule, and then select __Add__ to add the rule:
-    * __Source__: Service Tag
-    * __Source service tag__: AzureMachineLearning
-    * __Source port ranges__: *
-    * __Destination__: Any
-    * __Service__: Custom
-    * __Destination port ranges__: 44224
-    * __Protocol__: TCP
-    * __Action__: Allow
-    * __Priority__: 1050
-    * __Name__: AzureML
-    * __Description__: Azure Machine Learning traffic to compute cluster/instance
-
-    :::image type="content" source="./media/tutorial-create-secure-workspace/nsg-azureml.png" alt-text="Image of the azureml rule":::
-
-1. From the left navigation, select __Subnets__, and then select __+ Associate__. From the __Virtual network__ dropdown, select your network. Then select the __Training__ subnet. Finally, select __OK__.
-
-    > [!TIP]
-    > The rules added in this section only apply to training computes, so do not need to be associated with the scoring subnet.
-
-    :::image type="content" source="./media/tutorial-create-secure-workspace/nsg-associate-subnet.png" alt-text="Image of the associate config":::
 
 ## Create a storage account
 
@@ -396,7 +345,7 @@ Use the following steps to create a Data Science Virtual Machine for use as a ju
 
 ### Connect to the jump box
 
-1. Once the workspace has been created, select __Go to resource__.
+1. Once the virtual machine has been created, select __Go to resource__.
 1. From the top of the page, select __Connect__ and then __Bastion__.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/virtual-machine-connect.png" alt-text="Image of the connect/bastion UI":::
@@ -437,13 +386,23 @@ A compute cluster is used by your training jobs. A compute instance provides a J
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/create-compute-instance.png" alt-text="Screenshot of new compute instance workflow":::
 
-1. From the __Virtual Machine__ dialog, select __Next__ to accept the default virtual machine configuration.
+1. From the __Virtual Machine__ dialog, enter a unique __Computer name__ and select __Next: Advanced Settings__.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/create-compute-instance-vm.png" alt-text="Screenshot of compute instance vm settings":::
 
-1. From the __Configure Settings__ dialog, enter a unique __Computer name__, set the __Subnet__ to __Training__, and then select __Create__.
+1. From the __Advanced Settings__ dialog, , set the __Subnet__ to __Training__, and then select __Create__.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/create-compute-instance-settings.png" alt-text="Screenshot of compute instance settings":::
+
+> [!TIP]
+> When you create a compute cluster or compute instance, Azure Machine Learning dynamically adds a Network Security Group (NSG). This NSG contains the following rules, which are specific to compute cluster and compute instance:
+> 
+> * Allow inbound TCP traffic on ports 29876-29877 from the `BatchNodeManagement` service tag.
+> * Allow inbound TCP traffic on port 44224 from the `AzureMachineLearning` service tag.
+>
+> The following screenshot shows an example of these rules:
+>
+> :::image type="content" source="./media/how-to-secure-training-vnet/compute-instance-cluster-network-security-group.png" alt-text="Screenshot of NSG":::
 
 For more information on creating a compute cluster and compute cluster, including how to do so with Python and the CLI, see the following articles:
 

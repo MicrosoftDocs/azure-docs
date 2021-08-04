@@ -10,7 +10,7 @@ ms.workload: na
 ms.topic: article
 ms.subservice: azure-video-analyzer-media
 ms.custom: references_regions
-ms.date: 07/01/2021
+ms.date: 08/01/2021
 ms.author: juliako
 ---
 
@@ -24,6 +24,12 @@ To stay up-to-date with the most recent Azure Video Analyzer for Media (former V
 * Known issues
 * Bug fixes
 * Deprecated functionality
+
+## July 2021
+
+### Automatic Scaling of Media Reserved Units
+ 
+Starting August 1st 2021, Azure Video Analyzer for Media (formerly Video Indexer) enabled [Media Reserved Units (MRUs)](../../media-services/latest/concept-media-reserved-units.md) auto scaling by [Azure Media Services](../../media-services/latest/media-services-overview.md), as a result you do not need to manage them through Azure Video Analyzer for Media. That will allow price optimization, for example price reduction in many cases, based on your business needs as it is being auto scaled.
 
 ## June 2021
  

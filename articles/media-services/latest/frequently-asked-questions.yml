@@ -35,6 +35,9 @@ sections:
           - [Node.js](https://aka.ms/ams-v3-nodejs-sdk)
           - [Go](https://aka.ms/ams-v3-go-sdk)
           - [Ruby](https://aka.ms/ams-v3-ruby-sdk)
+      - question: Should I use the client SDKs or write directly to the REST API? 
+        answer: |
+         It is not advised to attempt to wrap the REST API for Media Services directly into your own library code, as doing so properly for production purposes would require you to implement the full Azure Resource Management retry logic and understand how to manage long running operations in Azure Resource Management APIs. This is handled by the client SDKs for various language - .NET, Java, Typescript, Python, Ruby, etc. - for you automatically and reduces the chances of you having issues with rety logic or failed API calls. The client SDKs all handle this for you already. The Postman collection is provided more as a teaching tool, and to show you what the client SDKs are actually doing on the wire during your development with the various client SDKs.
       - question: Where can I find Media Services samples?
         answer: |
           See the article [Media Services v3 samples](samples-overview.md) for a listing of samples.
@@ -55,7 +58,7 @@ sections:
           - Azure Media Services is a regional service and does not provide [high availability](architecture-high-availability-encoding-concept.md) or data replication. Customers needing these features are highly encouraged to build a solution using Media Services accounts in multiple regions.  A sample showing how to build a solution for High Availability with Media Services Video on Demand is available as a guide.
       - question: Does Media Services provide high availability or data replication? 
         answer: |
-          -	Azure Media Services is a regional service and does not provide high availability or data replication. Customers needing these features are highly encouraged to build a solution using Media Services accounts in multiple regions. A sample showing how to build a solution for [High Availability with Media Services Video on Demand](https://docs.microsoft.com/azure/media-services/latest/architecture-high-availability-encoding-concept) is available as a guide.
+          -	Azure Media Services is a regional service and does not provide high availability or data replication. Customers needing these features are highly encouraged to build a solution using Media Services accounts in multiple regions. A sample showing how to build a solution for [High Availability with Media Services Video on Demand](./architecture-high-availability-encoding-concept.md) is available as a guide.
 
   - name: Using Media Services
     questions:
@@ -88,7 +91,7 @@ sections:
           Yes.  You'll find more information in the [Encode with an auto-generated bitrate ladder](./encode-autogen-bitrate-ladder.md) page.
       - question: Can I analyze an audio or video file?
         answer: |
-          Yes you can. Azure Media Services v3 lets you extract insights from your video and audio files with Video Indexer. Media Services v3 analyzer presets can be used to extract those insights. If you want more detailed insights, use Video Indexer directly. To understand when to use Video Indexer vs. Media Services analyzer presets, check out the [comparison document](../../azure-video-analyzer/video-analyzer-for-media-docs/compare-video-indexer-with-media-services-presets.md).
+          Yes you can. Azure Media Services v3 lets you extract insights from your video and audio files with Azure Video Analyzer for Media. Media Services v3 analyzer presets can be used to extract those insights. If you want more detailed insights, use [Azure Video Analyzer for Media (formerly Video Indexer)](../../azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview.md) directly. To understand when to use Video Analyzer for Media vs. Media Services analyzer presets, check out the [comparison document](../../azure-video-analyzer/video-analyzer-for-media-docs/compare-video-indexer-with-media-services-presets.md).
       - question: What is a Media Services Live Event?
         answer: |
           A Media Services live event is the process of ingesting live video feeds and broadcasting them through an RTMPS protocol or Smooth Streaming. For more information about Media Services Live Events, see [Live events and live outputs in Media Services](live-event-outputs-concept.md)

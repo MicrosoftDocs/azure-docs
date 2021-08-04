@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 11/12/2020
 ms.author: davidmu
 ms.collection: M365-identity-device-management
+ms.reviewer: miccohen
 ---
 
 # F5 BIG-IP Access Policy Manager and Azure Active Directory integration for secure hybrid access
@@ -125,7 +126,7 @@ Integrating F5 BIG-IP with Azure AD for SHA have the following pre-requisites:
 
   - An Azure AD [free subscription](/windows/client-management/mdm/register-your-free-azure-active-directory-subscription#:~:text=%20Register%20your%20free%20Azure%20Active%20Directory%20subscription,will%20take%20you%20to%20the%20Azure...%20More%20) provides the minimum core requirements for implementing SHA with password-less authentication
 
-  - A [Premium subscription](https://azure.microsoft.com/pricing/details/active-directory/) provides all additional value adds outlined in the preface, including [Conditional Access](../conditional-access/overview.md), [MFA](../authentication/concept-mfa-howitworks.md), and [Identity Protection](../identity-protection/overview-identity-protection.md)
+  - A [Premium subscription](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) provides all additional value adds outlined in the preface, including [Conditional Access](../conditional-access/overview.md), [MFA](../authentication/concept-mfa-howitworks.md), and [Identity Protection](../identity-protection/overview-identity-protection.md)
 
 No previous experience or F5 BIG-IP knowledge is necessary to implement SHA, but we do recommend familiarizing yourself with F5 BIG-IP terminology. F5’s rich [knowledge base](https://www.f5.com/services/resources/glossary) is also a good place to start building BIG-IP knowledge.
 

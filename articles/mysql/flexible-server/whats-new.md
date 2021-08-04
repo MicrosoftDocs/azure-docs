@@ -6,23 +6,34 @@ ms.service: mysql
 ms.author: jtoland
 ms.custom: mvc
 ms.topic: conceptual
-ms.date: 06/18/2021
+ms.date: 07/28/2021
 ---
 
 # What's new in Azure Database for MySQL - Flexible Server (Preview)?
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 [Azure Database for MySQL - Flexible Server](./overview.md#azure-database-for-mysql---flexible-server-preview) is a deployment mode that's designed to provide more granular control and flexibility over database management functions and configuration settings than does the Single Server deployment mode. The service currently supports community version of MySQL 5.7 and 8.0.
 
 This article summarizes new releases and features in Azure Database for MySQL - Flexible Server beginning in January 2021. Listings appear in reverse chronological order, with the most recent updates first.
 
+## July 2021
+
+This release of Azure Database for MySQL - Flexible Server includes the following updates.
+
+- **Online migration from Single Server to Flexible Server**
+
+  Customers can now migrate an instance of Azure Database for MySQL – Single Server to Flexible Server with minimum downtime to their applications by using Data-in Replication. For detailed, step-by-step instructions, see [Migrate Azure Database for MySQL – Single Server to Flexible Server with minimal downtime](https://docs.microsoft.com/azure/mysql/howto-migrate-single-flexible-minimum-downtime).
+
+- **Availability in West US and Germany West Central**
+
+  The public preview of Azure Database for MySQL - Flexible Server is now available in the West US  and Germany West Central Azure regions.
+
 ## June 2021
 
 This release of Azure Database for MySQL - Flexible Server includes the following updates.
 
--	**Improved performance on smaller storage servers**
+- **Improved performance on smaller storage servers**
 
     Beginning June 21, 2021, the minimum allowed provisioned storage size for all  newly created server increases from 5 GB to 20 GB. In addition, the available free IOPS increases from 100 to 300. These changes are summarized in the following table:
 
@@ -39,13 +50,13 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
   Storage auto-grow prevents a server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Beginning June 21, 2021, all newly created servers will have storage auto-grow enabled by default. [Learn more](concepts-compute-storage.md#storage-auto-grow).
 
--	**Data-in Replication**
+- **Data-in Replication**
 
     Flexible Server now supports [Data-in Replication](concepts-data-in-replication.md). Use this feature to synchronize and migrate data from a MySQL server running on-premises, in virtual machines, on Azure Database for MySQL Single Server, or on database services outside Azure to Azure Database for MySQL – Flexible Server. Learn more about [How to configure Data-in Replication](how-to-data-in-replication.md).
 
 - **GitHub actions support with Azure CLI**
 
-  Flexible Server CLI now allows you to automate your workflow to deploy updates with GitHub actions.  Use this feature to help you set up and deploy your database updates with MySQL github action workflow. These CLI commands help you with setting up the repository to enable the continuous deployment for ease of development. [Learn more](/cli/azure/mysql/flexible-server/deploy?view=azure-cli-latest&preserve-view=true).
+  Flexible Server CLI now allows customers to automate workflows to deploy updates with GitHub actions. This feature helps set up and deploy database updates with MySQL GitHub action workflow. These CLI commands assist with setting up a repository to enable continuous deployment for ease of development. [Learn more](/cli/azure/mysql/flexible-server/deploy?view=azure-cli-latest&preserve-view=true).
 
 - **Zone redundant HA forced failover fixes**
 
@@ -53,14 +64,14 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Known issue**
 
-  - If a client application trying to connect to an instance of Flexible Server is in a peered virtual network (VNet), the application may not be able to connect using the Flexible Server *servername* because it cannot resolve the DNS name for the Flexible Server instance from a peered VNet. [Learn more](concepts-networking.md#connecting-from-peered-vnets-in-same-azure-region).
-  - If you have an existing server with storage provisioned less than 20 GB in size and you try to perform a compute scale up or down operation, the compute scaling operation fails. You can resolve the issue by scaling up the provisioned storage to 20 GB and retrying the compute scaling operation.
+  - If a client application trying to connect to an instance of Flexible Server is in a peered virtual network (VNet), the application may not be able to connect using the Flexible Server *servername* because the application can't resolve the DNS name for the Flexible Server instance from a peered VNet. [Learn more](concepts-networking.md#connecting-from-peered-vnets-in-same-azure-region).
+  - Trying to perform a compute scale up or scale down operation on an existing server with less than 20 GB of storage provisioned won't complete successfully. Resolve the issue by scaling up the provisioned storage to 20 GB and retrying the compute scaling operation.
 
 ## May 2021
 
 This release of Azure Database for MySQL - Flexible Server includes the following updates.
 
--	**Extended regional availability (France Central, Brazil South, and Switzerland North)**
+- **Extended regional availability (France Central, Brazil South, and Switzerland North)**
 
     The public preview of Azure Database for MySQL - Flexible Server is now available in the France Central, Brazil South, and Switzerland North regions. [Learn more](overview.md#azure-regions).
 
@@ -74,7 +85,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Known issues**
 
-  -	Additional IOPs changes don’t take effect in zone redundant HA enabled servers. Customers can work around the issue by disabling HA, scaling IOPs, and the re-enabling zone redundant HA.
+  - Additional IOPs changes don’t take effect in zone redundant HA enabled servers. Customers can work around the issue by disabling HA, scaling IOPs, and the re-enabling zone redundant HA.
   - After force failover, the standby availability zone is inaccurately reflected in the portal. (No workaround)
   - Server parameter changes don't take effect in zone redundant HA enabled server after forced failover. (No workaround)
 

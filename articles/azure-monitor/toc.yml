@@ -175,6 +175,8 @@
       - name: Monitor workloads
         href: vm/monitor-virtual-machine-workloads.md
       displayname: VM
+    - name: Monitor Kubernetes
+      href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
   - name: Deploy
     items:
     - name: Deploy Azure Monitor
@@ -392,7 +394,10 @@
         href: agents/data-collection-rule-azure-monitor-agent.md
       - name: Deploy at scale
         displayname: Deploy Azure Monitor agent at scale
-        href: deploy-scale.md#azure-monitor-agent  
+        href: deploy-scale.md#azure-monitor-agent 
+      - name: Migrate from legacy agents
+        displayname: Migrate to Azure Monitor agent
+        href: agents/azure-monitor-agent-migration.md
       - name: FAQ
         displayname: Azure Monitor agent FAQ
         href: /azure/azure-monitor/faq#azure-monitor-agent
@@ -779,9 +784,6 @@
               href: app/status-monitor-v2-troubleshoot.md
             - name: API reference
               href: app/status-monitor-v2-api-reference.md
-            - name: Status Monitor (legacy)
-              displayname: IIS monitoring, on premises monitoring, on prem 
-              href: app/monitor-performance-live-website-now.md
         - name: Java
           href: app/java-on-premises.md
     - name: OpenTelemetry
@@ -807,9 +809,11 @@
       items:
       - name: Overview
         href: app/availability-overview.md
-      - name: URL tests
+      - name: URL ping tests
         displayname: ping, ping tests, availability, GSM, up/down
         href: app/monitor-web-app-availability.md
+      - name: Standard tests
+        href: app/availability-standard-tests.md
       - name: Multi-step tests
         displayname: availability, GSM, visual studio web test, web test
         href: app/availability-multistep.md
@@ -1104,18 +1108,30 @@
         href: containers/container-insights-enable-aks-policy.md
       - name: Region mappings
         href: containers/container-insights-region-mapping.md
-    - name: Monitor performance
-      href: containers/container-insights-analyze.md
-    - name: Monitor GPU performance
-      href: containers/container-insights-gpu-monitoring.md
-    - name: Monitor network configuration
-      href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
-    - name: Monitor Deployments & HPAs
-      href: containers/container-insights-deployment-hpa-metrics.md
-    - name: Monitor Persistent Volumes (PVs)
-      href: containers/container-insights-persistent-volumes.md
-    - name: Reports tab
-      href: insights/container-insights-reports.md
+      - name: Agent management
+        href: containers/container-insights-manage-agent.md
+      - name: Configure Prometheus metric scraping
+        href: containers/container-insights-prometheus-integration.md
+      - name: Configure agent collection settings
+        href: containers/container-insights-agent-config.md
+      - name: Update to enable metrics
+        href: containers/container-insights-update-metrics.md
+    - name: Monitor
+      items:
+      - name: Monitor performance
+        href: containers/container-insights-analyze.md
+      - name: Monitor GPU performance
+        href: containers/container-insights-gpu-monitoring.md
+      - name: Monitor network configuration
+        href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
+      - name: Monitor Deployments & HPAs
+        href: containers/container-insights-deployment-hpa-metrics.md
+      - name: Monitor Persistent Volumes (PVs)
+        href: containers/container-insights-persistent-volumes.md
+      - name: Reports tab
+        href: containers/container-insights-reports.md
+    - name: Log queries
+      href: containers/container-insights-log-query.md
     - name: View live data
       items:
       - name: Live Data overview
@@ -1126,22 +1142,12 @@
         href: containers/container-insights-livedata-metrics.md
       - name: View deployments
         href: containers/container-insights-livedata-deployments.md
-    - name: Analyze data with log queries
-      href: containers/container-insights-log-search.md
     - name: Alerting
       items:
       - name: Create log alert rules
         href: containers/container-insights-log-alerts.md
       - name: Create metric alert rules
         href: containers/container-insights-metric-alerts.md
-    - name: Agent management
-      href: containers/container-insights-manage-agent.md
-    - name: Configure Prometheus metric scraping
-      href: containers/container-insights-prometheus-integration.md
-    - name: Configure agent collection settings
-      href: containers/container-insights-agent-config.md
-    - name: Update to enable metrics
-      href: containers/container-insights-update-metrics.md
     - name: Manage cost and usage
       href: containers/container-insights-cost.md
     - name: Disable monitoring
@@ -1162,7 +1168,7 @@
       href: insights/redis-cache-insights-overview.md
     - name: Azure Cosmos DB
       href: insights/cosmosdb-insights-overview.md
-    - name: Azure Data Explorer (preview)
+    - name: Azure Data Explorer
       href: insights/data-explorer.md
     - name: Log Analytics workspace
       href: logs/log-analytics-workspace-insights-overview.md
@@ -1184,7 +1190,7 @@
         href: insights/sql-insights-troubleshoot.md
     - name: Storage
       displayname: storage, monitor, insights, storage accounts, azure storage
-      href: insights/storage-insights-overview.md
+      href: ../storage/common/storage-insights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Resource groups
       href: insights/resource-group-insights.md
     - name: Troubleshoot insights
@@ -1223,7 +1229,7 @@
             - name: ExpressRoute
               href: insights/network-performance-monitor-expressroute.md
             - name: Pricing
-              href: insights/network-performance-monitor-pricing-faq.md
+              href: insights/network-performance-monitor-pricing-faq.yml
             - name: FAQ
               href: insights/network-performance-monitor-faq.yml
         - name: Office 365
@@ -1492,13 +1498,11 @@
         href: visualize/view-designer-filters.md
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+  - name: Azure updates
+    href: https://azure.microsoft.com/en-us/updates/?category=management-tools
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/log-analytics/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
-  - name: News
-    href: https://azure.microsoft.com/updates/?product=monitor

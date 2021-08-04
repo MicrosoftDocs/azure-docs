@@ -5,7 +5,7 @@ author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/04/2021
+ms.date: 07/12/2021
 ---
 
 # Choose an API in Azure Cosmos DB
@@ -38,7 +38,7 @@ Based on your workload, you must choose the API that fits your requirement. The 
 
 ## Core(SQL) API
 
-This API stores data in document format. It offers the best end-to-end experience as we have full control over the interface, service, and the SDK client libraries. Any new feature that is rolled out to Azure Cosmos DB is first available on SQL API accounts. Azure Cosmos DB SQL API accounts provide support for querying items using the Structured Query Language (SQL) syntax, one of the most familiar and popular query languages to query JSON objects. To learn more about, see [getting started with SQL queries](sql-query-getting-started.md).
+This API stores data in document format. It offers the best end-to-end experience as we have full control over the interface, service, and the SDK client libraries. Any new feature that is rolled out to Azure Cosmos DB is first available on SQL API accounts. Azure Cosmos DB SQL API accounts provide support for querying items using the Structured Query Language (SQL) syntax, one of the most familiar and popular query languages to query JSON objects. To learn more, see the [Azure Cosmos DB SQL API](/learn/modules/intro-to-azure-cosmos-db-core-api/) learn module and [getting started with SQL queries](sql-query-getting-started.md) article.
 
 If you are migrating from other databases such as Oracle, DynamoDB, HBase etc. and if you want to use the modernized technologies to build your apps, SQL API is the recommended option. SQL API supports analytics and offers performance isolation between operational and analytical workloads.
 
@@ -66,12 +66,12 @@ Azure Cosmos DB's Gremlin API is based on the [Apache TinkerPop](https://tinkerp
 
 This API stores data in key/value format. If you are currently using Azure Table storage, you may see some limitations in latency, scaling, throughput, global distribution, index management, low query performance. Table API overcomes these limitations and it’s recommended to migrate your app if you want to use the benefits of Azure Cosmos DB. Table API only supports OLTP scenarios.
 
-Applications written for Azure Table storage can migrate to the Table API with little code changes and take advantage of premium capabilities. To learn more, see [Table API](table-introduction.md) article.
+Applications written for Azure Table storage can migrate to the Table API with little code changes and take advantage of premium capabilities. To learn more, see [Table API](introduction.md) article.
 
 ## Next steps
 
 * [Get started with Azure Cosmos DB SQL API](create-sql-api-dotnet.md)
 * [Get started with Azure Cosmos DB's API for MongoDB](create-mongodb-nodejs.md)
-* [Get started with Azure Cosmos DB Cassandra API](create-cassandra-dotnet.md)
+* [Get started with Azure Cosmos DB Cassandra API](cassandra/manage-data-dotnet.md)
 * [Get started with Azure Cosmos DB Gremlin API](create-graph-dotnet.md)
 * [Get started with Azure Cosmos DB Table API](create-table-dotnet.md)

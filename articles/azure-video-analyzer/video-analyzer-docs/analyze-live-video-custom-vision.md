@@ -2,7 +2,7 @@
 title: Get started with Azure Video Analyzer
 description: This tutorial walks you through the steps to analyze live video with Azure Video Analyzer on IoT Edge and Azure Custom Vision.
 ms.topic: tutorial
-ms.date: 04/21/2021
+ms.date: 06/01/2021
 zone_pivot_groups: video-analyzer-programming-languages
 
 ---
@@ -189,7 +189,14 @@ If you open the topology for this tutorial in a browser, you'll see that the val
 3. Search and enable **Show Verbose Message**.
 
    ![Screenshot that shows Show Verbose Message.](./media/custom-vision/show-verbose-message.png)
-4. To start a debugging session, select the **F5** key. You see messages printed in the **TERMINAL** window.
+4.  ::: zone pivot="programming-language-csharp"
+    [!INCLUDE [header](includes/common-includes/csharp-run-program.md)]
+    ::: zone-end
+
+    ::: zone pivot="programming-language-python"
+    [!INCLUDE [header](includes/common-includes/python-run-program.md)]
+    ::: zone-end  
+
 5. The operations.json code starts off with calls to the direct methods `livePipelineList` and `livePipelineList`. If you cleaned up resources after you completed previous quickstarts, this process will return empty lists and then pause. To continue, select the **Enter** key.
 
    The **TERMINAL** window shows the next set of direct method calls:

@@ -299,7 +299,7 @@ Returns the largest integer not greater than the number.
 ___
 ### <code>fromBase64</code>
 <code><b>fromBase64(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
-Encodes the given string in base64.  
+Decodes the given base64-encoded string.
 * ``fromBase64('Z3VuY2h1cw==') -> 'gunchus'``  
 ___
 ### <code>fromUTC</code>
@@ -1284,27 +1284,27 @@ Checks if the string value is a byte value given an optional format according to
 * ``isByte('chocolate') -> false``
 ___
 ### <code>isDate</code>
-<code><b>isDate (<i>\<value1\></i> : string, [<format>: string]) => boolean</b></code><br/><br/>
+<code><b>isDate (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
 Checks if the input date string is a date using an optional input date format. Refer Java's SimpleDateFormat for available formats. If the input date format is omitted, default format is ``yyyy-[M]M-[d]d``. Accepted formats are ``[ yyyy, yyyy-[M]M, yyyy-[M]M-[d]d, yyyy-[M]M-[d]dT* ]``
 * ``isDate('2012-8-18') -> true``
 * ``isDate('12/18--234234' -> 'MM/dd/yyyy') -> false``
 ___
 ### <code>isShort</code>
-<code><b>isShort (<i>\<value1\></i> : string, [<format>: string]) => boolean</b></code><br/><br/>
+<code><b>isShort (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
 Checks of the string value is a short value given an optional format according to the rules of ``toShort()``
 * ``isShort('123') -> true``
 * ``isShort('$123' -> '$###') -> true``
 * ``isShort('microsoft') -> false``
 ___
 ### <code>isInteger</code>
-<code><b>isInteger (<i>\<value1\></i> : string, [<format>: string]) => boolean</b></code><br/><br/>
+<code><b>isInteger (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
 Checks of the string value is a integer value given an optional format according to the rules of ``toInteger()``
 * ``isInteger('123') -> true``
 * ``isInteger('$123' -> '$###') -> true``
 * ``isInteger('microsoft') -> false``
 ___
 ### <code>isLong</code>
-<code><b>isLong (<i>\<value1\></i> : string, [<format>: string]) => boolean</b></code><br/><br/>
+<code><b>isLong (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
 Checks of the string value is a long value given an optional format according to the rules of ``toLong()``
 * ``isLong('123') -> true``
 * ``isLong('$123' -> '$###') -> true``
@@ -1316,14 +1316,14 @@ Check if this is not a number.
 * ``isNan(10.2) => false``
 ___
 ### <code>isFloat</code>
-<code><b>isFloat (<i>\<value1\></i> : string, [<format>: string]) => boolean</b></code><br/><br/>
+<code><b>isFloat (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
 Checks of the string value is a float value given an optional format according to the rules of ``toFloat()``
 * ``isFloat('123') -> true``
 * ``isFloat('$123.45' -> '$###.00') -> true``
 * ``isFloat('icecream') -> false``
 ___
 ### <code>isDouble</code>
-<code><b>isDouble (<i>\<value1\></i> : string, [<format>: string]) => boolean</b></code><br/><br/>
+<code><b>isDouble (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
 Checks of the string value is a double value given an optional format according to the rules of ``toDouble()``
 * ``isDouble('123') -> true``
 * ``isDouble('$123.45' -> '$###.00') -> true``
@@ -1336,7 +1336,7 @@ Checks of the string value is a decimal value given an optional format according
 * ``isDecimal('12/12/2000') -> false``
 ___
 ### <code>isTimestamp</code>
-<code><b>isTimestamp (<i>\<value1\></i> : string, [<format>: string]) => boolean</b></code><br/><br/>
+<code><b>isTimestamp (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
 Checks if the input date string is a timestamp using an optional input timestamp format. Refer to Java's SimpleDateFormat for available formats. If the timestamp is omitted the default pattern ``yyyy-[M]M-[d]d hh:mm:ss[.f...]`` is used. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. Timestamp supports up to millisecond accuracy with value of 999 Refer to Java's SimpleDateFormat for available formats.
 * ``isTimestamp('2016-12-31 00:12:00') -> true``
 * ``isTimestamp('2016-12-31T00:12:00' -> 'yyyy-MM-dd\\'T\\'HH:mm:ss' -> 'PST') -> true``
