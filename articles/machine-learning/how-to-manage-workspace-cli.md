@@ -123,7 +123,26 @@ The output of this command is similar to the following JSON:
 }
 ```
 
-# [Bring existing resources](#tab/bringexistingresources)
+# [Bring existing resources (1.0 CLI)](#tab/bringexistingresources1)
+Once you have the IDs for the resource(s) that you want to use with the workspace, use the base `az workspace create -w <workspace-name> -g <resource-group-name>` command and add the parameter(s) and ID(s) for the existing resources. For example, the following command creates a workspace that uses an existing container registry:
+
+```azurecli-interactive
+az ml workspace create -w <workspace-name> -g <resource-group-name> --container-registry "/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<acr-name>"
+```
+
+To create a workspace that uses existing resources, you must provide the ID for the resources. You can get this ID either via the 'properties'  tab on each resource in the Azure Portal, or by running the following commands using the Azure CLI.
+
+* **Azure Storage Account**: `az storage account show --name <storage-account-name> --query "id"`
+* **Azure Application Insights": `az monitor app-insights component show --app <application-insight-name> -g <resource-group-name> --query "id"`
+* **Azure Key Vault**: `az keyvault show --name <key-vault-name> --query "ID"`
+* **Azure Container Registry**: `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
+
+The resource IDs value has the following format: `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/<provider>/<subresource>/<resource-name>"`.
+
+> [!IMPORTANT]
+> You don't have to specify all existing resources. You can specify one or more. For example, you can specify an existing storage account and the workspace will create the other resources.
+
+# [Bring existing resources (2.0 CLI)](#tab/bringexistingresources2)
 
 To create a new workspace while bringing existing associated resources using the CLI, you will first have to define how your workspace should be configured in a configuration file.
 
@@ -143,60 +162,27 @@ Then, you can reference this configuration file as part of the workspace creatio
 az ml workspace create -w <workspace-name> -g <resource-group-name> --file workspace.yml
 ```
 
-To create a workspace that uses existing resources, you must provide the ID for the resources. Use the following commands to get the ID for the services:
+To create a workspace that uses existing resources, you must provide the ID for the resources. You can get this ID either via the 'properties'  tab on each resource in the Azure Portal, or by running the following commands using the Azure CLI.
+
+* **Azure Storage Account**: `az storage account show --name <storage-account-name> --query "id"`
+* **Azure Application Insights": `az monitor app-insights component show --app <application-insight-name> -g <resource-group-name> --query "id"`
+* **Azure Key Vault**: `az keyvault show --name <key-vault-name> --query "ID"`
+* **Azure Container Registry**: `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
+
+The resource IDs value has the following format: `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/<provider>/<subresource>/<resource-name>"`.
 
 > [!IMPORTANT]
 > You don't have to specify all existing resources. You can specify one or more. For example, you can specify an existing storage account and the workspace will create the other resources.
 
-+ **Azure Storage Account**: `az storage account show --name <storage-account-name> --query "id"`
+---
 
-    The response from this command is similar to the following text, and is the ID for your storage account:
+> [!IMPORTANT]
+> If you want to use an existing Azure Storage account, it cannot be a premium account (Premium_LRS and Premium_GRS). It also cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage or hierarchical namespace are supported with the _default_ storage account of the workspace. You can use premium storage or hierarchical namespace with _non-default_ storage accounts.
 
-    `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"`
+> [!IMPORTANT]
+> The container registry must have the the [admin account](../container-registry/container-registry-authentication.md#admin-account) enabled before it can be used with an Azure Machine Learning workspace.
 
-    > [!IMPORTANT]
-    > If you want to use an existing Azure Storage account, it cannot be a premium account (Premium_LRS and Premium_GRS). It also cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage or hierarchical namespace are supported with the _default_ storage account of the workspace. You can use premium storage or hierarchical namespace with _non-default_ storage accounts.
-
-+ **Azure Application Insights**:
-
-    1. Install the application insights extension:
-
-        ```azurecli-interactive
-        az extension add -n application-insights
-        ```
-
-    2. Get the ID of your application insight service:
-
-        ```azurecli-interactive
-        az monitor app-insights component show --app <application-insight-name> -g <resource-group-name> --query "id"
-        ```
-
-        The response from this command is similar to the following text, and is the ID for your application insights service:
-
-        `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/microsoft.insights/components/<application-insight-name>"`
-
-+ **Azure Key Vault**: `az keyvault show --name <key-vault-name> --query "ID"`
-
-    The response from this command is similar to the following text, and is the ID for your key vault:
-
-    `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<key-vault-name>"`
-
-+ **Azure Container Registry**: `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
-
-    The response from this command is similar to the following text, and is the ID for the container registry:
-
-    `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<acr-name>"`
-
-    > [!IMPORTANT]
-    > The container registry must have the the [admin account](../container-registry/container-registry-authentication.md#admin-account) enabled before it can be used with an Azure Machine Learning workspace.
-
-Once you have the IDs for the resource(s) that you want to use with the workspace, use the base `az workspace create -w <workspace-name> -g <resource-group-name>` command and add the parameter(s) and ID(s) for the existing resources. For example, the following command creates a workspace that uses an existing container registry:
-
-```azurecli-interactive
-az ml workspace create -w <workspace-name> -g <resource-group-name> --container-registry "/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<acr-name>"
-```
-
-The output of this command is similar to the following JSON:
+The output of the workspace creation command is similar to the following JSON:
 
 ```json
 {
@@ -217,9 +203,8 @@ The output of this command is similar to the following JSON:
   "type": "Microsoft.MachineLearningServices/workspaces",
   "workspaceid": "<GUID>"
 }
-```
 
----
+```
 
 ## Advanced configurations
 ### Virtual network and private endpoint
