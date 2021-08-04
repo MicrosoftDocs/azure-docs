@@ -24,7 +24,7 @@ To upgrade your account, you must register the `HnsOnMigration` feature with you
 
 ### Register the feature
 
-### [Portal](#tab/azure-portal)
+#### [Portal](#tab/azure-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -87,6 +87,13 @@ To upgrade your account, you must register the `HnsOnMigration` feature with you
 ---
 
 ### Verify that the feature is registered
+
+#### [Portal](#tab/azure-portal)
+
+3. In the **Preview features** page of your subscription, locate the **ADLS enable Hierarchical Namespace for existing account** feature, and then make sure that **Registered** appears in the **State** column.
+
+   > [!div class="mx-imgBorder"]
+   > ![Register feature in Azure portal](./media/upgrade-to-data-lake-storage-gen2-how-to/verify-register-feature-in-azure-portal.png)
 
 #### [PowerShell](#tab/powershell)
 
