@@ -52,7 +52,7 @@ For other methods of authenticating, see [Sign in with Azure CLI](/cli/azure/aut
 
 The Azure Machine Learning workspace must be created inside a resource group. You can use an existing resource group or create a new one. To __create a new resource group__, use the following command. Replace `<resource-group-name>` with the name to use for this resource group. Replace `<location>` with the Azure region to use for this resource group:
 
-> [!TIP]
+> [!NOTE]
 > You should select a region where Azure Machine Learning is available. For information, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service).
 
 ```azurecli-interactive
@@ -301,9 +301,6 @@ az ml workspace create -w <workspace-name> -g <resource-group-name> --file works
 > [!NOTE]
 > Azure Cosmos DB is __not__ used to store information such as model performance, information logged by experiments, or information logged from your model deployments. For more information on monitoring these items, see the [Monitoring and logging](concept-azure-machine-learning-architecture.md) section of the architecture and concepts article.
 
-> [!NOTE]
-> Azure Cosmos DB is __not__ used to store information such as model performance, information logged by experiments, or information logged from your model deployments. For more information on monitoring these items, see the [Monitoring and logging](concept-azure-machine-learning-architecture.md) section of the architecture and concepts article.
-
 > [!IMPORTANT]
 > Selecting high business impact can only be done when creating a workspace. You cannot change this setting after workspace creation.
 
@@ -351,7 +348,7 @@ az ml workspace sync-keys -w <workspace-name> -g <resource-group-name>
 
 For more information on changing keys, see [Regenerate storage access keys](how-to-change-storage-access-key.md).
 
-For more information, see the [az ml workspace sync-keys](/cli/azure/ml/workspace#az_ml_workspace_sync-keys) documentation.
+For more information on the sync-keys command, see [az ml workspace sync-keys](/cli/azure/ml/workspace#az_ml_workspace_sync-keys).
 
 ### Delete a workspace
 
