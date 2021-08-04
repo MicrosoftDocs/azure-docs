@@ -87,7 +87,7 @@ You can view the device telemetry with IoT Explorer. Optionally, you can view te
 
 To view telemetry in Azure IoT Explorer:
 
-1. From the your Iot hub in IoT Explorer, select **View devices in this hub**, then select your device from the list. 
+1. From your Iot hub in IoT Explorer, select **View devices in this hub**, then select your device from the list. 
 1. On the left menu for your device, select **Telemetry**.
 1. Confirm that **Use built-in event hub** is set to *Yes* and then select **Start**.
 1. View the telemetry as the device sends messages to the cloud.

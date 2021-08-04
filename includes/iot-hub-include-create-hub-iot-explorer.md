@@ -9,7 +9,7 @@ ms.date: 07/31/2021
 ---
 
 ## Create an IoT hub
-In this section, you use Azure CLI to create an IoT hub and a resource group.  An Azure resource group is a logical container into which Azure resources are deployed and managed. An IoT hub acts as a central message hub for bi-directional communication between your IoT application and the devices.
+In this section, you use Azure CLI to create an IoT hub and a resource group.  An Azure resource group is a logical container into which Azure resources are deployed and managed. An IoT hub acts as a central message hub for bi-directional communication between your IoT application and devices.
 
 To create an IoT hub and a resource group:
 

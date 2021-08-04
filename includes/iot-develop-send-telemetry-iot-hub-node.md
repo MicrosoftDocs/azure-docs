@@ -25,9 +25,9 @@ In this quickstart, you learn a basic Azure IoT application development workflow
 [!INCLUDE [iot-hub-include-create-hub-iot-explorer](iot-hub-include-create-hub-iot-explorer.md)]
 
 ## Run a simulated device
-In this section, you will use the Node.js SDK to send messages from a simulated device to your IoT hub. You'll run a sample that implements a temperature controller with two thermostat sensors.
+In this section, you'll use the Node.js SDK to send messages from a simulated device to your IoT hub. You'll run a sample that implements a temperature controller with two thermostat sensors.
 
-1. Open a new console window. You will use this console to install the Node.js SDK and work with Node.js sample code.
+1. Open a new console window. You'll use this console to install the Node.js SDK and work with Node.js sample code.
 
     > [!NOTE]
     > If you're using a local installation of Azure CLI, you might now have two console windows open. Be sure to enter the commands in this section in the console you just opened, not the one that you've been using for the CLI.
@@ -96,7 +96,7 @@ You can view the device telemetry with IoT Explorer. Optionally, you can view te
 
 To view telemetry in Azure IoT Explorer:
 
-1. From the your Iot hub in IoT Explorer, select **View devices in this hub**, then select your device from the list. 
+1. From your Iot hub in IoT Explorer, select **View devices in this hub**, then select your device from the list. 
 1. On the left menu for your device, select **Telemetry**.
 1. Confirm that **Use built-in event hub** is set to *Yes* and then select **Start**.
 1. View the telemetry as the device sends messages to the cloud.
