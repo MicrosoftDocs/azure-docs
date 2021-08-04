@@ -290,7 +290,7 @@ Now that the root domain is configured, it may take several hours for the DNS pr
 
 ## Redirect requests to a default domain
 
-Your static web app can be accessed using its automatically generated domain and any custom domains that you have configured. You can optionally configure your app to redirect all traffic from other domains to a default domain.
+Your static web app can be accessed using its automatically generated domain and any custom domains that you have configured. Optionally, you can configure your app to redirect all traffic from the other domains to a default domain.
 
 ### Set a default domain
 
@@ -304,7 +304,7 @@ When you designate a custom domain as your app's default domain. All requests to
 
    :::image type="content" source="media/custom-domain/set-default.png" alt-text="Set a custom domain as the default":::
 
-1. After the operation has completes, refresh the table to confirm your domain has been marked as "default".
+1. After the operation completes, refresh the table to confirm your domain has been marked as "default".
 
 ### Unset a default domain
 
@@ -316,7 +316,7 @@ When you have a default domain configured, you can unset its default status to s
 
 1. Select **Unset default**.
 
-1. After the operation has completes, refresh the table to confirm that no domains are marked as "default".
+1. After the operation completes, refresh the table to confirm that no domains are marked as "default".
 
 ## Next steps
 
