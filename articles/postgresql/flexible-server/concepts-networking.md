@@ -29,7 +29,7 @@ The following characteristics apply whether you choose to use the private access
 
 ## Private access (VNet integration)
 
-You can deploy a flexible server into your [Azure virtual network](../../virtual-network/virtual-networks-overview.md). Azure virtual networks provide private and secure network communication. Resources in a virtual network can communicate through private IP addresses that were assigned on this network.
+You can deploy a flexible server into your [Azure virtual network (VNet)](../../virtual-network/virtual-networks-overview.md). Azure virtual networks provide private and secure network communication. Resources in a virtual network can communicate through private IP addresses that were assigned on this network.
 
 Choose this networking option if you want the following capabilities:
 
