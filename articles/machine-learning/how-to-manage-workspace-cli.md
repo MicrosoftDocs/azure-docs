@@ -243,7 +243,9 @@ az ml workspace create -w <workspace-name> -g <resource-group-name> --file works
 
 ### Customer-managed key and high business impact workspace
 
-By default, metadata for the workspace is stored in an Azure Cosmos DB instance that Microsoft maintains. This data is encrypted using Microsoft-managed keys. Instead of using the Microsoft-managed key, you can also provide your own key. Doing so creates an additional set of resources in your Azure subscription to store your data. To learn more about the resources that are created when you bring your own key for encryption, see [Data encryption with Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/concept-data-encryption#azure-cosmos-db).
+By default, metadata for the workspace is stored in an Azure Cosmos DB instance that Microsoft maintains. This data is encrypted using Microsoft-managed keys. Instead of using the Microsoft-managed key, you can also provide your own key. Doing so creates an additional set of resources in your Azure subscription to store your data.
+
+To learn more about the resources that are created when you bring your own key for encryption, see [Data encryption with Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/concept-data-encryption#azure-cosmos-db).
 
 You can use the Azure CLI to configure your workspace for use with customer-managed keys. The implementation path differs slightly for the 1.0 CLI and 2.0 CLI versions.
 
