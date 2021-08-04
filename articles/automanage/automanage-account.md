@@ -82,8 +82,9 @@ To grant sufficient permissions to the Automanage Account, you will need to do t
 1. When prompted, enter the Object ID of the Automanage Account you created and saved down.
 
 ```azurecli-interactive
-az deployment group create --resource-group <resource group name> --template-file azuredeploy.json
+az deployment sub create --location <location> --template-file azuredeploy2.json
 ```
+
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
