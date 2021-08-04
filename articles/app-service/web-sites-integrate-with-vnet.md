@@ -4,7 +4,7 @@ description: Integrate app in Azure App Service with Azure virtual networks.
 author: ccompy
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
-ms.date: 08/05/2020
+ms.date: 08/04/2021
 ms.author: ccompy
 ms.custom: seodec18, devx-track-azurepowershell
 
