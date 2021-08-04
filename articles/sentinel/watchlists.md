@@ -80,17 +80,19 @@ Common scenarios for using watchlists include:
 
     :::image type="content" source="./media/watchlists/create-watchlist-from-template.png" alt-text="Create a watchlist from a built-in template." lightbox="./media/watchlists/create-watchlist-from-template.png":::
 
-1. Continue in the **Watchlist wizard**. 
+1. Continue in the **Watchlist wizard**.
 
-    - The watchlist's **Name**, **Description**, and **Watchlist Alias** values are all read-only so that Azure Sentinel can leverage the data populated in the watchlists, customized for your organization's needs.
+    - When using a watchlist template, the the watchlist's **Name**, **Description**, and **Watchlist Alias** values are all read-only.
 
     - Select **Download Schema** to download a CSV file that contains the relevant schema expected for the selected watchlist template.
+
+        Each built-in watchlist template has it's own set of data listed in the attached CSV file. For more information, see [Built-in watchlist schemas](watchlist-schemas.md)
+
 
 1.  Populate the local version of the CSV file, and then upload it back into the wizard.
 
 1. Continue as you would when [creating a new watchlist from scratch](#review-and-create), and then use your watchlist with [queries](#use-watchlists-in-queries) and [analytics rules](#use-watchlists-in-analytics-rules).
 
-Each built-in watchlist template has it's own set of data listed in the attached CSV file. For more information, see [Built-in watchlist schemas](watchlist-schemas.md)
 ## Use watchlists in queries
 
 > [!TIP]
@@ -106,7 +108,7 @@ Each built-in watchlist template has it's own set of data listed in the attached
     > The timestamp on your queries will be ignored in both the query UI and in scheduled alerts.
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-fields.png" alt-text="queries with watchlist fields" lightbox="./media/watchlists/sentinel-watchlist-queries-fields.png":::
-    
+
 1. You can query data in any table against data from a watchlist by treating the watchlist as a table for joins and lookups. Use **SearchKey** as the key for your join.
 
     ```kusto
