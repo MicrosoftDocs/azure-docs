@@ -229,11 +229,11 @@ For more information, see [Back up and restore Active Directory domain controlle
 
 Managed identities eliminate the need for the user to maintain the credentials. Managed identities provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication.  
 
-Azure Backup offers the flexibility to restore the managed Azure VM with [Managed identities](/azure/active-directory/managed-identities-azure-resources/overview). You can choose to select [system-managed identities](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) or user-managed identities as shown in the figure below. This is introduced as one of the input parameters in the [**Restore configuration** blade](/azure/backup/backup-azure-arm-restore-vms#create-a-vm) of Azure VM. Managed identities used as one of the input parameter is only used for accessing the storage accounts, which is used as staging location during restore and not for any other Azure resource controlling. These Managed identities have to be associated to the vault.
+Azure Backup offers the flexibility to restore the managed Azure VM with [managed identities](/azure/active-directory/managed-identities-azure-resources/overview). You can choose to select [system-managed identities](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) or user-managed identities as shown in the figure below. This is introduced as one of the input parameters in the [**Restore configuration** blade](/azure/backup/backup-azure-arm-restore-vms#create-a-vm) of Azure VM. Managed identities used as one of the input parameter is only used for accessing the storage accounts, which is used as staging location during restore and not for any other Azure resource controlling. These managed identities have to be associated to the vault.
 
 :::image type="content" source="./media/backup-azure-arm-restore-vms/select-system-managed-identities-or-user-managed-identities.png" alt-text="Screenshot for choice to select  system managed identities or user managed identities.":::
 
-If you choose to select system-assigned or User-assigned Managed identities, check for the below actions for Managed Identity on the target staging Storage Account.
+If you choose to select system-assigned or user-assigned managed identities, check for the below actions for managed identity on the target staging Storage Account.
 
 ```json
 "permissions": [
@@ -265,6 +265,8 @@ You can also select the [user-managed identity](/azure/active-directory/managed-
 
 >[!Note]
 >The support is available for only managed VMs, and not supported for classic VMs and unmanaged VMs. For the [storage accounts that are restricted with firewalls](/azure/storage/common/storage-network-security?tabs=azure-portal), system MSI is only supported.
+>
+>Currently, this is available in all Azure public regions, except Germany West Central and India Central.
 
 ## Track the restore operation
 
