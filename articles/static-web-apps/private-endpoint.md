@@ -19,8 +19,11 @@ An Azure Virtual Network (VNet) is a network just like you might have in a tradi
 
 Configuring Static Web Apps with a private endpoint allows you to use a private IP address from your VNet. Once this link is created, your static web app is integrated into your VNet. As a result, your static web app is no longer available to the public internet, and is only accessible from machines within your Azure VNet.
 
+> [!NOTE]
+> Placing your application behind a private endpoint means your app is only available in the region where your VNet is located. As a result, your application is no longer available across multiple points of presence.
+
 > [!WARNING]
-> Placing your application behind a private endpoint means your app is only available in the region where your VNet is located. As a result, your application is no longer available across multiple points of presence. Staging environments, such as those used for build previews, are only available through the VNnet.
+> Currently, private endpoints only secure your production environment. Support for staging environments will be added in an upcoming service update.
 
 ## Prerequisites
 
@@ -62,5 +65,4 @@ Since your application is no longer publicly available, the only way to access i
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn more about private endpoints](../private-link/private-endpoint-overview.md)
+> [!div class="nextstepaction"] > [Learn more about private endpoints](../private-link/private-endpoint-overview.md)
