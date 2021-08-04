@@ -37,7 +37,7 @@ learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 10 and older
 
-We do not support PostgreSQL version 10 and older for Azure Database for
+We don't support PostgreSQL version 10 and older for Azure Database for
 PostgreSQL - Hyperscale (Citus).
 
 ## Citus and other extension versions
