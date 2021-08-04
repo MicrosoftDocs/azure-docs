@@ -14,7 +14,7 @@ manager: abjork
 
 Use the IoT Central *water consumption monitoring* application template and the guidance in this article to develop an end-to-end water consumption monitoring solution.
 
-![Water consumption monitoring architecture](./media/tutorial-waterconsumptionmonitoring/concepts-water-consumption-monitoring-architecture1.png)
+![Water consumption monitoring architecture](./media/tutorial-waterconsumptionmonitoring/concepts-waterconsumptionmonitoring-architecture1.png)
 
 ### Devices and connectivity
 
@@ -62,7 +62,7 @@ In this tutorial, you learn how to:
 Create the application using following steps:
 
 1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Government** tab:
-    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/iotcentral-government-tab-overview1.png" alt-text="Application template":::
+    :::image type="content" source="media/tutorial-waterconsumptionmonitoring/iot-central-government-tab-overview1.png" alt-text="Application template":::
 
 1. Select **Create app** under **Water consumption monitoring**.
 
