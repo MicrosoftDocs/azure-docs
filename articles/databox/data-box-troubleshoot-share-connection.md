@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot share connections in Azure Data Box
+title: Troubleshoot share connection failure on Azure Data Box device
 description: Describes how to identify network issues preventing share connections in Azure Data Box.
 services: databox
 author: v-dalc
@@ -11,17 +11,15 @@ ms.date: 08/04/2021
 ms.author: alkohli
 ---
 
-# Troubleshoot share connection issues in Azure Data Box
+# Troubleshoot a share connection failure on an Azure Data Box device
 
-This article describes how to troubleshoot network issues that can cause you to be unable to connect to a share for an SMB data copy on your Azure Data Box device.
+This article describes what to do when you can't connect to a share on your Azure Data Box device.<!--Verifying: Is this during a data copy to the device, an upload from the device to the cloud, or both.-->
 
-## Possible causes
+The most common reasons for being unable to connect to a share on a Data Box device are:
 
-The most common reasons for being unable to connect to an SMB share on a Data Box device are:
-
-- a domain issue
-- a group policy is preventing a connection
-- a permissions issue
+- [a domain issue](#check-for-a-domain-issue)
+- [a group policy that's preventing a connection](#check-for-a-group-policy-issue)
+- [a permissions issue](#check-for-a-permissions-issue)
 
 ## Check for a domain issue
 
@@ -42,19 +40,11 @@ To find out whether a domain issue is preventing share access:
 
 Check whether a group policy on your client/host computer is preventing you from connecting to the share. If possible, move your client/host computer to an organizational unit (OU) that doesn't have any Group Policy objects (GPOs) applied.
 
-<!--Group Policy allows an organization to implement specific configurations for users and computers. Group Policy settings are contained in Group Policy objects (GPOs), which are linked to sites, domains, or organizational units (OUs) in Active Directory Domain Services (AD DS).
-
-If your client/host computer is domain-joined, GPOs can be applied to it.-->
-
 To ensure that no group policies are preventing your access to shares on the Data Box:
 
-* Make sure your client/host computer is in its own organizational unit (OU) for Active Directory.
+* Ensure that your client/host computer is in its own organizational unit (OU) for Active Directory.
 
-* Make sure that no group policy objects (GPOs) are applied to your client/host computer. You can block inheritance to ensure that the Data Box (child node) does not automatically inherit any GPOs from the parent. For more information, go to [block inheritance](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731076(v=ws.11)).
-
-## Check for a permissions failure
-
-If you still can't connect to the share, you may have a permissions issue. Your next step is to run diagnostics, and review the Smbserver.Security event logs for errors indicating a permissions failure.
+* Make sure  that no group policy objects (GPOs) are applied to your client/host computer. You can block inheritance to ensure that the client/host computer (child node) does not automatically inherit any GPOs from the parent. For more information, see [block inheritance](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731076(v=ws.11)).
 
 ### Run diagnostics
 
@@ -87,7 +77,7 @@ If you find either of these errors, you'll need to update the LAN Manager authen
 
 ### Use Local Security Policy editor to change the policy
 
-To use update the policy in Local Security Policy, do these steps:
+To change the policy in Local Security Policy, do these steps:
  
 1. To open Local Security Policy, on the **Start** screen, type `secpol.msc`, and then press Enter.
 
