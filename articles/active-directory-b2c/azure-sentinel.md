@@ -148,7 +148,7 @@ In our scenario, we want to receive a notification if someone is trying to force
 
    The results will display the _UserPrincipalName_ of the identity trying to log in the _number_ of attempts.
 
-   :::image type="content" source="./media/azure-sentinel/logs2.png" alt-text="details of selected incident":::
+   :::image type="content" source="./media/azure-sentinel/logs.png" alt-text="details of selected incident":::
 
 ## Automated response
 
