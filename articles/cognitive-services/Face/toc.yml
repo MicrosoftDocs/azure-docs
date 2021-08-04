@@ -16,7 +16,7 @@ items:
   href: /samples/browse/?products=azure&term=face
 - name: How-to guides
   items:
-  - name: Call the detect API
+  - name: Detect and analyze faces
     href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
   - name: Specify a face recognition model version
     href: Face-API-How-to-Topics/specify-recognition-model.md
