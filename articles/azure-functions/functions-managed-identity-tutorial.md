@@ -77,7 +77,7 @@ Because the Azure portal doesn't support creating function apps without Azure Fi
     }
     ```
 
-    Remember to remove any preceding period, which might cause invalid JSON. This prevents these two Azure Files-related settings from being created. 
+    Remember to remove any preceding comma, which might cause invalid JSON. This prevents these two Azure Files-related settings from being created. 
  
 1. Select **Save** to save the updated ARM template.
 
@@ -85,20 +85,23 @@ Because the Azure portal doesn't support creating function apps without Azure Fi
 
 1. After your template validates, make a note of your **Storage Account Name**, since you'll use this account later. Finally, select **Create** to provision and deploy the function app. 
 
+1. After deployment completes, select **Go to resource group** and then select the new function app. 
+
     > [!NOTE]
     > Because you've created a function app in a Consumption plan, you'll get a warning about Storage not being configured properly. This is expected, and you'll fix it later in this tutorial.
 
-Congratulations! You've successfully created your function app without the Azure Files dependency.
+Congratulations! You've successfully created your function app without the Azure Files dependency.  
+Next, you'll enable managed identities so that your function app works without having to store connection string values in application settings.
 
 ## Enable managed identity
 
-You must enable managed identities so that your function app works without having to store connection string values in app settings. This tutorial uses a system-assigned identity, which is used to access blob content in its storage account without using a key. For more information, see [How to use managed identities for App Service and Azure Functions](../app-service/overview-managed-identity.md). 
+ This tutorial uses a system-assigned identity, which is used to access blob content in its storage account without using a key. For more information, see [How to use managed identities for App Service and Azure Functions](../app-service/overview-managed-identity.md). 
 
-1. In your function app, under **Settings**, select **Identity** > **System assigned**.
+1. In your new function app, under **Settings**, select **Identity** > **System assigned**.
 
     :::image type="content" source="./media/functions-secretless-tutorial/4-add-system-assigned-id.png" alt-text="Screenshot how to add a system assigned identity.":::
 
-1. Switch the **Status** to **On**, and select **Save**. If promoted to **enable system assigned managed identity**, select **Yes**.
+1. Switch the **Status** to **On**, and select **Save**. If promp                                                                                                                                ted to **enable system assigned managed identity**, select **Yes**.
 
 1. Select **Azure role assignments** and then **Azure role assignment (Preview)**.
 
@@ -174,7 +177,7 @@ To deploy a zipped package without a connected storage account, you must manuall
 
 1. Enter the value `WEBSITE_RUN_FROM_PACKAGE` for the **Name**, and paste the URL of your package in Blob Storage as the **Value**.
 
-1. Select **OK** > **Save**.
+1. Select **OK**. Then select  **Save** > **Continue** to save the setting and restart the app.
 
 Now you can run your timer trigger in Azure to verify that deployment has succeeded using the deployment package .zip file.
 
@@ -190,7 +193,7 @@ Now you can run your timer trigger in Azure to verify that deployment has succee
 
     You should see a success message in the output. 
 
-Congratulations! You've successfully run your timer trigger in Azure. Now, you can switch the `AzureWebJobsStorage` setting to be secretless. This works because the function app already has the Storage Blob Data Owner role created. You just need to update an app setting. 
+Congratulations! You've successfully run your timer trigger in Azure. Now, you can switch the `AzureWebJobsStorage` setting to be secretless. This works because the function app already has the Storage Blob Data Owner role created. You just need to update an application setting. 
 
 ## Use managed identity for AzureWebJobsStorage
 
@@ -202,7 +205,7 @@ Congratulations! You've successfully run your timer trigger in Azure. Now, you c
 
     | Setting      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
-    | **Name** |  AzureWebJobsStorage__accountName | Update the name from **AzureWebJobsStorage** to use the identity instead of secrets. |
+    | **Name** |  AzureWebJobsStorage__accountName | Update the name from **AzureWebJobsStorage** to use the identity instead of secrets. Please be aware that the new setting uses a double underscore (`__`), which is a special character in settings.  |
     | **Value** | Your account name | Update the name from the connection string to just your **AccountName** to use the identity instead of secrets. Ex. `DefaultEndpointsProtocol=https;AccountName=identityappstore;AccountKey=...` would become `identityappstore`|
 
 1. Select **OK** and then **Save** > **Continue** to save your changes. 
