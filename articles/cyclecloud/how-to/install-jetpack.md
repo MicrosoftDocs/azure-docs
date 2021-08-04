@@ -10,6 +10,12 @@ ms.author: mirequa
 
 [Jetpack](../jetpack.md) is typically downloaded and installed onto CycleCloud-managed VMs automatically when they start up without any user interaction. This is the preferred method for getting Jetpack on a CycleCloud-managed VM. However, in some cases one may want to manually install Jetpack onto a VM.
 
+::: moniker range=">=cyclecloud-8"
+> [!WARNING]
+> Installing Jetpack directly onto a custom image is no longer supported in CycleCloud 8. The Jetpack installation process in CycleCloud 8 takes only a few seconds on average without requiring external internet access so there is no need to pre-install Jetpack on custom images. Documentation on how to install Jetpack remains for historical purposes.
+
+::: moniker-end
+
 ## Why Install Jetpack
 
 [Custom images](create-custom-image.md) allow you to have full control over which version of software is installed on your OS. If you have requirements that are met only with a specific version of Jetpack and that Jetpack version isn't installed by default, you will want to manually install that Jetpack version onto a VM and create a custom image.

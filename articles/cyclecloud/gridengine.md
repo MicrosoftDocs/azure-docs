@@ -1,8 +1,8 @@
 ---
 title: Grid Engine Scheduler Integration
 description: Grid Engine scheduler configuration in Azure CycleCloud.
-author: KimliW
-ms.date: 08/01/2018
+author: adriankjohnson
+ms.date: 08/08/2021
 ms.author: adjohnso
 ---
 
@@ -35,7 +35,7 @@ ms.author: adjohnso
 > [!NOTE]
 > The role names contain 'sge' for legacy reasons: Grid Engine was a product of Sun Microsystems.
 
-Importing and starting a cluster with definition in CycleCloud will yield a single 'master' node. Execute nodes can be added to the cluster via the 'cyclecloud add_node' command. For example, to add 10 more execute nodes:
+Importing and starting a cluster with definition in CycleCloud will yield a single 'master' node. Execute nodes can be added to the cluster via the `cyclecloud add_node` command. For example, to add 10 more execute nodes:
 
 ```azurecli-interactive
 cyclecloud add_node grid-engine -t execute -c 10
@@ -50,7 +50,7 @@ Azure CycleCloud supports autoscaling for Grid Engine, which means that the soft
 Autoscale = True
 ```
 
-By default, all jobs submitted into the Grid Engine queue will run on machines of type 'execute', these are machines defined by the node array named "execute". You are not limited to the name 'execute', nor are you limited to a single type of machine configuration to run jobs and autoscale on.
+By default, all jobs submitted into the Grid Engine queue will run on machines of type 'execute', these are machines defined by the node array named 'execute'. You are not limited to the name 'execute', nor are you limited to a single type of machine configuration to run jobs and autoscale on.
 
 As an example, a common case may be that you have a cluster with two different node definitions one is for running 'normal' jobs that consume standard CPU while another type of job may use GPU machines. In this case you would want to independently scale your queue by both normal jobs as well as GPU jobs to make sure you have an appropriate amount of each machine to consume the work queue. An example definition would be something like:
 
@@ -85,7 +85,7 @@ Autoscale = True
     gridengine.slots = 2
 ```
 
-In the above example, there are now two node arrays: One is a 'standard' execute node array, the second is named 'gpu' providing a MachineType that has two Nvidia GPU's (Standard_NV12 in Azure). Also note that there are now two new items in the configuration section besides the csge:sgeexec recipe. Adding `gridengine.slot_type = gpu` tells the Grid Engine scheduler that these nodes should be named 'gpu' nodes and thus should only run 'gpu' jobs. The name 'gpu' is arbitrary, but a name that describes the node is most useful. Set `gridengine.slots = 2`, which tells the software to make sure that this type of node can only run two jobs at once (Standard_NV12 only has 2 GPUs). By default the number of slots per node in Grid Engine will be the number of CPUs on the system which, in this case, would cause too many jobs to concurrently execute on the node. In the above example, `CoreCount=2` is set on the nodearray to match the number of GPUs available on the MachineType, allowing CycleCloud to correctly scale that array on GPU vs CPU count.
+In the above example, there are now two node arrays: One is a 'standard' execute node array, the second is named 'gpu' providing a MachineType that has two Nvidia GPU's (Standard_NV12 in Azure). Also note that there are now two new items in the configuration section besides the 'csge:sgeexec' recipe. Adding `gridengine.slot_type = gpu` tells the Grid Engine scheduler that these nodes should be named 'gpu' nodes and thus should only run 'gpu' jobs. The name 'gpu' is arbitrary, but a name that describes the node is most useful. Set `gridengine.slots = 2`, which tells the software to make sure that this type of node can only run two jobs at once (Standard_NV12 only has 2 GPUs). By default the number of slots per node in Grid Engine will be the number of CPUs on the system which, in this case, would cause too many jobs to concurrently execute on the node. In the above example, `CoreCount=2` is set on the nodearray to match the number of GPUs available on the MachineType, allowing CycleCloud to correctly scale that array on GPU vs CPU count.
 
 You can verify the number of slots and slot_type your machines have by running the command:
 
@@ -131,7 +131,7 @@ qsub -l slot_type=gpu my_gpu_job.sh
 
 This command will ensure that the job only runs on a 'slot_type' of 'gpu'.
 
-If slot_type is omitted, 'execute' will be automatically assigned to the job. The mechanism that automatically assigns slot_type's to jobs can be modified by the user. A python script located at /opt/cycle/jetpack/config/autoscale.py can be created which should define a single function "sge_job_handler". This function receives a dictionary representation of the job, similar to the output of a 'qstat -j <jobID>' command and should return a dictionary of hard resources that need to be updated for the job. As an example, below is a script which will assign a job to the 'gpu' slot_type if the jobs name contains the letters 'gpu'. This would allow a user to submit their jobs from an automated system without having to modify the job parameters and still have the jobs run on and autoscale the correct nodes:
+If slot_type is omitted, 'execute' will be automatically assigned to the job. The mechanism that automatically assigns slot_type's to jobs can be modified by the user. A python script located at _/opt/cycle/jetpack/config/autoscale.py_ can be created which should define a single function "sge_job_handler". This function receives a dictionary representation of the job, similar to the output of a `qstat -j JOB_ID` command and should return a dictionary of hard resources that need to be updated for the job. As an example, below is a script which will assign a job to the 'gpu' slot_type if the jobs name contains the letters 'gpu'. This would allow a user to submit their jobs from an automated system without having to modify the job parameters and still have the jobs run on and autoscale the correct nodes:
 
 ``` python
 #!/usr/env python
@@ -139,7 +139,7 @@ If slot_type is omitted, 'execute' will be automatically assigned to the job. Th
 # File: /opt/cycle/jetpack/config/autoscale.py
 #
 def sge_job_handler(job):
-  # The 'job' parameter is a dictionary containing the data present in a 'qstat -j <jobID>':
+  # The 'job' parameter is a dictionary containing the data present in a 'qstat -j JOB_ID':
     hard_resources = {'slot_type': 'execute', 'affinity_group' : 'default' }
 
   # Don't modify anything if the job already has a slot type
@@ -156,7 +156,7 @@ def sge_job_handler(job):
       return hard_resources
 ```
 
-The parameter 'job' passed in is a dictionary that contains the data in a 'qstat -j <jobID>' call:
+The parameter 'job' passed in is a dictionary that contains the data in a `qstat -j JOB_ID` call:
 
 ``` python
 {
@@ -219,7 +219,7 @@ The following are the Grid Engine specific configuration options you can toggle 
 
 ::: moniker range="=cyclecloud-8"
 
-This page concerns capabilities and configuration of using (Univa) GridEngine with CycleCloud.
+This page concerns capabilities and configuration of using (Altair) GridEngine with CycleCloud.
 
 ## Configuring Resources
 The cyclecloud-gridengine application matches sge resources to azure cloud resources 
@@ -229,7 +229,7 @@ gridengine admin host on an existing cluster.
 
 ### Installing or Upgrading cyclecloud-gridengine
 
-The cyclecloud-gridengine bundle will be available in [github](https://github.com/Azure/cyclecloud-gridengine/releases) 
+The cyclecloud-gridengine bundle is available in [github](https://github.com/Azure/cyclecloud-gridengine/releases) 
 as a release artifact. Installing and upgrading will be the same process. 
 The application requires python3 with virtualenv.
 
@@ -251,7 +251,6 @@ at configurable levels. All gridengine management commands with arguments are lo
 | Autoscale Log  | /opt/cycle/jetpack/logs/autoscale.log  |
 | qconf trace log  | /opt/cycle/jetpack/logs/qcmd.log  |
 
-
 ### SGE queues, hostgroups and parallel environments
 
 The cyclecloud-gridengine autoscale utility, `azge`, will add hosts to the cluster according
@@ -264,6 +263,7 @@ to the cluster configuration. The autoscaling operations perform the following a
 1. Add the host to the cluster as well as to any other queue containing the hostgroup
 
 Consider the following queue definition for a queue named _short.q_
+
 ```ini
 hostlist              @allhosts @mpihg01 @mpihg02 @lowprio 
 ...
@@ -373,8 +373,8 @@ mfree | String | Same as _m/_mem/_free_
 
 ### Resource Mapping
 
-There are also maths available to the default_resources - reduce the slots on a particular 
-node array by two and add the docker resource to all nodes:
+There are also maths available to the default_resources - reduce the slots on a particular node array by two and add the docker resource to all nodes:
+
 ```json
     "default_resources": [
     {
@@ -390,7 +390,7 @@ node array by two and add the docker resource to all nodes:
     },
 ```
 
-Mapping the node vCPUs to the slots complex, and memmb to mem_free are commonly used defaults.
+Mapping the node vCPUs to the slots complex, and `memmb` to `mem_free` are commonly used defaults.
 The first association is required.
 
 ```json
@@ -410,6 +410,7 @@ The first association is required.
 
 Note that if a complex has a shortcut not equal to the entire value, then define both in _default\_resources_
 where `physical_cpu` is the complex name:
+
 ```json
 "default_resources": [
     {
@@ -435,7 +436,8 @@ the appropriate sge hostgroup.
 For a job submitted as:
 `qsub -q "cloud.q" -l "m_mem_free=4g" -pe "mpi*" 48 ./myjob.sh`
 
-Cyclecloud will find get the intersection of hostgroups which:
+CycleCloud will find get the intersection of hostgroups which:
+
 1. Are included in the _pe\_list_ for _cloud.q_ and match the pe name, e.g. `pe_list [@allhosts=mpislots],[@hpc1=mpi]`.
 1. Have adequate resources and subscription quota to provide all job resources.
 1. Are not filtered by the hostgroup constraints configuration.
@@ -443,13 +445,13 @@ Cyclecloud will find get the intersection of hostgroups which:
 It's possible that multiple hostgroups will meet these requirements, in which case
 the logic will need to choose. There are three ways to resolve ambiguities in hostgroup
 membership:
+
 1. Configure the queues so that there aren't ambiguities. 
 1. Add constraints to _autoscale.json_.
-1. Let cyclecloud choose amoungst the matching hostgroups in a name-ordered fashion by adjusting `weight_queue_host_sort < weight_queue_seqno` in the scheduler configuration.
+1. Let CycleCloud choose amoungst the matching hostgroups in a name-ordered fashion by adjusting `weight_queue_host_sort < weight_queue_seqno` in the scheduler configuration.
 1. Set `seq_no 10000,[@hostgroup1=100],[@hostgroup2=200]` in the queue configuration to indicate a hostgroup preference.
 
-
-### Hostgroup contstraints
+### Hostgroup constraints
 
 When multiple hostgroups are defined by a queue or xproject then all these hostgroups can potentially have
 the hosts added to them. You can limit what kinds of hosts can be added to which queues by setting hostgroup
@@ -511,9 +513,9 @@ command to the root crontab. (Souce the gridengine environment variables)
 
 ## Creating a hybrid cluster
 
-Cyclecloud will support the scenario of bursting to the cloud. The base configuration assumes that the `$SGE_ROOT`
+CycleCloud will support the scenario of bursting to the cloud. The base configuration assumes that the `$SGE_ROOT`
 directory is available to the cloud nodes. This assumption can be relaxed by setting `gridengine.shared.spool = false`, 
-`gridengine.shared.bin = false` and installing GridEngine locally. 
+`gridengine.shared.bin = false` and installing GridEngine locally.
 For a simple case, you should provide a filesystem that can be mounted by the execute nodes which contains the `$SGE_ROOT` directory
 and configure that mount in the optional settings. When the dependency of the sched and shared directories are released, you 
 can shut down the scheduler node that is part of the cluster by-default and use the configurations 
@@ -521,17 +523,17 @@ from the external filesystem.
 
 1. Create a new gridengine cluster.
 1. Disable return proxy.
-1. Replace /sched and /shared with external filesystems.
+1. Replace _/sched_ and _/shared_ with external filesystems.
 1. Save the cluster.
 1. Remove the scheduler node as an action in the UI.
 1. Start the cluster, no nodes will start initially.
-1. Configure cyclecloud-gridengine with _autoscale.json_ to use the new cluster
+1. Configure `cyclecloud-gridengine` with _autoscale.json_ to use the new cluster
 
 ## Using Univa Grid Engine in CycleCloud
 
 CycleCloud project for GridEngine uses _sge-2011.11_ by default. You may use your own
-[Univa GridEngine](http://www.univa.com/products/) installers according to your Univa license agreement.  
-This section documents how to use Univa GridEngine with the CycleCloud GridEngine project.
+[Altair GridEngine](https://www.altair.com/grid-engine/) installers according to your Altair license agreement.  
+This section documents how to use Altair GridEngine with the CycleCloud GridEngine project.
 
 ### Prerequisites
 
@@ -542,12 +544,11 @@ This example will use the 8.6.1-demo version, but all ge versions > 8.4.0 are su
   * ge-8.6.x-bin-lx-amd64.tar.gz
   * ge-8.6.x-common.tar.gz
 
-2. The cyclecloud cli must be configured. Documentation is available [here](https://docs.microsoft.com/azure/cyclecloud/install-cyclecloud-cli) 
-
+2. The CycleCloud CLI must be configured. Documentation is available [here](~/how-to/install-cyclecloud-cli.md) 
 
 ### Copy the binaries into the cloud locker
 
-A complementary version of UGE (8.6.7-demo) is distributed with Cyclecloud. To use another version upload the
+A complementary version of AGE (8.6.7-demo) is distributed with CycleCloud. To use another version upload the
 binaries to the storage account that CycleCloud uses.
 
 ```bash
@@ -555,18 +556,16 @@ binaries to the storage account that CycleCloud uses.
 $ azcopy cp ge-8.6.12-bin-lx-amd64.tar.gz https://<storage-account-name>.blob.core.windows.net/cyclecloud/gridengine/blobs/
 $ azcopy cp ge-8.6.12-common.tar.gz https://<storage-account-name>.blob.core.windows.net/cyclecloud/gridengine/blobs/
 ```
+
 ### Modifying configs to the cluster template
 
-Make a local copy of the gridengine template and modify it to use the UGE installers
-instead of the default.
+Make a local copy of the gridengine template and modify it to use the UGE installers instead of the default.
 
 ```bash
 wget https://raw.githubusercontent.com/Azure/cyclecloud-gridengine/master/templates/gridengine.txt
 ```
 
-In the _gridengine.txt_ file, locate the first occurrence of `[[[configuration]]]` and
-insert text such that it matches the snippet below.  This file is not sensitive to 
-indentation.
+In the _gridengine.txt_ file, locate the first occurrence of `[[[configuration]]]` and insert text such that it matches the snippet below.  This file is not sensitive to indentation.
 
 > NOTE:
 > The details in the configuration, particularly version, should match the installer file name.
