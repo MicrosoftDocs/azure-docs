@@ -4,7 +4,7 @@
  author: timlt
  ms.service: iot-develop
  ms.topic: include
- ms.date: 07/31/2021
+ ms.date: 08/03/2021
  ms.author: timlt
  ms.custom: include file
 ---

@@ -4,7 +4,7 @@
  author: timlt
  ms.service: iot-develop
  ms.topic: include
- ms.date: 05/05/2021
+ ms.date: 08/03/2021
  ms.author: timlt
  ms.custom: include file
 ---
@@ -33,7 +33,7 @@ In this section, you use the Java SDK to send messages from a simulated device t
 
     > [!NOTE]
     > If you're using a local installation of Azure CLI, you might now have two console windows open. Be sure to enter the commands in this section in the console you just opened, not the one that you've been using for the CLI.
-    
+
 1. Set the following environment variables, to enable your simulated device to connect to Azure IoT.
     * Set an environment variable called `IOTHUB_DEVICE_CONNECTION_STRING`. For the variable value, use the device connection string that you saved in the previous section.
     * Set an environment variable called `IOTHUB_DEVICE_SECURITY_TYPE`. For the variable, use the literal string value `connectionString`.
