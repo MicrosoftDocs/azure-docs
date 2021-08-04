@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: msi
 ms.workload: integration
 ms.topic: how-to
-ms.date: 07/30/2021
+ms.date: 08/03/2021
 ms.author: barclayn
 ms.custom: ep-msia
 
@@ -102,17 +102,17 @@ New-AzVm `
 
 ### Create a virtual machine with a user-assigned managed identity assigned (?)
 
-# [Portal](#tab/azure-portal)
+#### [Portal](#tab/azure-portal)
 
 [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md#user-assigned-managed-identity)
 
-# [PowerShell](#tab/azure-powershell)
+#### [PowerShell](#tab/azure-powershell)
 
-# [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/azure-cli)
 
 [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-cli-windows-vm.md#user-assigned-managed-identity)
 
-# [Resource Manager Template](#tab/azure-resource-manager)
+#### [Resource Manager Template](#tab/azure-resource-manager)
 
 
 ### Assign a user-assigned managed identity to a Virtual machine
@@ -121,19 +121,19 @@ User-assigned managed identities can be used on multiple resources. To learn mor
 
 To assign a user-assigned identity to a VM, your account needs the Virtual Machine Contributor and Managed Identity Operator role assignments. No additional Azure AD directory role assignments are required.
 
-# [Portal](#tab/azure-portal)
+#### [Portal](#tab/azure-portal)
 
 [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md#user-assigned-managed-identity)
 
-# [PowerShell](#tab/azure-powershell)
+#### [PowerShell](#tab/azure-powershell)
 
 
 
-# [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/azure-cli)
 
 [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-cli-windows-vm.md#user-assigned-managed-identity)
 
-# [Resource Manager Template](#tab/azure-resource-manager)
+#### [Resource Manager Template](#tab/azure-resource-manager)
 
 
 ---
@@ -158,7 +158,7 @@ Cosmos DB uses RBAC roles to grant access to either data plan or management plan
 
 ## Clean up steps
 
-# [Portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 1. In the [portal](https://portal.azure.com), select the resource you want to delete.
 
@@ -167,7 +167,7 @@ Cosmos DB uses RBAC roles to grant access to either data plan or management plan
 1. When prompted, confirm the deletion.
 
 
-# [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 
 ```azurepowershell-interactive
@@ -178,7 +178,7 @@ Remove-AzResource `
 ```
 
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az resource delete \
@@ -187,7 +187,7 @@ az resource delete \
   --resource-type "Microsoft.Compute/virtualMachines"
 ```
 
-# [Resource Manager Template](#tab/azure-resource-manager)
+### [Resource Manager Template](#tab/azure-resource-manager)
 
 TBD what we would show here
 
