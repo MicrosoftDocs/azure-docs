@@ -43,17 +43,17 @@ To see language-specific examples, refer to the examples below. If you open the 
 
 ### C#
 
-Refer to the [Using DICOMweb™ Standard APIs with C#](https://review.docs.microsoft.com/en-us/azure/healthcare-apis/dicom/dicomweb-standard-apis-c-sharp) tutorial to learn how to use C# with the DICOM service.
+Refer to the [Using DICOMweb™ Standard APIs with C#](dicomweb-standard-apis-c-sharp.md) tutorial to learn how to use C# with the DICOM service.
 
 ### cURL
 
 cURL is a common command-line tool for calling web endpoints that is available for nearly any operating system. [Download cURL](https://curl.haxx.se/download.html) to get started.
 
-To learn how to use cURL with the DICOM service, see [Using DICOMWeb™ Standard APIs with cURL](https://review.docs.microsoft.com/en-us/azure/healthcare-apis/dicom/dicomweb-standard-apis-curl) tutorial.
+To learn how to use cURL with the DICOM service, see [Using DICOMWeb™ Standard APIs with cURL](dicomweb-standard-apis-curl.md) tutorial.
 
 ### Phyton
 
-Refer to the [Using DICOMWeb™ Standard APIs with Python](https://review.docs.microsoft.com/en-us/azure/healthcare-apis/dicom/dicomweb-standard-apis-python) tutorial to learn how to use Phyton with the DICOM service.
+Refer to the [Using DICOMWeb™ Standard APIs with Python](dicomweb-standard-apis-python.md) tutorial to learn how to use Python with the DICOM service.
 
 ### Postman
 
@@ -67,9 +67,9 @@ To use the Postman collection, you'll need to download the collection locally an
 
 This tutorial provided an overview of the APIs supported by the DICOM service. Get started using these APIs with the following tools:
 
-- [Using DICOMweb™ Standard APIs with C#](https://review.docs.microsoft.com/en-us/azure/healthcare-apis/dicom/dicomweb-standard-apis-c-sharp)
-- [Using DICOMWeb™ Standard APIs with cURL](https://review.docs.microsoft.com/en-us/azure/healthcare-apis/dicom/dicomweb-standard-apis-curl)
-- [Using DICOMWeb™ Standard APIs with Python](https://review.docs.microsoft.com/en-us/azure/healthcare-apis/dicom/dicomweb-standard-apis-python)
+- [Using DICOMweb™ Standard APIs with C#](dicomweb-standard-apis-c-sharp.md)
+- [Using DICOMWeb™ Standard APIs with cURL](dicomweb-standard-apis-curl.md)
+- [Using DICOMWeb™ Standard APIs with Python](dicomweb-standard-apis-python.md)
 - [Use DICOM Web Standard APIs with Postman Example Collection](https://github.com/microsoft/dicom-server/blob/main/docs/resources/Conformance-as-Postman.postman_collection.json)
 
 ### Next Steps
