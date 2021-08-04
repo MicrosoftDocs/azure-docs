@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: msi
 ms.workload: integration
 ms.topic: how-to
-ms.date: 08/03/2021
+ms.date: 08/04/2021
 ms.author: barclayn
 ms.custom: ep-msia
 
@@ -95,6 +95,31 @@ New-AzVm `
 - [Create a Windows virtual machine with a system assigned managed identity](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli)
 
 # [Resource Manager Template](#tab/azure-resource-manager)
+
+To enable system-assigned managed identity, load the template into an editor, locate the `Microsoft.Compute/virtualMachines` resource of interest within the `resources` section and add the `"identity"` property at the same level as the `"type": "Microsoft.Compute/virtualMachines"` property. Use the following syntax:
+
+   ```json
+   "identity": {
+       "type": "SystemAssigned"
+   },
+   ```
+
+When you're done, the following sections should be added to the `resource` section of your template and it should resemble the following:
+
+   ```json
+    "resources": [
+        {
+            //other resource provider properties...
+            "apiVersion": "2018-06-01",
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[variables('vmName')]",
+            "location": "[resourceGroup().location]",
+            "identity": {
+                "type": "SystemAssigned",
+                }                        
+        }
+    ]
+   ```
 
 ---
 
