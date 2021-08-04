@@ -464,8 +464,12 @@ items:
         href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Initiate account failover
         href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Handle event on blob rehydration
-      href: archive-rehydration-handle-event.md
+    - name: Manage data in the archive tier
+      items:
+      - name: Rehydrate an archived blob
+        href: 
+      - name: Handle events on blob rehydration
+        href: archive-rehydration-handle-event.md
     - name: Configure object replication
       href: object-replication-configure.md
     - name: Manage concurrency

@@ -10,7 +10,6 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: fryu
-ms.custom: devx-track-azurepowershell
 ---
 
 # Rehydrate blob data from the archive tier
