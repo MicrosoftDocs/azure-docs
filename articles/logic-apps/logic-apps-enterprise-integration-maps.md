@@ -249,7 +249,7 @@ shows the number of uploaded assemblies.
 ## Create maps
 
 To create an Extensible Stylesheet Language Transformation (XSLT) document you can use as a map, you can use Visual Studio 2015, 2017, or 2019 for creating a 
-BizTalk Integration project by using the [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md). In this project, you can build an integration map file, 
+integration project by using the [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md). In this project, you can build an integration map file, 
 which lets you visually map items between two XML schema files. After you build this project, you get an XSLT document. For limits on map quantities in integration accounts, see 
 [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits). 
 
