@@ -1,7 +1,7 @@
 ---
 title: Expression and functions
 titleSuffix: Azure Data Factory & Azure Synapse
-description: This article provides information about expressions and functions that you can use in creating data factory and Synapse pipeline entities.
+description: This article provides information about expressions and functions that you can use in creating Azure Data Factory and Azure Synapse Analytics pipeline entities.
 author: minhe-msft
 ms.author: hemin
 ms.reviewer: jburchel
