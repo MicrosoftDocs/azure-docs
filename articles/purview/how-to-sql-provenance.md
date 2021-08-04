@@ -1,5 +1,5 @@
 ---
-title: SQL Provenance in Azure Purview
+title: SQL provenance in Azure Purview
 description: This article describes the data provenance extraction from SQL.
 author: chanuengg
 ms.author: csugunan
@@ -28,7 +28,7 @@ Required. Start your H1 with a verb. Pick an H1 that clearly conveys the task th
 user will complete.
 -->
 
-# [H1 heading here] - SQL Provenance in Azure Purview
+# [H1 heading here] - SQL provenance in Azure Purview
 
 <!-- 2. Introductory paragraph 
 Required. Lead with a light intro that describes, in customer-friendly language, 
