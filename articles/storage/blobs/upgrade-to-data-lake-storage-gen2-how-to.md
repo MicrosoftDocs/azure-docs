@@ -16,11 +16,11 @@ This article helps you unlock capabilities such as file and directory-level secu
 To learn more about these capabilities and evaluate the impact of this upgrade on workloads, applications, costs, service integrations, tools, features, and documentation, see [Upgrading Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities](upgrade-to-data-lake-storage-gen2.md).
 
 > [!IMPORTANT]
-> An upgrade is one-way. There's no way to revert your account once you've performed the upgrade. We recommend that you validate your upgrade in a non production environment.
+> An upgrade is one-way. There's no way to revert your account once you've performed the upgrade. We recommend that you validate your upgrade in a nonproduction environment.
 
 ## Enable the ability to upgrade your account
 
-To upgrade your account, you must register the `HnsOnMigration` feature with your subscription. 
+To upgrade your account, you must register the `HnsOnMigration` feature with your subscription, and then verify that the registration is complete before you begin the upgrade process. 
 
 ### Register the feature
 
@@ -28,7 +28,7 @@ To upgrade your account, you must register the `HnsOnMigration` feature with you
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. Locate your subscription and in configuration page of your subscription, select **Preview features**.
+2. Locate your subscription, and in configuration page of your subscription, select **Preview features**.
 
 3. In the **Preview features** page, select the **ADLS enable Hierarchical Namespace for existing account** feature, and then select **Register**.
 
@@ -90,10 +90,10 @@ To upgrade your account, you must register the `HnsOnMigration` feature with you
 
 #### [Portal](#tab/azure-portal)
 
-3. In the **Preview features** page of your subscription, locate the **ADLS enable Hierarchical Namespace for existing account** feature, and then make sure that **Registered** appears in the **State** column.
+In the **Preview features** page of your subscription, locate the **ADLS enable Hierarchical Namespace for existing account** feature, and then make sure that **Registered** appears in the **State** column.
 
-   > [!div class="mx-imgBorder"]
-   > ![Verify that the feature is registered in Azure portal](./media/upgrade-to-data-lake-storage-gen2-how-to/verify-register-feature-in-azure-portal.png)
+> [!div class="mx-imgBorder"]
+> ![Verify that the feature is registered in Azure portal](./media/upgrade-to-data-lake-storage-gen2-how-to/verify-register-feature-in-azure-portal.png)
 
 #### [PowerShell](#tab/powershell)
 
@@ -132,7 +132,7 @@ az feature show --namespace Microsoft.Storage --name HnsOnMigration
 
 6. Expand the **Step 2: Validate account before upgrading** section and then click **Start validation**.
 
-   If validation fails, select the **View Errors** link
+   If validation fails, select the **View errors** link
 
    > [!div class="mx-imgBorder"]
    > ![View errors link](./media/upgrade-to-data-lake-storage-gen2-how-to/validation-errors.png)
@@ -142,7 +142,7 @@ az feature show --namespace Microsoft.Storage --name HnsOnMigration
    > [!div class="mx-imgBorder"]
    > ![Error json page](./media/upgrade-to-data-lake-storage-gen2-how-to/error-json.png)
 
-   Open the downloaded file to determine why the validation might have failed to complete successfully. 
+   Open the downloaded file to determine why the account did not pass the validation step. 
 
    The following JSON indicates that an incompatible feature is enabled on the account. In this case, you would disable the feature and then start the validation process again.
 
@@ -177,7 +177,7 @@ az feature show --namespace Microsoft.Storage --name HnsOnMigration
    > [!div class="mx-imgBorder"]
    > ![Account endpoints](./media/upgrade-to-data-lake-storage-gen2-how-to/storage-endpoints.png)
   
-3. For Hadoop workloads that use Windows Azure Storage Blob driver or [WASB](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) driver, make sure to modify them to use the the [Azure Blob File System (ABFS)](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html) driver. Unlike the WASB driver that makes requests to the **Blob service** endpoint, the ABFS driver will make requests to the **Data Lake Storage** endpoint of your account.
+3. For Hadoop workloads that use Windows Azure Storage Blob driver or [WASB](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) driver, make sure to modify them to use the [Azure Blob File System (ABFS)](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html) driver. Unlike the WASB driver that makes requests to the **Blob service** endpoint, the ABFS driver will make requests to the **Data Lake Storage** endpoint of your account.
 
 2. Test custom applications to ensure that they work as expected with your upgraded account. 
 
