@@ -150,15 +150,12 @@ The Resource ID value looks similar to the following: `"/subscriptions/<service-
 > [!IMPORTANT]
 > You don't have to specify all existing resources. You can specify one or more. For example, you can specify an existing storage account and the workspace will create the other resources.
 
-> [!NOTE]
-> The workspace name is case-insensitive.
-
 ---
 
 > [!IMPORTANT]
 > The container registry must have the the [admin account](../container-registry/container-registry-authentication.md#admin-account) enabled before it can be used with an Azure Machine Learning workspace.
 
-The output of the workspace creation command is similar to the following JSON:
+The output of the workspace creation command is similar to the following JSON. You can use the output values to locate the created resources or pare them as input to subsequent CLI steps.
 
 ```json
 {
