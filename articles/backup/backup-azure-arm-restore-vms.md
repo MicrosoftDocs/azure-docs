@@ -265,6 +265,7 @@ You can also select the [user-managed identity](/azure/active-directory/managed-
 
 >[!Note]
 >The support is available for only managed VMs, and not supported for classic VMs and unmanaged VMs. For the [storage accounts that are restricted with firewalls](/azure/storage/common/storage-network-security?tabs=azure-portal), system MSI is only supported.
+> Currently, this is available in all Azure public regions, except Germany West Central and India Central.
 
 ## Track the restore operation
 
