@@ -28,7 +28,7 @@ The following table describes user access permissions to Azure Defender for IoT 
 |--|--|--|--|--|
 | View details and access software, activation files and threat intelligence packages  | ✓ | ✓ | ✓ | ✓ |
 | Onboard a sensor  |  |  ✓ | ✓ | ✓ |
-| Update pricing  |  |  ✓ | ✓ | ✓ |
+| Update pricing  |  |  | ✓ | ✓ |
 | Recover password  | ✓  |  ✓ | ✓ | ✓ |
 
 ## Identify the solution infrastructure
