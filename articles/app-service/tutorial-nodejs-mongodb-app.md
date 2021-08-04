@@ -62,7 +62,7 @@ git clone https://github.com/Azure-Samples/mean-todoapp.git
 ```
 
 > [!NOTE]
-> For information on how the sample app is create, see [https://github.com/Azure-Samples/mean-todoapp](https://github.com/Azure-Samples/mean-todoapp).
+> For information on how the sample app is created, see [https://github.com/Azure-Samples/mean-todoapp](https://github.com/Azure-Samples/mean-todoapp).
 
 ### Run the application
 
@@ -575,5 +575,5 @@ Advance to the next tutorial to learn how to map a custom DNS name to the app.
 
 Or, check out other resources:
 
-> [!div class="nextstepaction"]
-> [Configure Node.js app](configure-language-nodejs.md)
+- [Configure Node.js app](configure-language-nodejs.md)
+- [Environment variables and app settings reference](reference-app-settings.md)

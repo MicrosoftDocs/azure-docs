@@ -32,7 +32,7 @@ IoT Hub monitors six categories of events:
 
 ## How to enable operations monitoring
 
-1. Create an IoT hub. You can find instructions on how to create an IoT hub in the [Get Started](quickstart-send-telemetry-dotnet.md) guide.
+1. Create an IoT hub. You can find instructions on how to create an IoT hub in the [Get Started](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) guide.
 
 2. Open the blade of your IoT hub. From there, click **Operations monitoring**.
 

@@ -3,9 +3,9 @@ title: Visualizing data from Azure Monitor | Microsoft Docs
 description: Provides a summary of the available methods to visualize metric and log data stored in Azure Monitor.
 
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 01/25/2021
+author: rboucher
+ms.author: robb
+ms.date: 07/28/2021
 
 ---
 
@@ -95,6 +95,15 @@ Here is a video walkthrough on creating dashboards.
 - No Azure integration. Can't manage dashboards and models through Azure Resource Manager.
 - Cost to support additional Grafana infrastructure or additional cost for Grafana Cloud.
 
+## Azure Monitor partners
+Some [Azure Monitor partners](/azure/azure-monitor/partners) may provide visualization functionality. The previous link lists partners evaluated by Microsoft. 
+
+### Advantages
+- May provide out of the box visualizations saving time
+
+### Limitations
+- May have additional costs
+- Time to research and evaluate partner offerings
 
 ## Build your own custom application
 You can access data in log and metric data in Azure Monitor through their API using any REST client, which allows you to build your own custom websites and applications.
@@ -105,7 +114,6 @@ You can access data in log and metric data in Azure Monitor through their API us
 
 ### Disadvantages
 - Significant engineering effort required.
-
 
 ## Azure Monitor Views
 

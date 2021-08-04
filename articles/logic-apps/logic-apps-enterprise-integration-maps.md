@@ -5,16 +5,16 @@ services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, logicappspm
-ms.topic: article
-ms.date: 02/06/2019
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 07/20/2021
 ---
 
 # Transform XML with maps in Azure Logic Apps with Enterprise Integration Pack
 
 To transfer XML data between formats for enterprise integration scenarios 
 in Azure Logic Apps, your logic app can use maps, or more specifically, 
-Extensible Style sheet Language Transformations (XSLT) maps. A map is an XML 
+Extensible Stylesheet Language Transformation (XSLT) maps. A map is an XML 
 document that describes how to convert data from an XML document into another format. 
 
 For example, suppose you regularly receive B2B orders or invoices from 
@@ -23,8 +23,24 @@ uses the MMDDYYY date format. You can define and use a map that transforms
 the YYYMMDD date format to the MMDDYYY format before storing the order or 
 invoice details in your customer activity database.
 
-For limits related to integration accounts and artifacts such as maps, 
-see [Limits and configuration information for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
+> [!NOTE]
+> The Azure Logic Apps service allocates finite memory for processing XML transformations. If you 
+> create logic apps based on the **Logic App (Consumption)** resource type, and your map or payload 
+> transformations have high memory consumption, such transformations might fail, resulting in out 
+> of memory errors. To avoid this scenario, consider these options:
+>
+> * Edit your maps or payloads to reduce memory consumption.
+>
+> * Create your logic apps using the **Logic App (Standard)** resource type instead.
+>
+>   These workflows run in single-tenant Azure Logic Apps, which offers dedicated and flexible options 
+>   for compute and memory resources. For more information, review the following documentation:
+>
+>   * [What is Azure Logic Apps - Resource type and host environments](logic-apps-overview.md#resource-type-and-host-environment-differences)
+>   * [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
+>   * [Usage metering, billing, and pricing models for Azure Logic Apps](logic-apps-pricing.md)
+
+For limits related to integration accounts and artifacts such as maps, review [Limits and configuration information for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
 ## Prerequisites
 
@@ -33,6 +49,8 @@ see [Limits and configuration information for Azure Logic Apps](../logic-apps/lo
 * An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
 where you store your maps and other artifacts for enterprise 
 integration and business-to-business (B2B) solutions.
+
+* If your map references an external assembly, you need a 64-bit assembly. The transform service runs a 64-bit process, so 32-bit assemblies aren't supported. If you have the source code for a 32-bit assembly, recompile the code into a 64-bit assembly. If you don't have the source code, but you obtained the binary from a third-party provider, get the 64-bit version from that provider. For example, some vendors provide assemblies in packages that have both 32-bit and 64-bit versions. If you have the option, use the 64-bit version instead.
 
 * If your map references an external assembly, you have to upload 
 *both the assembly and the map* to your integration account. 
@@ -56,7 +74,7 @@ map that references the assembly.
     |------|-------------|
     | [Azure storage account](../storage/common/storage-account-overview.md) | In this account, create an Azure blob container for your assembly. Learn [how to create a storage account](../storage/common/storage-account-create.md). |
     | Blob container | In this container, you can upload your assembly. You also need this container's location when you add the assembly to your integration account. Learn how to [create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md). |
-    | [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) | This tool helps you more easily manage storage accounts and blob containers. To use Storage Explorer, either [download and install Azure Storage Explorer](https://www.storageexplorer.com/). Then, connect Storage Explorer to your storage account by following the steps in [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). To learn more, see [Quickstart: Create a blob in object storage with Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). <p>Or, in the Azure portal, find and select your storage account. From your storage account menu, select **Storage Explorer**. |
+    | [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) | This tool helps you more easily manage storage accounts and blob containers. To use Storage Explorer, either [download and install Azure Storage Explorer](https://www.storageexplorer.com/). Then, connect Storage Explorer to your storage account by following the steps in [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). To learn more, see [Quickstart: Create a blob in object storage with Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). <p>Or, in the Azure portal, select your storage account. From your storage account menu, select **Storage Explorer**. |
     |||
 
   * For maps, you can currently add larger maps by using the [Azure Logic Apps REST API - Maps](/rest/api/logic/maps/createorupdate).
@@ -230,7 +248,7 @@ shows the number of uploaded assemblies.
 
 ## Create maps
 
-To create an XSLT document you can use as a map, 
+To create an Extensible Stylesheet Language Transformation (XSLT) document you can use as a map, 
 you can use Visual Studio 2015 for creating a 
 BizTalk Integration project by using the 
 [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md). 

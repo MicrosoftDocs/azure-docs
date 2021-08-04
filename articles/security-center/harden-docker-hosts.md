@@ -3,7 +3,7 @@ title: Use Azure Security Center to harden your Docker hosts and protect the con
 description: How-to protect your Docker hosts and verify they're compliant with the CIS Docker benchmark
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 07/18/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
@@ -41,6 +41,9 @@ When vulnerabilities are found, they're grouped inside a single recommendation.
     The recommendation page shows the affected resources (Docker hosts). 
 
     :::image type="content" source="./media/monitor-container-security/docker-host-vulnerabilities-found.png" alt-text="Recommendation to remediate vulnerabilities in container security configurations .":::
+
+    > [!NOTE]
+    > Machines that aren't running Docker will be shown in the **Not applicable resources** tab. They'll appear in Azure Policy as Compliant. 
 
 1. To view and remediate the CIS controls that a specific host failed, select the host you want to investigate. 
 

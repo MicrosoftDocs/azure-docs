@@ -43,7 +43,7 @@ When an Azure role is assigned to an Azure AD security principal, Azure grants a
 
 Before you assign an Azure RBAC role to a security principal, determine the scope of access that the security principal should have. Best practices dictate that it's always best to grant only the narrowest possible scope. Azure RBAC roles defined at a broader scope are inherited by the resources beneath them.
 
-You can scope access to Azure queue resources at the following levels, beginning with the narrowest scope:
+You can scope access to Azure table resources at the following levels, beginning with the narrowest scope:
 
 - **An individual table.** At this scope, a role assignment applies to the specified table.
 - **The storage account.** At this scope, a role assignment applies to all tables in the account.

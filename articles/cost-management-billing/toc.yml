@@ -4,6 +4,8 @@
   items:
   - name: What is Cost Management and Billing?
     href: cost-management-billing-overview.md
+  - name: What's new?
+    href: https://azure.microsoft.com/blog/tag/cost-management/
 - name: Quickstarts
   items:
   - name: Start analyzing costs
@@ -96,9 +98,9 @@
         href: manage/understand-vm-reservation-charges.md?toc=/azure/cost-management-billing/toc.json
     - name: Windows and SQL costs not included
       href: reservations/reserved-instance-windows-software-costs.md?toc=/azure/cost-management-billing/toc.json
-    - name: Usage data for individual subscriptions
+    - name: Reservation usage data for individual subscriptions
       href: reservations/understand-reserved-instance-usage.md?toc=/azure/cost-management-billing/toc.json
-    - name: Enterprise and Microsoft Customer Agreement usage data
+    - name: Reservation usage data for EA and Microsoft Customer Agreement
       href: reservations/understand-reserved-instance-usage-ea.md?toc=/azure/cost-management-billing/toc.json
   - name: Billing
     items:
@@ -112,6 +114,8 @@
       href: understand/mca-understand-your-invoice.md
     - name: Microsoft Customer Agreement price sheet terms
       href: manage/mca-understand-pricesheet.md
+    - name: Microsoft Customer Agreement FAQ
+      href: understand/mca-faq.md
     - name: Microsoft Partner Agreement invoice terms
       href: understand/mpa-invoice-terms.md
     - name: Changes to your updated pay-as-you-go billing account
@@ -254,7 +258,7 @@
         href: understand/download-azure-invoice.md
       - name: View and download your Azure usage and charges
         href: understand/download-azure-daily-usage.md
-      - name: Download your invoice and daily usage data
+      - name: Download your invoice
         href: manage/download-azure-invoice-daily-usage-date.md
       - name: View and download tax documents
         href: understand/mca-download-tax-document.md
@@ -454,20 +458,3 @@
       href: manage/review-enterprise-billing.md
     - name: Review subscription use
       href: manage/review-subscription-billing.md
-- name: Cloudyn
-  items:
-  - name: Overview
-  - name: Quickstarts
-  - name: Tutorials
-  - name: Concepts
-  - name: How-to guides
-  - name: Resources
-    items:
-    - name: Azure Roadmap
-      href: https://azure.microsoft.com/roadmap/
-    - name: Cloudyn Pricing
-      href: https://azure.microsoft.com/pricing/details/cost-management
-    - name: Cloudyn Regional Availability
-      href: https://azure.microsoft.com/regions/services/
-    - name: Contact Cloudyn support
-      href: ./costs/open-support-request.md

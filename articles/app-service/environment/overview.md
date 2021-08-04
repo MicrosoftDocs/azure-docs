@@ -92,29 +92,29 @@ Reserved Instance pricing for Isolated v2 will be available after GA.
 
 The ASEv3 is available in the following regions.
 
-|Normal ASEv3 regions|	Dedicated hosts regions|	AZ ASEv3 regions|
-|--------------------|-------------------------|------------------|
-|Australia East|	Australia East|	Australia East|
-|Australia Southeast|	Australia Southeast	|Canada Central|
-|Brazil South	|Brazil South	|Central US|
-|Canada Central|	Canada Central|	East US|
-|Central India	|Central India|	East US 2|
-|Central US	|Central US	|France Central|
-|East Asia	|East Asia| Germany West Central|
-|East US	|East US	| North Europe|
-|East US 2|	East US 2|	South Central US|
-|France Central	|France Central	| Southeast Asia|
-|Germany West Central	|Germany West Central|	UK South|
-|Korea Central	|Korea Central	| West Europe|
-|North Europe	|North Europe|	West US 2|
-|Norway East	|Norway East|	|
-|South Africa North|	South Africa North| |	
-|South Central US	|South Central US	| |
-|Southeast Asia|	Southeast Asia	| |
-|Switzerland North	|Switzerland North| |	
-|UK South|	UK West| |	
-|UK West|	West Central US	| |
-|West Central US	|West Europe| |	
-|West Europe	|West US	| |
-|West US	|West US 2|  |	
-|West US 2		| |
+|Normal and dedicated host ASEv3 regions|	AZ ASEv3 regions|
+|---------------------------------------|------------------|
+|Australia East|	Australia East|
+|Australia Southeast|Brazil South|
+|Brazil South	|Canada Central|
+|Canada Central|Central US|
+|Central India	|East US|
+|Central US	|East US 2|
+|East Asia	| France Central|
+|East US	| Germany West Central|
+|East US 2|	North Europe|
+|France Central	| South Central US|
+|Germany West Central	|	Southeast Asia|
+|Korea Central	| UK South|
+|North Europe	| West Europe|
+|Norway East	| West US 2	|
+|South Africa North| |	
+|South Central US	| |
+|Southeast Asia| |
+|Switzerland North	| |	
+|UK South| |	
+|UK West| |
+|West Central US	| |	
+|West Europe	| |
+|West US	| |	
+|West US 2| |

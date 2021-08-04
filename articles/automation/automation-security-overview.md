@@ -4,7 +4,7 @@ description: This article provides an overview of Azure Automation account authe
 keywords: automation security, secure automation; automation authentication
 services: automation
 ms.subservice: process-automation
-ms.date: 06/28/2021
+ms.date: 08/02/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -48,7 +48,7 @@ An Automation account can be granted two types of identities:
 - A user-assigned identity is a standalone Azure resource that can be assigned to your app. An app can have multiple user-assigned identities.
 
 > [!NOTE]
-> User assigned identities are supported for cloud jobs only. To learn more about the different managed identities, see [Manage identity types](/active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
+> User assigned identities are supported for cloud jobs only. To learn more about the different managed identities, see [Manage identity types](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
 
 For details on using managed identities, see [Enable managed identity for Azure Automation (preview)](enable-managed-identity-for-automation.md).
 
@@ -56,8 +56,37 @@ For details on using managed identities, see [Enable managed identity for Azure 
 
 Run As accounts in Azure Automation provide authentication for managing Azure Resource Manager resources or resources deployed on the classic deployment model. There are two types of Run As accounts in Azure Automation:
 
-* Azure Run As account: Allows you to manage Azure resources based on the Azure Resource Manager deployment and management service for Azure.
-* Azure Classic Run As account: Allows you to manage Azure classic resources based on the Classic deployment model.
+To create or renew a Run As account, permissions are needed at three levels:
+
+- Subscription,
+- Azure Active Directory (Azure AD), and
+- Automation account
+
+### Subscription permissions
+
+You need the `Microsoft.Authorization/*/Write` permission. This permission is obtained through membership of one of the following Azure built-in roles:
+
+- [Owner](../role-based-access-control/built-in-roles.md#owner)
+- [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator)
+
+To configure or renew Classic Run As accounts, you must have the Co-administrator role at the subscription level. To learn more about classic subscription permissions, see [Azure classic subscription administrators](../role-based-access-control/classic-administrators.md#add-a-co-administrator).
+
+### Azure AD permissions
+
+To be able to create or renew the service principal, you need to be a member of one of the following Azure AD built-in roles:
+
+- [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator)
+- [Application Developer](../active-directory/roles/permissions-reference.md#application-developer)
+
+Membership can be assigned to **ALL** users in the tenant at the directory level, which is the default behavior. You can grant membership to either role at the directory level. For more information, see [Who has permission to add applications to my Azure AD instance?](../active-directory/develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+
+### Automation account permissions
+
+To be able to create or update the Automation account, you need to be a member of one of the following Automation account roles:
+
+- [Owner](./automation-role-based-access-control.md#owner)
+- [Contributor](./automation-role-based-access-control.md#contributor)
+- [Custom Azure Automation Contributor](./automation-role-based-access-control.md#custom-azure-automation-contributor-role)
 
 To learn more about the Azure Resource Manager and Classic deployment models, see [Resource Manager and classic deployment](../azure-resource-manager/management/deployment-models.md).
 
