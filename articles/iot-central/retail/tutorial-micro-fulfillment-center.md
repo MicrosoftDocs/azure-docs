@@ -1,5 +1,5 @@
 ---
-title:Tutorial - Azure IoT Micro-fulfillment center | Microsoft Docs
+title: Tutorial - Azure IoT Micro-fulfillment center | Microsoft Docs
 description: This tutorial shows you how to deploy and use the micro-fulfillment center application template for Azure IoT Central
 author: avneet723
 ms.author: avneets 

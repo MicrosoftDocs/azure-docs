@@ -68,7 +68,7 @@ Now you have an **Event Hubs Namespace**, you can create an **Event Hub** to use
 
 You now have an event hub you can use when you configure data export from your IoT Central application:
 
-    :::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/event-hub.png" alt-text="Event hub.":::
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/event-hub.png" alt-text="Event hub.":::
 
 ## Configure data export
 
@@ -85,7 +85,7 @@ Now you have an event hub, you can configure your **In-store analytics - checkou
 
 The data export may take a few minutes to start sending telemetry to your event hub. You can see the status of the export on the **Data exports** page:
 
-    :::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/export-configuration.png" alt-text="Continuous data export configuration.":::
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/export-configuration.png" alt-text="Continuous data export configuration.":::
 
 ## Create the Power BI datasets
 
@@ -112,7 +112,7 @@ Your Power BI dashboard will display data from your retail monitoring applicatio
 
 You now have two streaming datasets. The logic app will route telemetry from the two environmental sensors connected to your **In-store analytics - checkout** application to these two datasets:
 
-    :::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/dataset-1.png" alt-text="Zone datasets.":::
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/dataset-1.png" alt-text="Zone datasets.":::
 
 
 This solution uses one streaming dataset for each sensor because it's not possible to apply filters to streaming data in Power BI.
@@ -137,7 +137,7 @@ You also need a streaming dataset for the occupancy telemetry:
 
 You now have a third streaming dataset that stores values from the simulated occupancy sensor. This sensor reports the queue length at the two checkouts in the store, and how long customers are waiting in these queues:
 
-    :::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/dataset-2.png" alt-text="Occupancy dataset.":::
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/dataset-2.png" alt-text="Occupancy dataset.":::
 
 ## Create a logic app
 
@@ -149,7 +149,7 @@ Before you create the logic app, you need the device IDs of the two RuuviTag sen
 1. Select **Devices** in the left pane. Then select **RuuviTag**.
 1. Make a note of the **Device IDs**. In the following screenshot, the IDs are **f5dcf4ac32e8** and **e29ffc8d5326**:
 
-    :::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/device-ids.png" alt-text="Device IDs.":::
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/device-ids.png" alt-text="Device IDs.":::
 
 The following steps show you how to create the logic app in the Azure portal:
 
@@ -447,7 +447,7 @@ Add four line chart tiles to show the temperature and humidity from the two envi
 
 The following screenshot shows the settings for the first chart:
 
-    :::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/line-chart.png" alt-text="Line chart settings.":::
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/line-chart.png" alt-text="Line chart settings.":::
 
 ### Add cards to show environmental data
 
@@ -463,7 +463,7 @@ Add four card tiles to show the most recent temperature and humidity values from
 
 The following screenshot shows the settings for the first card:
 
-    :::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/card-settings.png" alt-text="Card settings.":::
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/card-settings.png" alt-text="Card settings.":::
 
 ### Add tiles to show checkout occupancy data
 
@@ -481,11 +481,11 @@ Add four card tiles to show the queue length and dwell time for the two checkout
 
 Resize and rearrange the tiles on your dashboard to look like the following screenshot:
 
-    :::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard.png" alt-text="Screenshot that shows the Power B I dashboard with resized and rearranged tiles..":::
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard.png" alt-text="Screenshot that shows the Power B I dashboard with resized and rearranged tiles..":::
 
 You could add some addition graphics resources to further customize the dashboard:
 
-    :::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard-graphics.png" alt-text="Power BI dashboard.":::
+:::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard-graphics.png" alt-text="Power BI dashboard.":::
 
 ## Clean up resources
 
