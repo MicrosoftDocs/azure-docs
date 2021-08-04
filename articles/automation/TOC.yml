@@ -76,6 +76,8 @@
               href: disable-managed-identity-for-automation.md
             - name: Remove user-assigned managed identity
               href: remove-user-assigned-identity.md
+            - name: Using with PowerShell Runbook  
+              href: learn/powershell-runbook-managed-identity.md  
             - name: Troubleshoot managed identity
               href: troubleshoot/managed-identity.md
         - name: Run As account
