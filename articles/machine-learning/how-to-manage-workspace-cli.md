@@ -104,7 +104,7 @@ To create a workspace that uses existing resources, you must provide the ID for 
 
   * **Azure Storage Account**: 
     `az storage account show --name <storage-account-name> --query "id"`
-  * **Azure Application Insights": 
+  * **Azure Application Insights**: 
     `az monitor app-insights component show --app <application-insight-name> -g <resource-group-name> --query "id"`
   * **Azure Key Vault**:
     `az keyvault show --name <key-vault-name> --query "ID"`
@@ -120,9 +120,6 @@ az ml workspace create -w <workspace-name>
                        -g <resource-group-name>
                        --container-registry "/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<acr-name>"
 ```
-
-> [!IMPORTANT]
-> You don't have to specify all existing resources. You can specify one or more. For example, you can specify an existing storage account and the workspace will create the other resources.
 
 # [Bring existing resources (2.0 CLI)](#tab/bringexistingresources2)
 
@@ -153,10 +150,10 @@ If attaching existing resources, you must provide the ID for the resources. You 
 
 The Resource ID value looks similar to the following: `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/<provider>/<subresource>/<resource-name>"`.
 
-> [!IMPORTANT]
-> You don't have to specify all existing resources. You can specify one or more. For example, you can specify an existing storage account and the workspace will create the other resources.
-
 ---
+
+> [!IMPORTANT]
+> When you attaching existing resources, you don't have to specify all. You can specify one or more. For example, you can specify an existing storage account and the workspace will create the other resources.
 
 The output of the workspace creation command is similar to the following JSON. You can use the output values to locate the created resources or parse them as input to subsequent CLI steps.
 
