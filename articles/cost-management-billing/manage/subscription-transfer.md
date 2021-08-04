@@ -94,7 +94,7 @@ Dev/Test subscriptions aren't shown in the following table. Transfers for Dev/Te
 
 Some subscription transfers require you to manually move Azure resources between subscriptions. Moving resources can incur downtime and there are various limitations to move Azure resource types such as VMs, NSGs, App Services, and others.
 
-Microsoft doesn't provide a tool to automatically move resources between subscriptions. When needed, you must manually move Azure resources between subscriptions. If you have a small amount of resources to move, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md). Extra time and planning is needed when you have a large amount of resources to move.
+Microsoft doesn't provide a tool to automatically move resources between subscriptions. When needed, you must manually move Azure resources between subscriptions. For details, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md). Extra time and planning is needed when you have a large amount of resources to move.
 
 ## Other planning considerations
 
@@ -158,5 +158,4 @@ The Enterprise Administrator can update account ownership for any account, even 
 
 ## Next steps
 
-- Read about the [Azure Resource transfer Support tool v10](https://jtjsacpublic.blob.core.windows.net/blogsharedfiles/AzureResourcetransferSupportV10.xlsx).
 - [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
