@@ -31,7 +31,7 @@ The following are the key reasons to migrate into continuous mode:
 > * If the account is of type SQL API or API for MongoDB.
 > * If the account has a single write region.
 > * If the account isn't enabled with customer managed keys(CMK).
-> * If the account isn't enabled wit analytical store.
+> * If the account isn't enabled with analytical store.
 
 ## Permissions
 

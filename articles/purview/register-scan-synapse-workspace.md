@@ -109,6 +109,9 @@ You can set up authentication for an Azure Synapse source in either of two ways:
 - Use a managed identity
 - Use a service principal
 
+> [!IMPORTANT]
+> These steps for serverless databases **do not** apply to replicated databases. Currently in Synapse, serverless databases that are replicated from Spark databases are read-only. For more information, go [here](../synapse-analytics/sql/resources-self-help-sql-on-demand.md#operation-is-not-allowed-for-a-replicated-database).
+
 > [!NOTE]
 > You must set up authentication on each dedicated SQL database in your Azure Synapse workspace that you intend to register and scan. The permissions that are mentioned in the following sections for serverless SQL database apply to all databases within your workspace. That is, you'll have to set up authentication only once.
 
