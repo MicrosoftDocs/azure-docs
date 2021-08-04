@@ -394,7 +394,7 @@
       items:
       - name: Create using REST
         href: knowledge-store-create-rest.md
-      - name: Shaping projections
+      - name: Structure data
         href: knowledge-store-projection-shape.md
       - name: View with Storage Explorer
         href: knowledge-store-view-storage-explorer.md

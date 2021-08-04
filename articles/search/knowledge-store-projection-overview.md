@@ -53,12 +53,16 @@ Typically only one group is used, but the following example shows two to illustr
 
 ### Projection groups
 
-In some cases, you will need to project your enriched data in different shapes to meet different objectives. As the previous example shows, you can define multiple groups of projections. Projection groups have the following key characteristics of mutual exclusivity and relatedness.
+Having multiple sets of table-object-file combinations is useful for supporting different scenarios. You might use one set for design and debug of a skillset, capturing output for further examination, while a second set collects output used for an online app, with a third for data science workloads.
+
+Projection groups have the following key characteristics of mutual exclusivity and relatedness. 
 
 | Principle | Description |
 |-----------|-------------|
-| Mutual exclusivity | All content projected into a single group is independent of data projected into other projection groups. This independence implies that you can have the same data shaped differently, yet repeated in each projection group. Each group obtains data from the same source (enrichment tree) but is fully isolated from the table-object-file combination of any peer project groups.|
+| Mutual exclusivity | All content projected into a single group is independent of data projected into other projection groups. This independence implies that you can have the same data shaped differently, yet repeated in each projection group. Each group obtains data from the same source (enrichment tree) but is fully isolated from the table-object-file combination of any peer projection groups.|
 | Relatedness | Projections support relatedness within the group. Within a group, content in a table is related to content in an object or file. Across types (tables, objects and files) in the same group, relationships are preserved when a single node of an enrichment tree (for example, `/document/translated_text`) is projected across different tables and objects. Within tables, relationships are based on a generated key and each child node retains a reference to the parent node. For example, consider a scenario where you have a document containing images and text. You could project the text to tables or objects and the images to files where the tables or objects have a column/property containing the file URL.|
+
+The decision to create additional projection groups is often based on requirements for data representation. You might do that if you want different data relationships. Within a set, data is related, assuming those relationships exist and can be detected. If you create additional sets, the documents in each group are never related. An example of using multiple projection groups might be if you want the same data projected for use with your online system and it needs to be represented a specific way, you also want the same data projected for use in a data science pipeline that is represented differently.
 
 <!-- ## Knowledge Store composition
 
@@ -82,11 +86,9 @@ Table projections are recommended for scenarios that call for data exploration, 
 
 + generatedKeyName: The column name for the key that uniquely identifies this row.
 
-+ source: The node from the enrichment tree you are sourcing your enrichments from. This node is usually the output of a Shaper skill that produces valid JSON, but could be the output from any skill, if valid JSON. 
++ source: The node from the enrichment tree you are sourcing your enrichments from. This node is usually the output of a Shaper skill that defines the shape of the table. Tables have rows and columns, and shaping is the mechanism by which rows and columns are specified. You can use a [Shaper skill or inline shapes](knowledge-store-projection-shape.md). The Shaper skill produces valid JSON, but could be the output from any skill, if valid JSON. 
 
-  The node you choose to project can be sliced to project into multiple tables. Among the tables, common fields such as a document identifier, or a page identifier if you chunked text into pages, provide the basis for table relationships.
-
-Here is an example of table projections:
+As demonstrated in this example, the key phrases and entities are modeled into different tables and will contain a reference back to the parent (MainTable) for each row. 
 
 ```json
 "knowledgeStore": {
@@ -109,7 +111,7 @@ Here is an example of table projections:
 }
 ```
 
-As demonstrated in this example, the key phrases and entities are modeled into different tables and will contain a reference back to the parent (MainTable) for each row.
+The enrichment node specified in "source" can be sliced to project into multiple tables. The reference to "EnrichedShape" is the output of a Shaper skill (not shown). The inputs of the skill determine table composition and the rows that fill it. Generated keys and common fields within each table provide the basis for table relationships.
 
 ## Object projections
 

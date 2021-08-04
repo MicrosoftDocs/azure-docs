@@ -34,43 +34,33 @@ Enumerated, the benefits of knowledge store include the following:
 
 + Refine an AI-indexing pipeline while debugging steps and skillset definitions. A knowledge store shows you the product of a skillset definition in an AI-indexing pipeline. You can use those results to design a better skillset because you can see exactly what the enrichments look like. You can use [Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows) in Azure Storage to view the contents of a knowledge store.
 
-+ Shape the data into new forms. The reshaping is codified in skillsets, but the point is that a skillset can now provide this capability. The [Shaper skill](cognitive-search-skill-shaper.md) in Azure Cognitive Search has been extended to accommodate this task. Reshaping allows you to define a projection that aligns with your intended use of the data while preserving relationships.
++ Shape the data into new forms. The reshaping is codified in skillsets, but the [Shaper skill](cognitive-search-skill-shaper.md) in Azure Cognitive Search provides explicit control and the ability to create multiple shapes. Shaping allows you to define a projection that aligns with your intended use of the data while preserving relationships.
 
 > [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3]
 
 ## Physical storage
 
-Knowledge stores are created in your [Azure Storage account](../storage/common/storage-account-overview.md), using Azure Table Storage, Azure Blob Storage, or both. 
+During indexer execution, knowledge stores are created in your [Azure Storage account](../storage/common/storage-account-overview.md), using Azure Table Storage, Azure Blob Storage, or both. 
 
-The data structures within Azure Storage are articulated through the `projections` element of a `knowledgeStore` definition in a Skillset. The projection defines a structure of the output so that it matches your intended use.
-
-Projections can be articulated as tables, objects, or files, and you can have multiple sets (or *projection groups*) to create multiple data structures for different purposes.
+The data structures within Azure Storage are specified through the `projections` element of a `knowledgeStore` definition in a Skillset. [Projections](knowledge-store-projection-overview.md) can be articulated as tables, objects, or files, and you can have multiple sets (or *projection groups*) to create multiple data structures for different purposes.
 
 ```json
-"knowledgeStore": { 
-    "storageConnectionString": "<YOUR-AZURE-STORAGE-ACCOUNT-CONNECTION-STRING>", 
-    "projections": [ 
-        { 
-            "tables": [ ], 
-            "objects": [ ], 
-            "files": [ ]
-        },
-        { 
-            "tables": [ ], 
-            "objects": [ ], 
-            "files": [ ]
-        }
+"knowledgeStore":{
+   "storageConnectionString":"<YOUR-AZURE-STORAGE-ACCOUNT-CONNECTION-STRING>",
+   "projections":[
+      {
+         "tables":[ ],
+         "objects":[ ],
+         "files":[ ]
+      }
+   }
 ```
 
 The type of projection you specify in this structure determines the type of storage used by knowledge store.
 
-+ Table Storage is used when you define `tables`. Define a table projection when you need tabular reporting structures for inputs to analytical tools or export as data frames to other data stores. You can specify multiple `tables` to get a subset or cross section of enriched documents. Within the same projection group, table relationships are preserved so that you can work with all of them.
++ Table Storage is used when you define `tables`. Define a table projection when you need tabular reporting structures for inputs to analytical tools or export as data frames to other data stores. You can specify multiple `tables` within the same projection group to get a subset or cross section of enriched documents. Within the same projection group, table relationships are preserved so that you can work with all of them.
 
 + Blob storage is used when you define `objects` or `files`. The physical representation of an `object` is a hierarchical JSON structure that represents an enriched document. A `file` is an image extracted from a document, transferred intact to Blob storage.
-
-A single projection object contains one set of `tables`, `objects`, `files`, and for many scenarios, creating one projection might be enough. 
-
-However, it is possible to create multiple sets of `table`-`object`-`file` projections, and you might do that if you want different data relationships. Within a set, data is related, assuming those relationships exist and can be detected. If you create additional sets, the documents in each group are never related. An example of using multiple projection groups might be if you want the same data projected for use with your online system and it needs to be represented a specific way, you also want the same data projected for use in a data science pipeline that is represented differently.
 
 ## Requirements 
 
@@ -104,7 +94,7 @@ To create knowledge store, use the portal or an API.
 
 1. Run the wizard. Extraction, enrichment, and storage occur in this last step.
 
-When you use the wizard, several additional tasks are handled internally that you would otherwise have to handle in code. First, the projections (definitions of physical data structures in Azure Storage) are created for you. Secondly, output field mappings that associate enriched content with fields in an index or project are defined internally. When you create a knowledge store manually, your code will need to cover these steps.
+When you use the wizard, several additional tasks are handled internally that you would otherwise have to handle in code. First, shaping and projections (definitions of physical data structures in Azure Storage) are created for you. Secondly, output field mappings that associate enriched content with fields in an index or project are defined internally. When you create a knowledge store manually, your code will need to cover these steps.
 
 ### [**REST**](#tab/kstore-rest)
 
@@ -114,6 +104,11 @@ REST API version `2020-06-30` can be used to create a knowledge store through ad
 + [Update Skillset (api-version=2020-06-30)](/rest/api/searchservice/update-skillset)
 
 A `knowledgeStore` is defined within a [skillset](cognitive-search-working-with-skillsets.md), which in turn is invoked by an [indexer](search-indexer-overview.md). During enrichment, Azure Cognitive Search creates a space in your Azure Storage account and projects the enriched documents as blobs or into tables, depending on your configuration.
+
+Tasks that your code will need to handle include:
+
++ Specify the projections that you want built (tables, objects, files)
++ Include a Shaper skill in your skillset to determine the schema and contents of the projection
 
 An easy way to explore is to [create your first knowledge store using Postman](knowledge-store-create-rest.md).
 

@@ -128,10 +128,18 @@ This example also shows:
 + How a skill's context and inputs work to determine how many times a skill executes
 + What the shape of the input is based on the context
 
+In this example, source fields from a CSV file include customer reviews about hotels ("reviews_text") and ratings ("reviews_rating"). The indexer adds metadata fields from Blob storage, and skills add translated text, sentiment scores, and key phrase detection.
+
 In the hotel reviews example, a "document" within the enrichment process represents a single hotel review.
 
 > [!TIP]
-> You can create a search index and knowledge store for this data in [Azure portal](knowledge-store-create-portal.md) or through [Postman and the REST APIs](knowledge-store-create-rest.md). You can also uUse [Debug Sessions](cognitive-search-debug-session.md) for insights into skillset composition, dependencies, and effects on an enrichment tree. Images in this article are pulled from Debug Sessions.
+> You can create a search index and knowledge store for this data in [Azure portal](knowledge-store-create-portal.md) or through [Postman and the REST APIs](knowledge-store-create-rest.md). You can also use [Debug Sessions](cognitive-search-debug-session.md) for insights into skillset composition, dependencies, and effects on an enrichment tree. Images in this article are pulled from Debug Sessions.
+
+Conceptually, the initial enrichment tree looks as follows:
+
+![enrichment tree after document cracking](media/cognitive-search-working-with-skillsets/enrichment-tree-doc-cracking.png "Enrichment tree after document cracking and before skill execution")
+
+The root node for all enrichments is `"/document"`. When working with blob indexers, the `"/document"` node will have child nodes of `"/document/content"` and `"/document/normalized_images"`. When working with CSV data, as we are in this example, the column names will map to nodes beneath `"/document"`.
 
 ### Skill #1: Split skill
 
@@ -162,19 +170,11 @@ A text split skill is typically first in a skillset.
 
 With the skill context of `"/document/reviews_text"`, the split skill will execute once for the `reviews_text`. The skill output is a list where the `reviews_text` is chunked into 5000 character segments. The output from the split skill is named `pages` and it is added to the enrichment tree. The `targetName` feature allows you to rename a skill output before being added to the enrichment tree.
 
-The enrichment tree now has a new node placed under the context of the skill. This node is available to any skill, projection, or output field mapping. Conceptually, the tree looks as follows:
-
-![enrichment tree after document cracking](media/cognitive-search-working-with-skillsets/enrichment-tree-doc-cracking.png "Enrichment tree after document cracking and before skill execution")
-
-#### Root node of an enrichment tree
-
-The root node for all enrichments is `"/document"`. When working with blob indexers, the `"/document"` node will have child nodes of `"/document/content"` and `"/document/normalized_images"`. When working with CSV data, as we are in this example, the column names will map to nodes beneath `"/document"`.
-
-#### Accessing nodes in a tree
+The enrichment tree now has a new node placed under the context of the skill. This node is available to any skill, projection, or output field mapping. 
+ 
+![enrichment tree after skill #1](media/cognitive-search-working-with-skillsets/enrichment-tree-skill1.png "Enrichment tree after  skill #1 executes")
 
 To access any of the enrichments added to a node by a skill, the full path for the enrichment is needed. For example, if you want to use the text from the ```pages``` node as an input to another skill, you will need to specify it as ```"/document/reviews_text/pages/*"```.
- 
- ![enrichment tree after skill #1](media/cognitive-search-working-with-skillsets/enrichment-tree-skill1.png "Enrichment tree after  skill #1 executes")
 
 ### Skill #2 Language detection
 
@@ -198,7 +198,9 @@ The colors of the connectors in the tree above indicate that the enrichments wer
 
 ### Skill #5 Shaper skill
 
-If output includes a knowledge store, add a Shaper skill as a last step. Alternatively, you can opt for in-line shaping within each skill, but a Shaper skill is easier to start with. The Shaper Skill does not add or detract from an enrichment tree, so it's not visualized. Instead, you can think of a Shaper skill as the means by which you re-articulate the enrichment tree you already have.
+If output includes a [knowledge store](knowledge-store-concept-intro.md), add a [Shaper skill](cognitive-search-skill-shaper.md) as a last step. The Shaper skill creates data shapes out of nodes in an enrichment tree. For example, you might want to consolidate multiple nodes into a single shape. You can then project this shape as a table (nodes become the columns in a table), passing the shape by name to a table projection.
+
+The Shaper skill is easy to work with because it focuses shaping under one skill. Alternatively, you can opt for in-line shaping within each skill. The Shaper Skill does not add or detract from an enrichment tree, so it's not visualized. Instead, you can think of a Shaper skill as the means by which you re-articulate the enrichment tree you already have.
 
 ```json
 {

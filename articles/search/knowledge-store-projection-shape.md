@@ -1,7 +1,7 @@
 ---
-title: Define projections in a knowledge store 
+title: Define data structures in a knowledge store 
 titleSuffix: Azure Cognitive Search
-description: Define the data structures in a knowledge store by shaping projections.
+description: Define the data structures in a knowledge store by creating data shapes and passing them to a projection.
 
 author: HeidiSteen
 ms.author: heidist
@@ -17,9 +17,11 @@ FOLLOWED SKILLSET EXAMPLE (see new file for that content.  Should these be conso
 
 When enriching content in Azure Cognitive Search, you can send the output to a [knowledge store](knowledge-store-concept-intro.md) in Azure Storage. This article explains how to shape a projection to get the data structures you want for analysis in Power BI or other knowledge mining apps.
 
-In Azure Cognitive Search, *projection* is the process of taking nodes from the enrichment tree and creating a physical expression of them in the knowledge store. Projections are custom shapes of the document (content and enrichments) that can be output as either table or object projections. 
+In Azure Cognitive Search, *projection* is the process of taking nodes from the enrichment tree and creating a physical expression of them in the knowledge store. Projections are custom shapes of the document (content and enrichments) that can be output as either table or object projections. As such, the data definitions of the tables, objects, and files in a knowledge store are determined in part by the projection specification, and the custom shape that you pass to the projection. Shapes are referenced in `source` or `sourceContext` properties, but are built using shapes in a skillset.
 
-A [projection](knowledge-store-projection-overview.md) is also an element in a skillset definition. How you set up a projection determines what goes into blobs, tables, and files in Azure Storage. 
+## Projection definition
+
+A [projection](knowledge-store-projection-overview.md) is also an element in a skillset's knowledge store definition. 
 
 ```json
 "knowledgeStore" : {
@@ -46,8 +48,7 @@ A [projection](knowledge-store-projection-overview.md) is also an element in a s
                     "tableName": "crossReference",
                     "generatedKeyName": "CrossId",
                     "source": "/document/crossProjection/images/*"
-                }
-                    
+                }           
             ],
             "objects": [
                 {
@@ -64,18 +65,17 @@ A [projection](knowledge-store-projection-overview.md) is also an element in a s
                 }
             ],
             "files": [
-                    {
+                {
                     "storageContainer": "crossimages",
                     "generatedKeyName": "crossimages",
                     "source": "/document/crossProjection/images/*/image"
                 }
-                ]
-            
+            ]
         }
     ]
 ```
 
-## Approaches for defining projections
+## Approaches for creating shapes
 
 There are two ways to shape enriched content to that it can be projected into a knowledge store:
 
@@ -91,7 +91,9 @@ The approaches can be used together or separately. In this article, a skillset e
 
 <!-- INTRO - TBD -->
 
-### SourceContext
+### Source property
+
+### SourceContext property
 
 Within a Shaper skill, an input can have a `sourceContext` element that is used only in skill inputs and projections. It is used to construct multi-level, nested objects. You may need to create a new object to either pass it as an input to a skill or project into the knowledge store. As enrichment nodes may not be a valid JSON object in the enrichment tree and referencing a node in the tree only returns that state of the node when it was created, using the enrichments as skill inputs or projections requires you to create a well formed JSON object. The `sourceContext` enables you to construct a hierarchical, anonymous type object, which would require multiple skills if you were only using the context. 
 
