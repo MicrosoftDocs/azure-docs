@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot self-hosted integration runtime
 titleSuffix: Azure Data Factory & Synapse Analytics
-description: Learn how to troubleshoot self-hosted integration runtime issues in Azure Data Factory and Azure Synapse Analytics pipelines. 
+description: Learn how to troubleshoot self-hosted integration runtime issues in Azure Data Factory and Azure Synapse pipelines. 
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
@@ -27,7 +27,7 @@ For failed activities that are running on a self-hosted IR or a shared IR, the s
     
     :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png" alt-text="Screenshot of the 'Activity runs' section on the 'All pipeline runs' pane.":::
     
-    # [Synapse Analytics](#tab/synapse-analytics)
+    # [Azure Synapse](#tab/synapse-analytics)
     
     :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page-synapse.png" alt-text="Screenshot of the 'Activity runs' section on the 'All pipeline runs' pane.":::
     
@@ -524,7 +524,7 @@ Before and after conversion:
 ### Self-hosted integration runtime version 5.x
 For the upgrade to version 5.x of the self-hosted integration runtime, we require **.NET Framework Runtime 4.7.2** or later. On the download page, you'll find download links for the latest 4.x version and the latest two 5.x versions. 
 
-For Azure Data Factory v2 and Synapse Analytics customers:
+For Azure Data Factory v2 and Azure Synapse customers:
 - If automatic update is on and you've already upgraded your .NET Framework Runtime to 4.7.2 or later, the self-hosted integration runtime will be automatically upgraded to the latest 5.x version.
 - If automatic update is on and you haven't upgraded your .NET Framework Runtime to 4.7.2 or later, the self-hosted integration runtime won't be automatically upgraded to the latest 5.x version. The self-hosted integration runtime will stay in the current 4.x version. You can see a warning for a .NET Framework Runtime upgrade in the portal and the self-hosted integration runtime client.
 - If automatic update is off and you've already upgraded your .NET Framework Runtime to 4.7.2 or later, you can manually download the latest 5.x and install it on your machine.
@@ -566,7 +566,7 @@ The self-hosted IR can't connect to the service back end. This issue is usually 
     ```      
 
    > [!NOTE]     
-   > The service URL might vary, depending on the location of your data factory or Synapse workspace instance. To find the service URL, use the Manage page of the UI in your data factory or Synapse Analytics instance to find **Integration runtimes** and click your self-hosted IR to edit it.  There select the **Nodes** tab and click **View Service URLs**.
+   > The service URL might vary, depending on the location of your data factory or Synapse workspace instance. To find the service URL, use the Manage page of the UI in your data factory or Azure Synapse instance to find **Integration runtimes** and click your self-hosted IR to edit it.  There select the **Nodes** tab and click **View Service URLs**.
             
     The following is the expected response:
             
