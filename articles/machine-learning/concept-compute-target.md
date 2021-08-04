@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 06/18/2021
+ms.date: 07/27/2021
 #Customer intent: As a data scientist, I want to understand what a compute target is and why I need it.
 ---
 
@@ -51,7 +51,6 @@ You can create Azure Machine Learning compute instances or compute clusters from
 * The Python SDK and the Azure CLI:
     * [Compute instance](how-to-create-manage-compute-instance.md).
     * [Compute cluster](how-to-create-attach-compute-cluster.md).
-* The [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (preview).
 * An Azure Resource Manager template. For an example template, see [Create an Azure Machine Learning compute cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-amlcompute).
 * A machine learning [extension for the Azure CLI](reference-azure-machine-learning-cli.md#resource-management).
 
@@ -60,7 +59,7 @@ When created, these compute resources are automatically part of your workspace, 
 
 |Capability  |Compute cluster  |Compute instance  |
 |---------|---------|---------|
-|Single- or multi-node cluster     |    **&check;**       |         |
+|Single- or multi-node cluster     |    **&check;**       |    Single node cluster     |
 |Autoscales each time you submit a run     |     **&check;**      |         |
 |Automatic cluster management and job scheduling     |   **&check;**        |     **&check;**      |
 |Support for both CPU and GPU resources     |  **&check;**         |    **&check;**       |

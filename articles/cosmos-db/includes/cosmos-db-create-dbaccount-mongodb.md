@@ -21,7 +21,7 @@
    |---|---|---|
    |Subscription|Subscription name|Select the Azure subscription that you want to use for this Azure Cosmos account. |
    |Resource Group|Resource group name|Select a resource group, or select **Create new**, then enter a unique name for the new resource group. |
-   |Account Name|Enter a unique name|Enter a unique name to identify your Azure Cosmos DB account. Your account URI will be *mongo.cosmos.azure.com* appended to your unique account name.<br><br>The account name can use only lowercase letters, numbers, and hyphens (-), and must be between 3 and 31 characters long.|
+   |Account Name|Enter a unique name|Enter a unique name to identify your Azure Cosmos DB account. Your account URI will be *mongo.cosmos.azure.com* appended to your unique account name.<br><br>The account name can use only lowercase letters, numbers, and hyphens (-), and must be between 3 and 44 characters long.|
    API|Azure Cosmos DB for Mongo DB API|The API determines the type of account to create. Azure Cosmos DB provides five APIs: Core (SQL) for document databases, Gremlin for graph databases, Azure Cosmos DB for Mongo DB API for document databases, Azure Table, and Cassandra. Currently, you must create a separate account for each API. <br><br>Select **Azure Cosmos DB for Mongo DB API**  because in this quickstart you are creating a collection that works with MongoDB.<br><br>[Learn more about Azure Cosmos DB for MongoDB API](../mongodb-introduction.md).|
    |Location|The region closest to your users|Select a geographic location to host your Azure Cosmos DB account. Use the location that is closest to your users to give them the fastest access to the data.|
    |Capacity mode|Provisioned throughput or Serverless|Select **Provisioned throughput** to create an account in [provisioned throughput](../set-throughput.md) mode. Select **Serverless** to create an account in [serverless](../serverless.md) mode. .<br><br>**Note**: Only MongoDB API version 3.6 is supported by serverless accounts. Choosing 3.2 as the version will force the account in provisioned throughput mode.|
@@ -49,7 +49,7 @@
 1. Optionally you can configure additional details in the following tabs:
 
    * **Networking** - Configure [access from a virtual network](../how-to-configure-vnet-service-endpoint.md).
-   * **Backup Policy** - Configure either [periodic](../configure-periodic-backup-restore.md) or [continuous](../continuous-backup-restore-portal.md) backup policy.
+   * **Backup Policy** - Configure either [periodic](../configure-periodic-backup-restore.md) or [continuous](../provision-account-continuous-backup.md) backup policy.
    * **Encryption** - Use either service-managed key or a [customer-managed key](../how-to-setup-cmk.md#create-a-new-azure-cosmos-account).
    * **Tags** - Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups.
 

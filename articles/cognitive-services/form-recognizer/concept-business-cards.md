@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 04/30/2021
+ms.date: 07/01/2021
 ms.author: lajanuar
 ---
 
@@ -27,19 +27,18 @@ The data extracted with the Business Card API can be used to perform various tas
 
 The Business Card API also powers the [AI Builder Business Card Processing feature](/ai-builder/prebuilt-business-card).
 
-
 ## Try it out
 
 To try out the Form Recognizer receipt service, go to the online Sample UI Tool:
 
 > [!div class="nextstepaction"]
-> [Try Prebuilt Models](https://aka.ms/fott-2.1-ga)
+> [Try Prebuilt Models](https://aka.ms/fott-2.1-ga "Start with a prebuilt model to extract data from business card")
 
 ## What does the Business Card service do?
 
 The prebuilt Business Card API extracts key fields from business cards and returns them in an organized JSON response.
 
-![Contoso itemized image from FOTT + JSON output](./media/business-card-example.jpg)
+![Contoso itemized image from sample labeling tool + JSON output](./media/business-card-example.jpg)
 
 ### Fields extracted:
 
@@ -59,7 +58,6 @@ The prebuilt Business Card API extracts key fields from business cards and retur
 | WorkPhones | array of phone numbers | Work phone number extracted from business card | ["+1 (987) 213-5674"] | +19872135674 | 
 | OtherPhones     | array of phone numbers | Other phone number extracted from business card | ["+1 (987) 213-5673"] | +19872135673 |
 
-
 The Business Card API can also return all recognized text from the Business Card. This OCR output is included in the JSON response.
 
 ### Input Requirements
@@ -70,7 +68,7 @@ The Business Card API can also return all recognized text from the Business Card
 
 **Pre-built business cards v2.1** supports the following locales: **en-us**, **en-au**, **en-ca**, **en-gb**, **en-in**
 
-## The Analyze Business Card operation
+## Analyze Business Card
 
 The [Analyze Business Card](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync) takes an image or PDF of a business card as the input and extracts the values of interest. The call returns a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Result ID to be used in the next step.
 
@@ -78,7 +76,7 @@ The [Analyze Business Card](https://westus.dev.cognitive.microsoft.com/docs/serv
 |:-----|:----|
 |Operation-Location | `https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync` |
 
-## The Get Analyze Business Card Result operation
+## Get Analyze Business Card Result
 
 The second step is to call the [Get Analyze Business Card Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeBusinessCardResult) operation. This operation takes as input the Result ID that was created by the Analyze Business Card operation. It returns a JSON response that contains a **status** field with the following possible values. You call this operation iteratively until it returns with the **succeeded** value. Use an interval of 3 to 5 seconds to avoid exceeding the requests per second (RPS) rate.
 
@@ -100,376 +98,376 @@ See the following example of a successful JSON response (the output has been sho
 
 ```json
 {
-	"status": "succeeded",
-	"createdDateTime": "2021-05-27T02:18:35Z",
-	"lastUpdatedDateTime": "2021-05-27T02:18:37Z",
-	"analyzeResult": {
-		"version": "2.1.0",
-		"readResults": [
-			{
-				"page": 1,
-				"angle": 0.0255,
-				"width": 2592,
-				"height": 4608,
-				"unit": "pixel",
-				"lines": [
-					{
-						"text": "CONTOSO",
-						"boundingBox": [
-							533,
-							1570,
-							1334,
-							1570,
-							1333,
-							1721,
-							533,
-							1720
-						],
-						"words": [
-							{
-								"text": "CONTOSO",
-								"boundingBox": [
-									535,
-									1571,
-									1278,
-									1571,
-									1279,
-									1722,
-									534,
-									1719
-								],
-								"confidence": 0.994
-							}
-						],
-						"appearance": {
-							"style": {
-								"name": "other",
-								"confidence": 0.878
-							}
-						}
-					},
+    "status": "succeeded",
+    "createdDateTime": "2021-05-27T02:18:35Z",
+    "lastUpdatedDateTime": "2021-05-27T02:18:37Z",
+    "analyzeResult": {
+        "version": "2.1.0",
+        "readResults": [
+            {
+                "page": 1,
+                "angle": 0.0255,
+                "width": 2592,
+                "height": 4608,
+                "unit": "pixel",
+                "lines": [
+                    {
+                        "text": "CONTOSO",
+                        "boundingBox": [
+                            533,
+                            1570,
+                            1334,
+                            1570,
+                            1333,
+                            1721,
+                            533,
+                            1720
+                        ],
+                        "words": [
+                            {
+                                "text": "CONTOSO",
+                                "boundingBox": [
+                                    535,
+                                    1571,
+                                    1278,
+                                    1571,
+                                    1279,
+                                    1722,
+                                    534,
+                                    1719
+                                ],
+                                "confidence": 0.994
+                            }
+                        ],
+                        "appearance": {
+                            "style": {
+                                "name": "other",
+                                "confidence": 0.878
+                            }
+                        }
+                    },
                     ...
                 ]
             }
         ],   
-		"documentResults": [
-			{
-				"docType": "prebuilt:businesscard",
-				"pageRange": [
-					1,
-					1
-				],
-				"fields": {
-					"Addresses": {
-						"type": "array",
-						"valueArray": [
-							{
-								"type": "string",
-								"valueString": "4001 1st Ave NE Redmond, WA 98052",
-								"text": "4001 1st Ave NE Redmond, WA 98052",
-								"boundingBox": [
-									400,
-									2789,
-									1514,
-									2789,
-									1514,
-									2857,
-									400,
-									2857
-								],
-								"page": 1,
-								"confidence": 0.986,
-								"elements": [
-									"#/readResults/0/lines/9/words/0",
-									"#/readResults/0/lines/9/words/1",
-									"#/readResults/0/lines/9/words/2",
-									"#/readResults/0/lines/9/words/3",
-									"#/readResults/0/lines/9/words/4",
-									"#/readResults/0/lines/9/words/5",
-									"#/readResults/0/lines/9/words/6"
-								]
-							}
-						]
-					},
-					"CompanyNames": {
-						"type": "array",
-						"valueArray": [
-							{
-								"type": "string",
-								"valueString": "CONTOSO",
-								"text": "CONTOSO",
-								"boundingBox": [
-									535,
-									1571,
-									1278,
-									1571,
-									1279,
-									1722,
-									534,
-									1719
-								],
-								"page": 1,
-								"confidence": 0.985,
-								"elements": [
-									"#/readResults/0/lines/0/words/0"
-								]
-							}
-						]
-					},
-					"ContactNames": {
-						"type": "array",
-						"valueArray": [
-							{
-								"type": "object",
-								"valueObject": {
-									"FirstName": {
-										"type": "string",
-										"valueString": "Chris",
-										"text": "Chris",
-										"boundingBox": [
-											1556,
-											2018,
-											1915,
-											2021,
-											1915,
-											2156,
-											1558,
-											2154
-										],
-										"page": 1,
-										"elements": [
-											"#/readResults/0/lines/1/words/0"
-										]
-									},
-									"LastName": {
-										"type": "string",
-										"valueString": "Smith",
-										"text": "Smith",
-										"boundingBox": [
-											1944,
-											2021,
-											2368,
-											2016,
-											2364,
-											2156,
-											1944,
-											2156
-										],
-										"page": 1,
-										"elements": [
-											"#/readResults/0/lines/1/words/1"
-										]
-									}
-								},
-								"text": "Chris Smith",
-								"boundingBox": [
-									1556.1,
-									2010.3,
-									2368,
-									2016,
-									2367,
-									2159.6,
-									1555.1,
-									2154
-								],
-								"page": 1,
-								"confidence": 0.99,
-								"elements": [
-									"#/readResults/0/lines/1/words/0",
-									"#/readResults/0/lines/1/words/1"
-								]
-							}
-						]
-					},
-					"Departments": {
-						"type": "array",
-						"valueArray": [
-							{
-								"type": "string",
-								"valueString": "Cloud & Al Department",
-								"text": "Cloud & Al Department",
-								"boundingBox": [
-									1578,
-									2288.8,
-									2277,
-									2295.1,
-									2276.3,
-									2367.8,
-									1577.3,
-									2361.5
-								],
-								"page": 1,
-								"confidence": 0.989,
-								"elements": [
-									"#/readResults/0/lines/3/words/0",
-									"#/readResults/0/lines/3/words/1",
-									"#/readResults/0/lines/3/words/2",
-									"#/readResults/0/lines/3/words/3"
-								]
-							}
-						]
-					},
-					"Emails": {
-						"type": "array",
-						"valueArray": [
-							{
-								"type": "string",
-								"valueString": "chris.smith@contoso.com",
-								"text": "chris.smith@contoso.com",
-								"boundingBox": [
-									1583,
-									2381,
-									2309,
-									2382,
-									2308,
-									2445,
-									1584,
-									2447
-								],
-								"page": 1,
-								"confidence": 0.99,
-								"elements": [
-									"#/readResults/0/lines/4/words/0"
-								]
-							}
-						]
-					},
-					"Faxes": {
-						"type": "array",
-						"valueArray": [
-							{
-								"type": "phoneNumber",
-								"valuePhoneNumber": "+19873126745",
-								"text": "+1 (987) 312-6745",
-								"boundingBox": [
-									740,
-									2703.8,
-									1273,
-									2702.1,
-									1273.2,
-									2774.1,
-									740.2,
-									2775.8
-								],
-								"page": 1,
-								"confidence": 0.99,
-								"elements": [
-									"#/readResults/0/lines/8/words/1",
-									"#/readResults/0/lines/8/words/2",
-									"#/readResults/0/lines/8/words/3"
-								]
-							}
-						]
-					},
-					"JobTitles": {
-						"type": "array",
-						"valueArray": [
-							{
-								"type": "string",
-								"valueString": "Senior Researcher",
-								"text": "Senior Researcher",
-								"boundingBox": [
-									1578,
-									2206,
-									2117,
-									2207.6,
-									2116.8,
-									2272.6,
-									1577.8,
-									2271
-								],
-								"page": 1,
-								"confidence": 0.99,
-								"elements": [
-									"#/readResults/0/lines/2/words/0",
-									"#/readResults/0/lines/2/words/1"
-								]
-							}
-						]
-					},
-					"MobilePhones": {
-						"type": "array",
-						"valueArray": [
-							{
-								"type": "phoneNumber",
-								"valuePhoneNumber": "+19871234567",
-								"text": "+1 (987) 123-4567",
-								"boundingBox": [
-									744,
-									2529,
-									1281,
-									2529,
-									1281,
-									2603,
-									744,
-									2603
-								],
-								"page": 1,
-								"confidence": 0.99,
-								"elements": [
-									"#/readResults/0/lines/5/words/1",
-									"#/readResults/0/lines/5/words/2",
-									"#/readResults/0/lines/5/words/3"
-								]
-							}
-						]
-					},
-					"Websites": {
-						"type": "array",
-						"valueArray": [
-							{
-								"type": "string",
-								"valueString": "https://www.contoso.com/",
-								"text": "https://www.contoso.com/",
-								"boundingBox": [
-									1576,
-									2462,
-									2383,
-									2462,
-									2380,
-									2535,
-									1576,
-									2535
-								],
-								"page": 1,
-								"confidence": 0.99,
-								"elements": [
-									"#/readResults/0/lines/6/words/0"
-								]
-							}
-						]
-					},
-					"WorkPhones": {
-						"type": "array",
-						"valueArray": [
-							{
-								"type": "phoneNumber",
-								"valuePhoneNumber": "+19872135674",
-								"text": "+1 (987) 213-5674",
-								"boundingBox": [
-									736,
-									2617.6,
-									1267.1,
-									2618.5,
-									1267,
-									2687.5,
-									735.9,
-									2686.6
-								],
-								"page": 1,
-								"confidence": 0.984,
-								"elements": [
-									"#/readResults/0/lines/7/words/1",
-									"#/readResults/0/lines/7/words/2",
-									"#/readResults/0/lines/7/words/3"
-								]
-							}
-						]
-					}
-				}
-			}
-		]
-	}
+        "documentResults": [
+            {
+                "docType": "prebuilt:businesscard",
+                "pageRange": [
+                    1,
+                    1
+                ],
+                "fields": {
+                    "Addresses": {
+                        "type": "array",
+                        "valueArray": [
+                            {
+                                "type": "string",
+                                "valueString": "4001 1st Ave NE Redmond, WA 98052",
+                                "text": "4001 1st Ave NE Redmond, WA 98052",
+                                "boundingBox": [
+                                    400,
+                                    2789,
+                                    1514,
+                                    2789,
+                                    1514,
+                                    2857,
+                                    400,
+                                    2857
+                                ],
+                                "page": 1,
+                                "confidence": 0.986,
+                                "elements": [
+                                    "#/readResults/0/lines/9/words/0",
+                                    "#/readResults/0/lines/9/words/1",
+                                    "#/readResults/0/lines/9/words/2",
+                                    "#/readResults/0/lines/9/words/3",
+                                    "#/readResults/0/lines/9/words/4",
+                                    "#/readResults/0/lines/9/words/5",
+                                    "#/readResults/0/lines/9/words/6"
+                                ]
+                            }
+                        ]
+                    },
+                    "CompanyNames": {
+                        "type": "array",
+                        "valueArray": [
+                            {
+                                "type": "string",
+                                "valueString": "CONTOSO",
+                                "text": "CONTOSO",
+                                "boundingBox": [
+                                    535,
+                                    1571,
+                                    1278,
+                                    1571,
+                                    1279,
+                                    1722,
+                                    534,
+                                    1719
+                                ],
+                                "page": 1,
+                                "confidence": 0.985,
+                                "elements": [
+                                    "#/readResults/0/lines/0/words/0"
+                                ]
+                            }
+                        ]
+                    },
+                    "ContactNames": {
+                        "type": "array",
+                        "valueArray": [
+                            {
+                                "type": "object",
+                                "valueObject": {
+                                    "FirstName": {
+                                        "type": "string",
+                                        "valueString": "Chris",
+                                        "text": "Chris",
+                                        "boundingBox": [
+                                            1556,
+                                            2018,
+                                            1915,
+                                            2021,
+                                            1915,
+                                            2156,
+                                            1558,
+                                            2154
+                                        ],
+                                        "page": 1,
+                                        "elements": [
+                                            "#/readResults/0/lines/1/words/0"
+                                        ]
+                                    },
+                                    "LastName": {
+                                        "type": "string",
+                                        "valueString": "Smith",
+                                        "text": "Smith",
+                                        "boundingBox": [
+                                            1944,
+                                            2021,
+                                            2368,
+                                            2016,
+                                            2364,
+                                            2156,
+                                            1944,
+                                            2156
+                                        ],
+                                        "page": 1,
+                                        "elements": [
+                                            "#/readResults/0/lines/1/words/1"
+                                        ]
+                                    }
+                                },
+                                "text": "Chris Smith",
+                                "boundingBox": [
+                                    1556.1,
+                                    2010.3,
+                                    2368,
+                                    2016,
+                                    2367,
+                                    2159.6,
+                                    1555.1,
+                                    2154
+                                ],
+                                "page": 1,
+                                "confidence": 0.99,
+                                "elements": [
+                                    "#/readResults/0/lines/1/words/0",
+                                    "#/readResults/0/lines/1/words/1"
+                                ]
+                            }
+                        ]
+                    },
+                    "Departments": {
+                        "type": "array",
+                        "valueArray": [
+                            {
+                                "type": "string",
+                                "valueString": "Cloud & Al Department",
+                                "text": "Cloud & Al Department",
+                                "boundingBox": [
+                                    1578,
+                                    2288.8,
+                                    2277,
+                                    2295.1,
+                                    2276.3,
+                                    2367.8,
+                                    1577.3,
+                                    2361.5
+                                ],
+                                "page": 1,
+                                "confidence": 0.989,
+                                "elements": [
+                                    "#/readResults/0/lines/3/words/0",
+                                    "#/readResults/0/lines/3/words/1",
+                                    "#/readResults/0/lines/3/words/2",
+                                    "#/readResults/0/lines/3/words/3"
+                                ]
+                            }
+                        ]
+                    },
+                    "Emails": {
+                        "type": "array",
+                        "valueArray": [
+                            {
+                                "type": "string",
+                                "valueString": "chris.smith@contoso.com",
+                                "text": "chris.smith@contoso.com",
+                                "boundingBox": [
+                                    1583,
+                                    2381,
+                                    2309,
+                                    2382,
+                                    2308,
+                                    2445,
+                                    1584,
+                                    2447
+                                ],
+                                "page": 1,
+                                "confidence": 0.99,
+                                "elements": [
+                                    "#/readResults/0/lines/4/words/0"
+                                ]
+                            }
+                        ]
+                    },
+                    "Faxes": {
+                        "type": "array",
+                        "valueArray": [
+                            {
+                                "type": "phoneNumber",
+                                "valuePhoneNumber": "+19873126745",
+                                "text": "+1 (987) 312-6745",
+                                "boundingBox": [
+                                    740,
+                                    2703.8,
+                                    1273,
+                                    2702.1,
+                                    1273.2,
+                                    2774.1,
+                                    740.2,
+                                    2775.8
+                                ],
+                                "page": 1,
+                                "confidence": 0.99,
+                                "elements": [
+                                    "#/readResults/0/lines/8/words/1",
+                                    "#/readResults/0/lines/8/words/2",
+                                    "#/readResults/0/lines/8/words/3"
+                                ]
+                            }
+                        ]
+                    },
+                    "JobTitles": {
+                        "type": "array",
+                        "valueArray": [
+                            {
+                                "type": "string",
+                                "valueString": "Senior Researcher",
+                                "text": "Senior Researcher",
+                                "boundingBox": [
+                                    1578,
+                                    2206,
+                                    2117,
+                                    2207.6,
+                                    2116.8,
+                                    2272.6,
+                                    1577.8,
+                                    2271
+                                ],
+                                "page": 1,
+                                "confidence": 0.99,
+                                "elements": [
+                                    "#/readResults/0/lines/2/words/0",
+                                    "#/readResults/0/lines/2/words/1"
+                                ]
+                            }
+                        ]
+                    },
+                    "MobilePhones": {
+                        "type": "array",
+                        "valueArray": [
+                            {
+                                "type": "phoneNumber",
+                                "valuePhoneNumber": "+19871234567",
+                                "text": "+1 (987) 123-4567",
+                                "boundingBox": [
+                                    744,
+                                    2529,
+                                    1281,
+                                    2529,
+                                    1281,
+                                    2603,
+                                    744,
+                                    2603
+                                ],
+                                "page": 1,
+                                "confidence": 0.99,
+                                "elements": [
+                                    "#/readResults/0/lines/5/words/1",
+                                    "#/readResults/0/lines/5/words/2",
+                                    "#/readResults/0/lines/5/words/3"
+                                ]
+                            }
+                        ]
+                    },
+                    "Websites": {
+                        "type": "array",
+                        "valueArray": [
+                            {
+                                "type": "string",
+                                "valueString": "https://www.contoso.com/",
+                                "text": "https://www.contoso.com/",
+                                "boundingBox": [
+                                    1576,
+                                    2462,
+                                    2383,
+                                    2462,
+                                    2380,
+                                    2535,
+                                    1576,
+                                    2535
+                                ],
+                                "page": 1,
+                                "confidence": 0.99,
+                                "elements": [
+                                    "#/readResults/0/lines/6/words/0"
+                                ]
+                            }
+                        ]
+                    },
+                    "WorkPhones": {
+                        "type": "array",
+                        "valueArray": [
+                            {
+                                "type": "phoneNumber",
+                                "valuePhoneNumber": "+19872135674",
+                                "text": "+1 (987) 213-5674",
+                                "boundingBox": [
+                                    736,
+                                    2617.6,
+                                    1267.1,
+                                    2618.5,
+                                    1267,
+                                    2687.5,
+                                    735.9,
+                                    2686.6
+                                ],
+                                "page": 1,
+                                "confidence": 0.984,
+                                "elements": [
+                                    "#/readResults/0/lines/7/words/1",
+                                    "#/readResults/0/lines/7/words/2",
+                                    "#/readResults/0/lines/7/words/3"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
 }
 ```
 

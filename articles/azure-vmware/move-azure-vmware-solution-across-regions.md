@@ -20,7 +20,7 @@ This article helps you plan and migrate Azure VMware Solution from one Azure reg
 
 The diagram shows the recommended ExpressRoute connectivity between the two Azure VMware Solution environments.  An HCX site pairing and service mesh are created between the two environments.  The HCX migration traffic and Layer-2 extension moves (depicted by the red line) between the two environments. For VMware recommended HCX planning, see [Planning an HCX Migration](https://vmc.techzone.vmware.com/vmc-solutions/docs/deploy/planning-an-hcx-migration#section1).
 
-:::image type="content" source="media/move-azure-vmware-solution-across-regions/move-ea-csp-across-regions-2.png" alt-text="Diagram showing ExpressRoute Global Reach communication between the source and target Azure VMware Solution environments." border="false":::
+:::image type="content" source="media/move-across-regions/move-ea-csp-across-regions-2.png" alt-text="Diagram showing ExpressRoute Global Reach communication between the source and target Azure VMware Solution environments." border="false":::
 
 >[!NOTE]
 >You don't need to migrate any workflow back to on-premises because the traffic will flow between the private clouds (source and target):
@@ -29,7 +29,7 @@ The diagram shows the recommended ExpressRoute connectivity between the two Azur
 
 The diagram shows the connectivity between both Azure VMware Solution environments. 
 
-:::image type="content" source="media/move-azure-vmware-solution-across-regions/move-ea-csp-across-regions-connectivity-diagram.png" alt-text="Diagram showing communication between the source and target Azure VMware Solution environments." border="false":::
+:::image type="content" source="media/move-across-regions/move-ea-csp-across-regions-connectivity-diagram.png" alt-text="Diagram showing communication between the source and target Azure VMware Solution environments." border="false":::
 
 
 In this article, we'll walk you through the steps to: 
@@ -62,7 +62,7 @@ The following steps show how to prepare your Azure VMware Solution private cloud
 
 ### Deploy the target environment
 
-Before you can move the source configuration, you'll need to [deploy the target environment](production-ready-deployment-steps.md).
+Before you can move the source configuration, you'll need to [deploy the target environment](plan-private-cloud-deployment.md).
 
 
 ### Back up the source configuration
@@ -96,7 +96,7 @@ Azure VMware Solution supports all backup solutions. You'll need CloudAdmin priv
 
 2. Select **Manage** > **Connectivity** > **ExpressRoute**.
 
-3. Copy the source’s **ExpressRoute ID**.  You’ll need this to peer between the private clouds.
+3. Copy the source’s **ExpressRoute ID**.  You’ll need it to peer between the private clouds.
 
 
 ### Create the target’s authorization key
@@ -257,7 +257,7 @@ In this step, you'll use the source NSX-T configuration to configure the target 
 >[!NOTE]
 >You'll have multiple features configured on the source NSX-T, so you must copy or read from the source NXS-T and recreate it in the target private cloud. Use L2 Extension to keep same IP address and Mac Address of the VM while migrating Source to target AVS Private Cloud to avoid downtime due to IP change and related configuration.
 
-1. [Configure NSX network components](configure-nsx-network-components-azure-portal.md) required in the target environment under default Tier-1 gateway:
+1. [Configure NSX network components](tutorial-nsx-t-network-segment.md) required in the target environment under default Tier-1 gateway.
 
 1. [Create the security group configuration](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-41CC06DF-1CD4-4233-B43E-492A9A3AD5F6.html).
 
@@ -265,11 +265,11 @@ In this step, you'll use the source NSX-T configuration to configure the target 
 
 1. [Create the gateway firewall policy and rules](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-DE6FE8CB-017E-41C8-85FC-D71CF27F85C2.html).
 
-1. [Create the DHCP server or DHCP relay service](./configure-nsx-network-components-azure-portal.md#create-a-dhcp-server-or-dhcp-relay-using-the-azure-portal). 
+1. [Create the DHCP server or DHCP relay service](configure-dhcp-azure-vmware-solution.md). 
 
-1. [Configure port mirroring](./configure-nsx-network-components-azure-portal.md#configure-port-mirroring-in-the-azure-portal).
+1. [Configure port mirroring](configure-port-mirroring-azure-vmware-solution.md).
 
-1. [Configure DNS forwarder](./configure-nsx-network-components-azure-portal.md#configure-a-dns-forwarder-in-the-azure-portal).
+1. [Configure DNS forwarder](configure-dns-azure-vmware-solution.md).
 
 1. [Configure a new Tier-1 gateway (other than default)](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-A6042263-374F-4292-892E-BC86876325A4.html).  This configuration is based on the NSX-T configured on the source. 
 

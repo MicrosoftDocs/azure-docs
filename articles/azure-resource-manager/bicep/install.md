@@ -2,7 +2,7 @@
 title: Set up Bicep development and deployment environments
 description: How to configure Bicep development and deployment environments
 ms.topic: conceptual
-ms.date: 06/04/2021
+ms.date: 07/19/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -57,6 +57,12 @@ To upgrade to the latest version, use:
 
 ```azurecli
 az bicep upgrade
+```
+
+To validate the install, use:
+
+```azurecli
+az bicep version
 ```
 
 For more commands, see [Bicep CLI](bicep-cli.md).

@@ -86,7 +86,7 @@ The following Azure CLI code block does many commands to prepare the input data 
     az iot hub show-connection-string --hub-name "MyASAIoTHub"
     ```
 
-3. Add a device to IoT Hub using the [az iothub device-identity create](../iot-hub/quickstart-send-telemetry-c.md#register-a-device) command. This example creates a device called **MyASAIoTDevice**.
+3. Add a device to IoT Hub using the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) command. This example creates a device called **MyASAIoTDevice**.
 
     ```azurecli
     az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"

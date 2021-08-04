@@ -22,7 +22,7 @@ As with other resources, private clouds are installed and managed from within an
 
 The diagram shows a single Azure subscription with two private clouds that represent a development and production environment. In each of those private clouds are two clusters. 
 
-:::image type="content" source="media/concepts/hosts-clusters-private-clouds-final.png" alt-text="Image that shows two private clouds in a customer subscription.":::
+:::image type="content" source="media/concepts/hosts-clusters-private-clouds-final.png" alt-text="Diagram that shows shows a single Azure subscription with two private clouds that represent a development and production environment." border="false":::
 
 ## Hosts
 
@@ -80,7 +80,7 @@ Now that you've covered Azure VMware Solution private cloud concepts, you may wa
 
 - [Azure VMware Solution networking and interconnectivity concepts](concepts-networking.md)
 - [Azure VMware Solution storage concepts](concepts-storage.md)
-- [How to enable Azure VMware Solution resource](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider)
+- [How to enable Azure VMware Solution resource](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider)
 
 <!-- LINKS - internal -->
 [concepts-networking]: ./concepts-networking.md

@@ -216,6 +216,11 @@
     "redirect_document_id": false
   },
   {
+    "source_path_from_root": "/articles/cosmos-db/graph-visualization.md",
+    "redirect_url": "/azure/cosmos-db/graph-visualization-partners",
+    "redirect_document_id": true
+  },
+  {
     "source_path_from_root": "/articles/cosmos-db/create-documentdb-java.md",
     "redirect_url": "/azure/cosmos-db/create-sql-api-java",
     "redirect_document_id": false
@@ -1509,6 +1514,391 @@
     "source_path_from_root": "/articles/cosmos-db/table-storage-how-to-use-powershell.md",
     "redirect_url": "/azure/storage/tables/table-storage-how-to-use-powershell",
     "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/cli-samples-table.md",
+    "redirect_url": "/azure/cosmos-db/table/cli-samples",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/create-table-dotnet.md",
+    "redirect_url": "/azure/cosmos-db/table/create-table-dotnet",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/create-table-java.md",
+    "redirect_url": "/azure/cosmos-db/table/create-table-java",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/create-table-nodejs.md",
+    "redirect_url": "/azure/cosmos-db/table/create-table-nodejs",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/find-request-unit-charge-table.md",
+    "redirect_url": "/azure/cosmos-db/table/find-request-unit-charge",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/how-to-create-container-table.md",
+    "redirect_url": "/azure/cosmos-db/table/how-to-create-container",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/table-storage-how-to-use-c-plus.md",
+    "redirect_url": "/azure/cosmos-db/table/how-to-use-c-plus",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/table-storage-how-to-use-java.md",
+    "redirect_url": "/azure/cosmos-db/table/how-to-use-java",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/table-storage-how-to-use-nodejs.md",
+    "redirect_url": "/azure/cosmos-db/table/how-to-use-nodejs",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/table-storage-how-to-use-php.md",
+    "redirect_url": "/azure/cosmos-db/table/how-to-use-php",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/table-storage-how-to-use-python.md",
+    "redirect_url": "/azure/cosmos-db/table/how-to-use-python",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/table-storage-how-to-use-ruby.md",
+    "redirect_url": "/azure/cosmos-db/table/how-to-use-ruby",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/powershell-samples-table.md",
+    "redirect_url": "/azure/cosmos-db/table/powershell-samples",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/table-api-faq.yml",
+    "redirect_url": "/azure/cosmos-db/table/table-api-faq",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/table-import.md",
+    "redirect_url": "/azure/cosmos-db/table/table-import",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/table-introduction.md",
+    "redirect_url": "/azure/cosmos-db/table/introduction",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/table-sdk-dotnet-standard.md",
+    "redirect_url": "/azure/cosmos-db/table/dotnet-standard-sdk",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/table-sdk-dotnet.md",
+    "redirect_url": "/azure/cosmos-db/table/dotnet-sdk",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/table-sdk-java.md",
+    "redirect_url": "/azure/cosmos-db/table/java-sdk",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/table-sdk-nodejs.md",
+    "redirect_url": "/azure/cosmos-db/table/nodejs-sdk",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/table-sdk-python.md",
+    "redirect_url": "/azure/cosmos-db/table/python-sdk",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/table-support.md",
+    "redirect_url": "/azure/cosmos-db/table/table-support",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/templates-samples-table.md",
+    "redirect_url": "/azure/cosmos-db/table/resource-manager-templates",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/tutorial-develop-table-dotnet.md",
+    "redirect_url": "/azure/cosmos-db/table/tutorial-develop-table-dotnet",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/tutorial-global-distribution-table.md",
+    "redirect_url": "/azure/cosmos-db/table/tutorial-global-distribution-table",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/tutorial-query-table.md",
+    "redirect_url": "/azure/cosmos-db/table/tutorial-query-table",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/continuous-backup-restore-template.md",
+    "redirect_url": "/azure/cosmos-db/provision-account-continuous-backup",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/continuous-backup-restore-command-line.md",
+    "redirect_url": "/azure/cosmos-db/provision-account-continuous-backup",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/continuous-backup-restore-portal.md",
+    "redirect_url": "/azure/cosmos-db/provision-account-continuous-backup",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/continuous-backup-restore-powershell.md",
+    "redirect_url": "/azure/cosmos-db/provision-account-continuous-backup",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/configure-spring-data-apache-cassandra-with-cosmos-db.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/access-data-spring-data-app",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/cassandra-consistency.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/apache-cassandra-consistency-mapping",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/cassandra-change-feed.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/cassandra-change-feed",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/cassandra-faq.yml",
+    "redirect_url": "/azure/cosmos-db/cassandra/cassandra-faq",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/cassandra-introduction.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/cassandra-introduction",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/cassandra-partitioning.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/cassandra-partitioning",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/cassandra-support.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/cassandra-support",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/cli-samples-cassandra.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/cli-samples",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/connect-spark-generic.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/connect-spark-configuration",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/create-cassandra-api-account-java.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/create-account-java",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/queries-cassandra.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/diagnostic-queries-cassandra",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/find-request-unit-charge-cassandra.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/find-request-unit-charge-cassandra",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/how-to-create-container-cassandra.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/how-to-create-container-cassandra",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/how-to-provision-throughput-cassandra.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/how-to-provision-throughput-cassandra",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/cassandra-kafka-connect.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/kafka-connect",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/cassandra-api-load-data.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/load-data-table",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/create-cassandra-dotnet-core.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/manage-data-dotnet-core",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/create-cassandra-dotnet.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/manage-data-dotnet",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/create-cassandra-go.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/manage-data-go",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/create-cassandra-java-v4.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/manage-data-java-v4-sdk",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/create-cassandra-java.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/manage-data-java",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/create-cassandra-nodejs.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/manage-data-nodejs",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/create-cassandra-python.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/manage-data-python",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/cassandra-migrate-cosmos-db-blitzz.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/migrate-data-blitzz",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/cassandra-migrate-cosmos-db-databricks.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/migrate-data-databricks",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/cosmosdb-cassandra-api-migrate-data-striim.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/migrate-data-striim",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/cassandra-import-data.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/migrate-data",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/powershell-samples-cassandra.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/powershell-samples",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/cassandra-api-query-data.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/query-data",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/manage-scale-cassandra.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/scale-account-throughput",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/cassandra-secondary-index.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/secondary-indexing",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/cassandra-spark-aggregation-ops.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/spark-aggregation-operations",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/cassandra-spark-create-ops.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/spark-create-operations",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/cassandra-spark-databricks.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/spark-databricks",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/cassandra-spark-ddl-ops.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/spark-ddl-operations",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/cassandra-spark-delete-ops.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/spark-delete-operation",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/cassandra-spark-hdinsight.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/spark-hdinsight",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/cassandra-spark-read-ops.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/spark-read-operation",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/cassandra-spark-table-copy-ops.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/spark-table-copy-operations",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/cassandra-spark-upsert-ops.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/spark-upsert-operations",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/templates-samples-cassandra.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/templates-samples",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/cassandra-troubleshoot.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/troubleshoot-common-issues",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/oracle-migrate-cosmos-db-blitzz.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/oracle-migrate-cosmos-db-blitzz",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/postgres-migrate-cosmos-db-kafka.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/postgres-migrate-cosmos-db-kafka",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/graph-execution-profile.md",
+    "redirect_url": "/azure/cosmos-db/graph/graph-execution-profile",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/cassandra.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/cassandra-introduction",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/table.md",
+    "redirect_url": "/azure/cosmos-db/table/introduction",
+    "redirect_document_id": false
   },
   {
     "source_path_from_root": "/articles/cosmos-db/tutorial-functions-http-trigger.md",

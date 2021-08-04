@@ -16,7 +16,7 @@ ms.date: 06/12/2020
 > [!IMPORTANT] 
 > This skill is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [preview REST API](/rest/api/searchservice/index-preview) supports this skill.
 
-The **AML** skill allows you to extend AI enrichment with a custom [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) (AML) model. Once an AML model is [trained and deployed](../machine-learning/concept-azure-machine-learning-architecture.md#workspace), an **AML** skill integrates it into AI enrichment.
+The **AML** skill allows you to extend AI enrichment with a custom [Azure Machine Learning](../machine-learning/overview-what-is-azure-machine-learning.md) (AML) model. Once an AML model is [trained and deployed](../machine-learning/concept-azure-machine-learning-architecture.md#workspace), an **AML** skill integrates it into AI enrichment.
 
 Like built-in skills, an **AML** skill has inputs and outputs. The inputs are sent to your deployed AML service as a JSON object, which outputs a JSON payload as a response along with a success status code. The response is expected to have the outputs specified by your **AML** skill. Any other response is considered an error and no enrichments are performed.
 

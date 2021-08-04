@@ -17,7 +17,7 @@ adobe-target: true
 
 Azure App Service lets Java developers to quickly build, deploy, and scale their Java SE, Tomcat, and JBoss EAP web applications on a fully managed service. Deploy applications with Maven plugins, from the command line, or in editors like IntelliJ, Eclipse, or Visual Studio Code.
 
-This guide provides key concepts and instructions for Java developers using App Service. If you've never used Azure App Service, you should read through the [Java quickstart](quickstart-java.md) first. General questions about using App Service that aren't specific to Java development are answered in the [App Service FAQ](faq-configuration-and-management.md).
+This guide provides key concepts and instructions for Java developers using App Service. If you've never used Azure App Service, you should read through the [Java quickstart](quickstart-java.md) first. General questions about using App Service that aren't specific to Java development are answered in the [App Service FAQ](faq-configuration-and-management.yml).
 
 ## Show Java version
 
@@ -64,7 +64,7 @@ Otherwise, your deployment method will depend on your archive type:
 To deploy .jar files to Java SE, use the `/api/zipdeploy/` endpoint of the Kudu site. For more information on this API, please see [this documentation](./deploy-zip.md#rest). 
 
 > [!NOTE]
->  Your .jar application must be named `app.jar` for App Service to identify and run your application. The Maven Plugin (mentioned above) will automatically rename your application for you during deployment. If you do not wish to rename your JAR to *app.jar*, you can upload a shell script with the command to run your .jar app. Paste the absolute path to this script in the [Startup File](/app-service/faq-app-service-linux#built-in-images) textbox in the Configuration section of the portal. The startup script does not run from the directory into which it is placed. Therefore, always use absolute paths to reference files in your startup script (for example: `java -jar /home/myapp/myapp.jar`).
+>  Your .jar application must be named `app.jar` for App Service to identify and run your application. The Maven Plugin (mentioned above) will automatically rename your application for you during deployment. If you do not wish to rename your JAR to *app.jar*, you can upload a shell script with the command to run your .jar app. Paste the absolute path to this script in the [Startup File](/azure/app-service/faq-app-service-linux#built-in-images) textbox in the Configuration section of the portal. The startup script does not run from the directory into which it is placed. Therefore, always use absolute paths to reference files in your startup script (for example: `java -jar /home/myapp/myapp.jar`).
 
 ### Tomcat
 
@@ -121,7 +121,7 @@ All Java runtimes on App Service using the Azul JVMs come with the Zulu Flight R
 
 #### Timed Recording
 
-To take a timed recording you will need the PID (Process ID) of the Java application. To find the PID, open a browser to your web app's SCM site at https://<your-site-name>.scm.azurewebsites.net/ProcessExplorer/. This page shows the running processes in your web app. Find the process named "java" in the table and copy the corresponding PID (Process ID).
+To take a timed recording you will need the PID (Process ID) of the Java application. To find the PID, open a browser to your web app's SCM site at `https://<your-site-name>.scm.azurewebsites.net/ProcessExplorer/`. This page shows the running processes in your web app. Find the process named "java" in the table and copy the corresponding PID (Process ID).
 
 Next, open the **Debug Console** in the top toolbar of the SCM site and run the following command. Replace `<pid>` with the process ID you copied earlier. This command will start a 30 second profiler recording of your Java application and generate a file named `timed_recording_example.jfr` in the `D:\home` directory.
 
@@ -201,7 +201,7 @@ Azure App Service for Linux supports out of the box tuning and customization thr
 
 To set allocated memory or other JVM runtime options, create an [app setting](configure-common.md#configure-app-settings) named `JAVA_OPTS` with the options. App Service passes this setting as an environment variable to the Java runtime when it starts.
 
-In the Azure portal, under **Application Settings** for the web app, create a new app setting named `JAVA_OPTS` that includes the additional settings, such as `-Xms512m -Xmx1204m`.
+In the Azure portal, under **Application Settings** for the web app, create a new app setting named `JAVA_OPTS` for Java SE or `CATALINA_OPTS` for Tomcat that includes the additional settings, such as `-Xms512m -Xmx1204m`.
 
 To configure the app setting from the Maven plugin, add setting/value tags in the Azure plugin section. The following example sets a specific minimum and maximum Java heap size:
 
@@ -1015,11 +1015,11 @@ JBoss EAP is only available on the Premium v3 and Isolated v2 App Service Plan t
 
 ### JDK versions and maintenance
 
-Azure's supported Java Development Kit (JDK) is [Zulu](https://www.azul.com/downloads/azure-only/zulu/) provided through [Azul Systems](https://www.azul.com/). Azul Zulu Enterprise builds of OpenJDK are a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure and Azure Stack backed by Microsoft and Azul Systems. They contain all the components for building and running Java SE applications. You can install the JDK from [Java JDK Installation](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+Azure's supported Java Development Kit (JDK) is [Zulu](https://www.azul.com/downloads/azure-only/zulu/) provided through [Azul Systems](https://www.azul.com/). Azul Zulu Enterprise builds of OpenJDK are a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure and Azure Stack backed by Microsoft and Azul Systems. They contain all the components for building and running Java SE applications. You can install the JDK from [Java JDK Installation](/azure/developer/java/fundamentals/java-support-on-azure).
 
 Major version updates will be provided through new runtime options in Azure App Service. Customers update to these newer versions of Java by configuring their App Service deployment and are responsible for testing and ensuring the major update meets their needs.
 
-Supported JDKs are automatically patched on a quarterly basis in January, April, July, and October of each year. For more information on Java on Azure, please see [this support document](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+Supported JDKs are automatically patched on a quarterly basis in January, April, July, and October of each year. For more information on Java on Azure, please see [this support document](/azure/developer/java/fundamentals/java-support-on-azure).
 
 ### Security updates
 
@@ -1044,4 +1044,5 @@ Product support for the [Azure-supported Azul Zulu JDK](https://www.azul.com/dow
 
 Visit the [Azure for Java Developers](/java/azure/) center to find Azure quickstarts, tutorials, and Java reference documentation.
 
-General questions about using App Service for Linux that aren't specific to the Java development are answered in the [App Service Linux FAQ](faq-app-service-linux.yml).
+- [App Service Linux FAQ](faq-app-service-linux.yml)
+- [Environment variables and app settings reference](reference-app-settings.md)

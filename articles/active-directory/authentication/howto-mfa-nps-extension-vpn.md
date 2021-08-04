@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/21/2019
+ms.date: 08/04/2021
 
 ms.author: justinha
 author: justinha
@@ -215,6 +215,7 @@ This section details the configuration you created by using the wizard.
 
 In this section, you configure your VPN server to use RADIUS authentication. The instructions assume that you have a working configuration of a VPN server but have not configured it to use RADIUS authentication. After you configure the VPN server, confirm that your configuration is working as expected.
 
+
 > [!NOTE]
 > If you already have a working VPN server configuration that uses RADIUS authentication, you can skip this section.
 >
@@ -241,10 +242,8 @@ In this section, you configure your VPN server to use RADIUS authentication. The
 
     b. For the **Shared secret**, select **Change**, and then enter the shared secret password that you created and recorded earlier.
 
-    c. In the **Time-out (seconds)** box, enter a value of **30**.  
-    The timeout value is necessary to allow enough time to complete the second authentication factor. Some VPNs or regions require time-out settings greater than 30 seconds to prevent users from receiving multiple phone calls. If users do experience this issue, increase the **Time-out (seconds)** value in increments of 30 seconds until the issue doesn't reoccur.
-
-    ![Add RADIUS Server window configuring the Time-out](./media/howto-mfa-nps-extension-vpn/image16.png) 
+    c. In the **Time-out (seconds)** box, enter a value of **60**.  
+    To minimize discarded requests, we recommend that VPN servers are configured with a timeout of at least 60 seconds. If needed, or to reduce discarded requests in the event logs, you can increase the VPN server timeout value to 90 or 120 seconds.
 
 8. Select **OK**.
 
@@ -280,7 +279,7 @@ In this section, you confirm that the VPN client is authenticated and authorized
 
 10. On the **Security** tab, ensure that only **Microsoft CHAP Version 2 (MS-CHAP v2)** is selected, and then select **OK**.
 
-    ![The "Allow  these protocols" option](./media/howto-mfa-nps-extension-vpn/image20.png)
+    ![The "Allow these protocols" option](./media/howto-mfa-nps-extension-vpn/image20.png)
 
 11. Right-click the VPN connection, and then select **Connect**.
 
@@ -299,7 +298,7 @@ To troubleshoot these issues, an ideal place to start is to examine the Security
 
 ## Configure Multi-Factor Authentication
 
-For assistance configuring users for Multi-Factor Authentication see the articles [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](howto-mfa-getstarted.md#create-conditional-access-policy) and [Set up my account for two-step verification](../user-help/multi-factor-authentication-end-user-first-time.md)
+For assistance configuring users for Multi-Factor Authentication see the articles [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](howto-mfa-getstarted.md#plan-conditional-access-policies) and [Set up my account for two-step verification](../user-help/multi-factor-authentication-end-user-first-time.md)
 
 ## Install and configure the NPS extension
 

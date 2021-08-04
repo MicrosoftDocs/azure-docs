@@ -1,18 +1,18 @@
 ---
-title: Archive Tier support (Preview)
+title: Archive Tier support
 description: Learn about Archive Tier Support for Azure Backup
 ms.topic: conceptual
-ms.date: 06/03/2021 
+ms.date: 08/04/2021
 ms.custom: devx-track-azurepowershell
 ---
 
-# Archive Tier support (Preview)
+# Archive Tier support
 
 Customers rely on Azure Backup for storing backup data including their Long-Term Retention (LTR) backup data with retention needs being defined by the organization's compliance rules. In most cases, the older backup data is rarely accessed and is only stored for compliance needs.
 
 Azure Backup supports backup of long-term retention points in the archive tier, in addition to snapshots and the Standard tier.
 
-## Scope for preview
+## Scope
 
 Supported workloads:
 
@@ -31,8 +31,8 @@ Supported clients:
 
 - The capability is provided using PowerShell
 
->[!NOTE]
->Archive Tier Support for Azure VMs and SQL Server in Azure VMs is in limited public preview with limited signups. To sign up for archive support use this [link](https://aka.ms/ArchivePreviewInterestForm).
+>[!Note]
+>Archive Tier support for SQL Servers in Azure VMs is now generally available in North Europe, Central India, South East Asia, and Australia East. For the detailed list of supported regions, refer to the [support matrix](#support-matrix).    <br><br>    For the remaining regions for SQL Servers in Azure VMs, Archive Tier support is in limited public preview. Archive Tier support for Azure Virtual Machines is also in limited public preview. To sign up for limited public preview, use this [link](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR463S33c54tEiJLEM6Enqb9UNU5CVTlLVFlGUkNXWVlMNlRPM1lJWUxLRy4u).
 
 ## Get started with PowerShell
 
@@ -41,7 +41,7 @@ Supported clients:
 1. Run the following command in PowerShell:
   
     ```azurepowershell
-    install-module -name Az.RecoveryServices -Repository PSGallery -RequiredVersion 4.0.0-preview -AllowPrerelease -force
+    install-module -name Az.RecoveryServices -Repository PSGallery -RequiredVersion 4.4.0 -AllowPrerelease -force
     ```
 
 1. Connect to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
@@ -81,7 +81,7 @@ Supported clients:
 
     ```
     >[!NOTE]
-    >The span of the start date and the end date should not be more than 30 days.<br><br>To view recovery points for a different time range, modify the start and the end date accordingly.
+    >To view recovery points for a different time range, modify the start and the end date accordingly.
 ## Use PowerShell
 
 ### Check archivable recovery points
@@ -202,6 +202,13 @@ Recovery points that haven't stayed in archive for a minimum of six months will 
 
 Stop protection and delete data deletes all the recovery points. For recovery points in archive that haven't stayed for a duration of 180 days in archive tier, deletion of recovery points will lead to early deletion cost.
 
+## Support matrix
+
+| Workloads | Preview | Generally available |
+| --- | --- | --- |
+| SQL Server in Azure VM | East US, East US 2, Central US, South Central US, West US, West US 2, West Central US, North Central US, Brazil South, Canada East, Canada Central, West Europe, UK South, UK West, East Asia, Japan East, South India | Australia East, Central India, North Europe, South East Asia |
+| Azure Virtual Machines | East US, East US 2, Central US, South Central US, West US, West US 2, West Central US, North Central US, Brazil South, Canada East, Canada Central, West Europe, UK South, UK West, East Asia, Japan East, South India, South East Asia, Australia East, Central India, North Europe | None |
+
 ## Error codes and troubleshooting steps
 
 There are several error codes that come up when a recovery point can't be moved to archive.
@@ -212,7 +219,7 @@ There are several error codes that come up when a recovery point can't be moved 
 
 **Description** – This error code is shown when the selected recovery point type isn't eligible to be moved to archive.
 
-**Recommended action** – Check eligibility of the recovery point [here](#scope-for-preview)
+**Recommended action** – Check eligibility of the recovery point [here](#scope)
 
 ### RecoveryPointHaveActiveDependencies
 
@@ -220,7 +227,7 @@ There are several error codes that come up when a recovery point can't be moved 
 
 **Description –** The selected recovery point has active dependencies and so can’t be moved to archive.
 
-**Recommended action** – Check eligibility of the recovery point [here](#scope-for-preview)
+**Recommended action** – Check eligibility of the recovery point [here](#scope)
 
 ### MinLifeSpanInStandardRequiredForArchive
 
@@ -228,7 +235,7 @@ There are several error codes that come up when a recovery point can't be moved 
 
 **Description** – The recovery point has to stay in Standard tier for a minimum of three months for Azure virtual machines, and 45 days for SQL Server in Azure virtual machines
 
-**Recommended action** – Check eligibility of the recovery point [here](#scope-for-preview)
+**Recommended action** – Check eligibility of the recovery point [here](#scope)
 
 ### MinRemainingLifeSpanInArchiveRequired
 
@@ -236,7 +243,7 @@ There are several error codes that come up when a recovery point can't be moved 
 
 **Description** – The minimum lifespan required for a recovery point for archive move eligibility is six months.
 
-**Recommended action** – Check eligibility of the recovery point [here](#scope-for-preview)
+**Recommended action** – Check eligibility of the recovery point [here](#scope)
 
 ### UserErrorRecoveryPointAlreadyInArchiveTier
 
