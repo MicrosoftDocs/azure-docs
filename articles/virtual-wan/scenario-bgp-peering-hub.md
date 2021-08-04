@@ -88,7 +88,7 @@ Virtual network configuration
 
 * On VNET5, set up a user-defined route (UDR) to point to VNET2 NVA IP.
 
-### Effective routes
+#### Effective routes
 
 The table below shows few entries from Hub 1's effective routes in the defaultRouteTable. Notice that the route for VNET5 (subnet 10.2.1.0/24) and this confirms VNET1 and VNET5 will be able to communicate with each other.
 
@@ -133,7 +133,7 @@ Virtual network configuration
 
 * BGP peering between VNET2 NVA and NVA Branch 1, and route advertisements for VNET1 from VNET2 NVA to NVA Branch 1.
 
-### Effective routes
+#### Effective routes
 
 The table below shows few entries from Hub 1's effective routes in the defaultRouteTable. Notice that the route for NVA Branch 1 (subnet 192.168.1.0/24) is learned over the BGP peering with the NVA.
 
