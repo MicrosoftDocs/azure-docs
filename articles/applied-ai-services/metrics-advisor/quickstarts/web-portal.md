@@ -140,7 +140,7 @@ For metrics with multiple dimensions, Metrics Advisor categorizes the time serie
 
 ### View cross-metrics diagnostic insights
 
-Sometimes, it's hard to analyze an issue by checking the abnormal status of a single metric, and you need to correlate multiple metrics together. To do this, configure a metrics graph, which indicates the relations between metrics. 
+Sometimes, it's hard to analyze an issue by checking the abnormal status of a single metric, and you need to correlate multiple metrics together. To do this, configure a metrics graph, which indicates the relationships between metrics. 
 
 By using the cross-dimension diagnostic result described in the previous section, you can identify that the root cause is limited to a specific dimension value. Then use a metrics graph to filter by the analyzed root cause dimension, to check the anomaly status on other metrics.
 
