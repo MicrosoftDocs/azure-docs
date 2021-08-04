@@ -235,7 +235,7 @@ The following sections specify the parameters required for all authentication ty
 
         **Step 3:** [Create a credential entity](how-tos/credential-entity.md) in Metrics Advisor, so that you can choose that entity when you're adding a data feed for the service principal authentication type. 
         
-    * **Service principal from key vault**: Key Vault helps to safeguard cryptographic keys and secret values that cloud apps and services use. By using Key Vault, you can encrypt keys and secret values. Create a service principal first, and then store the service principal inside a key vault. For more details, see [Create a credential entity for service principal from key vault](how-tos/credential-entity.md#sp-from-kv). The account name is the same as the basic authentication type.
+    * **Service principal from Key Vault**: Key Vault helps to safeguard cryptographic keys and secret values that cloud apps and services use. By using Key Vault, you can encrypt keys and secret values. Create a service principal first, and then store the service principal inside a key vault. For more details, see [Create a credential entity for service principal from Key Vault](how-tos/credential-entity.md#sp-from-kv). The account name is the same as the basic authentication type.
 
 * **Account Key** (only necessary for the basic authentication type): Specify the account key to access your Azure Data Lake Storage Gen2. You can find this in your Azure storage account (Azure Data Lake Storage Gen2) resource, in **Access keys**.
 
@@ -359,7 +359,7 @@ Azure Monitor Logs has the following authentication types: basic, service princi
     
     **Step 3:** [Create a credential entity](how-tos/credential-entity.md) in Metrics Advisor, so that you can choose that entity when you're adding a data feed for the service principal authentication type. 
         
-* **Service principal from key vault**: Key Vault helps to safeguard cryptographic keys and secret values that cloud apps and services use. By using Key Vault, you can encrypt keys and secret values. Create a service principal first, and then store the service principal inside a key vault. For more details, see [Create a credential entity for service principal from key vault](how-tos/credential-entity.md#sp-from-kv). 
+* **Service principal from Key Vault**: Key Vault helps to safeguard cryptographic keys and secret values that cloud apps and services use. By using Key Vault, you can encrypt keys and secret values. Create a service principal first, and then store the service principal inside a key vault. For more details, see [Create a credential entity for service principal from Key Vault](how-tos/credential-entity.md#sp-from-kv). 
 
 * **Query**: Specify the query. For more information, see [Log queries in Azure Monitor](../../azure-monitor/logs/log-query-overview.md).
 
@@ -442,7 +442,7 @@ Azure Monitor Logs has the following authentication types: basic, service princi
         Data Source=<Server>;Initial Catalog=<Database>
         ```
   
-    * **Service principal from key vault**: Key Vault helps to safeguard cryptographic keys and secret values that cloud apps and services use. By using Key Vault, you can encrypt keys and secret values. Create a service principal first, and then store the service principal inside a key vault. For more details, see [Create a credential entity for service principal from key vault](how-tos/credential-entity.md#sp-from-kv). You can also find your connection string in your Azure SQL Server resource, in **Settings** > **Connection strings**.
+    * **Service principal from Key Vault**: Key Vault helps to safeguard cryptographic keys and secret values that cloud apps and services use. By using Key Vault, you can encrypt keys and secret values. Create a service principal first, and then store the service principal inside a key vault. For more details, see [Create a credential entity for service principal from Key Vault](how-tos/credential-entity.md#sp-from-kv). You can also find your connection string in your Azure SQL Server resource, in **Settings** > **Connection strings**.
         
         Here's an example of connection string: 
         
