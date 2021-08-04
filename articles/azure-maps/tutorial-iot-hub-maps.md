@@ -268,7 +268,7 @@ For a complete list of Azure Maps REST APIs, see:
 
 * [Azure Maps REST APIs](/rest/api/maps/spatial/getgeofence)
 
-* [IoT Plug and Play](../iot-pnp/index.yml)
+* [IoT Plug and Play](../iot-develop/index.yml)
 
 To get a list of devices that are Azure certified for IoT, visit:
 

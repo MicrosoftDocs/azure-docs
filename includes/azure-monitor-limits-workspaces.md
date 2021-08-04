@@ -43,7 +43,7 @@ ms.custom: "include file"
 | Maximum size for a single post | 30 MB | Split larger volumes into multiple posts. |
 | Maximum size for field values  | 32 KB | Fields longer than 32 KB are truncated. |
 
-**Search API**
+**Query API**
 
 | Category | Limit | Comments |
 |:---|:---|:---|
@@ -56,8 +56,8 @@ ms.custom: "include file"
 
 | Category | Limit | Comments |
 |:---|:---|:---|
+| Max size of data | ~16.7 MB (~16 MiB) | Connector infrastructure dictates that limit is set lower than query API limit |
 | Max number of records | 500,000 | |
-| Maximum size of data returned | ~104 MB (~100 MiB) | |
 | Max query timeout | 110 second | |
 | Charts | | Visualization in Logs page and the connector are using different charting libraries and some functionality isn't available in the connector currently. |
 

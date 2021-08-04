@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 08/20/2020
+ms.date: 07/27/2021
 ms.custom: seoapril2019, seodec18
 #Customer intent: As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
 ---
 
 # How Azure Machine Learning works: Architecture and concepts
 
-Learn about the architecture and concepts for [Azure Machine Learning](overview-what-is-azure-ml.md).  This article gives you a high-level understanding of the components and how they work together to assist in the process of building, deploying, and maintaining machine learning models.
+Learn about the architecture and concepts for [Azure Machine Learning](overview-what-is-azure-machine-learning.md).  This article gives you a high-level understanding of the components and how they work together to assist in the process of building, deploying, and maintaining machine learning models.
 
 ## <a name="workspace"></a> Workspace
 
@@ -288,6 +288,6 @@ The studio is also where you access the interactive tools that are part of Azure
 
 To get started with Azure Machine Learning, see:
 
-* [What is Azure Machine Learning?](overview-what-is-azure-ml.md)
+* [What is Azure Machine Learning?](overview-what-is-azure-machine-learning.md)
 * [Create an Azure Machine Learning workspace](how-to-manage-workspace.md)
 * [Tutorial (part 1): Train a model](tutorial-train-models-with-aml.md)
