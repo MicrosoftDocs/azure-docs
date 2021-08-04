@@ -49,9 +49,21 @@ Pipelines are how Azure Synapse provides Data Integration - allowing you to move
 * **Trigger** -  Executes a pipeline. It can be run manually or automatically (schedule, tumbling window or event-based)
 * **Integration dataset** -   Named view of data that simply points or references the data to be used in an activity as input and output. It belongs to a Linked Service.
 
+## Data Explorer
+
+Azure Synapse Analytics data explorer provides customers with an interactive query experience to unlock insights from log and telemetry data.
+
+* **Data Explorer pool** are dedicated clusters that includes two or more compute nodes with local SSD storage and multiple blob storage for persistance. 
+
+* **Data Explorer databases** are part of Data Explorer pool and are logical entity that hold the tables and other database objects. You can have more than one database per pool.
+
+* **Tables** are part of Data Explorer database. The data is organized as traditional relational data model. Data is organized in tables, and all data records of the table are of a strongly-typed schema. The table schema is an ordered list of columns, each column having a name and a scalar data type. Scalar data types can be structured (e.g. int, real, datetime, or timespan), semi-structured (dynamic), or free text (string). The dynamic type is similar to JSON – it can hold a single value of other scalar types, an array, or a dictionary of such values. Tables are contained in databases, and a single deployment (a cluster of nodes) may host multiple databases. There are also external tables that don't persist any data and hold a reference to a storage or SQL data source to query or export the data. 
+
+
 ## Next steps
 
 * [Get started with Azure Synapse Analytics](get-started.md)
 * [Create a workspace](quickstart-create-workspace.md)
 * [Use serverless SQL pool](quickstart-sql-on-demand.md)
-
+* [Quickstart: Create a Data Explorer pool using Synapse Studio](data-explorer-create-pool-studio.md)
+* [Quickstart: Query data with data explorer pools](data-explorer-query-with-pool.md)
