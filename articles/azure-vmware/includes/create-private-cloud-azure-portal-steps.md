@@ -2,7 +2,7 @@
 title: Create an Azure VMware Solution private cloud
 description: Steps to create an Azure VMware Solution private cloud using the Azure portal.
 ms.topic: include
-ms.date: 04/23/2021
+ms.date: 06/17/2021
 ---
 
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->
@@ -23,29 +23,29 @@ You can create an Azure VMware Solution private cloud by using the Azure portal 
 1. On the **Basics** tab, enter values for the fields. 
 
    >[!TIP]
-   >You gathered this information during the [planning phase](../production-ready-deployment-steps.md) of this quick start.
+   >You gathered this information during the [planning phase](../plan-private-cloud-deployment.md) of this quick start.
 
    | Field   | Value  |
    | ---| --- |
-   | **Subscription** | Select the subscription you plan to use for the deployment.|
-   | **Resource group** | Select the resource group for your private cloud resources. |
+   | **Subscription** | Select the subscription you plan to use for the deployment. All resources in an Azure subscription are billed together.|
+   | **Resource group** | Select the resource group for your private cloud. An Azure resource group is a logical container into which Azure resources are deployed and managed. Alternatively, you can create a new resource group for your private cloud. |
    | **Location** | Select a location, such as **east us**. This is the *region* you defined during the planning phase. |
    | **Resource name** | Provide the name of your Azure VMware Solution private cloud. |
    | **SKU** | Select **AV36**. |
    | **Hosts** | Shows the number of hosts allocated for the private cloud cluster. The default value is 3, which can be raised or lowered after deployment.  |
-   | **Address block** | Enter an IP address block for the CIDR network for the private cloud, for example, 10.175.0.0/22. |
+   | **Address block** | Provide an IP address block for the private cloud.  The CIDR represents the private cloud management network and will be used for the cluster management services, such as vCenter Server and NSX-T Manager. Use /22 address space, for example, 10.175.0.0/22.  The address should be unique and not overlap with other Azure Virtual Networks as well as with on-premises networks. |
    | **Virtual Network** | Leave this blank because the Azure VMware Solution ExpressRoute circuit is established as a post-deployment step.   |
 
-   :::image type="content" source="../media/tutorial-create-private-cloud/create-private-cloud.png" alt-text="On the Basics tab, enter values for the fields." border="true":::
+   :::image type="content" source="../media/tutorial-create-private-cloud/create-private-cloud.png" alt-text="Screenshot showing the Basics tab on the Create a private cloud window." border="true":::
 
-1. Once finished, select **Review + Create**. On the next screen, verify the information entered. If the information is all correct, select **Create**.
+1. Once finished, select **Review + Create**. On the next screen, verify the information entered. If the information is all correct, select **Create**.  
 
    > [!NOTE]
-   > This step takes roughly 3-4 hours. Adding a single node in existing or same cluster takes between 30 - 45 minutes.
+   > This step takes roughly 3-4 hours. Adding a single host in an existing or the same cluster takes between 30 - 45 minutes.
 
 1. Verify that the deployment was successful. Navigate to the resource group you created and select your private cloud.  You'll see the status of **Succeeded** when the deployment has completed. 
 
-   :::image type="content" source="../media/tutorial-create-private-cloud/validate-deployment.png" alt-text="Verify that the deployment was successful." border="true":::
+   :::image type="content" source="../media/tutorial-create-private-cloud/validate-deployment.png" alt-text="Screenshot showing that the deployment was successful." border="true":::
 
 
 ### [Azure CLI](#tab/azure-cli)
@@ -69,7 +69,7 @@ To begin using Azure CLI:
    | --------- | ------------ |
    | **-g** (Resource Group name)     | The name of the resource group for your private cloud resources.        |
    | **-n** (Private Cloud name)     | The name of your Azure VMware Solution private cloud.        |
-   | **--location**     | The location used for your private cloud.         |
+   | **--location**     | The region used for your private cloud.         |
    | **--cluster-size**     | The size of the cluster. The minimum value is 3.         |
    | **--network-block**     | The CIDR IP address network block to use for your private cloud. The address block shouldn't overlap with address blocks used in other virtual networks that are in your subscription and on-premises networks.        |
    | **--sku** | The SKU value: AV36 |

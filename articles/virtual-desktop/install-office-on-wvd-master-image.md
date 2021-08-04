@@ -153,7 +153,7 @@ Here's how to install OneDrive in per-machine mode:
 
 Azure Virtual Desktop doesn't support Skype for Business.
 
-For help with installing Microsoft Teams, see [Use Microsoft Teams on Azure Virtual desktop](teams-on-wvd.md). Media optimization for Microsoft Teams on Azure Virtual Desktop is available in preview.
+For help with installing Microsoft Teams, see [Use Microsoft Teams on Azure Virtual desktop](./teams-on-avd.md). 
 
 ## Next steps
 

@@ -63,7 +63,7 @@ az login
 Use the Azure CLI [az role assignment create](/cli/azure/role/assignment) command to give Key Vault access your storage account. Provide the command the following parameter values:
 
 - `--role`: Pass the "Storage Account Key Operator Service Role" Azure role. This role limits the access scope to your storage account. For a classic storage account, pass "Classic Storage Account Key Operator Service Role" instead.
-- `--assignee`: Pass the value "https://vault.azure.net", which is the url for Key Vault in the Azure public cloud. (For Azure Goverment cloud use '--asingee-object-id' instead, see [Service principal application ID](#service-principal-application-id).)
+- `--assignee`: Pass the value "https://vault.azure.net", which is the url for Key Vault in the Azure public cloud. (For Azure Goverment cloud use '--assignee-object-id' instead, see [Service principal application ID](#service-principal-application-id).)
 - `--scope`: Pass your storage account resource ID, which is in the form `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`. To find your subscription ID, use the Azure CLI [az account list](/cli/azure/account?#az_account_list) command; to find your storage account name and storage account resource group, use the Azure CLI [az storage account list](/cli/azure/storage/account?#az_storage_account_list) command.
 
 ```azurecli-interactive

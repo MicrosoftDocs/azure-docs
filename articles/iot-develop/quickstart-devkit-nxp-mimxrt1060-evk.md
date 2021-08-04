@@ -30,10 +30,10 @@ You will complete the following tasks:
 * [Git](https://git-scm.com/downloads) for cloning the repository
 * Hardware
 
-    > * The [NXP MIMXRT1060-EVK](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/mimxrt1060-evk-i-mx-rt1060-evaluation-kit:MIMXRT1060-EVK) (NXP EVK)
-    > * USB 2.0 A male to Micro USB male cable
-    > * Wired Ethernet access
-    > * Ethernet cable
+    * The [NXP MIMXRT1060-EVK](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/mimxrt1060-evk-i-mx-rt1060-evaluation-kit:MIMXRT1060-EVK) (NXP EVK)
+    * USB 2.0 A male to Micro USB male cable
+    * Wired Ethernet access
+    * Ethernet cable
 
 ## Prepare the development environment
 
@@ -63,7 +63,7 @@ To install the tools:
 
 1. From File Explorer, navigate to the following path in the repo and run the setup script named *get-toolchain.bat*:
 
-    > *getting-started\tools\get-toolchain.bat*
+    *getting-started\tools\get-toolchain.bat*
 
 1. After the installation, open a new console window to recognize the configuration changes made by the setup script. Use this console to complete the remaining programming tasks in the quickstart. You can use Windows CMD, PowerShell, or Git Bash for Windows.
 1. Run the following code to confirm that CMake version 3.14 or later is installed.
@@ -82,7 +82,7 @@ To connect the NXP EVK to Azure, you'll modify a configuration file for Azure Io
 
 1. Open the following file in a text editor:
 
-    > *getting-started\NXP\MIMXRT1060-EVK\app\azure_config.h*
+    *getting-started\NXP\MIMXRT1060-EVK\app\azure_config.h*
 
 1. Set the Azure IoT device information constants to the values that you saved after you created Azure resources.
 
@@ -96,13 +96,13 @@ To connect the NXP EVK to Azure, you'll modify a configuration file for Azure Io
 
 ### Build the image
 
-In your console or in File Explorer, run the script *rebuild.bat* at the following path to build the image:
+1. In your console or in File Explorer, run the script *rebuild.bat* at the following path to build the image:
 
-> *getting-started\NXP\MIMXRT1060-EVK\tools\rebuild.bat*
+    *getting-started\NXP\MIMXRT1060-EVK\tools\rebuild.bat*
 
-After the build completes, confirm that the binary file was created in the following path:
+2. After the build completes, confirm that the binary file was created in the following path:
 
-> *getting-started\NXP\MIMXRT1060-EVK\build\app\mimxrt1060_azure_iot.bin*
+    *getting-started\NXP\MIMXRT1060-EVK\build\app\mimxrt1060_azure_iot.bin*
 
 ### Flash the image
 
@@ -126,13 +126,13 @@ You can use the **Termite** app to monitor communication and confirm that your d
 
 1. Start **Termite**.
     > [!TIP]
-    > If you have issues getting your device to initialize or connect after flashing, see [Troubleshooting](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
+    > If you have issues getting your device to initialize or connect after flashing, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).
 1. Select **Settings**.
 1. In the **Serial port settings** dialog, check the following settings and update if needed:
     * **Baud rate**: 115,200
     * **Port**: The port that your NXP EVK is connected to. If there are multiple port options in the dropdown, you can find the correct port to use. Open Windows **Device Manager**, and view **Ports** to identify which port to use.
 
-    :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1060-evk/termite-settings.png" alt-text="Confirm settings in the Termite app":::
+    :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1060-evk/termite-settings.png" alt-text="Screenshot of serial port settings in the Termite app":::
 
 1. Select OK.
 1. Press the **Reset** button on the device. The button is labeled on the device and located near the Micro USB connector.
@@ -180,7 +180,7 @@ To view the device status in IoT Central portal:
 1. Confirm that the **Device status** is updated to **Provisioned**.
 1. Confirm that the **Device template** is updated to **Getting Started Guide**.
 
-    :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1060-evk/iot-central-device-view-status.png" alt-text="View device status in IoT Central":::
+    :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1060-evk/iot-central-device-view-status.png" alt-text="Screenshot of device status in IoT Central":::
 
 ## View telemetry
 
@@ -193,7 +193,7 @@ To view telemetry in IoT Central portal:
 1. View the telemetry as the device sends messages to the cloud in the **Overview** tab.
 1. The temperature is measured from the MCU wafer.
 
-    :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1060-evk/iot-central-device-telemetry.png" alt-text="View device telemetry in IoT Central":::
+    :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1060-evk/iot-central-device-telemetry.png" alt-text="Screenshot of device telemetry in IoT Central":::
 
     > [!NOTE]
     > You can also monitor telemetry from the device by using the Termite app.
@@ -207,7 +207,7 @@ To call a method in IoT Central portal:
 1. Select the **Command** tab from the device page.
 1. In the **State** dropdown, select **True**, and then select **Run**. There will be no change on the device as there isn't an available LED to toggle; however, you can view the output in Termite to monitor the status of the methods.
 
-    :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1060-evk/iot-central-invoke-method.png" alt-text="Call a direct method on a device":::
+    :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1060-evk/iot-central-invoke-method.png" alt-text="Screenshot of calling a direct method on a device in IoT Central":::
 
 1. In the **State** dropdown, select **False**, and then select **Run**.
 
@@ -217,11 +217,11 @@ You can view the device information from IoT Central.
 
 Select **About** tab from the device page.
 
-:::image type="content" source="media/quickstart-devkit-nxp-mimxrt1060-evk/iot-central-device-about.png" alt-text="View information about the device in IoT Central":::
+:::image type="content" source="media/quickstart-devkit-nxp-mimxrt1060-evk/iot-central-device-about.png" alt-text="Screenshot of device information in IoT Central":::
 
 ## Troubleshoot and debug
 
-If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
+If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).
 
 For debugging the application, see [Debugging with Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 

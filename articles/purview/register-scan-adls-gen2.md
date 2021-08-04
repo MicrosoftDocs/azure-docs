@@ -21,6 +21,12 @@ The Azure Data Lake Storage Gen2 data source supports the following functionalit
 
 - **Lineage** between data assets for ADF copy/dataflow activities
 
+For file types such as csv, tsv, psv, ssv, the schema is extracted when the following logics are in place:
+
+1. First row values are non-empty
+2. First row values are unique
+3. First row values are neither a date and nor a number
+
 ## Prerequisites
 
 Before registering data sources, create an Azure Purview account. For more information on creating a Purview account, see [Quickstart: Create an Azure Purview account](create-catalog-portal.md).
@@ -50,7 +56,7 @@ When you choose **Managed Identity**, to set up the connection, you must first g
 When authentication method selected is **Account Key**, you need to get your access key and store in the key vault:
 
 1. Navigate to your ADLS Gne2 storage account
-1. Select **Settings > Access keys**
+1. Select **Security + networking > Access keys**
 1. Copy your *key* and save it somewhere for the next steps
 1. Navigate to your key vault
 1. Select **Settings > Secrets**
@@ -108,7 +114,7 @@ It is required to get the Service Principal's application ID and secret:
 To register a new ADLS Gen2 account in your data catalog, do the following:
 
 1. Navigate to your Purview account
-2. Select **Sources** on the left navigation
+2. Select **Data Map** on the left navigation.
 3. Select **Register**
 4. On **Register sources**, select **Azure Data Lake Storage Gen2**
 5. Select **Continue**

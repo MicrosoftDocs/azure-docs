@@ -16,10 +16,12 @@ adobe-target-content: ./create-first-function-cli-java-uiex
 
 In this article, you use command-line tools to create a Java function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
 
-Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+If Maven isn't your preferred development tool, check out our similar tutorials for Java developers:
++ [Gradle](./functions-create-first-java-gradle.md)
++ [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions)
++ [Visual Studio Code](create-first-function-vs-code-java.md)
 
-> [!NOTE]
-> If Maven is not your preferred development tool, check out our similar tutorials for Java developers using [Gradle](./functions-create-first-java-gradle.md), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) and [Visual Studio Code](create-first-function-vs-code-java.md).
+Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
 ## Configure your local environment
 
@@ -31,7 +33,7 @@ Before you begin, you must have the following:
 
 + The [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
-+ The [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8 or 11. The `JAVA_HOME` environment variable must be set to the install location of the correct version of the JDK.     
++ The [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8 or 11. The `JAVA_HOME` environment variable must be set to the install location of the correct version of the JDK.     
 
 + [Apache Maven](https://maven.apache.org), version 3.0 or above.
 

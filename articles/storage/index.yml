@@ -124,7 +124,7 @@ additionalContent:
             text: Use a fully-managed file caching service (Azure HPC Cache)
           - url: ../avere-vfxt/avere-vfxt-overview.md
             text: Cache on-premises NAS in Azure (Avere vFXT for Azure) 
-          - url: ../fxt-edge-filer/fxt-overview.md
+          - url: ../fxt-edge-filer/overview.md
             text: Deploy an on-premises caching appliance (Azure FXT Edge Filer)
 
     - title: Data operations

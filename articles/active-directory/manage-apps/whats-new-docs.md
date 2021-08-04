@@ -1,19 +1,50 @@
 ---
 title: "What's new in Azure Active Directory application management"
 description: "New and updated documentation for the Azure Active Directory application management."
-ms.date: 06/02/2021
+ms.date: 08/03/2021
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
 ms.workload: identity
-ms.author: iangithinji
-author: iantheninja
+ms.author: davidmu
+author: davidmu1
 manager: CelesteDG
+reviewer: napuri
 ---
 
 # Azure Active Directory application management: What's new
 
 Welcome to what's new in Azure Active Directory application management documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the application management service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+
+## July 2021
+
+### Updated articles
+
+- [Create collections on the My Apps portal](access-panel-collections.md)
+- [Quickstart: Assign users to an application](add-application-portal-assign-users.md)
+- [Quickstart: Configure properties for an application](add-application-portal-configure.md)
+- [Quickstart: Set up OIDC-based single sign-on for an application](add-application-portal-setup-oidc-sso.md)
+- [Quickstart: Set up SAML-based single sign-on for an application](add-application-portal-setup-sso.md)
+- [Quickstart: Add an application to your tenant](add-application-portal.md)
+- [Quickstart: Delete an application from your tenant](delete-application-portal.md)
+- [Azure Active Directory application management: What's new](whats-new-docs.md)
+- [Quickstart: View the list of applications that are using your Azure Active Directory (Azure AD) tenant for identity management](view-applications-portal.md)
+- [Configure the admin consent workflow](configure-admin-consent-workflow.md)
+
+
+## June 2021
+
+### Updated articles
+
+- [Quickstart: Add an application to your Azure Active Directory (Azure AD) tenant](add-application-portal.md)
+- [Configure group owner consent to apps accessing group data](configure-user-consent-groups.md)
+- [Quickstart: Configure properties for an application in your Azure Active Directory (Azure AD) tenant](add-application-portal-configure.md)
+- [Manage user assignment for an app in Azure Active Directory](assign-user-or-group-access-portal.md)
+- [Unexpected consent prompt when signing in to an application](application-sign-in-unexpected-user-consent-prompt.md)
+- [Grant tenant-wide admin consent to an application](grant-admin-consent.md)
+- [Use tenant restrictions to manage access to SaaS cloud applications](tenant-restrictions.md)
+- [Azure Active Directory application management: What's new](whats-new-docs.md)
+
 
 ## May 2021
 
@@ -21,12 +52,11 @@ Welcome to what's new in Azure Active Directory application management documenta
 
 - [Azure Active Directory application management: What's new](whats-new-docs.md)
 
-
 ## April 2021
 
 ### New articles
 
-- [Active Directory (Azure AD) Application Proxy frequently asked questions](application-proxy-faq.yml)
+- [Active Directory (Azure AD) Application Proxy frequently asked questions](../app-proxy/application-proxy-faq.yml)
 
 ### Updated articles
 
@@ -42,7 +72,6 @@ Welcome to what's new in Azure Active Directory application management documenta
 - [Configure the admin consent workflow](configure-admin-consent-workflow.md)
 - [Use tenant restrictions to manage access to SaaS cloud applications](tenant-restrictions.md)
 - [Integrating Azure Active Directory with applications getting started guide](plan-an-application-integration.md)
-
 
 ## March 2021
 
@@ -71,7 +100,6 @@ Welcome to what's new in Azure Active Directory application management documenta
 - [Azure AD Application Proxy: Version release history](../app-proxy/application-proxy-release-version-history.md)
 - [Configure Azure Active Directory sign in behavior for an application by using a Home Realm Discovery policy](configure-authentication-for-federated-users-portal.md)
 - [Moving application authentication from Active Directory Federation Services to Azure Active Directory](migrate-adfs-apps-to-azure.md)
-
 
 ## February 2021
 

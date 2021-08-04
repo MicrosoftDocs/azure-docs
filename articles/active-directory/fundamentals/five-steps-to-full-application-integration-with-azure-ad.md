@@ -82,7 +82,7 @@ You can also migrate apps that use a different cloud-based identity provider to 
 
 ## 4. Integrate on-premises applications
 
-Traditionally, applications were kept secure by allowing access only while connected to the corporate network. However, in an increasingly connected world we want to allow access to apps for customers, partners, and/or employees, regardless of where they are in the world. [Azure AD Application Proxy](../manage-apps/what-is-application-proxy.md) (AppProxy) is a feature of Azure AD that connects your existing on-premises apps to Azure AD and does not require that you maintain edge servers or other additional infrastructure to do so.
+Traditionally, applications were kept secure by allowing access only while connected to the corporate network. However, in an increasingly connected world we want to allow access to apps for customers, partners, and/or employees, regardless of where they are in the world. [Azure AD Application Proxy](../app-proxy/what-is-application-proxy.md) (AppProxy) is a feature of Azure AD that connects your existing on-premises apps to Azure AD and does not require that you maintain edge servers or other additional infrastructure to do so.
 
 ![A diagram shows the Application Proxy Service in action. A user accesses "https://sales.contoso.com" and their request is redirected through "https://sales-contoso.msappproxy.net" in Azure Active Directory to the on premises address "http://sales"](./media/five-steps-to-full-application-integration-with-azure-ad\app-proxy.png)
 

@@ -7,7 +7,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 07/04/2017
+ms.date: 07/18/2021
 ms.author: robinsh
 ms.custom: "mqtt, devx-track-csharp"
 ---
@@ -18,7 +18,7 @@ ms.custom: "mqtt, devx-track-csharp"
 
 This tutorial shows you how to use the file upload capabilities of IoT Hub by using the .NET file upload sample. 
 
-The [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-dotnet.md) quickstart and [Send cloud-to-device messages with IoT Hub](iot-hub-csharp-csharp-c2d.md) tutorial show the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. The [Configure Message Routing with IoT Hub](tutorial-routing.md) tutorial describes a way to reliably store device-to-cloud messages in Microsoft Azure Blob storage. However, in some scenarios you can't easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example:
+The [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) quickstart and [Send cloud-to-device messages with IoT Hub](iot-hub-csharp-csharp-c2d.md) tutorial show the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. The [Configure Message Routing with IoT Hub](tutorial-routing.md) tutorial describes a way to reliably store device-to-cloud messages in Microsoft Azure Blob storage. However, in some scenarios you can't easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example:
 
 * Large files that contain images
 
@@ -41,9 +41,17 @@ These files are typically batch processed in the cloud using tools such as [Azur
 
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 
-* Download the Azure IoT C# samples from [https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) and extract the ZIP archive.
+* The sample applications you run in this article are written using C#. For the Azure IoT C# samples, we recommend you have the .NET Core SDK 3.1 or greater on your development machine.
 
-* Open the *FileUploadSample* folder in Visual Studio Code, and open the *FileUploadSample.cs* file.
+    You can download the .NET Core SDK for multiple platforms from [.NET](https://dotnet.microsoft.com/download).
+
+    You can verify the current version of the .NET Core SDK on your development machine using the following command:
+
+    ```cmd/sh
+    dotnet --version
+    ```
+
+* Download the Azure IoT C# samples from [https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) and extract the ZIP archive.
 
 * Make sure that port 8883 is open in your firewall. The sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
@@ -51,27 +59,15 @@ These files are typically batch processed in the cloud using tools such as [Azur
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## Associate an Azure Storage Account to your IoT Hub
+## Register a new device in the IoT hub
 
-You must have an Azure Storage account associated with your IoT hub. To learn how to create one, see [Create a storage account](../storage/common/storage-account-create.md). When you associate an Azure Storage account with an IoT hub, the IoT hub generates a SAS URI. A device can use this SAS URI to securely upload a file to a blob container.
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
-## Create a container
+[!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-include-associate-storage.md)]
 
-Follow these steps to create a blob container for your storage account:
+## Examine the application
 
-1. In the left pane of your storage account, under **Data Storage**, select **Containers**.
-1. In the Container blade, select **+ Container**.
-1. In the **New container** pane that opens, give your container a name and select **Create**.
-
-After creating a container, follow the instructions in [Configure file uploads using the Azure portal](iot-hub-configure-file-upload.md). Make sure that a blob container is associated with your IoT hub and that file notifications are enabled.
-
-## Get the IoT hub connection string
-
-[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
-
-## Examine the Application
-
-Navigate to the *FileUploadSample* folder in your .NET samples download. Open the folder in Visual Studio Code. The folder contains a file named *parameters.cs*. If you open that file, you'll see that the parameter *p* is required and contains the connection string. The parameter *t* can be specified if you want to change the transport protocol. The default protocol is mqtt. The file *program.cs* contains the *main* function. The *FileUploadSample.cs* file contains the primary sample logic. *TestPayload.txt* is the file to be uploaded to your blob container.
+In Visual Studio Code, open the *azure-iot-samples-csharp-master\iot-hub\Samples\device\FileUploadSample* folder in your .NET samples download. The folder contains a file named *parameters.cs*. If you open that file, you'll see that the parameter *p* is required and contains the device connection string. You copied and saved this connection string when you registered the device. The parameter *t* can be specified if you want to change the transport protocol. The default protocol is mqtt. The file *program.cs* contains the *main* function. The *FileUploadSample.cs* file contains the primary sample logic. *TestPayload.txt* is the file to be uploaded to your blob container.
 
 ## Run the application
 
@@ -81,7 +77,7 @@ Now you are ready to run the application.
 1. Type the following commands:
     ```cmd/sh
     dotnet restore
-    dotnet run --p "{Your connection string}"
+    dotnet run --p "{Your device connection string}"
     ```
 
 The output should resemble the following:

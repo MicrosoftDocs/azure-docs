@@ -78,7 +78,7 @@ First, you should define a data model like the following to handle the status re
 public class AsyncStatus
 {
     [DataMember(Name = "status")]
-    public string AsyncStatus { get; set; }
+    public string Status { get; set; }
 
     [DataMember(Name = "createdTime")]
     public DateTime CreatedTime { get; set; }
@@ -394,4 +394,4 @@ The response will contain a Boolean value indicating whether the service conside
 
 In this guide, you learned how to use the **PersonDirectory** structure to store face and person data for your Face app. Next, learn the best practices for adding your users' face data.
 
-* [Best practices for adding users](https://docs.microsoft.com/azure/cognitive-services/face/enrollment-overview)
+* [Best practices for adding users](../enrollment-overview.md)

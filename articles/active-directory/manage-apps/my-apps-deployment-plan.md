@@ -2,20 +2,21 @@
 title: Plan Azure Active Directory My Apps configuration
 description: Planning guide to effectively use My Apps in your organization.
 services: active-directory
-author: barbaraselden
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 02/29/2020
-ms.author: baselden
+ms.date: 07/25/2021
+ms.author: davidmu
+ms.reviewer: lenalepa
 ---
 
 # Plan Azure Active Directory My Apps configuration
 
 > [!NOTE]
-> This article is designed for IT professionals who need to plan the configuration of their organization’s My Apps portal. 
+> This article is designed for IT professionals who need to plan the configuration of their organization’s My Apps portal.
 >
 > **For end user documentation, see [Sign in and start apps from the My Apps portal](../user-help/my-apps-portal-end-user-access.md)**.
 
@@ -25,17 +26,16 @@ Azure Active Directory (Azure AD) My Apps is a web-based portal for launching an
 
 ## Why Configure My apps
 
-The My Apps portal is available to users by default and cannot be turned off. It’s important to configure it so that they have the best possible experience, and the portal stays useful. 
+The My Apps portal is available to users by default and cannot be turned off. It’s important to configure it so that they have the best possible experience, and the portal stays useful.
 
 Any application in the Azure Active Directory enterprise applications list appears when both of the following conditions are met:
 
-* The visibility property for the app is set to true. 
+* The visibility property for the app is set to true.
 
 * The app is assigned to any user or group. It appears for assigned users.
 
 Configuring the portal ensures that the right people can easily find the right apps.
 
- 
 ### How is the My Apps portal used?
 
 Users access the My Apps portal to:
@@ -64,11 +64,9 @@ Administrators can configure:
 
 * Company branding shown on My Apps
 
- 
-
 ## Plan consent configuration
 
-### User consent for applications 
+### User consent for applications
 
 Before a user can sign in to an application and the application can access your organization's data, a user or an admin must grant the application permissions. You can configure whether user consent is allowed, and under which conditions. **Microsoft recommends you only allow user consent for applications from verified publishers.**
 
@@ -76,7 +74,7 @@ For more information, see [Configure how end-users consent to applications](../m
 
 ### Group owner consent for apps accessing data
 
-Group and team owners can authorize applications, such as applications published by third-party vendors, to access your organization's data associated with a group. See [Resource-specific consent in Microsoft Teams](/microsoftteams/resource-specific-consent) to learn more. 
+Group and team owners can authorize applications, such as applications published by third-party vendors, to access your organization's data associated with a group. See [Resource-specific consent in Microsoft Teams](/microsoftteams/resource-specific-consent) to learn more.
 
 You can configure whether you'd like to allow or disable this feature.
 
@@ -92,13 +90,11 @@ Although My Apps doesn’t typically create user issues, it’s important to pre
 
 Microsoft provides [customizable templates for emails and other communications](https://aka.ms/APTemplates) for My Apps. You can adapt these assets for use in other communications channels as appropriate for your corporate culture.
 
- 
-
 ## Plan your SSO configuration
 
 It's best if SSO is enabled for all apps in the My Apps portal so that users have a seamless experience without the need to enter their credentials.
 
-Azure AD supports multiple SSO options. 
+Azure AD supports multiple SSO options.
 
 * To learn more, see [Single sign-on options in Azure AD](sso-options.md).
 
@@ -106,16 +102,16 @@ Azure AD supports multiple SSO options.
 
 ### Use federated SSO if possible
 
-For the best user experience with the My Apps page, start with the integration of cloud applications that are available for federated SSO (OpenID Connect or SAML). Federated SSO allows users to have a consistent one-click experience across app launching surfaces and tends to be more robust in configuration control.
+For the best user experience with the My Apps page, start with the integration of cloud applications that are available for federated single sign-on (SSO), such as OpenID Connect or SAML. Federated SSO allows users to have a consistent one-click experience when signing in to applications and tends to be more robust in configuration control.
 
-For more information on how to configure your software as a service (SaaS) applications for SSO, see the [SaaS SSO deployment plan]../Desktop/plan-sso-deployment.md).
+For more information about configuring single sign-on for your application, see [Plan single sign-on deployment](plan-sso-deployment.md).
 
 ### Considerations for special SSO circumstances
 
 > [!TIP]
 > For a better user experience, use Federated SSO with Azure AD (OpenID Connect/SAML) when an application supports it, instead of password-based SSO and ADFS.
 
-To sign in to password-based SSO applications, or to applications that are accessed by Azure AD Application Proxy, users need to install and use the My Apps secure sign-in extension. Users are prompted to install the extension when they first launch the password-based SSO or Application Proxy application. 
+To sign in to password-based SSO applications, or to applications that are accessed by Azure AD Application Proxy, users need to install and use the My Apps secure sign-in extension. Users are prompted to install the extension when they first launch the password-based SSO or Application Proxy application.
 
 ![Screenshot of](./media/my-apps-deployment-plan/ap-dp-install-myapps.png)
 
@@ -133,7 +129,7 @@ The extension allows users to launch any app from its search bar, finding access
 
 #### Plan for mobile access
 
-For applications that use password-based SSO or accessed by using [Microsoft Azure AD Application Proxy](../app-proxy/application-proxy.md), you must use Microsoft Edge mobile. For other applications, any mobile browser can be used. 
+For applications that use password-based SSO or accessed by using [Microsoft Azure AD Application Proxy](../app-proxy/application-proxy.md), you must use Microsoft Edge mobile. For other applications, any mobile browser can be used.
 
 ### Linked SSO
 
@@ -145,7 +141,7 @@ By default, all applications to which the user has access and all applications c
 
 ### Plan My Apps collections
 
-Every Azure AD application to which a user has access will appear on My Apps in the All Apps collection. Use collections to group related applications and present them on a separate tab, making them easier to find. For example, you can use collections to create logical groupings of applications for specific job roles, tasks, projects, and so on. 
+Every Azure AD application to which a user has access will appear on My Apps in the **Apps** collection. Use collections to group related applications and present them on a separate tab, making them easier to find. For example, you can use collections to create logical groupings of applications for specific job roles, tasks, projects, and so on.
 
 End users can also customize their experience by
 
@@ -158,19 +154,19 @@ End users can also customize their experience by
 There’s an option to hide apps from the My Apps portal, while still allowing access from other locations, such as the Microsoft 365 portal. Learn more: [Hide an application from user’s experience in Azure Active Directory](hide-application-from-user-portal.md).
 
 > [!IMPORTANT]
-> Only 950 apps to which a user has access can be accessed through My Apps. This includes apps hidden by either the user or the administrator. 
+> Only 950 apps to which a user has access can be accessed through My Apps. This includes apps hidden by either the user or the administrator.
 
 ### Plan self-service group management membership
 
 You can enable users to create and manage their own security groups or Microsoft 365 groups in Azure AD. The owner of the group can approve or deny membership requests and delegate control of group membership. Self-service group management features aren’t available for mail-enabled security groups or distribution lists.
 
-To plan for self-service group membership, determine if you’ll allow all users in your organization to create and manage groups or only a subset of users. If you’re allowing a subset of users, you’ll need to set up a group to which those people are added. 
+To plan for self-service group membership, determine if you’ll allow all users in your organization to create and manage groups or only a subset of users. If you’re allowing a subset of users, you’ll need to set up a group to which those people are added.
 
 See [Set up self-service group management in Azure Active Directory](../enterprise-users/groups-self-service-management.md) for details on enabling these scenarios.
 
 ### Plan self-service application access
 
-You can enable users to discover and request access to applications via the My Apps panel. To do so, you must first 
+You can enable users to discover and request access to applications via the My Apps panel. To do so, you must first
 
 * enable self-service group management
 
@@ -191,7 +187,6 @@ Azure AD provides [reports that offer technical and business insights]../reports
 | Report types| Application permissions and usage| Account provisioning activity| Review who is accessing the applications |
 | Potential actions| Audit access; revoke permissions| Remediate any provisioning errors| Revoke access |
 
-
 Azure AD keeps most auditing data for 30 days. The data is available via Azure Admin Portal or API for you to download into your analysis systems.
 
 #### Auditing
@@ -208,7 +203,6 @@ Conduct the following tests with both corporate-owned devices and personal devic
 
 #### Application SSO access test case examples:
 
-
 | Business case| Expected result |
 | - | - |
 | User signs in into the My Apps portal| User can sign in and see their applications |
@@ -218,15 +212,12 @@ Conduct the following tests with both corporate-owned devices and personal devic
 | User launches an app from Microsoft 365 Portal| User is automatically signed in to the application |
 | User launches an app from the Managed Browser| User is automatically signed in to the application |
 
-
 #### Application self-service capabilities test case examples
-
 
 | Business case| Expected result |
 | - | - |
 | User can manage membership to the application| User can add/remove members who have access to the app |
 | User can edit the application| User can edit the application’s description and credentials for password SSO applications |
-
 
 ### Rollback steps
 
@@ -243,7 +234,6 @@ Use the least privileged role to accomplish a required task within Azure Active 
 | Application admin| User attestation in application, configuration on users with permissions| None |
 | Infrastructure admins| Cert rollover owner| Global admin |
 | Business owner/stakeholder| User attestation in application, configuration on users with permissions| None |
-
 
 You can use [Privileged Identity Management](../privileged-identity-management/pim-configure.md) to manage your roles to provide additional auditing, control, and access review for users with directory permissions.
 

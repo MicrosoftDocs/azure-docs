@@ -25,6 +25,8 @@ You'll learn how to:
 
 [!INCLUDE [Unity quickstart prerequisites](../../../includes/object-anchors-quickstart-unity-prerequisites.md)]
 
+[!INCLUDE [Create Account](../../../includes/object-anchors-get-started-create-account.md)]
+
 [!INCLUDE [Unity device setup](../../../includes/object-anchors-quickstart-unity-device-setup.md)]
 
 ## Open the sample project
@@ -36,6 +38,8 @@ You'll learn how to:
 In Unity, open the `quickstarts/apps/unity/basic` project.
 
 [!INCLUDE [Import Unity Package](../../../includes/object-anchors-quickstart-unity-import-package.md)]
+
+[!INCLUDE [Configure Account](../../../includes/object-anchors-get-started-configure-account.md)]
 
 [!INCLUDE [Unity build sample scene 1](../../../includes/object-anchors-quickstart-unity-build-sample-scene-1.md)]
 
@@ -65,3 +69,6 @@ The app looks for objects in the current field of view and then tracks them once
 
 > [!div class="nextstepaction"]
 > [FAQ](../faq.md)
+
+> [!div class="nextstepaction"]
+> [Conversion SDK](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)

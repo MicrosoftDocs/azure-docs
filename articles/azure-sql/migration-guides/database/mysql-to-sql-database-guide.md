@@ -14,7 +14,7 @@ ms.date: 03/19/2021
 # Migration guide: MySQL to Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-In this guide, you learn [how to migrate](https://azure.microsoft.com/migration/migration-journey) your MySQL database to an Azure SQL database by using [SQL Server Migration](https://azure.microsoft.com/en-us/migration/sql-server/) Assistant for MySQL (SSMA for MySQL). 
+In this guide, you learn [how to migrate](https://azure.microsoft.com/migration/migration-journey) your MySQL database to an Azure SQL database by using [SQL Server Migration](https://azure.microsoft.com/migration/sql-server/) Assistant for MySQL (SSMA for MySQL). 
 
 For other migration guides, see [Azure Database Migration Guide](/data-migration). 
 
@@ -160,7 +160,8 @@ For more assistance with completing this migration scenario, see the following r
 
 | Title | Description |
 | --- | --- |
-| [Data workload assessment model and tool](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | Provides suggested “best fit” target platforms, cloud readiness, and application/database remediation levels for specified workloads. It offers simple, one-click calculation and report generation that helps to accelerate large estate assessments by providing an automated, uniform target-platform decision process. |
+| [Data workload assessment model and tool](https://www.microsoft.com/download/details.aspx?id=103130) | Provides suggested “best fit” target platforms, cloud readiness, and application/database remediation levels for specified workloads. It offers simple, one-click calculation and report generation that helps to accelerate large estate assessments by providing an automated, uniform target-platform decision process. |
+|[MySQL to SQL DB - Database Compare utility](https://www.microsoft.com/download/details.aspx?id=103016)|The Database Compare utility is a Windows console application that you can use to verify that the data is identical both on source and target platforms. You can use the tool to efficiently compare data down to the row or column level in all or selected tables, rows, and columns.|
 
 The Data SQL Engineering team developed these resources. This team's core charter is to unblock and accelerate complex modernization for data platform migration projects to Microsoft's Azure data platform.
 

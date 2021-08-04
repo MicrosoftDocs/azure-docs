@@ -5,7 +5,7 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 07/30/2021
 ---
 
 # PostgreSQL extensions in Azure Database for PostgreSQL - Flexible Server
@@ -44,6 +44,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[intagg](https://www.postgresql.org/docs/13/intagg.html)                     | 1.1             | integer aggregator and enumerator. (Obsolete)|
 > |[intarray](https://www.postgresql.org/docs/13/intarray.html)                     | 1.3             | functions, operators, and index support for 1-D arrays of integers|
 > |[isn](https://www.postgresql.org/docs/13/isn.html)                          | 1.2             | data types for international product numbering standards|
+> |[lo](https://www.postgresql.org/docs/13/lo.html)                            | 1.1             | large object maintenance |
 > |[ltree](https://www.postgresql.org/docs/13/ltree.html)                        | 1.2             | data type for hierarchical tree-like structures|
 > |[pageinspect](https://www.postgresql.org/docs/13/pageinspect.html)                        | 1.8             | inspect the contents of database pages at a low level|
 > |[pg_buffercache](https://www.postgresql.org/docs/13/pgbuffercache.html)               | 1.3             | examine the shared buffer cache|
@@ -55,8 +56,8 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pg_trgm](https://www.postgresql.org/docs/13/pgtrgm.html)                      | 1.5             | text similarity measurement and index searching based on trigrams|
 > |[pg_visibility](https://www.postgresql.org/docs/13/pgvisibility.html)                      | 1.2             | examine the visibility map (VM) and page-level visibility info|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.5             | provides auditing functionality|
-> |[pgcrypto](https://www.postgresql.org/docs/13/pgcrypto.html)                     | 1.3             | cryptographic functions|
-> |[pglogical](https://github.com/2ndQuadrant/pglogical)                     | 2.3.3           | PostgreSQL logical replication|
+> |[pgcrypto](https://www.postgresql.org/docs/13/pgcrypto.html)                     | 1.3             | cryptographic functions| 
+> |[pglogical](https://github.com/2ndQuadrant/pglogical)       | 2.3.2                | Logical streaming replication |
 > |[pgrowlocks](https://www.postgresql.org/docs/13/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/13/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
 > |[plpgsql](https://www.postgresql.org/docs/13/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
@@ -96,6 +97,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[intagg](https://www.postgresql.org/docs/12/intagg.html)                     | 1.1             | integer aggregator and enumerator. (Obsolete)|
 > |[intarray](https://www.postgresql.org/docs/12/intarray.html)                     | 1.2             | functions, operators, and index support for 1-D arrays of integers|
 > |[isn](https://www.postgresql.org/docs/12/isn.html)                          | 1.2             | data types for international product numbering standards|
+> |[lo](https://www.postgresql.org/docs/12/lo.html)                            | 1.1             | large object maintenance |
 > |[ltree](https://www.postgresql.org/docs/12/ltree.html)                        | 1.1             | data type for hierarchical tree-like structures|
 > |[pageinspect](https://www.postgresql.org/docs/12/pageinspect.html)                        | 1.7             | inspect the contents of database pages at a low level|
 > |[pg_buffercache](https://www.postgresql.org/docs/12/pgbuffercache.html)               | 1.3             | examine the shared buffer cache|
@@ -108,7 +110,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pg_visibility](https://www.postgresql.org/docs/12/pgvisibility.html)                      | 1.2             | examine the visibility map (VM) and page-level visibility info|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.4             | provides auditing functionality|
 > |[pgcrypto](https://www.postgresql.org/docs/12/pgcrypto.html)                     | 1.3             | cryptographic functions|
-> |[pglogical](https://github.com/2ndQuadrant/pglogical)                     | 2.3.2           | PostgreSQL logical replication|
+>|[pglogical](https://github.com/2ndQuadrant/pglogical)       | 2.3.2                | Logical streaming replication |
 > |[pgrowlocks](https://www.postgresql.org/docs/12/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/12/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
 > |[plpgsql](https://www.postgresql.org/docs/12/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
@@ -148,6 +150,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[intagg](https://www.postgresql.org/docs/11/intagg.html)                     | 1.1             | integer aggregator and enumerator. (Obsolete)|
 > |[intarray](https://www.postgresql.org/docs/11/intarray.html)                     | 1.2             | functions, operators, and index support for 1-D arrays of integers|
 > |[isn](https://www.postgresql.org/docs/11/isn.html)                          | 1.2             | data types for international product numbering standards|
+> |[lo](https://www.postgresql.org/docs/11/lo.html)                            | 1.1             | large object maintenance |
 > |[ltree](https://www.postgresql.org/docs/11/ltree.html)                        | 1.1             | data type for hierarchical tree-like structures|
 > |[pageinspect](https://www.postgresql.org/docs/11/pageinspect.html)                        | 1.7             | inspect the contents of database pages at a low level|
 > |[pg_buffercache](https://www.postgresql.org/docs/11/pgbuffercache.html)               | 1.3             | examine the shared buffer cache|
@@ -160,7 +163,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pg_visibility](https://www.postgresql.org/docs/11/pgvisibility.html)                      | 1.2             | examine the visibility map (VM) and page-level visibility info|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.3.1             | provides auditing functionality|
 > |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1.3             | cryptographic functions|
-> |[pglogical](https://github.com/2ndQuadrant/pglogical)                     | 2.3.2           | PostgreSQL logical replication|
+>|[pglogical](https://github.com/2ndQuadrant/pglogical)       | 2.3.2                | Logical streaming replication |
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/11/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
 > |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|

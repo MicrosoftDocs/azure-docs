@@ -51,7 +51,6 @@ rs4-pro                     Windows-10 MicrosoftWindowsDesktop eastus
 rs4-pron                    Windows-10 MicrosoftWindowsDesktop eastus   
 rs5-enterprise              Windows-10 MicrosoftWindowsDesktop eastus   
 rs5-enterprisen             Windows-10 MicrosoftWindowsDesktop eastus   
-rs5-pro                     Windows-10 MicrosoftWindowsDesktop eastus   
 rs5-pron                    Windows-10 MicrosoftWindowsDesktop eastus  
 ```
 
@@ -88,7 +87,7 @@ Add-AzVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.
 
 
 **Deploy using Azure Resource Manager Template Deployment**
-Within your Resource Manager templates, an additional parameter for `licenseType` can be specified. You can read more about [authoring Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md). Once you have your VHD uploaded to Azure, edit you Resource Manager template to include the license type as part of the compute provider and deploy your template as normal:
+Within your Resource Manager templates, an additional parameter for `licenseType` can be specified. You can read more about [authoring Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md). Once you have your VHD uploaded to Azure, edit you Resource Manager template to include the license type as part of the compute provider and deploy your template as normal:
 ```json
 "properties": {
     "licenseType": "Windows_Client",

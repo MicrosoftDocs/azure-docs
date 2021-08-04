@@ -1,8 +1,9 @@
 ---
 title: Use Azure Image Builder with an image gallery for Windows VMs
 description: Create Azure Shared Gallery image versions using Azure Image Builder and Azure PowerShell.
-author: cynthn
-ms.author: cynthn
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
@@ -27,18 +28,6 @@ Be aware how many times you layer customizations. You can run the Sysprep comman
 
 ## Register the features
 To use Azure Image Builder, you need to register the feature.
-
-```powershell
-Register-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
-```
-
-Check the status of the feature registration.
-
-```powershell
-Get-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
-```
-
-Wait until `RegistrationState` is `Registered` before moving to the next step.
 
 Check your provider registrations. Make sure each returns `Registered`.
 

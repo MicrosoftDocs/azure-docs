@@ -82,7 +82,7 @@ landingContent:
             url: concepts-apis-sdks.md
       - linkListType: how-to-guide
         links:
-          - text: Make requests with Postman 
+          - text: Make API requests with Postman 
             url: how-to-use-postman.md
 
   - title: Explore code samples

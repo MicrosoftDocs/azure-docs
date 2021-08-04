@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 author: jpe316
 ms.author:  jordane
-ms.date: 03/17/2020
+ms.date: 07/08/2021
 ms.custom: seodec18
 ---
 
@@ -34,6 +34,7 @@ Azure Machine Learning provides the following MLOps capabilities:
 - **Monitor ML applications for operational and ML-related issues**. Compare model inputs between training and inference, explore model-specific metrics, and provide monitoring and alerts on your ML infrastructure.
 - **Automate the end-to-end ML lifecycle with Azure Machine Learning and Azure Pipelines**. Using pipelines allows you to frequently update models, test new models, and continuously roll out new ML models alongside your other applications and services.
 
+For more information on MLOps, see [Machine Learning DevOps (MLOps)](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-mlops).
 ## Create reproducible ML pipelines
 
 Use ML pipelines from Azure Machine Learning to stitch together all of the steps involved in your model training process.

@@ -52,13 +52,13 @@ Download the AzCopy V10 executable file.
 
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
-- [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
+- [macOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
 Place the AzCopy file anywhere on your computer. Add the location of the file to your system path variable so that you can refer to this executable file from any folder on your computer.
 
 ## Authenticate with Azure AD
 
-First, assign the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) role to your identity. See [Use the Azure portal to assign an Azure role for access to blob and queue data](./storage-auth-aad-rbac-portal.md).
+First, assign the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) role to your identity. See [Assign an Azure role for access to blob data](../blobs/assign-azure-role-data-access.md).
 
 Then, open a command prompt, type the following command, and press the ENTER key.
 

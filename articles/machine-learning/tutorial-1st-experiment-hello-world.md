@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Run a "Hello world!" Python script'
+title: 'Tutorial: Get started with a Python script'
 titleSuffix: Azure Machine Learning
-description: Part 1 of the Azure Machine Learning get-started series shows how to submit a trivial "Hello world!" Python script to the cloud.
+description: Get started with your first Python script in Azure Machine Learning. This is part 1 of a three-part getting-started series.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 04/27/2021
-ms.custom: devx-track-python
+ms.custom: devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4
 ---
 
-# Tutorial: Run a "Hello world!" Python script (part 1 of 3)
+# Tutorial: Get started with a Python script in Azure Machine Learning (part 1 of 3)
 
-In this tutorial, you learn how to use the Azure Machine Learning SDK for Python to submit and run a Python "Hello world!" script.
+In this tutorial, you run your first Python script in the cloud with Azure Machine Learning. This tutorial is *part 1 of a three-part tutorial series*.
 
-This tutorial is *part 1 of a three-part tutorial series* in which you learn the fundamentals of Azure Machine Learning and complete jobs-based machine learning tasks in Azure. 
+This tutorial avoids the complexity of training a machine learning model. You will run a "Hello World" Python script in the cloud. You will learn how a control script is used to configure and create a run in Azure Machine Learning.
 
 In this tutorial, you will:
 
@@ -73,9 +73,6 @@ Select **Save and run script in terminal** to run the script.
 
 You'll see the output of the script in the terminal window that opens. Close the tab and select **Terminate** to close the session.
 
-> [!div class="nextstepaction"]
-> [I ran the script locally](?success=run-local#control-script) [I ran into an issue](https://www.research.net/r/7C2NTH7?issue=run-local)
-
 ## <a name="control-script"></a> Create a control script
 
 A *control script* allows you to run your `hello.py` script on different compute resources. You use the control script to control how and where your machine learning code is run.  
@@ -124,7 +121,7 @@ Here's a description of how the control script works:
       `config = ScriptRunConfig( ... )` 
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) wraps your `hello.py` code and passes it to your workspace. As the name suggests, you can use this class to _configure_ how you want your _script_ to _run_ in Azure Machine Learning. It also specifies what compute target the script will run on. In this code, the target is the compute cluster that you created in the [setup tutorial](tutorial-1st-experiment-sdk-setup-local.md).
+      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) wraps your `hello.py` code and passes it to your workspace. As the name suggests, you can use this class to _configure_ how you want your _script_ to _run_ in Azure Machine Learning. It also specifies what compute target the script will run on. In this code, the target is the compute cluster that you created in the [setup tutorial](./quickstart-create-resources.md).
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -144,8 +141,6 @@ Here's a description of how the control script works:
    :::column-end:::
 :::row-end:::
 
-> [!div class="nextstepaction"]
-> [I created the control script](?success=create-control-script#submit) [I ran into an issue](https://www.research.net/r/7C2NTH7?issue=create-control-script)
 
 ## <a name="submit"></a> Submit and run your code in the cloud
 
@@ -156,8 +151,6 @@ In the terminal, you may be asked to sign in to authenticate.  Copy the code and
 > [!TIP]
 > If you just finished creating the compute cluster, you may see the error "UserError: Required Docker image not found..." Wait about 5 minutes or so, and try again.  The compute cluster may need more time before it is ready to spin up nodes.
 
-> [!div class="nextstepaction"]
-> [I submitted code in the cloud](?success=submit-to-cloud#monitor) [I ran into an issue](https://www.research.net/r/7C2NTH7?issue=submit-to-cloud)
 
 ## <a name="monitor"></a>Monitor your code in the cloud in the studio
 
@@ -200,8 +193,6 @@ On line 8, you see the "Hello world!" output.
 
 The `70_driver_log.txt` file contains the standard output from a run. This file can be useful when you're debugging remote runs in the cloud.
 
-> [!div class="nextstepaction"]
-> [I saw the log in studio](?success=monitor-in-studio#next-steps) [I ran into an issue](https://www.research.net/r/7C2NTH7?issue=monitor-in-studio)
 
 ## Next steps
 

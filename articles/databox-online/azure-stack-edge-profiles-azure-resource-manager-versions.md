@@ -61,7 +61,7 @@ The operations call result is a representation of the available Network cloud op
 
 ### Microsoft.Resources
 
-Azure Resource Manager lets you deploy and manage the infrastructure for your Azure solutions. You organize related resources in resource groups and deploy your resources with JSON templates. For an introduction to deploying and managing resources with Resource Manager, see the [Azure Resource Manager overview](/azure/azure-resource-manager/management/overview).
+Azure Resource Manager lets you deploy and manage the infrastructure for your Azure solutions. You organize related resources in resource groups and deploy your resources with JSON templates. For an introduction to deploying and managing resources with Resource Manager, see the [Azure Resource Manager overview](../azure-resource-manager/management/overview.md).
 
 |Resource Types                        |API Versions|
 |--------------------------------------|------------|

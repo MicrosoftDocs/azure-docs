@@ -10,7 +10,7 @@ ms.subservice: service-overview
 ms.custom: sqldbrb=2, references_regions
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 06/03/2021
+ms.date: 06/22/2021
 ---
 # What's new in Azure SQL Database & SQL Managed Instance?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -44,27 +44,41 @@ This table provides a quick comparison for the change in terminology:
 
 | Feature | Details |
 | ---| --- |
-| Elastic database jobs (preview) | For information, see [Create, configure, and manage elastic jobs](elastic-jobs-overview.md). |
+| Elastic database jobs | For information, see [Create, configure, and manage elastic jobs](elastic-jobs-overview.md). |
 | Elastic queries | For information, see [Elastic query overview](elastic-query-overview.md). |
-| Elastic transactions | [Distributed transactions across cloud databases](elastic-transactions-overview.md). |
+| Elastic transactions | For information, see [Distributed transactions across cloud databases](elastic-transactions-overview.md). |
 | Query editor in the Azure portal |For information, see [Use the Azure portal's SQL query editor to connect and query data](connect-query-portal.md).|
-|SQL Analytics|For information, see [Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md).|
-| &nbsp; |
+| SQL Analytics|For information, see [Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md).|
+| Query Store hints | For information, see [Query Store hints](/sql/relational-databases/performance/query-store-hints?view=azuresqldb-current&preserve-view=true).|
+| ---| --- |
 
 ### [Azure SQL Managed Instance](#tab/managed-instance)
 
 | Feature | Details |
 | ---| --- |
+| [16 TB support for SQL Managed Instance General Purpose](https://techcommunity.microsoft.com/t5/azure-sql/increased-storage-limit-to-16-tb-for-sql-managed-instance/ba-p/2421443) | Support for allocation up to 16 TB of space on SQL Managed Instance General Purpose |
+| [Migration with Log Replay Service](../managed-instance/log-replay-service-migrate.md) | Migrate databases from SQL Server to SQL Managed Instance by using Log Replay Service. |
+| [Maintenance window](./maintenance-window.md)| The maintenance window feature allows you to configure maintenance schedule. |
 | [Distributed transactions](./elastic-transactions-overview.md) | Distributed transactions across Managed Instances. |
 | [Instance pools](../managed-instance/instance-pools-overview.md) | A convenient and cost-efficient way to migrate smaller SQL instances to the cloud. |
 | [Instance-level Azure AD server principals (logins)](/sql/t-sql/statements/create-login-transact-sql) | Create instance-level logins using a [CREATE LOGIN FROM EXTERNAL PROVIDER](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) statement. |
 | [Transactional Replication](../managed-instance/replication-transactional-overview.md) | Replicate the changes from your tables into other databases in SQL Managed Instance, SQL Database, or SQL Server. Or update your tables when some rows are changed in other instances of SQL Managed Instance or SQL Server. For information, see [Configure replication in Azure SQL Managed Instance](../managed-instance/replication-between-two-instances-configure-tutorial.md). |
 | Threat detection |For information, see [Configure threat detection in Azure SQL Managed Instance](../managed-instance/threat-detection-configure.md).|
 | Long-term backup retention | For information, see [Configure long-term back up retention in Azure SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md), which is currently in limited public preview. |
+| Query Store hints | For information, see [Query Store hints](/sql/relational-databases/performance/query-store-hints?view=azuresqldb-mi-current&preserve-view=true).|
+| ---| --- |
 
 ---
 
 ## New features
+
+### SQL Managed Instance H1 2021 updates
+
+- [Public Preview for Support 16 TB for SQL Managed Instance General Purpose](https://techcommunity.microsoft.com/t5/azure-sql/increased-storage-limit-to-16-tb-for-sql-managed-instance/ba-p/2421443) - support for allocation of up to 16 TB of space for SQL Managed Instance General Purpose (Public Preview)
+ 
+- [Migrate to Managed Instance with Log Replay Service](../managed-instance/log-replay-service-migrate.md) - allows migrating databases from SQL Server to SQL Managed Instance by using Log Replay Service (Public Preview)
+
+- [Maintenance window](./maintenance-window.md) - the maintenance window feature allows you to configure maintenance schedule, see [Maintenance window announcement](https://techcommunity.microsoft.com/t5/azure-sql/maintenance-window-for-azure-sql-database-and-managed-instance/ba-p/2174835) (Public Preview).
 
 ### SQL Managed Instance H2 2019 updates
 

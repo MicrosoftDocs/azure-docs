@@ -11,7 +11,7 @@ ms.custom: "devx-track-js, devx-track-dotnet, devx-track-azurepowershell"
 Enabling monitoring on your ASP.NET, ASP.NET Core, Java, and Node.js based web applications running on [Azure App Services](../../app-service/index.yml) is now easier than ever. Whereas previously you needed to manually instrument your app, the latest extension/agent is now built into the App Service image by default. This article will walk you through enabling Azure Monitor application Insights monitoring as well as provide preliminary guidance for automating the process for large-scale deployments.
 
 > [!NOTE]
-> For .Net on Windows only: manually adding an Application Insights site extension via **Development Tools** > **Extensions** is deprecated. This method of extension installation was dependent on manual updates for each new version. The latest stable release of the extension is now  [preinstalled](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) as part of the App Service image. The files are located in `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` and are automatically updated with each stable release. If you follow the agent based instructions to enable monitoring below, it will automatically remove the deprecated extension for you.
+> For .NET on Windows only: manually adding an Application Insights site extension via **Development Tools** > **Extensions** is deprecated. This method of extension installation was dependent on manual updates for each new version. The latest stable release of the extension is now  [preinstalled](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) as part of the App Service image. The files are located in `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` and are automatically updated with each stable release. If you follow the agent-based instructions to enable monitoring below, it will automatically remove the deprecated extension for you.
 
 ## Enable Application Insights
 
@@ -92,9 +92,7 @@ Targeting the full framework from ASP.NET Core, self-contained deployment, and L
 
 # [Node.js](#tab/nodejs)
 
-Windows agent-based monitoring is not supported, to enable with Linux visit the [Node.js App Service documentation](../../app-service/configure-language-nodejs.md?pivots=platform-linux#monitor-with-application-insights).
-
-You can monitor your Node.js apps running in Azure App Service without any code change, just with a couple of simple steps. Application insights for Node.js applications is integrated with App Service on Linux - both code-based and custom containers, and with App Service on Windows for code-based apps. The integration is in public preview. The integration adds Node.js SDK, which is in GA. 
+You can monitor your Node.js apps running in Azure App Service without any code change, just with a couple of simple steps. Application insights for Node.js applications is integrated with App Service on Linux - both code-based and custom containers, and with App Service on Windows for code-based apps.
 
 1. **Select Application Insights** in the Azure control panel for your app service.
 
@@ -115,7 +113,7 @@ You can monitor your Node.js apps running in Azure App Service without any code 
 
 # [Java](#tab/java)
 
-You can turn on monitoring for your Java apps running in Azure App Service just with one click, no code change required. Application Insights for Java is integrated with App Service on Linux - both code-based and custom containers, and with App Service on Windows - code-based apps. The integration is in public preview. It is important to know how your application will be monitored. The integration adds [Application Insights Java 3.0](./java-in-process-agent.md), which is in GA. You will get all the telemetry that it auto-collects.
+You can turn on monitoring for your Java apps running in Azure App Service just with one click, no code change required. Application Insights for Java is integrated with App Service on Linux - both code-based and custom containers, and with App Service on Windows - code-based apps. It is important to know how your application will be monitored. The integration adds [Application Insights Java 3.x](./java-in-process-agent.md) and you will get all the telemetry that it auto-collects.
 
 1. **Select Application Insights** in the Azure control panel for your app service.
 
@@ -129,7 +127,7 @@ You can turn on monitoring for your Java apps running in Azure App Service just 
 
     ![Instrument your web app.](./media/azure-web-apps/create-resource-01.png)
 
-2. After specifying which resource to use, you can configure the Java agent. The full [set of configurations](./java-standalone-config.md) is available, you just need to paste a valid json file without specifying the connection string. You have already picked an application insights resource to connect to, remember? 
+2. After specifying which resource to use, you can configure the Java agent. The full [set of configurations](./java-standalone-config.md) is available, you just need to paste a valid json file. Exclude the connection string and any configurations that are in preview - you will be able to add those as they become generally available.
 
     > [!div class="mx-imgBorder"]
     > ![Choose options per platform.](./media/azure-web-apps/create-app-service-ai.png)
@@ -204,7 +202,7 @@ In order to enable telemetry collection with Application Insights, only the Appl
 
 ### App Service Application settings with Azure Resource Manager
 
-Application settings for App Services can be managed and configured with [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md). This method can be used when deploying new App Service resources with Azure Resource Manager automation, or for modifying the settings of existing resources.
+Application settings for App Services can be managed and configured with [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md). This method can be used when deploying new App Service resources with Azure Resource Manager automation, or for modifying the settings of existing resources.
 
 The basic structure of the application settings JSON for an app service is below:
 

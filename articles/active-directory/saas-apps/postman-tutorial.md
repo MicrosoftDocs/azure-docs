@@ -124,11 +124,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Postman SSO
 
-To configure single sign-on on **Postman** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Postman support team](mailto:help@getpostman.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on the **Postman** side, you need to upload the downloaded **Federation Metadata XML** and update the appropriate copied URLs from the Azure portal at Postman. To learn how to configure Postman SSO, see the [step-by-step guide](https://learning.postman.com/docs/administration/sso/admin-sso/).
 
 ### Create Postman test user
 
-In this section, a user called Britta Simon is created in Postman. Postman supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Postman, a new one is created after authentication.
+In this section, a user called Britta Simon is created in Postman. Postman supports just-in-time user provisioning, which can be enabled by selecting  the checkbox to [Automatically add new users](https://learning.postman.com/docs/administration/sso/admin-sso/#automatically-adding-new-users). With this, if a user doesn't already exist in Postman, a new one is created after authentication.
 
 ## Test SSO 
 
