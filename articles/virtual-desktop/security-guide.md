@@ -216,18 +216,14 @@ Rename-Item HKLM:\SYSTEM\ControlSet001\Services\WinSock2\Parameters\AppId_Catalo
 ```
 
 >[!NOTE]
->Deleting the key would achieve the same thing, but the rename provides a way to revert back more easily if desired.  This is the data that is there by default:
-HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\WinSock2\Parameters\AppId_Catalog\2C69D9F1 
-AppFullPath: C:\Windows\System32\svchost.exe 
+>Deleting the key would achieve the same thing, but the rename provides a way to revert back more easily if desired.  This is the data that is there by default:               
+HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\WinSock2\Parameters\AppId_Catalog\2C69D9F1\
+AppFullPath: C:\Windows\System32\svchost.exe\
 PermittedLspCategories: 0x40000000
 
 2. Restart the VM.
 
-3. Enable the IP Virtualization feature:
-    - Open gpedit.msc.
-    - Navigate to **Computer Configuration** -> **Administrative Templates** -> **Windows Components** -> **Remote Desktop Services** -> **Remote Desktop Session Host** ->            **Application Compatibility**.
-    - Enable the policy *Turn on Remote Desktop IP Virtualization*.
-    - In the policy, specify the IP address that you would like to use.
+3. Enable the IP Virtualization feature by opening **gpedit.msc**, then going to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Application Compatibility**. Enable the **Turn on Remote Desktop IP Virtualization** policy, then specify the IP address you want the policy to use.
 
 4. Restart the VM.
 
