@@ -40,7 +40,7 @@ $token=$(az account get-access-token --resource=https://dicom.healthcareapis.azu
 
 ```Azure CLICopy
 Try It
-curl -X GET --header "Authorization: Bearer $token"  https://<workspace-service>.dicom.azurehealthcareapis.com/changefeed
+curl -X GET --header "Authorization: Bearer $token"  https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com/v<version of REST API>/changefeed
 ```
 
 ## Next steps
