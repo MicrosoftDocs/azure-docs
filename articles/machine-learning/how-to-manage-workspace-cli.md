@@ -97,30 +97,6 @@ To create a new workspace where the __services are automatically created__, use 
 az ml workspace create -w <workspace-name> -g <resource-group-name>
 ```
 
-> [!NOTE]
-> The workspace name is case-insensitive.
-
-The output of this command is similar to the following JSON:
-
-```json
-{
-  "applicationInsights": "/subscriptions/<service-GUID>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<application-insight-name>",
-  "containerRegistry": "/subscriptions/<service-GUID>/resourcegroups/<resource-group-name>/providers/microsoft.containerregistry/registries/<acr-name>",
-  "creationTime": "2019-08-30T20:24:19.6984254+00:00",
-  "description": "",
-  "friendlyName": "<workspace-name>",
-  "id": "/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>",
-  "identityPrincipalId": "<GUID>",
-  "identityTenantId": "<GUID>",
-  "identityType": "SystemAssigned",
-  "keyVault": "/subscriptions/<service-GUID>/resourcegroups/<resource-group-name>/providers/microsoft.keyvault/vaults/<key-vault-name>",
-  "location": "<location>",
-  "name": "<workspace-name>",
-  "resourceGroup": "<resource-group-name>",
-  "storageAccount": "/subscriptions/<service-GUID>/resourcegroups/<resource-group-name>/providers/microsoft.storage/storageaccounts/<storage-account-name>",
-  "type": "Microsoft.MachineLearningServices/workspaces",
-  "workspaceid": "<GUID>"
-}
 ```
 
 # [Bring existing resources (1.0 CLI)](#tab/bringexistingresources1)
@@ -173,6 +149,9 @@ The resource IDs value has the following format: `"/subscriptions/<service-GUID>
 
 > [!IMPORTANT]
 > You don't have to specify all existing resources. You can specify one or more. For example, you can specify an existing storage account and the workspace will create the other resources.
+
+> [!NOTE]
+> The workspace name is case-insensitive.
 
 ---
 
