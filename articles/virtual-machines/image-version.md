@@ -94,11 +94,9 @@ You can also capture an existing VM as an image, from the portal. For more infor
 
 Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them.
 
-Make sure your image definition is the right type. If your source has been *generalized* (using Sysprep for Windows, or waagent -deprovision for Linux) then you should create a generalized image definition using `--os-state generalized`. If you want to use a source without removing existing user accounts, create a specialized image definition using `--os-state specialized`.
+Create an image definition in a gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az_sig_image_definition_create). Make sure your image definition is the right type. If you have generalized the VM (using Sysprep for Windows, or waagent -deprovision for Linux) then you should create a generalized image definition using `--os-state generalized`. If you want to use the VM without removing existing user accounts, create a specialized image definition using `--os-state specialized`.
 
 For more information about the parameters you can specify for an image definition, see [Image definitions](shared-image-galleries.md#image-definitions).
-
-Create an image definition in the gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az_sig_image_definition_create).
 
 In this example, the image definition is named *myImageDefinition*, and is for a [specialized](shared-image-galleries.md#generalized-and-specialized-images) Linux OS image. To create a definition for images using a Windows OS, use `--os-type Windows`. 
 
