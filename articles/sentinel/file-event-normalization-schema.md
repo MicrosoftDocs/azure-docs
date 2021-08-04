@@ -113,7 +113,7 @@ Event fields are common to all schemas and describe the activity itself and the 
 
 
 
-### File Event-specific fields
+### File event specific fields
 
 The fields listed in the table below are specific to File events, but are similar to fields in other schemas and follow similar naming conventions.
 
@@ -171,7 +171,7 @@ For example: `JohnDoe` (**Actor**) uses `Windows File Explorer` (**Acting proces
 | **TargetFileSHA512**| Optional| SHA512|The SHA-512 hash of the source file. |
 |**Hash**|Alias | |Alias to the best available Target File hash. |
 |**TargetFileSize** |Optional | Integer|The size of the target file in bytes. |
-| **TargetUrl**|Optional | String|When the operation is initiated using HTTP or HTTPS, the URL used. <br><br>Example: `https://console.aws.amazon.com/console/home?...` |
+| **TargetUrl**|Optional | String|When the operation is initiated using HTTP or HTTPS, the URL used. <br><br>Example: `https://onedrive.live.com/?authkey=...` |
 | | | | |
 
 
