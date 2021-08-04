@@ -88,7 +88,7 @@ In this section, you'll create a virtual network and subnet.
 
 12. Select **Create**.
 
-Create load balancer
+## Create load balancer
 
 In this section, you create a load balancer that load balances virtual machines.
 
