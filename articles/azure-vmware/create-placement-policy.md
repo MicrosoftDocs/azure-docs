@@ -80,28 +80,22 @@ If DRS rule conflicts are detected when you create a VM-VM policy, it results in
 
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Placement policies** > **Add placement policy**.
 
-   :::image type="content" source="media/placement-policies/add-placement-policy-1.png" alt-text="Screenshot showing " border="true" lightbox="media/placement-policies/add-placement-policy-1.png":::
+   :::image type="content" source="media/placement-policies/add-placement-policy-1.png" alt-text="Screenshot showing " lightbox="media/placement-policies/add-placement-policy-1.png":::
 
-1. Provide a descriptive name for the policy that you're creating.
+1. Provide a descriptive name, select the policy type, and then select the cluster where the policy is being created.
 
-1. Select the policy type
+   :::image type="content" source="media/placement-policies/add-placement-policy-2.png" alt-text="Screenshot showing the Create new policy options.":::
 
-3.	Supply a descriptive name for the policy in the Name field
-4.	Select the policy Type 
-5.	Select the Cluster where the policy should be created
-
-
-
-
-!NOTE: You may also select the Cluster from the Placement Policy overview pane before selecting ‘+ Add placement policy’
+   >[!NOTE]
+   >You may also select the Cluster from the Placement Policy overview pane before selecting ‘+ Add placement policy’
 
 
 
 
-6.	If desired, you may deselect the Enabled checkbox. This will create the policy and underlying DRS rule but the policy actions will be ignored until the policy is enabled.
-7.	select ‘+ Add virtual machine’
-8.	On the Select Virtual Machines pane, select the virtual machine to include in the policy by selecting the checkbox next to the virtual machine name in the list. Select multiple as required or desired.
-9.	select ‘+ Add virtual machine’ at the top of the Select Virtual Machines pane.
+1.	If desired, you may deselect the Enabled checkbox. This will create the policy and underlying DRS rule but the policy actions will be ignored until the policy is enabled.
+1.	select ‘+ Add virtual machine’
+1.	On the Select Virtual Machines pane, select the virtual machine to include in the policy by selecting the checkbox next to the virtual machine name in the list. Select multiple as required or desired.
+1.	select ‘+ Add virtual machine’ at the top of the Select Virtual Machines pane.
 
 
 
@@ -109,7 +103,7 @@ If DRS rule conflicts are detected when you create a VM-VM policy, it results in
 
 
 
-10.	If  you see an ‘+ Add host’ option, then your policy type requires the selection of a host. 
+1.	If  you see an ‘+ Add host’ option, then your policy type requires the selection of a host. 
 a.	select ‘+ Add host’ to open the Select Hosts pane.
 b.	On the Select Hosts pane, select the host to include in the policy by selecting the checkbox next to the host name in the list. Select multiple as desired.
 
