@@ -57,7 +57,7 @@ Install-Module -Name Az.ApplicationMonitor -AllowPrerelease -AcceptLicense
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
-Enable-ApplicationInsightsMonitoring -ConnectionString 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+Enable-ApplicationInsightsMonitoring -ConnectionString 'InstrumentationKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 ```
 	
 		
@@ -76,7 +76,7 @@ Expand-Archive -LiteralPath $pathToZip -DestinationPath $pathInstalledModule
 ### Enable monitoring
 
 ```powershell
-Enable-ApplicationInsightsMonitoring -ConnectionString 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+Enable-ApplicationInsightsMonitoring -ConnectionString 'InstrumentationKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 ```
 
 
