@@ -652,14 +652,14 @@ This behavior occurs when nodes can't communicate with each other.
     - Put all the nodes in the same domain.
     - Add the IP to host mapping in all the hosted VM's host files.
 
-### Connectivity issue between the self-hosted IR and your data factory or Synapse instance or the self-hosted IR and the data source or sink
+### Connectivity issue between the self-hosted IR and your data factory or Azure Synapse instance or the self-hosted IR and the data source or sink
 
 To troubleshoot the network connectivity issue, you should know 
 how to collect the network trace, understand how to use it, and [analyze the Microsoft Network Monitor (Netmon) trace](#analyze-the-netmon-trace) before applying the Netmon Tools in real cases from the self-hosted IR.
 
 #### Symptoms
 
-You might occasionally need to troubleshoot certain connectivity issues between the self-hosted IR and your data factory or Synapse instance, as shown in the following screenshot, or between the self-hosted IR and the data source or sink. 
+You might occasionally need to troubleshoot certain connectivity issues between the self-hosted IR and your data factory or Azure Synapse instance, as shown in the following screenshot, or between the self-hosted IR and the data source or sink. 
 
 ![Screenshot of a "Processed HTTP request failed" message](media/self-hosted-integration-runtime-troubleshoot-guide/http-request-error.png)
 
@@ -807,7 +807,7 @@ How to determine whether you're affected:
 
 #### Symptoms
 
-The self-hosted IR couldn't connect to the Azure Data Factory or Synapse Analytics service.
+The self-hosted IR couldn't connect to the Azure Data Factory or Azure Synapse Analytics service.
 
 When you check the self-hosted IR event log or the client notification logs in the CustomLogEvent table, you'll find the following error message:
 
