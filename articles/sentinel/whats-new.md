@@ -33,11 +33,14 @@ If you're looking for items older than six months, you'll find them in the [Arch
 - [File event normalization schema (Public preview)](#file-event-normalization-schema-public-preview)
 - [New in docs: Best practice guidance](#new-in-docs-best-practice-guidance)
 
-### File event normalization schema (Public preview)
+### File Event normalization schema (Public preview)
 
-The Azure Information Model (ASIM) now supports a File Event normalization schema, which is used  to describe file activity such as creating, modifying or deleting files or documents. File events are reported by operating systems, file storage systems such as Azure Files, and document management systems such as Microsoft SharePoint.
+The Azure Sentinel Information Model (ASIM) now supports a File Event normalization schema, which is used to describe file activity, such as creating, modifying, or deleting files or documents. File events are reported by operating systems, file storage systems such as Azure Files, and document management systems such as Microsoft SharePoint.
 
-For more information, see [Azure Sentinel File Event normalization schema reference (Public preview)](file-event-normalization-schema.md) and [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md).
+For more information, see:
+
+- [Azure Sentinel File Event normalization schema reference (Public preview)](file-event-normalization-schema.md)
+- [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md)
 
 
 ### New in docs: Best practice guidance
