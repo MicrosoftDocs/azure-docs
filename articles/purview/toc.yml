@@ -5,8 +5,8 @@ items:
   items:
   - name: What is Azure Purview?
     href: overview.md
-  - name: Purview configuration
-    href: purview-configuration.md
+  - name: Purview structure
+    href: purview-structure.md
 - name: Quickstarts
   expanded: true
   items:
