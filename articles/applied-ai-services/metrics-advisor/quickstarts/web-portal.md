@@ -25,8 +25,8 @@ When you provision an instance of Azure Metrics Advisor, you can use the APIs an
 
     
 > [!TIP]
-> * It can take 10 - 30 minutes for your Metrics Advisor resource to deploy. Select **Go to resource** after it successfully deploys.
-> * If you want to use the REST API to interact with the service, you need the key and endpoint from the resource you create. You can find them in the **Keys and endpoints** tab in the created resource.
+> * It can take 10 to 30 minutes for your Metrics Advisor resource to deploy. Select **Go to resource** after it successfully deploys.
+> * If you want to use the REST API to interact with the service, you need the key and endpoint from the resource you create. You can find them on the **Keys and endpoints** tab in the created resource.
 
 
 This document uses a SQL database as an example for creating your first monitor.
@@ -90,12 +90,12 @@ After configuring the schema, select **Verify schema**. Metrics Advisor performs
 - Whether the timestamp of the queried data falls into one single interval. 
 - Whether there are duplicate values returned for the same dimension combination within one metric interval.  
 
-### Automatic roll up settings
+### Automatic roll-up settings
 
 > [!IMPORTANT]
-> If you want to enable root cause analysis and other diagnostic capabilities, configure the automatic roll up settings. After you enable the analysis, you can't change the automatic roll up settings.
+> If you want to enable root cause analysis and other diagnostic capabilities, configure the automatic roll-up settings. After you enable the analysis, you can't change the automatic roll-up settings.
 
-Metrics Advisor can automatically perform aggregation on each dimension during ingestion. Then the service builds a hierarchy that you can use in root cause analysis and other diagnostic features. For more information, see [Automatic roll up settings](../how-tos/onboard-your-data.md#automatic-roll-up-settings).
+Metrics Advisor can automatically perform aggregation on each dimension during ingestion. Then the service builds a hierarchy that you can use in root cause analysis and other diagnostic features. For more information, see [Automatic roll-up settings](../how-tos/onboard-your-data.md#automatic-roll-up-settings).
 
 Give a custom name for the data feed, which will be shown in your workspace. Select **Submit**. 
 
@@ -146,7 +146,7 @@ By using the cross-dimension diagnostic result described in the previous section
 
 :::image type="content" source="../media/diagnostics/cross-metrics-analysis.png" alt-text="Screenshot that shows the incident diagnostics cross-metric analysis." lightbox="../media/diagnostics/cross-metrics-analysis.png":::
 
-You can also pivot across more diagnostic insights by using additional features. These features help you drill down on dimensions of anomalies, view similar anomalies, and compare across metrics. For more information, see [How to: diagnose an incident](../how-tos/diagnose-an-incident.md). 
+You can also pivot across more diagnostic insights by using additional features. These features help you drill down on dimensions of anomalies, view similar anomalies, and compare across metrics. For more information, see [Diagnose an incident](../how-tos/diagnose-an-incident.md). 
 
 ## Get notified when new anomalies are found
 
@@ -154,7 +154,7 @@ If you want to get alerted when an anomaly is detected in your data, you can cre
 
 ### Create a web hook
 
-In Metrics Advisor, you can use a web hook to surface an anomaly programmatically. The service calls a user-provided API when an alert is triggered. For more information, see [Create a hook ](../how-tos/alerts.md#create-a-hook). 
+In Metrics Advisor, you can use a web hook to surface an anomaly programmatically. The service calls a user-provided API when an alert is triggered. For more information, see [Create a hook](../how-tos/alerts.md#create-a-hook). 
 
 ### Configure alert settings
 
