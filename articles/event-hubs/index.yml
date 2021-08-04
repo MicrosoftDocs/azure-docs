@@ -170,8 +170,6 @@ landingContent:
         links:
           - text: Monitor Event Hubs using Azure Monitor
             url: monitor-event-hubs.md
-          - text: Set up diagnostic logs
-            url: event-hubs-diagnostic-logs.md
           - text: Automatically scale up
             url: event-hubs-auto-inflate.md
           - text: Troubleshoot exceptions

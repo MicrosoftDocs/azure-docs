@@ -110,9 +110,9 @@ Add the following URL patterns for Azure Monitor if you're using the containeriz
 
 | URL pattern | Port | Component or functionality |
 |-------------|-------------|----------------------------|
-| http://\*ods.opinsights.azure.com | 443 | Data ingestion |
-| http://\*.oms.opinsights.azure.com | 443 | Operations Management Suite (OMS) onboarding |
-| http://\*.dc.services.visualstudio.com | 443 | Agent telemetry that uses Azure Public Cloud Application Insights |
+| https://\*ods.opinsights.azure.com | 443 | Data ingestion |
+| https://\*.oms.opinsights.azure.com | 443 | Operations Management Suite (OMS) onboarding |
+| https://\*.dc.services.visualstudio.com | 443 | Agent telemetry that uses Azure Public Cloud Application Insights |
 
 For more information, see [Network firewall requirements for monitoring container insights](../azure-monitor/containers/container-insights-onboard.md#network-firewall-requirements).
 
@@ -134,9 +134,9 @@ Add the following URL patterns for Azure Monitor if you're using the containeriz
 
 | URL pattern | Port | Component or functionality |
 |-------------|-------------|----------------------------|
-| http://\*ods.opinsights.azure.us | 443 | Data ingestion |
-| http://\*.oms.opinsights.azure.us | 443 | Operations Management Suite (OMS) onboarding |
-| http://\*.dc.services.visualstudio.com | 443 | Agent telemetry that uses Azure Public Cloud Application Insights |
+| https://\*ods.opinsights.azure.us | 443 | Data ingestion |
+| https://\*.oms.opinsights.azure.us | 443 | Operations Management Suite (OMS) onboarding |
+| https://\*.dc.services.visualstudio.com | 443 | Agent telemetry that uses Azure Public Cloud Application Insights |
 
 
 ## Internet bandwidth
