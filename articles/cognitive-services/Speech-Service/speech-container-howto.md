@@ -20,21 +20,20 @@ Containers enable you to run some of the Speech service APIs in your own environ
 
 Speech containers enable customers to build a speech application architecture that is optimized for both robust cloud capabilities and edge locality. There are several containers available, which use the same [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) as the cloud-based Azure Speech Services.
 
-
-> [!IMPORTANT]
-> To use the speech containers you must submit an online request, and have it approved. See the **Request approval to the run the container** section below for more information.
-
 | Container | Features | Latest | Release status |
 |--|--|--|--|
-| Speech-to-text | Analyzes sentiment and transcribes continuous real-time speech or batch audio recordings with intermediate results.  | 2.12.0 | Generally Available |
-| Custom Speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 2.12.0 | Generally Available |
-| Text-to-speech | Converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.14.0 | Generally Available |
+| Speech-to-text | Analyzes sentiment and transcribes continuous real-time speech or batch audio recordings with intermediate results.  | 2.13.0 | Generally Available |
+| Custom Speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 2.13.0 | Generally Available |
+| Text-to-speech | Converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.14.1 | Generally Available |
 | Speech Language Identification | Detect the language spoken in audio files. | 1.0 | Gated preview |
-| Neural Text-to-speech | Converts text to natural-sounding speech using deep neural network technology, allowing for more natural synthesized speech. | 1.6.0 | Generally Available |
+| Neural Text-to-speech | Converts text to natural-sounding speech using deep neural network technology, allowing for more natural synthesized speech. | 1.8.0 | Generally Available |
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
+
+> [!IMPORTANT]
+> To use the speech containers you must submit an online request, and have it approved. See the **Request approval to the run the container** section below for more information.
 
 You must meet the following prerequisites before using Speech service containers. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 

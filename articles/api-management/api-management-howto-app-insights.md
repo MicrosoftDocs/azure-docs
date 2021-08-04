@@ -8,7 +8,7 @@ author: mikebudzynski
 ms.service: api-management
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/22/2021
+ms.date: 08/04/2021
 ms.author: apimpm
 
 ---

@@ -19,6 +19,13 @@
   - name: Get started with Azure Defender for IoT
     displayName: getting started, registration, onboarding, activation, threat intelligence 
     href: getting-started.md
+- name: Tutorial
+  expanded: false
+  items:
+  - name: Integrate Splunk
+    href: tutorial-splunk.md
+  - name: Integrate ServiceNow
+    href: tutorial-servicenow.md
 - name: Concepts
   items:  
     - name: Key concepts
@@ -173,10 +180,6 @@
       href: integration-fortinet.md
     - name: Palo Alto integration
       href: integration-palo-alto.md
-    - name: ServiceNow integration
-      href: integration-servicenow.md
-    - name: Splunk integration
-      href: integration-splunk.md
     - name: Qradar integration
       href: integration-qradar.md
 - name: Reference

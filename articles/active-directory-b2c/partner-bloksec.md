@@ -25,9 +25,7 @@ zone_pivot_groups: b2c-policy-type
 
 ::: zone-end
 
-In this sample tutorial, learn how to integrate Azure Active Directory (AD) B2C authentication with BlokSec. BlokSec is a decentralized identity platform that provides organizations with true passwordless authentication, tokenless multifactor authentication, and real-time consent-based services. BlokSec’s Decentralized-Identity-as-a-Service (DIaaS)™ platform provides a frictionless and secure solution to protect websites and mobile apps, web-based business applications, and remote services. Also, it eliminates the need of passwords, and simplifies the end-user login process. BlokSec protects customers against identity-centric cyber-attacks such as password stuffing, phishing, and man-in-the-middle attacks.
-
-With Azure AD B2C as an identity provider, you can integrate BlokSec with any of your customer applications to provide true passwordless authentication and real-time consent-based authorization to your users.
+In this sample tutorial, learn how to integrate Azure Active Directory (AD) B2C authentication with [BlokSec](https://bloksec.com/). BlokSec simplifies the end-user login experience by providing customers passwordless authentication and tokenless multifactor authentication (MFA). BlokSec protects customers against identity-centric cyber-attacks such as password stuffing, phishing, and man-in-the-middle attacks.
 
 ## Scenario description
 
@@ -99,7 +97,7 @@ To get started, you'll need:
    |  Name         |Azure AD B2C or your desired application name|
    |SSO type         | OIDC|
    |Logo URI     |[https://bloksec.io/assets/AzureB2C.png/](https://bloksec.io/assets/AzureB2C.png/) a link to the image of your choice|
-   |Redirect URIs     | https://**your-B2C-tenant-name**.b2clogin.com/**your-B2C-tenant-name**.onmicrosoft.com/oauth2/authresp<BR>**For Example**:      [https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp](https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp) <BR><BR>If you use a custom domain, enter  https://**your-domain-name**/**your-tenant-name**.onmicrosoft.com/oauth2/authresp. <BR> Replace your-domain-name with your custom domain, and your-tenant-name with the name of your tenant.         |
+   |Redirect URIs     | https://**your-B2C-tenant-name**.b2clogin.com/**your-B2C-tenant-name**.onmicrosoft.com/oauth2/authresp<BR>**For Example**:      'https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp' <BR><BR>If you use a custom domain, enter  https://**your-domain-name**/**your-tenant-name**.onmicrosoft.com/oauth2/authresp. <BR> Replace your-domain-name with your custom domain, and your-tenant-name with the name of your tenant.         |
    |Post log out redirect URIs  |https://**your-B2C-tenant-name**.b2clogin.com/**your-B2C-tenant-name**.onmicrosoft.com/**{policy}**/oauth2/v2.0/logout <BR> [Send a sign-out request](https://docs.microsoft.com/azure/active-directory-b2c/openid-connect#send-a-sign-out-request). |
 
 4. Once saved, select the newly created Azure AD B2C application to open the application configuration, select **Generate App Secret**.

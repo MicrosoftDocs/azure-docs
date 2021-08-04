@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: how-to
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 01/25/2019
 ---
 # Monitor In-Memory OLTP storage in Azure SQL Database and Azure SQL Managed Instance
