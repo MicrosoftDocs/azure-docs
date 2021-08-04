@@ -236,10 +236,10 @@ Then, you can reference this configuration file as part of the workspace creatio
 az ml workspace create -w <workspace-name> -g <resource-group-name> --file workspace.yml
 ```
 
+---
+
 > [!IMPORTANT]
 > Using an Azure Machine Learning workspace with private endpoint is not available in the Azure Government regions.
-
----
 
 ### Customer-managed key and high business impact workspace
 
