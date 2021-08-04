@@ -7,12 +7,12 @@ metadata:
   ms.service: healthcare-apis
   ms.subservice: fhir
   ms.topic: reference
-  ms.date: 07/10/2021
+  ms.date: 08/04/2021
   ms.author: aersoy
     
 title: Frequently asked questions about the DICOM service
 summary: |
-  - These are the frequently asked questions about the Azure Healthcare APIs DICOM service.
+These are the frequently asked questions about the Azure Healthcare APIs DICOM service.
 
 sections:
   - name: Ignored
@@ -63,6 +63,6 @@ sections:
       
       - question: What is REST API versioning in the DICOM service?
         answer: |
-          DICOM service has versions for the REST API used to access the service. The version is specified as a URL path in the requests. For more information visit the [API Versioning for DICOM service Documentation](https://review.docs.microsoft.com/en-us/azure/healthcare-apis/dicom/api-versioning-dicom-service/).
+          DICOM service has versions for the REST API used to access the service. The version is specified as a URL path in the requests. For more information visit the [API Versioning for DICOM service Documentation](api-versioning-dicom-service.md).
           
           

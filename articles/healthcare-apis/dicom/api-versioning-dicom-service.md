@@ -6,11 +6,14 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 08/03/2021
+ms.date: 08/04/2021
 ms.author: aersoy
 ---
 
 # API versioning for DICOM service
+
+> [!IMPORTANT]
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 This reference guide provides you with an overview of the API version policies for the DICOM service. 
 
@@ -20,9 +23,9 @@ All versions of the DICOM APIs will always conform to the DICOMweb™ Standard s
 
 The version of the REST API should be explicitly specified in the request URL as in the following example:
 
-`https://<service_url>/v<version>/studies`
+`<service_url>/v<version>/studies`
 
-Currently routes without a version are still supported. For example, `https://<service_url>/studies` has the same behavior as specifying the version as v1.0-prerelease. However, we strongly recommended that you specify the version in all requests via the URL.
+Currently routes without a version are still supported. For example, `<service_url>/studies` has the same behavior as specifying the version as v1.0-prerelease. However, we strongly recommended that you specify the version in all requests via the URL.
 
 ## Supported versions
 
@@ -32,7 +35,7 @@ Currently the supported versions are:
 
 The OpenApi Doc for the supported versions can be found at the following url:
  
-`https://<service_url>/{version}/api.yaml`
+`<service_url>/{version}/api.yaml`
 
 ## Prerelease versions
 
@@ -61,9 +64,9 @@ Non-breaking changes (Version is not incremented):
 
 ReportApiVersions is turned on, which means we will return the headers api-supported-versions and api-deprecated-versions when appropriate.
 
-* api-supported-versions will list which versions are supported for the requested API. It's only returned when calling an endpoint annotated with `[ApiVersion("<someVersion>")]`.
+* api-supported-versions will list which versions are supported for the requested API. It's only returned when calling an endpoint annotated with `ApiVersion("<someVersion>")`.
 
-* api-deprecated-versions will list which versions have been deprecated for the requested API. It's only returned when calling an endpoint annotated with `[ApiVersion("<someVersion>", Deprecated = true)]`.
+* api-deprecated-versions will list which versions have been deprecated for the requested API. It's only returned when calling an endpoint annotated with `ApiVersion("<someVersion>", Deprecated = true)`.
 
 Example:
 

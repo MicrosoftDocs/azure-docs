@@ -11,6 +11,9 @@ ms.author: aersoy
 
 # Register a confidential client application
 
+> [!IMPORTANT]
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 In this tutorial, you'll learn how to register a confidential client application in Azure Active Directory (Azure AD).
 
 ## Register a new application

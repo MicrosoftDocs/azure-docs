@@ -69,7 +69,7 @@ from azure.identity import DefaultAzureCredential
 
 ### Configure user-defined variables to be used throughout
 
-Replace all variable values wrapped in { } with your own values. Additionally, validate that any constructed variables are correct.  For instance, `base_url` is constructed using the Service URL and then appended with the version of the REST API being used. The Service URL of your DICOM service will be: ```https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com```. You can use the Azure Portal to navigate to the DICOM service and obtain your Service URL. You can also visit the [API Versioning for DICOM service Documentation](https://review.docs.microsoft.com/en-us/azure/healthcare-apis/dicom/api-versioning-dicom-service/) for more information on versioning. If you're using a custom URL, you'll need to override that value with your own.
+Replace all variable values wrapped in { } with your own values. Additionally, validate that any constructed variables are correct.  For instance, `base_url` is constructed using the Service URL and then appended with the version of the REST API being used. The Service URL of your DICOM service will be: ```https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com```. You can use the Azure Portal to navigate to the DICOM service and obtain your Service URL. You can also visit the [API Versioning for DICOM service Documentation](api-versioning-dicom-service.md) for more information on versioning. If you're using a custom URL, you'll need to override that value with your own.
 
 ```python
 dicom_service_name = "{server-name}"
