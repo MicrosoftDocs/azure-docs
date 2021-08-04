@@ -57,7 +57,8 @@ Follow these steps to add an API connector to a sign-up user flow.
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Under **Azure services**, select **Azure AD B2C**.
 4. Select **User flows**, and then select the user flow you want to add the API connector to.
-5. Select **API connectors**, and then select the API endpoints you want to invoke at the **Before sending the token (preview)** step in the user flow:
+5. Select **API connectors**, and then select the API endpoint you want to invoke at the **Before sending the token (preview)** step in the user flow:
+   
     :::image type="content" source="media/add-api-connector-token-enrichment/api-connectors-user-flow-select.png" alt-text="Selecting which API connector to use for a step in the user flow like 'Before creating the user'.":::
 
 6. Select **Save**.
@@ -84,10 +85,12 @@ Content-type: application/json
      }
  ],
  "displayName": "John Smith",
+ "objectId": "ab3ec3b2-a435-45e4-b93a-56a005e88bb7",
  "extension_<extensions-app-id>_CustomAttribute1": "custom attribute value",
  "extension_<extensions-app-id>_CustomAttribute2": "custom attribute value",
+ "objectId": "ab3ec3b2-a435-45e4-b93a-56a005e88bb7",
  "client_id": "231c70e8-8424-48ac-9b5d-5623b9e4ccf3",
- "step": "preTokenIssuance",
+ "step": "PreTokenIssuance",
  "ui_locales":"en-US"
 }
 ```
@@ -98,20 +101,18 @@ Only user properties and custom attributes listed in the **Azure AD B2C** > **Us
 
 Custom attributes exist in the **extension_\<extensions-app-id>_CustomAttribute**  format in the directory. Your API should expect to receive claims in this same serialized format. For more information on custom attributes, see [Define custom attributes in Azure AD B2C](user-flow-custom-attributes.md).
 
-Additionally, these claims are typically sent in all requests:
+Additionally, these claims are typically sent in all requests for this step:
 - **UI Locales ('ui_locales')** -  An end-user's locale(s) as configured on their device. This can be used by your API to return internationalized responses.
 - **Step ('step')** - The step or point on the user flow that the API connector was invoked for. Value for this step is `
 - **Client ID ('client_id')** - The `appId` value of the application that an end-user is authenticating to in a user flow. This is *not* the resource application's `appId` in access tokens.
-- **Email Address ('email')** or [**identities ('identities')**](/graph/api/resources/objectidentity) - these claims can be used by your API to identify the end-user that is authenticating to the application.
+- **objectId** - the identifier of the user. You can use this to query downstream services for information about the user.
   
 > [!IMPORTANT]
 > If a claim does not have a value at the time the API endpoint is called, the claim will not be sent to the API. Your API should be designed to explicitly check and handle the case in which a claim is not in the request.
 
 ## Expected response types from the web API at this step
 
-When the web API receives an HTTP request from Azure AD during a user flow, it can return these responses:
-
-- Continuation response
+When the web API receives an HTTP request from Azure AD during a user flow, it can return a "Continuation response".
 
 ### Continuation response
 
@@ -367,7 +368,7 @@ Ensure that:
 * Your API explicitly checks for null values of received claims that it depends on.
 * Your API implements an authentication method outlined in [secure your API Connector](secure-rest-api.md).
 * Your API responds as quickly as possible to ensure a fluid user experience.
-    * Azure AD B2C will wait for a maximum of **20 seconds** to receive a response. If it doesn't, it will make **one more attempt (retry)** at calling your API.
+    * Azure AD B2C will wait for a maximum of *20 seconds* to receive a response. If it doesn't, it will make *one more attempt (retry)* at calling your API.
     * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm" in production. For Azure Functions, it's recommended to use at minimum the [Premium plan](../azure-functions/functions-scale.md) in production.
 * Ensure high availability of your API.
 * Monitor and optimize performance of downstream APIs, databases, or other dependencies of your API.

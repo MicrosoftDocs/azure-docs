@@ -95,9 +95,9 @@ Custom attributes exist in the **extension_\<extensions-app-id>_CustomAttribute*
 Additionally, these claims are typically sent in all requests:
 - **UI Locales ('ui_locales')** -  An end-user's locale(s) as configured on their device. This can be used by your API to return internationalized responses.
 - **Step ('step')** - The step or point on the user flow that the API connector was invoked for. Values include:
-  - `postFederationSignup` - corresponds to "After federating with an identity provider during sign-up"
-  - `postAttributeCollection` - corresponds to "Before creating the user"
-  - `preTokenIssuance` - corresponds to "Before sending the token (preview)". [Learn more about this step](add-api-connector-token-enrichment.md)
+  - `PostFederationSignup` - corresponds to "After federating with an identity provider during sign-up"
+  - `PostAttributeCollection` - corresponds to "Before creating the user"
+  - `PreTokenIssuance` - corresponds to "Before sending the token (preview)". [Learn more about this step](add-api-connector-token-enrichment.md)
 - **Client ID ('client_id')** - The `appId` value of the application that an end-user is authenticating to in a user flow. This is *not* the resource application's `appId` in access tokens.
 - **Email Address ('email')** or [**identities ('identities')**](/graph/api/resources/objectidentity) - these claims can be used by your API to identify the end-user that is authenticating to the application.
   
@@ -144,7 +144,7 @@ Content-type: application/json
  "displayName": "John Smith",
  "givenName":"John",
  "lastName":"Smith",
- "step": "postFederationSignup",
+ "step": "PostFederationSignup",
  "client_id":"<guid>",
  "ui_locales":"en-US"
 }
@@ -205,7 +205,7 @@ Content-type: application/json
  "country":"United States",
  "extension_<extensions-app-id>_CustomAttribute1": "custom attribute value",
  "extension_<extensions-app-id>_CustomAttribute2": "custom attribute value",
- "step": "postAttributeCollection",
+ "step": "PostAttributeCollection",
  "client_id":"93fd07aa-333c-409d-955d-96008fd08dd9",
  "ui_locales":"en-US"
 }
@@ -624,7 +624,7 @@ Ensure that:
 * Your API explicitly checks for null values of received claims that it depends on.
 * Your API implements an authentication method outlined in [secure your API Connector](secure-rest-api.md).
 * Your API responds as quickly as possible to ensure a fluid user experience.
-    * Azure AD B2C will wait for a maximum of **20 seconds** to receive a response. If it doesn't, it will make **one more attempt (retry)** at calling your API.
+    * Azure AD B2C will wait for a maximum of *20 seconds* to receive a response. If it doesn't, it will make *one more attempt (retry)* at calling your API.
     * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm" in production. For Azure Functions, it's recommended to use at minimum the [Premium plan](../azure-functions/functions-scale.md) in production.
 * Ensure high availability of your API.
 * Monitor and optimize performance of downstream APIs, databases, or other dependencies of your API.
