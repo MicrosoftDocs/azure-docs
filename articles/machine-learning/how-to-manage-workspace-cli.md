@@ -212,6 +212,8 @@ The output of the workspace creation command is similar to the following JSON:
 > [!IMPORTANT]
 > Using an Azure Machine Learning workspace with private endpoint is not available in the Azure Government regions.
 
+# [2.0 CLI](#tab/vnetpleconfigurationsv2cli)
+
 If you want to restrict access to your workspace to a virtual network, you can use the following parameters:
 
 * `--pe-name`: The name of the private endpoint that is created.
@@ -219,6 +221,12 @@ If you want to restrict access to your workspace to a virtual network, you can u
 * `--pe-resource-group`: The resource group to create the private endpoint in. Must be the same group that contains the virtual network.
 * `--pe-vnet-name`: The existing virtual network to create the private endpoint in.
 * `--pe-subnet-name`: The name of the subnet to create the private endpoint in. The default value is `default`.
+
+# [2.0 CLI](#tab/vnetpleconfigurationsv2cli)
+
+<v2 instructions>
+
+---
 
 For more information on using a private endpoint and virtual network with your workspace, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md).
 
