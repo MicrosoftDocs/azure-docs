@@ -36,6 +36,12 @@ Two settings are available for network features:
 
     You should set network features to *Basic* if you do not require VNet features.  
 
+## Supported regions 
+
+Currently the network features capability is supported in the following regions: 
+
+* North Central US 
+
 ## Considerations
 
 * Regardless of the network feature option you set (*Standard* or *Basic*), an Azure VNet can only have one subnet delegated to Azure NetApp files. See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md#considerations). 
@@ -72,12 +78,6 @@ The network features capability is currently in public preview. If you are using
     ```
 
 You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status. 
-
-## Supported regions 
-
-Currently the network features capability is supported in the following regions: 
-
-* North Central US 
 
 ## Set the network features option
 
