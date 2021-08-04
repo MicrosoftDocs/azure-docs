@@ -7,13 +7,12 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 07/13/2021
+ms.date: 07/30/2021
 ms.topic: overview
 ---
 
 #  Create Azure Arc data controller from Azure portal - Direct connectivity mode
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 This article describes how to deploy the Azure Arc data controller in direct connect mode during the current preview of this feature. 
 
@@ -21,13 +20,21 @@ This article describes how to deploy the Azure Arc data controller in direct con
 
 Before you begin, verify that you have completed the prerequisites in [Deploy data controller - direct connect mode - prerequisites](create-data-controller-direct-prerequisites.md).
 
+>[!NOTE]
+>You first need to deploy an Arc enabled Kubernetes data services extension usign the Azure CLI.
+>
+>```azurecli
+>az k8s-extension create -c "{connected_cluster_name}" -g "{resource_group_name}" --name "arcdataservices" --cluster-type "connectedClusters" --extension-type "microsoft.arcdataservices" --scope "cluster" --release-namespace {namespace} --config "Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper"
+>```
+
+
 ## Deploy Azure Arc data controller
 
 Azure Arc data controller create flow can be launched from the Azure portal in one of the following ways:
 
 - From the search bar in Azure portal, search for "Azure Arc data controllers", and select "+ Create"
 - From the Overview page of your Azure Arc-enabled Kubernetes cluster,
-  - Select "Extensions (preview)" under Settings.
+  - Select "Extensions " under Settings.
   - Select "Add" from the Extensions overview page and then select "Azure Arc data controller"
   - Select Create from the Azure Arc data controller marketplace gallery
   

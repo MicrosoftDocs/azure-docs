@@ -14,13 +14,28 @@
           "**/_themes/**",
           "**/includes/**",
           "**/obj/**",
-          "**/*.graffle"
+          "**/*.graffle",
+          "healthcare-apis/**"
         ]
       },
       {
         "group": "grp-iot-edge",
         "src": "articles/iot-edge",
         "dest": "./iot-edge/",
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [
+            "**/_themes/**",
+            "**/includes/**",
+            "**/obj/**"
+        ]
+      },
+      {
+        "group": "healthcare-apis",
+        "src": "articles/healthcare-apis",
+        "dest": "./healthcare-apis/",
         "files": [
           "**/*.md",
           "**/*.yml"
@@ -59,13 +74,30 @@
         "exclude": [
           "iot-edge/**",
           "**/_themes/**",
-          "**/obj/**"
+          "**/obj/**",
+          "healthcare-apis/**"
         ]
       },
       {
         "group": "grp-iot-edge",
         "src": "articles/iot-edge",
         "dest": "./iot-edge/",
+        "files": [
+          "**/*.gif",
+          "**/*.jpeg",
+          "**/*.jpg",
+          "**/*.png",
+          "**/*.svg"
+        ],
+        "exclude": [
+          "**/_themes/**",
+          "**/obj/**"
+        ]
+      },
+      {
+        "group": "healthcare-apis",
+        "src": "articles/healthcare-apis",
+        "dest": "./healthcare-apis/",
         "files": [
           "**/*.gif",
           "**/*.jpeg",
@@ -786,7 +818,13 @@
         "articles/media-services/latest/*.md": "rest-v3",
         "articles/media-services/live-video-analytics-edge/*.md": "lva-edge",
         "articles/media-services/previous/*.md": "rest-v2",
-        "articles/media-services/video-indexer/*.md": "video-indexer"
+        "articles/media-services/video-indexer/*.md": "video-indexer",
+        "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.md": "azure-video-analyzer-media",
+        "articles/azure-video-analyzer/video-analyzer-docs/*.md": "video-analyzer-subservice",
+        "articles/cosmos-db/mongodb/*.md": "cosmosdb-mongo",
+        "articles/cosmos-db/cassandra/*.md": "cosmosdb-cassandra",
+        "articles/cosmos-db/graph/*.md": "cosmosdb-graph",
+        "articles/cosmos-db/table/*.md": "cosmosdb-table"
       },
       "monikerRange": {
         "articles/iot-edge/**/*.md": ">=iotedge-2018-06"

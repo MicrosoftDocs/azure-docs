@@ -1,8 +1,8 @@
 ---
 title: "Limitations for Azure SQL Database ledger"
 description: Limitations of the ledger feature in Azure SQL Database
-ms.custom: ""
-ms.date: "05/25/2021"
+ms.custom: references_regions
+ms.date: "07/23/2021"
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
@@ -16,7 +16,7 @@ ms.author: janders
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database ledger is currently in public preview and available in West Central US.
+> Azure SQL Database ledger is currently in public preview and available in West Europe, Brazil South, and West Central US.
 
 This article provides an overview of the limitations of ledger tables used with Azure SQL Database.
 

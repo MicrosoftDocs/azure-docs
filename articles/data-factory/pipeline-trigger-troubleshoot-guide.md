@@ -204,20 +204,23 @@ You are running ADF in debug mode.
 
 **Resolution**
 
-Please run pipeline in trigger mode.
+Execute the pipeline in trigger mode.
 
 ### Cannot publish because account is locked
 
 **Cause**
 
-You made changes in collaboration branch to remove storage event trigger. You are trying to publish and encounter "Trigger deactivation error" message. This is due to the storage account, used for the event trigger, is being locked. 
+You made changes in collaboration branch to remove storage event trigger. You are trying to publish and encounter `Trigger deactivation error` message.
+
+**Resolution**
+
+This is due to the storage account, used for the event trigger, is being locked. Unlock the account.
 
 ### Expression builder fails to load
 
 **Cause**
 
 The expression builder can fail to load due to network or cache problems with the web browser.  
-
 
 **Resolution**
 
@@ -233,7 +236,20 @@ You have chained many activities.
 
 You can split your pipelines into sub pipelines, and stich them together with **ExecutePipeline** activity. 
 
+###  How to optimize pipeline with mapping data flows to avoid internal server errors, concurrency errors etc. during execution
 
+**Cause**
+
+You have not optimized mapping data flow.
+
+**Resolution**
+
+* Use memory optimized compute when dealing with large amount of data and transformations.
+* Reduce the batch size in case of a for each activity.
+* Scale up your databases and warehouses to match the performance of your ADF. 
+* Use a separate IR(integration runtime) for activities running in parallel.
+* Adjust the partitions at the source and sink accordingly. 
+* Review  [Data Flow Optimizations](concepts-data-flow-performance.md)
 
 ## Next steps
 

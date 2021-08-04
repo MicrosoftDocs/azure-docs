@@ -4,7 +4,7 @@ description: Learn how to deploy the Azure Sentinel solution for SAP environment
 author: batamig
 ms.author: bagold
 ms.service: azure-sentinel
-ms.topic: tutorial
+ms.topic: how-to
 ms.custom: mvc
 ms.date: 07/06/2021
 ms.subservice: azure-sentinel
@@ -83,8 +83,8 @@ This procedure describes how to ensure that your SAP system has the correct prer
 
 1. Download and install one of the following SAP change requests from the Azure Sentinel GitHub repository, at https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR:
 
-    - **SAP versions 750 or higher**: Install the SAP change request *141 (NPLK900141)*
-    - **SAP versions 740**: Install the SAP change request *142 (NPLK900142)*
+    - **SAP versions 750 or higher**: Install the SAP change request *144 (NPLK900144)*
+    - **SAP versions 740**: Install the SAP change request *146 (NPLK900146)*
 
     When performing this step, ensure that you use binary mode to transfer the files to the SAP system and use the **STMS_IMPORT** SAP transaction code.
 
@@ -92,7 +92,7 @@ This procedure describes how to ensure that your SAP system has the correct prer
     > In the SAP **Import Options** area, you may see the **Ignore Invalid Component Version** option displayed. If displayed, select this option before continuing.
     >
 
-1. Create a new SAP role named **/MSFTSEN/SENTINEL_CONNECTOR** by importing the SAP change request *14 (NPLK900114)*. Use the **STMS_IMPORT** SAP transaction code.
+1. Create a new SAP role named **/MSFTSEN/SENTINEL_CONNECTOR** by importing the SAP change request *14 (NPLK900140)*. Use the **STMS_IMPORT** SAP transaction code.
 
     Verify that the role is created with the required permissions, such as:
 
@@ -278,95 +278,6 @@ Add SAP-related watchlists to your Azure Sentinel workspace manually.
 
     For more information, see [Azure Sentinel SAP solution logs reference (public preview)](sap-solution-log-reference.md).
 
-## SAP solution deployment troubleshooting
-
-After having deployed both the SAP data connector and security content, you may experience the following errors or issues:
-
-|Issue  |Workaround  |
-|---------|---------|
-|Network connectivity issues to the SAP environment or to Azure Sentinel     |  Check your network connectivity as needed.       |
-|Incorrect SAP ABAP user credentials     |Check your credentials and fix them by applying the correct values to the **ABAPUSER** and **ABAPPASS** values in Azure Key Vault.         |
-|Missing permissions, such as the **/MSFTSEN/SENTINEL_CONNECTOR** role not assigned to the SAP user as needed, or inactive     |Fix this error by assigning the role and ensuring that it's active in your SAP system.         |
-|A missing SAP change request     | Make sure that you've imported the correct SAP change request, as described in [Configure your SAP system](#configure-your-sap-system).        |
-|Incorrect Azure Sentinel workspace ID or key entered in the deployment script     |  To fix this error, enter the correct credentials in Azure KeyVault.       |
-|A corrupt or missing SAP SDK file     | Fix this error by reinstalling the SAP SDK and ensuring that you are using the correct Linux 64-bit version.        |
-|Missing data in your workbook or alerts     |    Ensure that the **Auditlog** policy is properly enabled on the SAP side, with no errors in the log file. Use the **RSAU_CONFIG_LOG** transaction for this step.     |
-|     |         |
-
-> [!TIP]
-> We highly recommend that you review the system logs after installing the data connector. Run:
->
-> ```bash
-> docker logs -f sapcon-[SID]
-> ```
->
-For more information, see:
-
-- [View all Docker execution logs](#view-all-docker-execution-logs)
-- [Review and update the SAP data connector configuration](#review-and-update-the-sap-data-connector-configuration)
-- [Useful Docker commands](#useful-docker-commands)
-
-### View all Docker execution logs
-
-To view all Docker execution logs for your Azure Sentinel SAP data connector deployment, run one of the following commands:
-
-```bash
-docker exec -it sapcon-[SID] bash && cd /sapcon-app/sapcon/logs
-```
-
-or
-
-```bash
-docker exec –it sapcon-[SID] cat /sapcon-app/sapcon/logs/[FILE_LOGNAME]
-```
-
-Output similar to the following should be displayed:
-
-```bash
-Logs directory:
-root@644c46cd82a9:/sapcon-app# ls sapcon/logs/ -l
-total 508
--rwxr-xr-x 1 root root      0 Mar 12 09:22 ' __init__.py'
--rw-r--r-- 1 root root    282 Mar 12 16:01  ABAPAppLog.log
--rw-r--r-- 1 root root   1056 Mar 12 16:01  ABAPAuditLog.log
--rw-r--r-- 1 root root    465 Mar 12 16:01  ABAPCRLog.log
--rw-r--r-- 1 root root    515 Mar 12 16:01  ABAPChangeDocsLog.log
--rw-r--r-- 1 root root    282 Mar 12 16:01  ABAPJobLog.log
--rw-r--r-- 1 root root    480 Mar 12 16:01  ABAPSpoolLog.log
--rw-r--r-- 1 root root    525 Mar 12 16:01  ABAPSpoolOutputLog.log
--rw-r--r-- 1 root root      0 Mar 12 15:51  ABAPTableDataLog.log
--rw-r--r-- 1 root root    495 Mar 12 16:01  ABAPWorkflowLog.log
--rw-r--r-- 1 root root 465311 Mar 14 06:54  API.log # view this log to see submits of data into Azure Sentinel
--rw-r--r-- 1 root root      0 Mar 12 15:51  LogsDeltaManager.log
--rw-r--r-- 1 root root      0 Mar 12 15:51  PersistenceManager.log
--rw-r--r-- 1 root root   4830 Mar 12 16:01  RFC.log
--rw-r--r-- 1 root root   5595 Mar 12 16:03  SystemAdmin.log
-```
-
-### Review and update the SAP data connector configuration
-
-If you want to check the SAP data connector configuration file and make manual updates, perform the following steps:
-
-1. On your VM, in the user's home directory, open the **~/sapcon/[SID]/systemconfig.ini** file.
-1. Update the configuration if needed, and then restart the container:
-
-    ```bash
-    docker restart sapcon-[SID]
-    ```
-
-### Useful Docker commands
-
-When troubleshooting your SAP data connector, you may find the following commands useful:
-
-|Function  |Command  |
-|---------|---------|
-|**Stop the Docker container**     |  `docker stop sapcon-[SID]`       |
-|**Start the Docker container**     |`docker start sapcon-[SID]`         |
-|**View Docker system logs**     |  `docker logs -f sapcon-[SID]`       |
-|**Enter the Docker container**     |   `docker exec -it sapcon-[SID] bash`      |
-|     |         |
-
-For more information, see the [Docker CLI documentation](https://docs.docker.com/engine/reference/commandline/docker/).
 
 ## Update your SAP data connector
 
@@ -375,7 +286,7 @@ If you have a Docker container already running with an earlier version of the SA
 1. Make sure that you have the most recent versions of the relevant deployment scripts from the Azure Sentinel github repository. Run:
 
     ```azurecli
-    - wget -O sapcon-instance-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-instance-update.sh && bash ./sapcon-instance-update.sh
+    wget -O sapcon-instance-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-instance-update.sh && bash ./sapcon-instance-update.sh
     ```
 
 1. Run the following command on your SAP data connector machine:
@@ -422,9 +333,10 @@ If you have SAP HANA database audit logs configured with Syslog, you'll need als
 
 Learn more about the Azure Sentinel SAP solutions:
 
-- [Deploy the Azure Sentinel SAP solution using alternate deployments](sap-solution-deploy-alternate.md)
+- [Expert configuration options, on-premises deployment and SAPControl log sources](sap-solution-deploy-alternate.md)
 - [Azure Sentinel SAP solution detailed SAP requirements](sap-solution-detailed-requirements.md)
 - [Azure Sentinel SAP solution logs reference](sap-solution-log-reference.md)
 - [Azure Sentinel SAP solution: built-in security content](sap-solution-security-content.md)
+- [Troubleshooting your Azure Sentinel SAP solution deployment](sap-deploy-troubleshoot.md)
 
 For more information, see [Azure Sentinel solutions](sentinel-solutions.md).
