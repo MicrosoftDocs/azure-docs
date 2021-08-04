@@ -43,11 +43,11 @@ By default in Azure AD, all users can register applications and manage all aspec
 
 ### Grant individual permissions to create and consent to applications when the default ability is disabled
 
-Assign the Application Developer role to grant the ability to create application registrations when the **Users can register applications** setting is set to No. This role also grants permission to consent on one's own behalf when the **Users can consent to apps accessing company data on their behalf** setting is set to No. As a system behavior, when a user creates a new application registration, they are automatically added as the first owner. Ownership permissions give the user the ability to manage all aspects of an application registration or enterprise application that they own.
+Assign the Application Developer role to grant the ability to create application registrations when the **Users can register applications** setting is set to No. This role also grants permission to consent on one's own behalf when the **Users can consent to apps accessing company data on their behalf** setting is set to No.
 
 ## Assign application owners
 
-Assigning owners is a simple way to grant the ability to manage all aspects of Azure AD configuration for a specific application registration or enterprise application. As a system behavior, when a user creates a new application registration they are automatically added as the first owner. The original owner can be removed and additional owners can be added. Ownership permissions give the user the ability to manage all aspects of an application registration or enterprise application that they own. For more information, see [Assign application owners](../manage-apps/assign-app-owners.md).
+Assigning owners is a simple way to grant the ability to manage all aspects of Azure AD configuration for a specific application registration or enterprise application. As a system behavior, when a user creates a new application registration they are automatically added as the first owner. The original owner can be removed and additional owners can be added. Ownership permissions give the user the ability to manage all aspects of an application registration or enterprise application that they own. For more information, see [Assign enterprise application owners](../manage-apps/assign-app-owners.md).
 
 ## Assign built-in application admin roles
 
