@@ -120,6 +120,8 @@ landingContent:
             url: deploy-custom-policies-devops.md
           - text: Monitoring
             url: azure-monitor.md
+          - text: Azure Sentinel with Azure AD B2C
+            url: azure-sentinel.md
           - text: Role-based access control for admins
             url: ../active-directory/roles/permissions-reference.md
           - text: User management

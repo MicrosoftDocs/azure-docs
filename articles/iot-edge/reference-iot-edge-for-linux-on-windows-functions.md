@@ -78,11 +78,28 @@ The **Deploy-Eflow** command is the main deployment method. The deployment comma
 | cpuCount | Integer value between 1 and the device's CPU cores |  Number of CPU cores for the VM.<br><br>**Default value**: 1 vCore. |
 | memoryInMB | Integer value between 1024 and the maximum amount of free memory of the device |Memory allocated for the VM.<br><br>**Default value**: 1024 MB. |
 | vmDiskSize | Between 8 GB and 256 GB | Maximum disk size of the dynamically expanding virtual hard disk.<br><br>**Default value**: 16 GB. |
+| vswitchName | Name of the virtual switch |  Name of the virtual switch assigned to the EFLOW VM. |
+| vswitchType | **Internal** or **External** | Type of the virtual switch assigned to the EFLOW VM. |
+| ip4Address | IPv4 Address in the range of the DCHP Server Scope | Static Ipv4 address of the EFLOW VM. _NOTE: Only supported with ICS Default Switch_. |
+| ip4PrefixLength | IPv4 Prefix Length of the subnet | Ipv4 subnet prefix length, only valid when static Ipv4 address is specified.  _NOTE: Only supported with ICS Default Switch_. |
+| ip4GatewayAddress | IPv4 Address of the subnet gateway | Gateway Ipv4 address, only valid when static Ipv4 address is specified.  _NOTE: Only supported with ICS Default Switch_. |
 | gpuName | GPU Device name |  Name of GPU device to be used for passthrough. |
 | gpuPassthroughType | **DirectDeviceAssignment**, **ParaVirtualization**, or none (CPU only) |  GPU Passthrough type |
 | gpuCount | Integer value between 1 and the number of the device's GPU cores | Number of GPU devices for the VM. <br><br>**Note**: If using ParaVirtualization, make sure to set gpuCount = 1 |
 
 For more information, use the command `Get-Help Deploy-Eflow -full`.  
+
+## Get-EflowHostConfiguration
+
+The **Get-EflowHostConfiguration** command returns the host configuration. This command takes no parameters. It returns an object that contains four properties:
+
+* FreePhysicalMemoryInMB
+* NumberOfLogicalProcessors
+* DiskInfo
+* GpuInfo
+
+For more information, use the command `Get-Help Get-EflowHostConfiguration -full`.
+
 
 ## Get-EflowLogs
 
@@ -134,6 +151,18 @@ For more information, use the command `Get-Help Get-EflowVmName -full`.
 The **Get-EflowVmTelemetryOption** command displays the status of the telemetry (either **Optional** or **Required**) inside the virtual machine.
 
 For more information, use the command `Get-Help Get-EflowVmTelemetryOption -full`.
+
+
+## Get-EflowVmTpmProvisioningInfo
+
+The **Get-EflowVmTpmProvisioningInfo** command returns the TPM provisioning information. This command takes no parameters. It returns an object that contains two properties:
+
+* Endorsement Key
+* Registration Id 
+
+For more information, use the command `Get-Help Get-EflowVmTpmProvisioningInfo -full`.
+
+
 
 ## Invoke-EflowVmCommand
 
