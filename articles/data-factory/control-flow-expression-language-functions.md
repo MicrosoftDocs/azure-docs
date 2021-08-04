@@ -1,6 +1,6 @@
 ---
 title: Expression and functions
-titleSuffix: Azure Data Factory & Synapse Analytics
+titleSuffix: Azure Data Factory & Azure Synapse
 description: This article provides information about expressions and functions that you can use in creating data factory and Synapse pipeline entities.
 author: minhe-msft
 ms.author: hemin
@@ -198,7 +198,7 @@ Baba's book store
 ```
 
 ### Tutorial
-This [tutorial](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) walks you through how to pass parameters between a pipeline and activity as well as between the activities.  The tutorial specifically demonstrates steps for an Azure Data Factory although steps for a Synapse Analytics workspaces are nearly equivalent but with a slightly different user interface.
+This [tutorial](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) walks you through how to pass parameters between a pipeline and activity as well as between the activities.  The tutorial specifically demonstrates steps for an Azure Data Factory although steps for a Synapse workspace are nearly equivalent but with a slightly different user interface.
   
 ## Functions
 

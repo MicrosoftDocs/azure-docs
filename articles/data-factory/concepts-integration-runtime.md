@@ -1,6 +1,6 @@
 ---
 title: Integration runtime
-titleSuffix: Azure Data Factory & Synapse Analytics
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about the integration runtime in Azure Data Factory and Azure Synapse Analytics.
 ms.author: lle
 author: lrtoyou1223
@@ -14,7 +14,7 @@ ms.date: 06/16/2021
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-The Integration Runtime (IR) is the compute infrastructure used by Azure Data Factory and Synapse pipelines to provide the following data integration capabilities across different network environments:
+The Integration Runtime (IR) is the compute infrastructure used by Azure Data Factory and Azure Synapse pipelines to provide the following data integration capabilities across different network environments:
 
 - **Data Flow**: Execute a [Data Flow](concepts-data-flow-overview.md) in managed Azure compute environment.  
 - **Data movement**: Copy data across data stores in public network and data stores in private network (on-premises or virtual private network). It provides support for built-in connectors, format conversion, column mapping, and performant and scalable data transfer.
@@ -23,7 +23,7 @@ The Integration Runtime (IR) is the compute infrastructure used by Azure Data Fa
 
 In Data Factory and Synapse pipelines, an activity defines the action to be performed. A linked service defines a target data store or a compute service. An integration runtime provides the bridge between the activity and linked Services.  It's referenced by the linked service or activity, and provides the compute environment where the activity either runs on or gets dispatched from. This way, the activity can be performed in the region closest possible to the target data store or compute service in the most performant way while meeting security and compliance needs.
 
-Integration runtimes can be created in the Azure Data Factory and Synapse UI via the [management hub](author-management-hub.md) and any activities, datasets, or data flows that reference them.
+Integration runtimes can be created in the Azure Data Factory and Azure Synapse UI via the [management hub](author-management-hub.md) and any activities, datasets, or data flows that reference them.
 
 ## Integration runtime types
 

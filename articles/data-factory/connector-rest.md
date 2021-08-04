@@ -1,7 +1,7 @@
 ---
 title: Copy data from and to a REST endpoint
-titleSuffix: Azure Data Factory & Synapse Analytics
-description: Learn how to copy data from a cloud or on-premises REST source to supported sink data stores, or from supported source data store to a REST sink by using the copy activity in Azure Data Factory or Synapse Analytics pipelines.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to copy data from a cloud or on-premises REST source to supported sink data stores, or from supported source data store to a REST sink by using the copy activity in Azure Data Factory or Azure Synapse pipelines.
 author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
@@ -12,7 +12,7 @@ ms.author: makromer
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the Copy Activity in Azure Data Factory and Synapse pipelines to copy data from and to a REST endpoint. The article builds on [Copy Activity in Azure Data Factory and Synapse Analytics pipelines](copy-activity-overview.md), which presents a general overview of Copy Activity.
+This article outlines how to use the Copy Activity in Azure Data Factory and Synapse pipelines to copy data from and to a REST endpoint. The article builds on [Copy Activity in Azure Data Factory and Azure Synapse pipelines](copy-activity-overview.md), which presents a general overview of Copy Activity.
 
 The differences between this REST connector, [HTTP connector](connector-http.md), and the [Web table connector](connector-web-table.md) are:
 
@@ -620,4 +620,4 @@ To copy data from REST endpoint to tabular sink, refer to [schema mapping](copy-
 
 ## Next steps
 
-For a list of data stores that Copy Activity supports as sources and sinks in Azure Data and Synapse Analytics pipelines, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores that Copy Activity supports as sources and sinks in Azure Data Factory and Synapse pipelines, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

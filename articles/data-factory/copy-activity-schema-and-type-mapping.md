@@ -1,7 +1,7 @@
 ---
 title: Schema and data type mapping in copy activity 
-titleSuffix: Azure Data Factory & Synapse Analytics
-description: Learn about how copy activity in Azure Data Factory and Synapse Analytics pipleines map schemas and data types from source data to sink data.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn about how copy activity in Azure Data Factory and Azure Synapse Analytics pipelines map schemas and data types from source data to sink data.
 author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
@@ -268,7 +268,7 @@ If explicit mapping is needed, you can:
 
 Copy activity performs source types to sink types mapping with the following flow: 
 
-1. Convert from source native data types to interim data types used by Azure Data Factory and Synapse Analytics pipelines.
+1. Convert from source native data types to interim data types used by Azure Data Factory and Synapse pipelines.
 2. Automatically convert interim data type as needed to match corresponding sink types, applicable for both [default mapping](#default-mapping) and [explicit mapping](#explicit-mapping).
 3. Convert from interim data types to sink native data types.
 

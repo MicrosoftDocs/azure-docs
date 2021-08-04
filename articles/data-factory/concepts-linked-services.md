@@ -1,6 +1,6 @@
 ---
 title: Linked services
-titleSuffix: Azure Data Factory & Synapse Analytics
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about linked services in Azure Data Factory and Azure Synapse pipelines. Linked services link compute and data stores to the service.
 author: dcstwh
 ms.author: weetok
@@ -20,11 +20,11 @@ ms.date: 08/21/2020
 
 This article describes what linked services are, how they're defined in JSON format, and how they're used in Azure Data Factory and Synapse pipelines.
 
-To learn more read the introductory article for [Azure Data Factory](introduction.md) or [Synapse Analytics](../synapse-analytics/overview-what-is.md).
+To learn more read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse](../synapse-analytics/overview-what-is.md).
 
 ## Overview
 
-Data Factory and Synapse Analytics can have one or more pipelines. A **pipeline** is a logical grouping of **activities** that together perform a task. The activities in a pipeline define actions to perform on your data. For example, you might use a copy activity to copy data from SQL Server to Azure Blob storage. Then, you might use a Hive activity that runs a Hive script on an Azure HDInsight cluster to process data from Blob storage to produce output data. Finally, you might use a second copy activity to copy the output data to Azure Synapse Analytics, on top of which business intelligence (BI) reporting solutions are built. For more information about pipelines and activities, see [Pipelines and activities](concepts-pipelines-activities.md).
+Azure Data Factory and Azure Synapse can have one or more pipelines. A **pipeline** is a logical grouping of **activities** that together perform a task. The activities in a pipeline define actions to perform on your data. For example, you might use a copy activity to copy data from SQL Server to Azure Blob storage. Then, you might use a Hive activity that runs a Hive script on an Azure HDInsight cluster to process data from Blob storage to produce output data. Finally, you might use a second copy activity to copy the output data to Azure Synapse Analytics, on top of which business intelligence (BI) reporting solutions are built. For more information about pipelines and activities, see [Pipelines and activities](concepts-pipelines-activities.md).
 
 Now, a **dataset** is a named view of data that simply points or references the data you want to use in your **activities** as inputs and outputs.
 

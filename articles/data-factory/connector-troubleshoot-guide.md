@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot connectors
-titleSuffix: Azure Data Factory & Synapse Analytics
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot connector issues in Azure Data Factory and Azure Synapse Analytics. 
 author: jianleishen
 ms.service: data-factory
@@ -10,11 +10,11 @@ ms.author: jianleishen
 ms.custom: has-adal-ref
 ---
 
-# Troubleshoot Azure Data Factory and Synapse Analytics connectors
+# Troubleshoot Azure Data Factory and Azure Synapse connectors
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article explores common ways to troubleshoot problems with Azure Data Factory and Synapse Analytics connectors.
+This article explores common ways to troubleshoot problems with Azure Data Factory and Azure Synapse connectors.
 
 ## Azure Blob Storage
 

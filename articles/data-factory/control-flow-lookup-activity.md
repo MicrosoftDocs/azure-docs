@@ -1,6 +1,6 @@
 ---
 title: Lookup activity
-titleSuffix: Azure Data Factory & Synapse Analytics
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to use the Lookup Activity in Azure Data Factory and Azure Synapse Analytics to look up a value from an external source. This output can be further referenced by succeeding activities. 
 author: jianleishen
 ms.author: jianleishen
@@ -385,7 +385,7 @@ Here are some limitations of the Lookup activity and suggested workarounds.
 | | |
 
 ## Next steps
-See other control flow activities supported by Azure Data Factory and Synapse Analytics pipelines: 
+See other control flow activities supported by Azure Data Factory and Synapse pipelines: 
 
 - [Execute Pipeline activity](control-flow-execute-pipeline-activity.md)
 - [ForEach activity](control-flow-for-each-activity.md)

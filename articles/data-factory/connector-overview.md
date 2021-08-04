@@ -1,6 +1,6 @@
 ---
 title: Connector overview 
-titleSuffix: Azure Data Factory & Synapse Analytics
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn the supported connectors in Azure Data Factory and Azure Synapse pipelines.
 author: jianleishen
 ms.service: data-factory
@@ -13,7 +13,7 @@ ms.author: jianleishen
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Azure Data Factory and Synapse Analytics pipelines support the following data stores and formats via Copy, Data Flow, Look up, Get Metadata, and Delete activities. Click each data store to learn the supported capabilities and the corresponding configurations in details.
+Azure Data Factory and Azure Synapse pipelines support the following data stores and formats via Copy, Data Flow, Look up, Get Metadata, and Delete activities. Click each data store to learn the supported capabilities and the corresponding configurations in details.
 
 ## Supported data stores
 

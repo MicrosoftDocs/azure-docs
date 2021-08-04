@@ -1,7 +1,7 @@
 ---
 title: Create event-based triggers
-titleSuffix: Azure Data Factory & Synapse Analytics
-description: Learn how to create a trigger in an Azure Data Factory or Synapse Analytics that runs a pipeline in response to an event.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to create a trigger in an Azure Data Factory or Azure Synapse Analytics that runs a pipeline in response to an event.
 ms.service: data-factory
 author: chez-charlie
 ms.author: chez
@@ -29,7 +29,7 @@ For a ten-minute introduction and demonstration of this feature, watch the follo
 
 This section shows you how to create a storage event trigger within the Azure Data Factory and Synapse pipeline User Interface.
 
-1. Switch to the **Edit** tab in Data Factory, or the **Integrate** tab in Synapse Analytics.
+1. Switch to the **Edit** tab in Data Factory, or the **Integrate** tab in Azure Synapse.
 
 1. Select **Trigger** on the menu, then select **New/Edit**.
 
@@ -39,8 +39,8 @@ This section shows you how to create a storage event trigger within the Azure Da
 
     # [Azure Data Factory](#tab/data-factory)
     :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image1.png" alt-text="Screenshot of Author page to create a new storage event trigger in Data Factory UI.":::
-    # [Synapse Analytics](#tab/synapse-analytics)
-    :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image1-synapse.png" alt-text="Screenshot of Author page to create a new storage event trigger in Synapse Analytics UI.":::
+    # [Azure Synapse](#tab/synapse-analytics)
+    :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image1-synapse.png" alt-text="Screenshot of Author page to create a new storage event trigger in the Azure Synapse UI.":::
 
 ---
 
@@ -50,7 +50,7 @@ This section shows you how to create a storage event trigger within the Azure Da
    > The Storage Event Trigger currently supports only Azure Data Lake Storage Gen2 and General-purpose version 2 storage accounts. Due to an Azure Event Grid limitation, Azure Data Factory only supports a maximum of 500 storage event triggers per storage account. If you hit the limit, please contact support for recommendations and increasing the limit upon evaluation by Event Grid team. 
 
    > [!NOTE]
-   > To create a new or modify an existing Storage Event Trigger, the Azure account used to log into the service and publish the storage event trigger must have appropriate role based access control (Azure RBAC) permission on the storage account. No additional permission is required: Service Principal for the Azure Data Factory and Synapse Analytics does _not_ need special permission to either the Storage account or Event Grid. For more information about access control, see [Role based access control](#role-based-access-control) section.
+   > To create a new or modify an existing Storage Event Trigger, the Azure account used to log into the service and publish the storage event trigger must have appropriate role based access control (Azure RBAC) permission on the storage account. No additional permission is required: Service Principal for the Azure Data Factory and Azure Synapse does _not_ need special permission to either the Storage account or Event Grid. For more information about access control, see [Role based access control](#role-based-access-control) section.
 
 1. The **Blob path begins with** and **Blob path ends with** properties allow you to specify the containers, folders, and blob names for which you want to receive events. Your storage event trigger requires at least one of these properties to be defined. You can use variety of patterns for both **Blob path begins with** and **Blob path ends with** properties, as shown in the examples later in this article.
 
@@ -115,7 +115,7 @@ This section provides examples of storage event trigger settings.
 Azure Data Factory and Synapse pipelines use Azure role-based access control (Azure RBAC) to ensure that unauthorized access to listen to, subscribe to updates from, and trigger pipelines linked to blob events, are strictly prohibited.
 
 * To successfully create a new or update an existing Storage Event Trigger, the Azure account signed into the the service needs to have appropriate access to the relevant storage account. Otherwise, the operation with fail with _Access Denied_.
-* Data Factory and Synapse Analytics need no special permission to your Event Grid, and you do _not_ need to assign special RBAC permission to the Data Factory or Synapse service principal for the operation.
+* Azure Data Factory and Azure Synapse need no special permission to your Event Grid, and you do _not_ need to assign special RBAC permission to the Data Factory or Azure Synapse service principal for the operation.
 
 Any of following RBAC settings works for storage event trigger:
 
@@ -123,23 +123,23 @@ Any of following RBAC settings works for storage event trigger:
 * Contributor role to the storage account
 * _Microsoft.EventGrid/EventSubscriptions/Write_ permission to storage account _/subscriptions/####/resourceGroups/####/providers/Microsoft.Storage/storageAccounts/storageAccountName_
 
-In order to understand how the service delivers the two promises, let's take back a step and take a peek behind the scenes. Here are the high-level work flows for integration among Data Factory and Synapse, Storage, and Event Grid.
+In order to understand how the service delivers the two promises, let's take back a step and take a peek behind the scenes. Here are the high-level work flows for integration between Azure Data Factory/Azure Synapse, Storage, and Event Grid.
 
 ### Create a new Storage Event Trigger
 
-This high-level work flow describes how Azure Data Factory interacts with Event Grid to create a Storage Event Trigger.  For Synapse Analytics the data flow is the same, with Synapse pipelines taking the role of the Data Factory in the diagram below.
+This high-level work flow describes how Azure Data Factory interacts with Event Grid to create a Storage Event Trigger.  For Azure Synapse the data flow is the same, with Synapse pipelines taking the role of the Data Factory in the diagram below.
 
 :::image type="content" source="media/how-to-create-event-trigger/storage-event-trigger-5-create-subscription.png" alt-text="Workflow of storage event trigger creation.":::
 
 Two noticeable call outs from the work flows:
 
-* Azure Data Factory and Synapse Analytics make _no_ direct contact with Storage account. Request to create a subscription is instead relayed and processed by Event Grid. Hence, the service needs no permission to Storage account for this step.
+* Azure Data Factory and Azure Synapse  make _no_ direct contact with Storage account. Request to create a subscription is instead relayed and processed by Event Grid. Hence, the service needs no permission to Storage account for this step.
 
 * Access control and permission checking happen within the service. Before the service sends a request to subscribe to storage event, it checks the permission for the user. More specifically, it checks whether the Azure account signed in and attempting to create the Storage Event trigger has appropriate access to the relevant storage account. If the permission check fails, trigger creation also fails.
 
 ### Storage event trigger pipeline run
 
-This high-level work flows describe how Storage event triggers pipeline run through Event Grid. For Synapse Analytics the data flow is the same, with Synapse pipelines taking the role of the Data Factory in the diagram below.
+This high-level work flows describe how Storage event triggers pipeline run through Event Grid. For Azure Synapse the data flow is the same, with Synapse pipelines taking the role of the Data Factory in the diagram below.
 
 :::image type="content" source="media/how-to-create-event-trigger/storage-event-trigger-6-trigger-pipeline.png" alt-text="Workflow of storage event triggering pipeline runs.":::
 
