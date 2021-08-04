@@ -59,7 +59,7 @@ The Azure Machine Learning workspace must be created inside a resource group. Yo
 az group create --name <resource-group-name> --location <location>
 ```
 
-The response from this command is similar to the following JSON. You can use the output values to locate the created resources or parse them as input to subsequent CLI steps.
+The response from this command is similar to the following JSON. You can use the output values to locate the created resources or parse them as input to subsequent CLI steps for automation.
 
 ```json
 {
@@ -100,18 +100,18 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
 ```
 
 # [Bring existing resources (1.0 CLI)](#tab/bringexistingresources1)
-To create a workspace that uses existing resources, you must provide the ID for the resources. You can get this ID either via the 'properties'  tab on each resource in the Azure Portal, or by running the following commands using the Azure CLI.
+To create a workspace that uses existing resources, you must provide the resource ID for each resource. You can get this ID either via the 'properties' tab on each resource via the Azure Portal, or by running the following commands using the Azure CLI.
 
   * **Azure Storage Account**: 
-    `az storage account show --name <storage-account-name> --query "id"`
+        `az storage account show --name <storage-account-name> --query "id"`
   * **Azure Application Insights**: 
-    `az monitor app-insights component show --app <application-insight-name> -g <resource-group-name> --query "id"`
+        `az monitor app-insights component show --app <application-insight-name> -g <resource-group-name> --query "id"`
   * **Azure Key Vault**:
-    `az keyvault show --name <key-vault-name> --query "ID"`
+        `az keyvault show --name <key-vault-name> --query "ID"`
   * **Azure Container Registry**:
-    `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
+        `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
 
-  The resource IDs value has the following format: `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/<provider>/<subresource>/<resource-name>"`.
+  The returned resource ID has the following format: `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/<provider>/<subresource>/<resource-name>"`.
 
 Once you have the IDs for the resource(s) that you want to use with the workspace, use the base `az workspace create -w <workspace-name> -g <resource-group-name>` command and add the parameter(s) and ID(s) for the existing resources. For example, the following command creates a workspace that uses an existing container registry:
 
@@ -121,7 +121,7 @@ az ml workspace create -w <workspace-name>
                        --container-registry "/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<acr-name>"
 ```
 
-# [Bring existing resources (2.0 CLI)](#tab/bringexistingresources2)
+# [Bring existing resources (2.0 CLI - preview)](#tab/bringexistingresources2)
 
 To create a new workspace while bringing existing associated resources using the CLI, you will first have to define how your workspace should be configured in a configuration file.
 
@@ -143,10 +143,14 @@ az ml workspace create -w <workspace-name> -g <resource-group-name> --file works
 
 If attaching existing resources, you must provide the ID for the resources. You can get this ID either via the 'properties'  tab on each resource in the Azure Portal, or by running the following commands using the Azure CLI.
 
-* **Azure Storage Account**: `az storage account show --name <storage-account-name> --query "id"`
-* **Azure Application Insights": `az monitor app-insights component show --app <application-insight-name> -g <resource-group-name> --query "id"`
-* **Azure Key Vault**: `az keyvault show --name <key-vault-name> --query "ID"`
-* **Azure Container Registry**: `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
+* **Azure Storage Account**: 
+      `az storage account show --name <storage-account-name> --query "id"`
+* **Azure Application Insights**: 
+      `az monitor app-insights component show --app <application-insight-name> -g <resource-group-name> --query "id"`
+* **Azure Key Vault**:
+      `az keyvault show --name <key-vault-name> --query "ID"`
+* **Azure Container Registry**:
+      `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
 
 The Resource ID value looks similar to the following: `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/<provider>/<subresource>/<resource-name>"`.
 
@@ -206,7 +210,7 @@ az ml workspace create -w <workspace-name>
 
 For more details on how to use these commands, see the [CLI reference pages]((/cli/azure/ml(v1)/workspace?view=azure-cli-latest)).
 
-# [2.0 CLI](#tab/vnetpleconfigurationsv2cli)
+# [2.0 CLI - preview](#tab/vnetpleconfigurationsv2cli)
 
 To set up private network connectivity for your workspace using the 2.0 CLI, extend the workspace configuration file to include private link endpoint resource details.
 
@@ -263,7 +267,7 @@ az ml workspace create -w <workspace-name>
                        --hbi-workspace
 ```
 
-# [2.0 CLI](#tab/vnetpleconfigurationsv2cli)
+# [2.0 CLI - preview](#tab/vnetpleconfigurationsv2cli)
 
 Use the `customer_managed_key` parameter and containing `key_vault` and `key_uri` parameters, to specify the resource id and uri of the key within the vault. To limit the data that Microsoft collects on your workspace, you can additionally specify the `hbi_workspace` property. 
 
