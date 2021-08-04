@@ -23,6 +23,7 @@ On the left, **Reboot** allows you to reboot one or more nodes of your cache. Th
 <!-- ![Screenshot that highlights the Reboot menu option.](./media/cache-administration/redis-cache-administration-reboot.png) -->
 
 :::image type="content" source="media/cache-administration/cache-administration-reboot2.png" alt-text="Screenshot that highlights the Reboot menu option":::
+
 Select the nodes to reboot and select **Reboot**.
 
 <!-- ![Screenshot that shows which nodes you can reboot.](./media/cache-administration/redis-cache-reboot.png) -->
