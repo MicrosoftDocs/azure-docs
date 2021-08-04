@@ -52,13 +52,13 @@ The following sections specify the parameters required for all authentication ty
 
 ## <span id="appinsights">Application Insights</span>
 
-* **Application ID**: This is used to identify this application when you're using the Application Insights API. To get the Application ID, follow these steps:
+* **Application ID**: This is used to identify this application when you're using the Application Insights API. To get the application ID, follow these steps:
 
    1. From your Application Insights resource, select **API Access**.
    
       ![Screenshot that shows how to get the application ID from your Application Insights resource.](media/portal-app-insights-app-id.png)
 
-   2. Copy the Application ID generated into the **Application ID** field in Metrics Advisor. 
+   2. Copy the application ID generated into the **Application ID** field in Metrics Advisor. 
 
 * **API key**: API keys are used by applications outside the browser to access this resource. To get the API key, follow these steps:
 
@@ -99,7 +99,7 @@ The following sections specify the parameters required for all authentication ty
 
 * **Container**: Metrics Advisor expects time series data to be stored as blob files (one blob per timestamp), under a single container. This is the container name field.
 
-* **Blob template**: Metrics Advisor uses a path to find the JSON file in your Blob storage. This is an example of a Blob file template, which is used to find the JSON file in your Blob storage: `%Y/%m/FileName_%Y-%m-%d-%h-%M.json`. `%Y/%m` is the path, and if you have `%d` in your path, you can add it after `%m`. If your JSON file is named by date, you can also use `%Y-%m-%d-%h-%M.json`.
+* **Blob template**: Metrics Advisor uses a path to find the JSON file in Blob Storage. This is an example of a blob file template, which is used to find the JSON file in Blob Storage: `%Y/%m/FileName_%Y-%m-%d-%h-%M.json`. `%Y/%m` is the path, and if you have `%d` in your path, you can add it after `%m`. If your JSON file is named by date, you can also use `%Y-%m-%d-%h-%M.json`.
 
    The following parameters are supported:
    
@@ -109,14 +109,14 @@ The following sections specify the parameters required for all authentication ty
    * `%h` is the hour, formatted as `HH`.
    * `%M` is the minute, formatted as `mm`.
   
-   For example, in the following dataset, the Blob template should be `%Y/%m/%d/00/JsonFormatV2.json`.
+   For example, in the following dataset, the blob template should be `%Y/%m/%d/00/JsonFormatV2.json`.
   
-   ![Screenshot that shows the Blob template.](media/blob-template.png)
+   ![Screenshot that shows the blob template.](media/blob-template.png)
   
 
 * **JSON format version**: Defines the data schema in the JSON files. Metrics Advisor supports the following versions. You can choose one to fill in the field:
   
-   * **v1** (Default value)
+   * **v1** (default value)
 
       Only the metrics *Name* and *Value* are accepted. For example:
     
@@ -154,7 +154,7 @@ The following sections specify the parameters required for all authentication ty
 
 ## <span id="kusto">Azure Data Explorer (Kusto)</span>
 
-* **Connection string**: There are four authentication types for Azure Data Explorer (Kusto): basic, service principal, service principal from key vault, and managed identity. The data source in the connection string should be in the URI format (starts with 'https'). You can find the URI in the Azure portal.
+* **Connection string**: There are four authentication types for Azure Data Explorer (Kusto): basic, service principal, service principal from key vault, and managed identity. The data source in the connection string should be in the URI format (starts with "https"). You can find the URI in the Azure portal.
     
     * **Basic**: Metrics Advisor supports accessing Azure Data Explorer (Kusto) by using Azure AD application authentication. You need to create and register an Azure AD application, and then authorize it to access an Azure Data Explorer database. For more information, see [Create an Azure AD app registration in Azure Data Explorer](/azure/data-explorer/provision-azure-ad-app). Here's an example of connection string:
         
@@ -181,7 +181,7 @@ The following sections specify the parameters required for all authentication ty
         Data Source=<URI Server>;Initial Catalog=<Database>
         ```
 
-    * **Managed identity**: Managed identity for Azure resources can authorize access to blob and queue data. Managed identity uses Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identity for Azure resources and Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. Learn how to [authorize with a managed identity](../../storage/common/storage-auth-aad-msi.md#enable-managed-identities-on-a-vm). 
+    * **Managed identity**: Managed identity for Azure resources can authorize access to blob and queue data. Managed identity uses Azure AD credentials from applications running in Azure virtual machines, function apps, virtual machine scale sets, and other services. By using managed identity for Azure resources and Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. Learn how to [authorize with a managed identity](../../storage/common/storage-auth-aad-msi.md#enable-managed-identities-on-a-vm). 
     
         You can create a managed identity in the Azure portal for your Azure Data Explorer (Kusto). Select **Permissions** > **Add**. The suggested role type is: **admin / viewer**.
         
@@ -205,11 +205,11 @@ The following sections specify the parameters required for all authentication ty
 
 ## <span id="adl">Azure Data Lake Storage Gen2</span>
 
-* **Account Name**: The authentication types for Azure Data Lake Storage Gen2 are basic, Azure Data Lake Storage Gen2 shared key, service principal, and service principal from key vault.
+* **Account Name**: The authentication types for Azure Data Lake Storage Gen2 are basic, Azure Data Lake Storage Gen2 shared key, service principal, and service principal from Key Vault.
     
     * **Basic**: The **Account Name** of your Azure Data Lake Storage Gen2. You can find this in your Azure storage account (Azure Data Lake Storage Gen2) resource, in **Access keys**. 
 
-    * **Azure Data Lake Storage Gen2 shared key**: First, you specify the account key to access your Azure Data Lake Storage Gen2 (this is the same as the account key in the basic authentication type）. You can find this in Azure storage account (Azure Data Lake Storage Gen2) resource, in **Access keys**. Then, you [create a credential entity](how-tos/credential-entity.md) for Azure Data Lake Storage Gen2 shared key type, and fill in the account key. 
+    * **Azure Data Lake Storage Gen2 shared key**: First, you specify the account key to access your Azure Data Lake Storage Gen2 (this is the same as the account key in the basic authentication type. You can find this in your Azure storage account (Azure Data Lake Storage Gen2) resource, in **Access keys**. Then, you [create a credential entity](how-tos/credential-entity.md) for Azure Data Lake Storage Gen2 shared key type, and fill in the account key. 
 
         The account name is the same as the basic authentication type.
     
@@ -254,7 +254,7 @@ The following sections specify the parameters required for all authentication ty
    Query sample for an hourly metric: `%Y/%m/%d/%h`.
 
 * **File Template**:
-   Metrics Advisor uses a path to find the JSON file in your Blob storage. The following is an example of a Blob file template, which is used to find the JSON file in your Blob storage: `%Y/%m/FileName_%Y-%m-%d-%h-%M.json`. `%Y/%m` is the path, and if you have `%d` in your path, you can add it after `%m`. 
+   Metrics Advisor uses a path to find the JSON file in Blob Storage. The following is an example of a blob file template, which is used to find the JSON file in Blob Storage: `%Y/%m/FileName_%Y-%m-%d-%h-%M.json`. `%Y/%m` is the path, and if you have `%d` in your path, you can add it after `%m`. 
    
    The following parameters are supported:
    
@@ -338,7 +338,7 @@ You find this on the **Consumer Groups** menu of an instance of Azure Event Hubs
 
 ## <span id="log">Azure Monitor Logs</span>
 
-Azure Monitor Logs has the following authentication types: basic, service principal, and service principal from key vault.
+Azure Monitor Logs has the following authentication types: basic, service principal, and service principal from Key Vault.
 * **Basic**: You need to fill in **Tenant ID**, **Client ID**, **Client Secret**, and **Workspace ID**.
    To get **Tenant ID**, **Client ID**, and **Client Secret**, see [Register app or web API](../../active-directory/develop/quickstart-register-app.md). You can find **Workspace ID** in the Azure portal.
    
@@ -384,7 +384,7 @@ Azure Monitor Logs has the following authentication types: basic, service princi
         Data Source=<Server>;Initial Catalog=<db-name>;User ID=<user-name>;Password=<password>
         ```
     
-    * <span id='jump'>**Managed identity**</span>: Managed identity for Azure resources can authorize access to blob and queue data. It does so by using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identity for Azure resources and Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. To [enable your managed entity](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql.md), follow these steps:
+    * <span id='jump'>**Managed identity**</span>: Managed identity for Azure resources can authorize access to blob and queue data. It does so by using Azure AD credentials from applications running in Azure virtual machines, function apps, virtual machine scale sets, and other services. By using managed identity for Azure resources and Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. To [enable your managed entity](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql.md), follow these steps:
     1. Enabling a system-assigned managed identity is a one-click experience. In the Azure portal, for your Metrics Advisor workspace, go to **Settings** > **Identity** > **System assigned**. Then set the status as **on**. 
     
         ![Screenshot that shows how to set the status as on.](media/datafeeds/set-identity-status.png)
@@ -461,7 +461,7 @@ Azure Monitor Logs has the following authentication types: basic, service princi
     
 ## <span id="table">Azure Table Storage</span>
 
-* **Connection String**: Create a shared access signature (SAS) URL, and fill it in here. The most straightforward way to generate a SAS URL is by using the Azure portal. First, under **Settings**, go to the storage account you want to access. Then select **Shared access signature**. Select the **Table** and **Object** checkboxes, and then select **Generate SAS and connection string**. In the Metrics Advisor workspace, copy and paste the **Table service SAS URL** into the textbox.
+* **Connection String**: Create a shared access signature (SAS) URL, and fill it in here. The most straightforward way to generate a SAS URL is by using the Azure portal. First, under **Settings**, go to the storage account you want to access. Then select **Shared access signature**. Select the **Table** and **Object** checkboxes, and then select **Generate SAS and connection string**. In the Metrics Advisor workspace, copy and paste the **Table service SAS URL** into the text box.
 
     ![Screenshot that shows how to generate the shared access signature in Azure Table Storage.](media/azure-table-generate-sas.png)
 
@@ -545,5 +545,5 @@ For more information, refer to the [tutorial on writing a valid query](tutorials
  
 ## Next steps
 
-* While waiting for your metric data to be ingested into the system, read about [how to manage data feed configurations](how-tos/manage-data-feeds.md).
-* When your metric data is ingested, you can [Configure metrics and fine tune detection configuration](how-tos/configure-metrics.md).
+* While you're waiting for your metric data to be ingested into the system, read about [how to manage data feed configurations](how-tos/manage-data-feeds.md).
+* When your metric data is ingested, you can [configure metrics and fine tune detection configuration](how-tos/configure-metrics.md).
