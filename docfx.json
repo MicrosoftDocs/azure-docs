@@ -820,7 +820,11 @@
         "articles/media-services/previous/*.md": "rest-v2",
         "articles/media-services/video-indexer/*.md": "video-indexer",
         "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.md": "azure-video-analyzer-media",
-        "articles/azure-video-analyzer/video-analyzer-docs/*.md": "video-analyzer-subservice"
+        "articles/azure-video-analyzer/video-analyzer-docs/*.md": "video-analyzer-subservice",
+        "articles/cosmos-db/mongodb/*.md": "cosmosdb-mongo",
+        "articles/cosmos-db/cassandra/*.md": "cosmosdb-cassandra",
+        "articles/cosmos-db/graph/*.md": "cosmosdb-graph",
+        "articles/cosmos-db/table/*.md": "cosmosdb-table"
       },
       "monikerRange": {
         "articles/iot-edge/**/*.md": ">=iotedge-2018-06"
