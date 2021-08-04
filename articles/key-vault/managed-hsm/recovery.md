@@ -17,10 +17,10 @@ For more information, see [Managed HSM overview](overview.md).
 
 ## Prerequisites
 
-* An Azure subscription. [Create one for free.](https://azure.microsoft.com/free/dotnet)
+* An Azure subscription. [Create one for free](https://azure.microsoft.com/free/dotnet).
 * The [PowerShell module](/powershell/azure/install-az-ps).
-* Azure CLI 2.25.0 or later. Run `az --version` to determine which version you have. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
-* A managed HSM. You can create one by using [Azure CLI](./quick-create-cli.md) or [Azure PowerShell](./quick-create-powershell.md)
+* Azure CLI 2.25.0 or later. Run `az --version` to determine which version you have. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+* A managed HSM. You can create one by using [Azure CLI](./quick-create-cli.md) or [Azure PowerShell](./quick-create-powershell.md).
 * Users will need the following permissions to perform operations on soft-deleted HSMs or keys:
 
   | Role assignment | Description |
@@ -39,7 +39,7 @@ For more information, see [Managed HSM overview](overview.md).
 **Soft-delete** is designed to prevent accidental deletion of your HSM and keys. Soft-delete works like a recycle bin. When you delete an HSM or a key, it will remain recoverable for a configurable retention period or for a default period of 90 days. HSMs and keys in the soft-deleted state can also be *purged*, which means they're permanently deleted. Purging allows you to re-create HSMs and keys with the same name as the purged item. Both recovering and deleting HSMs and keys require specific role assignments. Soft-delete can't be disabled.
 
 > [!NOTE]
-> Because the underlying resources remain allocated to your HSM even when it's in a deleted state, the HSM resource will continue to accrue hourly charges while it's in a deleted state.
+> Because the underlying resources remain allocated to your HSM even when it's in a deleted state, the HSM resource will continue to accrue hourly charges while it's in that state.
 
 Managed HSM names are globally unique in every cloud environment. So you can't create a managed HSM with the same name as one that exists in a soft-deleted state. Similarly, the names of keys are unique within an HSM. You can't create a key with the same name as one exists in the soft-deleted state.
 
