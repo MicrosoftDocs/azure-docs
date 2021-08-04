@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 08/02/2021
+ms.date: 08/04/2021
 ---
 
 # Compare Azure Government and global Azure
@@ -548,9 +548,6 @@ The following features have known limitations in Azure Government:
 
 - Limitations with Azure AD join:
     - Enterprise state roaming for Windows 10 devices is not available
-    
-- Limitations with Azure AD self-service password reset (SSPR):
-    - Azure AD SSPR from Windows 10 login screen is not available
 
 ### [Azure Information Protection](/azure/information-protection/what-is-information-protection)
 
