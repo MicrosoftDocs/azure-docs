@@ -29,25 +29,6 @@ Here are the features currently available for preview:
   logging facility. It produces audit logs required to pass
   certain government, financial, or ISO certification audits.
 
-### Available regions for preview features
-
-The pgAudit extension is available in all [regions supported by
-Hyperscale
-(Citus)](concepts-hyperscale-configuration-options.md#regions).
-The other preview features are available in **East US** only.
-
-## Does my server group have access to preview features?
-
-To determine if your Hyperscale (Citus) server group has preview features
-enabled, navigate to the server group's **Overview** page in the Azure portal.
-If you see the property **Tier: Basic (preview)** or **Tier: Standard
-(preview)** then your server group has access to preview features.
-
-### How to get access
-
-When creating a new Hyperscale (Citus) server group, check
-the box **Enable preview features.**
-
 ## Contact us
 
 Let us know about your experience using preview features, by emailing [Ask

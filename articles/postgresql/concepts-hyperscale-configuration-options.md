@@ -118,7 +118,7 @@ Hyperscale (Citus) server groups are available in the following Azure regions:
 	* Brazil South
 	* Canada Central
 	* Central US
-	* East US *
+	* East US
 	* East US 2
 	* North Central US
 	* West US 2
@@ -133,8 +133,6 @@ Hyperscale (Citus) server groups are available in the following Azure regions:
 	* Switzerland North
 	* UK South
 	* West Europe
-
-(\* = supports [preview features](hyperscale-preview-features.md))
 
 Some of these regions may not be initially activated on all Azure
 subscriptions. If you want to use a region from the list above and don't see it
