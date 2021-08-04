@@ -75,9 +75,9 @@ In this section you'll need to replace the following parameters in the steps wit
 | **\<resource-group-name>**  | myResourceGroupZLB (Select existing resource group) |
 | **\<virtual-network-name>** | myVNet          |
 | **\<region-name>**          | West Europe      |
-| **\<IPv4-address-space>**   | 10.0.0.0\16          |
+| **\<IPv4-address-space>**   | 10.0.0.0/16          |
 | **\<subnet-name>**          | myBackendSubnet        |
-| **\<subnet-address-range>** | 10.0.0.0\24          |
+| **\<subnet-address-range>** | 10.0.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
