@@ -12,7 +12,7 @@ author: qpetraroia
 
 # Use Scale-Down-Mode to delete/deallocate your nodes in Azure Kubernetes Service (AKS) (preview)
 
-Scale-Down-Mode allows you to decide whether you would like to delete or deallocate your nodes in your Azure Kubernetes Service (AKS) cluster. Prior to Scale-Down-Mode, scale operations would have to account for the time it takes for cluster autoscaler to kick in as well as the allocation and provisioning of new nodes. By deallocating your nodes, your nodes will be stopped with their image cached. Allowing you to save on start times as well as costs as you no longer have to pre-provision nodes.
+Scale-Down-Mode allows you to decide whether you would like to delete or deallocate your nodes in your Azure Kubernetes Service (AKS) cluster. Before Scale-Down-Mode, scale operations would have to account for the time it takes for the cluster autoscaler to start up. You would also have to wait for the allocation and provisioning time of new nodes. By deallocating your nodes, your nodes will be stopped with their image cached. Allowing you to save on start times and costs as you no longer have to pre-provision nodes.
 
 ## Before you begin
 
@@ -40,26 +40,26 @@ In this example, we are adding cluster autoscaler to our cluster and making sure
  az aks create --enable-cluster-autoscaler --min-count 1 --max-count 100 --scale-down-mode delete --cluster-name myAKSCluster --resource-group myResourceGroup
 ```
 
-In this example, we are adding cluster autoscaler to a nodepool and making sure our nodes get deleted when we scale down.
+In this example, we are adding cluster autoscaler to a node pool and making sure our nodes get deleted when we scale down.
 ```azurecli-interactive
 az aks nodepool add --enable-cluster-autoscaler --min-count 1 --max-count 100 --scale-down-mode delete --node-pool nodepool1 --cluster-name myAKSCluster --resource-group myResourceGroup
 ```
 
 ## Deallocating your nodes manually
 
-By setting `--scale-down-mode deallocate` you will be able to deallocate your nodes, when you decide to scale-down your cluster/nodepool. All deallocated nodes are stopped, this means that when your cluster/nodepool needs to scale up, all deallocated nodes will be started first before deciding to provision new nodes.
+By setting `--scale-down-mode deallocate` you will be able to deallocate your nodes, when you decide to scale-down your cluster/node pool. All deallocated nodes are stopped, this means that when your cluster/node pool needs to scale up, all deallocated nodes will be started first before deciding to provision new nodes.
 
 ```azurecli-interactive
 az aks nodepool add --node-count 50 --scale-down-policy deallocate --node-pool nodepool1 --cluster-name myAKSCluster --resource-group myResourceGroup
 ```
 
-By updating the nodepool and changing the nodes to 5, we will deallocate 45 nodes.
+By updating the node pool and changing the nodes to 5, we will deallocate 45 nodes.
 
 ```azurecli-interactive
 az aks nodepool update --node-count 5 --node-pool nodepool1 --cluster-name myAKSCluster --resource-group myResourceGroup --no-wait
 ```
 
-To delete your deallocated nodes, you can change your scale-down-mode to delete by setting `--scale-down-mode delete`. This will delete the 45 deallocated nodes.
+To delete your deallocated nodes, you can change your scale-down-mode to delete by setting `--scale-down-mode delete`. The 45 deallocated nodes will now be deleted.
 
 ```azurecli-interactive
 az aks nodepool update --scale-down-mode delete --node-pool nodepool1 --cluster-name myAKSCluster --resource-group myResourceGroup
