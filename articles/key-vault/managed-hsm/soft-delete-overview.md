@@ -67,7 +67,7 @@ Unless a managed HSM or key is recovered, at the end of the retention interval, 
 
 ### Billing implications
 
-Managed HSM is a single-tenant service. When you create a managed HSM, the service reserves underlying resources allocated to your HSM. These resources remain allocated even when the HSM is in deleted state. You'll be billed for the HSM while it's in a deleted state.
+Managed HSM is a single-tenant service. When you create a managed HSM, the service reserves underlying resources allocated to your HSM. These resources remain allocated even when the HSM is in a deleted state. You'll be billed for the HSM while it's in a deleted state.
 
 ## Next steps
 

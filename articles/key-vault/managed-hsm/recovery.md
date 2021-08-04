@@ -41,7 +41,7 @@ For more information, see [Managed HSM overview](overview.md).
 > [!NOTE]
 > Because the underlying resources remain allocated to your HSM even when it's in a deleted state, the HSM resource will continue to accrue hourly charges while it's in that state.
 
-Managed HSM names are globally unique in every cloud environment. So you can't create a managed HSM with the same name as one that exists in a soft-deleted state. Similarly, the names of keys are unique within an HSM. You can't create a key with the same name as one exists in the soft-deleted state.
+Managed HSM names are globally unique in every cloud environment. So you can't create a managed HSM with the same name as one that exists in a soft-deleted state. Similarly, the names of keys are unique within an HSM. You can't create a key with the same name as one that exists in the soft-deleted state.
 
 For more information, see [Managed HSM soft-delete overview](soft-delete-overview.md).
 
