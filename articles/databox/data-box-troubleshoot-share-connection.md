@@ -36,7 +36,7 @@ To find out whether a domain issue is preventing share access:
 
     `net use \\<IP address of the device>\<share name> /u:<IP address of the device>\<user name for the share>`<!--Check the raw data for this command. It's being truncated.-->
 
-    For a procedure, see [Copy data to Data Box via SMB](https://docs.microsoft.com/en-us/azure/databox/data-box-deploy-copy-data).
+    For a procedure, see [Copy data to Data Box via SMB](data-box-deploy-copy-data.md).
 
 ## Check for a blocking group policy
 
@@ -83,43 +83,41 @@ To run diagnostics on your Data Box, do the following steps:<!--Diagnostics opti
        Default LM Compatibility Level: 3
        ```
 
-If you find either of these errors, you'll need to update the LAN Manager authentication level on your device. Use the Local Security Policy editor. If that doesn't work, you can update the Registryr directly.
+If you find either of these errors, you'll need to update the LAN Manager authentication level on your device. Use the Local Security Policy editor. If that doesn't work, you can update the registry directly.
 
-### Use Local Security Policy editor to change the policy 
+### Use Local Security Policy editor to change the policy
 
-To use the Local Security Policy editor<!--Short name?--> to update the policy, do these steps:
+To use update the policy in Local Security Policy, do these steps:
  
-1. To open the Local Security Policy editor, start a PowerShell session, and run `secpol.msc`.
+1. To open Local Security Policy, on the **Start** screen, type `secpol.msc`, and then press Enter.
 
-1. Go to **Local Policies** > **Security Options** > **Network Security: LAN Manager authentication level**.
+1. Go to **Local Policies** > **Security Options**, and open **Network Security: LAN Manager authentication level**.
 
     ![Screenshot showing the Security Options in the Local Security Policy editor. The "Network Security: LAN Manager authentication level" policy is highlighted.](media/data-box-troubleshoot-share-connection/security-policy-01.png)
 
-1. Change the setting **Send NTLMv2 response only. Refuse LM & NTLM**.
+1. Change the setting to **Send NTLMv2 response only. Refuse LM & NTLM**.
 
     ![Screenshot showing "Network Security: LAN Manager authentication level" policy in the Local Security Policy editor. The "Send NTLMv2 response only. Refuse LM & NTLM" option is highlighted.](media/data-box-troubleshoot-share-connection/security-policy-02.png)
 
-### Update the Registry to change the policy
+### Update the registry to change the policy
 
-If you can't change the LAN Manager authentication level using the Local Security Policy editor, you can update the Registry directly.<!--Check the style for Registry. Capitalized in all instances?-->
+If you can't change the LAN Manager authentication level in Local Security Policy, update the registry directly.
 
-To update the Registry, do these steps:
+To update the registry, do these steps:
 
-1. To open the Registry Editor, open a command prompt, and run `regedt32`.
+1. To open Registry Editor (regedit32.exe), on the **Start** screen, type `regedt32`, and then press Enter.
 
-1. Go to **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **LSA**.
+1. Navigate to: HKEY_LOCAL_MACHINE > SYSTEM > CurrentControlSet > Control > LSA.
 
     ![Screenshot showing the Registry Editor with the LSA folder highlighted.](media/data-box-troubleshoot-share-connection/security-policy-03.png)
 
-1. In the **LSA** folder, select and click **LMCompatibilityLevel** to open a window for editing the value data.
+1. In the LSA folder, open the LMCompatibilityLevel registry key, and change its value to 5.
 
-1. In **Value data**, change the setting to 5.
+    ![Screenshot of the Registry Editor, showing the dialog box to change the value of the LMCompatibilityLevel registry key.](media/data-box-troubleshoot-share-connection/security-policy-04.png)
 
-    ![Screenshot showing the dialog box for editing the value of a setting in Registry Editor](media/data-box-troubleshoot-share-connection/security-policy-04.png)
-
-1. Restart your computer so that the Registry changes take effect.
+1. Restart your computer so that the registry changes take effect.
 
 ## Next steps
 
-- [Copy data via SMB](data-box-deploy-copy-data.md)
-- [Copy data via network-attached storage (NAS)](data-box-deploy-copy-data-via-copy-service.md)
+- [Copy data via SMB](data-box-deploy-copy-data.md).
+- [Troubleshoot data copy issues in Data Box](data-box-troubleshoot.md).
