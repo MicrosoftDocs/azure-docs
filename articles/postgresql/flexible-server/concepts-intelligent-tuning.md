@@ -3,6 +3,9 @@
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - Flexible Server is in preview
 
+> [!IMPORTANT]
+> Intelligent Tuning is in preview
+
 **Applies to:** Azure Database for PostgreSQL - Flex Server versions 11 and above
 
 The Intelligent Tuning features in Azure Database for PostgreSQL Flexible Server provides a way to automatically improve your databases performance by enrolling in our service to automatically adjust your Checkpoint_completion_target, min_wal_size and max_wal_size based on usage patterns and values. Our service will query statistics around your database every 30 minutes and make constant adjustments to optimize your performance without any interaction from the user.
