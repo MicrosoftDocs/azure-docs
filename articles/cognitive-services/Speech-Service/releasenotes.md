@@ -15,6 +15,15 @@ ms.custom: seodec18
 
 # Speech Service release notes
 
+## Text-to-speech 2021-July release
+
+**Neural TTS updates**
+- Reduced pronunciation errors in Hebrew by 20%.
+
+**Speech Studio updates**
+- **Custom Neural Voice**: Updated the training pipeline to UniTTSv3 with which the model quality is improved while training time is reduced by 50% for acoustic models. 
+- **Audio Content Creation**: Fixed the "Export" performance issue and the bug on custom voice selection.  
+
 ## Speech SDK 1.18.0: 2021-July release
 
 **Note**: Get started with the Speech SDK [here](speech-sdk.md#get-the-speech-sdk).

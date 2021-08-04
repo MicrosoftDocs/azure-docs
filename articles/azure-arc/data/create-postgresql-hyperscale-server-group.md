@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
@@ -30,25 +30,6 @@ There are important topics you may want read before you proceed with creation:
 If you prefer to try out things without provisioning a full environment yourself, get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM.
 
 
-## Login to the Azure Arc data controller
-
-Before you can create an instance, you must first login to the Azure Arc data controller. If you are already logged in into the data controller, you can skip this step.
-
-```console
-azdata login
-```
-
-You will then be prompted for the username, password, and the system namespace.  
-
-> If you used the script to create the data controller then your namespace should be **arc**
-
-```console
-Namespace: arc
-Username: arcadmin
-Password:
-Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting active context to `arc`
-```
-
 ## Preliminary and temporary step for OpenShift users only
 Implement this step before moving to the next step. To deploy PostgreSQL Hyperscale server group onto Red Hat OpenShift in a project other than the default, you need to execute the following commands against your cluster to update the security constraints. This command grants the necessary privileges to the service accounts that will run your PostgreSQL Hyperscale server group. The security context constraint (SCC) arc-data-scc is the one you added when you deployed the Azure Arc data controller.
 
@@ -63,11 +44,11 @@ For more details on SCCs in OpenShift, please refer to the [OpenShift documentat
 
 ## Create an Azure Arc-enabled PostgreSQL Hyperscale server group
 
-To create an Azure Arc-enabled PostgreSQL Hyperscale server group on your Arc data controller, you will use the command `azdata arc postgres server create` to which you will pass several parameters.
+To create an Azure Arc-enabled PostgreSQL Hyperscale server group on your Arc data controller, you will use the command `az postgres arc-server create` to which you will pass several parameters.
 
 For details about all the parameters you can set at the creation time, review the output of the command:
-```console
-azdata arc postgres server create --help
+```azurecli
+az postgres arc-server create --help
 ```
 
 The main parameters should consider are:
@@ -93,15 +74,15 @@ While using -w 1 works, we do not recommend you use it. This deployment will not
     - to set the storage class for the logs, indicate the parameter `--storage-class-logs` or `-scl` followed by the name of the storage class.
     - to set the storage class for the backups: in this Preview of the Azure Arc-enabled PostgreSQL Hyperscale there are two ways to set storage classes depending on what types of backup/restore operations you want to do. We are working on simplifying this experience. You will either indicate a storage class or a volume claim mount. A volume claim mount is a pair of an existing persistent volume claim (in the same namespace) and volume type (and optional metadata depending on the volume type) separated by colon. The persistent volume will be mounted in each pod for the PostgreSQL server group.
         - if you want plan to do only full database restores, set the parameter `--storage-class-backups` or `-scb` followed by the name of the storage class.
-        - if you plan to do both full database restores and point in time restores, set the parameter `--volume-claim-mounts` or `-vcm` followed by the name of a volume claim and a volume type.
+        - if you plan to do both full database restores and point in time restores, set the parameter `--volume-claim-mounts` or `--volume-claim-mounts` followed by the name of a volume claim and a volume type.
 
 Note that when you execute the create command, you will be prompted to enter the password of the default `postgres` administrative user. The name of that user cannot be changed in this Preview. You may skip the interactive prompt by setting the `AZDATA_PASSWORD` session environment variable before you run the create command.
 
 ### Examples
 
 **To deploy a server group of Postgres version 12 named postgres01 with 2 worker nodes that uses the same storage classes as the data controller, run the following command:**
-```console
-azdata arc postgres server create -n postgres01 --workers 2
+```azurecli
+az postgres arc-server create -n postgres01 --workers 2 --k8s-namespace <namespace> --use-k8s
 ```
 
 **To deploy a server group of Postgres version 12 named postgres01 with 2 worker nodes that uses the same storage classes as the data controller for data and logs but its specific storage class to do both full restores and point in time restores, use the following steps:**
@@ -133,8 +114,8 @@ kubectl create -f e:\CreateBackupPVC.yml -n arc
 
 Next, create the server group:
 
-```console
-azdata arc postgres server create -n postgres01 --workers 2 -vcm backup-pvc:backup
+```azurecli
+az postgres arc-server create -n postgres01 --workers 2 --volume-claim-mounts backup-pvc:backup --k8s-namespace <namespace> --use-k8s
 ```
 
 > [!IMPORTANT]
@@ -151,8 +132,8 @@ azdata arc postgres server create -n postgres01 --workers 2 -vcm backup-pvc:back
 
 To list the PostgreSQL Hyperscale server groups deployed in your Arc data controller, run the following command:
 
-```console
-azdata arc postgres server list
+```azurecli
+az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 ```
 
 
@@ -166,8 +147,8 @@ postgres01  Ready     2
 
 To view the endpoints for a PostgreSQL server group, run the following command:
 
-```console
-azdata arc postgres endpoint list -n <server group name>
+```azurecli
+az postgres arc-server endpoint list -n <server group name> --k8s-namespace <namespace> --use-k8s
 ```
 For example:
 ```console
@@ -189,6 +170,8 @@ For example:
 
 You can use the PostgreSQL Instance endpoint to connect to the PostgreSQL Hyperscale server group from your favorite tool:  [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), [pgcli](https://www.pgcli.com/) psql, pgAdmin, etc. When you do so, you connect to the coordinator node/instance which takes care of routing the query to the appropriate worker nodes/instances if you have created distributed tables. For more details, read the [concepts of Azure Arc-enabled PostgreSQL Hyperscale](concepts-distributed-postgres-hyperscale.md).
 
+   [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
+
 ## Special note about Azure virtual machine deployments
 
 When you are using an Azure virtual machine, then the endpoint IP address will not show the _public_ IP address. To locate the public IP address, use the following command:
@@ -209,7 +192,7 @@ az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 
 Once you have the name of the NSG, you can add a firewall rule using the following command. The example values here create an NSG rule for port 30655 and allows connection from **any** source IP address.  This is not a security best practice!  You can lock down things better by specifying a -source-address-prefixes value that is specific to your client IP address or an IP address range that covers your team's or organization's IP addresses.
 
-Replace the value of the --destination-port-ranges parameter below with the port number you got from the 'azdata arc postgres server list' command above.
+Replace the value of the --destination-port-ranges parameter below with the port number you got from the 'az postgres arc-server list' command above.
 
 ```azurecli
 az network nsg rule create -n db_port --destination-port-ranges 30655 --source-address-prefixes '*' --nsg-name azurearcvmNSG --priority 500 -g azurearcvm-rg --access Allow --description 'Allow port through for db access' --destination-address-prefixes '*' --direction Inbound --protocol Tcp --source-port-ranges '*'

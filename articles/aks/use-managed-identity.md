@@ -131,8 +131,7 @@ A custom control plane identity enables access to be granted to the existing ide
 You must have the Azure CLI, version 2.15.1 or later installed.
 
 ### Limitations
-* Azure Government isn't currently supported.
-* Azure China 21Vianet isn't currently supported.
+* USDOD Central, USDOD East, USGov Iowa in Azure Government aren't currently supported.
 
 If you don't have a managed identity yet, you should go ahead and create one for example by using [az identity CLI][az-identity-create].
 

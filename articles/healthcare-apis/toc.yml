@@ -1,0 +1,53 @@
+items:
+- name: Azure API for FHIR documentation
+  href: ./azure-api-for-fhir/index.yml
+- name: Azure Healthcare APIs (preview) documentation
+  href: index.yml
+
+- name: Overview
+  expanded: true
+  items:
+    - name: About Healthcare APIs
+      href: healthcare-apis-overview.md
+    - name: About workspace
+      href: workspace-overview.md
+    - name: FHIR service
+      href: ./fhir/index.yml
+    - name: DICOM service
+      href: ./dicom/index.yml
+    - name: IoT connector
+      href: ./iot/index.yml
+    - name: Transfer and Transform Data
+      href: ./data-transformation/index.yml
+
+- name: Quickstarts
+  expanded: true
+  items:
+    - name: Deploy Healthcare APIs
+      href: healthcare-apis-quickstart.md
+
+- name: How-to guides
+  expanded: true
+  items:
+    - name: Authentication & Authorization
+      href: authentication-authorization.md
+    - name: Access using cURL
+      href: using-curl.md
+    - name: Access using REST Client
+      href: using-rest-client.md
+    - name: Register applications
+      href: register-application.md
+
+- name: Resources
+  expanded: true
+  items:
+    - name: FAQs
+      href: healthcare-apis-faqs.md
+    - name: GitHub projects
+      href: github-projects.md
+
+
+
+
+
+
