@@ -23,6 +23,8 @@ While a blob is in the archive access tier, it's considered offline and can't be
 
 When you move a blob from the archive tier to an online tier using one of these methods, [Azure Event Grid](../../event-grid/overview.md) raises an event. You can configure Event Grid to send the event to an event handler. For more information, see [Handle events on blob rehydration](#handle-events-on-blob-rehydration).
 
+For more information about the archive tier, see [Archive access tier](storage-blob-storage-tiers.md#archive-access-tier).
+
 ## Rehydration priority
 
 When you rehydrate a blob, you can set the priority for the rehydration operation via the optional *x-ms-rehydrate-priority* header on a [Set Blob Tier](/rest/api/storageservices/set-blob-tier) or [Copy Blob](/rest/api/storageservices/copy-blob)/[Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url) operation. Rehydration priority options include:
@@ -43,7 +45,10 @@ The first option for moving a blob from the archive tier to an online tier is to
 
 You must copy the archived blob to a new blob with a different name or to a different container. You cannot overwrite the source blob by copying to a blob with the same address.
 
-Microsoft recommends performing a copy operation in most scenarios where you need to move a blob from the archive tier to an online tier. Because a copy operation leaves the source blob in the archive tier and creates a new blob with a different name, rehydrating a blob in this way does not affect any lifecycle management policies that may be in place.
+Microsoft recommends performing a copy operation in most scenarios where you need to move a blob from the archive tier to an online tier, for the following reasons:
+
+- A copy operation avoids the early deletion fee that is assessed if you delete a blob from the archive tier before the required 180-day period elapses.
+- Because a copy operation leaves the source blob in the archive tier and creates a new blob with a different name, rehydrating a blob in this way does not affect any lifecycle management policies that may be in place.
 
 Copying a blob from archive can take hours to complete depending on the rehydration priority selected. Behind the scenes, a blob copy operation reads your archived source blob to create a new online blob in the selected destination tier. The new blob may be visible when you list the blobs in the parent container, but the data is not available until the read operation from the source blob in the archive tier is complete and the blob's contents have been written to the new destination blob in an online tier. The new blob is an independent copy, so modifying or deleting it does not affect the source blob in the archive tier.
 

@@ -7,9 +7,8 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/02/2021
+ms.date: 08/03/2021
 ms.author: tamram
-ms.topic: how-to
 ms.reviewer: fryu
 ms.custom: devx-track-azurepowershell
 ms.subservice: blobs
@@ -19,7 +18,7 @@ ms.subservice: blobs
 
 To read a blob that is in the archive tier, you must first change the tier of the blob to hot or cool. This process is known as rehydration and can take hours to complete. When the rehydration process is complete, an [Azure Event Grid](../../event-grid/overview.md) event fires. Your application can handle this event to be notified when a blob has been rehydrated.
 
-When an event occurs, Azure Event Grid sends the event to an event handler via an endpoint. A number of Azure services can serve as event handlers, including [Azure Functions](../..azure-functions/functions-overview.md). An Azure Function is a block of code that can execute in response to an event. This how-to walks you through the process of creating an Azure Function and configuring Azure Event Grid to capture an event that occurs when a blob is rehydrated. Azure Event grid sends the event to the Azure Function, which executes code in response.
+When an event occurs, Azure Event Grid sends the event to an event handler via an endpoint. A number of Azure services can serve as event handlers, including [Azure Functions](../../azure-functions/functions-overview.md). An Azure Function is a block of code that can execute in response to an event. This how-to walks you through the process of creating an Azure Function and configuring Azure Event Grid to capture an event that occurs when a blob is rehydrated. Azure Event grid sends the event to the Azure Function, which executes code in response.
 
 This article shows how to create and test an Azure Function in the Azure portal, but you can build Azure Functions from a variety of local development environments. For more information, see [Code and test Azure Functions locally](../../azure-functions/functions-develop-local.md).
 
