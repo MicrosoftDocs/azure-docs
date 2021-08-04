@@ -12,7 +12,7 @@ manager: abjork
 
 # Tutorial: Deploy and walk through the solar panel monitoring app template 
 
-Use the IoT Central *solar panel monitoring* application template and the guidance in this article to develop an end-to-end connected logistics solution.
+Use the IoT Central *solar panel monitoring* application template and the guidance in this article to develop an end-to-end solar panel monitoring solution.
 
   :::image type="content" source="media/tutorial-iot-central-solar-panel/solar-panel-app-architecture.png" alt-text="solar panel architecture.":::
 

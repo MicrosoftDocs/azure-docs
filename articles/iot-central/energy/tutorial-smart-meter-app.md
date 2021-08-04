@@ -12,7 +12,7 @@ manager: abjork
 
 # Tutorial: Deploy and walk through the smart meter monitoring app template 
 
-Use the IoT Central *smart meter monitoring* application template and the guidance in this article to develop an end-to-end connected logistics solution.
+Use the IoT Central *smart meter monitoring* application template and the guidance in this article to develop an end-to-end smart meter monitoring solution.
 
   :::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-app-architecture.png" alt-text="smart meter architecture.":::
 
