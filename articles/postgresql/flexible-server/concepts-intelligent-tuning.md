@@ -47,7 +47,7 @@ These three variables mostly affect the following
 • The frequency of checkpoints
 • The duration of synchronizations
 
-Intelligent tuning operates these rules in both directions, it attempts to lower durations during important workloads while also increasing them when the system is considered more idle. These rules are the ways we attempt to optimize these features so users can get personalized optimizations during difficult time periods without manually attempting updates.
+Intelligent tuning operates in both directions, it attempts to lower durations during high workloads and increasing them during idle segments. These rules are the ways we attempt to optimize these features so users can get personalized results during difficult time periods without manual updates.
 
 ## Limitations and known issues
 
