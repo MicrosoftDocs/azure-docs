@@ -28,6 +28,10 @@ This article helps you evaluate the impact on workloads, applications, costs, se
 > [!IMPORTANT]
 > An upgrade is one-way. There's no way to revert your account once you've performed the upgrade. We recommend that you validate your upgrade in a non production environment.
 
+## Downtime during the upgrade process
+
+Read and write operations are disabled while your account is being upgraded. Therefore, plan for some downtime in your account while the process completes.
+
 ## Impact on workloads and applications
 
 Blob APIs work with accounts that have a hierarchical namespace, so most applications that interact with your account by using these APIs continue to work without modification.

@@ -33,7 +33,7 @@ To upgrade your account, you must register the `HnsOnMigration` feature with you
 3. In the **Preview features** page, select the **ADLS enable Hierarchical Namespace for existing account** feature, and then select **Register**.
 
    > [!div class="mx-imgBorder"]
-   > ![Configuration page](./media/upgrade-to-data-lake-storage-gen2-how-to/register-feature-in-azure-portal.png)
+   > ![Register feature in Azure portal](./media/upgrade-to-data-lake-storage-gen2-how-to/register-feature-in-azure-portal.png)
 
 #### [PowerShell](#tab/powershell)
 
@@ -125,7 +125,35 @@ az feature show --namespace Microsoft.Storage --name HnsOnMigration
 
 6. Expand the **Step 2: Validate account before upgrading** section and then click **Start validation**.
 
-7. Expand the **Step 3: Upgrade account** section, and then click **Start upgrade**.
+   If validation fails, select the **View Errors** link
+
+   > [!div class="mx-imgBorder"]
+   > ![View errors link](./media/upgrade-to-data-lake-storage-gen2-how-to/validation-errors.png)
+
+   Then, from the context menu of the **error.json** file, select **Download**.
+
+   > [!div class="mx-imgBorder"]
+   > ![Error json page](./media/upgrade-to-data-lake-storage-gen2-how-to/error-json.png)
+
+   Open the downloaded file to determine why the validation might have failed to complete successfully. 
+
+   The following JSON indicates that an incompatible feature is enabled on the account. In this case, you would disable the feature and then start the validation process again.
+
+   ```json
+   {
+    "startTime": "2021-08-04T18:40:31.8465320Z",
+    "id": "45c84a6d-6746-4142-8130-5ae9cfe013a0",
+    "incompatibleFeatures": [
+        "Blob Delete Retention Enabled"
+    ],
+    "blobValidationErrors": [],
+    "scannedBlobCount": 0,
+    "invalidBlobCount": 0,
+    "endTime": "2021-08-04T18:40:34.9371480Z"
+   }
+   ```
+
+7. After your account has been successfully validated, expand the **Step 3: Upgrade account** section, and then click **Start upgrade**.
 
    > [!IMPORTANT]
    > Read and write operations are disabled while your account is being upgraded. 
