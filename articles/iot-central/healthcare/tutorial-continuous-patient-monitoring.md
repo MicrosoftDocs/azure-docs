@@ -50,7 +50,7 @@ In this tutorial, you learn how to:
 ## Create Continuous Patient Monitoring application
 
 1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Healthcare** tab:
-    :::image type="content" source="media/app-manager-health.png" alt-text="Connected logistics template":::
+    :::image type="content" source="media/app-manager-health.png" alt-text="Application template":::
 
 1. Select **Create app** under **Continuous Patient Monitoring**.
 
