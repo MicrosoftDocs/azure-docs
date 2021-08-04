@@ -38,6 +38,9 @@ To step through this how-to guide you need:
 8. If you have saved new values for the parameters, you can always revert everything back to the default values by selecting **Reset all to default**.
 :::image type="content" source="./media/howto-configure-server-parameters-in-portal/7-reset-to-default-button.png" alt-text="Reset all to default":::
 
+## Working with time zone parameters
+If you plan to work with date and time data in PostgreSQL, you’ll want to ensure that you’ve set the correct time zone for your location. All timezone-aware dates and times are stored internally in Postgres in UTC. They are converted to local time in the zone specified by the **TimeZone** server parameter before being displayed to the client.  This parameter can be edited on **Server parameters** page as explained above. 
+
 ## Next steps
 Learn about:
 - [Overview of server parameters in Azure Database for PostgreSQL](concepts-server-parameters.md)
