@@ -29,7 +29,7 @@ If any of your applications use the Azure Active Directory Authentication Librar
 
 ## Why switch to MSAL?
 
-MSAL provides multiple benefits over ADAL including the following features: 
+MSAL provides multiple benefits over ADAL, including the following features: 
 
 |Features|MSAL|ADAL|
 |---------|---------|---------|
