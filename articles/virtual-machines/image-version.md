@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 07/21/2021
+ms.date: 08/03/2021
 ms.author: cynthn
 ms.reviewer: akjosh 
 ms.custom: 
@@ -94,11 +94,9 @@ You can also capture an existing VM as an image, from the portal. For more infor
 
 Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them.
 
-Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes, and periods. 
+Make sure your image definition is the right type. If your source has been *generalized* (using Sysprep for Windows, or waagent -deprovision for Linux) then you should create a generalized image definition using `--os-state generalized`. If you want to use a source without removing existing user accounts, create a specialized image definition using `--os-state specialized`.
 
-Make sure your image definition is the right type. If you have generalized the VM (using Sysprep for Windows, or waagent -deprovision for Linux) then you should create a generalized image definition using `--os-state generalized`. If you want to use the VM without removing existing user accounts, create a specialized image definition using `--os-state specialized`.
-
-For more information about the values you can specify for an image definition, see [Image definitions](shared-image-galleries.md#image-definitions).
+For more information about the parameters you can specify for an image definition, see [Image definitions](shared-image-galleries.md#image-definitions).
 
 Create an image definition in the gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az_sig_image_definition_create).
 
@@ -117,28 +115,31 @@ az sig image-definition create \
 ```
 
 > [!NOTE]
-> For image definitions that will contain images descended from third-party images, the plan information must match exactly the plan information from the third-party image. Include the plan information in the image definition by adding `--plan-name`, `--plan-product`, and `--plan-publisher` when you create the image definition.
+> For image definitions that will contain images descended from third-party marketplace images, the plan information must match exactly the plan information from the third-party image. Include the plan information in the image definition by adding `--plan-name`, `--plan-product`, and `--plan-publisher` when you create the image definition.
 >
 
 **Create the image version**
 
 Create an image version using [az sig image version create](/cli/azure/sig/image-version#az_sig_image_version_create).  
 
-The syntax for creating the image will change, depending on what you are using as your source: You can mix the source types, as long as you only have one OS source. You can have different sources for each data disk. 
+The syntax for creating the image will change, depending on what you are using as your source. You can mix the source types, as long as you only have one OS source. You can also have different sources for each data disk.
 
 | Source  | Parameter set |
 |---|---|
 | **OS Disk**| |
-| VM | VM ID | `--managed-image /subscriptions/00000000-0000-0000-0000-00000000xxxx/resourceGroups/imageGroups/providers/Microsoft.Compute/virtualMachines/MyVM` |
-| Managed image or another image version | `--managed-image <ID>` |
-| Snapshot or managed disk | `--os-snapshot <ID>`. If you have data disks to include, add `--data-snapshots <IDs>` |
-| VHD in a storage account | `--os-vhd-uri <URI> --os-vhd-storage-account <account>`. If you have data disks to include, add `--data-vhds-sa <account> --data-vhds-uris <URIs> --data-vhds-luns <LUN>` | 
+| VM using the VM ID| `--managed-image <Resource ID of the VM>` |
+| Managed image or another image version | `--managed-image <Resource ID of the managed image or image version` |
+| Snapshot or managed disk | `--os-snapshot <Resource ID of the snapshot or managed disk>` |
+| VHD in a storage account | `--os-vhd-uri <URI> --os-vhd-storage-account <storage account name>`.  | 
 | **Data disk** |
-| Snapshot or managed disk | `--data-snapshots /subscriptions/00000000-0000-0000-0000-00000000xxxx/resourceGroups/imageGroups/providers/Microsoft.Compute/snapshots/MyDiskSnapshot --data-snapshot-luns 0` |
-| VHD in a storage account | `--data-vhds-sa <storageaccountname> --data-vhds-uris <URI> --data-vhds-luns 0` |
+| Snapshot or managed disk | `--data-snapshots <Resource ID of the snapshot or managed disk> --data-snapshot-luns <LUN number>` |
+| VHD in a storage account | `--data-vhds-sa <storageaccountname> --data-vhds-uris <URI> --data-vhds-luns <LUN number>` |
 
+For detailed examples of how to specify different sources for your image, see the [az sig image-version create examples](/cli/azure/sig/image-version?view=azure-cli-latest#az_sig_image_version_create-examples).
 
-In this example, we are creating an image from a VM. The version of our image is *1.0.0* and we are going to create 2 replicas in the *West Central US* region, 1 replica in the *South Central US* region and 1 replica in the *East US 2* region using zone-redundant storage. The replication regions must include the region the source VM is located.
+In the example below, we are creating an image from a **VM**. The version of our image is *1.0.0* and we are going to create 2 replicas in the *West Central US* region, 1 replica in the *South Central US* region and 1 replica in the *East US 2* region using zone-redundant storage. The replication regions must include the region the source VM is located.
+
+It is a best practice to stop\deallocate the VM before creating an image.
 
 Replace the value of `--managed-image` in this example with the ID of your VM.
 
@@ -160,46 +161,7 @@ az sig image-version create \
 
 ### [PowerShell](#tab/powershell)
 
-We will be creating variables for the information we need to create an image from our VM.
-
-You will need information about the gallery. You can list all of the galleries and image definitions by name. The results are in the format `gallery\image definition\image version`.
-
-```azurepowershell-interactive
-Get-AzResource -ResourceType Microsoft.Compute/galleries | Format-Table
-```
-
-Once you find the right gallery and image definitions, create variables for them to use later. This example gets the gallery named *myGallery* in the *myResourceGroup* resource group.
-
-```azurepowershell-interactive
-$gallery = Get-AzGallery `
-   -Name myGallery `
-   -ResourceGroupName myResourceGroup
-```
-
-**Get the VM**
-
-You can see a list of VMs that are available in a resource group using [Get-AzVM](/powershell/module/az.compute/get-azvm). Once you know the VM name and what resource group it is in, you can use `Get-AzVM` again to get the VM object and store it in a variable to use later. This example gets an VM named *sourceVM* from the "myResourceGroup" resource group and assigns it to the variable *$sourceVm*. 
-
-```azurepowershell-interactive
-$sourceVm = Get-AzVM `
-   -Name sourceVM `
-   -ResourceGroupName myResourceGroup
-```
-
-It is a best practice to stop\deallocate the VM before creating an image using [Stop-AzVM](/powershell/module/az.compute/stop-azvm).
-
-```azurepowershell-interactive
-Stop-AzVM `
-   -ResourceGroupName $sourceVm.ResourceGroupName `
-   -Name $sourceVm.Name `
-   -Force
-```
-
-**Create an image definition**
-
-Image definitions create a logical grouping for images. They are used to manage information about the image. Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes and periods. 
-
-When making your image definition, make sure is has all of the correct information. If you generalized the VM (using Sysprep for Windows, or waagent -deprovision for Linux) then you should create an image definition using `-OsState generalized`. If you didn't generalized the VM, create an image definition using `-OsState specialized`.
+Image definitions create a logical grouping for images. When making your image definition, make sure is has all of the correct information. If you generalized the source for the image (using Sysprep for Windows, or waagent -deprovision for Linux) then you should create an image definition using `-OsState generalized`. If you didn't generalized the source, create an image definition using `-OsState specialized`.
 
 For more information about the values you can specify for an image definition, see [Image definitions](./shared-image-galleries.md#image-definitions).
 
@@ -228,11 +190,22 @@ $imageDefinition = New-AzGalleryImageDefinition `
 
 Create an image version using [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). 
 
-Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
+The syntax for creating the image will change, depending on what you are using as your source. 
+
+| Source  | Parameter set |
+|---|---|
+| **OS Disk**| |
+| VM using the VM ID| `-SourceImageId <Resource ID of the VM>` |
+| Managed image or another image version | `-SourceImageId <Resource ID of the managed image or image version` |
+| Snapshot or managed disk | `-OSDiskImage <Resource ID of the snapshot or managed disk>` |
+| **Data disk** |
+| Snapshot or managed disk | `-DataDiskImage @{Source = @{Id=<source_id>}; Lun=<LUN>; SizeInGB = <Size in GB>; HostCaching = <Caching> }` |
+
+
+In the example below, we are creating an image version from a VM. It is a best practice to stop\deallocate the VM before creating an image using [Stop-AzVM](/powershell/module/az.compute/stop-azvm).
 
 In this example, the image version is *1.0.0* and it's replicated to both *West Central US* and *South Central US* datacenters. When choosing target regions for replication, remember that you also have to include the *source* region as a target for replication.
 
-To create an image version from the VM, use `$vm.Id.ToString()` for the `-SourceImageId`.
 
 ```azurepowershell-interactive
    $region1 = @{Name='South Central US';ReplicaCount=1}
@@ -263,21 +236,8 @@ $job.State
 > You can also store your image in Premium storage by adding `-StorageAccountType Premium_LRS`, or [Zone Redundant Storage](../storage/common/storage-redundancy.md) by adding `-StorageAccountType Standard_ZRS` when you create the image version.
 >
 
-
-### [REST](#tab/rest)
-
-You can use the [REST API](/rest/api/compute/galleries/create-or-update) to create a gallery.
-
-```rest
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}?api-version=2019-12-01
-```
-
 ---
 
----------------------------------------------------------------------------------------------------------------------
-
-
->
 
 ## Next steps
 

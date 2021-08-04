@@ -711,21 +711,12 @@
       href: ./shared-image-galleries.md
     - name: Create a gallery
       displayName: Shared Image Gallery, SIG, sig, gallery, image
+      href: create-gallery.md
+    - name: Share a gallery
       href: share-gallery.md
     - name: Create an image
-      items:
-      - name: From a VM
-        displayName: Shared Image Gallery, SIG, sig, gallery, image
-        href: image-version-vm-cli.md
-      - name: From a Managed Disk or snapshot
-        displayName: Shared Image Gallery, SIG, sig, gallery, image
-        href: image-version-snapshot-cli.md
-      - name: Clone a managed image
-        displayName: Shared Image Gallery, SIG, sig, gallery, image
-        href: image-version-managed-image-cli.md
-      - name: Copy from another gallery
-        displayName: Shared Image Gallery, SIG, sig, gallery, image
-        href: image-version-another-gallery-cli.md
+      displayName: VM, image, VHD, storage account
+      href: image-version.md
     - name: Create a VM
       items:
       - name: Generalized
