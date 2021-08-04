@@ -5,7 +5,7 @@
     items:
     - name: 0 - 9
       items:
-      - name: 10,000ft Plans
+      - name: 10,000 ft Plans
         href: 10000ftplans-tutorial.md
       - name: 123FormBuilder
         href: 123formbuilder-tutorial.md
