@@ -405,7 +405,7 @@ To add the logic to your logic app design, select **Code view**:
     * Select the **Dwell Time 1** field, and then select **See more** next to **Parse Telemetry**. Then select **DwellTime1**.
     * Select the **Dwell Time 2** field, and then select **See more** next to **Parse Telemetry**. Then select **DwellTime2**.
     * Select **Save** to save your changes. The **Dwell Time interface** action looks like the following screenshot:
-    :::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png" alt-text="Screenshot that shows the "Dwell Time interface" action.":::
+    :::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png" alt-text="Dwell Time interface.":::
 1. Select the **People Count interface** action, and select **Add an action**.
 1. In **Search connectors and actions**, enter **Power BI**, and then press **Enter**.
 1. Select the **Add rows to a dataset (preview)** action.
