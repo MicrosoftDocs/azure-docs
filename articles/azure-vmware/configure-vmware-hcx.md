@@ -194,6 +194,11 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: C
 
    :::image type="content" source="media/tutorial-vmware-hcx/interconnect-appliance-state.png" alt-text="Screenshot that shows selections for checking the status of the appliance." lightbox="media/tutorial-vmware-hcx/interconnect-appliance-state.png":::
 
+   >[!NOTE]
+   >After establishing the service mesh, you may notice a new datastore and new host in your private cloud. It's perfectly normal and it's how HCX functions.
+   >
+   >:::image type="content" source="media/tutorial-vmware-hcx/hcx-service-mesh-datastore-host.png" alt-text="Screenshot showing the HCX service mesh datastore and host." lightbox="media/tutorial-vmware-hcx/hcx-service-mesh-datastore-host.png":::
+
 For an end-to-end overview of this procedure, view the [Azure VMware Solution: Service Mesh](https://www.youtube.com/embed/COY3oIws108) video.
 
 ## Create a network extension
