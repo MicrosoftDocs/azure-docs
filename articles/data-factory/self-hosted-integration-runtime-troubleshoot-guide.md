@@ -807,7 +807,7 @@ How to determine whether you're affected:
 
 #### Symptoms
 
-The self-hosted IR couldn't connect to the Azure Data Factory or Azure Synapse Analytics service.
+The self-hosted IR couldn't connect to the Azure Data Factory or Azure Synapse service.
 
 When you check the self-hosted IR event log or the client notification logs in the CustomLogEvent table, you'll find the following error message:
 
