@@ -1,17 +1,17 @@
 ---
-description: "Learn more about: MDN Messages"
-title: "MDN Messages | Microsoft Docs"
-ms.custom: ""
-ms.date: "07/16/2021"
-ms.reviewer: ""
-ms.suite: ""
-ms.topic: "article"
-caps.latest.revision: 1
-author: "S-Jindal"
-ms.author: "shivamjindal"
-manager: "ashish.shah"
+title: AS2 MDN acknowledgements
+description: Learn about Message Disposition Notification (MDN) acknowledgments for AS2 messages in Azure Logic Apps.
+services: logic-apps
+ms.suite: integration
+author: S-Jindal
+ms.author: shivamjindal
+ms.reviewer: estfan, azla
+ms.topic: reference
+ms.date: 07/16/2021
 ---
-# MDN Messages
+
+# MDN acknowledgments for AS2 messages in Azure Logic Apps
+
 Message Disposition Notification (MDN) is the acknowledgment sent in response to an AS2 message. If an MDN is enabled, the AS2 transmission is not complete until the MDN has been received and verified. The Logic App will attempt to return an MDN to indicate the status of message processing, even if an error occurred in processing the AS2 message.
   
 The MDN provides verification of the following:  
