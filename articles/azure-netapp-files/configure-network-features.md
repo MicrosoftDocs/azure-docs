@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/15/2021
+ms.date: 08/17/2021
 ms.author: b-juche
 ---
 # Configure network features for an Azure NetApp Files volume
@@ -29,7 +29,7 @@ Two settings are available for network features:
 * ***Standard***  
     This setting enables VNet features for the volume.  
 
-    If you use VNet features such as [network security groups](../virtual-network/network-security-groups-overview.md), [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined), [Private Endpoints](../private-link/private-endpoint-overview), and [Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md), you should set network features to *Standard*.
+    If you use VNet features such as [network security groups](../virtual-network/network-security-groups-overview.md), [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined), [Private Endpoints](../private-link/private-endpoint-overview.md), and [Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md), you should set network features to *Standard*.
 
 * ***Basic***  
     This setting provides no VNet features for the volume for network features.  
