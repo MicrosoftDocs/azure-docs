@@ -24,13 +24,26 @@ To complete this tutorial, make sure you have:
 
 ## Getting started
 
-Start Android Studio. In the **Welcome to Android Studio** window, click **Start a new Android Studio project**. Or, if you have a project already opened, select **File**->**New Project**.
+Start Android Studio. In the **Welcome to Android Studio** window, click **Start a new Android Studio project**. 
+1. Select **File**->**New Project**.
+1. In the **Create New Project** window, under the **Phone and Tablet** section, choose **Empty Activity**, and click **Next**.
+1. In the New Project - Empty Activity window, change the following values:
+   - Change the **Name**, **Package name** and **Save location** to your desired values
+   - Set **Language** is to `Java`
+   - Set **Minimum API level** to `API 26: Android 8.0 (Oreo)`
+   - Leave the other options as they are
+   - Click **Finish**. 
+1. The **Component Installer** will run. After some processing, Android Studio will open the IDE.
 
-In the **Create New Project** window, under the **Phone and Tablet** section, choose **Empty Activity**, and click **Next**. Then, under **Minimum API level**, choose `API 26: Android 8.0 (Oreo)`, and ensure the **Language** is set to `Java`. You may want to change the Project Name & Location, and the Package name. Leave the other options as they are. Click **Finish**. The **Component Installer** will run. Once it's done, click **Finish**. After some processing, Android Studio will open the IDE.
+![Android Studio - New Project](../../../includes/media/spatial-anchors-androidstudio/androidstudio-newproject.png)
+
+<!-- maybe snapshot here -->
 
 ## Trying it out
 
-To test out your new app, connect your developer-enabled device to your development machine with a USB cable. Click **Run**->**Run 'app'**. In the **Select Deployment Target** window, select your device, and click **OK**. Android Studio installs the app on your connected device and starts it. You should now see "Hello World!" displayed in the app running on your device. Click **Run**->**Stop 'app'**.
+To test out your new app, connect your developer-enabled device to your development machine with a USB cable. On the top right of Android Studio select your connected device and click on the **Run 'app'** icon. Android Studio installs the app on your connected device and starts it. You should now see "Hello World!" displayed in the app running on your device. Click **Run**->**Stop 'app'**.
+![Android Studio - Run](../../../includes/media/spatial-anchors-androidstudio/androidstudio-run.png)
+
 
 ## Integrating _ARCore_
 
