@@ -41,17 +41,17 @@ The following table shows the features supported across each gateway type.
 The following table shows the gateway types and the estimated performance scale numbers. These numbers are derived from the following testing conditions and represent the max support limits. Actual performance may vary, depending on how closely traffic replicates the testing conditions.
 
 ### Testing conditions
-##### **Standard** #####
+##### **Standard/ERGw1Az** #####
 
 - Circuit bandwidth: 1Gbps
 - Number of routes advertises by the Gateway: 500
 - Number of routes learned: 4,000
-##### **High Performance** #####
+##### **High Performance/ERGw2Az** #####
 
 - Circuit bandwidth: 1Gbps
 - Number of routes advertises by the Gateway: 500
 - Number of routes learned: 9,500
-##### **Ultra Performance** #####
+##### **Ultra Performance/ErGw3Az** #####
 
 - Circuit bandwidth: 1Gbps
 - Number of routes advertises by the Gateway: 500
@@ -61,9 +61,10 @@ The following table shows the gateway types and the estimated performance scale 
  
 |**Gateway SKU**|**Connections per second**|**Mega-Bits per second**|**Packets per second**|**Supported number of VMs in the Virtual Network**|
 | --- | --- | --- | --- | --- |
-|**Standard**|7,000|1,000|100,000|2,000|
-|**High Performance**|14,000|2,000|250,000|4,500|
-|**Ultra Performance**|16,000|10,000|1,000,000|11,000|
+|**Standard/ERGw1Az**|7,000|1,000|100,000|2,000|
+|**High Performance/ERGw2Az**|14,000|2,000|250,000|4,500|
+|**Ultra Performance/ErGw3Az**|16,000|10,000|1,000,000|11,000|
+
 > [!IMPORTANT]
 > Application performance depends on multiple factors, such as the end-to-end latency, and the number of traffic flows the application opens. The numbers in the table represent the upper limit that the application can theoretically achieve in an ideal environment.
 

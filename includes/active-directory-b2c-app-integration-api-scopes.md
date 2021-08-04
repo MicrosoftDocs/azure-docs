@@ -3,11 +3,11 @@ author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 06/11/2021
+ms.date: 08/04/2021
 ms.author: mimart
 # Used by Azure AD B2C app integration articles under "App integration".
 ---
-1. Select the *my-api1* application you created to open its **Overview** page.
+1. Select the *my-api1* application you created (App ID: 2) to open its **Overview** page.
 
 1. Under **Manage**, select **Expose an API**.
 1. Next to **Application ID URI**, select the **Set** link. Replace the default value (GUID) with a unique name (for example, *tasks-api*), and then select  **Save**. 
