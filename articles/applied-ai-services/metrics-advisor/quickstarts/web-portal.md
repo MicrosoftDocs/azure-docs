@@ -154,7 +154,7 @@ If you want to get alerted when an anomaly is detected in your data, you can cre
 
 ### Create a web hook
 
-In Metrics Advisor, you can use a web hook surface an anomaly programmatically. The service  calls a user-provided API when an alert is triggered. For more information, see [Create a hook ](../how-tos/alerts.md#create-a-hook). 
+In Metrics Advisor, you can use a web hook to surface an anomaly programmatically. The service calls a user-provided API when an alert is triggered. For more information, see [Create a hook ](../how-tos/alerts.md#create-a-hook). 
 
 ### Configure alert settings
 
