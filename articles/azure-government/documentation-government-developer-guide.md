@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 8/02/2021
+ms.date: 8/04/2021
 ---
 
 # Azure Government developer guide
@@ -45,7 +45,7 @@ Most of the currently available technical content assumes that applications are 
 
 Therefore, it's important to review your sample code, configurations, and steps to ensure that you are building and executing within the Azure Government cloud services environment.
 
-Currently, US Gov Arizona, US Gov Texas, US Gov Virginia, US DoD Central, and US DoD East are the regions that support Azure Government. For current regions and available services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
+For current Azure Government regions and available services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
 
 ### Quickstarts
 

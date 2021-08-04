@@ -11,7 +11,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 08/02/2021
+ms.custom: references_regions
+ms.date: 08/04/2021
 ---
 
 # Department of Defense (DoD) in Azure Government
