@@ -21,19 +21,19 @@ To generate a token:
   
    :::image type="content" source="media/references-work-with-defender-for-iot-apis/access-tokens.png" alt-text="Screenshot of System Settings windows highlighting the Access Tokens button.":::
 
-2. Select **Generate new token**.
+1. Select **Generate new token**.
 
    :::image type="content" source="media/references-work-with-defender-for-iot-apis/new-token.png" alt-text="Select the button to generate a new token.":::
 
-3. Describe the purpose of the new token and select **Next**.
+1. Describe the purpose of the new token and select **Next**.
 
    :::image type="content" source="media/references-work-with-defender-for-iot-apis/token-name.png" alt-text="Generate a new token and enter the name of the integration associated with it.":::
 
-4. The access token appears. Copy it, because it won't be displayed again.
+1. The access token appears. Copy it, because it won't be displayed again.
 
    :::image type="content" source="media/references-work-with-defender-for-iot-apis/token-code.png" alt-text="Copy your access token for your integration.":::
 
-5. Select **Finish**. The tokens that you create appear in the **Access Tokens** dialog box.
+1. Select **Finish**. The tokens that you create appear in the **Access Tokens** dialog box.
 
    :::image type="content" source="media/references-work-with-defender-for-iot-apis/access-token-window.png" alt-text="Screenshot of Device Tokens dialog box with filled-out tokens":::
 
@@ -41,7 +41,7 @@ To generate a token:
 
    If **N/A** is displayed in the **Used** field for this token, the connection between the sensor and the connected server is not working.
 
-6. Add an HTTP header titled **Authorization** to your request, and set its value to the token that you generated.
+1. Add an HTTP header titled **Authorization** to your request, and set its value to the token that you generated.
 
 ## Sensor API specifications
 
