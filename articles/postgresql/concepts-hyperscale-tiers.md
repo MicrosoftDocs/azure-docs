@@ -1,5 +1,5 @@
 ---
-title: Basic tier preview - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Basic tier - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: The single node basic tier for Azure Database for PostgreSQL - Hyperscale (Citus)
 author: jonels-msft
 ms.author: jonels
