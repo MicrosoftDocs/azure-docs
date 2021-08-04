@@ -68,6 +68,7 @@ ReportApiVersions is turned on, which means we will return the headers api-suppo
 Example:
 
 ApiVersion("1.0")
+
 ApiVersion("1.0-prerelease", Deprecated = true)
 
 [ ![API supported and deprecated versions.](media/api-supported-deprecated-versions.png) ](media/api-supported-deprecated-versions.png#lightbox)
