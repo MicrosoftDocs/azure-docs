@@ -112,7 +112,6 @@ During the creation of the load balancer, you'll configure:
     | SKU           | Leave the default **Standard**. |
     | Tier          | Leave the default **Regional**. |
 
-    :::image type="content" source="../../load-balancer/media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png" alt-text="Screenshot of create standard load balancer basics tab." border="true":::
 
 4. Select **Next: Frontend IP configuration** at the bottom of the page.
 
