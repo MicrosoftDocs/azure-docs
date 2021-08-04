@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 08/04/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -120,7 +120,7 @@ In this example, the `userLanguage` will be sent to the REST service as `lang` w
 
 ### Configure the RESTful API technical profile 
 
-After you deploy your REST API, set the metadata of the `REST-ValidateProfile` technical profile to reflect your own REST API, including:
+After you deploy your REST API, set the metadata of the `REST-GetProfile` technical profile to reflect your own REST API, including:
 
 - **ServiceUrl**. Set the URL of the REST API endpoint.
 - **SendClaimsIn**. Specify how the input claims are sent to the RESTful claims provider.

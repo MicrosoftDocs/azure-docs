@@ -11,6 +11,7 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: davidmu
 ms.collection: M365-identity-device-management
+ms.reviewer: ergreenl
 ---
 
 # One-click app configuration of single sign-on
