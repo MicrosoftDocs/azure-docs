@@ -20,6 +20,8 @@ Client applications can read these logs at any time, either in streaming, or in 
 
 You can process these change events asynchronously, incrementally or in-full. Any number of client applications can independently read the Change Feed, in parallel, and at their own pace.
 
+Make sure to specify the version as part of the url when making requests. More information can be found in the [API Versioning for DICOM service Documentation](https://review.docs.microsoft.com/en-us/azure/healthcare-apis/dicom/api-versioning-dicom-service/).
+
 ## API Design
 
 The API exposes two `GET` endpoints for interacting with the Change Feed. A typical flow for consuming the Change Feed is [provided below](#example-usage-flow).
