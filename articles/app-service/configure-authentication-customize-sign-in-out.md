@@ -180,7 +180,7 @@ The identity provider may provide certain turn-key authorization. For example:
 
 If either of the other levels don't provide the authorization you need, or if your platform or identity provider isn't supported, you must write custom code to authorize users based on the [user claims](configure-authentication-user-identities.md).
 
-## Next steps
+## More resources
 
-> [!div class="nextstepaction"]
-> [Tutorial: Authenticate and authorize users end-to-end](tutorial-auth-aad.md)
+- [Tutorial: Authenticate and authorize users end-to-end](tutorial-auth-aad.md)
+- [Environment variables and app settings for authentication](reference-app-settings.md#authentication--authorization)

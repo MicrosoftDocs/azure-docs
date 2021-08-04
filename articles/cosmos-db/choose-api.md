@@ -72,6 +72,6 @@ Applications written for Azure Table storage can migrate to the Table API with l
 
 * [Get started with Azure Cosmos DB SQL API](create-sql-api-dotnet.md)
 * [Get started with Azure Cosmos DB's API for MongoDB](create-mongodb-nodejs.md)
-* [Get started with Azure Cosmos DB Cassandra API](create-cassandra-dotnet.md)
+* [Get started with Azure Cosmos DB Cassandra API](cassandra/manage-data-dotnet.md)
 * [Get started with Azure Cosmos DB Gremlin API](create-graph-dotnet.md)
 * [Get started with Azure Cosmos DB Table API](create-table-dotnet.md)
