@@ -104,22 +104,26 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
 ```
 
 # [Bring existing resources (1.0 CLI)](#tab/bringexistingresources1)
-* To create a workspace that uses existing resources, you must provide the ID for the resources. You can get this ID either via the 'properties'  tab on each resource in the Azure Portal, or by running the following commands using the Azure CLI.
+To create a workspace that uses existing resources, you must provide the ID for the resources. You can get this ID either via the 'properties'  tab on each resource in the Azure Portal, or by running the following commands using the Azure CLI.
 
-  * **Azure Storage Account**: `az storage account show --name <storage-account-name> --query "id"`
-  * **Azure Application Insights": `az monitor app-insights component show --app <application-insight-name> -g <resource-group-name> --query "id"`
-  * **Azure Key Vault**: `az keyvault show --name <key-vault-name> --query "ID"`
-  * **Azure Container Registry**: `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
+  * **Azure Storage Account**: 
+    `az storage account show --name <storage-account-name> --query "id"`
+  * **Azure Application Insights": 
+    `az monitor app-insights component show --app <application-insight-name> -g <resource-group-name> --query "id"`
+  * **Azure Key Vault**:
+    `az keyvault show --name <key-vault-name> --query "ID"`
+  * **Azure Container Registry**:
+    `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
 
   The resource IDs value has the following format: `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/<provider>/<subresource>/<resource-name>"`.
 
-* Once you have the IDs for the resource(s) that you want to use with the workspace, use the base `az workspace create -w <workspace-name> -g <resource-group-name>` command and add the parameter(s) and ID(s) for the existing resources. For example, the following command creates a workspace that uses an existing container registry:
+Once you have the IDs for the resource(s) that you want to use with the workspace, use the base `az workspace create -w <workspace-name> -g <resource-group-name>` command and add the parameter(s) and ID(s) for the existing resources. For example, the following command creates a workspace that uses an existing container registry:
 
-  ```azurecli-interactive
-  az ml workspace create -w <workspace-name>
-                         -g <resource-group-name>
-                         --container-registry "/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<acr-name>"
-  ```
+```azurecli-interactive
+az ml workspace create -w <workspace-name>
+                       -g <resource-group-name>
+                       --container-registry "/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<acr-name>"
+```
 
 > [!IMPORTANT]
 > You don't have to specify all existing resources. You can specify one or more. For example, you can specify an existing storage account and the workspace will create the other resources.
@@ -248,9 +252,6 @@ az ml workspace create -w <workspace-name> -g <resource-group-name> --file works
 
 By default, metadata for the workspace is stored in an Azure Cosmos DB instance that Microsoft maintains. This data is encrypted using Microsoft-managed keys. Instead of using the Microsoft-managed key, you can also provide your own key. Doing so creates an additional set of resources in your Azure subscription to store your data. To learn more about the resources that are created when you bring your own key for encryption, see [Data encryption with Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/concept-data-encryption#azure-cosmos-db).
 
-> [!NOTE]
-> Azure Cosmos DB is __not__ used to store information such as model performance, information logged by experiments, or information logged from your model deployments. For more information on monitoring these items, see the [Monitoring and logging](concept-azure-machine-learning-architecture.md) section of the architecture and concepts article.
-
 You can use the Azure CLI to configure your workspace for use with customer-managed keys. The implementation path differs slightly for the 1.0 CLI and 2.0 CLI versions.
 
 # [1.0 CLI](#tab/vnetpleconfigurationsv1cli)
@@ -300,7 +301,8 @@ az ml workspace create -w <workspace-name> -g <resource-group-name> --file works
 > [!NOTE]
 > Azure Cosmos DB is __not__ used to store information such as model performance, information logged by experiments, or information logged from your model deployments. For more information on monitoring these items, see the [Monitoring and logging](concept-azure-machine-learning-architecture.md) section of the architecture and concepts article.
 
-[!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
+> [!NOTE]
+> Azure Cosmos DB is __not__ used to store information such as model performance, information logged by experiments, or information logged from your model deployments. For more information on monitoring these items, see the [Monitoring and logging](concept-azure-machine-learning-architecture.md) section of the architecture and concepts article.
 
 > [!IMPORTANT]
 > Selecting high business impact can only be done when creating a workspace. You cannot change this setting after workspace creation.
@@ -317,23 +319,6 @@ To list all the workspaces for your Azure subscription, use the following comman
 az ml workspace list
 ```
 
-The output of this command is similar to the following JSON:
-
-```json
-[
-  {
-    "resourceGroup": "myresourcegroup",
-    "subscriptionId": "<subscription-id>",
-    "workspaceName": "myml"
-  },
-  {
-    "resourceGroup": "anotherresourcegroup",
-    "subscriptionId": "<subscription-id>",
-    "workspaceName": "anotherml"
-  }
-]
-```
-
 For more information, see the [az ml workspace list](/cli/azure/ml/workspace#az_ml_workspace_list) documentation.
 
 ### Get workspace information
@@ -342,29 +327,6 @@ To get information about a workspace, use the following command:
 
 ```azurecli-interactive
 az ml workspace show -w <workspace-name> -g <resource-group-name>
-```
-
-The output of this command is similar to the following JSON:
-
-```json
-{
-  "applicationInsights": "/subscriptions/<service-GUID>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/application-insight-name>",
-  "creationTime": "2019-08-30T18:55:03.1807976+00:00",
-  "description": "",
-  "friendlyName": "",
-  "id": "/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>",
-  "identityPrincipalId": "<GUID>",
-  "identityTenantId": "<GUID>",
-  "identityType": "SystemAssigned",
-  "keyVault": "/subscriptions/<service-GUID>/resourcegroups/<resource-group-name>/providers/microsoft.keyvault/vaults/<key-vault-name>",
-  "location": "<location>",
-  "name": "<workspace-name>",
-  "resourceGroup": "<resource-group-name>",
-  "storageAccount": "/subscriptions/<service-GUID>/resourcegroups/<resource-group-name>/providers/microsoft.storage/storageaccounts/<storage-account-name>",
-  "tags": {},
-  "type": "Microsoft.MachineLearningServices/workspaces",
-  "workspaceid": "<GUID>"
-}
 ```
 
 For more information, see the [az ml workspace show](/cli/azure/ml/workspace#az_ml_workspace_show) documentation.
@@ -377,42 +339,7 @@ To update a workspace, use the following command:
 az ml workspace update -w <workspace-name> -g <resource-group-name>
 ```
 
-The output of this command is similar to the following JSON:
-
-```json
-{
-  "applicationInsights": "/subscriptions/<service-GUID>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/application-insight-name>",
-  "creationTime": "2019-08-30T18:55:03.1807976+00:00",
-  "description": "",
-  "friendlyName": "",
-  "id": "/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>",
-  "identityPrincipalId": "<GUID>",
-  "identityTenantId": "<GUID>",
-  "identityType": "SystemAssigned",
-  "keyVault": "/subscriptions/<service-GUID>/resourcegroups/<resource-group-name>/providers/microsoft.keyvault/vaults/<key-vault-name>",
-  "location": "<location>",
-  "name": "<workspace-name>",
-  "resourceGroup": "<resource-group-name>",
-  "storageAccount": "/subscriptions/<service-GUID>/resourcegroups/<resource-group-name>/providers/microsoft.storage/storageaccounts/<storage-account-name>",
-  "tags": {},
-  "type": "Microsoft.MachineLearningServices/workspaces",
-  "workspaceid": "<GUID>"
-}
-```
-
 For more information, see the [az ml workspace update](/cli/azure/ml/workspace#az_ml_workspace_update) documentation.
-
-### Share a workspace with another user
-
-To share a workspace with another user on your subscription, use the following command:
-
-```azurecli-interactive
-az ml workspace share -w <workspace-name> -g <resource-group-name> --user <user> --role <role>
-```
-
-For more information on Azure role-based access control (Azure RBAC) with Azure Machine Learning, see [Manage users and roles](how-to-assign-roles.md).
-
-For more information, see the [az ml workspace share](/cli/azure/ml/workspace#az_ml_workspace_share) documentation.
 
 ### Sync keys for dependent resources
 
