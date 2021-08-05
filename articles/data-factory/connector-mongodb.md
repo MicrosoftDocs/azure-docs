@@ -1,11 +1,12 @@
 ---
 title: Copy data from or to MongoDB
+titleSuffix: Azure Data Factory& Azure Synapse
 description: Learn how to copy data from MongoDB to supported sink data stores, or from supported source data stores to MongoDB, by using a copy activity in an Azure Data Factory pipeline.
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019; seo-dt-2019
+ms.custom: synapse
 ms.date: 06/01/2021
 ---
 

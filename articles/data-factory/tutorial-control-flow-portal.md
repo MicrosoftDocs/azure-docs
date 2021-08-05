@@ -6,7 +6,6 @@ ms.author: susabat
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: tutorial
-ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/07/2021
 ---
 
