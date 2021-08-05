@@ -1,8 +1,10 @@
 ---
 title: Preserve metadata and ACLs using copy activity in Azure Data Factory 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: 'Learn about how to preserve metadata and ACLs during copy using copy activity in Azure Data Factory.'
 author: jianleishen
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: jianleishen

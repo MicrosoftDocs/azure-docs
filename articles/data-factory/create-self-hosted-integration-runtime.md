@@ -1,12 +1,13 @@
 ---
 title: Create a self-hosted integration runtime
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to create a self-hosted integration runtime in Azure Data Factory, which lets data factories access data stores in a private network.
 ms.service: data-factory
 ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
 ms.date: 06/16/2021 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, synapse
 ---
 
 # Create and configure a self-hosted integration runtime
