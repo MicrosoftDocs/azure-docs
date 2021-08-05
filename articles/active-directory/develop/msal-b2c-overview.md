@@ -38,5 +38,5 @@ For more information, see: [Working with Azure AD B2C](https://github.com/AzureA
 
 Follow the tutorial on how to:
 
-- [Sign in users with Azure AD B2C in a single-page application](../../active-directory-b2c/tutorial-single-page-app.md)
-- [Call an Azure AD B2C protected web API](../../active-directory-b2c/tutorial-single-page-app-webapi.md)
+- [Sign in users with Azure AD B2C in a single-page application](../../active-directory-b2c/configure-authentication-sample-spa-app.md)
+- [Call an Azure AD B2C protected web API](../../active-directory-b2c/enable-authentication-web-api.md)
