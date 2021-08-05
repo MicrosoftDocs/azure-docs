@@ -176,7 +176,7 @@ This is not data corruption, just incorrect output. For older kernels NFS4ERR_NO
 The patch is available in kernel 5.12+. If for some reason, one cannot upgrade to latest kernels, the product team is taking a fix that will workaround this issue for older kernels as well. The fix will be rolling out to production regions following the safe deployment practice. 
 
 ## df and find command shows inconsistent results on clients other than where the writes happen
-This is a known regression that is fixed and will be rolling out to production regions following the safe deployment practice.
+This is a known issue. Microsoft is actively working to resolve it.
 
 ## Application fails with error "Underlying file changed by an external force" when using exclusive OPEN 
 This is a known issue. Microsoft is actively working to resolve it.
