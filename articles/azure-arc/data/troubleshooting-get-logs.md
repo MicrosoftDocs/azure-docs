@@ -7,13 +7,12 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 07/13/2021
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
 # Get logs to troubleshoot Azure Arc-enabled data services
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Prerequisites
 
@@ -28,14 +27,14 @@ You can get service logs across all pods or specific pods for troubleshooting pu
 
 Run the following command to dump the logs:
 
-   ```console
-   az arcdata dc debug copy-logs --namespace <namespace name> --exclude-dumps --skip-compress
+   ```azurecli
+   az arcdata dc debug copy-logs --exclude-dumps --skip-compress
    ```
 
    For example:
 
-   ```console
-   #az arcdata dc debug copy-logs --namespace arc --exclude-dumps --skip-compress
+   ```azurecli
+   #az arcdata dc debug copy-logs --exclude-dumps --skip-compress
    ```
 
 The data controller creates the log files in the current working directory in a subdirectory called `logs`. 
@@ -53,13 +52,13 @@ The `az arcdata dc debug copy-logs` command provides the following options to ma
 With these parameters, you can replace the `<parameters>` in the following example: 
 
 ```azurecli
-az arcdata dc debug copy-logs --target-folder <desired folder> --exclude-dumps --skip-compress -resource-kind <custom resource definition name> --resource-name <resource name> --namespace <namespace name>
+az arcdata dc debug copy-logs --target-folder <desired folder> --exclude-dumps --skip-compress -resource-kind <custom resource definition name> --resource-name <resource name>
 ```
 
 For example:
 
 ```console
-#az arcdata dc debug copy-logs --target-folder C:\temp\logs --exclude-dumps --skip-compress --resource-kind postgresql-12 --resource-name pg1 --namespace arc
+#az arcdata dc debug copy-logs --target-folder C:\temp\logs --exclude-dumps --skip-compress --resource-kind postgresql-12 --resource-name pg1 
 ```
 
 The following folder hierarchy is an example. It's organized by pod name, then container, and then by directory hierarchy within the container.
@@ -183,6 +182,3 @@ The following folder hierarchy is an example. It's organized by pod name, then c
             └───openvpn
 ```
 
-## Next steps
-
-[az `arcdata` dc debug copy-logs](/sql/azdata/reference/reference-azdata-arc-dc-debug#azdata-arc-dc-debug-copy-logs?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json)

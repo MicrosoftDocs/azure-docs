@@ -405,7 +405,7 @@ You can move SaaS applications that are currently federated with ADFS to Azure A
 For more information, see – 
 
 - [Moving application authentication from Active Directory Federation Services to Azure Active Directory](/manage-apps/migrate-adfs-apps-to-azure) and
-- [AD FS to Azure AD application migration playbook for developers](/samples/azure-samples/ms-identity-dotnet-adfs-to-aad)
+- [AD FS to Azure AD application migration playbook for developers](/samples/azure-samples/ms-identity-adfs-to-aad/ms-identity-dotnet-adfs-to-aad)
 
 ### Remove relying party trust
 

@@ -4,7 +4,7 @@ description: Learn how to troubleshoot connector issues in Azure Data Factory.
 author: jianleishen
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 07/16/2021
+ms.date: 07/30/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref
 ---
@@ -338,6 +338,37 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Recommendation**:  Retry the connection. If the problem persists, contact Azure SQL support.
 
+### Error code: SqlServerInvalidLinkedServiceCredentialMissing
+
+- **Message**: `The SQL Server linked service is invalid with its credential being missing.`
+
+- **Cause**: The linked service was not configured properly.
+
+- **Recommendation**: Validate and fix the SQL server linked service. 
+
+### Error code: SqlParallelFailedToDetectPartitionColumn
+
+- **Message**: `Failed to detect the partition column with command '%command;', %message;.`
+
+- **Cause**: There is no primary key or unique key in the table.
+
+- **Recommendation**: Check the table to make sure that a primary key or a unique index is created. 
+
+### Error code: SqlParallelFailedToDetectPhysicalPartitions
+
+- **Message**: `Failed to detect the physical partitions with command '%command;', %message;.`
+
+- **Cause**: No physical partitions are created for the table. Check your database.
+
+- **Recommendation**: Reference [Create Partitioned Tables and Indexes](/sql/relational-databases/partitions/create-partitioned-tables-and-indexes?view=sql-server-ver15&preserve-view=true) to solve this issue.
+
+### Error code: SqlParallelFailedToGetPartitionRangeSynapse
+
+- **Message**: `Failed to get the partitions for azure synapse with command '%command;', %message;.`
+
+- **Cause**: No physical partitions are created for the table. Check your database.
+
+- **Recommendation**: Reference [Partitioning tables in dedicated SQL pool](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-partition.md) to solve this issue.
 
 ### Error message: Conversion failed when converting from a character string to uniqueidentifier
 
@@ -916,7 +947,15 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Cause**: This error occurs when Azure Data Factory talks to the REST endpoint over HTTP protocol, and the request operation fails.
 
-- **Recommendation**:  Check the HTTP status code or the message in the error message and fix the remote server issue.
+- **Recommendation**: Check the HTTP status code or the message in the error message and fix the remote server issue.
+
+### Error code: RestSourceCallFailed
+
+- **Message**: `The HttpStatusCode %statusCode; indicates failure.&#xA;Request URL: %requestUri;&#xA;Response payload:%payload;`
+
+- **Cause**: This error occurs when Azure Data Factory talks to the REST endpoint over HTTP protocol, and the request operation fails.
+
+- **Recommendation**: Check the HTTP status code or the request URL or the response payload in the error message and fix the remote server issue.
 
 ### Unexpected network response from the REST connector
 

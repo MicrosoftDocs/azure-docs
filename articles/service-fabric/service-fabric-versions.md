@@ -46,7 +46,7 @@ Support for Service Fabric on a specific OS ends when support for the OS version
 
 | OS version | Service Fabric support end date | OS Lifecycle link |
 | --- | --- | --- |
-| Windows 10 2019 LTSC | 1/9/2029 | <a href="/lifecycle/products/windows-10-2019-ltsc">Windows 10 2019 LTSC - Microsoft Lifecycle</a> |
+| Windows 10 2019 LTSC | 1/9/2029 | <a href="/lifecycle/products/windows-10-ltsc-2019">Windows 10 2019 LTSC - Microsoft Lifecycle</a> |
 | Version 20H2 | 5/9/2023 | <a href="/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise and Education - Microsoft Lifecycle</a> |
 | Version 2004 | 12/14/2021| <a href="/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise and Education - Microsoft Lifecycle</a> |
 | Version 1909 | 5/10/2022 | <a href="/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise and Education - Microsoft Lifecycle</a> |

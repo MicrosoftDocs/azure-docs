@@ -338,7 +338,7 @@
         href: search-howto-indexing-azure-tables.md
       - name: Azure Cosmos DB
         items:
-        - name: SQL, MongoDB, Cassandra APIs
+        - name: SQL and MongoDB APIs
           href: search-howto-index-cosmosdb.md
         - name: Gremlin API
           href: search-howto-index-cosmosdb-gremlin.md
