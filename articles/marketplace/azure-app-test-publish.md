@@ -18,7 +18,7 @@ This article explains how to use Partner Center to submit your Azure Application
 
 #### [Workspaces view](#tab/Workspaces-view)
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/en-us/dashboard/home).
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 
 1. On the Home page, select the **Marketplace offers** tile.
 

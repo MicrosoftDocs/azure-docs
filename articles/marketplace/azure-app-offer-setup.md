@@ -20,7 +20,7 @@ If you haven’t already done so, read [Plan an Azure application offer for the 
 
 #### [Workspaces view](#tab/workspaces-view)
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/en-us/dashboard/home).
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 
 1. On the Home page, select the **Marketplace offers** tile.
 
