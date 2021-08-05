@@ -11,7 +11,7 @@ author: mingshen-ms
 
 # Commercial marketplace transact capabilities
 
-This article describes pricing, billing, invoicing and payout considerations for *transactable* offers sold through the commercial marketplace.  For information about publishing non-transactable (free or BYOL) offers, see ______ <link>.
+This article describes pricing, billing, invoicing and payout considerations for *transactable* offers sold through the commercial marketplace. For information about publishing non-transactable (free or BYOL) offers, see [Commercial marketplace transact capabilities](determine-your-listing-type.md).
 
 ## Transactions by listing option
 
