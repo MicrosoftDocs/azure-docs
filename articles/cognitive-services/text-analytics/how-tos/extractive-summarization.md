@@ -47,7 +47,7 @@ Document size must be under 125,000 characters per document. For the maximum num
 
 ### Structure the request
 
-Create a POST request. You can [use Postman](text-analytics-how-to-call-api.md) or the **API testing console** in the following reference links to quickly structure and send one. 
+Create a POST request. You can [use Postman](text-analytics-how-to-call-api.md) or the **API testing console** in the following reference link to quickly structure and send one. 
 
 [Text summarization reference](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-preview-1/operations/Analyze)
 
@@ -107,11 +107,13 @@ All documents in one request share the following parameters. These parameters ca
 
 The extractive summarization API is performed upon receipt of the request. For information on the size and number of requests you can send per minute and second, see the [data limits](../overview.md#data-limits) section in the overview.
 
-The Text Analytics extractive summarization API is an asynchronous API, thus there is no text in the response object. However, you need the value of the operation-location KEY in the response headers to make a GET request to check the status of the job and the output.  Below is an example of the value of the operation-location KEY in the response header of the POST request:
+The Text Analytics extractive summarization API is an asynchronous API, thus there is no text in the response object. However, you need the value of the `operation-location` key in the response headers to make a GET request to check the status of the job and the output.  Below is an example of the value of the operation-location KEY in the response header of the POST request:
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.2-preview.1/analyze/jobs/<jobID>`
 
 To check the job status, make a GET request to the URL in the value of the operation-location KEY header of the POST response.  The following states are used to reflect the status of a job: `NotStarted`, `running`, `succeeded`, `failed`, or `rejected`.  
+
+If the job succeeded, the output of the API will be returned in the body of the GET request. 
 
 
 ### View the results
