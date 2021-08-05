@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 08/03/2021
+ms.date: 08/05/2021
 tags: connectors
 ---
 
@@ -628,45 +628,46 @@ This example uses a logic app that triggers when the app receives a message from
    Your logic app is now ready to receive messages from your SAP system.
 
    > [!NOTE]
-   > The SAP trigger isn't a polling trigger but is a webhook-based trigger instead. 
+   > The SAP trigger is a webhook-based trigger, not a polling trigger.
    > If you're using the data gateway, the trigger is called from the data gateway only when a message exists, so no polling is necessary.
 
-1. Check in the trigger history of your logic app that the trigger registration succeeds.
+1. In your logic app's trigger history, check that the trigger registration succeeds.
 
    If you receive a **500 Bad Gateway** or **400 Bad Request** error with a message similar to **service 'sapgw00' unknown**, the network service name resolution to port number is failing.
 
-```json
-{
-	"body": {
-		"error": {
-			"code": 500,
-			"source": "EXAMPLE-FLOW-NAME.eastus.environments.microsoftazurelogicapps.net",
-			"clientRequestId": "00000000-0000-0000-0000-000000000000",
-			"message": "BadGateway",
-			"innerError": {
-				"error": {
-					"code": "UnhandledException",
-					"message": "\nERROR service 'sapgw00' unknown\nTIME Wed Nov 11 19:37:50 2020\nRELEASE 721\nCOMPONENT NI (network interface)\nVERSION 40\nRC -3\nMODULE ninti.c\nLINE 933\nDETAIL NiPGetServByName: 'sapgw00' not found\nSYSTEM CALL getaddrinfo\nCOUNTER 1\n\nRETURN CODE: 20"
-				}
-			}
-		}
-	}
-}
-```
-   **Option 1:** Replace your gateway service name in your API connection and trigger configuration with its port number. In the following example error, `sapgw00` needs to be replaced with a real port number, for example, `3300`. This is the only available option for ISE.
+   ```json
+   {
+     "body": {
+       "error": {
+         "code": 500,
+         "source": "EXAMPLE-FLOW-NAME.eastus.environments.microsoftazurelogicapps.net",
+         "clientRequestId": "00000000-0000-0000-0000-000000000000",
+         "message": "BadGateway",
+         "innerError": {
+           "error": {
+             "code": "UnhandledException",
+             "message": "\nERROR service 'sapgw00' unknown\nTIME Wed Nov 11 19:37:50 2020\nRELEASE 721\nCOMPONENT NI (network interface)\nVERSION 40\nRC -3\nMODULE ninti.c\nLINE 933\nDETAIL NiPGetServByName: 'sapgw00' not found\nSYSTEM CALL getaddrinfo\nCOUNTER 1\n\nRETURN CODE: 20"
+           }
+         }
+       }
+     }
+   }
+   ```
    
-   **Option 2:** If you are using On-Premises Data Gateway, you may instead add name to port mapping in `%windir%\System32\drivers\etc\services` such as
-```
-sapgw00  3300/tcp
-```
-   Then restart the On-Premises Data Gateway service.
+   * **Option 1:** In your API connection and trigger configuration, replace your gateway service name with its port number. In the following example error, `sapgw00` needs to be replaced with a real port number, for example, `3300`. This is the only available option for ISE.
+   
+   * **Option 2:** If you're using the on-premises data gateway, you can add the gateway service name to the port mapping in `%windir%\System32\drivers\etc\services` and then restart the on-premises data gateway service, for example:
+   ```text
+   sapgw00  3300/tcp
+   ```
    
    You might get a similar error when SAP application server or message server name resolves to the IP address. For ISE, you must specify the IP address for your SAP application server or message server. For the on-premises data gateway, you can instead add the name to the IP address mapping in `%windir%\System32\drivers\etc\hosts`, for example:
    
-```
-10.0.1.9 SAPDBSERVER01 # SAP System Server VPN IP by computer name
-10.0.1.9 SAPDBSERVER01.someguid.xx.xxxxxxx.cloudapp.net # SAP System Server VPN IP by fully qualified computer name
-```
+   ```text
+   10.0.1.9 SAPDBSERVER01 # SAP System Server VPN IP by computer name
+   10.0.1.9 SAPDBSERVER01.someguid.xx.xxxxxxx.cloudapp.net # SAP System Server VPN IP by fully qualified computer name
+   ```
+   
 #### Parameters
 
 Along with simple string and number inputs, the SAP connector accepts the following table parameters (`Type=ITAB` inputs):
