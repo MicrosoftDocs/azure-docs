@@ -34,18 +34,18 @@ MSAL provides multiple benefits over ADAL, including the following features:
 |Features|MSAL|ADAL|
 |---------|---------|---------|
 |**Security**|||
-|Security fixes beyond June 30, 2022|[y]|[n]|
-| Proactively refresh and revoke tokens based on policy or critical events for Microsoft Graph and other APIs that support [Continuous Access Evaluation (CAE)](app-resilience-continuous-access-evaluation.md).|✔️|❌|
-| Standards compliant with OAuth v2.0 and OpenID Connect (OIDC) |✔️|❌|
+|Security fixes beyond June 30, 2022|![Yes][y]|![No][n]|
+| Proactively refresh and revoke tokens based on policy or critical events for Microsoft Graph and other APIs that support [Continuous Access Evaluation (CAE)](app-resilience-continuous-access-evaluation.md).|![Yes][y]|![No][n]|
+| Standards compliant with OAuth v2.0 and OpenID Connect (OIDC) |![Yes][y]|![No][n]|
 |**User accounts and experiences**|||
-|Azure Active Directory (Azure AD) accounts|✔️|✔️|
-| Microsoft account (MSA) |✔️|❌|
-| Azure AD B2C accounts |✔️|❌|
-| Best single sign-on experience |✔️|❌|
+|Azure Active Directory (Azure AD) accounts|![Yes][y]|![Yes][y]|
+| Microsoft account (MSA) |![Yes][y]|![No][n]|
+| Azure AD B2C accounts |![Yes][y]|![No][n]|
+| Best single sign-on experience |![Yes][y]|![No][n]|
 |**Resilience**|||
-|Azure AD Back-up System|✔️|Partially supported|
-| Proactive token renewal |✔️|❌|
-| Throttling |✔️|❌|
+|Azure AD Back-up System|![Yes][y]|Partially supported|
+| Proactive token renewal |![Yes][y]|![No][n]|
+| Throttling |![Yes][y]|![No][n]|
 
 ## AD FS support in MSAL.NET
 
@@ -74,6 +74,8 @@ For more information about MSAL, including usage information and which libraries
 - [Application configuration options](msal-client-application-configuration.md)
 - [MSAL authentication libraries](reference-v2-libraries.md)
 
-
+<!--
+ ![X indicating no.][n] | ![Green check mark.][y] | ![Green check mark.][y] | -- |
+-->
 [y]: media/common/yes.png
 [n]: media/common/no.png
