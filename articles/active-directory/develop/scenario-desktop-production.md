@@ -107,7 +107,7 @@ For Microsoft personal account users, reprompting for consent on each native cli
 
 ## Next steps
 
-To try out additional samples, see [Desktop public client applications](sample-v2-code.md#desktop-applications) and [Mobile public client applications](sample-v2-code.md#mobile-applications).
+To try out additional samples, see [Desktop public client applications](sample-v2-code.md#desktop) and [Mobile public client applications](sample-v2-code.md#mobile).
 
 
 
