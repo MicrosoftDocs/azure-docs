@@ -4,6 +4,7 @@ description: Learn how to copy data from Amazon Redshift to supported sink data 
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 12/09/2020
 ---

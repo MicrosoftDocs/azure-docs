@@ -6,7 +6,7 @@ ms.author: makromer
 ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 10/05/2020
 ---
 

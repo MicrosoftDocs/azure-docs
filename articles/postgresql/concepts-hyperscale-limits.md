@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 07/20/2021
+ms.date: 08/03/2021
 ---
 
 # Azure Database for PostgreSQL – Hyperscale (Citus) limits and limitations
@@ -21,20 +21,17 @@ it's important to limit simultaneous connections. Here are the limits we chose
 to keep nodes healthy:
 
 * Coordinator node
-   * Maximum connections: 300
-   * Maximum user connections: 297
+   * Maximum connections
+	   * 300 for 0-3 vCores
+	   * 500 for 4-15 vCores
+	   * 1000 for 16+ vCores
+   * Maximum user connections
+	   * 297 for 0-3 vCores
+	   * 497 for 4-15 vCores
+	   * 997 for 16+ vCores
 * Worker node
-   * Maximum connections: 600
-   * Maximum user connections: 597
-
-> [!NOTE]
-> In a server group with [preview features](hyperscale-preview-features.md)
-> enabled, the connection limits to the coordinator are slightly different:
->
-> * Coordinator node max connections
->    * 300 for 0-3 vCores
->    * 500 for 4-15 vCores
->    * 1000 for 16+ vCores
+   * Maximum connections
+       * 600
 
 Attempts to connect beyond these limits will fail with an error. The system
 reserves three connections for monitoring nodes, which is why there are three

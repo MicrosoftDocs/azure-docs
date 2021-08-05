@@ -3,6 +3,7 @@ title: Copy data from MariaDB
 description: Learn how to copy data from MariaDB to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 author: jianleishen
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jianleishen

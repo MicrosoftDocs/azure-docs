@@ -3,6 +3,7 @@ title: Copy data from HubSpot
 description: Learn how to copy data from HubSpot to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 author: jianleishen
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: jianleishen

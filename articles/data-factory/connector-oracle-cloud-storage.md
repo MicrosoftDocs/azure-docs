@@ -3,6 +3,7 @@ title: Copy data from Oracle Cloud Storage
 description: Learn about how to copy data from Oracle Cloud Storage to supported sink data stores using a Azure Data Factory or Synapse Analytics pipeline.
 author: jianleishen
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 05/11/2021
 ms.author: jianleishen
