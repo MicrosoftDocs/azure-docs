@@ -4,7 +4,7 @@ description: 'Learn about pipelines and activities in Azure Data Factory.'
 author: dcstwh
 ms.author: weetok
 ms.service: data-factory
-
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 06/19/2021
 ---

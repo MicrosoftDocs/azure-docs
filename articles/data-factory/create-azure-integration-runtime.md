@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 06/04/2021
 author: lrtoyou1223
 ms.author: lle 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, synapse
 ---
 # How to create and configure Azure Integration Runtime
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

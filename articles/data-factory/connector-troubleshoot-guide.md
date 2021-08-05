@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 07/30/2021
 ms.author: jianleishen
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, synapse
 ---
 
 # Troubleshoot Azure Data Factory connectors

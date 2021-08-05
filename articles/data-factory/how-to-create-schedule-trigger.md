@@ -8,7 +8,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/30/2020
-ms.custom: devx-track-python, devx-track-azurepowershell
+ms.custom: devx-track-python, devx-track-azurepowershell, synapse
 ---
 
 # Create a trigger that runs a pipeline on a schedule
