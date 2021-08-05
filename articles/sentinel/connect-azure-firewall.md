@@ -42,7 +42,7 @@ Learn more about [monitoring Azure Firewall logs](../firewall/firewall-diagnosti
     
     1. Mark the **Send to Log Analytics** check box. Two new fields will be displayed below it. Choose the relevant **Subscription** and **Log Analytics Workspace** (where Azure Sentinel resides).​
 
-    1. Mark the check boxes of the rule types whose logs you want to ingest. We recommend **AzureFirewallApplicationRule** and **AzureFirewallNetworkRule**.​
+    1. Mark the check boxes of the rule types whose logs you want to ingest. We recommend **AzureFirewallApplicationRule**, **AzureFirewallNetworkRule** and **AzureFirewallDNSProxy**.​
 
     1. Select **Save** at the top of the screen.
 
