@@ -20,9 +20,7 @@ This article introduces how parameters work in single-tenant Azure Logic Apps an
 
 If you've worked with *multi-tenant* Azure Logic Apps, you might already be familiar with parameters. Parameterizing your workflow inputs in single-tenant Azure Logic Apps works similarly to multi-tenant Azure Logic Apps but with a major difference.
 
-For example, in both the single-tenant and multi-tenant service, you can define parameters when you're working in workflow designer. After you define the parameter, you can reference that parameter from any workflow or connection that's in the *same* logic app.
-
-However, in the *multi-tenant* service, after you create and use parameters in the designer, you define and set the environment variables in your Azure Resource Manager template (ARM template) and template parameters files. In this scenario, you have to define and set the parameters *at deployment*, which means that even if you only have to change one variable, you have to redeploy your logic app's ARM template.
+For example, in both the single-tenant and multi-tenant service, you can define parameters when you're working in workflow designer. After you define the parameter, you can reference that parameter from any workflow or connection that's in the *same* logic app resource. However, in the *multi-tenant* service, after you create and use parameters in the designer, you define and set the environment variables in your Azure Resource Manager template (ARM template) and template parameters files. In this scenario, you have to define and set the parameters *at deployment*, which means that even if you only have to change one variable, you have to redeploy your logic app's ARM template.
 
 By comparison, with the *single-tenant* service, you can work with environment variables both at runtime and deployment by using parameters *and* app settings. In single-tenant Azure Logic Apps, app settings contain global configuration options for *all the workflows* in the same logic app. For more information, review [Edit host and app settings for single-tenant based logic apps](edit-app-settings-host-settings.md).
 
@@ -54,7 +52,7 @@ For example, if you use Visual Studio Code as your local development tool to run
 
   If you don't have a logic app, [create your logic app (Standard) in the Azure portal](create-single-tenant-workflows-azure-portal.md) or [in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
 
-## Define and reference parameters
+## Define, use, and edit parameters
 
 ### Azure portal
 
@@ -79,7 +77,7 @@ For example, if you use Visual Studio Code as your local development tool to run
 
    ![Screenshot showing Azure portal, workflow designer, and the "Parameters" pane with an example parameter definition.](./media/parameterize-workflow-app/define-parameter.png)
 
-1. When you're done, close the **Parameters** pane, which automatically saves your parameter definition.
+1. When you're done, close the **Parameters** pane, but make sure to save your workflow to save your new parameter definition.
 
 1. To reference the parameter from a trigger or action that's in any workflow within the same logic app, follow these steps:
 
@@ -90,6 +88,16 @@ For example, if you use Visual Studio Code as your local development tool to run
    1. From the dynamic content list that opens, under **Parameters**, select you previously created parameter, for example:
 
       ![Screenshot showing expanded example action with the cursor inside property edit box, the expanded dynamic content list, and the previously created parameter selected.](./media/parameterize-workflow-app/reference-parameter.png)
+
+1. To view or edit parameters in the same logic app, follow either step:
+
+   * Open any workflow in that logic app. On the workflow menu, select **Designer**. On the designer toolbar, select **Parameters**.
+
+     The **Parameters** pane opens and displays all the parameters that you defined from workflows in that logic app.
+
+   * To view or edit in bulk JSON, on your logic app's main menu, select **Parameters**.
+
+     The **Parameters** JSON view opens and displays all the parameters that you defined from workflows in that logic app.
 
 ### Visual Studio Code
 
@@ -145,7 +153,7 @@ az functionapp deploy --resource-group MyResourceGroup --name MyLogicApp --src-p
 ```
 
 If you have a NuGet-based logic app project, you have to update your project file (**&lt;logic-app-name&gt;.csproj**) to include the parameters file in the build output, for example:
-  
+
 ```csproj
 <ItemGroup>
   <None Update="parameters.json">
@@ -159,8 +167,8 @@ If you have a NuGet-based logic app project, you have to update your project fil
 
 For more information about setting up your logic apps for DevOps deployments, review the following documentation:
 
-- [DevOps deployment overview for single-tenant based logic apps](devops-deployment-single-tenant-azure-logic-apps.md)
-- [Set up DevOps deployment for single-tenant based logic apps](set-up-devops-deployment-single-tenant-azure-logic-apps.md)
+* [DevOps deployment overview for single-tenant based logic apps](devops-deployment-single-tenant-azure-logic-apps.md)
+* [Set up DevOps deployment for single-tenant based logic apps](set-up-devops-deployment-single-tenant-azure-logic-apps.md)
 
 ## Manage app settings
 
@@ -173,15 +181,21 @@ To add, update, or delete app settings, select and review the following sections
 To review the app settings for your logic app in the Azure portal, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), open your single-tenant based logic app.
+
 1. On your logic app menu, under **Settings**, select **Configuration**.
+
 1. On the **Configuration** page, on the **Application settings** tab, review the app settings for your logic app.
+
 1. To view all values, select **Show Values**. Or, to view a single value, select that value.
 
 To add a new setting, follow these steps:
 
 1. On the **Application settings** tab, under **Application settings**, select **New application setting**.
+
 1. For **Name**, enter the *key* or name for your new setting.
+
 1. For **Value**, enter the value for your new setting.
+
 1. When you're ready to create your new *key-value* pair, select **OK**.
 
 :::image type="content" source="./media/parameterize-workflow-app/portal-app-settings-values.png" alt-text="Screenshot showing the Azure portal and the configuration pane with the app settings and values for a single-tenant based logic app." lightbox="./media/parameterize-workflow-app/portal-app-settings-values.png":::
