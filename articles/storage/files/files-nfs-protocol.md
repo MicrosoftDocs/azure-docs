@@ -16,7 +16,7 @@ Azure Files offers two industry-standard protocols for mounting Azure file share
 This article covers NFS Azure file shares. For information about SMB Azure file shares, see [SMB file shares in Azure Files](files-smb-protocol.md).
 
 > [!IMPORTANT]
-> While the service is in preview, production usage of this service isn't recommended. See [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs) article for a list of known issues.
+> While the service is in preview, production usage of this service isn't recommended. See [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md) article for a list of known issues.
 
 ## Common scenarios
 NFS file shares are often used in the following scenarios:
@@ -96,10 +96,11 @@ The following is a list of workloads that have been validated to work with NFS A
 - Content repositories
 - Shared user space (home directories) for application workloads
 
-The following workloads have open issues and shouldn't be deployed:
-- IBM MQ will experience locking issues hence not recommended at this time.
+The following workloads have open issues and shouldn't be deployed at this time:
+- IBM MQ will experience locking issues.
 - Metadata heavy workloads such as untar may experience high latency
 - Oracle Database will experience incompatibility with its dNFS feature.
+- SAP Application Layer will experience inconsistent behavior due to a known active issue with ls -l.
 Reach out to azurefilesnfs@microsoft .com to validate workloads not in the prior list or to share more successful workloads stories.
 
 ## Next steps
