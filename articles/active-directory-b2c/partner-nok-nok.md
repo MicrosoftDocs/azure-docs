@@ -40,7 +40,7 @@ To enable passwordless FIDO authentication to your users, enable Nok Nok as an I
 
 The following architecture diagram shows the implementation. Nok Nok is acting as an Identity provider for Azure AD B2C using Open ID Connect (OIDC) to enable passwordless authentication.
 
-![image shows the architecture diagram of nok nok and azure ad b2c](./media/partner-noknok/noknok-architecture-diagram.png)
+![image shows the architecture diagram of nok nok and azure ad b2c](./media/partner-noknok/nok-nok-architecture-diagram.png)
 
 | Step | Description |
 |:------|:-----------|
