@@ -52,9 +52,9 @@ The default behavior is to only allow inserts. To allow updates, upserts, or del
 
 The sink transformation requires either a single key or a series of keys for unique row identification in your target database. For SQL sinks, set the keys in the sink settings tab. For CosmosDB, set the partition key in the settings and also set the CosmosDB system field "id" in your sink mapping. For CosmosDB, it is mandatory to include the system column "id" for updates, upserts, and deletes.
 
-## Merges and upserts with Azure SQL Database and Azure Synapse
+## Merges and upserts with Azure SQL Database and Synapse
 
-Data Flows support merges against Azure SQL Database and Azure Synapse database pools (data warehouse) with the upsert option.
+ADF Data Flows supports merges against Azure SQL Database and Synapse database pool (data warehouse) with the upsert option.
 
 However, you may run into scenarios where your target database schema utilized the identity property of key columns. ADF requires you to identify the keys that you will use to match the row values for updates and upserts. But if the target column has the identity property set and you are using the upsert policy, the target database will not allow you to write to the column. You may also run into errors when you try to upsert against a distributed table's distribution column.
 
