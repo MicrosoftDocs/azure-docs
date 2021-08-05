@@ -5,6 +5,7 @@ description: Learn how to use the Lookup Activity in Azure Data Factory and Azur
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 02/25/2021
 ---

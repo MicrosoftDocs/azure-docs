@@ -4,6 +4,7 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from file system to supported sink data stores (or) from supported source data stores to file system using an Azure Data Factory or Azure Synapse Analytics pipelines.
 author: jianleishen
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: jianleishen

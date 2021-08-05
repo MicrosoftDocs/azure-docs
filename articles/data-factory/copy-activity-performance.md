@@ -10,7 +10,7 @@ manager: shwang
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 09/15/2020
 ---
 # Copy activity performance and scalability guide
