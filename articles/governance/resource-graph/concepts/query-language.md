@@ -1,7 +1,7 @@
 ---
 title: Understand the query language
 description: Describes Resource Graph tables and the available Kusto data types, operators, and functions usable with Azure Resource Graph.
-ms.date: 07/20/2021
+ms.date: 08/03/2021
 ms.topic: conceptual
 ---
 # Understanding the Azure Resource Graph query language
@@ -33,6 +33,7 @@ properties from related resource types. Here is the list of tables available in 
 |AlertsManagementResources |Yes (preview) |Includes resources _related_ to `Microsoft.AlertsManagement`. |
 |ExtendedLocationResources |No |Includes resources _related_ to `Microsoft.ExtendedLocation`. |
 |GuestConfigurationResources |No |Includes resources _related_ to `Microsoft.GuestConfiguration`. |
+|HealthResources|Yes |Includes resources _related_ to `Microsoft.ResourceHealth/availabilitystatuses`. |
 |KubernetesConfigurationResources |No |Includes resources _related_ to `Microsoft.KubernetesConfiguration`. |
 |MaintenanceResources |Partial, join _to_ only. (preview) |Includes resources _related_ to `Microsoft.Maintenance`. |
 |PatchAssessmentResources|No |Includes resources _related_ to Azure Virtual Machines patch assessment. |
@@ -40,7 +41,7 @@ properties from related resource types. Here is the list of tables available in 
 |PolicyResources |Yes |Includes resources _related_ to `Microsoft.PolicyInsights`. |
 |RecoveryServicesResources |Partial, join _to_ only. (preview) |Includes resources _related_ to `Microsoft.DataProtection` and `Microsoft.RecoveryServices`. |
 |SecurityResources |Yes (preview) |Includes resources _related_ to `Microsoft.Security`. |
-|ServiceHealthResources |No (preview) |Includes resources _related_ to `Microsoft.ResourceHealth`. |
+|ServiceHealthResources |No (preview) |Includes resources _related_ to `Microsoft.ResourceHealth/events`. |
 |WorkloadMonitorResources |No |Includes resources _related_ to `Microsoft.WorkloadMonitor`. |
 
 For a complete list, including resource types, see [Reference: Supported tables and resource types](../reference/supported-tables-resources.md).

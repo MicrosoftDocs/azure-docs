@@ -138,7 +138,7 @@ To create a certificate, you can use [Azure Key Vault](../key-vault/certificates
 
 You can then [export the certificate](../key-vault/certificates/how-to-export-certificate.md).
 
-#### Option 2: prepare a self-sized certificate using PowerShell module
+#### Option 2: prepare a self-signed certificate using PowerShell module
 
 [!INCLUDE [active-directory-b2c-create-self-signed-certificate](../../includes/active-directory-b2c-create-self-signed-certificate.md)]
 

@@ -39,6 +39,8 @@ You can [create a compute instance](how-to-create-manage-compute-instance.md?tab
 
 You can also **[use a setup script (preview)](how-to-create-manage-compute-instance.md#setup-script)**  for an automated way to customize and configure the compute instance as per your needs.
 
+Compute instance is also a secure training compute target similar to compute clusters but it is single node.
+
 ## <a name="contents"></a>Tools and environments
 
 > [!IMPORTANT]

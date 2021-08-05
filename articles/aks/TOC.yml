@@ -299,13 +299,10 @@
           href: csi-secrets-store-driver.md
     - name: Monitoring and logging
       items:
-        - name: View cluster metrics
-          href: view-metrics.md
-        - name: Container insights
-          href: ../azure-monitor/containers/container-insights-overview.md
-          maintainContext: true
-        - name: View the control plane component logs
-          href: view-control-plane-logs.md
+        - name: Monitor AKS
+          href: monitor-aks.md
+        - name: Monitor reference
+          href: monitor-aks-reference.md
         - name: View the kubelet logs
           href: kubelet-logs.md
         - name: View container data real-time

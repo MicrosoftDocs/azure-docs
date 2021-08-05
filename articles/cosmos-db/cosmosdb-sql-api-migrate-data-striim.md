@@ -194,6 +194,6 @@ By using the Striim solution in Azure, you can continuously migrate data to Azur
 
 ## Next steps
 
-* If you are migrating data to Azure Cosmos DB SQL API, see [how to migrate data to Cassandra API account using Striim](cosmosdb-cassandra-api-migrate-data-striim.md)
+* If you are migrating data to Azure Cosmos DB SQL API, see [how to migrate data to Cassandra API account using Striim](cassandra/migrate-data-striim.md)
 
 * [Monitor and debug your data with Azure Cosmos DB metrics](use-metrics.md)

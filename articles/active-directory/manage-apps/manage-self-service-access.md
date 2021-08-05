@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: davidmu
 ms.collection: M365-identity-device-management
+ms.reviewer: phsignor
 ---
 
 # How to configure self-service application assignment

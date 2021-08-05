@@ -199,17 +199,6 @@ sections:
           
           
           
-      - question: Why don't some of my users get Azure AD Multi-Factor Authentication prompts on Azure AD joined devices?
-        answer: |
-          A user might join or register a device with Azure AD by using Multi-Factor Authentication. Then the device itself becomes a trusted second factor for that user. Whenever the same user signs in to the device and accesses an application, Azure AD considers the device as a second factor. It enables that user to seamlessly access applications without additional Multi-Factor Authentication prompts. 
-          
-          This behavior:
-          
-          - Is applicable to Azure AD joined and Azure AD registered devices - but not for hybrid Azure AD joined devices.
-          - Is applicable to the Registered owner of the device and not to any other user who signs in to that device. So all other users who access that device get a Multi-Factor Authentication challenge. Then they can access applications that require Multi-Factor Authentication.
-          
-          
-          
       - question: Why do I get a 'username or password is incorrect' message for a device I just joined to Azure AD?
         answer: |
           Common reasons for this scenario are as follows:
