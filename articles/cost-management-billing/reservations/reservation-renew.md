@@ -80,7 +80,7 @@ You'll receive an email notification if any of the preceding conditions occur an
 
 ## Renewal notification
 
-Renewal notification emails are sent 30 days before expiration and again on the expiration date. The sending email address is `azure-noreply@microsoft.com`. You might want add the email address to your safe senders or allow list.
+Renewal notification emails are sent 30 days before expiration and again on the expiration date. The sending email address is `azure-noreply@microsoft.com`. You might want to add the email address to your safe senders or allow list.
 
 Emails are sent to different people depending on your purchase method:
 
