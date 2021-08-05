@@ -75,5 +75,5 @@ For more information about MSAL, including usage information and which libraries
 - [MSAL authentication libraries](reference-v2-libraries.md)
 
 
-[y]: ../articles/active-directory/develop/media/common/yes.png
-[n]: ../articles/active-directory/develop/media/common/no.png
+[y]: media/common/yes.png
+[n]: media/common/no.png
