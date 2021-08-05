@@ -250,7 +250,7 @@ Finally, let's hook everything together. In your `handleTap()` method, add the f
 [Redeploy](#trying-it-out) your app once more. Move around your device, tap the screen, and place your sphere. This time, though, your sphere will change its color from black towards white, as camera frames are collected. Once we have enough frames, the sphere will turn into yellow, and the cloud upload will start. Make sure your phone is connected to the internet. Once the upload finishes, your sphere will turn blue. Optionally, you could also use the `Logcat` window inside Android Studio to monitor the log messages your app is sending. For example, the session progress during frame captures, and the anchor identifier that the cloud returns once the upload is completed.
 
 > [!NOTE]
-If you are not seeing the value of `recommendedSessionProgress` (in your debug logs referred to as `Session progress`) change make sure you are **both moving and rotating** your phone around the sphere you have placed.
+> If you are not seeing the value of `recommendedSessionProgress` (in your debug logs referred to as `Session progress`) change make sure you are **both moving and rotating** your phone around the sphere you have placed.
 
 
 ## Locate your cloud spatial anchor
