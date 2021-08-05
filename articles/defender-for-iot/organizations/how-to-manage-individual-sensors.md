@@ -115,7 +115,7 @@ The Defender for IoT sensor, and on-premises management console use SSL, and TLS
  
  - Secure communications between the sensors and an on-premises management console. 
 
-Once installed, the appliance generates a local self-signed certificate to allow preliminary access to the web console. Enterprise SSL, and TLS certificates may be installed using the [`cyberx-xsense-certificate-import`](#cli-commands) command-line tool.
+Once installed, the appliance generates a local self-signed certificate to allow preliminary access to the web console.
 
  > [!NOTE]
  > For integrations and forwarding rules where the appliance is the client and initiator of the session, specific certificates are used and are not related to the system certificates.  
