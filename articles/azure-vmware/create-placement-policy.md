@@ -12,7 +12,7 @@ ms.date: 8/10/2021
 
 In Azure VMware Solution, clusters in a private cloud are a managed resource. As a result, the cloudadmin role can't make certain changes to the cluster from the vSphere Client, including the management of Distributed Resource Scheduler (DRS) rules.
 
-Placement policies in Azure VMware Solution let you control the placement of virtual machines (VMs) on hosts within a cluster in your private cloud through the Azure portal. When you create a placement policy, it's comprised of a DRS rule in the specified vSphere cluster and additional logic for interoperability with Azure VMware Solution operations.
+Placement policies in Azure VMware Solution let you control the placement of virtual machines (VMs) on hosts within a cluster through the Azure portal. When you create a placement policy, it includes a DRS rule in the specified vSphere cluster. It also includes additional logic for interoperability with Azure VMware Solution operations.
 
 A placement policy has at least five required components: 
 
@@ -37,7 +37,7 @@ You must have _Contributor_ level access to the private cloud to manage placemen
 
 ### VM-VM policies
 
-**VM-VM** policies specify if selected VMs should run on the same host or be kept on separate hosts.  In addition to choosing a name and cluster for the policy, **VM-VM** policies requires that you select at least two VMs to assign. The assignment of hosts is not required or permitted for this policy type.
+**VM-VM** policies specify if selected VMs should run on the same host or kept on separate hosts.  In addition to choosing a name and cluster for the policy, **VM-VM** policies requires that you select at least two VMs to assign. The assignment of hosts isn't required or permitted for this policy type.
 
 - **VM-VM Affinity** policies instruct DRS to try keeping the specified VMs together on the same host. It's useful for performance reasons, for example.
 
