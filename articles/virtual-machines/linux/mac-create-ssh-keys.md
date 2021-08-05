@@ -89,7 +89,7 @@ ssh azureuser@myvm.westus.cloudapp.azure.com
 
 If you have never connected to this VM before you will be asked to verify the hosts fingerprint. It is tempting to simply accept the fingerprint presented, however, this exposes you to a possible person in the middle attack. You should always validate the hosts fingerprint. You only need to do this on the first time you connect from a client. To obtain the host fingerprint via the portal use the Run Command feature to execute the command `ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'`.
 
-![Screenshot 2021-08-05 110213](https://user-images.githubusercontent.com/250240/128399040-f62cc497-c543-473b-8d37-79cce8c706d7.png)
+![Portal Run Command](./media/ssh-from-windows/portal-run-rommand-to-obtain-host-fingerprint.png)
 
 To run the command using CLI you can use the [`az vm run-command invole` command](https://docs.microsoft.com/en-us/cli/azure/vm/run-command?view=azure-cli-latest).
 
