@@ -10,7 +10,6 @@ Service Fabric managed clusters are created with a default networking configurat
 
 - [Manage NSG Rules](#nsgrules)
 - [Manage RDP access](#rdp)
-- [Manage multiple load balancers](#multilb)
 - [Enable IPv6](#ipv6)
 - [Bring your own virtual network](#existingvnet)
 - [Bring your own load balancer](#byolb)
@@ -292,38 +291,13 @@ Service Fabric managed clusters automatically creates load balancer probes for f
 }
 ```
 
-<a id="multilb"></a>
-## Manage multiple load balancers
-By default managed clusters configure one Azure Load Balancer with one subnet and NSG for all node types. This feature enables multiple Azure Load Balancers to be configured with optional support for separate subnets and NSGs per node type.
-
-To configure this feature:
-1) Set the following property on a Service Fabric managed cluster resource.
-
-```json
-            "apiVersion": "2021-07-01-preview",
-            "type": "Microsoft.ServiceFabric/managedclusters",
-            ...
-            "properties": {
-                "enableIpv6": {
-                "type": "true",
-                },
-            }
-```
-
-2) Deploy the template 
-
-```powershell
-    New-AzResourceGroup -Name sfnetworkingexistingvnet -Location westus
-    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
-```
-
-After deployment, your virtual network should include IPv6 config on the Load Balancer frontend, related subnets and NSGs, and the scale set VMs.
-
 <a id="ipv6"></a>
 ## IPv6
 By default managed clusters do not enable IPv6 to keep the configuration simple. This feature will enable full dual stack IPv4/IPv6 capability from the Load Balancer frontend to the backend resources. 
 
-[!NOTE]
+Any changes you make to Load Balancing rules will take affect for both of the IPv4 and IPv6 addresses.
+
+> [!NOTE]
 > This setting is not available in portal and cannot be changed once the cluster is created
 
 1) Set the following property on a Service Fabric managed cluster resource.
@@ -333,8 +307,7 @@ By default managed clusters do not enable IPv6 to keep the configuration simple.
             "type": "Microsoft.ServiceFabric/managedclusters",
             ...
             "properties": {
-                "enableIpv6": {
-                "type": "true",
+                "enableIpv6": true
                 },
             }
 ```
@@ -348,8 +321,7 @@ See the [provided IPv6 sample template](url to sample json) for an example or bu
     New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
 ```
 
-After deployment, your virtual network should include IPv6 config on the Load Balancer frontend, associated subnet with unique IPv6 NSG, and dual-stack on the scale set VMs.
-
+After deployment, your virtual network should include IPv6 config on the Load Balancer frontend, associated subnet with unique IPv6 NSG, and dual-stack on the scale set VMs. 
 
 TODO:Screenshots/CLI output?
 TODO:Talk about v4 and v6 ip's on Load Balancers and NSG differences.
@@ -361,7 +333,6 @@ This feature allows customers to specify an existing virtual network and dedicat
 When you setup a cluster to deploy in to an existing virtual network you can also:
 * Bring your own Load balancer(s) for either private or public traffic
 * Use a pre-configured Load Balancer static IP address
-* Configure subnets per node type
 * Use additional Azure Networking features managed clusters may not directly enable
 
 [!NOTE]
@@ -396,126 +367,83 @@ See the [bring your own virtual network sample template](url to sample json) for
 
 <FIXME>After deployment, you can see that your load balancer is bound to the public static IP address from the other resource group. The Service Fabric client connection endpoint and [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) endpoint point to the DNS FQDN of the static IP address. 
 
-Does BYOVNET change this byolb? Your cluster must be setup to use an [existing virtual network](#existingvnet)??
-
-
+<Merge with above>Make sure this states that the public endpoint is still created and managed by the resource provider. This does not allow you to specify the public ip/re-use static ip.
 
 <a id="byolb"></a>
 ## Bring your own Load Balancer
-Managed clusters create a Load Balancer and fully qualified domain name with a static public IP from a dynamic pool of addresses as a frontdoor for both the primary and secondary node types. This feature allows you to directly create or re-use an Azure Load Balancer from an existing VNet for secondary node types for both inbound and outbound traffic. When you bring your own Azure Load Balancer you can:
+Managed clusters create a Load Balancer and fully qualified domain name with a static public IP for both the primary and secondary node types. This feature allows you to create or re-use an Azure Load Balancer for secondary node types for both inbound and outbound traffic. When you bring your own Azure Load Balancer you can:
 
 * Use a pre-configured Load Balancer static IP address for either private or public traffic
 * Map a Load Balancer to a specific node type
+* Configure NSG rules per node type
 * Maintain existing policies and controls you may have in place
 
-[!NOTE]
-> This setting cannot be changed once the cluster is created, or can it??
+> [!NOTE]
+> You can not switch from default to custom after deployment, but you can modify what custom load balancer to use in the future
 
 To configure the feature:
-1) In the [provided sample](url to sample json), configure role assignment for the resource provider and setup the backend and NAT pools on the existing Load Balancer. You do this by modifying the following parameters and properties?
+1) In the [provided sample](url to sample json), configure role assignment that allows the resource provider to make required changes, setup the backend pool, and optionally define NAT pools on the existing Azure Load Balancer. You do this by running the following PowerShell command or ARM Template. 
 
-```json
-      ...
-      "parameters": {
-        "dnsName": {
-        "type": "string"
-    },
-       "loadBalancerRoleAssignmentID": {
-       "type": "string"
-    }
-```
-```json
-      "properties": {
-        "roleDefinitionId": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/4d97b98b-1d4f-4787-a291-c67834d212e7')]",
-        "principalId": "fbc587f2-66f5-4459-a027-bcd908b9d278"
-```
+Add a role assignment to the Service Fabric Resource Provider application. This is a one time action.
 
-2) Optionally configure an inbound application port and related probe. 
-
-```json
-        "loadBalancingRules": [
-          {
-            "name": "AppRule8000",
-            "properties": {
-              "backendAddressPool": {
-                "id": "[concat(variables('lbID'), '/backendAddressPools/LoadBalancerBEAddressPool')]"
-              },
-              "backendPort": 8000,
-              "enableFloatingIP": "false",
-              "disableOutboundSNAT" : "true",
-              "frontendIPConfiguration": {
-                "id": "[concat(variables('lbID'), '/frontendIPConfigurations/LoadBalancerIPConfig')]"
-              },
-              "frontendPort": 8000,
-              "idleTimeoutInMinutes": "5",
-              "probe": {
-                "id": "[concat(variables('lbID'), '/probes/AppProbe8000')]"
-              },
-              "protocol": "tcp"
-            }
-          }
-        ],
-        "probes": [
-          {
-            "name": "AppProbe8000",
-            "properties": {
-              "intervalInSeconds": 5,
-              "numberOfProbes": 2,
-              "port": 8000,
-              "protocol": "tcp"
-            }
-          }
-```
-
-do what?
-then what?
-take output for use in step 2? e.g. Note the parameter values... x/y/z and for use in the managed cluster resource.
-
-3) Set the following required properties and related values on a Service Fabric managed cluster under the type of resource `nodetypes`
-`frontendConfigurations`
-`loadBalancerBackendAddressPoolId`
-`loadBalancerInboundNatPoolId`
-
-and optionally configure NSG rules as shown below or in the available sample template for inbound connectivity
-
-
-```json
-      "apiVersion": "2021-07-01-preview",
-      "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
-      ...
-      "properties": {
-        "isPrimary": false,
-        "frontendConfigurations": [
-          {
-            "loadBalancerBackendAddressPoolId": "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/loadBalancers/<LoadBalancerName>/backendAddressPools/<BackendPoolName>",
-            "loadBalancerInboundNatPoolId": "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/loadBalancers/<LoadBalancerName>/inboundNatPools/<NATPoolName>"
-          }
-        ],
-        "networkSecurityRules": [
-          {
-            "name": "AllowAppPort8000",
-            "protocol": "*",
-            "sourcePortRange": "*",
-            "sourceAddressPrefix": "*",
-            "destinationAddressPrefix": "VirtualNetwork",
-            "destinationPortRange": "8000",
-            "access": "Allow",
-            "priority": 2005,
-            "direction": "Inbound",
-            "description": "Allow inbound communication to application port 8000."
-```
-
-3) Deploy the template
-
-See the [bring your own load balancer sample template](url to sample json) for an example or build your own using the details above
+Get service principal for Service Fabric Resource Provider application:
 
 ```powershell
-    New-AzResourceGroup -Name sfnetworkingexistingvnet -Location westus
-    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
+Login-AzAccount
+Select-AzSubscription -SubscriptionId <SubId>
+Get-AzADServicePrincipal -DisplayName "Azure Service Fabric Resource Provider"
 ```
 
-After deployment, you can see that the secondary node type is configured to use the specified load balancer for inbound and outbound traffic. The Service Fabric client connection endpoint and [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) endpoint point will not change and will still point to the public DNS FQDN of the managed cluster primary node type static IP address.
+> [!NOTE]
+> Make sure you are in the correct subscription, the principal ID will change if the subscription is in a different tenant.
 
+```powershell
+ServicePrincipalNames : {74cb6831-0dbb-4be1-8206-fd4df301cdc2}
+ApplicationId         : 74cb6831-0dbb-4be1-8206-fd4df301cdc2
+ObjectType            : ServicePrincipal
+DisplayName           : Azure Service Fabric Resource Provider
+Id                    : 00000000-0000-0000-0000-000000000000
+```
+
+Use the **Id** of the previous output as **principalId** and the role definition ID bellow as **roleDefinitionId** where applicable on the template or PowerShell command:
+
+|Role definition name|Role definition ID|
+|----|-------------------------------------|
+|Network Contributor|4d97b98b-1d4f-4787-a291-c67834d212e7|
+
+This role assignment can be defined in the resources section template using the Principal ID and role definition ID:
+
+```JSON
+      "type": "Microsoft.Authorization/roleAssignments",
+      "apiVersion": "2020-04-01-preview",
+      "name": "[parameters('loadBalancerRoleAssignmentID')]",
+      "scope": "[concat('Microsoft.Network/loadBalancers/', variables('lbName'))]",
+      "dependsOn": [
+        "[concat('Microsoft.Network/loadBalancers/', variables('lbName'))]"
+      ],
+      "properties": {
+        "roleDefinitionId": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/4d97b98b-1d4f-4787-a291-c67834d212e7')]",
+        "principalId": "00000000-0000-0000-0000-000000000000"
+      }
+```
+> [!NOTE]
+> loadBalancerRoleAssignmentID should be a valid GUID. If you deploy again the same template including this role assignment, make sure the GUID is the same as the one originally used or remove this resource as it just needs to be created once.
+
+or created via PowerShell using the principal ID and role definition name:
+
+```powershell
+New-AzRoleAssignment -PrincipalId 00000000-0000-0000-0000-000000000000 -RoleDefinitionName "Network Contributor" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<LoadBalancerName>"
+```
+
+2) Configure required outbound connectivity
+
+3) Optionally configure an inbound application port and related probe. 
+
+4) Optionally configure NSG rules to allow any required traffic that you've configured on the Azure Load Balancer
+
+See the [bring your own load balancer sample template](url to sample json) for an example or customize your own.
+
+After deployment, you can see that the secondary node type is configured to use the specified load balancer for inbound and outbound traffic. The Service Fabric client connection endpoint and [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) endpoint point will not change and will still point to the public DNS FQDN of the managed cluster primary node type static IP address.
 
 
 ## Next steps
