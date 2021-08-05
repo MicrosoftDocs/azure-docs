@@ -78,12 +78,15 @@ public class MainActivity extends AppCompatActivity {
         initializeSession();
     }
 
+// <scene_OnUpdate>
     private void scene_OnUpdate(FrameTime frameTime) {
         if (!sessionInitialized){
             initializeSession();
         }
     }
-				  					  
+// </scene_OnUpdate>
+	
+// <initializeSession>
     private void initializeSession() {
         if (sceneView.getSession() == null){
             return;
@@ -148,9 +151,10 @@ public class MainActivity extends AppCompatActivity {
         this.cloudSession.getConfiguration().setAccountKey(/* Copy your account Key in here */);
         this.cloudSession.getConfiguration().setAccountDomain(/* Copy your account Domain in here */);
         this.cloudSession.start();
-    }					   
+    }
+// </initializeSession>					   
 	
-    // <handleTap>					   			  
+// <handleTap>					   			  
     protected void handleTap(HitResult hitResult, Plane plane, MotionEvent motionEvent) {
         synchronized (this.syncTaps) {
             if (this.tapExecuted) {
@@ -202,8 +206,9 @@ public class MainActivity extends AppCompatActivity {
                     });
                 });
     }
-    // </handleTap>
-				   					   
+// </handleTap>
+
+// <uploadCloudAnchorAsync>
 	 private CompletableFuture<String> uploadCloudAnchorAsync(CloudSpatialAnchor anchor) {
         synchronized (this.syncSessionProgress) {
             this.scanningForUpload = true;
@@ -239,6 +244,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }, executorService).thenApply(ignore -> anchor.getIdentifier());
     }
+// </uploadCloudAnchorAsync>
 								
 }
 ```
