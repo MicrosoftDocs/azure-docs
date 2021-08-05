@@ -14,7 +14,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/10/2021
+ms.date: 08/05/2021
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -39,16 +39,18 @@ To use this feature, you need:
 
     ![The "Data Summary" button](./media/howto-integrate-activity-logs-with-splunk/DataSummary.png)
 
-2. Select the **Sourcetypes** tab, and then select **amal: aadal:audit**
+2. Select the **Sourcetypes** tab, and then select **mscs:azure:eventhub**
 
-    ![The Data Summary Sourcetypes tab](./media/howto-integrate-activity-logs-with-splunk/sourcetypeaadal.png)
+    ![The Data Summary Sourcetypes tab](./media/howto-integrate-activity-logs-with-splunk/source-eventhub.png)
+
+Append **body.records.category=AuditLogs** to the search
 
     The Azure AD activity logs are shown in the following figure:
 
-    ![Activity logs](./media/howto-integrate-activity-logs-with-splunk/activitylogs.png)
+   ![Activity logs](./media/howto-integrate-activity-logs-with-splunk/activity-logs.png)
 
 > [!NOTE]
-> If you cannot install an add-on in your Splunk instance (for example, if you're using a proxy or running on Splunk Cloud), you can forward these events to the Splunk HTTP Event Collector. To do so, use this [Azure function](https://github.com/Microsoft/AzureFunctionforSplunkVS), which is triggered by new messages in the event hub. 
+> If you cannot install an add-on in your Splunk instance (for example, if you're using a proxy or running on Splunk Cloud), you can forward these events to the Splunk HTTP Event Collector. To do so, use this [Azure function](https://github.com/splunk/azure-functions-splunk), which is triggered by new messages in the event hub. 
 >
 
 ## Next steps
