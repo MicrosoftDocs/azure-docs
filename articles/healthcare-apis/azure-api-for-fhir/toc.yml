@@ -16,14 +16,14 @@ items:
     expanded: false
     items:
     - name: Using Portal
-      href: azure-api-fhir-resource-manager-template.md
+      href: fhir-paas-portal-quickstart.md
     - name: Using PowerShell
       href: fhir-paas-powershell-quickstart.md
     - name: Using CLI
       href: fhir-paas-cli-quickstart.md
     - name: Using ARM template
       displayName: Resource Manager
-      href: fhir-paas-arm-template-quickstart.md
+      href: azure-api-fhir-resource-manager-template.md
   - name: Deploy Azure IoT Connector for FHIR (preview)
     expanded: false
     items:
