@@ -171,3 +171,7 @@ sections:
           | Availability set (newly created by user) | Blob storage | Enabled with "No" as default |
           
           
+      - question: |
+         Should I use WDAC or AppLocker to control which applications and drivers are allowed to run on my Win 10 Devices?
+        answer: |
+          The team that owns both WDAC and AppLock suggests using WDAC instead of AppLocker. AppLocker is still supported but considered legacy and customers. should steer towards WDAC. 
