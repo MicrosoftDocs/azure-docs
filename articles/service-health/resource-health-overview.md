@@ -47,7 +47,7 @@ Non-platform events are triggered by user actions. Examples include stopping a v
 
 ### Unknown
 
-*Unknown* means that Resource Health hasn't received information about the resource for more than 10 minutes. This commonly occurs when virtual machines have been dallocated. Although this status isn't a definitive indication of the state of the resource, it can be an important data point for troubleshooting.
+*Unknown* means that Resource Health hasn't received information about the resource for more than 10 minutes. This commonly occurs when virtual machines have been deallocated. Although this status isn't a definitive indication of the state of the resource, it can be an important data point for troubleshooting.
 
 If the resource is running as expected, the status of the resource will change to *Available* after a few minutes.
 

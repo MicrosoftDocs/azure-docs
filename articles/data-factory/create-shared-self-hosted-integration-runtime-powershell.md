@@ -5,7 +5,7 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.author: lle
 author: lrtoyou1223
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 06/10/2020
 ---
 
@@ -214,7 +214,6 @@ Remove-AzDataFactoryV2IntegrationRuntime `
     -ResourceGroupName $ResourceGroupName `
     -DataFactoryName $SharedDataFactoryName `
     -Name $SharedIntegrationRuntimeName `
-    -Links `
     -LinkedDataFactoryName $LinkedDataFactoryName
 ```
 

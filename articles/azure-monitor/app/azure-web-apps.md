@@ -2,7 +2,7 @@
 title: Monitor Azure app services performance | Microsoft Docs
 description: Application performance monitoring for Azure app services. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
-ms.date: 05/17/2021
+ms.date: 08/04/2021
 ms.custom: "devx-track-js, devx-track-dotnet, devx-track-azurepowershell"
 ---
 
@@ -11,7 +11,7 @@ ms.custom: "devx-track-js, devx-track-dotnet, devx-track-azurepowershell"
 Enabling monitoring on your ASP.NET, ASP.NET Core, Java, and Node.js based web applications running on [Azure App Services](../../app-service/index.yml) is now easier than ever. Whereas previously you needed to manually instrument your app, the latest extension/agent is now built into the App Service image by default. This article will walk you through enabling Azure Monitor application Insights monitoring as well as provide preliminary guidance for automating the process for large-scale deployments.
 
 > [!NOTE]
-> For .Net on Windows only: manually adding an Application Insights site extension via **Development Tools** > **Extensions** is deprecated. This method of extension installation was dependent on manual updates for each new version. The latest stable release of the extension is now  [preinstalled](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) as part of the App Service image. The files are located in `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` and are automatically updated with each stable release. If you follow the agent based instructions to enable monitoring below, it will automatically remove the deprecated extension for you.
+> For .NET on Windows only: manually adding an Application Insights site extension via **Development Tools** > **Extensions** is deprecated. This method of extension installation was dependent on manual updates for each new version. The latest stable release of the extension is now  [preinstalled](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) as part of the App Service image. The files are located in `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` and are automatically updated with each stable release. If you follow the agent-based instructions to enable monitoring below, it will automatically remove the deprecated extension for you.
 
 ## Enable Application Insights
 
@@ -22,12 +22,15 @@ There are two ways to enable application monitoring for Azure App Services hoste
 
 * **Manually instrumenting the application through code** by installing the Application Insights SDK.
 
-    * This approach is much more customizable, but it requires [adding a dependency on the Application Insights SDK NuGet packages](./asp-net.md). This method, also means you have to manage the updates to the latest version of the packages yourself.
+    * This approach is much more customizable, but it requires the following approaches: SDK [for .NET Core](./asp-net-core.md), [.NET](./asp-net.md), [Node.js](./nodejs.md), [Python](./opencensus-python.md), and a standalone agent for [Java](./java-in-process-agent.md). This method, also means you have to manage the updates to the latest version of the packages yourself.
 
     * If you need to make custom API calls to track events/dependencies not captured by default with agent-based monitoring, you would need to use this method. Check out the [API for custom events and metrics article](./api-custom-events-metrics.md) to learn more. This is also currently the only supported option for Linux based workloads.
 
 > [!NOTE]
-> If both agent-based monitoring and manual SDK-based instrumentation is detected, only the manual instrumentation settings will be honored. This is to prevent duplicate data from being sent. To learn more about this, check out the [troubleshooting section](#troubleshooting) below.
+> If both agent-based monitoring and manual SDK-based instrumentation is detected, in .NET only the manual instrumentation settings will be honored, while in Java only the agent-based instrumentation will be emitting the telemetry. This is to prevent duplicate data from being sent. To learn more about this, check out the [troubleshooting section](#troubleshooting) below.
+
+> [!NOTE]
+> Snapshot debugger and profiler are only available in .NET and .Net Core
 
 ## Enable agent-based monitoring
 
@@ -41,12 +44,13 @@ There are two ways to enable application monitoring for Azure App Services hoste
 
     ![Under Settings, choose Application Insights](./media/azure-web-apps/settings-app-insights-01.png)
 
-   * Choose to create a new resource, unless you already set up an Application Insights resource for this application. 
+   * Choose to create a new resource, or select an existing Application Insights resource for this application. 
 
-     > [!NOTE]
-     > When you click **OK** to create the new resource you will be prompted to **Apply monitoring settings**. Selecting **Continue** will link your new Application Insights resource to your app service, doing so will also **trigger a restart of your app service**. 
+    > [!NOTE]
+    > When you click **OK** to create the new resource you will be prompted to **Apply monitoring settings**. Selecting **Continue** will link your new Application Insights resource to your app service, doing so will also **trigger a restart of your app service**. 
 
-     ![Instrument your web app](./media/azure-web-apps/create-resource-01.png)
+    >[!div class="mx-imgBorder"]
+    >![Instrument your web app](./media/azure-web-apps/ai-create-new.png)
 
 2. After specifying which resource to use, you can choose how you want application insights to collect data per platform for your application. ASP.NET app monitoring is on-by-default with two different levels of collection.
 
@@ -79,12 +83,13 @@ Targeting the full framework from ASP.NET Core, self-contained deployment, and L
 
     ![Under Settings, choose Application Insights](./media/azure-web-apps/settings-app-insights-01.png)
 
-   * Choose to create a new resource, unless you already set up an Application Insights resource for this application. 
+   * Choose to create a new resource, or select an existing Application Insights resource for this application.
 
-     > [!NOTE]
-     > When you click **OK** to create the new resource you will be prompted to **Apply monitoring settings**. Selecting **Continue** will link your new Application Insights resource to your app service, doing so will also **trigger a restart of your app service**. 
+    > [!NOTE]
+    > When you click **OK** to create the new resource you will be prompted to **Apply monitoring settings**. Selecting **Continue** will link your new Application Insights resource to your app service, doing so will also **trigger a restart of your app service**. 
 
-    ![Instrument your web app](./media/azure-web-apps/create-resource-01.png)
+    >[!div class="mx-imgBorder"]
+    >![Instrument your web app](./media/azure-web-apps/ai-create-new.png)
 
 2. After specifying which resource to use, you can choose how you want Application Insights to collect data per platform for your application. ASP.NET Core offers **Recommended collection** or **Disabled** for ASP.NET Core 2.1 and 3.1.
 
@@ -92,9 +97,7 @@ Targeting the full framework from ASP.NET Core, self-contained deployment, and L
 
 # [Node.js](#tab/nodejs)
 
-Windows agent-based monitoring is not supported, to enable with Linux visit the [Node.js App Service documentation](../../app-service/configure-language-nodejs.md?pivots=platform-linux#monitor-with-application-insights).
-
-You can monitor your Node.js apps running in Azure App Service without any code change, just with a couple of simple steps. Application insights for Node.js applications is integrated with App Service on Linux - both code-based and custom containers, and with App Service on Windows for code-based apps. The integration is in public preview. The integration adds Node.js SDK, which is in GA. 
+You can monitor your Node.js apps running in Azure App Service without any code change, just with a couple of simple steps. Application insights for Node.js applications is integrated with App Service on Linux - both code-based and custom containers, and with App Service on Windows for code-based apps.
 
 1. **Select Application Insights** in the Azure control panel for your app service.
 
@@ -103,10 +106,11 @@ You can monitor your Node.js apps running in Azure App Service without any code 
 
    * Choose to create a new resource, unless you already set up an Application Insights resource for this application. 
 
-     > [!NOTE]
-     > When you click **OK** to create the new resource you will be prompted to **Apply monitoring settings**. Selecting **Continue** will link your new Application Insights resource to your app service, doing so will also **trigger a restart of your app service**. 
+    > [!NOTE]
+    > When you click **OK** to create the new resource you will be prompted to **Apply monitoring settings**. Selecting **Continue** will link your new Application Insights resource to your app service, doing so will also **trigger a restart of your app service**. 
 
-    ![Instrument your web app.](./media/azure-web-apps/create-resource-01.png)
+    >[!div class="mx-imgBorder"]
+    >![Instrument your web app.](./media/azure-web-apps/ai-create-new.png)
 
 2. Once you have specified which resource to use, you are all set to go. 
 
@@ -115,21 +119,22 @@ You can monitor your Node.js apps running in Azure App Service without any code 
 
 # [Java](#tab/java)
 
-You can turn on monitoring for your Java apps running in Azure App Service just with one click, no code change required. Application Insights for Java is integrated with App Service on Linux - both code-based and custom containers, and with App Service on Windows - code-based apps. The integration is in public preview. It is important to know how your application will be monitored. The integration adds [Application Insights Java 3.0](./java-in-process-agent.md), which is in GA. You will get all the telemetry that it auto-collects.
+You can turn on monitoring for your Java apps running in Azure App Service just with one click, no code change required. Application Insights for Java is integrated with App Service on Linux - both code-based and custom containers, and with App Service on Windows - code-based apps. It is important to know how your application will be monitored. The integration adds [Application Insights Java 3.x](./java-in-process-agent.md) and you will get all the telemetry that it auto-collects.
 
 1. **Select Application Insights** in the Azure control panel for your app service.
 
     > [!div class="mx-imgBorder"]
     > ![Under Settings, choose Application Insights.](./media/azure-web-apps/ai-enable.png)
 
-   * Choose to create a new resource, unless you already set up an application insights resource for this application. 
+   * Choose to create a new resource, or select an existing Application Insights resource for this application.
 
-     > [!NOTE]
-     > When you click **OK** to create the new resource you will be prompted to **Apply monitoring settings**. Selecting **Continue** will link your new Application Insights resource to your app service, doing so will also **trigger a restart of your app service**. 
+    > [!NOTE]
+    > When you click **OK** to create the new resource you will be prompted to **Apply monitoring settings**. Selecting **Continue** will link your new Application Insights resource to your app service, doing so will also **trigger a restart of your app service**. 
 
-    ![Instrument your web app.](./media/azure-web-apps/create-resource-01.png)
+    >[!div class="mx-imgBorder"]
+    >![Instrument your web app.](./media/azure-web-apps/ai-create-new.png)
 
-2. After specifying which resource to use, you can configure the Java agent. The full [set of configurations](./java-standalone-config.md) is available, you just need to paste a valid json file without specifying the connection string. You have already picked an application insights resource to connect to, remember? 
+2. This step is not required. After specifying which resource to use, you can configure the Java agent. If you do not configure the Java agent, default configurations will apply. The full [set of configurations](./java-standalone-config.md) is available, you just need to paste a valid json file. Exclude the connection string and any configurations that are in preview - you will be able to add those as they become generally available.
 
     > [!div class="mx-imgBorder"]
     > ![Choose options per platform.](./media/azure-web-apps/create-app-service-ai.png)
@@ -204,7 +209,7 @@ In order to enable telemetry collection with Application Insights, only the Appl
 
 ### App Service Application settings with Azure Resource Manager
 
-Application settings for App Services can be managed and configured with [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md). This method can be used when deploying new App Service resources with Azure Resource Manager automation, or for modifying the settings of existing resources.
+Application settings for App Services can be managed and configured with [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md). This method can be used when deploying new App Service resources with Azure Resource Manager automation, or for modifying the settings of existing resources.
 
 The basic structure of the application settings JSON for an app service is below:
 
@@ -355,7 +360,7 @@ $newAppSettings["ApplicationInsightsAgent_EXTENSION_VERSION"] = "~2"; # enable t
 $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.ResourceGroup -Name $app.Name -ErrorAction Stop
 ```
 
-## Upgrade monitoring extension/agent
+## Upgrade monitoring extension/agent - .NET 
 
 ### Upgrading from versions 2.8.9 and up
 
@@ -384,7 +389,7 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 
 
 1. Check that the application is monitored via `ApplicationInsightsAgent`.
-    * Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of "~3".
+    * Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of "~2".
 2. Ensure that the application meets the requirements to be monitored.
     * Browse to `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 

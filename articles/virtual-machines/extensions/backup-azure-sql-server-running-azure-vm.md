@@ -7,7 +7,8 @@ ms.subservice: extensions
 author: v-amallick
 ms.author: v-amallick
 ms.collection: windows
-ms.date: 07/05/2019
+ms.date: 07/05/2019 
+ms.custom: devx-track-azurepowershell
 
 ---
 
@@ -94,7 +95,7 @@ statusBlobUri | <https://seapod01coord1exsapk732.blob.core.windows.net/bcdrexten
 
 ## Template deployment
 
-We recommended adding AzureBackupWindowsWorkload extension to a virtual machine is by enabling SQL Server backup on the virtual machine. This can be achieved through the [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-vm-workload-backup) designed for automating backup on a SQL Server VM.
+We recommended adding AzureBackupWindowsWorkload extension to a virtual machine is by enabling SQL Server backup on the virtual machine. This can be achieved through the [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.recoveryservices/recovery-services-vm-workload-backup) designed for automating backup on a SQL Server VM.
 
 ## PowerShell deployment
 

@@ -6,7 +6,8 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: rogarana
-ms.subservice: files
+ms.subservice: files 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage registered servers with Azure File Sync

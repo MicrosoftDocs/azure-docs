@@ -4,12 +4,12 @@ description: This article describes how to scale the compute and storage resourc
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
-ms.custom: sqldbrb=1, references_regions
+ms.custom: sqldbrb=1, references_regions, devx-track-azurepowershell
 ms.devlang: 
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 04/09/2021
 ---
 # Scale single database resources in Azure SQL Database

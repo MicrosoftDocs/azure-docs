@@ -18,9 +18,9 @@ access SQL Managed Instance from Managed VNET using Private Endpoint.
 ## Prerequisites
 
 * **Azure subscription**. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* **Virtual Network**. If you don’t have a Virtual Network, create one following [Create Virtual Network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal).
-* **Virtual network to on-premises network**. Create a connection between virtual network and on-premises network either using [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager?toc=/azure/virtual-network/toc.json) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/tutorial-site-to-site-portal?toc=/azure/virtual-network/toc.json).
-* **Data Factory with Managed VNET enabled**. If you don’t have a Data Factory or Managed VNET is not enabled, create one following [Create Data Factory with Managed VNET](https://docs.microsoft.com/azure/data-factory/tutorial-copy-data-portal-private).
+* **Virtual Network**. If you don’t have a Virtual Network, create one following [Create Virtual Network](../virtual-network/quick-create-portal.md).
+* **Virtual network to on-premises network**. Create a connection between virtual network and on-premises network either using [ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [VPN](../vpn-gateway/tutorial-site-to-site-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* **Data Factory with Managed VNET enabled**. If you don’t have a Data Factory or Managed VNET is not enabled, create one following [Create Data Factory with Managed VNET](./tutorial-copy-data-portal-private.md).
 
 ## Create subnets for resources
 

@@ -7,7 +7,7 @@ ms.author: rohink
 ms.date: 10/20/2020
 ms.topic: quickstart
 ms.service: dns
-ms.custom:
+ms.custom: devx-track-azurepowershell
   - mode-api
 #Customer intent: As an experienced network administrator I want to create an  Azure private DNS zone, so I can resolve host names on my private virtual networks.
 ---

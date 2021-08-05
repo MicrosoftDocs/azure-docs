@@ -40,7 +40,7 @@ AKS uses several managed identities for built-in services and add-ons.
 | Identity                       | Name    | Use case | Default permissions | Bring your own identity
 |----------------------------|-----------|----------|
 | Control plane | not visible | Used by AKS control plane components to manage cluster resources including ingress load balancers and AKS managed public IPs, and Cluster Autoscaler operations | Contributor role for Node resource group | Supported
-| Kubelet | AKS Cluster Name-agentpool | Authentication with Azure Container Registry (ACR) | NA (for kubernetes v1.15+) | Supported (Preview)
+| Kubelet | AKS Cluster Name-agentpool | Authentication with Azure Container Registry (ACR) | NA (for kubernetes v1.15+) | Supported
 | Add-on | AzureNPM | No identity required | NA | No
 | Add-on | AzureCNI network monitoring | No identity required | NA | No
 | Add-on | azure-policy (gatekeeper) | No identity required | NA | No
@@ -86,7 +86,8 @@ You can now update an AKS cluster currently working with service principals to w
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity
 ```
 > [!NOTE]
-> Once the system-assigned or user-assigned identities have been updated to managed identity, perform an `az aks nodepool upgrade --node-image-only` on your nodes to complete the update to managed identity.
+> After updating, your cluster's control plane and addon pods will switch to use managed identity, but kubelet will KEEP USING SERVICE PRINCIPAL until you upgrade your agentpool. Perform an `az aks nodepool upgrade --node-image-only` on your nodes to complete the update to managed identity. 
+
 
 ## Obtain and use the system-assigned managed identity for your AKS cluster
 
@@ -131,8 +132,7 @@ A custom control plane identity enables access to be granted to the existing ide
 You must have the Azure CLI, version 2.15.1 or later installed.
 
 ### Limitations
-* Azure Government isn't currently supported.
-* Azure China 21Vianet isn't currently supported.
+* USDOD Central, USDOD East, USGov Iowa in Azure Government aren't currently supported.
 
 If you don't have a managed identity yet, you should go ahead and create one for example by using [az identity CLI][az-identity-create].
 
@@ -193,40 +193,18 @@ A successful cluster creation using your own managed identities contains this us
  },
 ```
 
-## Bring your own kubelet MI (Preview)
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+## Bring your own kubelet MI
 
 A Kubelet identity enables access to be granted to the existing identity prior to cluster creation. This feature enables scenarios such as connection to ACR with a pre-created managed identity.
 
 ### Prerequisites
 
-- You must have the Azure CLI, version 2.21.1 or later installed.
-- You must have the aks-preview, version 0.5.10 or later installed.
+- You must have the Azure CLI, version 2.26.0 or later installed.
 
 ### Limitations
 
 - Only works with a User-Assigned Managed cluster.
-- Azure Government isn't currently supported.
 - Azure China 21Vianet isn't currently supported.
-
-First, register the feature flag for Kubelet identity:
-
-```azurecli-interactive
-az feature register --namespace Microsoft.ContainerService -n CustomKubeletIdentityPreview
-```
-
-It takes a few minutes for the status to show *Registered*. You can check on the registration status using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/CustomKubeletIdentityPreview')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 
 ### Create or obtain managed identities
 
@@ -297,7 +275,7 @@ az aks create \
     --service-cidr 10.2.0.0/24 \
     --enable-managed-identity \
     --assign-identity <identity-id> \
-    --assign-kubelet-identity <kubelet-identity-id> \
+    --assign-kubelet-identity <kubelet-identity-id>
 ```
 
 A successful cluster creation using your own kubelet managed identity contains the following output:

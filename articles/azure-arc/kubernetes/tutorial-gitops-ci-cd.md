@@ -22,7 +22,7 @@ In this tutorial, you'll set up a CI/CD solution using GitOps with Azure Arc ena
 > * Deploy the `dev` and `stage` environments.
 > * Test the application environments.
 
-If you donâ€™t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -34,7 +34,7 @@ This tutorial assumes familiarity with Azure DevOps, Azure Repos and Pipelines, 
 * Complete the [previous tutorial](./tutorial-use-gitops-connected-cluster.md) to learn how to deploy GitOps for your CI/CD environment.
 * Understand the [benefits and architecture](./conceptual-configurations.md) of this feature.
 * Verify you have:
-  * A [connected Azure Arc enabled Kubernetes cluster](./quickstart-connect-cluster.md#connect-an-existing-kubernetes-cluster) named **arc-cicd-cluster**.
+  * A [connected Azure Arc enabled Kubernetes cluster](./quickstart-connect-cluster.md#3-connect-an-existing-kubernetes-cluster) named **arc-cicd-cluster**.
   * A connected Azure Container Registry (ACR) with either [AKS integration](../../aks/cluster-container-registry-integration.md) or [non-AKS cluster authentication](../../container-registry/container-registry-auth-kubernetes.md).
   * "Build Admin" and "Project Admin" permissions for [Azure Repos](/azure/devops/repos/get-started/what-is-repos) and [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started).
 * Install the following Azure Arc enabled Kubernetes CLI extensions of versions >= 1.0.0:
@@ -174,7 +174,8 @@ To avoid having to set an imagePullSecret for every Pod, consider adding the ima
 | AZURE_VOTE_IMAGE_REPO | The full path to the Azure Vote App repo, for example azurearctest.azurecr.io/azvote |
 | ENVIRONMENT_NAME | Dev |
 | MANIFESTS_BRANCH | `master` |
-| MANIFESTS_REPO | The Git connection string for your GitOps repo |
+| MANIFESTS_FOLDER | `azure-vote-manifests` |
+| MANIFESTS_REPO | `azure-cicd-demo-gitops` |
 | ORGANIZATION_NAME | Name of Azure DevOps organization |
 | PROJECT_NAME | Name of GitOps project in Azure DevOps |
 | REPO_URL | Full URL for GitOps repo |
@@ -205,8 +206,8 @@ The CD pipeline uses the security token of the running build to authenticate to 
 1. For the `<Project Name> Build Service (<Organization Name>)`, allow `Contribute`, `Contribute to pull requests`, and `Create branch`.
 
 For more information, see:
-- [Grant VC Permissions to the Build Service](https://docs.microsoft.com/azure/devops/pipelines/scripts/git-commands?view=azure-devops&tabs=yaml&preserve-view=true#version-control )
-- [Manage Build Service Account Permissions](https://docs.microsoft.com/azure/devops/pipelines/process/access-tokens?view=azure-devops&tabs=yaml&preserve-view=true#manage-build-service-account-permissions)
+- [Grant VC Permissions to the Build Service](/azure/devops/pipelines/scripts/git-commands?preserve-view=true&tabs=yaml&view=azure-devops#version-control )
+- [Manage Build Service Account Permissions](/azure/devops/pipelines/process/access-tokens?preserve-view=true&tabs=yaml&view=azure-devops#manage-build-service-account-permissions)
 
 
 ## Deploy the dev environment for the first time

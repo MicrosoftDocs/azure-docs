@@ -3,12 +3,14 @@ title: Connectivity settings for Azure SQL Database and Azure Synapse Analytics
 description: This article explains the Transport Layer Security (TLS) version choice and the Proxy versus Redirect settings for Azure SQL Database and Azure Synapse Analytics.
 services: sql-database
 ms.service: sql-database
+ms.subservice: connect
 titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.topic: how-to
 author: rohitnayakmsft
 ms.author: rohitna
-ms.reviewer: sstein, vanto
-ms.date: 07/06/2020
+ms.reviewer: mathoma, vanto
+ms.date: 08/03/2021
+ms.custom: devx-track-azurepowershell
 ---
 
 # Azure SQL connectivity settings
@@ -21,7 +23,7 @@ This article introduces settings that control connectivity to the server for Azu
 
 The connectivity settings are accessible from the **Firewalls and virtual networks** screen as shown in the following screenshot:
 
- ![Screenshot of the connectivity settings window.][1]
+:::image type="content" source="media/single-database-create-quickstart/manage-connectivity-settings.png" alt-text="Screenshot of the Firewalls and virtual networks settings in Azure portal for SQL server":::
 
 > [!NOTE]
 > These settings take effect immediately after they're applied. Your customers might experience connection loss if they don't meet the requirements for each setting.
@@ -114,6 +116,10 @@ After you set the minimal TLS version, login attempts from customers who are usi
 Error 47072
 Login failed with invalid TLS version
 ```
+
+## Set the minimal TLS version in Azure portal
+
+In the [Azure portal](https://portal.azure.com), go to your **SQL server** resource. Under the **Security** settings, select **Firewalls and virtual networks**. Select the **Minimum TLS Version** desired for all SQL Databases associated with the server, and select **Save**.
 
 ## Set the minimal TLS version via PowerShell
 
@@ -218,5 +224,4 @@ az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 - For information on how to change the connection policy for a server, see [conn-policy](/cli/azure/sql/server/conn-policy).
 
 <!--Image references-->
-[1]: media/single-database-create-quickstart/manage-connectivity-settings.png
 [2]: media/single-database-create-quickstart/manage-connectivity-flowchart.png

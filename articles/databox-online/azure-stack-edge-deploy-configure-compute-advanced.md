@@ -1,5 +1,5 @@
 ---
-title: Tutorial to filter, analyze data for advanced deployment with compute on Azure Stack Edge Pro FPGA | Microsoft Docs
+title: Tutorial to filter, analyze data on Azure Stack Edge Pro FPGA for advanced compute deployment
 description: Learn how to configure compute role on Azure Stack Edge Pro FPGA and use it to transform data for advanced deployment flow before sending to Azure.
 services: databox
 author: alkohli

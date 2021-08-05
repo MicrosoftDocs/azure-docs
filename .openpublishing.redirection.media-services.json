@@ -614,6 +614,11 @@
             "source_path_from_root": "/articles/media-services/latest/encode-custom-preset-rest-how-to.md",
             "redirect_url": "transform-custom-preset-rest-how-to",
             "redirect_document_id": false
-        }
+        },
+        {
+          "source_path_from_root": "/articles/media-services/video-indexer/index.yml",
+          "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs",
+          "redirect_document_id": false
+        }       
     ]
 }

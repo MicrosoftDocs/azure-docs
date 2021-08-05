@@ -11,10 +11,21 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: tutorial
-ms.date: 02/03/2021
+ms.date: 05/19/2021
 ---
 
 # Tutorial: Migrate MongoDB to Azure Cosmos DB API for MongoDB offline
+[!INCLUDE[appliesto-mongodb-api](../cosmos-db/includes/appliesto-mongodb-api.md)]
+
+> [!IMPORTANT]  
+> Please read this entire guide before carrying out your migration steps.
+>
+
+This MongoDB migration guide is part of series on MongoDB migration. The critical MongoDB migration steps are [pre-migration](../cosmos-db/mongodb-pre-migration.md), migration, and [post-migration](../cosmos-db/mongodb-post-migration.md), as shown below.
+
+![Diagram of migration steps.](../cosmos-db/media/mongodb-pre-migration/overall-migration-steps.png)
+
+## Overview of offline data migration from MongoDB to Azure Cosmos DB using DMS
 
 Use Azure Database Migration Service to perform an offline, one-time migration of databases from an on-premises or cloud instance of MongoDB to the Azure Cosmos DB API for MongoDB.
 
@@ -65,19 +76,7 @@ If the feature is disabled, select **Enable**.
 
 ![Screenshot that shows how to enable Server Side Retry.](media/tutorial-mongodb-to-cosmosdb/mongo-server-side-retry-enable.png)
 
-## Register the resource provider
-
-1. Sign in to the Azure portal, select **All services**, and then select **Subscriptions**.
-
-   ![Screenshot that shows portal subscriptions.](media/tutorial-mongodb-to-cosmosdb/portal-select-subscription1.png)
-
-2. Select the subscription in which you want to create the instance of Azure Database Migration Service, and then select **Resource providers**.
-
-    ![Screenshot that shows resource providers.](media/tutorial-mongodb-to-cosmosdb/portal-select-resource-provider.png)
-
-3. Search for migration, and then to the right of **Microsoft.DataMigration**, select **Register**.
-
-    ![Screenshot that show how to register the resource provider.](media/tutorial-mongodb-to-cosmosdb/portal-register-resource-provider.png)    
+[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]  
 
 ## Create an instance
 

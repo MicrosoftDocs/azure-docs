@@ -16,6 +16,7 @@ May include one or more of the following:
 * Pull or push images with the Docker CLI takes longer than expected
 * Deployment of images to a service such as Azure Kubernetes Service takes longer than expected
 * You're not able to complete a large number of concurrent pull or push operations in the expected time
+* You see an HTTP 429 error similar to `Too many requests`
 * Pull or push operations in a geo-replicated registry take longer than expected, or push fails with error `Error writing blob` or `Error writing manifest`
 
 ## Causes
@@ -41,7 +42,7 @@ For image deployment to other services, check the regions where the registry and
 Related links:
 
 * [Azure Container Registry service tiers](container-registry-skus.md)    
-* [Container registry FAQ](container-registry-faq.md)
+* [Container registry FAQ](container-registry-faq.yml)
 * [Performance and scalability targets for Azure Blob Storage](../storage/blobs/scalability-targets.md)
 
 ### Check client hardware
@@ -98,8 +99,8 @@ If [collection of resource logs](monitor-service.md) is enabled in the registry,
 
 Related links:
 
-* [Monitor Azure Container Registry](monitor-service.md)
-* [Container registry FAQ](container-registry-faq.md)
+* [Logs for diagnostic evaluation and auditing](container-registry-diagnostics-audit-logs.md)
+* [Container registry FAQ](container-registry-faq.yml)
 * [Best practices for Azure Container Registry](container-registry-best-practices.md)
 
 ## Next steps

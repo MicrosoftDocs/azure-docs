@@ -6,7 +6,7 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: prakulka
-ms.date: 03/26/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---

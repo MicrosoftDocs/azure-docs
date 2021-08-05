@@ -9,7 +9,7 @@ ms.author: gopalv
 author: gvashishtha
 ms.reviewer: larryfr
 ms.date: 04/21/2021
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2, contperf-fy21q4
 adobe-target: true
 ---
@@ -17,6 +17,9 @@ adobe-target: true
 # Deploy machine learning models to Azure 
 
 Learn how to deploy your machine learning or deep learning model as a web service in the Azure cloud.
+
+> [!TIP]
+> Managed online endpoints (preview) provide a way to deploy your trained model without your having to create and manage the underlying infrastructure. For more information, see [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md).
 
 The workflow is similar no matter where you deploy your model:
 
@@ -29,6 +32,8 @@ The workflow is similar no matter where you deploy your model:
 1. Test the resulting web service
 
 For more information on the concepts involved in the machine learning deployment workflow, see [Manage, deploy, and monitor models with Azure Machine Learning](concept-model-management-and-deployment.md).
+
+[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
 
 ## Prerequisites
 
@@ -80,7 +85,7 @@ For more information on using the SDK to connect to a workspace, see the [Azure 
 A typical situation for a deployed machine learning service is that you need the following components:
 	
  + resources representing the specific model that you want deployed (for example: a pytorch model file)
- + code that you will be running in th service, that executes the model on a given input
+ + code that you will be running in the service, that executes the model on a given input
 
 Azure Machine Learnings allows you to separate the deployment into two separate components, so that you can keep the same code, but merely update the model. We define the mechanism by which you upload a model _separately_ from your code as "registering the model".
 
@@ -103,7 +108,7 @@ For more information on `az ml model register`, consult the [reference documenta
 ### Register a model from an Azure ML training run
 
 ```azurecli-interactive
-az ml model register -bidaf_onnx  --asset-path outputs/model.onnx  --experiment-name myexperiment --run-id myrunid --tag area=qna
+az ml model register -n bidaf_onnx --asset-path outputs/model.onnx --experiment-name myexperiment --run-id myrunid --tag area=qna
 ```
 
 [!INCLUDE [install extension](../../includes/machine-learning-service-install-extension.md)]
@@ -406,7 +411,7 @@ To delete a deployed webservice, use `az ml service delete <name of webservice>`
 
 To delete a registered model from your workspace, use `az ml model delete <model id>`
 
-Read more about [deleting a webservice](/cli/azure/ml/service#az_ml_service_delete) and [deleting a model](/cli/azure/ml/model#az_ml_model_delete).
+Read more about [deleting a webservice](/cli/azure/ml(v1)/computetarget/create#az_ml_service_delete) and [deleting a model](/cli/azure/ml/model#az_ml_model_delete).
 
 # [Python](#tab/python)
 

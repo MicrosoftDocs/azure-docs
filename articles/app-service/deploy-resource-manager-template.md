@@ -125,7 +125,7 @@ In your Key Vault, select **Certificates** and **Generate/Import** to upload the
 
 In your template, provide the name of the certificate for the `keyVaultSecretName`.
 
-For an example template, see [Deploy a Web App certificate from Key Vault secret and use it for creating SSL binding](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault).
+For an example template, see [Deploy a Web App certificate from Key Vault secret and use it for creating SSL binding](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-certificate-from-key-vault).
 
 ## Next steps
 

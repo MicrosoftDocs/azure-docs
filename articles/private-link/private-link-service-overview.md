@@ -24,26 +24,6 @@ Azure Private Link service is the reference to your own service that is powered 
 
 *Figure: Azure Private Link service workflow.*
 
-### RBAC permissions
-
-The following are specific RBAC permissions the user needs to be able to create a Private Link Service. To find more information on custom roles, please review [Steps to create a custom role](/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role).
-
-Microsoft.Resources/subscriptions/resourcegroups/resources/read
-Microsoft.Network/virtualNetworks/read
-Microsoft.Network/virtualNetworks/subnets/read
-Microsoft.Network/virtualNetworks/subnets/write
-Microsoft.Network/virtualNetworks/subnets/join/action
-Microsoft.Network/privateEndpoints/read
-Microsoft.Network/privateEndpoints/write
-Microsoft.Network/locations/availablePrivateEndpointTypes/read
-Microsoft.Network/privateLinkServices/read
-Microsoft.Network/privateLinkServices/write
-Microsoft.Network/privateLinkServices/privateEndpointConnections/read
-Microsoft.Network/privateLinkServices/privateEndpointConnections/write
-Microsoft.Network/networkSecurityGroups/join/action
-Microsoft.Network/loadBalancers/read
-Microsoft.Network/loadBalancers/write
-
 ### Create your Private Link Service
 
 - Configure your application to run behind a standard load balancer in your virtual network. If you already have your application configured behind a standard load balancer, you can skip this step.   
@@ -110,7 +90,11 @@ Complete alias:  *Prefix*. {GUID}.*region*.azure.privatelinkservice
 
 ## Control service exposure
 
-Private Link service provides you options to control the exposure of your service through "Visibility" setting. You can make the service private for consumption from different VNets you own (Azure RBAC permissions only), restrict the exposure to a limited set of subscriptions that you trust, or make it public so that all Azure subscriptions can request connections on the Private Link service. Your visibility settings decide whether a consumer can connect to your service or not. 
+The Private Link service provides you with three options in the **Visibility** setting to control the exposure of your service. Your visibility setting determines whether a consumer can connect to your service. Here are the visibility setting options, from most restrictive to least restrictive:
+ 
+- **Role-based access control only**: If your service is for private consumption from different VNets that you own, you can use RBAC as an access control mechanism inside subscriptions that are associated with the same Active Directory tenant. 
+- **Restricted by subscription**: If your service will be consumed across different tenants, you can restrict the exposure to a limited set of subscriptions that you trust. Authorizations can be pre-approved.
+- **Anyone with your alias**: If you want to make your service public and allow anyone with your Private Link service alias to request a connection, select this option. 
 
 ## Control service access
 

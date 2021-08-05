@@ -34,7 +34,7 @@ To create a user delegation SAS with PowerShell, install version 1.10.0 or later
 1. Make sure that you have the latest version of PowerShellGet installed. Open a Windows PowerShell window, and run the following command to install the latest version:
 
     ```powershell
-    Install-Module PowerShellGet –Repository PSGallery –Force
+    Install-Module PowerShellGet -Repository PSGallery -Force
     ```
 
 1. Close and reopen the PowerShell window after installing PowerShellGet.
@@ -42,7 +42,7 @@ To create a user delegation SAS with PowerShell, install version 1.10.0 or later
 1. Install the latest version of Azure PowerShell:
 
     ```powershell
-    Install-Module Az –Repository PSGallery –AllowClobber
+    Install-Module Az -Repository PSGallery -AllowClobber
     ```
 
 1. Make sure that you have installed Azure PowerShell version 3.2.0 or later. Run the following command to install the latest version of the Azure Storage PowerShell module:

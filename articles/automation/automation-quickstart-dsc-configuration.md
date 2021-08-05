@@ -57,7 +57,7 @@ This quickstart uses a DSC configuration that configures Apache HTTP Server, MyS
 In a text editor, type the following and save it locally as **AMPServer.ps1**.
 
 ```powershell-interactive
-configuration LAMPServer {
+configuration 'LAMPServer' {
    Import-DSCResource -module "nx"
 
    Node localhost {

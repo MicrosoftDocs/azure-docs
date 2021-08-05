@@ -47,11 +47,11 @@ This type of information is useful during the incident response process, where t
 1. Select an alert. 
     The alerts details page opens with more details about the alert. Below is the **Ransomware indicators detected** alert details page.
 
-    [![Ransomware indicators detected alert details page](media/security-center-threat-report/ransomware-indicators-detected-link-to-threat-intel-report.png)](media/security-center-threat-report/ransomware-indicators-detected-link-to-threat-intel-report.png#lightbox)
+    [![Ransomware indicators detected alert details page.](media/security-center-threat-report/ransomware-indicators-detected-link-to-threat-intel-report.png)](media/security-center-threat-report/ransomware-indicators-detected-link-to-threat-intel-report.png#lightbox)
 
 1. Select the link to the report, and a PDF will open in your default browser.
 
-    [![Potentially Unsafe Action alert details page](media/security-center-threat-report/threat-intelligence-report.png)](media/security-center-threat-report/threat-intelligence-report.png#lightbox)
+    [![Potentially Unsafe Action alert details page.](media/security-center-threat-report/threat-intelligence-report.png)](media/security-center-threat-report/threat-intelligence-report.png#lightbox)
 
     You can optionally download the PDF report. 
 

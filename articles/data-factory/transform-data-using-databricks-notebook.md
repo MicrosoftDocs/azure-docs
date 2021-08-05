@@ -6,7 +6,7 @@ ms.topic: tutorial
 ms.author: abnarain
 author: nabhishek
 ms.custom: seo-lt-2019
-ms.date: 03/12/2018
+ms.date: 06/07/2021
 ---
 
 # Run a Databricks notebook with the Databricks Notebook Activity in Azure Data Factory
@@ -77,9 +77,9 @@ In this section, you author a Databricks linked service. This linked service con
 
 ### Create an Azure Databricks linked service
 
-1.  On the **Let's get started** page, switch to the **Edit** tab in the left panel.
+1.  On the home page, switch to the **Manage** tab in the left panel.
 
-    ![Edit the new linked service](media/transform-data-using-databricks-notebook/get-started-page.png)
+    ![Edit the new linked service](media/doc-common-process/get-started-page-manage-button.png)
 
 1.  Select **Connections** at the bottom of the window, and then select **+ New**.
     

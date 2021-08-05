@@ -192,7 +192,7 @@
           href: storsimple-8000-manage-volumes-u2.md
           items:
           - name: "FAQ: Locally pinned volumes"
-            href: storsimple-8000-local-volume-faq.md
+            href: storsimple-8000-local-volume-faq.yml
         - name: Azure role-based access control
           href: storsimple-8000-role-based-access-control.md
         - name: Manage ACRs
@@ -402,7 +402,7 @@
     - name: CSP release notes
       href: https://partner.microsoft.com/Support/whats-new
     - name: "StorSimple for CSP: FAQ"
-      href: storsimple-partner-csp-faq.md
+      href: storsimple-partner-csp-faq.yml
 - name: Related
   items:
   - name: StorSimple 5000-7000 Series

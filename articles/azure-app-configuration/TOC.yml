@@ -25,6 +25,8 @@
           href: quickstart-java-spring-app.md
         - name: Python
           href: quickstart-python.md
+        - name: JavaScript/Node.js
+          href: quickstart-javascript.md
     - name: Feature management
       items:
         - name: ASP.NET Core
@@ -58,12 +60,20 @@
       items:
         - name: .NET Core
           href: enable-dynamic-configuration-dotnet-core-push-refresh.md
+        - name: Java Spring
+          href: enable-dynamic-configuration-java-spring-push-refresh.md
     - name: Use Key Vault references
       items:
-        - name: ASP.NET Core
-          href: use-key-vault-references-dotnet-core.md
-        - name: Spring Boot
-          href: use-key-vault-references-spring-boot.md
+        - name: Use Key Vault references
+          items:
+            - name: ASP.NET Core
+              href: use-key-vault-references-dotnet-core.md
+            - name: Spring Boot
+              href: use-key-vault-references-spring-boot.md
+        - name: Reload secrets and certificates automatically
+          items:
+            - name: .NET
+              href: reload-key-vault-secrets-dotnet.md
     - name: Build, deploy, and CI/CD
       items:
         - name: Push using Azure Pipelines
@@ -124,6 +134,8 @@
           href: overview-managed-identity.md
         - name: Security baseline
           href: /security/benchmark/azure/baselines/app-config-security-baseline?toc=/azure/azure-app-configuration/TOC.json
+        - name: Disable access key authentication (preview)
+          href: howto-disable-access-key-authentication.md
         - name: Security controls by Azure Policy
           href: ./security-controls-policy.md
     - name: High availability
@@ -144,6 +156,8 @@
       href: howto-backup-config-store.md
     - name: Use managed identities to access App Configuration
       href: howto-integrate-azure-managed-service-identity.md
+    - name: Update to the New Spring Boot Library
+      href: howto-convert-to-the-new-spring-boot.md
 - name: Reference
   items:
     - name: Client libraries

@@ -6,7 +6,8 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/11/2020
-ms.author: cynthn
+ms.author: cynthn 
+ms.custom: devx-track-azurepowershell
 
 ---
 # How to tag a virtual machine in Azure using PowerShell

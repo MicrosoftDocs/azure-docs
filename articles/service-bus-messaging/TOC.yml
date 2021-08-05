@@ -34,16 +34,6 @@
         href: service-bus-python-how-to-use-queues.md
       - name: JavaScript (@azure/service-bus)
         href: service-bus-nodejs-how-to-use-queues.md
-      - name: PHP
-        href: service-bus-php-how-to-use-queues.md
-      - name: Ruby
-        href: service-bus-ruby-how-to-use-queues.md
-    - name: Send and receive messages (old versions/packages)
-      items:
-      - name: .NET (Microsoft.Azure.ServiceBus)
-        href: service-bus-dotnet-get-started-with-queues-legacy.md
-      - name: Java (azure-servicebus)
-        href: service-bus-java-how-to-use-queues-legacy.md 
   - name: Services Bus topics and subscriptions
     items:
     - name: Create topics and subscriptions
@@ -64,16 +54,6 @@
         href: service-bus-python-how-to-use-topics-subscriptions.md
       - name: JavaScript (@azure/service-bus)
         href: service-bus-nodejs-how-to-use-topics-subscriptions.md
-      - name: PHP
-        href: service-bus-php-how-to-use-topics-subscriptions.md
-      - name: Ruby
-        href: service-bus-ruby-how-to-use-topics-subscriptions.md
-    - name: Publish and subscribe for messages (old versions/packages)
-      items:
-      - name: .NET (Microsoft.Azure.ServiceBus)
-        href: service-bus-dotnet-how-to-use-topics-subscriptions-legacy.md        
-      - name: Java (azure-servicebus)
-        href: service-bus-java-how-to-use-topics-subscriptions-legacy.md        
 - name: Tutorials
   items:
   - name: Update inventory
@@ -84,6 +64,8 @@
       href: service-bus-to-event-grid-integration-example.md      
     - name: Azure Functions
       href: service-bus-to-event-grid-integration-function.md
+  - name: Build message-driven business applications with NServiceBus
+    href: build-message-driven-apps-nservicebus.md
 - name: Samples
   items:
   - name: Service Bus samples
@@ -98,6 +80,8 @@
     href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
   - name: Advanced features
     items: 
+    - name: Overview of advanced features
+      href: advanced-features-overview.md
     - name: Message sessions
       href: message-sessions.md
     - name: Duplicate message detection
@@ -174,6 +158,22 @@
     items:
     - name: Create a namespace
       href: service-bus-create-namespace-portal.md
+    - name: Send and receive messages (old versions/packages)
+      items:
+      - name: .NET (Microsoft.Azure.ServiceBus)
+        href: service-bus-dotnet-get-started-with-queues-legacy.md
+      - name: Java (azure-servicebus)
+        href: service-bus-java-how-to-use-queues-legacy.md 
+      - name: PHP
+        href: service-bus-php-how-to-use-queues.md
+    - name: Publish and subscribe for messages (old versions/packages)
+      items:
+      - name: .NET (Microsoft.Azure.ServiceBus)
+        href: service-bus-dotnet-how-to-use-topics-subscriptions-legacy.md        
+      - name: Java (azure-servicebus)
+        href: service-bus-java-how-to-use-topics-subscriptions-legacy.md        
+      - name: PHP
+        href: service-bus-php-how-to-use-topics-subscriptions.md
     - name: Set subscription filters and actions
       href: service-bus-filter-examples.md    
     - name: Message handling
@@ -218,8 +218,6 @@
     items:
     - name: End-to-end tracing and diagnostics
       href: service-bus-end-to-end-tracing.md
-    - name: Diagnostic logs
-      href: service-bus-diagnostic-logs.md
     - name: Monitoring Azure Service Bus
       href: monitor-service-bus.md
   - name: Integrate

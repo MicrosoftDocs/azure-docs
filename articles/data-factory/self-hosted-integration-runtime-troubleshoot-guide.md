@@ -4,7 +4,7 @@ description: Learn how to troubleshoot self-hosted integration runtime issues in
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 05/12/2021
+ms.date: 05/31/2021
 ms.author: lle
 ---
 
@@ -831,18 +831,6 @@ We've rolled out a new SSL certificate, which is signed from DigiCert. Check to 
 
 If it isn't in the trusted root CA, [download it here](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt ). 
 
-
-## Self-hosted IR sharing
-
-### Sharing a self-hosted IR from a different tenant is not supported 
-
-#### Symptoms
-
-You might notice other data factories (on different tenants) as you're attempting to share the self-hosted IR from the Azure Data Factory UI, but you can't share it across data factories that are on different tenants.
-
-#### Cause
-
-The self-hosted IR can't be shared across tenants.
 
 ## Next steps
 

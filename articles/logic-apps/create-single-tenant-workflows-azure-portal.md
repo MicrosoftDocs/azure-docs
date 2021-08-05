@@ -1,32 +1,29 @@
 ---
-title: Create workflows using single-tenant Azure Logic Apps (portal)
-description: Create automated workflows that integrate apps, data, services, and systems using single-tenant Azure Logic Apps and the Azure portal.
+title: Create workflows with single-tenant Azure Logic Apps (Standard) in the Azure portal
+description: Create automated workflows to integrate apps, data, services, and systems with single-tenant Azure Logic Apps (Standard) in the Azure portal.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 05/10/2021
+ms.topic: how-to
+ms.date: 05/25/2021
 ---
 
-# Create an integration workflow using single-tenant Azure Logic Apps and the Azure portal (preview)
+# Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal
 
-> [!IMPORTANT]
-> This capability is in preview and is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+This article shows how to create an example automated integration workflow that runs in the *single-tenant* Azure Logic Apps environment by using the **Logic App (Standard)** resource type and the Azure portal. This resource type can host multiple [stateful and stateless workflows](single-tenant-overview-compare.md#stateful-stateless). Also, workflows in the same logic app and tenant run in the same process as the redesigned Azure Logic Apps runtime, so they share the same resources and provide better performance. For more information about the single-tenant Azure Logic Apps offering, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
 
-This article shows how to create an example automated integration workflow that runs in the *single-tenant Logic Apps environment* by using the new **Logic App (Preview)** resource type. While this example workflow is cloud-based and has only two steps, you can create workflows from hundreds of operations that can connect a wide range of apps, data, services, and systems across cloud, on premises, and hybrid environments. If you're new to single-tenant Logic Apps and the **Logic App (Preview)** resource type, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
-
-The example workflow starts with the built-in Request trigger and follows with an Office 365 Outlook action. The trigger creates a callable endpoint for the workflow and waits for an inbound HTTPS request from any caller. When the trigger receives a request and fires, the next action runs by sending email to the specified email address along with selected outputs from the trigger.
+While this example workflow is cloud-based and has only two steps, you can create workflows from hundreds of operations that can connect a wide range of apps, data, services, and systems across cloud, on premises, and hybrid environments. The example workflow starts with the built-in Request trigger and follows with an Office 365 Outlook action. The trigger creates a callable endpoint for the workflow and waits for an inbound HTTPS request from any caller. When the trigger receives a request and fires, the next action runs by sending email to the specified email address along with selected outputs from the trigger.
 
 > [!TIP]
-> If you don't have an Office 365 account, you can use any other available action that can send 
-> messages from your email account, for example, Outlook.com.
-> 
-> To create this example workflow using Visual Studio Code instead, follow the steps in 
-> [Create integration workflows using single tenant Azure Logic Apps and Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md). Both options provide the capability 
-> to develop, run, and deploy logic app workflows in the same kinds of environments. However, with 
-> Visual Studio Code, you can *locally* develop, test, and run workflows in your development environment.
+> If you don't have an Office 365 account, you can use any other available action 
+> that can send messages from your email account, for example, Outlook.com.
+>
+> To create this example workflow in Visual Studio Code instead, follow the steps in 
+> [Create integration workflows using single-tenant Azure Logic Apps and Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md). 
+> Both options provide the capability to develop, run, and deploy logic app workflows in the same kinds of environments. 
+> However, with Visual Studio Code, you can *locally* develop, test, and run workflows in your development environment.
 
-![Screenshot that shows the Azure portal with the workflow designer for the "Logic App (Preview)" resource.](./media/create-single-tenant-workflows-azure-portal/azure-portal-logic-apps-overview.png)
+![Screenshot that shows the Azure portal with the workflow designer for the "Logic App (Standard)" resource.](./media/create-single-tenant-workflows-azure-portal/azure-portal-logic-apps-overview.png)
 
 As you progress, you'll complete these high-level tasks:
 
@@ -37,11 +34,6 @@ As you progress, you'll complete these high-level tasks:
 * Enable or open the Application Insights after deployment.
 * Enable run history for stateless workflows.
 
-For more information, review the following documentation:
-
-* [What is Azure Logic Apps?](logic-apps-overview.md)
-* [What is the single-tenant Logic Apps environment?](single-tenant-overview-compare.md)
-
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -49,15 +41,11 @@ For more information, review the following documentation:
 * An [Azure Storage account](../storage/common/storage-account-overview.md). If you don't have one, you can either create a storage account in advance or during logic app creation.
 
   > [!NOTE]
-  > The **Logic App (Preview)** resource type is powered by Azure Functions and has [storage requirements similar to function apps](../azure-functions/storage-considerations.md). 
+  > The **Logic App (Standard)** resource type is powered by Azure Functions and has [storage requirements similar to function apps](../azure-functions/storage-considerations.md). 
   > [Stateful workflows](single-tenant-overview-compare.md#stateful-stateless) perform storage transactions, such as 
   > using queues for scheduling and storing workflow states in tables and blobs. These transactions incur 
   > [storage charges](https://azure.microsoft.com/pricing/details/storage/). For more information about 
   > how stateful workflows store data in external storage, review [Stateful and stateless workflows](single-tenant-overview-compare.md#stateful-stateless).
-
-* To deploy to a Docker container, you need an existing Docker container image.
-
-  For example, you can create this image through [Azure Container Registry](../container-registry/container-registry-intro.md), [App Service](../app-service/overview.md), or [Azure Container Instance](../container-instances/container-instances-overview.md). 
 
 * To create the same example workflow in this article, you need an Office 365 Outlook email account that uses a Microsoft work or school account to sign in.
 
@@ -67,17 +55,19 @@ For more information, review the following documentation:
 
 * If you create your logic app resources with settings that support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app. You can do so either when you create your logic app or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you create your logic app, or after deployment.
 
+<a name="create-logic-app-resource"></a>
+
 ## Create the logic app resource
 
 1. In the [Azure portal](https://portal.azure.com), sign in with your Azure account credentials.
 
 1. In the Azure portal search box, enter `logic apps`, and select **Logic apps**.
 
-   ![Screenshot that shows the Azure portal search box with the "logic app preview" search term and the "Logic App (Preview)" resource selected.](./media/create-single-tenant-workflows-azure-portal/find-logic-app-resource-template.png)
+   ![Screenshot that shows the Azure portal search box with the "logic apps" search term and the "Logic App (Standard)" resource selected.](./media/create-single-tenant-workflows-azure-portal/find-logic-app-resource-template.png)
 
-1. On the **Logic apps** page, select **Add** > **Preview**.
+1. On the **Logic apps** page, select **Add** > **Standard**.
 
-   This step creates a logic app resource that runs in the single-tenant Logic Apps environment and uses the [preview (single-tenant) pricing model](logic-apps-pricing.md#preview-pricing).
+   This step creates a logic app resource that runs in the single-tenant Azure Logic Apps environment and uses the [single-tenant pricing model](logic-apps-pricing.md#standard-pricing).
 
 1. On the **Create Logic App** page, on the **Basics** tab, provide the following information about your logic app resource:
 
@@ -85,12 +75,12 @@ For more information, review the following documentation:
    |----------|----------|-------|-------------|
    | **Subscription** | Yes | <*Azure-subscription-name*> | The Azure subscription to use for your logic app. |
    | **Resource Group** | Yes | <*Azure-resource-group-name*> | The Azure resource group where you create your logic app and related resources. This resource name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <p><p>This example creates a resource group named `Fabrikam-Workflows-RG`. |
-   | **Logic App name** | Yes | <*logic-app-name*> | The name to use for your logic app. This resource name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <p><p>This example creates a logic app named `Fabrikam-Workflows`. <p><p>**Note**: Your logic app's name automatically gets the suffix, `.azurewebsites.net`, because the **Logic App (Preview)** resource is powered by Azure Functions, which uses the same app naming convention. |
-   | **Publish** | Yes | <*deployment-environment*> | The deployment destination for your logic app. <p><p>- **Workflow**: Deploy to single-tenant Azure Logic Apps in the portal. <p><p>- **Docker Container**: Deploy to a container. If you don't have a container, first create your Docker container image. That way, after you select **Docker Container**, you can [specify the container that you want to use when creating your logic app](#set-docker-container). For example, you can create this image through [Azure Container Registry](../container-registry/container-registry-intro.md), [App Service](../app-service/overview.md), or [Azure Container Instance](../container-instances/container-instances-overview.md). <p><p>This example continues with the **Workflow** option. |
-   | **Region** | Yes | <*Azure-region*> | The Azure region to use when creating your resource group and resources. <p><p>This example uses **West US**. |
+   | **Logic App name** | Yes | <*logic-app-name*> | The name to use for your logic app. This resource name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <p><p>This example creates a logic app named `Fabrikam-Workflows`. <p><p>**Note**: Your logic app's name automatically gets the suffix, `.azurewebsites.net`, because the **Logic App (Standard)** resource is powered by Azure Functions, which uses the same app naming convention. |
+   | **Publish** | Yes | <*deployment-environment*> | The deployment destination for your logic app. By default, **Workflow** is selected for deployment to single-tenant Azure Logic Apps. Azure creates an empty logic app resource where you have to add your first workflow. <p><p>**Note**: Currently, the **Docker Container** option requires a [*custom location*](../azure-arc/kubernetes/conceptual-custom-locations.md) on an Azure Arc enabled Kubernetes cluster, which you can use with [Azure Arc enabled Logic Apps (Preview)](azure-arc-enabled-logic-apps-overview.md). The resource locations for your logic app, custom location, and cluster must all be the same. |
+   | **Region** | Yes | <*Azure-region*> | The location to use for creating your resource group and resources. If you selected **Docker Container**, select your custom location. <p><p>This example deploys the sample logic app to Azure and uses **West US**. |
    |||||
 
-   Here's an example:
+   The following example shows the **Create Logic App (Standard)** page:
 
    ![Screenshot that shows the Azure portal and "Create Logic App" page.](./media/create-single-tenant-workflows-azure-portal/create-logic-app-resource-portal.png)
 
@@ -98,10 +88,10 @@ For more information, review the following documentation:
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Storage account** | Yes | <*Azure-storage-account-name*> | The [Azure Storage account](../storage/common/storage-account-overview.md) to use for storage transactions. This resource name must be unique across regions and have 3-24 characters with only numbers and lowercase letters. Either select an existing account or create a new account. <p><p>This example creates a storage account named `fabrikamstorageacct`. |
-   | **Plan type** | Yes | <*Azure-hosting-plan*> | The [hosting plan](../app-service/overview-hosting-plans.md) to use for deploying your logic app, which is either [**Functions Premium**](../azure-functions/functions-premium-plan.md) or [**App service plan**](../azure-functions/dedicated-plan.md). Your choice affects the capabilities and pricing tiers that are later available to you. <p><p>This example uses the **App service plan**. <p><p>**Note**: Similar to Azure Functions, the **Logic App (Preview)** resource type requires a hosting plan and pricing tier. Consumption plans aren't supported or available for this resource type. For more information, review the following documentation: <p><p>- [Azure Functions scale and hosting](../azure-functions/functions-scale.md) <br>- [App Service pricing details](https://azure.microsoft.com/pricing/details/app-service/) <p><p>For example, the Functions Premium plan provides access to networking capabilities, such as connect and integrate privately with Azure virtual networks, similar to Azure Functions when you create and deploy your logic apps. For more information, review the following documentation: <p><p>- [Azure Functions networking options](../azure-functions/functions-networking-options.md) <br>- [Azure Logic Apps Running Anywhere - Networking possibilities with Azure Logic Apps Preview](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047) |
-   | **Windows Plan** | Yes | <*plan-name*> | The plan name to use. Either select an existing plan or provide the name for a new plan. <p><p>This example uses the name `Fabrikam-Service-Plan`. |
-   | **SKU and size** | Yes | <*pricing-tier*> | The [pricing tier](../app-service/overview-hosting-plans.md) to use for hosting your logic app. Your choices are affected by the plan type that you previously chose. To change the default tier, select **Change size**. You can then select other pricing tiers, based on the workload that you need. <p><p>This example uses the free **F1 pricing tier** for **Dev / Test** workloads. For more information, review [App Service pricing details](https://azure.microsoft.com/pricing/details/app-service/). |
+   | **Storage account** | Yes | <*Azure-storage-account-name*> | The [Azure Storage account](../storage/common/storage-account-overview.md) to use for storage transactions. <p><p>This resource name must be unique across regions and have 3-24 characters with only numbers and lowercase letters. Either select an existing account or create a new account. <p><p>This example creates a storage account named `fabrikamstorageacct`. |
+   | **Plan type** | Yes | <*hosting-plan*> | The hosting plan to use for deploying your logic app. <p><p>For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md#standard-pricing). |
+   | **Windows Plan** | Yes | <*plan-name*> | The plan name to use. Either select an existing plan name or provide a name for a new plan. <p><p>This example uses the name `Fabrikam-Service-Plan`. |
+   | **SKU and size** | Yes | <*pricing-tier*> | The [pricing tier](../app-service/overview-hosting-plans.md) to use for your logic app. Your selection affects the pricing, compute, memory, and storage that your logic app and workflows use. <p><p>To change the default pricing tier, select **Change size**. You can then select other pricing tiers, based on the workload that you need. <p><p>For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md#standard-pricing). |
    |||||
 
 1. Next, if your creation and deployment settings support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app.
@@ -121,27 +111,17 @@ For more information, review the following documentation:
    > For example, if your selected region reaches a quota for resources that you're trying to create, 
    > you might have to try a different region.
 
-   After Azure finishes deployment, your logic app is automatically live and running but doesn't do anything yet because the resource is empty, and no workflows exist yet.
+   After Azure finishes deployment, your logic app is automatically live and running but doesn't do anything yet because the resource is empty, and you haven't added any workflows yet.
 
-1. On the deployment completion page, select **Go to resource** so that you can add a blank workflow. If you selected **Docker Container** for deploying your logic app, continue with the [steps to provide information about that Docker container](#set-docker-container).
+1. On the deployment completion page, select **Go to resource** so that you can add a blank workflow.
 
    ![Screenshot that shows the Azure portal and the finished deployment.](./media/create-single-tenant-workflows-azure-portal/logic-app-completed-deployment.png)
-
-<a name="set-docker-container"></a>
-
-## Specify Docker container for deployment
-
-Before you start these steps, you need a Docker container image. For example, you can create this image through [Azure Container Registry](../container-registry/container-registry-intro.md), [App Service](../app-service/overview.md), or [Azure Container Instance](../container-instances/container-instances-overview.md). You can then provide information about your Docker container after you create your logic app.
-
-1. In the Azure portal, go to your logic app resource.
-
-1. On the logic app menu, under **Settings**, select **Deployment Center**.
-
-1. On the **Deployment Center** pane, follow the instructions for providing and managing the details for your Docker container.
 
 <a name="add-workflow"></a>
 
 ## Add a blank workflow
+
+After you create your empty logic app resource, you have to add your first workflow.
 
 1. After Azure opens the resource, on your logic app's menu, select **Workflows**. On the **Workflows** toolbar, select **Add**.
 
@@ -212,7 +192,7 @@ Before you can add a trigger to a blank workflow, make sure that the workflow de
    > If the **Add an action** pane shows the error message, `The access token expiry UTC time '{token-expiration-date-time}' is earlier than current UTC time '{current-date-time}'`, 
    > save your workflow, reload the page, reopen your workflow, and try adding the action again.
 
-   This example uses the Office 365 Outlook action named **Send an email (V2)**.
+   This example uses the Office 365 Outlook action that's named **Send an email (V2)**.
 
    ![Screenshot that shows the designer and the **Add an action** pane with the Office 365 Outlook "Send an email" action selected.](./media/create-single-tenant-workflows-azure-portal/find-send-email-action.png)
 
@@ -256,11 +236,17 @@ Before you can add a trigger to a blank workflow, make sure that the workflow de
 
 <a name="firewall-setup"></a>
 
-##  Find domain names for firewall access
+## Find domain names for firewall access
 
 Before you deploy your logic app and run your workflow in the Azure portal, if your environment has strict network requirements or firewalls that limit traffic, you have to set up network or firewall permissions for any trigger or action connections in the workflows that exist in your logic app.
 
-To find the fully qualified domain names (FQDNs) for these connections, follow these steps:
+To find the inbound and outbound IP addresses used by your logic app and workflows, follow these steps:
+
+1. On your logic app menu, under **Settings**, select **Networking (preview)**.
+
+1. On the networking page, find and review the **Inbound Traffic** and **Outbound Traffic** sections.
+
+To find the fully qualified domain names (FQDNs) for connections, follow these steps:
 
 1. On your logic app menu, under **Workflows**, select **Connections**. On the **API Connections** tab, select the connection's resource name, for example:
 
@@ -270,7 +256,7 @@ To find the fully qualified domain names (FQDNs) for these connections, follow t
 
    ![Screenshot that shows the Azure portal and API Connection pane with "JSON View" selected.](./media/create-single-tenant-workflows-azure-portal/logic-app-connection-view-json.png)
 
-1. Find, copy, and save the `connectionRuntimeUrl` property value somewhere safe so that you can set up your firewall with this information.
+1. Copy and save the `connectionRuntimeUrl` property value somewhere safe so that you can set up your firewall with this information.
 
    ![Screenshot that shows the "connectionRuntimeUrl" property value selected.](./media/create-single-tenant-workflows-azure-portal/logic-app-connection-runtime-url.png)
 
@@ -318,7 +304,7 @@ In this example, the workflow runs when the Request trigger receives an inbound 
 
    1. Under **All Collections**, provide a name for the collection to create for organizing your requests, press Enter, and select **Save to <*collection-name*>**. This example uses `Logic Apps requests` as the collection name.
 
-      Postman's request pane opens so that you can send a request to the endpoint URL for the Request trigger.
+      In the Postman app, the request pane opens so that you can send a request to the endpoint URL for the Request trigger.
 
       ![Screenshot that shows Postman with the opened request pane](./media/create-single-tenant-workflows-azure-portal/postman-request-pane.png)
 
@@ -437,7 +423,7 @@ After Application Insights opens, you can review various metrics for your logic 
 
 To debug a stateless workflow more easily, you can enable the run history for that workflow, and then disable the run history when you're done. Follow these steps for the Azure portal, or if you're working in Visual Studio Code, see [Create stateful and stateless workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless).
 
-1. In the [Azure portal](https://portal.azure.com), find and open your **Logic App (Preview)** resource.
+1. In the [Azure portal](https://portal.azure.com), open your **Logic App (Standard)** resource.
 
 1. On the logic app's menu, under **Settings**, select **Configuration**.
 
@@ -451,7 +437,7 @@ To debug a stateless workflow more easily, you can enable the run history for th
 
    For example:
 
-   ![Screenshot that shows the Azure portal and Logic App (Preview) resource with the "Configuration" > "New application setting" < "Add/Edit application setting" pane open and the "Workflows.{yourWorkflowName}.OperationOptions" option set to "WithStatelessRunHistory".](./media/create-single-tenant-workflows-azure-portal/stateless-operation-options-run-history.png)
+   ![Screenshot that shows the Azure portal and Logic App (Standard) resource with the "Configuration" > "New application setting" < "Add/Edit application setting" pane open and the "Workflows.{yourWorkflowName}.OperationOptions" option set to "WithStatelessRunHistory".](./media/create-single-tenant-workflows-azure-portal/stateless-operation-options-run-history.png)
 
 1. To finish this task, select **OK**. On the **Configuration** pane toolbar, select **Save**.
 
@@ -479,7 +465,7 @@ To delete an item in your workflow from the designer, follow any of these steps:
 
 ## Restart, stop, or start logic apps
 
-You can stop or start a [single logic app](#restart-stop-start-single-logic-app) or [multiple logic apps at the same time](#stop-start-multiple-logic-apps). You can also restart a single logic app without first stopping. Your single-tenant logic app can include multiple workflows, so you can either stop the entire logic app or [disable only workflows](#disable-enable-workflows).
+You can stop or start a [single logic app](#restart-stop-start-single-logic-app) or [multiple logic apps at the same time](#stop-start-multiple-logic-apps). You can also restart a single logic app without first stopping. Your single-tenant based logic app can include multiple workflows, so you can either stop the entire logic app or [disable only workflows](#disable-enable-workflows).
 
 > [!NOTE]
 > The stop logic app and disable workflow operations have different effects. For more information, review 
@@ -491,15 +477,15 @@ You can stop or start a [single logic app](#restart-stop-start-single-logic-app)
 
 Stopping a logic app affects workflow instances in the following ways:
 
-* The Logic Apps service cancels all in-progress and pending runs immediately.
+* Azure Logic Apps cancels all in-progress and pending runs immediately.
 
-* The Logic Apps service doesn't create or run new workflow instances.
+* Azure Logic Apps doesn't create or run new workflow instances.
 
 * Triggers won't fire the next time that their conditions are met. However, trigger states remember the points where the logic app was stopped. So, if you restart the logic app, the triggers fire for all unprocessed items since the last run.
 
   To stop each workflow from triggering on unprocessed items since the last run, clear the trigger state before you restart the logic app by following these steps:
 
-  1. In the Azure portal, find and open your logic app.
+  1. In the Azure portal, open your logic app.
   1. On the logic app menu, under **Workflows**, select **Workflows**.
   1. Open a workflow, and edit any part of that workflow's trigger.
   1. Save your changes. This step resets the trigger's current state.
@@ -510,7 +496,7 @@ Stopping a logic app affects workflow instances in the following ways:
 
 ### Restart, stop, or start a single logic app
 
-1. In the Azure portal, find and open your logic app.
+1. In the Azure portal, open your logic app.
 
 1. On the logic app menu, select **Overview**.
 
@@ -548,9 +534,9 @@ You can stop or start multiple logic apps at the same time, but you can't restar
 
 To stop the trigger from firing the next time when the trigger condition is met, disable your workflow. You can disable or enable a single workflow, but you can't disable or enable multiple workflows at the same time. Disabling a workflow affects workflow instances in the following ways:
 
-* The Logic Apps services continues all in-progress and pending runs until they finish. Based on the volume or backlog, this process might take time to complete.
+* Azure Logic Apps continues all in-progress and pending runs until they finish. Based on the volume or backlog, this process might take time to complete.
 
-* The Logic Apps service doesn't create or run new workflow instances.
+* Azure Logic Apps doesn't create or run new workflow instances.
 
 * The trigger won't fire the next time that its conditions are met. However, the trigger state remembers the point at which the workflow was disabled. So, if you re-enable the workflow, the trigger fires for all the unprocessed items since the last run.
 
@@ -588,7 +574,7 @@ To stop the trigger from firing the next time when the trigger condition is met,
 
 ## Delete logic apps or workflows
 
-You can [delete a single or multiple logic apps at the same time](#delete-logic-apps). Your single-tenant logic app can include multiple workflows, so you can either delete the entire logic app or [delete only workflows](#delete-workflows).
+You can [delete a single or multiple logic apps at the same time](#delete-logic-apps). Your single-tenant based logic app can include multiple workflows, so you can either delete the entire logic app or [delete only workflows](#delete-workflows).
 
 <a name="delete-logic-apps"></a>
 
@@ -610,19 +596,70 @@ Deleting a logic app cancels in-progress and pending runs immediately, but doesn
 
 Deleting a workflow affects workflow instances in the following ways:
 
-* The Logic Apps service cancels in-progress and pending runs immediately, but runs cleanup tasks on the storage used by the workflow.
+* Azure Logic Apps cancels in-progress and pending runs immediately, but runs cleanup tasks on the storage used by the workflow.
 
-* The Logic Apps service doesn't create or run new workflow instances.
+* Azure Logic Apps doesn't create or run new workflow instances.
 
-* If you delete a workflow and then recreate the same workflow, the recreated workflow won't have the same metadata as the deleted workflow. You have to resave any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an `Unauthorized` error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
+* If you delete a workflow and then recreate the same workflow, the recreated workflow won't have the same metadata as the deleted workflow. To refresh the metadata, you have to resave any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an `Unauthorized` error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
 
-1. In the Azure portal, find and open your logic app.
+1. In the Azure portal, open your logic app.
 
 1. On the logic app menu, under **Workflows**, select **Workflows**. In the checkbox column, select a single or multiple workflows to delete.
 
 1. On the toolbar, select **Delete**.
 
 1. To confirm whether your operation succeeded or failed, on main Azure toolbar, open the **Notifications** list (bell icon).
+
+<a name="recover-deleted"></a>
+
+## Recover deleted logic apps
+
+If you use source control, you can seamlessly redeploy a deleted **Logic App (Standard)** resource to single-tenant Azure Logic Apps. However, if you're not using source control, try the following steps to recover your deleted logic app.
+
+> [!NOTE]
+> Before you try to recover your deleted logic app, review these considerations:
+>
+> * You can recover only deleted **Logic App (Standard)** resources that use the **Workflow Standard** hosting plan. 
+> You can't recover deleted **Logic App (Consumption)** resources.
+>
+> * If your workflow starts with the Request trigger, the callback URL for the recovered logic app differs from the URL for the deleted logic app.
+>
+> * The run history from the deleted logic app is unavailable in the recovered logic app.>
+
+1. Confirm that your logic app's storage account still exists. If the storage account was deleted, you have to [first recover the deleted storage account](../storage/common/storage-account-recover.md).
+
+1. On the storage account menu, under **Security + networking**, select **Access keys**.
+
+1. On the **Access keys** page, copy the account's primary connection string, and save for later use, for example:
+
+   `DefaultEndpointsProtocol=https;AccountName=<storageaccountname>;AccountKey=<accesskey>;EndpointSuffix=core.windows.net`
+
+1. On the storage account menu, under **Data storage**, select **File shares**, copy the name for the file share associated with your logic app, and save for later use.
+
+1. Create a new **Logic App (Standard)** resource using the same hosting plan and pricing tier. You can either use a new name or reuse the name from the deleted logic app.
+
+1. Before you continue, stop the logic app. From the logic app menu, select **Overview**. On the **Overview** page toolbar, select **Stop**.
+
+1. From the logic app menu, under **Settings**, select **Configuration**.
+
+1. On the **Configuration** page, update the following application setting values, and remember to save your changes when finished.
+
+   | App setting | Replacement value |
+   |-------------|-------------------|
+   | `AzureWebJobsStorage` | Replace the existing value with the previously copied connection string from your storage account. |
+   | `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` | Replace the existing value with the previously copied string from your storage account. |
+   | `WEBSITE_CONTENTSHARE` | Replace the existing value with the previously copied file share name. |
+   |||
+
+1. On your logic app menu, under **Workflows**, select **Connections**.
+
+1. Open each connection and under **Settings**, select **Access policies**.
+
+1. Delete the access policy for the deleted logic app, and then add a new access policy for the replacement logic app.
+
+1. Return to the logic app's **Configuration** page, and add any custom settings that existed on the deleted logic app.
+
+1. When you're done, restart your logic app.
 
 <a name="troubleshoot"></a>
 
@@ -632,14 +669,14 @@ Deleting a workflow affects workflow instances in the following ways:
 
 ### New triggers and actions are missing from the designer picker for previously created workflows
 
-Azure Logic Apps Preview supports built-in actions for Azure Function Operations, Liquid Operations, and XML Operations, such as **XML Validation** and **Transform XML**. However, for previously created logic apps, these actions might not appear in the designer for you to select if your logic app uses an outdated version of the extension bundle, `Microsoft.Azure.Functions.ExtensionBundle.Workflows`.
+Single-tenant Azure Logic Apps supports built-in actions for Azure Function Operations, Liquid Operations, and XML Operations, such as **XML Validation** and **Transform XML**. However, for previously created logic apps, these actions might not appear in the designer for you to select if your logic app uses an outdated version of the extension bundle, `Microsoft.Azure.Functions.ExtensionBundle.Workflows`.
 
 To fix this problem, follow these steps to delete the outdated version so that the extension bundle can automatically update to the latest version.
 
 > [!NOTE]
-> This specific solution applies only to **Logic App (Preview)** resources that you create using 
+> This specific solution applies only to **Logic App (Standard)** resources that you create using 
 > the Azure portal, not the logic apps that you create and deploy using Visual Studio Code and the 
-> Azure Logic Apps (Preview) extension. See [Supported triggers and actions are missing from the designer in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#missing-triggers-actions).
+> Azure Logic Apps (Standard) extension. See [Supported triggers and actions are missing from the designer in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#missing-triggers-actions).
 
 1. In the Azure portal, stop your logic app.
 
@@ -651,9 +688,9 @@ To fix this problem, follow these steps to delete the outdated version so that t
 
 1. On the **Advanced Tools** pane, select **Go**, which opens the Kudu environment for your logic app.
 
-1. On the Kudu toolbar, open the **Debug console** menu, and select **CMD**. 
+1. On the Kudu toolbar, open the **Debug console** menu, and select **CMD**.
 
-   A console window opens so that you can browse to the bundle folder using the command prompt. Or, you can browse the directory structure that appears the console window.
+   A console window opens so that you can browse to the bundle folder using the command prompt. Or, you can browse the directory structure that appears above the console window.
 
 1. Browse to the following folder, which contains versioned folders for the existing bundle:
 

@@ -84,7 +84,7 @@ To learn more, see [Virtual network service endpoints](../virtual-network/virtua
 
 When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. You can replace this storage account with one that is secured with service endpoints or private endpoint. 
 
-This feature currently works for all Windows virtual network-supported SKUs in the Dedicated (App Service) plan and for the Premium plan. The Consumption plan isn't supported. To learn how to set up a function with a storage account restricted to a private network, see [Restrict your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
+This feature is supported for all Windows virtual network-supported SKUs in the Dedicated (App Service) plan and for the Premium plans. It is also supported with private DNS for Linux virtual network-supported SKUs. The Consumption plan and custom DNS on Linux plans aren't supported. To learn how to set up a function with a storage account restricted to a private network, see [Restrict your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
 
 ## Use Key Vault references
 
@@ -156,7 +156,7 @@ To learn how to control the outbound IP using a virtual network, see [Tutorial: 
 The following APIs let you programmatically manage regional virtual network integrations:
 
 + **Azure CLI**: Use the [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) commands to add, list, or remove a regional virtual network integration.  
-+ **ARM templates**: Regional virtual network integration can be enabled by using an Azure Resource Manager template. For a full example, see [this Functions quickstart template](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
++ **ARM templates**: Regional virtual network integration can be enabled by using an Azure Resource Manager template. For a full example, see [this Functions quickstart template](https://azure.microsoft.com/resources/templates/function-premium-vnet-integration/).
 
 ## Troubleshooting
 
@@ -167,7 +167,7 @@ The following APIs let you programmatically manage regional virtual network inte
 To learn more about networking and Azure Functions:
 
 * [Follow the tutorial about getting started with virtual network integration](./functions-create-vnet.md)
-* [Read the Functions networking FAQ](./functions-networking-faq.md)
+* [Read the Functions networking FAQ](./functions-networking-faq.yml)
 * [Learn more about virtual network integration with App Service/Functions](../app-service/web-sites-integrate-with-vnet.md)
 * [Learn more about virtual networks in Azure](../virtual-network/virtual-networks-overview.md)
 * [Enable more networking features and control with App Service Environments](../app-service/environment/intro.md)

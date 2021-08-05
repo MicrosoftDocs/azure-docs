@@ -30,7 +30,7 @@ For example:
 
 :::image type="content" source="media/sap/sap-workbook.png" alt-text="SAP - System Applications and Products workbook.":::
 
-For more information, see [Tutorial: Visualize and monitor your data](tutorial-monitor-your-data.md).
+For more information, see [Visualize and monitor your data](tutorial-monitor-your-data.md).
 
 ## Built-in analytics rules
 
@@ -56,6 +56,14 @@ The following tables list the built-in [analytics rules](sap-deploy-solution.md#
 |**SAP - High - Sensitive privileged user logged in**     |    Identifies the Dialog sign-in of a sensitive privileged user. <br><br>Maintain privileged users in the [SAP - Privileged Users](#users) watchlist.    |  Sign in to the backend system using `SAP*` or another privileged user.  <br><br>**Data sources**: SAPcon - Audit Log     |   Initial Access, Credential Access      |
 |  **SAP - High - Sensitive privileged user makes a change in other user**   |   Identifies changes of sensitive, privileged users in other users. 	     | Change user details / authorizations using SU01.  <br><br>**Data Sources**: SAPcon -  Audit Log     |   Privilege Escalation, Credential Access       |
 |**SAP - High - System Configuration Change**     | Identifies changes for system configuration.        |   Adapt system change options or software component modification using the `SE06` transaction code.<br><br>**Data sources**: SAPcon - Audit Log |Exfiltration, Defense Evasion, Persistence   |
+|**SAP - High - User Creates and uses new user**     | Identifies a user creating and using other users.        |  Create a user using SU01, and then sign in, using the newly-created user and the same IP address.<br><br>**Data sources**: SAPcon - Audit Log | Discovery, PreAttack, Initial Access  |
+|**SAP - High - User Unlocks and uses other users**     |Identifies a user being unlocked and used by other users.       |  Unlock a user using SU01, and then sign in using the unlocked user and the same IP address.<br><br>**Data sources**: SAPcon -  Audit Log, SAPcon -  Change Documents Log | Discovery, PreAttack, Initial Access, Lateral Movement  |
+|**SAP - High - Sensitive Users Password Change and Login**     | Identifies password changes for privileged users.      |  Change the password for a privileged user and sign into the system. <br>Maintain privileged users in the [SAP - Privileged Users](#users) watchlist.<br><br>**Data sources**: SAPcon -  Audit Log | Impact, Command and Control, Privilege Escalation |
+|**SAP - High - Activation or Deactivation of ICF Service**     | Identifies activation or deactivation of ICF Services.       |  Activate a service using SICF.<br><br>**Data sources**: SAPcon - Table Data Log | Command and Control, Lateral Movement, Persistence  |
+|**SAP - High - New ICF Services**     | Identifies creation of ICF Services.       |  Create a service using SICF.<br><br>**Data sources**: SAPcon - Table Data Log | Command and Control, Lateral Movement, Persistence  |
+|**SAP - High - New ICF Service Handlers**     | Identifies creation of ICF Handlers.       |  Assign a new handler to a service using SICF.<br><br>**Data sources**: SAPcon -  Audit Log | Command and Control, Lateral Movement, Persistence  |
+|**SAP - High - SPNego Attack**     | Identifies SPNego Replay Attack.       |  **Data sources**: SAPcon -  Audit Log | Impact, Lateral Movement  |
+|**SAP - High - Execution of Sensitive Function Module**     | Identifies the execution of a sensitive ABAP function module. <br><br>**Note**: Relevant for production systems only. <br><br>Maintain sensitive functions in the [SAP - Sensitive Function Modules](#modules) watchlist, and make sure to activate table logging changes in the backend for the EUFUNC table. (SE13)     | Run a sensitive function module directly using SE37. <br><br>**Data sources**: SAPcon -  Table Data Log | Discovery, Command and Control 
 |     |         |         |         |
 
 ### Medium-level, built-in SAP solution analytics rules
@@ -72,6 +80,16 @@ The following tables list the built-in [analytics rules](sap-deploy-solution.md#
 |**SAP - Medium - Multiple Logons by User**     | Identifies sign-ins of the same user from several terminals within scheduled time interval.  <br><br>Available only via the Audit SAL method, for SAP versions 7.5 and higher.      |   Sign in using the same user, using different IP addresses.   <br><br>**Data sources**: SAPcon - Audit Log   |  PreAttack, Credential Access, Initial Access, Collection       |
 |**SAP - Medium - Security Audit Log Configuration Change**     |  Identifies changes in the configuration of the Security Audit Log       |   Change any Security Audit Log Configuration using `SM19`/`RSAU_CONFIG`, such as the filters, status, recording mode, and so on. <br><br>**Data sources**: SAPcon - Audit Log      |    Persistence, Exfiltration, Defense Evasion     |
 |**SAP - Medium - Transaction is unlocked**     |Identifies unlocking of a transaction.         |     Unlock a transaction code using `SM01`/`SM01_DEV`/`SM01_CUS`. <br><br>**Data sources**: SAPcon - Audit Log   |  Persistence, Execution       |
+|**SAP - Medium - Multiple Files Download**     |Identifies multiple file downloads for a user within a specific time-range. | Download multiple files using the SAPGui for Excel, lists, and so on. <br><br>**Data sources**: SAPcon - Audit Log   |  Collection, Exfiltration, Credential Access       |
+|**SAP - Medium - Multiple Spool Executions**     |Identifies multiple spools for a user within a specific time-range. | Create and run multiple spool jobs of any type by a user. (SP01) <br><br>**Data sources**: SAPcon - Spool Log, SAPcon - Audit Log   |  Collection, Exfiltration, Credential Access       |
+|**SAP - Medium - Multiple Spool Output Executions**     |Identifies multiple spools for a user within a specific time-range. | Create and run multiple spool jobs of any type by a user. (SP01) <br><br>**Data sources**: SAPcon - Spool Output Log, SAPcon - Audit Log   |  Collection, Exfiltration, Credential Access       |
+|**SAP - Medium - Spool Takeover**     |Identifies a user printing a spool request that was created by someone else. | Create a spool request using one user, and then output it in using a different user. <br><br>**Data sources**: SAPcon -  Spool Log, SAPcon -  Spool Output Log, SAPcon - Audit Log   |  Collection, Exfiltration, Command and Control      |
+|**SAP - Medium - Insecure FTP servers configuration**     |Identifies insecure FTP server configurations, such as when an FTP allowlist is empty or contains placeholders. | Do not maintain or maintain values that contain placeholders in the `SAPFTP_SERVERS` table, using the `SAPFTP_SERVERS_V` maintenance view. (SM30) <br><br>**Data sources**: SAPcon -  Audit Log   |  Initial Access, Command and Control      |
+|**SAP - Medium - FTP for non authorized servers**     |Identifies an FTP connection for a non-authorized server. | Create a new FTP connection, such as by using the FTP_CONNECT Function Module. <br><br>**Data sources**: SAPcon -  Audit Log   |  Discovery, Initial Access, Command and Control      |
+|**SAP - Medium - Sensitive Tables Direct Access By RFC Logon**     |Identifies a generic table access by RFC sign in. <br><br> Maintain tables in the [SAP - Sensitive Tables](#tables) watchlist.<br><br> **Note**: Relevant for production systems only.   | Open the table contents using SE11/SE16/SE16N.<br><br>**Data sources**: SAPcon -  Audit Log   |  Collection, Exfiltration, Credential Access     |
+|**SAP - Medium - Sensitive Roles Changes**     |Identifies changes in sensitive roles. <br><br> Maintain sensitive roles in the [SAP - Sensitive Roles](#roles) watchlist.       |  Change a role using PFCG. <br><br>**Data sources**: SAPcon - Change Documents Log, SAPcon – Audit Log   |  Impact, Privilege Escalation, Persistence     |
+|**SAP - Medium - Execution of Obsolete/Insecure Program**     |Identifies the execution of an obsolete or insecure ABAP program. <br><br> Maintain obsolete programs in the [SAP - Obsolete Programs](#programs) watchlist.<br><br> **Note**: Relevant for production systems only.  | Run a program directly using SE38/SA38/SE80, or by using a background job.  <br><br>**Data sources**: SAPcon -  Audit Log   | Discovery, Command and Control |
+|**SAP - Medium - Execution of Obsolete or Insecure Function Module**     |Identifies the execution of an obsolete or insecure ABAP function module. <br><br>Maintain obsolete functions in the [SAP - Obsolete Function Modules](#modules) watchlist. Make sure to activate table logging changes for the `EUFUNC` table in the backend. (SE13)<br><br> **Note**: Relevant for production systems only.  | Run an obsolete or insecure function module directly using SE37. <br><br>**Data sources**: SAPcon -  Table Data Log   | Discovery, Command and Control |
 |     |         |         |         |
 
 ### Low-level, built-in SAP solution analytics rules
@@ -80,7 +98,16 @@ The following tables list the built-in [analytics rules](sap-deploy-solution.md#
 |---------|---------|---------|---------|
 |**SAP - Low - Multiple Password Changes by User**     |   Identifies multiple password changes by user.      |   Change user password <br><br>**Data sources**: SAPcon - Audit Log      |    Credential Access     |
 |**SAP - Low - Sensitive Tables Direct Access By Dialog Logon**     |   Identifies generic table access via dialog sign-in.      |  Open table contents using `SE11`/`SE16`/`SE16N`. <br><br>**Data sources**: SAPcon - Audit Log      |    Discovery     |
+|**SAP - Low - Dynamic ABAP Program**     | Identifies the execution of dynamic ABAP programming. For example, when ABAP code was dynamically created, changed, or deleted. <br><br> Maintain excluded transaction codes in the [SAP - Transactions for ABAP Generations](#transactions) watchlist. | Create an ABAP Report that uses ABAP program generation commands, such as INSERT REPORT, and then run the report.  <br><br>**Data sources**: SAPcon - Audit Log      |    Discovery, Command and Control, Impact     |
+|**SAP - Low - Dynamic RFC Destination**     |   Identifies the execution of RFC using dynamic destinations. | Execute an ABAP report that uses dynamic destinations (cl_dynamic_destination). For example, DEMO_RFC_DYNAMIC_DEST.   <br><br>**Data sources**: SAPcon - Audit Log      |    Collection, Exfiltration     |
 |     |         |         |         |
+
+### Informational-level, built-in SAP solution analytics rules
+
+|Rule name  |Description  |Source action  |
+|---------|---------|---------|---------|
+|**SAP - Informational - Lifecycle - SAP Notes were implemented in system**     |   Identifies SAP Note implementation in the system. | Implement a SAP Note using SNOTE/TCI. <br><br>**Data sources**: SAPcon -  Change Requests      |
+| | | |
 
 ## Available watchlists
 
@@ -103,6 +130,12 @@ These watchlists provide the configuration for the Azure Sentinel SAP Continuous
 |<a name="roles"></a>**SAP - Sensitive Roles**     |  Sensitive roles, where assignment should be governed.    <br><br>- **Role**: SAP authorization role, such as `SAP_BC_BASIS_ADMIN`  <br>- **Description**: A meaningful role description. |
 |<a name="transactions"></a>**SAP - Sensitive Transactions**     |     Sensitive transactions where execution should be governed.  <br><br>- **TransactionCode**: SAP transaction code, such as `RZ11` <br>- **Description**: A meaningful code description. |
 |<a name="systems"></a>**SAP - Systems**     |    Describes the landscape of SAP systems according to role and usage.<br><br>- **SystemID**: the SAP system ID (SYSID) <br>- **SystemRole**: the SAP system role, one of the following values: `Sandbox`, `Development`, `Quality Assurance`, `Training`, `Production` <br>- **SystemUsage**: The SAP system usage, one of the following values: `ERP`, `BW`, `Solman`, `Gateway`, `Enterprise Portal`        |
+|<a name="users"></a>**SAP - Excluded Users**     |  System users that are logged in and need to be ignored, such as for the Multiple logons by user alert. <br><br>- **User**: SAP User  <br>- **Description**: A meaningful user description  |
+|<a name="networks"></a>**SAP - Excluded Networks**     |  Maintain internal, excluded networks for ignoring web dispatchers, terminal servers, and so on.  <br><br>- **Network**: Network IP address or range, such as `111.68.128.0/17`  <br>- **Description**: A meaningful network description |
+|<a name="modules"></a>**SAP - Obsolete Function Modules**     | Obsolete function modules, whose execution should be governed.    <br><br>- **FunctionModule**: ABAP Function Module, such as TH_SAPREL  <br>- **Description**: A meaningful function module description |
+|<a name="programs"></a>**SAP - Obsolete Programs**     | Obsolete ABAP programs (reports), whose execution should be governed.  <br><br>- **ABAPProgram**:ABAP Program, such as TH_ RSPFLDOC  <br>- **Description**: A meaningful ABAP program description |
+|<a name="transactions"></a>**SAP - Transactions for ABAP Generations**     |  Transactions for ABAP generations whose execution should be governed. <br><br>- **TransactionCode**:Transaction Code, such as SE11.  <br>- **Description**: A meaningful Transaction Code description  |
+|<a name="servers"></a>**SAP - FTP Servers**     |  FTP Servers for identification of unauthorized connections.    <br><br>- **Client**:such as 100.  <br>- **FTP_Server_Name**: FTP server name, such as http://contoso.com/ <br>-**FTP_Server_Port**:FTP server port, such as 22. <br>- **Description**A meaningful FTP Server description |
 | | |
 
 
@@ -110,7 +143,8 @@ These watchlists provide the configuration for the Azure Sentinel SAP Continuous
 
 For more information, see:
 
-- [Tutorial: Deploy the Azure Sentinel solution for SAP](sap-deploy-solution.md)
+- [Deploy the Azure Sentinel solution for SAP](sap-deploy-solution.md)
 - [Azure Sentinel SAP solution logs reference](sap-solution-log-reference.md)
-- [Deploy the Azure Sentinel SAP data connector on-premises](sap-solution-deploy-alternate.md)
+- [Expert configuration options, on-premises deployment and SAPControl log sources](sap-solution-deploy-alternate.md)
 - [Azure Sentinel SAP solution detailed SAP requirements](sap-solution-detailed-requirements.md)
+- [Troubleshooting your Azure Sentinel SAP solution deployment](sap-deploy-troubleshoot.md)

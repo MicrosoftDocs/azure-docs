@@ -272,7 +272,7 @@ You develop these deployments by using an Azure Resource Manager template, which
 
 > **When to use**: Use Resource Manager templates when you want a template-based deployment for your app that you can manage programmatically by using REST APIs, the Azure CLI, and Azure PowerShell.
 >
-> **Get started**: To get started using templates, see [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md).
+> **Get started**: To get started using templates, see [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md).
 
 ## Understanding accounts, subscriptions, and billing
 

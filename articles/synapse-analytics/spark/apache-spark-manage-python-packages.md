@@ -37,7 +37,7 @@ There are two primary ways to install a library on a cluster:
 > [!IMPORTANT]
 > - If the package you are installing is large or takes a long time to install, this affects the Spark instance start up time.
 > - Altering the PySpark, Python, Scala/Java, .NET, or Spark version is not supported.
-> - Installing packages from external repositories like PyPI, Conda-Forge, or the default Conda channels is not supported within DEP-enabled workspaces.
+> - Installing packages from external repositories like PyPI, Conda-Forge, or the default Conda channels is not supported within data exfiltration protection enabled workspaces.
 
 ### Install Python packages
 Python packages can be installed from repositories like PyPI and Conda-Forge by providing an environment specification file. 
@@ -47,7 +47,7 @@ Python packages can be installed from repositories like PyPI and Conda-Forge by 
 ##### PIP requirements.txt
 A *requirements.txt* file (output from the `pip freeze` command) can be used to upgrade the environment. When a pool is updated, the packages listed in this file are downloaded from PyPI. The full dependencies are then cached and saved for later reuse of the pool. 
 
-The following snippet shows the format for the requirements file. The PyPI package name is listed along with an exact version. This file follows the format described in the [pip freeze](https://pip.pypa.io/en/stable/reference/pip_freeze/) reference documentation. 
+The following snippet shows the format for the requirements file. The PyPI package name is listed along with an exact version. This file follows the format described in the [pip freeze](https://pip.pypa.io/en/stable/cli/pip_freeze/) reference documentation. 
 
 This example pins a specific version. 
 ```
@@ -151,7 +151,8 @@ abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<wo
 ```
 
 >[!WARNING]
-> In some cases, you may need to create the file path based on the structure above if it does not already exist. For example, you may need to add the ```python``` folder within the ```libraries``` folder if it does not already exist.
+> - In some cases, you may need to create the file path based on the structure above if it does not already exist. For example, you may need to add the ```python``` folder within the ```libraries``` folder if it does not already exist.
+> - This method of managing custom wheel files will not be supported on the Azure Synapse Runtime for Apache Spark 3.0. Please refer to the Workspace packages feature to manage custom wheel files.
 
 > [!IMPORTANT]
 > To install custom libraries using the Azure DataLake Storage method, you must have the **Storage Blob Data Contributor** or **Storage Blob Data Owner** permissions on the primary Gen2 Storage account that is linked to the Azure Synapse Analytics workspace.

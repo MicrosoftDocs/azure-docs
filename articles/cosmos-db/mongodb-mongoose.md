@@ -6,8 +6,8 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
 ms.date: 03/20/2020
-author: timsander1
-ms.author: tisande
+author: gahl-levy
+ms.author: gahllevy
 ms.custom: seodec18, devx-track-js
 ---
 # Connect a Node.js Mongoose application to Azure Cosmos DB
@@ -21,7 +21,7 @@ Cosmos DB is Microsoft's globally distributed multi-model database service. You 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+[!INCLUDE [cosmos-db-emulator-docdb-api](includes/cosmos-db-emulator-docdb-api.md)]
 
 [Node.js](https://nodejs.org/) version v0.10.29 or higher.
 
@@ -29,7 +29,7 @@ Cosmos DB is Microsoft's globally distributed multi-model database service. You 
 
 Let's create a Cosmos account. If you already have an account you want to use, you can skip ahead to Set up your Node.js application. If you are using the Azure Cosmos DB Emulator, follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to set up the emulator and skip ahead to Set up your Node.js application.
 
-[!INCLUDE [cosmos-db-create-dbaccount-mongodb](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-mongodb](includes/cosmos-db-create-dbaccount-mongodb.md)]
 
 ### Create a database 
 In this application we will cover two ways of creating collections in Azure Cosmos DB: 
@@ -313,7 +313,7 @@ As you can see, it is easy to work with Mongoose discriminators. So, if you have
 
 ## Clean up resources
 
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 

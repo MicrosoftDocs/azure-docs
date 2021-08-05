@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 03/23/2021
+ms.date: 06/02/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -56,6 +56,11 @@ Every 48 hours, Azure looks at your security configuration and compares your set
 Each recommendation is measured based on your Azure AD configuration. If you are using third-party products to enable a best practice recommendation, you can indicate this configuration in the settings of an improvement action. You also have the option to set recommendations to be ignored if they don't apply to your environment. An ignored recommendation does not contribute to the calculation of your score.
 
 ![Ignore or mark action as covered by third party](./media/identity-secure-score/identity-secure-score-ignore-or-third-party-reccomendations.png)
+
+- **To address** - You recognize that the improvement action is necessary and plan to address it at some point in the future. This state also applies to actions that are detected as partially, but not fully completed.
+- **Planned** - There are concrete plans in place to complete the improvement action.
+- **Risk accepted** - Security should always be balanced with usability, and not every recommendation will work for your environment. When that is the case, you can choose to accept the risk, or the remaining risk, and not enact the improvement action. You won't be given any points, but the action will no longer be visible in the list of improvement actions. You can view this action in history or undo it at any time.
+- **Resolved through third party** and **Resolved through alternate mitigation** - The improvement action has already been addressed by a third-party application or software, or an internal tool. You'll gain the points that the action is worth, so your score better reflects your overall security posture. If a third party or internal tool no longer covers the control, you can choose another status. Keep in mind, Microsoft will have no visibility into the completeness of implementation if the improvement action is marked as either of these statuses.
 
 ## How does it help me?
 

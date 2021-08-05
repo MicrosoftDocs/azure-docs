@@ -1,5 +1,5 @@
 ---
-title: Tutorial to transfer data to shares with Azure Stack Edge Pro FPGA | Microsoft Docs
+title: Tutorial for Azure Stack Edge Pro FPGA data transfer to shares
 description: In this tutorial, learn how to add and connect to shares on your Azure Stack Edge Pro FPGA device, so that Azure Stack Edge Pro FPGA can transfer data to Azure.
 services: databox
 author: alkohli

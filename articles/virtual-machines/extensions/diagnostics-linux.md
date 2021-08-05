@@ -7,7 +7,8 @@ ms.subservice: extensions
 author: amjads1
 ms.author: amjads
 ms.collection: linux
-ms.date: 02/05/2021
+ms.date: 02/05/2021 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Use the Linux diagnostic extension 4.0 to monitor metrics and logs
@@ -39,7 +40,7 @@ You can enable this extension for your VM and virtual machine scale set by using
 >[!NOTE]
 >Some components of the Linux Diagnostic VM extension are also shipped in the [Log Analytics VM extension](./oms-linux.md). Because of this architecture, conflicts can arise if both extensions are instantiated in the same ARM template.
 >
->To avoid install-time conflicts, use the [`dependsOn` directive](../../azure-resource-manager/templates/define-resource-dependency.md#dependson) to install the extensions sequentially. The extensions can be installed in either order.
+>To avoid install-time conflicts, use the [`dependsOn` directive](../../azure-resource-manager/templates/resource-dependency.md#dependson) to install the extensions sequentially. The extensions can be installed in either order.
 
 Use the installation instructions and a [downloadable sample configuration](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) to configure LAD 4.0 to:
 

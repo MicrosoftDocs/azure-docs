@@ -47,6 +47,8 @@ items:
     href: import-concepts.md
   - name: Import-related schema
     href: import-schema.md
+  - name: Device Update limits
+    href: device-update-limits.md
 
 - name: How-to guides
   items:
@@ -84,6 +86,8 @@ items:
         href: /python/api/azure-mgmt-deviceupdate/
   - name: Data Plane SDK
     items:
+      - name: .NET
+        href: /dotnet/api/azure.iot.deviceupdate?view=azure-dotnet-preview&preserve-view=true
       - name: JavaScript
         href: /javascript/api/@azure/iot-device-update/?view=azure-node-preview&preserve-view=true
       - name: Java
@@ -107,7 +111,7 @@ items:
     - name: IoT solution accelerators
       href: ../iot-accelerators/index.yml
     - name: IoT Plug and Play
-      href: ../iot-pnp/index.yml
+      href: ../iot-develop/index.yml
     - name: Azure Maps
       href: ../azure-maps/index.yml
     - name: Time Series Insights

@@ -1,8 +1,9 @@
-- name: Azure Blob storage documentation
+items:
+- name: Azure Blob Storage documentation
   href: ./index.yml
 - name: Overview
   items:
-  - name: What is Azure Blob storage?
+  - name: What is Azure Blob Storage?
     href: storage-blobs-overview.md
   - name: Compare core storage services
     href: ../common/storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -123,6 +124,8 @@
       href: storage-samples-blobs-powershell.md
     - name: Azure CLI
       href: storage-samples-blobs-cli.md
+    - name: Azure Resource Graph queries
+      href: ../common/resource-graph-samples.md
   - name: Concepts
     items:
     - name: Storage accounts
@@ -130,12 +133,12 @@
     - name: Authorization
       items:
       - name: Authorizing data operations
-        href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        href: ../common/authorize-data-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         items:
         - name: Authorize with Azure AD
           items:
           - name: Authorize with Azure roles
-            href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            href: authorize-access-azure-active-directory.md
           - name: Authorize with conditions
             href: ../common/storage-auth-abac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Actions and attributes for conditions
@@ -175,18 +178,24 @@
         href: data-protection-overview.md
       - name: Soft delete for containers
         href: soft-delete-container-overview.md
-      - name: Versioning
-        href: versioning-overview.md
       - name: Soft delete for blobs
         href: soft-delete-blob-overview.md
+      - name: Versioning
+        href: versioning-overview.md
       - name: Point-in-time restore
         href: point-in-time-restore-overview.md
       - name: Snapshots
         href: snapshots-overview.md
       - name: Change feed
         href: storage-blob-change-feed.md        
-      - name: Immutable blobs
-        href: storage-blob-immutable-storage.md
+      - name: Immutable storage for blobs
+        items:
+        - name: Overview 
+          href: immutable-storage-overview.md
+        - name: Time-based retention policies
+          href: immutable-time-based-retention-policy-overview.md
+        - name: Legal holds
+          href: immutable-legal-hold-overview.md  
     - name: Redundancy and disaster recovery
       items:    
       - name: Data redundancy
@@ -229,14 +238,14 @@
           href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Find, search, and understand blob data
       items:
-      - name: Use blob index tags to manage and find blob data
-        href: storage-manage-find-blobs.md
-      - name: Use AI to understand blob data
-        href: ../../search/search-blob-ai-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Full text search for blob data
-        href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Use blob inventory to manage blob data
+      - name: Blob inventory
         href: blob-inventory.md
+      - name: Blob index tags
+        href: storage-manage-find-blobs.md
+      - name: Full text search
+        href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Azure Cognitive Search
+        href: ../../search/search-blob-ai-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Data migration
       items:
       - name: Storage migration overview
@@ -274,6 +283,8 @@
         href: network-file-system-protocol-support.md
       - name: Performance considerations
         href: network-file-system-protocol-support-performance.md
+      - name: Known issues
+        href: network-file-system-protocol-known-issues.md
     - name: Event handling
       href: storage-blob-event-overview.md
     - name: Page blob features
@@ -291,7 +302,7 @@
         href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Recover a deleted storage account
         href: ../common/storage-account-recover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Get account type and SKU name (.NET)
+      - name: Get account configuration properties
         href: ../common/storage-account-get-info.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Manage the default access tier of a storage account
         href: ../common/manage-account-default-access-tier.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -315,6 +326,8 @@
         href: storage-blob-copy.md
       - name: Use blob index tags
         href: storage-blob-index-how-to.md
+      - name: Enable blob inventory reports 
+        href: blob-inventory-how-to.md
       - name: Calculate blobs count and total size
         href: calculate-blob-count-size.md
     - name: Authorize access to blob data
@@ -328,13 +341,7 @@
         - name: Azure CLI
           href: authorize-data-operations-cli.md
       - name: Manage access rights with Azure RBAC
-        items:
-        - name: Portal
-          href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: PowerShell
-          href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Azure CLI
-          href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        href: assign-azure-role-data-access.md
       - name: Authenticate and authorize with Azure AD
         items:
         - name: Authorize with a managed identity
@@ -441,8 +448,12 @@
         href: snapshots-manage-dotnet.md
       - name: Process change feed logs
         href: storage-blob-change-feed-how-to.md        
-      - name: Set and manage immutability policies
-        href: storage-blob-immutability-policies-manage.md
+      - name: Configure an immutability policy
+        items:
+        - name: Configure version-level immutability policies
+          href: immutable-policy-configure-version-scope.md
+        - name: Configure container-level immutability policies
+          href: immutable-policy-configure-container-scope.md
     - name: Manage redundancy and failover
       items:
       - name: Change redundancy configuration
@@ -463,7 +474,7 @@
         href: ../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Use Azurite to run automated tests
         href: use-azurite-to-run-automated-tests.md
-      - name: Use the Azure Storage emulator
+      - name: Use the Azure Storage emulator (deprecated)
         href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Host a static website
       items:
@@ -521,19 +532,25 @@
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage
     - name: Move across regions
       href: ../common/storage-account-move.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Monitor (classic)
+    - name: Monitor
       items:
-      - name: Enable and manage metrics (classic)
-        href: ../common/manage-storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Enable and manage logs (classic)
-        href: ../common/manage-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Scenarios and best practices
+        href: blob-storage-monitoring-scenarios.md
+      - name: Use Storage insights
+        href: ../common/storage-insights-overview.md
+      - name: Monitor (classic)
+        items:
+        - name: Enable and manage metrics (classic)
+          href: ../common/manage-storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Enable and manage logs (classic)
+          href: ../common/manage-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Troubleshoot
       items:
       - name: Latency issues
         href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Reference
     items:
-    - name: Azure Blob storage reference
+    - name: Blob Storage API reference
       href: ../blobs/reference.md
     - name: AzCopy v10
       items:
@@ -597,6 +614,8 @@
         href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Sign in to Storage Explorer
         href: ../common/storage-explorer-sign-in.md
+      - name: Storage Explorer networking
+        href: ../common/storage-explorer-network.md
       - name: Storage Explorer release notes
         href: https://github.com/microsoft/AzureStorageExplorer/releases
       - name: Troubleshoot Storage Explorer
@@ -609,6 +628,10 @@
         href: ../common/storage-explorer-security.md
       - name: Storage Explorer blob versioning
         href: ../common/storage-explorer-blob-versioning.md
+      - name: Storage Explorer manage Azure Blob storage
+        href: ../../vs-azure-tools-storage-explorer-blobs.md
+      - name: Storage Explorer create file shares
+        href: ../../vs-azure-tools-storage-explorer-files.md
       - name: Storage Explorer support policy and lifecycle
         href: ../common/storage-explorer-support-policy-lifecycle.md
       - name: Storage Explorer accessibility
@@ -625,6 +648,8 @@
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Videos
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
+    - name: Compare access with NFS to Azure Blob Storage, Azure Files, and Azure NetApp Files
+      href: ../common/nfs-comparison.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: NuGet packages (.NET)
       items:
       - name: Microsoft.Azure.Storage.Common (version 11.x)
@@ -752,11 +777,17 @@
     - name: Migrate accounts and data stores
       items:
       - name: Migrate from Data Lake Storage Gen1
-        href: data-lake-storage-migrate-gen1-to-gen2.md
-      - name: Migrate an HDFS store offline
-        href: data-lake-storage-migrate-on-premises-HDFS-cluster.md
-      - name: Migrate an HDFS store online
-        href: migrate-gen2-wandisco-live-data-platform.md
+        items: 
+        - name: Migrate from Gen1
+          href: data-lake-storage-migrate-gen1-to-gen2.md
+        - name: Migrate by using Azure portal
+          href: data-lake-storage-migrate-gen1-to-gen2-azure-portal.md
+      - name: Migrate HDFS stores
+        items:
+        - name: Migrate an HDFS store offline
+          href: data-lake-storage-migrate-on-premises-HDFS-cluster.md
+        - name: Migrate an HDFS store online
+          href: migrate-gen2-wandisco-live-data-platform.md
     - name: Transfer data
       items:
       - name: AzCopy
@@ -923,6 +954,10 @@
         href: ../common/storage-explorer-security.md
       - name: Storage Explorer blob versioning
         href: ../common/storage-explorer-blob-versioning.md
+      - name: Storage Explorer manage Azure Blob storage
+        href: ../../vs-azure-tools-storage-explorer-blobs.md
+      - name: Storage Explorer create file shares
+        href: ../../vs-azure-tools-storage-explorer-files.md
       - name: Storage Explorer support policy and lifecycle
         href: ../common/storage-explorer-support-policy-lifecycle.md
       - name: Storage Explorer accessibility

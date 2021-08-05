@@ -12,10 +12,12 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Download a sign-in report
-    href: quickstart-download-sign-in-report.md
-  - name: Download an audit report
-    href: quickstart-download-audit-report.md
+  - name: Filter your audit log 
+    href: quickstart-filter-audit-log.md
+  - name: Analyze sign-ins 
+    href: quickstart-analyze-sign-in.md
+  - name: Access logs with the Graph API
+    href: quickstart-access-log-with-graph-api.md
   - name: Route logs to storage account
     href: quickstart-azure-monitor-route-logs-to-storage-account.md
 
@@ -46,6 +48,8 @@
     href: concept-activity-logs-azure-monitor.md
   - name: Plan a reporting and monitoring deployment
     href: plan-monitoring-and-reporting.md
+  - name: Sign-in diagnostics scenarios
+    href: concept-sign-in-diagnostics-scenarios.md
 
 - name: How-to guides
   expanded: true

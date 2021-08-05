@@ -7,7 +7,7 @@ ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/16/2021
+ms.date: 06/04/2021
 ---
 
 # Transform data using mapping data flows
@@ -68,9 +68,9 @@ In this step, you create a data factory and open the Data Factory UX to create a
 
 In this step, you'll create a pipeline that contains a Data Flow activity.
 
-1. On the **Let's get started** page, select **Create pipeline**.
+1. On the home page of Azure Data Factory, select **Orchestrate**.
 
-   ![Create pipeline](./media/doc-common-process/get-started-page.png)
+   ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png)
 
 1. In the **General** tab for the pipeline, enter **TransformMovies** for **Name** of the pipeline.
 1. In the **Activities** pane, expand the **Move and Transform** accordion. Drag and drop the **Data Flow** activity from the pane to the pipeline canvas.
@@ -119,7 +119,7 @@ Once you create your Data Flow, you'll be automatically sent to the data flow ca
     ![Screenshot that shows the Filter on expression box.](media/tutorial-data-flow/filter1.png)
 1. The data flow expression builder lets you interactively build expressions to use in various transformations. Expressions can include built-in functions, columns from the input schema, and user-defined parameters. For more information on how to build expressions, see [Data Flow expression builder](concepts-data-flow-expression-builder.md).
 
-    In this tutorial, you want to filter movies of genre comedy that came out between the years 1910 and 2000. As year is currently a string, you need to convert it to an integer using the ```toInteger()``` function. Use the greater than or equals to (>=) and less than or equals to (<=) operators to compare against literal year values 1910 and 200-. Union these expressions together with the and (&&) operator. The expression comes out as:
+    In this tutorial, you want to filter movies of genre comedy that came out between the years 1910 and 2000. As year is currently a string, you need to convert it to an integer using the ```toInteger()``` function. Use the greater than or equals to (>=) and less than or equals to (<=) operators to compare against literal year values 1910 and 2000. Union these expressions together with the and (&&) operator. The expression comes out as:
 
     ```toInteger(year) >= 1910 && toInteger(year) <= 2000```
 

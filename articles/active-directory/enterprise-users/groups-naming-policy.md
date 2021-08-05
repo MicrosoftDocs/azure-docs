@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 06/11/2021
 ms.author: curtand                   
 ms.reviewer: krbain
 ms.custom: "it-pro;seo-update-azuread-jan"
@@ -65,19 +65,19 @@ Blocked word list rules:
 ### Roles and permissions
 
 To configure naming policy, one of the following roles is required:
-- Global administrator
-- Group administrator
-- Directory writer
 
+- Global Administrator
+- Group Administrator
+- Directory Writer
 
-Selected administrators can be exempted from these policies, across all group workloads and endpoints, so that they can create groups using blocked words and with their own naming conventions. The following are the list of administrator roles exempted from the group naming policy.
+Some administrator roles are exempted from these policies, across all group workloads and endpoints, so that they can create groups using blocked words and with their own naming conventions. The following administrator roles are exempted from the group naming policy:
 
-- Global administrator
-- User administrator
+- Global Administrator
+- User Administrator
 
 ## Configure naming policy in Azure portal
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a Group administrator account.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a Group Administrator account.
 1. Select **Groups**, then select **Naming policy** to open the Naming policy page.
 
     ![open the Naming policy page in the admin center](./media/groups-naming-policy/policy.png)

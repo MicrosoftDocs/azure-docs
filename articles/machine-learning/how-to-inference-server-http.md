@@ -9,7 +9,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: inference server, local development, local debugging
+ms.custom: inference server, local development, local debugging, devplatv2
 ms.date: 05/14/2021
 ---
 
@@ -17,11 +17,11 @@ ms.date: 05/14/2021
 
 The Azure Machine Learning inference HTTP server [(preview)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) is a Python package that allows you to easily validate your entry script (`score.py`) in a local development environment. If there's a problem with the scoring script, the server will return an error. It will also return the location where the error occurred.
 
-The server can also be used when creating validation gates in a continuous integration and deployment pipeline. For example, start the server with thee candidate script and run the test suite against the local endpoint.
+The server can also be used when creating validation gates in a continuous integration and deployment pipeline. For example, start the server with the candidate script and run the test suite against the local endpoint.
 
 ## Prerequisites
 
-- Python version 3.7
+- Requires: Python >=3.7
 
 ## Installation
 
@@ -50,7 +50,7 @@ python -m pip install azureml-inference-server-http
     source myenv/bin/activate
     ```
 
-1. Install the `azureml-inference-server-http` package from the pypi feed:
+1. Install the `azureml-inference-server-http` package from the [pypi](https://pypi.org/project/azureml-inference-server-http/) feed:
 
     ```bash
     python -m pip install azureml-inference-server-http
@@ -79,13 +79,6 @@ python -m pip install azureml-inference-server-http
     > [!NOTE]
     > The server is hosted on 0.0.0.0, which means it will listen to all IP addresses of the hosting machine.
 
-    The server is listening on port 5001 at these routes.
-
-    | Name | Route|
-    | --- | --- |
-    | Liveness Probe | 127.0.0.1:5001/|
-    | Score | 127.0.0.1:5001/score|
-
 1. Send a scoring request to the server using `curl`:
 
     ```bash
@@ -100,6 +93,15 @@ python -m pip install azureml-inference-server-http
 
 Now you can modify the scoring script and test your changes by running the server again.
 
+## Server Routes
+
+The server is listening on port 5001 at these routes.
+
+| Name | Route|
+| --- | --- |
+| Liveness Probe | 127.0.0.1:5001/|
+| Score | 127.0.0.1:5001/score|
+
 ## Server parameters
 
 The following table contains the parameters accepted by the server:
@@ -110,6 +112,7 @@ The following table contains the parameters accepted by the server:
 | model_dir	| False | N/A | The relative or absolute path to the directory holding the model used for inferencing.
 | port | False | 5001 | The serving port of the server.|
 | worker_count | False | 1 | The number of worker threads that will process concurrent requests. |
+| appinsights_instrumentation_key | False | N/A | The instrumentation key to the application insights where the logs will be published. |
 
 ## Request flow
 
@@ -124,6 +127,7 @@ The following steps explain how the Azure Machine Learning inference HTTP server
 1. Finally, the request is sent to your entry script. The entry script then makes an inference call to the loaded model and returns a response.
 
 :::image type="content" source="./media/how-to-inference-server-http/inference-server-architecture.png" alt-text="Diagram of the HTTP server process":::
+
 ## Frequently asked questions
 
 ### Do I need to reload the server when changing the score script?
@@ -136,4 +140,5 @@ The Azure Machine Learning inference server runs on Windows & Linux based operat
 
 ## Next steps
 
-For more information on creating an entry script and deploying models, see [How to deploy a model using Azure Machine Learning](how-to-deploy-and-where.md).
+* For more information on creating an entry script and deploying models, see [How to deploy a model using Azure Machine Learning](how-to-deploy-and-where.md).
+* Learn about [Prebuilt docker images for inference](concept-prebuilt-docker-images-inference.md)

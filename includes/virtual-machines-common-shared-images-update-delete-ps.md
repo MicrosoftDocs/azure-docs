@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 04/25/2019
  ms.author: cynthn
- ms.custom: include file
+ ms.custom: include file, devx-track-azurepowershell
 ---
 
 ## Update resources

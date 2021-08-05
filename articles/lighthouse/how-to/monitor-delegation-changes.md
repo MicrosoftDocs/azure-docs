@@ -1,8 +1,9 @@
 ---
 title: Monitor delegation changes in your managing tenant
-description: Learn how to monitor delegation activity from customer tenants to your managing tenant. 
+description: Learn how to monitor all Azure Lighthouse delegation activity to your managing tenant. 
 ms.date: 05/11/2021
-ms.topic: how-to
+ms.topic: how-to 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Monitor delegation changes in your managing tenant

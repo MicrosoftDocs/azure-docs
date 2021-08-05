@@ -210,6 +210,8 @@
         href: ./hdinsight-log-management.md
       - name: Add storage accounts
         href: ./hdinsight-hadoop-add-storage.md
+      - name: Update storage account access key
+        href: ./hdinsight-rotate-storage-keys.md
       - name: Upload data for Apache Hadoop jobs
         href: ./hdinsight-upload-data.md
       - name: Multiple HDInsight clusters with Data Lake Storage
@@ -304,6 +306,8 @@
     items:
     - name: Releases
       items:
+      - name: Ubuntu 18.04 update
+        href: ./hdinsight-ubuntu-1804-qa.md
       - name: What's new in HDInsight 4.0
         href: ./hdinsight-version-release.md
       - name: Release notes
@@ -311,7 +315,7 @@
       - name: Archived release notes for Azure HDInsight
         href: ./hdinsight-release-notes-archive.md 
     - name: Frequently asked questions (FAQ)
-      href: ./hdinsight-faq.md
+      href: ./hdinsight-faq.yml
     - name: Migrate to granular role-based access for cluster configurations
       href: ./hdinsight-migrate-granular-access-cluster-configurations.md
     - name: Information about using HDInsight on Linux
@@ -658,7 +662,7 @@
     - name: Performance tuning
       href: ./kafka/apache-kafka-performance-tuning.md
     - name: Kafka FAQ
-      href: ./kafka/kafka-faq.md
+      href: ./kafka/kafka-faq.yml
   - name: How-to guides
     items:
     - name: Develop
@@ -813,6 +817,8 @@
         href: ./interactive-query/apache-hive-warehouse-connector-operations.md
       - name: HWC integration with Apache Zeppelin
         href: ./interactive-query/apache-hive-warehouse-connector-zeppelin.md
+      - name: HWC Supported APIs
+        href: ./interactive-query/hive-warehouse-connector-apis.md
       - name: Apache Hive with Hadoop
         href: ./hadoop/hdinsight-use-hive.md
       - name: Use the Apache Hive View
@@ -835,6 +841,8 @@
         href: ./hadoop/apache-hadoop-hive-java-udf.md
       - name: Query Hive with PowerShell and ODBC
         href: ./interactive-query/apache-hive-query-odbc-driver-powershell.md
+      - name: Enable Hive LLAP Workload Management feature
+        href: ./interactive-query/hive-workload-management.md
     - name: Manage
       items:
       - name: Copy Hive tables across Storage Accounts
@@ -879,7 +887,15 @@
         href: ./interactive-query/interactive-query-troubleshoot-hive-logs-diskspace-full-headnodes.md
       - name: Security options for Hive
         href: ./interactive-query/hdinsight-security-options-for-hive.md
-- name: ML Services
+      - name: Apache Hive LLAP Workload Management
+        href: ./interactive-query/troubleshoot-workload-management-issues.md
+      - name: HDInsight 3.6 to 4.0 troubleshoot guide - Hive
+        href: ./interactive-query/interactive-query-troubleshoot-migrate-36-to-40.md
+  - name: Reference
+    items:
+    - name: Hive LLAP Workload Management commands
+      href: ./interactive-query/workload-management-commands.md
+- name: ML Services (Retired)
   items:
   - name: Overview
     items:

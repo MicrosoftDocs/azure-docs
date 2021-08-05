@@ -47,7 +47,7 @@ Stateful user services deployed on the cross availability zone nodeTypes should 
 When a zone goes down, all the nodes in that zone will appear as down. Service replicas on these nodes will also be down. Since there are replicas in the other zones, the service continues to be responsive with primary replicas failing over to the zones which are functioning. The services will appear in warning state as the target replica count is not met and the VM count is still more than the defined min target replica size. As a result, Service Fabric load balancer will bring up replicas in the working zones to match the configured target replica count. At this point, the services will appear healthy. When the zone which was down comes back up, the load balancer will again spread all the service replicas evenly across all the zones.
 
 ## Networking Configuration
-For more information, see [Configure network settings for Service Fabric managed clusters](https://docs.microsoft.com/azure/service-fabric/how-to-managed-cluster-networking)
+For more information, see [Configure network settings for Service Fabric managed clusters](./how-to-managed-cluster-networking.md)
 
 ## Enabling a zone resilient Azure Service Fabric managed cluster
 To enable a zone resilient Azure Service Fabric managed cluster, you must include the following in the managed cluster resource definition.

@@ -15,7 +15,9 @@ Azure Kubernetes Service (AKS) is an open-source, fully-managed container orches
 
 This connector lets you stream your Azure Kubernetes Service (AKS) diagnostics logs into Azure Sentinel, allowing you to continuously monitor activity in all your instances. 
 
-Learn more about [monitoring Azure Kubernetes Service](../azure-monitor/containers/container-insights-overview.md) and about [AKS diagnostic telemetry](../aks/view-control-plane-logs.md).
+Learn more about [monitoring Azure Kubernetes Service](../azure-monitor/containers/container-insights-overview.md) and about [AKS diagnostic telemetry](../aks/monitor-aks-reference.md#resource-logs).
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## Prerequisites
 

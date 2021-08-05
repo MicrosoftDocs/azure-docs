@@ -3,7 +3,7 @@ title: Create virtual networks for Azure HDInsight clusters
 description: Learn how to create an Azure Virtual Network to connect HDInsight to other cloud resources, or resources in your datacenter.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive, devx-track-azurecli
+ms.custom: hdinsightactive, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 05/12/2021
 ---
 
@@ -29,11 +29,11 @@ Other prerequisites for the samples in this article include the following items:
 
 The examples in this section demonstrate how to create network security group rules. The rules allow HDInsight to communicate with the Azure management services. Before using the examples, adjust the IP addresses to match the ones for the Azure region you're using. You can find this information in [HDInsight management IP addresses](hdinsight-management-ip-addresses.md).
 
-### Azure Resource Management template
+### Azure Resource Manager template
 
-The following Resource Management template creates a virtual network that restricts inbound traffic, but allows traffic from the IP addresses required by HDInsight. This template also creates an HDInsight cluster in the virtual network.
+The following Resource Manager template creates a virtual network that restricts inbound traffic, but allows traffic from the IP addresses required by HDInsight. This template also creates an HDInsight cluster in the virtual network.
 
-* [Deploy a secured Azure Virtual Network and an HDInsight Hadoop cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
+* [Deploy a secured Azure Virtual Network and an HDInsight Hadoop cluster](https://azure.microsoft.com/resources/templates/hdinsight-secure-vnet/)
 
 ### Azure PowerShell
 

@@ -3,18 +3,18 @@ title: Custom neural voice overview - Speech service
 titleSuffix: Azure Cognitive Services
 description: Custom Neural Voice is a text-to-Speech feature that allows you to create a one-of-a-kind customized synthetic voice for your applications by providing your own audio data as a sample.
 services: cognitive-services
-author: trevorbye
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/18/2021
-ms.author: trbye
+ms.author: nitinme
 ---
 
 # What is Custom Neural Voice?
 
-Custom Neural Voice is a text-to-speech (TTS) feature that lets you create a one-of-a-kind customized synthetic voice for your applications. With Custom Neural Voice, you can build a highly natural-sounding voice by providing your audio samples as training data. Based on the Neural TTS technology and the multi-lingual multi-speaker universal model, Custom Neural Voice lets you create synthetic voices that are rich in speaking styles, or adaptable cross languages. The realistic and natural sounding voice of Custom Neural Voice can represent brands, personify machines, and allow users to interact with applications conversationally. 
+Custom Neural Voice is a text-to-speech (TTS) feature that lets you create a one-of-a-kind customized synthetic voice for your applications. With Custom Neural Voice, you can build a highly natural-sounding voice by providing your audio samples as training data. Based on the Neural TTS technology and the multi-lingual multi-speaker universal model, Custom Neural Voice lets you create synthetic voices that are rich in speaking styles, or adaptable cross languages. The realistic and natural sounding voice of Custom Neural Voice can represent brands, personify machines, and allow users to interact with applications conversationally. See the supported [languages](language-support.md#customization) for Custom Neural Voice and cross-lingual feature.
 
 > [!NOTE]
 > The Custom Neural Voice feature requires registration, and access to it is limited based upon Microsoft’s eligibility and use criteria. Customers who wish to use this feature are required to register their use cases through the [intake form](https://aka.ms/customneural).
@@ -47,7 +47,7 @@ Custom Neural Voice lets you adapt the Neural TTS engine to fit your scenarios. 
 
 ## Get started
 
-* To get started with Custom Neural Voice and create a project, see [Get started with Custom Voice](how-to-custom-voice.md).
+* To get started with Custom Neural Voice and create a project, see [Get started with Custom Neural Voice](how-to-custom-voice.md).
 * To prepare and upload your audio data, see [Prepare training data](how-to-custom-voice-prepare-data.md).
 * To train and deploy your models, see [Create and use your voice model](how-to-custom-voice-create-voice.md).
 

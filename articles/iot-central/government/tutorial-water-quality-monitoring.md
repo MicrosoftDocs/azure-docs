@@ -19,7 +19,7 @@ In this tutorial, you learn to:
 
 > [!div class="checklist"]
 > * Use the **Water quality monitoring** template to create a water quality monitoring application.
-> * Explore and customize an operator dashboard.
+> * Explore and customize an dashboard.
 > * Explore a water quality monitoring device template.
 > * Explore simulated devices.
 > * Explore and configure rules.
@@ -44,7 +44,7 @@ In this section, you use the Azure IoT Central **Water quality monitoring** temp
 
     ![Government application templates](./media/tutorial-waterqualitymonitoring/iotcentral-government-tab-overview1.png)
 
-1. Select the **Water quality monitoring** application template. This application template includes a water quality device template, simulated devices, an operator dashboard, and preconfigured monitoring rules.
+1. Select the **Water quality monitoring** application template. This application template includes a water quality device template, simulated devices, an dashboard, and preconfigured monitoring rules.
 
 1. Select **Create app**. The **New application** pane opens and shows the following elements:
 
@@ -62,7 +62,7 @@ You've now created a water quality monitoring application by using the Azure IoT
 
 Your new application comes with these preconfigured components:
 
-* Operator dashboards
+* Dashboards
 * Water quality monitoring device templates
 * Simulated water quality monitoring devices
 * Rules and jobs
@@ -72,7 +72,7 @@ You can modify your application at any time.
 
 Next, explore the application and make some customizations.
 
-## Explore and customize the operator dashboard
+## Explore and customize the dashboard
 
 After you create the application, the **Wide World water quality dashboard** pane opens.
 
@@ -88,7 +88,7 @@ The dashboard includes the following kinds of tiles:
 
 * **Average pH KPI tiles**: KPI tiles like **Average pH in the last 30 minutes** are at the top of the dashboard pane. You can customize KPI tiles and set each to a different type and time range.
 
-* **Water monitoring area map**: Azure IoT Central uses Azure Maps, which you can directly set in your application to show device location. You can also map location information from your application to your device and then use Azure Maps to show the information on a map. Hover over the map and try the controls.
+* **Water monitoring area map**: Azure IoT Central uses Azure Maps, which you can directly set in your application to show device [location](../core/howto-use-location-data.md). You can also map location information from your application to your device and then use Azure Maps to show the information on a map. Hover over the map and try the controls.
 
 * **Average pH distribution heat-map chart**: You can select different visualization charts to show device telemetry in the way that is most appropriate for your application.
 

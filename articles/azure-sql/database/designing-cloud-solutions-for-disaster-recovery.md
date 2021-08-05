@@ -8,9 +8,9 @@ ms.subservice: development
 ms.custom: sqldbrb=1 
 ms.devlang: 
 ms.topic: conceptual
-author: anosov1960
-ms.author: sashan
-ms.reviewer: sstein
+author: BustosMSFT
+ms.author: robustos
+ms.reviewer: mathoma
 ms.date: 07/28/2020
 ---
 # Designing globally available services using Azure SQL Database

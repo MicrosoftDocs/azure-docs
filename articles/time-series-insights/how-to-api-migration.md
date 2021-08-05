@@ -5,7 +5,8 @@ ms.service: time-series-insights
 services: time-series-insights
 author: shreyasharmamsft
 ms.author: shresha
-manager: dpalled
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/01/2020

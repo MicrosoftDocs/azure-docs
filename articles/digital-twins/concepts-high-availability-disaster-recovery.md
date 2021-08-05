@@ -56,14 +56,14 @@ To view Service Health events...
 1. Use the left menu to switch to the *Health history* page.
 1. Look for an *Issue Name* beginning with **Azure Digital Twins**, and select it.
 
-    :::image type="content" source="media/concepts-high-availability-disaster-recovery/navigate.png" alt-text="Screenshot of the Azure portal showing the Health History page. There is a list of several issues from the past few days and an issue called 'Azure Digital Twins - West Europe - Mitigated' is highlighted." lightbox="media/concepts-high-availability-disaster-recovery/navigate.png":::
+    :::image type="content" source="media/concepts-high-availability-disaster-recovery/navigate.png" alt-text="Screenshot of the Azure portal showing the 'Health History' page. An issue called 'Azure Digital Twins - West Europe - Mitigated' is highlighted." lightbox="media/concepts-high-availability-disaster-recovery/navigate.png":::
 
 1. For general information about the outage, view the *Summary* tab.
 
-    :::image type="content" source="media/concepts-high-availability-disaster-recovery/summary.png" alt-text="On the Health History page, the Summary tab is highlighted. The tab displays general information such as the resource that was affected, its region, and its subscription." lightbox="media/concepts-high-availability-disaster-recovery/summary.png":::
+    :::image type="content" source="media/concepts-high-availability-disaster-recovery/summary.png" alt-text="Screenshot of the Azure portal showing the 'Health History' page with the 'Summary' tab highlighted. The tab displays general information." lightbox="media/concepts-high-availability-disaster-recovery/summary.png":::
 1. For more information and updates on the issue over time, view the *Issue updates* tab.
 
-    :::image type="content" source="media/concepts-high-availability-disaster-recovery/issue-updates.png" alt-text="On the Health History page, the Issue Updates tab is highlighted. The tab displays several entries showing current status from a day ago." lightbox="media/concepts-high-availability-disaster-recovery/issue-updates.png":::
+    :::image type="content" source="media/concepts-high-availability-disaster-recovery/issue-updates.png" alt-text="Screenshot of the Azure portal showing the 'Health History' page with the 'Issue updates' tab highlighted. The tab displays the status of entries." lightbox="media/concepts-high-availability-disaster-recovery/issue-updates.png":::
 
 
 Note that the information displayed in this tool isn't specific to one Azure Digital instance. After using Service Health to understand what's going with the Azure Digital Twins service in a certain region or subscription, you can take monitoring a step further by using the [Resource health tool](troubleshoot-resource-health.md) to drill down into specific instances and see whether they're impacted.
@@ -71,7 +71,7 @@ Note that the information displayed in this tool isn't specific to one Azure Dig
 ## Best practices
 
 For best practices on HA/DR, see the following Azure guidance on this topic: 
-* The article [Azure Business Continuity Technical Guidance](/azure/architecture/framework/resiliency/overview) describes a general framework to help you think about business continuity and disaster recovery. 
+* The article [Design reliable Azure applications](/azure/architecture/framework/resiliency/app-design) describes a general framework to help you think about business continuity and disaster recovery. 
 * The [Disaster recovery and high availability for Azure applications](/azure/architecture/framework/resiliency/backup-and-recovery) paper provides architecture guidance on strategies for Azure applications to achieve High Availability (HA) and Disaster Recovery (DR).
 
 ## Next steps 
@@ -79,4 +79,4 @@ For best practices on HA/DR, see the following Azure guidance on this topic:
 Read more about getting started with Azure Digital Twins solutions:
  
 * [What is Azure Digital Twins?](overview.md)
-* [Quickstart: Explore a sample scenario](quickstart-azure-digital-twins-explorer.md)
+* [Get started with Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md)

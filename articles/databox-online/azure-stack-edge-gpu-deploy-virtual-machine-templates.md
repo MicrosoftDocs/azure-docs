@@ -32,7 +32,7 @@ The high level summary of the deployment workflow using templates is as follows:
 
     1. **Device prerequisites**
 
-        1. Connect to Azure Resource Manager on device.
+        1. [Connect to Azure Resource Manager](azure-stack-edge-gpu-connect-resource-manager.md) on device.
         2. Enable compute via the local UI.
 
     2. **Client prerequisites**

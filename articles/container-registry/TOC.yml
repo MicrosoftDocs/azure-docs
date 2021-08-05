@@ -35,6 +35,10 @@
         href: container-registry-tutorial-deploy-app.md
       - name: 3 - Update web application
         href: container-registry-tutorial-deploy-update.md
+  - name: Samples
+    items:
+    - name: Azure Resource Graph queries
+      href: ./resource-graph-samples.md
   - name: Concepts
     expanded: false
     items:
@@ -84,8 +88,12 @@
         href: container-registry-import-images.md
       - name: Transfer artifacts (preview)
         href: container-registry-transfer-images.md
-      - name: Lock container images
-        href: container-registry-image-lock.md
+      - name: Protect registry data
+        items:
+        - name: Lock container images
+          href: container-registry-image-lock.md
+        - name: Disable export
+          href: data-loss-prevention.md
       - name: Delete container images
         items:
         - name: Delete image data - CLI
@@ -96,6 +104,8 @@
           href: container-registry-auto-purge.md
       - name: Use ACR webhooks
         href: container-registry-webhook.md
+      - name: Move registry to different region
+        href: manual-regional-move.md
     - name: Security and authentication
       items:
       - name: Restrict access using private endpoint
@@ -122,19 +132,21 @@
           href: container-registry-repository-scoped-permissions.md
         - name: Authenticate from Azure Container Instances
           href: container-registry-auth-aci.md
-        - name: Authenticate from Kubernetes with pull secret
-          href: container-registry-auth-kubernetes.md
-        - name: Authenticate from Azure Kubernetes Service (AKS)
-          href: ../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
-        - name: Authenticate with repository-scoped token (preview)
-          href: container-registry-repository-scoped-permissions.md
+        - name: Authenticate from Kubernetes
+          items:
+          - name: Kubernetes scenarios
+            href: authenticate-kubernetes-options.md  
+          - name: Attach registry to Azure Kubernetes Service (AKS)
+            href: ../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
+          - name: Cross-tenant authentication from AKS
+            href: authenticate-aks-cross-tenant.md 
+          - name: Authenticate using Kubernetes pull secret
+            href: container-registry-auth-kubernetes.md
       - name: Azure role-based access control
         href: container-registry-roles.md
         displayName: permissions, authorization
       - name: Content trust
         href: container-registry-content-trust.md
-      - name: Image scanning with Security Center
-        href: ../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json
     - name: Registries and other Azure services
       expanded: false
       items:
@@ -151,6 +163,13 @@
           href: monitor-service.md  
         - name: Audit compliance using Azure Policy
           href: container-registry-azure-policy.md 
+        - name: Scan container images
+          expanded: false
+          items:
+          - name: Scan with Azure Defender
+            href: scan-images-defender.md
+          - name: Scan with GitHub actions
+            href: github-action-scan.md
     - name: Troubleshoot
       expanded: false
       items:
@@ -164,7 +183,7 @@
           href: container-registry-check-health.md
           displayName: check, health
         - name: FAQ
-          href: container-registry-faq.md
+          href: container-registry-faq.yml
 - name: Tasks
   expanded: true
   items:

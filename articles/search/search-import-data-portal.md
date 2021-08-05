@@ -88,7 +88,7 @@ The Import data wizard is started from the command bar on the service Overview p
 
    ![Import data command in portal](./media/search-import-data-portal/import-data-cmd2.png "Start the Import data wizard")
 
-You can also launch **Import data** from other Azure services, including Azure Cosmos DB, Azure SQL Database, SQL Managed Instance, and Azure Blob storage. Look for **Add Azure Cognitive Search** in the left-navigation pane on the service overview page.
+You can also launch **Import data** from other Azure services, including Azure Cosmos DB, Azure SQL Database, SQL Managed Instance, and Azure Blob Storage. Look for **Add Azure Cognitive Search** in the left-navigation pane on the service overview page.
 
 <a name="index-definition"></a>
 

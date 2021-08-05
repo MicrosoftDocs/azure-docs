@@ -4,7 +4,7 @@ description: Learn how to create an Azure Service Fabric cluster across Availabi
 author: peterpogorski
 
 ms.topic: conceptual
-ms.date: 04/16/2021
+ms.date: 05/24/2021
 ms.author: pepogors
 ---
 
@@ -12,20 +12,13 @@ ms.author: pepogors
 
 Availability Zones in Azure are a high-availability offering that protects your applications and data from datacenter failures. An Availability Zone is a unique physical location equipped with independent power, cooling, and networking within an Azure region.
 
-To support clusters that span across Availability Zones, Azure Service Fabric deploys node types that are pinned to specific zones. Availability Zones are available only in select regions. For more information, see the [Availability Zones overview](../availability-zones/az-overview.md).
+To support clusters that span across Availability Zones, Azure Service Fabric provides the two configuration methods as described in the article below. Availability Zones are available only in select regions. For more information, see the [Availability Zones overview](../availability-zones/az-overview.md).
 
 Sample templates are available at [Service Fabric cross-Availability Zone templates](https://github.com/Azure-Samples/service-fabric-cluster-templates).
 
-## Recommended topology for primary node type of Azure Service Fabric clusters spanning across Availability Zones
-
-To span a Service Fabric cluster across Availability Zones, you must create a primary node type in each Availability Zone supported by the region. This distributes seed nodes evenly across each of the primary node types.
-
-The recommended topology for the primary node type requires these resources:
+## Recommended topology for spanning a primary node type across Availability Zones
 
 * The cluster reliability level set to `Platinum`
-* Three node types marked as primary
-  * Each node type should be mapped to its own virtual machine scale set located in a different zone.
-  * Each virtual machine scale set should have at least five nodes (Silver Durability).
 * A single public IP resource using Standard SKU
 * A single load balancer resource using Standard SKU
 * A network security group (NSG) referenced by the subnet in which you deploy your virtual machine scale sets
@@ -33,15 +26,11 @@ The recommended topology for the primary node type requires these resources:
 >[!NOTE]
 >The virtual machine scale set single placement group property must be set to `true`.
 
-The following diagram shows the Azure Service Fabric Availability Zone architecture:
-
-![Diagram that shows the Azure Service Fabric Availability Zone architecture.][sf-architecture]
-
 The following sample node list depicts FD/UD formats in a virtual machine scale set spanning zones:
 
 ![Screenshot that shows a sample node list of FD/UD formats in a virtual machine scale set spanning zones.][sf-multi-az-nodes]
 
-## Distribution of service replicas across zones
+### Distribution of service replicas across zones
 
 When a service is deployed on the node types that span Availability Zones, the replicas are placed to ensure that they land in separate zones. The fault domains on the nodes in each of these node types are configured with the zone information (that is, FD = fd:/zone1/1, etc.). For example, for five replicas or service instances, the distribution is 2-2-1, and the runtime will try to ensure equal distribution across zones.
 
@@ -49,7 +38,7 @@ When a service is deployed on the node types that span Availability Zones, the r
 
 Stateful user services deployed on the node types across Availability Zones should be configured like this: replica count with target = 9, min = 5. This configuration helps the service work even when one zone goes down because six replicas will be still up in the other two zones. An application upgrade in this scenario will also be successful.
 
-## Cluster ReliabilityLevel
+### Cluster ReliabilityLevel
 
 This value defines the number of seed nodes in the cluster and the replica size of the system services. A cross-Availability Zone setup has a higher number of nodes, which are spread across zones to enable zone resiliency.
   
@@ -60,6 +49,10 @@ A higher `ReliabilityLevel` value ensures that more seed nodes and system servic
 When a zone goes down, all of the nodes and service replicas for that zone appear as down. Because there are replicas in the other zones, the service continues to respond. Primary replicas fail over to the functioning zones. The services appear to be in warning states because the target replica count isn't yet achieved and the virtual machine (VM) count is still higher than the minimum target replica size.
 
 The Service Fabric load balancer brings up replicas in the working zones to match the target replica count. At this point, the services appear healthy. When the zone that was down comes back up, the load balancer will spread all of the service replicas evenly across the zones.
+
+## Upcoming Optimizations
+* To provide reliable infrastructure updates, Service Fabric requires the virtual machine scale set durability to be set at least to Silver. This enables the underlying virtual machine scale set and Service Fabric runtime to provide reliable updates. This also requires each zone to have at minimum of 5 VMs. We are working to bring this requirement down to 3 & 2 VMs per zone for primary & non-primary node types respectively.
+* All the below mentioned configurations and upcoming work, provide in-place migration to the customers where the same cluster can be upgraded to use the new configuration by adding new nodeTypes and retiring the old ones.
 
 ## Networking requirements
 
@@ -171,6 +164,130 @@ The Standard SKU load balancer and public IP introduce new abilities and differe
 
 >[!IMPORTANT]
 > Each node type in a Service Fabric cluster that uses a Standard SKU load balancer requires a rule allowing outbound traffic on port 443. This is necessary to complete cluster setup. Any deployment without this rule will fail.
+
+
+## 1. (Preview) Enable multiple Availability Zones in single virtual machine scale set
+
+This solution allows users to span three Availability Zones in the same node type. This is the recommended deployment topology as it enables you to deploy across availability zones while maintaining a single virtual machine scale set..
+
+> [!NOTE]
+> Because this feature is currently in preview, it's not currently supported for production scenarios.
+
+A full sample template is available on [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-Windows-Multiple-AZ-Secure).
+
+![Diagram of the Azure Service Fabric Availability Zone architecture.][sf-multi-az-arch]
+
+### Configuring zones on a virtual machine scale set
+
+To enable zones on a virtual machine scale set, include the following three values in the virtual machine scale set resource:
+
+* The first value is the `zones` property, which specifies the Availability Zones that are in the virtual machine scale set.
+* The second value is the `singlePlacementGroup` property, which must be set to `true`. The scale set that's spanned across three Availability Zones can scale up to 300 VMs even with `singlePlacementGroup = true`.
+* The third value is `zoneBalance`, which ensures strict zone balancing. This value should be `true`. This ensures that the VM distributions across zones are not unbalanced, which means that when one zone goes down, the other two zones have enough VMs to keep the cluster running.
+
+  A cluster with an unbalanced VM distribution might not survive a zone-down scenario because that zone might have the majority of the VMs. Unbalanced VM distribution across zones also leads to service placement issues and infrastructure updates getting stuck. Read more about [zoneBalancing](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing).
+
+You don't need to configure the `FaultDomain` and `UpgradeDomain` overrides.
+
+```json
+{
+    "apiVersion": "2018-10-01",
+    "type": "Microsoft.Compute/virtualMachineScaleSets",
+    "name": "[parameters('vmNodeType1Name')]",
+    "location": "[parameters('computeLocation')]",
+    "zones": ["1", "2", "3"],
+    "properties": {
+        "singlePlacementGroup": "true",
+        "zoneBalance": true
+    }
+}
+```
+
+>[!NOTE]
+>
+> * Service Fabric clusters should have at least one primary node type. The durability level of primary node types should be Silver or higher.
+> * The Availability Zone that spans virtual machine scale sets should be configured with at least three Availability Zones, no matter the durability level.
+> * Availability Zones that span virtual machine scale sets with Silver or higher durability should have at least 15 VMs.
+> * Availability Zones that span virtual machine scale sets with Bronze durability should have at least six VMs.
+
+### Enable support for multiple zones in the Service Fabric node type
+
+The Service Fabric node type must be enabled to support multiple Availability Zones.
+
+* The first value is `multipleAvailabilityZones`, which should be set to `true` for the node type.
+* The second value is `sfZonalUpgradeMode` and is optional. This property can't be modified if a node type with multiple Availability Zones is already present in the cluster.
+  This property controls the logical grouping of VMs in upgrade domains (UDs).
+
+  * If this value is set to `Parallel`: VMs under the node type are grouped into UDs and ignore the zone info in five UDs. This setting causes UDs across all zones to be upgraded at the same time. This deployment mode is faster for upgrades, we don't recommend it because it goes against the SDP guidelines, which state that the updates should be applied to one zone at a time.
+  * If this value is omitted or set to `Hierarchical`: VMs are grouped to reflect the zonal distribution in up to 15 UDs. Each of the three zones has five UDs. This ensures that the zones are updated one at a time, moving to next zone only after completing five UDs within the first zone. This update process is safer for the cluster and the user application.
+
+  This property only defines the upgrade behavior for Service Fabric application and code upgrades. The underlying virtual machine scale set upgrades are still parallel in all Availability Zones. This property doesn't affect the UD distribution for node types that don't have multiple zones enabled.
+* The third value is `vmssZonalUpgradeMode = Parallel`. This property is mandatory if a node type with multiple Availability Zones is added. This property defines the upgrade mode for the virtual machine scale set updates that happen in all Availability Zones at once.
+
+  Currently, this property can only be set to parallel.
+
+>[!IMPORTANT]
+>The Service Fabric cluster resource API version should be 2020-12-01-preview or later.
+>
+>The cluster code version should be 8.0.536 or later.
+
+```json
+{
+    "apiVersion": "2020-12-01-preview",
+    "type": "Microsoft.ServiceFabric/clusters",
+    "name": "[parameters('clusterName')]",
+    "location": "[parameters('clusterLocation')]",
+    "dependsOn": [
+        "[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
+    ],
+    "properties": {
+        "reliabilityLevel": "Platinum",
+        "SFZonalUpgradeMode": "Hierarchical",
+        "VMSSZonalUpgradeMode": "Parallel",
+        "nodeTypes": [
+          {
+                "name": "[parameters('vmNodeType0Name')]",
+                "multipleAvailabilityZones": true,
+          }
+        ]
+}
+```
+
+>[!NOTE]
+>
+> * Public IP and load balancer resources should use the Standard SKU described earlier in the article.
+> * The `multipleAvailabilityZones` property on the node type can only be defined when the node type is created and can't be modified later. Existing node types can't be configured with this property.
+> * When `sfZonalUpgradeMode` is omitted or set to `Hierarchical`, the cluster and application deployments will be slower because there are more upgrade domains in the cluster. It's important to correctly adjust the upgrade policy timeouts to account for the upgrade time required for 15 upgrade domains. The upgrade policy for both the app and the cluster should be updated to ensure that the deployment doesn't exceed the Azure Resource Service deployment time limit of 12 hours. This means that deployment shouldn't take more than 12 hours for 15 UDs (that is, shouldn't take more than 40 minutes for each UD).
+> * Set the cluster reliability level to `Platinum` to ensure that the cluster survives the one zone-down scenario.
+
+>[!TIP]
+> We recommend setting `sfZonalUpgradeMode` to `Hierarchical` or omitting it. Deployment will follow the zonal distribution of VMs and affect a smaller amount of replicas or instances, making them safer.
+> Use `sfZonalUpgradeMode` set to `Parallel` if deployment speed is a priority or only stateless workloads run on the node type with multiple Availability Zones. This causes the UD walk to happen in parallel in all Availability Zones.
+
+### Migrate to the node type with multiple Availability Zones
+
+For all migration scenarios, you need to add a new node type that supports multiple Availability Zones. An existing node type can't be migrated to support multiple zones.
+The [Scale up a Service Fabric cluster primary node type](./service-fabric-scale-up-primary-node-type.md) article includes detailed steps to add a new node type and the other resources required for the new node type, such as IP and load balancer resources. That article also describes how to retire the existing node type after a new node type with multiple Availability Zones is added to the cluster.
+
+* Migration from a node type that uses basic load balancer and IP resources: This process is already described in [a sub-section below](#migrate-to-availability-zones-from-a-cluster-by-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) for the solution with one node type per Availability Zone.
+
+  For the new node type, the only difference is that there's only one virtual machine scale set and one node type for all Availability Zones instead of one each per Availability Zone.
+* Migration from a node type that uses the Standard SKU load balancer and IP resources with an NSG: Follow the same procedure described previously. However, there's no need to add new load balancer, IP, and NSG resources. The same resources can be reused in the new node type.
+
+
+## 2. Deploy zones by pinning one virtual machine scale set to each zone
+
+This is the generally available configuration right now.
+To span a Service Fabric cluster across Availability Zones, you must create a primary node type in each Availability Zone supported by the region. This distributes seed nodes evenly across each of the primary node types.
+
+The recommended topology for the primary node type requires this:
+* Three node types marked as primary
+  * Each node type should be mapped to its own virtual machine scale set located in a different zone.
+  * Each virtual machine scale set should have at least five nodes (Silver Durability).
+
+The following diagram shows the Azure Service Fabric Availability Zone architecture:
+
+![Diagram that shows the Azure Service Fabric Availability Zone architecture.][sf-architecture]
 
 ### Enable zones on a virtual machine scale set
 
@@ -362,114 +479,6 @@ Reference the new load balancer and IP in the new cross-Availability Zone node t
    Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
  
    ```
-
-## (Preview) Enable multiple Availability Zones in single virtual machine scale set
-
-The previous solution uses one node type in each Availability Zone. The following solution allows users to deploy three Availability Zones in the same node type.
-
-> [!NOTE]
-> Because this feature is currently in preview, it's not currently supported for production scenarios.
-
-A full sample template is available on [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-Windows-Multiple-AZ-Secure).
-
-![Diagram of the Azure Service Fabric Availability Zone architecture.][sf-multi-az-arch]
-
-### Configuring zones on a virtual machine scale set
-
-To enable zones on a virtual machine scale set, include the following three values in the virtual machine scale set resource:
-
-* The first value is the `zones` property, which specifies the Availability Zones that are in the virtual machine scale set.
-* The second value is the `singlePlacementGroup` property, which must be set to `true`. The scale set that's spanned across three Availability Zones can scale up to 300 VMs even with `singlePlacementGroup = true`.
-* The third value is `zoneBalance`, which ensures strict zone balancing. This value should be `true`. This ensures that the VM distributions across zones are not unbalanced, which means that when one zone goes down, the other two zones have enough VMs to keep the cluster running.
-
-  A cluster with an unbalanced VM distribution might not survive a zone-down scenario because that zone might have the majority of the VMs. Unbalanced VM distribution across zones also leads to service placement issues and infrastructure updates getting stuck. Read more about [zoneBalancing](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing).
-
-You don't need to configure the `FaultDomain` and `UpgradeDomain` overrides.
-
-```json
-{
-    "apiVersion": "2018-10-01",
-    "type": "Microsoft.Compute/virtualMachineScaleSets",
-    "name": "[parameters('vmNodeType1Name')]",
-    "location": "[parameters('computeLocation')]",
-    "zones": ["1", "2", "3"],
-    "properties": {
-        "singlePlacementGroup": "true",
-        "zoneBalance": true
-    }
-}
-```
-
->[!NOTE]
->
-> * Service Fabric clusters should have at least one primary node type. The durability level of primary node types should be Silver or higher.
-> * The Availability Zone that spans virtual machine scale sets should be configured with at least three Availability Zones, no matter the durability level.
-> * Availability Zones that span virtual machine scale sets with Silver or higher durability should have at least 15 VMs.
-> * Availability Zones that span virtual machine scale sets with Bronze durability should have at least six VMs.
-
-### Enable support for multiple zones in the Service Fabric node type
-
-The Service Fabric node type must be enabled to support multiple Availability Zones.
-
-* The first value is `multipleAvailabilityZones`, which should be set to `true` for the node type.
-* The second value is `sfZonalUpgradeMode` and is optional. This property can't be modified if a node type with multiple Availability Zones is already present in the cluster.
-  This property controls the logical grouping of VMs in upgrade domains (UDs).
-  
-  * If this value is set to `Parallel`: VMs under the node type are grouped into UDs and ignore the zone info in five UDs. This setting causes UDs across all zones to be upgraded at the same time. This deployment mode is faster for upgrades, we don't recommend it because it goes against the SDP guidelines, which state that the updates should be applied to one zone at a time.
-  * If this value is omitted or set to `Hierarchical`: VMs are grouped to reflect the zonal distribution in up to 15 UDs. Each of the three zones has five UDs. This ensures that the zones are updated one at a time, moving to next zone only after completing five UDs within the first zone. This update process is safer for the cluster and the user application.
-  
-  This property only defines the upgrade behavior for Service Fabric application and code upgrades. The underlying virtual machine scale set upgrades are still parallel in all Availability Zones. This property doesn't affect the UD distribution for node types that don't have multiple zones enabled.
-* The third value is `vmssZonalUpgradeMode = Parallel`. This property is mandatory if a node type with multiple Availability Zones is added. This property defines the upgrade mode for the virtual machine scale set updates that happen in all Availability Zones at once.
-  
-  Currently, this property can only be set to parallel.
-
->[!IMPORTANT]
->The Service Fabric cluster resource API version should be 2020-12-01-preview or later.
->
->The cluster code version should be 7.2.445 or later.
-
-```json
-{
-    "apiVersion": "2020-12-01-preview",
-    "type": "Microsoft.ServiceFabric/clusters",
-    "name": "[parameters('clusterName')]",
-    "location": "[parameters('clusterLocation')]",
-    "dependsOn": [
-        "[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
-    ],
-    "properties": {
-        "reliabilityLevel": "Platinum",
-        "SFZonalUpgradeMode": "Hierarchical",
-        "VMSSZonalUpgradeMode": "Parallel",
-        "nodeTypes": [
-          {
-                "name": "[parameters('vmNodeType0Name')]",
-                "multipleAvailabilityZones": true,
-          }
-        ]
-}
-```
-
->[!NOTE]
->
-> * Public IP and load balancer resources should use the Standard SKU described earlier in the article.
-> * The `multipleAvailabilityZones` property on the node type can only be defined when the node type is created and can't be modified later. Existing node types can't be configured with this property.
-> * When `sfZonalUpgradeMode` is omitted or set to `Hierarchical`, the cluster and application deployments will be slower because there are more upgrade domains in the cluster. It's important to correctly adjust the upgrade policy timeouts to account for the upgrade time required for 15 upgrade domains. The upgrade policy for both the app and the cluster should be updated to ensure that the deployment doesn't exceed the Azure Resource Service deployment time limit of 12 hours. This means that deployment shouldn't take more than 12 hours for 15 UDs (that is, shouldn't take more than 40 minutes for each UD).
-> * Set the cluster reliability level to `Platinum` to ensure that the cluster survives the one zone-down scenario.
-
->[!TIP]
-> We recommend setting `sfZonalUpgradeMode` to `Hierarchical` or omitting it. Deployment will follow the zonal distribution of VMs and affect a smaller amount of replicas or instances, making them safer.
-> Use `sfZonalUpgradeMode` set to `Parallel` if deployment speed is a priority or only stateless workloads run on the node type with multiple Availability Zones. This causes the UD walk to happen in parallel in all Availability Zones.
-
-### Migrate to the node type with multiple Availability Zones
-
-For all migration scenarios, you need to add a new node type that supports multiple Availability Zones. An existing node type can't be migrated to support multiple zones.
-The [Scale up a Service Fabric cluster primary node type](./service-fabric-scale-up-primary-node-type.md) article includes detailed steps to add a new node type and the other resources required for the new node type, such as IP and load balancer resources. That article also describes how to retire the existing node type after a new node type with multiple Availability Zones is added to the cluster.
-
-* Migration from a node type that uses basic load balancer and IP resources: This process is already described in [a previous section](#migrate-to-availability-zones-from-a-cluster-by-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) for the solution with one node type per Availability Zone.
-
-  For the new node type, the only difference is that there's only one virtual machine scale set and one node type for all Availability Zones instead of one each per Availability Zone.
-* Migration from a node type that uses the Standard SKU load balancer and IP resources with an NSG: Follow the same procedure described previously. However, there's no need to add new load balancer, IP, and NSG resources. The same resources can be reused in the new node type.
 
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png
 [sf-multi-az-arch]: ./media/service-fabric-cross-availability-zones/sf-multi-az-topology.png

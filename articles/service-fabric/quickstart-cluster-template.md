@@ -6,7 +6,7 @@ ms.author: edoyle
 ms.date: 05/10/2021
 ms.topic: quickstart
 ms.service: service-fabric
-ms.custom:
+ms.custom: devx-track-azurepowershell
   - subject-armqs
   - mode-arm
 ---

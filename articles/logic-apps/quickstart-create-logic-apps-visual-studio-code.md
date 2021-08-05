@@ -1,19 +1,19 @@
 ---
-title: Automate tasks and workflows with Visual Studio Code
-description: Create or edit logic app workflow definitions by using Visual Studio Code (VS Code)
+title: Quickstart - Create integration workflows with Azure Logic Apps in Visual Studio Code
+description: Create and manage workflow definitions with multi-tenant Azure Logic Apps in Visual Studio Code.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, deli, logicappspm
+ms.reviewer: azla
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/23/2021
+ms.date: 05/25/2021
 
 # Customer intent: As a developer, I want to create my first automated workflow by using Azure Logic Apps while working in Visual Studio Code
 ---
 
-# Quickstart: Create and manage logic app workflow definitions by using Visual Studio Code
+# Quickstart: Create and manage logic app workflow definitions with multi-tenant Azure Logic Apps and Visual Studio Code
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and Visual Studio Code, you can create and manage logic apps that help you automate tasks, workflows, and processes for integrating apps, data, systems, and services across organizations and enterprises. This quickstart shows how you can create and edit the underlying workflow definitions, which use JavaScript Object Notation (JSON), for logic apps through a code-based experience. You can also work on existing logic apps that are already deployed to Azure.
+This quickstart shows how to create and manage logic app workflows that help you automate tasks and processes that integrate apps, data, systems, and services across organizations and enterprises by using multi-tenant [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and Visual Studio Code. You can create and edit the underlying workflow definitions, which use JavaScript Object Notation (JSON), for logic apps through a code-based experience. You can also work on existing logic apps that are already deployed to Azure. For more information about multi-tenant versus single-tenant model, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
 
 Although you can perform these same tasks in the [Azure portal](https://portal.azure.com) and in Visual Studio, you can get started faster in Visual Studio Code when you're already familiar with logic app definitions and want to work directly in code. For example, you can disable, enable, delete, and refresh already created logic apps. Also, you can work on logic apps and integration accounts from any development platform where Visual Studio Code runs, such as Linux, Windows, and Mac.
 
@@ -354,4 +354,4 @@ Deleting a logic app affects workflow instances in the following ways:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create stateful and stateless logic apps in Visual Studio Code (Preview)](../logic-apps/create-single-tenant-workflows-visual-studio-code.md)
+> [Create single-tenant based logic app workflows in Visual Studio Code](../logic-apps/create-single-tenant-workflows-visual-studio-code.md)

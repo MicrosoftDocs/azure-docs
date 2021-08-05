@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: tutorial
-ms.date: 04/21/2021
+ms.date: 08/05/2021
 ms.author: memildin
 
 ---
@@ -46,17 +46,17 @@ Use the regulatory compliance dashboard to help focus your attention on the gaps
 
     At the top of the screen is a dashboard with an overview of your compliance status with the set of supported compliance regulations. You'll see your overall compliance score, and the number of passing vs. failing assessments associated with each standard.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Regulatory compliance dashboard" lightbox="./media/security-center-compliance-dashboard/compliance-dashboard.png":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Regulatory compliance dashboard." lightbox="./media/security-center-compliance-dashboard/compliance-dashboard.png":::
 
 1. Select a tab for a compliance standard that is relevant to you (1). You'll see which subscriptions the standard is applied on (2), and the list of all controls for that standard (3). For the applicable controls, you can view the details of passing and failing assessments associated with that control (4), and the number of affected resources (5). Some controls are grayed out. These controls don't have any Security Center assessments associated with them. Check their requirements and assess them in your environment. Some of these might be process-related and not technical.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-drilldown.png" alt-text="Exploring the details of compliance with a specific standard":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-drilldown.png" alt-text="Exploring the details of compliance with a specific standard.":::
 
 1. To generate a PDF report with a summary of your current compliance status for a particular standard, select **Download report**.
 
     The report provides a high-level summary of your compliance status for the selected standard based on Security Center assessments data. The report's organized according to the controls of that particular standard. The report can be shared with relevant stakeholders, and might provide evidence to internal and external auditors.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/download-report.png" alt-text="Download compliance report":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/download-report.png" alt-text="Download compliance report.":::
 
 ## Improve your compliance posture
 
@@ -66,11 +66,11 @@ Using the information in the regulatory compliance dashboard, improve your compl
 
 1.  Select a particular resource to view more details and resolve the recommendation for that resource. <br>For example, in the **Azure CIS 1.1.0** standard, select the recommendation **Disk encryption should be applied on virtual machines**.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/sample-recommendation.png" alt-text="Selecting a recommendation from a standard leads directly to the recommendation details page":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/sample-recommendation.png" alt-text="Selecting a recommendation from a standard leads directly to the recommendation details page.":::
 
 1. In this example, when you select **Take action** from the recommendation details page, you arrive in the Azure Virtual Machine pages of the Azure portal, where you can enable encryption from the **Security** tab:
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/encrypting-vm-disks.png" alt-text="Take action button on the recommendation details page leads to the remediation options":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/encrypting-vm-disks.png" alt-text="Take action button on the recommendation details page leads to the remediation options.":::
 
     For more information about how to apply recommendations, see [Implementing security recommendations in Azure Security Center](security-center-recommendations.md).
 
@@ -88,15 +88,15 @@ Use continuous export data to an Azure Event Hub or a Log Analytics workspace:
 
 - Export all regulatory compliance data in a **continuous stream**:
 
-    :::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-stream.png" alt-text="Continuously export a stream of regulatory compliance data" lightbox="media/security-center-compliance-dashboard/export-compliance-data-stream.png":::
+    :::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-stream.png" alt-text="Continuously export a stream of regulatory compliance data." lightbox="media/security-center-compliance-dashboard/export-compliance-data-stream.png":::
 
 - Export **weekly snapshots** of your regulatory compliance data:
 
-    :::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-snapshot.png" alt-text="Continuously export a weekly snapshot of regulatory compliance data" lightbox="media/security-center-compliance-dashboard/export-compliance-data-snapshot.png":::
+    :::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-snapshot.png" alt-text="Continuously export a weekly snapshot of regulatory compliance data." lightbox="media/security-center-compliance-dashboard/export-compliance-data-snapshot.png":::
 
 You can also export a **PDF/CSV report** of your compliance data directly from the regulatory compliance dashboard:
 
-:::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-report.png" alt-text="Export your regulatory compliance data as a PDF or CSV report" lightbox="media/security-center-compliance-dashboard/export-compliance-data-report.png":::
+:::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-report.png" alt-text="Export your regulatory compliance data as a PDF or CSV report." lightbox="media/security-center-compliance-dashboard/export-compliance-data-report.png":::
 
 Learn more in [continuously export Security Center data](continuous-export.md).
 
@@ -107,7 +107,7 @@ Security Center's workflow automation feature can trigger Logic Apps whenever on
 
 For example, you might want Security Center to email a specific user when a compliance assessment fails. You'll need to create the logic app first (using [Azure Logic Apps](../logic-apps/logic-apps-overview.md))  and then set up the trigger in a new workflow automation as explained in [Automate responses to Security Center triggers](workflow-automation.md).
 
-:::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Using changes to regulatory compliance assessments to trigger a workflow automation" lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
+:::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Using changes to regulatory compliance assessments to trigger a workflow automation." lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
 
 
 
@@ -163,7 +163,7 @@ To use the regulatory compliance dashboard, Azure Security Center must have Azur
 ### How can I view a report of passing and failing controls per standard in my dashboard?
 On the main dashboard, you can see a report of passing and failing controls for (1) the 'top 4' lowest compliance standards in the dashboard. To see all the passing/failing controls status, select (2) **Show all *x*** (where x is the number of standards you're tracking). A context plane displays the compliance status for every one of your tracked standards.
 
-:::image type="content" source="media/security-center-compliance-dashboard/summaries-of-compliance-standards.png" alt-text="Summary section of the regulatory compliance dashboard":::
+:::image type="content" source="media/security-center-compliance-dashboard/summaries-of-compliance-standards.png" alt-text="Summary section of the regulatory compliance dashboard.":::
 
 
 ### How can I download a report with compliance data in a format other than PDF?

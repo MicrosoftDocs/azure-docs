@@ -36,15 +36,15 @@ VM Generation Support: Generation 1<br>
 
 **Q:** How to request quota for NP VMs?
 
-**A:** Please follow this page [Increase limits by VM series](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests). NP VMs are available in East US, West US2, West Europe and SouthEast Asia.
+**A:** Please follow this page [Increase limits by VM series](../azure-portal/supportability/per-vm-quota-requests.md). NP VMs are available in East US, West US2, West Europe and SouthEast Asia.
 
 **Q:** What version of Vitis should I use? 
 
-**A:** Xilinx recommends [Vitis 2020.2](https://www.xilinx.com/products/design-tools/vitis/vitis-platform.html)
+**A:** Xilinx recommends [Vitis 2020.2](https://www.xilinx.com/products/design-tools/vitis/vitis-platform.html), you can also use the Development VM marketplace options (Vitis 2020.2 Development VM for Ubuntu 18.04 and Centos 7.8)
 
 **Q:** Do I need to use NP VMs to develop my solution? 
 
-**A:** No, you can develop on-premise and deploy to the cloud! Please make sure to follow the [attestation documentation](https://docs.microsoft.com/azure/virtual-machines/field-programmable-gate-arrays-attestation) to deploy on NP VMs. 
+**A:** No, you can develop on-premise and deploy to the cloud! Please make sure to follow the [attestation documentation](./field-programmable-gate-arrays-attestation.md) to deploy on NP VMs. 
 
 **Q:** Which file returned from attestation should I use when programming my FPGA in an NP VM?
 
@@ -117,11 +117,22 @@ Install the following packages.
 
 **A:** This can be safely ignored. 
 
-**Q:** What are the differences between OnPrem and NP VMs regarding XRT? 
+**Q:** What are the differences between OnPrem and NP VMs?
 
-**A:** On Azure, XDMA 2.1 platform only supports Host_Mem(SB) and DDR data retention features. 
+**A:** 
+<br>
+<b>- Regarding XOCL/XCLMGMT: </b>
+<br>
+On Azure NP VMs, only the role endpoint (Device ID 5005), which uses the XOCL driver, is present.
 
-To enable Host_Mem(SB) (1Gb RAM):  sudo xbutil host_mem --enable --size 1g 
+OnPrem FPGA, both the management endpoint (Device ID 5004) and role endpoint (Device ID 5005), which use the XCLMGMT and XOCL drivers respectively, are present.
+
+<br>
+<b>- Regarding XRT: </b>
+<br>
+On Azure NP VMs, the XDMA 2.1 platform only supports Host_Mem(SB) and DDR data retention features. 
+<br>
+To enable Host_Mem(SB) (up to 1Gb RAM):  sudo xbutil host_mem --enable --size 1g 
 
 To disable Host_Mem(SB): sudo xbutil host_mem --disable 
 

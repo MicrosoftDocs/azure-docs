@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # Azure AD Connect cloud provisioning agent gMSA PowerShell cmdlets
 
-The purpose of this document is to describe the Azure AD Connect cloud provisioning agent gMSA PowerShell cmdlets. These cmdlets allow you to have more granularity on the permissions that are applied on the service account (gmsa). By default, Azure AD Connect cloud sync applies all permissions similar to Azure AD Connect on the default gmsa or a custom gmsa.
+The purpose of this document is to describe the Azure AD Connect cloud provisioning agent gMSA PowerShell cmdlets. These cmdlets allow you to have more granularity on the permissions that are applied on the service account (gMSA). By default, Azure AD Connect cloud sync applies all permissions similar to Azure AD Connect on the default gMSA or a custom gMSA.
 
 This document will cover the following cmdlets:
 

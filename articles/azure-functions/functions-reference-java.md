@@ -127,7 +127,7 @@ Here is the generated corresponding `function.json` by the [azure-functions-mave
       "name": "req",
       "direction": "in",
       "authLevel": "anonymous",
-      "methods": [ "post" ]
+      "methods": [ "GET","POST" ]
     },
     {
       "type": "http",

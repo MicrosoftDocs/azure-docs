@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.custom: references_regions
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/29/2021
+ms.date: 06/29/2021
 ---
 
 # Set up Dynamics 365 for Customer Engagement & Power Apps offer technical configuration
@@ -38,11 +38,11 @@ For detailed information on how to build your package and update its structure, 
 
 ## CRM package availability
 
-Select **+ Add region** to specify the geographic regions in which your CRM package will be available to customers. Deploying to the following sovereign regions require special permission and validation during the certification process: [Germany](../germany/index.yml), [US Government Cloud](../azure-government/documentation-government-welcome.md), and TIP.
+Select **+ Add region** to specify the geographic regions in which your CRM package will be available to customers. Do not select any of the following sovereign regions: US Gov Cloud Sovereign, China Cloud Sovereign, Germany Sovereign, US Gov High Cloud Sovereign, Test in production Sovereign, or US DoD Cloud Sovereign.
 
-By default, the **Application configuration URL** you entered above will be used for each region. If you prefer, you can enter a separate Application Configuration URL for one or more specific regions.
+By default, the **Application configuration URL** you entered above will be used for each region. Leave the Application Configuration URL field blank.
 
-Select **Save draft** before continuing to the next tab in the left-nav menu, **Co-sell with Microsoft**. For information on setting up co-sell with Microsoft (optional), see [Co-sell with Microsoft sales teams and partners overview](marketplace-co-sell.md). If you're not setting up co-sell or you've finished, continue with **Next steps** below.
+Select **Save draft** before continuing to the next tab in the left-nav menu, **Co-sell with Microsoft**. For information on setting up co-sell with Microsoft (optional), see [Co-sell with Microsoft sales teams and partners overview](./co-sell-overview.md). If you're not setting up co-sell or you've finished, continue with **Next steps** below.
 
 ## Next steps
 

@@ -5,7 +5,7 @@ author: jianleishen
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 02/18/2021
+ms.date: 07/05/2021
 ms.author: jianleishen
 ---
 
@@ -91,7 +91,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
 8. Select **Git configuration** tab on the top, and select the **Configure Git later** check box.
 9. Select **Review + create**, and select **Create** after the validation is passed.
 10. After the creation is finished, you see the notice in Notifications center. Select **Go to resource** to navigate to the Data factory page.
-11. Select **Author & Monitor** to launch the Azure Data Factory UI in a separate tab.
+11. Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Azure Data Factory UI in a separate tab.
 
 
 ## Create a pipeline
@@ -103,9 +103,9 @@ In this step, you create a pipeline with a copy activity in the data factory. Th
 
 In this tutorial, you start with creating the pipeline. Then you create linked services and datasets when you need them to configure the pipeline.
 
-1. On the **Let's get started** page, select **Create pipeline**.
+1. On the home page, select **Orchestrate**.
 
-   ![Create pipeline](./media/doc-common-process/get-started-page.png)
+   ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png)
 
 1. In the General panel under **Properties**, specify **CopyPipeline** for **Name**. Then collapse the panel by clicking the Properties icon in the top-right corner.
 

@@ -1,21 +1,197 @@
 ---
 title: What's new in Form Recognizer?
-titleSuffix: Azure Cognitive Services
-description: Learn the latest changes and updates to the Form Recognizer Service API.
+titleSuffix: Azure Applied AI Services
+description: Understand the latest changes to the Form Recognizer API.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
-ms.topic: overview
-ms.date: 04/14/2021
+ms.topic: conceptual
+ms.date: 07/01/2021
 ms.author: lajanuar
 
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
-# What's new in Form Recognizer
+# What's new in Azure Form Recognizer
 
-Learn what's new in the Form Recognizer service. Bookmark this page to stay up-to-date with release notes, feature enhancements, and documentation updates.
+Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up-to-date with release notes, feature enhancements, and documentation updates.
+
+## July 2021
+
+### System-assigned managed identity support 
+
+ You can now enable a system-assigned managed identity to grant Form Recognizer limited access to private storage accounts including those protected by a Virtual Network (VNet) or firewall or have enabled bring-your-own-storage (BYOS). *See* [Create and use managed identity for your Form Recognizer resource](managed-identity-byos.md) to learn more.
+
+## June 2021
+
+### Form Recognizer containers v2.1 released in gated preview
+
+Form Recognizer features are now supported by six feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, and **Custom**. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and receive approval.
+
+*See* [**Install and run Docker containers for Form Recognizer**](containers/form-recognizer-container-install-run.md?branch=main&tabs=layout) and [**Configure Form Recognizer containers**](containers/form-recognizer-container-configuration.md?branch=main)
+
+### Form Recognizer connector released in preview
+
+  The [**Form Recognizer connector**](/connectors/formrecognizer) integrates with  [Azure Logic Apps](../../logic-apps/logic-apps-overview.md),  [Microsoft Power Automate](/power-automate/getting-started), and [Microsoft Power Apps](/powerapps/powerapps-overview). The connector supports workflow actions and triggers to extract and analyze document data and structure from custom and prebuilt forms, invoices, receipts, business cards and ID documents.
+
+### Form Recognizer SDK v3.1.0 patched to v3.1.1 for C#, Java, and Python
+
+The patch addresses invoices that do not have sub-line item fields detected such as a  `FormField` with `Text` but no `BoundingBox` or `Page` information.
+
+### [**C#**](#tab/csharp)
+
+| [Reference documentation](/dotnet/api/azure.ai.formrecognizer?view=azure-dotnet&preserve-view=true) | [NuGet package version 3.1.1](https://www.nuget.org/packages/Azure.AI.FormRecognizer) |
+
+### [**Java**](#tab/java)
+
+ | [Reference documentation](/java/api/com.azure.ai.formrecognizer.models?view=azure-java-stable&preserve-view=true)| [Maven artifact package dependency version 3.1.1](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/3.1.1) |
+
+### [**JavaScript**](#tab/javascript)
+
+> [!NOTE]
+> There are no updates to JavaScript SDK v3.1.0.
+
+| [Reference documentation](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest&preserve-view=true)| [npm package dependency form-recognizer 3.1.0](https://www.npmjs.com/package/@azure/ai-form-recognizer) |
+
+### [**Python**](#tab/python)
+
+| [Reference documentation](/java/api/com.azure.ai.formrecognizer.models?view=azure-java-stable&preserve-view=true)| [PyPi azure-ai-formrecognizer 3.1.1](https://pypi.org/project/azure-ai-formrecognizer/) |
+
+---
+
+## May 2021
+
+### Form Recognizer 2.1 API Generally Available (GA) release
+
+* Form Recognizer 2.1 is generally available. This General Availability (GA) release marks the stability of the changes introduced in prior 2.1 preview package versions. This release enables you to detect and extract information and data from the following:
+
+* [Documents](concept-layout.md)
+* [Receipts](concept-receipts.md)
+* [Business cards](concept-business-cards.md)
+* [Invoices](concept-invoices.md)
+* [Identity documents](concept-identification-cards.md)
+* [Custom forms](concept-custom.md)
+
+#### Get started 
+
+Go to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/) and follow the [quickstart](quickstarts/get-started-with-form-recognizer.md) 
+
+### Layout adds table headers
+
+The updated Layout API table feature adds header recognition with column headers that can span multiple rows. Each table cell has an attribute that indicates whether it's part of a header or not. This can be used to identify which rows make up the table header.
+
+#### SDK updates
+
+### [**C#**](#tab/csharp)
+
+| [Reference documentation](/dotnet/api/azure.ai.formrecognizer?view=azure-dotnet&preserve-view=true) | [NuGet package version 3.0.1](https://www.nuget.org/packages/Azure.AI.FormRecognizer) |
+
+#### **Non-breaking changes**
+
+* **FormRecognizerModelFactory** class now supports updates to **TextAppearance** and **ReadingOrder** and removal of **TextStyle** models. See [Breaking changes](#breaking-changes-may)
+
+#### **Breaking changes (May)**
+
+* Client defaults to the latest supported service version, currently v2.1. You can specify version 2.0  in the **FormRecognizerClientOptions** object's **Version** property.
+
+* **StartRecognizeIdentityDocuments**. Renamed methods and method parameters using **Identity** to replace _Id_ keyword for all related identity documents recognition API functionalities.
+
+* **FormReadingOrder**. *ReadingOrder* renamed to **FormReadingOrder**.
+
+* **AsCountryRegion**. *AsCountryCode* renamed to **AsCountryRegion**.
+
+* **TextAppearance** now includes **StyleName** and **StyleConfidence** properties (formerly part of the **TextStyle** object).
+
+* **FieldValueType**.  Value **Gender** removed from the model.
+
+* **TextStyle** model removed.
+
+* **FieldValueGender** type removed.
+
+### [**Java**](#tab/java)
+
+  | [Reference documentation](/java/api/com.azure.ai.formrecognizer.models?view=azure-java-stable&preserve-view=true)| [Maven artifact package dependency version 3.1.0](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) |
+
+#### **Non-breaking changes**
+
+* **FormRecognizerClientBuilder**  and **FormTrainingClientBuilder** . Added **clientOptions** and **getDefaultLogOptions** methods.
+
+* **FormRecognizerLanguage**.  Added more language fields.
+
+#### **Breaking changes (May)**
+
+* Client defaults to the latest supported service version, currently v2.1. You can specify version 2.0  in the **FormRecognizerClientBuilder**   object's **serviceVersion** method.
+
+* Removed v2.1-preview.1 and v2.1-preview.2 support.
+
+* **beginRecognizeIdentityDocuments**.  Renamed methods and method parameters using **Identity** to replace _Id_ keyword for all related identity documents recognition API functionalities.
+
+* **FormReadingOrder**. *ReadingOrder* renamed to **FormReadingOrder**, and refactor the class to be expandable string class.
+
+* **asCountryRegion**. *asCountry* renamed to **asCountryRegion** method.
+
+* **FieldValueType**. Field value *COUNTRY* renamed to **COUNTRY_REGION**.
+
+* **TextAppearance** class now includes **styleName** and **styleConfidence** properties (formerly part of the **TextStyle** object).
+
+* **FieldValueType**. Value *Gender* removed from the model.
+
+* **TextStyle** model removed.
+
+* **FieldValueGender** class type removed.
+
+* **pollInterval**. Removed the pollInterval methods from **RecognizeBusinessCardsOptions**, **RecognizeContentOptions**, **RecognizeCustomFormsOptions**, **RecognizeIdentityDocumentOptions**, **RecognizeInvoicesOptions**, and  **RecognizeReceiptsOptions** classes. Polling interval can be updated using the Azure Core [**SyncPoller setPollInterval**](/java/api/com.azure.core.util.polling.syncpoller.setpollinterval?view=azure-java-stable&preserve-view=true) or [**PollerFlux setPollInterval**](/java/api/com.azure.core.util.polling.pollerflux.setpollinterval?view=azure-java-stable&preserve-view=true) methods synchronously or asynchronously, respectively.
+
+* **FormLine**, **FormPage**, **FormTable**, **FormSelectionMark**, **TextAppearance**, **CustomFormModel**, **CustomFormModelInfo**, **CustomFormModelProperties**, **CustomFormSubmodel**, and **TrainingDocumentInfo** are now immutable model classes.
+
+### [**JavaScript**](#tab/javascript)
+
+| [Reference documentation](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest&preserve-view=true)| [npm package dependency form-recognizer 3.1.0](https://www.npmjs.com/package/@azure/ai-form-recognizer)  |
+
+#### **Non-breaking changes**
+
+* All REST API calls are migrated to the  v2.1 endpoint.
+
+* **KnownFormLocale** enum added to access possible values of form locales.
+
+* **beginRecognizeIdDocuments...**. Renamed methods and method parameters using **Identity** to replace _Id_ keyword for all related identity documents recognition API functionalities.
+
+* **FormReadingOrder** and **FormLanguage**. *ReadingOrder* renamed to *FormReadingOrder*. *Language* renamed to **FormLanguage**.
+
+* **FormCountryRegionField** and  **countryRegion**. *FormCountryField* type renamed to **FormCountryRegionField**, and renamed the valueType *country* to **countryRegion**:.
+
+* **TextAppearance** interface now includes **styleName** and **styleConfidence** properties (formerly name and confidence properties in the **TextStyle**  interface).
+
+* **KnownStyleName**, **KnownSelectionMarkState**, and **KnownKeyValueType** enums removed.
+
+* **FormGenderField** type removed. Any recognized value that was previously produced as a _FormGenderField_ will now be returned as a FormStringField type and the value will remain the same.
+
+* **TextStyle** type removed.
+
+#### **Breaking changes (May)**
+
+**No breaking changes**
+
+### [**Python**](#tab/python)
+
+| [Reference documentation](/java/api/com.azure.ai.formrecognizer.models?view=azure-java-stable&preserve-view=true)| [PyPi azure-ai-formrecognizer 3.1.0](https://pypi.org/project/azure-ai-formrecognizer/) |
+
+#### **Non-breaking changes**
+
+* **to_dict** and **from_dict** methods added to all of the models.
+
+#### **Breaking changes (May)**
+
+* **begin_recognize_identity_documents** and **begin_recognize_identity_documents_from_url**. Renamed methods and method parameters using **Identity** to replace _Id_ keyword.
+
+* **FieldValueType**. Renamed value type *country* to **countryRegion**.  Removed value type *gender*.
+
+* **TextAppearance**model now includes **style_name** and **style_confidence** properties (formerly name and confidence properties in the **TextStyle**  object).
+
+* **TextStyle** model removed.
+
+---
 
 ## April 2021
 <!-- markdownlint-disable MD029 -->
@@ -28,9 +204,9 @@ NuGet package version 3.1.0-beta.4
 
 * **New methods to analyze data from identity documents**:
 
-   **[StartRecognizeIdDocumentsFromUriAsync](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient.startrecognizeiddocumentsasync?view=azure-dotnet-preview&preserve-view=true)**
+   **StartRecognizeIdDocumentsFromUriAsync**
 
-   **[StartRecognizeIdDocumentsAsync](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient.startrecognizeiddocumentsasync?view=azure-dotnet-preview&preserve-view=true)**
+   **StartRecognizeIdDocumentsAsync**
 
    For a list of field values, _see_ [Fields extracted](concept-identification-cards.md#fields-extracted) in our Form Recognizer documentation.
 
@@ -51,7 +227,7 @@ NuGet package version 3.1.0-beta.4
 
   The `ReadingOrder` property is an optional parameter that allows you to specify which reading order algorithm—`basic` or `natural`—should be applied to order the extraction of text elements. If not specified, the default value is `basic`.
 
-#### Breaking changes
+#### Breaking changes (April)
 
 * The client defaults to the latest supported service version, which is currently **2.1-preview.3**.
 
@@ -63,9 +239,9 @@ Maven artifact package dependency version 3.1.0-beta.3
 
 * **New methods to analyze data from identity documents**:
 
-  **[beginRecognizeIdDocumentsFromUrl](/java/api/com.azure.ai.formrecognizer.formrecognizerclient.beginrecognizeiddocumentsfromurl?view=azure-java-preview&preserve-view=true)**
+  **[beginRecognizeIdDocumentsFromUrl]**
 
-  **[beginRecognizeIdDocuments](/java/api/com.azure.ai.formrecognizer.formrecognizerclient.beginrecognizeiddocuments?view=azure-java-preview&preserve-view=true)**
+  **[beginRecognizeIdDocuments]**
 
    For a list of field values, _see_ [Fields extracted](concept-identification-cards.md#fields-extracted) in our Form Recognizer documentation.
 
@@ -114,7 +290,7 @@ npm package version 3.1.0-beta.3
 
 * New option `pages` supported by all form recognition methods (custom forms and all prebuilt models). The argument allows you to select individual or a range of pages for multi-page PDF and TIFF documents. For individual pages, enter the page number, for example, `3`. For a range of pages (like page 2 and pages 5-7) enter the page numbers and ranges separated by commas: `2, 5-7`.
 
-* Added support for a **[ReadingOrder](/javascript/api/@azure/ai-form-recognizer/readingorder?view=azure-node-preview&preserve-view=true)** type to the content recognition methods. This option enables you to control the algorithm that the service uses to determine how recognized lines of text should be ordered. You can specify which reading order algorithm—`basic` or `natural`—should be applied to order the extraction of text elements. If not specified, the default value is `basic`.
+* Added support for a **[ReadingOrder](/javascript/api/@azure/ai-form-recognizer/formreadingorder?view=azure-node-latest&preserve-view=true to the URL)** type to the content recognition methods. This option enables you to control the algorithm that the service uses to determine how recognized lines of text should be ordered. You can specify which reading order algorithm—`basic` or `natural`—should be applied to order the extraction of text elements. If not specified, the default value is `basic`.
 
 * Split **[FormField](/javascript/api/@azure/ai-form-recognizer/formfield?view=azure-node-preview&preserve-view=true)** type into several different interfaces. This update should not cause any API compatibility issues except in certain edge cases (undefined valueType).
 
@@ -224,9 +400,9 @@ pip package version 3.1.0b4
 * **Quality improvements** - Extraction improvements including single digit extraction improvements.
 * **New try-it-out feature in the Form Recognizer Sample and Labeling Tool** - Ability to try out prebuilt Invoice, Receipt, and Business Card models and the Layout API using the Form Recognizer Sample Labeling tool. See how your data will be extracted without writing any code.
 
-  > [Try out the Form Recognizer Sample Tool](https://fott-preview.azurewebsites.net/)
+  [**Try the Form Recognizer sample labeling tool**](https://fott-2-1.azurewebsites.net)
 
-  ![FOTT example](./media/ui-preview.jpg)
+  ![Screenshot: Sample labeling tool.](./media/ui-preview.jpg)
 
 * **Feedback Loop** - When Analyzing files via the sample labeling tool you can now also add it to the training set and adjust the labels if necessary and train to improve the model.
 * **Auto Label Documents** - Automatically labels additional documents based on previous labeled documents in the project.
@@ -253,7 +429,7 @@ pip package version 3.1.0b4
 **New samples** are available on GitHub.
 
 * The [Knowledge Extraction Recipes - Forms Playbook](https://github.com/microsoft/knowledge-extraction-recipes-forms) collects best practices from real Form Recognizer customer engagements and provides usable code samples, checklists, and sample pipelines used in developing these projects.
-* The [sample labeling tool](https://github.com/microsoft/OCR-Form-Tools) has been updated to support the new v2.1 functionality. See this [quickstart](quickstarts/label-tool.md) for getting started with the tool.
+* The [sample labeling tool](https://github.com/microsoft/OCR-Form-Tools) has been updated to support the new v2.1 functionality. See this [quickstart](label-tool.md) for getting started with the tool.
 * The [Intelligent Kiosk](https://github.com/microsoft/Cognitive-Samples-IntelligentKiosk/blob/master/Documentation/FormRecognizer.md) Form Recognizer sample shows how to integrate `Analyze Receipt` and `Train Custom Model` - _Train without Labels_.
 
 ## July 2020
@@ -317,7 +493,7 @@ pip package version 3.1.0b4
   * `time`
   * `integer`
 
-  See the [Sample labeling tool](./quickstarts/label-tool.md#specify-tag-value-types) guide to learn how to use this feature.
+  See the [Sample labeling tool](label-tool.md#specify-tag-value-types) guide to learn how to use this feature.
 
 * **Table visualization** The sample labeling tool now displays tables that were recognized in the document. This feature lets you view the tables that have been recognized and extracted from the document, prior to labeling and analyzing. This feature can be toggled on/off using the layers option.
 

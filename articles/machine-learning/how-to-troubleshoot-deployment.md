@@ -27,7 +27,7 @@ Learn how to troubleshoot and solve, or work around, common errors you may encou
 
 ## Prerequisites
 
-* An **Azure subscription**. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+* An **Azure subscription**. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 * The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).
 * The [Azure CLI](/cli/azure/install-azure-cli).
 * The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
@@ -80,6 +80,28 @@ print(service.get_logs())
 ## Debug locally
 
 If you have problems when deploying a model to ACI or AKS, deploy it as a local web service. Using a local web service makes it easier to troubleshoot problems. To troubleshoot a deployment locally, see the [local troubleshooting article](./how-to-troubleshoot-deployment-local.md).
+
+## Azure Machine learning inference HTTP server
+
+The local inference server allows you to quickly debug your entry script (`score.py`). In case the underlying score script has a bug, the server will fail to initialize or serve the model. Instead, it will throw an exception & the location where the issues occurred. [Learn more about Azure Machine Learning inference HTTP Server](how-to-inference-server-http.md)
+
+1. Install the `azureml-inference-server-http` package from the [pypi](https://pypi.org/) feed:
+
+    ```bash
+    python -m pip install azureml-inference-server-http
+    ```
+
+2. Start the server and set `score.py` as the entry script:
+
+    ```bash
+    azmlinfsrv --entry_script score.py
+    ```
+
+3. Send a scoring request to the server using `curl`:
+
+    ```bash
+    curl -p 127.0.0.1:5001/score
+    ```
 
 ## Container cannot be scheduled
 

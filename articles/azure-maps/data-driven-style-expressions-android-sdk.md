@@ -216,7 +216,7 @@ Data expressions provide access to the property data in a feature.
 
 | Expression | Return type | Description |
 |------------|-------------|-------------|
-| `accumulated()` | number | Gets the value of a cluster property accumulated so far. |
+| `accumulated()` | number | Gets the value of a cluster property accumulated so far. This can only be used in the `clusterProperties` option of a clustered `DataSource` source. |
 | `at(number | Expression, Expression)` | value | Retrieves an item from an array. |
 | `geometryType()` | string | Gets the feature's geometry type: Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
 | `get(string | Expression)` \| `get(string | Expression, Expression)` | value | Gets the property value from the properties of the provided object. Returns null if the requested property is missing. |

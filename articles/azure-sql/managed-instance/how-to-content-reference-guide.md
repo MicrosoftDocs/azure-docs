@@ -4,13 +4,12 @@ titleSuffix: Azure SQL Managed Instance
 description: A reference guide of content that teaches you how to configure and manage Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: deployment-configuration
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: guide
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.date: 04/16/2019
 ---
 # Azure SQL Managed Instance content reference
@@ -20,7 +19,7 @@ In this article you can find a content reference to various guides, scripts, and
 
 ## Load data
 
-- [Migrate to Azure SQL Managed Instance](migrate-to-instance-from-sql-server.md): Learn about the recommended migration process and tools for migration to Azure SQL Managed Instance.
+- [SQL Server to Azure SQL Managed Instance Guide](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md): Learn about the recommended migration process and tools for migration to Azure SQL Managed Instance.
 - [Migrate TDE cert to Azure SQL Managed Instance](tde-certificate-migrate.md): If your SQL Server database is protected with transparent data encryption (TDE), you would need to migrate the certificate that SQL Managed Instance can use to decrypt the backup that you want to restore in Azure.
 - [Import a DB from a BACPAC](../database/database-import.md)
 - [Export a DB to BACPAC](../database/database-export.md)
@@ -88,7 +87,7 @@ In this article you can find a content reference to various guides, scripts, and
 ## Develop applications
 
 - [Connectivity](../database/connect-query-content-reference-guide.md#libraries)
-- [Use Spark Connector](../../cosmos-db/spark-connector.md)
+- [Use Spark Connector](../../cosmos-db/create-sql-api-spark.md)
 - [Authenticate an app](../database/application-authentication-get-client-id-keys.md)
 - [Use batching for better performance](../performance-improve-use-batching.md)
 - [Connectivity guidance](../database/troubleshoot-common-connectivity-issues.md)

@@ -89,11 +89,11 @@ sections:
   - name: Manage backups
     questions:
       - question: |
-          What happens if I rename a Windows machine configured for backup?
+          What happens if I rename or change the FQDN of a Windows machine configured for backup?
         answer: |
-          When you rename a Windows machine, all currently configured backups are stopped.
+          When you rename a Windows machine or make changes to the FQDN by performing operations like adding machine to a domain, moving machine to another domain or disjoining machine from a domain ,  all currently configured backups are stopped.
           
-          * You need to register the new machine name with the Backup vault.
+          * You need to register the new machine name with recovery services vault.
           * When you register the new name with the vault, the first operation is a *full* backup.
           * If you need to recover data backed up to the vault with the old server name, use the option to restore to an alternate location in the Recover Data Wizard. [Learn more](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
           
@@ -167,6 +167,9 @@ sections:
               ```
           
           7. Run an on-demand backup. After the backup finishes successfully using the new location, you can remove the original cache folder.
+          
+          >[!NOTE]
+          >If you are using any offline seeding solution, don't change the cache location during initial replication process.
           
       - question: |
           Where should the cache folder be located?

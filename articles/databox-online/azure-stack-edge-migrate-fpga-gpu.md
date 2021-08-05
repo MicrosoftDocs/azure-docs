@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/11/2021
+ms.date: 06/02/2021
 ms.author: alkohli  
 ---
 # Migrate workloads from an Azure Stack Edge Pro FPGA to an Azure Stack Edge Pro GPU
@@ -186,7 +186,7 @@ Follow these steps to recover the data from local shares:
 Once the IoT Edge modules are prepared, you will need to deploy IoT Edge workloads on your target device. If you face any errors in deploying IoT Edge modules, see:
 
 - [Common issues and resolutions for Azure IoT Edge](../iot-edge/troubleshoot-common-errors.md). 
-- [IoT Edge runtime errors](azure-stack-edge-gpu-troubleshoot.md#troubleshoot-iot-edge-errors).
+- [IoT Edge runtime errors](azure-stack-edge-gpu-troubleshoot-iot-edge.md).
 
 ## Verify data
 

@@ -2,7 +2,7 @@
 title: APIs and tools for developers
 description: Learn about the APIs and tools available for developing solutions with the Azure Batch service.
 ms.topic: conceptual
-ms.date: 05/22/2020
+ms.date: 06/11/2021
 ms.custom: seodec18
 ---
 
@@ -11,7 +11,7 @@ ms.custom: seodec18
 
 Processing parallel workloads with Azure Batch is typically done programmatically by using one of the Batch APIs. Your client application or service can use the Batch APIs to communicate with the Batch service. With the Batch APIs, you can create and manage pools of compute nodes, either virtual machines or cloud services. You can then schedule jobs and tasks to run on those nodes.
 
-You can efficiently process large-scale workloads for your organization, or provide a service front end to your customers so that they can run jobs and tasks--on demand, or on a schedule--on one, hundreds, or even thousands of nodes. You can also use Azure Batch as part of a larger workflow, managed by tools such as [Azure Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json).
+You can efficiently process large-scale workloads for your organization, or provide a service front end to your customers so that they can run jobs and tasks—on demand, or on a schedule—on one, hundreds, or even thousands of nodes. You can also use Azure Batch as part of a larger workflow, managed by tools such as [Azure Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json).
 
 > [!TIP]
 > To learn more about the features and workflow used in Azure Batch, see [Batch service workflow and resources](batch-service-workflow-features.md).
@@ -20,8 +20,8 @@ You can efficiently process large-scale workloads for your organization, or prov
 
 When you develop Batch solutions, you use the following accounts in your Azure subscription:
 
-- **Batch account** - Azure Batch resources, including pools, compute nodes, jobs, and tasks, are associated with an Azure [Batch account](accounts.md). When your application makes a request against the Batch service, it authenticates the request using the Azure Batch account name, the URL of the account, and either an access key or an Azure Active Directory token. You can [create a Batch account](batch-account-create-portal.md) in the Azure portal or programmatically.
-- **Storage account** - Batch includes built-in support for working with files in [Azure Storage](../storage/index.yml). Nearly every Batch scenario uses Azure Blob storage for staging the programs that your tasks run and the data that they process, and for the storage of output data that they generate. Each Batch account is usually associated with a corresponding storage account.
+- **Batch account**: Azure Batch resources, including pools, compute nodes, jobs, and tasks, are associated with an Azure [Batch account](accounts.md). When your application makes a request against the Batch service, it authenticates the request using the Azure Batch account name, the URL of the account, and either an access key or an Azure Active Directory token. You can [create a Batch account](batch-account-create-portal.md) in the Azure portal or programmatically.
+- **Storage account**: Batch includes built-in support for working with files in [Azure Storage](../storage/index.yml). Nearly every Batch scenario uses Azure Blob storage for staging the programs that your tasks run and the data that they process, and for the storage of output data that they generate. Each Batch account is usually associated with a corresponding storage account.
 
 ## Service-level and management-level APIs
 
@@ -42,7 +42,7 @@ Your applications and services can issue direct REST API calls or use one or mor
 | **Batch REST** |[Azure REST API - Docs](/rest/api/batchservice/) |N/A |- |- | [Supported versions](/rest/api/batchservice/batch-service-rest-api-versioning) |
 | **Batch .NET** |[Azure SDK for .NET - Docs](/dotnet/api/overview/azure/batch) |[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Batch/) |[Tutorial](tutorial-parallel-dotnet.md) |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp) | [Release notes](https://aka.ms/batch-net-dataplane-changelog) |
 | **Batch Python** |[Azure SDK for Python - Docs](/python/api/overview/azure/batch/client) |[PyPI](https://pypi.org/project/azure-batch/) |[Tutorial](tutorial-parallel-python.md)|[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/Python/Batch) | [Readme](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/batch/azure-batch/README.md) |
-| **Batch JavaScript** |[Azure SDK for JavaScript - Docs](/javascript/api/overview/azure/batch/client) |[npm](https://www.npmjs.com/package/azure-batch) |[Tutorial](batch-js-get-started.md) |- | [Readme](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
+| **Batch JavaScript** |[Azure SDK for JavaScript - Docs](/javascript/api/overview/azure/batch/client) |[npm](https://www.npmjs.com/package/@azure/batch) |[Tutorial](batch-js-get-started.md) |- | [Readme](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/batch/batch) |
 | **Batch Java** |[Azure SDK for Java - Docs](/java/api/overview/azure/batch) |[Maven](https://search.maven.org/search?q=a:azure-batch) |- |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/Java) | [Readme](https://github.com/Azure/azure-batch-sdk-for-java)|
 
 ## Batch Management APIs
@@ -54,7 +54,7 @@ The Azure Resource Manager APIs for Batch provide programmatic access to Batch a
 | **Batch Management REST** |[Azure REST API - Docs](/rest/api/batchmanagement/) |- |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
 | **Batch Management .NET** |[Azure SDK for .NET - Docs](/dotnet/api/overview/azure/batch/management) |[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/) | [Tutorial](batch-management-dotnet.md) |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp) |
 | **Batch Management Python** |[Azure SDK for Python - Docs](/python/api/overview/azure/batch/management) |[PyPI](https://pypi.org/project/azure-mgmt-batch/) |- |- |
-| **Batch Management JavaScript** |[Azure SDK for JavaScript - Docs](/javascript/api/overview/azure/batch/management) |[npm](https://www.npmjs.com/package/azure-arm-batch) |- |- | 
+| **Batch Management JavaScript** |[Azure SDK for JavaScript - Docs](/javascript/api/overview/azure/batch/management) |[npm](https://www.npmjs.com/package/@azure/arm-batch) |- |- | 
 | **Batch Management Java** |[Azure SDK for Java - Docs](/java/api/overview/azure/batch/management) |[Maven](https://search.maven.org/search?q=a:azure-batch) |- |- |
 
 ## Batch command-line tools
@@ -62,16 +62,16 @@ The Azure Resource Manager APIs for Batch provide programmatic access to Batch a
 These command-line tools provide the same functionality as the Batch service and Batch Management APIs: 
 
 - [Batch PowerShell cmdlets](/powershell/module/az.batch/): The Azure Batch cmdlets in the [Azure PowerShell](/powershell/azure/) module enable you to manage Batch resources with PowerShell.
-- [Azure CLI](/cli/azure): The Azure CLI is a cross-platform toolset that provides shell commands for interacting with many Azure services, including the Batch service and Batch Management service. See [Manage Batch resources with Azure CLI](batch-cli-get-started.md) for more information about using the Azure CLI with Batch.
+- [Azure CLI](/cli/azure): The Azure CLI is a cross-platform toolset that provides shell commands for interacting with many Azure services, including the Batch service and Batch Management service. For more information, see [Manage Batch resources with Azure CLI](batch-cli-get-started.md).
 
 ## Other tools for application development
 
 These additional tools may be helpful for building and debugging your Batch applications and services.
 
 - [Azure portal](https://portal.azure.com/): You can create, monitor, and delete Batch pools, jobs, and tasks in the Azure portal. You can view status information for these and other resources while you run your jobs, and even download files from the compute nodes in your pools. For example, you can download a failed task's `stderr.txt` while troubleshooting. You can also download Remote Desktop (RDP) files that you can use to log in to compute nodes.
-- [Azure Batch Explorer](https://azure.github.io/BatchExplorer/): Batch Explorer (formerly called BatchLabs) is a free, rich-featured, standalone client tool to help create, debug, and monitor Azure Batch applications. Download an [installation package](https://azure.github.io/BatchExplorer/) for Mac, Linux, or Windows.
+- [Azure Batch Explorer](https://azure.github.io/BatchExplorer/): Batch Explorer is a free, rich-featured, standalone client tool to help create, debug, and monitor Azure Batch applications. Download an [installation package](https://azure.github.io/BatchExplorer/) for Mac, Linux, or Windows.
 - [Azure Batch Shipyard](https://github.com/Azure/batch-shipyard): Batch Shipyard is a tool to help provision, execute, and monitor container-based batch processing and HPC workloads on Azure Batch.
-- [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/): While not strictly an Azure Batch tool, the Storage Explorer is another valuable tool to have while you are developing and debugging your Batch solutions.
+- [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/): While not strictly an Azure Batch tool, the Storage Explorer can be helpful when developing and debugging your Batch solutions.
 
 ## Additional resources
 

@@ -3,13 +3,12 @@ title: "Azure Resource Manager: Create a single database"
 description: Create a single database in Azure SQL Database using an Azure Resource Manager template.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
-ms.custom: subject-armqs sqldbrb=1
+ms.subservice: deployment-configuration
+ms.custom: subject-armqs sqldbrb=1, devx-track-azurepowershell
 ms.devlang:
 ms.topic: quickstart
-author: mumian
-ms.author: jgao
-ms.reviewer: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.date: 06/24/2020
 ---
 
@@ -31,7 +30,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 A single database has a defined set of compute, memory, IO, and storage resources using one of two [purchasing models](purchasing-models.md). When you create a single database, you also define a [server](logical-servers.md) to manage it and place it within [Azure resource group](../../active-directory-b2c/overview.md) in a specified region.
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-sql-database/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/sql-database/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.sql/sql-database/azuredeploy.json":::
 

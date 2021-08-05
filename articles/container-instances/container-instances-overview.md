@@ -16,7 +16,7 @@ Azure Container Instances is a great solution for any scenario that can operate 
 
 Containers offer significant startup benefits over virtual machines (VMs). Azure Container Instances can start containers in Azure in seconds, without the need to provision and manage VMs.
 
-Bring Linux or Windows container images from Docker Hub, a private [Azure container registry](../container-registry/index.yml), or another cloud-based docker registry. Visit the [FAQ](container-instances-faq.md) to learn which registries are supported by ACI. Azure Container Instances caches several common base OS images, helping speed deployment of your custom application images.
+Bring Linux or Windows container images from Docker Hub, a private [Azure container registry](../container-registry/index.yml), or another cloud-based docker registry. Visit the [FAQ](container-instances-faq.yml) to learn which registries are supported by ACI. Azure Container Instances caches several common base OS images, helping speed deployment of your custom application images.
 
 ## Container access
 
@@ -59,7 +59,7 @@ Some features are currently restricted to Linux containers:
 * [Virtual network deployment](container-instances-vnet.md)
 * [GPU resources](container-instances-gpu.md) (preview)
 
-For Windows container deployments, use images based on common [Windows base images](container-instances-faq.md#what-windows-base-os-images-are-supported).
+For Windows container deployments, use images based on common [Windows base images](/azure/container-instances/container-instances-faq#what-windows-base-os-images-are-supported).
 
 ## Co-scheduled groups
 

@@ -22,7 +22,7 @@ This section will cover the different ways that the Azure Key Vault firewall can
 
 ### Key Vault Firewall Disabled (Default)
 
-By default, when you create a new key vault, the Azure Key Vault firewall is disabled. All applications and Azure services can access the key vault and send requests to the key vault. Note, this configuration does not mean that any user will be able to perform operations on your key vault. The key vault still restricts to secrets, keys, and certificates stored in key vault by requiring Azure Active Directory authentication and access policy permissions. To understand key vault authentication in more detail see the key vault authentication fundamentals document [here](./authentication-fundamentals.md). For more information, see [Access Azure Key Vault behind a firewall](./access-behind-firewall.md).
+By default, when you create a new key vault, the Azure Key Vault firewall is disabled. All applications and Azure services can access the key vault and send requests to the key vault. Note, this configuration does not mean that any user will be able to perform operations on your key vault. The key vault still restricts to secrets, keys, and certificates stored in key vault by requiring Azure Active Directory authentication and access policy permissions. To understand key vault authentication in more detail see the key vault authentication fundamentals document [here](./authentication.md). For more information, see [Access Azure Key Vault behind a firewall](./access-behind-firewall.md).
 
 ### Key Vault Firewall Enabled (Trusted Services Only)
 
@@ -66,7 +66,7 @@ To understand how to configure a private link connection on your key vault, plea
 
 > [!NOTE]
 > Be aware of the following configuration limitations:
-> * A maximum of 127 virtual network rules and 127 IPv4 rules are allowed. 
+> * A maximum of 200 virtual network rules and 1000 IPv4 rules are allowed. 
 > * IP network rules are only allowed for public IP addresses. IP address ranges reserved for private networks (as defined in RFC 1918) are not allowed in IP rules. Private networks include addresses that start with **10.**, **172.16-31**, and **192.168.**. 
 > * Only IPv4 addresses are supported at this time.
 

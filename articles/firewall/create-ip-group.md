@@ -6,7 +6,8 @@ author: vhorne
 ms.service: firewall
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create IP Groups

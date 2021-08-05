@@ -238,6 +238,12 @@
         href: backup-managed-disks-ps.md
       - name: Restore
         href: restore-managed-disks-ps.md
+    - name: With CLI
+      items:
+      - name: Backup
+        href: backup-managed-disks-cli.md
+      - name: Restore
+        href: restore-managed-disks-cli.md
   - name: Azure Blobs backup
     items:
     - name: Overview
@@ -254,6 +260,20 @@
         href: backup-blobs-storage-account-ps.md
       - name: Restore
         href: restore-blobs-storage-account-ps.md
+    - name: With CLI
+      items:
+      - name: Backup
+        href: backup-blobs-storage-account-cli.md
+      - name: Restore
+        href: restore-blobs-storage-account-cli.md
+    - name: With REST API
+      items:
+      - name: Blob policy
+        href: backup-azure-dataprotection-use-rest-api-create-update-blob-policy.md
+      - name: Backup
+        href: backup-azure-dataprotection-use-rest-api-backup-blobs.md
+      - name: Restore
+        href: backup-azure-dataprotection-use-rest-api-restore-blobs.md
   - name: Azure File share backup
     items:
     - name: Overview
@@ -304,7 +324,7 @@
     items:
     - name: Protection matrices
       items:
-      - name: MABS V3 UR1 protection matrix
+      - name: MABS V3 UR1 (and later) protection matrix
         href: backup-mabs-protection-matrix.md
       - name: MABS V3 RTM protection matrix
         href: microsoft-azure-backup-server-protection-v3.md
@@ -318,12 +338,16 @@
         href: backup-mabs-whats-new-mabs.md
       - name: Release notes MABS
         href: backup-mabs-release-notes-v3.md
+      - name: Turn on/off telemetry settings
+        href: manage-telemetry.md
       - name: Unattended installation
         href: backup-mabs-unattended-install.md
     - name: Protect workloads
       items:
       - name: Back up Hyper-V virtual machines
         href: back-up-hyper-v-virtual-machines-mabs.md
+      - name: Back up Azure Stack HCI virtual machines
+        href: back-up-azure-stack-hyperconverged-infrastructure-virtual-machines.md  
       - name: VMware server
         href: backup-azure-backup-server-vmware.md
       - name: Exchange
@@ -334,6 +358,8 @@
         href: backup-azure-sql-mabs.md
       - name: Protect system state and bare metal recovery
         href: backup-mabs-system-state-and-bmr.md
+      - name: Using pre-backup and post-backup scripts
+        href: pre-backup-post-backup-scripts.md
     - name: Recover data from Azure Backup Server
       href: backup-azure-alternate-dpm-server.md
     - name: Restore VMware VMs with Azure Backup Server
@@ -424,6 +450,8 @@
         href: backup-azure-sql-automation.md
       - name: Azure PowerShell Samples
         href: powershell-backup-samples.md
+    - name: Use Azure CLI
+      href: create-manage-azure-services-using-azure-command-line-interface.md
     - name: Use Azure Backup REST API
       items:
       - name: Create Recovery Services vault
@@ -438,6 +466,10 @@
         href: backup-azure-arm-userestapi-restoreazurevms.md
       - name: Manage Azure Backup jobs
         href: backup-azure-arm-userestapi-managejobs.md
+    - name: Use Azure Data Protection REST API
+      href: backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md
+    - name: Query backup information using ARG
+      href: query-backups-using-azure-resource-graph.md
     - name: Resource Manager templates
       href: backup-rm-template-samples.md
   - name: Security
@@ -507,10 +539,16 @@
     href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
   - name: Azure CLI
     href: /cli/azure/backup
+  - name: Azure Dataprotection - CLI
+    href: /cli/azure/dataprotection?view=azure-cli-latest&preserve-view=true
   - name: Azure PowerShell
     href: /powershell/module/az.recoveryservices
+  - name: Azure Dataprotection - PowerShell
+    href: /powershell/module/az.dataprotection/?view=azps-6.1.0&preserve-view=true
   - name: PowerShell – Azure Backup agent
     href: /powershell/module/msonlinebackup/?view=msonlinebackup-ps
+  - name: REST - Azure Dataprotection
+    href: /rest/api/dataprotection/
   - name: REST - Backup
     href: /rest/api/backup/
   - name: REST - Recovery Services vault

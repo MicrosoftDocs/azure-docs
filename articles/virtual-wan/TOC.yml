@@ -33,6 +33,8 @@
       href: ../networking/working-remotely-support.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
     - name: Leverage Virtual WAN
       href: work-remotely-support.md
+  - name: Virtual WAN FAQ
+    href: virtual-wan-faq.md
   - name: Locations and partners
     items:
     - name: Hub locations and partners
@@ -73,10 +75,6 @@
       href: scenario-route-between-vnets-firewall.md
     - name: Application Gateway and backend pools
       href: scenario-secured-hub-app-gateway.md
-  - name: Monitoring
-    items:
-    - name: About Azure Monitor Insights for Virtual WAN
-      href: azure-monitor-insights.md
   - name: Site-to-site
     items:
     - name: About S2S IPsec policies
@@ -87,6 +85,8 @@
     items:
     - name: About P2S IPsec policies
       href: point-to-site-ipsec.md
+    - name: About P2S client address pools
+      href: about-client-address-pools.md
   - name: Security
     items:
     - name: Security baseline
@@ -103,6 +103,8 @@
     href: upgrade-virtual-wan.md
   - name: Create an NVA in a virtual hub
     href: How-to-nva-hub.md
+  - name: Connect a VNet to a virtual hub
+    href: howto-connect-vnet-hub.md
   - name: Create a cross-tenant VNet connection
     href: cross-tenant-vnet.md
   - name: ExpressRoute
@@ -183,10 +185,12 @@
       href: howto-private-link.md
     - name: Manage access to resources - Spoke VNet P2S
       href: manage-secure-access-resources-spoke-p2s.md
-  - name: Monitoring
+  - name: Health monitoring
     items:
-    - name: Logs and metrics
-      href: logs-metrics.md
+    - name: Monitoring Virtual WAN
+      href: monitor-virtual-wan.md
+    - name: Azure Monitor Insights for Virtual WAN
+      href: azure-monitor-insights.md
 - name: Reference
   items:
   - name: Azure PowerShell
@@ -194,13 +198,11 @@
   - name: REST
     href: /rest/api/azure
   - name: Azure CLI
-    href: /azure/virtual-wan/
+    href: ./index.yml
   - name: Python SDK
     href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-mgmt-network/10.0.0/azure.mgmt.network.v2019_02_01.operations.html#azure.mgmt.network.v2019_02_01.operations.VirtualWansOperations
 - name: Resources
   items:
-  - name: FAQ
-    href: virtual-wan-faq.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/virtual-wan
   - name: Subscription and service limits

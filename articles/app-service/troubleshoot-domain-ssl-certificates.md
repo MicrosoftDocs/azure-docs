@@ -31,14 +31,14 @@ When you add a TLS binding, you receive the following error message:
 
 #### Cause
 
-This problem can occur if you have multiple IP-based SSL bindings for the same IP address across multiple apps. For example, app A has an IP-based SSL with an old certificate. App B has an IP-based SSL with a new certificate for the same IP address. When you update the app TLS binding with the new certificate, it fails with this error because the same IP address is being used for another app. 
+This problem can occur if you have multiple IP-based TLS/SSL bindings for the same IP address across multiple apps. For example, app A has an IP-based TLS/SSL binding with an old certificate. App B has an IP-based TLS/SSL binding with a new certificate for the same IP address. When you update the app TLS binding with the new certificate, it fails with this error because the same IP address is being used for another app. 
 
 #### Solution 
 
 To fix this problem, use one of the following methods:
 
-- Delete the IP-based SSL binding on the app that uses the old certificate. 
-- Create a new IP-based SSL binding that uses the new certificate.
+- Delete the IP-based TLS/SSL binding on the app that uses the old certificate. 
+- Create a new IP-based TLS/SSL binding that uses the new certificate.
 
 ### You can't delete a certificate 
 
@@ -105,7 +105,7 @@ The custom domain that you configured is missing a CNAME or A record.
 
 **Solution for cause 1**
 
-- If you added an A record, make sure that a TXT record is also added. For more information, see [Create the A record](./app-service-web-tutorial-custom-domain.md#create-the-a-record).
+- If you added an A record, make sure that a TXT record is also added. For more information, see [Create the A record](./app-service-web-tutorial-custom-domain.md#4-create-the-dns-records).
 - If you don't have to use the root domain for your app, we recommend that you use a CNAME record instead of an A record.
 - Don't use both a CNAME record and an A record for the same domain. This issue can cause a conflict and prevent the domain from being resolved. 
 

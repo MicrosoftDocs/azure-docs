@@ -1,16 +1,19 @@
 ---
-title:  How to run a reindex job in Azure API for FHIR 
-description: This article describes how to run a reindex job to index any search or sort parameters that have not yet been indexed in your database.   
-author: stevewohl
+title:  How to run a reindex job in FHIR service - Azure Healthcare APIs (preview)
+description: How to run a reindex job to index any search or sort parameters that have not yet been indexed in your database
+author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 4/23/2021
+ms.date: 08/03/2021
 ms.author: cavoeg
 ---
 # Running a reindex job
 
-There are scenarios where you may have search or sort parameters in the Azure API for FHIR that haven't yet been indexed. This is particularly relevant when you define your own search parameters. Until the search parameter is indexed, it can't be used in search. This article covers an overview of how to run a reindex job to index any search or sort parameters that have not yet been indexed in your database.
+> [!IMPORTANT]
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+There are scenarios where you may have search or sort parameters in the FHIR service in the Azure Healthcare APIs (hear by called the FHIR service) that haven't yet been indexed. This is particularly relevant when you define your own search parameters. Until the search parameter is indexed, it can't be used in search. This article covers an overview of how to run a reindex job to index any search or sort parameters that have not yet been indexed in your database.
 
 > [!Warning]
 > It's important that you read this entire article before getting started. A reindex job can be very performance intensive. This article includes options for how to throttle and control the reindex job.
@@ -178,16 +181,15 @@ If you need to cancel a reindex job, use a delete call and specify the reindex j
 A reindex job can be quite performance intensive. We’ve implemented some throttling controls to help you manage how a reindex job will run on your database.
 
 > [!NOTE]
-> It is not uncommon on large datasets for a reindex job to run for days. For a database with 30,000,000 million resources, we noticed that it took 4-5 days at 100K RUs to reindex the entire database.
+> It is not uncommon on large datasets for a reindex job to run for days.
 
-Below is a table outlining the available parameters, defaults, and recommended ranges. You can use these parameters to either speed up the process (use more compute) or slow down the process (use less compute). For example, you could run the reindex job on a low traffic time and increase your compute to get it done quicker. Instead, you could use the settings to ensure a very low usage of compute and have it run for days in the background. 
+Below is a table outlining the available parameters, defaults, and recommended ranges. You can use these parameters to either speed up the process (use more compute) or slow down the process (use less compute). 
 
 | **Parameter**                     | **Description**              | **Default**        | **Recommended Range**           |
 | --------------------------------- | ---------------------------- | ------------------ | ------------------------------- |
 | QueryDelayIntervalInMilliseconds  | This is the delay between each batch of resources being kicked off during the reindex job. | 500 MS (.5 seconds) | 50 to 5000: 50 will speed up the reindex job and 5000 will slow it down from the default. |
 | MaximumResourcesPerQuery  | This is the maximum number of resources included in the batch of resources to be reindexed.  | 100 | 1-500 |
-| MaximumConcurreny  | This is the number of batches done at a time.  | 1 | 1-5 |
-| targetDataStoreUsagePercentrage | This allows you to specify what percent of your data store to use for the reindex job. For example, you could specify 50% and that would ensure that at most the reindex job would use 50% of available RUs on Cosmos DB.  | No present, which means that up to 100% can be used. | 1-100 |
+| MaximumConcurrency  | This is the number of batches done at a time.  | 1 | 1-5 |
 
 If you want to use any of the parameters above, you can pass them into the Parameters resource when you start the reindex job.
 
@@ -198,10 +200,6 @@ If you want to use any of the parameters above, you can pass them into the Param
     {
       "name": "maximumConcurrency",
       "valueInteger": "3"
-    },
-    {
-      "name": "targetDataStoreUsagePercentage",
-      "valueInteger": "20"
     },
     {
       "name": "queryDelayIntervalInMilliseconds",

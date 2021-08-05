@@ -1,16 +1,16 @@
 ---
-title: Use Azure Image Builder & Shared Image Gallery for Linux VMs (preview)
+title: Use Azure Image Builder & Shared Image Gallery for Linux VMs
 description: Learn how to use the Azure Image Builder, and the Azure CLI, to create an image version in a Shared Image Gallery, and then distribute the image globally.
-author: cynthn
-ms.author: cynthn
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: linux
-ms.reviewer: danis
+
 ---
-# Preview: Create a Linux image and distribute it to a Shared Image Gallery 
+# Create a Linux image and distribute it to a Shared Image Gallery 
 
 This article shows you how you can use the Azure Image Builder, and the Azure CLI, to create an image version in a [Shared Image Gallery](../shared-image-galleries.md), then distribute the image globally. You can also do this using [Azure PowerShell](../windows/image-builder-gallery.md).
 
@@ -19,23 +19,10 @@ We will be using a sample .json template to configure the image. The .json file 
 
 To distribute the image to a Shared Image Gallery, the template uses [sharedImage](image-builder-json.md#distribute-sharedimage) as the value for the `distribute` section of the template.
 
-> [!IMPORTANT]
-> Azure Image Builder is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Register the features
-To use Azure Image Builder during the preview, you need to register the new feature.
 
-```azurecli-interactive
-az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
-```
-
-Check the status of the feature registration.
-
-```azurecli-interactive
-az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
-```
+To use Azure Image Builder, you need to register the feature.
 
 Check your registration.
 
@@ -61,7 +48,7 @@ az provider register -n Microsoft.Network
 
 We will be using some pieces of information repeatedly, so we will create some variables to store that information.
 
-For Preview, image builder will only support creating custom images in the same Resource Group as the source managed image. Update the resource group name in this example to be the same resource group as your source managed image.
+Image Builder only supports creating custom images in the same Resource Group as the source managed image. Update the resource group name in this example to be the same resource group as your source managed image.
 
 ```azurecli-interactive
 # Resource group name - we are using ibLinuxGalleryRG in this example

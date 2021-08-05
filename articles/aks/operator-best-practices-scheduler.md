@@ -16,7 +16,6 @@ This best practices article focuses on basic Kubernetes scheduling features for 
 > [!div class="checklist"]
 > * Use resource quotas to provide a fixed amount of resources to teams or workloads
 > * Limit the impact of scheduled maintenance using pod disruption budgets
-> * Check for missing pod resource requests and limits using the `kube-advisor` tool
 
 ## Enforce resource quotas
 
@@ -130,18 +129,6 @@ Work with your application developers and owners to understand their needs and a
 
 For more information about using pod disruption budgets, see [Specify a disruption budget for your application][k8s-pdbs].
 
-## Regularly check for cluster issues with kube-advisor
-
-> **Best practice guidance** 
->
-> Regularly run the latest version of `kube-advisor` open source tool to detect issues in your cluster. If you apply resource quotas on an existing AKS cluster, run `kube-advisor` first to find pods that don't have resource requests and limits defined.
-
-The [kube-advisor][kube-advisor] tool is an associated AKS open source project that scans a Kubernetes cluster and reports identified issues. `kube-advisor` proves useful in identifying pods without resource requests and limits in place.
-
-While the `kube-advisor` tool can report on resource request and limits missing in PodSpecs for Windows and Linux applications, the tool itself must be scheduled on a Linux pod. Schedule a pod to run on a node pool with a specific OS using a [node selector][k8s-node-selector] in the pod's configuration.
-
-Tracking pods without set resource requests and limits in an AKS cluster hosting multiple development teams and applications can be difficult. As a best practice, regularly run `kube-advisor` on your AKS clusters, especially if you don't assign resource quotas to namespaces.
-
 ## Next steps
 
 This article focused on basic Kubernetes scheduler features. For more information about cluster operations in AKS, see the following best practices:
@@ -153,7 +140,6 @@ This article focused on basic Kubernetes scheduler features. For more informatio
 <!-- EXTERNAL LINKS -->
 [k8s-resource-quotas]: https://kubernetes.io/docs/concepts/policy/resource-quotas/
 [configure-default-quotas]: https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace/
-[kube-advisor]: https://github.com/Azure/kube-advisor
 [k8s-pdbs]: https://kubernetes.io/docs/tasks/run-application/configure-pdb/
 
 <!-- INTERNAL LINKS -->

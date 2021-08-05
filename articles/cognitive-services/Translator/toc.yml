@@ -52,6 +52,14 @@
       href: dynamic-dictionary.md
     - name: Translate behind firewalls
       href: firewalls.md
+    - name: Use the Translator container
+      items:
+      - name: Install and run containers
+        href: containers/translator-how-to-install-container.md
+      - name: Configure containers
+        href: containers/translator-container-configuration.md
+      - name: "Container: Translate"
+        href: containers/translator-container-supported-parameters.md
   - name: Tutorials
     items:
     - name: Create a WPF app for Translator, C#
@@ -82,14 +90,20 @@
   items:
     - name: What is Document Translation?
       href: document-translation/overview.md
+    - name: Client libraries and SDKs
+      href: document-translation/client-sdks.md
     - name: Quickstart
       href: document-translation/get-started-with-document-translation.md
     - name: How-to guides
       items:
       - name: Create SAS tokens for Document Translation
         href: document-translation/create-sas-tokens.md
+      - name: Create and use managed identity
+        href: document-translation/managed-identity.md
     - name: Reference
       items:
+      - name:  REST API reference guide
+        href: document-translation/reference/rest-api-guide.md
       - name: Get supported document formats
         href: document-translation/reference/get-supported-document-formats.md
       - name: Get supported glossary formats
@@ -108,6 +122,8 @@
         href: document-translation/reference/get-translation-status.md
       - name: Cancel translation
         href: document-translation/reference/cancel-translation.md
+    - name: FAQ
+      href: document-translation/faq.md   
 - name: Custom Translator
   items:
   - name: What is the Custom Translator?
@@ -134,8 +150,6 @@
       href: custom-translator/how-to-view-system-test-results.md
     - name: Manage settings
       href: custom-translator/how-to-manage-settings.md
-    - name: Migrate from Hub
-      href: custom-translator/how-to-migrate.md
     - name: Unsupported language deployments
       href: custom-translator/unsupported-language-deployments.md
   - name: Concepts

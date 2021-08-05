@@ -18,13 +18,13 @@ An Azure Key Vault account generates the following event types:
 | ---------- | ----------- |---|
 | Microsoft.KeyVault.CertificateNewVersionCreated | Certificate New Version Created | Triggered when a new certificate or new certificate version is created. |
 | Microsoft.KeyVault.CertificateNearExpiry | Certificate Near Expiry | Triggered when the current version of certificate is about to expire. (The event is triggered 30 days before the expiration date.) |
-| Microsoft.KeyVault.CertificateExpired | Certificate Expired | Triggered when the certificate is expired. |
+| Microsoft.KeyVault.CertificateExpired | Certificate Expired | Triggered when the current version of a certificate is expired. |
 | Microsoft.KeyVault.KeyNewVersionCreated | Key New Version Created | Triggered when a new key or new key version is created. |
 | Microsoft.KeyVault.KeyNearExpiry | Key Near Expiry | Triggered when the current version of a key is about to expire. (The event is triggered 30 days before the expiration date.) |
-| Microsoft.KeyVault.KeyExpired | Key Expired | Triggered when a key is expired. |
+| Microsoft.KeyVault.KeyExpired | Key Expired | Triggered when the current version of a key is expired. |
 | Microsoft.KeyVault.SecretNewVersionCreated | Secret New Version Created | Triggered when a new secret or new secret version is created. |
 | Microsoft.KeyVault.SecretNearExpiry | Secret Near Expiry | Triggered when the current version of a secret is about to expire. (The event is triggered  30 days before the expiration date.) |
-| Microsoft.KeyVault.SecretExpired | Secret Expired | Triggered when a secret is expired. |
+| Microsoft.KeyVault.SecretExpired | Secret Expired | Triggered when the current version of a secret is expired. |
 | Microsoft.KeyVault.VaultAccessPolicyChanged | Vault Access Policy Changed | Triggered when an access policy on Key Vault changed. It includes a scenario when Key Vault permission model is changed to/from Azure role-based access control.   |
 
 ## Event examples
@@ -43,12 +43,12 @@ The following example show schema for **Microsoft.KeyVault.SecretNewVersionCreat
       "eventTime":"2019-07-25T01:08:33.1036736Z",
       "data":{
          "Id":"https://sample-kv.vault.azure.net/secrets/newsecret/ee059b2bb5bc48398a53b168c6cdcb10",
-         "vaultName":"sample-kv",
-         "objectType":"Secret",
-         "objectName ":"newsecret",
-         "version":" ee059b2bb5bc48398a53b168c6cdcb10",
-         "nbf":"1559081980",
-         "exp":"1559082102"
+         "VaultName":"sample-kv",
+         "ObjectType":"Secret",
+         "ObjectName ":"newsecret",
+         "Version":" ee059b2bb5bc48398a53b168c6cdcb10",
+         "NBF":"1559081980",
+         "EXP":"1559082102"
       },
       "dataVersion":"1",
       "metadataVersion":"1"
@@ -70,12 +70,12 @@ The following example show schema for **Microsoft.KeyVault.SecretNewVersionCreat
       "time":"2019-07-25T01:08:33.1036736Z",
       "data":{
          "Id":"https://sample-kv.vault.azure.net/secrets/newsecret/ee059b2bb5bc48398a53b168c6cdcb10",
-         "vaultName":"sample-kv",
-         "objectType":"Secret",
-         "objectName ":"newsecret",
-         "version":" ee059b2bb5bc48398a53b168c6cdcb10",
-         "nbf":"1559081980",
-         "exp":"1559082102"
+         "VaultName":"sample-kv",
+         "ObjectType":"Secret",
+         "ObjectName ":"newsecret",
+         "Version":" ee059b2bb5bc48398a53b168c6cdcb10",
+         "NBF":"1559081980",
+         "EXP":"1559082102"
       },
       "specversion":"1.0"
    }
@@ -123,12 +123,12 @@ The data object has the following properties:
 | Property | Type | Description |
 | ---------- | ----------- |---|
 | `id` | string | The ID of the object that triggered this event |
-| `vaultName` | string | The key vault name of the object that triggered this event |
-| `objectType` | string | The type of the object that triggered this event |
-| `objectName` | string | The name of the object that triggered this event |
-| `version` | string | The version of the object that triggered this event |
-| `nbf` | number | The not-before date in seconds since 1970-01-01T00:00:00Z of the object that triggered this event |
-| `exp` | number | The expiration date in seconds since 1970-01-01T00:00:00Z of the object that triggered this event |
+| `VaultName` | string | The key vault name of the object that triggered this event |
+| `ObjectType` | string | The type of the object that triggered this event |
+| `ObjectName` | string | The name of the object that triggered this event |
+| `Version` | string | The version of the object that triggered this event |
+| `NBF` | number | The not-before date in seconds since 1970-01-01T00:00:00Z of the object that triggered this event |
+| `EXP` | number | The expiration date in seconds since 1970-01-01T00:00:00Z of the object that triggered this event |
 
 ## Tutorials and how-tos
 |Title  |Description  |

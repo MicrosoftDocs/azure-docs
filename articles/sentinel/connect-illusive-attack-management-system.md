@@ -24,6 +24,8 @@ ms.author: yelevin
 > This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 This article explains how to connect your [Illusive Attack Management System](https://www.illusivenetworks.com/technology/platform/attack-detection-system) to Azure Sentinel. The Illusive Attack Management System data connector allows you to share Illusive’s attack surface analysis data and incident logs with Azure Sentinel and view this information in dedicated dashboards that offer insight into your organization’s attack surface risk (ASM Dashboard) and track unauthorized lateral movement in your organization’s network (ADS Dashboard).
 
 > [!NOTE]

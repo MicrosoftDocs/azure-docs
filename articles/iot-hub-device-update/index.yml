@@ -41,12 +41,14 @@ landingContent:
           url: device-update-plug-and-play.md
         - text: Understand device update authentication and authorization
           url: device-update-control-access.md
-        - text: Understand device update agent
+        - text: Understand Device Update agent
           url: device-update-agent-overview.md
-        - text: Understand device update importing
+        - text: Understand Device Update importing
           url: import-concepts.md
-        - text: Understand device update groups
+        - text: Understand Device Update groups
           url: device-update-groups.md
+        - text: Understand Device Update limits
+          url: device-update-limits.md
   - title: Developer guide
     linkLists:
     - linkListType: how-to-guide
@@ -78,6 +80,8 @@ landingContent:
         url:  /python/api/azure-mgmt-deviceupdate/
     - linkListType: reference
       links:
+      - text: Data Plane - .NET
+        url: /dotnet/api/azure.iot.deviceupdate?view=azure-dotnet-preview&preserve-view=true
       - text: Data Plane - JavaScript
         url: /javascript/api/@azure/iot-device-update/?view=azure-node-preview&preserve-view=true
       - text: Data Plane - Java

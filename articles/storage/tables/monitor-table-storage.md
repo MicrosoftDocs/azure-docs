@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
-ms.custom: "monitoring, devx-track-csharp, devx-track-azurecli"
+ms.custom: "monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell"
 ---
 
 # Monitoring Azure Table storage
@@ -59,7 +59,7 @@ To collect resource logs, you must create a diagnostic setting. When you create 
 
 ## Creating a diagnostic setting
 
-You can create a diagnostic setting by using the Azure portal, PowerShell, the Azure CLI, or an Azure Resource Manager template. 
+You can create a diagnostic setting by using the Azure portal, PowerShell, the Azure CLI, an Azure Resource Manager template, or Azure Policy. 
 
 For general guidance, see [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
@@ -257,6 +257,10 @@ Here's an example:
 
 To view an Azure Resource Manager template that creates a diagnostic setting, see [Diagnostic setting for Azure Storage](../../azure-monitor/essentials/resource-manager-diagnostic-settings.md#diagnostic-setting-for-azure-storage).
 
+### [Azure Policy](#tab/policy)
+
+You can create a diagnostic setting by using a policy definition. That way, you can make sure that a diagnostic setting is created for every account that is created or updated. See [Azure Policy built-in definitions for Azure Storage](../common/policy-reference.md).
+
 ---
 
 ## Analyzing metrics
@@ -328,7 +332,7 @@ You can read the metric values of your storage account or the Table storage serv
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
 ```
 
-### [.NET](#tab/azure-portal)
+### [.NET SDK](#tab/azure-portal)
 
 Azure Monitor provides the [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) to read metric definition and values. The [sample code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) shows how to use the SDK with different parameters. You need to use `0.18.0-preview` or a later version for storage metrics.
  
@@ -469,6 +473,10 @@ The following example shows how to read metric data on the metric supporting mul
 ```
 
 ### [Template](#tab/template)
+
+N/A.
+
+### [Azure Policy](#tab/policy)
 
 N/A.
 

@@ -3,8 +3,8 @@ title: Set up your Config Server instance in Azure Spring Cloud
 description: Learn how to set up a Spring Cloud Config Server instance for your Azure Spring Cloud on the Azure portal
 ms.service: spring-cloud
 ms.topic: how-to
-ms.author: brendm
-author: bmitchell287
+ms.author: karler
+author: karlerickson
 ms.date: 10/18/2019
 ms.custom: devx-track-java
 ---
@@ -241,6 +241,40 @@ Azure Spring Cloud can access Git repositories that are public, secured by SSH, 
 
 You can select the **Reset** button that appears in the **Config Server** tab to erase your existing settings completely. Delete the config server settings if you want to connect your Config Server instance to another source, such as moving from GitHub to Azure DevOps.
 
+## Config Server Refresh
+When properties are changed, services consuming those properties need to be notified before changes can be made. The default solution for Spring Cloud Config is to manually trigger the [refresh event](https://spring.io/guides/gs/centralized-configuration/), which may not be feasible if there are lots of app instances. Alternatively, in Azure Spring Cloud you can automatically refresh values from the config server by letting the config client to poll for changes based on a refresh internal.
+
+- First include spring-cloud-starter-azure-spring-cloud-client in the dependency section of your pom.xml.
+
+  ```xml
+  <dependency>
+      <groupId>com.microsoft.azure</groupId>
+      <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
+      <version>2.4.0</version>
+  </dependency>
+  ```
+
+- Second enable auto-refresh and set the appropriate refresh interval in your application.yml. In this example, the client will poll for config changes every 5 seconds, which is the minimum value you can set for refresh interval.
+By default auto-refresh is set to false and refresh-interval is set to 60 seconds.
+
+  ``` yml
+  spring:
+    cloud:
+      config:
+        auto-refresh: true
+        refresh-interval: 5
+  ```
+
+- Finally add @refreshScope in your code. In this example, the variable connectTimeout will be automatically refreshed every 5 seconds.
+
+  ``` java
+  @RestController
+  @RefreshScope
+  public class HelloController {
+      @Value("${timeout:4000}")
+      private String connectTimeout;    
+  }
+  ```
 
 
 ## Next steps

@@ -5,16 +5,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2021
+ms.custom: references_region
 
 ---
 
-# Data collection rules in Azure Monitor (preview)
+# Data collection rules in Azure Monitor
 Data Collection Rules (DCR) define data coming into Azure Monitor and specify where that data should be sent or stored. This article provides an overview of data collection rules including their contents and structure and how you can create and work with them.
 
 ## Input sources
 Data collection rules currently support the following input sources:
 
-- Azure virtual machine with the Azure Monitor agent. See [Configure data collection for the Azure Monitor agent (preview)](../agents/data-collection-rule-azure-monitor-agent.md).
+- Azure Monitor Agent running on virtual machines, virtual machine scale sets and Azure Arc for servers. See [Configure data collection for the Azure Monitor agent (preview)](../agents/data-collection-rule-azure-monitor-agent.md).
 
 
 
@@ -25,8 +26,10 @@ A data collection rule includes the following components.
 |:---|:---|
 | Data sources | Unique source of monitoring data with its own format and method of exposing its data. Examples of a data source include Windows event log, performance counters, and syslog. Each data source matches a particular data source type as described below. |
 | Streams | Unique handle that describes a set of data sources that will be transformed and schematized as one type. Each data source requires one or more streams, and one stream may be used by multiple data sources. All data sources in a stream share a common schema. Use multiple streams for example, when you want to send a particular data source to multiple tables in the same Log Analytics workspace. |
-| Destinations | Set of destinations where the data should be sent. Examples include Log Analytics workspace, Azure Monitor Metrics, and Azure Event Hubs. | 
+| Destinations | Set of destinations where the data should be sent. Examples include Log Analytics workspace and Azure Monitor Metrics. | 
 | Data flows | Definition of which streams should be sent to which destinations. | 
+
+Data collection rules are stored regionally, and are available in all public regions where Log Analytics is supported. Government regions and clouds are not currently supported.
 
 The following diagram shows the components of a data collection rule and their relationship
 
@@ -46,6 +49,10 @@ Each data source has a data source type. Each type defines a unique set of prope
 ## Limits
 For limits that apply to each data collection rule, see [Azure Monitor service limits](../service-limits.md#data-collection-rules).
 
+## Data residency 
+Data Collection Rules as a service is deployed regionally. A rule gets created and stored in the region you specify, and is backed up to the [paired-region](../../best-practices-availability-paired-regions.md#azure-regional-pairs) within the same Geo.  
+
+**Single region data residency**: The previewed feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo and Brazil South (Sao Paulo State) Region of Brazil Geo. Single region residency is enabled by default in these regions.
 
 ## Create a DCR
 You can currently use any of the following methods to create a DCR:
@@ -64,7 +71,7 @@ You can currently use any of the following methods to create a DCR:
   - [Remove-AzDataCollectionRuleAssociation](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Remove-AzDataCollectionRuleAssociation.md)
 
 ## Sample data collection rule
-The sample data collection rule below is for virtual machines with Azure Management agent and has the following details:
+The sample data collection rule below is for virtual machines with Azure Monitor agent and has the following details:
 
 - Performance data
   - Collects specific Processor, Memory, Logical Disk, and Physical Disk counters every 15 seconds and uploads every minute.

@@ -4,11 +4,11 @@ description: Learn how to automatically patch virtual machines in Azure.
 author: mayanknayar
 ms.service: virtual-machines
 ms.subservice: automatic-guest-patching
-ms.collection: windows
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 02/17/2021
+ms.date: 07/29/2021
 ms.author: manayar
+ms.custom: devx-track-azurepowershell
 
 ---
 # Preview: Automatic VM guest patching for Azure VMs
@@ -18,12 +18,12 @@ Enabling automatic VM guest patching for your Azure VMs helps ease update manage
 Automatic VM guest patching has the following characteristics:
 - Patches classified as *Critical* or *Security* are automatically downloaded and applied on the VM.
 - Patches are applied during off-peak hours in the VM's time zone.
-- Patch orchestration is managed by Azure and patches are applied following [availability-first principles](#availability-first-patching).
+- Patch orchestration is managed by Azure and patches are applied following [availability-first principles](#availability-first-updates).
 - Virtual machine health, as determined through platform health signals, is monitored to detect patching failures.
 - Works for all VM sizes.
 
 > [!IMPORTANT]
-> Automatic VM guest patching is currently in Public Preview. An opt-in procedure is needed to use the public preview functionality described below.
+> Automatic VM guest patching is currently in Public Preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -37,7 +37,7 @@ Patches are installed within 30 days of the monthly patch releases, following av
 
 Definition updates and other patches not classified as *Critical* or *Security* will not be installed through automatic VM guest patching. To install patches with other patch classifications or schedule patch installation within your own custom maintenance window, you can use [Update Management](./windows/tutorial-config-management.md#manage-windows-updates).
 
-### Availability-first patching
+### Availability-first Updates
 
 The patch installation process is orchestrated globally by Azure for all VMs that have automatic VM guest patching enabled. This orchestration follows availability-first principles across different levels of availability provided by Azure.
 
@@ -50,8 +50,8 @@ For a group of virtual machines undergoing an update, the Azure platform will or
 - The success of an update is measured by tracking the VM’s health post update. VM Health is tracked through platform health indicators for the VM.
 
 **Within a region:**
-- VMs in different Availability Zones are not updated concurrently.
-- VMs not part of an availability set are batched on a best effort basis to avoid concurrent updates for all VMs in a subscription.
+- VMs in different Availability Zones are not updated concurrently with the same update.
+- VMs that are not part of an availability set are batched on a best effort basis to avoid concurrent updates for all VMs in a subscription.
 
 **Within an availability set:**
 - All VMs in a common availability set are not updated concurrently.
@@ -68,7 +68,7 @@ As the Automatic VM Guest Patching does not configure the patch source, two simi
 
 For OS types that release patches on a fixed cadence, VMs configured to the public repository for the OS can expect to receive the same set of patches across the different rollout phases in a month. For example, Windows VMs configured to the public Windows Update repository.
 
-As a new rollout is triggered every month, a VM will receive at least one patch rollout every month if the VM is powered on during off-peak hours. This ensures that the VM is patched with the latest available security and critical patches on a monthly basis. To ensure consistency in the set of patches installed, you can configure your VMs to assess and download patches from your own private repositories.
+As a new rollout is triggered every month, a VM will receive at least one patch rollout every month if the VM is powered on during off-peak hours. This process ensures that the VM is patched with the latest available security and critical patches on a monthly basis. To ensure consistency in the set of patches installed, you can configure your VMs to assess and download patches from your own private repositories.
 
 ## Supported OS images
 Only VMs created from certain OS platform images are currently supported in the preview. Custom images are currently not supported in the preview.
@@ -78,12 +78,25 @@ The following platform SKUs are currently supported (and more are added periodic
 | Publisher               | OS Offer      |  Sku               |
 |-------------------------|---------------|--------------------|
 | Canonical  | UbuntuServer | 18.04-LTS |
-| Redhat  | RHEL | 7.x |
+| Canonical  | 0001-com-ubuntu-pro-bionic | pro-18_04-lts |
+| Canonical  | 0001-com-ubuntu-server-focal | 20_04-lts |
+| Canonical  | 0001-com-ubuntu-pro-focal | pro-20_04-lts |
+| Redhat  | RHEL | 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7_9, 7-RAW, 7-LVM |
+| Redhat  | RHEL | 8, 8.1, 8.2, 8_3, 8_4, 8-LVM |
+| Redhat  | RHEL-RAW | 8-raw |
+| OpenLogic  | Centos | 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7_8, 7_9, 7-LVM |
+| OpenLogic  | Centos | 8.0, 8_1, 8_2, 8_3, 8-lvm |
+| SUSE  | sles-12-sp5 | gen1, gen2 |
+| SUSE  | sles-15-sp2 | gen1, gen2 |
+| MicrosoftWindowsServer  | WindowsServer | 2008-R2-SP1 |
 | MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter    |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Server-Core |
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter |
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-Core |
+
+> [!NOTE]
+>Automatic VM guest patching, on-demand patch assessment and on-demand patch installation are supported only on VMs created from images with the exact combination of publisher, offer and sku from the supported OS images list. Custom images or any other publisher, offer, sku combinations are not supported.
 
 ## Patch orchestration modes
 VMs on Azure now support the following patch orchestration modes:
@@ -95,7 +108,7 @@ VMs on Azure now support the following patch orchestration modes:
 - This mode is only supported for VMs that are created using the supported OS platform images above.
 - For Windows VMs, setting this mode also disables the native Automatic Updates on the Windows virtual machine to avoid duplication.
 - To use this mode on Linux VMs, set the property `osProfile.linuxConfiguration.patchSettings.patchMode=AutomaticByPlatform` in the VM template.
-- To use this mode on Windows VMs, set the property `osProfile.windowsConfiguration.enableAutomaticUpdates=true`, and set the property  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatform` in the VM template.
+- To use this mode on Windows VMs, set the property  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatform` in the VM template.
 
 **AutomaticByOS:**
 - This mode is supported only for Windows VMs.
@@ -119,7 +132,7 @@ VMs on Azure now support the following patch orchestration modes:
 - To use this mode on Linux VMs, set the property `osProfile.linuxConfiguration.patchSettings.patchMode=ImageDefault` in the VM template.
 
 > [!NOTE]
->For Windows VMs, the property `osProfile.windowsConfiguration.enableAutomaticUpdates` can currently only be set when the VM is first created. Switching from Manual to an Automatic mode or from either Automatic modes to Manual mode is currently not supported. Switching from AutomaticByOS mode to AutomaticByPlatfom mode is supported.
+>For Windows VMs, the property `osProfile.windowsConfiguration.enableAutomaticUpdates` can only be set when the VM is first created. This impacts certain patch mode transitions. Switching between AutomaticByPlatform and Manual modes is supported on VMs that have `osProfile.windowsConfiguration.enableAutomaticUpdates=false`. Similarly switching between AutomaticByPlatform and AutomaticByOS modes is supported on VMs that have `osProfile.windowsConfiguration.enableAutomaticUpdates=true`. Switching between AutomaticByOS and Manual modes is not supported.
 
 ## Requirements for enabling automatic VM guest patching
 
@@ -127,78 +140,11 @@ VMs on Azure now support the following patch orchestration modes:
 - For Linux VMs, the Azure Linux agent must be version 2.2.53.1 or higher. [Update the Linux agent](./extensions/update-linux-agent.md) if the current version is lower than the required version.
 - For Windows VMs, the Windows Update service must be running on the virtual machine.
 - The virtual machine must be able to access the configured update endpoints. If your virtual machine is configured to use private repositories for Linux or Windows Server Update Services (WSUS) for Windows VMs, the relevant update endpoints must be accessible.
-- Use Compute API version 2020-12-01 or higher. Compute API version 2020-06-01 can be used for Windows VMs with limited functionality.
-
-Enabling the preview functionality requires a one-time opt-in for the features **InGuestAutoPatchVMPreview** and **InGuestPatchVMPreview** per subscription, as detailed in the following section.
-
-### REST API
-The following example describes how to enable the preview for your subscription:
-
-```
-POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/InGuestAutoPatchVMPreview/register?api-version=2015-12-01`
-```
-```
-POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/InGuestPatchVMPreview/register?api-version=2015-12-01`
-```
-
-Feature registration can take up to 15 minutes. To check the registration status:
-
-```
-GET on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/InGuestAutoPatchVMPreview?api-version=2015-12-01`
-```
-```
-GET on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/InGuestPatchVMPreview?api-version=2015-12-01`
-```
-Once the feature is registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider.
-
-```
-POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Compute/register?api-version=2020-06-01`
-```
-
-### Azure PowerShell
-Use the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) cmdlet to enable the preview for your subscription.
-
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName InGuestAutoPatchVMPreview -ProviderNamespace Microsoft.Compute
-Register-AzProviderFeature -FeatureName InGuestPatchVMPreview -ProviderNamespace Microsoft.Compute
-```
-
-Feature registration can take up to 15 minutes. To check the registration status:
-
-```azurepowershell-interactive
-Get-AzProviderFeature -FeatureName InGuestAutoPatchVMPreview -ProviderNamespace Microsoft.Compute
-Get-AzProviderFeature -FeatureName InGuestPatchVMPreview -ProviderNamespace Microsoft.Compute
-```
-
-Once the feature is registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider.
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-```
-
-### Azure CLI 2.0
-Use [az feature register](/cli/azure/feature#az_feature_register) to enable the preview for your subscription.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.Compute --name InGuestAutoPatchVMPreview `
-az feature register --namespace Microsoft.Compute --name InGuestPatchVMPreview
-```
-
-Feature registration can take up to 15 minutes. To check the registration status:
-
-```azurecli-interactive
-az feature show --namespace Microsoft.Compute --name InGuestAutoPatchVMPreview `
-az feature show --namespace Microsoft.Compute --name InGuestPatchVMPreview
-```
-
-Once the feature is registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-```
+- Use Compute API version 2021-03-01 or higher to access all functionality including on-demand assessment and on-demand patching.
+- Custom images are not currently supported.
 
 ## Enable automatic VM guest patching
-To enable automatic VM guest patching on a Windows VM, ensure that the property *osProfile.windowsConfiguration.enableAutomaticUpdates* is set to *true* in the VM template definition. This property can only be set when creating the VM. This additional property is not applicable for Linux VMs.
+Automatic VM guest patching can be enabled on any Windows or Linux VM that is created from a supported platform image. To enable automatic VM guest patching on a Windows VM, ensure that the property *osProfile.windowsConfiguration.enableAutomaticUpdates* is set to *true* in the VM template definition. This property can only be set when creating the VM. This additional property is not applicable for Linux VMs.
 
 ### REST API for Linux VMs
 The following example describes how to enable automatic VM guest patching:
@@ -209,6 +155,7 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
 
 ```json
 {
+  "location": "<location>",
   "properties": {
     "osProfile": {
       "linuxConfiguration": {
@@ -226,11 +173,12 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
 The following example describes how to enable automatic VM guest patching:
 
 ```
-PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVirtualMachine?api-version=2020-06-01`
+PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVirtualMachine?api-version=2020-12-01`
 ```
 
 ```json
 {
+  "location": "<location>",
   "properties": {
     "osProfile": {
       "windowsConfiguration": {
@@ -277,7 +225,7 @@ It can take more than three hours to enable automatic VM guest updates on a VM, 
 Automatic updates are disabled in most scenarios, and patch installation is done through the extension going forward. The following conditions apply.
 - If a Windows VM previously had Automatic Windows Update turned on through the AutomaticByOS patch mode, then Automatic Windows Update is turned off for the VM when the extension is installed.
 - For Ubuntu VMs, the default automatic updates are disabled automatically when Automatic VM Guest Patching completes enablement.
-- For RHEL, automatic updates need to be manually disabled (this is a preview limitation). Execute:
+- For RHEL, automatic updates need to be manually disabled in the preview. Execute:
 
 ```
 systemctl stop packagekit
@@ -318,15 +266,26 @@ The assessment results for your VM can be reviewed under the `availablePatchSumm
 
 The patch installation results for your VM can be reviewed under the `lastPatchInstallationSummary` section. This section provides details on the last patch installation attempt on the VM, including the number of patches that were installed, pending, failed or skipped. Patches are installed only during the off-peak hours maintenance window for the VM. Pending and failed patches are automatically retried during the next off-peak hours maintenance window.
 
+## Disable automatic VM guest patching
+Automatic VM guest patching can be disabled by changing the [patch orchestration mode](#patch-orchestration-modes) for the VM.
+
+To disable automatic VM guest patching on a Linux VM, change the patch mode to `ImageDefault`.
+
+To enable automatic VM guest patching on a Windows VM, the property `osProfile.windowsConfiguration.enableAutomaticUpdates` determines which patch modes can be set on the VM and this property can only be set when the VM is first created. This impacts certain patch mode transitions:
+- For VMs that have `osProfile.windowsConfiguration.enableAutomaticUpdates=false`, disable automatic VM guest patching by changing the patch mode to `Manual`.
+- For VMs that have `osProfile.windowsConfiguration.enableAutomaticUpdates=true`, disable automatic VM guest patching by changing the patch mode to `AutomaticByOS`.
+- Switching between AutomaticByOS and Manual modes is not supported.
+
+Use the examples from the [enablement](#enable-automatic-vm-guest-patching) section above in this article for API, PowerShell and CLI usage examples to set the required patch mode.
+
 ## On-demand patch assessment
 If automatic VM guest patching is already enabled for your VM, a periodic patch assessment is performed on the VM during the VM's off-peak hours. This process is automatic and the results of the latest assessment can be reviewed through the VM's instance view as described earlier in this document. You can also trigger an on-demand patch assessment for your VM at any time. Patch assessment can take a few minutes to complete and the status of the latest assessment is updated on the VM's instance view.
-
-Enabling the preview functionality requires a one-time opt-in for the feature **InGuestPatchVMPreview** per subscription. This feature preview is different from the automatic VM guest patching feature enrollment done earlier for **InGuestAutoPatchVMPreview**. Enabling the additional feature preview is a separate and additional requirement. The feature preview for on-demand patch assessment can be enabled following the [preview enablement process](automatic-vm-guest-patching.md#requirements-for-enabling-automatic-vm-guest-patching) described earlier for automatic VM guest patching.
 
 > [!NOTE]
 >On-demand patch assessment does not automatically trigger patch installation. If you have enabled automatic VM guest patching then the assessed and applicable patches for the VM will be installed during the VM's off-peak hours, following the availability-first patching process described earlier in this document.
 
 ### REST API
+Use the [Assess Patches](/rest/api/compute/virtual-machines/assess-patches) API to assess available patches for your virtual machine.
 ```
 POST on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVirtualMachine/assessPatches?api-version=2020-12-01`
 ```
@@ -343,6 +302,79 @@ Use [az vm assess-patches](/cli/azure/vm#az_vm_assess_patches) to assess availab
 
 ```azurecli-interactive
 az vm assess-patches --resource-group myResourceGroup --name myVM
+```
+
+## On-demand patch installation
+If automatic VM guest patching is already enabled for your VM, a periodic patch installation of Security and Critical patches is performed on the VM during the VM's off-peak hours. This process is automatic and the results of the latest installation can be reviewed through the VM's instance view as described earlier in this document.
+
+You can also trigger an on-demand patch installation for your VM at any time. Patch installation can take a few minutes to complete and the status of the latest installation is updated on the VM's instance view.
+
+You can use on-demand patch installation to install all patches of one or more patch classifications. You can also choose to include or exclude specific packages for Linux or specific KB IDs for Windows. When triggering an on-demand patch installation, ensure that you specify at least one patch classification or at least one patch (package for Linux, KB ID for Windows) in the inclusion list.
+
+### REST API
+Use the [Install Patches](/rest/api/compute/virtual-machines/install-patches) API to install patches on your virtual machine.
+
+```
+POST on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVirtualMachine/installPatches?api-version=2020-12-01`
+```
+
+Example request body for Linux:
+```json
+{
+  "maximumDuration": "PT1H",
+  "rebootSetting": "IfRequired",
+  "linuxParameters": {
+    "classificationsToInclude": [
+      "Critical",
+      "Security"
+    ]
+  }
+}
+```
+
+Example request body for Windows:
+```json
+{
+  "maximumDuration": "PT1H",
+  "rebootSetting": "IfRequired",
+  "windowsParameters": {
+    "classificationsToInclude": [
+      "Critical",
+      "Security"
+    ]
+  }
+}
+```
+
+### Azure PowerShell
+Use the [Invoke-AzVMInstallPatch](/powershell/module/az.compute/invoke-azvminstallpatch) cmdlet to install patches on your virtual machine.
+
+Example to install certain packages on a Linux VM:
+```azurepowershell-interactive
+Invoke-AzVmInstallPatch -ResourceGroupName "myResourceGroup" -VMName "myVM" -MaximumDuration "PT90M" -RebootSetting "Always" -Linux -ClassificationToIncludeForLinux "Security" -PackageNameMaskToInclude ["package123"] -PackageNameMaskToExclude ["package567"]
+```
+
+Example to install all Critical patches on a Windows VM:
+```azurepowershell-interactive
+Invoke-AzVmInstallPatch -ResourceGroupName "myResourceGroup" -VMName "myVM" -MaximumDuration "PT2H" -RebootSetting "Never" -Windows   -ClassificationToIncludeForWindows Critical
+```
+
+Example to install all Security patches on a Windows VM, while including and excluding patches with specific KB IDs and excluding any patch that requires a reboot:
+```azurepowershell-interactive
+Invoke-AzVmInstallPatch -ResourceGroupName "myResourceGroup" -VMName "myVM" -MaximumDuration "PT90M" -RebootSetting "Always" -Windows -ClassificationToIncludeForWindows "Security" -KBNumberToInclude ["KB1234567", "KB123567"] -KBNumberToExclude ["KB1234702", "KB1234802"] -ExcludeKBsRequiringReboot
+```
+
+### Azure CLI
+Use [az vm install-patches](/cli/azure/vm#az_vm_install_patches) to install patches on your virtual machine.
+
+Example to install all Critical patches on a Linux VM:
+```azurecli-interactive
+az vm install-patches --resource-group myResourceGroup --name myVM --maximum-duration PT2H --reboot-setting IfRequired --classifications-to-include-linux Critical
+```
+
+Example to install all Critical and Security patches on a Windows VM, while excluding any patch that requires a reboot:
+```azurecli-interactive
+az vm install-patches --resource-group myResourceGroup --name myVM --maximum-duration PT2H --reboot-setting IfRequired --classifications-to-include-win Critical Security --exclude-kbs-requiring-reboot true
 ```
 
 ## Next steps

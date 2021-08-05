@@ -37,7 +37,7 @@ The Salesforce connector is built on top of the Salesforce REST/Bulk API. By def
 
 ## Prerequisites
 
-API permission must be enabled in Salesforce. For more information, see [Enable API access in Salesforce by permission set](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
+API permission must be enabled in Salesforce.
 
 ## Salesforce request limits
 

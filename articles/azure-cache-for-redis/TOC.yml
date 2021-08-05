@@ -102,7 +102,7 @@
       href: cache-private-link.md
     - name: Enable zone redundancy 
       href: cache-how-to-zone-redundancy.md
-    - name: Set up OSS geo-replication
+    - name: Set up geo-replication
       href: cache-how-to-geo-replication.md
     - name: Set up Enterprise active geo-replication
       href: cache-how-to-active-geo-replication.md
@@ -110,12 +110,14 @@
       href: cache-reserved-pricing.md
     - name: Migrate to Azure Cache for Redis
       href: cache-migration-guide.md
+    - name: Migrate from VNet injection to Private Link
+      href: cache-vnet-migration.md
     - name: Planning FAQs
-      href: cache-planning-faq.md
+      href: cache-planning-faq.yml
   - name: Build
     items:
     - name: Development FAQs
-      href: cache-development-faq.md
+      href: cache-development-faq.yml
   - name: Automate
     items:
     - name: Deploy and manage using Azure PowerShell
@@ -145,7 +147,7 @@
     - name: Remove TLS 1.0 and 1.1
       href: cache-remove-tls-10-11.md
     - name: Management FAQs
-      href: cache-management-faq.md
+      href: cache-management-faq.yml
   - name: Monitor
     items:
     - name: Monitor in Azure portal
@@ -153,7 +155,7 @@
     - name: Set alerts for exceptions
       href: cache-how-to-monitor.md#operations-and-alerts
     - name: Monitoring FAQs
-      href: cache-monitor-troubleshoot-faq.md
+      href: cache-monitor-troubleshoot-faq.yml
   - name: Scale
     items:
     - name: Update to a different size and tier
@@ -171,7 +173,7 @@
     - name: Troubleshoot data loss
       href: cache-troubleshoot-data-loss.md
     - name: Troubleshooting FAQs
-      href: cache-monitor-troubleshoot-faq.md
+      href: cache-monitor-troubleshoot-faq.yml
 - name: Reference
   items:
   - name: Azure Cache for Redis samples
@@ -198,7 +200,7 @@
 - name: Resources
   items:
   - name: Azure Cache for Redis FAQs
-    href: cache-faq.md
+    href: cache-faq.yml
   - name: Videos
     href: https://www.youtube.com/results?search_query=azure+redis+cache
   - name: Microsoft Q&A question page

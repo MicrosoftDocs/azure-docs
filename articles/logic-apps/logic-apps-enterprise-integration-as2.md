@@ -115,7 +115,7 @@ This article shows how to add the AS2 encoding and decoding actions to an existi
 
 ## Sample
 
-To try deploying a fully operational logic app and sample AS2 scenario, see the [AS2 logic app template and scenario](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/).
+To try deploying a fully operational logic app and sample AS2 scenario, see the [AS2 logic app template and scenario](https://azure.microsoft.com/resources/templates/logic-app-as2-send-receive/).
 
 ## Connector reference
 

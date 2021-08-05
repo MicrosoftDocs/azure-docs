@@ -1,15 +1,15 @@
 ---
 title: Add a preview audience for a virtual machine offer on Azure Marketplace
-description: Learn how to add a preview audience for a virtual machine offer on Azure Marketplace.
+description: Add a preview audience for a virtual machine offer on Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: mingshen-ms 
-ms.author: mingshen
+author: iqshahmicrosoft
+ms.author: iqshah
 ms.date: 10/19/2020
 ---
 
-# How to add a preview audience for a virtual machine offer
+# Add a preview audience for a virtual machine offer
 
 On the **Preview** page (select from the left-nav menu in Partner Center), select a limited **Preview audience** for validating your offer before you publish it live to the broader commercial marketplace audience.
 

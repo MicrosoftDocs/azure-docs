@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 05/10/2021
+ms.date: 07/19/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -31,6 +31,8 @@ Read operations on a blob that was created with an encryption scope happen trans
 When you define an encryption scope, you can specify whether the scope is protected with a Microsoft-managed key or with a customer-managed key that is stored in Azure Key Vault. Different encryption scopes on the same storage account can use either Microsoft-managed or customer-managed keys. You can also switch the type of key used to protect an encryption scope from a customer-managed key to  a Microsoft-managed key, or vice versa, at any time. For more information about customer-managed keys, see [Customer-managed keys for Azure Storage encryption](../common/customer-managed-keys-overview.md). For more information about Microsoft-managed keys, see [About encryption key management](../common/storage-service-encryption.md#about-encryption-key-management).
 
 If you define an encryption scope with a customer-managed key, then you can choose to update the key version either automatically or manually. If you choose to automatically update the key version, then Azure Storage checks the key vault or managed HSM daily for a new version of the customer-managed key and automatically updates the key to the latest version. For more information about updating the key version for a customer-managed key, see [Update the key version](../common/customer-managed-keys-overview.md#update-the-key-version).
+
+Azure Policy provides a built-in policy to require that encryption scopes use customer-managed keys. For more information, see the **Storage** section in [Azure Policy built-in policy definitions](../../governance/policy/samples/built-in-policies.md#storage).
 
 A storage account may have up to 10,000 encryption scopes that are protected with customer-managed keys for which the key version is automatically updated. If your storage account already has 10,000 encryption scopes that are protected with customer-managed keys that are being automatically updated, then the key version must be updated manually for any additional encryption scopes that are protected with customer-managed keys.  
 
@@ -66,7 +68,7 @@ When you disable an encryption scope, any subsequent read or write operations ma
 
 When an encryption scope is disabled, you are no longer billed for it. Disable any encryption scopes that are not needed to avoid unnecessary charges.
 
-If your encryption scope is protected with a customer-managed key, and you delete the key in the key vault, the data will become inaccessible. Be sure to also disable the encryption scope to avoid being charged for it.
+If your encryption scope is protected with a customer-managed key, and you revoke the key in the key vault, the data will become inaccessible. Be sure to disable the encryption scope prior to revoking the key in key vault to avoid being charged for the encryption scope.
 
 Keep in mind that customer-managed keys are protected by soft delete and purge protection in the key vault, and a deleted key is subject to the behavior defined for by those properties. For more information, see one of the following topics in the Azure Key Vault documentation:
 
@@ -75,6 +77,8 @@ Keep in mind that customer-managed keys are protected by soft delete and purge p
 
 > [!IMPORTANT]
 > It is not possible to delete an encryption scope.
+
+
 
 ## Next steps
 

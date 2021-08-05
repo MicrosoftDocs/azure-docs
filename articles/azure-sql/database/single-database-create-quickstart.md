@@ -3,12 +3,12 @@ title: Create a single database
 description: Create a single database in Azure SQL Database using the Azure portal, PowerShell, or the Azure CLI.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
-ms.custom: contperf-fy21q1, devx-track-azurecli
+ms.subservice: deployment-configuration
+ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang:
 ms.topic: quickstart
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer: 
 ms.date: 01/27/2021
 ---
@@ -17,10 +17,10 @@ ms.date: 01/27/2021
 In this quickstart, you create a [single database](single-database-overview.md) in Azure SQL Database using either the Azure portal, a PowerShell script, or an Azure CLI script. You then query the database using **Query editor** in the Azure portal.
 
 
-
 ## Prerequisite
 
 - An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
+- You may also need the latest version of either [Azure PowerShell](/powershell/azure/install-az-ps) or the [Azure CLI](/cli/azure/install-azure-cli-windows), depending on the creation method you choose. 
 
 ## Create a single database
 

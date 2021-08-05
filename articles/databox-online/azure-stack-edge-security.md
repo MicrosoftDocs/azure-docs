@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Edge Pro FPGA security | Microsoft Docs
+title: Azure Stack Edge Pro FPGA security
 description: Describes the security and privacy features that protect your Azure Stack Edge Pro FPGA device, service, and data on-premises and in the cloud.
 services: Data Box Edge
 author: alkohli
@@ -10,13 +10,13 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: alkohli
 ---
-# Azure Stack Edge Pro FPGA security and data protection
+# Azure Stack Edge security and data protection
 
-Security is a major concern when you're adopting a new technology, especially if the technology is used with confidential or proprietary data. Azure Stack Edge Pro FPGA helps you ensure that only authorized entities can view, modify, or delete your data.
+Security is a major concern when you're adopting a new technology, especially if the technology is used with confidential or proprietary data. Azure Stack Edge helps you ensure that only authorized entities can view, modify, or delete your data.
 
-This article describes the Azure Stack Edge Pro FPGA security features that help protect each of the solution components and the data stored in them.
+This article describes the Azure Stack Edge security features that help protect each of the solution components and the data stored in them.
 
-Azure Stack Edge Pro FPGA consists of four main components that interact with each other:
+Azure Stack Edge consists of four main components that interact with each other:
 
 - **Azure Stack Edge service, hosted in Azure**. The management resource that you use to create the device order, configure the device, and then track the order to completion.
 - **Azure Stack Edge Pro FPGA device**. The transfer device that's shipped to you so you can import your on-premises data into Azure.
@@ -29,9 +29,9 @@ The Azure Stack Edge service is a management service that's hosted in Azure. The
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-service-protection.md)]
 
-## Azure Stack Edge Pro FPGA device protection
+## Azure Stack Edge device protection
 
-The Azure Stack Edge Pro FPGA device is an on-premises device that helps transform your data by processing it locally and then sending it to Azure. Your device:
+The Azure Stack Edge device is an on-premises device that helps transform your data by processing it locally and then sending it to Azure. Your device:
 
 - Needs an activation key to access the Azure Stack Edge service.
 - Is protected at all times by a device password.
@@ -41,7 +41,7 @@ The Azure Stack Edge Pro FPGA device is an on-premises device that helps transfo
 
 ### Protect the device via activation key
 
-Only an authorized Azure Stack Edge Pro FPGA device is allowed to join the Azure Stack Edge service that you create in your Azure subscription. To authorize a device, you need to use an activation key to activate the device with the Azure Stack Edge service.
+Only an authorized Azure Stack Edge device is allowed to join the Azure Stack Edge service that you create in your Azure subscription. To authorize a device, you need to use an activation key to activate the device with the Azure Stack Edge service.
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-activation-key.md)]
 
@@ -49,7 +49,7 @@ For more information, see [Get an activation key](azure-stack-edge-deploy-prep.m
 
 ### Protect the device via password
 
-Passwords ensure that only authorized users can access your data. Azure Stack Edge Pro FPGA devices boot up in a locked state.
+Passwords ensure that only authorized users can access your data. Azure Stack Edge devices boot up in a locked state.
 
 You can:
 

@@ -21,6 +21,8 @@ ms.author: yelevin
 
 The [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS) connector lets you stream alerts and [Cloud Discovery logs](/cloud-app-security/tutorial-shadow-it) from MCAS into Azure Sentinel. This will enable you to gain visibility into your cloud apps, get sophisticated analytics to identify and combat cyberthreats, and control how your data travels.
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 ## Prerequisites
 
 - Your user must have read and write permissions on the workspace.

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 07/23/2021
 ms.author: jeedes
 ---
 
@@ -20,8 +20,6 @@ In this tutorial, you learn how to integrate Prezi with Azure Active Directory (
 * Control who has access to Prezi in Azure AD.
 * Enable your users to be automatically signed in to Prezi with their Azure AD accounts.
 * Manage your accounts in the Azure portal.
-
-To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -34,9 +32,8 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Prezi supports SP- and IDP-initiated SSO.
+* Prezi supports SP and IDP initiated SSO.
 * Prezi supports just-in-time user provisioning.
-* After you configure Prezi, you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. For more information, see [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -45,7 +42,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 To configure the integration of Prezi into Azure AD, you need to add Prezi from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) by using either a work or school account or a personal Microsoft account.
+1. Sign in to the Azure portal by using either a work or school account or a personal Microsoft account.
 1. On the leftmost pane, select **Azure Active Directory**.
 1. Go to **Enterprise applications**, and then select **All applications**.
 1. To add a new application, select **New application**.
@@ -56,7 +53,7 @@ To configure the integration of Prezi into Azure AD, you need to add Prezi from 
 
 Configure and test Azure AD SSO with Prezi by using a test user called B.Simon. For SSO to work, you establish a link relationship between an Azure AD user and the related user in Prezi.
 
-To configure and test Azure AD SSO with Prezi, complete these building blocks:
+To configure and test Azure AD SSO with Prezi, perform the following steps:
 
 1. [Configure Azure AD SSO](#configure-azure-ad-sso) to enable your users to use this feature.
     1. [Create an Azure AD test user](#create-an-azure-ad-test-user) to test Azure AD SSO with B.Simon.
@@ -69,9 +66,9 @@ To configure and test Azure AD SSO with Prezi, complete these building blocks:
 
 To enable Azure AD SSO in the Azure portal:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Prezi** application integration page, find the **Manage** section and select **Single sign-on**.
+1. In the Azure portal, on the **Prezi** application integration page, find the **Manage** section and select **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up Single Sign-On with SAML** page, select the **Edit** icon to edit the settings on **Basic SAML Configuration**.
+1. On the **Set up Single Sign-On with SAML** page, select the pencil icon to edit the settings on **Basic SAML Configuration**.
 
    ![Edit Basic SAML Configuration settings](common/edit-urls.png)
 
@@ -79,7 +76,8 @@ To enable Azure AD SSO in the Azure portal:
 
 1. Select **Set additional URLs**, and do the following step if you want to configure the application in **SP**-initiated mode:
 
-    In the **Sign-on URL** box, enter the URL: `https://prezi.com/login/sso/`.
+    In the **Sign-on URL** box, type the URL: 
+    `https://prezi.com/login/sso/`.
 
 1. Select **Save**.
 
@@ -121,13 +119,7 @@ In this section, you enable B.Simon to use Azure SSO by granting access to Prezi
 1. In the Azure portal, select **Enterprise applications** > **All applications**.
 1. In the applications list, select **Prezi**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-
-   ![The Users and groups link](common/users-groups-blade.png)
-
 1. Select **Add user**, and then select **Users and groups** in the **Add Assignment** dialog box.
-
-	![The Add user link](common/add-assign-user.png)
-
 1. In the **Users and groups** dialog box, select **B.Simon** from the users list, and click **Select** at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list and then click **Select** at the bottom of the screen.
 1. In the **Add Assignment** dialog box, select **Assign**.
@@ -142,7 +134,7 @@ In this section, you enable B.Simon to use Azure SSO by granting access to Prezi
 
 1. Go to the **Single Sign-On (SSO)** section, and turn on the toggle to enable SSO.
     
-    ![Single Sign-On (SSO) toggle](./media/prezi-tutorial/single-signon.png)
+    ![Single Sign-On (SSO) toggle](./media/prezi-tutorial/single-sign-on.png)
 
 1. In the **Single sign-on (SSO)** section, follow these steps:
 
@@ -162,15 +154,20 @@ In this section, a user called Britta Simon is created in Prezi. Prezi supports 
 
 ## Test SSO 
 
-In this section, you test your Azure AD SSO configuration by using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-When you select the Prezi tile in the Access Panel, you should be automatically signed in to the Prezi account for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+#### SP initiated:
 
-## Additional resources
+* Click on **Test this application** in Azure portal. This will redirect to Prezi Sign on URL where you can initiate the login flow.  
 
-- [List of tutorials on how to integrate SaaS apps with Azure Active Directory](./tutorial-list.md)
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
-- [Try Prezi with Azure AD](https://aad.portal.azure.com/)
-- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
-- [How to protect Prezi with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)
+* Go to Prezi Sign-on URL directly and initiate the login flow from there.
+
+#### IDP initiated:
+
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Prezi for which you set up the SSO. 
+
+You can also use Microsoft My Apps to test the application in any mode. When you click the Prezi tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Prezi for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+
+## Next steps
+
+Once you configure Prezi you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

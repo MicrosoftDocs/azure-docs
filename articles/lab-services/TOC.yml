@@ -42,32 +42,41 @@
         href: class-types.md
       - name: Adobe Creative Cloud
         href: class-type-adobe-creative-cloud.md
-      - name: Autodesk
-        href: class-type-autodesk.md
-      - name: Deep learning in natural language processing
-        href: class-type-deep-learning-natural-language-processing.md
-      - name: Shell scripting on Linux
-        href: class-type-shell-scripting-linux.md
-      - name: Ethical hacking
-        href: class-type-ethical-hacking.md
-      - name: Networking with GNS3
-        href: class-type-networking-gns3.md
-      - name: Database management
-        href: class-type-database-management.md
-      - name: Sql database management and development
-        href: class-type-sql-server.md
-      - name: Python and Jupyter Notebooks
-        href: class-type-jupyter-notebook.md
-      - name: Big data analytics
-        href: class-type-big-data-analytics.md
-      - name: MATLAB
-        href: class-type-matlab.md
-      - name: SolidWorks computer-aided design (CAD)
-        href: class-type-solidworks.md
       - name: ArcGIS
         href: class-type-arcgis.md
+      - name: Autodesk
+        href: class-type-autodesk.md
+      - name: Big data analytics
+        href: class-type-big-data-analytics.md
+      - name: Database management
+        href: class-type-database-management.md
+      - name: Deep learning in natural language processing
+        href: class-type-deep-learning-natural-language-processing.md
+      - name: Ethical hacking with Hyper-V
+        href: class-type-ethical-hacking.md
+      - name: Ethical hacking with VirtualBox
+        href: class-type-ethical-hacking-virtualbox.md
+      - name: MATLAB
+        href: class-type-matlab.md
+      - name: Networking with GNS3
+        href: class-type-networking-gns3.md
       - name: Project Lead the Way
         href: class-type-pltw.md
+      - name: Python and Jupyter Notebooks
+        href: class-type-jupyter-notebook.md
+      - name: React web development
+        items:
+        - name: React (Linux)
+          href: class-type-react-linux.md
+        - name: React (Windows) 
+          href: class-type-react-windows.md
+      - name: Shell scripting on Linux
+        href: class-type-shell-scripting-linux.md
+      - name: SolidWorks computer-aided design (CAD)
+        displayName: SolidWorks CAD
+        href: class-type-solidworks.md
+      - name: Sql database management and development
+        href: class-type-sql-server.md
     - name: Use Azure Lab Services within Teams
       items:
         - name: Overview 
@@ -97,12 +106,24 @@
       href: how-to-connect-peer-virtual-network.md
     - name: How to create a lab with a shared resource
       href: how-to-create-a-lab-with-shared-resource.md
-    - name: Use shared image gallery
+    - name: Use shared image gallery for custom images
       items:
       - name: Attach or detach a shared image gallery
         href: how-to-attach-detach-shared-image-gallery.md
-      - name: Upload a Windows custom image to shared image gallery
-        href: upload-custom-image-shared-image-gallery.md
+      - name: Create custom images for labs
+        href: approaches-for-custom-image-creation.md
+      - name: Windows
+        items:
+          - name: Bring a custom image from an Azure VM
+            href: how-to-bring-custom-windows-image-azure-vm.md
+          - name: Bring a custom image from a physical environment
+            href: upload-custom-image-shared-image-gallery.md
+      - name: Linux
+        items:
+          - name: Bring a custom image from an Azure VM
+            href: how-to-bring-custom-linux-image-azure-vm.md
+          - name: Bring a custom image from a physical environment
+            href: how-to-bring-custom-linux-image-vhd.md
     - name: Add additional owners to a classroom lab
       href: how-to-add-user-lab-owner.md
     - name: Configure firewall settings
@@ -188,7 +209,7 @@
   - name: Az.LabServices PowerShell module (preview)
     href: reference-powershell-module.md
   - name: Azure CLI
-    href: /cli/azure/hack
+    href: https://github.com/Azure/azure-cli-extensions/tree/main/src/hack
 - name: Resources
   items:
   - name: Azure Lab Services Blog
@@ -200,4 +221,4 @@
   - name: Tech community forum
     href: https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices
   - name: Frequently asked questions
-    href: classroom-labs-faq.md
+    href: classroom-labs-faq.yml

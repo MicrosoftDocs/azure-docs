@@ -1,8 +1,8 @@
 ---
 title: "Quickstart - Build and deploy apps to Azure Spring Cloud"
 description: Describes app deployment to Azure Spring Cloud.
-author: MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/03/2020
@@ -208,7 +208,6 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
 
     ```azurecli
     az configure --defaults group=<resource group name> spring-cloud=<service name>  
-    az spring-cloud config-server git set -n <service instance name> --uri https://github.com/azure-samples/spring-petclinic-microservices-config
     ```
 
 1. Create the 2 core microservices for PetClinic: API gateway and customers-service.
@@ -240,7 +239,7 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
 
 ## Verify the services
 
-Access the app gateway and customers service from browser with the **Public Url** shown above, in the format of "https://<service name>-api-gateway.azuremicroservices.io".
+Access the app gateway and customers service from browser with the **Public Url** shown above, in the format of `https://<service name>-api-gateway.azuremicroservices.io`.
 
 ![Access petclinic customers service](media/build-and-deploy/access-customers-service.png)
 
@@ -277,7 +276,7 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
 1. Generate configurations by running the following command in the root folder of Pet Clinic containing the parent POM. If you have already signed-in with Azure CLI, the command will automatically pick up the credentials. Otherwise, it will sign you in with prompt instructions. For more information, see our [wiki page](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
 
     ```azurecli
-    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.3.0:config
+    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.6.0:config
     ```
     
     You will be asked to select:
@@ -293,7 +292,7 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
             <plugin>
                 <groupId>com.microsoft.azure</groupId>
                 <artifactId>azure-spring-cloud-maven-plugin</artifactId>
-                <version>1.3.0</version>
+                <version>1.6.0</version>
                 <configuration>
                     <subscriptionId>xxxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx</subscriptionId>
                     <clusterName>v-spr-cld</clusterName>
@@ -312,7 +311,7 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
     
 ## Verify the services
 
-A successful deployment command will return a the URL of the form: "https://<service name>-spring-petclinic-api-gateway.azuremicroservices.io".  Use it to navigate to the running service.
+A successful deployment command will return a the URL of the form: `https://<service name>-spring-petclinic-api-gateway.azuremicroservices.io`. Use it to navigate to the running service.
 
 ![Access Pet Clinic](media/build-and-deploy/access-customers-service.png)
 
@@ -344,7 +343,7 @@ Correct app names in each `pom.xml` for above modules and then run the `deploy` 
     ![Import Project](media/spring-cloud-intellij-howto/import-project-1-pet-clinic.png)
 
 ### Deploy api-gateway app to Azure Spring Cloud
-In order to deploy to Azure you must sign in with your Azure account with Azure Toolkit for IntelliJ, and choose your subscription. For sign-in details, see [Installation and sign-in](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
+In order to deploy to Azure you must sign in with your Azure account with Azure Toolkit for IntelliJ, and choose your subscription. For sign-in details, see [Installation and sign-in](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
 1. Right-click your project in IntelliJ project explorer, and select **Azure** -> **Deploy to Azure Spring Cloud**.
 

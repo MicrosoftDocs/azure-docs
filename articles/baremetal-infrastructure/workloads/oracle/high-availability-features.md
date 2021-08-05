@@ -2,7 +2,7 @@
 title: High availability features for Oracle on Azure BareMetal
 description: Learn about the features available in BareMetal for an Oracle database. 
 ms.topic: overview
-ms.subservice: workloads
+ms.subservice: baremetal-oracle
 ms.date: 04/16/2021
 ---
 

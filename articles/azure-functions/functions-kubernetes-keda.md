@@ -1,11 +1,10 @@
 ---
 title: Azure Functions on Kubernetes with KEDA
 description: Understand how to run Azure Functions in Kubernetes in the cloud or on-premises using KEDA, Kubernetes-based event driven autoscaling.
-author: jeffhollan
-
+author: eamonoreilly
 ms.topic: conceptual
 ms.date: 11/18/2019
-ms.author: jehollan
+ms.author: eamono
 ---
 
 # Azure Functions on Kubernetes with KEDA

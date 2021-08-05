@@ -7,12 +7,19 @@ ms.topic: troubleshooting
 ms.date: 09/15/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell
 ---
 
 # Troubleshoot Azure NFS file shares
 
 This article lists some common problems related to Azure NFS file shares. It provides potential causes and workarounds when these problems are encountered.
+
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
 ## chgrp "filename" failed: Invalid argument (22)
 

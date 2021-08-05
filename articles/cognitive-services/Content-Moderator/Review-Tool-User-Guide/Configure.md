@@ -16,6 +16,9 @@ ms.author: pafarley
 
 # Configure the Review tool
 
+[!INCLUDE [deprecation notice](../includes/tool-deprecation.md)]
+
+
 The [Review tool](https://contentmoderator.cognitive.microsoft.com) has several important features that you can access through the **Settings** menu on the dashboard.
 
 ![Content Moderator Review too settings menu](images/settings-1.png)

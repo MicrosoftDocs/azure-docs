@@ -33,11 +33,13 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Single Server?
-            url: single-server-overview.md
-          - text: What's new in Single Server?
-            url: single-server-whats-new.md            
+            url: single-server-overview.md  
           - text: View all Single server documentation
             url: single-server/index.yml
+      - linkListType: whats-new
+        links:
+          - text: What's new in Single Server?
+            url: single-server-whats-new.md
       - linkListType: concept
         links:
           - text: Server concepts
@@ -63,6 +65,10 @@ landingContent:
             url: flexible-server/overview.md
           - text: View all Flexible server documentation
             url: flexible-server/index.yml
+      - linkListType: whats-new
+        links:
+          - text: What's new in Flexible Server?
+            url: flexible-server/whats-new.md
       - linkListType: concept
         links:
           - text: Server concepts
@@ -100,15 +106,34 @@ landingContent:
           - text: Connect to Flexible server using Python
             url: flexible-server/connect-python.md
 
+# Card 5
+  - title: Migrations
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+        - text: Azure Database for MySQL migration guide
+          url: migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md
+        - text: dbForge Studio for MySQL
+          url: concepts-migrate-dbforge-studio-for-mysql.md
+        - text: Dump and restore
+          url: concepts-migrate-dump-restore.md
+        - text: Import and export
+          url: concepts-migrate-import-export.md
+        - text: Migrate Amazon RDS for MySQL with MySQL Workbench
+          url: how-to-migrate-rds-mysql-workbench.md
+        - text: Minimal-downtime migration
+          url: howto-migrate-online.md
+        - text: Common errors during or post migration
+          url: howto-troubleshoot-common-errors.md
 
-# Card 4
+# Card 5
   - title: Manage and migrate data
     linkLists:
       - linkListType: concept
         links:
           - text: Manage Single Server using Azure portal
             url: howto-create-manage-server-portal.md
-          - text: Manage Flexible Server(Preview) using Azure portal
+          - text: Manage Flexible Server (Preview) using Azure portal
             url: flexible-server/how-to-manage-server-portal.md
           - text: Migrate using dump and restore
             url: concepts-migrate-dump-restore.md
@@ -116,12 +141,16 @@ landingContent:
             url: concepts-migrate-import-export.md
       - linkListType: how-to-guide
         links:
+          - text: Migrate RDS MySQL using MySQL Workbench
+            url: how-to-migrate-rds-mysql-workbench.md
           - text: Migrate using Data Migration Service
             url: howto-migrate-online.md
           - text: Azure Data migration guide
             url: https://datamigration.microsoft.com/scenario/mysql-to-azuremysql?step=1
+          - text: Troubleshoot common errors
+            url: howto-troubleshoot-common-errors.md
 
-# Card 5
+# Card 6
   - title: Application Development
     linkLists:
       - linkListType: concept

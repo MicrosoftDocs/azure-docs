@@ -3,7 +3,7 @@ metadata:
   title: FAQ - Backing up Azure VMs
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: conceptual
-  ms.date: 05/10/2021
+  ms.date: 06/02/2021
 
 title: Frequently asked questions-Back up Azure VMs
 summary: |
@@ -109,6 +109,9 @@ sections:
 
       - question: What are the VM configurations stored in the virtual machine backup?
         answer: All the VM configurations required to perform the restore operations are stored in the VM backup. That includes the encryption copies of the VM encrypted keys, which are accessible to you on restore. The encryption copies can only be decrypted using the key vault. Temporary disks and memory state aren't captured in the snapshot.
+      
+      - question: Can we back up tags from Azure VM? If so, how many tags?
+        answer: Azure Backup can back up and restore tags, except NICs and IPs. Azure Backup honors the subscription limitations of Azure Resource Group and restores up to 50 tags.<br><br>For detailed information, see [Subscription limits](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits).
 
   - name: Restore
     questions:
@@ -203,7 +206,7 @@ sections:
           The old VM's restore points will be available for restore if needed. If you don't need this backup data, you can stop protecting your old VM with delete data.
 
       - question: Is there a limit on number of VMs that can be associated with the same backup policy?
-        answer: Yes, there's a limit of 100 VMs that can be associated to the same backup policy from the portal. We recommend that for more than 100 VMs, create multiple backup policies with same schedule or different schedule.
+        answer: Yes, there's a limit of 100 VMs that can be associated to the same backup policy from the portal. We recommend that for more than 100 VMs, create multiple backup policies with same schedule or different schedule.<br><br>There is a daily limit of 1000 for overall configure/modify protections in a vault.
 
       - question: How can I view the retention settings for my backups?
         answer: |
@@ -217,7 +220,7 @@ sections:
 
       - question: How can I disable the File Recovery option?
         answer: |
-          [This API](https://docs.microsoft.com/rest/api/backup/itemlevelrecoveryconnections/provision) provisions a script for invoking an **iSCSI connection** for file recovery from Azure Backup.
+          [This API](/rest/api/backup/item-level-recovery-connections/provision) provisions a script for invoking an **iSCSI connection** for file recovery from Azure Backup.
           - You can disable this option using **custom role-definitions** by excluding API action.
           - You can also use the [private endpoints](private-endpoints.md) to restrict access to the iSCSI server from within the private network.
           - You can also disable this option across an organization using the [deny assignment](../role-based-access-control/deny-assignments.md) feature.

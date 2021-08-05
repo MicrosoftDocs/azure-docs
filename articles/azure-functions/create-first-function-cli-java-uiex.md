@@ -33,7 +33,7 @@ Before you begin, you must have the following:
 
 + The [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
-+ The [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8 or 11. The `JAVA_HOME` environment variable must be set to the install location of the correct version of the JDK.
++ The [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8 or 11. The `JAVA_HOME` environment variable must be set to the install location of the correct version of the JDK.
 
 + [Apache Maven](https://maven.apache.org), version 3.0 or above.
 

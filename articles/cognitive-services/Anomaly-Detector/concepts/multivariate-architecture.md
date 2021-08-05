@@ -13,7 +13,7 @@ ms.author: mbullwin
 keywords: anomaly detection, machine learning, algorithms
 ---
 
-# Predictive maintenance solution with Anomaly Detector multivariate
+# Predictive maintenance solution with Anomaly Detector (multivariate)
 
 Many different industries need predictive maintenance solutions to reduce risks and gain actionable insights through processing data from their equipment. Predictive maintenance evaluates the condition of equipment by performing online monitoring. The goal is to perform maintenance before the equipment degrades or breaks down.
 

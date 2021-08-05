@@ -2,7 +2,8 @@
 title: Azure Service Fabric application resource model  
 description: This article provides an overview of managing an Azure Service Fabric application by using Azure Resource Manager.
 ms.topic: conceptual 
-ms.date: 10/21/2019
+ms.date: 10/21/2019 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Service Fabric application resource model
@@ -49,7 +50,7 @@ After the storage account is created, you create a blob container where the appl
 Resources in your cluster can be secured by setting the public access level to **private**. You can grant access in multiple ways:
 
 * Authorize access to blobs and queues by using [Azure Active Directory](../storage/common/storage-auth-aad-app.md).
-* Grant access to Azure blob and queue data by using [Azure RBAC in the Azure portal](../storage/common/storage-auth-aad-rbac-portal.md).
+* Grant access to Azure blob and queue data by using [Azure RBAC in the Azure portal](../storage/blobs/assign-azure-role-data-access.md).
 * Delegate access by using a [shared access signature](/rest/api/storageservices/delegate-access-with-shared-access-signature).
 
 The example in the following screenshot uses anonymous read access for blobs.

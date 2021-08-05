@@ -11,7 +11,7 @@ ms.date: 02/22/2021
 
 # Private offers in the Microsoft commercial marketplace
 
-Private offers, also called private plans enable publishers to create plans that are only visible to targeted customers. This article discusses the options and benefits of private offers.
+Private offers, also called private plans, enable publishers to create plans that are only visible to targeted customers. This article discusses the options and benefits of private offers.
 
 ## Unlock enterprise deals with private offers
 
@@ -55,7 +55,7 @@ Once an offer has been certified and published, customers can be updated or remo
 
 Once signed into the Azure portal, customers can follow these steps to select your private offers.
 
-1. Login to [Azure portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
 1. Under **Azure services**, select **Create a resource**.
 1. On the **New** page, next to **Azure Marketplace**, select **See all**. The Marketplace page appears.
 1. In the left navigation, select **Private Offers**.

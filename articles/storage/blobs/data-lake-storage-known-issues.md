@@ -48,6 +48,7 @@ These Blob REST APIs aren't supported:
 * [Get Page Ranges](/rest/api/storageservices/get-page-ranges)
 * [Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob)
 * [Put Page from URL](/rest/api/storageservices/put-page-from-url)
+* [Put Block List](/rest/api/storageservices/put-block-list)
 
 Unmanaged VM disks are not supported in accounts that have a hierarchical namespace. If you want to enable a hierarchical namespace on a storage account, place unmanaged VM disks into a storage account that doesn't have the hierarchical namespace feature enabled.
 
@@ -55,7 +56,7 @@ Unmanaged VM disks are not supported in accounts that have a hierarchical namesp
 
 ## Support for setting access control lists (ACLs) recursively
 
-The ability to apply ACL changes recursively from parent directory to child items is generally available. In the current release of this capability, you can apply ACL changes by using PowerShell, Azure CLI, and the .NET, Java, and Python SDK. Support is not yet available for the Azure portal, or Azure Storage Explorer.
+The ability to apply ACL changes recursively from parent directory to child items is generally available. In the current release of this capability, you can apply ACL changes by using Azure Storage Explorer, PowerShell, Azure CLI, and the .NET, Java, and Python SDK. Support is not yet available for the Azure portal.
 
 <a id="known-issues-tools"></a>
 
@@ -99,3 +100,7 @@ You can't move data that's stored in the premium tier between hot, cool, and arc
 Currently, the WASB driver, which was designed to work with the Blob API only, encounters problems in a few common scenarios. Specifically, when it is a client to a hierarchical namespace-enabled storage account. Multi-protocol access on Data Lake Storage won't mitigate these issues. 
 
 For the time being (and most likely the foreseeable future), we won't support customers using the WASB driver as a client to a hierarchical namespace-enabled storage account. Instead, we recommend that you opt to use the [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) driver in your Hadoop environment. If you are trying to migrate off of an on-premise Hadoop environment with a version earlier than Hadoop branch-3, then please open an Azure Support ticket so that we can get in touch with you on the right path forward for you and your organization.
+
+## Soft delete for blobs capability (currently in preview)
+
+If parent directories for soft-deleted files or directories are renamed, the soft-deleted items may not be displayed correctly in the Azure Portal. In such cases you can use [PowerShell](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-powershell) or [Azure CLI](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-azure-cli) to list and restore the soft-deleted items. 

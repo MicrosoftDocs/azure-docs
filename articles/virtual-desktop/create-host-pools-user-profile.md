@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop FSLogix profile container share - Azure
-description: How to set up an FSLogix profile container for a Windows Virtual Desktop host pool using a virtual machine-based file share.
+title: Azure Virtual Desktop FSLogix profile container share - Azure
+description: How to set up an FSLogix profile container for a Azure Virtual Desktop host pool using a virtual machine-based file share.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 08/20/2019
@@ -9,7 +9,7 @@ manager: femila
 ---
 # Create a profile container for a host pool using a file share
 
-The Windows Virtual Desktop service offers FSLogix profile containers as the recommended user profile solution. We don't recommend using the User Profile Disk (UPD) solution, which will be deprecated in future versions of Windows Virtual Desktop.
+The Azure Virtual Desktop service offers FSLogix profile containers as the recommended user profile solution. We don't recommend using the User Profile Disk (UPD) solution, which will be deprecated in future versions of Azure Virtual Desktop.
 
 This article will tell you how to set up a FSLogix profile container share for a host pool using a virtual machine-based file share. We strongly recommend using Azure Files instead of file shares. For more FSLogix documentation, see the [FSLogix site](https://docs.fslogix.com/).
 
@@ -36,12 +36,12 @@ After creating the virtual machine, join it to the domain by doing the following
 
 The following are general instructions about how to prepare a virtual machine to act as a file share for user profiles:
 
-1. Add the Windows Virtual Desktop Active Directory users to an [Active Directory security group](/windows/security/identity-protection/access-control/active-directory-security-groups/). This security group will be used to authenticate the Windows Virtual Desktop users to the file share virtual machine you just created.
+1. Add the Azure Virtual Desktop Active Directory users to an [Active Directory security group](/windows/security/identity-protection/access-control/active-directory-security-groups/). This security group will be used to authenticate the Azure Virtual Desktop users to the file share virtual machine you just created.
 2. [Connect to the file share virtual machine](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine).
 3. On the file share virtual machine, create a folder on the **C drive** that will be used as the profile share.
 4. Right-click the new folder, select **Properties**, select **Sharing**, then select **Advanced sharing...**.
 5. Select **Share this folder**, select **Permissions...**, then select **Add...**.
-6. Search for the security group to which you added the Windows Virtual Desktop users, then make sure that group has **Full Control**.
+6. Search for the security group to which you added the Azure Virtual Desktop users, then make sure that group has **Full Control**.
 7. After adding the security group, right-click the folder, select **Properties**, select **Sharing**, then copy down the **Network Path** to use for later.
 
 For more information about permissions, see the [FSLogix documentation](/fslogix/fslogix-storage-config-ht/).
@@ -64,4 +64,4 @@ To configure the virtual machines with the FSLogix software, do the following on
 | VHDLocations        | Multi-String Value | "Network path for file share"     |
 
 >[!IMPORTANT]
->To help secure your Windows Virtual Desktop environment in Azure, we recommend you don't open inbound port 3389 on your VMs. Windows Virtual Desktop doesn't require an open inbound port 3389 for users to access the host pool's VMs. If you must open port 3389 for troubleshooting purposes, we recommend you use [just-in-time VM access](../security-center/security-center-just-in-time.md).
+>To help secure your Azure Virtual Desktop environment in Azure, we recommend you don't open inbound port 3389 on your VMs. Azure Virtual Desktop doesn't require an open inbound port 3389 for users to access the host pool's VMs. If you must open port 3389 for troubleshooting purposes, we recommend you use [just-in-time VM access](../security-center/security-center-just-in-time.md).

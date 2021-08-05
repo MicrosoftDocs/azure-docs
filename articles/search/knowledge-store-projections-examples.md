@@ -4,8 +4,8 @@ titleSuffix: Azure Cognitive Search
 description: Examples of common patterns on how to project enriched documents into the knowledge store for use with Power BI or Azure ML.
 
 manager: nitinme
-author: vkurpad
-ms.author: vikurpad
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
@@ -29,7 +29,7 @@ There are three types of [projections](knowledge-store-projection-overview.md):
 + Objects
 + Files
 
-Table projections are stored in Azure Table storage. Object and file projections are written to blob storage, where object projections are saved as JSON files, and can contain content from the source document as well as any skill outputs or enrichments. The enrichment pipeline can also extract binaries like images, these binaries are projected as file projections. When a binary object is projected as an object projection, only the metadata associated with it is saved as a JSON blob. 
+Table projections are stored in Azure Table Storage. Object and file projections are written to blob storage, where object projections are saved as JSON files, and can contain content from the source document as well as any skill outputs or enrichments. The enrichment pipeline can also extract binaries like images, these binaries are projected as file projections. When a binary object is projected as an object projection, only the metadata associated with it is saved as a JSON blob. 
 
 To understand the intersection between data shaping and projections, we'll use the following skillset as the basis for exploring various configurations. This skillset processes raw image and text content. Projections will be defined from the contents of the document and the outputs of the skills, for the desired scenarios.
 

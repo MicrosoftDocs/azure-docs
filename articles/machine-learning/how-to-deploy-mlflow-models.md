@@ -8,20 +8,24 @@ ms.author: shipatel
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
-ms.date: 12/23/2020
+ms.date: 05/25/2021
 ms.topic: how-to
 ms.custom: devx-track-python
 ---
 
-# Deploy MLflow models as Azure web services (preview)
+# Deploy MLflow models as Azure web services
 
-In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model as an Azure web service, so you can leverage and apply Azure Machine Learning's model management and data drift detection capabilities to your production models.
+In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model as an Azure web service, so you can leverage and apply Azure Machine Learning's model management and data drift detection capabilities to your production models. See [MLflow and Azure Machine Learning](concept-mlflow.md) for additional MLflow and Azure Machine Learning functionality integrations.
 
 Azure Machine Learning offers deployment configurations for:
 * Azure Container Instance (ACI) which is a suitable choice for a quick dev-test deployment.
 * Azure Kubernetes Service (AKS) which is recommended for scalable production deployments.
+
+[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
+
 > [!TIP]
 > The information in this document is primarily for data scientists and developers who want to deploy their MLflow model to an Azure Machine Learning web service endpoint. If you are an administrator interested in monitoring resource usage and events from Azure Machine Learning, such as quotas, completed training runs, or completed model deployments, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
+
 ## MLflow with Azure Machine Learning deployment
 
 MLflow is an open-source library for managing the life cycle of your machine learning experiments. Its integration with Azure Machine Learning allows for you to extend this management beyond model training to the deployment phase of your production model.
@@ -29,10 +33,6 @@ MLflow is an open-source library for managing the life cycle of your machine lea
 The following diagram demonstrates that with the MLflow deploy API and Azure Machine Learning, you can deploy models created with popular frameworks, like PyTorch, Tensorflow, scikit-learn, etc., as Azure web services and manage them in your workspace. 
 
 ![ deploy mlflow models with azure machine learning](./media/how-to-deploy-mlflow-models/mlflow-diagram-deploy.png)
-
-
->[!NOTE]
-> As an open source library, MLflow changes frequently. As such, the functionality made available via the Azure Machine Learning and MLflow integration should be considered as a preview, and not fully supported by Microsoft.
 
 ## Prerequisites
 
@@ -46,34 +46,50 @@ The following diagram demonstrates that with the MLflow deploy API and Azure Mac
 
 To deploy your MLflow model to an Azure Machine Learning web service, your model must be set up with the [MLflow Tracking URI to connect with Azure Machine Learning](how-to-use-mlflow.md). 
 
-Set up your deployment configuration with the [deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) method. You can also add tags and descriptions to help keep track of your web service.
-
-```python
-from azureml.core.webservice import AciWebservice, Webservice
-
-# Set the model path to the model folder created by your run
-model_path = "model"
-
-# Configure 
-aci_config = AciWebservice.deploy_configuration(cpu_cores=1, 
-                                                memory_gb=1, 
-                                                tags={'method' : 'sklearn'}, 
-                                                description='Diabetes model',
-                                                location='eastus2')
-```
-
+In order to deploy to ACI, you don't need to define any deployment configuration, the service will default to an ACI deployment when a config is not provided.
 Then, register and deploy the model in one step with MLflow's [deploy](https://www.mlflow.org/docs/latest/python_api/mlflow.azureml.html#mlflow.azureml.deploy) method for Azure Machine Learning. 
 
-```python
-(webservice,model) = mlflow.azureml.deploy( model_uri='runs:/{}/{}'.format(run.id, model_path),
-                      workspace=ws,
-                      model_name='sklearn-model', 
-                      service_name='diabetes-model-1', 
-                      deployment_config=aci_config, 
-                      tags=None, mlflow_home=None, synchronous=True)
 
-webservice.wait_for_deployment(show_output=True)
+```python
+from mlflow.deployments import get_deploy_client
+
+# set the tracking uri as the deployment client
+client = get_deploy_client(mlflow.get_tracking_uri())
+
+# set the model path 
+model_path = "model"
+
+# define the model path and the name is the service name
+# the model gets registered automatically and a name is autogenerated using the "name" parameter below 
+client.create_deployment(model_uri='runs:/{}/{}'.format(run.id, model_path),
+                         name="mlflow-test-aci")
 ```
+
+### Customize deployment configuration
+
+If you prefer not to use the defaults, you can set up your deployment configuration with a deployment config json file that uses parameters from the [deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) method as reference. 
+
+For your deployment config json file, each of the deployment config parameters need to be defined in the form of a dictionary. The following is an example. [Learn more about what your deployment configuration json file can contain](reference-azure-machine-learning-cli.md#azure-container-instance-deployment-configuration-schema).
+
+```json
+{"computeType": "aci",
+ "containerResourceRequirements": {"cpu": 1, "memoryInGB": 1},
+ "location": "eastus2"
+}
+```
+
+Your json file can then be used to create your deployment.
+
+```python
+# set the deployment config
+deploy_path = "deployment_config.json"
+test_config = {'deploy-config-file': deploy_path}
+
+client.create_deployment(model_uri='runs:/{}/{}'.format(run.id, model_path),
+                         config=test_config,
+                         name="mlflow-test-aci")                                       
+```
+
 
 ## Deploy to Azure Kubernetes Service (AKS)
 
@@ -99,35 +115,32 @@ aks_target.wait_for_completion(show_output = True)
 print(aks_target.provisioning_state)
 print(aks_target.provisioning_errors)
 ```
-Set up your deployment configuration with the [deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) method. You can also add tags and descriptions to help keep track of your web service.
+Create a deployment config json using [deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration#parameters) method values as a reference. Each of the deployment config parameters simply need to be defined as a dictionary. Here's an example below:
 
-```python
-from azureml.core.webservice import Webservice, AksWebservice
-
-# Set the web service configuration (using default here with app insights)
-aks_config = AksWebservice.deploy_configuration(enable_app_insights=True, compute_target_name='aks-mlflow')
-
+```json
+{"computeType": "aks", "computeTargetName": "aks-mlflow"}
 ```
 
-Then, register and deploy the model in one step with MLflow's [deploy](https://www.mlflow.org/docs/latest/python_api/mlflow.azureml.html#mlflow.azureml.deploy) method for Azure Machine Learning. 
+Then, register and deploy the model in one step with MLflow's [deployment client](https://www.mlflow.org/docs/latest/python_api/mlflow.deployments.html). 
 
 ```python
+from mlflow.deployments import get_deploy_client
 
-# Webservice creation using single command
-from azureml.core.webservice import AksWebservice, Webservice
+# set the tracking uri as the deployment client
+client = get_deploy_client(mlflow.get_tracking_uri())
 
 # set the model path 
 model_path = "model"
 
-(webservice, model) = mlflow.azureml.deploy( model_uri='runs:/{}/{}'.format(run.id, model_path),
-                      workspace=ws,
-                      model_name='sklearn-model', 
-                      service_name='my-aks', 
-                      deployment_config=aks_config, 
-                      tags=None, mlflow_home=None, synchronous=True)
+# set the deployment config
+deploy_path = "deployment_config.json"
+test_config = {'deploy-config-file': deploy_path}
 
-
-webservice.wait_for_deployment()
+# define the model path and the name is the service name
+# the model gets registered automatically and a name is autogenerated using the "name" parameter below 
+client.create_deployment(model_uri='runs:/{}/{}'.format(run.id, model_path),
+                         config=test_config,
+                         name="mlflow-test-aci")
 ```
 
 The service deployment can take several minutes.
@@ -148,4 +161,3 @@ The [MLflow with Azure Machine Learning notebooks](https://github.com/Azure/Mach
 * [Manage your models](concept-model-management-and-deployment.md).
 * Monitor your production models for [data drift](./how-to-enable-data-collection.md).
 * [Track Azure Databricks runs with MLflow](how-to-use-mlflow-azure-databricks.md).
-

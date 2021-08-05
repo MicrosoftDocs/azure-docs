@@ -5,7 +5,7 @@ ms.service: data-factory
 ms.topic: article
 ms.author: sawinark
 author: swinarko
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 09/12/2017
 ---
 

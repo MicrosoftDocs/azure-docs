@@ -37,7 +37,7 @@ Role  |  Description
 ----- |  -----------
 Authentication Administrator  |  Has access to view, set, and reset authentication method information for any non-admin user in the assigned administrative unit only.
 Groups Administrator  |  Can manage all aspects of groups and groups settings, such as naming and expiration policies, in the assigned administrative unit only.
-Helpdesk Administrator  |  Can reset passwords for non-administrators and Helpdesk administrators in the assigned administrative unit only.
+Helpdesk Administrator  |  Can reset passwords for non-administrators and Helpdesk Administrators in the assigned administrative unit only.
 License Administrator  |  Can assign, remove, and update license assignments within the administrative unit only.
 Password Administrator  |  Can reset passwords for non-administrators and Password Administrators within the assigned administrative unit only.
 User Administrator  |  Can manage all aspects of users and groups, including resetting passwords for limited admins within the assigned administrative unit only.
@@ -47,7 +47,7 @@ User Administrator  |  Can manage all aspects of users and groups, including res
 The following security principals can be assigned to a role with an administrative unit scope:
 
 * Users
-* Role-assignable cloud groups (preview)
+* Role-assignable Azure AD groups
 * Service Principal Name (SPN)
 
 ## Assign a scoped role
@@ -144,5 +144,5 @@ Body
 
 ## Next steps
 
-- [Use cloud groups to manage role assignments](groups-concept.md)
-- [Troubleshoot roles assigned to cloud groups](groups-faq-troubleshooting.md)
+- [Use Azure AD groups to manage role assignments](groups-concept.md)
+- [Troubleshoot Azure AD roles assigned to groups](groups-faq-troubleshooting.yml)

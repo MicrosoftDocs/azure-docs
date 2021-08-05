@@ -75,7 +75,7 @@ There are a several ways to retrieve this information for deployed web services:
 
 # [Azure CLI](#tab/azure-cli)
 
-If you know the name of the deployed service, use the [az ml service show](/cli/azure/ml/service#az_ml_service_show) command:
+If you know the name of the deployed service, use the [az ml service show](/cli/azure/ml(v1)/service#az_ml_service_show) command:
 
 ```azurecli
 az ml service show -n <service-name>

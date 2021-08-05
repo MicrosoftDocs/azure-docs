@@ -1,8 +1,8 @@
 ---
 title:  Azure Spring Cloud CI/CD with GitHub Actions
 description: How to build up CI/CD workflow for Azure Spring Cloud with GitHub Actions
-author:  MikeDodaro
-ms.author: barbkess
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/08/2020
@@ -73,8 +73,8 @@ The command `az spring-cloud app create` is currently not idempotent. After you 
 
 Use the following Azure CLI commands for preparation:
 ```
-az configure --defaults group=<service group name>
-az configure --defaults spring-cloud=<service instance name>
+az config set defaults.group=<service group name>
+az config set defaults.spring-cloud=<service instance name>
 az spring-cloud app create --name planet-weather-provider
 az spring-cloud app create --name solar-system-weather
 ```
@@ -188,8 +188,8 @@ The command `az spring-cloud app create` is currently not idempotent.  We recomm
 
 Use the following Azure CLI commands for preparation:
 ```azurecli
-az configure --defaults group=<service group name>
-az configure --defaults spring-cloud=<service instance name>
+az config set defaults.group=<service group name>
+az config set defaults.spring-cloud=<service instance name>
 az spring-cloud app create --name gateway
 az spring-cloud app create --name auth-service
 az spring-cloud app create --name account-service
@@ -232,8 +232,8 @@ jobs:
    
     - name: Deploy with AZ CLI commands
       run: |
-        az configure --defaults group=$GROUP
-        az configure --defaults spring-cloud=$SERVICE_NAME
+        az config set defaults.group=$GROUP
+        az config set defaults.spring-cloud=$SERVICE_NAME
         az spring-cloud app deploy -n gateway --jar-path ${{ github.workspace }}/gateway/target/gateway.jar
         az spring-cloud app deploy -n account-service --jar-path ${{ github.workspace }}/account-service/target/account-service.jar
         az spring-cloud app deploy -n auth-service --jar-path ${{ github.workspace }}/auth-service/target/auth-service.jar
@@ -276,8 +276,8 @@ jobs:
         azcliversion: 2.0.75
         inlineScript: |
           az extension add --name spring-cloud
-          az configure --defaults group=<service group name>
-          az configure --defaults spring-cloud=<service instance name>
+          az config set defaults.group=<service group name>
+          az config set defaults.spring-cloud=<service instance name>
           az spring-cloud app deploy -n gateway --jar-path $GITHUB_WORKSPACE/gateway/target/gateway.jar
           az spring-cloud app deploy -n account-service --jar-path $GITHUB_WORKSPACE/account-service/target/account-service.jar
           az spring-cloud app deploy -n auth-service --jar-path $GITHUB_WORKSPACE/auth-service/target/auth-service.jar

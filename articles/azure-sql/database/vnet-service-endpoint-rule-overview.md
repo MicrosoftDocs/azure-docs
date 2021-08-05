@@ -10,7 +10,7 @@ ms.topic: how-to
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
-ms.date: 11/14/2019
+ms.date: 05/26/2021
 ---
 # Use virtual network service endpoints and rules for servers in Azure SQL Database
 
@@ -176,7 +176,7 @@ PolyBase and the COPY statement are commonly used to load data into Azure Synaps
 
 ### SQL Database blob auditing
 
-Blob auditing pushes audit logs to your own storage account. If this storage account uses the virtual network service endpoints feature, connectivity from SQL Database to the storage account will break.
+Azure SQL auditing can write SQL audit logs to your own storage account. If this storage account uses the virtual network service endpoints feature, see how to [write audit to a storage account behind VNet and firewall](./audit-write-storage-account-behind-vnet-firewall.md).
 
 ## Add a virtual network firewall rule to your server
 

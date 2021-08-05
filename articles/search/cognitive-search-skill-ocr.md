@@ -3,9 +3,8 @@ title: OCR cognitive skill
 titleSuffix: Azure Cognitive Search
 description: Extract text from image files using optical character recognition (OCR) in an enrichment pipeline in Azure Cognitive Search.
 
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
@@ -15,7 +14,7 @@ ms.date: 06/17/2020
 The **Optical character recognition (OCR)** skill recognizes printed and handwritten text in image files. This skill uses the machine learning models provided by [Computer Vision](../cognitive-services/computer-vision/overview.md) API [v3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) in Cognitive Services. The **OCR** skill maps to the following functionality:
 
 + For English, Spanish, German, French, Italian, Portuguese, and Dutch, the new ["Read"](../cognitive-services/computer-vision/overview-ocr.md#read-api) API is used.
-+ For all other languages, the [legacy OCR](../cognitive-services/computer-vision/overview-ocr.md#ocr-api) API is used.
++ For all other languages, the [legacy OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/56f91f2e778daf14a499f20d) API is used.
 
 The **OCR** skill extracts text from image files. Supported file formats include:
 
@@ -204,6 +203,8 @@ The above skillset example assumes that a normalized-images field exists. To gen
 ```
 
 ## See also
+
++ [What is optical character recognition](../cognitive-services/computer-vision/overview-ocr.md)
 + [Built-in skills](cognitive-search-predefined-skills.md)
 + [TextMerger skill](cognitive-search-skill-textmerger.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)

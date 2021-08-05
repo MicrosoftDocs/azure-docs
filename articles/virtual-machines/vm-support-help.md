@@ -15,12 +15,12 @@ Here are suggestions for where you can get help when developing your Azure Virtu
 
 ## Self help troubleshooting
 <div class='icon is-large'>
-    <img alt='Self help content' src='./media/logos/i-article.svg'>
+    <img alt='Self help content' src='./media/logos/doc-logo.png'>
 </div>
 
 Various articles explain how to determine, diagnose, and fix issues that you might encounter when using Azure Virtual Machines. Use these articles to troubleshoot deployment failures, unexpected restarts, connection issues and more. 
 
-For a full list of self help troubleshooting content, see [Azure Virtual Machine troubleshooting documentation](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
+For a full list of self help troubleshooting content, see [Azure Virtual Machine troubleshooting documentation](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
 
 
 ## Post a question on Microsoft Q&A
@@ -37,7 +37,7 @@ If you can't find an answer to your problem using search, submit a new question 
 | Area | Tag |
 |-------|----------------------|
 | [Azure Virtual Machines](./linux/overview.md) | [azure-virtual-machines](/answers/topics/azure-virtual-machines.html) | 
-| [Azure SQL Virtual Machines](https://docs.microsoft.com/azure/azure-sql/virtual-machines/) | [azure-sql-virtual-machines](/answers/topics/azure-sql-virtual-machines.html)| 
+| [Azure SQL Virtual Machines](../azure-sql/virtual-machines/index.yml) | [azure-sql-virtual-machines](/answers/topics/azure-sql-virtual-machines.html)| 
 | [Azure Virtual Machine backup](backup-recovery.md) | [azure-virtual-machine-backup](/answers/questions/36892/azure-virtual-machine-backups.html) | 
 | [Azure Virtual Machine extension](./extensions/overview.md) | [azure-virtual-machine-extension](/answers/topics/azure-virtual-machines-extension.html)| 
 | [Azure Virtual Machine Images](shared-image-galleries.md) | [azure-virtual-machine-images](/answers/topics/azure-virtual-machines-images.html) | 
@@ -50,7 +50,7 @@ If you can't find an answer to your problem using search, submit a new question 
 ## Create an Azure support request
 
 <div class='icon is-large'>
-    <img alt='Azure support' src='./media/logos/logo-azure.svg'>
+    <img alt='Azure support' src='./media/logos/azure-logo.png'>
 </div>
 
 Explore the range of [Azure support options and choose the plan](https://azure.microsoft.com/support/plans) that best fits, whether you're a developer just starting your cloud journey or a large organization deploying business-critical, strategic applications. Azure customers can create and manage support requests in the Azure portal.
@@ -86,7 +86,7 @@ If you need help with the language and tools used to develop and manage Azure Vi
 ## Submit feature requests on Azure Feedback
 
 <div class='icon is-large'>
-    <img alt='UserVoice' src='./media/logos/logo-uservoice.svg'>
+    <img alt='UserVoice' src='./media/logos/azure-feedback-logo.png'>
 </div>
 
 To request new features, post them on Azure Feedback. Share your ideas for improving Azure Virtual Machines.
@@ -98,7 +98,7 @@ To request new features, post them on Azure Feedback. Share your ideas for impro
 ## Stay informed of updates and new releases
 
 <div class='icon is-large'>
-    <img alt='Stay informed' src='./media/logos/i-blog.svg'>
+    <img alt='Stay informed' src='./media/logos/updates-logo.png'>
 </div>
 
 Learn about important product updates, roadmap, and announcements in [Azure Updates](https://azure.microsoft.com/updates/?category=compute).
@@ -108,4 +108,4 @@ News and information about Azure Virtual Machines is shared at the [Azure blog](
 
 ## Next steps
 
-Learn more about [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/)
+Learn more about [Azure Virtual Machines](./index.yml)

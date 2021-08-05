@@ -125,13 +125,13 @@ The following requirements apply to the Azure AD Password Protection proxy servi
 * All machines that host the Azure AD Password Protection proxy service must be configured to grant domain controllers the ability to log on to the proxy service. This ability is controlled via the "Access this computer from the network" privilege assignment.
 * All machines that host the Azure AD Password Protection proxy service must be configured to allow outbound TLS 1.2 HTTP traffic.
 * A *Global Administrator* account is required to register the Azure AD Password Protection proxy service for the first time in a given tenant. Subsequent proxy and forest registrations with Azure AD may use an account with either *Global Administrator* or *Security Administrator* credentials.
-* Network access must be enabled for the set of ports and URLs specified in the [Application Proxy environment setup procedures](../app-proxy/application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
+* Network access must be enabled for the set of ports and URLs specified in the [Application Proxy environment setup procedures](../app-proxy/application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment). This is in addition to the two endpoints described above.
 
 ### Microsoft Azure AD Connect Agent Updater prerequisites
 
 The Microsoft Azure AD Connect Agent Updater service is installed side by side with the Azure AD Password Protection Proxy service. Additional configuration is required in order for the Microsoft Azure AD Connect Agent Updater service to be able to function:
 
-* If your environment uses an HTTP proxy server, follow the guidelines specified in [Work with existing on-premises proxy servers](../manage-apps/application-proxy-configure-connectors-with-proxy-servers.md).
+* If your environment uses an HTTP proxy server, follow the guidelines specified in [Work with existing on-premises proxy servers](../app-proxy/application-proxy-configure-connectors-with-proxy-servers.md).
 * The Microsoft Azure AD Connect Agent Updater service also requires the TLS 1.2 steps specified in [TLS requirements](../app-proxy/application-proxy-add-on-premises-application.md#tls-requirements).
 
 > [!WARNING]
@@ -185,6 +185,9 @@ To install the Azure AD Password Protection proxy service, complete the followin
     ```powershell
     Import-Module AzureADPasswordProtection
     ```
+    
+    > [!WARNING]
+    > The 64 bit version of PowerShell must be used. Certain cmdlets may not work with PowerShell (x86).
 
 1. To check that the Azure AD Password Protection proxy service is running, use the following PowerShell command:
 

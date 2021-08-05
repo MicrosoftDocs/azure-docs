@@ -1,9 +1,9 @@
-- name: Form Recognizer Documentation
+- name: Azure Form Recognizer Documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: What is Form Recognizer?
+  - name: What is Azure Form Recognizer?
     href: overview.md
   - name: Language support
     href: language-support.md
@@ -13,25 +13,25 @@
     href: whats-new.md
 - name: Quickstarts
   items:
-  - name: Get started with client library or REST API
+  - name: Get started with Azure Form Recognizer
+    href: quickstarts/get-started-with-form-recognizer.md
+  - name: Client libraries and REST API
     href: quickstarts/client-library.md
-  - name: Use the sample labeling tool
-    href: quickstarts/label-tool.md
 - name: Samples
   items:
-  - name: "C#/.NET: Form Recognizer client library SDK"
+  - name: "C#/.NET"
     href: /samples/azure/azure-sdk-for-net/azure-form-recognizer-client-sdk-samples
-  - name: "Java: Form Recognizer client library SDK"
+  - name: "Java"
     href: /samples/azure/azure-sdk-for-java/formrecognizer-java-samples
-  - name: "Python: Form Recognizer client library SDK"
+  - name: "Python"
     href: /samples/azure/azure-sdk-for-python/formrecognizer-samples
-  - name: "JavaScript Form Recognizer client library SDK"
+  - name: "JavaScript"
     href: /samples/azure/azure-sdk-for-js/ai-form-recognizer-javascript/
 - name: Responsible use of AI
   items:
   - name: Transparency notes
     items:
-    - name: Form Recognizer use cases
+    - name: Azure Form Recognizer scenarios
       href: /legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/cognitive-services/form-recognizer/context/context
     - name: Characteristics and limitations
       href: /legal/cognitive-services/form-recognizer/fr-characteristics-and-limitations?context=/azure/cognitive-services/form-recognizer/context/context
@@ -41,19 +41,21 @@
     href: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/cognitive-services/form-recognizer/context/context
 - name: How-to guides
   items:
+  - name: Train a custom model with the sample labeling tool
+    href: label-tool.md
   - name: Build a training data set
     href: build-training-data-set.md
   - name: Use table tags to train your custom model
     href: supervised-table-tags.md
-  - name: Deploy the sample labeling tool
+  - name:   Deploy the sample labeling tool
     href: deploy-label-tool.md
   - name: Use containers
     items:
     - name: Install and run containers
       displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull
-      href: form-recognizer-container-howto.md
+      href: containers/form-recognizer-container-install-run.md
     - name: Configure containers
-      href: form-recognizer-container-configuration.md
+      href: containers/form-recognizer-container-configuration.md
       displayName: docker, container, run, billing, apikey, logging
     - name: Use container instances
       maintainContext: true
@@ -67,19 +69,16 @@
     items:
     - name: Set up Virtual Networks
       href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/form-recognizer/context/context
+    - name: Create and use managed identity
+      href: managed-identity-byos.md
     - name: Use customer-managed keys
       href: encrypt-data-at-rest.md
     - name: Use Azure AD authentication
       href: ../authentication.md?context=/azure/cognitive-services/form-recognizer/context/context
 - name: Concepts
   items:
-  - name: Layout API
-    expanded: true
-    items:
-    - name: Extract form data
-      href: concept-layout.md
-  - name: Custom models
-    href: concept-custom.md
+  - name: Layout
+    href: concept-layout.md
   - name: Receipts
     href: concept-receipts.md
   - name: Business cards
@@ -88,34 +87,55 @@
     href: concept-invoices.md
   - name: Identity documents
     href: concept-identification-cards.md
+  - name: Custom
+    href: concept-custom.md
 - name: Tutorials
   items:
-  - name: Extract form data in bulk
-    href: tutorial-bulk-processing.md
-  - name: Use Form Recognizer with Cognitive Search
+  - name: Low-code solutions with Form Recognizer and AI Builder
+    expanded: true 
+    items:
+    - name:  Custom form processing workflow
+      href: /ai-builder/create-form-processing-model?toc=/azure/cognitive-services/form-recognizer/toc.json&bc=/azure/cognitive-services/form-recognizer/breadcrumb/toc.json
+    - name: Business card processing workflow
+      href: /ai-builder/flow-business-card-reader?toc=/azure/cognitive-services/form-recognizer/toc.json&bc=/azure/cognitive-services/form-recognizer/breadcrumb/toc.json
+    - name: Identity document processing workflow
+      href: /ai-builder/id-reader?toc=/azure/cognitive-services/form-recognizer/toc.json&bc=/azure/cognitive-services/form-recognizer/breadcrumb/toc.json
+    - name:  Invoice processing workflow
+      href: /ai-builder/flow-invoice-processing?toc=/azure/cognitive-services/form-recognizer/toc.json&bc=/azure/cognitive-services/form-recognizer/breadcrumb/toc.json
+    - name: Receipt processing workflow
+      href: /ai-builder/flow-receipt-processing?toc=/azure/cognitive-services/form-recognizer/toc.json&bc=/azure/cognitive-services/form-recognizer/breadcrumb/toc.json 
+  - name: Use Azure Form Recognizer with Cognitive Search
     href: ../../search/cognitive-search-custom-skill-form.md
-  - name: Use Form Recognizer with AI Builder
-    href: tutorial-ai-builder.md
-  - name: Use Form Recognizer with Azure Functions
+  - name: Use Azure Form Recognizer with Azure Functions
     href: tutorial-azure-function.md
 - name: Reference
   items:
-  - name: Form Recognizer API v2.1 preview.3
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm
-  - name: Form Recognizer API v2.0
-    href: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm
-  - name: SDKs
+  - name: Azure Form Recognizer REST API v2.1
     items:
-    - name: .NET
-      href: /dotnet/api/overview/azure/ai.formrecognizer-readme
-    - name: Python
-      href: /python/api/azure-ai-formrecognizer/
-    - name: Java
-      href: /java/api/overview/azure/ai-formrecognizer-readme
-    - name: JavaScript
-      href: /javascript/api/overview/azure/ai-form-recognizer-readme
+    - name: REST API v2.1 reference
+      href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm
+    - name: Client libraries and SDKs
+      items:
+      - name: .NET
+        href: /dotnet/api/overview/azure/ai.formrecognizer-readme
+      - name: Python
+        href: /python/api/azure-ai-formrecognizer/
+      - name: Java
+        href: /java/api/overview/azure/ai-formrecognizer-readme
+      - name: JavaScript
+        href: /javascript/api/overview/azure/ai-form-recognizer-readme
+  - name: Azure Form Recognizer REST API v2.0
+    items:
+    - name: REST API v2.0 reference
+      href: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm
+    - name: SDK v3.0.0 guide
+      href: api-v2-0/reference-sdk-api-v2-0.md
 - name: Resources
   items:
+  - name:  Customer spotlight
+    href: resource-customer-stories.md
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Enterprise readiness
     items:
     - name: Region support
@@ -124,7 +144,5 @@
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Support and help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Privacy and cookies
     href: https://privacy.microsoft.com/en-US/privacystatement

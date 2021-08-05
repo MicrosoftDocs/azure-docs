@@ -1,6 +1,6 @@
 ---
-title: Deploy the diagnostics tool for Windows Virtual Desktop (classic) - Azure
-description: How to deploy the diagnostics UX tool for Windows Virtual Desktop (classic).
+title: Deploy the diagnostics tool for Azure Virtual Desktop (classic) - Azure
+description: How to deploy the diagnostics UX tool for Azure Virtual Desktop (classic).
 author: Heidilohr
 ms.topic: how-to
 ms.date: 12/15/2020
@@ -8,12 +8,12 @@ ms.author: helohr
 manager: femila
 ---
 
-# Deploy the Windows Virtual Desktop (classic) diagnostics tool
+# Deploy the Azure Virtual Desktop (classic) diagnostics tool
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects.
+>This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects.
 
-Here's what the diagnostics tool for Windows Virtual Desktop can do for you:
+Here's what the diagnostics tool for Azure Virtual Desktop can do for you:
 
 - Look up diagnostic activities (management, connection, or feed) for a single user over a period of one week.
 - Gather session host information for connection activities from your Log Analytics workspace.
@@ -45,7 +45,7 @@ After you have everything in order, you can create the Azure AD app registration
 This section will show you how to use PowerShell to create the Azure Active Directory app with a service principal and get API permissions for it.
 
 >[!NOTE]
->The API permissions are Windows Virtual Desktop, Log Analytics and Microsoft Graph API permissions are added to the Azure Active Directory Application.
+>The API permissions are Azure Virtual Desktop, Log Analytics and Microsoft Graph API permissions are added to the Azure Active Directory Application.
 
 1. Open PowerShell as an Administrator.
 2. Sign in to Azure with an account that has Owner or Contributor permissions on the Azure subscription you would like to use for the diagnostics tool:
@@ -195,7 +195,7 @@ To set the Redirect URI:
 Before you make the diagnostics tool available to your users, make sure they have the following permissions:
 
 - Users need read access for log analytics. For more information, see [Get started with roles, permissions, and security with Azure Monitor](../../azure-monitor/roles-permissions-security.md).
--  Users also need read access for the Windows Virtual Desktop tenant (RDS Reader role). For more information, see [Delegated access in Windows Virtual Desktop](delegated-access-virtual-desktop-2019.md).
+-  Users also need read access for the Azure Virtual Desktop tenant (RDS Reader role). For more information, see [Delegated access in Azure Virtual Desktop](delegated-access-virtual-desktop-2019.md).
 
 You also need to give your users the following information:
 

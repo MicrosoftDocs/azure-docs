@@ -229,7 +229,7 @@ as a subresource of your web app or API app in your deployment template:
 ```
 
 To automatically deploy a blank web app and a logic app together with
-Azure Active Directory authentication, [view the complete template here](https://azure.microsoft.com/resources/templates/quickstarts/microsoft.logic/logic-app-custom-api/),
+Azure Active Directory authentication, [view the complete template here](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.logic/logic-app-custom-api),
 or click **Deploy to Azure** here:
 
 [![Deploy to Azure](media/logic-apps-custom-api-authentication/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.logic%2Flogic-app-custom-api%2Fazuredeploy.json)

@@ -35,8 +35,22 @@
       href: performance-impact-kerberos.md
     - name: Oracle database performance on Azure NetApp Files single volumes
       href: performance-oracle-single-volumes.md
-    - name: FAQs about SMB performance
-      href: azure-netapp-files-smb-performance.md
+    - name: Performance reference for Azure NetApp Files
+      items:
+      - name: Linux direct I/O best practices
+        href: performance-linux-direct-io.md
+      - name: Linux filesystem cache best practices
+        href: performance-linux-filesystem-cache.md
+      - name: Linux NFS mount options best practices
+        href: performance-linux-mount-options.md
+      - name: Linux concurrency best practices
+        href: performance-linux-concurrency-session-slots.md
+      - name: Linux NFS read-ahead best practices
+        href: performance-linux-nfs-read-ahead.md
+      - name: SMB performance best practices
+        href: azure-netapp-files-smb-performance.md
+      - name: Azure virtual machine SKUs best practices
+        href: performance-virtual-machine-sku.md 
   - name: Cost model for Azure NetApp Files
     href: azure-netapp-files-cost-model.md
   - name: Understand volume quota
@@ -63,7 +77,7 @@
         href: solutions-benefits-azure-netapp-files-oracle-database.md
       - name: Benefits of using Azure NetApp Files for electronic design automation
         href: solutions-benefits-azure-netapp-files-electronic-design-automation.md
-      - name: Benefits of using Azure NetApp Files with Windows Virtual Desktop
+      - name: Benefits of using Azure NetApp Files with Azure Virtual Desktop
         href: solutions-windows-virtual-desktop.md
       - name: Benefits of using Azure NetApp Files for SQL Server deployment
         href: solutions-benefits-azure-netapp-files-sql-server.md
@@ -71,6 +85,8 @@
     href: azure-netapp-files-faqs.md
   - name: What is Azure Application Consistent Snapshot Tool
     href: azacsnap-introduction.md
+  - name: Storage service add-ons
+    href: storage-service-add-ons.md
   - name: What changing to volume hard quota means
     href: volume-hard-quota-guidelines.md
 - name: How-to guides
@@ -205,5 +221,7 @@
     href: https://azure.microsoft.com/support/legal/sla/netapp/
   - name: Videos
     href: azure-netapp-files-videos.md
+  - name: Compare access with NFS to Azure Blob Storage, Azure Files, and Azure NetApp Files
+    href: ../storage/common/nfs-comparison.md?toc=%2fazure%2fazure-netapp-files%2ftoc.json
   - name: Azure Files and Azure NetApp Files comparison
     href: ../storage/files/storage-files-netapp-comparison.md

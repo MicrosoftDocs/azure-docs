@@ -3,13 +3,13 @@ title: "Get started with Custom Neural Voice - Speech service"
 titleSuffix: Azure Cognitive Services
 description: "Custom Neural Voice is a set of online tools that allow you to create a recognizable, one-of-a-kind voice for your brand. All it takes to get started are a handful of audio files and the associated transcriptions."
 services: cognitive-services
-author: trevorbye
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/18/2021
-ms.author: trbye
+ms.author: nitinme
 ---
 
 # Get started with Custom Neural Voice
@@ -55,7 +55,7 @@ Carefully select the recording script to represent the user scenarios for your v
 
 We recommend that the audio recordings be captured in a professional quality recording studio to achieve a high signal-to-noise ratio. The quality of the voice model heavily depends on your training data. Consistent volume, speaking rate, pitch, and consistency in expressive mannerisms of speech are required.
 
-Once the recordings are ready, follow [Prepare data for your training](how-to-custom-voice-prepare-data.md) to prepare the training data in the right format.
+Once the recordings are ready, follow [Prepare training data](how-to-custom-voice-prepare-data.md) to prepare the training data in the right format.
 
 ### Training
 
@@ -67,11 +67,11 @@ Prepare test scripts for your voice model that cover the different use cases for
 
 ### Tuning and adjustment
 
-The style and the characteristics of the trained voice model depend on the style and the quality of the recordings from the voice talent used for training. However, several adjustments can be made using [SSML (Speech Synthesis Markup Language)](/azure/cognitive-services/speech-service/speech-synthesis-markup?tabs=csharp) when you make the API calls to your voice model to generate synthetic speech. SSML is the markup language used to communicate with the TTS service to convert text into audio. The adjustments include change of pitch, rate, intonation, and pronunciation correction.  If the voice model is built with multiple styles, SSML can also be used to switch the styles.
+The style and the characteristics of the trained voice model depend on the style and the quality of the recordings from the voice talent used for training. However, several adjustments can be made using [SSML (Speech Synthesis Markup Language)](./speech-synthesis-markup.md?tabs=csharp) when you make the API calls to your voice model to generate synthetic speech. SSML is the markup language used to communicate with the TTS service to convert text into audio. The adjustments include change of pitch, rate, intonation, and pronunciation correction.  If the voice model is built with multiple styles, SSML can also be used to switch the styles.
 
 ## Migrate to Custom Neural Voice
 
-The standard/non-neural training tier (adaptive, statistical parametric, concacenative) of Custom Voice is being deprecated. The announcement has been sent out to all existing Speech subscriptions before 2/28/2021. During the deprecation period (3/1/2021 - 2/29/2024), existing standard tier users can continue to use their non-neural models created. All new users/new speech resources should move to the neural tier/Custom Neural Voice. After 2/29/2024, all standard/non-neural custom voices will no longer be supported. 
+The standard/non-neural training tier (statistical parametric, concacenative) of Custom Voice is being deprecated. The announcement has been sent out to all existing Speech subscriptions before 2/28/2021. During the deprecation period (3/1/2021 - 2/29/2024), existing standard tier users can continue to use their non-neural models created. All new users/new speech resources should move to the neural tier/Custom Neural Voice. After 2/29/2024, all standard/non-neural custom voices will no longer be supported. 
 
 If you are using non-neural/standard Custom Voice,  migrate to Custom Neural Voice immediately following the steps below. Moving to Custom Neural Voice will help you develop more realistic voices for even more natural conversational interfaces and enable your customers and end users to benefit from the latest Text-to-Speech technology, in a responsible way. 
 
@@ -80,8 +80,8 @@ If you are using non-neural/standard Custom Voice,  migrate to Custom Neural Voi
     > [!IMPORTANT]
     > To protect voice talent and prevent training of voice models with unauthorized recording or without the acknowledgement from the voice talent, we require the customer to upload a recorded statement of the voice talent giving their consent. When preparing your recording script, make sure you include this sentence. 
     > “I [state your first and last name] am aware that recordings of my voice will be used by [state the name of the company] to create and use a synthetic version of my voice.”
-    > This sentence must be uploaded to the **Voice Talent** tab as a verbal consent file. It will be used to verify if the recordings in your training datasets are done by the same person that makes the consent.
-3. After the Custom Neural Voice model is created, deploy the voice model to a new endpoint. To create a new custom voice endpoint with your neural voice model, go to **Text-to-Speech > Custom Voice > Deployment**. Select **Deploy model** and enter a **Name** and **Description** for your custom endpoint. Then select the custom neural voice model you would like to associate with this endpoint and confirm the deployment.  
+    > This sentence must be uploaded to the **Set up voice talent** tab as a verbal consent file. It will be used to verify if the recordings in your training datasets are done by the same person that makes the consent.
+3. After the Custom Neural Voice model is created, deploy the voice model to a new endpoint. To create a new custom voice endpoint with your neural voice model, go to **Text-to-Speech > Custom Voice > Deploy model**. Select **Deploy models** and enter a **Name** and **Description** for your custom endpoint. Then select the custom neural voice model you would like to associate with this endpoint and confirm the deployment.  
 4. Update your code in your apps if you have created a new endpoint with a new model. 
 
 ## Next steps

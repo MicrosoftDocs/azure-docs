@@ -1,24 +1,24 @@
 ---
-title: Windows Virtual Desktop (classic) diagnostics log analytics - Azure
-description: How to use log analytics with the Windows Virtual Desktop (classic) diagnostics feature.
+title: Azure Virtual Desktop (classic) diagnostics log analytics - Azure
+description: How to use log analytics with the Azure Virtual Desktop (classic) diagnostics feature.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
 ---
-# Use Log Analytics for the diagnostics feature in Windows Virtual Desktop (classic)
+# Use Log Analytics for the diagnostics feature in Azure Virtual Desktop (classic)
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../diagnostics-log-analytics.md).
+>This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../diagnostics-log-analytics.md).
 
-Windows Virtual Desktop offers a diagnostics feature that allows the administrator to identify issues through a single interface. This feature logs diagnostics information whenever someone assigned Windows Virtual Desktop role uses the service. Each log contains information about which Windows Virtual Desktop role was involved in the activity, any error messages that appear during the session, tenant information, and user information. The diagnostics feature creates activity logs for both user and administrative actions. Each activity log falls under three main categories:
+Azure Virtual Desktop offers a diagnostics feature that allows the administrator to identify issues through a single interface. This feature logs diagnostics information whenever someone assigned Azure Virtual Desktop role uses the service. Each log contains information about which Azure Virtual Desktop role was involved in the activity, any error messages that appear during the session, tenant information, and user information. The diagnostics feature creates activity logs for both user and administrative actions. Each activity log falls under three main categories:
 
 - Feed subscription activities: when a user tries to connect to their feed through Microsoft Remote Desktop applications.
 - Connection activities: when a user tries to connect to a desktop or RemoteApp through Microsoft Remote Desktop applications.
 - Management activities: when an administrator performs management operations on the system, such as creating host pools, assigning users to app groups, and creating role assignments.
 
-Connections that don't reach Windows Virtual Desktop won't show up in diagnostics results because the diagnostics role service itself is part of Windows Virtual Desktop. Windows Virtual Desktop connection issues can happen when the user is experiencing network connectivity issues.
+Connections that don't reach Azure Virtual Desktop won't show up in diagnostics results because the diagnostics role service itself is part of Azure Virtual Desktop. Azure Virtual Desktop connection issues can happen when the user is experiencing network connectivity issues.
 
 ## Why you should use Log Analytics
 
@@ -37,9 +37,9 @@ You'll need this information later in the setup process.
 
 ## Push diagnostics data to your workspace
 
-You can push diagnostics data from your Windows Virtual Desktop tenant into the Log Analytics for your workspace. You can set up this feature right away when you first create your tenant by linking your workspace to your tenant, or you can set it up later with an existing tenant.
+You can push diagnostics data from your Azure Virtual Desktop tenant into the Log Analytics for your workspace. You can set up this feature right away when you first create your tenant by linking your workspace to your tenant, or you can set it up later with an existing tenant.
 
-To link your tenant to your Log Analytics workspace while you're setting up your new tenant, run the following cmdlet to sign in to Windows Virtual Desktop with your TenantCreator user account:
+To link your tenant to your Log Analytics workspace while you're setting up your new tenant, run the following cmdlet to sign in to Azure Virtual Desktop with your TenantCreator user account:
 
 ```powershell
 Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com

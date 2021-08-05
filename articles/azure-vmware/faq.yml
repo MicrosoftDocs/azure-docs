@@ -4,7 +4,7 @@ metadata:
   description: "Get answers to common questions about Azure VMware Solution."
   ms.topic: troubleshooting
   ms.custom: contperf-fy21q4
-  ms.date:  04/09/2021
+  ms.date:  06/16/2021
     
 title: Common questions about Azure VMware Solution
 summary: This article answers commonly asked questions about Azure VMware Solution.
@@ -17,7 +17,12 @@ sections:
 
       - question: Where is Azure VMware Solution available today?
         answer: The service is continuously being added to new regions. For details, see the [latest service availability information](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware). 
+
+      - question: Who supports Azure VMware Solution?
+        answer: Microsoft delivers support for Azure VMware Solution. You can submit a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
           
+          For Cloud Solution Provider (CSP) managed subscriptions, the first level of support provides the Solution Provider in the same fashion as CSP does for other Azure services.
+
       - question: Can workloads running in an Azure VMware Solution instance integrate with Azure services?
         answer: All Azure services will be available to Azure VMware Solution customers. Performance and availability limitations for specific services will need to be addressed on a case-by-case basis.
 
@@ -38,7 +43,7 @@ sections:
 
   - name: Configuration and setup
     questions:
-      - question: How long does it take to provision the initial three nodes in a cluster?
+      - question: How long does it take to provision the initial three hosts in a cluster?
         answer: At the moment, the provisioning can take roughly 3-4 hours.  Adding a single node in existing/same cluster takes between 30 - 45 minutes. 
 
   - name: VMware software
@@ -84,7 +89,19 @@ sections:
       - question: Can I change the default vSphere Web Client timeout value?
         answer: Yes. For information on changing the timeout value, see [Configure the vSphere Web Client Timeout Value](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vcenterhost.doc/GUID-975412DE-CDCB-49A1-8E2A-0965325D33A5.html).
 
-  - name: Compute, backup, and disaster recovery
+      - question: Is Windows 2008 supported as an Active Directory (AD) server or Remote Desktop Session Host (RDSH) OS in NSX-T?
+        answer: No.
+
+  - name: Migrate
+    questions:
+      - question: Why can't I see my Sentinel Management tab in the HCX Manager when using the Sentinel Appliance service?
+        answer: The Sentinel Management tab provides you access to download the Sentinel software.  It appears in the HCX Interconnect interface when an HCX Enterprise license is activated, and you have deployed a service mesh with an Sentinel Gateway (SGW) and Sentinel Data Receiver (SDR) pair deployed. Also, in traditional on-premises to cloud deployments the Sentinel tab is only visible in the Connector not cloud manager.
+
+      - question: If we migrate a VM created with thin provisioning on the on-premises side to Azure VMware Solution, will the VM remain thin?
+        answer: No. However, if the VM is migrated as thick, you can change policies on the individual VMs and individual vmdks through a combination of UI and PowerCLI.  
+
+
+  - name: Compute
     questions:
 
       - question: What are the CPU specifications in each type of host?
@@ -93,14 +110,22 @@ sections:
       - question: How much memory is in each host?
         answer: The servers have 576 GB of RAM.
 
+      - question: Does Azure VMware Solution support running ESXi/ESX as a nested virtualization solution?
+        answer: No. VMware does not officially support nested virtualization. 
+
+
+  - name: Third-party backup and recovery
+    questions:         
+
+      - question: Are the cloudadmin extension privileges supported by Azure VMware Solution?
+        answer: No. We currently don't support cloudadmin extension privileges, and we don't plan to support it in the foreseeable future.       
+        
       - question:  What independent software vendors (ISVs) backup solutions work with Azure VMware Solution?
         answer: Commvault, Veritas, and Veeam have extended their backup solutions to work with Azure VMware Solution.  However, any backup solution that uses VMware vStorage API for Data Protection (VADP) with the HotAdd transport mode works out of the box on Azure VMware Solution. For more information, see [Backup solutions for Azure VMware Solution VMs](ecosystem-back-up-vms.md).
 
       - question: What about support for ISV backup solutions?
         answer: As these backup solutions are installed and managed by customers, they can reach out to the respective ISV for support. 
-        
-      - question: Are the cloudadmin extension privileges supported by Azure VMware Solution?
-        answer: No. We currently don't support cloudadmin extension privileges, and we don't plan to support it in the foreseeable future.          
+   
 
   - name: Networking and interconnectivity
     questions:        
@@ -151,13 +176,13 @@ sections:
           > Any modification to that logical router or the NSX-T edge node VMs could affect connectivity to your private cloud.
 
       - question: Do I need to restrict access from the internet to VMs on logical networks in a private cloud?
-        answer: No. Network traffic inbound from the internet directly to private clouds isn't allowed by default.  However, you're able to expose Azure VMware Solution VMs to the internet through the [Public IP](public-ip-usage.md) option in your Azure portal for your Azure VMware Solution private cloud.
+        answer: No. Network traffic inbound from the internet directly to private clouds isn't allowed by default.  However, you're able to expose Azure VMware Solution VMs to the internet through the [Public IP](./enable-public-internet-access.md) option in your Azure portal for your Azure VMware Solution private cloud.
           
       - question: Do I need to restrict internet access from VMs on logical networks to the internet?
         answer: Yes. You'll need to use NSX-T manager to create a firewall to restrict VM access to the internet.
 
       - question: Which IP range can be used for DNS service IP and DHCP server IP?
-        answer: The address range shouldn't overlap with the IP range used in other virtual networks that are in your subscription and on-premises networks.
+        answer: The IP address range shouldn't overlap with the IP range used in other virtual networks in your subscription and on-premises networks.
 
       - question: Can Azure VMware Solution use Azure Virtual WAN hosted ExpressRoute Gateways?
         answer: Yes.
@@ -184,16 +209,13 @@ sections:
         answer: |
           FTT-1, RAID-1 (mirroring) with Object Space reservation set to Thick Provisioning is the Default Storage policy for the SDDC.
           
-          :::image type="content" source="media/vsphere-vm-storage-policies.png" alt-text="Screenshot that shows the vSphere Client VM Storage Policies.":::  
+          :::image type="content" source="media/concepts/vsphere-vm-storage-policies.png" alt-text="Screenshot that shows the vSphere Client VM Storage Policies.":::  
 
       - question: Why is thick provisioning the default vSAN policy in Azure VMware Solution?
         answer: Thick provisioning is reserved or pre-allocated storage space.  Thick provisioning protects systems by allowing them to function even if the vSAN datastore is full because the space is already reserved. For example, suppose you create a 10GB virtual disk with thick provisioning. In that case, the full amount of virtual disk storage capacity is pre-allocated on the physical storage where the virtual disk is created and consumes all the space allocated to it in the datastore.  It won’t allow other VMs to share the space from the datastore. A thin-provisioned virtual disk consumes the space that it needs initially and grows to the data space demand used in the datastore.
 
       - question: Can I create a new VM in Azure VMware Solution with thin provisioning even if the default vSAN policy is thick provisioning?
         answer: Yes. Outside of the default (thick_provision), you can create VMs with FTT1 thin provisioning. 
-
-      - question: If we migrate a VM created with thin provisioning on the on-premises side to Azure VMware Solution, will the VM remain thin?
-        answer: No. However, if the VM is migrated as thick, you can change policies on the individual VMs and individual vmdks through a combination of UI and PowerCLI.       
 
       - question: How many disks can fail on the vSAN before data loss occurs? 
         answer: It depends on how you plan your application workloads to run inside the SDDC (private cloud). Microsoft governs these failures regularly and replaces the hardware when such events are detected from an infrastructure perspective. As a default, a setting of FFT-1 is used, which accommodates a single host's failure.
@@ -220,7 +242,7 @@ sections:
         answer: At launch, Azure VMware Solution won't support a single management experience across on-premises and private cloud environments. Private cloud clusters will be managed with vCenter and NSX Manager local to a private cloud.
 
       - question: If a cluster is scaled up, and then workload demand falls, can it be scaled back down? 
-        answer: Yes, as long as you have the quota allocated against your private cloud, you can scale out your clusters. When workload demand falls, you can delete nodes from the cluster to scale it down. You can do this through the Azure VMware Solution portal.
+        answer: Yes, as long as you have the quota allocated against your private cloud, you can scale out your clusters. When workload demand falls, you can delete hosts from the cluster to scale it down. You can do this through the Azure VMware Solution portal.
 
       - question: Is the underlying infrastructure shared?
         answer: No, private cloud hosts and clusters are dedicated and securely erased before and after use.
@@ -229,22 +251,22 @@ sections:
         answer: Clusters can scale between three (minimum) and 16 (maximum) ESXi hosts. Trial clusters are limited to three hosts.
 
       - question: Can I scale my private cloud clusters?
-        answer: Yes, clusters scale between three (minimum) and 16 (maximum) ESXi hosts. Trial clusters are limited to three hosts.
+        answer: Yes, clusters scale between three (minimum) and 16 (maximum) ESXi hosts. 
 
       - question: What are trial clusters?
-        answer: Trial clusters are three host clusters used for one-month evaluations of Azure VMware Solution private clouds.
+        answer: Trial clusters are limited to three hosts used for one-month evaluations of Azure VMware Solution private clouds.
 
 
   - name: Identity management
     questions:
       - question: What accounts and privileges will I get with my new Azure VMware Solution private cloud?
-        answer: You're provided credentials for a cloudadmin user in vCenter and admin access on NSX-T Manager. There's also a CloudAdmin group that can be used to incorporate Azure Active Directory. For more information, see [Access and Identity Concepts](concepts-identity.md).
+        answer: You're provided credentials for a cloudadmin user in vCenter and admin access on NSX-T Manager. There's also a CloudAdmin group that can be used to incorporate Azure Active Directory. For more information, see [Access and identity Concepts](concepts-identity.md).
           
       - question: Can have administrator access to ESXi hosts?
         answer: No, administrator access to ESXi is restricted to meet the security requirements of the solution.
 
       - question: What privileges and permissions will I have in vCenter?
-        answer: You'll have CloudAdmin role privileges. For more information, see [Access and Identity Concepts](concepts-identity.md).
+        answer: You'll have CloudAdmin role privileges. For more information, see [Access and identity Concepts](concepts-identity.md).
           
       - question: What privileges and permissions will I have on the NSX-T manager?
         answer: |
@@ -254,8 +276,39 @@ sections:
           > A T0 router is created and configured as part of a private cloud deployment. Any modification to that logical router or the NSX-T edge node VMs could affect connectivity to your private cloud.
 
       - question: How can I change my credentials?
-        answer: For information on resetting your credentials, see [Reset vSphere credentials for Azure VMware Solution](rotate-cloudadmin-credentials.md).
-          
+        answer: For information on resetting your credentials, see [Rotate the cloudadmin credentials for Azure VMware Solution](rotate-cloudadmin-credentials.md).
+
+      - question: Are the cloudadmin extension privileges supported by Azure VMware Solution?
+        answer: No. We currently don't support cloudadmin extension privileges, and have no plans to support it.   
+
+  - name: CSP and multi-tenancy
+    questions:
+
+      - question: Does Azure VMware Solution provide an option for hoster partners to resell the service?
+        answer: Yes. For more details, see [Request host quota for Azure VMware Solution](request-host-quota-azure-vmware-solution.md).
+
+      - question: Does Azure VMware Solution offer multi-tenancy for hosting CSP partners?
+        answer: No. Currently, Azure VMware Solution doesn't offer multi-tenancy.
+
+      - question: Does Azure VMware Solution enable a hoster partner to partition resources within the private cloud (SDDC) to manage for customers in a multi-tenanted way?
+        answer: No, an Azure VMware Solution private cloud cannot be shared between end customers. 
+
+      - question: I use Azure VMware Solution to create end-user applications or workloads accessed on multiple VMs through public IP. Can I sell this solution to multiple tenants?
+        answer: Customers can create multi-tenant environments in their Azure VMware Solution private cloud and sell to customers provided the product is not a standard VM and have added substantial intellectual property embedded in the VM as an application.
+
+      - question: As a hoster or customer, can I use my existing VMware Cloud Director (VCD) or new VCXD deployment in Azure VMware Solution?
+        answer: VMware does not allow VCD in the cloud or from on-premises to be licensed with any Hyperscaler, including Microsoft.
+
+      - question: Can I connect VMware Cloud Director Service (CDS) to my Azure VMware Solution instance in Azure
+        answer: Although technically possible, Microsoft does not allow Azure VMware Solution to be used through the new CDS service from VMware running on VMC.
+
+      - question: Can Azure VMware Solution be purchased through a Microsoft CSP?
+        answer: Yes, customers can deploy Azure VMware Solution within an Azure subscription managed by a CSP.
+
+      - question: Are Reserved Instances available for purchasing through the CSP program?
+        answer: Yes. CSPs can purchase reserved instances for their customers. For more information, see [Save costs with a reserved instance](reserved-instance.md). 
+
+
   - name: Billing and support
     questions:
 
@@ -264,14 +317,6 @@ sections:
 
       - question: How will pricing be structured for Azure VMware Solution?
         answer: For general questions on pricing, see the Azure VMware Solution [pricing](https://azure.microsoft.com/pricing/details/azure-vmware) page. 
-          
-      - question: Can Azure VMware Solution be purchased through a Microsoft CSP?
-        answer: Yes, customers can deploy Azure VMware Solution within an Azure subscription managed by a CSP.
-
-      - question: Who supports Azure VMware Solution?
-        answer: Microsoft delivers support for Azure VMware Solution. You can submit a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
-          
-          For Cloud Solution Provider (CSP) managed subscriptions, the first level of support provides the Solution Provider in the same fashion as CSP does for other Azure services.
           
       - question: What accounts do I need to create an Azure VMware Solution private cloud?
         answer: You'll need an Azure account in an Azure subscription.
@@ -283,19 +328,15 @@ sections:
         answer: VMware HCX Enterprise is available with Azure VMware Solution as a *Preview* function/service. While VMware HCX Enterprise for Azure VMware Solution is in Preview, it's a free function/service and subject to Preview service terms and conditions. Once the VMware HCX Enterprise service goes GA, you'll get a 30-day notice that billing will switch over. You can switch it off or opt-out of the service.
 
       - question: How do I request a host quota increase for Azure VMware Solution?
-        answer: Whether you want more hosts for an existing private cloud or you're creating a new private cloud, you'll need to submit a support ticket to have your hosts allocated.  For more information, see [How to enable Azure VMware Solution resource](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider).
+        answer: Whether you want more hosts for an existing private cloud or you're creating a new private cloud, you'll need to submit a support ticket to have your hosts allocated.  For more information, see [Request host quota for Azure VMware Solution](request-host-quota-azure-vmware-solution.md).
           
-      - question: Are Reserved Instances available for purchasing through the CSP program?
-        answer: Yes. CSPs can purchase reserved instances for their customers. For more information, see [Save costs with a reserved instance](reserved-instance.md). 
-          
-      - question: Does Azure VMware Solution offer multi-tenancy for hosting CSP partners?
-        answer: No. Currently, Azure VMware Solution doesn't offer multi-tenancy.
-
       - question: Will traffic between on-premises and Azure VMware Solution over ExpressRoute incur any outbound data transfer charge in the metered data plan?
         answer: Traffic in the Azure VMware Solution ExpressRoute circuit isn't metered in any way. Traffic from your ExpressRoute circuit connecting to your on-premises to Azure is charged according to ExpressRoute pricing plans.
 
       - question:  Is it necessary to procure licenses and resources other than the AV36 instance when migrating from the on-premise VM environment with L2 extension?  
         answer: | 
-          NO        
-          
+          No.        
+
+      - question: When does metering begin and end for trial Azure VMware Solution clusters?
+        answer: Trial clusters are limited to three hosts used for 30-day evaluations of Azure VMware Solution private clouds. After 30 days, clusters are automatically metered per their respective rates. If the trial clusters are deleted before the 30-day end date, the Azure VMware Solution trial will end at the time of deletion.
 
