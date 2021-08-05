@@ -13,7 +13,7 @@ ms.custom: devx-track-js
 
 # Deploy static-rendered Next.js websites on Azure Static Web Apps
 
-In this tutorial, you learn to configure deploy a [Next.js](https://nextjs.org) generated static website to [Azure Static Web Apps](overview.md).
+In this tutorial, you learn to configure and deploy a [Next.js](https://nextjs.org) generated static website to [Azure Static Web Apps](overview.md).
 
 ## Prerequisites
 
@@ -95,7 +95,7 @@ export async function getStaticProps({ params }) {
 
  Review `projects/[path].js` for full implementation details.
 
- Make the following modifications to your application to complete the static site set up. 
+ Make the following modifications to your application to complete the static site setup. 
 
 1. To configure static routes, create file named _next.config.js_ at the root of your project and add the following code.
 
@@ -199,7 +199,7 @@ The following steps show how to link the app you just pushed to GitHub to Azure 
 
 1. On the _Overview_ window, click the *URL* link to open your deployed application.
 
-If the website does note immediately load, then the background GitHub Actions workflow is still running. Once the workflow is complete you can then click refresh the browser to view your web app.
+If the website does note immediately load, then the background GitHub Actions workflow is still running. Once the workflow is complete, you can then click refresh the browser to view your web app.
 
 You can check the status of the Actions workflows by navigating to the Actions for your repository:
 
