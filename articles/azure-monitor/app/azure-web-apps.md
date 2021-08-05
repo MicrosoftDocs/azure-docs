@@ -416,8 +416,7 @@ If the upgrade is done from a version prior to 2.5.1, check that the Application
 Below is our step-by-step troubleshooting guide for extension/agent based monitoring for ASP.NET and ASP.NET Core based applications running on Azure App Services.
 
 #### Windows troubleshooting 
-1. Check that the application is monitored via `ApplicationInsightsAgent`.
-    - Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of "~2".
+1. Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of "~2".
 2. Ensure that the application meets the requirements to be monitored.
     
     Browse to `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`.  
@@ -426,7 +425,7 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
     
     - Confirm that the `Application Insights Extension Status` is `Pre-Installed Site Extension, version 2.8.x.xxxx, is running.` 
     
-         If it is not running, follow the [enable Application Insights monitoring instructions](#enable-application-insights)
+         If it is not running, follow the [enable Application Insights monitoring instructions](#enable-application-insights).
 
     - Confirm that the status source exists and looks like: `Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`
 
@@ -439,7 +438,7 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 
          If any of these entries exist, remove the following packages from your application: `Microsoft.ApplicationInsights`, `System.Diagnostics.DiagnosticSource`, and `Microsoft.AspNet.TelemetryCorrelation`.
 
-    - **For ASP.NET Core apps only**: in case your application refers to any Application Insights packages, for example if you have previously instrumented (or attempted to instrument) your app with the [ASP.NET Core SDK](./asp-net-core.md), enabling the App Service integration may not take effect and the data may not appear in Application Insights. To fix the issue, in portal turn on "Interop with Application Insights SDK" and you will start seeing the data in Application Insights 
+    - **For ASP.NET Core apps only**: in case your application refers to any Application Insights packages, for example if you have previously instrumented (or attempted to instrument) your app with the [ASP.NET Core SDK](./asp-net-core.md), enabling the App Service integration may not take effect and the data may not appear in Application Insights. To fix the issue, in portal turn on "Interop with Application Insights SDK" and you will start seeing the data in Application Insights. 
         > [!IMPORTANT]
         > This functionality is in preview 
 
@@ -452,11 +451,14 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 
 #### Linux troubleshooting
 
-1. Check that the application is monitored via `ApplicationInsightsAgent`.
-    - Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of "~3".
+1. Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of "~3".
 2. Ensure that the application meets the requirements to be monitored.
 
      Navigate to */home\LogFiles\ApplicationInsights\status* and open *status_557de146e7fa_27_1.json*.
+
+    Confirm that `AppAlreadyInstrumented` is set to false, `AiHostingStartupLoaded` to true and `IKeyExists` to true.
+
+    Below is an example of the JSON file:
 
     ```json
         "AppType":".NETCoreApp,Version=v6.0",
@@ -489,13 +491,13 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
     
     ```
     
-    Confirm that `AppAlreadyInstrumented` is set to false, `AiHostingStartupLoaded` to true and `IKeyExists` to true.
+
+    
  
 ##### No Data for Linux ASP.NET Core
 
 1. List and identify the process that is hosting an app.
-         
-    On the command line type `ps ax`. 
+        Navigate to your terminal and on the command line type `ps ax`. 
             
     The output should be similar to: 
 
@@ -518,9 +520,7 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
    ``` 
 
 
-1. Then list environment variables from app process. 
-
-    On the command line type `cat /proc/27/environ | tr '\0' '\n`.
+1. Then list environment variables from app process. On the command line type `cat /proc/27/environ | tr '\0' '\n`.
     
     The output should be similar to: 
 
