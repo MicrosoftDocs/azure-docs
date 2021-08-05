@@ -31,17 +31,17 @@ This article describes the region availability for the Azure Stack Edge service 
 
 ## Region availability for Azure Stack Edge service
 
-To order, activate, deploy, and return an Azure Stack Edge device, an Azure Stack Edge management resource is created in the public cloud. You define a region or location when you first create an Azure Stack Edge resource. This management resource uses the Azure Stack Edge service to track and complete the order and to activate the device. The service also checks for the heartbeat of the device.<!--1) Whole lot of redundancy! To be tackled... 2) Lead with regional availability list or the affect of the service region? 3) Link to regional availability site.-->
+The Azure Stack Edge service is currently supported in the US East, West Europe, and SE Asia public regions. **These three regions support geographic locations worldwide.**
 
-Azure Stack Edge service is currently supported in the US East, West Europe, and SE Asia public regions. These three regions support geographic locations worldwide.
+The Azure Stack Edge service is used to create a management resource in the cloud when you order a device, provision virtual machines on the device, and manage and monitor the device. You assign a region or location when you create an Azure Stack Edge management resource.
 
-The Azure Stack Edge service monitors the health of the device (issues, errors, alerts, and whether the device is "alive") and usage and consumption meters for billing - the Control plane information for the service.
+The management resource uses the Azure Stack Edge service to order, activate, deploy, and return an Azure Stack Edge device. 
+
+The Azure Stack Edge service also monitors the health of the device (issues, errors, alerts, and whether the device is "alive") and usage and consumption meters for billing - that is the control plane information on the device.
 
 Data doesn't flow through the Azure Stack Edge service. Data flows between the appliance and the storage account deployed in the customer's region of data origin.
 
-The Azure Stack Edge service is used to create the resource when you order a device, provision virtual machines on the device, and manage and monitor resources on the device. You define a region or location when you first create an Azure Stack Edge resource.
-
-The device must connect to the Azure Stack Edge service to activate. If you don't want any further interaction with the service, you can switch the device to disconnected mode. LINK TO PROCEDURE.
+The device must connect to the Azure Stack Edge service to activate. If you don't want any further interaction with the service, you can switch the device to disconnected mode. LINK TO DISCONNECT PROCEDURE.
 
 In general, a location closest to the geographical region where the device is deployed is chosen. But the device and the service can also be deployed in different locations.
 
@@ -49,13 +49,13 @@ In general, a location closest to the geographical region where the device is de
 
 Azure Stack Edge data is physically stored in Azure storage accounts, and these accounts are available in all the Azure regions. When you create an Azure storage account, the primary location of the storage account is chosen, and that determines the region where the data resides.
 
-When you first create an Azure Stack Edge management resource and associate a storage account with it, your Azure Stack Edge service and Azure storage can be in two separate locations. In such a case, you are required to create the Azure Stack Edge management resource<!--For StorSimple, this is the StorSimple Device Manager. What's the ASE equivalent?--> and Azure storage account separately.<!--Explanation taken from StorSimple. Verify applicability to Azure Stack Edge.-->
+When you create an Azure Stack Edge management resource, you associate a storage account with it. Your Azure Stack Edge service and Azure storage can be in two separate locations.
 
-In general, choose the nearest region to your service for your storage account. However, the nearest Microsoft Azure region might not actually be the region with the lowest latency. It is the latency that dictates network service performance and hence the performance of the device. So if you are choosing a storage account in a different region, it is important to know what the latencies are between your service and the region associated with your storage account.<!--What if they choose to run their ASE device in disconnected mode?-->
+In general, choose the nearest region to your service for your storage account.<!--Does this advice hold for Azure Stack Edge, where only three regions are available?--> However, the nearest Microsoft Azure region might not actually be the region with the lowest latency. It is the latency that dictates network service performance and hence the performance of the device. So if you are choosing a storage account in a different region, it is important to know what the latencies are between your service and the region associated with your storage account.
 
 ## Availability of Azure Stack Edge device
 
-Depending upon the model, the Azure Stack Edge devices can be available in different geographies or countries/regions.
+Depending upon the model, the Azure Stack Edge devices can be available in different geographies or countries/regions.<!--When I open the link to the supported regions, only one region is checked.-->
 
 <!--### StorSimple physical device (Models 8100/8600)
 
