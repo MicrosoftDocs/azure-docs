@@ -72,10 +72,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, perform the following steps: 
 
     a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://<Customer Name>.corporateparking.parso.cr/users/saml/metadata`
+    `https://<CustomerName>.corporateparking.parso.cr/users/saml/metadata`
 
 	b. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<Customer Name>.corporateparking.parso.cr/users/saml/auth`
+    `https://<CustomerName>.corporateparking.parso.cr/users/saml/auth`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Sign on URL. Contact [CorporateExperience Client support team](mailto:support@parso.cr) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
