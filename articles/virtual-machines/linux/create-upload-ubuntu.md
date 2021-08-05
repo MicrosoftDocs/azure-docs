@@ -76,7 +76,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 6. Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
 
-7. Install cloud-init (the provisioning agent) and the Azure Linux Agent (the guest extensions handler). Cloud-init uses netplan to configure the system network configuration during provisioning and each subsequent boot.
+7. Install cloud-init (the provisioning agent) and the Azure Linux Agent (the guest extensions handler). Cloud-init uses `netplan` to configure the system network configuration during provisioning and each subsequent boot.
 
     ```console
     # sudo apt update
@@ -86,7 +86,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
    > [!Note]
    >  The `walinuxagent` package may remove the `NetworkManager` and `NetworkManager-gnome` packages, if they are installed.
 
-8. Remove cloud-init default configs and leftover netplan artifacts that may conflict with cloud-init provisioning on Azure:
+8. Remove cloud-init default configs and leftover `netplan` artifacts that may conflict with cloud-init provisioning on Azure:
 
     ```console
     # rm -f /etc/cloud/cloud.cfg.d/50-curtin-networking.cfg /etc/cloud/cloud.cfg.d/curtin-preserve-sources.cfg /etc/cloud/cloud.cfg.d/99-installer.cfg /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
@@ -96,10 +96,10 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 9. Configure cloud-init to provision the system using the Azure datasource:
 
-	```console
+    ```bash
 	# cat > /etc/cloud/cloud.cfg.d/90_dpkg.cfg << EOF
 	datasource_list: [ Azure ]
-	EOF
+    EOF
 
 	# cat > /etc/cloud/cloud.cfg.d/90-azure.cfg << EOF
     system_info:
@@ -116,7 +116,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
            failsafe:
              primary: http://ports.ubuntu.com/ubuntu-ports
              security: http://ports.ubuntu.com/ubuntu-ports
-	EOF
+    EOF
 
 	# cat > /etc/cloud/cloud.cfg.d/10-azure-kvp.cfg << EOF
     reporting:
@@ -124,8 +124,8 @@ This article assumes that you have already installed an Ubuntu Linux operating s
         type: log
       telemetry:
         type: hyperv
-	EOF
-	```
+    EOF
+    ```
 
 10. Configure the Azure Linux agent to rely on cloud-init to perform provisioning. Have a look at the [WALinuxAgent project](https://github.com/Azure/WALinuxAgent) for more information on these options.
 
@@ -158,7 +158,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 12. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
 	> [!NOTE]
-	> The `sudo waagent -force -deprovision+user` command will attempt to clean the system and make it suitable for re-provisioning. The `+user` option deletes the last provisioned user account and associated data.
+	> The `sudo waagent -force -deprovision+user` command generalizes the image by attempting to clean the system and make it suitable for re-provisioning. The `+user` option deletes the last provisioned user account and associated data.
 
 	> [!WARNING]
 	> Deprovisioning using the command above does not guarantee that the image is cleared of all sensitive information and is suitable for redistribution.

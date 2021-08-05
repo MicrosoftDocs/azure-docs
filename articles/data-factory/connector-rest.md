@@ -1,8 +1,11 @@
 ---
 title: Copy data from and to a REST endpoint by using Azure Data Factory 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from a cloud or on-premises REST source to supported sink data stores, or from supported source data store to a REST sink by using a copy activity in an Azure Data Factory pipeline.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 07/27/2021
 ms.author: makromer
@@ -431,11 +434,13 @@ REST is supported in data flows for both integration datasets and inline dataset
 | httpCompressionType | HTTP compression type to use while sending data with Optimal Compression Level. Allowed values are **none** and **gzip**. | No |
 | writeBatchSize | Number of records to write to the REST sink per batch. The default value is 10000. | No |
 
-You can set the delete, insert, update, and upsert methods as well as the row data to send to the REST sink.
+You can set the delete, insert, update, and upsert methods as well as the relative row data to send to the REST sink for CRUD operations.
 
 ![Data flow REST sink](media/data-flow/data-flow-sink.png)
 
 ## Sample data flow script
+
+Notice the use of an alter row transformation prior to the sink to instruct ADF what type of action to take with your REST sink. I.e. insert, update, upsert, delete.
 
 ```
 AlterRow1 sink(allowSchemaDrift: true,

@@ -120,6 +120,8 @@ To delete a saved workbook (either a saved template or a customized workbook), i
 
 ## Next steps
 
-In this tutorial, you learned how to visualize your data in Azure Sentinel, using Azure Workbooks.
+In this article, you learned how to visualize your data in Azure Sentinel, using Azure Workbooks.
 
 To learn how to automate your responses to threats, see [Set up automated threat responses in Azure Sentinel](tutorial-respond-threats-playbook.md).
+
+To learn about popular built-in workbooks, see [Commonly used Azure Sentinel workbooks](top-workbooks.md). 

@@ -232,7 +232,8 @@ The process event schema references the following entities, which are central to
 For more information, see:
 
 - [Normalization in Azure Sentinel](normalization.md)
-- [Azure Sentinel Authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
+- [Azure Sentinel authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
 - [Azure Sentinel DNS normalization schema reference](dns-normalization-schema.md)
+- [Azure Sentinel file event normalization schema reference (Public preview)](file-event-normalization-schema.md)
 - [Azure Sentinel network normalization schema reference](normalization-schema.md)
-- [Azure Sentinel Registry Event normalization schema reference (Public preview)](registry-event-normalization-schema.md)
+- [Azure Sentinel registry event normalization schema reference (Public preview)](registry-event-normalization-schema.md)

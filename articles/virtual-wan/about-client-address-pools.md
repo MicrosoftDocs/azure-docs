@@ -67,12 +67,7 @@ This setting is configured on the **Point to site** page when you create your vi
 
 To modify this setting:
 
-1. Navigate to your **Virtual HUB -> User VPN (Point to site)**, then click **Configure**.
-
-   :::image type="content" source="media/about-client-address-pools/modify.png" alt-text="Screenshot of modifying a client address pool.":::
-1. On the **Edit User VPN gateway** page, edit the settings.
-
-   :::image type="content" source="media/about-client-address-pools/edit.png" alt-text="Screenshot of editing page.":::
+[!INCLUDE [Modify client address pool](../../includes/virtual-wan-client-address-pool-include.md)]
 
 ## Next steps
 

@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 07/26/2021
 ---
 # Tune applications and databases for performance in Azure SQL Database and Azure SQL Managed Instance

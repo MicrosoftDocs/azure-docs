@@ -338,7 +338,8 @@ For example, we fixed a `TCP_NODELAY` setting issue in [1.16.0](releasenotes.md#
 You may use load test to test the speech synthesis service capacity and latency.
 Here are some guidelines.
 
- - The speech synthesis service has the ability to autoscale, but takes time to scale out. If the concurrency is increased in a short time, the client may get long latency or `429` error code (too many requests). So, we recommend you increase your concurrency step by step in load test. [See this article](speech-services-quotas-and-limits.md#general-best-practices-to-mitigate-throttling-during-autoscaling) for more details.
+ - The speech synthesis service has the ability to autoscale, but takes time to scale out. If the concurrency is increased in a short time, the client may get long latency or `429` error code (too many requests). So, we recommend you increase your concurrency step by step in load test. [See this article](speech-services-quotas-and-limits.md#general-best-practices-to-mitigate-throttling-during-autoscaling) for more details, especially [this example of workload patterns](speech-services-quotas-and-limits.md#example-of-a-workload-pattern-best-practice).
+ - You can leverage our sample using object pool ([C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_server_scenario_sample.cs) and [Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechSynthesisScenarioSamples.java)) for load test and getting the latency numbers. You can modify the test turns and concurrency in the sample to meet your target concurrency.
  - The service has quota limitation based on the real traffic, therefore, if you want to perform load test with the concurrency much higher than your real traffic, connect before your test.
 
 ## Next steps
