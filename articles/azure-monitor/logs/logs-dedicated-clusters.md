@@ -4,7 +4,7 @@ description: Customers who ingest more than 1 TB a day of monitoring data may us
 ms.topic: conceptual
 author: rboucher
 ms.author: robb
-ms.date: 09/16/2020 
+ms.date: 07/29/2021 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -34,9 +34,9 @@ All operations on the cluster level require the `Microsoft.OperationalInsights/c
 
 ## Cluster pricing model
 
-Log Analytics Dedicated Clusters use a Commitment Tier pricing model which of at least 1000 GB/day. Any usage above the tier level will be billed at effective per-GB rate of that Commitment Tier.  Commitment Tier pricing information is available at the [Azure Monitor pricing page]( https://azure.microsoft.com/pricing/details/monitor/).  
+Log Analytics Dedicated Clusters use a Commitment Tier pricing model which of at least 500 GB/day. Any usage above the tier level will be billed at effective per-GB rate of that Commitment Tier.  Commitment Tier pricing information is available at the [Azure Monitor pricing page]( https://azure.microsoft.com/pricing/details/monitor/).  
 
-The cluster Commitment Tier level is configured via programmatically with Azure Resource Manager using the `Capacity` parameter under `Sku`. The `Capacity` is specified in units of GB and can have values of 1000, 2000 or 5000 GB/day.
+The cluster Commitment Tier level is configured programmatically with Azure Resource Manager using the `Capacity` parameter under `Sku`. The `Capacity` is specified in units of GB and can have values of 500, 1000, 2000 or 5000 GB/day.
 
 There are two modes of billing for usage on a cluster. These can be specified by the `billingType` parameter when configuring your cluster. 
 
@@ -72,7 +72,7 @@ The following properties must be specified:
 - **ClusterName**: Used for administrative purposes. Users are not exposed to this name.
 - **ResourceGroupName**: As for any Azure resource, clusters belong to a resource group. We  recommended you use a central IT resource group because clusters are usually shared by many teams in the organization. For more design considerations, review [Designing your Azure Monitor Logs deployment](../logs/design-logs-deployment.md)
 - **Location**: A cluster is located in a specific Azure region. Only workspaces located in this region can be linked to this cluster.
-- **SkuCapacity**: You must specify the Commitment Tier (sku) when creating a cluster resource. The Commitment Tier can be set to 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Manage Costs for Log Analytics clusters](./manage-cost-storage.md#log-analytics-dedicated-clusters). Note that commitment tiers were formerly called capacity reservations. 
+- **SkuCapacity**: You must specify the Commitment Tier (sku) when creating a cluster resource. The Commitment Tier can be set to 500, 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Manage Costs for Log Analytics clusters](./manage-cost-storage.md#log-analytics-dedicated-clusters). Note that commitment tiers were formerly called capacity reservations. 
 
 After you create your *cluster* resource, you can edit additional properties such as *sku*, *keyVaultProperties, or *billingType*. See more details below.
 
@@ -108,7 +108,7 @@ Content-type: application/json
     },
   "sku": {
     "name": "capacityReservation",
-    "Capacity": 1000
+    "Capacity": 500
     },
   "properties": {
     "billingType": "cluster",
@@ -150,7 +150,7 @@ The provisioning of the Log Analytics cluster takes a while to complete. You can
        },
      "sku": {
        "name": "capacityReservation",
-       "capacity": 1000,
+       "capacity": 500,
        "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
        },
      "properties": {
@@ -340,7 +340,7 @@ Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name"
         },
         "sku": {
           "name": "capacityReservation",
-          "capacity": 1000,
+          "capacity": 500,
           "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
           },
         "properties": {
@@ -393,18 +393,18 @@ The same as for 'clusters in a resource group', but in subscription scope.
 
 ### Update commitment tier in cluster
 
-When the data volume to your linked workspaces change over time and you want to update the Commitment Tier level appropriately. The tier is specified in units of GB and can have values of 1000, 2000 or 5000 GB/day. Note that you don’t have to provide the full REST request body but should include the sku.
+When the data volume to your linked workspaces change over time and you want to update the Commitment Tier level appropriately. The tier is specified in units of GB and can have values of 500, 1000, 2000 or 5000 GB/day. Note that you don’t have to provide the full REST request body but should include the sku.
 
 **CLI**
 
 ```azurecli
-az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --sku-capacity 1000
+az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --sku-capacity 500
 ```
 
 **PowerShell**
 
 ```powershell
-Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity 1000
+Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity 500
 ```
 
 **REST**
@@ -542,10 +542,9 @@ Use the following REST call to delete a cluster:
   -  400 -- The body of the request is null or in bad format.
   -  400 -- SKU name is invalid. Set SKU name to capacityReservation.
   -  400 -- Capacity was provided but SKU is not capacityReservation. Set SKU name to capacityReservation.
-  -  400 -- Missing Capacity in SKU. Set Capacity value to 1000 or higher in steps of 100 (GB).
-  -  400 -- Capacity in SKU is not in range. Should be minimum 1000 and up to the max allowed capacity which is available under ‘Usage and estimated cost’ in your workspace.
+  -  400 -- Missing Capacity in SKU. Set Capacity value to 500, 1000, 2000 or 5000 GB/day.
   -  400 -- Capacity is locked for 30 days. Decreasing capacity is permitted 30 days after update.
-  -  400 -- No SKU was set. Set the SKU name to capacityReservation and Capacity value to 1000 or higher in steps of 100 (GB).
+  -  400 -- No SKU was set. Set the SKU name to capacityReservation and Capacity value to 500, 1000, 2000 or 5000 GB/day.
   -  400 -- Identity is null or empty. Set Identity with systemAssigned type.
   -  400 -- KeyVaultProperties are set on creation. Update KeyVaultProperties after cluster creation.
   -  400 -- Operation cannot be executed now. Async operation is in a state other than succeeded. Cluster must complete its operation before any update operation is performed.

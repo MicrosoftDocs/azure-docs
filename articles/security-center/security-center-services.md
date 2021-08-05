@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 07/25/2021
+ms.date: 08/01/2021
 ms.custom: references_regions
 ms.author: memildin
 ---
@@ -31,7 +31,7 @@ The two tabs below show the features of Azure Security Center that are available
 |[Network map](security-center-network-recommendations.md#network-map)|✔|✔|-|Yes|
 |[Adaptive network hardening](security-center-adaptive-network-hardening.md)|✔|-|-|Yes|
 |[Regulatory compliance dashboard & reports](security-center-compliance-dashboard.md)|✔|✔|✔|Yes|
-|Recommendations and threat protection on Docker-hosted IaaS containers|-|-|-|Yes|
+|[Docker host hardening](./harden-docker-hosts.md)|-|-|-|Yes|
 |Missing OS patches assessment|✔|✔|✔|Azure: No<br><br>Arc-enabled: Yes|
 |Security misconfigurations assessment|✔|✔|✔|Azure: No<br><br>Arc-enabled: Yes|
 |[Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: No<br><br>Arc-enabled: Yes|
@@ -55,7 +55,7 @@ The two tabs below show the features of Azure Security Center that are available
 |[Network map](security-center-network-recommendations.md#network-map)|✔|✔|-|Yes|
 |[Adaptive network hardening](security-center-adaptive-network-hardening.md)|✔|-|-|Yes|
 |[Regulatory compliance dashboard & reports](security-center-compliance-dashboard.md)|✔|✔|✔|Yes|
-|Recommendations and threat protection on Docker-hosted IaaS containers|✔|✔|✔|Yes|
+|[Docker host hardening](./harden-docker-hosts.md)|✔|✔|✔|Yes|
 |Missing OS patches assessment|✔|✔|✔|Azure: No<br><br>Arc-enabled: Yes|
 |Security misconfigurations assessment|✔|✔|✔|Azure: No<br><br>Arc-enabled: Yes|
 |[Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|No|

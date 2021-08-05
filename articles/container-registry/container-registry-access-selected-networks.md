@@ -2,7 +2,7 @@
 title: Configure public registry access
 description: Configure IP rules to enable access to an Azure container registry from selected public IP addresses or address ranges.
 ms.topic: article
-ms.date: 03/08/2021
+ms.date: 07/28/2021
 ---
 
 # Configure public IP network rules
@@ -103,10 +103,17 @@ az acr update --name myContainerRegistry --public-network-enabled true
 
 ## Troubleshoot
 
+### Access behind HTTPS proxy
+
 If a public network rule is set, or public access to the registry is denied, attempts to login to the registry from a disallowed public network will fail. Client access from behind an HTTPS proxy will also fail if an access rule for the proxy is not set. You will see an error message similar to `Error response from daemon: login attempt failed with status: 403 Forbidden` or `Looks like you don't have access to registry`.
 
 These errors can also occur if you use an HTTPS proxy that is allowed by a network access rule, but the proxy isn't properly configured in the client environment. Check that both your Docker client and the Docker daemon are configured for proxy behavior. For details, see [HTTP/HTTPS proxy](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy) in the Docker documentation.
 
+### Access from Azure Pipelines
+
+If you use Azure Pipelines with an Azure container registry that limits access to specific IP addresses, the pipeline may be unable to access the registry, because the outbound IP address from the pipeline is not fixed. By default, the pipeline runs jobs using a Microsoft-hosted [agent](/azure/devops/pipelines/agents/agents) on a virtual machine pool with a changing set of IP addresses.
+
+One workaround is to change the agent used to run the pipeline from Microsoft-hosted to self-hosted. With a self-hosted agent running on a [Windows](/azure/devops/pipelines/agents/v2-windows) or [Linux](/azure/devops/pipelines/agents/v2-linux) machine that you manage, you control the outbound IP address of the pipeline, and you can add this address in a registry IP access rule.
 
 ## Next steps
 

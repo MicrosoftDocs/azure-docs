@@ -1,12 +1,12 @@
 ---
 title: Azure Synapse connectivity settings
 description: An article that teaches you to configure connectivity settings in Azure Synapse Analytics 
-author: RonyMSFT 
+author: ashinMSFT 
 ms.service: synapse-analytics 
 ms.topic: overview
 ms.subservice: security 
 ms.date: 03/15/2021 
-ms.author: ronytho 
+ms.author: seshin 
 ms.reviewer: jrasnick
 ---
 

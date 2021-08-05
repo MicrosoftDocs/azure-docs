@@ -64,7 +64,12 @@
     "source_path": "event-hubs-csharp-storm-getstarted.md",
     "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
     "redirect_document_id": false
-  },
+  },  
+  {
+    "source_path": "event-hubs-diagnostic-logs.md",
+    "redirect_url": "/azure/event-hubs/monitor-event-hubs-reference#resource-logs",
+    "redirect_document_id": false
+  },  
   {
     "source_path": "event-hubs-dotnet-framework-api-overview.md",
     "redirect_url": "/azure/event-hubs/event-hubs-dotnet-framework-getstarted-send",

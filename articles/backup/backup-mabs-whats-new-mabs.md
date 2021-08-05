@@ -15,11 +15,11 @@ For information about the UR2 issues fixes and the installation instructions, se
 
 ### Support for Azure Stack HCI
 
-With MABS v3 UR2, you can backup Virtual Machines on Azure Stack HCI. [Learn more](/azure-stack/hci).
+With MABS v3 UR2, you can backup Virtual Machines on Azure Stack HCI. [Learn more](/azure/backup/back-up-azure-stack-hyperconverged-infrastructure-virtual-machines).
 
 ### Support for VMware 7.0
 
-With MABS v3 UR2, you can back up VMware 7.0 VMs. [Learn more](/azure/backup/backup-support-matrix-mabs-dpm).
+With MABS v3 UR2, you can back up VMware 7.0 VMs. [Learn more](/azure/backup/backup-azure-backup-server-vmware).
 
 ### Support for SQL Server Failover Cluster Instance (FCI) using Cluster Shared Volume (CSV)
 
@@ -27,7 +27,7 @@ MABS v3 UR2 supports SQL Server Failover Cluster Instance (FCI) using Cluster Sh
 
 ### Optimized Volume Migration
 
-MABS v3 UR2 supports optimized volume migration. The optimized volume migration allows you to move data sources to the new volume much faster. The enhanced migration process migrates only the active backup copy (Active Replica) to the new volume. All new recovery points are created on the new volume, while existing recovery points are maintained on the existing volume and are purged based on the retention policy. [Learn more](https://support.microsoft.com/topic/microsoft-azure-backup-server-v3-feb4523f-8da7-da61-2f47-eaa9fca9a3de).
+MABS v3 UR2 supports optimized volume migration. The optimized volume migration allows you to move data sources to the new volume much faster. The enhanced migration process migrates only the active backup copy (Active Replica) to the new volume. All new recovery points are created on the new volume, while existing recovery points are maintained on the existing volume and are purged based on the retention policy. [Learn more](/system-center/dpm/volume-to-volume-migration?view=sc-dpm-2019&preserve-view=true).
 
 ### Offline Backup using Azure Data Box
 
