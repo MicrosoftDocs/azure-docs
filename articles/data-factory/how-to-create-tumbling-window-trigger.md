@@ -6,7 +6,6 @@ author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
-ms.custom: synapse
 ms.topic: conceptual
 ms.date: 07/26/2021
 ---

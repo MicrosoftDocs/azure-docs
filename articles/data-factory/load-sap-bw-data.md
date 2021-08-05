@@ -5,7 +5,7 @@ author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019, synapse
+ms.custom: seo-lt-2019
 ms.date: 07/05/2021
 ---
 

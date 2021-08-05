@@ -4,7 +4,6 @@ description: Learn how to delete files in various file stores with the Delete Ac
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
-ms.custom: synapse
 ms.topic: conceptual
 ms.date: 08/12/2020
 ---

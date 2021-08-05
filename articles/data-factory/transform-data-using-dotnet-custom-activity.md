@@ -5,7 +5,7 @@ ms.service: data-factory
 author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
-ms.custom: seo-lt-2019, devx-track-azurepowershell, synapse
+ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 11/26/2018
 ---
 

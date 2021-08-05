@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018 
-ms.custom: devx-track-azurepowershell, synapse
+ms.custom: devx-track-azurepowershell
 ---
 
 # If Condition activity in Azure Data Factory
