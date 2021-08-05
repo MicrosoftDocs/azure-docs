@@ -6,7 +6,7 @@ ms.author: bagold
 ms.service: azure-sentinel
 ms.topic: troubleshooting
 ms.custom: mvc
-ms.date: 07/29/2021
+ms.date: 08/05/2021
 ms.subservice: azure-sentinel
 
 ---
@@ -29,27 +29,38 @@ For more information, see the [Docker CLI documentation](https://docs.docker.com
 
 ## Review system logs
 
-We highly recommend that you review the system logs after installing or resetting the data connector.
+We highly recommend that you review the system logs after installing or [resetting the data connector](#reset-the-sap-data-connector).
 
 Run:
 
 ```bash
 docker logs -f sapcon-[SID]
 ```
+
 ## Enable debug mode printing
 
-To enable debug mode printing:
+**To enable debug mode printing**:
 
 1. Copy the following file to your **sapcon/[SID]** directory, and then rename it as `loggingconfig.yaml`: https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/loggingconfig_DEV.yaml
 
 1. [Reset the SAP data connector](#reset-the-sap-data-connector).
 
-For example, for SID A4H:
+For example, for SID `A4H`:
 
 ```bash
 wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/loggingconfig_DEV.y
               cp loggingconfig.yaml ~/sapcon/A4H
               docker restart sapcon-A4H
+```
+
+**To disable debug mode printing again, run**:
+
+```bash
+root@NetWeaver75-Docker:~/sapcon/[SID]/sapcon/[SID]# mv loggingconfig.yaml loggingconfig.old
+root@NetWeaver75-Docker:~/sapcon/[SID]/sapcon/[SID]# ls
+inst  loggingconfig.old  metadata.db  metadata.old  sapcon-instance-update.sh  systemconfig.ini
+root@NetWeaver75-Docker:~/sapcon/[SID]/sapcon/[SID]# docker restart sapcon-[SID]
+sapcon-[SID]
 ```
 
 ## View all Docker execution logs
@@ -122,7 +133,13 @@ The following steps reset the connector and re-ingest SAP logs from the last 24 
     docker stop sapcon-[SID]
     ```
 
-1.	Delete the **metadata.db** file from the **sapcon/[SID]** directory.
+1.	Delete the **metadata.db** file from the **sapcon/[SID]** directory. Run:
+
+    ```bash
+    cd ~/sapcon/<SID>
+    ls
+    mv metadata.db metadata.old
+    ```
 
     > [!NOTE]
     > The **metadata.db** file contains the last timestamp for each of the logs, and works to prevent duplication.
@@ -148,7 +165,7 @@ This occurs when the connector fails to boot with PyRfc, or zip-related error me
 1. Reinstall the SAP SDK.
 1. Verify that you're the correct Linux 64-bit version. As of the current date, the release filename is: **nwrfc750P_8-70002752.zip**.
 
-If you'd installed the data connector manually, make sure that you'd copied the SDK file into the docker container.
+If you'd installed the data connector manually, make sure that you'd copied the SDK file into the Docker container.
 
 Run:
 
@@ -169,7 +186,7 @@ If ABAP runtime errors appear on large systems, try setting a smaller chunk size
 ### Empty or no audit log retrieved, with no special error messages
 
 1. Check that audit logging is enabled in SAP.
-1. Verify transactions **SM19** and **RASU_CONFIG**.
+1. Verify the **SM19** or **RSAU_CONFIG** transactions.
 1. Enable any events as needed.
 1. Verify whether messages arrive and exist in the SAP **SM20** or **RSAU_READ_LOG**, without any special errors appearing on the connector log.
 
@@ -177,6 +194,12 @@ If ABAP runtime errors appear on large systems, try setting a smaller chunk size
 ### Incorrect Azure Sentinel workspace ID or key
 
 If you realize that you've entered an incorrect workspace ID or key in your [deployment script](sap-deploy-solution.md#create-key-vault-for-your-sap-credentials), update the credentials stored in Azure KeyVault.
+
+Then restart the container:
+
+```bash
+docker restart sapcon-[SID]
+```
 
 ### Incorrect SAP ABAP user credentials in a fixed configuration
 
@@ -240,7 +263,14 @@ If your attempt to retrieve an audit log, without the [required change request](
 While your system should automatically switch to compatibility mode if needed, you may need to switch it manually. To switch to compatibility mode manually:
 
 1. In the **sapcon/SID** directory, edit the **systemconfig.ini** file
+
 1. Define: `auditlogforcexal = True`
+
+1. Restart the Docker container:
+
+    ```bash
+    docker restart sapcon-[SID]
+    ```
 
 ### SAPCONTROL or JAVA subsystems unable to connect
 
