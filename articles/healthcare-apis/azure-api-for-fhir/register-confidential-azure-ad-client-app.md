@@ -6,7 +6,7 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 04/08/2021
+ms.date: 08/05/2021
 ms.author: cavoeg
 ---
 
@@ -53,12 +53,12 @@ Now that you've registered your application, you must select which API permissio
     If you're referencing a different resource application, select your [FHIR API Resource Application Registration](register-resource-azure-ad-client-app.md) that you created previously under **My APIs**.
 
 
-    :::image type="content" source="media/conf-client-app/confidential-client-org-api.png" alt-text="Confidential client. My Org APIs" lightbox="media/conf-client-app/confidential-app-org-api-expanded.png":::
+    :::image type="content" source="media/confidential-client-application/confidential-client-org-api.png" alt-text="Confidential client. My Org APIs" lightbox="media/confidential-client-application/confidential-app-org-api-expanded.png":::
     
 
 1. Select scopes (permissions) that the confidential client application will ask for on behalf of a user. Select **user_impersonation**, and then select **Add permissions**.
 
-    :::image type="content" source="media/conf-client-app/confidential-client-add-permission.png" alt-text="Confidential client. Delegated Permissions":::
+    :::image type="content" source="media/confidential-client-application/confidential-client-add-permission.png" alt-text="Confidential client. Delegated Permissions":::
 
 
 ## Application secret
