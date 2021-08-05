@@ -240,53 +240,53 @@ To test your database migration, complete these activities:
 
 4. **Run performance tests**. Run performance test against the source and the target, and then analyze and compare the results.
 
-### Data Validation
+### Validate Migrated Objects
 
 Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows you to test the migrated database objects the migrated data. The tester is primarily used to verify that converted objects behave in the same way.
 
 #### Create test case
 
-1. In SSMA for oracle, select Tester followed by New Test Case.
+1. Open SSMA for oracle, select Tester followed by New Test Case.
 
    :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/ssma-tester-new.png" alt-text="Screenshot that shows new test case.":::
 
-2.On the Test Case wizard, provide the following information.
+1. On the Test Case wizard, provide the following information.
 
-Name: Enter the name to identify the test case.
+   Name: Enter the name to identify the test case.
 
-Creation date: Today's current date, defined automatically.
+   Creation date: Today's current date, defined automatically.
 
-Last Modified date: filled in automatically, should not be changed.
+   Last Modified date: filled in automatically, should not be changed.
 
-Description: Enter any additional information to identify the purpose of the test case.
+   Description: Enter any additional information to identify the purpose of the test case.
 
-  :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/tester-init-test-case.png" alt-text="Screenshot that shows step to initialize a test case.":::
- 
-3.In the Oracle object tree located on the left side, select the objects you want to evaluate  during the testing process.
+   :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/tester-init-test-case.png" alt-text="Screenshot that shows step to initialize a test case.":::
+
+1. Select the objects that is part of the test case from the Oracle object tree located on the left side.
 
   :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/tester-select-configure-objects.png" alt-text="Screenshot that shows step to  select and configure object.":::
 
-In this example,  stored procedure ADD_REGION and table REGION are selected.
+    In this example, stored procedure ADD_REGION and table REGION are selected.
 
- To learn more, see  [Selecting and configuring objects to test.](/sql/ssma/oracle/selecting-and-configuring-objects-to-test-oracletosql)
+     To learn more, see  [Selecting and configuring objects to test.](/sql/ssma/oracle/selecting-and-configuring-objects-to-test-oracletosql)
 
-4.Next, select the tables , foreign keys and other dependent objects from the Oracle object tree located on the left window.
+1. Next, select the tables , foreign keys and other dependent objects from the Oracle object tree located on the left window.
 
   :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/tester-select-configure-affected.png" alt-text="Screenshot that shows step to select and configure affected object.":::
 
-To learn more, see [Selecting and configuring affected objects.](/sql/ssma/oracle/selecting-and-configuring-affected-objects-oracletosql)
+   To learn more, see [Selecting and configuring affected objects.](/sql/ssma/oracle/selecting-and-configuring-affected-objects-oracletosql)
 
-5.In call ordering step, review the sequence of objects that will be evaluated. Change the order by clicking the buttons in the grid.
+1. Review the evaluation sequence of objects. Change the order by clicking the buttons in the grid..
 
   :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/test-call-ordering.png" alt-text="Screenshot that shows step to sequence test object execution.":::
 
-6.In the finalize test case page review the information provided in the previous steps. Also, configure the test execution options as per the test scenario.
+1. Finalize  the test case by reviewing the information provided in the previous steps. Also, configure the test execution options as per the test scenario.
 
   :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/tester-finalize-case.png" alt-text="Screenshot that shows step to  finalize object.":::
 
-For more information on test case settings,[Finishing test case preparation](/sql/ssma/oracle/finishing-test-case-preparation-oracletosql)
+   For more information on test case settings,[Finishing test case preparation](/sql/ssma/oracle/finishing-test-case-preparation-oracletosql)
 
-7.Click on finish to create the test case.
+1. Click on finish to create the test case.
 
   :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/tester-test-repo.png" alt-text="Screenshot that shows step to test repo.":::
 
@@ -294,40 +294,38 @@ For more information on test case settings,[Finishing test case preparation](/sq
 
 When SSMA Tester runs a test case, the test engine executes the objects selected for testing and generates a verification report.
 
-1.In the test repository page, select the test case and then click run.
+1. Select the test case from test repository and then click run.
   :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/tester-repo-run.png" alt-text="Screenshot that shows to review  test repo.":::
 
-2.Next, it  will launch run Test case page. Click run.
+1. Review the launch test case  and click run.
 
 :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/tester-run-test-case.png" alt-text="Screenshot that shows step to launch  test case.":::
 
-3.Next, provide  oracle  source credentials. Click connect after entering the credentials.
+1. Next, provide  Oracle  source credentials. Click connect after entering the credentials.
 
 :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/tester-oracle-connect.png" alt-text="Screenshot that shows step to connect to  oracle source.":::
 
-4.In the next step,  provide target SQL Server credentials and click connect.
+1. Provide target SQL Server credentials and click connect.
 
   :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/tester-sqlservervm-connect.png" alt-text="Screenshot that shows step to connect to  sql target.":::
 
-On success, it will go to initialization stage.
+On success, the test case moves to initialization stage.
 
-5.The test run will continue with the evaluation process and will show the real-time progress.
+1. A real-time progress bar shows the execution status of the test run.
 
   :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/tester-run-status.png" alt-text="Screenshot that shows  tester test progress.":::
 
-6.Once the test case is executed, review the report, which provides the statistics, any errors during the test run and a detail report.
+1. Review the report after the test is completed. The report provides the statistics, any errors during the test run and a detail report.
 
   :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/tester-test-result.png" alt-text="Screenshot that shows a sample tester test report":::
 
 7.Click details to get more information.
 
+ Example of positive data validation.
   :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/tester-test-success.png" alt-text="Screenshot that shows a sample  tester success report.":::
 
-Example of positive data validation.
-
-  :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/tester-test-failed.png" alt-text="Screenshot that shows tester failure report.":::
-
 Example of failed data validation.
+  :::image type="content" source="./media/oracle-to-sql-on-azure-vm-guide/tester-test-failed.png" alt-text="Screenshot that shows tester failure report.":::
 
 ### Optimize
 
