@@ -55,7 +55,7 @@ The number of addresses used by an ASEv3 in its subnet will vary based on how ma
 
 The apps in an ASE do not need any features enabled to access resources in the same VNet that the ASE is in. If the ASE VNet is connected to another network, then the apps in the ASE can access resources in those extended networks. Traffic can be blocked by user configuration on the network. 
 
-The multi-tenant version of Azure App Service contains numerous features to enable your apps to connect to your various networks. Those networking features enable your apps to act as if they were deployed in a VNet. The apps in an ASEv3 do not need any configuration to be in the VNet. A benefit of using an ASE over the multi-tenant service is that any network access controls to the ASE hosted apps is completely external to the application configuration. With the apps in the multi-tenant service, you must enable the features on an app by app basis and use RBAC or policy to prevent any configuration changes. 
+The multi-tenant version of Azure App Service contains numerous features to enable your apps to connect to your various networks. Those networking features enable your apps to act as if they were deployed in a VNet. The apps in an ASEv3 do not need any configuration to be in the VNet. A benefit of using an ASE over the multi-tenant service is that any network access controls to the ASE hosted apps is external to the application configuration. With the apps in the multi-tenant service, you must enable the features on an app by app basis and use RBAC or policy to prevent any configuration changes. 
 
 ## Feature differences
 
@@ -82,8 +82,8 @@ There are a few features that are not available in ASEv3 that were available in 
 
 With ASEv3, there is a different pricing model depending on the type of ASE deployment you have. The three pricing models are: 
 
-- **ASEv3**: If ASE is empty, there is a charge as if you had one ASP with one instance of Windows I1v2. The one instance charge is not an additive charge but is only applied if the ASE is totally empty.
-- **Availability Zone ASEv3**: There is a minimum 9 Windows I1v2 instance charge. There is no added charge for availability zone support if you have 9 or more App Service plan instances. All App Service plans in an AZ ASEv3 also have a minimum instance count of 3 to ensure there is an instance in each availability zone. As the plans are scaled out, they are spread across the availability zones. 
+- **ASEv3**: If ASE is empty, there is a charge as if you had one ASP with one instance of Windows I1v2. The one instance charge is not an additive charge but is only applied if the ASE is empty.
+- **Availability Zone ASEv3**: There is a minimum nine Windows I1v2 instance charge. There is no added charge for availability zone support if you have nine or more App Service plan instances. All App Service plans in an AZ ASEv3 also have a minimum instance count of 3 to ensure there is an instance in each availability zone. As the plans are scaled out, they are spread across the availability zones. 
 - **Dedicated host ASEv3**: With a dedicated host deployment, you are charged for two dedicated hosts per our pricing at ASEv3 creation then a small percentage of the Isolated V2 rate per core charge as you scale.
 
 Reserved Instance pricing for Isolated v2 is available and is described in [How reservation discounts apply to Azure App Service][https://docs.microsoft.com/azure/cost-management-billing/reservations/reservation-discount-app-service]. The pricing, along with reserved instance pricing, is available at [App Service pricing][https://azure.microsoft.com/pricing/details/app-service/windows/] under **Isolated v2 plan**. 
