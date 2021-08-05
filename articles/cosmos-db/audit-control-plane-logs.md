@@ -4,7 +4,7 @@ description: Learn how to audit the control plane operations such as add a regio
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 08/05/2021
 ms.author: sngun
 
 ---
@@ -64,17 +64,17 @@ After you turn on logging, use the following steps to track down operations for 
    | where TimeGenerated >= ago(1h)
    ```
 
-The following screenshots capture logs when a consistency level is changed for an Azure Cosmos account:
+   The following screenshots capture logs when a consistency level is changed for an Azure Cosmos account. Note the `activityId_g` parameter in the results, you can use this value to debug further. The `activityId_g` value from results is different from the activity id:
 
-:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Control plane logs when a VNet is added":::
+   :::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Control plane logs when a VNet is added":::
 
-The following screenshots capture logs when the keyspace or a table of a Cassandra account are created and when the throughput is updated. The control plane logs for create and update operations on the database and the container are logged separately as shown in the following screenshot:
+   The following screenshots capture logs when the keyspace or a table of a Cassandra account are created and when the throughput is updated. The control plane logs for create and update operations on the database and the container are logged separately as shown in the following screenshot:
 
-:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Control plane logs when throughput is updated":::
+   :::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Control plane logs when throughput is updated":::
 
 ## Identify the identity associated to a specific operation
 
-If you want to debug further, you can identify a specific operation in the **Activity log** by using the Activity ID or by the timestamp of the operation. Timestamp is used for some Resource Manager clients where the activity ID is not explicitly passed. The Activity log gives details about the identity with which the operation was initiated. The following screenshot shows how to use the activity ID and find the operations associated with it in the Activity log:
+If you want to debug further, you can identify a specific operation in the **Activity log** by using the `activityId_g` or by the timestamp of the operation. Timestamp is used for some Resource Manager clients where the activity ID is not explicitly passed. The Activity log gives details about the identity with which the operation was initiated. The following screenshot shows how to use the activity ID and find the operations associated with it in the Activity log:
 
 :::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Use the activity ID and find the operations":::
 
