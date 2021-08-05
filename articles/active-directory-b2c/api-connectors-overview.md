@@ -255,8 +255,9 @@ Your should design your REST API service and its underlying components (such as 
 
 ::: zone pivot="b2c-user-flow"
 
-- Learn how to [add an API connector to a user flow](add-api-connector.md)
-- Learn how to [Secure your API Connector](secure-rest-api.md)
+- Learn how to [add an API connector to modify sign-up experiences](add-api-connector.md)
+- Learn how to [add an API connector to enrich tokens with external claims](add-api-connector-token-enrichment.md)
+- Learn how to [secure your API Connector](secure-rest-api.md)
 - Get started with our [samples](api-connector-samples.md#api-connector-rest-api-samples)
 
 ::: zone-end
