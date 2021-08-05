@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 08/05/2021
 
 ms.author: justinha
 author: justinha
@@ -44,7 +44,8 @@ When a user signs in to an application or service and receive an MFA prompt, the
 The following additional forms of verification can be used with Azure AD Multi-Factor Authentication:
 
 * Microsoft Authenticator app
-* OATH Hardware token
+* OATH Hardware token (preview)
+* OATH Software token
 * SMS
 * Voice call
 
