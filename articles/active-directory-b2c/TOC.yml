@@ -165,6 +165,12 @@
         href: enable-authentication-ios-app.md
       - name: Authentication options
         href: enable-authentication-ios-app-options.md
+    - name: WPF desktop app
+      items:
+      - name: Configure a sample desktop app
+        href: configure-authentication-sample-wpf-desktop-app.md
+      - name: Authentication options
+        href: enable-authentication-wpf-desktop-app-options.md
     - name: Web API
       displayName: REST API
       items:

@@ -6,11 +6,14 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 11/13/2020
+ms.date: 08/03/2021
 ms.author: chrupa
 ---
 
 # What is FHIR&reg; service?
+
+> [!IMPORTANT]
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 The FHIR service in the Azure Healthcare APIs enables rapid exchange of data through Fast Healthcare Interoperability Resources (FHIR®) APIs, backed by a managed Platform-as-a Service (PaaS) offering in the cloud. It makes it easier for anyone working with health data to ingest, manage, and persist Protected Health Information [PHI](https://www.hhs.gov/answers/hipaa/what-is-phi/index.html) in the cloud: 
 
