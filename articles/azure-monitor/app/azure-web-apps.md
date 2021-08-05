@@ -73,17 +73,34 @@ There are two ways to enable application monitoring for Azure App Services hoste
 
 # [ASP.NET Core](#tab/netcore)
 
+[Windows](#windows) and [Linux (preview)](#linux) auto-instrumentation App Service portal enablement is supported for ASP.NET Core.
+
+### Windows
 > [!IMPORTANT]
-> The following versions of ASP.NET Core are supported: ASP.NET Core 3.1, and 5.0. Versions 2.0, 2.1, 2.2, and 3.0 have been retired and are no longer supported. Please upgrade to a [supported version](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) of .NET Core for auto-instrumentation to work.
+> The following versions of ASP.NET Core are supported for auto-instrumentation on windows : ASP.NET Core 3.1, and 5.0. Versions 2.0, 2.1, 2.2, and 3.0 have been retired and are no longer supported. Please upgrade to a [supported version](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) of .NET Core for auto-instrumentation to work.
+
+
+Targeting the full framework from ASP.NET Core is **not supported** in Windows. Use [manual instrumentation](./asp-net-core.md) via code instead.
+
+In Windows, only Framework dependent deployment is supported.
+
+See the [enable monitoring section](#enable-monitoring ) below to begin setting up Application Insights with your App Service resource. 
+
+### Linux 
+
+> [!IMPORTANT]
+> The following versions of ASP.NET Core are supported for auto-instrumentation on Linux: ASP.NET Core 3.1, 5.0, and 6.0 (preview). Versions 2.0, 2.1, 2.2, and 3.0 have been retired and are no longer supported. Please upgrade to a [supported version](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) of .NET Core for auto-instrumentation to work.
 
 > [!NOTE]
 > Linux auto-instrumentation App Services portal enablement is in Public Preview. These preview versions are provided without a service level agreement. Certain features might not be supported or might have constrained capabilities.
 
-Targeting the full framework from ASP.NET Core is **not supported** in both Windows and Linux. Use [manual instrumentation](./asp-net-core.md) via code instead.
+Targeting the full framework from ASP.NET Core is **not supported** in Linux. Use [manual instrumentation](./asp-net-core.md) via code instead.
 
-In Linux, Framework-dependent deployment and self-contained deployment are supported. 
+ In Linux, Framework-dependent deployment and self-contained deployment are supported. 
 
-In Windows, only Framework dependent deployment is supported.
+See the [enable monitoring section](#enable-monitoring ) below to begin setting up Application Insights with your App Service resource. 
+
+### Enable monitoring 
 
 1. **Select Application Insights** in the Azure control panel for your app service.
 
@@ -97,9 +114,12 @@ In Windows, only Framework dependent deployment is supported.
     >[!div class="mx-imgBorder"]
     >![Instrument your web app](./media/azure-web-apps/ai-create-new.png)
 
-2. After specifying which resource to use, you can choose how you want Application Insights to collect data per platform for your application. ASP.NET Core offers **Recommended collection** or **Disabled** for ASP.NET Core 2.1 and 3.1.
+2. After specifying which resource to use, you can choose how you want Application Insights to collect data per platform for your application. ASP.NET Core offers **Recommended collection** or **Disabled** for ASP.NET Core 3.1.
 
     ![Choose options per platform.](./media/azure-web-apps/choose-options-new-net-core.png)
+
+
+
 
 # [Node.js](#tab/nodejs)
 
@@ -122,6 +142,8 @@ You can monitor your Node.js apps running in Azure App Service without any code 
 
     > [!div class="mx-imgBorder"]
     > ![Choose options per platform.](./media/azure-web-apps/app-service-node.png)
+
+
 
 # [Java](#tab/java)
 
@@ -395,7 +417,7 @@ If the upgrade is done from a version prior to 2.5.1, check that the Application
 
 Below is our step-by-step troubleshooting guide for extension/agent based monitoring for ASP.NET and ASP.NET Core based applications running on Azure App Services.
 
-#### Windows
+#### Windows troubleshooting 
 1. Check that the application is monitored via `ApplicationInsightsAgent`.
     - Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of "~2".
 2. Ensure that the application meets the requirements to be monitored.
@@ -430,7 +452,7 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
         > [!IMPORTANT]
         > If the application used Application Insights SDK to send any telemetry, such telemetry will be disabled – in other words, custom telemetry - if any, such as for example any Track*() methods, and any custom settings, such as sampling, will be disabled. 
 
-#### Linux
+#### Linux troubleshooting
 
 1. Check that the application is monitored via `ApplicationInsightsAgent`.
     - Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of "~3".
