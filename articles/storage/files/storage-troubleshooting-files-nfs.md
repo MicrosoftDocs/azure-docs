@@ -179,7 +179,7 @@ The patch is available in kernel 5.12+. If for some reason, one cannot upgrade t
 This is a known regression that is fixed and will be rolling out to production regions following the safe deployment practice.
 
 ## Application fails with error "Underlying file changed by an external force" when using exclusive OPEN 
-This is a known regression that is fixed and will be rolling out to production regions following the safe deployment practice.
+This is a known issue. Microsoft is actively working to resolve it.
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.
