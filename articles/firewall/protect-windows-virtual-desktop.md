@@ -46,8 +46,8 @@ You will need to create an Azure Firewall Policy and create Rule Collections for
 
 | Name | Source Type | Source | Protocol | TLS Inspection (optional) | Destination Type | Destination 
 --- | --- | --- | --- | --- | --- | ---
-| Rule Name| IP Address | VNet or Subnet IP Address | Https:443 | | FQDN Tag | WindowsVirtualDesktop, WindowsUpdate, Windows Diagnostics, MicrosoftActiveProtectionService |
-| Rule Name| IP Address | VNet or Subnet IP Address | Https:1688 | | FQDN | kms.core.windows.net 
+| Rule Name | IP Address | VNet or Subnet IP Address | Https:443 | | FQDN Tag | WindowsVirtualDesktop, WindowsUpdate, Windows Diagnostics, MicrosoftActiveProtectionService |
+| Rule Name | IP Address | VNet or Subnet IP Address | Https:1688 | | FQDN | kms.core.windows.net 
 
 > [!NOTE]
 > Some deployments may not need DNS rules, for example Azure Active Directory Domain controllers forward DNS queries to Azure DNS at 168.63.129.16.
