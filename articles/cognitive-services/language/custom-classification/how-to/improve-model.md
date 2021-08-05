@@ -19,12 +19,10 @@ After you've trained your model you reviewed its evaluation details, you can sta
 ## Prerequisites
 
 * Successfully created a [Custom text classification project](create-project.md).
-
 * Completed [model training](train-model.md) successfully.
-
 * Viewed [model evaluation details](view-model-evaluation.md).
 
-> [NOTE]
+> [!NOTE]
 > This guide focuses on data from the [validation set](train-model.md#data-groups) that was created during training.
 
 # [Using Language Studio](#tab/language-studio)

@@ -19,9 +19,7 @@ Use this article to deploy a custom text classification model. Deploying a [mode
 ## Prerequisites
 
 * Successfully created a [Custom text classification project](create-project.md)
-
 * Completed [tagging your data](tag-data.md).
-
 * Completed [model training](train-model.md) successfully. 
 
 >[!NOTE]

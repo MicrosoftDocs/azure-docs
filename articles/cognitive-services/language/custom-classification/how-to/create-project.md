@@ -28,6 +28,8 @@ Custom text classification supports two types of projects:
 
 * A Language Services resource in **West US 2** or **West Europe** with the Standard (S) pricing tier. You will also need to configure permissions for a storage account. See [Service requirements](../concepts/service-requirements.md) for more information.
 
+## Create new project
+
 # [Using Language Studio](#tab/language-studio)
 
 ## Create new project using Language studio
