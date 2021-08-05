@@ -12,17 +12,17 @@ ms.date: 07/22/2021
 ms.author: lajanuar
 ---
 
-# Text Translation REST APIs
+# Text Translation REST API
 
 Text Translation is a cloud-based feature of the Azure Translator service and is part of the Azure Cognitive Service family of REST APIs. The Text Translation API translates text between language pairs across all [supported languages and dialects](../../language-support.md). The available methods are listed in the table below:
 
 | Request| Method| Description|
 |---------|--------------|---------|
 | [**languages**](v3-0-langauges.md) | **GET** | Returns the set of languages currently supported by the **translation**, **transliteration**, and **dictionary** methods. This request does not require authentication headers and you do not need a Translator resource to view the supported language set.|
-|[**translate**](v3-0-translate.md) | **POST**| Translates specified source language text into target language text.|
-|[**transliterate**](v3-0-transliterate.md) |  **POST** | Maps source language characters or alphabet to target language characters or alphabet.
-|[**detect**](v3-0-detect.md) | **POST** | Identifies the source language. |
-|[**breakSentence**](v3-0-break-sentence.md) | **POST** | Returns an array of integers representing the length of sentences in the source text. |
+|[**translate**](v3-0-translate.md) | **POST**| Translate specified source language text into the target language text.|
+|[**transliterate**](v3-0-transliterate.md) |  **POST** | Map source language script or alphabet to a target language script or alphabet.
+|[**detect**](v3-0-detect.md) | **POST** | Identify the source language. |
+|[**breakSentence**](v3-0-break-sentence.md) | **POST** | Returns an array of integers representing the length of sentences in a source text. |
 | [**dictionary/lookup**](v3-0-dictionary-lookup.md) | **POST** | Returns alternative translations and lexical categories. |
 | [**dictionary/examples**](v3-0-dictionary-lookup.md) | **POST** | Returns how a term is used in context. |
 

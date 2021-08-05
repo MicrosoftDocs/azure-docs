@@ -5,7 +5,7 @@ ms.topic: overview
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 06/20/2021
+ms.date: 08/05/2021
 ---
 # What is Document Translation?
 
@@ -33,21 +33,22 @@ This documentation contains the following article types:
 > When translating documents with content in multiple languages, the feature is intended for complete sentences in a single language. If sentences are composed of more than one language, the content may not all translate into the target language.
 >
 
- ## Add Document Translation to projects
+## Document Translation development options
 
-You can create Document Translation projects programmatically our REST API, client-library SDKs, or on-premise with containers: 
+You can add Document Translation to your projects and applications using the REST API, a client-library SDK, or on-premise Docker containers:
 
-The [**REST API***](document-translation/reference/rest-api-guide.md). is a language agnostic interface that enables you to manually create HTTP requests and authorization headers to translate text raw binary images or via links to image URLs.
-THe [**client-library SDKs**](ocument-translation/client-sdks.md) are language-specific classes, objects, methods and code that you can quickly use by adding a reference in your project. Currently Dcoument Translation has programming language support for [**C#/.NET**](/dotnet/api/azure.ai.translation.document) and [**Python**](/python/azure-ai-translation-document/latest/azure.ai.translation.document.html)
-The [**Document Translation container**](containers/translator-how-to-install-container.md) enables the service to be deployed for on-premises access and use. Containers give you the flexibility to bring the services closer to your data for compliance, security, or other operational reasons. 
+* The [**REST API***](document-translation/reference/rest-api-guide.md). is a language agnostic interface that enables you to manually create HTTP requests and authorization headers to translate text raw binary images or via links to image URLs.
 
+* The [**client-library SDKs**](document-translation/client-sdks.md) are language-specific classes, objects, methods and code that you can quickly use by adding a reference in your project. Currently Document Translation has programming language support for [**C#/.NET**](/dotnet/api/azure.ai.translation.document) and [**Python**](/python/azure-ai-translation-document/latest/azure.ai.translation.document.html)
+
+* The [**Document Translation container**](containers/translator-how-to-install-container.md) enables the service to be deployed for on-premises access and use. Containers give you the flexibility to bring the services closer to your data for compliance, security, or other operational reasons. 
 
 ## Get started
 
 In our how-to guide, you'll learn how to quickly get started using Document Translator. To begin, you'll need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [create a free account](https://azure.microsoft.com/free).
 
 > [!div class="nextstepaction"]
-> [Started here](get-started-with-document-translation.md)
+> [Started here](get-started-with-document-translation.md "Learn how to use Document Translation with HTTP REST )
 
 ## Supported document formats
 
