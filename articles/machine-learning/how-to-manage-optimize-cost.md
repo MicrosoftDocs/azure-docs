@@ -21,6 +21,7 @@ Use the following tips to help you manage and optimize your compute resource cos
 - Set quotas on your subscription and workspaces
 - Set termination policies on your training run
 - Use low-priority virtual machines (VM)
+- Schedule compute instances to shut down and start up automatically
 - Use an Azure Reserved VM Instance
 - Train locally
 - Parallelize training
@@ -80,6 +81,10 @@ Azure allows you to use excess unutilized capacity as Low-Priority VMs across vi
 Low-Priority VMs have a single quota separate from the dedicated quota value, which is by VM family. Learn [more about AmlCompute quotas](how-to-manage-quotas.md).
 
  Low-Priority VMs don't work for compute instances, since they need to support interactive notebook experiences.
+
+## Schedule compute instances
+
+When you create a [compute instance](concept-compute-instance.md), the VM stays on so it is available for your work.  [Set up a schedule](how-to-create-manage-compute-instance.md?tabs=azure-studio#schedule-studio) to automatically start and stop the compute instance (preview) to save cost when you aren't planning to use it.
 
 ## Use reserved instances
 
