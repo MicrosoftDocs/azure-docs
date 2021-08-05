@@ -64,7 +64,7 @@ After you turn on logging, use the following steps to track down operations for 
    | where TimeGenerated >= ago(1h)
    ```
 
-   The following screenshots capture logs when a consistency level is changed for an Azure Cosmos account. Note the `activityId_g` parameter in the results, you can use this value to debug further. The `activityId_g` value from results is different from the activity id:
+   The following screenshots capture logs when a consistency level is changed for an Azure Cosmos account. The `activityId_g` value from results is different from the activity id of an operation:
 
    :::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Control plane logs when a VNet is added":::
 
@@ -74,7 +74,7 @@ After you turn on logging, use the following steps to track down operations for 
 
 ## Identify the identity associated to a specific operation
 
-If you want to debug further, you can identify a specific operation in the **Activity log** by using the `activityId_g` or by the timestamp of the operation. Timestamp is used for some Resource Manager clients where the activity ID is not explicitly passed. The Activity log gives details about the identity with which the operation was initiated. The following screenshot shows how to use the activity ID and find the operations associated with it in the Activity log:
+If you want to debug further, you can identify a specific operation in the **Activity log** by using the activity ID or by the timestamp of the operation. Timestamp is used for some Resource Manager clients where the activity ID is not explicitly passed. The Activity log gives details about the identity with which the operation was initiated. The following screenshot shows how to use the activity ID and find the operations associated with it in the Activity log:
 
 :::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Use the activity ID and find the operations":::
 
