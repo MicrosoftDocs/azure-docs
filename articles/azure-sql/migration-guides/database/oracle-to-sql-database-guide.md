@@ -15,7 +15,7 @@ ms.date: 08/25/2020
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-This guide teaches you [to migrate](https://azure.microsoft.com/migration/migration-journey) your Oracle schemas to Azure SQL Database by using [SQL Server Migration](https://azure.microsoft.com/en-us/migration/sql-server/) Assistant for Oracle (SSMA for Oracle).
+This guide teaches you [to migrate](https://azure.microsoft.com/migration/migration-journey) your Oracle schemas to Azure SQL Database by using [SQL Server Migration](https://azure.microsoft.com/migration/sql-server/) Assistant for Oracle (SSMA for Oracle).
 
 For other migration guides, see [Azure Database Migration Guides](/data-migration).
 
