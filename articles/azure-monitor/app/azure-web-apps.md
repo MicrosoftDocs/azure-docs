@@ -134,7 +134,7 @@ You can turn on monitoring for your Java apps running in Azure App Service just 
     >[!div class="mx-imgBorder"]
     >![Instrument your web app.](./media/azure-web-apps/ai-create-new.png)
 
-2. This step is not required. After specifying which resource to use, you can configure the Java agent.If you do not configure the Java agent, default configurations will apply. The full [set of configurations](./java-standalone-config.md) is available, you just need to paste a valid json file. Exclude the connection string and any configurations that are in preview - you will be able to add those as they become generally available.
+2. This step is not required. After specifying which resource to use, you can configure the Java agent. If you do not configure the Java agent, default configurations will apply. The full [set of configurations](./java-standalone-config.md) is available, you just need to paste a valid json file. Exclude the connection string and any configurations that are in preview - you will be able to add those as they become generally available.
 
     > [!div class="mx-imgBorder"]
     > ![Choose options per platform.](./media/azure-web-apps/create-app-service-ai.png)
