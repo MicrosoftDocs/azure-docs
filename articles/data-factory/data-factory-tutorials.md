@@ -34,7 +34,7 @@ Below is a list of tutorials to help explain and walk through a series of Data F
 
 [CDC copy pipeline with SQL MI](tutorial-incremental-copy-change-data-capture-feature-portal.md)
 
-[Copy from SQL DB to Azure Synapse SQL Pools](load-azure-sql-data-warehouse.md)
+[Copy from SQL DB to Synapse SQL Pools](load-azure-sql-data-warehouse.md)
 
 [Copy SAP BW to ADLS Gen2](load-sap-bw-data.md)
 
