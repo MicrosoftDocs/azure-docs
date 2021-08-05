@@ -2,7 +2,7 @@
 author: v-dalc
 ms.service: databox  
 ms.topic: include
-ms.date: 07/01/2021
+ms.date: 08/05/2021
 ms.author: alkohli
 ---
 
@@ -10,25 +10,25 @@ To place an order through the Azure Edge Hardware Center, do these steps:
 
 1. Use your Microsoft Azure credentials to sign in to the Azure portal at this URL: [https://portal.azure.com](https://portal.azure.com).
 
-2. In the left pane, select **+ Create a resource**. Search for and select **Azure Edge Hardware Center**. In the Azure Edge Hardware Center, select **Create**.
+2. Select **+ Create a resource**. Search for and select **Azure Edge Hardware Center**. In the Azure Edge Hardware Center, select **Create**.
 
-    ![Screenshot of the option to create a resource in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-01.png)
+    ![Screenshot of the Azure Stack Edge Hardware Center home page. The Create button is highlighted.](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-01.png)
 
 3. Select a subscription, and then select **Next**.
 
-    ![Screenshot of the Select a subscription option for an Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-02.png)
+    ![Screenshot of the "Select a subscription" option for an Azure Edge Hardware Center order. The Subscription option and Next button are highlighted.](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-02.png)
 
 4. To start your order, select **Order** beside the product family that you want to order - for example, **Azure Stack Edge**. If you don't see the product family, you may need to use a different subscription; select **Try selecting a different subscription**. 
 
-    ![Screen for selecting a product family to order from in the Azure Edge Hardware Center](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-03.png) 
+    ![Screenshot for selecting a product family from which to order in Azure Edge Hardware Center. The Order button by a product family is highlighted.](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-03.png) 
 
 5. Select the shipping destination for your order.
 
-    ![Screen for selecting a shipping destination for your Azure Edge Hardware Center order](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-04.png)
+    ![Screenshot for selecting a shipping destination for your Azure Edge Hardware Center order. The shipping destination option and Next button are highlighted.](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-04.png)
 
 6. On the **Select Hardware** page, use the **Select** button to select the hardware product to order. For example, select **Azure Stack Edge Pro - GPU**. 
 
-    ![Screen for selecting the specific hardware product within the selected product family](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-05.png)
+    ![Screenshot for selecting a hardware product for an Azure Edge Hardware Center order. The Select button for a product is highlighted.](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-05.png)
 
     After you select a hardware product, you'll select the device configuration to order. The following hardware products and device configurations are available in the  Azure Edge Hardware Center (Preview).
 
@@ -42,7 +42,7 @@ To place an order through the Azure Edge Hardware Center, do these steps:
 
     If you're ordering Azure Stack Edge Mini R devices, which all have the same configuration, you won't see this screen. 
 
-    ![Screen for selecting a device model of the selected device type](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-06.png)
+    ![Screenshot for selecting a hardware configuration for a hardware product in an Azure Edge Hardware Center order. Hardware product and configuration options are highlighted.](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-06.png)
 
     The **Create order** wizard opens.
 
