@@ -101,6 +101,7 @@ The following workloads have open issues and shouldn't be deployed at this time:
 - Metadata heavy workloads such as untar may experience high latency
 - Oracle Database will experience incompatibility with its dNFS feature.
 - SAP Application Layer will experience inconsistent behavior due to a known active issue with ls -l.
+
 Reach out to azurefilesnfs@microsoft .com to validate workloads not in the prior list or to share more successful workloads stories.
 
 ## Next steps
