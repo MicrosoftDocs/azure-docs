@@ -7,7 +7,7 @@ manager: lizross
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 07/27/2021
+ms.date: 08/09/2021
 ms.author: helohr
 ---
 # Deploy Azure AD joined virtual machines in Azure Virtual Desktop
@@ -75,7 +75,7 @@ To access Azure AD-joined VMs using the web, Android, macOS and iOS clients, you
 
 ### Enabling MFA for Azure AD joined VMs
 
-You can enable [multifactor authentication](set-up-mfa.md) for Azure AD joined VMs by setting a Conditional Access policy on the "Azure Virtual Desktop" app. Unless you want to restrict sign in to strong authentication methods like Windows Hello, you should exclude the "Azure Windows VM Sign-In" app from the list of cloud apps as described in the [MFA sign-in method requirements](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#mfa-sign-in-method-required) for Azure AD joined VMs. If you're using non-Windows clients, you must disable the MFA policy on "Azure Windows VM Sign-In".
+You can enable [multifactor authentication](set-up-mfa.md) for Azure AD joined VMs by setting a Conditional Access policy on the "Azure Virtual Desktop" app. Unless you want to restrict sign in to strong authentication methods like Windows Hello for Business, you need to [exclude the "Azure Windows VM Sign-In" app]((../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#mfa-sign-in-method-required)) and [disable per-user MFA](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#using-conditional-access). You must follow the same guidance to access Azure AD-joined VMs from non-Windows clients.
 
 ## User profiles
 

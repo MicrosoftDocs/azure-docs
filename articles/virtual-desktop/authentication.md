@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/04/2021
+ms.date: 08/09/2021
 ms.author: helohr
 manager: femila
 ---
@@ -26,7 +26,7 @@ Since users must be discoverable through Azure Active Directory (Azure AD) to ac
 
 Azure Virtual Desktop supports [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md) through Azure AD, including those federated using AD FS. These user identities can be managed in AD DS and synced to Azure AD using [Azure AD Connect](../active-directory/hybrid/whatis-azure-ad-connect.md). The user identities can also be managed in Azure AD and synced to [Azure AD Directory Services](../active-directory-domain-services/overview.md) (Azure AD DS).
 
-When accessing Active Directory joined or Hybrid Azure Active Directory joined VMs using hybrid identities, sometimes the User Principal Name (UPN) for the Active Directory (AD) and Azure AD don't match. For example, the AD account user@contoso.local may correspond to user@contoso.com in Azure AD. Azure Virtual Desktop only supports this type of configuration if the Security Identifier (SID) for both your AD and Azure AD accounts match.
+When accessing Azure Virtual Desktop using hybrid identities, sometimes the User Principal Name (UPN) or Security Identifier (SID) for the user in Active Directory (AD) and Azure AD don't match. For example, the AD account user@contoso.local may correspond to user@contoso.com in Azure AD. Azure Virtual Desktop only supports this type of configuration if either the UPN or SID for both your AD and Azure AD accounts match.
 
 ### Cloud-only identity
 
@@ -42,7 +42,7 @@ To access Azure Virtual Desktop resources, you must first authenticate to the se
 
 ### Multifactor authentication
 
-You can enable multifactor authentication (MFA) to Azure Virtual Desktop resources by following these [configuration steps](set-up-mfa.md). You also have the ability to choose how often users should be When deploying Azure AD-joined VMs, review the additional [configuration](deploy-azure-ad-joined-vm.md#enabling-mfa-for-azure-ad-joined-vms) needed to enable MFA.
+You can enable multifactor authentication (MFA) to Azure Virtual Desktop resources and configure how often users should be prompted by following these [configuration steps](set-up-mfa.md). When deploying Azure AD-joined VMs, review the additional guidance to [configure MFA](deploy-azure-ad-joined-vm.md#enabling-mfa-for-azure-ad-joined-vms).
 
 ### Smartcard authentication
 
@@ -50,7 +50,7 @@ To use a smartcard to authenticate to Azure AD, you must first [configure AD FS 
 
 ## Session host authentication
 
-Unless [single sign-on](#single-sign-on-sso) is enabled or you save your credentials locally, you'll need to also authenticate to the session host. These are the currently supported sign-in methods for the session host for the different clients:
+Unless [single sign-on](#single-sign-on-sso) is enabled or you save your credentials locally, you also need to authenticate to the session host. These are the currently supported sign-in methods for the session host for the different clients:
 
 - Windows Desktop client
     - Username and password
@@ -90,4 +90,6 @@ Authenticating using FIDO2 or Windows Hello for Business inside the session isn'
 
 ## Next steps
 
-Curious about other ways to keep your deployment secure? Check out [Security best practices](security-guide.md).
+- Curious about other ways to keep your deployment secure? Check out [Security best practices](security-guide.md).
+- Having issues connecting to Azure AD-joined VMs? [Troubleshoot connections to Azure AD-joined VMs](troubleshoot-azure-ad-connections.md)
+- Want to use smart cards from outside your corporate network? Review how to setup a [KDC Proxy server](key-distribution-center-proxy.md).
