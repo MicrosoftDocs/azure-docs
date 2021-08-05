@@ -9420,6 +9420,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-monitor/vm/quick-collect-azurevm.md",
+      "redirect_url": "/azure/azure-monitor//vm/monitor-virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/vm/quick-monitor-azure-vm.md",
+      "redirect_url": "/azure/azure-monitor//vm/monitor-virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/vm/quick-collect-linux-computer.md",
+      "redirect_url": "/azure/azure-monitor//vm/monitor-virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitorvm/quick-collect-windows-computer.md",
+      "redirect_url": "/azure/azure-monitor/vm/monitor-virtual-machine",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-portal/resource-group-portal-linked-resources.md",
       "redirect_url": "/azure/azure-portal/azure-portal-dashboards",
       "redirect_document_id": false

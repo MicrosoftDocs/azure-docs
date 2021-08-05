@@ -52,10 +52,9 @@ In the planning phase, you defined whether to use an *existing* or *new* Express
 
 | If | Then  |
 | --- | --- |
-| You don't already have a virtual network...     |  Create the following:<ol><li><a href="tutorial-configure-networking.md#create-a-virtual-network">Virtual network</a></li><li><a href="../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet">GatewaySubnet</a></li><li><a href="tutorial-configure-networking.md#create-a-virtual-network-gateway">Virtual network gateway</a></li><li><a href="tutorial-configure-networking.md#connect-expressroute-to-the-virtual-network-gateway">Connect ExpressRoute to the gateway</a></li></ol>        |
+| You don't already have a virtual network...     |  Create the following:<ol><li><a href="tutorial-configure-networking.md#create-a-vnet-manually">Virtual network</a></li><li><a href="../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet">GatewaySubnet</a></li><li><a href="tutorial-configure-networking.md#create-a-virtual-network-gateway">Virtual network gateway</a></li><li><a href="tutorial-configure-networking.md#connect-expressroute-to-the-virtual-network-gateway">Connect ExpressRoute to the gateway</a></li></ol>        |
 | You already have a virtual network **without** a GatewaySubnet...   | Create the following: <ol><li><a href="../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet">GatewaySubnet</a></li><li><a href="tutorial-configure-networking.md#create-a-virtual-network-gateway">Virtual network gateway</a></li><li><a href="tutorial-configure-networking.md#connect-expressroute-to-the-virtual-network-gateway">Connect ExpressRoute to the gateway</a></li></ol>          |
 | You already have a virtual network **with** a GatewaySubnet... | Create the following: <ol><li><a href="tutorial-configure-networking.md#create-a-virtual-network-gateway">Virtual network gateway</a></li><li><a href="tutorial-configure-networking.md#connect-expressroute-to-the-virtual-network-gateway">Connect ExpressRoute to the gateway</a></li></ol>    |
-
 
 ### Use an existing virtual network gateway
 
