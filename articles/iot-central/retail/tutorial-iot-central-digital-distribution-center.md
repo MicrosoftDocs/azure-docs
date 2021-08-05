@@ -56,9 +56,11 @@ Create the application using following steps:
 
 1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Retail** tab:
 
-   :::image type="content" source="media/tutorial-iot-central-ddc/iotc-retail-homepage.png" alt-text="Screenshot showing how to create an app.":::
+   :::image type="content" source="media/tutorial-iot-central-ddc/iotc-retail-home-page.png" alt-text="Screenshot showing how to create an app.":::
 
 1. Select **Create app** under **digital distribution center**.
+
+To learn more, see [Create an IoT Central application](../core/howto-create-iot-central-application.md).
 
 ## Walk through the application 
 
@@ -108,19 +110,6 @@ Select the rules tab to see two different rules that exist in this application t
 **Large package** - This rule will trigger if the camera detects huge package that cannot be inspected for the quality. 
 
    :::image type="content" source="media/tutorial-iot-central-ddc/ddc-rules.png" alt-text="Screenshot showing the list of rules in the digital distribution center application.":::
-
-### Jobs
-
-Select the jobs tab to see five different jobs that exist as part of this application template:
-You can use jobs feature to perform solution-wide operations. Here digital distribution center jobs are using the device commands & twin capability to perform tasks such as,
-
-* calibrating camera before initiating the package detection 
-   * calibrating camera before initiating the package detection 
-* calibrating camera before initiating the package detection 
-* periodically updating camera firmware
-* modifying the telemetry interval to manage data upload
-
-   :::image type="content" source="media/tutorial-iot-central-ddc/ddc-jobs.png" alt-text="Screenshot showing the list of jobs in the digital distribution center application.":::
 
 ## Clean up resources
 

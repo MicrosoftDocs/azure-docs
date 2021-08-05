@@ -70,6 +70,8 @@ Create the application using following steps:
 
 1. Select **Create app** under **In-store analytics - checkout**.
 
+To learn more, see [Create an IoT Central application](../core/howto-create-iot-central-application.md).
+
 ## Walk through the application
 
 The following sections walk you through the key features of the application:

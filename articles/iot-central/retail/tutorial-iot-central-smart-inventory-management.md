@@ -74,6 +74,8 @@ Create the application using following steps:
 
 1. Select **Create app** under **smart inventory management**.
 
+To learn more, see [Create an IoT Central application](../core/howto-create-iot-central-application.md).
+
 ## Walk through the application
 
 The following sections walk you through the key features of the application:
@@ -116,16 +118,6 @@ Select the rules tab to see two different rules that exist in this application t
 **Unknown tags**: It's critical to track every RFID & BLE tags associated with an asset. If the gateway is detecting too many unknown tags, it's an indication of synchronization challenges with tag sourcing applications.
 
    :::image type="content" source="media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-rules.png" alt-text="Screenshot showing the list of rules in the smart inventory management application.":::
-
-### Jobs
-
-Select the jobs tab to see five different jobs that exist as part of this application template:
-You can use jobs feature to perform solution-wide operations. Here inventory management jobs are using the device commands and twin capability to perform tasks such as,
-   * disabling readers across all the gateway
-   * modifying the telemetry threshold between 
-   * perform on-demand inventory scanning across the entire solution.
-
-   :::image type="content" source="media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-jobs.png" alt-text="Screenshot showing the list of jobs in the smart inventory management application.":::
 
 ## Clean up resources
 
