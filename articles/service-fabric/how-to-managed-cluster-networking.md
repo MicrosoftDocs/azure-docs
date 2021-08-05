@@ -6,10 +6,11 @@ ms.date: 8/02/2021
 ---
 # Configure network settings for Service Fabric managed clusters
 
-Service Fabric managed clusters are created with a default networking configuration. This configuration consists of an [Azure Load Balancer](../load-balancer/load-balancer-overview.md) with a public ip, a VNet with one subnet allocated with mandatory NSG rules for essential cluster functionality, and a few optional rules such as allowing all outbound traffic by default, which are intended to make customer configuration easier. You can integrate your managed cluster with other Azure networking features. This document walks through how to modify the following default networking configuration options:
+Service Fabric managed clusters are created with a default networking configuration. This configuration consists of an [Azure Load Balancer](../load-balancer/load-balancer-overview.md) with a public ip, a VNet with one subnet allocated with mandatory NSG rules for essential cluster functionality, and a few optional rules such as allowing all outbound traffic by default, which are intended to make customer configuration easier. You can integrate your managed cluster with other Azure networking features. This document walks through how to modify the following default networking configuration options and more:
 
 - [Manage NSG Rules](#nsgrules)
 - [Manage RDP access](#rdp)
+- [Manage Load Balancer config](#lbconfig)
 - [Enable IPv6](#ipv6)
 - [Bring your own virtual network](#existingvnet)
 - [Bring your own load balancer](#byolb)
@@ -201,7 +202,7 @@ The following screenshot shows using Remote Desktop Connection to connect to the
 
 ![Remote Desktop Connection][sfmc-rdp-connect]
 
-
+<a id="lbconfig"></a>
 ## Modify default Load balancer configuration
 
 ### Load balancer ports
