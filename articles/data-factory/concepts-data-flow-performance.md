@@ -165,7 +165,7 @@ You can read from Azure SQL Database using a table or a SQL query. If you are ex
 
 ### Azure Synapse Analytics sources
 
-When using Azure Synapse Analytics, a setting called **Enable staging** exists in the source options. This allows the service to read from Azure Synapse using ```Staging```, which greatly improves read performance. Enabling ```Staging``` requires you to specify an Azure Blob Storage or Azure Data Lake Storage gen2 staging location in the data flow activity settings.
+When using Azure Synapse Analytics, a setting called **Enable staging** exists in the source options. This allows ADF to read from Synapse using ```Staging```, which greatly improves read performance. Enabling ```Staging``` requires you to specify an Azure Blob Storage or Azure Data Lake Storage gen2 staging location in the data flow activity settings.
 
 ![Enable staging](media/data-flow/enable-staging.png "Enable staging")
 
@@ -199,7 +199,7 @@ After the write has completed, rebuild the indexes using the following command:
 
 `ALTER INDEX ALL ON dbo.[Table Name] REBUILD`
 
-These can both be done natively using Pre and Post-SQL scripts within an Azure SQL DB or Azure Synapse sink in mapping data flows.
+These can both be done natively using Pre and Post-SQL scripts within an Azure SQL DB or Synapse sink in mapping data flows.
 
 ![Disable indexes](media/data-flow/disable-indexes-sql.png "Disable indexes")
 
