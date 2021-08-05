@@ -232,7 +232,7 @@ On success, it will go to initialization stage.
 
   :::image type="content" source="./media/oracle-to-sql-database-guide/tester-test-success.png" alt-text="Screenshot that shows a sample  tester success report.":::
 
-Example of positive data validation.
+   Example of positive data validation.
 
    :::image type="content" source="./media/oracle-to-sql-database-guide/tester-test-failed.png" alt-text="Screenshot that shows tester failure report.":::
 
