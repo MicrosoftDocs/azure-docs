@@ -884,6 +884,41 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/tutorial-web-app-dotnet.md",
+      "redirect_url": "/azure/active-directory-b2c/configure-authentication-sample-web-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/tutorial-desktop-app.md",
+      "redirect_url": "/azure/active-directory-b2c/configure-authentication-sample-wpf-desktop-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/tutorial-single-page-app.md",
+      "redirect_url": "/azure/active-directory-b2c/configure-authentication-sample-spa-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/tutorial-web-app-python.md",
+      "redirect_url": "/azure/active-directory-b2c/configure-authentication-sample-python-web-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/tutorial-web-api-dotnet.md",
+      "redirect_url": "/azure/active-directory-b2c/configure-authentication-sample-web-app-with-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/tutorial-desktop-app-webapi.md",
+      "redirect_url": "/azure/active-directory-b2c/configure-authentication-sample-wpf-desktop-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/tutorial-single-page-app-webapi.md",
+      "redirect_url": "/azure/active-directory-b2c/configure-authentication-sample-spa-app",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-devquickstarts-web-dotnet.md",
       "redirect_url": "/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app",
       "redirect_document_id": false
@@ -16197,6 +16232,11 @@
     {
       "source_path_from_root": "/articles/defender-for-iot/organizations/integration-servicenow.md",
       "redirect_url": "/azure/defender-for-iot/organizations/tutorial-servicenow",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-iot/organizations/integration-splunk.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/tutorial-splunk",
       "redirect_document_id": false
     },
     {

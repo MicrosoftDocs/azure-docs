@@ -104,6 +104,7 @@ Verify that your organizational security policy allows access to the following:
 | SNMP | UDP | OUT | 161 | Monitoring | Remote SNMP collectors. | On-premises management console and Sensor | SNMP server |
 | WMI | UDP | OUT | 135 | monitoring | Windows Endpoint Monitoring | Sensor | Relevant network element |
 | Tunneling | TCP | IN | 9000 <br /><br />- on top of port 443 <br /><br />From end user to the on-premises management console. <br /><br />- Port 22 from sensor to the on-premises management console  | monitoring | Tunneling | Sensor | On-premises management console |
+| HTTP| TCP | OUT | 80 | Certificate validation  | Download CRL file | Sensor | CRL server |
 
 ### Planning rack installation
 
