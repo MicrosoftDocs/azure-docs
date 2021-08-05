@@ -40,13 +40,13 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 2. Under **Azure services**, select **Azure AD B2C**.
 4. Select **API connectors**, and then select **New API connector**.
 
-   :::image type="content" source="media/add-api-connector-token-enrichment/api-connector-new.png" alt-text="Providing the basic configuration like target URL and display name for an API connector during the creation experience.":::
+   :::image type="content" source="media/add-api-connector-token-enrichment/api-connector-new.png" alt-text="Screenshot of the basic API connector configuration like target URL and display name for an API connector during the creation experience.":::
 
 5. Provide a display name for the call. For example, **Enrich token from external source**.
 6. Provide the **Endpoint URL** for the API call.
 7. Choose the **Authentication type** and configure the authentication information for calling your API. Learn how to [Secure your API Connector](secure-rest-api.md).
 
-    :::image type="content" source="media/add-api-connector-token-enrichment/api-connector-config.png" alt-text="Providing authentication configuration for an API connector during the creation experience.":::
+    :::image type="content" source="media/add-api-connector-token-enrichment/api-connector-config.png" alt-text="Screenshot of providing authentication configuration for an API connector during the creation experience.":::
 
 8. Select **Save**.
 
@@ -59,7 +59,7 @@ Follow these steps to add an API connector to a sign-up user flow.
 4. Select **User flows**, and then select the user flow you want to add the API connector to.
 5. Select **API connectors**, and then select the API endpoint you want to invoke at the **Before sending the token (preview)** step in the user flow:
    
-    :::image type="content" source="media/add-api-connector-token-enrichment/api-connectors-user-flow-select.png" alt-text="Selecting which API connector to use for a step in the user flow like 'Before creating the user'.":::
+    :::image type="content" source="media/add-api-connector-token-enrichment/api-connectors-user-flow-select.png" alt-text="Screenshot of selecting which API connector to use for a step in the user flow like 'Before creating the user'.":::
 
 6. Select **Save**.
 
@@ -390,7 +390,7 @@ Additionally, Azure AD B2C logs metadata about the API transactions that happen 
 3. Filter the list view by the length of time you wish and **Activity** to **An API was called as part of a user flow**
 4. Inspect individual logs. Each row represents an API connector attempting to be called during a user flow. If an API call fails and there's a retry, it's still represented as a singular row. There's a `numberOfAttempts` which indicates the number of times your API was called. This can be of values `1`or `2`. Other information about the API call is detailed in the logs.
 
-:::image type="content" source="media/add-api-connector-token-enrichment/api-connector-audit-logs.png" alt-text="An example of audit log regarding API connector transaction during an end user authentication to a user flow":::
+:::image type="content" source="media/add-api-connector-token-enrichment/example_ anonymized_audit_log.png" alt-text="Screenshot of an example audit log regarding API connector transaction during an end user authentication to a user flow.":::
 
 ::: zone-end
 
