@@ -99,7 +99,7 @@ The following is a list of workloads that have been validated to work with the N
 The following workloads have open issues and should not be deployed for production:
 - Locking issues with IBM MQ
 - Metadata heavy workloads such as untar may experience high latency
-- Incompatibility with dNFS fearure offered by Oracle Database
+- Oracle Database will experience incompatibility with its dNFS feature.
 Reach out to azurefilesnfs@microsoft .com to validate workloads not in the prior list or to share more successful workloads stories.
 
 ## Next steps
