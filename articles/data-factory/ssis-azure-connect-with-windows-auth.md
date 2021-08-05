@@ -3,9 +3,8 @@ title: Access data stores and file shares with Windows authentication
 description: Learn how to configure SSIS catalog in Azure SQL Database and Azure-SSIS Integration Runtime in Azure Data Factory to run packages that access data stores and file shares with Windows authentication.
 ms.date: "10/27/2020"
 ms.topic: conceptual
-ms.prod: sql
-ms.prod_service: "integration-services"
-ms.technology: integration-services
+ms.service: data-factory
+ms.subservice: integration-services
 author: swinarko
 ms.author: sawinark
 ms.reviewer: jburchel

@@ -5,6 +5,7 @@ description: Use Azure Data Factory or a Synapse pipeline to copy data into Azur
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 07/28/2021

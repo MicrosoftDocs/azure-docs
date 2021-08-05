@@ -4,6 +4,7 @@ description: Learn about managed virtual network and managed private endpoints i
 ms.author: lle
 author: lrtoyou1223
 ms.service: data-factory
+ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions, devx-track-azurepowershell
 ms.date: 07/20/2021

@@ -6,6 +6,7 @@ author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 10/30/2020
 ms.custom: devx-track-python, devx-track-azurepowershell, synapse
