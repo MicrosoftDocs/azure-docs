@@ -106,10 +106,7 @@ If DRS rule conflicts are detected when you create a VM-VM policy, it results in
    >[!NOTE]
    >Associated policies & virtual machines blurb next to host - explain 
 
-1. Select **Next: Review + create** to review your policy and then select **Create policy**.  
-
-   >[!NOTE]
-   >Select **Back : Basics** to make any changes to your policy.
+1. Select **Next: Review + create** to review your policy and then select **Create policy**.  If you want to make changes to your policy, select **Back : Basics**.
 
 
 
