@@ -120,5 +120,5 @@ The ASEv3 is available in the following regions.
 |West US 2| |
 
 <!--Links-->
-[ri]: https://docs.microsoft.com/azure/cost-management-billing/reservations/reservation-discount-app-service
+[ri]: ../../reservations/reservation-discount-app-service.md
 [pricing]: https://azure.microsoft.com/pricing/details/app-service/windows/
