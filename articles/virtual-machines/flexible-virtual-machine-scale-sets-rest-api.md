@@ -88,4 +88,4 @@ See [Add multiple VMs into a Virtual Machine Scale Set](https://github.com/Azure
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Learn how to create a Flexible scale set in the Azure Portal.](flexible-virtual-machine-scale-sets-portal.md)
+> [Learn how to create a Flexible scale set in the Azure portal.](flexible-virtual-machine-scale-sets-portal.md)

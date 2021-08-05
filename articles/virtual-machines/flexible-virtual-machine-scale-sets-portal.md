@@ -44,7 +44,7 @@ Before you can deploy virtual machine scale sets in Flexible orchestration mode,
 1. Select the two orchestrator features to enable: *VMOrchestratorSingleFD* and *VMOrchestratorMultiFD*.
 1. Select **Register**.
 
-    :::image type="content" source="./media/flexible-virtual-machine-scale-sets-portal/flex-register-portal.png" alt-text="Feature registration in Azure portal.":::
+    :::image type="content" source="./media/flexible-virtual-machine-scale-sets-portal/flex-register-portal.png" alt-text="Sreenshot of the feature registration page in the Azure portal.":::
 
 Once the features have been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider. 
 
@@ -65,7 +65,7 @@ Once the features have been registered for your subscription, complete the opt-i
 1. Set the **Fault domain count**.
 1. Finish creating your scale set. See [create a scale set in the Azure portal](../virtual-machine-scale-sets/quick-create-portal.md#create-virtual-machine-scale-set) for more information on how to create a scale set.
 
-    :::image type="content" source="./media/flexible-virtual-machine-scale-sets-portal/portal-create-orchestration-mode-flexible.png" alt-text="Orchestration mode in Portal when creating a scale set":::
+    :::image type="content" source="./media/flexible-virtual-machine-scale-sets-portal/portal-create-orchestration-mode-flexible.png" alt-text="Screenshot of the orchestration mode toggle in the portal when creating a scale set.":::
 
 ### Next, add a virtual machine to the scale set in Flexible orchestration mode.
 
@@ -75,7 +75,7 @@ Once the features have been registered for your subscription, complete the opt-i
 1. Add your VM to the scale set in Flexible orchestration mode by selecting the scale set in the **Availability options**. You can add the virtual machine to a scale set in the same region, zone, and resource group.
 1. Finish creating your virtual machine.
 
-    :::image type="content" source="./media/flexible-virtual-machine-scale-sets-portal/vm-portal-orchestration-mode-flexible.png" alt-text="Add VM to the Flexible orchestration mode scale set":::
+    :::image type="content" source="./media/flexible-virtual-machine-scale-sets-portal/vm-portal-orchestration-mode-flexible.png" alt-text="Screenshot of adding a VM to the Flexible orchestration mode scale set.":::
 
 
 ## Next steps

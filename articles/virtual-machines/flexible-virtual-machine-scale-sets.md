@@ -45,7 +45,7 @@ Learn more about the differences between Uniform scale sets and Flexible scale s
 
 
 ## Register for Flexible orchestration mode
-Before you can deploy virtual machine scale sets in Flexible orchestration mode, you must first register your subscription for the preview feature. The registration may take several minutes to complete. You can use Azure Portal, Azure PowerShell, or Azure CLI to register.
+Before you can deploy virtual machine scale sets in Flexible orchestration mode, you must first register your subscription for the preview feature. The registration may take several minutes to complete. You can use Azure portal, Azure PowerShell, or Azure CLI to register.
 
 ### Azure Portal
 
@@ -56,7 +56,7 @@ Before you can deploy virtual machine scale sets in Flexible orchestration mode,
 1. Select the two orchestrator features to enable: *VMOrchestratorSingleFD* and *VMOrchestratorMultiFD*.
 1. Select **Register**.
 
-    :::image type="content" source="./media/flexible-virtual-machine-scale-sets-portal/flex-register-portal.png" alt-text="Feature registration in Azure portal.":::
+    :::image type="content" source="./media/flexible-virtual-machine-scale-sets-portal/flex-register-portal.png" alt-text="Screen shot of the Feature registration page in the Azure portal.":::
 
 Once the features have been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider. 
 
@@ -275,4 +275,4 @@ InvalidParameter. The value 'True' of parameter 'singlePlacementGroup' is not al
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Flexible orchestration mode for your scale sets with Azure Portal.](flexible-virtual-machine-scale-sets-portal.md)
+> [Flexible orchestration mode for your scale sets with Azure portal.](flexible-virtual-machine-scale-sets-portal.md)

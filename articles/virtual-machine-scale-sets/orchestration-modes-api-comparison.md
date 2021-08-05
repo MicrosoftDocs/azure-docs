@@ -70,7 +70,6 @@ Invoke Single VM APIs
 
 `VMSS List Instances` : 
 - Returns the scale set ID associated with each instance during this preview 
-- In future releases, will return scale set Flexible orchestration state (is Instance Protection enabled on the instance, etc.) 
 
 Azure Resource Graph 
 

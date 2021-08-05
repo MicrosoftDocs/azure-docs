@@ -68,7 +68,6 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 
 Create a Flexible virtual machine scale set with Azure PowerShell. The following example shows the creation of a Flexible scale set where the fault domain count is set to 1, a virtual machine is created and then added to the Flexible scale set.
 
-
 ```azurepowershell-interactive
 Connect-AzAccount
 Set-AzContext `
@@ -82,22 +81,20 @@ $vmname = "myFlexibleVM"
 
 ### Create a virtual machine scale set Config with minimal parameters 
 
-Do not specify VM Profile parameters like networking or VM SKUs.
+1. Do not specify VM Profile parameters like networking or VM SKUs.
 
-```azurepowershell-interactive
-$VmssConfigWithoutVmProfile = new-azvmssconfig -location $loc -platformfaultdomain 1 
-
-$VmssFlex = new-azvmss -resourcegroupname $rgname -vmscalesetname $vmssName -virtualmachinescaleset $VmssConfigWithoutVmProfile 
-```
+    ```azurepowershell-interactive
+    $VmssConfigWithoutVmProfile = new-azvmssconfig -location $loc -platformfaultdomain 1 `
+    $VmssFlex = new-azvmss -resourcegroupname $rgname -vmscalesetname $vmssName -virtualmachinescaleset $VmssConfigWithoutVmProfile 
+    ```
  
+1. Add a VM to the Flexible scale set 
 
-### Add a VM to the Flexible scale set 
-
-```azurepowershell-interactive
-$vm = new-azvm -resourcegroupname $rgname -location $loc -name $vmname -credential $cred -domainnamelabel $domainName -vmssid $VmssFlex.id 
-```
+    ```azurepowershell-interactive
+    $vm = new-azvm -resourcegroupname $rgname -location $loc -name $vmname -credential $cred -domainnamelabel $domainName -vmssid $VmssFlex.id 
+    ```
 
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Learn how to create a Flexible scale set in the Azure Portal.](flexible-virtual-machine-scale-sets-portal.md)
+> [Learn how to create a Flexible scale set in the Azure portal.](flexible-virtual-machine-scale-sets-portal.md)
