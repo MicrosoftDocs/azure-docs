@@ -43,7 +43,7 @@ Sample DDL for source as SQL Server available at [here](https://github.com/Azure
 
 After modification of data model, the tool can generate the gremlin script, which may include custom Cosmos DB index script to ensure optimal indexes are created, refer Figure-2 for full flow.
 
-
+The following image demonstrates reverse engineering from RDBMS & Hackolade in action:
 :::image type="content" source="./media/graph-modeling-tools/cosmos-db-gremlin-hackolade.gif" alt-text="Hackolade in action":::
 <b>Figure-2:</b> Hackolade in action (demonstrating reverse engineering from RDBMS)
 
