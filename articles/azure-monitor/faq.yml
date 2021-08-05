@@ -249,7 +249,7 @@ sections:
           Specify an existing or new [Action Group](alerts/action-groups.md) so that when the log alert matches criteria, you are notified if you have a heartbeat missing for more than 15 minutes.
           
       - question: |
-          What are the firewall requirements for Azure Monitor agents?
+          What are the firewall requirements for Log Analytics agents?
         answer: |
           See [Network firewall requirements](agents/log-analytics-agent.md#network-requirements)for details on firewall requirements.
           
@@ -259,10 +259,7 @@ sections:
       - question: |
           What is the upgrade path from Log Analytics agents to Azure Monitor Agent? How do we migrate?
         answer: |
-          There’s currently no “auto-update” path since this involves complete uninstallation of existing agents on your machines and installing the new agent. As such we expect customers to plan for migration at the most suitable time based on feature parity.
-          The more important reason is that with the new agent, data collection setup is much simpler, centralized, and configurable for subsets of machines connected to same or multiple destinations **using the power of Data Collection Rules, which overcomes a lot of limitations of existing Log Analytics agent setup**.
-          
-          **As such, we recommend looking at your data collection needs holistically, and creating the right DCRs first, and then performing the agent update to go along with this new setup**. To do so, you can follow the guidance on how to deploy at scale. 
+          See [Migrating from Log Analytics agent](./agents/azure-monitor-agent-migration.md)
           
           
       - question: |
@@ -277,11 +274,10 @@ sections:
           
           
       - question: |
-          Will the new Azure Monitor agent support data collection for the various Log Analytics solutions?
+          Will the new Azure Monitor agent support data collection for the various Log Analytics solutions and Azure services like Security Centre, Sentinel, etc?
         answer: |
-          What you’re familiar as solutions or management packs, now become VM extensions that use the Azure Monitor Agent extension to send data to Azure Monitor. When you enable a solution on AMA, you hence see an additional VM extension installed, when applicable.
-          Over time, AMA will be the only agent that uploads data to Azure Monitor (or additional supported destinations). 
-          The solution specific VM extensions exist to collect scenario specific data or perform transformation/processing as required, and then use AMA to route the final data to Azure Monitor. 
+          Review the list of [AMA extensions currently available in preview](./agents/azure-monitor-agent-overview.md#supported-services-and-features). These are the same solutions and services now available using the new Azure Monitor agent instead. 
+          You may see additional extensions getting installed for the solution/service, this is to collect additional data or perform transformation/processing as required for the solution/service, and then use AMA to route the final data to Azure Monitor. 
           
           Here’s a diagram explaining the **new extensibility architecture**:
           
@@ -313,11 +309,9 @@ sections:
           It does not have full parity yet with existing agents. Here are some high-level gaps:
           
           - **Comparison with Log Analytics Agents (MMA/OMS)**
-          	-	Not all Log Analytics Solutions are supported today. See table above
+          	-	Not all Log Analytics Solutions are supported today. See [what's supported](agents/azure-monitor-agent-overview.md#supported-services-and-features)
           	-	No support for Private Links 
-          	-	No support for proxy servers or Log Analytics (OMS) gateway
           	-	No support for collecting custom logs or IIS logs
-          	-	No support for Hybrid Runbook workers
           
           - **Comparison with Azure Diagnostic Extensions (WAD/LAD)**
           	-	No support for Event Hubs and Storage accounts as destinations
@@ -326,13 +320,13 @@ sections:
       - question: |
           Does the new Azure Monitor Agent support non-Azure environments (other clouds, on-premises)?
         answer: |
-          Both on-premises machines and machines connected to other clouds are supported for servers today, once you have the Azure ARC agent installed. For purposes of running AMA and DCR, the ARC requirement comes at **no additional cost or resource consumption**, since the ARC agent is only used an installation mechanism and isn’t performing any operations unless you enable them
+          Both on-premises machines and machines connected to other clouds are supported for servers today, once you have the Azure Arc agent installed. For purposes of running AMA and DCR, the ARC requirement comes at **no additional cost or resource consumption**, since the ARC agent is only used an installation mechanism and isn’t performing any operations unless you enable them
           
           
       - question: |
           What types of machines does the new Azure Monitor Agent support?
         answer: |
-          You can directly install them on Virtual Machines, Virtual Machines Scale Sets, and ARC enabled Servers only. 
+          You can directly install them on Virtual Machines, Virtual Machines Scale Sets, and Arc enabled Servers only. 
           
           
       - question: |
