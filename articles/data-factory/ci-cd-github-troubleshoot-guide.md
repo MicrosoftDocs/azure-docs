@@ -181,7 +181,7 @@ You cannot connect to GIT Enterprise because of permission issues. You can see e
 
 #### Resolution 
 
-You  grant  Oauth access to ADF at first. Then, you have to use correct URL to connect to GIT Enterprise. The configuration must be set to the customer organization(s). For example, ADF will try *https://hostname/api/v3/search/repositories?q=user%3<customer credential>....* at first and fail. Then, it will try *https://hostname/api/v3/orgs/<org>/<repo>...*, and succeed. 
+You  grant  Oauth access to ADF at first. Then, you have to use correct URL to connect to GIT Enterprise. The configuration must be set to the customer organization(s). For example, ADF will try *https://hostname/api/v3/search/repositories?q=user%3&lt;customer credential&gt;....* at first and fail. Then, it will try *https://hostname/api/v3/orgs/&lt;org&gt;/&lt;repo&gt;...*, and succeed.  
  
 ### Cannot recover from a deleted data factory
 
