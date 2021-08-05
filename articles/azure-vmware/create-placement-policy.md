@@ -78,6 +78,9 @@ If DRS rule conflicts are detected when you create a VM-VM policy, it results in
 
 ## Create a policy
 
+>[!NOTE]
+>Make sure to review the requirements for the [policy type](#placement-policy-types).
+
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Placement policies** > **Add placement policy**.
 
    :::image type="content" source="media/placement-policies/add-placement-policy-1.png" alt-text="Screenshot showing " lightbox="media/placement-policies/add-placement-policy-1.png":::
@@ -89,34 +92,24 @@ If DRS rule conflicts are detected when you create a VM-VM policy, it results in
    >[!NOTE]
    >You may also select the Cluster from the Placement Policy overview pane before selecting ‘+ Add placement policy’
 
+1. Select **Yes** to Enable the policy.  
 
+   >[!TIP]
+   >If you select **No**, the policy and underlying DRS rule are created, but the policy actions are ignored until you enable the policy. 
 
+1. Select **Add virtual machine** and then select the VMs to include in the policy. You can select multiple VMs.
 
-1.	If desired, you may deselect the Enabled checkbox. This will create the policy and underlying DRS rule but the policy actions will be ignored until the policy is enabled.
-1.	select ‘+ Add virtual machine’
-1.	On the Select Virtual Machines pane, select the virtual machine to include in the policy by selecting the checkbox next to the virtual machine name in the list. Select multiple as required or desired.
-1.	select ‘+ Add virtual machine’ at the top of the Select Virtual Machines pane.
+   :::image type="content" source="media/placement-policies/placement-policy-select-virtual-machine.png" alt-text="Screenshot showing the list of virtual machines to select.":::   
 
+1. If you see the **Add host** option, your policy type requires a host to be selected.  Select **Add host** and select the host to include in the policy. You can select multiple hosts.
 
+   >[!NOTE]
+   >Associated policies & virtual machines blurb next to host - explain 
 
-!NOTE: See placement policy types section for more information on requirements by policy type.
+1. Select **Next: Review + create** to review your policy and then select **Create policy**.  
 
-
-
-1.	If  you see an ‘+ Add host’ option, then your policy type requires the selection of a host. 
-a.	select ‘+ Add host’ to open the Select Hosts pane.
-b.	On the Select Hosts pane, select the host to include in the policy by selecting the checkbox next to the host name in the list. Select multiple as desired.
-
-
-!NOTE: Associated policies & virtual machines blurb next to host - explain 
-
-
-
-c.	select Select at the top of the Select Hosts pane.
-11.	select Next: Review and Create.
-12.	Review the summary page. select Back: Basics to make any desired changes, otherwise select Create Policy.  
-
-
+   >[!NOTE]
+   >Select **Back : Basics** to make any changes to your policy.
 
 
 
