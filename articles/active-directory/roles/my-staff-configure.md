@@ -46,9 +46,11 @@ To complete this article, you need the following resources and privileges:
 
 Once you have configured administrative units, you can apply this scope to your users who access My Staff. Only users who are assigned an administrative role can access My Staff. To enable My Staff, complete the following steps:
 
-1. Sign into the Azure portal as a User Administrator.
-2. Browse to **Azure Active Directory** > **User settings** > **User feature previews** > **Manage user feature preview settings**.
-3. Under **Administrators can access My Staff**, you can choose to enable for all users, selected users, or no user access.
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com) as a User Administrator.
+
+1. Select **Azure Active Directory** > **User settings** > **User feature previews** > **Manage user feature preview settings**.
+
+1. Under **Administrators can access My Staff**, you can choose to enable for all users, selected users, or no user access.
 
 > [!Note]
 > Only users who've been assigned an admin role can access My Staff. If you enable My Staff for a user who is not assigned an admin role, they won't be able to access My Staff.
