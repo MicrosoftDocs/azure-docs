@@ -17,7 +17,7 @@ Learn more about how to use distributed GPU training code in Azure Machine Learn
 
 * [MPI](#mpi)
     * [Horovod](#horovod)
-    * [DeepSpeed](#deepseed)
+    * [DeepSpeed](#deepspeed)
 * [Pytorch](#pytorch)
     * [Pytorch Lightning](#pytorch-lightning)
     * [Hugging Face Transformers](#hugging-face-transformers)
@@ -36,11 +36,11 @@ Review these [basic concept of distributed GPU training](concept-distributed-tra
 Azure ML offers an [MPI job](https://www.mcs.anl.gov/research/projects/mpi/) to launch a given number of processes in each node. You can adopt this approach to run distributed training using either per-process-launcher or per-node-launcher, depending on whether `process_count_per_node` is set to 1 (the default) for per-node-launcher, or equal to the number of devices/GPUs for per-process-launcher. Azure ML constructs the full MPI launch command (`mpirun`) behind the scenes.  You can't provide your own full head-node-launcher commands like `mpirun` or `DeepSpeed launcher`.
 
 > [!TIP]
-> The base Docker image used by an Azure Machine Learning MPI job needs to have an MPI library installed. [Open MPI](https://www.open-mpi.org/) is included in all the [AzureML GPU base images](https://github.com/Azure/AzureML-Containers). When you use a custom Docker image, you are responsible for making sure the image includes an MPI library. Open MPI is recommended, but you can also use a different MPI implementation such as Intel MPI. Azure ML also provides [curated environments](https://docs.microsoft.com/en-us/azure/machine-learning/resource-curated-environments) for popular frameworks. 
+> The base Docker image used by an Azure Machine Learning MPI job needs to have an MPI library installed. [Open MPI](https://www.open-mpi.org/) is included in all the [AzureML GPU base images](https://github.com/Azure/AzureML-Containers). When you use a custom Docker image, you are responsible for making sure the image includes an MPI library. Open MPI is recommended, but you can also use a different MPI implementation such as Intel MPI. Azure ML also provides [curated environments](resource-curated-environments.md) for popular frameworks. 
 
 To run distributed training using MPI, follow these steps:
 
-1. Use an Azure ML environment with the preferred deep learning framework and MPI. AzureML provides [curated environment](https://docs.microsoft.com/en-us/azure/machine-learning/resource-curated-environments) for popular frameworks.
+1. Use an Azure ML environment with the preferred deep learning framework and MPI. AzureML provides [curated environment](resource-curated-environments.md) for popular frameworks.
 1. Define `MpiConfiguration` with `process_count_per_node` and `node_count`. `process_count_per_node` should be equal to the number of GPUs per node for per-process-launch, or set to 1 (the default) for per-node-launch if the user script will be responsible for launching the processes per node.
 1. Pass the `MpiConfiguration` object to the `distributed_job_config` parameter of `ScriptRunConfig`.
 
@@ -145,7 +145,7 @@ There are no fundamental differences between these launch options.  The choice i
 
 The following sections go into more detail on how to configure Azure ML PyTorch jobs for each of the launch options.
 
-### DistributedDataParallel (per-process-launch)
+### <a name="per-process-launch"></a> DistributedDataParallel (per-process-launch)
 
 You don't need to use a launcher utility like `torch.distributed.launch`.  To run a distributed PyTorch job:
 
@@ -187,7 +187,7 @@ run = Experiment(ws, 'experiment_name').submit(run_config)
 
 - [azureml-examples: Distributed training with PyTorch on CIFAR-10](https://github.com/Azure/azureml-examples/tree/main/python-sdk/workflows/train/pytorch/cifar-distributed)
 
-### Using `torch.distributed.launch` (per-node-launch)
+### <a name="per-node-launch"></a> Using `torch.distributed.launch` (per-node-launch)
 
 PyTorch provides a launch utility in [torch.distributed.launch](https://pytorch.org/docs/stable/distributed.html#launch-utility) that you can use to launch multiple processes per node. The `torch.distributed.launch` module will spawn multiple training processes on each of the nodes.
 
@@ -252,7 +252,7 @@ For single-node training (including single-node multi-GPU), you can run your cod
 - MASTER_PORT
 - NODE_RANK
 
-To run multi-node Lightning training on Azure ML, you can largely follow the [per-node-launch guide](#using-distributedddataparallel-per-node-launch):
+To run multi-node Lightning training on Azure ML, you can largely follow the [per-node-launch guide](#per-node-launch):
 
 - Define the `PyTorchConfiguration` and specify the `node_count`. Don't specify `process_count`, as Lightning internally handles launching the worker processes for each node.
 - For PyTorch jobs, Azure ML handles setting the MASTER_ADDR, MASTER_PORT, and NODE_RANK environment variables required by Lightning.
