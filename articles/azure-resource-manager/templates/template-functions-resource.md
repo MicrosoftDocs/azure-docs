@@ -337,7 +337,7 @@ The next example shows a list function that takes a parameter. In this case, the
 
 `pickZones(providerNamespace, resourceType, location, [numberOfZones], [offset])`
 
-Determines whether a resource type supports zones for the specified location or region.  This function only supports zonal resources, zone redundant services will return an empty array.  For more information see [Azure Services that support Availability Zones](/azure/availability-zones/az-region).
+Determines whether a resource type supports zones for the specified location or region.  This function only supports zonal resources, zone redundant services will return an empty array.  For more information see [Azure Services that support Availability Zones](/azure/availability-zones/az-region).  To use the pickZones function with zone redundant services, see the examples below.
 
 ### Parameters
 
