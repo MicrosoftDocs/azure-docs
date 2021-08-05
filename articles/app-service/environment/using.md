@@ -158,13 +158,16 @@ This will encrypt internal network traffic in your ASE between the front ends an
 
 ## Upgrade preference
 
-If you have multiple ASEs, you might want some ASEs to be upgraded before others. Within the ASE **HostingEnvironment Resource Manager** object, you can set a value for **upgradePreference**. The **upgradePreference** setting can be configured by using a template, ARMClient, or https://resources.azure.com. The three possible values are:
+If you have multiple ASEs, you might want some ASEs to be upgraded before others. This behavior can be enabled through your ASE portal.  Under **Configuration** you have the option to set **Upgrade preference**. The three possible values are:
 
 - **None**: Azure will upgrade your ASE in no particular batch. This value is the default.
 - **Early**: Your ASE will be upgraded in the first half of the App Service upgrades.
 - **Late**: Your ASE will be upgraded in the second half of the App Service upgrades.
 
-To configure your upgrade preference, go to the ASE **Configuration** UI. 
+Select the value desired and select **Save**.  The default for any ASE is **None**.
+
+![ASE configuration portal][5]
+
 The **upgradePreferences** feature makes the most sense when you have multiple ASEs because your "Early" ASEs will be upgraded before your "Late" ASEs. When you have multiple ASEs, you should set your development and test ASEs to be "Early" and your production ASEs to be "Late".
 
 ## Delete an ASE
@@ -175,6 +178,16 @@ To delete an ASE:
 1. Enter the name of your ASE to confirm that you want to delete it. When you delete an ASE, you also delete all the content within it.
 ![ASE deletion][3]
 1. Select **OK**.
+
+## Pricing 
+
+With ASEv3, there is a different pricing model depending on the type of ASE deployment you have. The three pricing models are: 
+
+- **ASEv3**: If ASE is empty, there is a charge as if you had one ASP with one instance of Windows I1v2. The one instance charge is not an additive charge but is only applied if the ASE is empty.
+- **Availability Zone ASEv3**: There is a minimum nine Windows I1v2 instance charge. There is no added charge for availability zone support if you have nine or more App Service plan instances. All App Service plans in an AZ ASEv3 also have a minimum instance count of 3 to ensure there is an instance in each availability zone. As the plans are scaled out, they are spread across the availability zones. 
+- **Dedicated host ASEv3**: With a dedicated host deployment, you are charged for two dedicated hosts per our pricing at ASEv3 creation then a small percentage of the Isolated V2 rate per core charge as you scale.
+
+Reserved Instance pricing for Isolated v2 is available and is described in [How reservation discounts apply to Azure App Service][ri]. The pricing, along with reserved instance pricing, is available at [App Service pricing][ under **Isolated v2 plan**. 
 
 <!--Image references-->
 
@@ -202,3 +215,5 @@ To delete an ASE:
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
 [logalerts]: ../../azure-monitor/alerts/alerts-log.md
+[ri]: ../../reservations/reservation-discount-app-service.md
+[pricing]: https://azure.microsoft.com/pricing/details/app-service/windows/
