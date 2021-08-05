@@ -29,7 +29,7 @@ Azure AD Multi-Factor Authentication works by requiring two or more of the follo
 * Something you have, such as a trusted device that is not easily duplicated, like a phone or hardware key.
 * Something you are - biometrics like a fingerprint or face scan.
 
-Users can register themselves for both self-service password reset and Azure AD Multi-Factor Authentication in one step to simplify the on-boarding experience. Administrators can define what forms of secondary authentication can be used. Azure AD Multi-Factor Authentication can also be required when users perform a self-service password reset to further secure that process.
+When users register themselves for Azure AD Multi-Factor Authentication, they can also register for self-service password reset in one step. Administrators can define what forms of secondary authentication can be used. Azure AD Multi-Factor Authentication can also be required when users perform a self-service password reset to further secure that process.
 
 ![Authentication methods in use at the sign-in screen](media/concept-authentication-methods/overview-login.png)
 
