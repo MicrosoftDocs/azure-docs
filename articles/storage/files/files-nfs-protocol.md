@@ -16,7 +16,7 @@ Azure Files offers two industry-standard protocols for mounting Azure file share
 This article covers NFS Azure file shares. For information about SMB Azure file shares, see [SMB file shares in Azure Files](files-smb-protocol.md).
 
 > [!IMPORTANT]
-> While the service is in preview, production usage of this service isn't recommended. See [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md) article for a list of known issues.
+> While the service is in preview, production usage of this service isn't recommended. See the [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md) article for a list of known issues.
 
 ## Common scenarios
 NFS file shares are often used in the following scenarios:
