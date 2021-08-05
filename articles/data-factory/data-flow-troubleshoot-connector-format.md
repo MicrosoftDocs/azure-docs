@@ -295,10 +295,10 @@ When you use the Azure SQL Database as a sink in the data flow to preview data, 
 `{"StatusCode":"DFExecutorUserError","Message":"Job failed due to reason: at Sink 'sink': shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: 111212;Operation cannot be performed within a transaction.","Details":"at Sink 'sink': shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: 111212;Operation cannot be performed within a transaction."}`
 
 #### Cause
-The error "`111212;Operation cannot be performed within a transaction.`" only occurs in the Azure Synapse dedicated SQL pool. But you mistakenly use the Azure SQL Database as the connector instead.
+The error "`111212;Operation cannot be performed within a transaction.`" only occurs in the Synapse dedicated SQL pool. But you mistakenly use the Azure SQL Database as the connector instead.
 
 #### Recommendation
-Confirm if your SQL Database is an Azure Synapse dedicated SQL pool. If so, please use Azure Synapse Analytics as a connector shown in the picture below.
+Confirm if your SQL Database is a Synapse dedicated SQL pool. If so, please use Azure Synapse Analytics as a connector shown in the picture below.
 
 :::image type="content" source="./media/data-flow-troubleshoot-connector-format/synapse-analytics-connector.png" alt-text="Screenshot that shows the Azure Synapse Analytics connector."::: 
 
@@ -329,9 +329,9 @@ You can use toDecimal (IDecimal, scale, precision) to figure out if the original
 ### Serverless pool (SQL on-demand) related issues
 
 #### Symptoms
-You use the Azure Synapse Analytics and the linked service actually is an Azure Synapse serverless pool. It's former named is SQL on-demand pool, and it can be distinguished by the server name contains `ondemand`, for example, `space-ondemand.sql.azuresynapse.net`. You may face with several unique failures as below:<br/>
+You use the Azure Synapse Analytics and the linked service actually is a Synapse serverless pool. It's former named is SQL on-demand pool, and it can be distinguished by the server name contains `ondemand`, for example, `space-ondemand.sql.azuresynapse.net`. You may face with several unique failures as below:<br/>
 
-1. When you want to use Azure Synapse serverless pool as a Sink, you face the following error:<br/>
+1. When you want to use Synapse serverless pool as a Sink, you face the following error:<br/>
 `Sink results in 0 output columns. Please ensure at least one column is mapped`
 1. When you select 'enable staging' in the Source, you face the following error:
 `shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: Incorrect syntax near 'IDENTITY'.`
