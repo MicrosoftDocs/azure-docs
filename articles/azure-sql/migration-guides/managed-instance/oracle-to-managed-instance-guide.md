@@ -165,7 +165,7 @@ Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows 
 
 Name: Enter the name to identify the test case.
 
-Creation date: Today's current date, defined automatically.
+   Creation date: Today's current date, defined automatically.
 
 Last Modified date: Filled in automatically, should not be changed.
 
