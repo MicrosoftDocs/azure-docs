@@ -96,7 +96,7 @@ The following is a list of workloads that have been validated to work with the N
 - Content repositories
 - Shared user space for workloads like machine learning, high-performance computing, etc
 
-The following workloads have open issues and should not be deployed for production:
+The following workloads have open issues and shouldn't be deployed:
 - IBM MQ will experience locking issues.
 - Metadata heavy workloads such as untar may experience high latency
 - Oracle Database will experience incompatibility with its dNFS feature.
