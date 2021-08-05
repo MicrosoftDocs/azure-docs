@@ -89,12 +89,12 @@ N/A
 
 When using REST, the response initially returns an HTTP status code 202 (Accepted) and header with *Azure-AsyncOperation* property:
 ```json
-"Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
+"Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2021-06-01"
 ```
 
 You can check the status of the asynchronous operation by sending a GET request to the endpoint in *Azure-AsyncOperation* header:
 ```rst
-GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-08-01
+GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2021-06-01
 Authorization: Bearer <token>
 ```
 
@@ -171,7 +171,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Cl
 # [REST](#tab/rest)
 
 ```rst
-PATCH https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/cluster-name?api-version=2020-08-01
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/cluster-name?api-version=2021-06-01
 Authorization: Bearer <token> 
 Content-type: application/json
  
@@ -191,7 +191,7 @@ Content-type: application/json
 
 **Response**
 
-It takes the propagation of the key a few minutes to complete. You can check the update state in two ways:
+It takes the propagation of the key a while to complete. You can check the update state in two ways:
 1. Copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
 2. Send a GET request on the cluster and look at the *KeyVaultProperties* properties. Your recently updated key should return in the response.
 
@@ -202,13 +202,12 @@ A response to GET request should look like this when the key update is complete:
   "identity": {
     "type": "SystemAssigned",
     "tenantId": "tenant-id",
-    "principalId": "principle-id"
-    },
+    "principalId": "principal-id"
+  },
   "sku": {
-    "name": "capacityReservation",
-    "capacity": 500,
-    "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
-    },
+    "name": "capacityreservation",
+    "capacity": 500
+  },
   "properties": {
     "keyVaultProperties": {
       "keyVaultUri": "https://key-vault-name.vault.azure.net",
@@ -216,13 +215,21 @@ A response to GET request should look like this when the key update is complete:
       "keyVersion": "current-version"
       },
     "provisioningState": "Succeeded",
-    "billingType": "cluster",
-    "clusterId": "cluster-id"
+    "clusterId": "cluster-id",
+    "billingType": "Cluster",
+    "lastModifiedDate": "last-modified-date",
+    "createdDate": "created-date",
+    "isDoubleEncryptionEnabled": false,
+    "isAvailabilityZonesEnabled": false,
+    "capacityReservationProperties": {
+      "lastSkuUpdate": "last-sku-modified-date",
+      "minCapacity": 500
+    }
   },
   "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",
   "name": "cluster-name",
   "type": "Microsoft.OperationalInsights/clusters",
-  "location": "region-name"
+  "location": "cluster-region"
 }
 ```
 
@@ -299,7 +306,7 @@ New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group
 # [REST](#tab/rest)
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Query?api-version=2020-08-01
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Query?api-version=2021-06-01
 Authorization: Bearer <token> 
 Content-type: application/json
  
@@ -343,7 +350,7 @@ New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group
 # [REST](#tab/rest)
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Alerts?api-version=2020-08-01
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Alerts?api-version=2021-06-01
 Authorization: Bearer <token> 
 Content-type: application/json
  
