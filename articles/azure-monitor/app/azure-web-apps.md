@@ -417,9 +417,7 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 
 #### Windows troubleshooting 
 1. Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of "~2".
-2. Ensure that the application meets the requirements to be monitored.
-    
-    Browse to `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`.  
+2. Browse to `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`.  
 
     ![Screenshot of https://yoursitename.scm.azurewebsites/applicationinsights results page](./media/azure-web-apps/app-insights-sdk-status.png)
     
@@ -452,9 +450,7 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 #### Linux troubleshooting
 
 1. Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of "~3".
-2. Ensure that the application meets the requirements to be monitored.
-
-     Navigate to */home\LogFiles\ApplicationInsights\status* and open *status_557de146e7fa_27_1.json*.
+2. Navigate to */home\LogFiles\ApplicationInsights\status* and open *status_557de146e7fa_27_1.json*.
 
     Confirm that `AppAlreadyInstrumented` is set to false, `AiHostingStartupLoaded` to true and `IKeyExists` to true.
 
@@ -491,14 +487,12 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
     
     ```
     
+    If `AppAlreadyInstrumented` is true this indicates that the extension detected that some aspect of the SDK is already present in the Application, and will back-off.
 
+##### No Data for Linux 
+
+1. List and identify the process that is hosting an app. Navigate to your terminal and on the command line type `ps ax`. 
     
- 
-##### No Data for Linux ASP.NET Core
-
-1. List and identify the process that is hosting an app.
-        Navigate to your terminal and on the command line type `ps ax`. 
-            
     The output should be similar to: 
 
    ```bash
