@@ -9,7 +9,7 @@ ms.date: 05/25/2021
 ms.reviewer: sngun
 
 ---
-# Data Modeling Tools for Graph
+# Third-party data modeling tools for Azure Cosmos DB graph data
 
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
