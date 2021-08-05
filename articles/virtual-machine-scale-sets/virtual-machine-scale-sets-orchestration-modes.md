@@ -3,9 +3,9 @@ title: Orchestration modes for virtual machine scale sets in Azure
 description: Learn how to use Flexible and Uniform orchestration modes for virtual machine scale sets in Azure.
 author: fitzgeraldsteele
 ms.author: fisteele
-ms.topic: how-to
+ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.date: 02/12/2021
+ms.date: 08/04/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex, devx-track-azurepowershell
 ---
@@ -94,206 +94,51 @@ Use extensions targeted for standard virtual machines, instead of extensions tar
 ## A comparison of Flexible, Uniform, and Availability Sets
 The following table compares the Flexible orchestration mode, Uniform orchestration mode, and Availability Sets by their features.
 
-| Feature | Supported by Flexible orchestration (Preview) | Supported by Uniform orchestration (General Availability) | Supported by AvSets (General Availability) |
+| Feature  | Supported by Flexible orchestration (Preview)  | Supported by Uniform orchestration (General Availability)  | Supported by AvSets (General Availability)  |
 |-|-|-|-|
-|         Virtual machine type  | Standard Azure IaaS VM (Microsoft.compute /virtualmachines)  | Scale Set specific   VMs (Microsoft.compute /virtualmachinescalesets/virtualmachines)  | Standard Azure IaaS VM   (Microsoft.compute /virtualmachines)  |
-|         SKUs supported  |            D series, E series, F series, A series,   B series, Intel, AMD  |            All SKUs  |            All SKUs  |
-|         Availability Zones  |            Optionally specify all instances land in   a single availability zone |            Specify instances land across 1, 2 or 3   availability zones  |            Not supported  |
-|         Full control over VM, NICs, Disks  |            Yes  |            Limited control with virtual machine scale sets VM   API  |            Yes  |
-|         Automatic Scaling  |            No  |            Yes  |            No  |
-|         Assign VM to a   Specific Fault Domain  |            Yes  |             No   |            No  |
-|         Remove NICs and Disks when deleting   VM instances  |            No  |            Yes  |            No  |
-|         Upgrade Policy (VM scale sets) |            No  |            Automatic, Rolling, Manual  |            N/A  |
-|         Automatic OS Updates (VM scale sets) |            No  |            Yes  |            N/A  |
-|         In Guest Security Patching  |            Yes  |            No  |            Yes  |
-|         Terminate Notifications (VM scale sets) |            No  |            Yes  |            N/A  |
-|         Instance Repair (VM scale sets) |            No  |            Yes   |            N/A  |
-|         Accelerated networking  |            Yes  |            Yes  |            Yes  |
-|         Spot instances and pricing   |            Yes, you can have both Spot and Regular   priority instances  |            Yes, instances must either be all Spot or all   Regular  |            No, Regular priority instances only  |
-|         Mix operating systems  |            Yes, Linux and Windows can reside in the   same Flexible scale set |            No, instances are the same operating   system  |               Yes, Linux and Windows can reside in the same Flexible scale set |
-|         Monitor Application Health  |            Application health extension  |            Application health extension or Azure Load balancer   probe  |            Application health extension  |
-|         UltraSSD Disks   |            Yes  |            Yes, for zonal deployments only  |            No  |
-|         Infiniband   |            No  |            Yes, single placement group only  |            Yes  |
-|         Write Accelerator   |            No  |            Yes  |            Yes  |
-|         Proximity Placement Groups   |            Yes  |            Yes  |            Yes  |
-|         Azure Dedicated Hosts   |            No  |            Yes  |            Yes  |
-|         Basic SLB   |            No  |            Yes  |            Yes  |
-|         Azure Load Balancer Standard SKU |            Yes  |            Yes  |            Yes  |
-|         Application Gateway  |            No  |            Yes  |            Yes  |
-|         Maintenance Control   |            No  |            Yes  |            Yes  |
-|         List VMs in Set  |            Yes  |            Yes  |            Yes, list VMs in AvSet  |
-|         Azure Alerts  |            No  |            Yes  |            Yes  |
-|         VM Insights  |            No  |            Yes  |            Yes  |
-|         Azure Backup  |            Yes  |            Yes  |            Yes  |
-|         Azure Site Recovery  |     No  |            No  |            Yes  |
-|         Add/remove existing VM to the group  |            No  |            No  |            No  |
-
-
-## Register for Flexible orchestration mode
-Before you can deploy virtual machine scale sets in Flexible orchestration mode, you must first register your subscription for the preview feature. The registration may take several minutes to complete. You can use the following Azure PowerShell or Azure CLI commands to register.
-
-### Azure Portal
-Navigate to the details page for the subscription you would like to create a scale set in Flexible orchestration mode, and select Preview Features from the menu. Select the two orchestrator features to enable: _VMOrchestratorSingleFD_ and _VMOrchestratorMultiFD_, and press the Register button. Feature registration can take up to 15 minutes.
-
-![Feature registration.](https://user-images.githubusercontent.com/157768/110361543-04d95880-7ff5-11eb-91a7-2e98f4112ae0.png)
-
-Once the features have been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider. Navigate to the Resource providers tab for your subscription, select Microsoft.compute, and click Re-register.
-
-![Re-register](https://user-images.githubusercontent.com/157768/110362176-cd1ee080-7ff5-11eb-8cc8-36aa967e267a.png)
-
-
-### Azure PowerShell
-Use the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) cmdlet to enable the preview for your subscription.
-
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName VMOrchestratorMultiFD -ProviderNamespace Microsoft.Compute `
-Register-AzProviderFeature -FeatureName VMOrchestratorSingleFD -ProviderNamespace Microsoft.Compute
-```
-
-Feature registration can take up to 15 minutes. To check the registration status:
-
-```azurepowershell-interactive
-Get-AzProviderFeature -FeatureName VMOrchestratorMultiFD -ProviderNamespace Microsoft.Compute
-```
-
-Once the feature has been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider.
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-```
-
-### Azure CLI 2.0
-Use [az feature register](/cli/azure/feature#az_feature_register) to enable the preview for your subscription.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.Compute --name VMOrchestratorMultiFD
-az feature register --namespace microsoft.compute --name VMOrchestratorSingleFD
-```
-
-Feature registration can take up to 15 minutes. To check the registration status:
-
-```azurecli-interactive
-az feature show --namespace Microsoft.Compute --name VMOrchestratorMultiFD
-```
-
-Once the feature has been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-```
+| Virtual machine type  | Standard Azure IaaS VM (Microsoft.compute /virtualmachines)  | Scale Set specific VMs (Microsoft.compute /virtualmachinescalesets/virtualmachines)  | Standard Azure IaaS VM (Microsoft.compute /virtualmachines)  |
+| Maximum Instance Count  | 1000  | 3000 (1000 per Availability Zone)  | 200  |
+| SKUs supported  | D series, E series, F series, A series, B series, Intel, AMD  | All SKUs  | All SKUs  |
+| Availability Zones  | Optionally specify all instances land in a single availability zone  | Specify instances land across 1, 2 or 3 availability zones  | Not supported  |
+| Fault Domain – Max Spreading (Azure will maximally spread instances)  | Yes  | Yes  | No  |
+| Fault Domain – Fixed Spreading  | 2-3 FDs (depending on regional maximum); 1 for zonal deployments  | 2, 3, 5 FDs; 1, 5 for zonal deployments  | 2-3 FDs (depending on regional maximum)  |
+| Update Domains  | None, platform maintenance performed FD by FD | 5 update domains  | Up to 20 update domains  |
+| Availability SLA  | Not at this time  | 99.95% for FD>1 in Single Placement Group; 99.99% for instances spread across multiple zones  | 99.95%  |
+| Full control over VM, NICs, Disks  | Yes  | Limited control with virtual machine scale sets VM API  | Yes  |
+| Automatic Scaling (manual, metrics based, schedule based)  | Yes  | Yes  | No  |
+| Assign VM to a Specific Fault Domain  | Yes  | No  | No  |
+| Auto-Remove NICs and Disks when deleting VM instances  | Yes  | Yes  | No  |
+| Upgrade Policy (VM scale sets)  | No, upgrade policy must be null or [] during create  | Automatic, Rolling, Manual  | N/A  |
+| Automatic OS Updates (VM scale sets)  | No  | Yes  | N/A  |
+| In Guest Security Patching  | Yes  | No  | Yes  |
+| Terminate Notifications (VM scale sets)  | Yes  | Yes  | N/A  |
+| Instance Repair (VM scale sets)  | Yes  | Yes  | N/A  |
+| Accelerated networking  | Yes  | Yes  | Yes  |
+| Spot instances and pricing   | Yes, you can have both Spot and Regular priority instances  | Yes, instances must either be all Spot or all Regular  | No, Regular priority instances only  |
+| Mix operating systems  | Yes, Linux and Windows can reside in the same Flexible scale set  | No, instances are the same operating system  | Yes, Linux and Windows can reside in the same Flexible scale set  |
+| Monitor Application Health  | Application health extension  | Application health extension or Azure Load balancer probe  | Application health extension  |
+| UltraSSD Disks   | Yes  | Yes, for zonal deployments only  | No  |
+| Infiniband   | No  | Yes, single placement group only  | Yes  |
+| Write Accelerator   | No  | Yes  | Yes  |
+| Proximity Placement Groups   | Yes  | Yes  | Yes  |
+| Azure Dedicated Hosts   | No  | Yes  | Yes  |
+| Basic SLB   | No  | Yes  | Yes  |
+| Azure Load Balancer Standard SKU  | Yes  | Yes  | Yes  |
+| Application Gateway  | Yes  | Yes  | Yes  |
+| Maintenance Control   | No  | Yes  | Yes  |
+| List VMs in Set  | Yes  | Yes  | Yes, list VMs in AvSet  |
+| Azure Alerts  | No  | Yes  | Yes  |
+| VM Insights  | No  | Yes  | Yes  |
+| Azure Backup  | Yes  | No  | Yes  |
+| Azure Site Recovery  | Yes (via Powershell)  | No  | Yes  |
+| Add/remove existing VM to the group  | No  | No  | No  |
+| Service Fabric  | No  | Yes  | No  |
+| Azure Kubernetes Service (AKS) / AKE / k8s node pool  | No  | Yes  | No  |
 
 
 ## Get started with Flexible orchestration mode
 
-Get started with Flexible orchestration mode for your scale sets through the Azure portal, Azure CLI, Terraform, or REST API.
-
-### Azure portal
-
-Create a virtual machine scale set in Flexible orchestration mode through the Azure portal.
-
-1. Log into the [Azure portal](https://portal.azure.com).
-1. In the search bar, search for and select **Virtual machine scale sets**.
-1. Select **Create** on the **Virtual machine scale sets** page.
-1. On the **Create a virtual machine scale set** page, view the **Orchestration** section.
-1. For the **Orchestration mode**, select the **Flexible** option.
-1. Set the **Fault domain count**.
-1. Finish creating your scale set. See [create a scale set in the Azure portal](quick-create-portal.md#create-virtual-machine-scale-set) for more information on how to create a scale set.
-
-:::image type="content" source="./media/virtual-machine-scale-sets-orchestration-modes/portal-create-orchestration-mode-flexible.png" alt-text="Orchestration mode in Portal when creating a scale set":::
-
-Next, add a virtual machine to the scale set in Flexible orchestration mode.
-
-1. In the search bar, search for and select **Virtual machines**.
-1. Select **Add** on the **Virtual machines** page.
-1. In the **Basics** tab, view the **Instance details** section.
-1. Add your VM to the scale set in Flexible orchestration mode by selecting the scale set in the **Availability options**. You can add the virtual machine to a scale set in the same region, zone, and resource group.
-1. Finish creating your virtual machine.
-
-:::image type="content" source="./media/virtual-machine-scale-sets-orchestration-modes/vm-portal-orchestration-mode-flexible.png" alt-text="Add VM to the Flexible orchestration mode scale set":::
-
-
-### Azure CLI 2.0
-Create a Flexible virtual machine scale set with Azure CLI. The following example shows the creation of a Flexible scale set where the fault domain count is set to 3, a virtual machine is created and then added to the Flexible scale set.
-
-```azurecli-interactive
-vmssflexname="my-vmss-vmssflex"
-vmname="myVM"
-rg="my-resource-group"
-
-az group create -n "$rg" -l $location
-az vmss create -n "$vmssflexname" -g "$rg" -l $location --orchestration-mode flexible --platform-fault-domain-count 3
-az vm create -n "$vmname" -g "$rg" -l $location --vmss $vmssflexname --image UbuntuLTS
-```
-
-### Terraform
-Create a Flexible virtual machine scale set with Terraform. This process requires **Terraform Azurerm provider v2.15.0** or later. Note the following parameters:
-- When no zone is specified, `platform_fault_domain_count` can be 1, 2, or 3 depending on region.
-- When a zone is specified, `the fault domain count` can be 1.
-- `single_placement_group` parameter must be `false` for Flexible virtual machine scale sets.
-- If you are doing a regional deployment, no need to specify `zones`.
-
-```terraform
-resource "azurerm orchestrated_virtual_machine_scale_set" "tf_vmssflex" {
-name = "tf_vmssflex"
-location = azurerm_resource_group.myterraformgroup.location
-resource_group_name = azurerm_resource_group.myterraformgroup.name
-platform_fault_domain_count = 1
-single_placement_group = false
-zones = ["1"]
-}
-```
-
-
-### REST API
-
-1. Create an empty scale set. The following parameters are required:
-    - API version 2019-12-01 (or greater)
-    - Single placement group must be `false` when creating a Flexible scale set
-
-	```json
-	{
-	"type": "Microsoft.Compute/virtualMachineScaleSets",
-	"name": "[parameters('virtualMachineScaleSetName')]",
-	"apiVersion": "2019-12-01",
-	"location": "[parameters('location')]",
-	"properties": {
-		"singlePlacementGroup": false,
-		"platformFaultDomainCount": "[parameters('virtualMachineScaleSetPlatformFaultDomainCount')]"
-		},
-	"zones": "[variables('selectedZone')]"
-	}
-	```
-
-2. Add virtual machines to the scale set.
-    1. Assign the `virtualMachineScaleSet` property to the scale set you have previously created. You are required to specify the `virtualMachineScaleSet` property at the time of VM creation.
-    1. You can use the **copy()** Azure Resource Manager template function to create multiple VMs at the same time. See [Resource iteration](../azure-resource-manager/templates/copy-resources.md#iteration-for-a-child-resource) in Azure Resource Manager templates.
-
-    ```json
-    {
-    "type": "Microsoft.Compute/virtualMachines",
-    "name": "[concat(parameters('virtualMachineNamePrefix'), copyIndex(1))]",
-    "apiVersion": "2019-12-01",
-    "location": "[parameters('location')]",
-    "copy": {
-    	"name": "VMcopy",
-    	"count": "[parameters('virtualMachineCount')]"
-    	},
-    "dependsOn": [
-    	"
-    	[resourceID('Microsoft.Compute/virtualMachineScaleSets', parameters('virtualMachineScaleSetName'))]",
-    	"
-    	[resourceID('Microsoft.Storage/storageAccounts', variables('diagnosticsStorageAccountName'))]",
-    	"
-    	[resourceID('Microsoft.Network/networkInterfaces', concat(parameters('virtualMachineNamePrefix'), copyIndex(1), '-NIC1'))]"
-    	],
-    "properties": {
-    	"virtualMachineScaleSet": {
-    		"id": "[resourceID('Microsoft.Compute/virtualMachineScaleSets', parameters('virtualMachineScaleSetName'))]"
-        }
-    }
-    ```
-
-See [Azure quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-vmss-flexible-orchestration-mode) for a full example.
+Register and get started with [Flexible orchestration mode](..\virtual-machines\flexible-virtual-machine-scale-sets.md) for your virtual machine scale sets. 
 
 
 ## Frequently asked questions

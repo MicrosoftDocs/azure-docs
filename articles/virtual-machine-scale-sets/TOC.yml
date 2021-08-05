@@ -164,8 +164,14 @@
   - name: Endorsed Linux distros
     href: ../virtual-machines/linux/endorsed-distros.md
     maintainContext: true
-  - name: Orchestration modes (preview) 
-    href: virtual-machine-scale-sets-orchestration-modes.md
+  - name: Orchestration modes (preview)
+    items:
+    - name: Overview 
+      href: virtual-machine-scale-sets-orchestration-modes.md
+    - name: API comparison
+      href: orchestration-modes-api-comparison.md
+    - name: Flexible orchestration
+      href: ../virtual-machines/flexible-virtual-machine-scale-sets.md
   - name: Maintenance and updates
     items:
     - name: Overview

@@ -973,7 +973,30 @@
     - name: Portal
       displayName: proximity placement groups, ppg
       href: ./windows/proximity-placement-groups-portal.md
-  - name: Virtual Machine Scale Sets
+  - name: Flexible virtual machine scale sets
+    items:
+    - name: Overview
+      displayName: Flexible orchestration mode for virtual machine scale sets 
+      href: flexible-virtual-machine-scale-sets.md
+    - name: Portal
+      displayName: Flexible orchestration mode for virtual machine scale sets 
+      href: flexible-virtual-machine-scale-sets-portal.md 
+    - name: CLI
+      displayName: Flexible orchestration mode for virtual machine scale sets 
+      href: flexible-virtual-machine-scale-sets-cli.md 
+    - name: PowerShell
+      displayName: Flexible orchestration mode for virtual machine scale sets 
+      href: flexible-virtual-machine-scale-sets-powershell.md 
+    - name: REST API
+      displayName: Flexible orchestration mode for virtual machine scale sets 
+      href: flexible-virtual-machine-scale-sets-rest-api.md 
+    - name: Terraform
+      displayName: Flexible orchestration mode for virtual machine scale sets 
+      href: flexible-virtual-machine-scale-sets-terraform.md 
+    - name: Scale sets with Autoscaling
+      displayName: Flexible orchestration mode for virtual machine scale sets 
+      href: flexible-virtual-machine-scale-sets-autoscaling.md 
+  - name: Uniform virtual machine scale sets
     items:
     - name: Overview
       displayName: virtual machine scale sets, VMSS, VM scale set, scale set
