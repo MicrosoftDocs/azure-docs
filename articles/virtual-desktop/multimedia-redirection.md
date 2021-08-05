@@ -10,91 +10,81 @@ manager: femila
 # Multimedia Redirection (MMR) on Azure Virtual Desktop (preview)
 
 >[!IMPORTANT]
->Multimedia Redirection on Azure Virtual Desktop (preview) is not supported for Microsoft 365 Government (GCC), GCC-High environments, and Microsoft 365 DoD.
+>Azure Virtual Desktop doesn't currently support multimedia redirection on Azure Virtual Desktop for Microsoft 365 Government (GCC), GCC-High environments, and Microsoft 365 DoD.
+>
+>Multimedia redirection on Azure Virtual Desktop is only available for the Windows Desktop client on Windows 10 machines. Multimedia redirection requires the Windows Desktop client, version 1.2.2222 or later.
 
-Multimedia Redirection on Azure Virtual Desktop is only available for the Windows Desktop client on Windows 10 machines. Multimedia Redirection require Windows Desktop client version 1.2.2222 or later.
-
-Multimedia Redirection (MMR) allows for smooth video playback when watching videos in the browser in Azure Virtual Desktop (AVD). This is possible by remoting the media element from the browser to the local machine for processing and rendering. MMR is supported on both Microsoft Edge and Google Chrome. In public preview we are testing the core functionality of MMR and have restricted playback to YouTube. Please see below on how to enable the extension on all sites for internal testing.
+Multimedia redirection (MMR) gives you smooth video playback while watching videos in your Azure Virtual Desktop browser. MMR remotes the media element from the browser to the local machine for faster processing and rendering. Both Microsoft Edge and Google Chrome support the MMR feature. However, the public preview version of MMR for Azure Virtual Desktop has restricted playback on YouTube, so you'll need to [enable an extension]() to test YouTube within your deployment.
 
 ## Requirements
 
 Before you can use Multimedia Redirection on Azure Virtual Desktop, you'll need
 to do these things:
 
-1. Install the [Windows Desktop client](https://docs.microsoft.com/en-us/azure/virtual-desktop/user-documentation/connect-windows-7-10) on a Windows 10 or Windows 10 IoT Enterprise device that meets the MicrosoftTeams [hardware requirements for Teams on a Windows PC](https://docs.microsoft.com/en-us/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/). This will install the MMR plugin (MsMmrDVCPlugin.dll) on the client device.
+1. [Install the Windows Desktop client](./user-documentation/connect-windows-7-10.md#install-the-windows-desktop-client) () on a Windows 10 or Windows 10 IoT Enterprise device that meets the [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/). Installing version 1.2.2222 or later of the client will also install the MMR plugin (MsMmrDVCPlugin.dll) on the client device. To learn more about updates and new versions, see [What's new in the Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew).
 
-2. Configure the client machine for the insider group.
+2. [Configure the client machine for the insider group](create-host-pools-azure-marketplace).
 
-3. Install the **Multimedia Redirector service** \<link forthcoming\> and the browser extensions on the virtual machine (VM)
+3. Install [the Multimedia Redirector service]() and any required browser extensions on the virtual machine (VM).
 
-The MMR plugin ships as a part of the Windows Desktop client (v1.2.2222 and later) for insiders. Install the most recent version of Windows Desktop client here: [What's new in the Windows Desktop client \| Microsoft Docs](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
+4. Configure the client machine to let your users access the Insiders program. To configure the client for the Insider group, set the following registry information:
 
-Configure the client machine to use the insider group. To configure the client
-for the Insider group, set the following registry information:
+   - **Key**: HKLM\\Software\\Microsoft\\MSRDC\\Policies
+   - **Type**: REG_SZ
+   - **Name**: ReleaseRing
+   - **Data**: insider
 
-- **Key**: HKLM\\Software\\Microsoft\\MSRDC\\Policies
+   To learn more about the Insiders program, see [Windows Desktop client for admins](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-admin#configure-user-groups).
 
-- **Type**: REG_SZ
+5. Use [the MSI installer (MsMmrHostMri)]() to install the MMR extensions on your Azure VM for your internet browser. MMR for Azure Virtual Desktop currently only supports Microsoft Edge and Google Chrome.
 
-- **Name**: ReleaseRing
+## Managing group policies for the MMR browser extension
 
-- **Data**: insider
+Using the MMR MSI will install the browser extensions. However, as this service is still in public preview, user experience may vary. For more information about known issues, see [Known issues](#known-issues-and-limitations).
 
-More information about the insider ring is available here: [Windows Desktop client for admins \| Microsoft Docs](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/windowsdesktop-admin#configure-user-groups)
+In some cases, you can change the group policy to manage the browser extensions and improve user experience. For example:
 
-### MMR Service and extensions
+- You can install the extension without user interaction.
+- You can restrict which websites use MMR.
+- You can pin the MMR extension icon in Google Chrome by default (the extension is already pinned by default in Microsoft Edge).
 
-The MMR service is responsible for connecting the VM to the local machine. This services is installed on the Azure VM. The MSI installer (MsMmrHostMsi) \<link forthcoming\> will also install the extension for both Google Chrome and Microsoft Edge.
+### Configure Microsoft Edge group policies for MMR
 
-## Managing group policy for MMR browser extension
+To configure the group policies, you'll need to edit the Microsoft Ege Administrative Template. You should see the extension configuration options under **Administrative Templates Microsoft Edge Extensions** > **Configure extension management settings**.
 
-Using the MMR MSI will install the browser extensions; however, this may not result in an optimal user experience. See known issues and limitations section below for details. Using group policy to manage the browser extensions can improve the first run user experience by:
+The following code is an example of a Microsoft Edge group policythat fores installation of the MMR extension and only lets MMR load on YouTube:
 
-- Completely installing the extension without user interaction
+```cmd
+{ "joeclbldhdmoijbaagobkhlpfjglcihd": { "installation_mode": "force_installed", "runtime_allowed_hosts": [ "*://*.youtube.com" ], "runtime_blocked_hosts": [ "*://*" ], "update_url": "https://edge.microsoft.com/extensionwebstorebase/v1/crx" } }
+```
 
-- Restrict which sites MMR is used with
+To learn more about group policy configuration, see [Microsoft Edge group policy](/DeployEdge/configure-microsoft-edge).
 
-- Can pin MMR extension icon by default in Google Chrome (extension are pinned in Microsoft Edge by default).
+### Configure Google Chrome group policies for MMR
 
-### Configuring Microsoft Edge group policy for Multimedia Redirection
+To configure the Google Chrome group policies, you'll need to edit the Google Chrome Administrative Template. You should see the extension configuration options under **Administrative Templates** > **Google** > **Google Chrome Extensions** > **Extension management settings**.
 
-When editing the Microsoft Edge Administrative Template, extension configuration options appear under: Administrative Templates Microsoft Edge Extensions Configure extension management settings"
+The following example is much like the code example in [Configure Microsoft Edge group policies for MMR](#configure-microsoft-edge-group-policies-for-mmr). This policy will force the MMR extension to install with the icon pinned in the top-right menu, and will only allow MMR to load on YouTube.
 
-This is an example for Microsoft Edge group policy. This would force installation of the MMR extension and only allow loading MMR on YouTube.com sites.
-
-{ "joeclbldhdmoijbaagobkhlpfjglcihd": { "installation_mode": "force_installed",
-"runtime_allowed_hosts": [ "\*://\*.youtube.com" ], "runtime_blocked_hosts": [
-"\*://\*" ], "update_url":
-"<https://edge.microsoft.com/extensionwebstorebase/v1/crx>" } }
-
-Additional information on configuring [Microsoft Edge group policy](https://docs.microsoft.com/en-us/DeployEdge/configure-microsoft-edge).
-
-### Configuring Google Chrome group policy for Multimedia Redirection
-
-When editing the Google Chrome Administrative Template, extension configuration options appear under: Administrative Templates Google Google Chrome Extensions Extension management settings
-
-This is an example for Microsoft Edge group policy. This would force installation of the MMR extension, force the icon to be pinned in the top right, and only allow loading MMR on YouTube.com sites.
-
-{ "lfmemoeeciijgkjkgbgikoonlkabmlno": { "installation_mode": "force_installed",
-"runtime_allowed_hosts": [ "\*://\*.youtube.com" ], "runtime_blocked_hosts": [
-"\*://\*" ], "toolbar_pin": "force_pinned", "update_url":
-"<https://clients2.google.com/service/update2/crx>" } }
+```cmd
+{ "lfmemoeeciijgkjkgbgikoonlkabmlno": { "installation_mode": "force_installed", "runtime_allowed_hosts": [ "*://*.youtube.com" ], "runtime_blocked_hosts": [ "*://*" ], "toolbar_pin": "force_pinned", "update_url": "https://clients2.google.com/service/update2/crx" } }
+```
 
 Additional information on configuring [Google Chrome group policy](https://support.google.com/chrome/a/answer/187202#zippy=%2Cwindows).
 
-## Using Multimedia Redirection on Microsoft Edge and Google Chrome
+## Run the MMR extension manually on a browser
 
-Multimedia Redirection works via remote app and session desktop for Microsoft Edge and Google Chrome browsers. Once the prerequisite have been installed, launch Microsoft Edge or Google Chrome. If Microsoft Edge and Google Chrome were not installed via group policy users will have to explicitly allow the extension to run.
+MMR uses remote apps and the session desktop for Microsoft Edge and Google Chrome browsers. Once you've fulfilled [the requirements](#requirements), open your supported browser. If you didn't install the browsers or MMR extension with a group policy, users will need to manually run the extension. This section will tell you how to manually run the extension in one of the currently supported browsers.
 
 ### Microsoft Edge
 
-On Microsoft Edge, users will see a yellow exclamation mark in the overflow menu along with a prompt for enable the AVD Multimedia Redirection Extension. Select Enable extension.
+To run the extension on Microsoft Edge manually, look for the yellow exclamation mark on the overflow menu. You should see a prompt to enable the Azure Virtual Desktop Multimedia Redirection extension. Select **Enable extension**.
 
 ![](media/4216b8bafb4cfea75905368809f8a566.png)
 
 ### Google Chrome
 
-On Google Chrome, users will see a error prompt and a notification that a new extension got installed. Clicking on the Error will allow users to enable the extension. Users should also pin the extension so they can see is MMR is connected. To avoid seeing this error and pinning the extension for users, please install the extension using group policy.
+To run the extension on Google Chrome manually, look for the notification message that says the new extension was installed. Select the notification to allow your users to enable the extension. Users should also pin the extension so that they can see from the icon if MMR is connected.
 
 ![](media/e85a8361045bcad90f0898294b556748.png)
 
