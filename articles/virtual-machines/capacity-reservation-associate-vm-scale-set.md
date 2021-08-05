@@ -25,29 +25,6 @@ To learn more about these modes, go to [Virtual Machine Scale Sets Orchestration
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-## Region and Availability Zones considerations 
-
-Virtual machine scale sets can be created regionally or in one or more Availability Zones to protect them from data-center-level failure. Learn more about multi-zonal virtual machine scale sets, refer to [Virtual Machine Scale Sets that use Availability Zones](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md).  
-
- 
->[!IMPORTANT]
-> The location (Region and Availability Zones) of the virtual machine scale set and the Capacity Reservation Group must match for the association to succeed. For a regional scale set, the region must match between the scale set and the Capacity Reservation Group. For a zonal scale set, both the regions and the zones must match between the scale set and the Capacity Reservation Group. 
-
-
-When a scale set is spread across multiple zones, it always attempts to deploy evenly across the included Availability Zones. Because of that even deployment, a Capacity Reservation Group should always have the same quantity of reserved VMs in each zone. As an illustration of why this is important, consider the example below.   
-
-In this example, each zone has a different quantity reserved. Let’s say that the virtual machine scale set scales out to 75 instances. Since scale set will always attempt to deploy evenly across zones, the VM distribution should look like this: 
-
-| Zone  | Quantity Reserved  | No. of scale set VMs in each zone  | Unused Quantity Reserved  | Overallocated   |
-|---|---|---|---|---|
-| 1  | 40  | 25  | 15  | 0  |
-| 2  | 20  | 25  | 0  | 5  |
-| 3  | 15  | 25  | 0  | 10  |
-
-In this case, the scale set is incurring extra cost for 15 unused instances in Zone 1. The scale-out is also relying on 5 VMs in Zone 2 and 10 VMs in Zone 3 that aren't protected by Capacity Reservation. If each zone had 25 capacity instances reserved, then all 75 VMs would be protected by Capacity Reservation and the deployment wouldn't incur any extra cost for unused instances.  
-
-Once the virtual machine scale set is associated with a Capacity Reservation Group, all the subsequent VM allocations will happen against the Capacity Reservation. Since the reservations can be [overallocated](capacity-reservation-overallocate.md), the scale set can continue to scale normally beyond the limits of the reservation. The only difference is that the VMs allocated above the quantity reserved aren't covered by Capacity Reservation SLA. To learn more, go to [Overallocating Capacity Reservation](capacity-reservation-overallocate.md).
-
 ## Limitations of scale sets in Uniform Orchestration 
 
 - For Virtual Machine Scale Sets in Uniform orchestration to be compatible with Capacity Reservation, the `singlePlacementGroup` property must be set to *False*. 
@@ -166,6 +143,30 @@ GET Instance View https://management.azure.com/subscriptions/{subscriptionId}/re
 - **Automatic Upgrade** – In this mode, VMs are automatically associated with the Capacity Reservation Group without any further action from you. When the VMs are reallocated, they start consuming the reserved capacity. 
 - **Rolling Upgrade** – In this mode, VMs are associated with the Capacity Reservation Group without any further action from you. They're updated in batches with an optional pause time between batches. When the VMs are reallocated, they start consuming the reserved capacity. 
 - **Manual Upgrade** – In this mode, nothing happens to the VM when the virtual machine scale set is updated. You'll need to do individual updates to each VM by [upgrading them with the latest Scale Set model](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md).  
+
+
+## Region and Availability Zones considerations 
+
+Virtual machine scale sets can be created regionally or in one or more Availability Zones to protect them from data-center-level failure. Learn more about multi-zonal virtual machine scale sets, refer to [Virtual Machine Scale Sets that use Availability Zones](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md).  
+
+ 
+>[!IMPORTANT]
+> The location (Region and Availability Zones) of the virtual machine scale set and the Capacity Reservation Group must match for the association to succeed. For a regional scale set, the region must match between the scale set and the Capacity Reservation Group. For a zonal scale set, both the regions and the zones must match between the scale set and the Capacity Reservation Group. 
+
+
+When a scale set is spread across multiple zones, it always attempts to deploy evenly across the included Availability Zones. Because of that even deployment, a Capacity Reservation Group should always have the same quantity of reserved VMs in each zone. As an illustration of why this is important, consider the example below.   
+
+In this example, each zone has a different quantity reserved. Let’s say that the virtual machine scale set scales out to 75 instances. Since scale set will always attempt to deploy evenly across zones, the VM distribution should look like this: 
+
+| Zone  | Quantity Reserved  | No. of scale set VMs in each zone  | Unused Quantity Reserved  | Overallocated   |
+|---|---|---|---|---|
+| 1  | 40  | 25  | 15  | 0  |
+| 2  | 20  | 25  | 0  | 5  |
+| 3  | 15  | 25  | 0  | 10  |
+
+In this case, the scale set is incurring extra cost for 15 unused instances in Zone 1. The scale-out is also relying on 5 VMs in Zone 2 and 10 VMs in Zone 3 that aren't protected by Capacity Reservation. If each zone had 25 capacity instances reserved, then all 75 VMs would be protected by Capacity Reservation and the deployment wouldn't incur any extra cost for unused instances.  
+
+Since the reservations can be [overallocated](capacity-reservation-overallocate.md), the scale set can continue to scale normally beyond the limits of the reservation. The only difference is that the VMs allocated above the quantity reserved aren't covered by Capacity Reservation SLA. To learn more, go to [Overallocating Capacity Reservation](capacity-reservation-overallocate.md).
 
 
 ## Next steps
