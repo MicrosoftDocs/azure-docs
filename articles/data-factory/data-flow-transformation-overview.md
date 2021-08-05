@@ -4,7 +4,7 @@ description: An overview of the different transformations available in mapping d
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
-ms.custom: synapse
+
 ms.topic: conceptual
 ms.date: 10/27/2020
 ---

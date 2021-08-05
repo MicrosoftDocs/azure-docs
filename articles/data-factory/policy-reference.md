@@ -5,7 +5,7 @@ ms.author: lle
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019, references_regions, synapse
+ms.custom: seo-lt-2019, references_regions
 ms.date: 07/16/2021
 ---
 

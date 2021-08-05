@@ -4,7 +4,7 @@ description: Learn about expression functions in mapping data flow.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
-ms.custom: synapse
+
 ms.topic: conceptual
 ms.date: 07/04/2021
 ---

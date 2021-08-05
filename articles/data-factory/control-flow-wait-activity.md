@@ -4,7 +4,7 @@ description: The Wait activity pauses the execution of the pipeline for the spec
 author: chez-charlie
 ms.author: chez
 ms.service: data-factory
-ms.custom: synapse
+
 ms.topic: conceptual
 ms.date: 01/12/2018
 ---

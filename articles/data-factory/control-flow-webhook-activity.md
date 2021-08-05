@@ -5,7 +5,7 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.service: data-factory
-ms.custom: synapse
+
 ms.topic: conceptual
 ms.date: 03/25/2019
 ---

@@ -4,7 +4,7 @@ description: Learn how to copy data from Concur to supported sink data stores by
 author: jianleishen
 
 ms.service: data-factory
-ms.custom: synapse
+
 ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: jianleishen

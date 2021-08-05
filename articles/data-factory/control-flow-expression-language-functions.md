@@ -5,7 +5,7 @@ author: minhe-msft
 ms.author: hemin
 ms.reviewer: jburchel
 ms.service: data-factory
-ms.custom: synapse
+
 ms.topic: conceptual
 ms.date: 07/16/2021
 ---

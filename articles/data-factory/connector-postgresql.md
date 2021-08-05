@@ -4,7 +4,7 @@ description: Learn how to copy data from PostgreSQL to supported sink data store
 author: jianleishen
 
 ms.service: data-factory
-ms.custom: synapse
+
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: jianleishen
