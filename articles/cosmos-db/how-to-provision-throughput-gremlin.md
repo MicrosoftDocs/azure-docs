@@ -15,7 +15,7 @@ ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
 
 This article explains how to provision throughput in Azure Cosmos DB Gremlin API. You can provision standard(manual) or autoscale throughput on a container, or a database and share it among the containers within the database. You can provision throughput using Azure portal, Azure CLI, or Azure Cosmos DB SDKs.
 
-If you are using a different API, see [SQL API](how-to-provision-container-throughput.md), [Cassandra API](how-to-provision-throughput-cassandra.md), [API for MongoDB](how-to-provision-throughput-mongodb.md) articles to provision the throughput.
+If you are using a different API, see [SQL API](how-to-provision-container-throughput.md), [Cassandra API](cassandra/how-to-provision-throughput-cassandra.md), [API for MongoDB](how-to-provision-throughput-mongodb.md) articles to provision the throughput.
 
 ## <a id="portal-gremlin"></a> Azure portal
 

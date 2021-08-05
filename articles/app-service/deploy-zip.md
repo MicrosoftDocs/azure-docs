@@ -97,3 +97,4 @@ enables version control, package restore, MSBuild, and more.
 
 * [Kudu: Deploying from a zip file](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
 * [Azure App Service Deployment Credentials](deploy-ftp.md)
+* [Environment variables and app settings reference](reference-app-settings.md)

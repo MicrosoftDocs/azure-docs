@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/30/2020
 ms.author: davidmu
-ms.reviewer: arvinh,luleon
+ms.reviewer: ergreenl
 ---
 
 # Understand linked sign-on
