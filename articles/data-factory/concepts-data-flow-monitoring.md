@@ -79,7 +79,7 @@ You can also see detailed timing for each partition transformation step if you o
 
 When you select a sink transformation icon in your map, the slide-in panel on the right will show an additional data point called "post processing time" at the bottom. This is the amount time spent executing your job on the Spark cluster *after* your data has been loaded, transformed, and written. This time can include closing connection pools, driver shutdown, deleting files, coalescing files, etc. When you perform actions in your flow like "move files" and "output to single file", you will likely see an increase in the post processing time value.
 
-* Write stage duration: The time to write the data to a staging location for Azure Synapse SQL
+* Write stage duration: The time to write the data to a staging location for Synapse SQL
 * Table operation SQL duration: The time spent moving data from temp tables to target table
 * Pre SQL duration & Post SQL duration: The time spent running pre/post SQL commands
 * Pre commands duration & post commands duration: The time spent running any pre/post operations for file based source/sinks. For example move or delete files after processing.
