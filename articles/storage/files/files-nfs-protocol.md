@@ -85,7 +85,7 @@ The status of items that appear in this tables may change over time as support c
 [!INCLUDE [files-nfs-regional-availability](../../../includes/files-nfs-regional-availability.md)]
 
 ## Performance
-NFS Azure file shares are only offered on premium file shares, which are SSD-backed. The IOPS and the throughput of NFS shares scale with the provisioned capacity. See the [provisioned model](https://docs.microsoft.com/azure/storage/files/understanding-billing#provisioned-model) section of the understanding billing article to understand the formulas for IOPS, IO bursting, and throughput. The IO latencies are single-millisecond minimum latency (2ms to 3ms for small IO) while metadata latencies are 5ms+.
+NFS Azure file shares are only offered on premium file shares, which are SSD-backed. The IOPS and the throughput of NFS shares scale with the provisioned capacity. See the [provisioned model](https://docs.microsoft.com/azure/storage/files/understanding-billing#provisioned-model) section of the understanding billing article to understand the formulas for IOPS, IO bursting, and throughput. The IO latencies are low-single-digit-millisecond for small IO size while metadata latencies are high-single-digit-millisecond. That said, operations like untar or metadata heavy workloads like WordPress will not be performant.
 
 ## Validated workloads
 > [!IMPORTANT]
@@ -94,10 +94,10 @@ NFS Azure file shares are only offered on premium file shares, which are SSD-bac
 The following is a list of workloads that have been validated to work with NFS Azure file shares at the time of publishing this section. This list may change over time.
 - Home directories for general purpose file servers
 - Content repositories
-- Shared user space for workloads like machine learning, high-performance computing, etc
+- Shared user space (home directories) for application workloads
 
 The following workloads have open issues and shouldn't be deployed:
-- IBM MQ will experience locking issues.
+- IBM MQ will experience locking issues hence not recommended at this time.
 - Metadata heavy workloads such as untar may experience high latency
 - Oracle Database will experience incompatibility with its dNFS feature.
 Reach out to azurefilesnfs@microsoft .com to validate workloads not in the prior list or to share more successful workloads stories.
