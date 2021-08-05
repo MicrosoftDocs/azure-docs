@@ -79,6 +79,7 @@ $vmname = "myFlexibleVM"
 ```
 
 ### Create a virtual machine scale set Config with minimal parameters 
+
 Do not specify VM Profile parameters like networking or VM SKUs.
 
 ```azurepowershell-interactive
@@ -89,6 +90,7 @@ $VmssFlex = new-azvmss -resourcegroupname $rgname -vmscalesetname $v
  
 
 ### Add a VM to the Flexible scale set 
+
 ```azurepowershell-interactive
 $vm = new-azvm -resourcegroupname $rgname -location $loc -name $vmname -credential $cred -domainnamelabel $domainName -vmssid $VmssFlex.id 
 ```

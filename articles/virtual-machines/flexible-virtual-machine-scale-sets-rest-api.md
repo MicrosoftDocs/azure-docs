@@ -83,7 +83,7 @@ Before you can deploy virtual machine scale sets in Flexible orchestration mode,
     }
     ```
 
-See [Azure quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-vmss-flexible-orchestration-mode) for a full example.
+See [Add multiple VMs into a Virtual Machine Scale Set](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-vmss-flexible-orchestration-mode) for a full example.
 
 
 ## Next steps

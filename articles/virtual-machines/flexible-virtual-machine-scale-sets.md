@@ -25,10 +25,10 @@ Azure virtual machine scale sets let you create and manage a group of load balan
 
 With Flexible orchestration, Azure provides a unified experience across the Azure VM ecosystem. Flexible orchestration offers high availability guarantees (up to 1000 VMs) by spreading VMs across fault domains in a region or within an Availability Zone. This enables you to scale out your application while maintaining fault domain isolation that is essential to run quorum-based or stateful workloads, including:
 - Quorum-based workloads
-- Open-Source databases
+- Open-source databases
 - Stateful applications
-- Services that require High Availability and large scale
-- Services that want to mix virtual machine types, or leverage Spot and on-demand VMs together
+- Services that require high availability and large scale
+- Services that want to mix virtual machine types or leverage Spot and on-demand VMs together
 - Existing Availability Set applications
 
 Learn more about the differences between Uniform scale sets and Flexible scale sets in [Orchestration Modes](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md).
@@ -48,13 +48,21 @@ Learn more about the differences between Uniform scale sets and Flexible scale s
 Before you can deploy virtual machine scale sets in Flexible orchestration mode, you must first register your subscription for the preview feature. The registration may take several minutes to complete. You can use Azure Portal, Azure PowerShell, or Azure CLI to register.
 
 ### Azure Portal
-Navigate to the details page for the subscription you would like to create a scale set in Flexible orchestration mode, and select Preview Features from the menu. Select the two orchestrator features to enable: _VMOrchestratorSingleFD_ and _VMOrchestratorMultiFD_, and press the Register button. Feature registration can take up to 15 minutes.
 
-![Feature registration.](https://user-images.githubusercontent.com/157768/110361543-04d95880-7ff5-11eb-91a7-2e98f4112ae0.png)
+1. Log into the Azure portal at https://portal.azure.com.
+1. Go to your **Subscriptions**.
+1. Navigate to the details page for the subscription you would like to create a scale set in Flexible orchestration mode by selecting the name of the subscription.
+1. In the menu under **Settings**, select **Preview features**.
+1. Select the two orchestrator features to enable: *VMOrchestratorSingleFD* and *VMOrchestratorMultiFD*.
+1. Select **Register**.
 
-Once the features have been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider. Navigate to the Resource providers tab for your subscription, select Microsoft.compute, and click Re-register.
+    :::image type="content" source="./media/flexible-virtual-machine-scale-sets-portal/flex-register-portal.png" alt-text="Feature registration in Azure portal.":::
 
-![Re-register](https://user-images.githubusercontent.com/157768/110362176-cd1ee080-7ff5-11eb-8cc8-36aa967e267a.png)
+Once the features have been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider. 
+
+1. In the menu under **Settings**, select **Resource providers**.
+1. Select `Microsoft.compute`.
+1. Select **Re-register**.
 
 
 ### Azure PowerShell
@@ -100,16 +108,11 @@ az provider register --namespace Microsoft.Compute
 
 ## Get started with Flexible orchestration mode
 
-Get started with Flexible orchestration mode for your scale sets through the Azure portal, Azure CLI, Azure PowerShell, Terraform, or REST API.
-- [Azure Portal](flexible-virtual-machine-scale-sets-portal.md)
-- [Azure CLI](flexible-virtual-machine-scale-sets-cli.md)
-- [Azure PowerShell](flexible-virtual-machine-scale-sets-powershell.md)
-- [Terraform](flexible-virtual-machine-scale-sets-terraform.md)
-- [REST API](flexible-virtual-machine-scale-sets-rest-api.md) 
+Get started with Flexible orchestration mode for your scale sets through the [Azure portal](flexible-virtual-machine-scale-sets-portal.md), [Azure CLI](flexible-virtual-machine-scale-sets-cli.md), [Azure PowerShell](flexible-virtual-machine-scale-sets-powershell.md), [Terraform](flexible-virtual-machine-scale-sets-terraform.md), or [REST API](flexible-virtual-machine-scale-sets-rest-api.md). 
 
 
 ## What has changed with Flexible orchestration mode?
-One of the main advantages of Flexible orchestration is that it provides orchestration features over standard Azure IaaS VMs, instead of scale set child virtual machines. This means you can use all of the standard VM APIs when managing Flexible orchestration instances, instead of the virtual machine scale set VM APIs you use with [Uniform orchestration](..\virtual-machine-scale-sets\virtual-machine-scale-sets-orchestration-modes.md). During the preview period, there are several differences between managing instances in Flexible orchestration versus Uniform orchestration. In general, we recommend that you use the standard Azure IaaS VM APIs when possible. In this section, we highlight examples of best practices for managing VM instances with Flexible orchestration.
+One of the main advantages of Flexible orchestration is that it provides orchestration features over standard Azure IaaS VMs, instead of scale set child virtual machines. You can use all of the standard VM APIs when managing Flexible orchestration instances, instead of the virtual machine scale set VM APIs you use with [Uniform orchestration](..\virtual-machine-scale-sets\virtual-machine-scale-sets-orchestration-modes.md). During the preview period, there are several differences between managing instances in Flexible orchestration versus Uniform orchestration. In general, we recommend that you use the standard Azure IaaS VM APIs when possible. In this section, we highlight examples of best practices for managing VM instances with Flexible orchestration.
 
 ### Assign fault domain during VM creation
 You can choose the number of fault domains for the Flexible orchestration scale set. By default, when you add a VM to a Flexible scale set, Azure evenly spreads instances across fault domains. While it is recommended to let Azure assign the fault domain, for advanced or troubleshooting scenarios you can override this default behavior and specify the fault domain where the instance will land.
@@ -169,12 +172,12 @@ The following table lists the Flexible orchestration mode features and links to 
 | Mix operating systems | Yes, Linux and Windows can reside in the same Flexible scale set |
 | Monitor Application Health | Application health extension |
 | UltraSSD Disks  | Yes |
-| Proximity Placement Groups  | Yes, [use this documentation](../virtual-machine-scale-sets/proximity-placement-groups.md) |
+| Proximity Placement Groups  | Yes, read [Proximity Placement Groups documentation](../virtual-machine-scale-sets/proximity-placement-groups.md) |
 | Azure Load Balancer Standard SKU | Yes |
 | List VMs in Set | Yes |
 | Azure Backup | Yes |
-| Terminate Notifications (VM scale sets) | Yes, [use this documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md) |
-| Instance Repair (VM scale sets) | Yes, [use this documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md) |
+| Terminate Notifications (VM scale sets) | Yes, read [Terminate Notifications documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md) |
+| Instance Repair (VM scale sets) | Yes, read [Instance Repair documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md) |
 | Automatic Scaling | No |
 | Remove NICs and Disks when deleting   VM instances | No |
 | Upgrade Policy (VM scale sets) | No |

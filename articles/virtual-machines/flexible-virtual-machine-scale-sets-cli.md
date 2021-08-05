@@ -57,7 +57,7 @@ az provider register --namespace Microsoft.Compute
 
 ## Get started with Flexible orchestration mode
 
-Create a Flexible virtual machine scale set with Azure CLI. The following example shows the creation of a Flexible scale set where the fault domain count is set to 3, a virtual machine is created and then added to the Flexible scale set.
+Use the `group create`, `vmss create`, and `vm create` CLI commands to create a virtual machine scale set in flexible orchestration mode with Azure CLI. The following example shows the creation of a Flexible scale set where the fault domain count is set to 3, a virtual machine is created and then added to the Flexible scale set.
 
 ```azurecli-interactive
 vmssflexname="my-vmss-vmssflex"
