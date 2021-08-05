@@ -103,7 +103,6 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 - [Tutorial: Create user flows in Azure Active Directory B2C](tutorial-create-user-flows.md)
 - [Azure AD B2C custom policy overview](custom-policy-overview.md)
 - [User flows and custom policies overview](user-flow-overview.md)
-- [Tutorial: Enable authentication in a single-page application with Azure AD B2C](tutorial-single-page-app.md)
 - [Set up phone sign-up and sign-in for user flows](phone-authentication-user-flows.md)
 - [Enable multi-factor authentication in Azure Active Directory B2C](multi-factor-authentication.md)
 - [User flow versions in Azure Active Directory B2C](user-flow-versions.md)
