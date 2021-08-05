@@ -1,11 +1,12 @@
 ---
 title: Security considerations
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Describes basic security infrastructure that data movement services in Azure Data Factory use to help secure your data.  
 ms.author: abnarain
 author: nabhishek
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, synapse
 ms.date: 05/03/2021
 ---
 

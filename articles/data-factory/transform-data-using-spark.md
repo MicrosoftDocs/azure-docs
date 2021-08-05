@@ -1,11 +1,12 @@
 ---
 title: Transform data using Spark activity
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to transform data by running Spark programs from an Azure Data Factory pipeline using the Spark Activity. 
 ms.service: data-factory
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, synapse
 ms.date: 06/09/2021
 ---
 

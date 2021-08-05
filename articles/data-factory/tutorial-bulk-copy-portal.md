@@ -1,12 +1,13 @@
 ---
 title: Copy data in bulk using Azure portal
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Use Azure Data Factory and Copy Activity to copy data from a source data store to a destination data store in bulk.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.workload: data-services 
 ms.topic: tutorial
-ms.custom: seo-lt-2019; seo-dt-2019
+ms.custom: seo-lt-2019; seo-dt-2019, synapse
 ms.date: 07/06/2021
 ---
 

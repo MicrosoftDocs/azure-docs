@@ -1,11 +1,13 @@
 ---
 title: Use data flows to process data from automated machine learning (AutoML) models
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to use Azure Data Factory data flows to process data from automated machine learning(AutoML) models.
 services: data-factory
 author: amberz
 co-author: ATLArcht
 
 ms.service: data-factory
+ms.custom: synapse
 ms.workload: data-services
 
 ms.topic: conceptual

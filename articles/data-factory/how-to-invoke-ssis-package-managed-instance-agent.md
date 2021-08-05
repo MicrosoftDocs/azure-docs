@@ -1,7 +1,9 @@
 ---
 title: Run SSIS packages using Azure SQL Managed Instance Agent
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to run SSIS packages by using Azure SQL Managed Instance Agent. 
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: conceptual
 ms.author: lle
 author: lrtoyou1223

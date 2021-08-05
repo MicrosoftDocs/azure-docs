@@ -1,11 +1,12 @@
 ---
 title: Customize the setup for an Azure-SSIS Integration Runtime
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: This article describes how to use the custom setup interface for an Azure-SSIS Integration Runtime to install additional components or change settings
 ms.service: data-factory
 ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, synapse
 ms.date: 04/30/2021
 ---
 

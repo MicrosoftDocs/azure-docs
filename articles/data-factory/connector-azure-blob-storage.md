@@ -5,8 +5,8 @@ ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 06/17/2021
+ms.custom: seo-lt-2019, synapse
+ms.date: 07/19/2021
 ---
 
 # Copy and transform data in Azure Blob storage by using Azure Data Factory

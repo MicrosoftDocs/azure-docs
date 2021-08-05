@@ -1,10 +1,12 @@
 ---
-title: Create tumbling window triggers in Azure Data Factory 
-description: Learn how to create a trigger in Azure Data Factory that runs a pipeline on a tumbling window.
+title: Create tumbling window triggers
+titleSuffix: Azure Data Factory & Synapse Analytics
+description: Learn how to create a trigger in Azure Data Factory or Synapse Analytics that runs a pipeline on a tumbling window.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 07/26/2021
 ---

@@ -1,8 +1,10 @@
 ---
 title: Load data from Office 365 by using Azure Data Factory 
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: 'Use Azure Data Factory to copy data from Office 365'
 author: jianleishen
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 07/05/2021
 ms.author: jianleishen

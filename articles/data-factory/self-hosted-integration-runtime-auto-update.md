@@ -1,11 +1,12 @@
 ---
 title: Self-hosted integration runtime auto-update and expire notification
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn about self-hosted integration runtime auto-update and expire notification
 ms.service: data-factory
 ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, synapse
 ms.date: 06/16/2021
 ---
 

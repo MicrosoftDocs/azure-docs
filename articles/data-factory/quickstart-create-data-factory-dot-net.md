@@ -1,5 +1,6 @@
 ---
 title: Create Azure Data Factory using .NET SDK
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Create an Azure Data Factory and pipeline using .NET SDK to copy data from one location in Azure Blob storage to another location. 
 author: linda33wj
 ms.service: data-factory
@@ -7,7 +8,7 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/27/2021
 ms.author: jingwang 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, synapse
 ---
 # Quickstart: Create a data factory and pipeline using .NET SDK
 

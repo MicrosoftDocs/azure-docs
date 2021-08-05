@@ -1,12 +1,13 @@
 ---
 title: Load data into Azure Data Lake Storage Gen2
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: 'Use Azure Data Factory to copy data into Azure Data Lake Storage Gen2'
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 07/05/2021
+ms.custom: seo-lt-2019, synapse
+ms.date: 07/22/2021
 ---
 
 # Load data into Azure Data Lake Storage Gen2 with Azure Data Factory

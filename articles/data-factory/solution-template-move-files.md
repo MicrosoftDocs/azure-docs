@@ -1,12 +1,13 @@
 ---
 title: Move files between file-based storage
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to use a solution template to move files between file-based storage by using Azure Data Factory.
 author: dearandyxu
 ms.author: yexu
 ms.reviewer: ''
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, synapse
 ms.date: 7/12/2019
 ---
 

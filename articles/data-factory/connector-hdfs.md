@@ -1,8 +1,10 @@
 ---
 title: Copy data from HDFS by using Azure Data Factory  
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to copy data from a cloud or on-premises HDFS source to supported sink data stores by using Copy activity in an Azure Data Factory pipeline.
 author: jianleishen
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 03/17/2021
 ms.author: jianleishen

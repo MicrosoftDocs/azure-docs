@@ -1,10 +1,12 @@
 ---
 title: Save compute costs with reserved capacity
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to buy Azure Data Factory data flow reserved capacity to save on your compute costs.
 ms.topic: conceptual
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.custom: synapse
 ms.date: 02/05/2021
 ---
 # Save costs for resources with reserved capacity - Azure Data Factory data flows

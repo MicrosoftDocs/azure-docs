@@ -1,11 +1,12 @@
 ---
 title: Copy on-premises data using the Azure Copy Data tool
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Create an Azure Data Factory and then use the Copy Data tool to copy data from a SQL Server database to Azure Blob storage.
 ms.author: abnarain
 author: nabhishek
 ms.service: data-factory
 ms.topic: tutorial
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, synapse
 ms.date: 07/08/2021
 ---
 

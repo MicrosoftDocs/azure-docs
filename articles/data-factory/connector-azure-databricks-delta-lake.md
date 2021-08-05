@@ -1,11 +1,12 @@
 ---
 title: Copy data to and from Azure Databricks Delta Lake
-description: Learn how to copy data to and from Azure Databricks Delta Lake by using a copy activity in an Azure Data Factory pipeline.
+titleSuffix: Azure Data Factory & Synapse Analytics
+description: Learn how to copy data to and from Azure Databricks Delta Lake by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, synapse
 ms.date: 06/16/2021
 ---
 

@@ -1,11 +1,12 @@
 ---
 title: Copy data from SQL Server to Blob storage using Azure portal
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to copy data from an on-premises data store to the cloud by using a self-hosted integration runtime in Azure Data Factory.
 ms.author: abnarain
 author: nabhishek
 ms.service: data-factory
 ms.topic: tutorial
-ms.custom: seo-lt-2019; seo-dt-2019
+ms.custom: seo-lt-2019; seo-dt-2019, synapse
 ms.date: 07/05/2021
 ---
 

@@ -1,11 +1,12 @@
 ---
 title: Execute SSIS packages from SSDT 
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to execute SSIS packages in Azure from SSDT. 
 ms.service: data-factory
 ms.topic: conceptual
 ms.author: sawinark
 author: swinarko
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, synapse
 ms.date: 09/06/2020
 ---
 

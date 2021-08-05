@@ -1,11 +1,12 @@
 ---
 title: Delta lake ETL with data flows
+titleSuffix: Azure Data Factory & Synapse Analytics
 description:  This tutorial provides step-by-step instructions for using data flows to transform and analyze data in delta lake
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2021
+ms.custom: seo-lt-2021, synapse
 ms.date: 06/04/2021
 ---
 

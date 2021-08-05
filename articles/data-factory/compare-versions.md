@@ -1,9 +1,11 @@
 ---
 title: Compare Azure Data Factory with Data Factory version 1 
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: This article compares Azure Data Factory with Azure Data Factory version 1.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: overview
 ms.date: 04/09/2018
 ---

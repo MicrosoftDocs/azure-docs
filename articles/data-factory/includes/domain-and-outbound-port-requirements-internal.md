@@ -1,8 +1,10 @@
 ---
 title: include file
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: include file
 author: lrtoyou1223
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: include
 ms.date: 10/09/2019
 ms.author: lle

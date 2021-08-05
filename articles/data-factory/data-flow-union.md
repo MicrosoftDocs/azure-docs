@@ -1,11 +1,12 @@
 ---
 title: Union transformation in mapping data flow
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Azure Data Factory mapping data flow New Branch Transformation
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019; seo-dt-2019
+ms.custom: seo-lt-2019; seo-dt-2019, synapse
 ms.date: 04/27/2020
 ---
 

@@ -1,10 +1,12 @@
 ---
 title: Troubleshoot mapping data flows
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to troubleshoot data flow problems in Azure Data Factory.
 ms.author: makromer
 author: kromerm
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: troubleshooting
 ms.date: 07/13/2021
 ---

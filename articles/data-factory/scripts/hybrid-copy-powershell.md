@@ -1,11 +1,12 @@
 ---
 title: Copy data from on-premises to Azure using PowerShell
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: This PowerShell script copies data from a SQL Server database to another an Azure Blob Storage.
 ms.service: data-factory
 ms.topic: article
 ms.author: jianleishen
 author: jianleishen
-ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.custom: seo-lt-2019, devx-track-azurepowershell, synapse
 ms.date: 10/31/2017
 ---
 

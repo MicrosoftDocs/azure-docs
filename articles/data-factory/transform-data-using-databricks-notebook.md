@@ -1,11 +1,12 @@
-﻿---
+---
 title: Run a Databricks Notebook with the activity
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: "Learn how you can use the Databricks Notebook Activity in an Azure data factory to run a Databricks notebook against the databricks jobs cluster."
 ms.service: data-factory
 ms.topic: tutorial
 ms.author: abnarain
 author: nabhishek
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, synapse
 ms.date: 06/07/2021
 ---
 

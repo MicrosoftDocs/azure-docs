@@ -1,7 +1,9 @@
 ---
 title: Reconfigure the Azure-SSIS integration runtime 
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to reconfigure an Azure-SSIS integration runtime in Azure Data Factory after you have already provisioned it.
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 06/03/2020
 author: swinarko

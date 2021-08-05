@@ -1,8 +1,10 @@
 ---
 title: Copy data from Jira using Azure Data Factory 
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to copy data from Jira to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 author: jianleishen
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jianleishen

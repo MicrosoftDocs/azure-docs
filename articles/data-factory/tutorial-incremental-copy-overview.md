@@ -1,11 +1,12 @@
 ---
 title: Incrementally copy data from a source data store to a destination data store
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: These tutorials show you how to incrementally copy data from a source data store to a destination data store. The first one copies data from one table.
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
 ms.topic: tutorial
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, synapse
 ms.date: 02/18/2021
 ---
 

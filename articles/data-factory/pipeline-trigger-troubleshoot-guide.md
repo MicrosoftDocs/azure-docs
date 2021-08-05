@@ -1,8 +1,10 @@
 ---
 title: Troubleshoot pipeline orchestration and triggers in Azure Data Factory
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Use different methods to troubleshoot pipeline trigger issues in Azure Data Factory. 
 author: ssabat
 ms.service: data-factory
+ms.custom: synapse
 ms.date: 07/09/2021
 ms.topic: troubleshooting
 ms.author: susabat

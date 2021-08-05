@@ -1,11 +1,12 @@
 ---
 title: Mapping data flow script
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Overview of Data Factory's data flow script code-behind language
 author: kromerm
 ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, synapse
 ms.date: 02/15/2021
 ---
 

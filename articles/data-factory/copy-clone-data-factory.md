@@ -1,7 +1,9 @@
 ---
 title: Copy or clone a data factory in Azure Data Factory 
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to copy or clone a data factory in Azure Data Factory
 ms.service: data-factory
+ms.custom: synapse
 author: minhe-msft
 ms.author: hemin
 ms.reviewer: jburchel

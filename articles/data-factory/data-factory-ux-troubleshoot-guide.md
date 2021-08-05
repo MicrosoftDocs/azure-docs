@@ -1,8 +1,10 @@
 ---
 title: Troubleshoot Azure Data Factory UX
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to troubleshoot Azure Data Factory UX issues.
 author: ceespino
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: troubleshooting
 ms.date: 06/01/2021
 ms.author: ceespino

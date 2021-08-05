@@ -1,11 +1,12 @@
 ---
 title: Install licensed components for Azure-SSIS integration runtime
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how an ISV can develop and install paid or licensed custom components for the Azure-SSIS integration runtime
 ms.service: data-factory
 author: swinarko
 ms.author: sawinark
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, synapse
 ms.date: 07/09/2020
 ---
 

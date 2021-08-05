@@ -1,11 +1,12 @@
 ---
 title: Derived column transformation in mapping data flow
-description: Learn how to transform data at scale in Azure Data Factory with the mapping data flow Derived Column transformation.
+titleSuffix: Azure Data Factory & Synapse Analytics
+description: Learn how to transform data at scale in Azure Data Factory and Synapse Analyatics with the mapping data flow Derived Column transformation.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, synapse
 ms.date: 09/14/2020
 ---
 

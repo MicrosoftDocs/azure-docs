@@ -1,11 +1,12 @@
 ---
 title: Copy data in Dynamics (Microsoft Dataverse)
-description: Learn how to copy data from Microsoft Dynamics CRM or Microsoft Dynamics 365 (Microsoft Dataverse) to supported sink data stores or from supported source data stores to Dynamics CRM or Dynamics 365 by using a copy activity in a data factory pipeline.
+titleSuffix: Azure Data Factory & Synapse Analytics
+description: Learn how to copy data from Microsoft Dynamics CRM or Microsoft Dynamics 365 (Microsoft Dataverse) to supported sink data stores or from supported source data stores to Dynamics CRM or Dynamics 365 by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 ms.service: data-factory
 ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, synapse
 ms.date: 03/17/2021
 ---
 # Copy data from and to Dynamics 365 (Microsoft Dataverse) or Dynamics CRM

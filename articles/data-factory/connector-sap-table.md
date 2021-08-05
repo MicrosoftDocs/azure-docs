@@ -5,8 +5,8 @@ author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 05/26/2021
+ms.custom: seo-lt-2019, synapse
+ms.date: 07/30/2021
 ---
 
 # Copy data from an SAP table using Azure Data Factory or Azure Synapse

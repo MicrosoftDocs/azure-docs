@@ -1,11 +1,12 @@
 ---
 title: Load data from SAP Business Warehouse
+titleSuffix: Azure Data Factory & Synapse Analytics
 description: 'Use Azure Data Factory to copy data from SAP Business Warehouse (BW)'
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, synapse
 ms.date: 07/05/2021
 ---
 
