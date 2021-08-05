@@ -1,14 +1,14 @@
 ---
-title: Setting up Private Links
-description: Setting up Private Links
+title: Configure Private Links
+description: Configure Private Links
 author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 08/01/2021
 ---
 
-# Setting up your Private Link
-Setting up a Private Link requires a few steps: 
+# Configure your Private Link
+Configuring a Private Link requires a few steps: 
 * Creating a Private Link Scope with resources
 * Creating a Private Endpoint on your network and connecting it to the scope
 * Configuring the required access on your Azure Monitor resources.
@@ -93,7 +93,7 @@ Go to the Azure portal. In your resource's menu, there's a menu item called **Ne
 
 
 > [!NOTE]
-> Starting August 16, 2021, Network Isolation will be strictly enforced. Resources set to block queries from public networks, and that aren't associated with an AMPLS, will stop accepting queries from any network.
+> Starting August 16, 2021, Network Isolation will be strictly enforced. Resources set to block queries from public networks, and that aren't connected to any private network (through an AMPLS) will stop accepting queries from any network.
 
 ![LA Network Isolation](./media/private-link-security/ampls-network-isolation.png)
 
