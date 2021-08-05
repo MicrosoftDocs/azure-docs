@@ -13,7 +13,7 @@ ms.author: alkohli
 
 # Troubleshoot share connection failure during data copy to Azure Data Box
 
-This article describes what to do when you can't connect to a share on your Azure Data Box device via Server Message Block (SMB) because of a connection failure.
+This article describes what to do when you can't connect to an SMB share on your Azure Data Box device because of a network issue.
 
 The most common reasons for being unable to connect to a share on your device are:
 
@@ -45,7 +45,7 @@ To ensure that no group policies are preventing your access to shares on the Dat
 
 * Ensure that your client/host computer is in its own OU for Active Directory.
 
-* Make sure that no GPOs are applied to your client/host computer. You can block inheritance to ensure that the client/host computer (child node) does not automatically inherit any GPOs from the parent. For more information, see [block inheritance](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731076(v=ws.11)).
+* Make sure that no GPOs are applied to your client/host computer. You can block inheritance to ensure that the client/host computer (child node) doesn't automatically inherit any GPOs from the parent. For more information, see [block inheritance](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731076(v=ws.11)).
 
 ## Contact support
 
