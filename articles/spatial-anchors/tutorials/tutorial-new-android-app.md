@@ -72,7 +72,7 @@ Modify `app\manifests\AndroidManifest.xml` to include the following entries insi
 
 Modify `Gradle Scripts\build.gradle (Module: app)` to include the following entry. This code will ensure that your app targets ARCore version 1.25. After this change, you might get a notification from Gradle asking you to sync: click **Sync now**.
 
-```
+```gradle
 dependencies {
     ...
     implementation 'com.google.ar:core:1.25.0'
@@ -86,7 +86,7 @@ dependencies {
 
 Modify `Gradle Scripts\build.gradle (Module: app)` to include the following entries. This code will allow your app to use language constructs from Java 8, which `Sceneform` requires. It will also ensure your app targets `Sceneform` version 1.15. After this change, you might get a notification from Gradle asking you to sync: click **Sync now**.
 
-```
+```gradle
 android {
     ...
 
@@ -142,7 +142,7 @@ Finally, add the following `handleTap()` method, that will tie everything togeth
 
 Modify `Gradle Scripts\build.gradle (Module: app)` to include the following entry. This sample code snippet targets Azure Spatial Anchors SDK version 2.10.2. Note that SDK version 2.7.0 is currenlty the minimum supported version, and referencing any more recent version of Azure Spatial Anchors should work as well. We recommend using the latest version of Azure Spatial Anchors SDK. You can find the SDK release notes [here.](https://github.com/Azure/azure-spatial-anchors-samples/releases)
 
-```
+```gradle
 dependencies {
     ...
     implementation 'com.microsoft.azure.spatialanchors:spatialanchors_jni:[2.10.2]'
@@ -151,16 +151,19 @@ dependencies {
 }
 ```
 
-If you are targeting Azure Spatial Anchors SDK 2.10.0 or later, include the following entry in the repositories section of your project's build.gradle file. This will include the URL to the Maven package feed that hosts Azure Spatial Anchors Android packages for SDK 2.10.0 or later: 
-```
-repositories {
-    ...
-    maven {
-        url 'https://pkgs.dev.azure.com/aipmr/MixedReality-Unity-Packages/_packaging/Maven-packages/maven/v1'
-    }
-    ...
-}
+If you are targeting Azure Spatial Anchors SDK 2.10.0 or later, include the following entry in the repositories section of your project's `settings.gradle` file. This will include the URL to the Maven package feed that hosts Azure Spatial Anchors Android packages for SDK 2.10.0 or later: 
 
+```gradle
+dependencyResolutionManagement {
+    ...
+    repositories {
+        ...
+        maven {
+            url 'https://pkgs.dev.azure.com/aipmr/MixedReality-Unity-Packages/_packaging/Maven-packages/maven/v1'
+        }
+        ...
+    }
+}
 ```
 
 Right-click `app\java\<PackageName>`->**New**->**Java Class**. Set **Name** to _MyFirstApp_, and **Class**. A file called `MyFirstApp.java` will be created. Add the following import to it:
