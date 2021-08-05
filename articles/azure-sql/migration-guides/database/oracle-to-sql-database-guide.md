@@ -172,7 +172,7 @@ Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows 
 
 3. On the Oracle object tree located on the left side, select the objects you want to evaluate during the testing process.
 
-  :::image type="content" source="./media/oracle-to-sql-database-guide/tester-select-configure-objects.png" alt-text="Screenshot that shows step to  select and configure object.":::
+   :::image type="content" source="./media/oracle-to-sql-database-guide/tester-select-configure-objects.png" alt-text="Screenshot that shows step to  select and configure object.":::
 
 In this example,  stored procedure ADD_REGION and table REGION are selected.
 
