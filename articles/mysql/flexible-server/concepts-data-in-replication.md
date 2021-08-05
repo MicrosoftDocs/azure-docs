@@ -39,9 +39,7 @@ Configuring Data-in replication for zone redundant high availability servers is 
 
 ### Filtering
 
-To skip replicating tables from your source server (hosted on-premises, in virtual machines, or a database service hosted by other cloud providers), the `replicate_wild_ignore_table` parameter is supported. Optionally, update this parameter on the replica server hosted in Azure using the [Azure portal](how-to-configure-server-parameters-portal.md) or [Azure CLI](how-to-configure-server-parameters-cli.md).
-
-To learn more about this parameter, review the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table).
+Modifying the parameter `replicate_wild_ignore_table` which was used to create replication filter for tables, is currently not supported for Azure Database for MySQL -Flexible server. 
 
 ### Requirements
 

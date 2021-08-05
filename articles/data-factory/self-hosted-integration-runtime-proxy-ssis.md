@@ -6,14 +6,14 @@ ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 05/19/2021
+ms.date: 07/19/2021
 ---
 
 # Configure a self-hosted IR as a proxy for an Azure-SSIS IR in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-This article describes how to run SQL Server Integration Services (SSIS) packages on an Azure-SSIS Integration Runtime (Azure-SSIS IR) in Azure Data Factory with a self-hosted integration runtime (self-hosted IR) configured as a proxy. 
+This article describes how to run SQL Server Integration Services (SSIS) packages on an Azure-SSIS Integration Runtime (Azure-SSIS IR) in Azure Data Factory (ADF) with a self-hosted integration runtime (self-hosted IR) configured as a proxy. 
 
 With this feature, you can access data and run tasks on premises without having to [join your Azure-SSIS IR to a virtual network](./join-azure-ssis-integration-runtime-virtual-network.md). The feature is useful when your corporate network has a configuration too complex or a policy too restrictive for you to inject your Azure-SSIS IR into it.
 
@@ -45,7 +45,7 @@ Finally, you download and install the latest version of self-hosted IR, as well 
   
   If you use OLEDB/ODBC/ADO.NET drivers for other database systems, such as PostgreSQL, MySQL, Oracle, and so on, you can download the 64-bit versions from their websites.
 - If you use data flow components from Azure Feature Pack in your packages, [download and install Azure Feature Pack for SQL Server 2017](https://www.microsoft.com/download/details.aspx?id=54798) on the same machine where your self-hosted IR is installed, if you haven't done so already.
-- If you haven't done so already, [download and install the 64-bit version of Visual C++ (VC) runtime](https://www.microsoft.com/download/details.aspx?id=40784) on the same machine where your self-hosted IR is installed.
+- If you haven't done so already, [download and install the 64-bit version of Visual C++ (VC) runtime](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) on the same machine where your self-hosted IR is installed.
 
 ### Enable Windows authentication for on-premises tasks
 
@@ -59,13 +59,13 @@ Your on-premises staging tasks and Execute SQL/Process Tasks will be invoked wit
 
 ## Prepare the Azure Blob Storage linked service for staging
 
-If you haven't already done so, create an Azure Blob Storage linked service in the same data factory where your Azure-SSIS IR is set up. To do so, see [Create an Azure data factory-linked service](./quickstart-create-data-factory-portal.md#create-a-linked-service). Be sure to do the following:
+If you haven't already done so, create an Azure Blob Storage linked service in the same data factory where your Azure-SSIS IR is set up. To do so, see [Create an Azure Data Factory linked service](./quickstart-create-data-factory-portal.md#create-a-linked-service). Be sure to do the following:
 - For **Data Store**, select **Azure Blob Storage**.  
 - For **Connect via integration runtime**, select **AutoResolveIntegrationRuntime** (not your self-hosted IR), so we can ignore it and use your Azure-SSIS IR instead to fetch access credentials for your Azure Blob Storage.
-- For **Authentication method**, select **Account key**, **SAS URI**, **Service Principal**, or **Managed Identity**.  
+- For **Authentication method**, select **Account key**, **SAS URI**, **Service Principal**, **Managed Identity**, or **User-Assigned Managed Identity**.  
 
 >[!TIP]
->If you select the **Service Principal** method, grant your service principal at least a *Storage Blob Data Contributor* role. For more information, see [Azure Blob Storage connector](connector-azure-blob-storage.md#linked-service-properties). If you select the **Managed Identity** method, grant your ADF managed identity a proper role to access Azure Blob Storage. For more information, see [Access Azure Blob Storage using Azure Active Directory authentication with ADF managed identity](/sql/integration-services/connection-manager/azure-storage-connection-manager#managed-identities-for-azure-resources-authentication).
+>If you select the **Service Principal** method, grant your service principal at least a *Storage Blob Data Contributor* role. For more information, see [Azure Blob Storage connector](connector-azure-blob-storage.md#linked-service-properties). If you select the **Managed Identity**/**User-Assigned Managed Identity** method, grant the specified system/user-assigned managed identity for your ADF a proper role to access Azure Blob Storage. For more information, see [Access Azure Blob Storage using Azure Active Directory (Azure AD) authentication with the specified system/user-assigned managed identity for your ADF](/sql/integration-services/connection-manager/azure-storage-connection-manager#managed-identities-for-azure-resources-authentication).
 
 ![Prepare the Azure Blob storage-linked service for staging](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
 
@@ -100,7 +100,7 @@ $DataProxyIntegrationRuntimeName = "" # OPTIONAL to configure a proxy for on-pre
 $DataProxyStagingLinkedServiceName = "" # OPTIONAL to configure a proxy for on-premises data access 
 $DataProxyStagingPath = "" # OPTIONAL to configure a proxy for on-premises data access 
 
-# Add self-hosted integration runtime parameters if you configure a proxy for on-premises data accesss
+# Add self-hosted integration runtime parameters if you configure a proxy for on-premises data access
 if(![string]::IsNullOrEmpty($DataProxyIntegrationRuntimeName) -and ![string]::IsNullOrEmpty($DataProxyStagingLinkedServiceName))
 {
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `

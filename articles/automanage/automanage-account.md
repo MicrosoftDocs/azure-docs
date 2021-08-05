@@ -82,8 +82,9 @@ To grant sufficient permissions to the Automanage Account, you will need to do t
 1. When prompted, enter the Object ID of the Automanage Account you created and saved down.
 
 ```azurecli-interactive
-az deployment group create --resource-group <resource group name> --template-file azuredeploy.json
+az deployment sub create --location <location> --template-file azuredeploy2.json
 ```
+
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -94,6 +95,10 @@ az deployment group create --resource-group <resource group name> --template-fil
             "metadata": {
                 "description": "The principal to assign the role to"
             }
+        },
+        "dateTime": {
+            "type": "string",
+            "defaultValue": "[utcNow()]"
         }
     },
     "variables": {
@@ -104,7 +109,7 @@ az deployment group create --resource-group <resource group name> --template-fil
         {
             "type": "Microsoft.Authorization/roleAssignments",
             "apiVersion": "2020-04-01-preview",
-            "name": "[guid(variables('contributorRoleDefinitionID'))]",
+            "name": "[guid(concat(parameters('dateTime'), variables('contributorRoleDefinitionID')))]",
             "properties": {
                 "roleDefinitionId": "[variables('contributorRoleDefinitionID')]",
                 "principalId": "[parameters('principalId')]"
@@ -113,7 +118,7 @@ az deployment group create --resource-group <resource group name> --template-fil
         {
             "type": "Microsoft.Authorization/roleAssignments",
             "apiVersion": "2020-04-01-preview",
-            "name": "[guid(variables('resourcePolicyContributorRoleDefinitionID'))]",
+            "name": "[guid(concat(parameters('dateTime'), variables('resourcePolicyContributorRoleDefinitionID')))]",
             "properties": {
                 "roleDefinitionId": "[variables('resourcePolicyContributorRoleDefinitionID')]",
                 "principalId": "[parameters('principalId')]"

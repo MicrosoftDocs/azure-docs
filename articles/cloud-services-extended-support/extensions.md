@@ -18,7 +18,7 @@ Extensions are small applications that provide post-deployment configuration and
 
 The Key Vault VM extension provides automatic refresh of certificates stored in an Azure Key Vault. Specifically, the extension monitors a list of observed certificates stored in key vaults, and upon detecting a change, retrieves, and installs the corresponding certificates. It also allows cross region/cross subscription reference of certificates for Cloud Service (extended support).
 
-For more information, see [Configure key vault extension for Cloud Service (extended support)](https://docs.microsoft.com/azure/cloud-services-extended-support/enable-key-vault-virtual-machine)
+For more information, see [Configure key vault extension for Cloud Service (extended support)](./enable-key-vault-virtual-machine.md)
 
 ## Remote Desktop extension
 
@@ -49,5 +49,5 @@ To know more about Azure Antimalware, please visit [here](../security/fundamenta
 
 ## Next steps 
 - Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).
-- Review [frequently asked questions](faq.md) for Cloud Services (extended support).
+- Review [frequently asked questions](faq.yml) for Cloud Services (extended support).
 - Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md).

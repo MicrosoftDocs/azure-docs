@@ -3,8 +3,8 @@ title: 'Tutorial: Configure kpifire for automatic user provisioning with Azure A
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to kpifire.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 8c5dd093-20da-4ff6-a9b2-8071f44accd6
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure kpifire for automatic user provisioning

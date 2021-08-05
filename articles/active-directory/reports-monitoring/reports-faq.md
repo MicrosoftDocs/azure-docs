@@ -12,9 +12,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
-ms.date: 05/12/2020
+ms.date: 07/28/2021
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 
 ms.collection: M365-identity-device-management
 ---
@@ -24,6 +24,18 @@ ms.collection: M365-identity-device-management
 This article includes answers to frequently asked questions about Azure Active Directory (Azure AD) reporting. For more information, see [Azure Active Directory reporting](overview-reports.md). 
 
 ## Getting started 
+
+**Q: How does licensing for reporting work?**
+
+**A:** All Azure AD licenses allow you to see activity logs in the Azure Portal. 
+
+If your tenant has:
+
+- An Azure AD free license, you can see up to seven days of activity logs data in the Portal. 
+- An Azure AD Premium license, you can see up to 30 days of data in the Azure Portal. 
+
+You can also export that log data to Azure Monitor, Azure Event Hubs, and Azure Storage, or query your activity data through the Microsoft Graph API. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition. It will take a couple of days for the data to show up in the logs after you upgrade to a premium license with no data activities before the upgrade.
+
 
 **Q: I currently use the `https://graph.windows.net/<tenant-name>/reports/` endpoint APIs to pull Azure AD audit and integrated application usage reports into our reporting systems programmatically. What should I switch to?**
 

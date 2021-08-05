@@ -8,7 +8,7 @@ ms.author: sagopal
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 07/23/2020
+ms.date: 07/08/2021
 ms.topic: how-to
 ms.custom: devx-track-python
 
@@ -54,9 +54,9 @@ Environment(name="myenv")
 
 Curated environments contain collections of Python packages and are available in your workspace by default. These environments are backed by cached Docker images which reduces the run preparation cost. You can select one of these popular curated environments to start with: 
 
-* The _AzureML-Minimal_ environment contains a minimal set of packages to enable run tracking and asset uploading. You can use it as a starting point for your own environment.
+* The _AzureML-lightgbm-3.2-ubuntu18.04-py37-cpu_ environment contains Scikit-learn, LightGBM, XGBoost, Dask as well as other AzureML Python SDK and additional packages.
 
-* The _AzureML-Tutorial_ environment contains common data science packages. These packages include Scikit-Learn, Pandas, Matplotlib, and a larger set of azureml-sdk packages.
+* The _AzureML-sklearn-0.24-ubuntu18.04-py37-cpu_ environment contains common data science packages. These packages include Scikit-Learn, Pandas, Matplotlib, and a larger set of azureml-sdk packages.
 
 For a list of curated environments, see the [curated environments article](resource-curated-environments.md).
 
@@ -66,7 +66,7 @@ Use the `Environment.get` method to select one of the curated environments:
 from azureml.core import Workspace, Environment
 
 ws = Workspace.from_config()
-env = Environment.get(workspace=ws, name="AzureML-Minimal")
+env = Environment.get(workspace=ws, name="AzureML-sklearn-0.24-ubuntu18.04-py37-cpu")
 ```
 
 You can list the curated environments and their packages by using the following code:
@@ -85,7 +85,7 @@ for env in envs:
 
 To customize a curated environment, clone and rename the environment. 
 ```python 
-env = Environment.get(workspace=ws, name="AzureML-Minimal")
+env = Environment.get(workspace=ws, name="AzureML-sklearn-0.24-ubuntu18.04-py37-cpu")
 curated_clone = env.clone("customize_curated")
 ```
 
@@ -118,7 +118,7 @@ By default, the newly built Docker image appears in the container registry that'
 
 #### Use a prebuilt Docker image
 
-By default, the service automatically uses one of the Ubuntu Linux-based [base images](https://github.com/Azure/AzureML-Containers), specifically the one defined by `azureml.core.environment.DEFAULT_CPU_IMAGE`. It then installs any specified Python packages defined by the provided Azure ML environment. Other Azure ML CPU and GPU base images are available in the container [repository](https://github.com/Azure/AzureML-Containers). It is also possible to use a [custom Docker base image](./how-to-deploy-custom-docker-image.md#create-a-custom-base-image).
+By default, the service automatically uses one of the Ubuntu Linux-based [base images](https://github.com/Azure/AzureML-Containers), specifically the one defined by `azureml.core.environment.DEFAULT_CPU_IMAGE`. It then installs any specified Python packages defined by the provided Azure ML environment. Other Azure ML CPU and GPU base images are available in the container [repository](https://github.com/Azure/AzureML-Containers). It is also possible to use a [custom Docker base image](./how-to-deploy-custom-container.md).
 
 ```python
 # Specify custom Docker base image and registry, if you don't want to use the defaults
@@ -142,7 +142,7 @@ Please note that Python is an implicit dependency in Azure Machine Learning so a
 ```python
 # Specify docker steps as a string. 
 dockerfile = r"""
-FROM mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04
+FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04
 RUN echo "Hello from custom container!"
 """
 
@@ -341,6 +341,10 @@ build = env.build_local(workspace=ws, useDocker=True, pushImageToWorkspaceAcr=Tr
 > [!WARNING]
 >  Changing the order of dependencies or channels in an environment will result in a new environment and will require a new image build. In addition, calling the `build()` method for an existing image will update its dependencies if there are new versions. 
 
+### Utilize adminless Azure Container Registry (ACR) with VNet
+
+It is no longer required for users to have admin mode enabled on their workspace attached ACR in VNet scenarios. Ensure that the derived image build time on the compute is less than 1 hour to enable successful build. Once the image is pushed to the workspace ACR, this image can now only be accessed with a compute identity. For more information on set up, see [How to use managed identities with Azure Machine Learning](/azure/machine-learning/how-to-use-managed-identities).
+
 ## Use environments for training
 
 To submit a training run, you need to combine your environment, [compute target](concept-compute-target.md), and your training Python script into a run configuration. This configuration is a wrapper object that's used for submitting runs.
@@ -366,6 +370,9 @@ run = exp.submit(src)
 
 > [!NOTE]
 > To disable the run history or run snapshots, use the setting under `src.run_config.history`.
+
+>[!IMPORTANT]
+> Use CPU SKUs for any image build on compute. 
 
 If you don't specify the environment in your run configuration, then the service creates a default environment when you submit your run.
 
@@ -406,13 +413,15 @@ service = Model.deploy(
 
 Code examples in this article are also included in the [using environments notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/using-environments/using-environments.ipynb).
 
- To install a Conda environment as a kernel in a notebook, see [add a new Jupyter kernel](./how-to-access-terminal.md#add-new-kernels).
+To install a Conda environment as a kernel in a notebook, see [add a new Jupyter kernel](./how-to-access-terminal.md#add-new-kernels).
 
-[Deploy a model using a custom Docker base image](how-to-deploy-custom-docker-image.md) demonstrates how to deploy a model using a custom Docker base image.
+[Deploy a model using a custom Docker base image](./how-to-deploy-custom-container.md) demonstrates how to deploy a model using a custom Docker base image.
 
 This [example notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/spark) demonstrates how to deploy a Spark model as a web service.
 
 ## Create and manage environments with the Azure CLI
+
+[!INCLUDE [cli-version-info](../../includes/machine-learning-cli-version-1-only.md)]
 
 The [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) mirrors most of the functionality of the Python SDK. You can use it to create and manage environments. The commands that we discuss in this section demonstrate fundamental functionality.
 
@@ -439,6 +448,10 @@ Download a registered environment by using the following command.
 ```azurecli-interactive
 az ml environment download -n myenv -d downloaddir
 ```
+
+## Create and manage environments with Visual Studio Code
+
+Using the Azure Machine Learning extension, you can create and manage environments in Visual Studio Code. For more information, see [manage Azure Machine Learning resources with the VS Code extension](how-to-manage-resources-vscode.md#environments).
 
 ## Next steps
 

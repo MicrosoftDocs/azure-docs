@@ -98,7 +98,7 @@
       items:
       - name: Create SAS tokens for Document Translation
         href: document-translation/create-sas-tokens.md
-      - name: Create and use managed identities
+      - name: Create and use managed identity
         href: document-translation/managed-identity.md
     - name: Reference
       items:
@@ -122,6 +122,8 @@
         href: document-translation/reference/get-translation-status.md
       - name: Cancel translation
         href: document-translation/reference/cancel-translation.md
+    - name: FAQ
+      href: document-translation/faq.md   
 - name: Custom Translator
   items:
   - name: What is the Custom Translator?
@@ -142,7 +144,7 @@
       href: custom-translator/how-to-view-document-details.md
     - name: Train a model
       href: custom-translator/how-to-train-model.md
-    - name: Viewmodel details
+    - name: View model details
       href: custom-translator/how-to-view-model-details.md
     - name: View system test results
       href: custom-translator/how-to-view-system-test-results.md

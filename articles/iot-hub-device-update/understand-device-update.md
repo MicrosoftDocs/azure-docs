@@ -63,7 +63,7 @@ Device Update for IoT Hub features provide a powerful and flexible experience, i
 * At-a-glance update compliance and status views across heterogenous device fleets
 * Support for resilient device updates (A/B) to deliver seamless rollback
 * Subscription and role-based access controls available through the Azure.com portal
-* On-premise content cache and Nested Edge support to enable updating cloud disconnected devices
+* On-premises content cache and Nested Edge support to enable updating cloud disconnected devices
 * Detailed update management and reporting tools 
 
 With Device Update for IoT Hub management and deployment controls, users can maximize productivity and save valuable time. Device Update for IoT Hub includes the ability to group devices and specify

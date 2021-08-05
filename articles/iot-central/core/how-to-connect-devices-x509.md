@@ -471,7 +471,7 @@ To modify the sample code to use the certificates:
 
 :::zone-end
 
-Verify that telemetry appears on the dashboard in your IoT Central application:
+Verify that telemetry appears on the device view in your IoT Central application:
 
 ![Screenshot that shows telemetry arriving in your IoT Central application.](./media/how-to-connect-devices-x509/telemetry.png)
 
@@ -533,7 +533,7 @@ The device is now provisioned with X.509 certificate.
     node environmentalSensor.js
     ```
 
-    You can also verify that telemetry appears on the dashboard.
+    You can also verify that telemetry appears on the device view.
 
     ![Telemetry Individual enrollment](./media/how-to-connect-devices-x509/telemetry-primary.png)
 

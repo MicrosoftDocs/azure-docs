@@ -3,7 +3,7 @@ title: What is Azure Video Analyzer
 description: This topic provides an overview of Azure Video Analyzer. 
 ms.service: azure-video-analyzer
 ms.topic: overview
-ms.date: 03/11/2021
+ms.date: 06/01/2021
 
 ---
 # What is Azure Video Analyzer? (preview)
@@ -38,5 +38,5 @@ To learn about compliance, privacy and security in Video Analyzer visit the Micr
 
 ## Next steps
 
-* Follow the [Quickstart: Get started - Azure Video Analyzer](get-started-detect-motion-emit-events.md) article to see how you can run motion detection on a live video feed.
+* Follow the [Quickstart: Get started with Azure Video Analyzer](get-started-detect-motion-emit-events.md) article to see how you can run motion detection on a live video feed.
 * Review [terminology](terminology.md)

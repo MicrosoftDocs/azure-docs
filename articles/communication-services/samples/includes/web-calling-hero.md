@@ -53,7 +53,7 @@ Below you'll find more information on prerequisites and steps to set up the samp
 - [Node.js (12.18.4 and above)](https://nodejs.org/en/download/)
 - [Visual Studio (2019 and above)](https://visualstudio.microsoft.com/vs/)
 - [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) (Make sure to install version that corresponds with your visual studio instance, 32 vs 64 bit)
-- An Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../quickstarts/create-communication-resource.md). You'll need to record your resource **connection string** for this quickstart.
+- An Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md). You'll need to record your resource **connection string** for this quickstart.
 
 ## Locally deploy the service & client applications
 
@@ -67,7 +67,7 @@ You can test the sample locally by opening multiple browser sessions with the UR
 
 1. Open an instance of PowerShell, Windows Terminal, Command Prompt or equivalent and navigate to the directory that you'd like to clone the sample to.
 2. `git clone https://github.com/Azure-Samples/communication-services-web-calling-hero.git`
-3. Get the `Connection String` from the Azure portal. For more information on connection strings, see [Create an Azure Communication Resources](../../quickstarts/create-communication-resource.md).
+3. Get the `Connection String` from the Azure portal. For more information on connection strings, see [Create an Azure Communication Services resources](../../quickstarts/create-communication-resource.md).
 4. Once you get the `Connection String`, add the connection string to the **Calling/appsetting.json** file found under the Service .NET folder. Input your connection string in the variable: `ResourceConnectionString`.
 
 ### Local run

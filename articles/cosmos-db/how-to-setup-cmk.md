@@ -296,7 +296,7 @@ Rotating the customer-managed key used by your Azure Cosmos account can be done 
     $account | Set-AzResource -Force
     ```
 
-The previous key or key version can be disabled after 24 hours, or after the [Azure Key Vault audit logs](../key-vault/general/logging.md) don't show activity from Azure Cosmos DB on that key or key version anymore.
+The previous key or key version can be disabled after the [Azure Key Vault audit logs](../key-vault/general/logging.md) don't show activity from Azure Cosmos DB on that key or key version anymore. No more activity should take place on the previous key or key version after 24 hours of key rotation.
     
 ## Error handling
 

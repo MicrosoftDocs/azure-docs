@@ -276,9 +276,9 @@ Get started with Azure Cosmos DB with one of our quickstarts:
 
 * [Get started with Azure Cosmos DB SQL API](create-sql-api-dotnet.md)
 * [Get started with Azure Cosmos DB's API for MongoDB](create-mongodb-nodejs.md)
-* [Get started with Azure Cosmos DB Cassandra API](create-cassandra-dotnet.md)
+* [Get started with Azure Cosmos DB Cassandra API](cassandra/manage-data-dotnet.md)
 * [Get started with Azure Cosmos DB Gremlin API](create-graph-dotnet.md)
-* [Get started with Azure Cosmos DB Table API](create-table-dotnet.md)
+* [Get started with Azure Cosmos DB Table API](table/create-table-dotnet.md)
 
 > [!div class="nextstepaction"]
 > [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/)

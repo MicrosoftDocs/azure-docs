@@ -29,7 +29,7 @@ Many of the recommendations in this guide can be implemented with Azure AD Free 
 
 Additional information about licensing can be found on the following pages:
 
-* [Azure AD licensing](https://azure.microsoft.com/pricing/details/active-directory/)
+* [Azure AD licensing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
 * [Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
 * [Azure AD External Identities pricing](../external-identities/external-identities-pricing.md)
@@ -96,7 +96,7 @@ Phase 4 sees administrators enforcing least privilege principles for administrat
 
 ## Next steps
 
-[Azure AD licensing and pricing details](https://azure.microsoft.com/pricing/details/active-directory/)
+[Azure AD licensing and pricing details](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)
 
 [Identity and device access configurations](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 

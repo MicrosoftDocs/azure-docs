@@ -7,9 +7,9 @@ ms.subservice: service-overview
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.custom: references_regions
-ms.date: 05/02/2021
+ms.date: 07/22/2021
 ---
 
 # Maintenance window (Preview)
@@ -75,21 +75,28 @@ Choosing a maintenance window other than the default is currently available in t
 - Australia SouthEast
 - Brazil South
 - Canada Central
+- Canada East
+- Central India
 - Central US
 - East US
 - East US2
 - East Asia
+- France South
 - Germany West Central
 - Japan East
+- Korea Central*
 - NorthCentral US
 - North Europe
 - SouthCentral US
 - SouthEast Asia
 - UK South
 - UK West
+- West Central US
 - West Europe
 - West US
 - West US2
+
+*Available only for Azure SQL Managed Instance
 
 ## Gateway maintenance for Azure SQL Database
 
@@ -115,7 +122,7 @@ Expected duration of configuring maintenance window on managed instance can be c
 > A short reconfiguration happens at the end of the maintenance operation and typically lasts up to 8 seconds even in case of interrupted long-running transactions. To minimize the impact of the reconfiguration you should schedule the operation outside of the peak hours.
 
 ### IP address space requirements
-Each new virtual cluster in subnet requires additional IP addresses according to the [virtual cluster IP address allocation](../managed-instance/vnet-subnet-determine-size.md#determine-subnet-size). Changing maintenance window for existing managed instance also requires [temporary additional IP capacity](../managed-instance/vnet-subnet-determine-size.md#address-requirements-for-update-scenarios) as in scaling vCores scenario for corresponding service tier.
+Each new virtual cluster in subnet requires additional IP addresses according to the [virtual cluster IP address allocation](../managed-instance/vnet-subnet-determine-size.md#determine-subnet-size). Changing maintenance window for existing managed instance also requires [temporary additional IP capacity](../managed-instance/vnet-subnet-determine-size.md#update-scenarios) as in scaling vCores scenario for corresponding service tier.
 
 ### IP address change
 Configuring and changing maintenance window causes change of the IP address of the instance, within the IP address range of the subnet.

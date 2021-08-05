@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: MashaMSFT, wiassaf
+ms.reviewer: mathoma, wiassaf
 ms.date: 7/29/2021
 ---
 # Azure SQL Database serverless

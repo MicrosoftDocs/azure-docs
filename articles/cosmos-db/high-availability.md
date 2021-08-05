@@ -4,7 +4,7 @@ description: This article describes how Azure Cosmos DB provides high availabili
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/05/2021
+ms.date: 07/07/2021
 ms.author: mjbrown
 ms.reviewer: sngun
 
@@ -45,8 +45,8 @@ Azure Cosmos DB provides comprehensive SLAs that encompass throughput, latency a
 
 |Operation type  | Single-region |Multi-region (single-region writes)|Multi-region (multi-region writes) |
 |---------|---------|---------|-------|
-|Writes    | 99.99    |99.99   |99.999|
-|Reads     | 99.99    |99.999  |99.999|
+|Writes   | 99.99   |99.99   |99.999|
+|Reads    | 99.99   |99.999  |99.999|
 
 > [!NOTE]
 > In practice, the actual write availability for bounded staleness, session, consistent prefix and eventual consistency models is significantly higher than the published SLAs. The actual read availability for all consistency levels is significantly higher than the published SLAs.
@@ -105,15 +105,15 @@ When configuring multi-region writes for your Azure Cosmos account, you can opt 
 
 The following table summarizes the high availability capability of various account configurations:
 
-|KPI|Single-region without AZs|Single-region with AZs|Multi-region, single-region writes with AZs|Multi-region, multi-region writes with AZs|
-|---------|---------|---------|---------|---------|
-|Write availability SLA | 99.99% | 99.995% | 99.995% | 99.999% |
-|Read availability SLA  | 99.99% | 99.995% | 99.995% | 99.999% |
-|Zone failures – data loss | Data loss | No data loss | No data loss | No data loss |
-|Zone failures – availability | Availability loss | No availability loss | No availability loss | No availability loss |
-|Regional outage – data loss | Data loss |  Data loss | Dependent on consistency level. See [Consistency, availability, and performance tradeoffs](./consistency-levels.md) for more information. | Dependent on consistency level. See [Consistency, availability, and performance tradeoffs](./consistency-levels.md) for more information.
-|Regional outage – availability | Availability loss | Availability loss | No availability loss for read region failure, temporary for write region failure | No availability loss |
-|Price (***1***) | N/A | Provisioned RU/s x 1.25 rate | Provisioned RU/s x 1.25 rate (***2***) | Multi-region write rate |
+|KPI|Single-region without AZs|Single-region with AZs|Multi-region, single-region writes without AZs|Multi-region, single-region writes with AZs|Multi-region, multi-region writes with or without AZs|
+|---------|---------|---------|---------|---------|---------|
+|Write availability SLA | 99.99% | 99.995% | 99.99% | 99.995% | 99.999% |
+|Read availability SLA  | 99.99% | 99.995% | 99.999% | 99.999% | 99.999% |
+|Zone failures – data loss | Data loss | No data loss | No data loss | No data loss | No data loss |
+|Zone failures – availability | Availability loss | No availability loss | No availability loss | No availability loss | No availability loss |
+|Regional outage – data loss | Data loss |  Data loss | Dependent on consistency level. See [Consistency, availability, and performance tradeoffs](./consistency-levels.md) for more information. | Dependent on consistency level. See [Consistency, availability, and performance tradeoffs](./consistency-levels.md) for more information. | Dependent on consistency level. See [Consistency, availability, and performance tradeoffs](./consistency-levels.md) for more information.
+|Regional outage – availability | Availability loss | Availability loss | No availability loss for read region failure, temporary for write region failure | No availability loss for read region failure, temporary for write region failure | No availability loss |
+|Price (***1***) | N/A | Provisioned RU/s x 1.25 rate | Provisioned RU/s x n regions | Provisioned RU/s x 1.25 rate x n regions (***2***) | Multi-region write rate x n regions |
 
 ***1*** For Serverless accounts request units (RU) are multiplied by a factor of 1.25.
 

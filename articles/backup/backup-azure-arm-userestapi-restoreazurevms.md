@@ -14,7 +14,7 @@ For any restore operation, one has to identify the relevant recovery point first
 
 ## Select Recovery point
 
-The available recovery points of a backup item can be listed using the [list recovery point REST API](/rest/api/backup/2021-02-10/recovery-points/list). It's a simple *GET* operation with all the relevant values.
+The available recovery points of a backup item can be listed using the [list recovery point REST API](/rest/api/backup/recovery-points/list). It's a simple *GET* operation with all the relevant values.
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2019-05-13
@@ -28,7 +28,7 @@ The *GET* URI has all the required parameters. There's no need for an additional
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|200 OK     |   [RecoveryPointResourceList](/rest/api/backup/2021-02-10/recovery-points/list#recoverypointresourcelist)      |       OK  |
+|200 OK     |   [RecoveryPointResourceList](/rest/api/backup/recovery-points/list#recoverypointresourcelist)      |       OK  |
 
 #### Example response
 
@@ -119,7 +119,7 @@ After selecting the [relevant restore point](#select-recovery-point), proceed to
 > [!IMPORTANT]
 > All details about various restore options and their dependencies are mentioned [here](./backup-azure-arm-restore-vms.md#restore-options). Please review before proceeding to triggering these operations.
 
-Triggering restore operations is a *POST* request. To know more about the API, refer to the ["trigger restore" REST API](/rest/api/backup/2021-02-10/restores/trigger).
+Triggering restore operations is a *POST* request. To know more about the API, refer to the ["trigger restore" REST API](/rest/api/backup/restores/trigger).
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2019-05-13
@@ -213,9 +213,9 @@ To trigger a disk restore from an Azure VM backup, following are the components 
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|properties     | [IaaSVMRestoreRequest](/rest/api/backup/2021-02-10/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
+|properties     | [IaaSVMRestoreRequest](/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
-For the complete list of definitions of the request body and other details, refer to [trigger Restore REST API document](/rest/api/backup/2021-02-10/restores/trigger#request-body).
+For the complete list of definitions of the request body and other details, refer to [trigger Restore REST API document](/rest/api/backup/restores/trigger#request-body).
 
 ##### Example request
 
@@ -241,7 +241,7 @@ The following request body defines properties required to trigger a disk restore
 
 ### Restore disks selectively
 
-If you are [selectively backing up disks](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup), then the current backed-up disk list is provided in the [recovery point summary](#select-recovery-point) and [detailed response](/rest/api/backup/2021-02-10/recovery-points/get). You can also selectively restore disks and more details are provided [here](selective-disk-backup-restore.md#selective-disk-restore). To selectively restore a disk among the list of backed up disks, find the LUN of the disk from the recovery point response and add the **restoreDiskLunList** property to the [request body above](#example-request) as shown below.
+If you are [selectively backing up disks](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup), then the current backed-up disk list is provided in the [recovery point summary](#select-recovery-point) and [detailed response](/rest/api/backup/recovery-points/get). You can also selectively restore disks and more details are provided [here](selective-disk-backup-restore.md#selective-disk-restore). To selectively restore a disk among the list of backed up disks, find the LUN of the disk from the recovery point response and add the **restoreDiskLunList** property to the [request body above](#example-request) as shown below.
 
 ```json
 {
@@ -275,9 +275,9 @@ To trigger a disk replacement from an Azure VM backup, following are the compone
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|properties     | [IaaSVMRestoreRequest](/rest/api/backup/2021-02-10/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
+|properties     | [IaaSVMRestoreRequest](/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
-For the complete list of definitions of the request body and other details, refer to [trigger Restore REST API document](/rest/api/backup/2021-02-10/restores/trigger#request-body).
+For the complete list of definitions of the request body and other details, refer to [trigger Restore REST API document](/rest/api/backup/restores/trigger#request-body).
 
 #### Example request
 
@@ -327,6 +327,7 @@ As explained [above](#restore-operations), the following request body defines pr
           "originalStorageAccountOption": false,
           "encryptionDetails": {
             "encryptionEnabled": false
+          }
      }
  }
 ```

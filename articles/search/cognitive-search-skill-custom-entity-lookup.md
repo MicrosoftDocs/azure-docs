@@ -3,8 +3,8 @@ title: Custom Entity Lookup cognitive search skill
 titleSuffix: Azure Cognitive Search
 description: Extract different custom entities from text in an Azure Cognitive Search cognitive search pipeline.
 
-author: vkurpad
-ms.author: vikurpad
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020

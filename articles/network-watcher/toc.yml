@@ -141,10 +141,13 @@
       - name: Read NSG flow logs
         href: network-watcher-read-nsg-flow-logs.md
       - name: Use traffic analytics
-        href: traffic-analytics.md
         items:
+        - name: Traffic Analytics overview 
+          href: traffic-analytics.md
         - name: Frequently asked questions
           href: traffic-analytics-faq.yml
+        - name: Built-in Policy
+          href: traffic-analytics-policy-portal.md
         - name: Schema and Data Aggregation
           href: traffic-analytics-schema.md
         - name: Schema update (August 2019)
@@ -206,7 +209,7 @@
   - name: .NET
     href: /dotnet/api/overview/azure/virtual-network
   - name: Node.js
-    href: /javascript/api/@azure/arm-network
+    href: /javascript/api/overview/azure/arm-network-readme
   - name: REST
     href: /rest/api/network-watcher/
 - name: Resources

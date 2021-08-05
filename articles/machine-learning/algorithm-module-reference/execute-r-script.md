@@ -96,32 +96,6 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
 
-## Uploading files
-The Execute R Script module supports uploading files by using the Azure Machine Learning R SDK.
-
-The following sample shows how to upload an image file in Execute R Script:
-```R
-azureml_main <- function(dataframe1, dataframe2){
-  print("R script run.")
-
-  # Generate a jpeg graph
-  img_file_name <- "rect.jpg"
-  jpeg(file=img_file_name)
-  example(rect)
-  dev.off()
-
-  upload_files_to_run(names = list(file.path("graphic", img_file_name)), paths=list(img_file_name))
-
-
-  # Return datasets as a Named List
-  return(list(dataset1=dataframe1, dataset2=dataframe2))
-}
-```
-
-After the pipeline run is finished, you can preview the image in the right panel of the module.
-
-> [!div class="mx-imgBorder"]
-> ![Preview of uploaded image](media/module/upload-image-in-r-script.png)
 
 ## How to configure Execute R Script
 

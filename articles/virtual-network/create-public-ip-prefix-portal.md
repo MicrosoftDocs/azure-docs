@@ -51,6 +51,8 @@ In this section, you'll create the public IP prefix in the Azure portal.
     > [!NOTE]
     >To create an IPv6 prefix, choose **IPv6** for the **IP Version**.
 
+     :::image type="content" source="./media/create-public-ip-prefix-portal/create-public-ipv6-prefix.png" alt-text="Create public IPv6 address prefix in Azure portal" border="true":::
+
 6. Select the **Review + create** tab or the blue **Review + create** button at the bottom of the page.
 
 7. Select **Create**.

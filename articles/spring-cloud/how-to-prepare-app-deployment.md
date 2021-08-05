@@ -1,11 +1,11 @@
 ---
 title: How to prepare an application for deployment in Azure Spring Cloud
 description: Learn how to prepare an application for deployment to Azure Spring Cloud.
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 07/06/2021
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ---
@@ -143,7 +143,7 @@ Spring Boot version | Spring Cloud version
 ---|---
 2.2 | Hoxton.SR8+
 2.3 | Hoxton.SR8+
-2.4.1+ | 2020.0.1+
+2.4.1+ | 2020.0.2+
 
 > [!NOTE]
 > - Please upgrade Spring Boot to 2.5.2 or 2.4.8 to address the following CVE report [CVE-2021-22119: Denial-of-Service attack with spring-security-oauth2-client](https://tanzu.vmware.com/security/cve-2021-22119). If you are using Spring Security, please upgrade it to 5.5.1, 5.4.7, 5.3.10 or 5.2.11. 

@@ -47,7 +47,7 @@ make -j 8 && make install
 ```
 
 > [!NOTE]
-> Recent builds of UCX have fixed an [issue](https://github.com/openucx/ucx/pull/5965) whereby the right InfiniBand interface is chosen in the presence of multiple NIC interfaces. More details [here](hb-hc-known-issues.md#accelerated-networking-on-hb-hc-hbv2-and-ndv2) on running MPI over InfiniBand when Accelerated Networking is enabled on the VM.
+> Recent builds of UCX have fixed an [issue](https://github.com/openucx/ucx/pull/5965) whereby the right InfiniBand interface is chosen in the presence of multiple NIC interfaces. For more information, see [Troubleshooting known issues with HPC and GPU VMs](hb-hc-known-issues.md#accelerated-networking-on-hb-hc-hbv2-and-ndv2) on running MPI over InfiniBand when Accelerated Networking is enabled on the VM.
 
 ## HPC-X
 

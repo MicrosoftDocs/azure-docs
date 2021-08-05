@@ -26,7 +26,7 @@ This article provides instructions on how to recover a Cognitive Services resour
 * If the deleted resource used customer-managed keys with Azure Key Vault and the key vault has also been deleted, then you must restore the key vault before you restore the Cognitive Services resource. For more information, see [Azure Key Vault recovery management](../key-vault/general/key-vault-recovery.md).
 * If the deleted resource used a customer-managed storage and storage account has also been deleted, you must restore the storage account before you restore the Cognitive Services resource. For instructions, see [Recover a deleted storage account](../storage/common/storage-account-recover.md).
 
-Your subscription must have `Microsoft.CognitiveServices/locations/resourceGroups/deletedAccounts/delete` permissions to purge resources, such as [Cognitive Services Contributor](/azure/role-based-access-control/built-in-roles#cognitive-services-contributor) or [Contributor](/azure/role-based-access-control/built-in-roles#contributor). 
+Your subscription must have `Microsoft.CognitiveServices/locations/resourceGroups/deletedAccounts/delete` permissions to purge resources, such as [Cognitive Services Contributor](../role-based-access-control/built-in-roles.md#cognitive-services-contributor) or [Contributor](../role-based-access-control/built-in-roles.md#contributor). 
 
 ## Recover a deleted resource 
 
