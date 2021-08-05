@@ -192,19 +192,12 @@ az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLT
 
 ---
 
-## Supported scenarios using managed identities
+## Grant access 
 
-<!-- If there are differences between the support available for user assigned managed identities versus system assigned managed identities call that out here-->
-
-<!--
-
-### User assigned managed identities
+Now that you have a virtual machine configured with a managed identity we need to [grant it access](../../cosmos-db/how-to-setup-rbac.md) to Cosmos.
 
 
-### System assigned managed identities
 
-
--->
 
 ### Grant access to a managed identity
 
