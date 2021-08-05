@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot share connection failure during data copy to Azure Data Box device
-description: Describes how to identify network issues preventing share connections in Azure Data Box.
+title: Troubleshoot share connection failure during data copy to Azure Data Box
+description: Describes how to identify network issues preventing share connections over SMB during data copy to an Azure Data Box.
 services: databox
 author: v-dalc
 
@@ -11,7 +11,7 @@ ms.date: 08/05/2021
 ms.author: alkohli
 ---
 
-# Troubleshoot a share connection failure during data copy on Azure Data Box device
+# Troubleshoot share connection failure during data copy to Azure Data Box
 
 This article describes what to do when you can't connect to a share on your Azure Data Box device via Server Message Block (SMB) because of a connection failure.
 
