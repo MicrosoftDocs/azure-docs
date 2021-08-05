@@ -424,7 +424,7 @@
     },
     {
         "source_path_from_root": "/articles/healthcare-apis/azure-api-for-fhir/azure-active-directory-identity-configuration.md",
-        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/azure-ad-hcapi",
+        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/azure-active-directory-identity-configuration",
         "redirect_document_id": false
     },
 
