@@ -142,7 +142,7 @@ To parameterize your **connections.json** file, replace the values for literals,
 > **connections.json** file instead. Then, in your deployment pipelines, replace with the parameterized file. 
 > The runtime still works with parameterization. Designer improvements are in development.
 
-The following example shows a parameterized **connections.json** file that uses both app settings and parameters. This scenario is an edge case where you'd use app settings over parameters as app settings are generated during deployment and are easier to dynamically populate in a development pipeline. The file uses a parameter for the complex `blob_auth` authentication object and app settings for the other values. In this case, you're unlikely to reference the parameter in your workflow:
+The following example shows a parameterized **connections.json** file that uses both app settings and parameters. Although you want to use parameters where possible, this scenario is an exception or edge case where you'd use app settings over parameters because app settings are generated during deployment and are easier to dynamically populate in a development pipeline. This sample file uses a parameter for the complex `blob_auth` authentication object and app settings for the other values. In this case, you can use a parameter for the authentication object as you're unlikely to reference the parameter in your workflow:
 
 ```json
 {
