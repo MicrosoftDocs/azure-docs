@@ -6,6 +6,22 @@ items:
   items:
   - name: What are Language services?
     href: overview.md
+- name: Custom text classification
+  items:
+  - name: Overview
+    href: custom-classification/overview.md
+  - name: FAQ
+    href: custom-classification/faq.md
+  - name: Language support
+    href: custom-classification/language-support.md
+  - name: Concepts
+    items:
+    - name: Recommended practices
+      href: custom-classification/concepts/recommended-practices.md
+    - name: Definitions
+      href: custom-classification/definitions.md
+    - name: Evaluation metrics
+      href: custom-classification/concepts/evaluation.md
 - name: Entity linking
   items:
   - name: Overview
