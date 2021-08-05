@@ -40,6 +40,11 @@ To step through this how-to guide you need:
 
 ## Working with time zone parameters
 If you plan to work with date and time data in PostgreSQL, you’ll want to ensure that you’ve set the correct time zone for your location. All timezone-aware dates and times are stored internally in Postgres in UTC. They are converted to local time in the zone specified by the **TimeZone** server parameter before being displayed to the client.  This parameter can be edited on **Server parameters** page as explained above. 
+PostgreSQL allows you to specify time zones in three different forms:
+1. A full time zone name, for example America/New_York. The recognized time zone names are listed in the **pg_timezone_names** view.
+2. A time zone abbreviation, for example PST. Such a specification merely defines a particular offset from UTC, in contrast to full time zone names which can imply a set of daylight savings transition-date rules as well. The recognized abbreviations are listed in the **pg_timezone_abbrevs view**
+3. In addition to the timezone names and abbreviations, PostgreSQL will accept POSIX-style time zone specifications of the form STDoffset or STDoffsetDST, where STD is a zone abbreviation, offset is a numeric offset in hours west from UTC, and DST is an optional daylight-savings zone abbreviation, assumed to stand for one hour ahead of the given offset. 
+   
 
 ## Next steps
 Learn about:
