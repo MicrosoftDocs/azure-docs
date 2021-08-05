@@ -2179,7 +2179,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "overview-what-is-azure-ml.md",
+      "source_path_from_root": "/articles/machine-learning/overview-what-is-azure-ml.md",
       "redirect_url": "/azure/machine-learning/overview-what-is-azure-machine-learning",
       "redirect_document_id": true
     },
@@ -16197,6 +16197,11 @@
     {
       "source_path_from_root": "/articles/defender-for-iot/organizations/integration-servicenow.md",
       "redirect_url": "/azure/defender-for-iot/organizations/tutorial-servicenow",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-iot/organizations/integration-splunk.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/tutorial-splunk",
       "redirect_document_id": false
     },
     {
