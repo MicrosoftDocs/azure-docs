@@ -721,10 +721,10 @@
       items:
       - name: Generalized
         displayName: Shared Image Gallery, SIG, sig, gallery, image
-        href: vm-generalized-image-version-cli.md
+        href: vm-generalized-image-version.md
       - name: Specialized
         displayName: Shared Image Gallery, SIG, sig, gallery, image
-        href: vm-specialized-image-version-cli.md
+        href: vm-specialized-image-version.md
     - name: Update image resources
       displayName: Shared Image Gallery, SIG, sig, gallery, image
       href: update-image-resources.md
