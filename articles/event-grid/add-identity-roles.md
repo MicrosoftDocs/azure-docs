@@ -39,11 +39,18 @@ The following example adds a managed identity for an event grid custom topic nam
 1. On the **Add role assignment** page, select **Azure Service Bus Data Sender**, and select **Next**.  
     
     :::image type="content" source="./media/add-identity-roles/select-role.png" alt-text="Image showing the selection of the Azure Service Bus Data Sender role":::
-1. On the **Members** page, select **Managed identity**, and click **+ Select members**. 
+1. In the **Members** tab, follow these steps: 
+    1. Select **Use, group, or service principal**, and click **+ Select members**. The **Managed identity** option doesn't support Event Grid identities yet. 
+    1. In the **Select members** window, search for and select the service principal with the same name as your custom topic. In the following example, it's **spcustomtopic0728**.
+    
+        :::image type="content" source="./media/add-identity-roles/select-managed-identity-option.png" alt-text="Image showing the selection of the User, group, or service principal option":::    
+    1. In the **Select members** window, click **Select**. 
 
-    :::image type="content" source="./media/add-identity-roles/select-managed-identity-option.png" alt-text="Image showing the selection of the Managed identity option":::    
-1. Select the **identity** for your event grid custom topic or domain. 
-1. Select **Save** to save the configuration.
+        :::image type="content" source="./media/add-identity-roles/managed-identity-selected.png" alt-text="Image showing the selection of the Managed identity option":::            
+1. Now, back on the **Members** tab, select **Next**. 
+
+    :::image type="content" source="./media/add-identity-roles/members-select-next.png" alt-text="Image showing the selection of the Next button on the Members page":::                
+1. On the **Review + assign** page, select **Review + assign** after reviewing the settings. 
 
 The steps are similar for adding an identity to other roles mentioned in the table. 
 
