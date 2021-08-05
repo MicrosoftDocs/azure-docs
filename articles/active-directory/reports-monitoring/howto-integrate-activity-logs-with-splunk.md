@@ -43,9 +43,7 @@ To use this feature, you need:
 
     ![The Data Summary Sourcetypes tab](./media/howto-integrate-activity-logs-with-splunk/source-eventhub.png)
 
-Append **body.records.category=AuditLogs** to the search
-
-    The Azure AD activity logs are shown in the following figure:
+Append **body.records.category=AuditLogs** to the search. The Azure AD activity logs are shown in the following figure:
 
    ![Activity logs](./media/howto-integrate-activity-logs-with-splunk/activity-logs.png)
 
