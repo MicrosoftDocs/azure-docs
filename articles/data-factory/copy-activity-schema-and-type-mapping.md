@@ -1,6 +1,6 @@
 ---
 title: Schema and data type mapping in copy activity 
-titleSuffix: Azure Data Factory& Azure Synapse
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about how copy activity in Azure Data Factory maps schemas and data types from source data to sink data.
 author: jianleishen
 ms.service: data-factory

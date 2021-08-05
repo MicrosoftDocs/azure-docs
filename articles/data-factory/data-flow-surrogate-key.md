@@ -1,6 +1,6 @@
 ---
 title: Surrogate key transformation in mapping data flow 
-titleSuffix: Azure Data Factory& Azure Synapse
+titleSuffix: Azure Data Factory & Azure Synapse
 description: How to use Azure Data Factory's mapping data flow Surrogate Key Transformation to generate sequential key values
 author: kromerm
 ms.author: makromer

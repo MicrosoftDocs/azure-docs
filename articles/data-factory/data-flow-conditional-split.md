@@ -1,6 +1,6 @@
 ---
 title: Conditional split transformation in mapping data flow 
-titleSuffix: Azure Data Factory& Azure Synapse
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Split data into different streams using the conditional split transformation in Azure Data Factory mapping data flow
 author: kromerm
 ms.author: makromer

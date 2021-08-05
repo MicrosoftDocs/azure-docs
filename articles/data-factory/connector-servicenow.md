@@ -1,6 +1,6 @@
 ---
 title: Copy data from ServiceNow
-titleSuffix: Azure Data Factory& Azure Synapse
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from ServiceNow to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 ms.author: jianleishen
 author: jianleishen

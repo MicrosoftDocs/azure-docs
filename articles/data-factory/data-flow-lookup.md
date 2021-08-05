@@ -1,6 +1,6 @@
 ---
 title: Lookup transformation in mapping data flow
-titleSuffix: Azure Data Factory& Azure Synapse
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Reference data from another source using the lookup transformation in mapping data flow.
 author: kromerm
 ms.reviewer: daperlov

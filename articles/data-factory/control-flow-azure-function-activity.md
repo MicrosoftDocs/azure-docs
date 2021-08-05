@@ -1,6 +1,6 @@
 ---
 title: Azure Function Activity in Azure Data Factory 
-titleSuffix: Azure Data Factory& Azure Synapse
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to use the Azure Function activity to run an Azure Function in a Data Factory pipeline
 author: nabhishek
 ms.author: abnarain

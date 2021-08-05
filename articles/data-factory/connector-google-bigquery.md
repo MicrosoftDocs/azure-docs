@@ -1,6 +1,6 @@
 ---
 title: Copy data from Google BigQuery by using Azure Data Factory 
-titleSuffix: Azure Data Factory& Azure Synapse
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from Google BigQuery to supported sink data stores by using a copy activity in a data factory pipeline.
 ms.author: jianleishen
 author: jianleishen

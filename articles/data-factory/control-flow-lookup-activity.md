@@ -1,6 +1,6 @@
 ---
 title: Lookup activity in Azure Data Factory 
-titleSuffix: Azure Data Factory& Azure Synapse
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to use Lookup activity to look up a value from an external source. This output can be further referenced by succeeding activities. 
 author: jianleishen
 ms.author: jianleishen

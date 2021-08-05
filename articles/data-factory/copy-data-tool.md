@@ -1,6 +1,6 @@
 ---
 title: Copy Data tool Azure Data Factory 
-titleSuffix: Azure Data Factory& Azure Synapse
+titleSuffix: Azure Data Factory & Azure Synapse
 description: 'Provides information about the Copy Data tool in Azure Data Factory UI'
 author: dearandyxu
 
