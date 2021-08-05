@@ -2,7 +2,7 @@
 title: Data residency
 description: Data residency and information about Azure Arc-enabled servers.
 ms.topic: reference
-ms.date: 07/16/2021
+ms.date: 08/05/2021
 ms.custom: references_regions
 ---
 
@@ -30,6 +30,9 @@ Metadata information about the connected machine is also collected. Specifically
 * Policy compliance status and details (if using Azure Policy Guest Configuration policies)
 
 Arc-enabled servers allow you to specify the region where your data will be stored. Microsoft may replicate to other regions for data resiliency, but Microsoft does not replicate or move data outside the geography. This data is stored in the region where the Azure Arc machine resource is configured. For example, if the machine is registered with Arc in the East US region, this data is stored in the US region.
+
+> [!NOTE] 
+> For South East Asia, your data is not replicated outside of this region. 
 
 For more information about our regional resiliency and compliance support, see [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/).
 
