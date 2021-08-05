@@ -274,7 +274,7 @@ sections:
           
           
       - question: |
-          Will the new Azure Monitor agent support data collection for the various Log Analytics solutions and Azure services like Security Center, Sentinel, etc?
+          Will the new Azure Monitor agent support data collection for the various Log Analytics solutions and Azure services like Security Center, Sentinel, etc.?
         answer: |
           Review the list of [AMA extensions currently available in preview](./agents/azure-monitor-agent-overview.md#supported-services-and-features). These are the same solutions and services now available using the new Azure Monitor agent instead. 
           You may see additional extensions getting installed for the solution/service, this is to collect additional data or perform transformation/processing as required for the solution/service, and then use AMA to route the final data to Azure Monitor. 
