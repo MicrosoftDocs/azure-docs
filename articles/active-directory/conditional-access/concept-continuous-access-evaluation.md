@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/03/2021
+ms.date: 08/05/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -156,12 +156,12 @@ Organizations have options when it comes to enabling CAE.
 
 ### Group membership and Policy update effective time
 
-Changes made to Conditional Access policies and group membership made by administrators could take up to one day to be effective. The delay is from replication between Azure AD and resource providers like Exchange Online and SharePoint Online. Some optimization has been done for policy updates, which reduce the delay to two hours. However, it doesn't cover all the scenarios yet.  
+Changes made to Conditional Access policies and group membership made by administrators could take up to one day to be effective. The delay is from replication between Azure AD and resource providers like Exchange Online and SharePoint Online. Some optimization has been done for policy updates, which reduce the delay to two hours. However, it doesn't cover all the scenarios yet.  
 
-In the event that Conditional Access policy or group membership changes need to be applied to certain users immediately, you have two options. 
+In the event that Conditional Access policy or group membership changes need to be applied to certain users immediately, you have two options. 
 
-- Run the [revoke-azureaduserallrefreshtoken PowerShell command](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) to revoke all refresh tokens of a specified user.
-- Select "Revoke Session" on the user profile page in the Azure Portal to revoke the user's session to ensure that the updated policies will be applied immediately.
+- Run the [revoke-azureaduserallrefreshtoken PowerShell command](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) to revoke all refresh tokens of a specified user.
+- Select "Revoke Session" on the user profile page in the Azure Portal to revoke the user's session to ensure that the updated policies will be applied immediately.
 
 ### IP address variation
 

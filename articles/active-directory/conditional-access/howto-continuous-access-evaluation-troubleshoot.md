@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 08/03/2021
+ms.date: 08/05/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -31,7 +31,7 @@ Administrators will have the opportunity to monitor user sign-ins where CAE is a
 
 From here, admins will be presented with information about their user’s sign-in events. Select any sign-in to see details about the session, like which Conditional Access policies were applied and is CAE enabled. 
 
-A given sign-in attempt may display on either the interactive or non-interactive tab. This classification isn't important. Administrators may need to check both tabs as they track their user’s sign-ins.
+A given sign-in attempt may display on either the interactive or non-interactive tab. Administrators may need to check both tabs as they track their user’s sign-ins.
 
 ### Searching for specific sign-in attempts
 
@@ -39,29 +39,27 @@ Use filters to narrow your search. For example, if a user signed in to Teams, us
 
 ## Continuous access evaluation workbooks
 
-The continuous access evaluation insights workbook allows administrators to monitor CAE usage insights for their tenants. The first table displays authentication attempts with IP mismatches. The second table displays the support status of CAE across various applications.
-
-This documentation covers the continuous access evaluation workbook.  The continuous access evaluation workbook allows admins to view and monitor CAE token insights. This workbook can be found as template under the Conditional Access category. 
+The continuous access evaluation insights workbook allows administrators to view and monitor CAE usage insights for their tenants. The first table displays authentication attempts with IP mismatches. The second table displays the support status of CAE across various applications. This workbook can be found as template under the Conditional Access category. 
 
 ### Accessing the CAE workbook template
  
 1.	Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator. 
 1.	Browse to **Azure Active Directory** > **Workbooks**.
-1.	Under Public Templates, search for Continuous access evaluation insights.
+1.	Under **Public Templates**, search for **Continuous access evaluation insights**.
 
 [ ![Find the CAE insights workbook in the gallery to continue monitoring](./media/howto-continuous-access-evaluation-troubleshoot/azure-ad-workbooks-continuous-access-evaluation.png) ](./media/howto-continuous-access-evaluation-troubleshoot/azure-ad-workbooks-continuous-access-evaluation.png#lightbox)
 
 > [!NOTE]
 > For more information about how to stream Azure AD sign-in logs to a Log Analytics workspace, see the article [Integrate Azure AD logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
 
-The **Continuous access evaluation insights** workbook, contains two tables:
- 
+The **Continuous access evaluation insights** workbook contains two tables:
+
 ### Table 1: Potential IP address mismatch between Azure AD and resource provider  
 
 ![Workbook table 1 showing potential IP address mismatches](./media/howto-continuous-access-evaluation-troubleshoot/continuous-access-evaluation-insights-workbook-table-1.png)
 
-The potential IP address mismatch between Azure AD & resource provider table, allows admins to investigate sessions where the IP address detected by Azure AD doesn't match with the IP address detected by the Resource Provider. 
- 
+The potential IP address mismatch between Azure AD & resource provider table allows admins to investigate sessions where the IP address detected by Azure AD doesn't match with the IP address detected by the Resource Provider. 
+
 This workbook table sheds light on these scenarios by displaying the respective IP addresses and whether a CAE token was issued during the session. 
 
 #### IP address configuration
