@@ -24,7 +24,7 @@ To understand how many private DNS zones you can create in a subscription and ho
 
 ## Restrictions
 
-* Single-labeled private DNS zones aren't supported. Your private DNS zone must have two or more labels. For example contoso.com has two labels separated by a dot. A private DNS zone can have a maximum 34 labels.
+* Single-labeled private DNS zones aren't supported. Your private DNS zone must have two or more labels. For example contoso.com has two labels separated by a dot. A private DNS zone can have a maximum of 34 labels.
 * You can't create zone delegations (NS records) in a private DNS zone. If you intend to use a child domain, you can directly create the domain as a private DNS zone. Then you can link it to the virtual network without setting up a nameserver delegation from the parent zone.
 
 ## Next steps
