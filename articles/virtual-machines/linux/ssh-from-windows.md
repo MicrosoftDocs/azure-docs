@@ -84,7 +84,8 @@ If you have never connected to this VM before you will be asked to verify the ho
 
 ![Screenshot 2021-08-05 110213](https://user-images.githubusercontent.com/250240/128399040-f62cc497-c543-473b-8d37-79cce8c706d7.png)
 
-To run the command using CLI you can use the [`az vm run-command invole` command](https://docs.microsoft.com/en-us/cli/azure/vm/run-command?view=azure-cli-latest).
+To run the command using CLI you can use the [`az vm run-command invoke` command](https://docs.microsoft.com/en-us/cli/azure/vm/run-command?view=azure-cli-latest).
+
 
 If you configured a passphrase when you created your key pair, enter the passphrase when prompted.
 
