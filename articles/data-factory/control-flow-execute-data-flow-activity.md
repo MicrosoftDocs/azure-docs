@@ -66,7 +66,7 @@ traceLevel | Set logging level of your data flow activity execution | Fine, Coar
 The Core Count and Compute Type properties can be set dynamically to adjust to the size of your incoming source data at runtime. Use pipeline activities like Lookup or Get Metadata in order to find the size of the source dataset data. Then, use Add Dynamic Content in the Data Flow activity properties.
 
 > [!NOTE]
-> When choosing driver and worker node cores in Azure Synapse Data Flows, a minimum of 3 nodes will always be utilized.
+> When choosing driver and worker node cores in Synapse Data Flows, a minimum of 3 nodes will always be utilized.
 
 ![Dynamic Data Flow](media/data-flow/dyna1.png "Dynamic data flow")
 
