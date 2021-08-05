@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/16/2021
+ms.date: 08/05/2021
 ms.author: aahi
 ---
 
@@ -36,6 +36,12 @@ There is another feature in Text Analytics, [key phrases extraction](./text-anal
 * extractive summarization returns sentences together with a rank score. Top ranked sentences will be returned per request
 
 ## Sending a REST API request 
+
+> [!TIP]
+> You can also use the latest preview version of the client library to use extractive summarization. See the following samples on GitHub. 
+> * [.NET](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample8_ExtractSummary.md)
+> * [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/AnalyzeExtractiveSummarization.java)
+> * [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_extract_summary.py)
 
 ### Preparation
 
