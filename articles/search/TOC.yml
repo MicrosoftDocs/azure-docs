@@ -394,14 +394,14 @@
       items:
       - name: Create using REST
         href: knowledge-store-create-rest.md
-      - name: Structure data
+      - name: Shaping data
         href: knowledge-store-projection-shape.md
+      - name: Define projections
+        href: knowledge-store-projections-examples.md 
       - name: View with Storage Explorer
         href: knowledge-store-view-storage-explorer.md
       - name: Connect with Power BI
         href: knowledge-store-connect-power-bi.md 
-      - name: Projection patterns for Power BI
-        href: knowledge-store-projections-examples.md  
   - name: Queries
     items:
     - name: Create a basic query
