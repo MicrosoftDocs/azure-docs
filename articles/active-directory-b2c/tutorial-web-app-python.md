@@ -7,7 +7,7 @@ author: msmimart
 manager: celestedg
 
 ms.author: mimart
-ms.date: 06/12/2020
+ms.date: 08/04/2021
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
