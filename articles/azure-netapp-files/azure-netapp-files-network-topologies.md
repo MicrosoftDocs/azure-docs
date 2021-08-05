@@ -24,7 +24,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 
 ## Configurable network features  
 
-The configurable [**network features**](configure-network-features.md) for Azure NetApp Files is available for public preview. After registering for this feature with your subscription, you can create new volumes choosing *Standard* or *Basic* network features in supported regions. In regions where the Standard network features are not supported, the volume defaults to using the Basic network features.  
+The configurable [**network features**](configure-network-features.md) for Azure NetApp Files is available for public preview. After registering for this feature with your subscription, you can create new volumes choosing *Standard* or *Basic* network feature in supported regions. In regions where the Standard network feature are not supported, the volume defaults to using the Basic network feature.  
 
 * ***Standard***  
     Selecting this setting enables standard VNet features such as [network security groups](../virtual-network/network-security-groups-overview.md) and [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined) on delegated subnets, connectivity to [Private Endpoints](../private-link/private-endpoint-overview.md), connectivity to [Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md), and additional connectivity patterns as indicated in this article.
@@ -38,9 +38,9 @@ You should understand a few considerations when you plan for Azure NetApp Files 
 
 ### Constraints
 
-The following table describes what’s supported for each network features configuration:
+The following table describes what’s supported for each network feature configuration:
 
-|      Features     |      Standard network features     |      Basic network features     |
+|      Features     |      Standard network feature     |      Basic network feature     |
 |---|---|---|
 |     [Network Security Groups](../virtual-network/network-security-groups-overview.md) (NSGs) on Azure NetApp Files delegated subnets    |     Yes    |     No    |
 |     [User-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined) (UDRs) on Azure NetApp Files delegated   subnets    |     Yes    |     No    |
@@ -54,9 +54,9 @@ The following table describes what’s supported for each network features confi
 
 ### Supported network topologies
 
-The following table describes the network topologies supported by each network features configurations of Azure NetApp Files. 
+The following table describes the network topologies supported by each network feature configurations of Azure NetApp Files. 
 
-|      Topologies     |      Standard network features     |      Basic network features     |
+|      Topologies     |      Standard network feature     |      Basic network feature     |
 |---|---|---|
 |     Connectivity to volume in a local VNet    |     Yes    |     Yes    |
 |     Connectivity to volume in a peered VNet (Same region)    |     Yes    |     Yes    |
@@ -91,11 +91,11 @@ If the VNet is peered with another VNet, you cannot expand the VNet address spac
 
 ### UDRs and NSGs
 
-User-defined routes (UDRs) and Network security groups (NSGs) are only supported on Azure NetApp Files delegated subnets that have at least one volume created with the Standard network features.  
+User-defined routes (UDRs) and Network security groups (NSGs) are only supported on Azure NetApp Files delegated subnets that have at least one volume created with the Standard network feature.  
 
-If the subnet has a combination of volumes with the Standard and Basic Network Features (or for existing volumes not registered for the feature preview), UDRs and NSGs applied on the delegated subnets will only apply to the volumes with the Standard network features.
+If the subnet has a combination of volumes with the Standard and Basic network features (or for existing volumes not registered for the feature preview), UDRs and NSGs applied on the delegated subnets will only apply to the volumes with the Standard network feature.
 
-Configuring user-defined routes (UDRs) on the source VM subnets with address prefix of delegated subnet and next hop as NVA is not supported for volumes with the Basic network features. Such a setting will result in connectivity issues.
+Configuring user-defined routes (UDRs) on the source VM subnets with address prefix of delegated subnet and next hop as NVA is not supported for volumes with the Basic network feature. Such a setting will result in connectivity issues.
 
 ## Azure native environments
 
