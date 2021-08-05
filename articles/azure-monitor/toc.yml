@@ -118,13 +118,7 @@
     - name: Customer-managed keys
       href: logs/customer-managed-keys.md
     - name: Private Link networking
-      items:    
-      - name: Overview
-        href: logs/private-link-security.md
-      - name: Planning
-        href: logs/private-link-planning.md
-      - name: Configure
-        href: logs/private-link-configure.md
+      href: logs/private-link-security.md
     - name: Private storage 
       href: logs/private-storage.md
     - name: Personal log data handling

@@ -10,7 +10,7 @@ ms.date: 08/01/2021
 # Plan your Private Link setup
 
 Before setting up your Azure Monitor Private Link setup, consider your network topology, and specifically your DNS routing topology.
-As discussed in [How it work](./private-link-setup#how-it-works), setting up a Private Link affects traffic to all Azure Monitor resources. That's especially true for Application Insights resources. Additionally, it affects not only the network connected to the Private Endpoint but also all other networks the share the same DNS.
+As discussed in [How it work](./private-links-configure.md#how-it-works), setting up a Private Link affects traffic to all Azure Monitor resources. That's especially true for Application Insights resources. Additionally, it affects not only the network connected to the Private Endpoint but also all other networks the share the same DNS.
 
 > [!NOTE]
 > The simplest and most secure approach would be:
@@ -38,7 +38,7 @@ Network peering is used in various topologies, other than hub-spoke. Such networ
 ### Testing with a local bypass: Edit your machine's hosts file instead of the DNS 
 As a local bypass to the All or Nothing behavior, you can select not to update your DNS with the Private Link records, and instead edit the hosts files on select machines so only these machines would send requests to the Private Link endpoints.
 * Set up a Private Link, but when connecting to a Private Endpoint choose **not** to auto-integrate with the DNS (step 5b).
-* Configure the relevant endpoints on your machines' hosts files. To review the Azure Monitor endpoints that need mapping, see [Reviewing your Endpoint's DNS settings](./private-link-setup#reviewing-your-endpoints-dns-settings).
+* Configure the relevant endpoints on your machines' hosts files. To review the Azure Monitor endpoints that need mapping, see [Reviewing your Endpoint's DNS settings](./private-links-configure.md#reviewing-your-endpoints-dns-settings).
 
 That approach isn't recommended for production environments.
 
@@ -131,12 +131,12 @@ To use the REST API, [CLI](/cli/azure/monitor) or PowerShell with Azure Monitor 
 Bundle the JavaScript code in your script so that the browser doesn't attempt to download code from a CDN. An example is provided on [GitHub](https://github.com/microsoft/ApplicationInsights-JS#npm-setup-ignore-if-using-snippet-setup)
 
 ### Browser DNS settings
-If you're connecting to your Azure Monitor resources over a Private Link, traffic to these resources must go through the private endpoint that is configured on your network. To enable the private endpoint, update your DNS settings as explained in [Connect to a private endpoint](./private-links-setup#connect-to-a-private-endpoint). Some browsers use their own DNS settings instead of the ones you set. The browser might attempt to connect to Azure Monitor public endpoints and bypass the Private Link entirely. Verify that your browsers settings don't override or cache old DNS settings. 
+If you're connecting to your Azure Monitor resources over a Private Link, traffic to these resources must go through the private endpoint that is configured on your network. To enable the private endpoint, update your DNS settings as explained in [Connect to a private endpoint](./private-links-configure.md#connect-to-a-private-endpoint). Some browsers use their own DNS settings instead of the ones you set. The browser might attempt to connect to Azure Monitor public endpoints and bypass the Private Link entirely. Verify that your browsers settings don't override or cache old DNS settings. 
 
 ### Querying limitation: externaldata operator
 The [`externaldata` operator](/azure/data-explorer/kusto/query/externaldata-operator?pivots=azuremonitor) isn't supported over a Private Link, as it reads data from storage accounts but doesn't guarantee the storage is accessed privately.
 
 ## Next steps
-- Learn how to [setup your Azure Monitor Private Link](private-links-setup.md)
+- Learn how to [configure your Azure Monitor Private Link](private-links-configure.md)
 - Learn about [private storage](private-storage.md)
 - Learn about [Private Link for Automation](../../automation/how-to/private-link-security.md)
