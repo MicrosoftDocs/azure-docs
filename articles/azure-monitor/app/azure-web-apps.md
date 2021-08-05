@@ -22,7 +22,7 @@ There are two ways to enable application monitoring for Azure App Services hoste
 
 * **Manually instrumenting the application through code** by installing the Application Insights SDK.
 
-    * This approach is much more customizable, but it requires the following approaches: SDK [for .NetCore](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core), [.Net](https://docs.microsoft.com/azure/azure-monitor/app/asp-net), [Node.js](https://docs.microsoft.com/azure/azure-monitor/app/nodejs), [Python](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python), and a standalone agent for [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent). This method, also means you have to manage the updates to the latest version of the packages yourself.
+    * This approach is much more customizable, but it requires the following approaches: SDK [for .NetCore](./asp-net-core), [.Net](./asp-net), [Node.js](./nodejs), [Python](./opencensus-python), and a standalone agent for [Java](./java-in-process-agent). This method, also means you have to manage the updates to the latest version of the packages yourself.
 
     * If you need to make custom API calls to track events/dependencies not captured by default with agent-based monitoring, you would need to use this method. Check out the [API for custom events and metrics article](./api-custom-events-metrics.md) to learn more. This is also currently the only supported option for Linux based workloads.
 
