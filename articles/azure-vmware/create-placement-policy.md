@@ -78,38 +78,35 @@ If DRS rule conflicts are detected when you create a VM-VM policy, it results in
 
 ## Create a policy
 
->[!NOTE]
->Make sure to review the requirements for the [policy type](#placement-policy-types).
+Make sure to review the requirements for the [policy type](#placement-policy-types).
 
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Placement policies** > **Add placement policy**.
 
    :::image type="content" source="media/placement-policies/add-placement-policy-1.png" alt-text="Screenshot showing " lightbox="media/placement-policies/add-placement-policy-1.png":::
 
+
 1. Provide a descriptive name, select the policy type, and then select the cluster where the policy is being created.
 
-   :::image type="content" source="media/placement-policies/add-placement-policy-2.png" alt-text="Screenshot showing the Create new policy options.":::
+   >[!TIP]
+   >You can also select the cluster from the Placement policy overview pane before you select **Add placement policy**.
 
-   >[!NOTE]
-   >You may also select the Cluster from the Placement Policy overview pane before selecting ‘+ Add placement policy’
 
-1. Select **Yes** to Enable the policy.  
+1. Select the **Enable** checkbox to enable the policy.  
 
    >[!TIP]
-   >If you select **No**, the policy and underlying DRS rule are created, but the policy actions are ignored until you enable the policy. 
+   >If you want to disable the policy, then clear the **Enable** checkbox. The policy and underlying DRS rule are created, but the policy actions are ignored until you enable the policy. 
 
 1. Select **Add virtual machine** and then select the VMs to include in the policy. You can select multiple VMs.
 
-   :::image type="content" source="media/placement-policies/placement-policy-select-virtual-machine.png" alt-text="Screenshot showing the list of virtual machines to select.":::   
+   >[!TIP]
+   >If you want to add a VM what doesn't exist in the list, then select **Add virtual machine** at the top.
 
 1. If you see the **Add host** option, your policy type requires a host to be selected.  Select **Add host** and select the host to include in the policy. You can select multiple hosts.
 
    >[!NOTE]
    >Associated policies & virtual machines blurb next to host - explain 
 
-1. Select **Next: Review + create** to review your policy. 
-
-   >[!TIP]
-   >If you want to make changes, select **Back : Basics**.
+1. Select **Next: Review and create** to review your policy. If you want to make changes, select **Back : Basics**.
 
 1. Select **Create policy**. 
 
@@ -118,7 +115,7 @@ If DRS rule conflicts are detected when you create a VM-VM policy, it results in
 
 ## Edit a policy
 
-You can change the state of a policy, add a new VM, or unassign an existing VM.
+You can change the state of a policy, add a new resources, or unassign an existing resource.
 
 ### Change the policy state
 
@@ -129,12 +126,9 @@ You can change the state of a policy to enabled or disabled.
 1. For the policy you want to edit, select **Settings** (:::image type="icon" source="media/icon-cog-wheel.png":::) and then select **Edit**.
 
    >[!TIP]
-   >You can disable a policy directly by selecting **Disable**. 
+   >You can disable a policy from the Placement policy overview by selecting **Disable** from the Settings drop-down. 
 
-1. Select either the **Enable** or **Disable** option and then select **Review + update**. 
-
-   >[!TIP]
-   >If you want to make changes, select **Back : Basics**.
+1. Clear the **Enable** checkbox to disable the policy and then select **Review + update**. If you want to make changes, select **Back : Basics**.
 
 1. Review the changes and select **Update**.  
 
@@ -142,20 +136,17 @@ You can change the state of a policy to enabled or disabled.
 
 ### Update the resources in a policy
 
-You can add new resources to a policy or remove existing ones. 
+You can add new resources, such as a VM or a host, to a policy or remove existing ones. 
 
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Placement policies**.
 
 1. For the policy you want to edit, select **Settings** (:::image type="icon" source="media/icon-cog-wheel.png":::) and then select **Edit**.
 
-   - To remove an existing resource, select the VM and then select **Unassign**.  You can remove multiple resources.
+   - To remove an existing resource, select the checkbox next to the resource and then select **Unassign**.  You can remove multiple resources.
 
    - To add a new resource, select **Edit virtual machine** or **Edit host**, select the resource you'd like to add, and then select **Save**. 
 
-1. Select **Next : Review + update**. 
-
-   >[!TIP]
-   >If you want to make changes, select **Back : Basics**.
+1. Select **Next : Review and update**. If you want to make changes, select **Back : Basics**.
 
 1. Review the changes and select **Update**.  
 
