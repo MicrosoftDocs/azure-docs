@@ -159,7 +159,7 @@ items:
   - name: Azure AD and Azure API for FHIR Overview
     href: azure-active-directory-identity-configuration.md
   - name: Access token validation
-    href: azure-ad-hcapi-token-validation.md
+    href: azure-api-fhir-access-token-validation.md
   - name: Use Custom HTTP headers to add data to Audit Logs
     href: use-custom-headers.md
   - name: Azure IoT Connector for FHIR (preview) workings
