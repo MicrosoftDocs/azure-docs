@@ -51,7 +51,7 @@ To view and configure your Git configuration settings, you can click the **Deplo
 >
 >
 
-For information on enabling or disabling Git access using the REST API, see [Enable or disable Git access using the REST API](/rest/api/apimanagement/2020-12-01/tenant-access/create).
+For information on enabling or disabling Git access using the REST API, see [Enable or disable Git access using the REST API](/rest/api/apimanagement/2020-12-01/tenant-access?EnableGit).
 
 ## To save the service configuration to the Git repository
 
@@ -63,7 +63,7 @@ After a few moments the configuration is saved, and the configuration status of 
 
 Once the configuration is saved to the repository, it can be cloned.
 
-For information on performing this operation using the REST API, see [Commit configuration snapshot using the REST API](/rest/api/apimanagement/2020-12-01/tenant-configuration/save).
+For information on performing this operation using the REST API, see [Commit configuration snapshot using the REST API](/rest/api/apimanagement/2020-12-01/tenant-access?CommitSnapshot).
 
 ## To clone the repository to your local machine
 
@@ -137,7 +137,7 @@ git push
 
 Once your local changes are committed and pushed to the server repository, you can deploy them to your API Management service instance.
 
-For information on performing this operation using the REST API, see [Deploy Git changes to configuration database using the REST API](/rest/api/apimanagement/2020-12-01/tenant-configuration/deploy).
+For information on performing this operation using the REST API, see [Deploy Git changes to configuration database using the REST API](/rest/api/apimanagement/2020-12-01/tenant-configuration).
 
 ## File and folder structure reference of local Git repository
 
