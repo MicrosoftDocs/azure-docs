@@ -26,9 +26,10 @@ Total app instances | per Azure Spring Cloud service instance | 25 | 500
 Custom Domains | per Azure Spring Cloud service instance | 0 | 25 
 Persistent volumes | per Azure Spring Cloud service instance | 1 GB/app x 10 apps | 50 GB/app x 10 apps
 Inbound Public Endpoints | per Azure Spring Cloud service instance| 10 <sup>1</sup> | 10 <sup>1</sup>
-Outbound Public IPs | per Azure Spring Cloud service instance| 1 <sup>2</sup> | 2 <sup>2</sup>; 1<sup>2</sup> if using VNet
+Outbound Public IPs | per Azure Spring Cloud service instance| 1 <sup>2</sup> | 2 <sup>2</sup>; <br> 1<sup>2</sup> if using VNet
 
 <sup>1</sup> Can be increased via a support request to a maximum limit of 1 per each apps.
+
 <sup>2</sup> Can be increased via a support request to a maximum limit of 10.
 
 > [!TIP]
