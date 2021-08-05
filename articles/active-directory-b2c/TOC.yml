@@ -26,25 +26,6 @@
     href: tutorial-register-applications.md
   - name: 3 - Create user flows and custom policies
     href: tutorial-create-user-flows.md
-  - name: Authenticate users
-    items:
-    - name: ASP.NET
-      href: tutorial-web-app-dotnet.md
-    - name: Desktop
-      href: tutorial-desktop-app.md
-    - name: Single page
-      href: tutorial-single-page-app.md
-    - name: Python
-      href: tutorial-web-app-python.md
-      displayName: flask
-  - name: Grant API access
-    items:
-    - name: ASP.NET
-      href: tutorial-web-api-dotnet.md
-    - name: Desktop
-      href: tutorial-desktop-app-webapi.md
-    - name: Single page
-      href: tutorial-single-page-app-webapi.md
   - name: Clean up and delete tenant
     href: tutorial-delete-tenant.md
 - name: Samples
@@ -127,6 +108,12 @@
         href: enable-authentication-web-app-with-api.md
       - name: Authentication options
         href: enable-authentication-web-app-with-api-options.md
+    - name: Python web app
+      items:
+      - name: Configure a sample web app
+        href: configure-authentication-sample-python-web-app.md
+      - name: Authentication options
+        href: enable-authentication-python-web-app-options.md
     - name: Single-page application (SPA)
       items:
       - name: Configure a sample SPA app
@@ -159,6 +146,12 @@
         href: enable-authentication-ios-app.md
       - name: Authentication options
         href: enable-authentication-ios-app-options.md
+    - name: WPF desktop app
+      items:
+      - name: Configure a sample desktop app
+        href: configure-authentication-sample-wpf-desktop-app.md
+      - name: Authentication options
+        href: enable-authentication-wpf-desktop-app-options.md
     - name: Web API
       displayName: REST API
       items:
@@ -313,6 +306,8 @@
           href: partner-keyless.md
         - name: Nevis
           href: partner-nevis.md
+        - name: Nok Nok
+          href: partner-nok-nok.md
         - name: Trusona
           href: partner-trusona.md
         - name: Twilio
@@ -454,6 +449,9 @@
     - name: Azure Monitor
       href: azure-monitor.md
       displayName: log, logs, logging, usage, events, reports, reporting, dashboard
+    - name: Azure Sentinel
+      href: azure-sentinel.md
+      displayName: log, logs, logging, events, Azure Monitor, Azure Sentinel, SIEM, threat hunting, Security, Security Orchestration
     - name: Usage analytics
       href: analytics-with-application-insights.md
       displayName: application insights, app insights, reports, reporting

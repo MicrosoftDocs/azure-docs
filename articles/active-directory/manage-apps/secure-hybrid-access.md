@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 2/16/2021
 ms.author: davidmu
 ms.collection: M365-identity-device-management
+ms.reviewer: miccohen
 ---
 
 # Secure hybrid access: Secure legacy apps with Azure Active Directory

@@ -180,9 +180,9 @@ For more information on delegation, see the following video:
 
 [Delegating developer sign in and sign up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[Request a shared access token]: /rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken
-[create a user]: /rest/api/apimanagement/2019-12-01/user/createorupdate
-[calling the REST API for subscriptions]: /rest/api/apimanagement/2019-12-01/subscription/createorupdate
+[Request a shared access token]: /rest/api/apimanagement/2020-12-01/user/get-shared-access-token
+[create a user]: /rest/api/apimanagement/2020-12-01/user/create-or-update
+[calling the REST API for subscriptions]: /rest/api/apimanagement/2020-12-01/subscription/create-or-update
 [Next steps]: #next-steps
 [example code provided below]: #delegate-example-code
 

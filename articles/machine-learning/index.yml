@@ -14,7 +14,7 @@ metadata:
   ms.collection: collection
   ms.author: sgilley
   author: sdgilley
-  ms.date: 07/21/21
+  ms.date: 08/02/2021
   ms.custom: jordan-changes
 
 # highlightedContent section 
@@ -24,7 +24,7 @@ highlightedContent:
     # Card
     - title: What is Azure Machine Learning?
       itemType: overview
-      url: overview-what-is-azure-ml.md
+      url: overview-what-is-azure-machine-learning.md
     # Card
     - title: Set up resources
       itemType: get-started
