@@ -248,6 +248,12 @@ After you purchase the App Service Domain, you have five days to cancel your pur
 
     <!-- ![Screenshot that shows where to delete the hostname bindings.](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png) -->
 
+1. In the domain's left navigation, select **Locks**. 
+
+    A delete lock has been created for your domain. As long as a delete lock exists, you can't delete the App Service domain.
+
+1. Click **Delete** to remove the lock.
+
 1. In the domain's left navigation, select **Overview**. 
 
 1. If the cancellation period on the purchased domain has not elapsed, select **Cancel purchase**. Otherwise, you see a **Delete** button instead. To delete the domain without a refund, select **Delete**.
