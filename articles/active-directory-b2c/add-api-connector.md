@@ -645,7 +645,7 @@ Additionally, Azure AD B2C logs metadata about the API transactions that happen 
 3. Filter the list view by the length of time you wish and **Activity** to **An API was called as part of a user flow**
 4. Inspect individual logs. Each row represents an API connector attempting to be called during a user flow. If an API call fails and there's a retry, it's still represented as a singular row. There's a `numberOfAttempts` which indicates the number of times your API was called. This can be of values `1`or `2`. Other information about the API call is detailed in the logs.
 
-:::image type="content" source="media/add-api-connector/api-connector-audit-logs.png" alt-text="An example of audit log regarding API connector transaction during an end user authentication to a user flow":::
+:::image type="content" source="media/add-api-connector/example-anonymized-audit-log.png" alt-text="An example of audit log regarding API connector transaction during an end user authentication to a user flow":::
 
 ::: zone-end
 
