@@ -1,11 +1,12 @@
 ---
 title: Copy and transform data in Snowflake
+titleSuffix: Azure Data Factory& Azure Synapse
 description: Learn how to copy and transform data in Snowflake by using Data Factory.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 03/16/2021
 ---
 

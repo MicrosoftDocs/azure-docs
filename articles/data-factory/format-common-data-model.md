@@ -3,6 +3,7 @@ title: Common Data Model format
 description: Transform data using the Common Data Model metadata system in Azure Data Factory and Synapse Analytics pipelines.
 author: kromerm
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: makromer

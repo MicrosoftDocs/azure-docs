@@ -1,12 +1,13 @@
 ---
 title: Create Azure integration runtime in Azure Data Factory 
+titleSuffix: Azure Data Factory& Azure Synapse
 description: Learn how to create Azure integration runtime in Azure Data Factory, which is used to copy data and dispatch transform activities. 
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/04/2021
 author: lrtoyou1223
 ms.author: lle 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, synapse
 ---
 # How to create and configure Azure Integration Runtime
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

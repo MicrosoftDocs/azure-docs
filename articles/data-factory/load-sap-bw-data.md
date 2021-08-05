@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/05/2021
+ms.date: 08/04/2021
 ---
 
 # Copy data from SAP Business Warehouse with Azure Data Factory or Synapse Analytics
@@ -42,13 +42,11 @@ In the Azure portal, go to your service. Select **Open** on the **Open Azure Dat
 
 1. On the home page, select **Ingest** to open the Copy Data tool.
 
-2. On the **Properties** page, specify a **Task name**, and then select **Next**.
+2. On the **Properties** page, choose **Built-in copy task** under **Task type**, and choose **Run once now** under **Task cadence or task schedule**, and then select **Next**.
 
-3. On the **Source data store** page, select **+Create new connection**. Select **SAP BW Open Hub** from the connector gallery, and then select **Continue**. To filter the connectors, you can type **SAP** in the search box.
+3. On the **Source data store** page, select **+ New connection**. Select **SAP BW Open Hub** from the connector gallery, and then select **Continue**. To filter the connectors, you can type **SAP** in the search box.
 
-4. On the **Specify SAP BW Open Hub connection** page, follow these steps to create a new connection.
-
-   ![Create SAP BW Open Hub-linked service page](media/load-sap-bw-data/create-sap-bw-open-hub-linked-service.png)
+4. On the **New connection (SAP BW Open Hub)** page, follow these steps to create a new connection.
 
    1. From the **Connect via integration runtime** list, select an existing self-hosted IR. Or, choose to create one if you don't have one yet.
 
@@ -56,62 +54,61 @@ In the Azure portal, go to your service. Select **Open** on the **Open Azure Dat
 
       As mentioned in [Prerequisites](#prerequisites), make sure that you have SAP Connector for Microsoft .NET 3.0  installed on the same computer where the self-hosted IR is running.
 
-   2. Fill in the SAP BW **Server name**, **System number**, **Client ID,** **Language** (if other than **EN**), **User name**, and **Password**.
+   2. Fill in the SAP BW **Server name**, **System number**, **Client ID**, **Language** (if other than **EN**), **User name**, and **Password**.
 
-   3. Select **Test connection** to validate the settings, and then select **Finish**.
+   3. Select **Test connection** to validate the settings, and then select **Create**.
 
-   4. A new connection is created. Select **Next**.
+   ![Create SAP BW Open Hub-linked service page](media/load-sap-bw-data/create-sap-bw-open-hub-linked-service.png)
 
-5. On the **Select Open Hub Destinations** page, browse the Open Hub Destinations that are available in your SAP BW. Select the OHD to copy data from, and then select **Next**.
+   4. On the **Source data store** page, select the newly created connection in the **Connection** block.
 
-   ![Select SAP BW Open Hub Destination table](media/load-sap-bw-data/select-sap-bw-open-hub-table.png)
+   5. In the section of selecting Open Hub destinations, browse the Open Hub Destinations that are available in your SAP BW. You can preview the data in each destination by selecting the preview button at the end of each row. Select the OHD to copy data from, and then select **Next**.
+   
+   :::image type="content" source="./media/load-sap-bw-data/source-data-store-page.png" alt-text="Screenshot showing the 'Source data store' page.":::
 
-6. Specify a filter, if you need one. If your OHD only contains data from a single data-transfer process (DTP) execution with a single request ID, or you're sure that your DTP is finished and you want to copy the data, clear the **Exclude Last Request** check box.
+5. Specify a filter, if you need one. If your OHD only contains data from a single data-transfer process (DTP) execution with a single request ID, or you're sure that your DTP is finished and you want to copy the data, clear the **Exclude Last Request** check box in **Advanced** section. You can preview the data by selecting **Preview data** button.
 
-   Learn more about these settings in the [SAP BW Open Hub Destination configurations](#sap-bw-open-hub-destination-configurations) section of this article. Select **Validate** to double-check what data will be returned. Then select **Next**.
+   Learn more about these settings in the [SAP BW Open Hub Destination configurations](#sap-bw-open-hub-destination-configurations) section of this article. Then select **Next**.
 
    ![Configure SAP BW Open Hub filter](media/load-sap-bw-data/configure-sap-bw-open-hub-filter.png)
 
-7. On the **Destination data store** page, select **+Create new connection** > **Azure Data Lake Storage Gen2** > **Continue**.
+6. On the **Destination data store** page, select **+ New connection** > **Azure Data Lake Storage Gen2** > **Continue**.
 
-8. On the **Specify Azure Data Lake Storage connection** page, follow these steps to create a connection.
+7. On the **New connection (Azure Data Lake Storage Gen2)** page, follow these steps to create a connection.
+   1. Select your Data Lake Storage Gen2-capable account from the **Name** drop-down list.
+   2. Select **Create** to create the connection.
 
    ![Create an ADLS Gen2 linked service page](media/load-sap-bw-data/create-adls-gen2-linked-service.png)
 
-   1. Select your Data Lake Storage Gen2-capable account from the **Name** drop-down list.
-   2. Select **Finish** to create the connection. Then select **Next**.
+8. On the **Destination data store** page, select the newly created connection in the **Connection** section, and enter **copyfromopenhub** as the output folder name. Then select **Next**.
 
-9. On the **Choose the output file or folder** page, enter **copyfromopenhub** as the output folder name. Then select **Next**.
+   :::image type="content" source="./media/load-sap-bw-data/destination-data-store-page.png" alt-text="Screenshot showing the 'Destination data store' page.":::
 
-   ![Choose output folder page](media/load-sap-bw-data/choose-output-folder.png)
-
-10. On the **File format setting** page, select **Next** to use the default settings.
+9. On the **File format setting** page, select **Next** to use the default settings.
 
     ![Specify sink format page](media/load-sap-bw-data/specify-sink-format.png)
 
-11. On the **Settings** page, expand **Performance settings**. Enter a value for **Degree of copy parallelism** such as 5 to load from SAP BW in parallel. Then select **Next**.
+10. On the **Settings** page, specify a **Task name**, and expand **Advanced**. Enter a value for **Degree of copy parallelism** such as 5 to load from SAP BW in parallel. Then select **Next**.
 
     ![Configure copy settings](media/load-sap-bw-data/configure-copy-settings.png)
 
-12. On the **Summary** page, review the settings. Then select **Next**.
+11. On the **Summary** page, review the settings. Then select **Next**.
 
-13. On the **Deployment** page, select **Monitor** to monitor the pipeline.
+    :::image type="content" source="./media/load-sap-bw-data/summary-page.png" alt-text="Screenshot showing the Summary page.":::
 
-    ![Deployment page](media/load-sap-bw-data/deployment.png)
+12. On the **Deployment** page, select **Monitor** to monitor the pipeline.
 
-14. Notice that the **Monitor** tab on the left side of the page is automatically selected. The **Actions** column includes links to view activity-run details and to rerun the pipeline.
+13. Notice that the **Monitor** tab on the left side of the page is automatically selected. You can use links under the **Pipeline name** column in the **Pipeline runs** page to view activity details and to rerun the pipeline.
 
-    ![Pipeline monitoring view](media/load-sap-bw-data/pipeline-monitoring.png)
-
-15. To view activity runs that are associated with the pipeline run, select **View Activity Runs** in the **Actions** column. There's only one activity (copy activity) in the pipeline, so you see only one entry. To switch back to the pipeline-runs view, select the **Pipelines** link at the top. Select **Refresh** to refresh the list.
+14. To view activity runs that are associated with the pipeline run, select links under the **Pipeline name** column. There's only one activity (copy activity) in the pipeline, so you see only one entry. To switch back to the pipeline-runs view, select the **All pipeline runs** link at the top. Select **Refresh** to refresh the list.
 
     ![Activity-monitoring screen](media/load-sap-bw-data/activity-monitoring.png)
 
-16. To monitor the execution details for each copy activity, select the **Details** link, which is an eyeglasses icon below **Actions** in the activity-monitoring view. Available details include the data volume copied from the source to the sink, data throughput, execution steps and duration, and configurations used.
+15. To monitor the execution details for each copy activity, select the **Details** link, which is an eyeglasses icon in the same row of each copy activity in the activity-monitoring view. Available details include the data volume copied from the source to the sink, data throughput, execution steps and duration, and configurations used.
 
     ![Activity monitoring details](media/load-sap-bw-data/activity-monitoring-details.png)
 
-17. To view the **maximum Request ID**, go back to the activity-monitoring view and select **Output** under **Actions**.
+16. To view the **maximum Request ID** of each copy activity, go back to the activity-monitoring view and select **Output** in the same row of each copy activity.
 
     ![Activity output screen](media/load-sap-bw-data/activity-output.png)
 

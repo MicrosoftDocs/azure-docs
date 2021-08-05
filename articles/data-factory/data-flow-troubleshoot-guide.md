@@ -62,7 +62,7 @@ This article explores common troubleshooting methods for mapping data flows in A
 - **Recommendation**: Contact the Microsoft product team for more details about this problem.
 
 ### Error code: DF-Executor-PartitionDirectoryError
-- **Message**: The specified source path has either multiple partitioned directories (for e.g. <Source Path>/<Partition Root Directory 1>/a=10/b=20, <Source Path>/<Partition Root Directory 2>/c=10/d=30) or partitioned directory with other file or non-partitioned directory (for example <Source Path>/<Partition Root Directory 1>/a=10/b=20, <Source Path>/Directory 2/file1), remove partition root directory from source path and read it through separate source transformation.
+- **Message**: The specified source path has either multiple partitioned directories (for e.g. &lt;Source Path&gt;/<Partition Root Directory 1>/a=10/b=20, &lt;Source Path&gt;/&lt;Partition Root Directory 2&gt;/c=10/d=30) or partitioned directory with other file or non-partitioned directory (for example &lt;Source Path&gt;/&lt;Partition Root Directory 1&gt;/a=10/b=20, &lt;Source Path&gt;/Directory 2/file1), remove partition root directory from source path and read it through separate source transformation.
 - **Cause**: The source path has either multiple partitioned directories or a partitioned directory that has another file or non-partitioned directory.
 - **Recommendation**: Remove the partitioned root directory from the source path and read it through separate source transformation.
 

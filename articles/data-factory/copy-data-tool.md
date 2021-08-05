@@ -3,6 +3,7 @@ title: Copy Data tool
 description: Learn about the Copy Data tool in the Azure Data Factory and Synapse Analytics UI.
 author: dearandyxu
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 07/28/2021
 ms.author: yexu

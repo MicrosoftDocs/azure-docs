@@ -5,7 +5,7 @@ ms.author: chez
 author: chez-charlie
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 09/03/2020
 ---
 

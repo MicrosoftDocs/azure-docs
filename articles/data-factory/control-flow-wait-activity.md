@@ -4,6 +4,7 @@ description: The Wait activity in Azure Data Factory and Synapse Analytics pause
 author: chez-charlie
 ms.author: chez
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 01/12/2018
 ---

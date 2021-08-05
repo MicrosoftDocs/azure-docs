@@ -4,6 +4,7 @@ description: Learn how to develop and debug Data Factory and Synapse Analytics p
 ms.date: 04/21/2021
 ms.topic: conceptual
 ms.service: data-factory
+ms.custom: synapse
 services: data-factory
 documentationcenter: ''
 ms.workload: data-services

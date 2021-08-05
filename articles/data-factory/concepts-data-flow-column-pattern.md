@@ -5,6 +5,7 @@ author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 05/21/2021
 ---

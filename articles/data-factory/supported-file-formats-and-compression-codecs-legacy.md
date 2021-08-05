@@ -4,6 +4,7 @@ description: Learn about file formats and compression codecs supported by file-b
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 12/10/2019
 ---
