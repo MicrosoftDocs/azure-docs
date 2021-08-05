@@ -956,6 +956,9 @@
     - name: Terraform
       displayName: Flexible orchestration mode for virtual machine scale sets 
       href: flexible-virtual-machine-scale-sets-terraform.md 
+    - name: Scale sets with Autoscaling
+      displayName: Flexible orchestration mode for virtual machine scale sets 
+      href: flexible-virtual-machine-scale-sets-autoscaling.md 
   - name: Uniform virtual machine scale sets
     items:
     - name: Overview
