@@ -46,8 +46,16 @@ landingContent:
             url: concepts-compute-storage.md
           - text: MySQL versions
             url: ./../concepts-supported-versions.md
-          - text: Networking
-            url: concepts-networking.md
+          - text: Restore a server
+            url: how-to-restore-server-portal.md
+          - linkListType: Networking
+            links:
+            - text: Networking
+              url: concepts-networking.md
+            - text: Public Access
+              url: concepts-networking-vnet.md
+            - text: Public Access
+              url: concepts-networking-public.md
           - text: Monitor
             url: concepts-monitoring.md
           - text: Audit logs
