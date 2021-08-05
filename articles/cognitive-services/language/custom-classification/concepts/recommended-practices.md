@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Recommended practices for Custom text classification
 
-Use this article to learn more about recommended practices when using custom text classification
+Use this article to learn more about recommended practices when using custom text classification.
 
 ## Development life cycle
 
@@ -73,7 +73,7 @@ Include less frequent classes in your data, if the model was not exposed a certa
 > If your files are in multiple languages, select the **multiple languages** option during [project creation](../how-to/create-project.md) and set the **language** option to the language of the majority of your files.
 
 
-* Avoid duplicate files in your data. Duplicate data has a negative effects on training process, model metrics, and model performance.
+* Avoid duplicate files in your data. Duplicate data has a negative effect on training process, model metrics, and model performance.
 
 * Consider where your data comes from. If you are collecting data from one person or department, you are likely missing diversity that will be important for your model to learn about all usage scenarios.
 
@@ -87,7 +87,7 @@ Include less frequent classes in your data, if the model was not exposed a certa
 
 * [Improve your model](../how-to/improve-model.md). View the incorrect predictions your model made against the [validation set](../how-to/train-model.md#data-groups) to determine how you can tag your data better. Examine the data distribution to make sure each class is well represented in your dataset.
 
-## Next Steps
+## Next steps
 
 * [Create a project](../how-to/create-project.md)
 * [Tag data](../how-to/tag-data.md)
