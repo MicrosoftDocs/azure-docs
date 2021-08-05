@@ -11,6 +11,9 @@ ms.author: aersoy
 
 # Get access token for the DICOM service using Azure CLI
 
+> [!IMPORTANT]
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 In this article, you'll learn how to obtain an access token for the DICOM service using the Azure CLI. When you [deploy the DICOM service](deploy-dicom-services-in-azure.md), you configure a set of users or service principals that have access to the service. If your user object ID is in the list of allowed object IDs, you can access the service using a token obtained using the Azure CLI.
 
 ## Prerequisites
@@ -40,7 +43,7 @@ $token=$(az account get-access-token --resource=https://dicom.healthcareapis.azu
 
 ```Azure CLICopy
 Try It
-curl -X GET --header "Authorization: Bearer $token"  https://<workspace-service>.dicom.azurehealthcareapis.com/changefeed
+curl -X GET --header "Authorization: Bearer $token"  https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com/v<version of REST API>/changefeed
 ```
 
 ## Next steps
