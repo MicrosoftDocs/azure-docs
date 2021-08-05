@@ -127,7 +127,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Amazon Managed Grafana SAML2.0 SSO
 
-To configure single sign-on on **Amazon Managed Grafana SAML2.0** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Amazon Managed Grafana SAML2.0 support team](mailto:royrodan@amazon.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Amazon Managed Grafana SAML2.0** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Amazon Managed Grafana SAML2.0 support team](mailto:https://aws.amazon.com/contact-us/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Amazon Managed Grafana SAML2.0 test user
 
