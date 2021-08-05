@@ -150,12 +150,12 @@ The following example shows a parameterized **connections.json** file that uses 
       "serviceBus": {
          "parameterValues": {
             "connectionString": "@appsetting('serviceBus_connectionString')"
-      },
-      "serviceProvider": {
-         "id": "/serviceProviders/serviceBus"
-      },
-      "displayName": "servicebus"
-   }
+        },
+        "serviceProvider": {
+           "id": "/serviceProviders/serviceBus"
+        },
+        "displayName": "servicebus"
+     }
    },
    "managedApiConnections": {
       "azureblob": {
