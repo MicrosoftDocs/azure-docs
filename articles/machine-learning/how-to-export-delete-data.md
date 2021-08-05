@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 author: lobrien
 ms.author: laobri
-ms.date: 04/24/2020
+ms.date: 08/05/2021
 ms.topic: how-to
 
 ---
@@ -47,7 +47,10 @@ Run history documents, which may contain personal user information, are stored i
 
 Azure Machine Learning studio provides a unified view of your machine learning resources, such as notebooks, datasets, models, and experiments. Azure Machine Learning studio emphasizes preserving a record of your data and experiments. Computational resources such as pipelines and compute resources can be deleted using the browser. For these resources, navigate to the resource in question and choose **Delete**. 
 
-Datasets can be unregistered and Experiments can be archived, but these operations don't delete the data. To entirely remove the data, datasets and run data must be deleted at the storage level. Deleting at the storage level is done using the portal, as described previously.
+Datasets can be unregistered and Experiments can be archived, but these operations don't delete the data. A particular Run can be deleted directly in studio. To entirely remove the data, datasets and experiment data must be deleted at the storage level. Deleting at the storage level is done using the portal, as described previously.
+
+> [!NOTE]
+> Prior to unregistering a Dataset, use its **Data source** link to find the specific Data URL to delete. 
 
 You can download training artifacts from experimental runs using the Studio. Choose the **Experiment** and **Run** in which you are interested. Choose **Output + logs** and navigate to the specific artifacts you wish to download. Choose **...** and **Download**.
 
