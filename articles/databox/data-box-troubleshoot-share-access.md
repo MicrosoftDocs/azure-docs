@@ -19,6 +19,7 @@ The most common reasons for being unable to connect to a share on your device ar
 
 - [a domain issue](#check-for-a-domain-issue)
 - [a group policy that's preventing a connection](#check-for-a-blocking-group-policy)
+- [a permissions issue](#check-for-permissions-issues)
 
 ## Check for a domain issue
 
@@ -47,7 +48,7 @@ To ensure that no group policies are preventing your access to shares on the Dat
 
 * Make sure that no GPOs are applied to your client/host computer. You can block inheritance to ensure that the client/host computer (child node) doesn't automatically inherit any GPOs from the parent. For more information, see [block inheritance](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731076(v=ws.11)).
 
-## Check for a permissions issue
+## Check for permissions issues
 
 If there's no domain issue, and no group policies are blocking your access to the share, check for permissions issues on your device by reviewing audit logs and security event logs.
 
@@ -55,53 +56,61 @@ If there's no domain issue, and no group policies are blocking your access to th
 
 To run diagnostics on your device, do the following steps:
 
-   1. In the local web UI, go to **Troubleshooting** and then **Diagnostic test**, and select **Run diagnostics**.
+   1. In the local web UI, go to **Troubleshooting** and then **Diagnostic test**. Select **Run diagnostics**. PICTURE?
+   1. FOLLOW-UP STEP. For more information, see 
 
-### Review audit logs
+### View audit logs
 
-XXX
+[Review audit logs](data-box-audit-logs.md) on your Data Box device for any events related to a permissions failure.
+
 
 ### Review security event logs
 
-Review Windows Security logs for errors that indicate 
+If your device is a Windows server, review Windows security event logs for errors that indicate an authentication failure. On a Linux computer, LINK TO INSTRUCTIONS.
 
-On your device, review the `Smbserver.Security` event logs in the `etw` folder for either of the following errors:
+You can review the `Smbserver.Security` event logs in the `etw` folder or [view security errors in Event Viewer](#view-security-events-in-event-viewer).
 
-       Error 1:
-
-       ```xml
-       SMB Session Authentication Failure
-       Client Name: \\<ClientIP>
-       Client Address: <ClientIP:Port>
-       User Name:
-       Session ID: 0x100000000021
-       Status: The attempted logon is invalid. This is either due to a bad username or authentication information. (0xC000006D)
-       SPN: session setup failed before the SPN could be queried
-       SPN Validation Policy: SPN optional / no validation
-       ```
-      
-       Error 2:
-
-       ```xml
-       LmCompatibilityLevel value is different from the default.
-       Configured LM Compatibility Level: 5
-       Default LM Compatibility Level: 3
-       ```
-
-If you find either of these errors, you'll need to update the LAN Manager authentication level on your device. Use the Local Security Policy editor. If that doesn't work, you can update the registry directly.
+#### View security events in Event Viewer
 
 To review Windows Security event logs in Event Viewer, do these steps:
 
-1. To open the Windows Event Viewer, enter **Event Viewer** on the Start menu.
+1. To open the Windows Event Viewer, on the **Start screen**, type **Event Viewer**, and press Enter.
 
 1. In the Event Viewer navigation pane, expand **Windows**, and select the **Security** folder.
 
     ![Screenshot of the Windows Event Viewer with Security events displayed. The Windows folder and Security subfolder are highlighted.](media/data-box-troubleshoot-share-access/security-policy-04.png)
 
+3. Look for one of the following errors:
 
-### Use Local Security Policy editor to change the policy
+    Error 1:
 
-To change the policy in Local Security Policy, do these steps:
+    ```xml
+    SMB Session Authentication Failure
+    Client Name: \\<ClientIP>
+    Client Address: <ClientIP:Port>
+    User Name:
+    Session ID: 0x100000000021
+    Status: The attempted logon is invalid. This is either due to a bad username or authentication information. (0xC000006D)
+    SPN: session setup failed before the SPN could be queried
+    SPN Validation Policy: SPN optional / no validation
+    ```
+      
+    Error 2:
+    ```xml
+     LmCompatibilityLevel value is different from the default.
+    Configured LM Compatibility Level: 5
+    Default LM Compatibility Level: 3   
+    ```
+
+    Either error indicates that you need to change the LAN Manager authentication level on your device.
+ 
+## Change the LAN Manager authentication level
+ 
+To change the LAN Manager authentication level on your device, you can either [use Local Security Policy](#use-local-security-policy) or [update the registry directly](#update-the-registry-directly).
+
+### Use Local Security Policy
+
+To change LAN Manager authentication level using Local Security Policy, do these steps:
  
 1. To open Local Security Policy, on the **Start** screen, type `secpol.msc`, and then press Enter.
 
@@ -113,11 +122,11 @@ To change the policy in Local Security Policy, do these steps:
 
     ![Screenshot showing "Network Security: LAN Manager authentication level" policy in the Local Security Policy editor. The "Send NTLMv2 response only. Refuse LM & NTLM" option is highlighted.](media/data-box-troubleshoot-share-access/security-policy-02.png)
 
-### Update the registry to change the policy
+### Update the registry directly
 
 If you can't change the LAN Manager authentication level in Local Security Policy, update the registry directly.
 
-To update the registry, do these steps:
+To update the registry directly, do these steps:
 
 1. To open Registry Editor (regedit32.exe), on the **Start** screen, type `regedt32`, and then press Enter.
 
@@ -127,7 +136,7 @@ To update the registry, do these steps:
 
 1. In the LSA folder, open the LMCompatibilityLevel registry key, and change its value to 5.
 
-    ![Screenshot of the Registry Editor, showing the dialog box to change the value of the LMCompatibilityLevel registry key.](media/data-box-troubleshoot-share-access/security-policy-04.png)
+    ![Screenshot of dialog box used to change LmcompatibilityLevel key in the registry. The Value Data field is highlighted.](media/data-box-troubleshoot-share-access/security-policy-04.png)
 
 1. Restart your computer so that the registry changes take effect.
 
