@@ -78,7 +78,7 @@ Here are the high-level steps to bring a custom image from a VHD:
 
 The steps vary depending on if you are creating a custom Windows or Linux image.  Read the following articles for the detailed steps:
 
--   [How to bring a custom Windows image from a VHD](how-to-bring-custom-windows-image-vhd.md)
+-   [How to bring a custom Windows image from a VHD](upload-custom-image-shared-image-gallery.md)
 -   [How to bring a custom Linux image from a VHD](how-to-bring-custom-linux-image-vhd.md)
 
 ## Next steps
