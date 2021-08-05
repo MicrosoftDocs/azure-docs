@@ -14,6 +14,16 @@ items:
     href: custom-classification/faq.md
   - name: Language support
     href: custom-classification/language-support.md
+  - name: How-to guides
+    items:
+    - name: Create a project
+      href: custom-classification/how-to/create-project.md
+    - name: Deploy a model
+      href: custom-classification/how-to/deploy-model.md
+    - name: Improve a model
+      href: custom-classification/how-to/improve-model.md
+    - name: Run inference
+      href: custom-classification/how-to/run-inference.md
   - name: Concepts
     items:
     - name: Recommended practices
