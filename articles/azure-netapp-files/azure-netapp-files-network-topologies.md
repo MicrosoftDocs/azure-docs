@@ -24,7 +24,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 
 ## Configurable network features  
 
-The configurable [**network features**](configure-network-features.md) for Azure NetApp Files is available for public preview. After registering for this feature with your subscription, you can create new volumes choosing *Standard* or *Basic* network feature in supported regions. In regions where the Standard network feature are not supported, the volume defaults to using the Basic network feature.  
+The configurable [**network features**](configure-network-features.md) for Azure NetApp Files is available for public preview. After registering for this feature with your subscription, you can create new volumes choosing *Standard* or *Basic* network feature in supported regions. In regions where the Standard network feature is not supported, the volume defaults to using the Basic network feature.  
 
 * ***Standard***  
     Selecting this setting enables standard VNet features such as [network security groups](../virtual-network/network-security-groups-overview.md) and [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined) on delegated subnets, connectivity to [Private Endpoints](../private-link/private-endpoint-overview.md), connectivity to [Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md), and additional connectivity patterns as indicated in this article.
@@ -54,7 +54,7 @@ The following table describes what’s supported for each network feature config
 
 ### Supported network topologies
 
-The following table describes the network topologies supported by each network feature configurations of Azure NetApp Files. 
+The following table describes the network topologies supported by each network feature configuration of Azure NetApp Files. 
 
 |      Topologies     |      Standard network feature     |      Basic network feature     |
 |---|---|---|

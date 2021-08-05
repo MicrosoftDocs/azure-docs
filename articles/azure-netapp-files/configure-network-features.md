@@ -89,7 +89,7 @@ This section shows you how to set the Network Feature option.
 
     ![Screenshot that shows volume creation for Standard network feature.](../media/azure-netapp-files/network-features-create-standard.png)
 
-    The following screenshot shows a volume creation example for a region that does not support the Standard network feature capabilities: 
+    The following screenshot shows a volume creation example for a region that does *not* support the Standard network feature capabilities: 
 
     ![Screenshot that shows volume creation for Basic network feature.](../media/azure-netapp-files/network-features-create-basic.png)
 
