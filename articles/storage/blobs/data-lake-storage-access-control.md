@@ -159,7 +159,7 @@ Identities are evaluated in the following order:
 4. Owning group or named group
 5. All other users
 
-If a security principal making a request is the owning user but is also listed as a named user, then the permission granted by the owning user entry of the ACL applies.
+If more than one of these identities applies to a security principal, then the permission level associated with the first identity is granted. For example, if a security principal is both the owning user and a named user, then the permission level associated with the owning user applies.
 
 The following pseudocode represents the access check algorithm for storage accounts. This algorithm shows the order in which identities are evaluated.
 
