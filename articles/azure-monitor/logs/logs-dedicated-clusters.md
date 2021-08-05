@@ -113,7 +113,7 @@ Content-type: application/json
   "properties": {
     "billingType": "Cluster",
     },
-  "location": "<region-name>",
+  "location": "<region>",
 }
 ```
 
@@ -289,7 +289,7 @@ Authorization: Bearer <token>
   "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.operationalinsights/workspaces/workspace-name",
   "name": "workspace-name",
   "type": "Microsoft.OperationalInsights/workspaces",
-  "location": "region-name"
+  "location": "region"
 }
 ```
 
