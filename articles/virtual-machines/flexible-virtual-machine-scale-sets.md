@@ -142,8 +142,8 @@ With single instance VMs and Virtual machine scale sets with Uniform orchestrati
 
 Common scenarios that will require explicit outbound connectivity include: 
 
-- Windows VM activation will require that you have defined outbound connectivity from the VM instance to the Windows Activation Key Management Service (KMS). See [Troubleshoot Windows VM activation problems](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems) for more information. 
-- Access to storage accounts or Key Vault. Connectivity to Azure services can also be established via [Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview).
+- Windows VM activation will require that you have defined outbound connectivity from the VM instance to the Windows Activation Key Management Service (KMS). See [Troubleshoot Windows VM activation problems](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems) for more information.  
+- Access to storage accounts or Key Vault. Connectivity to Azure services can also be established via [Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview). 
 
 See [Source Network Address Translation (SNAT) for outbound connections](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) for more details on defining secure outbound connections 
 
