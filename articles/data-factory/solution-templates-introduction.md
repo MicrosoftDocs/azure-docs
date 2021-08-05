@@ -1,12 +1,11 @@
 ---
 title: Overview of templates
-titleSuffix: Azure Data Factory & Synapse Analytics
 description:  Learn how to use a pre-defined template to get started quickly with Azure Data Factory.
 ms.service: data-factory
 ms.topic: conceptual
 ms.author: susabat
 author: ssabat
-ms.custom: seo-lt-2019, synapse
+ms.custom: seo-lt-2019
 ms.date: 06/04/2021
 ---
 

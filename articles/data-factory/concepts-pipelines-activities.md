@@ -1,6 +1,5 @@
 ---
 title: Pipelines and activities in Azure Data Factory 
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: 'Learn about pipelines and activities in Azure Data Factory.'
 author: dcstwh
 ms.author: weetok

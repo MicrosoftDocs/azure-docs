@@ -1,6 +1,5 @@
 ---
 title: Create an Azure data factory using REST API
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Create an Azure data factory pipeline to copy data from one location in Azure Blob storage to another location.
 author: linda33wj
 ms.service: data-factory
@@ -8,7 +7,7 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 05/31/2021
 ms.author: jingwang 
-ms.custom: devx-track-azurepowershell, synapse
+ms.custom: devx-track-azurepowershell
 ---
 
 # Quickstart: Create an Azure data factory and pipeline by using the REST API

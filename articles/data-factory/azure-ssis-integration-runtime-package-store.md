@@ -1,12 +1,11 @@
 ---
 title: Manage packages with Azure-SSIS Integration Runtime package store
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to manage packages with Azure-SSIS Integration Runtime package store. 
 ms.service: data-factory
 ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
-ms.custom: seo-lt-2019, synapse
+ms.custom: seo-lt-2019
 ms.date: 09/29/2020
 ---
 

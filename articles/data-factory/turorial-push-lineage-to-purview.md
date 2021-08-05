@@ -1,6 +1,5 @@
 ---
 title: Push Data Factory lineage data to Azure Purview
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn about how to push Data Factory lineage data to Azure Purview
 ms.author: jingwang
 author: linda33wj

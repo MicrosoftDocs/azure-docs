@@ -1,11 +1,9 @@
 ---
 title: Use Azure Key Vault secrets in pipeline activities 
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to fetch stored credentials from Azure key vault and use them during data factory pipeline runs. 
 author: nabhishek
 ms.author: abnarain
 ms.service: data-factory
-ms.custom: synapse
 ms.topic: conceptual
 ms.date: 10/31/2019
 ---

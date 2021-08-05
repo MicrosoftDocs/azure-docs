@@ -1,6 +1,5 @@
 ---
 title: Copy data from and to Microsoft Access
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to copy data from and to Microsoft Access by using a copy activity in an Azure Data Factory pipeline.
 ms.author: jianleishen
 author: jianleishen

@@ -1,6 +1,5 @@
 ---
 title: Window transformation in mapping data flow
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Azure Data Factory mapping data flow Window Transformation
 author: kromerm
 ms.author: makromer

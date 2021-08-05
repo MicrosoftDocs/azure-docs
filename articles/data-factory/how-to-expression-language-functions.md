@@ -1,12 +1,10 @@
 ---
 title: How to use parameters and expressions in Azure Data Factory
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: This How To article provides information about expressions and functions that you can use in creating data factory entities.
 author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel
 ms.service: data-factory
-ms.custom: synapse
 ms.topic: conceptual
 ms.date: 03/08/2020
 ---

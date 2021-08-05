@@ -1,11 +1,9 @@
 ---
 title: Dedupe rows and find nulls by using data flow snippets
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to easily dedupe rows and find nulls by using code snippets in data flows
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
-ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/30/2020
 ---

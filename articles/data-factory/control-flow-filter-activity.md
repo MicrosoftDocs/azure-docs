@@ -1,6 +1,5 @@
 ---
 title: Filter activity in Azure Data Factory 
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: The Filter activity filters the inputs. 
 author: chez-charlie
 ms.author: chez

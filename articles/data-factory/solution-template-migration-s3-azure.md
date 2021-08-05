@@ -1,12 +1,11 @@
 ---
 title: Migrate data from Amazon S3 to Azure Data Lake Storage Gen2
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to use a solution template to migrate data from Amazon S3 by using an external control table to store a partition list on AWS S3 with Azure Data Factory.
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019, synapse
+ms.custom: seo-lt-2019
 ms.date: 09/07/2019
 ---
 

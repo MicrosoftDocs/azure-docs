@@ -1,6 +1,5 @@
 ---
 title: Transform data with Databricks Python 
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to process or transform data by running a Databricks Python activity in an Azure Data Factory pipeline.
 ms.service: data-factory
 ms.topic: conceptual

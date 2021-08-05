@@ -1,6 +1,5 @@
 ---
 title: Aggregate transformation in mapping data flow
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to aggregate data at scale in Azure Data Factory with the mapping data flow Aggregate transformation.
 author: kromerm
 ms.author: makromer

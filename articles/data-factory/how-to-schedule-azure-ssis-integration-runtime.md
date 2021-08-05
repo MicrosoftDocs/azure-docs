@@ -1,9 +1,7 @@
 ---
 title: How to schedule Azure-SSIS Integration Runtime 
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: This article describes how to schedule the starting and stopping of Azure-SSIS Integration Runtime by using Azure Data Factory.
 ms.service: data-factory
-ms.custom: synapse
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 06/04/2021

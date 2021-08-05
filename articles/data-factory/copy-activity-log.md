@@ -1,10 +1,8 @@
 ---
 title: Session log in copy activity 
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: 'Learn about how to enable session log in copy activity in Azure Data Factory.'
 author: dearandyxu
 ms.service: data-factory
-ms.custom: synapse
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: yexu

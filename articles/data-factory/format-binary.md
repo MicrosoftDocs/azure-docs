@@ -1,6 +1,5 @@
 ---
 title: Binary format in Azure Data Factory 
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: 'This topic describes how to deal with Binary format in Azure Data Factory.'
 author: jianleishen
 ms.service: data-factory

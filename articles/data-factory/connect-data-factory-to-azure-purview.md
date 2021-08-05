@@ -1,6 +1,5 @@
 ---
 title: Connect a Data Factory to Azure Purview
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn about how to connect a Data Factory to Azure Purview
 ms.author: jingwang
 author: linda33wj

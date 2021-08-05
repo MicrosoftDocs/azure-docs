@@ -1,12 +1,10 @@
 ---
 title: Understanding Azure Data Factory pricing through examples 
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: This article explains and demonstrates the Azure Data Factory pricing model with detailed examples
 author: shirleywangmsft
 ms.author: shwang
 ms.reviewer: jburchel
 ms.service: data-factory
-ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/14/2020
 ---

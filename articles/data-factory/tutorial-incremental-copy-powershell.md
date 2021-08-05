@@ -1,12 +1,11 @@
 ---
 title: Incrementally copy a table using PowerShell
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: In this tutorial, you create an Azure Data Factory pipeline that incrementally copies data from an Azure SQL database to Azure Blob storage.'
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
 ms.topic: tutorial
-ms.custom: seo-dt-2019, synapse
+ms.custom: seo-dt-2019
 ms.date: 02/18/2021
 ---
 

@@ -1,6 +1,5 @@
 ---
 title: Built-in policy definitions
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Lists Azure Policy built-in policy definitions for Data Factory. These built-in policy definitions provide common approaches to managing your Azure resources.
 ms.author: lle
 author: lrtoyou1223

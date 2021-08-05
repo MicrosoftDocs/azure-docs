@@ -1,6 +1,5 @@
 ---
 title: Copy data from and to ODBC data stores using Azure Data Factory 
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to copy data from and to ODBC data stores by using a copy activity in an Azure Data Factory pipeline.
 author: jianleishen
 ms.service: data-factory

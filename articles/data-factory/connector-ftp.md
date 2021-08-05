@@ -1,6 +1,5 @@
 ---
 title: Copy data from an FTP server by using Azure Data Factory 
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to copy data from an FTP server to a supported sink data store by using a copy activity in an Azure Data Factory pipeline.
 author: jianleishen
 ms.service: data-factory

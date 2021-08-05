@@ -1,12 +1,11 @@
 ---
 title: Built-in and preinstalled components on Azure-SSIS Integration Runtime
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: List all built-in and preinstalled components, such as clients, drivers, providers, connection managers, data sources/destinations/transformations, and tasks on Azure-SSIS Integration Runtime. 
 ms.service: data-factory
 ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
-ms.custom: seo-lt-2019, synapse
+ms.custom: seo-lt-2019
 ms.date: 05/14/2020
 ---
 

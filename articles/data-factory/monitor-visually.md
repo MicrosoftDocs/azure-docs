@@ -1,12 +1,10 @@
 ---
 title: Visually monitor Azure Data Factory 
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to visually monitor Azure data factories
 author: minhe-msft
 ms.author: hemin
 ms.reviewer: jburchel
 ms.service: data-factory
-ms.custom: synapse
 ms.topic: conceptual
 ms.date: 07/30/2021
 ---

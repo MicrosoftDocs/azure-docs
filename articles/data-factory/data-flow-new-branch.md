@@ -1,6 +1,5 @@
 ---
 title: Multiple branches in mapping data flow
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Replicating data streams in mapping data flow with multiple branches
 author: kromerm
 ms.author: makromer

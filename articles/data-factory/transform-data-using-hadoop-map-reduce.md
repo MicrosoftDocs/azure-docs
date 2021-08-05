@@ -1,6 +1,5 @@
 ---
 title: Transform data using Hadoop MapReduce activity
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to process data by running Hadoop MapReduce programs on an Azure HDInsight cluster from an Azure data factory.
 ms.service: data-factory
 ms.topic: conceptual

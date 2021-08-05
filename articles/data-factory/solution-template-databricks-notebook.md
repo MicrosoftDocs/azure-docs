@@ -1,12 +1,11 @@
 ---
 title: Transformation with Azure Databricks
-titleSuffix: Azure Data Factory & Synapse Analytics
 description:  Learn how to use a solution template to transform data by using a Databricks notebook in Azure Data Factory.
 ms.author: abnarain
 author: nabhishek
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019, synapse
+ms.custom: seo-lt-2019
 ms.date: 04/27/2020
 ---
 

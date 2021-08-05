@@ -1,12 +1,11 @@
 ---
 title: Best practices for writing to files to data lake with data flows
-titleSuffix: Azure Data Factory & Synapse Analytics
 description:  This tutorial provides best practices for writing to files to data lake with data flows
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2021, synapse
+ms.custom: seo-lt-2021
 ms.date: 06/04/2021
 ---
 

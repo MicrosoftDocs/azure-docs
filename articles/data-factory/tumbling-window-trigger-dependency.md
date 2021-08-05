@@ -1,6 +1,5 @@
 ---
 title: Create tumbling window trigger dependencies
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to create dependency on a tumbling window trigger in Azure Data Factory.
 ms.author: chez
 author: chez-charlie

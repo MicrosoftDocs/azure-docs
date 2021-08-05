@@ -1,6 +1,5 @@
 ---
 title: Exists transformation in mapping data flow 
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Check for existing rows using the exists transformation in Azure Data Factory mapping data flow
 author: kromerm
 ms.author: makromer

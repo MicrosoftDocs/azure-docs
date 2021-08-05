@@ -1,12 +1,11 @@
 ---
 title: Delta copy from a database using a control table
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to use a solution template to incrementally copy new or updated rows only from a database with Azure Data Factory.
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019, synapse
+ms.custom: seo-lt-2019
 ms.date: 12/09/2020
 ---
 

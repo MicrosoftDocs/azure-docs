@@ -1,13 +1,12 @@
 ---
 title: Managed identity for Data Factory 
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn about managed identity for Azure Data Factory. 
 author: nabhishek
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 07/19/2021
 ms.author: abnarain 
-ms.custom: devx-track-azurepowershell, synapse
+ms.custom: devx-track-azurepowershell
 ---
 
 # Managed identity for Data Factory

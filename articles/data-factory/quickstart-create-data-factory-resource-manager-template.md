@@ -1,6 +1,5 @@
 ---
 title: Create an Azure Data Factory using an Azure Resource Manager template (ARM template)
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Create a sample Azure Data Factory pipeline using an Azure Resource Manager template (ARM template).
 ms.service: data-factory
 tags: azure-resource-manager
@@ -8,7 +7,7 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel, jingwang
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell, synapse
+ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 07/05/2021
 ---
 

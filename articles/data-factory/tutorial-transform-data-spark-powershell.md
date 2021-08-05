@@ -1,9 +1,7 @@
 ---
 title: 'Transform data using Spark in Azure Data Factory '
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: 'This tutorial provides step-by-step instructions for transforming data by using Spark Activity in Azure Data Factory.'
 ms.service: data-factory
-ms.custom: synapse
 ms.topic: tutorial
 ms.date: 01/22/2018
 author: nabhishek

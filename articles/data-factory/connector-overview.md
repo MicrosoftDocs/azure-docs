@@ -1,6 +1,5 @@
 ---
 title: Azure Data Factory connector overview 
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn the supported connectors in Data Factory.
 author: jianleishen
 ms.service: data-factory

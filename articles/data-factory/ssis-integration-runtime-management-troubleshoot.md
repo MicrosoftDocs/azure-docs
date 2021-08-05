@@ -1,13 +1,12 @@
 ---
 title: Troubleshoot SSIS Integration Runtime management
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: "This article provides troubleshooting guidance for management issues of SSIS Integration Runtime (SSIS IR)"
 ms.service: data-factory
 ms.topic: conceptual
 author: chinadragon0515
 ms.author: dashe
 ms.reviewer: sawinark
-ms.custom: seo-lt-2019, synapse
+ms.custom: seo-lt-2019
 ms.date: 07/08/2019
 ---
 

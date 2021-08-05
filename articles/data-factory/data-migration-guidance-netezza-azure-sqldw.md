@@ -1,12 +1,11 @@
 ---
 title: Migrate data from an on-premises Netezza server to Azure
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Use Azure Data Factory to migrate data from an on-premises Netezza server to Azure.
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019, synapse
+ms.custom: seo-lt-2019
 ms.date: 12/09/2020
 ---
 

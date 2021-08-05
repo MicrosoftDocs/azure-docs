@@ -1,6 +1,5 @@
 ---
 title: Troubleshoot CI-CD, Azure DevOps, and GitHub issues in ADF
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Use different methods to troubleshoot CI-CD issues in ADF. 
 author: ssabat
 ms.author: susabat

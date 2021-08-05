@@ -1,12 +1,11 @@
 ---
 title: Incrementally copy data using Change Tracking using Azure portal
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: In this tutorial, you create an Azure Data Factory with a pipeline that loads delta data based on change tracking information in the source database in Azure SQL Database to an Azure blob storage.
 ms.author: yexu
 author: dearandyxu
 ms.service: data-factory
 ms.topic: tutorial
-ms.custom: seo-lt-2019; seo-dt-2019, synapse
+ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 07/05/2021
 ---
 

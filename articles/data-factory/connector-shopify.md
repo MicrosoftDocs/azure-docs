@@ -1,6 +1,5 @@
 ---
 title: Copy data from Shopify (Preview) 
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to copy data from Shopify to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 ms.author: jianleishen
 author: jianleishen

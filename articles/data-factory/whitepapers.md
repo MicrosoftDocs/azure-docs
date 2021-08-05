@@ -1,11 +1,9 @@
 ---
 title: Whitepapers that describe Azure Data Factory
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: These whitepapers describe Azure Data Factory in depth.
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
-ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/04/2019
 ---

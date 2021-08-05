@@ -1,12 +1,11 @@
 ---
 title: Data integration using Azure Data Factory and Azure Data Share
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Copy, transform, and share data using Azure Data Factory and Azure Data Share
 author: dcstwh
 ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
-ms.custom: seo-lt-2019, synapse
+ms.custom: seo-lt-2019
 ms.date: 06/04/2021
 ---
 

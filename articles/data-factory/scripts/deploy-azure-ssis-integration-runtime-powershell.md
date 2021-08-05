@@ -1,12 +1,11 @@
 ---
 title: Deploy Azure SSIS integration runtime using PowerShell
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: This PowerShell script creates an Azure-SSIS integration runtime that can run SSIS packages in the cloud. 
 ms.service: data-factory
 ms.topic: article
 ms.author: sawinark
 author: swinarko
-ms.custom: seo-lt-2019, devx-track-azurepowershell, synapse
+ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 09/12/2017
 ---
 

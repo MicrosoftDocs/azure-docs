@@ -1,13 +1,12 @@
 ---
 title: Join an Azure-SSIS integration runtime to a virtual network
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to join an Azure-SSIS integration runtime to an Azure virtual network. 
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 07/16/2021
 author: swinarko
 ms.author: sawinark 
-ms.custom: devx-track-azurepowershell, synapse
+ms.custom: devx-track-azurepowershell
 ---
 
 # Join an Azure-SSIS integration runtime to a virtual network

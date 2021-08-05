@@ -1,12 +1,11 @@
 ---
 title: Copy files from multiple containers
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to use a solution template to copy files from multiple containers by using Azure Data Factory.
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019, synapse
+ms.custom: seo-lt-2019
 ms.date: 11/1/2018
 ---
 

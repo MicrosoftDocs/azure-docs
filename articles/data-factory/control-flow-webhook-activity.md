@@ -1,6 +1,5 @@
 ---
 title: Webhook activity in Azure Data Factory 
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: The webhook activity doesn't continue execution of the pipeline until it validates the attached dataset with certain criteria the user specifies.
 author: nabhishek
 ms.author: abnarain

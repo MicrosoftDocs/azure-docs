@@ -1,6 +1,5 @@
 ---
 title: Expression functions in the mapping data flow
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn about expression functions in mapping data flow.
 author: kromerm
 ms.author: makromer

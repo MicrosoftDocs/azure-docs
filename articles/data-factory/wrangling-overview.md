@@ -1,11 +1,9 @@
 ---
 title: Data wrangling in Azure Data Factory
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: An overview of Data Wrangling in Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
-ms.custom: synapse
 ms.topic: conceptual
 ms.date: 07/29/2021
 ---

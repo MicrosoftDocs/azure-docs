@@ -1,12 +1,11 @@
 ---
 title: Incrementally copy a table using Azure portal
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: In this tutorial, you create an Azure Data Factory with a pipeline that loads delta data from a table in Azure SQL Database to Azure Blob storage.
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
 ms.topic: tutorial
-ms.custom: seo-dt-2019, synapse
+ms.custom: seo-dt-2019
 ms.date: 07/05/2021
 ---
 

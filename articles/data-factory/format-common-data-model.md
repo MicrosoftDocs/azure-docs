@@ -1,6 +1,5 @@
 ---
 title: Common Data Model format
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Transform data using the Common Data Model metadata system
 author: kromerm
 ms.service: data-factory

@@ -1,12 +1,11 @@
 ---
 title: Configure a self-hosted integration runtime as a proxy for SSIS
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to configure a self-hosted integration runtime as a proxy for an Azure-SSIS Integration Runtime. 
 ms.service: data-factory
 ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
-ms.custom: seo-lt-2019, devx-track-azurepowershell, synapse
+ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 07/19/2021
 ---
 

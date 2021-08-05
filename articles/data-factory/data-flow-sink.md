@@ -1,6 +1,5 @@
 ---
 title: Sink transformation in mapping data flow
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to configure a sink transformation in mapping data flow.
 author: kromerm
 ms.author: makromer

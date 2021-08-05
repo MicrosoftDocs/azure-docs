@@ -1,6 +1,5 @@
 ---
 title: Select transformation in mapping data flow
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Azure Data Factory mapping data flow Select Transformation
 author: kromerm
 ms.author: makromer

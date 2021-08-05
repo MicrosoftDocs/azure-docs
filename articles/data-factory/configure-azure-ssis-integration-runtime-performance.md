@@ -1,11 +1,9 @@
 ---
 title: Configure performance for the Azure-SSIS Integration Runtime 
-titleSuffix: Azure Data Factory & Synapse Analytics
 description: Learn how to configure the properties of the Azure-SSIS Integration Runtime for high performance
 ms.date: 01/10/2018
 ms.topic: conceptual
 ms.service: data-factory
-ms.custom: synapse
 author: swinarko
 ms.author: sawinark
 ---
