@@ -9,7 +9,7 @@ ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 11/26/2018
 ---
 
-# Use custom activities in an Azure Data Factory or Azure Synapse pipeline
+# Use custom activities in an Azure Data Factory or Azure Synapse Analytics pipeline
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-use-custom-activities.md)

@@ -9,7 +9,7 @@ ms.custom: seo-lt-2019
 ms.date: 06/16/2021
 ---
 
-# Copy data to and from Azure Databricks Delta Lake using Azure Data Factory or Azure Synapse
+# Copy data to and from Azure Databricks Delta Lake using Azure Data Factory or Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 

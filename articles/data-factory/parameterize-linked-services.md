@@ -8,7 +8,7 @@ author: chez-charlie
 ms.author: chez
 ---
 
-# Parameterize linked services in Azure Data Factory and Azure Synapse
+# Parameterize linked services in Azure Data Factory and Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 

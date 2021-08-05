@@ -9,7 +9,7 @@ ms.custom: seo-lt-2019
 ms.date: 07/31/2018
 ---
 
-# Transform data in Azure Data Factory and Azure Synapse
+# Transform data in Azure Data Factory and Azure Synapse Analytics
 
 > [!div class="op_single_selector"]
 > * [Mapping data flow](data-flow-create.md)
@@ -64,7 +64,7 @@ The HDInsight MapReduce activity in a pipeline executes MapReduce programs on yo
 The HDInsight Streaming activity in a pipeline executes Hadoop Streaming programs on your own or on-demand Windows/Linux-based HDInsight cluster. See [HDInsight Streaming activity](transform-data-using-hadoop-streaming.md) for details about this activity.
 
 ### HDInsight Spark activity
-The HDInsight Spark activity in a pipeline executes Spark programs on your own HDInsight cluster. For details, see [Invoke Spark programs with Azure Data Factory or Azure Synapse](transform-data-using-spark.md). 
+The HDInsight Spark activity in a pipeline executes Spark programs on your own HDInsight cluster. For details, see [Invoke Spark programs with Azure Data Factory or Azure Synapse Analytics](transform-data-using-spark.md). 
 
 ### Azure Machine Learning Studio (classic) activities
 The service enables you to easily create pipelines that use a published Azure Machine Learning Studio (classic) web service for predictive analytics. Using the [Batch Execution activity](transform-data-using-machine-learning.md) in a pipeline, you can invoke a Studio (classic) web service to make predictions on the data in batch.

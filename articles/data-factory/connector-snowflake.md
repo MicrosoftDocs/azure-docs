@@ -9,7 +9,7 @@ ms.custom: seo-lt-2019
 ms.date: 03/16/2021
 ---
 
-# Copy and transform data in Snowflake using Azure Data Factory or Azure Synapse
+# Copy and transform data in Snowflake using Azure Data Factory or Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 

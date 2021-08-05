@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: jianleishen
 ---
-# Copy data from SharePoint Online List by using Azure Data Factory or Azure Synapse
+# Copy data from SharePoint Online List by using Azure Data Factory or Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use Copy Activity in Azure Data Factory and Azure Synapse pipelines to copy data from SharePoint Online List. The article builds on [Copy Activity](copy-activity-overview.md), which presents a general overview of Copy Activity.

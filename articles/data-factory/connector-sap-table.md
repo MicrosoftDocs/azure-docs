@@ -9,7 +9,7 @@ ms.custom: seo-lt-2019
 ms.date: 07/30/2021
 ---
 
-# Copy data from an SAP table using Azure Data Factory or Azure Synapse
+# Copy data from an SAP table using Azure Data Factory or Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 

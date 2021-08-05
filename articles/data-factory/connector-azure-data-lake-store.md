@@ -9,7 +9,7 @@ ms.custom: seo-lt-2019
 ms.date: 07/19/2021
 ---
 
-# Copy data to or from Azure Data Lake Storage Gen1 using Azure Data Factory or Azure Synapse
+# Copy data to or from Azure Data Lake Storage Gen1 using Azure Data Factory or Azure Synapse Analytics
 
 > [!div class="op_single_selector" title1="Select the version of Azure Data Factory that you're using:"]
 >

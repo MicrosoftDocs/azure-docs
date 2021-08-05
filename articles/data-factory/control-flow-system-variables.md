@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ---
 
-# System variables supported by Azure Data Factory and Azure Synapse
+# System variables supported by Azure Data Factory and Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 

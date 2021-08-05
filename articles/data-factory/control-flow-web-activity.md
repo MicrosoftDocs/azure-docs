@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ---
 
-# Web activity in Azure Data Factory and Azure Synapse
+# Web activity in Azure Data Factory and Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 

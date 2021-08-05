@@ -9,7 +9,7 @@ ms.custom: seo-lt-2019
 ms.date: 03/17/2021
 ---
 
-# Copy data from and to Salesforce using Azure Data Factory or Azure Synapse
+# Copy data from and to Salesforce using Azure Data Factory or Azure Synapse Analytics
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-salesforce-connector.md)

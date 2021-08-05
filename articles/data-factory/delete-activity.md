@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 08/12/2020
 ---
 
-# Delete Activity in Azure Data Factory and Azure Synapse
+# Delete Activity in Azure Data Factory and Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 

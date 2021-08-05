@@ -8,7 +8,7 @@ ms.date: 10/29/2020
 ms.author: jianleishen
 ---
 
-# JSON format in Azure Data Factory and Azure Synapse
+# JSON format in Azure Data Factory and Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 

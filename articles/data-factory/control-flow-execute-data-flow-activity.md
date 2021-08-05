@@ -8,7 +8,7 @@ ms.author: makromer
 ms.date: 05/20/2021
 ---
 
-# Data Flow activity in Azure Data Factory and Azure Synapse
+# Data Flow activity in Azure Data Factory and Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 

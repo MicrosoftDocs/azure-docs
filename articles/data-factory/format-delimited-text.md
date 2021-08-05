@@ -8,7 +8,7 @@ ms.date: 03/23/2021
 ms.author: jianleishen
 ---
 
-# Delimited text format in Azure Data Factory and Azure Synapse
+# Delimited text format in Azure Data Factory and Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
