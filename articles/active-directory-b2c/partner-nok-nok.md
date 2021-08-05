@@ -1,7 +1,7 @@
 ---
 title: Tutorial to configure Azure Active Directory B2C with Nok Nok
 titleSuffix: Azure AD B2C
-description: Tutorial to configure Azure Active Directory B2C with Nok Nok S3 to provide FIDO certified multifactor authentication
+description: Tutorial to configure Nok Nok with Azure Active Directory B2C to enable passwordless FIDO2 authentication
 services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
@@ -13,8 +13,7 @@ ms.date: 08/04/2021
 ms.author: gasinh
 ms.subservice: B2C
 ---
-
-# Tutorial: Configure Nok Nok S3 authentication suite with Azure Active Directory B2C
+# Tutorial: Configure Nok Nok with Azure Active Directory B2C to enable passwordless FIDO2 authentication
 
 In this sample tutorial, learn how to integrate the Nok Nok S3 authentication suite into your Azure Active Directory (AD) B2C tenant. [Nok Nok](https://noknok.com/) enables FIDO certified multifactor authentication such as FIDO UAF, FIDO U2F, WebAuthn, and FIDO2 for mobile and web applications. Using Nok Nok customers can improve their security posture while balancing user experience.
 
@@ -40,7 +39,7 @@ To enable passwordless FIDO authentication to your users, enable Nok Nok as an I
 
 The following architecture diagram shows the implementation. Nok Nok is acting as an Identity provider for Azure AD B2C using Open ID Connect (OIDC) to enable passwordless authentication.
 
-![image shows the architecture diagram of nok nok and azure ad b2c](./media/partner-noknok/nok-nok-architecture-diagram.png)
+![image shows the architecture diagram of nok nok and azure ad b2c](./media/partner-nok-nok/nok-nok-architecture-diagram.png)
 
 | Step | Description |
 |:------|:-----------|
@@ -57,7 +56,7 @@ The following architecture diagram shows the implementation. Nok Nok is acting a
 
 ## Onboard with Nok Nok
 
-Fill out the [Nok Nok cloud form](support@noknok.com) to create your own Nok Nok tenant. Once you submit the form, you'll receive an email explaining how to access your tenant. The email will also include access to Nok Nok guides. Follow the instructions provided in the Nok Nok integration guide to complete the OIDC configuration of your Nok Nok cloud tenant.
+Fill out the [Nok Nok cloud form](https://noknok.com/contact/) to create your own Nok Nok tenant. Once you submit the form, you'll receive an email explaining how to access your tenant. The email will also include access to Nok Nok guides. Follow the instructions provided in the Nok Nok integration guide to complete the OIDC configuration of your Nok Nok cloud tenant.
 
 ## Integrate with Azure AD B2C
 
