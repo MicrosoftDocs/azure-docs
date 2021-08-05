@@ -34,7 +34,7 @@ MSAL provides multiple benefits over ADAL, including the following features:
 |Features|MSAL|ADAL|
 |---------|---------|---------|
 |**Security**|||
-|Security fixes beyond June 30, 2022|✔️|❌|
+|Security fixes beyond June 30, 2022|[y]|[n]|
 | Proactively refresh and revoke tokens based on policy or critical events for Microsoft Graph and other APIs that support [Continuous Access Evaluation (CAE)](app-resilience-continuous-access-evaluation.md).|✔️|❌|
 | Standards compliant with OAuth v2.0 and OpenID Connect (OIDC) |✔️|❌|
 |**User accounts and experiences**|||
@@ -73,3 +73,7 @@ For more information about MSAL, including usage information and which libraries
 - [Acquire and cache tokens using MSAL](msal-acquire-cache-tokens.md)
 - [Application configuration options](msal-client-application-configuration.md)
 - [MSAL authentication libraries](reference-v2-libraries.md)
+
+
+[y]: ../articles/active-directory/develop/media/common/yes.png
+[n]: ../articles/active-directory/develop/media/common/no.png
