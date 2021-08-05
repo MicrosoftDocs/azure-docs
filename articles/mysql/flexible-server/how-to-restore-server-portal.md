@@ -39,13 +39,13 @@ Follow these steps to restore your flexible server using an earliest existing ba
 
 6.  Provide a new server name in the **Restore to new server** field.
 
-    :::image type="content" source="./media/concept-backup-restore/restore-blade-latest.png" alt-text="Earliest restore time":::
+    :::image type="content" source="./media/how-to-restore-server-portal/point-in-time-restore-latest.png" alt-text="Earliest restore time":::
 
 8.  Click **OK**.
 
 9.  A notification will be shown that the restore operation has been initiated.
 
-## Restoring to a custom restore point
+## Using restore to move a server from Public access to Private access.
 
 Follow these steps to restore your flexible server using an earliest existing backup.
 
@@ -55,17 +55,32 @@ Follow these steps to restore your flexible server using an earliest existing ba
 
 3.  Restore page will be shown with an option to choose between Earliest restore point and Custom restore point.
 
-4.  Choose **Custom restore point**.
+4.  Choose either **Earliest restore point** or a **Custom restore point**.
 
-5.  Select date and time.
-
-6.  Provide a new server name in the **Restore to new server** field.
+5.  Provide a new server name in the **Restore to new server** field.
 
 6.  Provide a new server name in the **Restore to new server** field.
 
-    :::image type="content" source="./media/concept-backup-restore/restore-blade-custom.png" alt-text="view overview":::
+    :::image type="content" source="./media/how-to-restore-server-portal/point-in-time-restore-private-dns-zone.png" alt-text="view overview":::
 
-7.  Click **OK**.
+5. Go to the **Networking** tab to configure networking settings. 
+
+6. In the **Connectivity method**, select **Private access (VNet Integration)**. Go to **Virtual Network** section, you can either select an already existing *virtual network* and *Subnet* that is delegated to *Microsoft.DBforMySQL/flexibleServers* or create a new one by clicking the *create virtual network* link. 
+    > [!Note]
+    > Only virtual networks and subnets in the same region and subscription will be listed in the drop down. </br>
+    > The chosen subnet will be delegated to *Microsoft.DBforMySQL/flexibleServers*. It means that only Azure Database for MySQL Flexible Servers can use that subnet.</br>
+
+    :::image type="content" source="./media/how-to-manage-virtual-network-portal/vnet-creation.png" alt-text="Vnet configuration":::
+
+7. Create a new or Select an existing **Private DNS Zone**.
+    > [!NOTE]
+    > Private DNS zone names must end with `mysql.database.azure.com`. </br>
+    > If you do not see the option to create a new private dns zone, please enter the server name on the **Basics** tab.</br>
+    > After the flexible server is deployed to a virtual network and subnet, you cannot move it to Public access (allowed IP addresses).</br>
+
+    :::image type="content" source="./media/how-to-manage-virtual-network-portal/private-dns-zone.png" alt-text="Vnet configuration":::
+8. Select **Review + create** to review your flexible server configuration.
+9. Select **Create** to provision the server. Provisioning can take a few minutes.
 
 8.  A notification will be shown that the restore operation has been initiated.
 
