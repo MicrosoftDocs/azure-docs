@@ -21,7 +21,9 @@ ms.custom: aaddev devx-track-js
 
 The [Microsoft Authentication Library for JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) enables JavaScript developers to authenticate users with social and local identities using [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure AD B2C).
 
-By using Azure AD B2C as an identity management service, you can customize and control how your customers sign up, sign in, and manage their profiles when they use your applications. Azure AD B2C also enables you to brand and customize the UI that your application displays during the authentication process.
+By using Azure AD B2C as an identity management service, you can customize and control how your customers sign up, sign in, and manage their profiles when they use your applications. 
+
+Azure AD B2C also enables you to brand and customize the UI that your application displays during the authentication process.
 
 ## Supported app types and scenarios
 
@@ -29,8 +31,8 @@ MSAL.js enables [single-page applications](../../active-directory-b2c/applicatio
 
 - Users **can** authenticate with their social and local identities.
 - Users **can** be authorized to access Azure AD B2C protected resources (but not Azure AD protected resources).
-- Users **cannot** obtain tokens for Microsoft APIs (e.g. MS Graph API) using [delegated permissions](./v2-permissions-and-consent.md#permission-types).
-- Users with administrator privileges **can** obtain tokens for Microsoft APIs (e.g. MS Graph API) using [delegated permissions](./v2-permissions-and-consent.md#permission-types).
+- Users **cannot** obtain tokens for Microsoft APIs (for example, MS Graph API) using [delegated permissions](./v2-permissions-and-consent.md#permission-types).
+- Users with administrator privileges **can** obtain tokens for Microsoft APIs (for example, MS Graph API) using [delegated permissions](./v2-permissions-and-consent.md#permission-types).
 
 For more information, see: [Working with Azure AD B2C](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/working-with-b2c.md)
 
