@@ -423,7 +423,7 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/healthcare-apis/azure-api-for-fhir/azure-active-directory-identity-configuration.md",
+        "source_path_from_root": "/healthcare-apis/azure-api-for-fhir/azure-ad-hcapi.md",
         "redirect_url": "/healthcare-apis/azure-api-for-fhir/azure-active-directory-identity-configuration",
         "redirect_document_id": false
     },
