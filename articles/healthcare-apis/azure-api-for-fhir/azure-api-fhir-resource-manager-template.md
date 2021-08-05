@@ -7,7 +7,7 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
 ms.author: zxue
-ms.date: 05/10/2021
+ms.date: 08/05/2021
 ---
 
 # Quickstart: Use an ARM template to deploy Azure API for FHIR

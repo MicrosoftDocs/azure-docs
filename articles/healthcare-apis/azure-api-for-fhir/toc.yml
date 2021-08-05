@@ -16,7 +16,7 @@ items:
     expanded: false
     items:
     - name: Using Portal
-      href: fhir-paas-portal-quickstart.md
+      href: azure-api-fhir-resource-manager-template.md
     - name: Using PowerShell
       href: fhir-paas-powershell-quickstart.md
     - name: Using CLI

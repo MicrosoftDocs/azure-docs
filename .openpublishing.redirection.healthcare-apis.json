@@ -437,6 +437,11 @@
         "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/centers-for-medicare-tutorial-introduction",
         "redirect_document_id": false
     },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/azure-api-for-fhir/fhir-pass-arm-template-quickstart.md",
+        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/azure-api-fhir-resource-manager-template",
+        "redirect_document_id": false
+    },
 
   ]
 }
