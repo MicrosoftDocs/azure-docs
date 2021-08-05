@@ -10,7 +10,7 @@ ms.custom: seo-lt-2019
 ms.date: 06/08/2021
 ---
 
-# Copy and transform data to and from SQL Server by using Azure Data Factory or Azure Synapse
+# Copy and transform data to and from SQL Server by using Azure Data Factory or Azure Synapse Analytics
 
 > [!div class="op_single_selector" title1="Select the version of Azure Data Factory that you're using:"]
 > * [Version 1](v1/data-factory-sqlserver-connector.md)

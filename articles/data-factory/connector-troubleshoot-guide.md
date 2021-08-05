@@ -10,7 +10,7 @@ ms.author: jianleishen
 ms.custom: has-adal-ref
 ---
 
-# Troubleshoot Azure Data Factory and Azure Synapse connectors
+# Troubleshoot Azure Data Factory and Azure Synapse Analytics connectors
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 

@@ -65,7 +65,7 @@ The following control flow activities are supported:
 Control activity | Description
 ---------------- | -----------
 [Append Variable](control-flow-append-variable-activity.md) | Add a value to an existing array variable.
-[Execute Pipeline](control-flow-execute-pipeline-activity.md) | Execute Pipeline activity allows a data gactory or Synapse pipeline to invoke another pipeline.
+[Execute Pipeline](control-flow-execute-pipeline-activity.md) | Execute Pipeline activity allows a data factory or Synapse pipeline to invoke another pipeline.
 [Filter](control-flow-filter-activity.md) | Apply a filter expression to an input array
 [For Each](control-flow-for-each-activity.md) | ForEach Activity defines a repeating control flow in your pipeline. This activity is used to iterate over a collection and executes specified activities in a loop. The loop implementation of this activity is similar to the Foreach looping structure in programming languages.
 [Get Metadata](control-flow-get-metadata-activity.md) | GetMetadata activity can be used to retrieve metadata of any data in a data factory or Synapse pipeline.

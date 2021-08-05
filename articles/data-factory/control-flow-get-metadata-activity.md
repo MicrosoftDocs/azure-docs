@@ -9,7 +9,7 @@ ms.date: 02/25/2021
 ms.author: jianleishen
 ---
 
-# Get Metadata activity in Azure Data Factory or Azure Synapse
+# Get Metadata activity in Azure Data Factory or Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 

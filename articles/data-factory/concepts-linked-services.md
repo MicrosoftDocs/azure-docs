@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ---
 
-# Linked services in Azure Data Factory and Azure Synapse
+# Linked services in Azure Data Factory and Azure Synapse Analytics
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
 > * [Version 1](v1/data-factory-create-datasets.md)

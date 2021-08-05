@@ -9,7 +9,7 @@ ms.date: 03/29/2021
 ms.author: jianleishen
 ---
 
-# Copy data to or from a file system by using Azure Data Factory or Azure Synapse
+# Copy data to or from a file system by using Azure Data Factory or Azure Synapse Analytics
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-onprem-file-system-connector.md)
 > * [Current version](connector-file-system.md)
