@@ -123,6 +123,8 @@ Now any changes made to the `main` branch start a new build and deployment of yo
 
 When you created the app, Azure Static Web Apps created a GitHub Actions file in your repository. Synchronize with the server by pulling down the latest to your local repository.
 
+Return to the terminal and run the following command `git pull origin main`.
+
 ## Clean up resources
 
 If you're not going to continue to use this application, you can delete the Azure Static Web Apps instance through the following steps:
@@ -132,8 +134,6 @@ If you're not going to continue to use this application, you can delete the Azur
 1. Select on the group name.
 1. Select on the **Delete** button.
 1. Select **Yes** to confirm the delete action.
-
-Return to the terminal and run the following command `git pull origin main`.
 
 > [!div class="nextstepaction"]
 > [Set up a custom domain](custom-domain.md)
