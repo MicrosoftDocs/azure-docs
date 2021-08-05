@@ -41,7 +41,7 @@ The following table provides a  description of each instance state and indicates
 | Starting| Virtual Machine is powering up. | Billed | 
 | Running | Virtual Machine is fully up. This is the standard working state. | Billed | 
 | Stopping | This is a transitional state between running and stopped. | Billed| 
-|Stopped | Also called PoweredOff state. The Virtual Machine is allocated on a host but not running (also referrred to as *Stopped (Allocated)*). This can be result of invoking the PowerOff API operation or invoking shutdown from within the guest OS. The Stopped state may also be observed briefly during VM creation or while starting a VM from Deallocated state.  | Billed | 
+|Stopped | The Virtual Machine is allocated on a host but not running. Also called PoweredOff state or *Stopped (Allocated)*. This can be result of invoking the PowerOff API operation or invoking shutdown from within the guest OS. The Stopped state may also be observed briefly during VM creation or while starting a VM from Deallocated state.  | Billed | 
 | Deallocating | This is the transitional state between running and deallocated. | Not billed* | 
 | Deallocated | The Virtual Machine has released the lease on the underlying hardware and is completely powered off. This state is also referred to as *Stopped (Deallocated)*. | Not billed* | 
 
