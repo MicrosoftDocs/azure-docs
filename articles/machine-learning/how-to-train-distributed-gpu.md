@@ -1,10 +1,9 @@
 ---
 title: Distributed GPU training guide 
 titleSuffix: Azure Machine Learning
-description: distributed training with MPI, Horovod, DeepSpeed, PyTorch, PyTorch Lightning, Hugging Face Transformers, TensorFlow, and InfiniBand.
+description: Distributed training with MPI, Horovod, DeepSpeed, PyTorch, PyTorch Lightning, Hugging Face Transformers, TensorFlow, and InfiniBand.
 author: fuhuifang
 ms.author: fufang
-ms.custom: subject-cost-optimization, devx-track-azurecli
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
@@ -14,7 +13,16 @@ ms.date: 08/03/2021
 
 # Distributed GPU training guide
 
-Learn more about distributed GPU training in Azure Machine Learning (ML) with MPI, Horovod, DeepSpeed, PyTorch, PyTorch Lightning, Hugging Face Transformers, TensorFlow, and InfiniBand. This guide helps you run your existing distributed training code on Azure Machine Learning. It offers tips and examples for you to follow for each framework.
+Learn more about how to use distributed GPU training code in Azure Machine Learning (ML). This article will not teach you about distributed training.  It will help you run your existing distributed training code on Azure Machine Learning. It offers tips and examples for you to follow for each framework:
+
+* [MPI](#mpi)
+    * [Horovod](#horovod)
+    * [DeepSpeed](#deepseed)
+* [Pytorch](#pytorch)
+    * [Pytorch Lightning](#pytorch-lightning)
+    * [Hugging Face Transformers](#hugging-face-transformers)
+* [Tensorflow](#tensorflow)
+* Accelerate GPU training with [InfiniBand](#infiniband)
 
 ## Prerequisites
 
@@ -346,7 +354,7 @@ TF_CONFIG='{
 ### TensorFlow example
 - [azureml-examples: Distributed TensorFlow training with MultiWorkerMirroredStrategy](https://github.com/Azure/azureml-examples/tree/main/python-sdk/workflows/train/tensorflow/mnist-distributed)
 
-## Accelerating GPU training with InfiniBand
+## <a name="infiniband"></a> Accelerating GPU training with InfiniBand
 
 Certain Azure VM series, specifically the NC, ND, and H-series, now have RDMA-capable VMs with SR-IOV and Infiniband support. These VMs communicate over the low latency and high-bandwidth InfiniBand network, which is much more performant than Ethernet-based connectivity. SR-IOV for InfiniBand enables near bare-metal performance for any MPI library (MPI is used by many distributed training frameworks and tooling, including NVIDIA's NCCL software.) These SKUs are intended to meet the needs of computationally intensive, GPU-acclerated machine learning workloads. For more information, see [Accelerating Distributed Training in Azure Machine Learning with SR-IOV](https://techcommunity.microsoft.com/t5/azure-ai/accelerating-distributed-training-in-azure-machine-learning/ba-p/1059050).
 
