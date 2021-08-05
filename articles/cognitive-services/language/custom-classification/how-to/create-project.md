@@ -1,5 +1,5 @@
 ---
-title: how to create a Custom text classification project
+title: How to create a custom text classification project
 titleSuffix: Azure Cognitive Services
 description: Learn about creating a project for Custom Text Classification.
 services: cognitive-services
@@ -204,13 +204,13 @@ After you create your project, you will only be able to change its description. 
 
 ### Update project description from Language studio
 
-* Go to your project in [Language Studio](https://language.azure.com/customTextNext/projects/classification).
+1. Go to your project in [Language Studio](https://language.azure.com/customTextNext/projects/classification).
 
-* Select **Project settings** from the left side menu.
+1. Select **Project settings** from the left side menu.
 
-* Enter the updated description in the description text box.
+1. Enter the updated description in the description text box.
 
-* Click on **Save**
+1. Click on **Save**
 
 :::image type="content" source="../media/update-project-description.png" alt-text="Update the project description" lightbox="../media/update-project-description.png":::
 

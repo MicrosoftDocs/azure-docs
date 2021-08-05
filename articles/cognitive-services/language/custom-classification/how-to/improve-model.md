@@ -1,5 +1,5 @@
 ---
-title: how to improve Custom text classification model performance
+title: How to improve custom text classification model performance
 titleSuffix: Azure Cognitive Services
 description: Learn about improving a model for Custom Text Classification.
 services: cognitive-services
