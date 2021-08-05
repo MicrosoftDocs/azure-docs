@@ -34,18 +34,18 @@ MSAL provides multiple benefits over ADAL, including the following features:
 |Features|MSAL|ADAL|
 |---------|---------|---------|
 |**Security**|||
-|Security fixes beyond June 30, 2022|![Yes][y]|![No][n]|
-| Proactively refresh and revoke tokens based on policy or critical events for Microsoft Graph and other APIs that support [Continuous Access Evaluation (CAE)](app-resilience-continuous-access-evaluation.md).|![Yes][y]|![No][n]|
-| Standards compliant with OAuth v2.0 and OpenID Connect (OIDC) |![Yes][y]|![No][n]|
+|Security fixes beyond June 30, 2022|![Y][y]|![X][n]|
+| Proactively refresh and revoke tokens based on policy or critical events for Microsoft Graph and other APIs that support [Continuous Access Evaluation (CAE)](app-resilience-continuous-access-evaluation.md).|![Y][y]|![X][n]|
+| Standards compliant with OAuth v2.0 and OpenID Connect (OIDC) |![Y][y]|![X][n]|
 |**User accounts and experiences**|||
-|Azure Active Directory (Azure AD) accounts|![Yes][y]|![Yes][y]|
-| Microsoft account (MSA) |![Yes][y]|![No][n]|
-| Azure AD B2C accounts |![Yes][y]|![No][n]|
-| Best single sign-on experience |![Yes][y]|![No][n]|
+|Azure Active Directory (Azure AD) accounts|![Y][y]|![Y][y]|
+| Microsoft account (MSA) |![Y][y]|![X][n]|
+| Azure AD B2C accounts |![Y][y]|![X][n]|
+| Best single sign-on experience |![Y][y]|![X][n]|
 |**Resilience**|||
-|Azure AD Back-up System|![Yes][y]|Partially supported|
-| Proactive token renewal |![Yes][y]|![No][n]|
-| Throttling |![Yes][y]|![No][n]|
+|Azure AD Back-up System|![Y][y]|Partially supported|
+| Proactive token renewal |![Y][y]|![X][n]|
+| Throttling |![Y][y]|![X][n]|
 
 ## AD FS support in MSAL.NET
 
