@@ -473,6 +473,7 @@ Custom Voice is available in the neural tier (a.k.a, Custom Neural Voice). Based
 | Korean (Korea) | `ko-KR` | Yes | Yes |
 | Norwegian (Bokmål, Norway) | `nb-NO` | Yes | No |
 | Portuguese (Brazil) | `pt-BR` | Yes | Yes |
+| Russian (Russia) | `ru-RU` | Yes | Yes |
 | Spanish (Mexico) | `es-MX` | Yes | Yes |
 | Spanish (Spain) | `es-ES` | Yes | Yes |
 
