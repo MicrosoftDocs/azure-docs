@@ -739,13 +739,13 @@ This scenario is currently in **PREVIEW**.
 
 ### Multiple alerts possibly related to Ransomware activity detected (Public preview)
 
-Azure Sentinel also generates an incident when multiple alerts of different types are detected from the following data sources, and may be related to Ransomware activity:
+Azure Sentinel generates an incident when multiple alerts of different types are detected from the following data sources, and may be related to Ransomware activity:
 
 - [Azure Defender (Azure Security Center)](connect-azure-security-center.md)
-- [Microsoft 365 Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md)
-- [Microsoft 365 Defender for Identity](connect-azure-atp.md)
+- [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md)
+- [Microsoft Defender for Identity](connect-azure-atp.md)
 - [Microsoft Cloud App Security](connect-cloud-app-security.md)
-- [Azure Sentinel scheduled analytics rules](tutorial-detect-threats-built-in.md#scheduled) with tactics information
+- [Azure Sentinel scheduled analytics rules](tutorial-detect-threats-built-in.md#scheduled). Fusion only considers scheduled analytics rules with tactics information.
 
 Such Fusion incidents are named **Multiple alerts possibly related to Ransomware activity detected**, and are generated when relevant alerts are detected during a specific time-frame and are associated with the **Execution** and **Defense Evasion** stages of an attack.
 

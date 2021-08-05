@@ -44,10 +44,10 @@ Incidents are generated for alerts that are possibly associated with Ransomware 
 Supported data connectors include:
 
 - [Azure Defender (Azure Security Center)](connect-azure-security-center.md)
-- [Microsoft 365 Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md)
-- [Microsoft 365 Defender for Identity](connect-azure-atp.md)
+- [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md)
+- [Microsoft Defender for Identity](connect-azure-atp.md)
 - [Microsoft Cloud App Security](connect-cloud-app-security.md)
-- [Azure Sentinel Scheduled analytics rules](tutorial-detect-threats-built-in.md#scheduled) from inside Azure Sentinel
+- [Azure Sentinel scheduled analytics rules](tutorial-detect-threats-built-in.md#scheduled)
 
 For more information, see [Multiple alerts possibly related to Ransomware activity detected](fusion.md#multiple-alerts-possibly-related-to-ransomware-activity-detected-public-preview).
 
