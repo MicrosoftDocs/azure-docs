@@ -5,17 +5,16 @@ services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
 manager: femila
-editor: jwargo
 
-ms.assetid: 5640dd4a-a91e-4aa0-a833-93615bde49b4
+
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: python
 ms.devlang: php
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 08/05/2021
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-python
 ---
@@ -135,6 +134,9 @@ def generate_sas_token(self):
 ```
 
 ### Send a notification using HTTP REST API
+
+> [!NOTE]
+> Microsoft Push Notification Service (MPNS) has been deprecated and is no longer supported.
 
 First, let use define a class representing a notification.
 

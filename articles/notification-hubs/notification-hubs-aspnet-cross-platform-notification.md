@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/14/2020
+ms.date: 08/05/2021
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 10/02/2019
@@ -32,6 +32,9 @@ This article demonstrates how to take advantage of templates to send a notificat
 > With Notification Hubs, a device can register multiple templates by using the same tag. In this case, an incoming message that targets the tag results in multiple notifications being delivered to the device, one for each template. This process enables you to display the same message in multiple visual notifications, such as both as a badge and as a toast notification in a Windows Store app.
 
 ## Send cross-platform notifications using templates
+
+> [!NOTE]
+> Microsoft Push Notification Service (MPNS) has been deprecated and is no longer supported.
 
 This section uses the sample code you built in the [Send notifications to specific users by using Azure Notification Hubs] tutorial. You can [download the complete sample from GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
 

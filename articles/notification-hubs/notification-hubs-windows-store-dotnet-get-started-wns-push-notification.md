@@ -12,9 +12,9 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: "mvc, ms.custom: devx-track-csharp"
-ms.date: 12/05/2019
+ms.date: 08/05/2021
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 12/04/2019
 ---
 
@@ -50,6 +50,9 @@ You take the following steps:
 Completing this tutorial is a prerequisite for all other Notification Hubs tutorials for UWP apps.
 
 ## Create an app in Windows Store
+
+> [!NOTE]
+> Microsoft Push Notification Service (MPNS) has been deprecated and is no longer supported.
 
 To send push notifications to UWP apps, associate your app to the Windows Store. Then, configure your notification hub to integrate with WNS.
 

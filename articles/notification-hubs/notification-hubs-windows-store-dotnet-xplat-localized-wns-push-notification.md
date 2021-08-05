@@ -5,18 +5,16 @@ services: notification-hubs
 documentationcenter: windows
 author: sethmanheim
 manager: femila
-editor: jwargo
 
-ms.assetid: c454f5a3-a06b-45ac-91c7-f91210889b25
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: "mvc, devx-track-csharp"
-ms.date: 03/22/2019
+ms.date: 08/05/2021
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 03/22/2019
 ---
 
@@ -27,6 +25,9 @@ ms.lastreviewed: 03/22/2019
 > * [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 
 ## Overview
+
+> [!NOTE]
+> Microsoft Push Notification Service (MPNS) has been deprecated and is no longer supported.
 
 This tutorial shows you how to push localized notifications to mobile devices registered with the Notification Hubs service. In the tutorial, you update applications created in the [Tutorial: Send notifications to specific devices (Universal Windows Platform)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) to support the following scenarios:
 

@@ -5,15 +5,13 @@ services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
 manager: femila
-editor: jwargo
 
-ms.assetid: fd0ee230-132c-4143-b4f9-65cef7f463a1
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/07/2020
+ms.date: 08/05/2021
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 04/08/2019
@@ -92,6 +90,9 @@ Registrations and installations must contain a valid PNS handle for each device/
 > The Installations API does not support the Baidu service (although the Registrations API does). 
 
 ### Templates
+
+> [!NOTE]
+> Microsoft Push Notification Service (MPNS) has been deprecated and is no longer supported.
 
 If you want to use [Templates](notification-hubs-templates-cross-platform-push-messages.md), the device installation also holds all templates associated with that device in a JSON format (see sample above). The template names help target different templates for the same device.
 

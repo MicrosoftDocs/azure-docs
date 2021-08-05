@@ -6,17 +6,15 @@ services: notification-hubs
 documentationcenter: nodejs
 author: sethmanheim
 manager: femila
-editor: jwargo
 
-ms.assetid: ded4749c-6c39-4ff8-b2cf-1927b3e92f93
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 04/29/2020
+ms.date: 08/05/2021
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-js
 ---
@@ -97,6 +95,9 @@ The `NotificationHubService` object exposes the following object instances for s
 - **iOS** - use the `ApnsService` object, which is accessible at `notificationHubService.apns`
 - **Windows Phone** - use the `MpnsService` object, which is available at `notificationHubService.mpns`
 - **Universal Windows Platform** - use the `WnsService` object, which is available at `notificationHubService.wns`
+
+> [!NOTE]
+> Microsoft Push Notification Service (MPNS) has been deprecated and is no longer supported.
 
 ### How to: Send push notifications to Android applications
 

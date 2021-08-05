@@ -6,22 +6,23 @@ documentationcenter: windows
 keywords: push notification,push notification,windows phone push
 author: sethmanheim
 manager: femila
-editor: jwargo
 
-ms.assetid: d872d8dc-4658-4d65-9e71-fa8e34fae96e
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: "mvc, devx-track-csharp"
-ms.date: 01/04/2019
+ms.date: 08/05/2021
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ---
 
 # Tutorial: Send push notifications to Windows Phone apps using Notification Hubs
+
+> [!NOTE]
+> Microsoft Push Notification Service (MPNS) has been deprecated and is no longer supported.
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
