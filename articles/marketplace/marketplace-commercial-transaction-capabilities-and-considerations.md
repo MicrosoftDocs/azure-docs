@@ -15,7 +15,7 @@ This article describes pricing, billing, invoicing and payout considerations for
 
 ## Transactions by listing option
 
-Either the publisher or Microsoft is responsible for managing software license transactions for offers in the commercial marketplace. The listing option you choose for your offer determines who manages the transaction. For availability and explanations of each publishing option, see [Introduction to listing options](determine-your-listing-type.md)
+Either the publisher or Microsoft is responsible for managing software license transactions for offers in the commercial marketplace. The listing option you choose for your offer determines who manages the transaction. For availability and explanations of each publishing option, see [Introduction to listing options](determine-your-listing-type.md).
 
 Move to non-transact article: <strike>### Contact me, free trial, and BYOL options
 
