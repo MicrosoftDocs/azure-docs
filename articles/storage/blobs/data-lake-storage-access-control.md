@@ -18,7 +18,7 @@ Azure Data Lake Storage Gen2 implements an access control model that supports bo
 
 ## About ACLs
 
-You can associate a [security principal](../../role-based-access-control/overview.md#security-principal) with an access level for files and directories. These associations are captured in an *access control list (ACL)*. Each file and directory in your storage account has an access control list. When a security principal attempts an operation on a file or directory, An ACL check determines whether that security principal (user, group, service principal, or managed identity) has the correct permission level to perform the operation.
+You can associate a [security principal](../../role-based-access-control/overview.md#security-principal) with an access level for files and directories. Each association is captured as an entry in an *access control list (ACL)*. Each file and directory in your storage account has an access control list. When a security principal attempts an operation on a file or directory, An ACL check determines whether that security principal (user, group, service principal, or managed identity) has the correct permission level to perform the operation.
 
 > [!NOTE]
 > ACLs apply only to security principals in the same tenant, and they don't apply to users who use Shared Key or shared access signature (SAS) token authentication. That's because no identity is associated with the caller and therefore security principal permission-based authorization cannot be performed.  
@@ -149,9 +149,19 @@ The owning group can be changed by:
 > [!NOTE]
 > The owning group cannot change the ACLs of a file or directory.  While the owning group is set to the user who created the account in the case of the root directory, **Case 1** above, a single user account isn't valid for providing permissions via the owning group. You can assign this permission to a valid user group if applicable.
 
-## Access check algorithm
+## How permissions are evaluated
 
-The following pseudocode represents the access check algorithm for storage accounts.
+Identities are evaluated in the following order: 
+
+1. Superuser
+2. Owning user
+3. Named user, service principal or managed identity
+4. Owning group or named group
+5. All other users
+
+If a security principal making a request is the owning user but is also listed as a named user, then the permission granted by the owning user entry of the ACL applies.
+
+The following pseudocode represents the access check algorithm for storage accounts. This algorithm shows the order in which identities are evaluated.
 
 ```python
 def access_check( user, desired_perms, path ) : 
