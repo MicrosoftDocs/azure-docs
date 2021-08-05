@@ -2,6 +2,7 @@
 title: Copy and transform data in Azure Synapse Analytics
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data to and from Azure Synapse Analytics, and transform data in Azure Synapse Analytics by using Data Factory.
+titleSuffix: Azure Data Factory & Azure Synapse
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
