@@ -10,15 +10,12 @@
     href: whats-new.md
 - name: Quickstarts
   items:
-    - name: Create an Automation account
+    - name: Create Automation account - Portal
       href: automation-quickstart-create-account.md
     - name: Create a PowerShell runbook
       href: automation-quickstart-create-runbook.md
     - name: Enable Desired State Configuration for a machine
       href: automation-quickstart-dsc-configuration.md
-    - name: Create Automation account - ARM template
-      displayName: Resource Manager
-      href: quickstart-create-automation-account-template.md
 - name: Tutorials
   items:
     - name: Create a graphical runbook
