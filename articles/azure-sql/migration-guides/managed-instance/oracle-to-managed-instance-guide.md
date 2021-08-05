@@ -161,7 +161,7 @@ Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows 
 
   :::image type="content" source="./media/oracle-to-managed-instance-guide/ssma-tester-new.png" alt-text="Screenshot that shows new test case.":::
 
-2.On the Test Case wizard, provide the following information.
+2. On the Test Case wizard, provide the following information.
 
    Name: Enter the name to identify the test case.
 
