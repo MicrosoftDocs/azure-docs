@@ -97,7 +97,7 @@ The following is a list of workloads that have been validated to work with the N
 - Shared user space for workloads like machine learning, high-performance computing, etc
 
 The following workloads have open issues and should not be deployed for production:
-- Locking issues with IBM MQ
+- IBM MQ will experience locking issues.
 - Metadata heavy workloads such as untar may experience high latency
 - Oracle Database will experience incompatibility with its dNFS feature.
 Reach out to azurefilesnfs@microsoft .com to validate workloads not in the prior list or to share more successful workloads stories.
