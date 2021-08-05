@@ -59,7 +59,7 @@ For more granular controls, [Conditional Access](../conditional-access/overview.
 
 To learn about licensing, see [Features and licenses for Azure AD Multi-Factor Authentication](concept-mfa-licensing.md).
 
-To learn more about the authentication methods in Azure Active Directory, see [authentication methods](concept-authentication-methods.md).
+To learn more about different authentication and validation methods, see [Authentication methods in Azure Active Directory](concept-authentication-methods.md).
 
 To see MFA in action, enable Azure AD Multi-Factor Authentication for a set of test users in the following tutorial:
 
