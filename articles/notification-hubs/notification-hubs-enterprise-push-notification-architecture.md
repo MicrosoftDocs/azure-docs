@@ -285,7 +285,7 @@ The full sample code is available at [Notification Hub Samples]. It is split int
 
 <!-- Links -->
 [Notification Hub Samples]: https://github.com/Azure/azure-notificationhubs-samples
-[Azure Mobile Service]: https://azure.microsoft.com/documentation/services/mobile-services/
+[Azure Mobile Service]: https://azure.microsoft.com/en-in/services/app-service/mobile/
 [Azure Service Bus]: ../service-bus-messaging/service-bus-messaging-overview.md
 [Service Bus Pub/Sub programming]: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md
 [Azure WebJob]: ../app-service/webjobs-create.md
