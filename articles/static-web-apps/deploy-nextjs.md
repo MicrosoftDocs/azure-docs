@@ -101,7 +101,7 @@ export async function getStaticProps({ params }) {
 
     ```javascript
     module.exports = {
-      trailingSlash: true,
+      trailingSlash: true
     };
     ```
 
