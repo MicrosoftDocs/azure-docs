@@ -1,6 +1,6 @@
 ---
 title: Column patterns in Azure Data Factory mapping data flow
-titleSuffix: Azure Data Factory& Azure Synapse
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Create generalized data transformation patterns using column patterns in Azure Data Factory mapping data flows
 author: kromerm
 ms.author: makromer

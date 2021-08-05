@@ -1,5 +1,6 @@
 ---
 title: Excel format in Azure Data Factory 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: This topic describes how to deal with Excel format in Azure Data Factory and Azure Synapse Analytics.
 author: jianleishen
 ms.service: data-factory

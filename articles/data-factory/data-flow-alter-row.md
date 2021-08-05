@@ -1,5 +1,6 @@
 ---
 title: Alter row transformation in mapping data flow
+titleSuffix: Azure Data Factory & Azure Synapse
 description: How to update database target using the alter row transformation in the mapping data flow in Azure Data Factory and Azure Synapse Analytics pipelines.
 author: kromerm
 ms.author: makromer

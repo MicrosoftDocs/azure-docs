@@ -1,6 +1,6 @@
 ---
 title: Integration runtime
-titleSuffix: Azure Data Factory& Azure Synapse
+titleSuffix: Azure Data Factory & Azure Synapse
 description: 'Learn about integration runtime in Azure Data Factory.'
 ms.author: lle
 author: lrtoyou1223

@@ -1,5 +1,6 @@
 ---
 title: Copy data from an HTTP source
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from a cloud or on-premises HTTP source to supported sink data stores by using a copy activity in an Azure Data Factory or Azure Synapse Analytics pipeline.
 author: jianleishen
 ms.service: data-factory

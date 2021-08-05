@@ -1,6 +1,6 @@
 ---
 title: Copy and transform data to and from SQL Server
-titleSuffix: Azure Data Factory& Azure Synapse
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about how to copy and transform data to and from SQL Server database that is on-premises or in an Azure VM by using Azure Data Factory.
 ms.author: jianleishen
 author: jianleishen

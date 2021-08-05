@@ -1,5 +1,6 @@
 ---
 title: Create Azure integration runtime
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to create Azure integration runtime in Azure Data Factory and Azure Synapse Analytics, which is used to copy data and dispatch transform activities. 
 ms.service: data-factory
 ms.topic: conceptual

@@ -1,6 +1,6 @@
 ---
 title: Transform data with Databricks Jar
-titleSuffix: Azure Data Factory& Azure Synapse
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to process or transform data by running a Databricks Jar within an Azure Data Factory pipeline.
 ms.service: data-factory
 ms.custom: synapse

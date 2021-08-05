@@ -1,6 +1,6 @@
 ---
 title: Transform data using U-SQL script
-titleSuffix: Azure Data Factory& Azure Synapse
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to process or transform data by running U-SQL scripts on Azure Data Lake Analytics compute service.
 ms.author: abnarain
 author: nabhishek

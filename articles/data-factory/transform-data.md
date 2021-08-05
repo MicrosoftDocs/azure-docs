@@ -1,5 +1,6 @@
 ---
 title: Transform data
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Transform data or process data in Azure Data Factory or Azure Synapse Analytics using Hadoop, Azure Machine Learning Studio (classic), or Azure Data Lake Analytics.
 ms.service: data-factory
 ms.topic: conceptual
