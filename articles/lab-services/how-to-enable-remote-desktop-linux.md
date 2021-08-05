@@ -23,7 +23,7 @@ To use RDP, the instructor must:
   - Install a Linux graphical desktop environment (such as XFCE, MATE, and so on).
 
 > [!WARNING]
->  We recommend using a different graphical desktop environment than [GNOME](https://www.gnome.org/).  You should avoid installing GNOME on lab VMs because GNOME has a conflict with the Azure Linux Agent which is needed for the VMs to work properly in Azure Lab Services.  For example, we recommend using a graphical desktop environment, such as XFCE.
+>  We recommend using a different graphical desktop environment than [GNOME](https://www.gnome.org/).  You should avoid installing GNOME on lab VMs because GNOME has a conflict with the Azure Linux Agent which is needed for the VMs to work properly in Azure Lab Services.  As mentioned above, we recommend using a graphical desktop environment, such as XFCE or MATE.
 
 ### X2Go Setup
 To use X2Go, the instructor must:

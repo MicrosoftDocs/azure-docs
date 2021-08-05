@@ -95,7 +95,7 @@ For more information, see [Set up a license server as a shared resource](./how-t
 ### Template machine
 Some of the installation files that you need for PLTW are large. When you download the files to a lab template VM, they might take a long time to copy.
 
-Instead of downloading installation files to the template machine and installing everything there, we recommend creating your PLTW images in your physical environment.  You can then import the custom images into Shared Image Gallery so that you can use them to create your labs.  For more information, see [Recommended approaches for creating custom images](approaches-for-custom-image-creation.md).
+Instead of downloading installation files to the template machine and installing everything there, we recommend creating your PLTW images in your physical environment.  You can then import the custom images into a shared image gallery so that you can use them to create your labs.  For more information, see [Recommended approaches for creating custom images](approaches-for-custom-image-creation.md).
 
 As you follow this recommendation, note the major tasks for setting up a lab:
 

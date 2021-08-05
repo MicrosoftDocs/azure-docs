@@ -114,15 +114,15 @@
         href: approaches-for-custom-image-creation.md
       - name: Windows
         items:
-          - name: Bring a custom image from an Azure virtual machine
+          - name: Bring a custom image from an Azure VM
             href: how-to-bring-custom-windows-image-azure-vm.md
-          - name: Bring a custom image from a physical lab environment
-            href: how-to-bring-custom-windows-image-vhd.md
+          - name: Bring a custom image from a physical environment
+            href: upload-custom-image-shared-image-gallery.md
       - name: Linux
         items:
-          - name: Bring a custom image from an Azure virtual machine
+          - name: Bring a custom image from an Azure VM
             href: how-to-bring-custom-linux-image-azure-vm.md
-          - name: Bring a custom image from a physical lab environment
+          - name: Bring a custom image from a physical environment
             href: how-to-bring-custom-linux-image-vhd.md
     - name: Add additional owners to a classroom lab
       href: how-to-add-user-lab-owner.md
