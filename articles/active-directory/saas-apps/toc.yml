@@ -595,6 +595,8 @@
         href: easyterritory-tutorial.md
       - name: EBSCO
         href: ebsco-tutorial.md
+      - name: Eccentex AppBase for Azure
+        href: eccentex-appbase-for-azure-tutorial.md   
       - name: eCornell
         href: ecornell-tutorial.md
       - name: E-days
@@ -2256,6 +2258,8 @@
         href: zuddl-tutorial.md
       - name: Zwayam
         href: zwayam-tutorial.md
+      - name: Zylo
+        href: zylo-tutorial.md  
   - name: User provisioning tutorials
     expanded: true
     items:
