@@ -1,7 +1,7 @@
 ---
 title: Work with Defender for IoT APIs
 description: Use an external REST API to access the data discovered by sensors and management consoles and perform actions with that data.
-ms.date: 08/04/2021
+ms.date: 08/05/2021
 ms.topic: reference
 ---
 
@@ -77,7 +77,7 @@ Use this API to request a list of all devices that a Defender for IoT sensor has
 
 #### Method
 
-**GET**
+- **GET**
 
 Requests a list of all the devices that the Defender for IoT sensor has detected.
 
@@ -93,7 +93,7 @@ Requests a list of all the devices that the Defender for IoT sensor has detected
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
@@ -282,7 +282,7 @@ Use this API to request a list of all the connections per device.
 
 #### Method
 
-**GET**
+- **GET**
 
 #### Query parameters
 
@@ -318,7 +318,7 @@ If you don't set the query parameters, all the device connections are returned.
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
@@ -456,7 +456,7 @@ Use this API to request a list of all known CVEs discovered on devices in the ne
 
 #### Method
 
-**GET**
+- **GET**
 
 #### Query parameters
 
@@ -482,7 +482,7 @@ By default, this API provides the list of all the device IPs with CVEs, up to 10
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
@@ -571,7 +571,7 @@ Use this API to request a list of all the alerts that the Defender for IoT senso
 
 #### Method
 
-**GET**
+- **GET**
 
 #### Query parameters
 
@@ -601,7 +601,7 @@ Use this API to request a list of all the alerts that the Defender for IoT senso
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
@@ -713,7 +713,7 @@ Use this API to request a list of events reported to the event timeline.
 
 #### Method
 
-**GET**
+- **GET**
 
 #### Query parameters
 
@@ -733,7 +733,7 @@ Use this API to request a list of events reported to the event timeline.
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
@@ -834,11 +834,11 @@ Use this API to request vulnerability assessment results for each device.
 
 #### Method
 
-**GET**
+- **GET**
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
@@ -1089,79 +1089,79 @@ This assessment is based on general network and system information and not on a 
 
 #### Method
 
-**GET**
+- **GET**
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
 JSON object that represents assessed results. Each key can be nullable. Otherwise, it will contain a JSON object with non-nullable keys.
 
-### Result fields
+#### Result fields
 
-**Keys**
+- **Keys**
 
-**unauthorizedDevices**
+    **unauthorizedDevices**
 
-| Field name | Type | List of values |
-| ---------- | ---- | -------------- |
-| **address** | String | IP address |
-| **name** | String | - |
-| **firstDetectionTime** | Numeric | Epoch (UTC) |
-| lastSeen | Numeric | Epoch (UTC) |
+    | Field name | Type | List of values |
+    | ---------- | ---- | -------------- |
+    | **address** | String | IP address |
+    | **name** | String | - |
+    | **firstDetectionTime** | Numeric | Epoch (UTC) |
+    | lastSeen | Numeric | Epoch (UTC) |
 
-**illegalTrafficByFirewallRules**
+    **illegalTrafficByFirewallRules**
 
-| Field name | Type | List of values |
-| ---------- | ---- | -------------- |
-| **server** | String | IP address |
-| **client** | String | IP address |
-| **port** | Numeric | - |
-| **transport** | String | TCP, UDP, or ICMP |
+    | Field name | Type | List of values |
+    | ---------- | ---- | -------------- |
+    | **server** | String | IP address |
+    | **client** | String | IP address |
+    | **port** | Numeric | - |
+    | **transport** | String | TCP, UDP, or ICMP |
 
-**weakFirewallRules**
+    **weakFirewallRules**
 
-| Field name | Type | List of values |
-| ---------- | ---- | -------------- |
-| **sources** | JSON array of sources. Each source can be in any of four formats. | "Any", "ip address (Host)", "from ip-to ip (RANGE)", "ip address, subnet mask (NETWORK)" |
-| **destinations** | JSON array of destinations. Each destination can be in any of four formats. | "Any", "ip address (Host)", "from ip-to ip (RANGE)", "ip address, subnet mask (NETWORK)" |
-| **ports** | JSON array of ports in any of three formats | "Any", "port (protocol, if detected)", "from port-to port (protocol, if detected)" |
+    | Field name | Type | List of values |
+    | ---------- | ---- | -------------- |
+    | **sources** | JSON array of sources. Each source can be in any of four formats. | "Any", "ip address (Host)", "from ip-to ip (RANGE)", "ip address, subnet mask (NETWORK)" |
+    | **destinations** | JSON array of destinations. Each destination can be in any of four formats. | "Any", "ip address (Host)", "from ip-to ip (RANGE)", "ip address, subnet mask (NETWORK)" |
+    | **ports** | JSON array of ports in any of three formats | "Any", "port (protocol, if detected)", "from port-to port (protocol, if detected)" |
 
-**accessPoints**
+    **accessPoints**
 
-| Field name | Type | List of values |
-| ---------- | ---- | -------------- |
-| **macAddress** | String | MAC address |
-| **vendor** | String | Vendor name |
-| **ipAddress** | String | IP address, or N/A |
-| **name** | String | Device name, or N/A |
-| **wireless** | String | No, Suspected, or Yes |
+    | Field name | Type | List of values |
+    | ---------- | ---- | -------------- |
+    | **macAddress** | String | MAC address |
+    | **vendor** | String | Vendor name |
+    | **ipAddress** | String | IP address, or N/A |
+    | **name** | String | Device name, or N/A |
+    | **wireless** | String | No, Suspected, or Yes |
 
-**connectionsBetweenSubnets**
+    **connectionsBetweenSubnets**
 
-| Field name | Type | List of values |
-| ---------- | ---- | -------------- |
-| **server** | String | IP address |
-| **client** | String | IP address |
+    | Field name | Type | List of values |
+    | ---------- | ---- | -------------- |
+    | **server** | String | IP address |
+    | **client** | String | IP address |
 
-**industrialMalwareIndicators**
+    **industrialMalwareIndicators**
 
-| Field name | Type | List of values |
-| ---------- | ---- | -------------- |
-| **detectionTime** | Numeric | Epoch (UTC) |
-| **alertMessage** | String | - |
-| **description** | String | - |
-| **devices** | JSON array | Device names | 
+    | Field name | Type | List of values |
+    | ---------- | ---- | -------------- |
+    | **detectionTime** | Numeric | Epoch (UTC) |
+    | **alertMessage** | String | - |
+    | **description** | String | - |
+    | **devices** | JSON array | Device names |
 
-**internetConnections**
+    **internetConnections**
 
-| Field name | Type | List of values |
-| ---------- | ---- | -------------- |
-| **internalAddress** | String | IP address |
-| **authorized** | Boolean | Yes or No | 
-| **externalAddresses** | JSON array | IP address |
+    | Field name | Type | List of values |
+    | ---------- | ---- | -------------- |
+    | **internalAddress** | String | IP address |
+    | **authorized** | Boolean | Yes or No |
+    | **externalAddresses** | JSON array | IP address |
 
 #### Response example
 
@@ -1333,11 +1333,11 @@ Use this API to request results of a general vulnerability assessment. This asse
 
 #### Method
 
-**GET**
+- **GET**
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
@@ -1345,51 +1345,51 @@ JSON object that represents assessed results. Each key contains a JSON array of 
 
 #### Result fields
 
-**Keys**
+- **Keys**
 
-**backupServer**
+    **backupServer**
 
-| Field name | Type | List of values |
-|--|--|--|
-| **source** | String | IP address |
-| **destination** | String | IP address |
-| **port** | Numeric | - |
-| **transport** | String | TCP or UDP |
-| **backupMaximalInterval** | String | - |
-| **lastSeenBackup** | Numeric | Epoch (UTC) |
+    | Field name | Type | List of values |
+    |--|--|--|
+    | **source** | String | IP address |
+    | **destination** | String | IP address |
+    | **port** | Numeric | - |
+    | **transport** | String | TCP or UDP |
+    | **backupMaximalInterval** | String | - |
+    | **lastSeenBackup** | Numeric | Epoch (UTC) |
 
-**ipNetworks**
+    **ipNetworks**
 
-| Field name | Type | List of values |
-|--|--|--|
-| **addresse**s | Numeric | - |
-| **network** | String | IP address |
-| **mask** | String | Subnet mask |
+    | Field name | Type | List of values |
+    |--|--|--|
+    | **addresse**s | Numeric | - |
+    | **network** | String | IP address |
+    | **mask** | String | Subnet mask |
 
-**protocolProblems**
+    **protocolProblems**
 
-| Field name | Type | List of values |
-|--|--|--|
-| **protocol** | String | - |
-| **addresses** | JSON array | IP addresses |
-| **alert** | String | - |
-| **reportTime** | Numeric | Epoch (UTC) |
+    | Field name | Type | List of values |
+    |--|--|--|
+    | **protocol** | String | - |
+    | **addresses** | JSON array | IP addresses |
+    | **alert** | String | - |
+    | **reportTime** | Numeric | Epoch (UTC) |
 
-**protocolDataVolumes**
+    **protocolDataVolumes**
 
-| Field name | Type | List of values |
-|--|--|--|
-| protocol | String | - |
-| volume | String | "volume number MB" |
+    | Field name | Type | List of values |
+    |--|--|--|
+    | protocol | String | - |
+    | volume | String | "volume number MB" |
 
-**disconnections**
+    **disconnections**
 
-| Field name | Type | List of values |
-|--|--|--|
-| **assetAddress** | String | IP address |
-| **assetName** | String | - |
-| **lastDetectionTime** | Numeric | Epoch (UTC) |
-| **backToNormalTime** | Numeric | Epoch (UTC) |     
+    | Field name | Type | List of values |
+    |--|--|--|
+    | **assetAddress** | String | IP address |
+    | **assetName** | String | - |
+    | **lastDetectionTime** | Numeric | Epoch (UTC) |
+    | **backToNormalTime** | Numeric | Epoch (UTC) |
 
 #### Response example
 
@@ -1531,11 +1531,11 @@ You don't need a Defender for IoT access token to use this API.
 
 #### Method
 
-**POST**
+- **POST**
 
 #### Request type
 
-**JSON**
+- **JSON**
 
 #### Query parameters
 
@@ -1561,7 +1561,7 @@ request:
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
@@ -1595,11 +1595,11 @@ Use this API to let users change their own passwords. All Defender for IoT user 
 
 #### Method
 
-**POST**
+- **POST**
 
 #### Request type
 
-**JSON**
+- **JSON**
 
 #### Request example
 
@@ -1619,7 +1619,7 @@ request:
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
@@ -1667,11 +1667,11 @@ Use this API to let system administrators change passwords for specified users. 
 
 #### Method
 
-**POST**
+- **POST**
 
 #### Request type
 
-**JSON**
+- **JSON**
 
 #### Request example
 
@@ -1691,7 +1691,7 @@ request:
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
@@ -1746,11 +1746,11 @@ response:
 
 Use this API to retrieve a PCAP file related to an alert
 
-This endpoint does not use a regular access token for authorizationץ Instead, it requires a special token created by the `/external/v2/alerts/pcap` API endpoint on the CM.
+This endpoint does not use a regular access token for authorization. Instead, it requires a special token created by the `/external/v2/alerts/pcap` API endpoint on the CM.
 
 #### Method
 
-GET
+- **GET**
 
 #### Query Parameters
 
@@ -1760,7 +1760,7 @@ Example:
 
 #### Response type
 
-JSON
+- **JSON**
 
 #### Response content
 
@@ -1769,7 +1769,7 @@ JSON
 
 #### Response example
 
-### Error
+#### Error
 
 ```json
 {
@@ -1787,17 +1787,25 @@ JSON
 
 This section describes on-premises management console APIs for:
 
-- [Alert exclusions](#alert-exclusions)
+- [Alert Exclusions](#alert-exclusions)
 
-- [Device information](#retrieve-device-information---externalv1devices-)
+- [Retrieve device information - /external/v1/devices](#retrieve-device-information---externalv1devices)
 
-- [Alert information](#retrieve-alert-information---externalv1alerts)
+- [Retrieve alert information - /external/v1/alerts](#retrieve-alert-information---externalv1alerts)
+
+- [QRadar alerts](#qradar-alerts)
+
+- [Alert exclusions (maintenance window) - /external/v1/maintenanceWindow](#alert-exclusions-maintenance-window---externalv1maintenancewindow)
+
+- [Change password - /external/authentication/set_password (1)](#change-password---externalauthenticationset_password-1)
+
+- [User password update by system admin - /external/authentication/set_password_by_admin](#user-password-update-by-system-admin---externalauthenticationset_password_by_admin)
 
 - [Request alert PCAP - /external/v2/alerts/pcap](#request-alert-pcap---externalv2alertspcap)
 
 ### Alert Exclusions
 
-Define conditions under which alerts won't be sent. For example, define and update stop and start times, devices or subnets that should be excluded when triggering alerts, or Defender for IoT engines that should be excluded. For example, during a maintenance window, you might want to stop delivery of all alerts, except for malware alerts on critical devices. The items you define here appear in the on-premises management console's **Alert Exclusions** window as  read-only exclusion rules.
+Define conditions under which alerts won't be sent. For example, define and update stop and start times, devices or subnets that should be excluded when triggering alerts, or Defender for IoT engines that should be excluded. For example, during a maintenance window, you might want to stop delivery of all alerts, except for malware alerts on critical devices. The items you define here appear in the on-premises management console's Alert Exclusions window as read-only exclusion rules.
 
 #### /external/v1/maintenanceWindow
 
@@ -1813,25 +1821,17 @@ Define conditions under which alerts won't be sent. For example, define and upda
 }
 ```
 
-#### Change password - /external/authentication/set_password 
-
-Use this API to let users change their own passwords. All Defender for IoT user roles can work with the API. You don't need a Defender for IoT access token to use this API.
-
-#### User password update by system admin - /external/authentication/set_password_by_admin 
-
-Use this API to let system administrators change passwords for specific users. Defender for IoT admin user roles can work with the API. You don't need a Defender for IoT access token to use this API.
-
-### Retrieve device information - /external/v1/devices ###
+### Retrieve device information - /external/v1/devices
 
 This API requests a list of all devices detected by Defender for IoT sensors that are connected to an on-premises management console.
 
 #### Method
 
-**GET**
+- **GET**
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
@@ -2052,7 +2052,7 @@ Use this API to retrieve all or filtered alerts from an on-premises management c
 
 #### Method
 
-**GET**
+- **GET**
 
 #### Query parameters
 
@@ -2251,7 +2251,7 @@ Example of the payload sent to QRadar:
 
 #### Request type
 
-**JSON**
+- **JSON**
 
 #### Request content
 
@@ -2274,14 +2274,13 @@ JSON object that represents the action to perform on the alert that contains the
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
 Array of JSON objects that represent devices.
 
 #### Response fields
-
 
 | Name | Type | Nullable | Description |
 |--|--|--|--|
@@ -2342,15 +2341,15 @@ The APIs that you define here appear in the on-premises management console's **A
 
 - **engines**: Defines from which security engine to suppress alerts during the maintenance process:
 
-   - ANOMALY
+    - ANOMALY
 
-   - MALWARE
+    - MALWARE
 
-   - OPERATIONAL
+    - OPERATIONAL
 
-   - POLICY_VIOLATION
+    - POLICY_VIOLATION
 
-   - PROTOCOL_VIOLATION
+    - PROTOCOL_VIOLATION
 
 - **sensorIds**: Defines from which Defender for IoT sensor to suppress alerts during the maintenance process. It's the same ID retrieved from /api/v1/appliances (GET).
 
@@ -2457,7 +2456,7 @@ Retrieve a log of all the open, close, and update actions that were performed in
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
@@ -2495,7 +2494,7 @@ Use this API to validate user credentials. All Defender for IoT user roles can w
 
 #### Request type
 
-**JSON**
+- **JSON**
 
 #### Request example
 
@@ -2513,7 +2512,7 @@ request:
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
@@ -2558,7 +2557,7 @@ Use this API to let users change their own passwords. All Defender for IoT user 
 
 #### Request type
 
-**JSON**
+- **JSON**
 
 #### Request example
 
@@ -2579,7 +2578,7 @@ request:
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
@@ -2628,11 +2627,11 @@ Use this API to let system administrators change passwords for specified users. 
 
 #### Method
 
-**POST**
+- **POST**
 
 #### Request type
 
-**JSON**
+- **JSON**
 
 #### Request example
 
@@ -2652,7 +2651,7 @@ request:
 
 #### Response type
 
-**JSON**
+- **JSON**
 
 #### Response content
 
@@ -2709,7 +2708,7 @@ Use this API to request a PCAP file related to an alert.
 
 #### Method
 
-GET
+- **GET**
 
 #### Query Parameters
 
@@ -2719,7 +2718,7 @@ Example:
 
 #### Response type
 
-JSON
+- **JSON**
 
 #### Response content
 
