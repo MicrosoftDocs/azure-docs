@@ -432,6 +432,11 @@
         "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/azure-api-fhir-access-token-validation",
         "redirect_document_id": false
     },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/azure-api-for-fhir/cms-tutorial-introduction.md",
+        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/centers-for-medicare-tutorial-introduction",
+        "redirect_document_id": false
+    },
 
   ]
 }
