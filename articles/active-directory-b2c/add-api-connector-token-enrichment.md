@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 08/04/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -244,7 +244,7 @@ In this example, the `userLanguage` will be sent to the REST service as `lang` w
 
 ### Configure the RESTful API technical profile 
 
-After you deploy your REST API, set the metadata of the `REST-ValidateProfile` technical profile to reflect your own REST API, including:
+After you deploy your REST API, set the metadata of the `REST-GetProfile` technical profile to reflect your own REST API, including:
 
 - **ServiceUrl**. Set the URL of the REST API endpoint.
 - **SendClaimsIn**. Specify how the input claims are sent to the RESTful claims provider.
@@ -390,7 +390,7 @@ Additionally, Azure AD B2C logs metadata about the API transactions that happen 
 3. Filter the list view by the length of time you wish and **Activity** to **An API was called as part of a user flow**
 4. Inspect individual logs. Each row represents an API connector attempting to be called during a user flow. If an API call fails and there's a retry, it's still represented as a singular row. There's a `numberOfAttempts` which indicates the number of times your API was called. This can be of values `1`or `2`. Other information about the API call is detailed in the logs.
 
-:::image type="content" source="media/add-api-connector-token-enrichment/example_ anonymized_audit_log.png" alt-text="Screenshot of an example audit log regarding API connector transaction during an end user authentication to a user flow.":::
+:::image type="content" source="media/add-api-connector-token-enrichment/example_anonymized_audit_log.png" alt-text="Screenshot of an example audit log regarding API connector transaction during an end user authentication to a user flow.":::
 
 ::: zone-end
 
@@ -404,6 +404,7 @@ Additionally, Azure AD B2C logs metadata about the API transactions that happen 
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
+
 To learn how to secure your APIs, see the following articles:
 
 - [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](add-api-connector-token-enrichment.md)

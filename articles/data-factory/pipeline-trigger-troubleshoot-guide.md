@@ -249,7 +249,7 @@ You have not optimized mapping data flow.
 * Scale up your databases and warehouses to match the performance of your ADF. 
 * Use a separate IR(integration runtime) for activities running in parallel.
 * Adjust the partitions at the source and sink accordingly. 
-* Review  [Data Flow Optimizations](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-performance)
+* Review  [Data Flow Optimizations](concepts-data-flow-performance.md)
 
 ## Next steps
 

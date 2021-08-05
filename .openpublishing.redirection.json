@@ -884,6 +884,41 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/tutorial-web-app-dotnet.md",
+      "redirect_url": "/azure/active-directory-b2c/configure-authentication-sample-web-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/tutorial-desktop-app.md",
+      "redirect_url": "/azure/active-directory-b2c/configure-authentication-sample-wpf-desktop-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/tutorial-single-page-app.md",
+      "redirect_url": "/azure/active-directory-b2c/configure-authentication-sample-spa-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/tutorial-web-app-python.md",
+      "redirect_url": "/azure/active-directory-b2c/configure-authentication-sample-python-web-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/tutorial-web-api-dotnet.md",
+      "redirect_url": "/azure/active-directory-b2c/configure-authentication-sample-web-app-with-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/tutorial-desktop-app-webapi.md",
+      "redirect_url": "/azure/active-directory-b2c/configure-authentication-sample-wpf-desktop-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/tutorial-single-page-app-webapi.md",
+      "redirect_url": "/azure/active-directory-b2c/configure-authentication-sample-spa-app",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-devquickstarts-web-dotnet.md",
       "redirect_url": "/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app",
       "redirect_document_id": false
@@ -2182,6 +2217,11 @@
       "source_path_from_root": "/articles/analysis-services/tutorials/aas-lesson-12-analyze-in-excel.md",
       "redirect_url": "/azure/analysis-services/analysis-services-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/overview-what-is-azure-ml.md",
+      "redirect_url": "/azure/machine-learning/overview-what-is-azure-machine-learning",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/resource-known-issues.md",
@@ -16200,6 +16240,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/defender-for-iot/organizations/integration-splunk.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/tutorial-splunk",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/jenkins/index.yml",
       "redirect_url": "/azure/developer/jenkins/",
       "redirect_document_id": false
@@ -22455,19 +22500,9 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/machine-learning/service/reference-python-package-overview.md",
-      "redirect_url": "/azure/machine-learning/overview-what-happened-to-workbench",
+      "source_path_from_root": "/articles/machine-learning/service/overview-what-is-machine-learning.md",
+      "redirect_url": "/azure/machine-learning/overview-what-is-machine-learning",
       "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/machine-learning/service/how-to-build-deploy-forecast-models.md",
-      "redirect_url": "/azure/machine-learning/overview-what-is-azure-ml",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/machine-learning/service/overview-what-is-azure-ml.md",
-      "redirect_url": "/azure/machine-learning/overview-what-is-azure-ml",
-      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/machine-learning/compare-azure-ml-to-studio-classic.md",
@@ -57018,6 +57053,11 @@
       "source_path_from_root": "/articles/store-sendgrid-java-how-to-send-email.md",
       "redirect_url": "https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-account",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/reference-online-endpoint-yaml.md",
+      "redirect_url": "reference-yaml-endpoint-managed-online",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/store-sendgrid-nodejs-how-to-send-email.md",
