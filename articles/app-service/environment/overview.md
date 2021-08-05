@@ -4,7 +4,7 @@ description: Overview on the App Service Environment
 author: ccompy
 ms.assetid: 3d37f007-d6f2-4e47-8e26-b844e47ee919
 ms.topic: article
-ms.date: 07/05/2021
+ms.date: 08/05/2021
 ms.author: ccompy
 ms.custom: references_regions
 ---
@@ -83,14 +83,14 @@ There are a few features that are not available in ASEv3 that were available in 
 With ASEv3, there is a different pricing model depending on the type of ASE deployment you have. The three pricing models are: 
 
 - **ASEv3**: If ASE is empty, there is a charge as if you had one ASP with one instance of Windows I1v2. The one instance charge is not an additive charge but is only applied if the ASE is totally empty.
-- **Availability Zone ASEv3**: There is a minimum 9 Windows I1v2 instance charge. There is no added charge for availability zone support if you have 9 or more App Service plan instances. 
+- **Availability Zone ASEv3**: There is a minimum 9 Windows I1v2 instance charge. There is no added charge for availability zone support if you have 9 or more App Service plan instances. All App Service plans in an AZ ASEv3 also have a minimum instance count of 3 to ensure there is an instance in each availability zone. As the plans are scaled out, they are spread across the availability zones. 
 - **Dedicated host ASEv3**: With a dedicated host deployment, you are charged for two dedicated hosts per our pricing at ASEv3 creation then a small percentage of the Isolated V2 rate per core charge as you scale.
 
-Reserved Instance pricing for Isolated v2 will be available after GA.  
+Reserved Instance pricing for Isolated v2 is available and is described in [How reservation discounts apply to Azure App Service][https://docs.microsoft.com/azure/cost-management-billing/reservations/reservation-discount-app-service]. The pricing, along with reserved instance pricing, is available at [App Service pricing][https://azure.microsoft.com/pricing/details/app-service/windows/] under **Isolated v2 plan**. 
 
 ## Regions
 
-The ASEv3 is available in the following regions.
+The ASEv3 is available in the following regions. 
 
 |Normal and dedicated host ASEv3 regions|	AZ ASEv3 regions|
 |---------------------------------------|------------------|
