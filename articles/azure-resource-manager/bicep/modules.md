@@ -99,7 +99,7 @@ output storageEndpoint object = stgModule.outputs.storageEndpoint
     ```
 - The **_params_** property contains any parameters to pass to the module file. These parameters match the parameters defined in the Bicep file.
 
-Like resources, modules are deployed in parallel unless they depend on other modules or resource deployments.
+Like resources, modules are deployed in parallel unless they depend on other modules or resource deployments. To learn more about dependencies, see [Set resource dependencies](resource-declaration.md#set-resource-dependencies).
 
 To get an output value from a module, retrieve the property value with syntax like: `stgModule.outputs.storageEndpoint` where `stgModule` is the identifier of the module.
 
