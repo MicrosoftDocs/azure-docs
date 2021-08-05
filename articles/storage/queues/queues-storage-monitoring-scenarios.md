@@ -81,7 +81,7 @@ For the "who" portion of your audit, `AuthenticationType` shows which type of au
 If a request was authenticated by using Azure AD, the `RequesterObjectId` field provides the most reliable way to identify the security principal. You can find the friendly name of that security principal by taking the value of the `RequesterObjectId` field, and searching for the security principal in Azure AD page of the Azure portal. The following screenshot shows a search result in Azure AD.
 
 > [!div class="mx-imgBorder"]
-> ![Search Azure Active Directory](./media/queues-storage-monitoring-scenarios/storage-monitoring-scenarios/search-azure-active-directory.png)
+> ![Search Azure Active Directory-2](./media/queues-storage-monitoring-scenarios/search-azure-active-directory.png)
 
 In some cases, a user principal name or *UPN* might appear in logs. For example, if the security principal is an Azure AD user, the UPN will likely appear. For other types of security principals such as user assigned managed identities, or in certain scenarios such as cross Azure AD tenant authentication, the UPN will not appear in logs. 
 
