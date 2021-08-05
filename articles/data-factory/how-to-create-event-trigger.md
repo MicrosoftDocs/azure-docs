@@ -3,6 +3,7 @@ title: Create event-based triggers
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to create a trigger in an Azure Data Factory or Azure Synapse Analytics that runs a pipeline in response to an event.
 ms.service: data-factory
+ms.subservice: orchestration
 ms.custom: synapse
 author: chez-charlie
 ms.author: chez

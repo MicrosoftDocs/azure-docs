@@ -5,6 +5,7 @@ description: Learn how to copy data to and from Azure Data Lake Storage Gen2, an
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 07/19/2021

@@ -4,6 +4,7 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot external control activities in Azure Data Factory and Azure Synapse Analytics pipelines.
 author: nabhishek
 ms.service: data-factory
+ms.subservice: troubleshooting
 ms.custom: synapse
 ms.topic: troubleshooting
 ms.date: 06/18/2021

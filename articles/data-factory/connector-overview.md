@@ -4,6 +4,7 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn the supported connectors in Azure Data Factory and Azure Synapse Analytics pipelines.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 05/26/2021

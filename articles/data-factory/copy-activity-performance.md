@@ -8,6 +8,7 @@ ms.author: jianleishen
 author: jianleishen
 manager: shwang
 ms.service: data-factory
+ms.subservice: data-movement
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: synapse

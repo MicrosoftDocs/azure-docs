@@ -5,6 +5,7 @@ description: Learn about the integration runtime in Azure Data Factory and Azure
 ms.author: lle
 author: lrtoyou1223
 ms.service: data-factory
+ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 06/16/2021
