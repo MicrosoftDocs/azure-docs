@@ -67,6 +67,10 @@ The following ASNs are reserved by Azure or IANA:
 
 No, Azure Route Server supports only 16-bit (2 bytes) ASNs.
 
+### Can I configure a User Defined Route (UDR) in the AzureRouteServer Subnet?
+
+No, Azure Route Server doesn't support configuring a UDR in the AzureRouteServer subnet.
+
 ### Can I peer two route servers in two peered virtual networks and enable the NVAs connected to the route servers to talk to each other? 
 
 ***Topology: NVA1 -> RouteServer1 -> (via VNet Peering) -> RouteServer2 -> NVA2***
