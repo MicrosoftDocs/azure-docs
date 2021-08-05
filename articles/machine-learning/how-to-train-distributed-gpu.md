@@ -224,7 +224,7 @@ run = Experiment(ws, 'experiment_name').submit(run_config)
 ```
 
 > [!TIP]
-> Single-node multi-GPU training
+> **Single-node multi-GPU training:**
 > If you are using the launch utility to run single-node multi-GPU PyTorch training, you do not need to specify the `distributed_job_config` parameter of ScriptRunConfig.
 >
 >```python
