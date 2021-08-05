@@ -3,7 +3,7 @@ title: Troubleshoot getting started feature Azure Virtual Desktop
 description: How to troubleshoot issues with the Azure Virtual Desktop getting started feature.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 07/26/2021
+ms.date: 08/06/2021
 ms.author: helohr
 manager: femila
 ---
