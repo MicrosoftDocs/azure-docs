@@ -51,7 +51,7 @@ Pipelines are how Azure Synapse provides Data Integration - allowing you to move
 
 ## Data Explorer
 
-Azure Synapse Analytics data explorer provides customers with an interactive query experience to unlock insights from log and telemetry data.
+Azure Synapse Analytics Data Explorer provides customers with an interactive query experience to unlock insights from log and telemetry data.
 
 * **Data Explorer pool** are dedicated clusters that includes two or more compute nodes with local SSD storage and multiple blob storage for persistance. 
 
