@@ -47,10 +47,89 @@ To ensure that no group policies are preventing your access to shares on the Dat
 
 * Make sure that no GPOs are applied to your client/host computer. You can block inheritance to ensure that the client/host computer (child node) doesn't automatically inherit any GPOs from the parent. For more information, see [block inheritance](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731076(v=ws.11)).
 
-## Contact support
+## Check for a permissions issue
 
-If there's no domain issue, and no group policies are blocking your share connection, [contact Microsoft support](data-box-disk-contact-microsoft-support.md) for more help.
+If there's no domain issue, and no group policies are blocking your access to the share, check for permissions issues on your device by reviewing audit logs and security event logs.
 
+### Run diagnostics
+
+To run diagnostics on your device, do the following steps:
+
+   1. In the local web UI, go to **Troubleshooting** and then **Diagnostic test**, and select **Run diagnostics**.
+
+### Review audit logs
+
+XXX
+
+### Review security event logs
+
+Review Windows Security logs for errors that indicate 
+
+On your device, review the `Smbserver.Security` event logs in the `etw` folder for either of the following errors:
+
+       Error 1:
+
+       ```xml
+       SMB Session Authentication Failure
+       Client Name: \\<ClientIP>
+       Client Address: <ClientIP:Port>
+       User Name:
+       Session ID: 0x100000000021
+       Status: The attempted logon is invalid. This is either due to a bad username or authentication information. (0xC000006D)
+       SPN: session setup failed before the SPN could be queried
+       SPN Validation Policy: SPN optional / no validation
+       ```
+      
+       Error 2:
+
+       ```xml
+       LmCompatibilityLevel value is different from the default.
+       Configured LM Compatibility Level: 5
+       Default LM Compatibility Level: 3
+       ```
+
+If you find either of these errors, you'll need to update the LAN Manager authentication level on your device. Use the Local Security Policy editor. If that doesn't work, you can update the registry directly.
+
+To review Windows Security event logs in Event Viewer, do these steps:
+
+1. To open the Windows Event Viewer, enter **Event Viewer** on the Start menu.
+
+1. In the Event Viewer navigation pane, expand **Windows**, and select the **Security** folder.
+
+    ![Screenshot of the Windows Event Viewer with Security events displayed. The Windows folder and Security subfolder are highlighted.](media/data-box-troubleshoot-share-access/security-policy-04.png)
+
+
+### Use Local Security Policy editor to change the policy
+
+To change the policy in Local Security Policy, do these steps:
+ 
+1. To open Local Security Policy, on the **Start** screen, type `secpol.msc`, and then press Enter.
+
+1. Go to **Local Policies** > **Security Options**, and open **Network Security: LAN Manager authentication level**.
+
+    ![Screenshot showing the Security Options in the Local Security Policy editor. The "Network Security: LAN Manager authentication level" policy is highlighted.](media/data-box-troubleshoot-share-access/security-policy-01.png)
+
+1. Change the setting to **Send NTLMv2 response only. Refuse LM & NTLM**.
+
+    ![Screenshot showing "Network Security: LAN Manager authentication level" policy in the Local Security Policy editor. The "Send NTLMv2 response only. Refuse LM & NTLM" option is highlighted.](media/data-box-troubleshoot-share-access/security-policy-02.png)
+
+### Update the registry to change the policy
+
+If you can't change the LAN Manager authentication level in Local Security Policy, update the registry directly.
+
+To update the registry, do these steps:
+
+1. To open Registry Editor (regedit32.exe), on the **Start** screen, type `regedt32`, and then press Enter.
+
+1. Navigate to: HKEY_LOCAL_MACHINE > SYSTEM > CurrentControlSet > Control > LSA.
+
+    ![Screenshot showing the Registry Editor with the LSA folder highlighted.](media/data-box-troubleshoot-share-access/security-policy-03.png)
+
+1. In the LSA folder, open the LMCompatibilityLevel registry key, and change its value to 5.
+
+    ![Screenshot of the Registry Editor, showing the dialog box to change the value of the LMCompatibilityLevel registry key.](media/data-box-troubleshoot-share-access/security-policy-04.png)
+
+1. Restart your computer so that the registry changes take effect.
 
 ## Next steps
 

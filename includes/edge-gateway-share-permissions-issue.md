@@ -17,7 +17,7 @@ If there's no domain issue, and no group policies are blocking your access to th
 
 Start by running diagnostics on your device.
 
-To run diagnostics on your Data Box, do the following steps:<!--Diagnostics option is not available for Data Box. If there is not an equivalent step on Data Box, this goes.-->
+To run diagnostics on your device, do the following steps:<!--Diagnostics option is not available for Data Box. If there is not an equivalent step on Data Box, this goes.-->
 
    1. In the local web UI, go to **Troubleshooting**, and then to **Diagnostic test**.
 
