@@ -10,9 +10,7 @@ ms.date: 07/14/2020
 
 # Send log data to Azure Monitor by using the HTTP Data Collector API (preview)
 
-This article shows you how to use the HTTP Data Collector API to send log data to Azure Monitor from a REST API client.  It describes how to format data that's collected by your script or application, include it in a request, and have that request authorized by Azure Monitor.  We provide examples for PowerShell, C#, and Python.
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+This article shows you how to use the HTTP Data Collector API to send log data to Azure Monitor from a REST API client.  It describes how to format data that's collected by your script or application, include it in a request, and have that request authorized by Azure Monitor. We provide examples for Azure PowerShell, C#, and Python.
 
 > [!NOTE]
 > The Azure Monitor HTTP Data Collector API is in public preview.
@@ -40,7 +38,7 @@ To use the HTTP Data Collector API, you create a POST request that includes the 
 |:--- |:--- |
 | CustomerID |The unique identifier for the Log Analytics workspace. |
 | Resource |The API resource name: /api/logs. |
-| API Version |The version of the API to use with this request. Currently, it's 2016-04-01. |
+| API Version |The version of the API to use with this request. Currently, the version is 2016-04-01. |
 | | |
 
 ### Request headers
@@ -126,7 +124,7 @@ You define a custom record type when you submit data through the Azure Monitor H
 
 Each request to the Data Collector API must include a **Log-Type** header with the name for the record type. The suffix **_CL** is automatically appended to the name you enter to distinguish it from other log types as a custom log. For example, if you enter the name **MyNewRecordType**, Azure Monitor creates a record with the type **MyNewRecordType_CL**. This helps ensure that there are no conflicts between user-created type names and those shipped in current or future Microsoft solutions.
 
-To identify a property's data type, Azure Monitor adds a suffix to the property name. If a property contains a null value, the property is not included in that record. This table lists the property data type and corresponding suffix:
+To identify a property's data type, Azure Monitor adds a suffix to the property name. If a property contains a null value, the property isn't included in that record. This table lists the property data type and corresponding suffix:
 
 | Property data type | Suffix |
 |:--- |:--- |
@@ -138,7 +136,7 @@ To identify a property's data type, Azure Monitor adds a suffix to the property 
 | | |
 
 > [!NOTE]
-> String values that appear to be GUIDs will be given the _g suffix and formatted as a GUID, even if the incoming value doesn't include dashes. For example, both "8145d822-13a7-44ad-859c-36f31a84f6dd" and "8145d82213a744ad859c36f31a84f6dd" will be stored as "8145d822-13a7-44ad-859c-36f31a84f6dd". The only differences between this and another string are the _g in the name and the insertion of dashes if they aren't provided in the input. 
+> String values that appear to be GUIDs are given the _g suffix and formatted as a GUID, even if the incoming value doesn't include dashes. For example, both "8145d822-13a7-44ad-859c-36f31a84f6dd" and "8145d82213a744ad859c36f31a84f6dd" are stored as "8145d822-13a7-44ad-859c-36f31a84f6dd". The only differences between this and another string are the _g in the name and the insertion of dashes if they aren't provided in the input. 
 
 The data type that Azure Monitor uses for each property depends on whether the record type for the new record already exists.
 
@@ -173,7 +171,7 @@ The data posted to the Azure Monitor Data collection API is subject to certain c
 * Maximum of 32 KB for field values. If the field value is greater than 32 KB, the data will be truncated.
 * Recommended maximum of 50 fields for a given type. This is a practical limit from a usability and search experience perspective.  
 * Tables in Log Analytics workspaces support only up to 500 columns (referred to as fields in this article). 
-* The maximum of 50 characters for column names.
+* Maximum of 50 characters for column names.
 
 ## Return codes
 The HTTP status code 200 means that the request has been received for processing. This indicates that the operation finished successfully.
@@ -184,9 +182,9 @@ The complete set of status codes that the service might return is listed in the 
 |:--- |:--- |:--- |:--- |
 | 200 |OK | |The request was successfully accepted. |
 | 400 |Bad request |InactiveCustomer |The workspace has been closed. |
-| 400 |Bad request |InvalidApiVersion |The API version that you specified was not recognized by the service. |
-| 400 |Bad request |InvalidCustomerId |The workspace ID specified is invalid. |
-| 400 |Bad request |InvalidDataFormat |A invalid JSON was submitted. The response body might contain more information about how to resolve the error. |
+| 400 |Bad request |InvalidApiVersion |The API version that you specified wasn't recognized by the service. |
+| 400 |Bad request |InvalidCustomerId |The specified workspace ID is invalid. |
+| 400 |Bad request |InvalidDataFormat |An invalid JSON was submitted. The response body might contain more information about how to resolve the error. |
 | 400 |Bad request |InvalidLogType |The specified log type contained special characters or numerics. |
 | 400 |Bad request |MissingApiVersion |The API version wasn’t specified. |
 | 400 |Bad request |MissingContentType |The content type wasn’t specified. |
@@ -200,7 +198,7 @@ The complete set of status codes that the service might return is listed in the 
 | | |
 
 ## Query data
-To query data submitted by the Azure Monitor HTTP Data Collector API, search for records with **Type** that is equal to the **LogType** value that you specified, appended with **_CL**. For example, if you used **MyCustomLog**, you would return all records with `MyCustomLog_CL`.
+To query data submitted by the Azure Monitor HTTP Data Collector API, search for records whose **Type** is equal to the **LogType** value that you specified and appended with **_CL**. For example, if you used **MyCustomLog**, you would return all records with `MyCustomLog_CL`.
 
 ## Sample requests
 In the next sections, you'll find samples that demonstrate how to submit data to the Azure Monitor HTTP Data Collector API by using various programming languages.
@@ -648,9 +646,9 @@ Although the Data Collector API should cover most of your needs as you collect f
 
 | Alternative | Description | Best suited for |
 |---|---|---|
-| [Custom events](../app/api-custom-events-metrics.md?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Native SDK-based ingestion in Application Insights | Application Insights, typically instrumented through an SDK within your application, gives you the ability to send custom data through Custom Events. | <ul><li> Data that's generated within your application, but not picked up by the SDK through one of the default data types (requests, dependencies, exceptions, and so on).</li><li> Data that's most often correlated with other application data in Application Insights. </li></ul> |
-| Data Collector API in Azure Monitor Logs | The Data Collector API in Azure Monitor Logs is a completely open-ended way to ingest data. Any data that's formatted in a JSON object can be sent here. After it's sent, it's processed and made available in Monitor Logs to be correlated with other data in Monitor Logs or against other Application Insights data. <br/><br/> It's fairly easy to upload the data as files to an Azure Blob Storage blob, where the files will be processed and then uploaded to Log Analytics. For a sample implementation, see [Create a data pipeline with the Data Collector API](./create-pipeline-datacollector-api.md). | <ul><li> Data that isn't necessarily generated within an application that's instrumented within Application Insights.<br>Examples include lookup and fact tables, reference data, pre-aggregated statistics, and so on. </li><li> Data that will be cross-referenced against other Azure Monitor data (Application Insights, other Monitor Logs data types, Security Center, Container insights and virtual machines (VMs), and so on). </li></ul> |
-| [Azure Data Explorer](/azure/data-explorer/ingest-data-overview) | Azure Data Explorer, now generally available, is the data platform that powers Application Insights Analytics and Azure Monitor Logs. By using the data platform in its raw form, you have complete flexibility (but require the overhead of management) over the cluster (Kubernetes role-based access control (RBAC), retention rate, schema, and so on). Azure Data Explorer provides many [ingestion options](/azure/data-explorer/ingest-data-overview#ingestion-methods), including [CSV, TSV, and JSON](/azure/kusto/management/mappings) files. | <ul><li> Data that won't be correlated with any other data under Application Insights or Monitor Logs. </li><li> Data that requires advanced ingestion or processing capabilities that aren't available today in Azure Monitor Logs. </li></ul> |
+| [Custom events](../app/api-custom-events-metrics.md?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Native SDK-based ingestion in Application Insights | Application Insights, usually instrumented through an SDK within your application, gives you the ability to send custom data through Custom Events. | <ul><li> Data that's generated within your application, but not picked up by the SDK through one of the default data types (requests, dependencies, exceptions, and so on).</li><li> Data that's most often correlated with other application data in Application Insights. </li></ul> |
+| Data Collector API in Azure Monitor Logs | The Data Collector API in Azure Monitor Logs is a completely open-ended way to ingest data. Any data that's formatted in a JSON object can be sent here. After it's sent, it's processed and made available in Monitor Logs to be correlated with other data in Monitor Logs or against other Application Insights data. <br/><br/> It's fairly easy to upload the data as files to an Azure Blob Storage blob, where the files will be processed and then uploaded to Log Analytics. For a sample implementation, see [Create a data pipeline with the Data Collector API](./create-pipeline-datacollector-api.md). | <ul><li> Data that isn't necessarily generated within an application that's instrumented within Application Insights.<br>Examples include lookup and fact tables, reference data, pre-aggregated statistics, and so on. </li><li> Data that will be cross-referenced against other Azure Monitor data (Application Insights, other Monitor Logs data types, Security Center, Container insights and virtual machines, and so on). </li></ul> |
+| [Azure Data Explorer](/azure/data-explorer/ingest-data-overview) | Azure Data Explorer, now generally available to the public, is the data platform that powers Application Insights Analytics and Azure Monitor Logs. By using the data platform in its raw form, you have complete flexibility (but require the overhead of management) over the cluster (Kubernetes role-based access control (RBAC), retention rate, schema, and so on). Azure Data Explorer provides many [ingestion options](/azure/data-explorer/ingest-data-overview#ingestion-methods), including [CSV, TSV, and JSON](/azure/kusto/management/mappings) files. | <ul><li> Data that won't be correlated with any other data under Application Insights or Monitor Logs. </li><li> Data that requires advanced ingestion or processing capabilities that aren't available today in Azure Monitor Logs. </li></ul> |
 
 
 ## Next steps

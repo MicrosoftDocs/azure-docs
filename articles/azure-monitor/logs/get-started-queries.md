@@ -15,7 +15,7 @@ ms.date: 10/24/2019
 >
 > If you already know how to query in Kusto query language, but need to quickly create useful queries based on resource types, see the saved example queries pane in the [Use queries in Azure Monitor Log Analytics](../logs/queries.md) article.
 
-In this tutorial you'll learn to write log queries in Azure Monitor. The article shows you how to:
+In this tutorial, you'll learn to write log queries in Azure Monitor. The article shows you how to:
 
 - Understand query structure.
 - Sort query results.
@@ -52,14 +52,14 @@ SecurityEvent
 The preceding query returns 10 results from the *SecurityEvent* table, in no specific order. This is a common way to take a glance at a table and understand its structure and content. Let's examine how it's built:
 
 * The query starts with the table name *SecurityEvent*, which defines the scope of the query.
-* The pipe (|) character separates commands, so the output of the first one is the input of the next. You can add any number of piped elements.
+* The pipe (|) character separates commands, so the output of the first command is the input of the next. You can add any number of piped elements.
 * Following the pipe is the **take** command, which returns a specific number of arbitrary records from the table.
 
-We could actually run the query even without adding `| take 10`. That command would still be valid, but it could return up to 10,000 results.
+We could actually run the query even without adding `| take 10`. The command would still be valid, but it could return up to 10,000 results.
 
 ### Search queries
 
-Search queries are less structured, and generally more suited for finding records that include a specific value in any of their columns:
+Search queries are less structured, and they're generally better suited for finding records that include a specific value in any of their columns:
 
 ```Kusto
 search in (SecurityEvent) "Cryptographic"
@@ -169,7 +169,7 @@ The preceding example generates the following output:
 
 ![Screenshot of the query "project" results list.](media/get-started-queries/project.png)
 
-You can also use **project** to rename columns and define new ones. The next example uses project to do the following:
+You can also use **project** to rename columns and define new ones. The next example uses **project** to do the following:
 
 * Select only the *Computer* and *TimeGenerated* original columns.
 * Display the *Activity* column as *EventDetails*.
@@ -182,7 +182,7 @@ SecurityEvent
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
 ```
 
-You can use **extend** to keep all original columns in the result set and define additional ones. The following query uses **extend** to add the *EventCode* column. Note that this column may not be displayed at the end of the table results, in which case you would need to expand the details of a record to view it.
+You can use **extend** to keep all original columns in the result set and define additional ones. The following query uses **extend** to add the *EventCode* column. This column might not be displayed at the end of the table results, in which case you would need to expand the details of a record to view it.
 
 ```Kusto
 SecurityEvent
@@ -228,7 +228,7 @@ Perf
 ### Summarize by a time column
 Grouping results can also be based on a time column, or another continuous value. Simply summarizing `by TimeGenerated`, though, would create groups for every single millisecond over the time range, because these are unique values. 
 
-To create groups based on continuous values, it's best to break the range into manageable units by using **bin**. The following query analyzes *Perf* records that measure free memory (*Available MBytes*) on a specific computer. It calculates the average value of each 1-hour period over the last 7 days:
+To create groups that are based on continuous values, it's best to break the range into manageable units by using **bin**. The following query analyzes *Perf* records that measure free memory (*Available MBytes*) on a specific computer. It calculates the average value of each 1-hour period over the last 7 days:
 
 ```Kusto
 Perf 
@@ -238,7 +238,7 @@ Perf
 | summarize avg(CounterValue) by bin(TimeGenerated, 1h)
 ```
 
-To make the output clearer, you select to display it as a time chart, showing the available memory over time:
+To make the output clearer, you can select to display it as a time chart, which shows the available memory over time:
 
 ![Screenshot displaying the values of a query memory over time.](media/get-started-queries/chart.png)
 
