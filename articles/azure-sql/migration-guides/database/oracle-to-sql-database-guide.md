@@ -168,7 +168,7 @@ Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows 
 
    Description: Enter any additional information to identify the purpose of the test case.
 
- ![Screenshot that shows steps to initialize a test case .](./media/oracle-to-sql-database-guide/tester-init-test-case.png)
+   ![Screenshot that shows steps to initialize a test case .](./media/oracle-to-sql-database-guide/tester-init-test-case.png)
 
 3. On the Oracle object tree located on the left side, select the objects you want to evaluate during the testing process.
 
