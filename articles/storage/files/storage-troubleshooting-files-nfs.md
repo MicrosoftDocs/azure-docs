@@ -170,7 +170,7 @@ There is a known issue during preview where NFS shares gets soft deleted despite
 ## ls –la throws I/O error
 
 ### Cause: A known bug that has been fixed in newer Linux Kernel
-This is not data corruption, just incorrect output. For older kernels NFS4ERR_NOT_SAME causes the client to stop enumerating (instead of restarting for the directory). Newer clients would be unblocked right away, unfortunately, SUSE does not yet have the patch in SUSE Enterprise Linux Server 12 or 15.  The patch is available in kernel 5.12+.  The patch for the client-side fix is described here [PATCH v3 15/17 NFS: Handle NFS4ERR_NOT_SAME and NFSERR_BADCOOKIE from readdir calls](https://www.spinics.net/lists/linux-nfs/msg80096.html).
+On older kernels, NFS4ERR_NOT_SAME causes the client to stop enumerating (instead of restarting for the directory). Newer kernels would be unblocked right away, unfortunately, SUSE doesn't yet have the patch in SUSE Enterprise Linux Server 12 or 15.  The patch is available in kernel 5.12+.  The patch for the client-side fix is described here [PATCH v3 15/17 NFS: Handle NFS4ERR_NOT_SAME and NFSERR_BADCOOKIE from readdir calls](https://www.spinics.net/lists/linux-nfs/msg80096.html).
 
 #### Workaround : Use latest kernel workaround while the fix reaches the region hosting your storage account
 The patch is available in kernel 5.12+.
