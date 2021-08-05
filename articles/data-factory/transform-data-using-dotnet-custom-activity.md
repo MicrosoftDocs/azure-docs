@@ -1,11 +1,12 @@
 ---
 title: Use custom activities in a pipeline
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to create custom activities by using .NET, and then use the activities in an Azure Data Factory pipeline.
 ms.service: data-factory
 author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
-ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, synapse
 ms.date: 11/26/2018
 ---
 
