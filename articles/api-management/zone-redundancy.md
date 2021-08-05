@@ -70,4 +70,4 @@ In the portal, optionally enable zone redundancy when you add a location to your
 * Learn more about [deploying an Azure API Management service instance to multiple Azure regions](api-management-howto-deploy-multi-region.md).
 * You can also enable zone redundancy using an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-simple-zones).
 * Learn more about [Azure services that support availability zones](../availability-zones/az-region.md).
-* Learn more about building for [reliability](/azure/architecture/framework/resiliency/overview) in Azure.
+* Learn more about building for [reliability](/azure/architecture/framework/resiliency/app-design) in Azure.

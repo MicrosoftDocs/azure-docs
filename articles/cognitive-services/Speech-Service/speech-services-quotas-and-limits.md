@@ -14,7 +14,7 @@ ms.author: alexeyo
 
 # Speech service Quotas and Limits
 
-This article contains a quick reference and the **detailed description** of Azure Cognitive Speech service Quotas and Limits for all [pricing tiers](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). It also contains some best practices to avoid request throttling. 
+This article contains a quick reference and the **detailed description** of Azure Cognitive Speech service Quotas and Limits for all [pricing tiers](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). It also contains some best practices to avoid request throttling.
 
 ## Quotas and Limits quick reference
 Jump to [Text-to-Speech Quotas and limits](#text-to-speech-quotas-and-limits-per-speech-resource)
@@ -53,7 +53,7 @@ For the usage with [Speech SDK](speech-sdk.md) and/or [Speech-to-text REST API f
 | Max text size when using `text` parameter in [Create Model](https://westcentralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateModel/) API request | 200 KB | 500 KB |
 
 <sup>1</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
-<sup>2</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling),  and [adjustment instructions](#speech-to-text-increasing-online-transcription-concurrent-request-limit).<br/> 
+<sup>2</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling),  and [adjustment instructions](#speech-to-text-increasing-online-transcription-concurrent-request-limit).<br/>
 
 ### Text-to-Speech Quotas and limits per Speech resource
 In the tables below Parameters without "Adjustable" row are **not** adjustable for all price tiers.
@@ -81,7 +81,7 @@ In the tables below Parameters without "Adjustable" row are **not** adjustable f
 | Max text length | N/A | 10000 paragraphs |
 | Start time | N/A | 10 tasks or 10000 characters accumulated |
 
-#### Custom Neural Voice and Custom Voice<sup>6</sup> 
+#### Custom Neural Voice and Custom Voice<sup>6</sup>
 
 | Quota | Free (F0)<sup>3</sup> | Standard (S0) |
 |--|--|--|
@@ -102,7 +102,7 @@ In the tables below Parameters without "Adjustable" row are **not** adjustable f
 <sup>3</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
 <sup>4</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices) and [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling).<br/>
 <sup>5</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling),  and [adjustment instructions](#text-to-speech-increasing-concurrent-request-limit-for-custom-neural-and-custom-voices).<br/>
-<sup>6</sup> Custom Voice is being deprecated and not available for newly created Speech resources. See [additional information](how-to-custom-voice.md#migrate-to-custom-neural-voice).<br/> 
+<sup>6</sup> Custom Voice is being deprecated and not available for newly created Speech resources. See [additional information](how-to-custom-voice.md#migrate-to-custom-neural-voice).<br/>
 
 ## Detailed description, Quota adjustment, and best practices
 Before requesting a quota increase (where applicable), ensure that it is necessary. Speech service is using autoscaling technologies to bring the required computational resources in "on-demand" mode and at the same time to keep the customer costs low by not maintaining an excessive amount of hardware capacity. Every time your application receives a Response Code 429 ("Too many requests") while your workload is within the defined limits (see [Quotas and Limits quick reference](#quotas-and-limits-quick-reference)) the most likely explanation is that the Service is scaling up to your demand and did not reach the required scale yet, thus does not immediately have enough resources to serve the request. This state is usually transient and should not last long.
@@ -111,10 +111,10 @@ Before requesting a quota increase (where applicable), ensure that it is necessa
 To minimize issues related to throttling (Response Code 429), we recommend using the following techniques:
 - Implement retry logic in your application
 - Avoid sharp changes in the workload. Increase the workload gradually <br/>
-*Example.* Your application is using Text-to-Speech and your current workload is 5 TPS (transactions per second). The next second you increase the load to 20 TPS (that is four times more). The Service immediately starts scaling up to fulfill the new load, but likely it will not be able to do it within a second, so some of the requests will get Response Code 429.   
+*Example.* Your application is using Text-to-Speech and your current workload is 5 TPS (transactions per second). The next second you increase the load to 20 TPS (that is four times more). The Service immediately starts scaling up to fulfill the new load, but likely it will not be able to do it within a second, so some of the requests will get Response Code 429.
 - Test different load increase patterns
-  - See [Speech-to-Text example](#speech-to-text-example-of-a-workload-pattern-best-practice)
-- Create additional Speech resources in the same or different Regions and distribute the workload among them using "Round Robin" technique. This is especially important for **Text-to-Speech TPS (transactions per second)** parameter, which is set as 200 per Speech Resource and cannot be adjusted  
+  - See [Workload pattern example](#example-of-a-workload-pattern-best-practice)
+- Create additional Speech resources in the same or different Regions and distribute the workload among them using "Round Robin" technique. This is especially important for **Text-to-Speech TPS (transactions per second)** parameter, which is set as 200 per Speech Resource and cannot be adjusted
 
 The next sections describe specific cases of adjusting quotas.<br/>
 Jump to [Text-to-speech: increasing concurrent request limit for Custom Neural and Custom Voices](#text-to-speech-increasing-concurrent-request-limit-for-custom-neural-and-custom-voices)
@@ -139,14 +139,14 @@ Existing value of Concurrent Request limit parameter is **not** visible via Azur
 - For **Base model**:
   - Speech Resource ID
   - Region
-- For **Custom model**: 
+- For **Custom model**:
   - Region
   - Custom Endpoint ID
 
-- **How to get information (Base model)**:  
+- **How to get information (Base model)**:
   - Go to [Azure portal](https://portal.azure.com/)
   - Select the Speech Resource for which you would like to increase the Concurrency Request limit
-  - Select *Properties* (*Resource Management* group) 
+  - Select *Properties* (*Resource Management* group)
   - Copy and save the values of the following fields:
     - **Resource ID**
     - **Location** (your endpoint Region)
@@ -161,14 +161,14 @@ Existing value of Concurrent Request limit parameter is **not** visible via Azur
   - Copy and save the values of the following fields:
     - **Service Region** (your endpoint Region)
     - **Endpoint ID**
-  
+
 #### Create and submit support request
 Initiate the increase of Concurrent Request limit for your resource or if necessary check the today's limit by submitting the Support Request:
 
 - Ensure you have the [required information](#have-the-required-information-ready)
 - Go to [Azure portal](https://portal.azure.com/)
 - Select the Speech Resource for which you would like to increase (or to check) the Concurrency Request limit
-- Select *New support request* (*Support + troubleshooting* group) 
+- Select *New support request* (*Support + troubleshooting* group)
 - A new window will appear with auto-populated information about your Azure Subscription and Azure Resource
 - Enter *Summary* (like "Increase STT Concurrency Request limit")
 - In *Problem type* select "Quota or Subscription issues"
@@ -180,11 +180,11 @@ Initiate the increase of Concurrent Request limit for your resource or if necess
 - When in *Details* tab enter in the *Description* field:
   - a note, that the request is about **Speech-to-Text** quota
   - **Base** or **Custom** model
-  - Azure resource information you [collected before](#have-the-required-information-ready) 
+  - Azure resource information you [collected before](#have-the-required-information-ready)
   - Complete entering the required information and click *Create* button in *Review + create* tab
   - Note the support request number in Azure portal notifications. You will be contacted shortly for further processing
 
-### Speech-to-text: example of a workload pattern best practice
+### Example of a workload pattern best practice
 This example presents the approach we recommend following to mitigate possible request throttling due to [Autoscaling being in progress](#detailed-description-quota-adjustment-and-best-practices). It is not an "exact recipe", but merely a template we invite to follow and adjust as necessary.
 
 Let us suppose that a Speech resource has the Concurrent Request limit set to 300. Start the workload from 20 concurrent connections and increase the load by 20 concurrent connections every 1.5-2 minutes. Control the Service responses and implement the logic that falls back (reduces the load) if you get too many Response Codes 429. Then retry in 1-2-4-4 minute pattern. (That is retry the load increase in 1 min, if still does not work, then in 2 min, and so on)
@@ -202,7 +202,7 @@ Existing value of Concurrent Request limit parameter is **not** visible via Azur
 >[Speech containers](speech-container-howto.md) do not require increases of Concurrent Request limit, as containers are constrained only by the CPUs of the hardware they are hosted on.
 
 #### Prepare the required information:
-To create an increase request, you will need to provide your Deployment Region and the Custom Endpoint ID. To get it, perform the following actions: 
+To create an increase request, you will need to provide your Deployment Region and the Custom Endpoint ID. To get it, perform the following actions:
 
 - Go to [Speech Studio](https://speech.microsoft.com/) portal
 - Sign in if necessary
@@ -213,14 +213,14 @@ To create an increase request, you will need to provide your Deployment Region a
 - Copy and save the values of the following fields:
     - **Service Region** (your endpoint Region)
     - **Endpoint ID**
-  
+
 #### Create and submit support request
 Initiate the increase of Concurrent Request limit for your resource or if necessary check the today's limit by submitting the Support Request:
 
 - Ensure you have the [required information](#prepare-the-required-information)
 - Go to [Azure portal](https://portal.azure.com/)
 - Select the Speech Resource for which you would like to increase (or to check) the Concurrency Request limit
-- Select *New support request* (*Support + troubleshooting* group) 
+- Select *New support request* (*Support + troubleshooting* group)
 - A new window will appear with auto-populated information about your Azure Subscription and Azure Resource
 - Enter *Summary* (like "Increase TTS Custom Endpoint Concurrency Request limit")
 - In *Problem type* select "Quota or Subscription issues"
@@ -231,6 +231,6 @@ Initiate the increase of Concurrent Request limit for your resource or if necess
 - Proceed further with the request creation
 - When in *Details* tab enter in the *Description* field:
   - a note, that the request is about **Text-to-Speech** quota
-  - Azure resource information you [collected before](#prepare-the-required-information) 
+  - Azure resource information you [collected before](#prepare-the-required-information)
   - Complete entering the required information and click *Create* button in *Review + create* tab
   - Note the support request number in Azure portal notifications. You will be contacted shortly for further processing

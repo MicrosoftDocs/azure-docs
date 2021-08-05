@@ -1,6 +1,6 @@
 ---
-title: Remove role assignments from a group in Azure Active Directory | Microsoft Docs
-description: Preview custom Azure AD roles for delegating identity management. Manage Azure roles in the Azure portal, PowerShell, or Graph API.
+title: Remove role assignments from a group in Azure Active Directory
+description: Remove role assignments from a group in Azure Active Directory using the Azure portal, PowerShell, or Microsoft Graph API.
 services: active-directory
 author: rolyon
 manager: daveba
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 05/14/2021
+ms.date: 07/30/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -24,7 +24,7 @@ This article describes how an IT admin can remove Azure AD roles assigned to gro
 
 - Azure AD Premium P1 or P2 license
 - Privileged Role Administrator or Global Administrator
-- AzureADPreview module when using PowerShell
+- AzureAD module when using PowerShell
 - Admin consent when using Graph explorer for Microsoft Graph API
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).

@@ -127,6 +127,9 @@ var cursor = db.coll.watch(
 
 ```
 
+## Scaling change streams
+When using change streams at scale, it is best to evenly spread the load. Utilize the [GetChangeStreamTokens custom command](../cosmos-db/mongodb-custom-commands.md) to spread the load across physical shards/partitions.
+
 ## Current limitations
 
 The following limitations are applicable when using change streams:

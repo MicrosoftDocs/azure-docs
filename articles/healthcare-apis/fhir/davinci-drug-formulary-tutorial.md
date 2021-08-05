@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Da Vinci Drug Formulary - Azure API for FHIR
-description: This tutorial walks through setting up the Azure API for FHIR to pass the Touchstone tests against the DaVinci Drug Formulary implementation guide.
+title: Da Vinci Drug Formulary Tutorial
+description: This tutorial walks through setting up the FHIR service to pass the Touchstone tests against the DaVinci Drug Formulary implementation guide.
 services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -8,16 +8,19 @@ ms.topic: tutorial
 ms.reviewer: matjazl
 ms.author: cavoeg
 author: modillon
-ms.date: 06/07/2021
+ms.date: 08/03/2021
 ---
 
-# Da Vinci Drug Formulary
+# Tutorial for Da Vinci Drug Formulary
 
-In this tutorial, we'll walk through setting up the Azure API for FHIR to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the [Da Vinci Payer Data Exchange US Drug Formulary Implementation Guide](http://hl7.org/fhir/us/Davinci-drug-formulary/).
+> [!IMPORTANT]
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+In this tutorial, we'll walk through setting up the FHIR service to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the [Da Vinci Payer Data Exchange US Drug Formulary Implementation Guide](http://hl7.org/fhir/us/Davinci-drug-formulary/).
 
 ## Touchstone capability statement
 
-The first test that we'll focus on is testing the Azure API for FHIR against the [Da Vinci Drug Formulary capability
+The first test that we'll focus on is testing the FHIR service against the [Da Vinci Drug Formulary capability
 statement](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/Formulary/00-Capability&activeOnly=false&contentEntry=TEST_SCRIPTS). If you run this test without any updates, the test will fail due to
 missing search parameters and missing profiles.
 
@@ -30,7 +33,7 @@ capability statement.
 * [DrugPlan](http://hl7.org/fhir/us/davinci-drug-formulary/STU1.0.1/SearchParameter-DrugPlan.json.html)
 * [DrugName](http://hl7.org/fhir/us/davinci-drug-formulary/STU1.0.1/SearchParameter-DrugName.json.html)
 
-The rest of the search parameters needed for the Da Vinci Drug Formulary IG are defined by the base specification and are already available in the Azure API for FHIR without any more updates.
+The rest of the search parameters needed for the Da Vinci Drug Formulary IG are defined by the base specification and are already available in the FHIR service without any more updates.
 
 ### Store profiles
 
