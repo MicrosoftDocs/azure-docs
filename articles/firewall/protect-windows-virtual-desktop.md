@@ -37,17 +37,17 @@ You will need to create an Azure Firewall Policy and create Rule Collections for
 
 | Name | Source Type | Source | Protocol | Destination Ports | Destination Type | Destination 
 --- | --- | --- | --- | --- | --- | ---
-| Name of rule | IP Address | VNet or Subnet IP Address | 80 | TCP |  IP Address | 169.254.169.254, 168.63.129.16
-| Name of rule | IP Address | VNet or Subnet IP Address | 443 | TCP | Service Tag | AzureCloud, WindowsVirtualDesktop
-| Name of Rule | IP Address | VNet or Subnet IP Address | 52 | TCP, UDP | IP Address | *
+| Rule Name | IP Address | VNet or Subnet IP Address | 80 | TCP |  IP Address | 169.254.169.254, 168.63.129.16
+| Rule Name | IP Address | VNet or Subnet IP Address | 443 | TCP | Service Tag | AzureCloud, WindowsVirtualDesktop
+| Rule Name | IP Address | VNet or Subnet IP Address | 52 | TCP, UDP | IP Address | *
 
 
 ### Create Application Rules 
 
 | Name | Source Type | Source | Protocol | TLS Inspection (optional) | Destination Type | Destination 
 --- | --- | --- | --- | --- | --- | ---
-| Name of Rule | IP Address | VNet or Subnet IP Address | Https:443 | | FQDN Tag | WindowsVirtualDesktop, WindowsUpdate, Windows Diagnostics, MicrosoftActiveProtectionService |
-| Name of Rule | IP Address | VNet or Subnet IP Address | Https:1688 | | FQDN | kms.core.windows.net 
+| Rule Name| IP Address | VNet or Subnet IP Address | Https:443 | | FQDN Tag | WindowsVirtualDesktop, WindowsUpdate, Windows Diagnostics, MicrosoftActiveProtectionService |
+| Rule Name| IP Address | VNet or Subnet IP Address | Https:1688 | | FQDN | kms.core.windows.net 
 
 > [!NOTE]
 > Some deployments may not need DNS rules, for example Azure Active Directory Domain controllers forward DNS queries to Azure DNS at 168.63.129.16.
