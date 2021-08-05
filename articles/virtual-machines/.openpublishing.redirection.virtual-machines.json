@@ -2696,6 +2696,26 @@
             "redirect_document_id": true
           },
           {
+            "source_path_from_root": "/articles/virtual-machines/vm-generalized-image-version-powershell.md",
+            "redirect_url": "/azure/virtual-machines/vm-generalized-image-version",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/virtual-machines/vm-generalized-image-version-cli.md",
+            "redirect_url": "/azure/virtual-machines/vm-generalized-image-version",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/virtual-machines/update-image-resources-powershell.md ",
+            "redirect_url": "/azure/virtual-machines/update-image-resources.md ",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/virtual-machines/update-image-resources-cli.md ",
+            "redirect_url": "/azure/virtual-machines/update-image-resources.md ",
+            "redirect_document_id": true
+          },
+          {
             "source_path": "articles/virtual-machines/linux/cloudinit-prepare-custom-image.md",
             "redirect_url": "/azure/virtual-machines/linux/redhat-create-upload-vhd",
             "redirect_document_id": false
@@ -2724,7 +2744,57 @@
             "source_path": "articles/virtual-machine-scale-sets/shared-images-powershell.md",
             "redirect_url": "/azure/virtual-machines/create-gallery",
             "redirect_document_id": false
-          },        
+          },  
+          {
+            "source_path": "articles/virtual-machines/image-version-another-gallery-cli.md",
+            "redirect_url": "/azure/virtual-machines/image-version",
+            "redirect_document_id": false
+          },   
+          {
+            "source_path": "articles/virtual-machines/image-version-another-gallery-powershell.md",
+            "redirect_url": "/azure/virtual-machines/image-version",
+            "redirect_document_id": false
+          }, 
+          {
+            "source_path": "articles/virtual-machines/image-version-managed-image-cli.md",
+            "redirect_url": "/azure/virtual-machines/image-version",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/virtual-machines/image-version-managed-image-powershell.md",
+            "redirect_url": "/azure/virtual-machines/image-version",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/virtual-machines/image-version-snapshot-powershell.md",
+            "redirect_url": "/azure/virtual-machines/image-version",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/virtual-machines/image-version-snapshot-cli.md",
+            "redirect_url": "/azure/virtual-machines/image-version",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/virtual-machines/image-version-vm-cli.md",
+            "redirect_url": "/azure/virtual-machines/image-version",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/virtual-machines/image-version-vm-powershell.md",
+            "redirect_url": "/azure/virtual-machines/image-version",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/virtual-machines/vm-specialized-image-version-powershell.md",
+            "redirect_url": "/azure/virtual-machines/image-version",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/virtual-machines/vm-specialized-image-version-cli.md",
+            "redirect_url": "/azure/virtual-machines/image-version",
+            "redirect_document_id": false
+          },
           {
             "source_path_from_root": "/articles/virtual-machines/linux/deploy-ibm-db2-purescale-azure.md",
             "redirect_url": "/azure/virtual-machines/workloads/mainframe-rehosting/ibm/deploy-ibm-db2-purescale-azure",

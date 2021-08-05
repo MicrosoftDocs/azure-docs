@@ -1,20 +1,56 @@
 ---
-title: Create a VM from a generalized image 
-description: Create a VM using a generalized image in a Shared Image Gallery.
+title: Create a VM from a generalized image in a gallery
+description: Create a VM from a generalized image in a gallery.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
-ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 05/04/2020
-ms.author: cynthn
-ms.reviewer: akjosh 
-ms.custom: devx-track-azurepowershell
+ms.workload: infrastructure
+ms.date: 08/05/2021
+ms.author: cynthn 
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+#PMcontact: akjosh
 ---
+# Create a VM from a generalized image version using the Azure CLI
 
-# Create a VM using a generalized image 
+Create a VM from a [generalized image version](./shared-image-galleries.md#generalized-and-specialized-images) stored in a Shared Image Gallery. If you want to create a VM using a specialized image, see [Create a VM from a specialized image](vm-specialized-image-version.md). 
 
-Create a VM from a generalized image stored in a Shared Image Gallery. If want to create a VM using a specialized image, see [Create a VM from a specialized image](vm-specialized-image-version-powershell.md).
+### [CLI](#tab/cli)
+
+
+List the image definitions in a gallery using [az sig image-definition list](/cli/azure/sig/image-definition#az_sig_image_definition_list) to see the name and ID of the definitions.
+
+```azurecli-interactive 
+resourceGroup=myGalleryRG
+gallery=myGallery
+az sig image-definition list --resource-group $resourceGroup --gallery-name $gallery --query "[].[name, id]" --output tsv
+```
+
+Create a VM using [az vm create](/cli/azure/vm#az_vm_create). To use the latest version of the image, set `--image` to the ID of the image definition. 
+
+Replace resource names as needed in this example. 
+
+```azurecli-interactive 
+imgDef="/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition"
+vmResourceGroup=myResourceGroup
+location=eastus
+vmName=myVM
+adminUsername=azureuser
+
+
+az group create --name $vmResourceGroup --location $location
+
+az vm create\
+   --resource-group $vmResourceGroup \
+   --name $vmName \
+   --image $imgDef \
+   --admin-username $adminUsername \
+   --generate-ssh-keys
+```
+
+You can also use a specific version by using the image version ID for the `--image` parameter. For example, to use image version *1.0.0* type: `--image "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`.
+
+### [PowerShell]](#tab/powershell)
 
 Once you have a generalized image version, you can create one or more new VMs. Using the [New-AzVM](/powershell/module/az.compute/new-azvm) cmdlet. 
 
@@ -24,7 +60,7 @@ Be aware that using a specific image version means automation could fail if that
 
 Replace resource names as needed in these examples. 
 
-## Simplified parameter set
+**Simplified parameter set**
 
 You can use the simplified parameter set to quickly create a VM from an image. The simplified parameter set uses the VM name to automatically create some of the required resources, like vNet and public IP address, for you. 
 
@@ -60,7 +96,7 @@ New-AzVM `
 
 
 
-## Full parameter set
+**Full parameter set**
 
 You can create a VM using specific resources by using the full parameter set.
 
@@ -139,15 +175,8 @@ New-AzVM `
    -Location $location `
    -VM $vmConfig
 ```
-
+---
 
 ## Next steps
-[Azure Image Builder (preview)](./image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](./windows/image-builder-gallery-update-image-version.md). 
 
-You can also create Shared Image Gallery resource using templates. There are several Azure Quickstart Templates available: 
-
-- [Create a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-create/)
-- [Create an Image Definition in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
-- [Create an Image Version in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
-
-For more information about Shared Image Galleries, see the [Overview](./shared-image-galleries.md). If you run into issues, see [Troubleshooting shared image galleries](troubleshooting-shared-images.md).
+[Azure Image Builder (preview)](./image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](./linux/image-builder-gallery-update-image-version.md).

@@ -727,7 +727,7 @@
         href: vm-specialized-image-version-cli.md
     - name: Update image resources
       displayName: Shared Image Gallery, SIG, sig, gallery, image
-      href: update-image-resources-cli.md
+      href: update-image-resources.md
     - name: App registration for sharing
       items:
       - name: Linux

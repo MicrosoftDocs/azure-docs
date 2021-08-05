@@ -1,20 +1,52 @@
 ---
-title: Create a VM from a specialized image 
-description: Create a VM using a specialized image in a Shared Image Gallery.
+title: Create a VM from a specialized image version
+description: Create a VM using a specialized image version in a Shared Image Gallery.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 05/04/2020
+ms.date: 08/05/2021
 ms.author: cynthn
 ms.reviewer: akjosh 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# Create a VM using a specialized image 
+# Create a VM using a specialized image version 
 
-Create a VM from a specialized image version stored in a Shared Image Gallery. If want to create a VM using a generalized image version, see [Create a VM using a generalized image](vm-generalized-image-version-powershell.md).
+Create a VM from a [specialized image version](./shared-image-galleries.md#generalized-and-specialized-images) stored in a Shared Image Gallery. If want to create a VM using a generalized image version, see [Create a VM from a generalized image version](vm-generalized-image-version.md).
+
+Replace resource names as needed in these examples. 
+
+### [CLI](#tab/cli)
+
+List the image definitions in a gallery using [az sig image-definition list](/cli/azure/sig/image-definition#az_sig_image_definition_list) to see the name and ID of the definitions.
+
+```azurecli-interactive 
+resourceGroup=myGalleryRG
+gallery=myGallery
+az sig image-definition list \
+   --resource-group $resourceGroup \
+   --gallery-name $gallery \
+   --query "[].[name, id]" \
+   --output tsv
+```
+
+Create the VM using [az vm create](/cli/azure/vm#az_vm_create) using the --specialized parameter to indicate the the image is a specialized image. 
+
+Use the image definition ID for `--image` to create the VM from the latest version of the image that is available. You can also create the VM from a specific version by supplying the image version ID for `--image`. 
+
+In this example, we are creating a VM from the latest version of the *myImageDefinition* image.
+
+```azurecli
+az group create --name myResourceGroup --location eastus
+az vm create --resource-group myResourceGroup \
+    --name myVM \
+    --image "/subscriptions/<Subscription ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition" \
+    --specialized
+```
+
+### [PowerShell](#tab/powershell)
 
 Once you have a specialized image version, you can create one or more new VMs using the [New-AzVM](/powershell/module/az.compute/new-azvm) cmdlet. 
 
@@ -99,25 +131,7 @@ New-AzVM `
 
 ```
 
-## Attach the data disk
-If your image contained a data disk, you need to attach the data disk to the VM.
-
-```azurepowershell-interactive
-
-$vm = Get-AzVM -Name $vmName -ResourceGroupName $resourceGroup 
-
-$lun = $imageVersion.StorageProfile.DataDiskImages.Lun
-
-Add-AzVMDataDisk `
-   -CreateOption FromImage `
-   -SourceImageUri $imageversion.Id `
-   -Lun $lun `
-   -Caching $imageVersion.StorageProfile.DataDiskImages.HostCaching `
-   -DiskSizeInGB $imageVersion.StorageProfile.DataDiskImages.SizeInGB `
-   -VM $vm
-
-```
-
+---
 
 ## Next steps
 [Azure Image Builder (preview)](./image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](./linux/image-builder-gallery-update-image-version.md). 
@@ -127,5 +141,3 @@ You can also create Shared Image Gallery resource using templates. There are sev
 - [Create a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-create/)
 - [Create an Image Definition in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
 - [Create an Image Version in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
-
-For more information about Shared Image Galleries, see the [Overview](./shared-image-galleries.md). If you run into issues, see [Troubleshooting shared image galleries](troubleshooting-shared-images.md).
