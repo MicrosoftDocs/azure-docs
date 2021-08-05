@@ -1,8 +1,10 @@
 ---
 title: Copy data from Couchbase using Azure Data Factory (Preview) 
+titleSuffix: Azure Data Factory& Azure Synapse
 description: Learn how to copy data from Couchbase to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 author: jianleishen
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jianleishen

@@ -5,7 +5,6 @@ author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
 ms.topic: tutorial
-ms.custom: seo-dt-2019
 ms.date: 02/18/2021
 ---
 

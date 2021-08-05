@@ -5,7 +5,6 @@ ms.service: data-factory
 author: nabhishek
 ms.author: abnarain
 ms.topic: tutorial
-ms.custom: seo-dt-2019
 ms.date: 06/07/2021
 ---
 
