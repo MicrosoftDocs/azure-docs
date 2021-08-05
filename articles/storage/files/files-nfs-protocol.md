@@ -98,7 +98,7 @@ The following is a list of workloads that have been validated to work with NFS A
 
 The following workloads have open issues and shouldn't be deployed at this time:
 - IBM MQ will experience locking issues.
-- Metadata heavy workloads such as untar may experience high latency
+- Metadata heavy workloads such as untar may experience high latency.
 - Oracle Database will experience incompatibility with its dNFS feature.
 - SAP Application Layer will experience inconsistent behavior due to a known active issue with ls -l.
 
