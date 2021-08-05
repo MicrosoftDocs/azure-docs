@@ -122,7 +122,7 @@ Open your `app\res\layout\activity_main.xml`, and replace the existing Hello Wol
 
 Let's create & place an object using your app. First, add the following imports into your `app\java\<PackageName>\MainActivity`:
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=16,20-22,26-31)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=20-22,26-31,16-17)]
 
 Then, add the following member variables into your `MainActivity` class:
 
@@ -172,7 +172,7 @@ Right-click `app\java\<PackageName>`->**New**->**Java Class**. Set **Name** to _
 import com.microsoft.CloudServices;
 ```
 
-Define `android.app.Application` as the superclass 
+Define `android.app.Application` as its superclass 
 ```java
 public class MyFirstApp extends android.app.Application {...
 ```
@@ -209,7 +209,7 @@ Next, let's add the following `initializeSession()` method inside your `mainActi
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=87-101,151)]
 
 To make sure `initializeSession()` is being called once  `sceneView.getSession() != null` add the following method.
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=89-97,147)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?name=scene_OnUpdate)]
 
 Now, let's hook your `initializeSession()` and `scene_OnUpdate(...)` method into your `onCreate()` method. Also, we'll ensure that frames from your camera feed are sent to Azure Spatial Anchors SDK for processing.
 
@@ -245,7 +245,7 @@ Next, add the following `uploadCloudAnchorAsync()` method inside your `mainActiv
 
 Finally, let's hook everything together. In your `handleTap()` method, add the following code. It will invoke your `uploadCloudAnchorAsync()` method as soon as your sphere is created. Once the method returns, the code below will perform one final update to your sphere, changing its color to blue.
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=153-161,173-203&highlight=24-37)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=153-161,173-203&highlight=26-39)]
 
 [Redeploy](#trying-it-out) your app once more. Move around your device, tap the screen, and place your sphere. This time, though, your sphere will change its color from black towards white, as camera frames are collected. Once we have enough frames, the sphere will turn into yellow, and the cloud upload will start. Make sure your phone is connected to the internet. Once the upload finishes, your sphere will turn blue. Optionally, you could also use the `Logcat` window inside Android Studio to monitor the log messages your app is sending. For example, the session progress during frame captures, and the anchor identifier that the cloud returns once the upload is completed.
 

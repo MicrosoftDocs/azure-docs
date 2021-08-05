@@ -149,7 +149,8 @@ public class MainActivity extends AppCompatActivity {
         this.cloudSession.getConfiguration().setAccountDomain(/* Copy your account Domain in here */);
         this.cloudSession.start();
     }					   
-						   			  
+	
+    // <handleTap>					   			  
     protected void handleTap(HitResult hitResult, Plane plane, MotionEvent motionEvent) {
         synchronized (this.syncTaps) {
             if (this.tapExecuted) {
@@ -201,6 +202,7 @@ public class MainActivity extends AppCompatActivity {
                     });
                 });
     }
+    // </handleTap>
 				   					   
 	 private CompletableFuture<String> uploadCloudAnchorAsync(CloudSpatialAnchor anchor) {
         synchronized (this.syncSessionProgress) {
