@@ -48,6 +48,7 @@ landingContent:
             url: ./../concepts-supported-versions.md
           - text: Restore a server
             url: how-to-restore-server-portal.md
+        linkLists:
           - linkListType: Networking
             links:
             - text: Networking

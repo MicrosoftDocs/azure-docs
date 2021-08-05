@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 9/21/2020
 ---
 
-# Create and manage virtual networks for Azure Database for MySQL - Flexible Server using the Azure portal
+## Create and manage virtual networks for Azure Database for MySQL - Flexible Server using the Azure portal
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -28,11 +28,12 @@ In this article, we will focus on creation of MySQL server with **Private access
 ## Prerequisites
 
 To create a flexible server in a virtual network, you need:
+
 - A [Virtual Network](../../virtual-network/quick-create-portal.md#create-a-virtual-network)
     > [!Note]
     > The virtual network and subnet should be in the same region and subscription as your flexible server.
 
--  To [delegate a subnet](../../virtual-network/manage-subnet-delegation.md#delegate-a-subnet-to-an-azure-service) to **Microsoft.DBforMySQL/flexibleServers**. This delegation means that only Azure Database for MySQL Flexible Servers can use that subnet. No other Azure resource types can be in the delegated subnet.
+- To [delegate a subnet](../../virtual-network/manage-subnet-delegation.md#delegate-a-subnet-to-an-azure-service) to **Microsoft.DBforMySQL/flexibleServers**. This delegation means that only Azure Database for MySQL Flexible Servers can use that subnet. No other Azure resource types can be in the delegated subnet.
 
 ## Create Azure Database for MySQL Flexible Server in an already existing virtual network
 
@@ -41,7 +42,7 @@ To create a flexible server in a virtual network, you need:
 3. Select **Flexible server** as the deployment option.
 4. Fill out the **Basics** form
 5. Go to the **Networking** tab.
-6. In the **Connectivity method**, select **Private access (VNet Integration)**. Go to **Virtual Network** section, you can either select an already existing *virtual network* and *Subnet* that is delegated to *Microsoft.DBforMySQL/flexibleServers* or create a new one by clicking the *create virtual network* link. 
+6. In the **Connectivity method**, select **Private access (VNet Integration)**. Go to **Virtual Network** section, you can either select an already existing *virtual network* and *Subnet* that is delegated to *Microsoft.DBforMySQL/flexibleServers* or create a new one by clicking the *create virtual network* link.
     > [!Note]
     > Only virtual networks and subnets in the same region and subscription will be listed in the drop down. </br>
     > The chosen subnet will be delegated to *Microsoft.DBforMySQL/flexibleServers*. It means that only Azure Database for MySQL Flexible Servers can use that subnet.</br>
@@ -59,6 +60,7 @@ To create a flexible server in a virtual network, you need:
 9. Select **Create** to provision the server. Provisioning can take a few minutes.
 
 ## Next steps
+
 - [Create and manage Azure Database for MySQL Flexible Server virtual network using Azure CLI](./how-to-manage-virtual-network-cli.md).
 - Learn more about [networking in Azure Database for MySQL Flexible Server](./concepts-networking.md)
 - Understand more about [Azure Database for MySQL Flexible Server virtual network](./concepts-networking-vnet.md#private-access-vnet-integration).
