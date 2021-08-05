@@ -1,7 +1,6 @@
 ---
 title: Copy data to or from Azure Data Lake Storage Gen1
-titleSuffix: Azure Data Factory & Synapse Analytics
-description: Learn how to copy data from supported source data stores to Azure Data Lake Store, or from Data Lake Store to supported sink stores, using Azure Data Factory or Synapse Analytics pipelines.
+description: Learn how to copy data from supported source data stores to Azure Data Lake Store, or from Data Lake Store to supported sink stores, using Azure Data Factory or Azure Synapse Analytics pipelines.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory

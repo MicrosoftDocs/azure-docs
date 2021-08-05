@@ -1,7 +1,6 @@
 ---
 title: Copy activity performance optimization features
-titleSuffix: Azure Data Factory & Synapse Analytics
-description: Learn about the key features that help you optimize the copy activity performance in Azure Data Factory and Synapse Analytics pipelines.
+description: Learn about the key features that help you optimize the copy activity performance in Azure Data Factory and Azure Synapse Analytics pipelines.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory

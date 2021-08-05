@@ -1,7 +1,6 @@
 ---
 title: Create schedule triggers
-titleSuffix: Azure Data Factory & Synapse Analytics
-description: Learn how to create a trigger in Azure Data Factory or Synapse Analytics that runs a pipeline on a schedule.
+description: Learn how to create a trigger in Azure Data Factory or Azure Synapse Analytics that runs a pipeline on a schedule.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel

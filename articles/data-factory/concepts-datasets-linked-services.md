@@ -1,6 +1,5 @@
 ---
 title: Datasets
-titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about datasets in Azure Data Factory and Azure Synapse Analytics pipelines. Datasets represent input/output data.
 author: dcstwh
 ms.author: weetok
