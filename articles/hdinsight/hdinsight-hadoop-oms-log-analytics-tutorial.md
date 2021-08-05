@@ -165,8 +165,6 @@ The high-level metrics of each workload type will be presented, including how ma
 
 :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/spark-metrics.png" alt-text="Cluster monitor spark metrics":::
 
-:::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/spark-metrics-1.png" alt-text="Cluster monitor yarn metrics":::
-
 ## Configuring performance counters
 
 Azure monitor supports collecting and analyzing performance metrics for the nodes in your cluster. For more information, see [Linux performance data sources in Azure Monitor](../azure-monitor/agents/data-sources-performance-counters.md#linux-performance-counters).
