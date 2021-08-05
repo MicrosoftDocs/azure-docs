@@ -5,10 +5,13 @@ author: CaitlinV39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 7/2/2021
+ms.date: 08/03/2021
 ms.author: cavoeg
 ---
 # Overview of FHIR search
+
+> [!IMPORTANT]
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 The FHIR specification defines the fundamentals of search for FHIR resources. This article will guide you through some key aspects to searching resources in FHIR. For complete details about searching FHIR resources, refer to [Search](https://www.hl7.org/fhir/search.html) in the HL7 FHIR Specification. Throughout this article, we will give examples of search syntax. Each search will be against your FHIR server, which typically has a URL of `https://<WORKSPACE NAME>-<ACCOUNT-NAME>.fhir.azurehealthcareapis.com`. In the examples, we will use the placeholder {{FHIR_URL}} for this URL. 
 
@@ -126,8 +129,8 @@ To help manage the returned resources, there are search result parameters that y
 | -------------------------  | -------------------- | ------------------------- | ------------|
 | _elements                     | Yes                  | Yes                       |
 | _count                        | Yes                  | Yes                       | _count is limited to 1000 resources. If it's set higher than 1000, only 1000 will be returned and a warning will be returned in the bundle.                               |
-| _include                      | Yes                  | Yes                       | Included items are limited to 100. _include on PaaS and OSS on Cosmos DB do not include :iterate support [(#1313)](https://github.com/microsoft/fhir-server/issues/1313).                               |
-| _revinclude                   | Yes                  | Yes                       |Included items are limited to 100. _revinclude on PaaS and OSS on Cosmos DB do not include :iterate support [(#1313)](https://github.com/microsoft/fhir-server/issues/1313).  Issue [#1319](https://github.com/microsoft/fhir-server/issues/1319)                            |
+| _include                      | Yes                  | Yes                       | Included items are limited to 100. _include on PaaS and OSS on Cosmos DB do not include :iterate support [(#2137)](https://github.com/microsoft/fhir-server/issues/2137).                               |
+| _revinclude                   | Yes                  | Yes                       |Included items are limited to 100. _revinclude on PaaS and OSS on Cosmos DB do not include :iterate support [(#2137)](https://github.com/microsoft/fhir-server/issues/2137). There is also an incorrect status code for a bad request [#1319](https://github.com/microsoft/fhir-server/issues/1319)                            |
 | _summary                      | Yes             | Yes                   |
 | _total                        | Partial              | Partial                   | _total=none and _total=accurate                               |
 | _sort                         | Partial              | Partial                   | sort=_lastUpdated is supported. For Azure API for FHIR and OSS Cosmos DB databases created after April 20, 2021 sort is also supported  on first name, last name, and clinical date. The FHIR service and the OSS SQL DB database support sorting by strings and dates.                              |
