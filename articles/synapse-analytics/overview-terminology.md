@@ -55,7 +55,7 @@ Azure Synapse Analytics Data Explorer provides customers with an interactive que
 
 * **Data Explorer pool** are dedicated clusters that includes two or more compute nodes with local SSD storage and multiple blob storage for persistance. 
 
-* **Data Explorer databases** are part of Data Explorer pool and are logical entity that hold the tables and other database objects. You can have more than one database per pool.
+* **Data Explorer databases** are hosted on Data Explorer pools and are logical entities made up of collections of tables and other database objects. You can have more than one database per pool.
 
 * **Tables** are part of Data Explorer database. The data is organized as traditional relational data model. Data is organized in tables, and all data records of the table are of a strongly-typed schema. The table schema is an ordered list of columns, each column having a name and a scalar data type. Scalar data types can be structured (e.g. int, real, datetime, or timespan), semi-structured (dynamic), or free text (string). The dynamic type is similar to JSON – it can hold a single value of other scalar types, an array, or a dictionary of such values. Tables are contained in databases, and a single deployment (a cluster of nodes) may host multiple databases. There are also external tables that don't persist any data and hold a reference to a storage or SQL data source to query or export the data. 
 
