@@ -6,7 +6,7 @@ ms.author: fisteele
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: flexible-scale-sets
-ms.date: 05/24/2021
+ms.date: 08/05/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 ---
@@ -56,7 +56,7 @@ Before you can deploy virtual machine scale sets in Flexible orchestration mode,
 1. Select the two orchestrator features to enable: *VMOrchestratorSingleFD* and *VMOrchestratorMultiFD*.
 1. Select **Register**.
 
-    :::image type="content" source="./media/flexible-virtual-machine-scale-sets-portal/flex-register-portal.png" alt-text="Screen shot of the Feature registration page in the Azure portal.":::
+    :::image type="content" source="./media/flexible-virtual-machine-scale-sets-portal/flex-register-portal.png" alt-text="Screenshot of the Feature registration page in the Azure portal.":::
 
 Once the features have been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider. 
 
