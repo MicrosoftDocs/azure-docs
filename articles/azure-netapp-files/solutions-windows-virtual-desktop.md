@@ -18,9 +18,9 @@ ms.author: b-juche
 ---
 # Benefits of using Azure NetApp Files with Azure Virtual Desktop 
 
-This article provides best practice guidance on deploying Azure Virtual Desktop (WVD) with Azure NetApp Files.
+This article provides best practice guidance on deploying Azure Virtual Desktop with Azure NetApp Files.
 
-Azure NetApp Files is a highly performant file storage service from Azure. It can provide up to 450,000 IOPS and sub-millisecond latency, capable of supporting extremely large scale of Azure Virtual Desktop deployments. You can adjust the bandwidth and change the service level of your Azure NetApp Files volumes on demand almost instantaneously without pausing IO while retaining data plane access. This capability allows you to easily optimize your WVD deployment scale for cost. You can also create space-efficient, point-in-time volume snapshots without impacting volume performance. This capability makes it possible for you to roll back individual [FSLogix user profile containers](../virtual-desktop/store-fslogix-profile.md) via a copy from the `~snapshot` directory, or to instantaneously roll back the entire volume at once via the volume revert capability.  With up to 255 (rotational) snapshots in place to protect a volume from data loss or corruption, administrators have many chances to undo what has been done.
+Azure NetApp Files is a highly performant file storage service from Azure. It can provide up to 450,000 IOPS and sub-millisecond latency, capable of supporting extremely large scale of Azure Virtual Desktop deployments. You can adjust the bandwidth and change the service level of your Azure NetApp Files volumes on demand almost instantaneously without pausing IO while retaining data plane access. This capability allows you to easily optimize your Azure Virtual Desktop deployment scale for cost. You can also create space-efficient, point-in-time volume snapshots without impacting volume performance. This capability makes it possible for you to roll back individual [FSLogix user profile containers](../virtual-desktop/store-fslogix-profile.md) via a copy from the `~snapshot` directory, or to instantaneously roll back the entire volume at once via the volume revert capability.  With up to 255 (rotational) snapshots in place to protect a volume from data loss or corruption, administrators have many chances to undo what has been done.
 
 ## Sample blueprints
 
@@ -37,7 +37,7 @@ For the pooled scenario, the Azure Virtual Desktop team [recommends](/windows-se
 
 This recommendation is confirmed by a 500-user LoginVSI test, logging approximately 62 “knowledge / medium users” onto each D16as_V4 virtual machine. 
 
-As an example, at 62 users per D16as_V4 virtual machine, Azure NetApp Files can easily support 60,000 users per environment. Testing to evaluate the upper limit of the D32as_v4 virtual machine is ongoing. If the WVD user per vCPU recommendation holds true for the D32as_v4, more than 120,000 users would fit within 1,000 virtual machines before broaching [the 1,000 IP VNet limit](./azure-netapp-files-network-topologies.md), as shown in the following figure.  
+As an example, at 62 users per D16as_V4 virtual machine, Azure NetApp Files can easily support 60,000 users per environment. Testing to evaluate the upper limit of the D32as_v4 virtual machine is ongoing. If the Azure Virtual Desktop user per vCPU recommendation holds true for the D32as_v4, more than 120,000 users would fit within 1,000 virtual machines before broaching [the 1,000 IP VNet limit](./azure-netapp-files-network-topologies.md), as shown in the following figure.  
 
 ![Azure Virtual Desktop pooled desktop scenario](../media/azure-netapp-files/solutions-pooled-desktop-scenario.png)   
 

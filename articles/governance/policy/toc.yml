@@ -66,6 +66,8 @@
     href: ./samples/built-in-policies.md
   - name: Built-in initiatives
     href: ./samples/built-in-initiatives.md
+  - name: Built-in packages for guest configuration
+    href: ./samples/built-in-packages.md
   - name: Azure Resource Graph queries
     href: ./samples/resource-graph-samples.md
   - name: Patterns of use
