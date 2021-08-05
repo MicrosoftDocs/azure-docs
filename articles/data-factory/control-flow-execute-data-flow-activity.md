@@ -1,6 +1,6 @@
 ---
 title: Data Flow activity
-titleSuffix: Azure Data Factory& Azure Synapse
+titleSuffix: Azure Data Factory & Azure Synapse
 description: How to execute data flows from inside a data factory pipeline. 
 author: kromerm
 ms.service: data-factory

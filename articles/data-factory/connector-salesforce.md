@@ -1,6 +1,6 @@
 ---
 title: Copy data from and to Salesforce
-titleSuffix: Azure Data Factory& Azure Synapse
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from Salesforce to supported sink data stores or from supported source data stores to Salesforce by using a copy activity in a data factory pipeline.
 ms.author: jianleishen
 author: jianleishen

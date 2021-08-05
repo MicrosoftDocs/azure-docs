@@ -1,6 +1,6 @@
 ---
 title: Flatten transformation in mapping data flow
-titleSuffix: Azure Data Factory& Azure Synapse
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Denormalize hierarchical data using the flatten transformation
 author: kromerm
 ms.author: makromer

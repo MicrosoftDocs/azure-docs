@@ -1,6 +1,6 @@
 ---
 title: Connect to GitHub
-titleSuffix: Azure Data Factory& Azure Synapse
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Use GitHub to specify your Common Data Model entity references
 author: linda33wj
 ms.service: data-factory

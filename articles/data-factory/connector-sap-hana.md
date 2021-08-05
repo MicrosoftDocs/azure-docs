@@ -1,6 +1,6 @@
 ---
 title: Copy data from SAP HANA
-titleSuffix: Azure Data Factory& Azure Synapse
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from SAP HANA to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 author: linda33wj
 ms.author: jingwang
