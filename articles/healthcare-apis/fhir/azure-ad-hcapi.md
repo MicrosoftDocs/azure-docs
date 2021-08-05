@@ -6,19 +6,19 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 08/04/2019
 ms.author: cavoeg
 ---
 
 # Azure Active Directory identity configuration for FHIR service
 
-An important piece when working with healthcare data is to ensure that the data is secure and cannot be accessed by unauthorized users or applications. FHIR servers use [OAuth 2.0](https://oauth.net/2/) to ensure this data security. FHIR service is secured using [Azure Active Directory](../../active-directory/index.yml), which is an example of an OAuth 2.0 identity provider. This article provides an overview of FHIR server authorization and the steps needed to obtain a token to access a FHIR server. While these steps will apply to any FHIR server and any identity provider, we will walk through the Healthcare APIs FHIR service and Azure AD as our identity provider in this article.
+When you're working with healthcare data, it's important to ensure that the data is secure, and it can't be accessed by unauthorized users or applications. FHIR servers use [OAuth 2.0](https://oauth.net/2/) to ensure this data security. FHIR service is secured using [Azure Active Directory](../../active-directory/index.yml), which is an example of an OAuth 2.0 identity provider. This article provides an overview of FHIR server authorization and the steps needed to obtain a token to access a FHIR server. While these steps will apply to any FHIR server and any identity provider, we'll walk through the Healthcare APIs FHIR service and Azure Active Directory (Azure AD) as our identity provider in this article.
 
 ## Access control overview
 
 In order for a client application to access FHIR service, it must present an access token. The access token is a signed, [Base64](https://en.wikipedia.org/wiki/Base64) encoded collection of properties (claims) that convey information about the client's identity and roles and privileges granted to the client.
 
-There are a number of ways to obtain a token, but FHIR service doesn't care how the token is obtained as long as it's an appropriately signed token with the correct claims. 
+There are many ways to obtain a token, but FHIR service doesn't care how the token is obtained as long as it's an appropriately signed token with the correct claims. 
 
 Using [authorization code flow](../../active-directory/azuread-dev/v1-protocols-oauth-code.md) as an example, accessing a FHIR server goes through the four steps below:
 
@@ -29,7 +29,7 @@ Using [authorization code flow](../../active-directory/azuread-dev/v1-protocols-
 1. The client makes a request to the FHIR service, for example `GET /Patient` to search all patients. When making the request, it includes the access token in an HTTP request header, for example `Authorization: Bearer eyJ0e...`, where `eyJ0e...` represents the Base64 encoded access token.
 1. The FHIR service validates that the token contains appropriate claims (properties in the token). If everything checks out, it will complete the request and return a FHIR bundle with results to the client.
 
-It is important to note that the FHIR service isn't involved in validating user credentials and it doesn't issue the token. The authentication and token creation is done by Azure AD. The FHIR service simply validates that the token is signed correctly (it is authentic) and that it has appropriate claims.
+It's important to note that the FHIR service isn't involved in validating user credentials and it doesn't issue the token. The authentication and token creation is done by Azure AD. The FHIR service simply validates that the token is signed correctly (it is authentic) and that it has appropriate claims.
 
 ## Structure of an access token
 
@@ -37,7 +37,7 @@ Development of FHIR applications often involves debugging access issues. If a cl
 
 FHIR servers typically expect a [JSON Web Token](https://en.wikipedia.org/wiki/JSON_Web_Token) (JWT, sometimes pronounced "jot"). It consists of three parts:
 
-* A header, which could look like:
+**Part 1**: A header, which could look like:
     ```json
     {
       "alg": "HS256",
@@ -45,7 +45,7 @@ FHIR servers typically expect a [JSON Web Token](https://en.wikipedia.org/wiki/J
     }
     ```
 
-* The payload (the claims), for example:
+**Part 2**: The payload (the claims), for example:
     ```json
     {
      "oid": "123",
@@ -57,7 +57,7 @@ FHIR servers typically expect a [JSON Web Token](https://en.wikipedia.org/wiki/J
     }
     ```
 
-* A signature, which is calculated by concatenating the Base64 encoded contents of the header and the payload and calculating a cryptographic hash of them based on the algorithm (`alg`) specified in the header. A server will be able to obtain public keys from the identity provider and validate that this token was issued by a specific identity provider and it hasn't been tampered with.
+**Part 3**: A signature, which is calculated by concatenating the Base64 encoded contents of the header and the payload and calculating a cryptographic hash of them based on the algorithm (`alg`) specified in the header. A server will be able to obtain public keys from the identity provider and validate that this token was issued by a specific identity provider and it hasn't been tampered with.
 
 The full token consists of the Base64 encoded (actually Base64 url encoded) versions of those three segments. The three segments are concatenated and separated with a `.` (dot).
 
@@ -104,7 +104,7 @@ There are other variations (for example on behalf of flow) for obtaining a token
 
 ## Next steps
 
-In this document, you learned some of the basic concepts involved in securing access to the FHIR service using Azure AD. To learn how to deploy an instance of the FHIR service, continue to the deployment quickstart.
+In this document, you learned some of the basic concepts involved in securing access to the FHIR service using Azure AD. For information about how to deploy the FHIR service, see
 
 >[!div class="nextstepaction"]
 >[Deploy FHIR service](fhir-portal-quickstart.md)
