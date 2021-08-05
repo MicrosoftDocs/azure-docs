@@ -106,49 +106,70 @@ If DRS rule conflicts are detected when you create a VM-VM policy, it results in
    >[!NOTE]
    >Associated policies & virtual machines blurb next to host - explain 
 
-1. Select **Next: Review + create** to review your policy and then select **Create policy**.  If you want to make changes to your policy, select **Back : Basics**.
+1. Select **Next: Review + create** to review your policy. 
+
+   >[!TIP]
+   >If you want to make changes, select **Back : Basics**.
+
+1. Select **Create policy**. 
 
 
 
 
 ## Edit a policy
 
-Editing a policy allows you to unassign existing resources in the policy, add new resources to the policy, or change the state of a policy.
-
+You can change the state of a policy, add a new VM, or unassign an existing VM.
 
 ### Change the policy state
 
-In order to change the state of a policy to enabled or disabled, perform these steps:
-1.	From the placement policy overview page, for the policy you would like to edit, select on the action wheel dropdown     and then select Edit.
-2.	Uncheck the Enabled checkbox to disable the policy or check it to disable the policy.
-3.	select Next: Review and Update.
- 
-4.	Review the summary page. select Back: Basics to make any desired changes, otherwise select Update Policy.  
-!TIP: You can disable a policy directly from Placement Policies overview page by selecting on the action wheel and selecting Disable. To enable a policy, you must edit the policy as outlined above. 
+You can change the state of a policy to enabled or disabled. 
 
+1. In your Azure VMware Solution private cloud, under **Manage**, select **Placement policies**.
 
+1. For the policy you want to edit, select **Settings** (:::image type="icon" source="media/icon-cog-wheel.png":::) and then select **Edit**.
 
+   >[!TIP]
+   >You can disable a policy directly by selecting **Disable**. 
+
+1. Select either the **Enable** or **Disable** option and then select **Review + update**. 
+
+   >[!TIP]
+   >If you want to make changes, select **Back : Basics**.
+
+1. Review the changes and select **Update**.  
 
 
 
 ### Update the resources in a policy
 
-In order to add new resources to a policy or remove existing ones, perform the following steps:
-1.	From the placement policy overview page, for the policy you would like to edit, select on the action wheel dropdown  and then select Edit.
-2.	To remove an existing resource from a policy, select the checkbox next to the resource’s name, then select Unassign. Choose multiple as desired.
-3.	To add a new resource to the policy, select Edit virtual machine or Edit host, select the resource you’d like to add, then select Save & Close.
-4.	select Next: Review and Update.
-5.	Review the summary page. select Back: Basics to make any desired changes, otherwise select Update Policy.  
+You can add new resources to a policy or remove existing ones. 
 
+1. In your Azure VMware Solution private cloud, under **Manage**, select **Placement policies**.
 
+1. For the policy you want to edit, select **Settings** (:::image type="icon" source="media/icon-cog-wheel.png":::) and then select **Edit**.
+
+   - To remove an existing resource, select the VM and then select **Unassign**.  You can remove multiple resources.
+
+   - To add a new resource, select **Edit virtual machine** or **Edit host**, select the resource you'd like to add, and then select **Save**. 
+
+1. Select **Next : Review + update**. 
+
+   >[!TIP]
+   >If you want to make changes, select **Back : Basics**.
+
+1. Review the changes and select **Update**.  
 
 
 
 ## Delete a policy
 
-In order to delete a placement policy and its corresponding DRS rule, perform the following steps:
-1.	From the placement policy overview page, for the policy you would like to delete, select on the action wheel dropdown and then select Delete. 
-2.	select Delete on the confirmation message.
+You can delete a placement policy and its corresponding DRS rule. 
+
+1. In your Azure VMware Solution private cloud, under **Manage**, select **Placement policies**.
+
+1. For the policy you want to edit, select **Settings** (:::image type="icon" source="media/icon-cog-wheel.png":::) and then select **Delete**.
+
+1. Select **Delete** on the confirmation message.
 
 
 
@@ -156,12 +177,11 @@ In order to delete a placement policy and its corresponding DRS rule, perform th
 
 Use the vSphere Client to monitor the operation of a placement policy's corresponding DRS rule. 
 
-As a holder of the cloudadmin role, you can view, but not edit, the DRS rules created by a placement policy on the cluster’s Configure tab under VM/Host Rules. This allows you to view some additional information, such as whether the DRS rules are in a conflict state.
+As a holder of the cloudadmin role, you can view, but not edit, the DRS rules created by a placement policy on the cluster's Configure tab under VM/Host Rules. This allows you to view some additional information, such as whether the DRS rules are in a conflict state.
 
-Additionally, you can monitor various DRS rule operations, such as recommendations and faults, from the cluster’s Monitor tab.
-
-
-
+Additionally, you can monitor various DRS rule operations, such as recommendations and faults, from the cluster's Monitor tab.
 
 
 ## Next steps
+
+[what could we put here for the next steps?]
