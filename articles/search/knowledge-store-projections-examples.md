@@ -8,40 +8,36 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 08/10/2021
 ---
 
-<!-- Power BI, Table, -->
+<!-- Power BI -->
 
 # Projection patterns for analysis in Power BI
 
-Projections are the physical expression of enriched documents in a knowledge store. Effective use of enriched documents requires structure. In this article, you'll explore both structure and relationships, learning how to build out projection properties, as well as how to relate data across the projection types created. 
+Projections are the physical expression of enriched documents in a [knowledge store](knowledge-store-concept-intro.md). Effective use of enriched documents requires structure. In this article, you'll explore both structure and relationships, learning how to build out projection properties, as well as how to relate data across the projection types created. 
 
-To create a projection, the data is shaped using either a [Shaper skill](cognitive-search-skill-shaper.md) to create a custom object or using the inline shaping syntax within a projection definition. 
+To create a projection, the data is shaped using either a [Shaper skill](cognitive-search-skill-shaper.md) to create a custom object, or inline shaping syntax within a projection definition. 
 
 A data shape contains all the data intended to project, formed as a hierarchy of nodes. This article shows several techniques for shaping data so that it can be projected into physical structures conducive to reporting, analysis, or downstream processing. 
 
-The examples presented in this article can be found in this [REST API sample](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/projections/Projections%20Docs.postman_collection.json), which you can download and run in an HTTP client.
+<!-- The examples presented in this article can be found in this [REST API sample](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/projections/Projections%20Docs.postman_collection.json), which you can download and run in an HTTP client. -->
+
+> [!Important]
+> When experimenting with projections, [set the indexer cache property](search-howto-incremental-index.md) to ensure cost control. Editing projections will result in the entire document being enriched again if the indexer cache is not set. When the cache is set and only the projections updated, skillset executions for previously enriched documents do not result in any new Cognitive Services charges.
 
 ## Introduction to projection examples
 
-There are three types of [projections](knowledge-store-projection-overview.md):
+There are three types of [projections](knowledge-store-projection-overview.md): tables, objects, files.
 
-+ Tables
-+ Objects
-+ Files
-
-Table projections are stored in Azure Table Storage. Object and file projections are written to blob storage, where object projections are saved as JSON files, and can contain content from the source document as well as any skill outputs or enrichments. The enrichment pipeline can also extract binaries like images, these binaries are projected as file projections. When a binary object is projected as an object projection, only the metadata associated with it is saved as a JSON blob. 
+<!-- Table projections are stored in Azure Table Storage. Object and file projections are written to blob storage, where object projections are saved as JSON files, and can contain content from the source document as well as any skill outputs or enrichments. The enrichment pipeline can also extract binaries like images, these binaries are projected as file projections. When a binary object is projected as an object projection, only the metadata associated with it is saved as a JSON blob.  -->
 
 To understand the intersection between data shaping and projections, we'll use the following skillset as the basis for exploring various configurations. This skillset processes raw image and text content. Projections will be defined from the contents of the document and the outputs of the skills, for the desired scenarios.
-
-> [!IMPORTANT] 
-> When experimenting with projections, it is useful to [set the indexer cache property](search-howto-incremental-index.md) to ensure cost control. Editing projections will result in the entire document being enriched again if the indexer cache is not set. When the cache is set and only the projections updated, skillset executions for previously enriched documents do not result in any new Cognitive Services charges.
 
 ```json
 {
     "name": "azureblob-skillset",
-    "description": "Skillset created from the portal. skillsetName: azureblob-skillset; contentField: merged_content; enrichmentGranularity: document; knowledgeStoreStorageAccount: confdemo;",
+    "description": "Skillset created from the portal, enriching blob data in "merged_content". The enrichment granularity is a document.",
     "skills": [
         {
             "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
@@ -188,8 +184,8 @@ To understand the intersection between data shaping and projections, we'll use t
     ],
     "cognitiveServices": {
         "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
-        "description": "DemosCS",
-        "key": "<COGNITIVE SERVICES KEY>"
+        "description": "A Cognitive Services resource in the same region as Search.",
+        "key": "<COGNITIVE SERVICES All-in-ONE KEY>"
     },
     "knowledgeStore": null
 }
@@ -217,7 +213,6 @@ In this example, the custom shape combines metadata and identified entities and 
 >
 > Notice the last two nodes, `KeyPhrases` and `Entities`. These are wrapped into a valid JSON object with the `sourceContext`. This is required as `keyphrases` and `entities` are enrichments on primitives and need to be converted to valid JSON before they can be projected.
 >
-
 
 ```json
 {
@@ -299,7 +294,9 @@ Add the above Shaper skill to the skillset.
 }  
 ```
 
-Now that we have all the data needed to project to tables, update the knowledgeStore object with the table definitions. In this example, we have three tables, defined by setting the `tableName`, `source` and `generatedKeyName` properties.
+Now that we have all the data needed to project to tables, update the knowledgeStore object with the table definitions. In this example, we h ave three tables, defined by setting the `tableName`, `source` and `generatedKeyName` properties.
+
+Recall that all three of these tables will be related through generated keys and by the shared parent `/document/pbiShape`.
 
 ```json
 "knowledgeStore" : {
@@ -358,9 +355,9 @@ Power BI relies on these generated keys to discover relationships within the tab
 
 ## Projecting to objects
 
-Object projections do not have the same limitations as table projections and are better suited for projecting large documents. In this example, the entire document is sent as an object projection. Object projections are limited to a single projection in a container and cannot be sliced.
+Object projections are simpler to define and are used when projecting whole documents. Object projections are limited to a single projection in a container and cannot be sliced.
 
-To define an object projection, use the ```objects``` array in the projections. You can generate a new shape using the Shaper skill or use inline shaping of the object projection. While the tables example demonstrated the approach of creating a shape and slicing, this example demonstrates the use of inline shaping. 
+To define an object projection, use the `objects` array in `projections`. You can generate a new shape using the Shaper skill or use inline shaping of the object projection. While the tables example demonstrated the approach of creating a shape and slicing, this example demonstrates the use of inline shaping. 
 
 Inline shaping is the ability to create a new shape in the definition of the inputs to a projection. Inline shaping creates an anonymous object that is identical to what a Shaper skill would produce (in our case, `pbiShape`). Inline shaping is useful if you are defining a shape that you do not plan to reuse.
 
@@ -419,42 +416,40 @@ The projections property is an array. This example adds a new projection instanc
 
 ## Projecting to file
 
-File projections are images that are either extracted from the source document or outputs of enrichment that can be projected out of the enrichment process. File projections, similar to object projections, are implemented as blobs in Azure Storage, and contain the image. 
+File projections are always images that are either extracted from the source document or outputs of enrichment that can be projected out of the enrichment process. File projections, similar to object projections, are implemented as blobs in Azure Storage, and contain the image. 
 
-To generate a file projection, use the `files` array in the projection object. This example projects all images extracted from the document to a container called `samplefile`.
+To generate a file projection, use the `files` array in the projection object. This example projects all images extracted from the document to a container called `myImages`.
 
 ```json
 "knowledgeStore" : {
-        "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
-        "projections": [
-            {
-                "tables": [ ],
-                "objects": [ ],
-                "files": [
-                    {
-                        "storageContainer": "samplefile",
-                        "source": "/document/normalized_images/*"
-                    }
-                ]
-            }
-        ]
-    }
+    "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
+    "projections": [
+        {
+            "tables": [ ],
+            "objects": [ ],
+            "files": [
+                {
+                    "storageContainer": "myImages",
+                    "source": "/document/normalized_images/*"
+                }
+            ]
+        }
+    ]
+}
 ```
 
 ## Projecting to multiple types
 
-A more complex scenario might require you to project content across projection types. For example, if you need to project some data like key phrases and entities to tables, save the OCR results of text and layout text as objects, and then project the images as files. 
+A more complex scenario might require you to project content across projection types. For example, projecting key phrases and entities to tables, saving OCR results of text and layout text as objects, and then projecting the images as files. 
 
-This example updates the skillset with the following changes:
+Steps for multiple projection types:
 
 1. Create a table with a row for each document.
 1. Create a table related to the document table with each key phrase identified as a row in this table.
 1. Create a table related to the document table with each entity identified as a row in this table.
 1. Create an object projection with the layout text for each image.
 1. Create a file projection, projecting each extracted image.
-1. Create a cross reference table that contains references to the document table, object projection with the layout text and the file projection.
-
-These changes are reflected in the knowledgeStore definition further down. 
+1. Create a cross-reference table that contains references to the document table, object projection with the layout text, and the file projection.
 
 ### Shape data for cross-projection
 
@@ -463,7 +458,7 @@ To get the shapes needed for these projections, start by adding a new Shaper ski
 ```json
 {
     "@odata.type": "#Microsoft.Skills.Util.ShaperSkill",
-    "name": "ShaperForCross",
+    "name": "ShaperForCrossProjection",
     "description": null,
     "context": "/document",
     "inputs": [
@@ -533,65 +528,65 @@ From the consolidated crossProjection object, slice the object into multiple tab
 
 ```json
 "knowledgeStore" : {
-        "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
-        "projections": [
-             {
-                "tables": [
-                    {
-                        "tableName": "crossDocument",
-                        "generatedKeyName": "Id",
-                        "source": "/document/crossProjection"
-                    },
-                    {
-                        "tableName": "crossEntities",
-                        "generatedKeyName": "EntityId",
-                        "source": "/document/crossProjection/entities/*"
-                    },
-                    {
-                        "tableName": "crossKeyPhrases",
-                        "generatedKeyName": "KeyPhraseId",
-                        "source": "/document/crossProjection/keyPhrases/*"
-                    },
-                    {
-                        "tableName": "crossReference",
-                        "generatedKeyName": "CrossId",
-                        "source": "/document/crossProjection/images/*"
-                    }
-                     
-                ],
-                "objects": [
-                    {
-                        "storageContainer": "crossobject",
-                        "generatedKeyName": "crosslayout",
-                        "source": null,
-                        "sourceContext": "/document/crossProjection/images/*/layoutText",
-                        "inputs": [
-                            {
-                                "name": "OcrLayoutText",
-                                "source": "/document/crossProjection/images/*/layoutText"
-                            }
-                        ]
-                    }
-                ],
-                "files": [
-                    {
-                        "storageContainer": "crossimages",
-                        "generatedKeyName": "crossimages",
-                        "source": "/document/crossProjection/images/*/image"
-                    }
-                ]
-            }
-        ]
-    }
+    "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
+    "projections": [
+            {
+            "tables": [
+                {
+                    "tableName": "crossDocument",
+                    "generatedKeyName": "Id",
+                    "source": "/document/crossProjection"
+                },
+                {
+                    "tableName": "crossEntities",
+                    "generatedKeyName": "EntityId",
+                    "source": "/document/crossProjection/entities/*"
+                },
+                {
+                    "tableName": "crossKeyPhrases",
+                    "generatedKeyName": "KeyPhraseId",
+                    "source": "/document/crossProjection/keyPhrases/*"
+                },
+                {
+                    "tableName": "crossReference",
+                    "generatedKeyName": "CrossId",
+                    "source": "/document/crossProjection/images/*"
+                }
+                    
+            ],
+            "objects": [
+                {
+                    "storageContainer": "crossobject",
+                    "generatedKeyName": "crosslayout",
+                    "source": null,
+                    "sourceContext": "/document/crossProjection/images/*/layoutText",
+                    "inputs": [
+                        {
+                            "name": "OcrLayoutText",
+                            "source": "/document/crossProjection/images/*/layoutText"
+                        }
+                    ]
+                }
+            ],
+            "files": [
+                {
+                    "storageContainer": "crossimages",
+                    "generatedKeyName": "crossimages",
+                    "source": "/document/crossProjection/images/*/image"
+                }
+            ]
+        }
+    ]
+}
 ```
 
-Object projections require a container name for each projection, object projections or file projections cannot share a container. 
+Object projections require a container name for each projection. Object projections and file projections cannot share a container. 
 
 ### Relationships among table, object, and file projections
 
 This example also highlights another feature of projections. By defining multiple types of projections within the same projection object, there is a relationship expressed within and across the different types (tables, objects, files). This allows you to start with a table row for a document and find all the OCR text for the images within that document in the object projection. 
 
-If you do not want the data related, define the projections in different projection objects. For example, the following snippet will result in the tables being related, but without relationships between the tables and the object (OCR text) projections. 
+If you do not want the data related, define the projections in different projection groups. For example, the following snippet will result in the tables being related, but without relationships between the tables and the object (OCR text) projections. 
 
 Projection groups are useful when you want to project the same data in different shapes for different needs. For example, a projection group for the Power BI dashboard, and another projection group for capturing data used to train a machine learning model wrapped in a custom skill.
 
@@ -668,9 +663,4 @@ The examples in this article demonstrate common patterns on how to create projec
 As you explore new features, consider incremental enrichment as your next step. Incremental enrichment is based on caching, which lets you reuse any enrichments that are not otherwise affected by a skillset modification. This is especially useful for pipelines that include OCR and image analysis.
 
 > [!div class="nextstepaction"]
-> [Introduction to incremental enrichment and caching](cognitive-search-incremental-indexing-conceptual.md)
-
-For an overview on projections, learn more about capabilities like groups and slicing, and how you [define them in a skillset](knowledge-store-projection-overview.md)
-
-> [!div class="nextstepaction"]
-> [Projections in a knowledge store](knowledge-store-projection-overview.md)
+> [Configure caching for incremental enrichment i](search-howto-incremental-index.md)

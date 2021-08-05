@@ -8,7 +8,7 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 07/30/2021
+ms.date: 08/10/2021
 ---
 # Create a knowledge store using REST and Postman
 

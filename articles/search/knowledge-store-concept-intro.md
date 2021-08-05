@@ -7,7 +7,7 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 08/10/2021
 ---
 
 # Knowledge store in Azure Cognitive Search
@@ -94,7 +94,7 @@ To create knowledge store, use the portal or an API.
 
 1. Run the wizard. Extraction, enrichment, and storage occur in this last step.
 
-When you use the wizard, several additional tasks are handled internally that you would otherwise have to handle in code. First, shaping and projections (definitions of physical data structures in Azure Storage) are created for you. Secondly, output field mappings that associate enriched content with fields in an index or project are defined internally. When you create a knowledge store manually, your code will need to cover these steps.
+When you use the wizard, several additional tasks are handled internally that you would otherwise have to handle in code. Both shaping and projections (definitions of physical data structures in Azure Storage) are created for you. When you create a knowledge store manually, your code will need to cover these steps.
 
 ### [**REST**](#tab/kstore-rest)
 
@@ -107,8 +107,9 @@ A `knowledgeStore` is defined within a [skillset](cognitive-search-working-with-
 
 Tasks that your code will need to handle include:
 
-+ Specify the projections that you want built (tables, objects, files)
++ Specify the projections that you want built in Azure Storage (tables, objects, files)
 + Include a Shaper skill in your skillset to determine the schema and contents of the projection
++ Assign the named shape to a projection
 
 An easy way to explore is to [create your first knowledge store using Postman](knowledge-store-create-rest.md).
 

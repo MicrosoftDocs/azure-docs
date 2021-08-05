@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.date: 08/10/2021
 ---
 
 # Knowledge store "projections" in Azure Cognitive Search
