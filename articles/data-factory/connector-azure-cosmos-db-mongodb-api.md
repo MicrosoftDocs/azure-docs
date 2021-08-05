@@ -1,11 +1,12 @@
 ---
 title: Copy data from Azure Cosmos DB's API for MongoDB
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from supported source data stores to or from Azure Cosmos DB's API for MongoDB to supported sink stores by using Data Factory.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 11/20/2019
 ---
 
