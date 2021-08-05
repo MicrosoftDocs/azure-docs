@@ -139,8 +139,8 @@ To achieve comprehensive business continuity on Azure, build your application ar
 |     [Azure Web Application Firewall](../firewall/deploy-availability-zone-powershell.md)                              | :large_blue_diamond:  |
 |     [Container Registry](../container-registry/zone-redundancy.md)                                          | :large_blue_diamond:  |
 |     [Event Grid](../event-grid/overview.md)                                                  | :large_blue_diamond:  |
-|     [Network Watcher](/azure/network-watcher/frequently-asked-questions#service-availability-and-redundancy)                                             | :large_blue_diamond:  |
-|     Network Watcher: [Traffic Analytics](/azure/network-watcher/frequently-asked-questions#service-availability-and-redundancy)                          | :large_blue_diamond:  |
+|     [Network Watcher](../network-watcher/frequently-asked-questions.yml#service-availability-and-redundancy)                                             | :large_blue_diamond:  |
+|     Network Watcher: [Traffic Analytics](../network-watcher/frequently-asked-questions.yml#service-availability-and-redundancy)                          | :large_blue_diamond:  |
 |     [Power BI Embedded](/power-bi/admin/service-admin-failover#what-does-high-availability)                                           | :large_blue_diamond:  |
 |     [Premium Blob Storage](../storage/blobs/storage-blob-performance-tiers.md)                                        | :large_blue_diamond:  |
 |     Storage: [Azure Premium Files](../storage/files/storage-files-planning.md)                                | :large_blue_diamond:  |
