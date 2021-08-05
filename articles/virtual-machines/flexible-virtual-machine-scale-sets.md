@@ -70,7 +70,9 @@ Use the [Register-AzProviderFeature](/powershell/module/az.resources/register-az
 
 ```azurepowershell-interactive
 Register-AzProviderFeature -FeatureName VMOrchestratorMultiFD -ProviderNamespace Microsoft.Compute `
-Register-AzProviderFeature -FeatureName VMOrchestratorSingleFD -ProviderNamespace Microsoft.Compute
+Register-AzProviderFeature -FeatureName VMOrchestratorSingleFD -ProviderNamespace Microsoft.Compute `
+Register-AzProviderFeature -FeatureName VMScaleSetFlexPreview -ProviderNamespace Microsoft.Compute `
+Register-AzProviderFeature -FeatureName SkipPublicIpWriteRBACCheckForVMNetworkInterfaceConfigurationsPublicPreview -ProviderNamespace Microsoft.Compute
 ```
 
 Feature registration can take up to 15 minutes. To check the registration status:
@@ -91,6 +93,8 @@ Use [az feature register](/cli/azure/feature#az_feature_register) to enable the 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Compute --name VMOrchestratorMultiFD
 az feature register --namespace microsoft.compute --name VMOrchestratorSingleFD
+az feature register --namespace Microsoft.Compute --name VMScaleSetFlexPreview 
+az feature register --namespace Microsoft.Compute --name SkipPublicIpWriteRBACCheckForVMNetworkInterfaceConfigurationsPublicPreview
 ```
 
 Feature registration can take up to 15 minutes. To check the registration status:
@@ -113,6 +117,38 @@ Get started with Flexible orchestration mode for your scale sets through the [Az
 
 ## What has changed with Flexible orchestration mode?
 One of the main advantages of Flexible orchestration is that it provides orchestration features over standard Azure IaaS VMs, instead of scale set child virtual machines. You can use all of the standard VM APIs when managing Flexible orchestration instances, instead of the virtual machine scale set VM APIs you use with [Uniform orchestration](..\virtual-machine-scale-sets\virtual-machine-scale-sets-orchestration-modes.md). During the preview period, there are several differences between managing instances in Flexible orchestration versus Uniform orchestration. In general, we recommend that you use the standard Azure IaaS VM APIs when possible. In this section, we highlight examples of best practices for managing VM instances with Flexible orchestration.
+
+### Add instances manually or with autoscaling 
+Virtual machine scale sets with Flexible orchestration works as a thin orchestration layer to manage multiple VMs. There are two ways you can add VMs to be managed by the scale set:
+
+1. **Virtual machine scale sets Manual Scaling or Metrics Based Scaling (Recommended)**
+
+    When you create the scale set with Flexible orchestration, define a VM profile or template which describes the template to be used to scale out. You can then set the SCU dot capacity parameter to increase or decrease the number of VM instances managed by the scale set. 
+
+1. **Autoscaling** 
+
+    Alternatively, you can set up autoscale rules to increase or decrease the capacity based on metrics or a schedule. See [Flexible virtual machine scale sets with Autoscaling](flexible-virtual-machine-scale-sets-autoscaling.md). 
+
+### Explicit Network Outbound Connectivity required 
+
+In order to enhance default network security, Virtual machine scale sets with Flexible orchestration will require that instances created implicitly via the autoscaling profile have outbound connectivity defined explicitly through one of the following methods: 
+
+- For most scenarios, we recommend [NAT Gateway attached to the subnet](./virtual-network/tutorial-create-nat-gateway-portal.md).
+- For scenarios with high security requirements or when using Azure Firewall or Network Virtual Appliance (NVA), you can specify a custom User Defined Route as next hop through firewall. 
+- Instances are in the backend pool of a Standard SKU Azure Load Balancer. 
+- Attach a Public IP Address to the instance network interface. 
+
+With single instance VMs and Virtual machine scale sets with Uniform orchestration, outbound connectivity is provided automatically. 
+
+Common scenarios that will require explicit outbound connectivity include: 
+
+- Windows VM activation will require that you have defined outbound connectivity from the VM instance to the Windows Activation Key Management Service (KMS). See [Troubleshoot Windows VM activation problems](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems) for more information. 
+- Access to storage accounts or Key Vault. Connectivity to Azure services can also be established via [Private Link](./private-link/private-link-overview.md).
+
+See [Source Network Address Translation (SNAT) for outbound connections](./load-balancer/load-balancer-outbound-connections.md) for more details on defining secure outbound connections 
+
+### Specify a scale set when creating a VM
+When you create a VM, you can optionally specify that it is added to a virtual machine scale set. A VM can only be added to a scale set at time of VM creation.
 
 ### Assign fault domain during VM creation
 You can choose the number of fault domains for the Flexible orchestration scale set. By default, when you add a VM to a Flexible scale set, Azure evenly spreads instances across fault domains. While it is recommended to let Azure assign the fault domain, for advanced or troubleshooting scenarios you can override this default behavior and specify the fault domain where the instance will land.
@@ -162,10 +198,15 @@ The following table lists the Flexible orchestration mode features and links to 
 | Feature | Supported by Flexible orchestration (Preview) |
 |-|-|
 | Virtual machine type | Standard Azure IaaS VM (Microsoft.compute /virtualmachines) |
-| SKUs supported | D series, E series, F series, A series,   B series, Intel, AMD |
+| Maximum Instance Count | 1000 |
+| SKUs supported | D series, E series, F series, A series, B series, Intel, AMD |
 | Availability Zones | Optionally specify all instances land in   a single availability zone |
+| Fault Domain - Max spreading (Azure will maximally spread instances) | Yes |
+| Fault Domain - Fixed spreading | 2-3 FDs (depending on regional maximum FD Count), 1 FD for zonal deployments |
+| Update Domains | None (platform maintenance performed FD by FD) |
+| Availability SLA | None (during preview) |
 | Full control over VM, NICs, Disks | Yes |
-| Assign VM to a   Specific Fault Domain | Yes |
+| Assign VM to a Specific Fault Domain | Yes |
 | Accelerated networking | Yes |
 | In Guest Security Patching | Yes |
 | Spot instances and pricing  | Yes, you can have both Spot and Regular priority instances |
@@ -178,20 +219,23 @@ The following table lists the Flexible orchestration mode features and links to 
 | Azure Backup | Yes |
 | Terminate Notifications (VM scale sets) | Yes, read [Terminate Notifications documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md) |
 | Instance Repair (VM scale sets) | Yes, read [Instance Repair documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md) |
-| Automatic Scaling | No |
-| Remove NICs and Disks when deleting   VM instances | No |
+| Automatic Scaling | Yes |
+| Remove NICs and Disks when deleting VM instances | Yes |
 | Upgrade Policy (VM scale sets) | No |
 | Automatic OS Updates (VM scale sets) | No |
 | Infiniband  | No |
 | Write Accelerator  | No |
 | Azure Dedicated Hosts  | No |
 | Basic SLB  | No |
-| Application Gateway | No |
+| Application Gateway | Yes |
 | Maintenance Control  | No |
 | Azure Alerts | No |
 | VM Insights | No |
-| Azure Site Recovery |  No |
+| Azure Site Recovery |  Yes, via PowerShell |
 | Add/remove existing VM to the group | No |
+| Service Fabric | No |
+| Azure Kubernetes Service (AKS) | No |
+
 
 
 ## Troubleshoot scale sets with Flexible orchestration

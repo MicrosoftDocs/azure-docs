@@ -40,6 +40,8 @@ Use [az feature register](/cli/azure/feature#az_feature_register) to enable the 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Compute --name VMOrchestratorMultiFD
 az feature register --namespace microsoft.compute --name VMOrchestratorSingleFD
+az feature register --namespace Microsoft.Compute --name VMScaleSetFlexPreview 
+az feature register --namespace Microsoft.Compute --name SkipPublicIpWriteRBACCheckForVMNetworkInterfaceConfigurationsPublicPreview
 ```
 
 Feature registration can take up to 15 minutes. To check the registration status:
