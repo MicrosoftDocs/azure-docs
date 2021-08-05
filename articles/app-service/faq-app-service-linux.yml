@@ -256,3 +256,4 @@ additionalContent: |
   - [Set up staging environments in Azure App Service](deploy-staging-slots.md)
   - [Continuous Deployment with Web App for Containers](./deploy-ci-cd-custom-container.md)
   - [Things You Should Know: Web Apps and Linux](https://techcommunity.microsoft.com/t5/apps-on-azure/things-you-should-know-web-apps-and-linux/ba-p/392472)
+  - [Environment variables and app settings reference](reference-app-settings.md)

@@ -94,7 +94,7 @@
     - name: Go SDK
       href: https://github.com/Azure/azure-sdk-for-go
     - name: Reference
-      href: /developer/go/azure-sdk-qs-vm?context=/azure/virtual-machines/context/context
+      href: /azure/developer/go/azure-sdk-qs-vm
   - name: Azure CLI samples repo
     href: https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine
   - name: PowerShell samples repo
@@ -599,7 +599,7 @@
       href: ./extensions/update-linux-agent.md
     - name: Export extensions
       href: ./extensions/export-templates.md
-    - name: Troubleshoot
+    - name: General troubleshooting steps
       href: ./extensions/troubleshoot.md
     - name: Issues with Python 3-enabled Linux systems
       href: ./extensions/issues-using-vm-extensions-python-3.md

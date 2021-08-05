@@ -7,7 +7,7 @@ ms.subservice: hotpatch
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 02/22/2021
-ms.author: jushiman 
+ms.author: jushiman
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -136,7 +136,7 @@ az provider register --namespace Microsoft.Compute
 During the preview, [Automatic VM Guest Patching](../virtual-machines/automatic-vm-guest-patching.md) is enabled automatically for all VMs created with a supported _Windows Server Azure Edition_ image. With automatic VM guest patching enabled:
 * Patches classified as Critical or Security are automatically downloaded and applied on the VM.
 * Patches are applied during off-peak hours in the VM's time zone.
-* Patch orchestration is managed by Azure and patches are applied following [availability-first principles](../virtual-machines/automatic-vm-guest-patching.md#availability-first-patching).
+* Patch orchestration is managed by Azure and patches are applied following [availability-first principles](../virtual-machines/automatic-vm-guest-patching.md#availability-first-updates).
 * Virtual machine health, as determined through platform health signals, is monitored to detect patching failures.
 
 ### How does automatic VM guest patching work?
@@ -147,7 +147,7 @@ With Hotpatch enabled on supported _Windows Server Azure Edition_ VMs, most mont
 
 The VM is assessed automatically every few days and multiple times within any 30-day period to determine the applicable patches for that VM. This automatic assessment ensures that any missing patches are discovered at the earliest possible opportunity.
 
-Patches are installed within 30 days of the monthly patch releases, following [availability-first principles](../virtual-machines/automatic-vm-guest-patching.md#availability-first-patching). Patches are installed only during off-peak hours for the VM, depending on the time zone of the VM. The VM must be running during the off-peak hours for patches to be automatically installed. If a VM is powered off during a periodic assessment, the VM will be assessed and applicable patches will be installed automatically during the next periodic assessment when the VM is powered on. The next periodic assessment usually happens within a few days.
+Patches are installed within 30 days of the monthly patch releases, following [availability-first principles](../virtual-machines/automatic-vm-guest-patching.md#availability-first-updates). Patches are installed only during off-peak hours for the VM, depending on the time zone of the VM. The VM must be running during the off-peak hours for patches to be automatically installed. If a VM is powered off during a periodic assessment, the VM will be assessed and applicable patches will be installed automatically during the next periodic assessment when the VM is powered on. The next periodic assessment usually happens within a few days.
 
 Definition updates and other patches not classified as Critical or Security won't be installed through automatic VM guest patching.
 

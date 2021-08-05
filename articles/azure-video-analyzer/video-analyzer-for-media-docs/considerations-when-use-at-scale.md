@@ -47,9 +47,9 @@ When you upload videos using URL, you just need to provide a path to the locatio
 
 To see an example of how to upload videos using URL, check out [this example](upload-index-videos.md#code-sample). Or, you can use [AzCopy](../../storage/common/storage-use-azcopy-v10.md) for a fast and reliable way to get your content to a storage account from which you can submit it to Video Analyzer for Media using [SAS URL](../../storage/common/storage-sas-overview.md). Video Analyzer for Media recommends using *readonly* SAS URLs.
 
-## Increase media reserved units is no longer available through Video Analyzer for Media
+## Automatic Scaling of Media Reserved Units 
 
-Starting August 1st 2021, Azure Video Analyzer for Media (formerly Video Indexer) does not expose the option to increase Media [Reserved Units](https://docs.microsoft.com/azure/media-services/latest/concept-media-reserved-units)(MRUs) any longer. From now on MRUs are being auto scaled by [Azure Media Services](https://docs.microsoft.com/azure/media-services/latest/media-services-overview) (AMS), as a result you do not need to manage them through Azure Video Analyzer for Media. 
+Starting August 1st 2021, Azure Video Analyzer for Media (formerly Video Indexer) enabled [Reserved Units](https://docs.microsoft.com/azure/media-services/latest/concept-media-reserved-units)(MRUs) auto scaling by [Azure Media Services](https://docs.microsoft.com/azure/media-services/latest/media-services-overview) (AMS), as a result you do not need to manage them through Azure Video Analyzer for Media. That will allow price optimization, e.g. price reduction in many cases, based on your business needs as it is being auto scaled. 
 
 ## Respect throttling
 

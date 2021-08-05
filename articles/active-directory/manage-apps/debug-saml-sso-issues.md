@@ -10,7 +10,7 @@ ms.subservice: app-mgmt
 ms.topic: troubleshooting
 ms.workload: identity
 ms.date: 02/18/2019
-ms.reviewer: luleon, hirsin, paulgarn
+ms.reviewer: ergreenl
 ---
 
 # Debug SAML-based single sign-on to applications in Azure Active Directory

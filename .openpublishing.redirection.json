@@ -834,6 +834,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/signin-appauth-ios.md",
+      "redirect_url": "/azure/configure-authentication-sample-ios-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/signin-appauth-android.md",
+      "redirect_url": "/azure/configure-authentication-sample-android-app",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-access-tokens.md",
       "redirect_url": "/azure/active-directory-b2c/access-tokens",
       "redirect_document_id": true
@@ -871,6 +881,41 @@
     {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-devquickstarts-native-dotnet.md",
       "redirect_url": "/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/tutorial-web-app-dotnet.md",
+      "redirect_url": "/azure/active-directory-b2c/configure-authentication-sample-web-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/tutorial-desktop-app.md",
+      "redirect_url": "/azure/active-directory-b2c/configure-authentication-sample-wpf-desktop-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/tutorial-single-page-app.md",
+      "redirect_url": "/azure/active-directory-b2c/configure-authentication-sample-spa-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/tutorial-web-app-python.md",
+      "redirect_url": "/azure/active-directory-b2c/configure-authentication-sample-python-web-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/tutorial-web-api-dotnet.md",
+      "redirect_url": "/azure/active-directory-b2c/configure-authentication-sample-web-app-with-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/tutorial-desktop-app-webapi.md",
+      "redirect_url": "/azure/active-directory-b2c/configure-authentication-sample-wpf-desktop-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/tutorial-single-page-app-webapi.md",
+      "redirect_url": "/azure/active-directory-b2c/configure-authentication-sample-spa-app",
       "redirect_document_id": false
     },
     {
@@ -2167,6 +2212,11 @@
       "source_path_from_root": "/articles/analysis-services/tutorials/aas-lesson-12-analyze-in-excel.md",
       "redirect_url": "/azure/analysis-services/analysis-services-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/overview-what-is-azure-ml.md",
+      "redirect_url": "/azure/machine-learning/overview-what-is-azure-machine-learning",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/resource-known-issues.md",
@@ -5537,6 +5587,11 @@
     {
       "source_path_from_root": "/articles/azure-app-configuration/quickstart-azure-function-csharp.md",
       "redirect_url": "/azure/azure-app-configuration/quickstart-azure-functions-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-arc/data/how-to-apply-security-context-constraint.md",
+      "redirect_url": "/azure/azure-arc/data",
       "redirect_document_id": false
     },
     {
@@ -13445,8 +13500,13 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-vmware/configure-nsx-network-components-azure-portal.md",
-      "redirect_url": "/azure/azure-vmware/configure-dhcp-azure-vmware-solution",
+      "source_path_from_root": "/articles/azure-vmware/tutorial-deploy-vmware-hcx.md",
+      "redirect_url": "/azure/azure-vmware/configure-vmware-hcx",
+      "redirect_document_id": false
+    }, 
+    {
+      "source_path_from_root": "/articles/azure-vmware/production-ready-deployment-steps.md",
+      "redirect_url": "/azure/azure-vmware/plan-private-cloud-deployment",
       "redirect_document_id": false
     },
     {
@@ -16167,6 +16227,16 @@
     {
       "source_path_from_root": "/articles/chef/chef-automation.md",
       "redirect_url": "/azure/developer/chef/windows-vm-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-iot/organizations/integration-servicenow.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/tutorial-servicenow",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-iot/organizations/integration-splunk.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/tutorial-splunk",
       "redirect_document_id": false
     },
     {
@@ -22425,19 +22495,9 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/machine-learning/service/reference-python-package-overview.md",
-      "redirect_url": "/azure/machine-learning/overview-what-happened-to-workbench",
+      "source_path_from_root": "/articles/machine-learning/service/overview-what-is-machine-learning.md",
+      "redirect_url": "/azure/machine-learning/overview-what-is-machine-learning",
       "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/machine-learning/service/how-to-build-deploy-forecast-models.md",
-      "redirect_url": "/azure/machine-learning/overview-what-is-azure-ml",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/machine-learning/service/overview-what-is-azure-ml.md",
-      "redirect_url": "/azure/machine-learning/overview-what-is-azure-ml",
-      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/machine-learning/compare-azure-ml-to-studio-classic.md",
@@ -28580,6 +28640,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/storage/blobs/storage-blob-immutable-storage.md",
+      "redirect_url": "/azure/storage/blobs/immutable-storage-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/blobs/storage-blob-immutability-policies-manage.md",
+      "redirect_url": "/azure/storage/blobs/immutable-policy-configure-version-scope",
+      "redirect_document_id": false
+    },    
+    {
       "source_path_from_root": "/articles/storage/blobs/storage-blob-create-account-block-blob.md",
       "redirect_url": "/azure/storage/common/storage-account-create",
       "redirect_document_id": false
@@ -34555,13 +34625,13 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-android-get-started.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-android-get-started",
+      "source_path_from_root": "/articles/app-service-mobile/index.yml",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/index",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-android-get-started-offline-data.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-android-get-started-offline-data",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/xamarin-android/offline",
       "redirect_document_id": false
     },
     {
@@ -34572,6 +34642,11 @@
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-android-get-started-users.md",
       "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-android-get-started-users",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-android-get-started.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-android-get-started",
       "redirect_document_id": false
     },
     {
@@ -34590,13 +34665,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-cordova-get-started.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-cordova-get-started",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-cordova-get-started-offline-data.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-cordova-get-started-offline-data",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/cordova/offline",
       "redirect_document_id": false
     },
     {
@@ -34606,7 +34676,12 @@
     },
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-cordova-get-started-users",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/cordova/authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-cordova-get-started.md",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/howto/client/cordova",
       "redirect_document_id": false
     },
     {
@@ -34616,22 +34691,17 @@
     },
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/howto/server/dotnet-framework",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/howto/client/dotnet",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-html-how-to-use-client-library.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-html-how-to-use-client-library",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-ios-get-started.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/howto/client/cordova",
       "redirect_document_id": false
     },
     {
@@ -34650,33 +34720,33 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-ios-get-started.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md",
       "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-ios-how-to-use-client-library",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/howto/server/nodejs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-offline-data-sync.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-offline-data-sync",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/howto/data-sync",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-value-prop.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-value-prop",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-offline-data.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-offline-data",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/uwp/offline",
       "redirect_document_id": false
     },
     {
@@ -34686,17 +34756,17 @@
     },
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-users.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-users",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/uwp/authentication",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-xamarin-android-get-started.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-android-get-started",
+      "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started.md",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/uwp",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-xamarin-android-get-started-offline-data.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-android-get-started-offline-data",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/xamarin-android/offline",
       "redirect_document_id": false
     },
     {
@@ -34706,17 +34776,17 @@
     },
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-xamarin-android-get-started-users.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-android-get-started-users",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/xamarin-android/authentication",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-xamarin-forms-get-started.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-forms-get-started",
+      "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-xamarin-android-get-started.md",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/xamarin-android",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-xamarin-forms-get-started-offline-data.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-forms-get-started-offline-data",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/xamarin-forms/offline",
       "redirect_document_id": false
     },
     {
@@ -34726,17 +34796,17 @@
     },
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-xamarin-forms-get-started-users.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-forms-get-started-users",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/xamarin-forms",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-xamarin-ios-get-started.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-ios-get-started",
+      "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-xamarin-forms-get-started.md",
+      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-forms-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-xamarin-ios-get-started-offline-data.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-ios-get-started-offline-data",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/xamarin-ios/offline",
       "redirect_document_id": false
     },
     {
@@ -34746,12 +34816,12 @@
     },
     {
       "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-ios-get-started-users",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/xamarin-ios/authentication",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/app-service-mobile/index.yml",
-      "redirect_url": "/previous-versions/azure/app-service-mobile/index",
+      "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-xamarin-ios-get-started.md",
+      "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/xamarin-ios",
       "redirect_document_id": false
     },
     {
@@ -55285,6 +55355,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-monitor/insights/container-insights-reports.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-reports",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/view-metrics.md",
+      "redirect_url": "/azure/aks/monitor-aks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/view-control-plane-logs.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-log-query#resource-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/containers/container-insights-log-search.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-log-query",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/load-balancer/tutorial-load-balancer-standard-manage-portal.md",
       "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-portal",
       "redirect_document_id": false
@@ -56898,6 +56988,81 @@
       "source_path_from_root": "/articles/virtual-network/ipv6-reserve-public-ip-address-prefix.md",
       "redirect_url": "/azure/virtual-network/create-public-ip-prefix-portal",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/partner-twilio-cloud-services-dotnet-phone-call-web-role.md",
+      "redirect_url": "https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/partner-twilio-java-how-to-use-voice-sms.md",
+      "redirect_url": "https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/partner-twilio-java-phone-call-example.md",
+      "redirect_url": "https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/partner-twilio-nodejs-how-to-use-voice-sms.md",
+      "redirect_url": "https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/partner-twilio-php-how-to-use-voice-sms.md",
+      "redirect_url": "https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/partner-twilio-php-make-phone-call.md",
+      "redirect_url": "https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/partner-twilio-python-how-to-use-voice-sms.md",
+      "redirect_url": "https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/partner-twilio-ruby-how-to-use-voice-sms.md",
+      "redirect_url": "https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/twilio-dotnet-how-to-use-for-voice-sms.md",
+      "redirect_url": "https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sendgrid-dotnet-how-to-send-email.md",
+      "redirect_url": "https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/store-sendgrid-java-how-to-send-email-example.md",
+      "redirect_url": "https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/store-sendgrid-java-how-to-send-email.md",
+      "redirect_url": "https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/reference-online-endpoint-yaml.md",
+      "redirect_url": "reference-yaml-endpoint-managed-online",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/store-sendgrid-nodejs-how-to-send-email.md",
+      "redirect_url": "https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/store-sendgrid-php-how-to-send-email.md",
+      "redirect_url": "https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-account",
+      "redirect_document_id": false
     }
   ]
 }
