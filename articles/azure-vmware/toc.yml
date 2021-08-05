@@ -163,29 +163,29 @@
   - name: FAQ
     items:
     - name: General
-      href: /azure/azure-vmware/faq
+      href: ./faq.yml
     - name: Customer communication
-      href: /azure/azure-vmware/faq#customer-communication
+      href: ./faq.yml#customer-communication
     - name: Configuration and setup 
-      href: /azure/azure-vmware/faq#configuration-and-setup
+      href: ./faq.yml#configuration-and-setup
     - name: VMware software 
-      href: /azure/azure-vmware/faq#vmware-software
+      href: ./faq.yml#vmware-software
     - name: Third-party backup solutions 
-      href: /azure/azure-vmware/faq#third-party-backup-and-recovery
+      href: ./faq.yml#third-party-backup-and-recovery
     - name: Compute
-      href: /azure/azure-vmware/faq#compute
+      href: ./faq.yml#compute
     - name: Networking and interconnectivity
-      href: /azure/azure-vmware/faq#networking-and-interconnectivity
+      href: ./faq.yml#networking-and-interconnectivity
     - name: Storage
-      href: /azure/azure-vmware/faq#storage
+      href: ./faq.yml#storage
     - name: Hosts, clusters, and private clouds
-      href: /azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds
+      href: ./faq.yml#hosts,-clusters,-and-private-clouds
     - name: Identity management
-      href: /azure/azure-vmware/faq#identity-management
+      href: ./faq.yml#identity-management
     - name: CSP and multi-tenancy
-      href: /azure/azure-vmware/faq#csp-and-multi-tenancy
+      href: ./faq.yml#csp-and-multi-tenancy
     - name: Billing and support
-      href: /azure/azure-vmware/faq#billing-and-support
+      href: ./faq.yml#billing-and-support
   - name: Videos 
     items:
     - name: Playlist

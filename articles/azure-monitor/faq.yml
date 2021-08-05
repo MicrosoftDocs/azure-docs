@@ -120,7 +120,7 @@ sections:
       - question: |
           Is Log Analytics storage immutable?
         answer: |
-          Data in database storage cannot be altered once ingested but can be deleted via [*purge* API path for deleting private data](./logs/personal-data-mgmt.md#delete). Although data cannot be altered, some certifications require that data is kept immutable and cannot be changed or deleted in storage. Data immutability can be achieved using [data export](./logs/logs-data-export.md) to a storage account that is configured as [immutable storage](../storage/blobs/storage-blob-immutability-policies-manage.md).
+          Data in database storage cannot be altered once ingested but can be deleted via [*purge* API path for deleting private data](./logs/personal-data-mgmt.md#delete). Although data cannot be altered, some certifications require that data is kept immutable and cannot be changed or deleted in storage. Data immutability can be achieved using [data export](./logs/logs-data-export.md) to a storage account that is configured as [immutable storage](../storage/blobs/immutable-policy-configure-version-scope.md).
           
       - question: |
           What is a Log Analytics workspace?

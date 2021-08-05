@@ -118,4 +118,4 @@ The tables below have the following columns:
 ## Next steps
 
 - See [Enable SQL insights](sql-insights-enable.md) for instructions on enabling SQL insights
-- See [Frequently asked questions](/azure/azure-monitor/faq#sql-insights-preview) for frequently asked questions about SQL insights
+- See [Frequently asked questions](../faq.yml#sql-insights-preview) for frequently asked questions about SQL insights
