@@ -43,10 +43,11 @@ az vm create \
     --resource-group myResourceGroup \
     --name myVM \
     --image win2016datacenter \
+    --public-ip-sku Standard \
     --admin-username azureuser 
 ```
 
-It takes a few minutes to create the VM and supporting resources. The following example output shows the VM create operation was successful.
+You will be prompted for an "Admin Password." It tehn takes a few minutes to create the VM and supporting resources. The following example output shows the VM create operation was successful.
 
 ```output
 {
