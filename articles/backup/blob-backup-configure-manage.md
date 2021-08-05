@@ -2,7 +2,7 @@
 title: Configure operational backup for Azure Blobs
 description: Learn how to configure and manage operational backup for Azure Blobs.
 ms.topic: conceptual
-ms.date: 05/05/2021
+ms.date: 08/05/2021
 
 ---
 
@@ -24,6 +24,7 @@ Azure Backup lets you easily configure operational backup for protecting block b
 - The solution can be used to perform restores to the source storage account only and may result in data being overwritten.
 - If you delete a container from the storage account by calling the Delete Container operation, that container cannot be restored with a restore operation. Rather than deleting an entire container, delete individual blobs if you may want to restore them later. Also, Microsoft recommends enabling soft delete for containers, in addition to operational backup, to protect against accidental deletion of containers.
 - Refer to the [support matrix](blob-backup-support-matrix.md) to learn more about the supported scenarios, limitations, and availability.
+- Ensure that the **Microsoft.DataProtection** provider is registered for your subscription.
 
 ## Create a Backup vault
 

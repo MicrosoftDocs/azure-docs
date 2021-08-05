@@ -14,6 +14,8 @@ This article describes how to back up [Azure Blobs](./blob-backup-overview.md) u
 
 In this article, you'll learn how to:
 
+- Before you start
+
 - Create a Backup vault
 
 - Create a Backup policy
@@ -23,6 +25,15 @@ In this article, you'll learn how to:
 - Run an on-demand backup job
 
 For information on the Azure Blobs regions availability, supported scenarios, and limitations, see the [support matrix](blob-backup-support-matrix.md).
+
+## Before you start
+
+- Operational backup of blobs is a local backup solution that maintains data for a specified duration in the source storage account itself. This solution doesn't maintain an additional copy of data in the vault.
+- This solution allows you to retain your data for restore for up to 360 days. Long retention durations may, however, lead to longer time taken during the restore operation.
+- The solution can be used to perform restores to the source storage account only and may result in data being overwritten.
+- If you delete a container from the storage account by calling the Delete Container operation, that container cannot be restored with a restore operation. Rather than deleting an entire container, delete individual blobs if you may want to restore them later. Also, Microsoft recommends enabling soft delete for containers, in addition to operational backup, to protect against accidental deletion of containers.
+- Refer to the [support matrix](blob-backup-support-matrix.md) to learn more about the supported scenarios, limitations, and availability.
+- Ensure that the **Microsoft.DataProtection** provider is registered for your subscription.
 
 ## Create a Backup vault
 
