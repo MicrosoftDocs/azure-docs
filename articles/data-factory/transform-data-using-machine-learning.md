@@ -1,9 +1,11 @@
 ---
 title: Create predictive data pipelines
 description: Learn how to create a predictive pipeline by using Azure Machine Learning Studio (classic) - Batch Execution Activity in Azure Data Factory or Synapse Analytics.
+titleSuffix: Azure Data Factory & Azure Synapse
 author: nabhishek
 ms.author: abnarain
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 07/16/2020

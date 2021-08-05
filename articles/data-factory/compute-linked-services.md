@@ -1,8 +1,9 @@
 ---
 title: Compute environments supported by Azure Data Factory 
-titleSuffix: Azure Data Factory& Azure Synapse
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Compute environments that can be used with Azure Data Factory pipelines (such as Azure HDInsight) to transform or process data.
 ms.service: data-factory
+ms.subservice: concepts
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain

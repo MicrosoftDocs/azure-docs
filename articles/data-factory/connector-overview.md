@@ -1,9 +1,10 @@
 ---
 title: Azure Data Factory connector overview 
-titleSuffix: Azure Data Factory& Azure Synapse
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn the supported connectors in Data Factory.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 05/26/2021

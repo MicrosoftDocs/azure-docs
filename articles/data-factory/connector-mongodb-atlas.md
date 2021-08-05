@@ -1,9 +1,11 @@
 ---
 title: Copy data from or to MongoDB Atlas
 description: Learn how to copy data from MongoDB Atlas to supported sink data stores, or from supported source data stores to MongoDB Atlas, using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
+titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 06/01/2021

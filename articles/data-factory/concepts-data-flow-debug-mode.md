@@ -1,10 +1,11 @@
 ---
 title: Mapping data flow Debug Mode
-titleSuffix: Azure Data Factory& Azure Synapse
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Start an interactive debug session when building data flows
 ms.author: makromer
 author: kromerm
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 04/16/2021

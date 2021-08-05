@@ -1,9 +1,11 @@
 ---
 title: Transform data using Hadoop Streaming activity
 description: Learn how to use Hadoop Streaming Activity in Azure Data Factory or Synapse Analytics pipelines to transform data by running Hadoop Streaming programs on a Hadoop cluster. 
+titleSuffix: Azure Data Factory & Azure Synapse
 author: nabhishek
 ms.author: abnarain
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 05/08/2020

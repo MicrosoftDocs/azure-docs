@@ -1,10 +1,12 @@
 ---
 title: Update Azure Machine Learning Studio (classic) models
 description: Describes how to create predictive pipelines using Azure Machine Learning Studio (classic) with Azure Data Factory or Synapse Analytics
+titleSuffix: Azure Data Factory & Azure Synapse
 author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: tutorials
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 07/16/2020

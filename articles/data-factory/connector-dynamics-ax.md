@@ -1,9 +1,11 @@
 ---
 title: Copy data from Dynamics AX
 description: Learn how to copy data from Dynamics AX to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
+titleSuffix: Azure Data Factory & Azure Synapse
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 06/12/2020

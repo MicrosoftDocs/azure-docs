@@ -1,11 +1,12 @@
 ---
 title: Datasets
-titleSuffix: Azure Data Factory& Azure Synapse
+titleSuffix: Azure Data Factory & Azure Synapse
 description: 'Learn about datasets in Data Factory. Datasets represent input/output data.'
 author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 08/24/2020
