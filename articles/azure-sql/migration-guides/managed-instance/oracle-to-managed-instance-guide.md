@@ -151,7 +151,7 @@ The test approach to database migration consists of the following activities:
 3. **Run validation tests**: Run validation tests against the source and the target, and then analyze the results.
 4. **Run performance tests**: Run performance tests against the source and the target, and then analyze and compare the results.
 
-### Validate Migrated Dats
+### Validate Migrated Data
 
 Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows you to test the migrated database objects the migrated data. The tester is primarily used to verify that converted objects behave in the same way.
 
@@ -159,7 +159,7 @@ Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows 
 
 1. Open SSMA for Oracle, select Tester followed by New Test Case.
 
-  :::image type="content" source="./media/oracle-to-managed-instance-guide/ssma-tester-new.png" alt-text="Screenshot that shows new test case.":::
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/ssma-tester-new.png" alt-text="Screenshot that shows new test case.":::
 
 1. On the Test Case wizard, provide the following information.
 
@@ -173,7 +173,7 @@ Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows 
 
    :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-init-test-case.png" alt-text="Screenshot that shows step to initialize a test case.":::
 
-1. Select the objects that is part of the test case from the Oracle object tree located on the left side.
+1. Select the objects that are part of the test case from the Oracle object tree located on the left side.
 
    :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-select-configure-objects.png" alt-text="Screenshot that shows step to  select and configure object.":::
 
@@ -181,25 +181,25 @@ Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows 
 
    To learn more, see  [Selecting and configuring objects to test.](/sql/ssma/oracle/selecting-and-configuring-objects-to-test-oracletosql)
 
-1. Next, select the tables , foreign keys and other dependent objects from the Oracle object tree located on the left window.
+1. Next, select the tables ,foreign keys and other dependent objects from the Oracle object tree located on the left window.
 
-  :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-select-configure-affected.png" alt-text="Screenshot that shows step to select and configure affected object.":::
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-select-configure-affected.png" alt-text="Screenshot that shows step to select and configure affected object.":::
 
     To learn more, see [Selecting and configuring affected objects.](/sql/ssma/oracle/selecting-and-configuring-affected-objects-oracletosql)
 
 1. Review the evaluation sequence of objects. Change the order by clicking the buttons in the grid.
 
- :::image type="content" source="./media/oracle-to-managed-instance-guide/test-call-ordering.png" alt-text="Screenshot that shows step to sequence test object execution.":::
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/test-call-ordering.png" alt-text="Screenshot that shows step to sequence test object execution.":::
 
 1. Finalize  the test case by reviewing the information provided in the previous steps. Also, configure the test execution options as per the test scenario.
 
-  :::image type="content" source="./media//oracle-to-managed-instance-guide/tester-finalize-case.png" alt-text="Screenshot that shows step to  finalize object.":::
+   :::image type="content" source="./media//oracle-to-managed-instance-guide/tester-finalize-case.png" alt-text="Screenshot that shows step to  finalize object.":::
 
-For more information on test case settings,[Finishing test case preparation](/sql/ssma/oracle/finishing-test-case-preparation-oracletosql)
+   For more information on test case settings,[Finishing test case preparation](/sql/ssma/oracle/finishing-test-case-preparation-oracletosql)
 
-7.Click on finish to create the test case.
+1. Click on finish to create the test case.
 
-  :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-test-repo.png" alt-text="Screenshot that shows step to test repo.":::
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-test-repo.png" alt-text="Screenshot that shows step to test repo.":::
 
 #### Run and view test case
 
@@ -207,39 +207,39 @@ When SSMA Tester runs a test case, the test engine executes the objects selected
 
 1. Select the test case from test repository and then click run.
 
-  :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-repo-run.png" alt-text="Screenshot that shows to review  test repo.":::
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-repo-run.png" alt-text="Screenshot that shows to review  test repo.":::
 
 1. Review the launch test case  and click run.
 
-:::image type="content" source="./media/oracle-to-managed-instance-guide/tester-run-test-case.png" alt-text="Screenshot that shows step to launch  test case.":::
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-run-test-case.png" alt-text="Screenshot that shows step to launch  test case.":::
 
 1. Next, provide  Oracle  source credentials. Click connect after entering the credentials.
 
-:::image type="content" source="./media/oracle-to-managed-instance-guide/tester-oracle-connect.png" alt-text="Screenshot that shows step to connect to  oracle source.":::
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-oracle-connect.png" alt-text="Screenshot that shows step to connect to  oracle source.":::
 
 1. Provide target SQL Server credentials and click connect.
 
-  :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-sqlmi-connect.png" alt-text="Screenshot that shows step to connect to  sql target.":::
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-sqlmi-connect.png" alt-text="Screenshot that shows step to connect to  sql target.":::
 
 On success, the test case moves to initialization stage.
 
 1. A real-time progress bar shows the execution status of the test run.
 
-  :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-run-status.png" alt-text="Screenshot that shows  tester test progress.":::
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-run-status.png" alt-text="Screenshot that shows  tester test progress.":::
 
 1. Review the report after the test is completed. The report provides the statistics, any errors during the test run and a detail report.
 
-  :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-test-result.png" alt-text="Screenshot that shows a sample tester test report":::
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-test-result.png" alt-text="Screenshot that shows a sample tester test report":::
 
 1. Click details to get more information.
 
    Example of positive data validation.
 
-  :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-test-success.png" alt-text="Screenshot that shows a sample  tester success report.":::
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-test-success.png" alt-text="Screenshot that shows a sample  tester success report.":::
 
    Example of failed data validation.
 
-  :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-test-failed.png" alt-text="Screenshot that shows tester failure report.":::
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-test-failed.png" alt-text="Screenshot that shows tester failure report.":::
 
 ### Optimize
 
