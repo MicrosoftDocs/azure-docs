@@ -16,7 +16,7 @@ This article features a collection of common Queue Storage monitoring scenarios,
 
 ## Monitor message counts in each queue 
 
-Azure Queue Storage support QueueMessageCount metric for you to monitor total message count in all queues on the storage account. It’s measured for capacity monitoring and is refreshed daily. 
+You can monitor the total message count for all queues in a storage account by using the `QueueMessageCount` metric. This metric is refreshed daily.
 
 In scenarios where you need to adjust the processing workloads on the messages, you would need to check the message count in a specific queue in near realtime fashion. You can use Compute or Function to query approximate message on each queue with Get Queue Metadata, then respond with necessary action. 
 
@@ -60,12 +60,12 @@ You can find the friendly name of that security principal by taking the value of
 
 ### Auditing data plane operations
 
-Data plane operations are captured in [Azure resource logs for Storage](monitor-blob-storage.md#analyzing-logs). You can [configure Diagnostic setting](monitor-blob-storage.md#send-logs-to-azure-log-analytics) to export logs to Log Analytics workspace for a native query experience. 
+Data plane operations are captured in [Azure resource logs for Storage](monitor-queue-storage.md#analyzing-logs). You can [configure Diagnostic setting](monitor-queue-storage.md#send-logs-to-azure-log-analytics) to export logs to Log Analytics workspace for a native query experience. 
 
 Here's a Log Analytics query that retrieves the "when", "who", "what", and "how" information in a list of log entries. 
 
 ```kusto
-StorageBlobLogs 
+StorageQueueLogs 
 | where TimeGenerated > ago(3d) 
 | project TimeGenerated, AuthenticationType, RequesterObjectId, OperationName, Uri
 ```
@@ -85,12 +85,12 @@ If a request was authenticated by using Azure AD, the `RequesterObjectId` field 
 
 In some cases, a user principal name or *UPN* might appear in logs. For example, if the security principal is an Azure AD user, the UPN will likely appear. For other types of security principals such as user assigned managed identities, or in certain scenarios such as cross Azure AD tenant authentication, the UPN will not appear in logs. 
 
-This query shows all read operations performed by OAuth security principals.
+This query shows all write operations performed by OAuth security principals.
 
 ```kusto
-StorageBlobLogs
+StorageQueueLogs
 | where TimeGenerated > ago(3d)
-  and OperationName == "GetBlob"
+  and OperationName == "PutMessage"
   and AuthenticationType == "OAuth"
 | project TimeGenerated, AuthenticationType, RequesterObjectId, OperationName, Uri
 ```
@@ -105,7 +105,7 @@ You can export logs to Log Analytics for rich native query capabilities. When yo
 
 With Azure Synapse, you can create server-less SQL pool to query log data when you need. This could save costs significantly. 
 
-1. Export logs to storage account. See [Creating a diagnostic setting](monitor-blob-storage.md#creating-a-diagnostic-setting).
+1. Export logs to storage account. See [Creating a diagnostic setting](monitor-queue-storage.md#creating-a-diagnostic-setting).
 
 2. Create and configure a Synapse workspace. See [Quickstart: Create a Synapse workspace](../../synapse-analytics/quickstart-create-workspace.md).
 
@@ -133,7 +133,7 @@ With Azure Synapse, you can create server-less SQL pool to query log data when y
 
 ## See also
 
-- [Monitoring Azure Blob Storage](monitor-blob-storage.md).
+- [Monitoring Azure Queue Storage](monitor-queue-storage.md).
 - [Tutorial: Use Kusto queries in Azure Data Explorer and Azure Monitor](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
 - [Get started with log queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md).
 
