@@ -121,24 +121,21 @@ print("Training dataset name: " + training_dataset.name)
 
 ## Configuring your AutoML run for image tasks
 
-To configure AutoML runs for image related tasks, use the `AutoMLImageConfig` object. In your `AutoMLImageConfig`, you can specify the model algorithms with the `model_name` parameter and configure the settings to perform a hyperparameter sweep over a defined parameter space, to find the optimal model.
+To configure AutoML runs for image related tasks, use the `AutoMLImageConfig` object. In your `AutoMLImageConfig`, you can specify the model algorithms with the `model_name` parameter and configure the settings to perform a hyperparameter sweep over a defined parameter space to find the optimal model.
 
-In this example, we use the `AutoMLImageConfig` to train an object detection model using `yolov5` and `fasterrcnn_resnet50_fpn`, both of which are pretrained on COCO, a large-scale object detection, segmentation, and captioning dataset that contains over 200K labeled images with over 80 label cateogories.
-
- sweep over the hyperparameters for each algorithm, choosing from a range of values for `learning_rate`, `optimizer`, `lr_scheduler`, etc, to generate a model with the optimal primary metric. 
-
-### Using default hyperparameter values for the specified algorithm
-
-Before doing a large sweep to search for the optimal models and hyperparameters, we recommend trying the default values to get a first baseline. Next, you can explore multiple hyperparameters for the same model before sweeping over multiple models and their parameters. This is for employing a more iterative approach, because with multiple models and multiple hyperparameters for each (as we showcase in the next section), the search space grows exponentially and you need more iterations to find optimal configurations.
+In this example, we use the `AutoMLImageConfig` to train an object detection model with `yolov5` and `fasterrcnn_resnet50_fpn`, both of which are pretrained on COCO, a large-scale object detection, segmentation, and captioning dataset that contains over 200K labeled images with over 80 label cateogories. 
 
 ### Hyperparameter sweeping for your AutoML models for image tasks
 
-The following uses `RandomParameterSampling` to pick samples from this parameter space and try a total of 20 iterations with these different samples, running 4 iterations at a time on our compute target, which has been previously set up using 4 nodes. Please note that the more parameters the space has, the more iterations you need to find optimal models.
+When using AutoML for image tasks, you can perform a hyperparameter sweep over a defined parameter space to find the optimal model. 
 
-We also leverage the Bandit early termination policy that terminates poor performing configurations. That is, those configurations that are not within 20% slack of the best performing configuration, thus significantly saving compute resources.
+The following code, defines the parameter space in preparation for the hyperparameter sweep for each defined algorithm, `yolov5` and `fasterrcnn_resnet50_fpn`.  In the parameter space, specify the range of values for `learning_rate`, `optimizer`, `lr_scheduler`, etc, for AutoML to choose from as it attempts to generate a model with the optimal primary metric. If hyperparameter values are not specified, then default values are used for each algorithm.
+
+For the tuning settings, use random sampling to pick samples from this parameter space by importing the `GridParameterSampling, RandomParameterSampling` and `BayesianParameterSampling` classes.  Doing so, tells automated ML to try a total of 20 iterations with these different samples, running 4 iterations at a time on our compute target, which was set up using 4 nodes. The more parameters the space has, the more iterations you need to find optimal models.
+
+The Bandit early termination policy is also used. This policy terminates poor performing configurations; that is, those configurations that are not within 20% slack of the best performing configuration which significantly saves compute resources.
 
 ```python 
-from azureml.train.automl import AutoMLImageConfig
 from azureml.train.hyperdrive import GridParameterSampling, RandomParameterSampling, BayesianParameterSampling
 from azureml.train.hyperdrive import BanditPolicy, HyperDriveConfig, PrimaryMetricGoal
 from azureml.train.hyperdrive import choice, uniform
@@ -167,7 +164,12 @@ tuning_settings = {
     'hyperparameter_sampling': RandomParameterSampling(parameter_space),  
     'policy': BanditPolicy(evaluation_interval=2, slack_factor=0.2, delay_evaluation=6)
 }
+```
 
+Once the parameter space and tuning settings are defined, you can pass them into your AutoMLImageConfig object and then submit the experiment to train an image model using your training dataset. 
+
+```python
+from azureml.train.automl import AutoMLImageConfig
 automl_image_config = AutoMLImageConfig(task='image-object-detection',
                                         compute_target=compute_target,
                                         training_data=training_dataset,
@@ -185,15 +187,6 @@ When doing a hyperparameter sweep, it can be useful to visualize the different c
 from azureml.core import Run
 hyperdrive_run = Run(experiment=experiment, run_id=automl_image_run.id + '_HD')
 hyperdrive_run
-```
-
-## Submit an AutoML run for image tasks
-
-Once you've created the config settings for your run, you can submit an AutoML run using the config in order to train an image model using your training dataset.
-
-```python
-automl_image_run = experiment.submit(image_config_yolov5)
-automl_image_run.wait_for_completion(wait_post_processing=True)
 ```
 
 ## Register the best model
