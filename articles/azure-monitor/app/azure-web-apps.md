@@ -73,8 +73,6 @@ There are two ways to enable application monitoring for Azure App Services hoste
 
 # [ASP.NET Core](#tab/netcore)
 
-[Windows](#windows) and [Linux (preview)](#linux) auto-instrumentation App Service portal enablement is supported for ASP.NET Core.
-
 ### Windows
 > [!IMPORTANT]
 > The following versions of ASP.NET Core are supported for auto-instrumentation on windows : ASP.NET Core 3.1, and 5.0. Versions 2.0, 2.1, 2.2, and 3.0 have been retired and are no longer supported. Please upgrade to a [supported version](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) of .NET Core for auto-instrumentation to work.
