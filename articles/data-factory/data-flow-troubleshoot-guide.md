@@ -6,7 +6,7 @@ author: kromerm
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 07/08/2021
+ms.date: 07/13/2021
 ---
 
 # Troubleshoot mapping data flows in Azure Data Factory
@@ -62,7 +62,7 @@ This article explores common troubleshooting methods for mapping data flows in A
 - **Recommendation**: Contact the Microsoft product team for more details about this problem.
 
 ### Error code: DF-Executor-PartitionDirectoryError
-- **Message**: The specified source path has either multiple partitioned directories (for e.g. <Source Path>/<Partition Root Directory 1>/a=10/b=20, <Source Path>/<Partition Root Directory 2>/c=10/d=30) or partitioned directory with other file or non-partitioned directory (for example <Source Path>/<Partition Root Directory 1>/a=10/b=20, <Source Path>/Directory 2/file1), remove partition root directory from source path and read it through separate source transformation.
+- **Message**: The specified source path has either multiple partitioned directories (for e.g. &lt;Source Path&gt;/<Partition Root Directory 1>/a=10/b=20, &lt;Source Path&gt;/&lt;Partition Root Directory 2&gt;/c=10/d=30) or partitioned directory with other file or non-partitioned directory (for example &lt;Source Path&gt;/&lt;Partition Root Directory 1&gt;/a=10/b=20, &lt;Source Path&gt;/Directory 2/file1), remove partition root directory from source path and read it through separate source transformation.
 - **Cause**: The source path has either multiple partitioned directories or a partitioned directory that has another file or non-partitioned directory.
 - **Recommendation**: Remove the partitioned root directory from the source path and read it through separate source transformation.
 
@@ -112,7 +112,7 @@ This article explores common troubleshooting methods for mapping data flows in A
  ### Error code: DF-Executor-StoreIsNotDefined
 - **Message**: The store configuration is not defined. This error is potentially caused by invalid parameter assignment in the pipeline.
 - **Cause**: Invalid store configuration is provided.
-- **Recommendation**: Check parameter value assignment in the pipeline. A parameter expression might contain invalid characters.
+- **Recommendation**: Check the parameter value assignment in the pipeline. A parameter expression may contain invalid characters.
 
 
 ### Error code: 4502
@@ -242,7 +242,7 @@ This article explores common troubleshooting methods for mapping data flows in A
 - **Recommendation**: Update Snowflake staging settings to ensure that only Azure Blob linked service is used.
 
 ### Error code: DF-Snowflake-InvalidStageConfiguration
-- **Message**: Snowflake stage properties should be specified with azure blob + sas authentication.
+- **Message**: Snowflake stage properties should be specified with Azure Blob + SAS authentication.
 - **Cause**: An invalid staging configuration is provided in the Snowflake.
 - **Recommendation**: Ensure that only the Azure Blob + SAS authentication is specified in the Snowflake staging settings.
 
@@ -396,19 +396,19 @@ This article explores common troubleshooting methods for mapping data flows in A
 
 ### Error code: DF-Cosmos-DeleteDataFailed
 - **Message**: Failed to delete data from cosmos after 3 times retry.
-- **Cause**: The throughput on the Cosmos collection is small and leads to meet throttling or row data not existing in Cosmo.
+- **Cause**: The throughput on the Cosmos collection is small and leads to meeting throttling or row data not existing in Cosmos.
 - **Recommendation**: Please take the following actions to solve this problem:
-    1. If the error is 404, make sure that the related row data exist in the Cosmos collection. 
+    1. If the error is 404, make sure that the related row data exists in the Cosmos collection. 
     1. If the error is throttling, please increase the Cosmos collection throughput or set it to the automatic scale.
+    1. If the error is request timed out, please set 'Batch size' in the Cosmos sink to smaller value, for example 1000.
 
 ### Error code: DF-SQLDW-ErrorRowsFound
-- **Message**: Error/Invalid rows found while writing to sql sink. Error/Invalid rows are written to the rejected data storage location if configured.
-- **Cause**: Error or invalid rows are found when writing to the SQL sink.
+- **Cause**: Error/invalid rows are found when writing to the Azure Synapse Analytics sink.
 - **Recommendation**: Please find the error rows in the rejected data storage location if it is configured.
 
 ### Error code: DF-SQLDW-ExportErrorRowFailed
 - **Message**: Exception is happened while writing error rows to storage.
-- **Cause**: An exception is happened while writing error rows to storage.
+- **Cause**: An exception happened while writing error rows to the storage.
 - **Recommendation**: Please check your rejected data linked service configuration.
 
 ### Error code: DF-Executor-FieldNotExist
@@ -477,7 +477,7 @@ This article explores common troubleshooting methods for mapping data flows in A
 - **Recommendation**: Please update AdobeIntegration settings to make your partition type is RoundRobin.
 
 ### Error code: DF-AdobeIntegration-InvalidPrivacyRegulation
-- **Message**: Only privacy regulation supported currently is gdpr.
+- **Message**: Only privacy regulation that's currently supported is 'GDPR'.
 - **Cause**: Invalid privacy configurations are provided.
 - **Recommendation**: Please update AdobeIntegration settings while only privacy 'GDPR' is supported.
 
@@ -489,7 +489,7 @@ This article explores common troubleshooting methods for mapping data flows in A
         
       :::image type="content" source="media/data-flow-troubleshoot-guide/configure-compute-type.png" alt-text="Screenshot that shows the configuration of Compute type.":::   
 
-  - Option-2: Use larger cluster size (for example, 48 cores) to run your data flow pipelines. You can learn more about cluster size through this document: [Cluster size](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-performance#cluster-size).
+  - Option-2: Use larger cluster size (for example, 48 cores) to run your data flow pipelines. You can learn more about cluster size through this document: [Cluster size](./concepts-data-flow-performance.md#cluster-size).
   
   - Option-3: Repartition your input data. For the task running on the data flow spark cluster, one partition is one task and runs on one node. If data in one partition is too large, the related task running on the node needs to consume more memory than the node itself, which causes failure. So you can use repartition to avoid data skew, and ensure that data size in each partition is average while the memory consumption is not too heavy.
     
@@ -498,8 +498,72 @@ This article explores common troubleshooting methods for mapping data flows in A
     > [!NOTE]
     >  You need to evaluate the data size or the partition number of input data, then set reasonable partition number under "Optimize". For example, the cluster that you use in the data flow pipeline execution is 8 cores and the memory of each core is 20GB, but the input data is 1000GB with 10 partitions. If you directly run the data flow, it will meet the OOM issue because 1000GB/10 > 20GB, so it is better to set repartition number to 100 (1000GB/100 < 20GB).
     
-  - Option-4: Tune and optimize source/sink/transformation settings. For example, try to copy all files in one container, and don't use the wildcard pattern. For more detailed information, reference [Mapping data flows performance and tuning guide](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-performance).
+  - Option-4: Tune and optimize source/sink/transformation settings. For example, try to copy all files in one container, and don't use the wildcard pattern. For more detailed information, reference [Mapping data flows performance and tuning guide](./concepts-data-flow-performance.md).
 
+### Error code: DF-MSSQL-ErrorRowsFound
+- **Cause**: Error/Invalid rows were found while writing to Azure SQL Database sink.
+- **Recommendation**: Please find the error rows in the rejected data storage location if configured.
+
+### Error code: DF-MSSQL-ExportErrorRowFailed
+- **Message**: Exception is happened while writing error rows to storage.
+- **Cause**: An exception happened while writing error rows to the storage.
+- **Recommendation**: Check your rejected data linked service configuration.
+
+### Error code: DF-Synapse-InvalidDatabaseType
+- **Message**: Database type is not supported.
+- **Cause**: The database type is not supported.
+- **Recommendation**: Check the database type and change it to the proper one.
+
+### Error code: DF-Synapse-InvalidFormat
+- **Message**: Format is not supported.
+- **Cause**: The format is not supported. 
+- **Recommendation**: Check the format and change it to the proper one.
+
+### Error code: DF-Synapse-InvalidTableDBName
+- **Cause**: The table/database name is not valid.
+- **Recommendation**: Change a valid name for the table/database. Valid names only contain alphabet characters, numbers and `_`.
+
+### Error code: DF-Synapse-InvalidOperation
+- **Cause**: The operation is not supported.
+- **Recommendation**: Change the invalid operation.
+
+### Error code: DF-Synapse-DBNotExist
+- **Cause**: The database does not exist.
+- **Recommendation**: Check if the database exists.
+
+### Error code: DF-Synapse-StoredProcedureNotSupported
+- **Message**: Use 'Stored procedure' as Source is not supported for serverless (on-demand) pool.
+- **Cause**: The serverless pool has limitations.
+- **Recommendation**: Retry using 'query' as the source or saving the stored procedure as a view, and then use 'table' as the source to read from view directly.
+
+### Error code: DF-Executor-BroadcastFailure
+- **Message**: Dataflow execution failed during broadcast exchange. Potential causes include misconfigured connections at sources or a broadcast join timeout error. To ensure the sources are configured correctly, please test the connection or run a source data preview in a Dataflow debug session. To avoid the broadcast join timeout, you can choose the 'Off' broadcast option in the Join/Exists/Lookup transformations. If you intend to use the broadcast option to improve performance then make sure broadcast streams can produce data within 60 secs for debug runs and within 300 secs for job runs. If problem persists, contact customer support.
+
+- **Cause**:  
+    1. The source connection/configuration error could lead to a broadcast failure in join/exists/lookup transformations.
+    2. Broadcast has a default timeout of 60 seconds in debug runs and 300 seconds in job runs. On the broadcast join, the stream chosen for the broadcast seems too large to produce data within this limit. If a broadcast join is not used, the default broadcast done by a data flow can reach the same limit.
+
+- **Recommendation**:
+    1. Do data preview at sources to confirm the sources are well configured. 
+    1. Turn off the broadcast option or avoid broadcasting large data streams where the processing can take more than 60 seconds. Instead, choose a smaller stream to broadcast. 
+    1. Large SQL/Data Warehouse tables and source files are typically bad candidates. 
+    1. In the absence of a broadcast join, use a larger cluster if the error occurs. 
+    1. If the problem persists, contact the customer support.
+
+### Error code: DF-Cosmos-ShortTypeNotSupport
+- **Message**: Short data type is not supported in Cosmos DB.
+- **Cause**: The short data type is not supported in the Azure Cosmos DB.
+- **Recommendation**: Add a derived transformation to convert related columns from short to integer before using them in the Cosmos sink.
+
+### Error code: DF-Blob-FunctionNotSupport
+- **Message**: This endpoint does not support BlobStorageEvents, SoftDelete or AutomaticSnapshot. Please disable these account features if you would like to use this endpoint.
+- **Cause**: Azure Blob Storage events, soft delete or automatic snapshot is not supported in data flows if the Azure Blob Storage linked service is created with service principal or managed identity authentication.
+- **Recommendation**: Disable Azure Blob Storage events, soft delete or automatic snapshot feature on the Azure Blob account, or use key authentication to create the linked service.
+
+### Error code: DF-Cosmos-InvalidAccountKey
+- **Message**: The input authorization token can't serve the request. Please check that the expected payload is built as per the protocol, and check the key being used.
+- **Cause**: There is no enough permission to read/write Azure Cosmos DB data.
+- **Recommendation**: Please use the read-write key to access Azure Cosmos DB.
 
 ## Miscellaneous troubleshooting tips
 - **Issue**: Unexpected exception occurred and execution failed.

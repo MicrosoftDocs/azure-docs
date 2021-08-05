@@ -3,7 +3,7 @@ title: Use the Azure Maps Indoor Maps module with Microsoft Creator services
 description: Learn how to use the Microsoft Azure Maps Indoor Maps module to render maps by embedding the module's JavaScript libraries.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/20/2020
+ms.date: 07/13/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -98,6 +98,14 @@ const indoorManager = new atlas.indoor.IndoorManager(map, {
 if (statesetId.length > 0) {
     indoorManager.setDynamicStyling(true);
 }
+```
+
+## Geographic Settings (Optional)
+
+This guide assumes that you've created your Creator service in the United States. If so, you can skip this section. However, if your Creator service was created in Europe, add the following code:
+
+```javascript
+  indoorManager.setOptions({ geography: 'eu' });.
 ```
 
 ## Indoor Level Picker Control

@@ -8,9 +8,9 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/29/2019
+ms.date: 07/08/2021
 ms.author: davidmu
-ms.reviewer: luleon
+ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
 ---
 
@@ -38,7 +38,7 @@ To enable the admin consent workflow and choose reviewers:
 
 7. Configure the following settings:
 
-   * **Select users to review admin consent requests**. Select reviewers for this workflow from a set of users that have the global administrator, cloud application administrator, and application administrator roles.
+   * **Select users to review admin consent requests**. Select reviewers for this workflow from a set of users that have the global administrator, cloud application administrator, and application administrator roles. **Note that you must designate at least one reviewer before the workflow can be turned on.**
    * **Selected users will receive email notifications for requests**. Enable or disable email notifications to the reviewers when a request is made.  
    * **Selected users will receive request expiration reminders**. Enable or disable reminder email notifications to the reviewers when a request is about to expire.  
    * **Consent request expires after (days)**. Specify how long requests stay valid.
@@ -138,6 +138,10 @@ No, for now requestors are only able to get updates via email notifications.
 **As a reviewer, is it possible to approve the application, but not for everyone?**
 
 If you're concerned about granting admin consent and allowing all users in the tenant to use the application, we recommend that you deny the request. Then manually grant admin consent by restricting access to the application by requiring user assignment, and assigning users or groups to the application. For more information, see [Methods for assigning users and groups](./assign-user-or-group-access-portal.md).
+
+**I have an app that requires user assignment. A user that I assigned to an application is being asked to request admin consent instead of being able to consent themself. Why is that?**
+
+When access to an application is restricted via the "user assignment required", an Azure AD administrator needs to consent all the permissions requested by the application. 
 
 ## Next steps
 

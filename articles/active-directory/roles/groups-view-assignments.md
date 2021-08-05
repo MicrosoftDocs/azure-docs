@@ -23,7 +23,7 @@ This section describes how the roles assigned to a group can be viewed using Azu
 
 ## Prerequisites
 
-- AzureADPreview module when using PowerShell
+- AzureAD module when using PowerShell
 - Admin consent when using Graph explorer for Microsoft Graph API
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).

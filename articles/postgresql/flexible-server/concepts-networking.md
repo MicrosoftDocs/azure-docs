@@ -73,6 +73,8 @@ Here are some concepts to be familiar with when using virtual networks with Post
 * **Network security groups (NSG)** - 
    Security rules in network security groups enable you to filter the type of network traffic that can flow in and out of virtual network subnets and network interfaces. See [network security group overview](../../virtual-network/network-security-groups-overview.md) documentation for more information.
 
+  Application security groups make it easy to control Layer-4 security using NSGs for flat networks. You can quickly and easily join/remove virtual machines to/from an application security group and dynamically apply/remove rules to those virtual machines. See [application security group overview](https://docs.microsoft.com/azure/virtual-network/application-security-groups). At this time we do not support Network Security Groups where Application Security Group (ASG) is part of the rule with Azure Database for PostgreSQL - Flexible server.  Its currently advised to use [IP based source\destination filtering](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview#security-rules) in NSG instead. 
+
 * **Private DNS zone integration** - 
    Azure private DNS zone integration allows you to resolve the private DNS within the current VNET or any in-region peered VNET where the private DNS Zone is linked. 
 

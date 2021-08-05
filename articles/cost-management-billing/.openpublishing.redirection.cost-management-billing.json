@@ -987,8 +987,8 @@
         },
         {
             "source_path_from_root": "/articles/cost-management/support-request-cost-management.md",
-            "redirect_url": "/azure/cost-management-billing/costs/open-support-request",
-            "redirect_document_id": true
+            "redirect_url": "/azure/cost-management-billing/cost-management-billing-overview",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cost-management/tutorial-acm-create-budgets.md",
@@ -1044,6 +1044,11 @@
             "source_path_from_root": "/articles/cost-management/understanding-cost-reports.md",
             "redirect_url": "/azure/cost-management-billing/cloudyn/understanding-cost-reports",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/costs/open-support-request.md",
+            "redirect_url": "/azure/cost-management-billing/cost-management-billing-overview",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cost-management/use-reports.md",

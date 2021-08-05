@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 03/01/2021
 ms.author: davidmu
-ms.reviewer: baselden
+ms.reviewer: alamaral
 ---
 
 # Moving application authentication from Active Directory Federation Services to Azure Active Directory
@@ -130,7 +130,7 @@ Both AD FS and Azure AD provide token encryption—the ability to encrypt the SA
 For information about Azure AD SAML token encryption and how to configure it, see [How to: Configure Azure AD SAML token encryption](howto-saml-token-encryption.md).  
 
 > [!NOTE]
-> Token encryption is an Azure Active Directory (Azure AD) premium feature. To learn more about Azure AD editions, features, and pricing, see [Azure AD pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+> Token encryption is an Azure Active Directory (Azure AD) premium feature. To learn more about Azure AD editions, features, and pricing, see [Azure AD pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ### Apps and configurations that can be moved today
 

@@ -34,7 +34,7 @@ In this article, you use the [Azure IoT device SDK for C](iot-hub-device-sdk-c-i
   - **Southeast Asia**
   - **West US 2**
 
-- This article assumes that you're familiar with sending telemetry messages to your IoT hub. Make sure you've completed the [Send telemetry C Quickstart](quickstart-send-telemetry-c.md).
+- This article assumes that you're familiar with sending telemetry messages to your IoT hub. Make sure you've completed the [Send telemetry C Quickstart](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-ansi-c).
 
 - Register a device with your IoT hub (steps available in each Quickstart) and note down the connection string.
 
@@ -135,7 +135,7 @@ These instructions are for building the sample on Windows. For other environment
 
     [!code-c[](~/samples-iot-distributed-tracing/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c?name=snippet_config&highlight=2)]
 
-    Replace the value of the `connectionString` constant with the device connection string you made a note of in the [register a device](./quickstart-send-telemetry-c.md#register-a-device) section of the [Send telemetry C Quickstart](./quickstart-send-telemetry-c.md).
+    Replace the value of the `connectionString` constant with the device connection string you made a note of in the [register a device](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-ansi-c#register-a-device) section of the [Send telemetry C Quickstart](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-ansi-c).
 
 1. Change the `MESSAGE_COUNT` define to `5000`:
 

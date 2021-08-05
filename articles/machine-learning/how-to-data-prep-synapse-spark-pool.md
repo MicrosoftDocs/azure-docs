@@ -113,7 +113,7 @@ There are two ways to load data from these storage services:
 
 * Read in data from an existing [Azure Machine Learning dataset](how-to-create-register-datasets.md).
 
-To access these storage services, you need **Storage Blob Data Reader** permissions. If you plan to write data back to these storage services, you need **Storage Blob Data Contributor** permissions. [Learn more about storage permissions and roles](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues).
+To access these storage services, you need **Storage Blob Data Reader** permissions. If you plan to write data back to these storage services, you need **Storage Blob Data Contributor** permissions. [Learn more about storage permissions and roles](../storage/blobs/assign-azure-role-data-access.md).
 
 ### Load data with Hadoop Distributed Files System (HDFS) path
 
@@ -212,7 +212,7 @@ df.show()
 
 Once your data exploration and preparation is complete, store your prepared data for later use in your storage account on Azure.
 
-In the following example, the prepared data is written back to Azure Blob storage and overwrites the original `Titanic.csv` file in the `training_data` directory. To write back to storage, you need **Storage Blob Data Contributor** permissions. [Learn more about storage permissions and roles](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues).
+In the following example, the prepared data is written back to Azure Blob storage and overwrites the original `Titanic.csv` file in the `training_data` directory. To write back to storage, you need **Storage Blob Data Contributor** permissions. [Learn more about storage permissions and roles](../storage/blobs/assign-azure-role-data-access.md).
 
 ```python
 %% synapse

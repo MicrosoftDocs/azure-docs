@@ -2,7 +2,7 @@
 title: Troubleshoot network issues with registry
 description: Symptoms, causes, and resolution of common problems when accessing an Azure container registry in a virtual network or behind a firewall
 ms.topic: article
-ms.date: 03/30/2021
+ms.date: 05/10/2021
 ---
 
 # Troubleshoot network issues with registry
@@ -29,7 +29,7 @@ May include one or more of the following:
 
 * A client firewall or proxy prevents access - [solution](#configure-client-firewall-access)
 * Public network access rules on the registry prevent access - [solution](#configure-public-access-to-registry)
-* Virtual network configuration prevents access - [solution](#configure-vnet-access)
+* Virtual network or private endpoint configuration prevents access - [solution](#configure-vnet-access)
 * You attempt to integrate Azure Security Center or certain other Azure services with a registry that has a private endpoint, service endpoint, or public IP access rules - [solution](#configure-service-access)
 
 ## Further diagnosis 
@@ -82,7 +82,11 @@ Related links:
 
 Confirm that the virtual network is configured with either a private endpoint for Private Link or a service endpoint (preview). Currently an Azure Bastion endpoint isn't supported.
 
-If a private endpoint is configured, confirm that DNS resolves the registry's public FQDN such as *myregistry.azurecr.io* to the registry's private IP address. Use a network utility such as `dig` or `nslookup` for DNS lookup. Ensure that [DNS records are configured](container-registry-private-link.md#dns-configuration-options) for the registry FQDN and for each of the data endpoint FQDNs.
+If a private endpoint is configured, confirm that DNS resolves the registry's public FQDN such as *myregistry.azurecr.io* to the registry's private IP address.
+
+  * Run the [az acr check-health](/cli/azure/acr#az_acr_check_health) command with the `--vnet` parameter to confirm the DNS routing to the private endpoint in the virtual network.
+  * Use a network utility such as `dig` or `nslookup` for DNS lookup. 
+  * Ensure that [DNS records are configured](container-registry-private-link.md#dns-configuration-options) for the registry FQDN and for each of the data endpoint FQDNs. 
 
 Review NSG rules and service tags used to limit traffic from other resources in the network to the registry. 
 
@@ -125,8 +129,8 @@ If [collection of resource logs](monitor-service.md) is enabled in the registry,
 
 Related links:
 
-* [Monitor Azure Container Registry](monitor-service.md)
-* [Container registry FAQ](container-registry-faq.md)
+* [Logs for diagnostic evaluation and auditing](container-registry-diagnostics-audit-logs.md)
+* [Container registry FAQ](container-registry-faq.yml)
 * [Azure Security Baseline for Azure Container Registry](security-baseline.md)
 * [Best practices for Azure Container Registry](container-registry-best-practices.md)
 

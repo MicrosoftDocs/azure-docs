@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: quickstart
-ms.date: 07/12/2021
+ms.date: 07/13/2021
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to connect to a virtual machine securely via RDP/SSH using a private IP address through my browser.
 
@@ -71,7 +71,9 @@ You can use the following example values when creating this configuration, or yo
 
 There are a few different ways to configure a bastion host. In the following steps, you'll create a bastion host in the Azure portal directly from your VM. When you create a host from a VM, various settings will automatically populate corresponding to your virtual machine and/or virtual network.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+[!INCLUDE [Azure Bastion preview portal](../../includes/bastion-preview-portal-note.md)]
+
+1. Sign in to the Azure portal.
 1. Navigate to the VM that you want to connect to, then select **Connect**.
 
    :::image type="content" source="./media/quickstart-host-portal/vm-connect.png" alt-text="Screenshot of virtual machine settings." lightbox="./media/quickstart-host-portal/vm-connect.png":::

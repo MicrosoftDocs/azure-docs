@@ -137,6 +137,11 @@
     - name: Microsoft Identity Web library
       href: microsoft-identity-web.md
       displayName: auth, library, .NET Core, msal
+  - name: Authorization basics
+    displayName: AuthZ basics
+    items:
+    - name: RBAC for app developers
+      href: custom-rbac-for-developers.md
   - name: App scenarios and authentication flows
     displayName: Auth flows
     href: authentication-flows-app-scenarios.md
@@ -149,6 +154,8 @@
     items:
     - name: Best practices for least privileged access for apps
       href: secure-least-privileged-access.md
+    - name: Security best practices for Azure AD application registration
+      href: security-best-practices-for-app-registration.md
     - name: Conditional access
       href: v2-conditional-access-dev-guide.md
     - name: Authentication context
@@ -692,7 +699,7 @@
     - name: Common provisioning scenarios
       href: ../app-provisioning/scim-graph-scenarios.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
     - name: Automate configuration using MS Graph
-      href: /azure/active-directory/app-provisioning/application-provisioning-configuration-api?bc=%2fazure%2factive-directory%2fdevelop%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json
+      href: ../app-provisioning/application-provisioning-configuration-api.md?bc=%2fazure%2factive-directory%2fdevelop%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json
 - name: Resources
   items:
   - name: Videos

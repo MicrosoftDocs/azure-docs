@@ -150,7 +150,7 @@ There are three IoT Edge certificates that you need to install to enable this tr
 
 - The IoT Edge certificates are uploaded in `.pem` format. 
 
-For more information on IoT Edge certificates, see [Azure IoT Edge certificate details](../iot-edge/iot-edge-certs.md#iot-edge-certificates) and [Create IoT Edge production certificates](/azure/iot-edge/how-to-manage-device-certificates?view=iotedge-2020-11&preserve-view=true#create-production-certificates).
+For more information on IoT Edge certificates, see [Azure IoT Edge certificate details](../iot-edge/iot-edge-certs.md#iot-edge-certificates) and [Create IoT Edge production certificates](../iot-edge/how-to-manage-device-certificates.md?preserve-view=true&view=iotedge-2020-11#create-production-certificates).
 
 ## Kubernetes certificates
 

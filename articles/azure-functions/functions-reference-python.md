@@ -423,11 +423,13 @@ When running locally, the runtime uses the available Python version.
 
 ### Changing Python version
 
-To set a Python function app to a specific language version, you  need to specify the language as well as the version of the language in `LinuxFxVersion` field in site config. For example, to change Python app to use Python 3.8.
+To set a Python function app to a specific language version, you  need to specify the language as well as the version of the language in `LinuxFxVersion` field in site config. For example, to change Python app to use Python 3.8, set `linuxFxVersion` to `python|3.8`.
 
-Set `linuxFxVersion` to `python|3.8`.
+To learn more about Azure Functions runtime support policy, please refer to this [article](./language-support-policy.md)
 
 To see the full list of supported Python versions functions apps, please refer to this [article](./supported-languages.md)
+
+
 
 # [Azure CLI](#tab/azurecli-linux)
 

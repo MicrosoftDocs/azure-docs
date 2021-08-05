@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 06/30/2021
+ms.date: 07/26/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -98,9 +98,10 @@ Ensure your VM is configured with the following functionality:
 
 Ensure your client meets the following requirements:
 
-- SSH client must support OpenSSH based certificates for authentication. You can use Az CLI (2.21.1 or higher) or Azure Cloud Shell to meet this requirement. 
-- SSH extension for Az CLI. You can install this using az. You do not need to install this extension when using Azure Cloud Shell as it comes pre-installed.
-- If you are using any other SSH client other than Az CLI or Azure Cloud Shell that supports OpenSSH, you will still need to use Az CLI with SSH extension to retrieve ephemeral SSH cert in a config file and then use the config file with your SSH client.
+- SSH client must support OpenSSH based certificates for authentication. You can use Az CLI (2.21.1 or higher) with OpenSSH (included in Windows 10 version 1803 or hiher) or Azure Cloud Shell to meet this requirement. 
+- SSH extension for Az CLI. You can install this using `az extension add --name ssh`. You do not need to install this extension when using Azure Cloud Shell as it comes pre-installed.
+- If you are using any other SSH client other than Az CLI or Azure Cloud Shell that supports OpenSSH certificates, you will still need to use Az CLI with SSH extension to retrieve ephemeral SSH cert and optionally a config file and then use the config file with your SSH client.
+- TCP connectivity from the client to either the public or private IP of the VM (ProxyCommand or SSH forwarding to a machine with connectivity also works).
 
 ## Enabling Azure AD login in for Linux VM in Azure
 
@@ -319,7 +320,7 @@ Login to Azure Linux VMs with Azure AD supports exporting the OpenSSH certificat
 az ssh config --file ~/.ssh/config -n myVM -g AzureADLinuxVMPreview
 ```
 
-Alternatively, you can export the config by specifying just the IP address. Replace the IP address in the example with the public or private IP address for your VM. Type `az ssh config -h` for help on this command.
+Alternatively, you can export the config by specifying just the IP address. Replace the IP address in the example with the public or private IP address (you must bring your own connectivity for private IPs) for your VM. Type `az ssh config -h` for help on this command.
 
 ```azurecli
 az ssh config --file ~/.ssh/config --ip 10.11.123.456
@@ -347,7 +348,7 @@ Install the Azure AD extension on your virtual machine scale set.
 az vmss extension set --publisher Microsoft.Azure.ActiveDirectory --name Azure ADSSHLoginForLinux --resource-group AzureADLinuxVMPreview --vmss-name myVMSS
 ```
 
-Virtual machine scale set usually do not have public IP addresses, so you must have connectivity to them from another machine that can reach their Azure Virtual Network. This example shows how to use the private IP of a virtual machine scale set VM to connect. 
+Virtual machine scale set usually do not have public IP addresses, so you must have connectivity to them from another machine that can reach their Azure Virtual Network. This example shows how to use the private IP of a virtual machine scale set VM to connect from a machine in the same virtual network. 
 
 ```azurecli
 az ssh vm --ip 10.11.123.456

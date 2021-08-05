@@ -232,8 +232,8 @@
         href: create-public-ip-prefix-portal.md
       - name: Create public IP prefix - PowerShell
         href: create-public-ip-prefix-powershell.md
-      - name: Create public IPv6 prefix
-        href: ipv6-reserve-public-ip-address-prefix.md
+      - name: Create public IP prefix - Azure CLI
+        href: create-public-ip-prefix-cli.md
     - name: Upgrade a public IP address
       items:
       - name: Upgrade a public IP address - Portal
@@ -258,12 +258,10 @@
         items:
         - name: Standard Internal Load Balancer with IPv6 - PowerShell
           href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
-      - name: Basic public
-        items:
-        - name: Basic Public Load Balancer with IPv6 - PowerShell
-          href: ipv6-add-to-existing-vnet-powershell.md
-        - name: Basic Public Load Balancer with IPv6 - Azure CLI
-          href: ipv6-add-to-existing-vnet-cli.md    
+      - name: Add IPv6 to an IPv4 application- PowerShell
+        href: ipv6-add-to-existing-vnet-powershell.md
+      - name: Add IPv6 to an IPv4 application - Azure CLI
+        href: ipv6-add-to-existing-vnet-cli.md    
     - name: Routing preference
       items:
       - name: Create public IP address

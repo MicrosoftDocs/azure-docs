@@ -47,7 +47,7 @@ The benefits of deploying Conditional Access are:
 
 See [Conditional Access license requirements](overview.md).
 
-If additional features are required, you might also need related licenses. For more information, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+If additional features are required, you might also need related licenses. For more information, see [Azure Active Directory pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ### Prerequisites
 
@@ -313,7 +313,7 @@ With Conditional Access policies, you can implement automated responses to sign-
 
 * [Require all users to register for MFA](howto-conditional-access-policy-risk.md)
 
-* [Require a password change for users that are high-risk](howto-conditional-access-policy-risk.md)
+* [Require a password change for users that are high-risk](howto-conditional-access-policy-risk-user.md)
 
 * [Require MFA for users with medium or high sign-in risk](howto-conditional-access-policy-risk.md)
 

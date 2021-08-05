@@ -1,26 +1,28 @@
 items:
-- name: Azure Communication Services Documentation
+- name: Azure Communication Services documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
   - name: What is Azure Communication Services?
     href: overview.md
-  - name: Support and Help Options
+  - name: Help and support options
     href: support.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Create a Communication Services resource
     href: quickstarts/create-communication-resource.md
-  - name: Identity and Access
+  - name: Identity and access
     items:
       - name: Create and manage access tokens
         href: quickstarts/access-tokens.md
-      - name: Use Service Principals
+      - name: Authenticate with Azure AD
         href: quickstarts/identity/service-principal.md
-      - name: Set up Service Principals from CLI
+      - name: Authenticate with Azure AD (Azure CLI)
         href: quickstarts/identity/service-principal-from-cli.md
+      - name: Quick-create identities for testing
+        href: quickstarts/identity/quick-create-identity.md
   - name: Chat
     items:
       - name: Add chat to your app
@@ -29,11 +31,11 @@ items:
         href: quickstarts/chat/meeting-interop.md
   - name: Telephony and SMS
     items:
-      - name: Get a telephone number
+      - name: Get and manage phone numbers
         href: quickstarts/telephony-sms/get-phone-number.md
-      - name: Port a telephone number into Azure
+      - name: Port a phone number into Azure
         href: quickstarts/telephony-sms/port-phone-number.md
-      - name: Add telephone calling to your app
+      - name: Add phone calling to your app
         href: quickstarts/voice-video-calling/pstn-call.md
       - name: Send an SMS message
         href: quickstarts/telephony-sms/send.md
@@ -51,7 +53,7 @@ items:
       href: quickstarts/voice-video-calling/calling-client-samples.md
     - name: Join your calling client app to a Teams meeting
       href: quickstarts/voice-video-calling/get-started-teams-interop.md
-    - name: Join a service to a call
+    - name: Use the call automation APIs
       href: quickstarts/voice-video-calling/call-automation-api-sample.md
     - name: Record calls
       href: quickstarts/voice-video-calling/call-recording-sample.md
@@ -76,7 +78,7 @@ items:
     href: tutorials/building-app-start.md
   - name: Sign an HTTP request with an HMAC signature using C#
     href: tutorials/hmac-header-tutorial.md
-  - name: Sign and make requests to ACS' SMS API with Postman
+  - name: Sign and make requests to the SMS API with Postman
     href: tutorials/postman-tutorial.md
 - name: Concepts
   expanded: false

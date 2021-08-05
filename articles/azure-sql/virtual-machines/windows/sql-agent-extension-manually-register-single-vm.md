@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/07/2020
+ms.date: 07/21/2021
 ms.author: mathoma
 ms.reviewer: jroth 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
@@ -164,9 +164,11 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ---
 
-## Verify mode
+## Check extension mode
 
-You can view the current mode of your SQL Server IaaS agent by using Azure PowerShell:
+Use Azure PowerShell to check what mode your SQL Server IaaS agent extension is in. 
+
+To check the mode of the extension, use this Azure PowerShell cmdlet: 
 
 ```powershell-interactive
 # Get the SqlVirtualMachine
@@ -236,6 +238,8 @@ To verify the registration status using the Azure portal, follow these steps:
 
    ![Verify status with SQL RP registration](./media/sql-agent-extension-manually-register-single-vm/verify-registration-status.png)
 
+Alternatively, you can check the status by choosing **Repair** under the **Support + troubleshooting** pane in the **SQL virtual machine** resource. The provisioning state for the SQL IaaS agent extension can be **Succeeded** or **Failed**. 
+
 ### Command line
 
 Verify current SQL Server VM registration status using either Azure CLI or Azure PowerShell. `ProvisioningState` will show `Succeeded` if registration was successful.
@@ -259,6 +263,23 @@ To verify the registration status using the Azure PowerShell, run the following 
 ---
 
 An error indicates that the SQL Server VM has not been registered with the extension.
+
+## Repair extension
+
+It's possible for your SQL IaaS agent extension to be in a failed state. Use the Azure portal to repair the SQL IaaS agent extension. To do so, follow these steps: 
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Go to your [SQL Server VMs](manage-sql-vm-portal.md).
+1. Select your SQL Server VM from the list. If your SQL Server VM is not listed here, it likely hasn't been registered with the SQL IaaS Agent extension.
+1. Select **Repair** under **Support + Troubleshooting** in the **SQL virtual machine** resource page. 
+
+   :::image type="content" source="media/sql-agent-extension-manually-register-single-vm/repair-extension.png" alt-text="Select **Repair** under **Support + Troubleshooting** in the **SQL virtual machine** resource page":::   
+
+1. If your provisioning state shows as **Failed**, choose **Repair** to repair the extension. If your state is **Succeeded** you can check the box next to **Force repair** to repair the extension regardless of state. 
+
+   ![If your provisioning state shows as **Failed**, choose **Repair** to repair the extension. If your state is **Succeeded** you can check the box next to **Force repair** to repair the extension regardless of state.](./media/sql-agent-extension-manually-register-single-vm/force-repair-extension.png)
+
+
 
 ## Unregister from extension
 

@@ -14,7 +14,7 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Quickstart: Using Azure OpenTelemetry Exporter to export SDK telemetry data to Application Insights
 
-The Azure OpenTelemetry Exporter is an SDK within [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/). It allows you to export tracing data using OpenTelemetry and send the data to [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). OpenTelemetry provides a standardized way for applications and frameworks to collect telemetry information.
+The Azure OpenTelemetry Exporter is an SDK within [Azure Monitor](../../azure-monitor/index.yml). It allows you to export tracing data using OpenTelemetry and send the data to [Application Insights](../../azure-monitor/app/app-insights-overview.md). OpenTelemetry provides a standardized way for applications and frameworks to collect telemetry information.
 
 Azure Application Insights is a feature of Azure Monitor which is used to monitor live applications. It displays telemetry data about your application in a Microsoft Azure resource. The telemetry model is standardized so that it is possible to create platform and language-independent monitoring.
 
@@ -66,4 +66,4 @@ In this quickstart, you learned how to:
 
 You may also want to:
 
-- [Learn more about Analyzing Data in Application Insights](https://docs.microsoft.com/powerapps/maker/canvas-apps/application-insights)
+- [Learn more about Analyzing Data in Application Insights](/powerapps/maker/canvas-apps/application-insights)

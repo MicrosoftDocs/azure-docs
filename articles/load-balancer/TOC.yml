@@ -193,7 +193,7 @@
   - name: Java
     href: /java/api/com.microsoft.azure.management.network
   - name: Node.js
-    href: /javascript/api/@azure/arm-network/loadbalancers
+    href: /javascript/api/overview/azure/arm-network-readme
   - name: Ruby
     href: https://www.rubydoc.info/gems/azure_mgmt_network/Azure/Network/Mgmt/V2020_03_01/LoadBalancers
   - name: Python

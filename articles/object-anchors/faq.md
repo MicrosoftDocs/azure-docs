@@ -98,7 +98,7 @@ For smaller objects within 2 meters in each dimension, detection can occur withi
 
 **Q: Can Object Anchors handle moving objects?**
 
-**A:** We don't support **continuously moving** or **dynamic** objects.
+**A:** We don't support **continuously moving** or **dynamic** objects. We do support objects in an entirely new position in the space once they have been physically moved there, but cannot track it while it is being moved.
 
 **Q: Can Object Anchors handle deformation or articulations?**
 

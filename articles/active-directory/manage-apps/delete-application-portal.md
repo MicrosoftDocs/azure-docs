@@ -1,5 +1,6 @@
 ---
-title: 'Quickstart: Delete an application from your Azure Active Directory (Azure AD) tenant'
+title: 'Quickstart: Delete an application from your tenant'
+titleSuffix: Azure AD
 description: This quickstart uses the Azure portal to delete an application from your Azure Active Directory (Azure AD) tenant.
 services: active-directory
 author: davidmu
@@ -8,11 +9,12 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/12/2021
+ms.date: 07/23/2021
 ms.author: davidmu
+ms.reviewer: alamaral
 ---
 
-# Quickstart: Delete an application from your Azure Active Directory (Azure AD) tenant
+# Quickstart: Delete an application from your tenant
 
 This quickstart uses the Azure portal to delete an application that was added to your Azure Active Directory (Azure AD) tenant.
 
@@ -32,6 +34,9 @@ To delete an application from your Azure AD tenant, you need:
 
 >[!IMPORTANT]
 >Use a non-production environment to test the steps in this quickstart.
+
+> [!NOTE]
+>To delete an application from Azure AD, a user must be assigned one of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 
 ## Delete an application from your Azure AD tenant
 

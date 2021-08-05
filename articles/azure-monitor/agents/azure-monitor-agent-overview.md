@@ -4,7 +4,7 @@ description: Overview of the Azure Monitor agent (AMA), which collects monitorin
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/25/2021
+ms.date: 07/22/2021
 ms.custom: references_regions
 ---
 
@@ -76,9 +76,9 @@ The following table shows the current support for Azure Monitor agent with Azure
 ## Coexistence with other agents
 The Azure Monitor agent can coexist with the existing agents so that you can continue to use their existing functionality during evaluation or migration. This is particularly important because of the limitations supporting existing solutions. You should be careful though in collecting duplicate data since this could skew query results and result in additional charges for data ingestion and retention. 
 
-For example, VM insights uses the Log Analytics agent to send performance data to a Log Analytics workspace. You may also have configured the workspace to collect Windows events and Syslog events from agents. If you install the Azure Monitor agent and create a data collection rule for these same events and performance data, it will result in duplicate data.
+For example, VM Insights uses the Log Analytics agent to send performance data to a Log Analytics workspace. You may also have configured the workspace to collect Windows events and Syslog events from agents. If you install the Azure Monitor agent and create a data collection rule for these same events and performance data, it will result in duplicate data.
 
-As such, ensure you're not collecting the same data from both agents, and if so, ensure they are going to separate destinations.
+As such, ensure you're not collecting the same data from both agents. If you are, ensure they are going to separate destinations.
 
 
 ## Costs
@@ -92,10 +92,11 @@ The Azure Monitor agent sends data to Azure Monitor Metrics or a Log Analytics w
 
 | Data Source | Destinations | Description |
 |:---|:---|:---|
-| Performance        | Azure Monitor Metrics<br>Log Analytics workspace | Numerical values measuring performance of different aspects of operating system and workloads. |
+| Performance        | Azure Monitor Metrics<sup>1</sup><br>Log Analytics workspace | Numerical values measuring performance of different aspects of operating system and workloads. |
 | Windows Event logs | Log Analytics workspace | Information sent to the Windows event logging system. |
 | Syslog             | Log Analytics workspace | Information sent to the Linux event logging system. |
 
+<sup>1</sup> There's a limitation today on Azure Monitor Agent for Linux wherein using Azure Monitor Metrics as the *only* destination is not supported. Using it alongwith Azure Monitor Logs works. This limitation will be addressed in the next extension update.
 
 ## Supported operating systems
 See [Supported operating systems](agents-overview.md#supported-operating-systems) for a list of the Windows and Linux operating system versions that are currently supported by the Azure Monitor agent.
@@ -106,8 +107,36 @@ See [Supported operating systems](agents-overview.md#supported-operating-systems
 The Azure Monitor agent doesn't require any keys but instead requires a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). You must have a system-assigned managed identity enabled on each virtual machine before deploying the agent.
 
 ## Networking
-The Azure Monitor agent supports Azure service tags (both AzureMonitor and AzureResourceManager tags are required) but does not yet work with Azure Monitor Private Link Scopes or direct proxies.
+The Azure Monitor agent supports Azure service tags (both AzureMonitor and AzureResourceManager tags are required) but does not yet work with Azure Monitor Private Link Scopes. If the machine connects through a proxy server to communicate over the internet, review requirements below to understand the network configuration required.
 
+### Proxy configuration
+
+The Azure Monitor agent extensions for Windows and Linux can communicate either through a proxy server or Log Analytics gateway to Azure Monitor using the HTTPS protocol (for Azure virtual machines, Azure virtual machine scale sets and Azure Arc for servers). This is configured using extensions settings as described below, and supports both anonymous and basic authentication (username/password) are supported.  
+
+1. Use this simple flowchart to determine the values of *setting* and *protectedSetting* parameters first:
+
+   ![Flowchart to determine the values of setting and protectedSetting parameters when enabling the extension](media/azure-monitor-agent-overview/proxy-flowchart.png)
+
+
+2. Once the values *setting* and *protectedSetting* parameters are determined, provide these additional parameters when deploying the Azure Monitor agent using PowerShell commands (examples below for Azure virtual machines):
+
+	| Parameter | Value |
+	|:---|:---|
+	| SettingString | JSON object from flowchart above, converted to string; skip if not applicable. Example: {"proxy":{"mode":"application","address":"http://[address]:[port]","auth": false}} |
+	| ProtectedSettingString | JSON object from flowchart above, converted to string; skip if not applicable. Example: {"proxy":{"username": "[username]","password": "[password]"}} |
+
+
+# [Windows](#tab/PowerShellWindows)
+```powershell
+Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.0 -SettingString <settingString> -ProtectedSettingString <protectedSettingString>
+```
+
+# [Linux](#tab/PowerShellLinux)
+```powershell
+Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.5 -SettingString <settingString> -ProtectedSettingString <protectedSettingString>
+```
+
+---
 
 ## Next steps
 

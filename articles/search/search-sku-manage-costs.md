@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/11/2021
+ms.date: 07/21/2021
 ---
 
 # How to estimate and manage costs of an Azure Cognitive Search service
@@ -44,13 +44,14 @@ A solution built on Azure Cognitive Search can incur costs in the following ways
 
 + Bandwidth charges (outbound data transfer)
 
-+ Add-on services required for specific capabilities or features:
++ Add-on services required for specific capabilities or premium features:
 
   + AI enrichment (requires [Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/))
-  + knowledge store (requires [Azure Storage](https://azure.microsoft.com/pricing/details/storage/))
-  + incremental enrichment (requires [Azure Storage](https://azure.microsoft.com/pricing/details/storage/), applies to AI enrichment)
-  + customer-managed keys and double encryption (requires [Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/))
-  + private endpoints for a no-internet access model (requires [Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/))
+  + Knowledge store (requires [Azure Storage](https://azure.microsoft.com/pricing/details/storage/))
+  + Incremental enrichment (requires [Azure Storage](https://azure.microsoft.com/pricing/details/storage/), applies to AI enrichment)
+  + Customer-managed keys and double encryption (requires [Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/))
+  + Private endpoints for a no-internet access model (requires [Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/))
+  + Semantic search is a premium feature on Standard tiers (see the [Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/) for costs). You can [disable semantic search](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch) to prevent accidental usage.
 
 ### Service costs
 

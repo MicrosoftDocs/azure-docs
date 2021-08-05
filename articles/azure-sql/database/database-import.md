@@ -7,9 +7,9 @@ ms.subservice: backup-restore
 ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: 
 ms.topic: quickstart
-author: shkale-msft
-ms.author: shkale
-ms.reviewer: cawrites
+author: SQLSourabh
+ms.author: sourabha
+ms.reviewer: cawrites, mathoma
 ms.date: 10/29/2020
 ---
 # Quickstart: Import a BACPAC file to a database in Azure SQL Database or Azure SQL Managed Instance
