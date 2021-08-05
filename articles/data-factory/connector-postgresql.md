@@ -1,6 +1,6 @@
 ---
 title: Copy data From PostgreSQL using Azure Data Factory 
-titleSuffix: Azure Data Factory& Azure Synapse
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from PostgreSQL to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 author: jianleishen
 

@@ -1,6 +1,6 @@
 ---
 title: Pipeline execution and triggers in Azure Data Factory 
-titleSuffix: Azure Data Factory& Azure Synapse
+titleSuffix: Azure Data Factory & Azure Synapse
 description: This article provides information about how to execute a pipeline in Azure Data Factory, either on-demand or by creating a trigger.
 author: dcstwh
 ms.author: weetok

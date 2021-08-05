@@ -1,6 +1,6 @@
 ---
 title: Mapping data flow transformation overview
-titleSuffix: Azure Data Factory& Azure Synapse
+titleSuffix: Azure Data Factory & Azure Synapse
 description: An overview of the different transformations available in mapping data flow
 author: kromerm
 ms.author: makromer

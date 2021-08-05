@@ -1,6 +1,6 @@
 ---
 title: Load data into Azure Synapse Analytics
-titleSuffix: Azure Data Factory& Azure Synapse
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Use Azure Data Factory to copy data into Azure Synapse Analytics
 ms.author: jianleishen
 author: jianleishen

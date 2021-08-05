@@ -1,6 +1,6 @@
 ---
 title: Get Metadata activity in Azure Data Factory 
-titleSuffix: Azure Data Factory& Azure Synapse
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to use the Get Metadata activity in a Data Factory pipeline.
 author: jianleishen
 ms.service: data-factory

@@ -1,6 +1,6 @@
 ---
 title: Copy data from MySQL using Azure Data Factory 
-titleSuffix: Azure Data Factory& Azure Synapse
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about MySQL connector in Azure Data Factory that lets you copy data from a MySQL database to a data store supported as a sink.
 author: jianleishen
 ms.service: data-factory

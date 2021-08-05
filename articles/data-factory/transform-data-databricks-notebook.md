@@ -1,6 +1,6 @@
 ---
 title: Transform data with Databricks Notebook 
-titleSuffix: Azure Data Factory& Azure Synapse
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to process or transform data by running a Databricks notebook in Azure Data Factory.
 ms.service: data-factory
 ms.custom: synapse

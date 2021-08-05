@@ -1,6 +1,6 @@
 ---
 title: Filter transformation in mapping data flow 
-titleSuffix: Azure Data Factory& Azure Synapse
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Filter out rows using the filter transformation in Azure Data Factory mapping data flow
 author: kromerm
 ms.author: makromer

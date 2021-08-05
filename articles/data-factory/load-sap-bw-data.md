@@ -1,6 +1,6 @@
 ---
 title: Load data from SAP Business Warehouse
-titleSuffix: Azure Data Factory& Azure Synapse
+titleSuffix: Azure Data Factory & Azure Synapse
 description: 'Use Azure Data Factory to copy data from SAP Business Warehouse (BW)'
 author: linda33wj
 ms.author: jingwang
