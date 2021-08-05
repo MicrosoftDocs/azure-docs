@@ -53,5 +53,5 @@ The following image demonstrates reverse engineering from RDBMS & Hackolade in a
 -  [Get more data models](https://hackolade.com/samplemodels.html#cosmosdb).
 -  [Documentation of Hackolade](https://hackolade.com/help/CosmosDBGremlin.html)
 
-## Next Steps
+## Next steps
 - [Visualizing the data](/graph-visualization)
