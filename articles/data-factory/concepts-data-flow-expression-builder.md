@@ -1,10 +1,12 @@
 ---
 title: Expression builder in mapping data flow
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Build expressions by using Expression Builder in mapping data flows in Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 04/29/2021
 ---
