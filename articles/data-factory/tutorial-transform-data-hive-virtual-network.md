@@ -6,7 +6,7 @@ ms.subservice: tutorials
 author: nabhishek
 ms.author: abnarain
 ms.topic: tutorial
-ms.custom: seo-dt-2019, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 ms.date: 01/22/2018
 ---
 

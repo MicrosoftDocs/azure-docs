@@ -1,9 +1,11 @@
 ---
 title: Copy data from DB2 using Azure Data Factory 
+titleSuffix: Azure Data Factory& Azure Synapse
 description: Learn how to copy data from DB2 to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: jianleishen

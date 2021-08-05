@@ -1,5 +1,6 @@
 ---
 title: Sort transformation in mapping data flow
+titleSuffix: Azure Data Factory& Azure Synapse
 description: Azure Data Factory Mapping Data Sort Transformation
 author: kromerm
 ms.author: makromer
@@ -7,7 +8,7 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 04/14/2020
 ---
 

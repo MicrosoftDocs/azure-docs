@@ -1,12 +1,13 @@
 ---
 title: Copy data from and to SFTP server
+titleSuffix: Azure Data Factory& Azure Synapse
 description: Learn how to copy data from and to SFTP server by using Azure Data Factory.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 03/17/2021
 ---
 

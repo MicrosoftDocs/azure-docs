@@ -6,7 +6,7 @@ ms.author: abnarain
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: seo-lt-2019; seo-dt-2019, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 ms.date: 02/18/2021
 ---
 

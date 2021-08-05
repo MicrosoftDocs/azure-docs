@@ -6,7 +6,6 @@ ms.author: yexu
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: seo-dt-2019
 ms.date: 07/05/2021
 ---
 

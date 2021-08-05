@@ -1,11 +1,13 @@
 ---
 title: Linked services in Azure Data Factory 
+titleSuffix: Azure Data Factory& Azure Synapse
 description: 'Learn about linked services in Data Factory. Linked services link compute/data stores to data factory.'
 author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 08/21/2020
 ---

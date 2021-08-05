@@ -1,12 +1,13 @@
 ---
 title: Copy and transform data in Azure Database for MySQL
+titleSuffix: Azure Data Factory& Azure Synapse
 description: earn how to copy and transform data in Azure Database for MySQL by using Azure Data Factory.
 ms.author: susabot
 author: ssabat
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 03/10/2021
 ---
 

@@ -1,12 +1,13 @@
 ---
 title: Copy and transform data in Azure Data Lake Storage Gen2
+titleSuffix: Azure Data Factory& Azure Synapse
 description: Learn how to copy data to and from Azure Data Lake Storage Gen2, and transform data in Azure Data Lake Storage Gen2 by using Azure Data Factory.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 07/19/2021
 ---
 

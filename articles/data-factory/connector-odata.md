@@ -1,9 +1,11 @@
 ---
 title: Copy data from OData sources by using Azure Data Factory 
+titleSuffix: Azure Data Factory& Azure Synapse
 description: Learn how to copy data from OData sources to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 03/30/2021
 ms.author: jianleishen

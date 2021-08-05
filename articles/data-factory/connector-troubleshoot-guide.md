@@ -1,5 +1,6 @@
 ---
 title: Troubleshoot Azure Data Factory connectors
+titleSuffix: Azure Data Factory& Azure Synapse
 description: Learn how to troubleshoot connector issues in Azure Data Factory. 
 author: jianleishen
 ms.service: data-factory
@@ -7,7 +8,7 @@ ms.subservice: data-movement
 ms.topic: troubleshooting
 ms.date: 07/30/2021
 ms.author: jianleishen
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, synapse
 ---
 
 # Troubleshoot Azure Data Factory connectors
