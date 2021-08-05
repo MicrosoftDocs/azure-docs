@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to create a function in Azure for propagating events through the twin graph.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 7/21/2021
+ms.date: 8/5/2021
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -19,83 +19,27 @@ ms.service: digital-twins
 
 A fully-connected Azure Digital Twins graph is driven by event propagation. Data arrives into Azure Digital Twins from external sources like IoT Hub, and then is propagated through the Azure Digital Twins graph, updating relevant twins as appropriate.
 
-In this article, you'll see how to send events from twin to twin, allowing you to update twins in response to property changes or other data from another twin in the graph.
+For example, consider a graph representing Floors and Rooms in a building, where each Floor contains multiple Rooms. You may want to set up a twin-to-twin data flow such that every time the temperature on a Room twin is updated, a new average temperature is calculated for all the Rooms on the same Floor, and the temperature of the Floor twin is updated to reflect the new average temperature across all the Rooms it contains (including the one that was updated). 
 
-Currently, this is accomplished by setting up an [Azure function](../azure-functions/functions-overview.md) that watches for twin life cycle events that should affect other areas of the graph, and makes changes to other twins accordingly. This article walks through the process of setting up this function on an example scenario.
+In this article, you'll see how to send events from twin to twin, allowing you to update twins in response to property changes or other data from another twin in the graph. Currently, twin-to-twin updates are handled by setting up an [Azure function](../azure-functions/functions-overview.md) that watches for twin life cycle events that should affect other areas of the graph, and makes changes to other twins accordingly.
 
-Here are the actions you will complete:
-1. [Set up an Event Grid endpoint](#create-the-endpoint) in Azure Digital Twins that connects the instance to Event Grid
-2. [Set up a route](#create-the-route) within Azure Digital Twins to send twin property change events to the endpoint
-3. [Create an Azure function](#create-the-azure-function) capable of listening on the Event Grid endpoint and updating other twins accordingly
-4. [Connect the function to Event Grid](#connect-the-function-to-event-grid) so that it receives the updates from the Event Grid endpoint
-5. [Test and verify](#test-and-verify-results) the solution by simulating a property change and querying Azure Digital Twins to see the results on other twins
+Here are the steps covered by this article:
+1. [Set up an Event Grid endpoint](#create-the-endpoint) in Azure Digital Twins that connects the instance to Event Grid. Then, [set up a route](#create-the-route) within Azure Digital Twins to send twin property change events to the endpoint
+1. [Create an Azure function](#create-the-azure-function) capable of listening on the Event Grid endpoint and updating other twins accordingly
+1. [Connect the function to Event Grid](#connect-the-function-to-event-grid) so that it receives the updates from the Event Grid endpoint
+1. [Test and verify](#test-and-verify-results) the solution by simulating a property change and querying Azure Digital Twins to see the results on other twins
 
 ## Prerequisites
 
 This article uses **Visual Studio**. You can download the latest version from [Visual Studio Downloads](https://visualstudio.microsoft.com/downloads/).
 
-Before continuing with this example, you'll also need to set up an **Azure Digital Twins instance** to work with. For instructions on how to create an instance, see [How-to: Set up an Azure Digital Twins instance and authentication](./how-to-set-up-instance-portal.md). The instance should contain at least two twins that you want to send data between. If you already have twins in your instance to use for this how-to, you can skip the rest of this section. To set up twins in an example scenario, continue through the rest of this section.
+To set up twin-to-twin handling, you'll need an **Azure Digital Twins instance** to work with. For instructions on how to create an instance, see [Set up an Azure Digital Twins instance and authentication](./how-to-set-up-instance-portal.md). The instance should contain at least **two twins** that you want to send data between.
 
-### Example twin update scenario
-
-In this section, you'll set up an example set of [digital twins](concepts-twins-graph.md) that can be used to pass data between twins.
-
-There are three twins in this example:
-* **Floor1**: An *IFloor* type twin representing a floor in a building. It has a *temperature* property (among other elements that aren't used in this article).
-* **Room100** and **Room101**: Two *IRoom* type twins representing rooms on **Floor1**. Each room also has a *temperature* property.
-
-:::image type="content" source="media/how-to-send-twin-to-twin-events/sample-graph.png" alt-text="Diagram showing a graph of three nodes, representing the twins and relationships described above.":::
-
-The temperature on **Floor1** should reflect an average of the temperatures in **Room100** and **Room101**. The steps in this article will set this up, by ensuring that whenever the temperature on either of the room twins is updated, this event is sent to an Azure function that computes the average, and sets the temperature of **Floor1** equal to that average.
-
-#### Download the sample 
-
-The models and sample function code used in the example scenario can be downloaded from this repository: [azure-digital-twins-getting-started](https://github.com/Azure-Samples/azure-digital-twins-getting-started). You can get the repository on your machine by either cloning it or downloading it as a .zip file (which you should then unzip on your machine).
-
-#### Add a model and twins
-
-In this section, you'll set up the example twins, Floor1, Room100, and Room101.
-
-First, you'll need to **upload the models** for IFloor and IRoom. These can be found in the repository you downloaded in the last section, under *azure-digital-twins-getting-started/models/basic-home-example/*.
-
-One way to upload these to your instance is using the Azure CLI. You can use the [Azure Cloud Shell](../cloud-shell/overview.md) in your browser, or the [local CLI](/cli/azure/install-azure-cli) if you have it installed on your machine.
-
->[!NOTE]
-> If you're using Azure Cloud Shell, start by uploading the model files to your Cloud Shell storage so they can be accessed by the command. In the Cloud Shell window in your browser, select the "Upload/Download files" icon and choose "Upload".
->
-> :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Screenshot of Azure Cloud Shell. The Upload icon is highlighted.":::
->
-> Navigate to *azure-digital-twins-getting-started/models/basic-home-example/* on your machine and select **IFloor.json** and **IRoom.json** to open. This will upload the files to the root of your Cloud Shell storage.
-
-Use the following Azure CLI commands to upload the models to your Azure Digital Twins instance.
-
-```azurecli-interactive
-az dt model create --dt-name <Azure-Digital-Twins-instance> --models <path-to-IFloor.json> 
-az dt model create --dt-name <Azure-Digital-Twins-instance> --models <path-to-IRoom.json> 
-```
-
-Next, **create the twins** based on the models. Use the following commands to create the Floor and Room twins, all with an initial temperature value of 0.0.
-
-```azurecli-interactive
-az dt twin create  --dt-name <Azure-Digital-Twins-instance> --dtmi "dtmi:com:adt:dtsample:floor;1" --twin-id Floor1 --properties '{"id": "Floor1", "temperature": 0.0, "humidity": 0.0}'
-az dt twin create  --dt-name <Azure-Digital-Twins-instance> --dtmi "dtmi:com:adt:dtsample:room;1" --twin-id Room100 --properties '{"id": "Room100", "temperature": 0.0, "humidity": 0.0}'
-az dt twin create  --dt-name <Azure-Digital-Twins-instance> --dtmi "dtmi:com:adt:dtsample:room;1" --twin-id Room101 --properties '{"id": "Room101", "temperature": 0.0, "humidity": 0.0}'
-```
-
-When the twins are created successfully, the CLI will output some information about the two twins that have been created.
-
-Finally, **create a relationship** from the Floor twin to the Room twins indicating that the floor "has" these rooms within it.
-
-```azurecli-interactive
-az dt twin relationship create -n <Azure-Digital-Twins-instance> --relationship-id Floor1_Room100 --relationship rel_has_rooms  --twin-id Floor1 --target Room100
-az dt twin relationship create -n <Azure-Digital-Twins-instance> --relationship-id Floor1_Room101 --relationship rel_has_rooms  --twin-id Floor1 --target Room101
-```
-
-Now you've finished setting up the example scenario to use with this how-to.
+Optionally, you may want to set up [automatic telemetry ingestion through IoT Hub](how-to-ingest-iot-hub-data.md) for your twins as well. This is not required in order to send data from twin to twin, but it's an important piece of a complete solution where the twin graph is driven by live telemetry.
 
 ## Set up endpoint and route
 
-To set up twin-to-twin event handling, start by creating an **endpoint** in Azure Digital Twins and a **route** to that endpoint. The Room twins will use the route to send information about their update events to the endpoint (where Event Grid can pick them up later and pass them to an Azure function for processing).
+To set up twin-to-twin event handling, start by creating an **endpoint** in Azure Digital Twins and a **route** to that endpoint. Twins undergoing an update will use the route to send information about their update events to the endpoint (where Event Grid can pick them up later and pass them to an Azure function for processing).
 
 [!INCLUDE [digital-twins-twin-to-twin-resources.md](../../includes/digital-twins-twin-to-twin-resources.md)]
 
@@ -103,19 +47,17 @@ To set up twin-to-twin event handling, start by creating an **endpoint** in Azur
 
 Next, create an Azure function that will listen on the endpoint and receive twin events that are sent there via the route. 
 
-If you're following the [example scenario](#example-twin-update-scenario) for this article, you'll publish a sample function written for the sample Room and Floor twins. Whenever it receives a temperature update event from a Room, it will locate the parent Floor twin in the Azure Digital Twins graph, calculate the average of all Rooms on that floor, and update the Floor twin's temperature property to reflect that average temperature.
+1. First, create an Azure Functions project in Visual Studio on your machine. For instructions on how to do this, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#create-an-azure-functions-project).
 
-1. First, create an Azure Functions project in Visual Studio on your machine. If you're following the example scenario for this tutorial, you can open the sample project you downloaded in the [Prerequisites](#download-the-sample) section, located at *azure-digital-twins-getting-started/azure-functions/twin-updates/TwinUpdatesSample.sln*.
-
-2. Add the following packages to your project (you can use the Visual Studio NuGet package manager or `dotnet` commands in a command-line tool). If you're using the sample solution, they should already be added to the project, but you may need to update them to the latest version.
+2. Add the following packages to your project (you can use the Visual Studio NuGet package manager or `dotnet` commands in a command-line tool).
 
     * [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core/)
     * [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/)
     * [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid)
 
-3. Fill in the logic of your function. If you're following the example scenario for this article, the function already exists in the project as **ProcessDTRoutedData.cs**. If you're writing your own Azure function for a different set of twins, you can view sample functions in the [azure-digital-twins-getting-started](https://github.com/Azure-Samples/azure-digital-twins-getting-started/tree/main/azure-functions) repository to help you get started.
+3. Fill in the logic of your function. You can view sample function code for several scenarios in the [azure-digital-twins-getting-started](https://github.com/Azure-Samples/azure-digital-twins-getting-started/tree/main/azure-functions) repository to help you get started.
 
-5. Publish the function app and *ProcessDTRoutedData.cs* function to Azure. For instructions on how to publish a function app, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
+5. Publish the function app to Azure. For instructions on how to publish a function app, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
 
 [!INCLUDE [digital-twins-verify-function-publish.md](../../includes/digital-twins-verify-function-publish.md)]
 
@@ -131,7 +73,7 @@ Next, subscribe your Azure function to the event grid topic you created earlier.
 
 To do this, you'll create an **Event Grid subscription** that sends data from the event grid topic that you created earlier to your Azure function.
 
-Use the following CLI command, filling in placeholders for your subscription ID, resource group, function app, and function name (if you're following the example scenario for this article, the function name is *ProcessDTRoutedData*).
+Use the following CLI command, filling in placeholders for your subscription ID, resource group, function app, and function name.
 
 ```azurecli-interactive
 az eventgrid event-subscription create --name <name-for-your-event-subscription> --source-resource-id /subscriptions/<subscription-ID>/resourceGroups/<your-resource-group>/providers/Microsoft.EventGrid/topics/<your-event-grid-topic> \ --endpoint-type azurefunction --endpoint /subscriptions/<subscription-ID>/resourceGroups/<your-resource-group>/providers/Microsoft.Web/sites/<your-function-app-name>/functions/<function-name> 
@@ -141,22 +83,11 @@ Now, your function can receive events through your event grid topic. The data fl
 
 ## Test and verify results
 
-The last step is to verify that the flow is working, by updating a twin and checking that related twins are updated accordingly.
+The last step is to verify that the flow is working, by updating a twin and checking that related twins are updated according to the logic in your Azure function.
 
-To kick off the process, update the twin that's the source of the event flow. If you're following the example scenario for this article, you can use the following Azure CLI command to update the temperature on the Room twins to new values of 30.00 and 50.00:
+To kick off the process, update the twin that's the source of the event flow. You can use the [Azure CLI](/cli/azure/dt/twin?view=azure-cli-latest&preserve-view=true#az_dt_twin_update), [Azure Digital Twins SDK](how-to-manage-twin.md#update-a-digital-twin), or [Azure Digital Twins REST APIs](how-to-use-postman.md?tabs=data-plane) to make the update.
 
-```azurecli-interactive
-az dt twin update -n <Azure-Digital-Twins-instance> --twin-id Room100 --json-patch '{"op":"replace", "path":"/temperature", "value": 30.00}'
-az dt twin update -n <Azure-Digital-Twins-instance> --twin-id Room101 --json-patch '{"op":"replace", "path":"/temperature", "value": 50.00}'
-```
-
-Next, query your Azure Digital Twins instance for the parent twin that should receive the data and update to match. If you're following the example scenario, you can use the following Azure CLI command to query for the Floor1 twin and see its property information:
-
-```azurecli-interactive
-az dt twin show -n <Azure-Digital-Twins-instance> --twin-id Floor1
-```
-
-The output should show that the temperature value of Floor1 has automatically updated to 40.00 (the average of the temperatures for Room100 and Room101).
+Next, query your Azure Digital Twins instance for the related twin. You can use the [Azure CLI](/cli/azure/dt/twin?view=azure-cli-latest&preserve-view=true#az_dt_twin_query), or the [Azure Digital Twins REST APIs and SDK](how-to-query-graph.md#run-queries-with-the-api). Verify that the twin received the data and updated as expected.
 
 ## Next steps
 

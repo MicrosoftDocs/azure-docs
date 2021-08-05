@@ -43,14 +43,13 @@ Save the **name** of your endpoint, because you'll use it later.
 
 ### Create the route
 
-Next, create an Azure Digital Twins route that sends events to the Event Grid endpoint you just created. Use the following command, filling in the name of your endpoint and the other placeholder fields as needed.
+Next, create an Azure Digital Twins route that sends events to the Event Grid endpoint you just created. 
+
+This can be done with the following CLI command (fill in the name of your endpoint and the other placeholder fields as needed). This command forwards all events that occur in the twin graph. You can limit the events to only specific ones if you want, by using [filters](../articles/digital-twins/how-to-manage-routes.md?tabs=portal%2Cportal2%2Cportal3#filter-events).
 
 ```azurecli-interactive
 az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> --route-name <name-for-your-Azure-Digital-Twins-route>
 ```
-
->[!TIP]
-> This command forwards all events that occur in the twin graph. You can limit the events to only specific ones if you want, by using [filters](../articles/digital-twins/how-to-manage-routes.md?tabs=portal%2Cportal2%2Cportal3#filter-events).
 
 The output from this command is some information about the route you've created.
 
