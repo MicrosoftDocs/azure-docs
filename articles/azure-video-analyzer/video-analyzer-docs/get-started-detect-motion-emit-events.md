@@ -94,7 +94,7 @@ You can now analyze live video streams by invoking direct methods exposed by the
 This step enumerates all the [pipeline topologies](pipeline.md) in the module.
 
 1. Right-click on "avaedge" module and select **Invoke Module Direct Method** from the context menu.
-1. You will see an edit box pop in the top-middle of Visual Studio Code window. Enter "pipelineTopologyList" in the edit box and press enter.
+1. You will see an edit box pop in the top-middle of Visual Studio Code window. Enter `pipelineTopologyList` in the edit box and press enter.
 1. Next, copy, and paste the below JSON payload in the edit box and press enter.
    
 ```json

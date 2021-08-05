@@ -101,8 +101,6 @@ Currently the point in time restore functionality has the following limitations:
 
 * Only Azure Cosmos DB APIs for SQL and MongoDB are supported for continuous backup. Cassandra, Table, and Gremlin APIs are not yet supported.
 
-* An existing account with default periodic backup policy cannot be converted to use continuous backup mode.
-
 * Azure sovereign and Azure Government cloud regions not yet supported.
 
 * Accounts with customer-managed keys are not supported to use continuous backup.

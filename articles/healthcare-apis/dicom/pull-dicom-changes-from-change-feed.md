@@ -1,0 +1,56 @@
+---
+title:  Pull DICOM changes using the Change Feed 
+description: This how-to guide explains how to pull DICOM changes using DICOM Change Feed for Azure Healthcare APIs.
+author: stevewohl
+ms.service: healthcare-apis
+ms.subservice: fhir
+ms.topic: how-to
+ms.date: 07/10/2021
+ms.author: aersoy
+---
+
+# Pull DICOM changes using the Change Feed
+
+> [!IMPORTANT]
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+DICOM Change Feed offers customers the ability to go through the history of the DICOM Service and act on the create and delete events in the service. This how-to guide describes how to consume Change Feed.
+
+The Change Feed is accessed using REST APIs. These APIs along with sample usage of Change Feed are documented in the [Overview of DICOM Change Feed](dicom-change-feed-overview.md).
+
+## Consume Change Feed
+
+The following C# code example shows how to consume Change Feed using the DICOM client package.
+
+```csharp
+const int limit = 10;
+ 
+using HttpClient httpClient = new HttpClient { BaseAddress = new Uri("<URL>") };
+using CancellationTokenSource tokenSource = new CancellationTokenSource();
+ 
+int read;
+List<ChangeFeedEntry> entries = new List<ChangeFeedEntry>();
+DicomWebClient client = new DicomWebClient(httpClient);
+do
+{
+    read = 0;
+    DicomWebAsyncEnumerableResponse<ChangeFeedEntry> result = await client.GetChangeFeed(
+        $"?offset={entries.Count}&limit={limit}&includeMetadata={true}",
+        tokenSource.Token);
+ 
+    await foreach (ChangeFeedEntry entry in result)
+    {
+        read++;
+        entries.Add(entry);
+    }
+} while (read > 0);
+```
+
+To view and access the **ChangeFeedRetrieveService.cs** code example, see [Consume Change Feed](https://github.com/microsoft/dicom-server/blob/main/converter/dicom-cast/src/Microsoft.Health.DicomCast.Core/Features/DicomWeb/Service/ChangeFeedRetrieveService.cs).
+
+## Next Steps
+
+This how-to guide describes how to consume Change Feed. Change Feed allows you to monitor the history of the DICOM service. For information about the DICOM service, see
+
+>[!div class="nextstepaction"]
+>[Overview of the DICOM service](dicom-services-overview.md)
