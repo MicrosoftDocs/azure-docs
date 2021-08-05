@@ -47,7 +47,7 @@ Learn more about the differences between Uniform scale sets and Flexible scale s
 ## Register for Flexible orchestration mode
 Before you can deploy virtual machine scale sets in Flexible orchestration mode, you must first register your subscription for the preview feature. The registration may take several minutes to complete. You can use Azure portal, Azure PowerShell, or Azure CLI to register.
 
-### Azure Portal
+### Azure portal
 
 1. Log into the Azure portal at https://portal.azure.com.
 1. Go to your **Subscriptions**.

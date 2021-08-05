@@ -88,7 +88,7 @@ $vmname = "myFlexibleVM"
     $VmssFlex = new-azvmss -resourcegroupname $rgname -vmscalesetname $vmssName -virtualmachinescaleset $VmssConfigWithoutVmProfile 
     ```
  
-1. Add a VM to the Flexible scale set 
+1. Add a VM to the Flexible scale set.
 
     ```azurepowershell-interactive
     $vm = new-azvm -resourcegroupname $rgname -location $loc -name $vmname -credential $cred -domainnamelabel $domainName -vmssid $VmssFlex.id 
