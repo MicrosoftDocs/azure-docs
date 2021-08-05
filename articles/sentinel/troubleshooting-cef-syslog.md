@@ -134,7 +134,7 @@ This procedure describes how to troubleshoot issues that are certainly derived f
     0 127.0.0.1:36120 127.0.0.1:25226 ESTABLISHED 1055/rsyslogd
     ```
 
-    If the connection is blocked, you may have a [blocked SELinux connection to the OMS agent](#selinux-blocking-connection-to-the-omsagent), or a [blocked firewalld process](#blocked-firewalld-process). Use the following sets of instructions to determine the issue.
+    If the connection is blocked, you may have a [blocked SELinux connection to the OMS agent](#selinux-blocking-connection-to-the-oms-agent), or a [blocked firewalld process](#blocked-firewall-policy). Use the following sets of instructions to determine the issue.
 
 ### SELinux blocking connection to the OMS agent
 
