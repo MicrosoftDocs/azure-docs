@@ -13,7 +13,7 @@ ms.custom: devx-track-js
 
 # Deploy static-rendered Next.js websites on Azure Static Web Apps
 
-In this tutorial, you learn to configure and deploy a [Next.js](https://nextjs.org) generated static website to [Azure Static Web Apps](overview.md). For more information regarding implemenation details specific to Next.js, refer to the [starter template's readme](https://github.com/staticwebdev/nextjs-starter#readme).
+In this tutorial, you learn to deploy a [Next.js](https://nextjs.org) generated static website to [Azure Static Web Apps](overview.md). For more information about Next.js specifics, see the [starter template's readme](https://github.com/staticwebdev/nextjs-starter#readme).
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ In this tutorial, you learn to configure and deploy a [Next.js](https://nextjs.o
 
 ## Set up a Next.js app
 
-Rather than using the Next.js CLI to create your app, you can use a starter repository. The starter repository contains an existing Next.js app that support dynamic routes.
+Rather than using the Next.js CLI to create your app, you can use a starter repository. The starter repository contains an existing Next.js application that supports dynamic routes.
 
 To begin, create a new repository under your GitHub account from a template repository.
 
@@ -57,35 +57,13 @@ Navigate to `http://localhost:3000` to open the app, where you should see the fo
 
 :::image type="content" source="media/deploy-nextjs/start-nextjs-app.png" alt-text="Start Next.js app":::
 
-When you click on a framework/library, you should see a details page about the selected item:
+When you select a framework or library, you see a details page about the selected item:
 
 :::image type="content" source="media/deploy-nextjs/start-nextjs-details.png" alt-text="Details page":::
 
-## Push your static website to GitHub
-
-Azure Static Web Apps deploys your app from a GitHub repository and keeps doing so for every pushed commit to a tracked branch. Use the following commands sync your changes to GitHub.
-
-1. Stage all changed files
-
-    ```bash
-    git add .
-    ```
-
-1. Commit all changes
-
-    ```bash
-    git commit -m "Update build config"
-    ```
-
-1. Push your changes to GitHub.
-
-    ```bash
-    git push origin main
-    ```
-
 ## Deploy your static website
 
-The following steps show how to link the app you just pushed to GitHub to Azure Static Web Apps. Once in Azure, you can deploy the application to a production environment.
+The following steps show how to link your app to Azure Static Web Apps. Once in Azure, you can deploy the application to a production environment.
 
 ### Create a static app
 
@@ -127,21 +105,33 @@ The following steps show how to link the app you just pushed to GitHub to Azure 
 
 1. Select **Create** to start the creation of the App Service Static Web App and provision a GitHub Action for deployment.
 
-1. Once the deployment completes click, **Go to resource**.
+1. Once the deployment completes select, **Go to resource**.
 
-1. On the _Overview_ window, click the *URL* link to open your deployed application.
+1. On the _Overview_ window, select the *URL* link to open your deployed application.
 
-If the website does note immediately load, then the background GitHub Actions workflow is still running. Once the workflow is complete, you can then click refresh the browser to view your web app.
+If the website doesn't load immediately, then the build is still running. Once the workflow is complete, you can refresh the browser to view your web app.
 
-You can check the status of the Actions workflows by navigating to the Actions for your repository:
+To check the status of the Actions workflow, navigate to the Actions dashboard for your repository:
 
 ```url
 https://github.com/<YOUR_GITHUB_USERNAME>/nextjs-starter/actions
 ```
 
+Now any changes made to the `main` branch start a new build and deployment of your website.
+
 ### Sync changes
 
-When you created the app, Azure Static Web Apps created a GitHub Actions workflow file in your repository. You need to pull this file down to your local repository to synchronize your git history.
+When you created the app, Azure Static Web Apps created a GitHub Actions file in your repository. Synchronize with the server by pulling down the latest to your local repository.
+
+## Clean up resources
+
+If you're not going to continue to use this application, you can delete the Azure Static Web Apps instance through the following steps:
+
+1. Open the [Azure portal](https://portal.azure.com).
+1. Search for **my-nextjs-group** from the top search bar.
+1. Select on the group name.
+1. Select on the **Delete** button.
+1. Select **Yes** to confirm the delete action.
 
 Return to the terminal and run the following command `git pull origin main`.
 
