@@ -61,41 +61,11 @@ When you click on a framework/library, you should see a details page about the s
 
 :::image type="content" source="media/deploy-nextjs/start-nextjs-details.png" alt-text="Details page":::
 
-## Generate a static website from Next.js build
+## Generate a static website
 
-The starter template used in this tutorial is set up to build the application as a static site.
+The starter template repository used in this tutorial is configured to build the application as a static site with dynamic routes. Review the `projects/[path].js` file for full Next.js-specific implementation details.
 
-The `projects/[path].js` file implements a few functions responsible for instructing Next.js how to generate static files. 
-
-The `getStaticPaths` function returns a list of all possible paths associated with a page.
- 
-```javascript
-export async function getStaticPaths() {
-
-  const paths = projects.map((project) => ({
-    params: { path: project.slug },
-  }))
-
-  return { paths, fallback: false };
-}
-```
-
-The `projects` data object is used to create an object for each page. The data object holds a `slug` value that maps to the `path` parameter required by Next.js to build individual pages.
-
-The `getStaticProps` function returns the associated data object required for specific page.
-
-```javascript
-export async function getStaticProps({ params }) {
-  const project = projects.find(proj => proj.slug === params.path);
-  return { props: { project } };
-}
-```
-
- The function reads the incoming page information via the `params` object and returns the matching page data object.
-
- Review `projects/[path].js` for full implementation details.
-
- Make the following modifications to your application to complete the static site setup. 
+Make the following modifications to your application to complete the static site setup. 
 
 1. To configure static routes, create file named _next.config.js_ at the root of your project and add the following code.
 
@@ -212,48 +182,6 @@ https://github.com/<YOUR_GITHUB_USERNAME>/nextjs-starter/actions
 When you created the app, Azure Static Web Apps created a GitHub Actions workflow file in your repository. You need to pull this file down to your local repository to synchronize your git history.
 
 Return to the terminal and run the following command `git pull origin main`.
-
-## Configure dynamic routes
-
-Navigate to the newly deployed site and click on one of the framework or library logos. Instead of getting a details page, you get a 404 error page.
-
-:::image type="content" source="media/deploy-nextjs/404-in-production.png" alt-text="404 on dynamic routes":::
-
-The reason for this error is because Next.js only generated the home page based on the application configuration.
-
-## Generate static pages from dynamic routes
-
-1. Update the _next.config.js_ file so that Next.js uses a list of all available data to generate static pages for each framework/library:
-
-   ```javascript
-   const data = require('./utils/projectsData');
-
-   module.exports = {
-     trailingSlash: true,
-     exportPathMap: async function () {
-       const { projects } = data;
-       const paths = {
-         '/': { page: '/' },
-       };
-  
-       projects.forEach((project) => {
-         paths[`/project/${project.slug}`] = {
-           page: '/project/[path]',
-           query: { path: project.slug },
-         };
-       });
-  
-       return paths;
-     },
-   };
-   ```
-
-   > [!NOTE]
-   > The `exportPathMap` function is an async function, so you can make a request to an API in this function and use the returned list to generate the paths.
-
-2. Push the new changes to your GitHub repository and wait for a few minutes while GitHub Actions builds your site again. After the build is complete, the 404 error disappears.
-
-   :::image type="content" source="media/deploy-nextjs/404-in-production-fixed.png" alt-text="404 on dynamic routes fixed":::
 
 > [!div class="nextstepaction"]
 > [Set up a custom domain](custom-domain.md)
