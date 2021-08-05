@@ -89,7 +89,7 @@ NFS Azure file shares are only offered on premium file shares, which are SSD-bac
 
 ## Validated workloads
 > [!IMPORTANT]
-> While the service is in preview, production usage of this service is not recommended. Highly recommend looking at [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md) article for list of known issues.
+> While the service is in preview, production usage of this service is not recommended. See the [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md) article for list of known issues.
 
 The following is a list of workloads that have been validated to work with NFS Azure file shares at the time of publishing this section. This list may change over time.
 - Home directories for general purpose file servers
