@@ -1,5 +1,5 @@
 ---
-title: Set up managed identities
+title: Set up managed identities in Azure Virtual Desktop - Azure
 description: How to set up managed identities for your customers in Azure Virtual Desktop with Azure AD, Azure AD DS, or AD DS.
 author: Heidilohr
 ms.topic: how-to
