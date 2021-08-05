@@ -80,6 +80,12 @@ With the public key deployed on your Azure VM, and the private key on your local
 ssh -i ~/.ssh/id_rsa azureuser@10.111.12.123
 ```
 
+If you have never connected to this VM before you will be asked to verify the hosts fingerprint. It is tempting to simply accept the fingerprint presented, however, this exposes you to a possible person in the middle attack. You should alwasy validate the hosts fingerprint. You only need to do this on the first time you connect from a client. To obtain the host fingerprint via the portal use the Run Command feature to execute the command `ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'`.
+
+![Screenshot 2021-08-05 110213](https://user-images.githubusercontent.com/250240/128399040-f62cc497-c543-473b-8d37-79cce8c706d7.png)
+
+To runt he command using CLI you can use the [`az vm run-command invole` command](https://docs.microsoft.com/en-us/cli/azure/vm/run-command?view=azure-cli-latest).
+
 If you configured a passphrase when you created your key pair, enter the passphrase when prompted.
 
 If the VM is using the just-in-time access policy, you need to request access before you can connect to the VM. For more information about the just-in-time policy, see [Manage virtual machine access using the just in time policy](../../security-center/security-center-just-in-time.md).
