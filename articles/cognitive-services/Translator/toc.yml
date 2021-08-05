@@ -93,7 +93,7 @@
   items:
     - name: What is Document Translation?
       href: document-translation/overview.md
-    - name: Client libraries and SDKs
+    - name: Client-library SDKs
       href: document-translation/client-sdks.md
     - name: Quickstart
       href: document-translation/get-started-with-document-translation.md

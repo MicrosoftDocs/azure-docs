@@ -15,7 +15,7 @@ keywords: translator, text translation, machine translation, translation service
 ---
 # What is Translator?
 
-Translator is a cloud-based neural machine service that is part of the [Azure Cognitive Services](../../index.yml?panel=ai&pivot=products) family of RESTful APIs used to build intelligent applications. Translator allows you to add multi-language solutions to your apps, websites, and tools, supports user experiences in [90 languages and dialects](./language-support.md), and can be used with any operating system. Translator powers many Microsoft products and services, and is used by thousands of businesses worldwide in their applications and workflows.
+ Translator is a cloud-based [machine translation](https://www.microsoft.com/translator/business/machine-translation/#howtext) service that is part of the [Azure Cognitive Services](../../index.yml?panel=ai&pivot=products) family of REST APIs. Translator enables you to  build intelligent, multi-language solutions for your applications across all [supported languages](./language-support.md) and with any operating system to perform language translation and other language-related operations Translator powers many Microsoft products and services, and is used by thousands of businesses worldwide in their applications and workflows.
 
 ## Translator documentation
 
@@ -32,15 +32,13 @@ Translator supports the following :
 * [**Document Translation**](document-translation/overview.md). Translate batch and complex files while preserving the structure and format of the original documents.
 * [**Custom Translator**](custom-translator/overview.md). Build customized models to translate domain- and industry-specific language, terminology and style.
 
-## Neural Machine Translation
+## Add Translation service to your projects
 
-Neural Machine Translation (NMT) is the new standard for high-quality AI-powered machine translations. It replaces the legacy Statistical Machine Translation (SMT) technology that reached a quality plateau in the mid-2010s.
-
-NMT provides better translations than SMT not only from a raw translation quality scoring standpoint but also because they will sound more fluent and human. The key reason for this fluidity is that NMT uses the full context of a sentence to translate words. SMT only took the immediate context of a few words before and after each word.
-
-NMT models are at the core of the API and are not visible to end users. The only noticeable difference is improved translation quality, especially for languages such as Chinese, Japanese, and Arabic.
-
-Learn more about [how NMT works](https://www.microsoft.com/translator/mt.aspx#nnt).
+| Feature | Tools and resources |
+|----------|-----------------------|
+|**Text translation** | <ul><li>[REST API]()</li><li>[Client-library SDK]()</li></ul> |
+|**Document translation** | <ul><li>[REST API]()</li><li>[Client-library SDK]()</li><li>[Container]()</li></ul> |
+|**Custom Translator** | <ul><li>[Custom Translator studio]()</li></ul>
 
 ## Next steps
 

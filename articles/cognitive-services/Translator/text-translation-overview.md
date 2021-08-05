@@ -16,28 +16,30 @@ keywords: translator, text translation, machine translation, translation service
 
 # What is Text Translation?
 
- Text translation is a cloud-based REST API translation service that uses AI and Neural Machine Translation (NMT) technology to quickly and accurately translate source-to-target language text in real time. You can use the REST API or client library SDKs to integrate synchronous text translation, transliteration, language detection, and dictionaries across all [supported languages and dialects](language-support.md) into your workflows or applications.
+ Text translation is a cloud-based REST API service that uses neural machine translation technology to enable quick and accurate source-to-target text translation in real time across all [supported languages](language-support.md). The service
 
 This documentation contains the following article types:  
 
-* [**Quickstarts**](quickstarts/get-started-with-form-recognizer.md) are getting-started instructions to guide you through making requests to the service.
+* [**Quickstarts**](quickstart-translator) are getting-started instructions to guide you through making requests to the service.
 * [**How-to guides**](translator-how-to-signup.md) contain instructions for using the feature in more specific or customized ways.
 * [**Reference**](reference/text-translator-rest-api-guide.md) provide REST API settings, values, keywords and configuration.
 
-## Text Translation REST APIs
+## Text Translation features
 
-* Return a list of the  [**languages**](reference/v3-0-languages) supported by Translate, Transliterate and Dictionary Lookup requests. The request does not require authentication; just copy and paste the following GET request into your favorite API tool, such as Postman or Fiddler:
+You can use a client library SDK or the REST API  to integrate the following features into your workflows and applications: 
+
+* Return a list of [**languages**](reference/v3-0-languages) supported by Translate, Transliterate and Dictionary Lookup requests. This request does not require authentication; just copy and paste the following GET request into your favorite API tool, such as Postman or Fiddler:
 
     ```http
     https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
     ```
 
-* With a single request, [**Translate**](reference/v3-0-translate.md#translate-to-multiple-languages) source-language text to multiple target languages text.
+* [**Translate**](reference/v3-0-translate.md#translate-to-multiple-languages) source-language text to multiple target languages text with a single request
 * [**Transliterate**](v3-0-transliterate) text by converting characters or letters of a source language to the corresponding characters or letters of a target language.
-* [**Detect**](reference/v3-0-detect) returns the language code for a source text and indicates whether the detected language is supported for text translation and transliteration.
-* [**Translate, Transliterate, and Detect**](reference/v3-0-translate#translate-a-single-input-with-language-autodetection) source-language text in a single call.
-* [**Dictionary lookup**](reference/v3-0-dictionary-lookup.md) provides equivalent words for the source term int the target language.
-* [**Dictionary example**](reference/v3-0-dictionary-examples.md) provides grammatical structure and context examples for the source term and target term pair.
+* [**Detect**](reference/v3-0-detect) returns the source code language code and receive a boolean variable denoting whether the detected language is supported for text translation and transliteration.
+* [**Translate, Transliterate, and Detect**](reference/v3-0-translate#translate-a-single-input-with-language-autodetection) text in a single call.
+* Use [**Dictionary lookup**](reference/v3-0-dictionary-lookup.md) to return equivalent words for the source term in the target language.
+* Use [**Dictionary example**](reference/v3-0-dictionary-examples.md) to return grammatical structure and context examples for the source term and target term pair.
 
 
 
