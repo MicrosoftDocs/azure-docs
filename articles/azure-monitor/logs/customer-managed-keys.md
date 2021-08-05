@@ -257,7 +257,7 @@ The cluster's storage periodically checks your Key Vault to attempt to unwrap th
 ## Key rotation
 
 Key rotation has two modes: 
-- Auto-rotation - when you you update your cluster with ```"keyVaultProperties"``` but omit ```"keyVersion"``` property, or set it to ```""```, storage will autoamatically use the latest versions.
+- Auto-rotation - when you you update your cluster with ```"keyVaultProperties"``` but omit ```"keyVersion"``` property, or set it to ```""```, storage will automatically use the latest versions.
 - Explicit key version update - when you update your cluster and provide key version in ```"keyVersion"``` property, any new key versions require an explicit ```"keyVaultProperties"``` update in cluster, see [Update cluster with Key identifier details](#update-cluster-with-key-identifier-details). If you generate new key version in Key Vault but don't update it in the cluster, the Log Analytics cluster storage will keep using your previous key. If you disable or delete your old key before updating the new key in the cluster, you will get into [key revocation](#key-revocation) state.
 
 All your data remains accessible after the key rotation operation, since data always encrypted with Account Encryption Key (AEK) while AEK is now being encrypted with your new Key Encryption Key (KEK) version in Key Vault.
@@ -414,7 +414,7 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
   - If you create a cluster and get an error "region-name doesn’t support Double Encryption for clusters.", you can still create the cluster without Double encryption by adding `"properties": {"isDoubleEncryptionEnabled": false}` in the REST request body.
   - Double encryption setting can not be changed after the cluster has been created.
 
-  - Setting the cluster's `identity` `type` to `None` acks also revokes access to your data, but this approach isn't recommended since you can't revert it without contacting support. The recommended way to revoke access to your data is [key revocation](#key-revocation).
+  - Setting the cluster's `identity` `type` to `None` also revokes access to your data, but this approach isn't recommended since you can't revert it without contacting support. The recommended way to revoke access to your data is [key revocation](#key-revocation).
 
   - You can't use Customer-managed key with User-assigned managed identity if your Key Vault is in Private-Link (vNet). You can use System-assigned managed identity in this scenario.
 
