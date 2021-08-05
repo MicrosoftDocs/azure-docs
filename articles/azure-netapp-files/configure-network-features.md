@@ -63,7 +63,7 @@ The network feature capability is currently in public preview. If you are using 
     ```azurepowershell-interactive
     Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSDNAppliance
 
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName AllowPoliciesOnBareMetal
+    Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowPoliciesOnBareMetal
     ```
 
 2. Check the status of the feature registration: 
@@ -74,7 +74,7 @@ The network feature capability is currently in public preview. If you are using 
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSDNAppliance
 
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName AllowPoliciesOnBareMetal
+    Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowPoliciesOnBareMetal
     ```
 
 You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status. 

@@ -75,10 +75,6 @@ Support for customer-managed keys (Bring Your Own Key) using Azure Dedicated HSM
 
 Yes, you can configure up to five rules in a single NFS export policy.
 
-### Does Azure NetApp Files support Network Security Groups?
-
-No, currently you cannot apply Network Security Groups to the delegated subnet of Azure NetApp Files or the network interfaces created by the service.
-
 ### Can I use Azure RBAC with Azure NetApp Files?
 
 Yes, Azure NetApp Files supports Azure RBAC features. Along with the built-in Azure roles, you can [create custom roles](../role-based-access-control/custom-roles.md) for Azure NetApp Files. 
