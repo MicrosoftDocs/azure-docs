@@ -60,5 +60,5 @@ Using the Mongo API, Dynatrace collects and delivers CosmosDB metrics, which inc
 - [Dynatrace for Azure solution overview](https://www.dynatrace.com/technologies/azure-monitoring/)
 - [Solution Partners](https://www.dynatrace.com/partners/solution-partners/)
 
-## Next Steps
+## Next steps
 - [Monitoring Cosmos DB data reference](./monitor-cosmos-db-reference.md)
