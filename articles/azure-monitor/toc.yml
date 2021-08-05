@@ -21,14 +21,6 @@
     - name: ARM template
       displayName: Resource Manager
       href: essentials/quick-collect-activity-log-arm.md
-  - name: Monitor virtual machines
-    items:
-    - name: Azure VMs
-      href: vm/quick-monitor-azure-vm.md
-    - name: Linux computer
-      href: vm/quick-collect-linux-computer.md
-    - name: Windows computer
-      href: vm/quick-collect-windows-computer.md
   - name: Monitor applications
     items:
     - name: ASP.NET Core application
