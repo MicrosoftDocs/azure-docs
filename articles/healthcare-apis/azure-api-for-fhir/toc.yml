@@ -30,7 +30,7 @@ items:
     - name: Using Portal
       href: iot-fhir-portal-quickstart.md
     - name: Using ARM template
-      href: iot-fhir-arm-template-quickstart.md 
+      href: iot-azure-resource-manager-template-quickstart.md 
 - name: Tutorials
   expanded: false
   items:
