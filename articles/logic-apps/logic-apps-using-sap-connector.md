@@ -654,7 +654,7 @@ This example uses a logic app that triggers when the app receives a message from
    }
    ```
    
-   * **Option 1:** In your API connection and trigger configuration, replace your gateway service name with its port number. In the following example error, `sapgw00` needs to be replaced with a real port number, for example, `3300`. This is the only available option for ISE.
+   * **Option 1:** In your API connection and trigger configuration, replace your gateway service name with its port number. In the example error, `sapgw00` needs to be replaced with a real port number, for example, `3300`. This is the only available option for ISE.
    
    * **Option 2:** If you're using the on-premises data gateway, you can add the gateway service name to the port mapping in `%windir%\System32\drivers\etc\services` and then restart the on-premises data gateway service, for example:
    ```text
