@@ -13,7 +13,7 @@ ms.author: cavoeg
 
 # Azure Active Directory identity configuration for Azure API for FHIR
 
-When you're working with healthcare data, it's important to ensure that the data is secure, and it can't be accessed by unauthorized users or applications. FHIR servers use [OAuth 2.0](https://oauth.net/2/) to ensure this data security. The [Azure API for FHIR](https://azure.microsoft.com/services/azure-api-for-fhir/) is secured using [Azure Active Directory](../../active-directory/index.yml), which is an example of an OAuth 2.0 identity provider. This article provides an overview of FHIR server authorization and the steps needed to obtain a token to access a FHIR server. While these steps apply to any FHIR server and any identity provider, we'll walk through Azure API for FHIR as the FHIR server and Azure Active Directory (Azure AD) as our identity provider in this article.*
+When you're working with healthcare data, it's important to ensure that the data is secure, and it can't be accessed by unauthorized users or applications. FHIR servers use [OAuth 2.0](https://oauth.net/2/) to ensure this data security. The [Azure API for FHIR](https://azure.microsoft.com/services/azure-api-for-fhir/) is secured using [Azure Active Directory](../../active-directory/index.yml), which is an example of an OAuth 2.0 identity provider. This article provides an overview of FHIR server authorization and the steps needed to obtain a token to access a FHIR server. While these steps apply to any FHIR server and any identity provider, we'll walk through Azure API for FHIR as the FHIR server and Azure Active Directory (Azure AD) as our identity provider in this article.
 
 ## Access control overview
 
