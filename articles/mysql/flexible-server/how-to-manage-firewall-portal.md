@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 9/21/2020
 ---
 
-# Create and manage firewall rules for Azure Database for MySQL - Flexible Server using the Azure portal
+## Create and manage firewall rules for Azure Database for MySQL - Flexible Server using the Azure portal
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -34,7 +34,7 @@ In this article, we will focus on creation of MySQL server with **Public access 
    > Azure Database for MySQL Flexible Server creates a firewall at the server level. It prevents external applications and tools from connecting to the server and any databases on the server, unless you create a rule to open the firewall for specific IP addresses.
 
 7. Select **Review + create** to review your flexible server configuration.
-8.  Select **Create** to provision the server. Provisioning can take a few minutes.
+8. Select **Create** to provision the server. Provisioning can take a few minutes.
 
 ## Create a firewall rule after server is created
 
@@ -85,6 +85,7 @@ Repeat the following steps to manage the firewall rules.
 - To delete an existing rule, click the ellipsis […] and click **Delete** to remove the rule. Click **Save** to save the changes.
 
 ## Next steps
+
 - Learn more about [Networking in Azure Database for MySQL Flexible Server](./concepts-networking.md)
-- Understand more about [Azure Database for MySQL Flexible Server firewall rules](./concepts-networking.md#public-access-allowed-ip-addresses)
-- [Create and manage Azure Database for MySQL firewall rules using Azure CLI](./how-to-manage-firewall-cli.md).
+- Understand more about [Azure Database for MySQL Flexible Server firewall rules](./concepts-networking-public.md#public-access-allowed-ip-addresses)
+- [Create and manage Azure Database for MySQL firewall rules using Azure CLI](./how-to-manage-firewall-cli.md)

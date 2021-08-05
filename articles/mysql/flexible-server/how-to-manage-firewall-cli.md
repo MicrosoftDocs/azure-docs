@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli
 ms.date: 9/21/2020
 ---
 
-# Create and manage Azure Database for MySQL - Flexible Server firewall rules using the Azure CLI
+## Create and manage Azure Database for MySQL - Flexible Server firewall rules using the Azure CLI
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -22,7 +22,7 @@ Azure Database for MySQL Flexible Server supports two types of mutually exclusiv
 - Public access (allowed IP addresses)
 - Private access (VNet Integration)
 
-In this article, we will focus on creation of MySQL server with **Public access (allowed IP addresses)** using Azure CLI and will provide an overview on Azure CLI commands you can use to create, update, delete, list, and show firewall rules after creation of server. With *Public access (allowed IP addresses)*, the connections to the MySQL server are restricted to allowed IP addresses only. The client IP addresses need to be allowed in firewall rules. To learn more about it, refer to [Public access (allowed IP addresses)](./concepts-networking.md#public-access-allowed-ip-addresses). The firewall rules can be defined at the time of server creation (recommended) but can be added later as well.
+In this article, we will focus on creation of MySQL server with **Public access (allowed IP addresses)** using Azure CLI and will provide an overview on Azure CLI commands you can use to create, update, delete, list, and show firewall rules after creation of server. With *Public access (allowed IP addresses)*, the connections to the MySQL server are restricted to allowed IP addresses only. The client IP addresses need to be allowed in firewall rules. To learn more about it, refer to [Public access (allowed IP addresses)](./concepts-networking-public.md#public-access-allowed-ip-addresses). The firewall rules can be defined at the time of server creation (recommended) but can be added later as well.
 
 ## Launch Azure Cloud Shell
 
@@ -181,5 +181,5 @@ Upon success, there is no output. Upon failure, error message text displays.
 ## Next steps
 
 - Learn more about [Networking in Azure Database for MySQL Flexible Server](./concepts-networking.md)
-- Understand more about [Azure Database for MySQL Flexible Server firewall rules](./concepts-networking.md#public-access-allowed-ip-addresses)
-- [Create and manage Azure Database for MySQL Flexible Server firewall rules using the Azure portal](./how-to-manage-firewall-portal.md).
+- Understand more about [Azure Database for MySQL Flexible Server firewall rules](./concepts-networking-public.md#public-access-allowed-ip-addresses)
+- [Create and manage Azure Database for MySQL Flexible Server firewall rules using the Azure portal](./how-to-manage-firewall-portal.md)

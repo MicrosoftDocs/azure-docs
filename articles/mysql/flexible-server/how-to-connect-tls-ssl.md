@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ---
 
-# Connect to Azure Database for MySQL - Flexible Server with encrypted connections
+## Connect to Azure Database for MySQL - Flexible Server with encrypted connections
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -17,7 +17,7 @@ ms.date: 09/21/2020
 
 Azure Database for MySQL Flexible Server supports connecting your client applications to the MySQL server using Secure Sockets Layer (SSL) with Transport layer security(TLS) encryption. TLS is an industry standard protocol that ensures encrypted network connections between your database server and client applications, allowing you to adhere to compliance requirements.
 
-Azure Database for MySQL Flexible Server supports encrypted connections using Transport Layer Security (TLS 1.2) by default and all incoming connections with TLS 1.0 and TLS 1.1 will be denied by default. The encrypted connection enforcement or TLS version configuration on your flexible server can be changed as discussed in this article. 
+Azure Database for MySQL Flexible Server supports encrypted connections using Transport Layer Security (TLS 1.2) by default and all incoming connections with TLS 1.0 and TLS 1.1 will be denied by default. The encrypted connection enforcement or TLS version configuration on your flexible server can be changed as discussed in this article.
 
 Following are the different configurations of SSL and TLS settings you can have for your flexible server:
 
@@ -50,7 +50,7 @@ If your client application doesn't support encrypted connections, you will need 
 
 ### Connect using mysql command-line client with SSL disabled
 
-The following example shows how to connect to your server using the mysql command-line interface. Use the `--ssl-mode=DISABLED` connection string setting to disable TLS/SSL connection from mysql client. Replace values with your actual server name and password. 
+The following example shows how to connect to your server using the mysql command-line interface. Use the `--ssl-mode=DISABLED` connection string setting to disable TLS/SSL connection from mysql client. Replace values with your actual server name and password.
 
 ```bash
  mysql.exe -h mydemoserver.mysql.database.azure.com -u myadmin -p --ssl-mode=DISABLED 
@@ -106,10 +106,9 @@ If you created your flexible server with *Private access (VNet Integration)*, yo
 
 If you created your flexible server with *Public access (allowed IP addresses)*, you can add your local IP address to the list of firewall rules on your server.
 
-You can choose either [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) or [MySQL Workbench](./connect-workbench.md)--> to connect to the server from your local environment. 
+You can choose either [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) or [MySQL Workbench](./connect-workbench.md)--> to connect to the server from your local environment.
 
-
-The following example shows how to connect to your server using the mysql command-line interface. Use the `--ssl-mode=REQUIRED` connection string setting to enforce TLS/SSL certificate verification. Pass the local certificate file path to the `--ssl-ca` parameter. Replace values with your actual server name and password. 
+The following example shows how to connect to your server using the mysql command-line interface. Use the `--ssl-mode=REQUIRED` connection string setting to enforce TLS/SSL certificate verification. Pass the local certificate file path to the `--ssl-ca` parameter. Replace values with your actual server name and password.
 
 ```bash
 sudo apt-get install mysql-client
@@ -134,7 +133,7 @@ Execute the mysql **status** command to verify that you have connected to your M
 mysql> status
 ```
 
-Confirm the connection is encrypted by reviewing the output, which should show:  **SSL: Cipher in use is **. This cipher suite shows an example and based on the client, you can see a different cipher suite.
+Confirm the connection is encrypted by reviewing the output, which should show:  **SSL: Cipher in use is**. This cipher suite shows an example and based on the client, you can see a different cipher suite.
 
 ## Connect to your flexible server with encrypted connections using various application frameworks
 
@@ -144,7 +143,7 @@ To establish an encrypted connection to your flexible server over TLS/SSL from y
 
 ### WordPress
 
-Download [SSL public certificate](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) and add the following lines in wp-config.php after the line ```// ** MySQL settings - You can get this info from your web host ** //```.
+Download [SSL public certificate](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) and add the following lines in wp-config.php after the line ```// **MySQL settings - You can get this info from your web host** //```.
 
 ```php
 //** Connect with SSL** //
@@ -348,4 +347,4 @@ conn.connect(function(err) {
 * [Use PHP to connect and query data in Azure Database for MySQL Flexible Server](./connect-php.md)
 * [Create and manage Azure Database for MySQL Flexible Server virtual network using Azure CLI](./how-to-manage-virtual-network-cli.md).
 * Learn more about [networking in Azure Database for MySQL Flexible Server](./concepts-networking.md)
-* Understand more about [Azure Database for MySQL Flexible Server firewall rules](./concepts-networking.md#public-access-allowed-ip-addresses)
+* Understand more about [Azure Database for MySQL Flexible Server firewall rules](./concepts-networking-public.md#public-access-allowed-ip-addresses)
