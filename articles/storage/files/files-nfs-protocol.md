@@ -85,11 +85,11 @@ The status of items that appear in this tables may change over time as support c
 [!INCLUDE [files-nfs-regional-availability](../../../includes/files-nfs-regional-availability.md)]
 
 ## Performance
-NFS Azure file shares are only offered on premium file shares, which are SSD-backed. The IOPS and the throughput of NFS shares scale with the provisioned capacity. See the [provisioned model](understanding-billing#provisioned-model) section of the understanding billing article to understand the formulas for IOPS, IO bursting, and throughput. The IO latencies are low-single-digit-millisecond for small IO size while metadata latencies are high-single-digit-millisecond. That said, operations like untar or metadata heavy workloads like WordPress will not be performant.
+NFS Azure file shares are only offered on premium file shares, which are SSD-backed. The IOPS and the throughput of NFS shares scale with the provisioned capacity. See the [provisioned model](understanding-billing.md#provisioned-model) section of the understanding billing article to understand the formulas for IOPS, IO bursting, and throughput. The IO latencies are low-single-digit-millisecond for small IO size while metadata latencies are high-single-digit-millisecond. That said, operations like untar or metadata heavy workloads like WordPress will not be performant.
 
 ## Validated workloads
 > [!IMPORTANT]
-> While the service is in preview, production usage of this service is not recommended. Highly recommend looking at [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs) article for list of known issues.
+> While the service is in preview, production usage of this service is not recommended. Highly recommend looking at [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md) article for list of known issues.
 
 The following is a list of workloads that have been validated to work with NFS Azure file shares at the time of publishing this section. This list may change over time.
 - Home directories for general purpose file servers
