@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 04/08/2021
+ms.date: 09/01/2021
 ---
 
 # Create a virtual machine offer on Azure Marketplace
@@ -20,6 +20,35 @@ Before you start, [create a commercial marketplace account in Partner Center](cr
 If you haven't done so yet, review [Plan a virtual machine offer](marketplace-virtual-machines.md). It will explain the technical requirements for your virtual machine and list the information and assets you’ll need when you create your offer.
 
 ## Create a new offer
+
+#### [Workspaces view](#tab/Workspaces-view)
+
+1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
+
+1. On the Home page, select the **Marketplace offers** tile.
+
+    :::image type="content" source="./media/workspaces/partner-center-home.png" alt-text="Illustrates the Partner Center Home page.":::
+
+1. On the Marketplace offers page, select **+ New offer** > **Azure Virtual Machine**.
+
+    ![Screenshot showing the left pane menu options and the "New offer" button.](./media/create-vm/new-offer-azure-virtual-machine-workspaces.png)
+
+> [!NOTE]
+> After an offer is published, any edits you make to it in Partner Center appear on Azure Marketplace only after you republish the offer. Be sure to always republish an offer after making changes to it.
+
+Enter an **Offer ID**. This is a unique identifier for each offer in your account.
+
+- This ID is visible to customers in the web address for the Azure Marketplace offer and in Azure PowerShell and the Azure CLI, if applicable.
+- Use only lowercase letters and numbers. The ID can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if you enter **test-offer-1**, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- The Offer ID can't be changed after you select **Create**.
+
+Enter an **Offer alias**. The offer alias is the name that's used for the offer in Partner Center.
+
+- This name is not used on Azure Marketplace. It is different from the offer name and other values that are shown to customers.
+
+Select **Create** to generate the offer and continue. Partner Center opens the **Offer setup** page.
+
+#### [Classic view](#tab/classic-view)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 2. On the left pane, select **Commercial Marketplace** > **Overview**.
@@ -41,6 +70,8 @@ Enter an **Offer alias**. The offer alias is the name that's used for the offer 
 - This name is not used on Azure Marketplace. It is different from the offer name and other values that are shown to customers.
 
 Select **Create** to generate the offer and continue. Partner Center opens the **Offer setup** page.
+
+---
 
 ## Test drive (optional)
 

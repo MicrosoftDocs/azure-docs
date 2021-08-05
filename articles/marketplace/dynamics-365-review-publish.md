@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 05/20/2021
+ms.date: 09/01/2021
 ---
 
 # Review and publish a Dynamics 365 offer
@@ -41,13 +41,28 @@ When you are ready to submit an offer for publishing, select **Review and publis
 
 If any of the pages have a status other than **Complete**, you need to correct the issue on that page and then return to the **Review and publish** page to confirm the status now shows as **Complete**. Some offer types require testing. If so, you will see a **Notes for certification** field where you need to provide testing instructions to the certification team and any supplementary notes helpful for understanding your app.
 
-After all pages are complete and you have entered applicable testing notes, select **Publish** to submit your offer. We will email you when a preview version of your offer is available to approve. At that time:
+After all pages are complete and you have entered applicable testing notes, select **Publish** to submit your offer. We will email you when a preview version of your offer is available to approve. At that time complete the following steps:
 
-1. Return to Partner Center.
+#### [Workspaces view](#tab/Workspaces-view)
+
+1. Return to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
+1. On the Home page, select the **Marketplace offers** tile.
+
+    :::image type="content" source="./media/workspaces/partner-center-home.png" alt-text="Illustrates the Partner Center Home page.":::
+
+1. On the Marketplace offers page, select the offer.
+1. Select **Review and publish**.
+1. Select **Go live** to make your offer publicly available.
+
+#### [Classic view](#tab/classic-view)
+
+1. Return to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
 1. Select the **Overview** tab in the left-nav menu bar.
 1. Select the offer.
 1. Select **Review and publish**.
 1. Select **Go live** to make your offer publicly available.
+
+---
 
 After you select **Review and publish**, we will perform certification and other verification processes before your offer is published to AppSource. We will notify you when your offer is available in preview so you can go live. If there is an issue, we will notify you with the details and provide guidance on how to fix it.
 

@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 03/19/2021
+ms.date: 09/01/2021
 ---
 
 # Create a SaaS offer
@@ -23,11 +23,36 @@ If you haven’t already done so, read [Plan a SaaS offer](plan-saas-offer.md). 
 
 ## Create a SaaS offer
 
+#### [Workspaces view](#tab/workspaces-view)
+
+1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
+
+1. On the Home page, select the **Marketplace offers** tile.
+
+    :::image type="content" source="./media/workspaces/partner-center-home.png" alt-text="Illustrates the Partner Center Home page.":::
+
+1. On the Marketplace offers page, select **+ New offer** > **Software as a Service**.
+
+   :::image type="content" source="./media/new-offer-saas-workspaces.png" alt-text="Illustrates the SaaS offer option in the New offer list.":::
+
+1. In the **New Software as a Service** dialog box, enter an **Offer ID**. This ID is visible in the URL of the commercial marketplace listing and Azure Resource Manager templates, if applicable. For example, if you enter **test-offer-1** in this box, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+   + Each offer in your account must have a unique offer ID.
+   + Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces, and is limited to 50 characters.
+   + The offer ID can't be changed after you select **Create**.
+
+1. Enter an **Offer alias**. This is the name used for the offer in Partner Center.
+
+   + This name isn't visible in the commercial marketplace and it’s different from the offer name and other values shown to customers.
+   + The offer alias can't be changed after you select **Create**.
+1. To generate the offer and continue, select **Create**.
+
+#### [Classic view](#tab/classic-view)
+
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
 1. On the **Overview** tab, select **+ New offer** > **Software as a Service**.
 
-   :::image type="content" source="media/new-offer-saas.png" alt-text="Illustrates the left-navigation menu and the New offer list.":::
+   :::image type="content" source="./media/new-offer-saas.png" alt-text="Illustrates the left-navigation menu and the New offer list.":::
 
 1. In the **New offer** dialog box, enter an **Offer ID**. This ID is visible in the URL of the commercial marketplace listing and Azure Resource Manager templates, if applicable. For example, if you enter **test-offer-1** in this box, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
    + Each offer in your account must have a unique offer ID.
@@ -39,6 +64,8 @@ If you haven’t already done so, read [Plan a SaaS offer](plan-saas-offer.md). 
    + This name isn't visible in the commercial marketplace and it’s different from the offer name and other values shown to customers.
    + The offer alias can't be changed after you select **Create**.
 1. To generate the offer and continue, select **Create**.
+
+---
 
 ## Configure your SaaS offer setup details
 

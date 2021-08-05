@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 05/19/2021
+ms.date: 09/01/2021
 ---
 
 # How to create a Dynamics 365 for Business Central offer
@@ -21,18 +21,37 @@ Review [Plan a Dynamics 365 offer](marketplace-dynamics-365.md). It explains the
 
 ## Create a new offer
 
+#### [Workspaces view](#tab/Workspaces-view)
+
+1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
+
+1. On the Home page, select the **Marketplace offers** tile.
+
+    :::image type="content" source="./media/workspaces/partner-center-home.png" alt-text="Illustrates the Partner Center Home page.":::
+
+1. On the Marketplace offers page, select **+ New offer** > **Dynamics 365 for business central**.
+
+    :::image type="content" source="media/dynamics-365/new-offer-dynamics-365-business-central-workspaces.png" alt-text="The left pane menu options and the 'New offer' button.":::
+
+> [!IMPORTANT]
+> After an offer is published, any edits you make to it in Partner Center appear on Microsoft AppSource only after you republish the offer. Be sure to always republish an offer after changing it.
+
+#### [Legacy view](#tab/legacy-view)
+
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
-3. On the Overview page, select **+ New offer** > **Dynamics 365 for Business Central**.
+3. On the Overview page, select **+ New offer** > **Dynamics 365 for Business central**.
 
     :::image type="content" source="media/dynamics-365/new-offer-dynamics-365-business-central.png" alt-text="The left pane menu options and the 'New offer' button.":::
 
 > [!IMPORTANT]
 > After an offer is published, any edits you make to it in Partner Center appear on Microsoft AppSource only after you republish the offer. Be sure to always republish an offer after changing it.
 
+---
+
 ## New offer
 
-Enter an **Offer ID**. This is a unique identifier for each offer in your account.
+In the dialog box that appears, enter an **Offer ID**. This is a unique identifier for each offer in your account.
 
 - This ID is visible to customers in the web address for the offer and in Azure Resource Manager templates, if applicable.
 - Use only lowercase letters and numbers. The ID can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if your Publisher ID is `testpublisherid` and you enter **test-offer-1**, the offer web address will be `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`.

@@ -7,7 +7,7 @@ metadata:
   ms.topic: troubleshooting
   author: mathapli
   ms.author: mathapli
-  ms.date: 01/18/2021
+  ms.date: 09/01/2021
     
 title: Troubleshoot virtual machine certification
 summary: |
@@ -583,7 +583,25 @@ sections:
           ### Provide a new VM image to address the security vulnerability or exploit
 
           To complete these steps, prepare the technical assets for the VM image you want to add. For more information, see [Create a virtual machine using an approved base](azure-vm-create-using-approved-base.md) or [Create a virtual machine using your own image](azure-vm-create-using-own-image.md) and [Generate a SAS URI for your VM image](azure-vm-get-sas-uri.md).
+
+          #### [Workspaces view](#tab/Workspaces-view)
+
+          1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+          1. On the Home page, select the **Marketplace offers** tile.
+          1. In the **Offer alias** column, select the offer.
+          1. Select the **Plan overview** tab, and then select the appropriate plan.
+          1. On the **Technical configuration** tab, under **VM Images**, select **+ Add VM Image**.
           
+             > [!NOTE]
+             > You can add only one VM image to one plan at a time. To add multiple VM images, publish the first one before you add the next VM image.
+          
+          1. In the boxes that appear, provide a new disk version and the virtual machine image.
+          1. Select **Save draft**.
+          
+          Next, remove the VM image with the security vulnerability.          
+
+          #### [Classic view](#tab/classic-view)
+         
           1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
           1. In the left pane, select **Commercial Marketplace** > **Overview**.
           1. In the **Offer alias** column, select the offer.
@@ -597,8 +615,22 @@ sections:
           1. Select **Save draft**.
           
           Next, remove the VM image with the security vulnerability.
+
+          ---
           
           ### Remove the VM image with the security vulnerability or exploit
+
+          #### [Workspaces view](#tab/Workspaces-view)
+
+          1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+          1. On the Home page, select the **Marketplace offers** tile.
+          1. In the **Offer alias** column, select the offer.
+          4. Select the **Plan overview** tab, and then select the appropriate plan.
+          5. On the **Technical configuration** tab, under **VM Images**, next to the VM image you want to remove, select **Remove VM Image**.
+          6. In the dialog box, select **Continue**.
+          7. Select **Save draft**.
+
+          #### [Classic view](#tab/classic-view)
 
           1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
           2. In the left pane, select **Commercial Marketplace** > **Overview**.
@@ -608,6 +640,8 @@ sections:
           6. In the dialog box, select **Continue**.
           7. Select **Save draft**.
           
+          ---
+
           Next, republish the offer.
           
           ### Republish the offer

@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: keferna
 ms.author: keferna
-ms.date: 05/26/2021
+ms.date: 09/01/2021
 ---
 
 # Create a Power BI app offer
@@ -21,6 +21,25 @@ Review [Plan a Power BI offer](marketplace-power-bi.md). It will explain the tec
 
 ## Create a new offer
 
+#### [Workspaces view](#tab/workspaces-view)
+
+1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
+
+1. On the Home page, select the **Marketplace offers** tile.
+
+    :::image type="content" source="./media/workspaces/partner-center-home.png" alt-text="Illustrates the Partner Center Home page.":::
+
+1. On the Marketplace offers page, select **+ New offer** > **Power BI app**.
+
+    :::image type="content" source="./media/power-bi/new-offer-power-bi-app-workspaces.png" alt-text="Illustrates the Power BI app option and the New offer button.":::
+
+> [!IMPORTANT]
+> After an offer is published, any edits you make to it in Partner Center appear on Microsoft AppSource only after you republish the offer. Be sure to always republish an offer after changing it.
+
+If **Power BI App** isn't shown or enabled, your account doesn't have permission to create this offer type. Please check that you've met all the [requirements](./marketplace-dynamics-365.md) for this offer type, including registering for a developer account.
+
+#### [Classic view](#tab/classic-view)
+
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
 3. On the Overview page, select **+ New offer** > **Power BI app**.
@@ -31,6 +50,8 @@ Review [Plan a Power BI offer](marketplace-power-bi.md). It will explain the tec
 > After an offer is published, any edits you make to it in Partner Center appear on Microsoft AppSource only after you republish the offer. Be sure to always republish an offer after changing it.
 
 If **Power BI App** isn't shown or enabled, your account doesn't have permission to create this offer type. Please check that you've met all the [requirements](marketplace-dynamics-365.md) for this offer type, including registering for a developer account.
+
+---
 
 ## New offer
 

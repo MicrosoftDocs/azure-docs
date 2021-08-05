@@ -7,7 +7,7 @@ ms.reviewer: anbene
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 09/01/2021
 ---
 
 # How to create a consulting service offer in the commercial marketplace
@@ -20,9 +20,31 @@ To publish a consulting service offer, you must meet certain eligibility require
 
 ## Create a new consulting service offer
 
+#### [Workspaces view](#tab/Workspaces-view)
+
+1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
+1. On the Home page, select the **Marketplace offers** tile.
+
+    :::image type="content" source="./media/workspaces/partner-center-home.png" alt-text="Illustrates the Partner Center Home page.":::
+
+1. On the Marketplace offers page, select **+ New offer** > **Consulting service**.
+
+    ![Illustrates the left-navigation menu.](./media/new-offer-consulting-service-workspaces.png)
+
+4. In the **New Consulting service** dialog box, enter an **Offer ID**. This ID is visible in the URL of the commercial marketplace listing. For example, if you enter test-offer-1 in this box, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+
+    * Each offer in your account must have a unique offer ID.
+    * Use only lowercase letters and numbers. The offer ID can include hyphens and underscores, but no spaces, and is limited to 50 characters.
+    * The offer ID can't be changed after you select **Create**.
+
+5. Enter an **Offer alias**. This is the name used for the offer in Partner Center. It isn't visible in the online stores and is different from the offer name shown to customers.
+6. To generate the offer and continue, select **Create**.
+
+#### [Classic view](#tab/classic-view)
+
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-2.	In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
-3.	On the Overview tab, select **+ New offer** > **Consulting service**.
+2. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
+3. On the Overview tab, select **+ New offer** > **Consulting service**.
 
     ![Illustrates the left-navigation menu.](./media/new-offer-consulting-service.png)
 
@@ -34,6 +56,8 @@ To publish a consulting service offer, you must meet certain eligibility require
 
 5. Enter an **Offer alias**. This is the name used for the offer in Partner Center. It isn't visible in the online stores and is different from the offer name shown to customers.
 6. To generate the offer and continue, select **Create**.
+
+---
 
 ## Configure lead management
 

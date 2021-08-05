@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 09/01/2021
 ---
 
 # Create an Azure application offer
@@ -17,6 +17,33 @@ As a commercial marketplace publisher, you can create an Azure application offer
 If you haven’t already done so, read [Plan an Azure application offer for the commercial marketplace](plan-azure-application-offer.md). It will provide the resources and help you gather the information and assets you’ll need when you create your offer.
 
 ## Create a new offer
+
+#### [Workspaces view](#tab/workspaces-view)
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/en-us/dashboard/home).
+
+1. On the Home page, select the **Marketplace offers** tile.
+
+    :::image type="content" source="./media/workspaces/partner-center-home.png" alt-text="Illustrates the Partner Center Home page.":::
+
+1. On the Marketplace offers page, select **+ New offer** > **Azure Application**.
+
+    ![Illustrates the New offer button on the Marketplace offers page.](./media/create-new-azure-app-offer/new-offer-azure-app-workspaces.png)
+
+1. In the **New Azure Application** dialog box, enter an **Offer ID**. This is a unique identifier for each offer in your account. This ID is visible in the URL of the commercial marketplace listing and Azure Resource Manager templates, if applicable. For example, if you enter test-offer-1 in this box, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+
+     * Each offer in your account must have a unique offer ID.
+     * Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces, and is limited to 50 characters.
+     * The Offer ID can't be changed after you select **Create**.
+
+1. Enter an **Offer alias**. This is the name used for the offer in Partner Center.
+
+     * This name is only visible in Partner Center and it’s different from the offer name and other values shown to customers.
+     * The Offer alias can't be changed after you select **Create**.
+
+1. To generate the offer and continue, select  **Create**.
+
+#### [Classic view](#tab/classic-view)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 
@@ -38,6 +65,8 @@ If you haven’t already done so, read [Plan an Azure application offer for the 
      * The Offer alias can't be changed after you select **Create**.
 
 1. To generate the offer and continue, select  **Create**.
+
+---
 
 ## Configure your Azure application offer setup details
 

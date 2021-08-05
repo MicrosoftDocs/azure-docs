@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: varsha-sarah
 ms.author: vavargh
-ms.date: 04/07/2021
+ms.date: 09/01/2021
 ---
 
 # Manage your commercial marketplace account in Partner Center
@@ -20,6 +20,22 @@ Once you've [created a Partner Center account](./create-account.md), you can use
 
 ## Access your account settings
 
+#### [Workspaces view](#tab/Workspaces-view)
+
+If you have not already done so, you (or your organization's administrator) should access the [account settings](https://partner.microsoft.com/dashboard/account/v3/organization/legalinfo#mpn) for your Partner Center account.
+
+1. Sign in to the [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/home) in Partner Center with the account you want to access. If you’re part of multiple accounts and have signed in with a different, you can [switch accounts](switch-accounts.md).
+
+1. In the top-right, select **Settings** (gear icon), and then select **Account settings**.
+
+    :::image type="content" source="./media/manage-accounts/settings-account-workspaces.png" alt-text="Screenshot of the account settings menu in Partner Center.":::
+
+1. Under **Account settings** select **Legal**. Then select the **Developer** tab to view details related to your commercial marketplace account.
+
+    :::image type="content" source="./media/manage-accounts/developer-tab-workspaces.png" alt-text="Screenshot of the developer tab on the legal page in Account settings.":::
+
+#### [Classic view](#tab/classic-view)
+
 If you have not already done so, you (or your organization's administrator) should access the [account settings](https://go.microsoft.com/fwlink/?linkid=2165291) for your Partner Center account.
 
 1. Sign in to the [commercial marketplace dashboard](https://go.microsoft.com/fwlink/?linkid=2165290) in Partner Center with the account you want to access. If you’re part of multiple accounts and have signed in with a different, you can [switch accounts](switch-accounts.md).
@@ -30,6 +46,8 @@ If you have not already done so, you (or your organization's administrator) shou
 1. Under **Account settings** select **Legal**. Then select the **Developer** tab to view details related to your commercial marketplace account.
 
     [ ![Screenshot of the developer tab on the legal page in Account settings.](./media/manage-accounts/developer-tab.png) ](./media/manage-accounts/developer-tab.png#lightbox)
+
+---
 
 ### Account settings page
 
@@ -178,9 +196,8 @@ If you are publishing a [Dynamics 365 for Customer Engagement & Power Apps](dyna
 
 The billing address is pre-populated from your legal entity, and you can update this address later. The TAX and VAT ID fields are required for some countries and optional for others. The country/region name and company name cannot be edited.
 
-1. Go to **Account settings**.
+1. In the top-right, select **Settings** (gear icon), and then select **Account settings**.
 1. Then in the left-nav expand **Organization profile** and select **Billing profile**.
-
 
 ## Multi-user account management
 
