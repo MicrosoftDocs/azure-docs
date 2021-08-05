@@ -217,7 +217,7 @@ Now, let's hook your `initializeSession()` and `scene_OnUpdate(...)` method into
 
 Finally, add the following code into your `handleTap()` method. It will attach a local Azure Spatial Anchor to the black sphere that we're placing in the real world.
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=158-166,178-191,203&highlight=12-13)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=158-166,178-191,208&highlight=12-13)]
 
 [Redeploy](#trying-it-out) your app once more. Move around your device, tap the screen, and place a black sphere. This time, though, your code will be creating and attaching a local Azure Spatial Anchor to your sphere.
 
