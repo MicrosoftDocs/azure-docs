@@ -20,6 +20,8 @@ items:
       href: custom-classification/concepts/recommended-practices.md
     - name: Definitions
       href: custom-classification/definitions.md
+    - name: Evaluation metrics
+      href: custom-classification/concepts/evaluation.md
 - name: Entity linking
   items:
   - name: Overview
