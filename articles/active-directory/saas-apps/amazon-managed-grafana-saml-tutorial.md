@@ -79,7 +79,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<namespace>.grafana-workspace.<region>.amazonaws.com/login/saml`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Sign on URL. Contact [Amazon Managed Grafana SAML2.0 Client support team](mailto:royrodan@amazon.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Sign on URL. Contact [Amazon Managed Grafana SAML2.0 Client support team](https://aws.amazon.com/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Amazon Managed Grafana SAML2.0 application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -127,7 +127,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Amazon Managed Grafana SAML2.0 SSO
 
-To configure single sign-on on **Amazon Managed Grafana SAML2.0** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Amazon Managed Grafana SAML2.0 support team](mailto:https://aws.amazon.com/contact-us/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Amazon Managed Grafana SAML2.0** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Amazon Managed Grafana SAML2.0 support team](https://aws.amazon.com/contact-us/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Amazon Managed Grafana SAML2.0 test user
 
