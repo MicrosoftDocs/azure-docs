@@ -99,7 +99,7 @@ This section shows you how to set the network features option.
 
 3. You can click **Volumes** to display the network features setting for each volume:
 
-    ![Screenshot that shows the Volumes page displaying the network features setting.](../media/azure-netapp-files/network-features-volume-list.png)
+    [ ![Screenshot that shows the Volumes page displaying the network features setting.](../media/azure-netapp-files/network-features-volume-list.png)](../media/azure-netapp-files/network-features-volume-list.png#lightbox)
 
 ## Next steps  
 

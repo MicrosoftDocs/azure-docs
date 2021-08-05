@@ -95,7 +95,7 @@ User-defined routes (UDRs) and Network security groups (NSGs) are only supported
 
 If the subnet has a combination of volumes with the Standard and Basic Network Features (or for existing volumes not registered for the feature preview), UDRs and NSGs applied on the delegated subnets will only apply to the volumes with the Standard network features.
 
-Configuring user-defined routes (UDRs) on the source VM subnets with address prefix of delegated subnet and next hop as NVA is not supported for volumes with Basic network features. Such a setting will result in connectivity issues.
+Configuring user-defined routes (UDRs) on the source VM subnets with address prefix of delegated subnet and next hop as NVA is not supported for volumes with the Basic network features. Such a setting will result in connectivity issues.
 
 ## Azure native environments
 
