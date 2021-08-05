@@ -142,6 +142,36 @@ To parameterize your **connections.json** file, replace the values for literals,
 > **connections.json** file instead. Then, in your deployment pipelines, replace with the parameterized file. 
 > The runtime still works with parameterization. Designer improvements are in development.
 
+The following example shows a parameterized connections file that uses both app settings and parameters. This scenario is an edge case where you'd use app settings over parameters as app settings are generated during deployment and are easier to dynamically populate in a development pipeline. The file uses a parameter for the complex `blob_auth` authentication object and app settings for the other values. In this case, you're unlikely to reference the parameter in your workflow:
+
+```json
+{
+   "serviceProviderConnections": {
+      "serviceBus": {
+         "parameterValues": {
+            "connectionString": "@appsetting('serviceBus_connectionString')"
+      },
+      "serviceProvider": {
+         "id": "/serviceProviders/serviceBus"
+      },
+      "displayName": "servicebus"
+   }
+   },
+   "managedApiConnections": {
+      "azureblob": {
+         "api": {
+            "id": "/subscriptions/@appsetting('WORKFLOWS_SUBSCRIPTION_ID')/providers/Microsoft.Web/locations/@appsetting('WORKFLOWS_LOCATION_NAME')/managedApis/azureblob"
+         },
+         "connection": {
+            "id": "/subscriptions/@appsetting('WORKFLOWS_SUBSCRIPTION_ID')/resourceGroups/@appsetting('WORKFLOWS_RESOURCE_GROUP_NAME')/providers/Microsoft.Web/connections/azureblob"
+         },
+         "connectionRuntimeUrl": "@appsetting('BLOB_CONNECTION_RUNTIMEURL')",
+         "authentication": "@parameters('blob_auth')"
+      }
+   }
+}
+```
+
 ## Manage parameters files
 
 Typically, you need to manage multiple versions of parameters files. You might have targeted values for different deployment environments, such as development, testing, and production. Managing these parameters files often works like managing ARM template parameters files. When you deploy to a specific environment, you promote the corresponding parameters file, generally through a pipeline for DevOps.
