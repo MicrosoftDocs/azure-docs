@@ -6,7 +6,7 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/05/2020
 ms.author: banders
 ---
 
@@ -79,6 +79,8 @@ Azure may not process the renewal if:
 You'll receive an email notification if any of the preceding conditions occur and the renewal is deactivated.
 
 ## Renewal notification
+
+Renewal notification emails are sent 30 days before expiration and again on the expiration date. The sending email address is `azure-noreply@microsoft.com`. You might want add the email address to your safe senders or allow list.
 
 Emails are sent to different people depending on your purchase method:
 
