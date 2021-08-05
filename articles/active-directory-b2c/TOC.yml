@@ -26,25 +26,6 @@
     href: tutorial-register-applications.md
   - name: 3 - Create user flows and custom policies
     href: tutorial-create-user-flows.md
-  - name: Authenticate users
-    items:
-    - name: ASP.NET
-      href: tutorial-web-app-dotnet.md
-    - name: Desktop
-      href: tutorial-desktop-app.md
-    - name: Single page
-      href: tutorial-single-page-app.md
-    - name: Python
-      href: tutorial-web-app-python.md
-      displayName: flask
-  - name: Grant API access
-    items:
-    - name: ASP.NET
-      href: tutorial-web-api-dotnet.md
-    - name: Desktop
-      href: tutorial-desktop-app-webapi.md
-    - name: Single page
-      href: tutorial-single-page-app-webapi.md
   - name: Clean up and delete tenant
     href: tutorial-delete-tenant.md
 - name: Samples
@@ -325,6 +306,8 @@
           href: partner-keyless.md
         - name: Nevis
           href: partner-nevis.md
+        - name: Nok Nok
+          href: partner-nok-nok.md
         - name: Trusona
           href: partner-trusona.md
         - name: Twilio
