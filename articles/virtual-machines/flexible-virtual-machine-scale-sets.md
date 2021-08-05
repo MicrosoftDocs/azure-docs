@@ -133,7 +133,7 @@ Virtual machine scale sets with Flexible orchestration works as a thin orchestra
 
 In order to enhance default network security, Virtual machine scale sets with Flexible orchestration will require that instances created implicitly via the autoscaling profile have outbound connectivity defined explicitly through one of the following methods: 
 
-- For most scenarios, we recommend [NAT Gateway attached to the subnet](./virtual-network/tutorial-create-nat-gateway-portal.md).
+- For most scenarios, we recommend [NAT Gateway attached to the subnet](https://docs.microsoft.com/azure/virtual-network/nat-gateway/tutorial-create-nat-gateway-portal).
 - For scenarios with high security requirements or when using Azure Firewall or Network Virtual Appliance (NVA), you can specify a custom User Defined Route as next hop through firewall. 
 - Instances are in the backend pool of a Standard SKU Azure Load Balancer. 
 - Attach a Public IP Address to the instance network interface. 
@@ -143,9 +143,9 @@ With single instance VMs and Virtual machine scale sets with Uniform orchestrati
 Common scenarios that will require explicit outbound connectivity include: 
 
 - Windows VM activation will require that you have defined outbound connectivity from the VM instance to the Windows Activation Key Management Service (KMS). See [Troubleshoot Windows VM activation problems](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems) for more information. 
-- Access to storage accounts or Key Vault. Connectivity to Azure services can also be established via [Private Link](./private-link/private-link-overview.md).
+- Access to storage accounts or Key Vault. Connectivity to Azure services can also be established via [Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview).
 
-See [Source Network Address Translation (SNAT) for outbound connections](./load-balancer/load-balancer-outbound-connections.md) for more details on defining secure outbound connections 
+See [Source Network Address Translation (SNAT) for outbound connections](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) for more details on defining secure outbound connections 
 
 ### Specify a scale set when creating a VM
 When you create a VM, you can optionally specify that it is added to a virtual machine scale set. A VM can only be added to a scale set at time of VM creation.
