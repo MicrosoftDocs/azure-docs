@@ -47,9 +47,9 @@ The following characteristics apply whether you choose to use the private access
 ### Unsupported virtual network scenarios
 
 * Public endpoint (or public IP or DNS) - A flexible server deployed to a virtual network cannot have a public endpoint
-* After the flexible server is deployed to a virtual network and subnet, you cannot move it to another virtual network or subnet. You cannot move the virtual network into another resource group or subscription.
+* After the flexible server is deployed to a virtual network and subnet, you cannot move it to another virtual network or subnet. * After the flexible server is deployed, you cannot move the virtual network used by flexible server into another resource group or subscription.
 * Subnet size (address spaces) cannot be increased once resources exist in the subnet
-* Change from Public to Private acess is not allowed after the server is created. Recommended way is to use Point In Time Restore
+* Change from Public to Private access is not allowed after the server is created. Recommended way is to use Point-in-time restore
 
 Learn how to enable private access (vnet integration) using the [Azure portal](how-to-manage-virtual-network-portal.md) or [Azure CLI](how-to-manage-virtual-network-cli.md).
 
