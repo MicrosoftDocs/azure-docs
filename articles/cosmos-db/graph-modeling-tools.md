@@ -1,5 +1,5 @@
 ---
-title: Using tools to design graph data model
+title: Third-party data modeling tools for Azure Cosmos DB graph data
 description: This article describes various tools to  design the Graph data model.
 author: mansha
 ms.author: mansha
@@ -9,7 +9,7 @@ ms.date: 05/25/2021
 ms.reviewer: sngun
 
 ---
-# Data Modeling Tools for Graph
+# Third-party data modeling tools for Azure Cosmos DB graph data
 
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
@@ -22,7 +22,7 @@ It is important to design the data model and further important to maintain. Here
 
 Hackolade is a data modeling and schema design tool for NoSQL databases. It has a data modeling Studio, which helps in management of schemas for data-at-rest and data-in-motion.
 
-### How it works?
+### How it works
 This tool provides the data modeling of vertices / edges and their respective properties.  It supports several use cases, some of them are:
 -	Start from a blank page and think through different options to graphically build your Cosmos DB Gremlin model.  Then forward-engineer the model to your Azure instance to evaluate the result and continue the evolution.  All such goodies without writing single line of code.
 -	Reverse-engineer an existing graph on Azure to clearly understand its structure, so you could effectively query your graph too.  Then enrich the data model with descriptions, metadata, and constraints to produce documentation. It supports HTML, Markdown or PDF format, and feeds to corporate data governance or dictionary systems.
@@ -43,9 +43,8 @@ Sample DDL for source as SQL Server available at [here](https://github.com/Azure
 
 After modification of data model, the tool can generate the gremlin script, which may include custom Cosmos DB index script to ensure optimal indexes are created, refer Figure-2 for full flow.
 
-
+The following image demonstrates reverse engineering from RDBMS & Hackolade in action:
 :::image type="content" source="./media/graph-modeling-tools/cosmos-db-gremlin-hackolade.gif" alt-text="Hackolade in action":::
-**Figure-2:** Hackolade in action (demonstrating reverse engineering from RDBMS)
 
 ### Useful links 
 -	[Download a 14-day free trial](https://hackolade.com/download.html)
@@ -53,5 +52,5 @@ After modification of data model, the tool can generate the gremlin script, whic
 -  [Get more data models](https://hackolade.com/samplemodels.html#cosmosdb).
 -  [Documentation of Hackolade](https://hackolade.com/help/CosmosDBGremlin.html)
 
-## Next Steps
+## Next steps
 - [Visualizing the data](/graph-visualization)

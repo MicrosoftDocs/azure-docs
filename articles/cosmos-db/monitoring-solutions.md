@@ -1,5 +1,5 @@
 ---
-title: Monitoring Cosmos DB using third-party tools
+title: Monitoring Azure Cosmos DB using third-party monitoring tools
 description: This article will describe monitoring third-party tools helps monitoring Cosmos DB.
 author: manishmsfte
 ms.author: mansha
@@ -34,7 +34,6 @@ Datadog is being used by various Cosmos DB customers, which include
 
 
 :::image type="content" source="./media/monitor-solutions/datadog-demo.gif" alt-text="Datadog demo" border="false":::
-**Figure:** Datadog in action
 
 Useful links:
 - [Pricing details](https://www.datadoghq.com/pricing/)
@@ -60,5 +59,5 @@ Using the Mongo API, Dynatrace collects and delivers CosmosDB metrics, which inc
 - [Dynatrace for Azure solution overview](https://www.dynatrace.com/technologies/azure-monitoring/)
 - [Solution Partners](https://www.dynatrace.com/partners/solution-partners/)
 
-## Next Steps
+## Next steps
 - [Monitoring Cosmos DB data reference](./monitor-cosmos-db-reference.md)
