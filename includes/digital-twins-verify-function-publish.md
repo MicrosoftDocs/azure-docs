@@ -9,7 +9,7 @@ ms.author: baanders
 
 ### Verify the publication of your function
 
-Once the function publish is complete, you can use these steps to verify that the publish was successful.
+Once the process of publishing the function completes, you can use these steps to verify that the publish was successful.
  
 1. Navigate to the [Azure portal](https://portal.azure.com/) and sign in with your credentials.
 2. In the search box at the top of the window, search for your function app name and then select it.

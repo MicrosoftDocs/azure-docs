@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 A fully-connected Azure Digital Twins graph is driven by event propagation. Data arrives into Azure Digital Twins from external sources like IoT Hub, and then is propagated through the Azure Digital Twins graph, updating relevant twins as appropriate.
 
-For example, consider a graph representing Floors and Rooms in a building, where each Floor contains multiple Rooms. You may want to set up a twin-to-twin data flow such that every time the temperature on a Room twin is updated, a new average temperature is calculated for all the Rooms on the same Floor, and the temperature of the Floor twin is updated to reflect the new average temperature across all the Rooms it contains (including the one that was updated). 
+For example, consider a graph representing Floors and Rooms in a building, where each Floor contains multiple Rooms. You may want to set up a twin-to-twin data flow such that every time the temperature property on a Room twin is updated, a new average temperature is calculated for all the Rooms on the same Floor, and the temperature property of the Floor twin is updated to reflect the new average temperature across all the Rooms it contains (including the one that was updated). 
 
 In this article, you'll see how to send events from twin to twin, allowing you to update twins in response to property changes or other data from another twin in the graph. Currently, twin-to-twin updates are handled by setting up an [Azure function](../azure-functions/functions-overview.md) that watches for twin life cycle events that should affect other areas of the graph, and makes changes to other twins accordingly.
 
