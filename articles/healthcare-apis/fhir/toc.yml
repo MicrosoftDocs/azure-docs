@@ -73,7 +73,7 @@ items:
     expanded: true
     items:
     - name: AAD for FHIR service
-      href: azure-ad-hcapi.md
+      href: azure-active-directory-identity-configuration.md
     - name: Access token validation
       href: azure-ad-hcapi-token-validation.md
     - name: Get access token using CLI
