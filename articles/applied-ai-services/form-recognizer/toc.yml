@@ -32,13 +32,13 @@
   - name: Transparency notes
     items:
     - name: Azure Form Recognizer scenarios
-      href: /legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/cognitive-services/form-recognizer/context/context
+      href: /legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/applied-ai-services/form-recognizer/context/context
     - name: Characteristics and limitations
-      href: /legal/cognitive-services/form-recognizer/fr-characteristics-and-limitations?context=/azure/cognitive-services/form-recognizer/context/context
+      href: /legal/cognitive-services/form-recognizer/fr-characteristics-and-limitations?context=/azure/applied-ai-services/form-recognizer/context/context
   - name: Integration and responsible use
-    href: /legal/cognitive-services/form-recognizer/fr-guidance-integration-responsible-use?context=/azure/cognitive-services/form-recognizer/context/context
+    href: /legal/cognitive-services/form-recognizer/fr-guidance-integration-responsible-use?context=/azure/applied-ai-services/form-recognizer/context/context
   - name: Data, privacy, and security
-    href: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/cognitive-services/form-recognizer/context/context
+    href: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
 - name: How-to guides
   items:
   - name: Train a custom model with the sample labeling tool
@@ -59,22 +59,22 @@
       displayName: docker, container, run, billing, apikey, logging
     - name: Use container instances
       maintainContext: true
-      href: ../containers/azure-container-instance-recipe.md
+      href: ../../cognitive-services/containers/azure-container-instance-recipe.md
     - name: All Cognitive Services containers documentation
-      href: ../containers/index.yml
+      href: ../../cognitive-services/containers/index.yml
       maintainContext: true
   - name: Back up and recover models
     href: disaster-recovery.md
   - name: Enterprise readiness
     items:
     - name: Set up Virtual Networks
-      href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/form-recognizer/context/context
+      href: ../../cognitive-services/cognitive-services-virtual-networks.md?context=/azure/applied-ai-services/form-recognizer/context/context
     - name: Create and use managed identity
       href: managed-identity-byos.md
     - name: Use customer-managed keys
       href: encrypt-data-at-rest.md
     - name: Use Azure AD authentication
-      href: ../authentication.md?context=/azure/cognitive-services/form-recognizer/context/context
+      href: ../../cognitive-services/authentication.md?context=/azure/applied-ai-services/form-recognizer/context/context
 - name: Concepts
   items:
   - name: Layout
@@ -95,17 +95,17 @@
     expanded: true 
     items:
     - name:  Custom form processing workflow
-      href: /ai-builder/create-form-processing-model?toc=/azure/cognitive-services/form-recognizer/toc.json&bc=/azure/cognitive-services/form-recognizer/breadcrumb/toc.json
+      href: /ai-builder/create-form-processing-model?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json
     - name: Business card processing workflow
-      href: /ai-builder/flow-business-card-reader?toc=/azure/cognitive-services/form-recognizer/toc.json&bc=/azure/cognitive-services/form-recognizer/breadcrumb/toc.json
+      href: /ai-builder/flow-business-card-reader?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json
     - name: Identity document processing workflow
-      href: /ai-builder/id-reader?toc=/azure/cognitive-services/form-recognizer/toc.json&bc=/azure/cognitive-services/form-recognizer/breadcrumb/toc.json
+      href: /ai-builder/id-reader?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/cognitive-services/applied-ai-services/breadcrumb/toc.json
     - name:  Invoice processing workflow
-      href: /ai-builder/flow-invoice-processing?toc=/azure/cognitive-services/form-recognizer/toc.json&bc=/azure/cognitive-services/form-recognizer/breadcrumb/toc.json
+      href: /ai-builder/flow-invoice-processing?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json
     - name: Receipt processing workflow
-      href: /ai-builder/flow-receipt-processing?toc=/azure/cognitive-services/form-recognizer/toc.json&bc=/azure/cognitive-services/form-recognizer/breadcrumb/toc.json 
+      href: /ai-builder/flow-receipt-processing?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json 
   - name: Use Azure Form Recognizer with Cognitive Search
-    href: ../../search/cognitive-search-custom-skill-form.md
+    href: ../../cognitive-services/search/cognitive-search-custom-skill-form.md
   - name: Use Azure Form Recognizer with Azure Functions
     href: tutorial-azure-function.md
 - name: Reference
@@ -143,6 +143,6 @@
     - name: Compliance and certification
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Support and help options
-    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
+    href: ../../cognitive-services/cognitive-services-support-options.md?context=/azure/applied-ai-services/form-recognizer/context/context
   - name: Privacy and cookies
     href: https://privacy.microsoft.com/en-US/privacystatement
