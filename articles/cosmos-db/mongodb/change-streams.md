@@ -13,7 +13,7 @@ ms.custom: devx-track-js, devx-track-csharp
 # Change streams in Azure Cosmos DB’s API for MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
-[Change feed](change-feed.md) support in Azure Cosmos DB’s API for MongoDB is available by using the change streams API. By using the change streams API, your applications can get the changes made to the collection or to the items in a single shard. Later you can take further actions based on the results. Changes to the items in the collection are captured in the order of their modification time and the sort order is guaranteed per shard key.
+[Change feed](../change-feed.md) support in Azure Cosmos DB’s API for MongoDB is available by using the change streams API. By using the change streams API, your applications can get the changes made to the collection or to the items in a single shard. Later you can take further actions based on the results. Changes to the items in the collection are captured in the order of their modification time and the sort order is guaranteed per shard key.
 
 > [!NOTE]
 > To use change streams, create the Azure Cosmos DB's API for MongoDB account with server version 3.6 or higher. If you run the change stream examples against an earlier version, you might see the *Unrecognized pipeline stage name: $changeStream* error.
@@ -128,7 +128,7 @@ var cursor = db.coll.watch(
 ```
 
 ## Scaling change streams
-When using change streams at scale, it is best to evenly spread the load. Utilize the [GetChangeStreamTokens custom command](mongodb/mongodb-custom-commands.md) to spread the load across physical shards/partitions.
+When using change streams at scale, it is best to evenly spread the load. Utilize the [GetChangeStreamTokens custom command](../mongodb/custom-commands.md) to spread the load across physical shards/partitions.
 
 ## Current limitations
 
@@ -139,7 +139,7 @@ The following limitations are applicable when using change streams:
 
 Due to these limitations, the $match stage, $project stage, and fullDocument options are required as shown in the previous examples.
 
-Unlike the change feed in Azure Cosmos DB's SQL API, there is not a separate [Change Feed Processor Library](change-feed-processor.md) to consume change streams or a need for a leases container. There is not currently support for [Azure Functions triggers](change-feed-functions.md) to process change streams.
+Unlike the change feed in Azure Cosmos DB's SQL API, there is not a separate [Change Feed Processor Library](../change-feed-processor.md) to consume change streams or a need for a leases container. There is not currently support for [Azure Functions triggers](../change-feed-functions.md) to process change streams.
 
 ## Error handling
 

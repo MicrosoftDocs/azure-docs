@@ -33,11 +33,11 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 In this tutorial section, you can either use the Azure Cloud Shell (in your internet browser) or [the Azure CLI](/cli/azure/install-azure-cli) installed locally.
 
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Log in to Azure](../../includes/login-to-azure.md)]
+[!INCLUDE [Log in to Azure](../../../includes/login-to-azure.md)]
 
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)]
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)]
 
 > [!TIP]
 > This tutorial walks you through the steps to build the application step-by-step. If you want to download the finished project, you can get the completed application from the [angular-cosmosdb repo](https://github.com/Azure-Samples/angular-cosmosdb) on GitHub.
@@ -62,7 +62,7 @@ Once the Azure Cosmos DB account has been created:
 
     :::image type="content" source="./media/tutorial-develop-nodejs-part4/azure-cosmos-db-angular-portal.png" alt-text="Screenshot shows the Overview of an Azure Cosmos D B Account.":::
 
-4. Scroll down on the left navigation and click the **Replicate data globally** tab, this displays a map where you can see the different areas you can replicate into. For example, you can click Australia Southeast or Australia East and replicate your data to Australia. You can learn more about global replication in [How to distribute data globally with Azure Cosmos DB](distribute-data-globally.md). For now, let's just keep the once instance and when we want to replicate, we know how.
+4. Scroll down on the left navigation and click the **Replicate data globally** tab, this displays a map where you can see the different areas you can replicate into. For example, you can click Australia Southeast or Australia East and replicate your data to Australia. You can learn more about global replication in [How to distribute data globally with Azure Cosmos DB](../distribute-data-globally.md). For now, let's just keep the once instance and when we want to replicate, we know how.
 
     :::image type="content" source="./media/tutorial-develop-nodejs-part4/azure-cosmos-db-replicate-portal.png" alt-text="Screenshot shows an Azure Cosmos D B Account with Replicate data globally selected.":::
 

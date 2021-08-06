@@ -19,21 +19,21 @@ Cosmos DB is Microsoft's globally distributed multi-model database service. You 
 
 ## Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cosmos-db-emulator-docdb-api](includes/cosmos-db-emulator-docdb-api.md)]
+[!INCLUDE [cosmos-db-emulator-docdb-api](../includes/cosmos-db-emulator-docdb-api.md)]
 
 [Node.js](https://nodejs.org/) version v0.10.29 or higher.
 
 ## Create a Cosmos account
 
-Let's create a Cosmos account. If you already have an account you want to use, you can skip ahead to Set up your Node.js application. If you are using the Azure Cosmos DB Emulator, follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to set up the emulator and skip ahead to Set up your Node.js application.
+Let's create a Cosmos account. If you already have an account you want to use, you can skip ahead to Set up your Node.js application. If you are using the Azure Cosmos DB Emulator, follow the steps at [Azure Cosmos DB Emulator](../local-emulator.md) to set up the emulator and skip ahead to Set up your Node.js application.
 
-[!INCLUDE [cosmos-db-create-dbaccount-mongodb](includes/cosmos-db-create-dbaccount-mongodb.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-mongodb](../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
 ### Create a database 
 In this application we will cover two ways of creating collections in Azure Cosmos DB: 
-- **Storing each object model in a separate collection**: We recommend [creating a database with dedicated throughput](set-throughput.md#set-throughput-on-a-database). Using this capacity model will give you better cost efficiency.
+- **Storing each object model in a separate collection**: We recommend [creating a database with dedicated throughput](../set-throughput.md#set-throughput-on-a-database). Using this capacity model will give you better cost efficiency.
 
     :::image type="content" source="./media/connect-using-mongoose/db-level-throughput.png" alt-text="Node.js tutorial - Screenshot of the Azure portal, showing how to create a database in the Data Explorer for an Azure Cosmos DB account, for use with the Mongoose Node module":::
 
@@ -104,7 +104,7 @@ After you create the database, you'll use the name in the `COSMOSDB_DBNAME` envi
 
 ## Best practices for using Mongoose with Cosmos DB
 
-For every model you create, Mongoose creates a new collection. This is best addressed using the [Database Level Throughput option](set-throughput.md#set-throughput-on-a-database), which was previously discussed. To use  a single collection, you need to use Mongoose [Discriminators](https://mongoosejs.com/docs/discriminators.html). Discriminators are a schema inheritance mechanism. They enable you to have multiple models with overlapping schemas on top of the same underlying MongoDB collection.
+For every model you create, Mongoose creates a new collection. This is best addressed using the [Database Level Throughput option](../set-throughput.md#set-throughput-on-a-database), which was previously discussed. To use  a single collection, you need to use Mongoose [Discriminators](https://mongoosejs.com/docs/discriminators.html). Discriminators are a schema inheritance mechanism. They enable you to have multiple models with overlapping schemas on top of the same underlying MongoDB collection.
 
 You can store the various data models in the same collection and then use a filter clause at query time to pull down only the data needed. Let's walk through each of the models.
 
@@ -313,7 +313,7 @@ As you can see, it is easy to work with Mongoose discriminators. So, if you have
 
 ## Clean up resources
 
-[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](../includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 

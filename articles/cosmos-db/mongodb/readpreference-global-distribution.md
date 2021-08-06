@@ -17,7 +17,7 @@ This article shows how to globally distribute read operations with [MongoDB Read
 
 ## Prerequisites 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
-[!INCLUDE [cosmos-db-emulator-mongodb](includes/cosmos-db-emulator-mongodb.md)]
+[!INCLUDE [cosmos-db-emulator-mongodb](../includes/cosmos-db-emulator-mongodb.md)]
 
 Refer to this [Quickstart](tutorial-global-distribution-mongodb.md) article for instructions on using the Azure portal to set up a Cosmos account with global distribution and then connect to it.
 
@@ -166,6 +166,6 @@ If you're not going to continue to use this app, delete all resources created by
 
 ## Next steps
 
-* [Import MongoDB data into Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)
+* [Import MongoDB data into Azure Cosmos DB](../../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)
 * [Setup a globally distributed database with Azure Cosmos DB's API for MongoDB](tutorial-global-distribution-mongodb.md)
-* [Develop locally with the Azure Cosmos DB emulator](local-emulator.md)
+* [Develop locally with the Azure Cosmos DB emulator](../local-emulator.md)

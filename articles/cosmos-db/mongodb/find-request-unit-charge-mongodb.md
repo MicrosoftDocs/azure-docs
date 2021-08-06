@@ -15,9 +15,9 @@ ms.custom: devx-track-js
 
 Azure Cosmos DB supports many APIs, such as SQL, MongoDB, Cassandra, Gremlin, and Table. Each API has its own set of database operations. These operations range from simple point reads and writes to complex queries. Each database operation consumes system resources based on the complexity of the operation.
 
-The cost of all database operations is normalized by Azure Cosmos DB and is expressed by Request Units (or RUs, for short). Request charge is the request units consumed by all your database operations. You can think of RUs as a performance currency abstracting the system resources such as CPU, IOPS, and memory that are required to perform the database operations supported by Azure Cosmos DB. No matter which API you use to interact with your Azure Cosmos container, costs are always measured by RUs. Whether the database operation is a write, point read, or query, costs are always measured in RUs. To learn more, see the [request units and it's considerations](request-units.md) article.
+The cost of all database operations is normalized by Azure Cosmos DB and is expressed by Request Units (or RUs, for short). Request charge is the request units consumed by all your database operations. You can think of RUs as a performance currency abstracting the system resources such as CPU, IOPS, and memory that are required to perform the database operations supported by Azure Cosmos DB. No matter which API you use to interact with your Azure Cosmos container, costs are always measured by RUs. Whether the database operation is a write, point read, or query, costs are always measured in RUs. To learn more, see the [request units and it's considerations](../request-units.md) article.
 
-This article presents the different ways you can find the [request unit](request-units.md) (RU) consumption for any operation executed against a container in Azure Cosmos DB API for MongoDB. If you are using a different API, see [SQL API](find-request-unit-charge.md), [Cassandra API](cassandra/find-request-unit-charge-cassandra.md), [Gremlin API](find-request-unit-charge-gremlin.md), and [Table API](table/find-request-unit-charge.md) articles to find the RU/s charge.
+This article presents the different ways you can find the [request unit](../request-units.md) (RU) consumption for any operation executed against a container in Azure Cosmos DB API for MongoDB. If you are using a different API, see [SQL API](../find-request-unit-charge.md), [Cassandra API](../cassandra/find-request-unit-charge-cassandra.md), [Gremlin API](../find-request-unit-charge-gremlin.md), and [Table API](../table/find-request-unit-charge.md) articles to find the RU/s charge.
 
 The RU charge is exposed by a custom [database command](https://docs.mongodb.com/manual/reference/command/) named `getLastRequestStatistics`. The command returns a document that contains the name of the last operation executed, its request charge, and its duration. If you use the Azure Cosmos DB API for MongoDB, you have multiple options for retrieving the RU charge.
 
@@ -35,7 +35,7 @@ The RU charge is exposed by a custom [database command](https://docs.mongodb.com
 
 1. Select **Query Stats** to display the actual request charge for the request you executed. This query editor allows you to run and view request unit charges for only query predicates. You can't use this editor for data manipulation commands such as insert statements.
 
-   :::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Screenshot of a MongoDB query request charge in the Azure portal":::
+   :::image type="content" source="../media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Screenshot of a MongoDB query request charge in the Azure portal":::
 
 1. To get request charges for data manipulation commands, run the `getLastRequestStatistics` command from a shell based UI such as Mongo shell, [Robo 3T](connect-using-robomongo.md), [MongoDB Compass](connect-using-compass.md), or a VS Code extension with shell scripting.
 
@@ -89,6 +89,6 @@ For more information, see [Quickstart: Migrate an existing MongoDB Node.js web a
 
 To learn about optimizing your RU consumption, see these articles:
 
-* [Request units and throughput in Azure Cosmos DB](request-units.md)
-* [Optimize provisioned throughput cost in Azure Cosmos DB](optimize-cost-throughput.md)
-* [Optimize query cost in Azure Cosmos DB](./optimize-cost-reads-writes.md)
+* [Request units and throughput in Azure Cosmos DB](../request-units.md)
+* [Optimize provisioned throughput cost in Azure Cosmos DB](../optimize-cost-throughput.md)
+* [Optimize query cost in Azure Cosmos DB](../optimize-cost-reads-writes.md)

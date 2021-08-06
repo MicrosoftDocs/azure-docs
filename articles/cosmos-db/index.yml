@@ -99,9 +99,9 @@ landingContent:
           - text: Wire protocol compatibility with MongoDB
             url: mongodb/feature-support-40.md    
           - text: MongoDB extension commands
-            url: mongodb/mongodb/mongodb-custom-commands.md
+            url: mongodb/custom-commands.md
           - text: Change streams
-            url: mongodb/mongodb/change-streams.md                       
+            url: mongodb/change-streams.md                       
       - linkListType: tutorial
         links:
           - text: Query data with MongoDB shell

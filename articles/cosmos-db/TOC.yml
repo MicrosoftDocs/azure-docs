@@ -1104,7 +1104,7 @@
             - name: Node.js and Angular app
               items:
                 - name: Part 1 - Introduction
-                  href: mongodb/tutorial-develop-nodejs.md
+                  href: mongodb/tutorial-develop-nodejs-part1.md
                 - name: Part 2 - Create Node app
                   href: mongodb/tutorial-develop-nodejs-part2.md
                 - name: Part 3 - Add UI with Angular
@@ -1130,9 +1130,9 @@
         - name: API version 3.2
           href: mongodb/feature-support-32.md
         - name: FAQ
-          href: mongodb/mongodb-api-faq.yml
+          href: mongodb/mongodb-faq.yml
         - name: Mapping consistency levels
-          href: mongodb/mongodb-consistency.md
+          href: mongodb/consistency-mapping.md
     - name: How-to guides
       items:
         - name: Migrate to MongoDB API
@@ -1142,9 +1142,9 @@
             - name: MongoDB native tools (offline)
               href: mongodb/tutorial-mongotools-cosmos-db.md                            
             - name: Database Migration Service (online)
-              href: ../../dms/tutorial-mongodb-cosmos-db-online.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+              href: ../../../dms/tutorial-mongodb-cosmos-db-online.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Database Migration Service (offline)
-              href: ../../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+              href: ../../../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Azure Databricks and Spark (offline)
               href: mongodb/migrate-databricks.md 
             - name: Post-migration guide
@@ -1174,7 +1174,7 @@
           href: mongodb/use-multi-document-transactions.md
         - name: Estimate RU/s with capacity planner
           displayName: request units, RUs, RU, capacity
-          href: mongodb/mongodb/estimate-ru-capacity-planner.md
+          href: mongodb/estimate-ru-capacity-planner.md
         - name: Optimize write performance
           href: mongodb/optimize-write-performance.md
         - name: Create a container - MongoDB API
@@ -1196,7 +1196,7 @@
         - name: Store and manage Spring Data
           href: /azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: MongoDB extension commands
-          href: mongodb/mongodb-custom-commands.md
+          href: mongodb/custom-commands.md
           displayName: custom commands
         - name: Manage using Resource Manager templates
           href: mongodb/resource-manager-template-samples.md

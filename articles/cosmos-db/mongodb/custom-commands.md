@@ -11,9 +11,9 @@ ms.custom: devx-track-js
 ---
 
 # Use MongoDB extension commands to manage data stored in Azure Cosmos DB’s API for MongoDB 
-[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
+[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
-The following document contains the custom action commands that are specific to Azure Cosmos DB's API for MongoDB. These commands can be used to create and obtain database resources that are specific to the [Azure Cosmos DB capacity model](account-databases-containers-items.md).
+The following document contains the custom action commands that are specific to Azure Cosmos DB's API for MongoDB. These commands can be used to create and obtain database resources that are specific to the [Azure Cosmos DB capacity model](../account-databases-containers-items.md).
 
 By using the Azure Cosmos DB’s API for MongoDB, you can enjoy the benefits Cosmos DB such as global distribution, automatic sharding, high availability, latency guarantees, automatic, encryption at rest, backups, and many more, while preserving your investments in your MongoDB app. You can communicate with the Azure Cosmos DB’s API for MongoDB by using any of the open-source [MongoDB client drivers](https://docs.mongodb.org/ecosystem/drivers). The Azure Cosmos DB’s API for MongoDB enables the use of existing client drivers by adhering to the [MongoDB wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
@@ -38,7 +38,7 @@ The create database extension command creates a new MongoDB database. The databa
 |---------|---------|---------|
 | `customAction`   |  `string`  |   Name of the custom command, it must be "CreateDatabase".      |
 | `offerThroughput` | `int`  | Provisioned throughput that you set on the database. This parameter is optional. |
-| `autoScaleSettings` | `Object` | Required for [Autoscale mode](provision-throughput-autoscale.md). This object contains the settings associated with the Autoscale capacity mode. You can set up the `maxThroughput` value, which describes the highest amount of Request Units that the collection will be increased to dynamically. |
+| `autoScaleSettings` | `Object` | Required for [Autoscale mode](../provision-throughput-autoscale.md). This object contains the settings associated with the Autoscale capacity mode. You can set up the `maxThroughput` value, which describes the highest amount of Request Units that the collection will be increased to dynamically. |
 
 ### Output
 
@@ -65,18 +65,18 @@ This command will create a database without database-level throughput. This mean
 
 #### Create a database with throughput
 
-To create a database named `"test"` and to specify a [database-level](set-throughput.md#set-throughput-on-a-database) provisioned throughput of 1000 RUs, use the following command:
+To create a database named `"test"` and to specify a [database-level](../set-throughput.md#set-throughput-on-a-database) provisioned throughput of 1000 RUs, use the following command:
 
 ```javascript
 use test
 db.runCommand({customAction: "CreateDatabase", offerThroughput: 1000 });
 ```
 
-This will create a database and set a throughput to it. All collections within this database will share the set throughput, unless the collections are created with [a specific throughput level](set-throughput.md#set-throughput-on-a-database-and-a-container).
+This will create a database and set a throughput to it. All collections within this database will share the set throughput, unless the collections are created with [a specific throughput level](../set-throughput.md#set-throughput-on-a-database-and-a-container).
 
 #### Create a database with Autoscale throughput
 
-To create a database named `"test"` and to specify an Autoscale max throughput of 20,000 RU/s at [database-level](set-throughput.md#set-throughput-on-a-database), use the following command:
+To create a database named `"test"` and to specify an Autoscale max throughput of 20,000 RU/s at [database-level](../set-throughput.md#set-throughput-on-a-database), use the following command:
 
 ```javascript
 use test
@@ -90,8 +90,8 @@ The update database extension command updates the properties associated with the
 |**Field**|**Type** |**Description** |
 |---------|---------|---------|
 | `customAction`    |    `string`     |   Name of the custom command. Must be "UpdateDatabase".      |
-|  `offerThroughput`   |  `int`       |     New provisioned throughput that you want to set on the database if the database uses [database-level throughput](set-throughput.md#set-throughput-on-a-database)  |
-| `autoScaleSettings` | `Object` | Required for [Autoscale mode](provision-throughput-autoscale.md). This object contains the settings associated with the Autoscale capacity mode. You can set up the `maxThroughput` value, which describes the highest amount of Request Units that the database will be increased to dynamically. |
+|  `offerThroughput`   |  `int`       |     New provisioned throughput that you want to set on the database if the database uses [database-level throughput](../set-throughput.md#set-throughput-on-a-database)  |
+| `autoScaleSettings` | `Object` | Required for [Autoscale mode](../provision-throughput-autoscale.md). This object contains the settings associated with the Autoscale capacity mode. You can set up the `maxThroughput` value, which describes the highest amount of Request Units that the database will be increased to dynamically. |
 
 This command uses the database specified in the context of the session. This is the database you used in the `use <database>` command. At the moment, the database name can not be changed using this command.
 
@@ -118,7 +118,7 @@ db.runCommand({customAction: "UpdateDatabase", offerThroughput: 1200 });
 
 #### Update the Autoscale throughput associated with a database
 
-To update the provisioned throughput of a database with name `"test"` to 20,000 RUs, or to transform it to an [Autoscale throughput level](provision-throughput-autoscale.md), use the following command:
+To update the provisioned throughput of a database with name `"test"` to 20,000 RUs, or to transform it to an [Autoscale throughput level](../provision-throughput-autoscale.md), use the following command:
 
 ```javascript
 use test
@@ -151,8 +151,8 @@ If the command succeeds, the response contains a document with the following fie
 |---------|---------|---------|
 |  `ok`   |   `int`     |   Status of response. 1 == success. 0 == failure.      |
 | `database`    |    `string`	     |   Name of the database.      |
-|   `provisionedThroughput`  |    `int`	     |    Provisioned throughput that is set on the database if the database is using  [manual database-level throughput](set-throughput.md#set-throughput-on-a-database)     |
-| `autoScaleSettings` | `Object` | This object contains the capacity parameters associated with the database if it is using the [Autoscale mode](provision-throughput-autoscale.md). The `maxThroughput` value describes the highest amount of Request Units that the database will be increased to dynamically. |
+|   `provisionedThroughput`  |    `int`	     |    Provisioned throughput that is set on the database if the database is using  [manual database-level throughput](../set-throughput.md#set-throughput-on-a-database)     |
+| `autoScaleSettings` | `Object` | This object contains the capacity parameters associated with the database if it is using the [Autoscale mode](../provision-throughput-autoscale.md). The `maxThroughput` value describes the highest amount of Request Units that the database will be increased to dynamically. |
 
 If the command fails, a default custom command response is returned. See the [default output](#default-output) of custom command for the parameters in the output.
 
@@ -173,13 +173,13 @@ If the database has no associated throughput, the output would be:
 { "database" : "test", "ok" : 1 }
 ```
 
-If the database has a [database-level manual throughput](set-throughput.md#set-throughput-on-a-database) associated with it, the output would show the `provisionedThroughput` values:
+If the database has a [database-level manual throughput](../set-throughput.md#set-throughput-on-a-database) associated with it, the output would show the `provisionedThroughput` values:
 
 ```javascript
 { "database" : "test", "provisionedThroughput" : 20000, "ok" : 1 }
 ```
 
-If the database has a [database-level Autoscale throughput](provision-throughput-autoscale.md) associated with it, the output would show the `provisionedThroughput`, which describes the minimum RU/s for the database, and the `autoScaleSettings` object including the `maxThroughput`, which describes the maximum RU/s for the database.
+If the database has a [database-level Autoscale throughput](../provision-throughput-autoscale.md) associated with it, the output would show the `provisionedThroughput`, which describes the minimum RU/s for the database, and the `autoScaleSettings` object including the `maxThroughput`, which describes the maximum RU/s for the database.
 
 ```javascript
 {
@@ -215,7 +215,7 @@ The following table describes the parameters within the command:
 | `collection` | `string` | Required | Name of the collection. No special characters or spaces are allowed.|
 | `offerThroughput` | `int` | Optional | Provisioned throughput to set on the database. If this parameter is not provided, it will default to the minimum, 400 RU/s. * To specify throughput beyond 10,000 RU/s, the `shardKey` parameter is required.|
 | `shardKey` | `string` | Required for collections with large throughput | The path to the Shard Key for the sharded collection. This parameter is required if you set more than 10,000 RU/s in `offerThroughput`.  If it is specified, all documents inserted will require this key and value. |
-| `autoScaleSettings` | `Object` | Required for [Autoscale mode](provision-throughput-autoscale.md) | This object contains the settings associated with the Autoscale capacity mode. You can set up the `maxThroughput` value, which describes the highest amount of Request Units that the collection will be increased to dynamically. |
+| `autoScaleSettings` | `Object` | Required for [Autoscale mode](../provision-throughput-autoscale.md) | This object contains the settings associated with the Autoscale capacity mode. You can set up the `maxThroughput` value, which describes the highest amount of Request Units that the collection will be increased to dynamically. |
 | `indexes` | `Array` | Optionally configure indexes. This parameter is supported for 3.6+ accounts only. | When present, an index on _id is required. Each entry in the array must include a key of one or more fields, a name, and may contain index options. For example, to create a compound unique index on the fields a and b use this entry: `{key: {a: 1, b: 1}, name:"a_1_b_1", unique: true}`.
 
 ### Output
@@ -264,7 +264,7 @@ This command now requires the `shardKey` parameter, since more than 10,000 RU/s 
 
 #### Create an unsharded Autoscale collection
 
-To create an unsharded collection named `'testCollection'` that uses [Autoscale throughput capacity](provision-throughput-autoscale.md) set to 4,000 RU/s, use the following command:
+To create an unsharded collection named `'testCollection'` that uses [Autoscale throughput capacity](../provision-throughput-autoscale.md) set to 4,000 RU/s, use the following command:
 
 ```javascript
 use test
@@ -280,7 +280,7 @@ For the `autoScaleSettings.maxThroughput` value you can specify a range from 4,0
 
 #### Create a sharded Autoscale collection
 
-To create a sharded collection named `'testCollection'` with a shard key called `'a.b'`, and that uses [Autoscale throughput capacity](provision-throughput-autoscale.md) set to 20,000 RU/s, use the following command:
+To create a sharded collection named `'testCollection'` with a shard key called `'a.b'`, and that uses [Autoscale throughput capacity](../provision-throughput-autoscale.md) set to 20,000 RU/s, use the following command:
 
 ```javascript
 use test
@@ -308,7 +308,7 @@ The following table describes the parameters within the command:
 |  `customAction`   |   `string`      |   Name of the custom command. Must be "UpdateCollection".      |
 |  `collection`   |   `string`      |  	Name of the collection.       |
 | `offerThroughput`	| `int` |	Provisioned throughput to set on the collection.|
-| `autoScaleSettings` | `Object` | Required for [Autoscale mode](provision-throughput-autoscale.md). This object contains the settings associated with the Autoscale capacity mode. The `maxThroughput` value describes the highest amount of Request Units that the collection will be increased to dynamically. |
+| `autoScaleSettings` | `Object` | Required for [Autoscale mode](../provision-throughput-autoscale.md). This object contains the settings associated with the Autoscale capacity mode. The `maxThroughput` value describes the highest amount of Request Units that the collection will be increased to dynamically. |
 | `indexes` | `Array` | Optionally configure indexes. This parameter is supported for 3.6+ accounts only. When present, the existing indexes of the collection are replaced by the set of indexes specified (including dropping indexes). An index on _id is required. Each entry in the array must include a key of one or more fields, a name, and may contain index options. For example, to create a compound unique index on the fields a and b use this entry: `{key: {a: 1, b: 1}, name: "a_1_b_1", unique: true}`.
 
 ## Output
@@ -357,7 +357,7 @@ If the command succeeds, the response contains a document with the following fie
 | `collection`    |    `string`     |    Name of the collection.     |
 |  `shardKeyDefinition`   |   `document`      |  Index specification document used as a shard key. This is an optional response parameter.       |
 |  `provisionedThroughput`   |   `int`      |    Provisioned Throughput to set on the collection. This is an optional response parameter.     |
-| `autoScaleSettings` | `Object` | This object contains the capacity parameters associated with the database if it is using the [Autoscale mode](provision-throughput-autoscale.md). The `maxThroughput` value describes the highest amount of Request Units that the collection will be increased to dynamically. |
+| `autoScaleSettings` | `Object` | This object contains the capacity parameters associated with the database if it is using the [Autoscale mode](../provision-throughput-autoscale.md). The `maxThroughput` value describes the highest amount of Request Units that the collection will be increased to dynamically. |
 
 If the command fails, a default custom command response is returned. See the [default output](#default-output) of custom command for the parameters in the output.
 
@@ -397,7 +397,7 @@ If the collection has an associated Autoscale throughput, it will include the `a
 }
 ```
 
-If the collection is sharing [database-level throughput](set-throughput.md#set-throughput-on-a-database), either on Autoscale mode or manual, the output would be:
+If the collection is sharing [database-level throughput](../set-throughput.md#set-throughput-on-a-database), either on Autoscale mode or manual, the output would be:
 
 ```javascript
 { "database" : "test", "collection" : "testCollection", "ok" : 1 }
@@ -415,7 +415,7 @@ If the collection is sharing [database-level throughput](set-throughput.md#set-t
 ```
 
 ## <a id="parallel-change-stream"></a> Parallelizing change streams 
-When using [change streams](../cosmos-db/mongodb-change-streams.md) at scale, it is best to evenly spread the load. The following command will return one or more change stream resume tokens - each one corresponding to data from a single physical shard/partition (multiple logical shards/partitions can exist on one physical partition). Each resume token will cause watch() to only return data from that physical shard/partition.
+When using [change streams](change-streams.md) at scale, it is best to evenly spread the load. The following command will return one or more change stream resume tokens - each one corresponding to data from a single physical shard/partition (multiple logical shards/partitions can exist on one physical partition). Each resume token will cause watch() to only return data from that physical shard/partition.
 
 Calling db.collection.watch() on each resume token (one thread per token), will scale change streams efficiently.
 
@@ -473,5 +473,5 @@ For example:
 
 Next you can proceed to learn the following Azure Cosmos DB concepts: 
 
-* [Indexing in Azure Cosmos DB](../cosmos-db/index-policy.md)
-* [Expire data in Azure Cosmos DB automatically with time to live](../cosmos-db/time-to-live.md)
+* [Indexing in Azure Cosmos DB](../index-policy.md)
+* [Expire data in Azure Cosmos DB automatically with time to live](../time-to-live.md)

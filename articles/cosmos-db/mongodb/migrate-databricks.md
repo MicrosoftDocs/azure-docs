@@ -13,7 +13,7 @@ ms.date: 06/29/2021
 
 This migration guide is part of series on migrating databases from MongoDB to Azure CosmosDB API for MongoDB. The critical migration steps are [pre-migration](pre-migration-steps.md), migration, and [post-migration](post-migration-optimization.md), as shown below.
 
-:::image type="content" source="./media/mongodb-pre-migration/overall-migration-steps.png" alt-text="Diagram of migration steps":::
+:::image type="content" source="../media/mongodb-pre-migration/overall-migration-steps.png" alt-text="Diagram of migration steps":::
 
 
 ## Data migration using Azure Databricks
@@ -133,7 +133,7 @@ The migration performance can be adjusted through these configurations:
 
 - **Number of workers and cores in the Spark cluster**: More workers mean more compute nodes to execute tasks.
 
-- **maxBatchSize**: The `maxBatchSize` value controls the rate at which data is saved to the target Azure Cosmos DB collection. However, if the maxBatchSize is too high for the collection throughput, it can cause [rate limiting](prevent-rate-limiting-errors.md) errors.
+- **maxBatchSize**: The `maxBatchSize` value controls the rate at which data is saved to the target Azure Cosmos DB collection. However, if the maxBatchSize is too high for the collection throughput, it can cause [rate limiting](../prevent-rate-limiting-errors.md) errors.
 
   You would need to adjust the number of workers and maxBatchSize, depending on the number of executors in the Spark cluster, potentially the size (and that's why RU cost) of each document being written, and the target collection throughput limits.
 
@@ -153,7 +153,7 @@ The migration performance can be adjusted through these configurations:
 You might see a 50 error code for operations against the Cosmos DB API for MongoDB database. The following scenarios can cause timeout errors:
 
 - **Throughput allocated to the database is low**: Ensure that the target collection has sufficient throughput assigned to it.
-- **Excessive data skew with large data volume**. If you have a large amount of data to migrate into a given table but have a significant skew in the data, you might still experience rate limiting even if you have several [request units](request-units.md) provisioned in your table. Request units are divided equally among physical partitions, and heavy data skew can cause a bottleneck of requests to a single shard. Data skew means large number of records for the same shard key value.
+- **Excessive data skew with large data volume**. If you have a large amount of data to migrate into a given table but have a significant skew in the data, you might still experience rate limiting even if you have several [request units](../request-units.md) provisioned in your table. Request units are divided equally among physical partitions, and heavy data skew can cause a bottleneck of requests to a single shard. Data skew means large number of records for the same shard key value.
 
 ### Rate limiting (Error code 16500)
 

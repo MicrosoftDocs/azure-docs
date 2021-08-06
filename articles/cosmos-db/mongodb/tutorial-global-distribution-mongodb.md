@@ -22,7 +22,7 @@ This article covers the following tasks:
 > * Configure global distribution using the Azure portal
 > * Configure global distribution using the [Azure Cosmos DB's API for MongoDB](mongodb-introduction.md)
 
-[!INCLUDE [cosmos-db-tutorial-global-distribution-portal](includes/cosmos-db-tutorial-global-distribution-portal.md)]
+[!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 ## Verifying your regional setup 
 A simple way to check your global configuration with Cosmos DB's API for MongoDB is to run the *isMaster()* command from the Mongo Shell.
@@ -83,7 +83,7 @@ var tag = new Tag("region", "Southeast Asia");
 collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Secondary, new[] { new TagSet(new[] { tag }) }));
 ```
 
-That's it, that completes this tutorial. You can learn how to manage the consistency of your globally replicated account by reading [Consistency levels in Azure Cosmos DB](consistency-levels.md). And for more information about how global database replication works in Azure Cosmos DB, see [Distribute data globally with Azure Cosmos DB](distribute-data-globally.md).
+That's it, that completes this tutorial. You can learn how to manage the consistency of your globally replicated account by reading [Consistency levels in Azure Cosmos DB](../consistency-levels.md). And for more information about how global database replication works in Azure Cosmos DB, see [Distribute data globally with Azure Cosmos DB](../distribute-data-globally.md).
 
 ## Next steps
 
@@ -96,4 +96,4 @@ In this tutorial, you've done the following:
 You can now proceed to the next tutorial to learn how to develop locally using the Azure Cosmos DB local emulator.
 
 > [!div class="nextstepaction"]
-> [Develop locally with the Azure Cosmos DB emulator](local-emulator.md)
+> [Develop locally with the Azure Cosmos DB emulator](../local-emulator.md)
