@@ -10,17 +10,20 @@ ms.custom: generated
 This page is an index of Azure Policy built-in packages for the guest
 configuration feature.
 
-## Guest configuration package details
+## How to use Guest configuration package details
 
-Each row represents a package used by a built-in policy definition. The text in
-the **Definition** column links to the policy definition in the Azure portal.
-The **Configuration** column links to the `.mof` file in the
-[Azure Policy GitHub repo](https://github.com/Azure/azure-policy)
-containing the configuration that is used to audit and/or remediate
-machines. Finally, the **Required modules** column links to sample
-[PowerShell Desired State Configuration (DSC)](/powershell/scripting/dsc/overview/overview)
-modules used by each configuration. The resource modules contain the script
-logic used to evaluate each setting in the configuration.
+Each row represents a package used by a built-in policy definition.
+
+- **Definition**: Links to the policy definition in the Azure portal.
+- **Configuration**: Links to the `.mof` file in the [Azure Policy GitHub repo](https://github.com/Azure/azure-policy)
+  containing the configuration that is used to audit and/or remediate machines.
+- **Required modules**: Links to the [PowerShell Desired State Configuration (DSC)](/powershell/scripting/dsc/overview/overview)
+  modules used by each configuration. The resource modules contain the script logic
+  used to evaluate each setting in the configuration.
+  
+To understand what settings are checked in Windows or Linux, and how, find
+the name of the policy definiition in the left column and navigate to the
+DSC Resource in the right column to review the PowerShell scripts.
 
 The table doesn't include details of packages used to evaluate baseline
 configurations. Baselines are written in C++ rather than PowerShell Desired
