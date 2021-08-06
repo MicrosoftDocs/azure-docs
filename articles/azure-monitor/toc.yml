@@ -372,7 +372,7 @@
     - name: Overview
       href: agents/agents-overview.md
     - name: FAQ
-      href: ./faq.yml#agents
+      href: faq#agents
     - name: Azure Monitor Agent
       items:
       - name: Overview
@@ -392,7 +392,7 @@
         href: agents/azure-monitor-agent-migration.md
       - name: FAQ
         displayname: Azure Monitor agent FAQ
-        href: ./faq.yml#azure-monitor-agent
+        href: faq#azure-monitor-agent
     - name: Log Analytics agent
       items:
       - name: Overview
@@ -642,7 +642,7 @@
     - name: Application Insights overview
       href: app/app-insights-overview.md
     - name: FAQ
-      href: ./faq.yml#application-insights
+      href: faq#application-insights
     - name: Code-based monitoring
       items:
       - name: .NET
@@ -781,7 +781,7 @@
     - name: OpenTelemetry
       items: 
       - name: FAQ
-        href: ./faq.yml#opentelemetry
+        href: faq#opentelemetry
     - name: Create a resource (classic)
       href: app/create-new-resource.md
     - name: Create a resource (workspace-based)
@@ -1025,9 +1025,9 @@
     - name: Overview
       href: vm/vminsights-overview.md
     - name: General Availability FAQ
-      href: vm/vminsights-ga-release-faq.yml  
+      href: vm/vminsights-ga-release-faq.yml
     - name: FAQ
-      href: ./faq.yml#vm-insights
+      href: faq#vm-insights
     - name: Configure workspace
       href: vm/vminsights-configure-workspace.md
     - name: Install agents
@@ -1079,7 +1079,7 @@
     - name: Overview
       href: containers/container-insights-overview.md
     - name: FAQ
-      href: ./faq.yml#container-insights
+      href: faq#container-insights
     - name: Enable monitoring
       items:
       - name: Enable monitoring overview 
@@ -1173,7 +1173,7 @@
       - name: Overview
         href: insights/sql-insights-overview.md
       - name: FAQ
-        href: ./faq.yml#sql-insights-preview
+        href: faq#sql-insights-preview
       - name: Enable
         href: insights/sql-insights-enable.md
       - name: Alerts

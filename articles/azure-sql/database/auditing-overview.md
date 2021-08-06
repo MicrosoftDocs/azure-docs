@@ -71,7 +71,7 @@ An auditing policy can be defined for a specific database or as a default [serve
 
 - Audit logs are written to **Append Blobs** in an Azure Blob storage on your Azure subscription
 - Audit logs are in .xel format and can be opened by using [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
-- To configure an immutable log store for the server or database-level audit events, follow the [instructions provided by Azure Storage](../../storage/blobs/immutable-policy-configure-version-scope.md#enabling-allow-protected-append-blobs-writes). Make sure you have selected **Allow additional appends** when you configure the immutable blob storage.
+- To configure an immutable log store for the server or database-level audit events, follow the [instructions provided by Azure Storage](../../storage/blobs/immutable-time-based-retention-policy-overview.md#enabling-allow-protected-append-blobs-writes). Make sure you have selected **Allow additional appends** when you configure the immutable blob storage.
 - You can write audit logs to a an Azure Storage account behind a VNet or firewall. For specific instructions see, [Write audit to a storage account behind VNet and firewall](audit-write-storage-account-behind-vnet-firewall.md).
 - For details about the log format, hierarchy of the storage folder and naming conventions, see the [Blob Audit Log Format Reference](./audit-log-format.md).
 - Auditing on [Read-Only Replicas](read-scale-out.md) is automatically enabled. For further details about the hierarchy of the storage folders, naming conventions, and log format, see the [SQL Database Audit Log Format](audit-log-format.md).

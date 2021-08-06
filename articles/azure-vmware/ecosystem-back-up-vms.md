@@ -14,7 +14,7 @@ Our backup partners have industry-leading backup and restore solutions in VMware
 Back up network traffic between Azure VMware Solution VMs and the backup repository in Azure travels over a high-bandwidth, low-latency link. Replication traffic across regions travels over the internal Azure backplane network, which lowers bandwidth costs for users.
 
 >[!NOTE]
->For common questions, see [our third-party backup solution FAQ](./faq.yml#third-party-backup-and-recovery).
+>For common questions, see [our third-party backup solution FAQ](/azure/azure-vmware/faq#third-party-backup-and-recovery).
 
 
 
