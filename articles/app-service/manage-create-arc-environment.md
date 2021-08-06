@@ -58,7 +58,7 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
 
 1. Create a cluster in Azure Kubernetes Service with a public IP address. Replace `<group-name>` with the resource group name you want.
 
-    #[bash](#tab/bash)
+    # [bash](#tab/bash)
 
     ```azurecli-interactive
     aksClusterGroupName="<group-name>" # Name of resource group for the AKS cluster
@@ -72,7 +72,7 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
     staticIp=$(az network public-ip show --resource-group $infra_rg --name MyPublicIP --output tsv --query ipAddress)
     ```
 
-    #[PowerShell](#tab/powershell)
+    # [PowerShell](#tab/powershell)
 
     ```powershell
     $aksClusterGroupName="<group-name>" # Name of resource group for the AKS cluster
@@ -98,7 +98,7 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
     
 3. Create a resource group to contain your Azure Arc resources. Replace `<group-name>` with the resource group name you want.
 
-    #[bash](#tab/bash)
+    # [bash](#tab/bash)
 
     ```azurecli-interactive
     groupName="<group-name>" # Name of resource group for the connected cluster
@@ -106,7 +106,7 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
     az group create -g $groupName -l $resourceLocation
     ```
 
-    #[PowerShell](#tab/powershell)
+    # [PowerShell](#tab/powershell)
 
     ```powershell
     $groupName="<group-name>" # Name of resource group for the connected cluster
@@ -118,7 +118,7 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
     
 4. Connect the cluster you created to Azure Arc.
 
-    #[bash](#tab/bash)
+    # [bash](#tab/bash)
 
     ```azurecli-interactive
     clusterName="${groupName}-cluster" # Name of the connected cluster resource
@@ -126,7 +126,7 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
     az connectedk8s connect --resource-group $groupName --name $clusterName
     ```
     
-    #[PowerShell](#tab/powershell)
+    # [PowerShell](#tab/powershell)
 
 
     ```powershell
@@ -149,7 +149,7 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
 
 1. For simplicity, create the workspace now.
 
-    #[bash](#tab/bash)
+    # [bash](#tab/bash)
 
     ```azurecli-interactive
     workspaceName="$groupName-workspace" # Name of the Log Analytics workspace
@@ -159,7 +159,7 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
         --workspace-name $workspaceName
     ```
 
-    #[PowerShell](#tab/powershell)
+    # [PowerShell](#tab/powershell)
 
     ```powershell
     $workspaceName="$groupName-workspace"
@@ -173,7 +173,7 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
     
 2. Run the following commands to get the encoded workspace ID and shared key for an existing Log Analytics workspace. You need them in the next step.
 
-    #[bash](#tab/bash)
+    # [bash](#tab/bash)
 
     ```azurecli-interactive
     logAnalyticsWorkspaceId=$(az monitor log-analytics workspace show \
@@ -191,7 +191,7 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
     logAnalyticsKeyEnc=$(echo -n "${logAnalyticsKeyEncWithSpace//[[:space:]]/}") # Needed for the next step
     ```
 
-    #[PowerShell](#tab/powershell)
+    # [PowerShell](#tab/powershell)
 
     ```powershell
     $logAnalyticsWorkspaceId=$(az monitor log-analytics workspace show `
@@ -215,7 +215,7 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
 
 1. Set the following environment variables for the desired name of the [App Service extension](overview-arc-integration.md), the cluster namespace in which resources should be provisioned, and the name for the App Service Kubernetes environment. Choose a unique name for `<kube-environment-name>`, because it will be part of the domain name for app created in the App Service Kubernetes environment.
 
-    #[bash](tab/powershell)
+    # [bash](tab/powershell)
 
     ```bash
     extensionName="appservice-ext" # Name of the App Service extension
@@ -223,7 +223,7 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
     kubeEnvironmentName="<kube-environment-name>" # Name of the App Service Kubernetes environment resource
     ```
 
-    #[PowerShell](tab/powershell)
+    # [PowerShell](tab/powershell)
 
     ```powershell
     $extensionName="appservice-ext" # Name of the App Service extension
@@ -235,7 +235,7 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
     
 2. Install the App Service extension to your Azure Arc connected cluster, with Log Analytics enabled. Again, while Log Analytics is not required, you can't add it to the extension later, so it's easier to do it now.
 
-    #[bash](tab/bash)
+    # [bash](tab/bash)
 
     ```azurecli-interactive
     az k8s-extension create \
@@ -262,7 +262,7 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
         --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.sharedKey=${logAnalyticsKeyEnc}"
     ```
 
-    #[PowerShell](tab/powershell)
+    # [PowerShell](tab/powershell)
 
     ```powershell
     az k8s-extension create `
@@ -315,7 +315,7 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
         
 3. Save the `id` property of the App Service extension for later.
 
-    #[bash](tab/bash)
+    # [bash](tab/bash)
 
     ```azurecli-interactive
     extensionId=$(az k8s-extension show \
@@ -327,7 +327,7 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
         --output tsv)
     ```
 
-    #[PowerShell](tab/powershell)
+    # [PowerShell](tab/powershell)
 
     ```powershell
     $extensionId=$(az k8s-extension show `
@@ -363,7 +363,7 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) in Azure is u
 
 1. Set the following environment variables for the desired name of the custom location and for the ID of the Azure Arc connected cluster.
 
-    #[bash](tab/bash)
+    # [bash](tab/bash)
 
     ```bash
     customLocationName="my-custom-location" # Name of the custom location
@@ -371,7 +371,7 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) in Azure is u
     connectedClusterId=$(az connectedk8s show --resource-group $groupName --name $clusterName --query id --output tsv)
     ```
 
-    #[PowerShell](tab/powershell)
+    # [PowerShell](tab/powershell)
 
     ```powershell
     $customLocationName="my-custom-location" # Name of the custom location
@@ -383,7 +383,7 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) in Azure is u
     
 2. Create the custom location:
 
-    #[bash](tab/bash)
+    # [bash](tab/bash)
 
     ```azurecli-interactive
     az customlocation create \
@@ -394,7 +394,7 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) in Azure is u
         --cluster-extension-ids $extensionId
     ```
 
-    #[PowerShell](tab/powershell)
+    # [PowerShell](tab/powershell)
 
     ```azurecli-interactive
     az customlocation create `
@@ -417,7 +417,7 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) in Azure is u
     
 4. Save the custom location ID for the next step.
 
-    #[bash](tab/bash)
+    # [bash](tab/bash)
 
     ```azurecli-interactive
     customLocationId=$(az customlocation show \
@@ -427,7 +427,7 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) in Azure is u
         --output tsv)
     ```
 
-    #[PowerShell](tab/powershell)
+    # [PowerShell](tab/powershell)
 
     ```azurecli-interactive
     $customLocationId=$(az customlocation show `
@@ -445,7 +445,7 @@ Before you can start creating apps on the custom location, you need an [App Serv
 
 1. Create the App Service Kubernetes environment:
     
-    #[bash](tab/bash)
+    # [bash](tab/bash)
 
     ```azurecli-interactive
     az appservice kube create \
@@ -455,7 +455,7 @@ Before you can start creating apps on the custom location, you need an [App Serv
         --static-ip $staticIp
     ```
 
-    #[PowerShell](tab/powershell)
+    # [PowerShell](tab/powershell)
 
      ```azurecli-interactive
     az appservice kube create `
