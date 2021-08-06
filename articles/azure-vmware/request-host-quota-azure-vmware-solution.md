@@ -3,7 +3,7 @@ title: Request host quota for Azure VMware Solution
 description: Learn how to request host quota/capacity for Azure VMware Solution. You can also request more hosts in an existing Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.custom: contperf-fy21q3
-ms.date: 07/07/2021
+ms.date: 08/06/2021
 
 #Customer intent: As an Azure service admin, I want to request hosts for either a new private cloud deployment or I want to have more hosts allocated in an existing private cloud.
 
@@ -11,7 +11,7 @@ ms.date: 07/07/2021
 
 # Request host quota for Azure VMware Solution
 
-In this how-to, you'll request host quota/capacity for [Azure VMware Solution](introduction.md). You'll submit a support ticket to have your hosts allocated whether it's for a new deployment or an existing private cloud. 
+In this how-to, you'll request host quota/capacity for [Azure VMware Solution](introduction.md). You'll submit a support ticket to have your hosts allocated whether it's for a new deployment or an existing one. 
 
 If you have an existing Azure VMware Solution private cloud and want more hosts allocated, you'll follow the same process.
 
@@ -24,6 +24,7 @@ You'll need an Azure account in an Azure subscription. The Azure subscription mu
 
 - A subscription under an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
 - A Cloud Solution Provider (CSP) managed subscription under an existing CSP Azure offers contract or an Azure plan.
+- A [Modern Commerce Agreement](../cost-management-billing/microsoft-customer-agreement.md) with Microsoft.
 
 ## Request host quota for EA customers
 
