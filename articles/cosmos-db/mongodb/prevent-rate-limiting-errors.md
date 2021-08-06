@@ -10,7 +10,7 @@ ms.author: gahllevy
 ---
 
 # Prevent rate-limiting errors for Azure Cosmos DB API for MongoDB operations
-[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
+[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
 Azure Cosmos DB API for MongoDB operations may fail with rate-limiting (16500/429) errors if they exceed a collection's throughput limit (RUs). 
 
@@ -54,13 +54,13 @@ You can enable the Server Side Retry (SSR) feature and let the server retry thes
 
 ### How are requests retried?
 
-Requests are retried continuously (over and over again) until a 60-second timeout is reached. If the timeout is reached, the client will receive an [ExceededTimeLimit exception (50)](mongodb/error-codes-solutions.md).
+Requests are retried continuously (over and over again) until a 60-second timeout is reached. If the timeout is reached, the client will receive an [ExceededTimeLimit exception (50)](error-codes-solutions.md).
 
 ### How can I monitor the effects of a server-side retry?
 
 You can view the rate limiting errors (429) that are retried server-side in the Cosmos DB Metrics pane. Keep in mind that these errors don't go to the client when SSR is enabled, since they are handled and retried server-side.
 
-You can search for log entries containing *estimatedDelayFromRateLimitingInMilliseconds* in your [Cosmos DB resource logs](cosmosdb-monitor-resource-logs.md).
+You can search for log entries containing *estimatedDelayFromRateLimitingInMilliseconds* in your [Cosmos DB resource logs](../cosmosdb-monitor-resource-logs.md).
 
 ### Will server-side retry affect my consistency level?
 
@@ -68,10 +68,10 @@ server-side retry does not affect a request's consistency. Requests are retried 
 
 ### Does server-side retry affect any type of error that my client might receive?
 
-No, server-side retry only affects rate limiting errors (429) by retrying them server-side. This feature prevents you from having to handle rate-limiting errors in the client application. All [other errors](mongodb/error-codes-solutions.md) will go to the client.
+No, server-side retry only affects rate limiting errors (429) by retrying them server-side. This feature prevents you from having to handle rate-limiting errors in the client application. All [other errors](error-codes-solutions.md) will go to the client.
 
 ## Next steps
 
 To learn more about troubleshooting common errors, see this article:
 
-* [Troubleshoot common issues in Azure Cosmos DB's API for MongoDB](mongodb/error-codes-solutions.md)
+* [Troubleshoot common issues in Azure Cosmos DB's API for MongoDB](error-codes-solutions.md)

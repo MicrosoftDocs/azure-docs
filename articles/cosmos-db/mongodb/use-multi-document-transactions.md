@@ -11,7 +11,7 @@ ms.author: gahllevy
 ---
 
 # Use Multi-document transactions in Azure Cosmos DB API for MongoDB
-[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
+[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
 In this article, you'll create a Mongo shell app that executes a multi-document transaction on a fixed collection in Azure Cosmos DB API for MongoDB with server version 4.0.
 
@@ -75,4 +75,4 @@ All drivers that support wire protocol version 4.0 or greater will support Azure
 
 ## Next steps
 
-Explore what's new in [Azure Cosmos DB API for MongoDB 4.0](mongodb/feature-support-40.md)
+Explore what's new in [Azure Cosmos DB API for MongoDB 4.0](feature-support-40.md)

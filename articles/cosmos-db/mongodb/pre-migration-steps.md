@@ -190,7 +190,7 @@ In the pre-migration phase, spend some time to plan what steps you will take tow
 * The best guide to post-migration can be found [here](post-migration-optimization.md).
 
 ## Next steps
-* [Migrate your MongoDB data to Cosmos DB using the Database Migration Service.](../dms/tutorial-mongodb-cosmos-db.md) 
+* [Migrate your MongoDB data to Cosmos DB using the Database Migration Service.](../../dms/tutorial-mongodb-cosmos-db.md) 
 * [Provision throughput on Azure Cosmos containers and databases](../set-throughput.md)
 * [Partitioning in Azure Cosmos DB](../partitioning-overview.md)
 * [Global Distribution in Azure Cosmos DB](../distribute-data-globally.md)

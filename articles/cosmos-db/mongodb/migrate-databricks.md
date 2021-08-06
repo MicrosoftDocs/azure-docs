@@ -133,7 +133,7 @@ The migration performance can be adjusted through these configurations:
 
 - **Number of workers and cores in the Spark cluster**: More workers mean more compute nodes to execute tasks.
 
-- **maxBatchSize**: The `maxBatchSize` value controls the rate at which data is saved to the target Azure Cosmos DB collection. However, if the maxBatchSize is too high for the collection throughput, it can cause [rate limiting](../prevent-rate-limiting-errors.md) errors.
+- **maxBatchSize**: The `maxBatchSize` value controls the rate at which data is saved to the target Azure Cosmos DB collection. However, if the maxBatchSize is too high for the collection throughput, it can cause [rate limiting](prevent-rate-limiting-errors.md) errors.
 
   You would need to adjust the number of workers and maxBatchSize, depending on the number of executors in the Spark cluster, potentially the size (and that's why RU cost) of each document being written, and the target collection throughput limits.
 
