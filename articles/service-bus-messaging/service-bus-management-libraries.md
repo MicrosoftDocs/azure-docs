@@ -29,6 +29,7 @@ The ARM-based library allows you to manage namespaces, queues, topics, subscript
 
 ### Fluent .NET and Java libraries
 There is a Fluent version of the ARM-based library. 
+
 |Language|Package|Documentation|
 |-|-|-|
 |.NET|[Microsoft.Azure.Management.ServiceBus.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.ServiceBus.Fluent/) |[API reference for Microsoft.Azure.Management.ServiceBus.Fluent](/dotnet/api/microsoft.azure.management.servicebus.fluent) |
