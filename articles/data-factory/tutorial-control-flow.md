@@ -5,6 +5,7 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 9/27/2019
 ---
