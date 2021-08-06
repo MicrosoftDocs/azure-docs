@@ -31,11 +31,11 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Private DNS zone integration**
 
-  The service now provides integration with an Azure private DNS zone. Integration with Azure private DNS zone allows seamless resolution of private DNS within the current VNet, or any peered VNet to which the private DNS Zone is linked to. [Learn more](./concepts-networking-vnet.md#Using-Private-DNS-Zone).
+  The service now provides integration with an Azure private DNS zone. Integration with Azure private DNS zone allows seamless resolution of private DNS within the current VNet, or any peered VNet to which the private DNS Zone is linked to. [Learn more](./concepts-networking-vnet.md).
 
 - **Point-In-Time Restore for a server in a specified virtual network**
 
-  The Point-In-Time Restore experience for the service now enables customers to configure networking settings, allowing users to switch between private and public networking options when performing a restore operation. This feature gives customers the flexibility to inject a server being restored into a specified virtual network securing their connection endpoints. [Learn more](./how-to-restore-server-portal.md#Using-restore-to-move-a-server-from-Public-access-to-Private-access).
+  The Point-In-Time Restore experience for the service now enables customers to configure networking settings, allowing users to switch between private and public networking options when performing a restore operation. This feature gives customers the flexibility to inject a server being restored into a specified virtual network securing their connection endpoints. [Learn more](./how-to-restore-server-portal.md).
 
 - **Point-In-Time Restore for a server in an availability zone**
 
