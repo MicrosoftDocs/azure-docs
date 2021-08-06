@@ -24,10 +24,12 @@ Before you begin, verify that you have completed the prerequisites in [Deploy da
 >
 > To complete this, you will need to identify:
 >
-> - `<connected_cluster_name>` - From your cluster
-> - `<resource_group_name>` - Your resource group
-> - `<namespace>` - A namespace that describes this data service
+> - `<connected_cluster_name>` - Name of your cluster.
+> - `<resource_group_name>` - Name of your resource group.
+> - `<namespace>` - The Kubernetes namespace that will contain your data services.
 > 
+> Use these values in the following script to create the extension:
+>
 >```azurecli
 >az k8s-extension create -c "<connected_cluster_name>" -g "<resource_group_name>" --name "arcdataservices" --cluster-type "connectedClusters" --extension-type "microsoft.arcdataservices" --scope "cluster" --release-namespace "<namespace>" --config "Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper"
 >```
