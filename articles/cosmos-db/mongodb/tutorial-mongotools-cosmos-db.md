@@ -19,7 +19,7 @@ ms.reviewer: sngun
 
 This MongoDB migration guide is part of series on MongoDB migration. The critical MongoDB migration steps are [pre-migration](pre-migration-steps.md), migration, and [post-migration](post-migration-optimization.md), as shown below.
 
-![Diagram of migration steps.](./media/mongodb-pre-migration/overall-migration-steps.png)
+![Diagram of migration steps.](./media/pre-migration-steps/overall-migration-steps.png)
 
 ## Overview of data migration using MongoDB native tools
 
@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 
 In this tutorial, you migrate a dataset in MongoDB hosted in an Azure Virtual Machine to Azure Cosmos DB's API for MongoDB by using MongoDB native tools. The MongoDB native tools are a set of binaries that facilitate data manipulation on an existing MongoDB instance. Since Azure Cosmos DB exposes a Mongo API, the MongoDB native tools are able to insert data into Azure Cosmos DB. The focus of this doc is on migrating data out of a MongoDB instance using *mongoexport/mongoimport* or *mongodump/mongorestore*. Since the native tools connect to MongoDB using connection strings, you can run the tools anywhere, however we recommend running these tools within the same network as the MongoDB instance to avoid firewall issues. 
 
-The MongoDB native tools can move data only as fast as the host hardware allows; the native tools can be the simplest solution for small datasets where total migration time is not a concern. [MongoDB Spark connector](https://docs.mongodb.com/spark-connector/current/), [Azure Data Migration Service (DMS)](../dms/tutorial-mongodb-cosmos-db.md), or [Azure Data Factory (ADF)](../data-factory/connector-azure-cosmos-db-mongodb-api.md) can be better alternatives if you need a scalable migration pipeline.
+The MongoDB native tools can move data only as fast as the host hardware allows; the native tools can be the simplest solution for small datasets where total migration time is not a concern. [MongoDB Spark connector](https://docs.mongodb.com/spark-connector/current/), [Azure Data Migration Service (DMS)](../../dms/tutorial-mongodb-cosmos-db.md), or [Azure Data Factory (ADF)](../../data-factory/connector-azure-cosmos-db-mongodb-api.md) can be better alternatives if you need a scalable migration pipeline.
 
 If you don't have a MongoDB source set up already, see the article [Install and configure MongoDB on a Windows VM in Azure](/previous-versions/azure/virtual-machines/windows/install-mongodb).
 
@@ -43,7 +43,7 @@ If you don't have a MongoDB source set up already, see the article [Install and 
 
 To complete this tutorial, you need to:
 
-* [Complete the pre-migration](../cosmos-db/pre-migration-steps.md) steps such as estimating throughput, choosing a partition key, and the indexing policy.
+* [Complete the pre-migration](pre-migration-steps.md) steps such as estimating throughput, choosing a partition key, and the indexing policy.
 * [Create an Azure Cosmos DB API for MongoDB account](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
 * Log into your MongoDB instance
     * [Download and install the MongoDB native tools from this link](https://www.mongodb.com/try/download/database-tools).
@@ -57,11 +57,11 @@ Customers migrating from MongoDB to Azure Cosmos DB benefit from resource govern
 
 You can find the Server Side Retry capability in the *Features* blade of the Azure Cosmos DB portal
 
-![Screenshot of MongoDB SSR feature.](../dms/media/tutorial-mongodb-to-cosmosdb/mongo-server-side-retry-feature.png)
+![Screenshot of MongoDB SSR feature.](../../dms/media/tutorial-mongodb-to-cosmosdb/mongo-server-side-retry-feature.png)
 
 And if it is *Disabled*, then we recommend you enable it as shown below
 
-![Screenshot of MongoDB SSR enable.](../dms/media/tutorial-mongodb-to-cosmosdb/mongo-server-side-retry-enable.png)
+![Screenshot of MongoDB SSR enable.](../../dms/media/tutorial-mongodb-to-cosmosdb/mongo-server-side-retry-enable.png)
 
 ## Choose the proper MongoDB native tool
 
@@ -152,7 +152,7 @@ The rest of this section will guide you through using the pair of tools you sele
 
 ## Post-migration optimization
 
-After you migrate the data stored in MongoDB database to Azure Cosmos DB’s API for MongoDB, you can connect to Azure Cosmos DB and manage the data. You can also perform other post-migration optimization steps such as optimizing the indexing policy, update the default consistency level, or configure global distribution for your Azure Cosmos DB account. For more information, see the [Post-migration optimization](../cosmos-db/post-migration-optimization.md) article.
+After you migrate the data stored in MongoDB database to Azure Cosmos DB’s API for MongoDB, you can connect to Azure Cosmos DB and manage the data. You can also perform other post-migration optimization steps such as optimizing the indexing policy, update the default consistency level, or configure global distribution for your Azure Cosmos DB account. For more information, see the [Post-migration optimization](post-migration-optimization.md) article.
 
 ## Additional resources
 

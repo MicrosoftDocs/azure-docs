@@ -23,7 +23,7 @@ This MongoDB post-migration guide is part of series on MongoDB migration. The cr
 
 ## Overview of post-migration
 
-After you migrate the data stored in MongoDB database to Azure Cosmos DB's API for MongoDB, you can connect to Azure Cosmos DB and manage the data. This guide provides the steps you should consider after the migration. See the [Migrate MongoDB to Azure Cosmos DB's API for MongoDB tutorial](../dms/tutorial-mongodb-cosmos-db.md) for the migration steps.
+After you migrate the data stored in MongoDB database to Azure Cosmos DB's API for MongoDB, you can connect to Azure Cosmos DB and manage the data. This guide provides the steps you should consider after the migration. See the [Migrate MongoDB to Azure Cosmos DB's API for MongoDB tutorial](../../dms/tutorial-mongodb-cosmos-db.md) for the migration steps.
 
 Follow these steps to perform a post-migration
 
@@ -51,21 +51,21 @@ In order to optimize price and performance, we recommend that you step through y
 
    * The indexing capabilities provided by Azure Cosmos DB include adding compound indices, unique indices and time-to-live (TTL) indices. The index management interface is mapped to the createIndex() command. Learn more at Indexing in Azure Cosmos DB and Indexing in Azure Cosmos DB's API for MongoDB.
 2. Apply these index settings during post-migration.
-   * [Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db.md) automatically migrates MongoDB collections with unique indexes. However, the unique indexes must be created before the migration. Azure Cosmos DB does not support the creation of unique indexes, when there is already data in your collections. For more information, see [Unique keys in Azure Cosmos DB](unique-keys.md).
+   * [Azure Database Migration Service](../../dms/tutorial-mongodb-cosmos-db.md) automatically migrates MongoDB collections with unique indexes. However, the unique indexes must be created before the migration. Azure Cosmos DB does not support the creation of unique indexes, when there is already data in your collections. For more information, see [Unique keys in Azure Cosmos DB](../unique-keys.md).
 
 ## Globally distribute your data
 
 Azure Cosmos DB is available in all [Azure regions](https://azure.microsoft.com/regions/#services) worldwide. 
-1. Follow the guidance in the article [Distribute data globally on Azure Cosmos DB's API for MongoDB](tutorial-global-distribution-mongodb.md) in order to globally distribute your data. After selecting the default consistency level for your Azure Cosmos DB account, you can associate one or more Azure regions (depending on your global distribution needs). For high availability and business continuity, we always recommend running in at least 2 regions. You can review the tips for [optimizing cost of multi-region deployments in Azure Cosmos DB](optimize-cost-regions.md).
+1. Follow the guidance in the article [Distribute data globally on Azure Cosmos DB's API for MongoDB](tutorial-global-distribution-mongodb.md) in order to globally distribute your data. After selecting the default consistency level for your Azure Cosmos DB account, you can associate one or more Azure regions (depending on your global distribution needs). For high availability and business continuity, we always recommend running in at least 2 regions. You can review the tips for [optimizing cost of multi-region deployments in Azure Cosmos DB](../optimize-cost-regions.md).
 
 ## Set consistency level
 
-Azure Cosmos DB offers 5 well-defined [consistency levels](consistency-levels.md). To read about the mapping between MongoDB and Azure Cosmos DB consistency levels, read [Consistency levels and Azure Cosmos DB APIs](./consistency-levels.md). The default consistency level is the session consistency level. Changing the consistency level is optional and you can optimize it for your app. To change consistency level using Azure portal:
+Azure Cosmos DB offers 5 well-defined [consistency levels](../consistency-levels.md). To read about the mapping between MongoDB and Azure Cosmos DB consistency levels, read [Consistency levels and Azure Cosmos DB APIs](../consistency-levels.md). The default consistency level is the session consistency level. Changing the consistency level is optional and you can optimize it for your app. To change consistency level using Azure portal:
 
 1. Go to the **Default Consistency** blade under Settings.
-2. Select your [consistency level](consistency-levels.md)
+2. Select your [consistency level](../consistency-levels.md)
 
-Most users leave their consistency level at the default session consistency setting. However, there are [availability and performance tradeoffs for various consistency levels](./consistency-levels.md).
+Most users leave their consistency level at the default session consistency setting. However, there are [availability and performance tradeoffs for various consistency levels](../consistency-levels.md).
 
 ## Connect or cutover your application
 
@@ -89,6 +89,6 @@ One convenient fact about [indexing](#optimize-the-indexing-policy), [global dis
 * [Connect to Azure Cosmos DB account using Studio 3T](connect-using-mongochef.md)
 * [How to globally distribute reads using Azure Cosmos DB's API for MongoDB](readpreference-global-distribution.md)
 * [Expire data with Azure Cosmos DB's API for MongoDB](mongodb-time-to-live.md)
-* [Consistency Levels in Azure Cosmos DB](consistency-levels.md)
-* [Indexing in Azure Cosmos DB](index-overview.md)
-* [Request Units in Azure Cosmos DB](request-units.md)
+* [Consistency Levels in Azure Cosmos DB](../consistency-levels.md)
+* [Indexing in Azure Cosmos DB](../index-overview.md)
+* [Request Units in Azure Cosmos DB](../request-units.md)

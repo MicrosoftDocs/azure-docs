@@ -13,7 +13,7 @@ ms.custom: devx-track-js
 # Manage indexing in Azure Cosmos DB's API for MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
-Azure Cosmos DB's API for MongoDB takes advantage of the core index-management capabilities of Azure Cosmos DB. This article focuses on how to add indexes using Azure Cosmos DB's API for MongoDB. You can also read an [overview of indexing in Azure Cosmos DB](index-overview.md) that's relevant across all APIs.
+Azure Cosmos DB's API for MongoDB takes advantage of the core index-management capabilities of Azure Cosmos DB. This article focuses on how to add indexes using Azure Cosmos DB's API for MongoDB. You can also read an [overview of indexing in Azure Cosmos DB](../index-overview.md) that's relevant across all APIs.
 
 ## Indexing for MongoDB server version 3.6 and higher
 
@@ -87,7 +87,7 @@ Here's an example of creating a geospatial index on the `location` field:
 
 ### Text indexes
 
-Azure Cosmos DB's API for MongoDB does not currently support text indexes. For text search queries on strings, you should use [Azure Cognitive Search](../search/search-howto-index-cosmosdb.md) integration with Azure Cosmos DB. 
+Azure Cosmos DB's API for MongoDB does not currently support text indexes. For text search queries on strings, you should use [Azure Cognitive Search](../../search/search-howto-index-cosmosdb.md) integration with Azure Cosmos DB. 
 
 ## Wildcard indexes
 
@@ -199,7 +199,7 @@ The following operations are common for accounts serving wire protocol version 4
 
 ### Unique indexes
 
-[Unique indexes](unique-keys.md) are useful for enforcing that two or more documents do not contain the same value for indexed fields.
+[Unique indexes](../unique-keys.md) are useful for enforcing that two or more documents do not contain the same value for indexed fields.
 
 > [!IMPORTANT]
 > Unique indexes can be created only when the collection is empty (contains no documents).
@@ -244,7 +244,7 @@ In the preceding example, omitting the ```"university":1``` clause returns an er
 
 ### TTL indexes
 
-To enable document expiration in a particular collection, you need to create a [time-to-live (TTL) index](../cosmos-db/time-to-live.md). A TTL index is an index on the `_ts` field with an `expireAfterSeconds` value.
+To enable document expiration in a particular collection, you need to create a [time-to-live (TTL) index](../time-to-live.md). A TTL index is an index on the `_ts` field with an `expireAfterSeconds` value.
 
 Example:
 
@@ -429,6 +429,6 @@ If you want to create a wildcard index, [upgrade to version 4.0 or 3.6](upgrade-
 
 ## Next steps
 
-* [Indexing in Azure Cosmos DB](../cosmos-db/index-policy.md)
-* [Expire data in Azure Cosmos DB automatically with time to live](../cosmos-db/time-to-live.md)
-* To learn about the relationship between partitioning and indexing, see how to [Query an Azure Cosmos container](how-to-query-container.md) article.
+* [Indexing in Azure Cosmos DB](../index-policy.md)
+* [Expire data in Azure Cosmos DB automatically with time to live](../time-to-live.md)
+* To learn about the relationship between partitioning and indexing, see how to [Query an Azure Cosmos container](../how-to-query-container.md) article.

@@ -55,4 +55,4 @@ If you are writing more than 1,000 documents at a time per process/thread, clien
 
 * Learn more about [indexing in the API for MongoDB](../mongodb-indexing.md).
 * Learn more about [Azure Cosmos DB's sharding/partitioning](../partitioning-overview.md).
-* Learn more about [troubleshooting common issues](../error-codes-solutions.md).
+* Learn more about [troubleshooting common issues](error-codes-solutions.md).

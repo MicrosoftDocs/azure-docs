@@ -16,7 +16,7 @@ ms.reviewer: sngun
 
 This multi-part tutorial demonstrates how to create a new app written in Node.js with Express and Angular and then connect it to your [Cosmos account configured with Cosmos DB's API for MongoDB](mongodb-introduction.md).
 
-Part 2 of the tutorial builds on [the introduction](tutorial-develop-nodejs.md) and covers the following tasks:
+Part 2 of the tutorial builds on [the introduction](tutorial-develop-nodejs-part1.md) and covers the following tasks:
 
 > [!div class="checklist"]
 > * Install the Angular CLI and TypeScript
@@ -30,7 +30,7 @@ Part 2 of the tutorial builds on [the introduction](tutorial-develop-nodejs.md) 
 
 ## Prerequisites
 
-Before starting this part of the tutorial, ensure you've watched the [introduction video](tutorial-develop-nodejs.md).
+Before starting this part of the tutorial, ensure you've watched the [introduction video](tutorial-develop-nodejs-part1.md).
 
 This tutorial also requires: 
 * [Node.js](https://nodejs.org/) version 8.4.0 or above.

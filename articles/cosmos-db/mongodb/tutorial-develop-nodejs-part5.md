@@ -227,7 +227,7 @@ Let's take a minute to review and walk through the previous code. First, we come
 
 Next, run the app by using the following steps:
 
-1. In Visual Studio Code, save all your changes. On the left, select the **Debug** button :::image type="icon" source="./media/tutorial-develop-nodejs-part5/debug-button.png":::, and then select the **Start Debugging** button :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png":::.
+1. In Visual Studio Code, save all your changes. On the left, select the **Debug** button :::image type="icon" source="./media/tutorial-develop-nodejs-part5/debug-button.png":::, and then select the **Start Debugging** button :::image type="icon" source="./media/tutorial-develop-nodejs-part5/start-debugging-button.png":::.
 
 1. Now switch to the browser. Open the **Developer tools** and the **Network tab**. Go to `http://localhost:3000`, and there you see our application.
 

@@ -164,7 +164,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     };
     ```
 
-4. Now that we've updated the code, select the **Restart** button :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part6/restart-debugger-button.png"::: in Visual Studio Code.
+4. Now that we've updated the code, select the **Restart** button :::image type="icon" source="./media/tutorial-develop-nodejs-part6/restart-debugger-button.png"::: in Visual Studio Code.
 
 5. Refresh the page in your internet browser and select the **Add New Hero** button. Add a new hero with an ID of "9", name of "Starlord", and saying "Hi". Select the **Save** button to save the new hero.
 

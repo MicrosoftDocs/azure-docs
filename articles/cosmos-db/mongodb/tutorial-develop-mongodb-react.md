@@ -28,7 +28,7 @@ This multi-part tutorial covers the following tasks:
 > * Use Mongoose to connect to Azure Cosmos DB
 > * Add React, Create, Update, and Delete operations to the app
 
-Want to do build this same app with Angular? See the [Angular tutorial video series](tutorial-develop-nodejs.md).
+Want to do build this same app with Angular? See the [Angular tutorial video series](tutorial-develop-nodejs-part1.md).
 
 ## Prerequisites
 * [Node.js](https://www.nodejs.org)
@@ -102,4 +102,4 @@ In this tutorial, you've learned how to:
 You can proceed to the next tutorial and learn how to import MongoDB data into Azure Cosmos DB.  
 
 > [!div class="nextstepaction"]
-> [Import MongoDB data into Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)
+> [Import MongoDB data into Azure Cosmos DB](../../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)
