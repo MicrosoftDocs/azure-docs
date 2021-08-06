@@ -37,21 +37,21 @@ Allow up to 35 minutes for the first batch of data to persist in the azure_sys d
 
 Intelligent tuning operates based around three main features for the given time
 
-1. Checkpoint_completion_target
-2. Min_wal_size
-3. Max_wal_size
+* Checkpoint_completion_target
+* Min_wal_size
+* Max_wal_size
 
 These three variables mostly affect the following
 
-• The duration of checkpoints
-• The frequency of checkpoints
-• The duration of synchronizations
+* The duration of checkpoints
+* The frequency of checkpoints
+* The duration of synchronizations
 
 Intelligent tuning operates in both directions, it attempts to lower durations during high workloads and increasing them during idle segments. These rules are the ways we attempt to optimize these features so users can get personalized results during difficult time periods without manual updates.
 
 ## Limitations and known issues
 
-• Optimizations are only issued in specific ranges, there's the possibility that there may not be any changes made
-• Intelligent Tuning functionality can be delayed by deleted databases in the query that can cause slight delays in the execution of improvements
+* Optimizations are only issued in specific ranges, there's the possibility that there may not be any changes made
+* Intelligent Tuning functionality can be delayed by deleted databases in the query that can cause slight delays in the execution of improvements
   
 Optimizations are only made in the storage sections as of now, expanding into other various categories is TBD
