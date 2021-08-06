@@ -112,11 +112,13 @@ Automated ML supports a limited number of algorithms for training on large data 
 
 * For classification, [Averaged Perceptron Classifier](/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?preserve-view=true&view=nimbusml-py-latest) and [Linear SVM Classifier](/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?preserve-view=true&view=nimbusml-py-latest);  where the Linear SVM classifier has both large data and small data versions.
 
-If you want to override these heuristics, apply the following settings:
-* To block these large data streaming algorithms, use `blocked_models` in your `AutoMLConfig` object and list the model(s) you don't want to use.
-* To force use of big data algorithms, use `allowed_models` in your `AutoMLConfig` object and list the model(s) you want to use.  big data algorithms.
+If you want to override these heuristics, apply the following settings: 
 
-* For [studio UI experiments](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment), force use of big data algorithms by blocking all models except the big data algorithms you want to use.
+Task | Setting | Notes
+|---|---|---
+Block&nbsp;data streaming algorithms | `blocked_models` in your `AutoMLConfig` object and list the model(s) you don't want to use. | Results in either run failure or long run time
+Use&nbsp;data&nbsp;streaming&nbsp;algorithms| `allowed_models` in your `AutoMLConfig` object and list the model(s) you want to use.| 
+Use&nbsp;data&nbsp;streaming&nbsp;algorithms <br> [(studio UI experiments)](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment)|Block all models except the big data algorithms you want to use. |
 
 ## Compute to run experiment
 
