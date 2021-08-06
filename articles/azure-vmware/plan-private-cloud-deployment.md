@@ -14,7 +14,7 @@ In this how-to, you'll':
 
 > [!div class="checklist"]
 > * Identify the Azure subscription, resource group, region, and resource name
-> * Identify the size hosts and determin the number of clusters and hosts
+> * Identify the size hosts and determine the number of clusters and hosts
 > * Request a host quota for eligible Azure plan
 > * Identify the /22 CIDR IP segment for private cloud management
 > * Identify a single network segment
