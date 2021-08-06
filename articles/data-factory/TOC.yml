@@ -717,8 +717,11 @@ items:
         - name: Automation scripts of self-hosted integration runtime
           href: self-hosted-integration-runtime-automation-scripts.md
           displayName: self hosted
-        - name: Run Self-Hosted Integration Runtime in Windows container
+        - name: Run self-Hosted Integration Runtime in Windows container
           href: how-to-run-self-hosted-integration-runtime-in-windows-container.md
+          displayName: self hosted
+        - name: Diagnostic tool for self-hosted integration runtime
+          href: self-hosted-integration-runtime-diagnostic-tool.md
           displayName: self hosted
       displayName: self hosted, runtime
     - name: Azure-SSIS integration runtime
