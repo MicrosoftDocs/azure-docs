@@ -294,7 +294,9 @@ Your static web app can be accessed using its automatically generated domain and
 
 ### Set a default domain
 
-When you designate a custom domain as your app's default domain. All requests to the other domains are automatically redirected to the default domain. Only one custom domain can be set as the default.
+When you designate a custom domain as your app's default domain, requests to other domains are automatically redirected to the custom domain. Only one custom domain can be set as the default.
+
+Follow the below steps to set a custom domain as default.
 
 1. With your static web app opened in the Azure portal, select **Custom domains** in the menu.
 
@@ -304,11 +306,11 @@ When you designate a custom domain as your app's default domain. All requests to
 
    :::image type="content" source="media/custom-domain/set-default.png" alt-text="Set a custom domain as the default":::
 
-1. After the operation completes, refresh the table to confirm your domain has been marked as "default".
+1. After the operation completes, refresh the table to confirm your domain is marked as "default".
 
 ### Unset a default domain
 
-When you have a default domain configured, you can unset its default status to stop redirecting requests to it from the other domains.
+To stop domains redirecting to a default domain, follow the below steps.
 
 1. With your static web app opened in the Azure portal, select **Custom domains** in the menu.
 
