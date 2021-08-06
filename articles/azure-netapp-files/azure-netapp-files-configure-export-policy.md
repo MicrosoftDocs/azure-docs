@@ -7,7 +7,7 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 05/07/2021
+ms.date: 08/06/2021
 ---
 # Configure export policy for NFS or dual-protocol volumes
 
