@@ -71,6 +71,45 @@ In this section, you create a virtual network and subnet to host the load balanc
 
 11. Select **Create**.
 
+### Create NAT gateway
+
+In this section, you'll create a NAT gateway and assign it to the subnet in the virtual network you created previously.
+
+1. On the upper-left side of the screen, select **Create a resource > Networking > NAT gateway** or search for **NAT gateway** in the search box.
+
+2. Select **Create**. 
+
+3. In **Create network address translation (NAT) gateway**, enter or select this information in the **Basics** tab:
+
+    | **Setting**          | **Value**                                                           |
+    |------------------|-----------------------------------------------------------------|
+    | **Project Details**  |                                                                 |
+    | Subscription     | Select your Azure subscription.                                  |
+    | Resource Group   | Select **CreatePrivLinkService-rg**. |
+    | **Instance details** |                                                                 |
+    | Name             | Enter **myNATGateway**                                    |
+    | Region           | Select **(US) East US 2**  |
+    | Availability Zone | Select **None**. |
+    | Idle timeout (minutes) | Enter **10**. |
+
+4. Select the **Outbound IP** tab, or select the **Next: Outbound IP** button at the bottom of the page.
+
+5. In the **Outbound IP** tab, enter or select the following information:
+
+    | **Setting** | **Value** |
+    | ----------- | --------- |
+    | Public IP addresses | Select **Create a new public IP address**. </br> In **Name**, enter **myNATgatewayIP**. </br> Select **OK**. |
+
+6. Select the **Subnet** tab, or select the **Next: Subnet** button at the bottom of the page.
+
+7. In the **Subnet** tab, select **myVNet** in the **Virtual network** pull-down.
+
+8. Check the box next to **myBackendSubnet**.
+
+9. Select the **Review + create** tab, or select the blue **Review + create** button at the bottom of the page.
+
+10. Select **Create**.
+
 ### Create load balancer
 
 In this section, you create a load balancer that load balances virtual machines.
