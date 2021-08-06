@@ -118,7 +118,7 @@
           href: app-attach-msixmgr.md
   - name: Use Microsoft Teams
     href: teams-on-avd.md
-  - name: Set up Azure AD Multi-Factor Authentication
+  - name: Set up Azure AD multifactor authentication
     href: set-up-mfa.md
   - name: Configure AD FS single sign-on
     href: configure-adfs-sso.md
