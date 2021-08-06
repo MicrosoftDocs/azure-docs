@@ -20,9 +20,9 @@ The Azure Managed Instance for Apache Casandra service requires certain network 
 
 ## Virtual network service tags
 
-If you are using Azure Firewall to restrict outbound access, we highly recommend using service tags. Below are the tags required to make Azure Managed Instance for Apache Cassandra function properly.
+If you are using Azure Firewall to restrict outbound access, we highly recommend using [Virtual network Service tags](/azure/virtual-network/service-tags-overview). Below are the tags required to make Azure Managed Instance for Apache Cassandra function properly.
 
-| Destination Tag                                                             | Protocol | Port    | Use  |
+| Destination Service Tag                                                             | Protocol | Port    | Use  |
 |----------------------------------------------------------------------------------|----------|---------|------|
 | Storage | HTTPS | 443 | Required for secure communication between the nodes and Azure Storage for Control Plane communication and configuration.|
 | AzureKeyVault | HTTPS | 443 | Required for secure communication between the nodes and Azure Key Vault. Certificates and keys are used to secure communication inside the cluster.|
