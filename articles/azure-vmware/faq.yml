@@ -76,7 +76,7 @@ sections:
           [!INCLUDE [vmware-software-update-frequency](includes/vmware-software-update-frequency.md)]
 
       - question: Do private clouds use VMware NSX? If so, which version is supported?
-        answer: Yes, NSX-T 2.5 is used for the software-defined networking in Azure VMware Solution private clouds.
+        answer: Yes, NSX-T 3.1.2 is used for the software-defined networking in Azure VMware Solution private clouds.
           |
           NSX-T is the only supported version of NSX.
 

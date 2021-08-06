@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 07/15/2021
 author: smannepalle
-ms.author: sroy
+ms.author: smannepalle
 ---
 
 # Usage dashboard in commercial marketplace analytics
