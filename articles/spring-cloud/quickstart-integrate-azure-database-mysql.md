@@ -15,7 +15,8 @@ Pet Clinic, as deployed in the default configuration [Quickstart: Build and depl
 
 ## Variables preparation
 
-We will use the following values. Save them in a text file or environment variables to avoid errors.
+We will use the following values. Save them in a text file or environment variables to avoid errors. 
+Password should be at least 8 length long and contains at lease one English uppercase letter, one English lowercase letter, one number, and one non-alphanumeric characters (!, $, #, %, etc.).
 
 ```bash
 export RESOURCE_GROUP=<resource-group-name> # customize this
@@ -29,7 +30,7 @@ export MYSQL_DATABASE_NAME=petclinic
 
 ## Prepare an Azure Database for MySQL instance
 
-1. Create an Azure Database for MySQL server.
+1. Create an Azure Database for MySQL server. 
 
     ```azcli
     az mysql server create --resource-group ${RESOURCE_GROUP} \
@@ -74,7 +75,10 @@ export MYSQL_DATABASE_NAME=petclinic
     // SUBSTITUTE values
     mysql -u ${MYSQL_SERVER_ADMIN_LOGIN_NAME} \
      -h ${MYSQL_SERVER_FULL_NAME} -P 3306 -p
-    
+     ```
+     
+     Enter correct password.
+     ```
     Enter password:
     Welcome to the MySQL monitor.  Commands end with ; or \g.
     Your MySQL connection id is 64379
@@ -87,7 +91,9 @@ export MYSQL_DATABASE_NAME=petclinic
     owners.
     
     Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-    
+     ```
+    Follow the following commands.
+     ```
     mysql> CREATE DATABASE petclinic;
     Query OK, 1 row affected (0.10 sec)
     
