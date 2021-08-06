@@ -37,14 +37,16 @@ Before you get started, make sure to:
 
 We'll use Gradle to install the necessary Communication Services dependencies. From the command line, navigate inside the root directory of the `ChatQuickstart` project. Open the app's build.gradle file and add the following dependencies to the `ChatQuickstart` target:
 
-```
-implementation 'com.azure.android:azure-communication-common:1.0.1'
-implementation 'com.azure.android:azure-communication-chat:1.0.0'
+```groovy
+implementation 'com.azure.android:azure-communication-common:' + $azureCommunicationCommonVersion
+implementation 'com.azure.android:azure-communication-chat:' + $azureCommunicationChatVersion
 implementation 'org.slf4j:slf4j-log4j12:1.7.29'
 ```
 
+Please refer to https://search.maven.org/artifact/com.azure.android/azure-communication-common and https://search.maven.org/artifact/com.azure.android/azure-communication-chat for the latest version numbers.
+
 #### Exclude meta files in packaging options in root build.gradle
-```
+```groovy
 android {
    ...
     packagingOptions {
@@ -68,7 +70,7 @@ To import the library into your project using the [Maven](https://maven.apache.o
 <dependency>
   <groupId>com.azure.android</groupId>
   <artifactId>azure-communication-chat</artifactId>
-  <version>1.0.0</version>
+  <version><!-- Please refer to https://search.maven.org/artifact/com.azure.android/azure-communication-chat for the latest version --></version>
 </dependency>
 ```
 
@@ -228,15 +230,28 @@ Replace the comment `<SEND A MESSAGE>` with the following code:
 
 ```java
 // The chat message content, required.
-final String content = "Test message 1";
+final String content = "Please take a look at the attachment";
+
 // The display name of the sender, if null (i.e. not specified), an empty name will be set.
 final String senderDisplayName = "An important person";
+
+// Use metadata optionally to include any additional data you want to send along with the message.
+// This field provides a mechanism for developers to extend chat message functionality and add
+// custom information for your use case. For example, when sharing a file link in the message, you
+// might want to add 'hasAttachment:true' in metadata so that recipient's application can parse
+// that and display accordingly.
+final Map<String, String> metadata = new HashMap<String, String>();
+metadata.put("hasAttachment", "true");
+metadata.put("attachmentUrl", "https://contoso.com/files/attachment.docx");
+
 SendChatMessageOptions chatMessageOptions = new SendChatMessageOptions()
     .setType(ChatMessageType.TEXT)
     .setContent(content)
-    .setSenderDisplayName(senderDisplayName);
+    .setSenderDisplayName(senderDisplayName)
+    .setMetaData(metadata);
 
-// A string is the response returned from sending a message, it is an id, which is the unique ID of the message.
+// A string is the response returned from sending a message, it is an id, which is the unique ID
+// of the message.
 chatMessageId = chatThreadAsyncClient.sendMessage(chatMessageOptions).get().getId();
 
 ```

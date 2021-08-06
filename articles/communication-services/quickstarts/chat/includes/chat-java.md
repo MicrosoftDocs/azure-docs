@@ -181,17 +181,20 @@ Use the `sendMessage` method to send a message to the thread you just created, i
 - Use `content` to provide the chat message content.
 - Use `type` to specify the chat message content type, TEXT or HTML.
 - Use `senderDisplayName` to specify the display name of the sender.
-- Use `metadata` optionally to include any additional data you want to send along with the message. This field provides a mechanism for developers to extend chat message functionality and add custom information for your use case. For example, when sharing a file link in the message, you might want to add 'isfile:true' in metadata so that recipient's application can parse that and display accordingly.
+- Use `metadata` optionally to include any additional data you want to send along with the message. This field provides a mechanism for developers to extend chat message functionality and add custom information for your use case. For example, when sharing a file link in the message, you might want to add 'hasAttachment:true' in metadata so that recipient's application can parse that and display accordingly.
 
 The response `sendChatMessageResult` contains an `id`, which is the unique ID of the message.
 
 ```Java
+Map<String, String> metadata = new HashMap<String, String>();
+metadata.put("hasAttachment", "true");
+metadata.put("attachmentUrl", "https://contoso.com/files/attachment.docx");
+
 SendChatMessageOptions sendChatMessageOptions = new SendChatMessageOptions()
-    .setContent("https://contoso.com/files/attachment.docx")
+    .setContent("Please take a look at the attachment")
     .setType(ChatMessageType.TEXT)
     .setSenderDisplayName("Sender Display Name")
-    .metadata(Collections.<String, String>singletonMap(
-        "attachmentContentType", "application/vnd.openxmlformats-officedocument.wordprocessingml.document")));
+    .metadata(metadata);
 
 SendChatMessageResult sendChatMessageResult = chatThreadClient.sendMessage(sendChatMessageOptions);
 String chatMessageId = sendChatMessageResult.getId();
