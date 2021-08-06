@@ -43,13 +43,13 @@ Use any of the following PowerShell cmdlets to deploy Cloud Services (extended s
 ** Quick Create Cloud Service using a Storage Account**
 
 - This parameter set inputs the .cscfg, .cspkg and .csdef files as inputs along with the storage account. 
-- The cloud service role profile, network profile and OS profile are created by the cmdlet with minimal input from the user. 
+- The cloud service role profile, network profile, and OS profile are created by the cmdlet with minimal input from the user. 
 - For certificate input, the keyvault name is to be specified. The certificate thumbprints in the keyvault are validated against those specified in the .cscfg file.
     
  **Quick Create Cloud Service using a SAS URI** 
  
  - This parameter set inputs the SAS URI of the .cspkg along with the local paths of .csdef and .cscfg files. There is no storage account input required. 
- - The cloud service role profile, network profile and OS profile are created by the cmdlet with minimal input from the user. 
+ - The cloud service role profile, network profile, and OS profile are created by the cmdlet with minimal input from the user. 
  - For certificate input, the keyvault name is to be specified. The certificate thumbprints in the keyvault are validated against those specified in the .cscfg file.
     
 **Create Cloud Service with role, OS, network and extension profile and SAS URIs**
@@ -174,7 +174,7 @@ If you are using a Static IP, you need to reference it as a Reserved IP in Servi
     Add-AzKeyVaultCertificate -VaultName "ContosKeyVault" -Name "ContosCert" -CertificatePolicy $Policy 
     ```
  
-9. Create an OS Profile in-memory object. OS Profile specifies the certificates which are associated to cloud service roles. This will be the same certificate created in the previous step. 
+9. Create an OS Profile in-memory object. OS Profile specifies the certificates, which are associated to cloud service roles. This will be the same certificate created in the previous step. 
 
     ```azurepowershell-interactive
     $keyVault = Get-AzKeyVault -ResourceGroupName ContosOrg -VaultName ContosKeyVault 
@@ -183,7 +183,7 @@ If you are using a Static IP, you need to reference it as a Reserved IP in Servi
     $osProfile = @{secret = @($secretGroup)} 
     ```
 
-10. Create a Role Profile in-memory object. Role profile defines a role sku specific properties such as name, capacity and tier. In this example, we have defined two roles: frontendRole and backendRole. Role profile information should match the role configuration defined in configuration (cscfg) file and service definition (csdef) file. 
+10. Create a Role Profile in-memory object. Role profile defines a role sku specific properties such as name, capacity, and tier. In this example, we have defined two roles: frontendRole and backendRole. Role profile information should match the role configuration defined in configuration (cscfg) file and service definition (csdef) file. 
 
     ```azurepowershell-interactive
     $frontendRole = New-AzCloudServiceRoleProfilePropertiesObject -Name 'ContosoFrontend' -SkuName 'Standard_D1_v2' -SkuTier 'Standard' -SkuCapacity 2 
@@ -213,7 +213,7 @@ If you are using a Static IP, you need to reference it as a Reserved IP in Servi
     </PublicConfig>
     ```
     
-12. (Optional) Define Tags as PowerShell hash table which you want to add to your cloud service. 
+12. (Optional) Define Tags as PowerShell hash table that you want to add to your cloud service. 
 
     ```azurepowershell-interactive
     $tag=@{"Owner" = "Contoso"} 
