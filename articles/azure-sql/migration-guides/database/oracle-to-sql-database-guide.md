@@ -188,7 +188,7 @@ Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows 
 
    :::image type="content" source="./media/oracle-to-sql-database-guide/test-call-ordering.png" alt-text="Screenshot that shows step to sequence test object execution.":::
 
-1. Finalize  the test case by reviewing the information provided in the previous steps. Also, configure the test execution options as per the test scenario.
+1. Finalize the test case by reviewing the information provided in the previous steps. Configure the test execution options based on the test scenario.
 
    :::image type="content" source="./media/oracle-to-sql-database-guide/tester-finalize-case.png" alt-text="Screenshot that shows step to  finalize object.":::
 
