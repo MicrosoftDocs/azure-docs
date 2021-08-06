@@ -55,7 +55,7 @@ Now that you have a disk access resource, you can use it to handle access to you
 
     :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-first-blade.png" alt-text="Screenshot of the private endpoint creation workflow, first blade. If you do not select the appropriate region then you may encounter issues later on.":::
 
-1. Select **Next: Resource**
+1. Select **Next: Resource**.
 1. On the **Resource** pane, select **Connect to an Azure resource in my directory**.
 1. For **Resource type** select **Microsoft.Compute/diskAccesses**.
 1. For **Resource** select the disk access resource you created earlier.
