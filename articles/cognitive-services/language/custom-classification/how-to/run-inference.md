@@ -1,5 +1,5 @@
 ---
-title: how to run a custom text classification job
+title: How to run a custom text classification job
 titleSuffix: Azure Cognitive Services
 description: Learn about sending a request for custom text classification.
 services: cognitive-services
