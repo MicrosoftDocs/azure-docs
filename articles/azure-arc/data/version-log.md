@@ -12,6 +12,8 @@ ms.topic: conceptual
 # Customer intent: As a data professional, I want to understand what versions of components align with specific releases.
 ---
 
+# Version log
+
 The following table describes the various versions over time as they change:
 
 |Date|Release name|Container images tag|CRDs and versions|ARM API version|arcdata Azure CLI extension version|Arc-enabled Kubernetes helm chart extension version|Arc Data extension for Azure Data Studio|
