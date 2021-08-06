@@ -304,7 +304,7 @@ Ensure that:
 * Your API explicitly checks for null values of received claims that it depends on.
 * Your API implements an authentication method outlined in [secure your API Connector](self-service-sign-up-secure-api-connector.md).
 * Your API responds as quickly as possible to ensure a fluid user experience.
-    * Azure AD will wait for a maximum of *20 seconds* to receive a response. If it doesn't, it will make *one more attempt (retry)* at calling your API.
+    * Azure AD will wait for a maximum of *20 seconds* to receive a response. If none is received, it will make *one more attempt (retry)* at calling your API.
     * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm" in production. For Azure Functions, it's recommended to use at minimum the [Premium plan](../../azure-functions/functions-scale.md)
 * Ensure high availability of your API.
 * Monitor and optimize performance of downstream APIs, databases, or other dependencies of your API.
