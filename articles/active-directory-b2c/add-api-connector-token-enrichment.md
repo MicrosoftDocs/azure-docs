@@ -18,11 +18,11 @@ zone_pivot_groups: b2c-policy-type
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-Azure Active Directory B2C (Azure AD B2C) enables identity developers to integrate an interaction with a RESTful API in as part of their user flow using [API connectors](api-connectors-overview.md). At the end of this walk-through, you'll be able to create an Azure AD B2C user flow that interacts with APIs to enrich tokens with information from external sources.
+Azure Active Directory B2C (Azure AD B2C) enables identity developers to integrate an interaction with a RESTful API into their user flow using [API connectors](api-connectors-overview.md). At the end of this walkthrough, you'll be able to create an Azure AD B2C user flow that interacts with APIs to enrich tokens with information from external sources.
 
 ::: zone pivot="b2c-user-flow"
 
-You can use API connectors applied to the **Before sending the token (preview)** step in order to enrich tokens for your applications to include information from external sources. When a user signs in or signs up, Azure AD B2C will call the API endpoint configured in the API connector which can query information about a user in downstream services such as cloud services, custom user stores, custom permission systems, legacy identity systems, and more.
+You can use API connectors applied to the **Before sending the token (preview)** step to enrich tokens for your applications with information from external sources. When a user signs in or signs up, Azure AD B2C will call the API endpoint configured in the API connector, which can query information about a user in downstream services such as cloud services, custom user stores, custom permission systems, legacy identity systems, and more.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -40,13 +40,13 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 2. Under **Azure services**, select **Azure AD B2C**.
 4. Select **API connectors**, and then select **New API connector**.
 
-   :::image type="content" source="media/add-api-connector-token-enrichment/api-connector-new.png" alt-text="Screenshot of the basic API connector configuration like target URL and display name for an API connector during the creation experience.":::
+   ![Screenshot of the basic API connector configuration](media/add-api-connector-token-enrichment/api-connector-new.png)
 
 5. Provide a display name for the call. For example, **Enrich token from external source**.
 6. Provide the **Endpoint URL** for the API call.
 7. Choose the **Authentication type** and configure the authentication information for calling your API. Learn how to [Secure your API Connector](secure-rest-api.md).
 
-    :::image type="content" source="media/add-api-connector-token-enrichment/api-connector-config.png" alt-text="Screenshot of providing authentication configuration for an API connector during the creation experience.":::
+   ![Screenshot of authentication configuration for an API connector](media/add-api-connector-token-enrichment/api-connector-config.png)
 
 8. Select **Save**.
 
@@ -58,8 +58,8 @@ Follow these steps to add an API connector to a sign-up user flow.
 2. Under **Azure services**, select **Azure AD B2C**.
 4. Select **User flows**, and then select the user flow you want to add the API connector to.
 5. Select **API connectors**, and then select the API endpoint you want to invoke at the **Before sending the token (preview)** step in the user flow:
-   
-    :::image type="content" source="media/add-api-connector-token-enrichment/api-connectors-user-flow-select.png" alt-text="Screenshot of selecting which API connector to use for a step in the user flow like 'Before creating the user'.":::
+
+   ![Screenshot of selecting an API connector for a user flow step](media/add-api-connector-token-enrichment/api-connectors-user-flow-select.png)
 
 6. Select **Save**.
 
@@ -105,20 +105,20 @@ Additionally, these claims are typically sent in all requests for this step:
 - **UI Locales ('ui_locales')** -  An end-user's locale(s) as configured on their device. This can be used by your API to return internationalized responses.
 - **Step ('step')** - The step or point on the user flow that the API connector was invoked for. Value for this step is `
 - **Client ID ('client_id')** - The `appId` value of the application that an end-user is authenticating to in a user flow. This is *not* the resource application's `appId` in access tokens.
-- **objectId** - the identifier of the user. You can use this to query downstream services for information about the user.
+- **objectId** - The identifier of the user. You can use this to query downstream services for information about the user.
   
 > [!IMPORTANT]
 > If a claim does not have a value at the time the API endpoint is called, the claim will not be sent to the API. Your API should be designed to explicitly check and handle the case in which a claim is not in the request.
 
 ## Expected response types from the web API at this step
 
-When the web API receives an HTTP request from Azure AD during a user flow, it can return a "Continuation response".
+When the web API receives an HTTP request from Azure AD during a user flow, it can return a "continuation response."
 
 ### Continuation response
 
 A continuation response indicates that the user flow should continue to the next step: issuing the token.
 
-In a continuation response, the API can return additional claims. A claim returned by the API that you wish to return in the token must be a built-in claim or [defined as a custom attribute](user-flow-custom-attributes.md) and be selected in the **Application claims** configuration of the user flow. 
+In a continuation response, the API can return additional claims. A claim returned by the API that you wish to return in the token must be a built-in claim or [defined as a custom attribute](user-flow-custom-attributes.md) and must be selected in the **Application claims** configuration of the user flow. 
 
 The claim value in the token will be that returned by the API, not the value in the directory. Some claim values cannot be overwritten by the API response. Claims that can be returned by the API correspond to the set found under **User attributes** with the exception of `email`.
 
@@ -367,10 +367,10 @@ Ensure that:
 * Your API is following the API request and response contracts as outlined above. 
 * The **Endpoint URL** of the API connector points to the correct API endpoint.
 * Your API explicitly checks for null values of received claims that it depends on.
-* Your API implements an authentication method outlined in [secure your API Connector](secure-rest-api.md).
+* Your API implements an authentication method outlined in [secure your API connector](secure-rest-api.md).
 * Your API responds as quickly as possible to ensure a fluid user experience.
-    * Azure AD B2C will wait for a maximum of *20 seconds* to receive a response. If it doesn't, it will make *one more attempt (retry)* at calling your API.
-    * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm" in production. For Azure Functions, it's recommended to use at minimum the [Premium plan](../azure-functions/functions-scale.md) in production.
+    * Azure AD B2C will wait for a maximum of *20 seconds* to receive a response. If none is received, it will make *one more attempt (retry)* at calling your API.
+    * If you're using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm" in production. For Azure Functions, it's recommended you use at minimum the [Premium plan](../azure-functions/functions-scale.md) in production.
 * Ensure high availability of your API.
 * Monitor and optimize performance of downstream APIs, databases, or other dependencies of your API.
   
@@ -386,11 +386,11 @@ In general, it's helpful to use the logging tools enabled by your web API servic
 
 Additionally, Azure AD B2C logs metadata about the API transactions that happen during user authentications via a user flow. To find these:
 1. Go to **Azure AD B2C**
-2. Select **Audit logs** in the **Activities** section
-3. Filter the list view by the length of time you wish and **Activity** to **An API was called as part of a user flow**
-4. Inspect individual logs. Each row represents an API connector attempting to be called during a user flow. If an API call fails and there's a retry, it's still represented as a singular row. There's a `numberOfAttempts` which indicates the number of times your API was called. This can be of values `1`or `2`. Other information about the API call is detailed in the logs.
+2. Under **Activities**, select **Audit logs**.
+3. Filter the list view: For **Date**, select the time interval you want, and for **Activity**, select **An API was called as part of a user flow**.
+4. Inspect individual logs. Each row represents an API connector attempting to be called during a user flow. If an API call fails and a retry occurs, it's still represented as a single row. The `numberOfAttempts` indicates the number of times your API was called. This value can be `1`or `2`. Other information about the API call is detailed in the logs.
 
-:::image type="content" source="media/add-api-connector-token-enrichment/example-anonymized-audit-log.png" alt-text="Screenshot of an example audit log regarding API connector transaction during an end user authentication to a user flow.":::
+   ![Screenshot of an example audit log with API connector transaction](media/add-api-connector-token-enrichment/example-anonymized-audit-log.png)
 
 ::: zone-end
 
