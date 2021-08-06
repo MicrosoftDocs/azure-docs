@@ -14,7 +14,7 @@ With Azure Virtual Networks (VNETs), you can place your Azure resources in a non
 
 Azure API Management can be deployed inside the VNET to access backend services within the network. You can use the Azure portal, Azure CLI, Azure Resource Manager templates, or other tools for the deployment. You control inbound and outbound traffic into the subnet in which API Management is deployed by using [network security groups][NetworkSecurityGroups].
 
-This article explains VNET connectivity options, reqqirements, and considerations for your API Management instance. For detailed deployment steps and network configuration, see:
+This article explains VNET connectivity options, requirements, and considerations for your API Management instance. For detailed deployment steps and network configuration, see:
 
 * [Connect to an external virtual network using Azure API Management](./api-management-using-with-vnet.md).
 * [Connect to an internal virtual network using Azure API Management](./api-management-using-with-internal-vnet.md).
@@ -27,26 +27,26 @@ By default, an API Management instance must be accessible from the internet. Usi
 
 * **External** - The API Management endpoints are accessible from the public internet via an external load balancer. The gateway can access resources within the VNET.
 
-    :::image type="content" source="media/virtual-network-concepts/vnet-external.png" alt-text="Connect to external VNET":::
+    :::image type="content" source="media/virtual-network-concepts/api-management-vnet-external.png" alt-text="Connect to external VNET":::
 
 * **Internal** - The API Management endpoints are accessible only from within the VNET via an internal load balancer. The gateway can access resources within the VNET.
 
-    :::image type="content" source="media/virtual-network-concepts/vnet-internal.png" alt-text="Connect to internal VNET":::]
+    :::image type="content" source="media/virtual-network-concepts/api-management-vnet-internal.png" alt-text="Connect to internal VNET":::]
 
 > [!NOTE]
 > To import an API to API Management from an [OpenAPI specification](import-and-publish.md), the specification URL must be hosted at a publicly accessible internet address.
 
 ## Network resource requirements
-The following are crent virtual network resource requirements for API Management. Some requirements differ depending on the version (v1 or v2) of the [hosting infrastructure](hosting-infrastructure.md) for your API Management instance.
+The following are virtual network resource requirements for API Management. Some requirements differ depending on the version (v1 or v2) of the [hosting infrastructure](hosting-infrastructure.md) for your API Management instance.
 
-# [v1][#tab/v1]
+### [v1](#tab/v1)
 
 * An Azure Resource Manager virtual networks is required.
-* The subnet used to connect to the API Management instance must be dedicated to API Management. It cnnot contain other Azure resource types.
+* The subnet used to connect to the API Management instance must be dedicated to API Management. It cannot contain other Azure resource types.
 * The API Management service, virtual network, and subnet resources must be in the same region and subscription.
 * For multi-region API Management deployments, you configure virtual network resources separately for each location.
 
-# [v2][#tab/v2]
+### [v2](#tab/v2)
 
 * An Azure Resource Manager virtual networks is required.
 * You must provide a Standard SKU [public IPv4 address](../virtual-network/public-ip-addresses#standard) in addition to specifying a virtual network and subnet.
@@ -97,7 +97,7 @@ If needed for your scenario, you may configure a custom DNS solution for your vi
 
 * A subnet containing API Management instances can't be moved across subscriptions.
 * For multi-region API Management deployments configured in internal VNET mode, users own the routing and are responsible for managing the load balancing across multiple regions.
-* Due to platform limitations, connectivity between a resource in a globally peered VNET in another region and an API Management service in internal mode will not work. For more information, see the [virtual network docuementation](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
+* Due to platform limitations, connectivity between a resource in a globally peered VNET in another region and an API Management service in internal mode will not work. For more information, see the [virtual network documentation](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
 
 
 

@@ -16,7 +16,7 @@ Azure API Management can be deployed inside an Azure virtual network (VNET) to a
 
 This article explains how to set up VNET connectivity for your API Management instance in the *external* mode, where the developer portal, API gateway, and other API Management endpoints are accessible from the public internet. For configurations specific to the *internal* mode, where the endpoints are accessible only within the VNET, see [Connect to an internal virtual network using Azure API Management](./api-management-using-with-internal-vnet.md).
 
-:::image type="content" source="media/api-management-using-with-vnet/vnet-external.png" alt-text="Connect to external VNET":::
+:::image type="content" source="media/api-management-using-with-vnet/api-management-vnet-external.png" alt-text="Connect to external VNET":::
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -26,7 +26,7 @@ This article explains how to set up VNET connectivity for your API Management in
 
 Some prerequisites differ depending on the version (v1 or v2) of the [hosting infrastructure](hosting-infrastructure.md) for your API Management instance. For example, when you use the portal to create or update your API Management instance, the instance is hosted on v2 infrastructure.
 
-# [v1][#tab/v1]
+### [v1](#tab/v1)
 
 + **An API Management instance.** For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
 
@@ -34,7 +34,7 @@ Some prerequisites differ depending on the version (v1 or v2) of the [hosting in
 
     The subnet must be dedicated to API Management instances. Attempting to deploy an Azure API Management instance to a Resource Manager VNET subnet that contains other resources will cause the deployment to fail.
 
-# [v2][#tab/v2]
+### [v2](#tab/v2)
 
 + **An API Management instance.** For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
 
