@@ -112,7 +112,7 @@ To publish your schema and migrate your data:
 
    ![Screenshot that shows Synchronize with the Database review.](./media/oracle-to-sql-database-guide/synchronize-with-database-review.png)
 
-1. Migrate the data by right-clicking the database or object you want to migrate in **Oracle Metadata Explorer** and selecting **Migrate Data**. Instead, you can select the **Migrate Data** tab. To migrate data for an entire database, select the check box next to the database name. To migrate data from individual tables, expand the database, expand **Tables**, and then select the check boxes next to the tables. To omit data from individual tables, clear the check boxes.
+1. Migrate the data by right-clicking the database or object you want to migrate in **Oracle Metadata Explorer** and selecting **Migrate Data**. Or, you can select the **Migrate Data** tab. To migrate data for an entire database, select the check box next to the database name. To migrate data from individual tables, expand the database, expand **Tables**, and then select the checkboxes next to the tables. To omit data from individual tables, clear the checkboxes.
 
    ![Screenshot that shows Migrate Data.](./media/oracle-to-sql-database-guide/migrate-data.png)
 
