@@ -5,7 +5,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: tutorial
 ms.author: zxue
-ms.date: 08/03/2021
+ms.date: 08/05/2021
 ---
 
 # Deploy a FHIR service within Azure Healthcare APIs - using ARM template
@@ -277,3 +277,10 @@ resourceGroupName = “your resource group name”
 az group delete --name $resourceGroupName
 ```
 ---
+
+## Next steps
+
+In this quickstart guide, you've deployed the FHIR service within Azure Healthcare APis using an ARM template. For more information about the FHIR service supported features, see.
+
+>[!div class="nextstepaction"]
+>[Supported FHIR features](fhir-features-supported.md)
