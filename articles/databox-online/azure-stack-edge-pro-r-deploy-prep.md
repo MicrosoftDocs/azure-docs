@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 07/07/2021
+ms.date: 08/06/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro R so I can use it to transfer data to Azure. 
 ---
@@ -108,29 +108,29 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
 
 1. Use your Microsoft Azure credentials to sign in to the Azure portal at this URL: [https://portal.azure.com](https://portal.azure.com).
 
-2. In **Services**, search for and select **Azure Stack Edge**. Then select **+ Create**. 
+2. In **Azure services**, search for and select **Azure Stack Edge**. Then select **+ Create**. 
 
 3. In **Manage Azure Stack Edge devices**, select the **Try Azure Hardware Center** link.
 
-    ![Switch to Azure Edge Hardware Center to order your Azure Stack Edge device](media/azure-stack-edge-gpu-deploy-prep/classic-order-experience-1.png)
+    ![Screenshot of the "Manage Azure Stack Edge devices" screen, opened by the Plus Create button. The "Try Azure Edge Hardware Center" link is highlighted.](media/azure-stack-edge-pro-r-deploy-prep/classic-order-experience-1.png)
 
     This opens the **Get started** screen for creating an order in the Azure Edge Hardware Center. 
 
-4. If don't want to try ordering through the Hardware Center, select the **Order using classic ordering experience** link.
+4. If you don't want to order through the Hardware Center, on the **Get started** screen, select **Order using classic ordering experience**.
 
-   ![Switch to Azure Stack Edge classic ordering experience from Azure Edge Hardware Center](media/azure-stack-edge-gpu-deploy-prep/classic-order-experience-2.png)       
+   ![Screenshot of Get Started screen in Azure Stack Edge. The "Order using classic ordering experience" link is highlighted.](media/azure-stack-edge-pro-r-deploy-prep/classic-order-experience-2.png)
 
 3. Pick the subscription that you want to use for the Azure Stack Edge Pro device. Select the country to ship this physical device to. Select **Show devices**.
 
-    ![Select a subscription and ship to address for Azure Stack Edge Pro R resource](media/azure-stack-edge-pro-r-deploy-prep/create-resource-1.png)
+    ![Screenshot of "Select device type" screen to select a subscription and ship to region for an Azure Stack Edge resource. The Show Devices button is highlighted.](media/azure-stack-edge-pro-r-deploy-prep/create-resource-1.png)
 
-4. Select device type. Under **Azure Stack Edge**, choose **Azure Stack Edge Pro R** and then choose **Select**. If you see any issues or are unable to select the device type, go to [Troubleshoot order issues](azure-stack-edge-troubleshoot-ordering.md).
+4. Select the device type. Under **Azure Stack Edge**, choose **Azure Stack Edge Pro R** and then choose **Select**. If you see any issues or are unable to select the device type, go to [Troubleshoot order issues](azure-stack-edge-troubleshoot-ordering.md).
 
-    ![Select the Azure Stack Edge Pro R device type for your order](media/azure-stack-edge-pro-r-deploy-prep/create-resource-2.png#lightbox)
+    ![Screenshot of "Select device type" screen to select a device type for an Azure Stack Edge resource. The Select button for a device type is highlighted.](media/azure-stack-edge-pro-r-deploy-prep/create-resource-2.png#lightbox)
 
 5. Based on your business need, you can select **Azure Stack Edge Pro R single node** or **Azure Stack Edge Pro R single node with UPS**.  
 
-    ![Select a configuration for your Azure Stack Edge Pro R device](media/azure-stack-edge-pro-r-deploy-prep/create-resource-3.png)
+    ![Screenshot of screen for selecting a configuration for an Azure Stack Edge Pro R device for an Azure Stack Edge resource. A hardware configuration and the Select button are highlighted.](media/azure-stack-edge-pro-r-deploy-prep/create-resource-3.png)
 
 6. On the **Basics** tab, enter or select the following **Project details**.
     
@@ -146,24 +146,24 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
     |Name   | A friendly name to identify the resource.<br>The name has between 2 and 50 characters containing letter, numbers, and hyphens.<br> Name starts and ends with a letter or a number.        |
     |Region     |For a list of all the regions where the Azure Stack Edge resource is available, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). If using Azure Government, all the government regions are available as shown in the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).<br> Choose a location closest to the geographical region where you want to deploy your device.|
 
-    ![Enter project details and instance details on the Basics tab](media/azure-stack-edge-pro-r-deploy-prep/create-resource-4.png)
+    ![Screenshot of the Basics tab of the Create a resource and order a device wizard for Azure Stack Edge. The Basics tab and the Next: Shipping Address button are highlighted.](media/azure-stack-edge-pro-r-deploy-prep/create-resource-4.png)
 
 
 8. Select **Next: Shipping address**.
 
     - If you already have a device, select the combo box for **I have a Azure Stack Edge Pro R device**.
 
-        ![Select "I already have a device" if you are not ordering a new one](media/azure-stack-edge-pro-r-deploy-prep/create-resource-5.png)
+        ![Screenshot of "Shipping address" tab with the "I already have a shipping address for the device" option selected in the Create a resource wizard for Azure Stack Edge.](media/azure-stack-edge-pro-r-deploy-prep/create-resource-5.png)
 
     - If this device is the new device that you're ordering, enter the contact name, company, address to ship the device, and contact information.
 
-        ![For a new device, enter contact, company, and address](media/azure-stack-edge-pro-r-deploy-prep/create-resource-6.png)
+        ![Screenshot of "Shipping address" tab in the Create a resource wizard when creating a new Azure Stack Edge resource.](media/azure-stack-edge-pro-r-deploy-prep/create-resource-6.png)
 
 9. Select **Next: Tags**. Optionally provide tags to categorize resources and consolidate billing. Select **Next: Review + create**.
 
 10. On the **Review + create** tab, review the **Pricing details**, **Terms of use**, and the details for your resource. Select the combo box for **I have reviewed the privacy terms**.
 
-    ![Review + create tab for an Azure Stack Edge order](media/azure-stack-edge-pro-r-deploy-prep/create-resource-7.png)<> 
+    ![Screenshot of the Review Plus Create tab for an Azure Stack Edge order.](media/azure-stack-edge-pro-r-deploy-prep/create-resource-7.png) 
 
     You are also notified that during the resource creation, a Managed Service Identity (MSI) is enabled that lets you authenticate to cloud services. This identity exists for as long as the resource exists.
 
@@ -173,7 +173,7 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
 
     After the resource is successfully created and deployed, you're notified. Select **Go to resource**.
 
-    ![Go to the Azure Stack Edge Pro resource](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-1.png)
+    ![Screenshot of display indicating deployment of a new Azure Stack Edge resource is complete. The Go To Resource button is highlighted.](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-1.png)
 
 After the order is placed, Microsoft reviews the order and contacts you (via email) with shipping details.
 
@@ -241,9 +241,9 @@ After the Azure Stack Edge resource is up and running, you'll need to get the ac
 
    Once you've specified a key vault name, select **Generate activation key** to create an activation key.
 
-   ![Get activation key](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-3.png)
+   ![Screenshot of the Overview pane for a newly created Azure Stack Edge resource. The Generate Activation Key button is highlighted.](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-3.png)
 
-   Wait a few minutes while the key vault and activation key are created. Select the copy icon to copy the key and save it for later use.<!--Verify that the new screen has a copy icon.-->
+   Wait a few minutes while the key vault and activation key are created. Select the copy icon to copy the key and save it for later use.
 
 > [!IMPORTANT]
 > - The activation key expires three days after it is generated.
