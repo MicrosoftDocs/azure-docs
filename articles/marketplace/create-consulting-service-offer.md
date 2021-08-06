@@ -22,7 +22,7 @@ To publish a consulting service offer, you must meet certain eligibility require
 
 #### [Workspaces view](#tab/Workspaces-view)
 
-1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. On the Home page, select the **Marketplace offers** tile.
 
     :::image type="content" source="./media/workspaces/partner-center-home.png" alt-text="Illustrates the Partner Center Home page.":::

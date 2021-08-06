@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 07/27/2021
+ms.date: 09/01/2021
 ---
 
 # Azure Consumption Commitment enrollment
@@ -30,6 +30,25 @@ An offer must meet the following requirements to be enrolled in the MACC program
 
 ## How to see if your offer is enrolled in the MACC program
 
+#### [Workspaces view](#tab/Workspaces-view)
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. On the Home page, select the **Marketplace offers** tile.
+
+    :::image type="content" source="./media/workspaces/partner-center-home.png" alt-text="Illustrates the Partner Center Home page.":::
+
+1. On the Marketplace offers page, select the offer you want to see.
+1. On the **Offer overview** page, in the **Marketplace programs** section the **Microsoft Azure consumption commitment** status will show either _Enrolled_ or _Not Enrolled_.
+
+    :::image type="content" source="media/azure-benefit/enrolled-workspaces.png" alt-text="Screenshot of the Offer overview page in Partner Center that shows the Microsoft Azure consumption commitment status.":::
+
+    ***Figure 1: Offer that is enrolled in the MACC program***
+
+> [!NOTE]
+> MACC program status for offers published to Azure Marketplace is updated weekly on Mondays. This means that if you publish an offer that meets the eligibility requirements for the MACC program, the status in Partner Center will not show the Enrolled status until the following Monday.
+
+#### [Classic view](#tab/classic-view)
+
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
 1. In the **Offers** section, select the offer you want to see.
@@ -41,6 +60,8 @@ An offer must meet the following requirements to be enrolled in the MACC program
 
 > [!NOTE]
 > MACC program status for offers published to Azure Marketplace is updated weekly on Mondays. This means that if you publish an offer that meets the eligibility requirements for the MACC program, the status in Partner Center will not show the Enrolled status until the following Monday.
+
+---
 
 ## Next steps
 
