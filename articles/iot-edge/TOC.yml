@@ -16,7 +16,7 @@
 - name: Tutorials
   items:
   - name: Monitor devices and modules
-    items: tutorial-monitor-with-workbooks.md
+    href: tutorial-monitor-with-workbooks.md
   - name: Set up development environment
     items:
     - name: Develop with Linux containers
