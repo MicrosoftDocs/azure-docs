@@ -6,6 +6,7 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: tutorials
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 07/16/2020

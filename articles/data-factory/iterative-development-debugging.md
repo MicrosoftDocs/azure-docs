@@ -5,6 +5,7 @@ description: Learn how to develop and debug Data Factory pipelines iteratively i
 ms.date: 04/21/2021
 ms.topic: conceptual
 ms.service: data-factory
+ms.subservice: authoring
 ms.custom: synapse
 services: data-factory
 documentationcenter: ''
