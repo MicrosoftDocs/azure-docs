@@ -22,7 +22,7 @@ From the onset of skillset processing to its conclusion, skills read and write t
 
 Ultimately, nodes from an enriched document are then [mapped to fields](cognitive-search-output-field-mapping.md) in a search index or knowledge store, so that the content can be queried or consumed by other apps.
 
-## Illustrative example
+## Skillset definition
 
 Skills have context, and inputs and outputs that are often chained together. The following example demonstrates two [built-in skills](cognitive-search-predefined-skills.md) that work together and introduces some of the terminology of skillset definition. 
 
@@ -83,9 +83,11 @@ For more detail about how inputs and outputs are formulated, see [How to referen
 
 ## Enrichment tree
 
-An enriched document is a temporal data structure created during skillset execution that collects all of changes that are introduced through skills. It also includes any unprocessed fields that you want to use verbatim from the external data source. An enriched document exists for the duration of skillset execution, but can be cached or persisted to a knowledge store. 
+An enriched document is a temporary data structure created during skillset execution that collects all of the changes introduced through skills. It also includes any unprocessed fields retrieved verbatim from the external data source. An enriched document exists for the duration of skillset execution, but can be cached or persisted to a knowledge store. 
 
-Initially, an enriched document is simply the content extracted from a data source during [*document cracking*](search-indexer-overview.md#document-cracking), where text and images are extracted from the source and made available for language or image analysis. The articulation of the root node of the tree varies for each data source type. The following table shows the state of a document entering into the enrichment pipeline for several supported data sources:
+Initially, an enriched document is simply the content extracted from a data source during [*document cracking*](search-indexer-overview.md#document-cracking), where text and images are extracted from the source and made available for language or image analysis. 
+
+Articulation of the root node of an enrichment tree varies for each data source type. The following table shows the state of a document entering into the enrichment pipeline for several supported data sources:
 
 |Data Source\Parsing Mode|Default|JSON, JSON Lines & CSV|
 |---|---|---|
