@@ -117,7 +117,7 @@ For more information, see the [az ml computetarget create computeinstance](/cli/
     |Virtual machine size     |  Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 
 1. Select **Create** unless you want to configure advanced settings for the compute instance.
-1. Select **Next: Advanced Settings** if you want to:
+1. <a href="advanced-settings></a> Select **Next: Advanced Settings** if you want to:
 
     * Enable SSH access.  Follow the [detailed SSH access instructions](#enable-ssh) below.
     * Enable virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). For more information, see these [network requirements](./how-to-secure-training-vnet.md) for vnet. 
@@ -141,7 +141,7 @@ Once the compute instance is created and running, see [Connect with SSH access](
 
 As an administrator, you can create a compute instance on behalf of a data scientist and assign the instance to them with:
 
-* Studio, using the [Advanced settings](#advanced-settings)
+* Studio, using the [Advanced settings](?tabs=azure-studio#advanced-settings)
 
 * [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance).  For details on how to find the TenantID and ObjectID needed in this template, see [Find identity object IDs for authentication configuration](../healthcare-apis/azure-api-for-fhir/find-identity-object-ids.md).  You can also find these values in the Azure Active Directory portal.
 
