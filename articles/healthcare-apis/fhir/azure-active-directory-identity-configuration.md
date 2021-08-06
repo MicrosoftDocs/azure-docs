@@ -6,7 +6,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 08/06/2019
 ms.author: cavoeg
 ---
 
@@ -25,7 +25,7 @@ There are many ways to obtain a token, but FHIR service doesn't care how the tok
 
 Using [authorization code flow](../../active-directory/azuread-dev/v1-protocols-oauth-code.md) as an example, accessing a FHIR server goes through the four steps below:
 
-![FHIR Authorization](media/azure-ad-hcapi/fhir-authorization.png)
+![FHIR Authorization](media/azure-active-directory-fhir-service/fhir-authorization.png)
 
 1. The client sends a request to the `/authorize` endpoint of Azure AD. Azure AD will redirect the client to a sign-in page where the user will authenticate using appropriate credentials (for example username and password or two-factor authentication). See details on [obtaining an authorization code](../../active-directory/azuread-dev/v1-protocols-oauth-code.md#request-an-authorization-code). Upon successful authentication, an *authorization code* is returned to the client. Azure AD will only allow this authorization code to be returned to a registered reply URL configured in the client application registration (see below).
 1. The client application exchanges the authorization code for an *access token* at the `/token` endpoint of Azure AD. When requesting a token, the client application may have to provide a client secret (the applications password). See details on [obtaining an access token](../../active-directory/azuread-dev/v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token).
