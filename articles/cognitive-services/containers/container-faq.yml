@@ -8,7 +8,7 @@ metadata:
   manager: nitinme
   ms.service: cognitive-services
   ms.topic: conceptual
-  ms.date: 03/02/2021
+  ms.date: 07/21/2021
   ms.author: aahi
     
 title: Azure Cognitive Services containers frequently asked questions (FAQ)
@@ -84,7 +84,6 @@ sections:
         answer: |    
           Customer support channels are the same as the Cognitive Services cloud based APIs. All Cognitive Services containers include logging features that will help us and the community support customers. For additional support, see the following options.
           * Customers should refer to their [Azure support plan](https://azure.microsoft.com/support/plans/) to see who to contact for support.
-          * Customer are free to explore the [Azure knowledge center](https://azure.microsoft.com/resources/knowledge-center/) to answer questions and support issues.
           * [Stack Overflow](https://en.wikipedia.org/wiki/Stack_Overflow) is a question and answer site for professional and enthusiast programmers.
             * [Azure Cognitive Services](https://stackoverflow.com/questions/tagged/azure-cognitive-services)
             * [Microsoft Cognitive](https://stackoverflow.com/questions/tagged/microsoft-cognitive)
@@ -142,7 +141,7 @@ sections:
           * [Form Recognizer](../form-recognizer/containers/form-recognizer-container-install-run.md#container-requirements-and-recommendations)
           * [Language Understanding (LUIS)](../luis/luis-container-howto.md#container-requirements-and-recommendations)
           * [Speech Service API](../speech-service/speech-container-howto.md#container-requirements-and-recommendations)
-          * [Text Analytics](../text-analytics/how-tos/text-analytics-how-to-install-containers.md#container-requirements-and-recommendations)
+          * [Text Analytics](../text-analytics/how-tos/text-analytics-how-to-install-containers.md#host-computer-requirements-and-recommendations)
 
       - question: Are these containers currently supported on Windows?
         answer: | 

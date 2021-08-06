@@ -169,7 +169,7 @@ If any errors occur in the target slot (for example, the production slot) after 
 ## Configure auto swap
 
 > [!NOTE]
-> Auto swap isn't supported in web apps on Linux.
+> Auto swap isn't supported in web apps on Linux and Web App for Containers.
 
 Auto swap streamlines Azure DevOps scenarios where you want to deploy your app continuously with zero cold starts and zero downtime for customers of the app. When auto swap is enabled from a slot into production, every time you push your code changes to that slot, App Service automatically [swaps the app into production](#swap-operation-steps) after it's warmed up in the source slot.
 

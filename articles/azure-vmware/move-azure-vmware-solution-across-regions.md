@@ -20,7 +20,7 @@ This article helps you plan and migrate Azure VMware Solution from one Azure reg
 
 The diagram shows the recommended ExpressRoute connectivity between the two Azure VMware Solution environments.  An HCX site pairing and service mesh are created between the two environments.  The HCX migration traffic and Layer-2 extension moves (depicted by the red line) between the two environments. For VMware recommended HCX planning, see [Planning an HCX Migration](https://vmc.techzone.vmware.com/vmc-solutions/docs/deploy/planning-an-hcx-migration#section1).
 
-:::image type="content" source="media/move-azure-vmware-solution-across-regions/move-ea-csp-across-regions-2.png" alt-text="Diagram showing ExpressRoute Global Reach communication between the source and target Azure VMware Solution environments." border="false":::
+:::image type="content" source="media/move-across-regions/move-ea-csp-across-regions-2.png" alt-text="Diagram showing ExpressRoute Global Reach communication between the source and target Azure VMware Solution environments." border="false":::
 
 >[!NOTE]
 >You don't need to migrate any workflow back to on-premises because the traffic will flow between the private clouds (source and target):
@@ -29,7 +29,7 @@ The diagram shows the recommended ExpressRoute connectivity between the two Azur
 
 The diagram shows the connectivity between both Azure VMware Solution environments. 
 
-:::image type="content" source="media/move-azure-vmware-solution-across-regions/move-ea-csp-across-regions-connectivity-diagram.png" alt-text="Diagram showing communication between the source and target Azure VMware Solution environments." border="false":::
+:::image type="content" source="media/move-across-regions/move-ea-csp-across-regions-connectivity-diagram.png" alt-text="Diagram showing communication between the source and target Azure VMware Solution environments." border="false":::
 
 
 In this article, we'll walk you through the steps to: 
@@ -62,7 +62,7 @@ The following steps show how to prepare your Azure VMware Solution private cloud
 
 ### Deploy the target environment
 
-Before you can move the source configuration, you'll need to [deploy the target environment](production-ready-deployment-steps.md).
+Before you can move the source configuration, you'll need to [deploy the target environment](plan-private-cloud-deployment.md).
 
 
 ### Back up the source configuration

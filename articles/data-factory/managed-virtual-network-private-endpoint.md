@@ -4,9 +4,10 @@ description: Learn about managed virtual network and managed private endpoints i
 ms.author: lle
 author: lrtoyou1223
 ms.service: data-factory
+ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: [seo-lt-2019, references_regions, devx-track-azurepowershell]
-ms.date: 06/16/2021
+ms.date: 07/20/2021
 ---
 
 # Azure Data Factory Managed Virtual Network (preview)
@@ -194,6 +195,9 @@ To access on premises data sources from managed Virtual Network using Private En
 - When you create a Linked Service for Azure Key Vault, there is no Azure Integration Runtime reference. So you can't create Private Endpoint during Linked Service creation of Azure Key Vault. But when you create Linked Service for data stores which references Azure Key Vault Linked Service and this Linked Service references Azure Integration Runtime with Managed Virtual Network enabled, then you are able to create a Private Endpoint for the Azure Key Vault Linked Service during the creation. 
 - **Test connection** operation for Linked Service of Azure Key Vault only validates the URL format, but doesn't do any network operation.
 - The column **Using private endpoint** is always shown as blank even if you create Private Endpoint for Azure Key Vault.
+
+### Linked Service creation of Azure HDI
+- The column **Using private endpoint** is always shown as blank even if you create Private Endpoint for HDI using private link service and load balancer with port forwarding.
 
 :::image type="content" source="./media/managed-vnet/akv-pe.png" alt-text="Private Endpoint for AKV":::
 

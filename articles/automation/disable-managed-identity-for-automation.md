@@ -3,7 +3,7 @@ title: Disable system-assigned managed identity for Azure Automation account (pr
 description: This article explains how to disable a system-assigned managed identity for an Azure Automation account.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/13/2021
+ms.date: 07/24/2021
 ms.topic: conceptual
 ---
 
@@ -29,9 +29,7 @@ Syntax and example steps are provided below.
 
 ### Request body
 
-The following request body disables the system-assigned managed identity and removes any user-assigned managed identities.
-
-PATCH
+The following request body disables the system-assigned managed identity and removes any user-assigned managed identities using the HTTP **PATCH** method.
 
 ```json
 { 
@@ -42,9 +40,7 @@ PATCH
 
 ```
 
-If there are multiple user-assigned identities defined, to retain them and only remove the system-assigned identity you need to specify each user-assigned identity using comma-delimited list as in the following example:
-
-PATCH
+If there are multiple user-assigned identities defined, to retain them and only remove the system-assigned identity, you need to specify each user-assigned identity using comma-delimited list. The example below uses the HTTP **PATCH** method.
 
 ```json
 { 

@@ -288,7 +288,7 @@ For this example, you'll use a single model and a single twin instance to match 
 
 ### Create Azure Digital Twins instance
 
-First, deploy a new Azure Digital Twins instance, using the guidance in [How-to: Set up an instance and authentication](how-to-set-up-instance-portal.md).
+First, deploy a new Azure Digital Twins instance, using the guidance in [Set up an instance and authentication](how-to-set-up-instance-portal.md).
 
 ### Upload model and create twin
 

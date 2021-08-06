@@ -111,10 +111,12 @@
       href: /azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json
     - name: Use tags
       href: tag-resources.md
-    - name: Policies - compliance
+    - name: Azure Policy definitions - compliance
       href: tag-policies.md
     - name: Supported resource types
       href: tag-support.md
+    - name: Azure Resource Graph queries
+      href: ./resource-graph-samples.md
   - name: Manage resource groups
     items:
     - name: Azure portal

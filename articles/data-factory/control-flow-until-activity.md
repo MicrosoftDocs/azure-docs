@@ -1,13 +1,15 @@
 ---
 title: Until activity in Azure Data Factory 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: The Until activity executes a set of activities in a loop until the condition associated with the activity evaluates to true or it times out. 
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 01/10/2018 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, synapse
 ---
 
 # Until activity in Azure Data Factory

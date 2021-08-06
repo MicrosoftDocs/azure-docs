@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 07/21/2021
 ms.author: b-juche
 ---
 # Create a dual-protocol (NFSv3 and SMB) volume for Azure NetApp Files
@@ -160,7 +160,8 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
 The **Allow local NFS users with LDAP** option in Active Directory connections enables local NFS client users not present on the Windows LDAP server to access a dual-protocol volume that has LDAP with extended groups enabled. 
 
 > [!NOTE] 
-> Before enabling this option, you should understand the [considerations](#considerations). 
+> Before enabling this option, you should understand the [considerations](#considerations).   
+> The **Allow local NFS users with LDAP** option is part of the **LDAP with extended groups** feature and requires registration. See [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md) for details.
 
 1. Click **Active Directory connections**.  On an existing Active Directory connection, click the context menu (the three dots `…`), and select **Edit**.  
 
@@ -205,5 +206,6 @@ Follow instructions in [Configure an NFS client for Azure NetApp Files](configur
 
 * [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md)
 * [Configure ADDS LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md)
+* [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md)
 * [Troubleshoot SMB or dual-protocol volumes](troubleshoot-dual-protocol-volumes.md)
 * [Troubleshoot LDAP volume issues](troubleshoot-ldap-volumes.md)

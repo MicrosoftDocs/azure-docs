@@ -291,4 +291,4 @@ Azure Digital Twins doesn't prevent this state, so be careful to patch twins app
 ## Next steps
 
 See how to create and manage digital twins based on your models:
-* [How-to: Manage digital twins](how-to-manage-twin.md)
+* [Manage digital twins](how-to-manage-twin.md)

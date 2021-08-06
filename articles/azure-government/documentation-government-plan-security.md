@@ -1,11 +1,11 @@
 ---
 title: Azure Government Security
-description: Customer guidance and best practices for securing their workloads.
+description: Customer guidance and best practices for securing Azure workloads.
 author: stevevi
+ms.author: stevevi
 ms.service: azure-government
 ms.topic: article
-ms.date: 02/26/2021
-ms.author: stevevi
+ms.date: 08/03/2021
 ---
 
 # Azure Government security
@@ -43,7 +43,7 @@ Azure provides extensive options for [encrypting data at rest](../security/funda
 
 Azure provides many options for [encrypting data in transit](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit). Data encryption in transit isolates customer network traffic from other traffic and helps protect data from interception. For more information, see [Data encryption in transit](./azure-secure-isolation-guidance.md#data-encryption-in-transit).
 
-The basic encryption available for connectivity to Azure Government supports Transport Layer Security (TLS) 1.2 protocol and X.509 certificates. Federal Information Processing Standard (FIPS) 140-2 validated cryptographic algorithms are also used for infrastructure network connections between Azure Government datacenters. Windows, Windows Server, and Azure File shares can use SMB 3.0 for encryption between the VM and the file share. Use client-side encryption to encrypt the data before it is transferred into storage in a client application, and to decrypt the data after it is transferred out of storage.
+The basic encryption available for connectivity to Azure Government supports Transport Layer Security (TLS) 1.2 protocol and X.509 certificates. Federal Information Processing Standard (FIPS) 140 validated cryptographic algorithms are also used for infrastructure network connections between Azure Government datacenters. Windows, Windows Server, and Azure File shares can use SMB 3.0 for encryption between the VM and the file share. Use client-side encryption to encrypt the data before it is transferred into storage in a client application, and to decrypt the data after it is transferred out of storage.
 
 ### Best practices for encryption
 
@@ -52,12 +52,12 @@ The basic encryption available for connectivity to Azure Government supports Tra
 
 ## Managing secrets
 
-Proper protection and management of encryption keys is essential for data security. Customers should strive to simplify key management and maintain control of keys used by cloud applications and services to encrypt data. [Azure Key Vault](../key-vault/index.yml) is a cloud service for securely storing and managing secrets. Key Vault enables customers to store their encryption keys in hardware security modules (HSMs) that are FIPS 140-2 validated. For more information, see [Data encryption key management](./azure-secure-isolation-guidance.md#data-encryption-key-management).
+Proper protection and management of encryption keys is essential for data security. Customers should strive to simplify key management and maintain control of keys used by cloud applications and services to encrypt data. [Azure Key Vault](../key-vault/index.yml) is a cloud service for securely storing and managing secrets. Key Vault enables customers to store their encryption keys in hardware security modules (HSMs) that are [FIPS 140](/azure/compliance/offerings/offering-fips-140-2) validated. For more information, see [Data encryption key management](./azure-secure-isolation-guidance.md#data-encryption-key-management).
 
 ### Best practices for managing secrets
 
 - Use Key Vault to minimize the risks of secrets being exposed through hard-coded configuration files, scripts, or in source code. For added assurance, you can import or generate keys in Azure Key Vault HSMs.
-- Application code and templates should only contain URI references to the secrets, which means the actual secrets are not in code, configuration, or source code repositories. This approach prevents key phishing attacks on internal or external repositories, such as harvest-bots in GitHub.
+- Application code and templates should only contain URI references to the secrets, meaning the actual secrets are not in code, configuration, or source code repositories. This approach prevents key phishing attacks on internal or external repositories, such as harvest-bots in GitHub.
 - Utilize strong Azure role-based access control (RBAC) within Key Vault. If a trusted operator leaves the company or transfers to a new group within the company, they should be prevented from being able to access the secrets.
 
 ## Understanding isolation
@@ -66,14 +66,14 @@ Isolation in Azure Government is achieved through the implementation of trust bo
 
 ### Environment isolation
 
-The Azure Government multi-tenant cloud platform environment is an Internet standards-based Autonomous System (AS) that is physically isolated and separately administered from the rest of Azure public cloud. The AS as defined by [IETF RFC 4271](https://datatracker.ietf.org/doc/rfc4271/) is comprised of a set of switches and routers under a single technical administration, using an interior gateway protocol and common metrics to route packets within the AS, and using an exterior gateway protocol to route packets to other ASs though a single and clearly defined routing policy. In addition, Azure Government for DoD regions within Azure Government are geographically separated physical instances of compute, storage, SQL, and supporting services that store and/or process customer content in accordance with DoD Cloud Computing Security Requirements Guide (SRG) [Section 5.2.2.3](https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html#5.2LegalConsiderations) requirements.  
+The Azure Government multi-tenant cloud platform environment is an Internet standards-based Autonomous System (AS) that is physically isolated and separately administered from the rest of Azure public cloud. The AS as defined by [IETF RFC 4271](https://datatracker.ietf.org/doc/rfc4271/) is composed of a set of switches and routers under a single technical administration, using an interior gateway protocol and common metrics to route packets within the AS, and using an exterior gateway protocol to route packets to other ASs though a single and clearly defined routing policy. In addition, Azure Government for DoD regions within Azure Government are geographically separated physical instances of compute, storage, SQL, and supporting services that store and/or process customer content in accordance with DoD Impact Level 5 (IL5) tenant separation requirements, as stated in the DoD Cloud Computing Security Requirements Guide (SRG) [Section 5.2.2.3](https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html#5.2LegalConsiderations).  
 
 The isolation of the Azure Government environment is achieved through a series of physical and logical controls, and associated capabilities that include:
 
 - Physically isolated hardware
 - Physical barriers to the hardware using biometric devices and cameras
 - Conditional access (Azure RBAC, workflow)
-- Specific credentials and multi-factor authentication for logical access
+- Specific credentials and multifactor authentication for logical access
 - Infrastructure for Azure Government is located within the United States
  
 Within the Azure Government network, internal network system components are isolated from other system components through implementation of separate subnets and access control policies on management interfaces. Azure Government does not directly peer with the public internet or with the Microsoft corporate network. Azure Government directly peers to the commercial Microsoft Azure network, which has routing and transport capabilities to the Internet and the Microsoft Corporate network. Azure Government limits its exposed surface area by applying extra protections and communications capabilities of our commercial Azure network.  In addition, Azure Government ExpressRoute (ER) uses peering with our customer’s networks over non-Internet private circuits to route ER customer “DMZ” networks using specific Border Gateway Protocol (BGP)/AS peering as a trust boundary for application routing and associated policy enforcement.
@@ -136,7 +136,7 @@ Microsoft takes strong measures to protect customer data from inappropriate acce
 
 Microsoft engineers can be granted access to customer data using temporary credentials via **Just-in-Time (JIT)** access. There must be an incident logged in the Azure Incident Management system that describes the reason for access, approval record, what data was accessed, etc. This approach ensures that there is appropriate oversight for all access to customer data and that all JIT actions (consent and access) are logged for audit. Evidence that procedures have been established for granting temporary access for Azure personnel to customer data and applications upon appropriate approval for customer support or incident handling purposes is available from the Azure [SOC 2 Type 2 attestation report](https://aka.ms/azuresoc2auditreport) produced by an independent third-party auditing firm.
 
-JIT access works with multi-factor authentication that requires Microsoft engineers to use a smartcard to confirm their identity. All access to production systems is performed using Secure Admin Workstations (SAWs) that are consistent with published guidance on [securing privileged access](/security/compass/overview). Use of SAWs for access to production systems is required by Microsoft policy and compliance with this policy is closely monitored. These workstations use a fixed image with all software fully managed – only select activities are allowed and users cannot accidentally circumvent the SAW design since they do not have admin privileges on these machines. Access is permitted only with a smartcard and access to each SAW is limited to specific set of users.
+JIT access works with multifactor authentication that requires Microsoft engineers to use a smartcard to confirm their identity. All access to production systems is performed using Secure Admin Workstations (SAWs) that are consistent with published guidance on [securing privileged access](/security/compass/overview). Use of SAWs for access to production systems is required by Microsoft policy and compliance with this policy is closely monitored. These workstations use a fixed image with all software fully managed – only select activities are allowed and users cannot accidentally circumvent the SAW design since they do not have admin privileges on these machines. Access is permitted only with a smartcard and access to each SAW is limited to specific set of users.
 
 ### Customer Lockbox
 
@@ -223,5 +223,5 @@ With Azure Monitor, customers can get a 360-degree view of their applications, i
 **[Azure Blueprints](../governance/blueprints/overview.md)** is a service that helps customers deploy and update cloud environments in a repeatable manner using composable artifacts such as Azure Resource Manager templates to provision resources, role-based access controls, and policies that adhere to an organization’s standards, patterns, and requirements. Customers can use pre-defined standard blueprints and customize these solutions to meet specific requirements, including data encryption, host and service configuration, network and connectivity configuration, identity, and other security aspects of deployed resources. The overarching goal of Azure Blueprints is to help automate compliance and cybersecurity risk management in cloud environments.  For more information on Azure Blueprints, including production-ready blueprint solutions for ISO 27001, NIST SP 800-53, PCI DSS, HITRUST, and other standards, see the [Azure Blueprint samples](../governance/blueprints/samples/index.md). 
 
 ## Next steps
-For supplemental information and updates, subscribe to the
-<a href="https://devblogs.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
+
+For supplemental information and updates, subscribe to the [Microsoft Azure Government Blog](https://devblogs.microsoft.com/azuregov/).

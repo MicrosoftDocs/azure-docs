@@ -89,6 +89,9 @@ sections:
       - question: Can I change the default vSphere Web Client timeout value?
         answer: Yes. For information on changing the timeout value, see [Configure the vSphere Web Client Timeout Value](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vcenterhost.doc/GUID-975412DE-CDCB-49A1-8E2A-0965325D33A5.html).
 
+      - question: Is Windows 2008 supported as an Active Directory (AD) server or Remote Desktop Session Host (RDSH) OS in NSX-T?
+        answer: No.
+
   - name: Migrate
     questions:
       - question: Why can't I see my Sentinel Management tab in the HCX Manager when using the Sentinel Appliance service?
@@ -337,8 +340,3 @@ sections:
       - question: When does metering begin and end for trial Azure VMware Solution clusters?
         answer: Trial clusters are limited to three hosts used for 30-day evaluations of Azure VMware Solution private clouds. After 30 days, clusters are automatically metered per their respective rates. If the trial clusters are deleted before the 30-day end date, the Azure VMware Solution trial will end at the time of deletion.
 
-      - question: How will I be charged for ExpressRoute?
-        answer: |
-          Any ExpressRoute Global Reach circuit where one end terminates on an Azure VMware Solution ExpressRoute circuit is suppressed. The following items are charged as regular ExpressRoute pricing:
-          - **ExpressRoute circuit** and **Data Transfer pricing:**  only the on-premises to Azure ExpressRoute circuit (not the Azure VMware Solution ExpressRoute circuit)
-          - **ExpressRoute Gateway:** each virtual network that needs to attach to Azure VMware Solution needs a local or remote ExpressRoute Gateway

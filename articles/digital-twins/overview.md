@@ -102,6 +102,6 @@ You can view a list of **common IoT terms** and their uses across the Azure IoT 
 
 ## Next steps
 
-* Dive into working with Azure Digital Twins in the quickstart: [Quickstart: Get started with Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md).
+* Dive into working with Azure Digital Twins in [Get started with Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md).
 
-* Or, start reading about Azure Digital Twins concepts with [Concepts: Custom models](concepts-models.md).
+* Or, start reading about Azure Digital Twins concepts with [Custom models](concepts-models.md).

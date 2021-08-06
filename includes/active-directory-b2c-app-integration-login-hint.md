@@ -9,6 +9,6 @@ ms.author: mimart
 ---
 ## Prepopulate the sign-in name
 
-During a sign-in user journey, your app may target a specific user. When targeting a user, an application can specify in the authorization request, the `login_hint` query parameter with the user sign-in name. Azure AD B2C automatically populates the sign-in name, and the user only needs to provide the password. 
+During a sign-in user journey, your app might target a specific user. When an app targets a user, it can specify in the authorization request the `login_hint` query parameter with the user sign-in name. Azure AD B2C automatically populates the sign-in name, and the user needs to provide only the password. 
 
-To prepopulate the sign-in name, follow these steps:
+To prepopulate the sign-in name, do the following:

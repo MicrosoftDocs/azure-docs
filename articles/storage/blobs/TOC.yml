@@ -124,6 +124,8 @@ items:
       href: storage-samples-blobs-powershell.md
     - name: Azure CLI
       href: storage-samples-blobs-cli.md
+    - name: Azure Resource Graph queries
+      href: ../common/resource-graph-samples.md
   - name: Concepts
     items:
     - name: Storage accounts
@@ -186,8 +188,14 @@ items:
         href: snapshots-overview.md
       - name: Change feed
         href: storage-blob-change-feed.md        
-      - name: Immutable blobs
-        href: storage-blob-immutable-storage.md
+      - name: Immutable storage for blobs
+        items:
+        - name: Overview 
+          href: immutable-storage-overview.md
+        - name: Time-based retention policies
+          href: immutable-time-based-retention-policy-overview.md
+        - name: Legal holds
+          href: immutable-legal-hold-overview.md  
     - name: Redundancy and disaster recovery
       items:    
       - name: Data redundancy
@@ -440,8 +448,12 @@ items:
         href: snapshots-manage-dotnet.md
       - name: Process change feed logs
         href: storage-blob-change-feed-how-to.md        
-      - name: Set and manage immutability policies
-        href: storage-blob-immutability-policies-manage.md
+      - name: Configure an immutability policy
+        items:
+        - name: Configure version-level immutability policies
+          href: immutable-policy-configure-version-scope.md
+        - name: Configure container-level immutability policies
+          href: immutable-policy-configure-container-scope.md
     - name: Manage redundancy and failover
       items:
       - name: Change redundancy configuration
@@ -520,19 +532,25 @@ items:
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage
     - name: Move across regions
       href: ../common/storage-account-move.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Monitor (classic)
+    - name: Monitor
       items:
-      - name: Enable and manage metrics (classic)
-        href: ../common/manage-storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Enable and manage logs (classic)
-        href: ../common/manage-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Scenarios and best practices
+        href: blob-storage-monitoring-scenarios.md
+      - name: Use Storage insights
+        href: ../common/storage-insights-overview.md
+      - name: Monitor (classic)
+        items:
+        - name: Enable and manage metrics (classic)
+          href: ../common/manage-storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Enable and manage logs (classic)
+          href: ../common/manage-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Troubleshoot
       items:
       - name: Latency issues
         href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Reference
     items:
-    - name: Azure Blob Storage reference
+    - name: Blob Storage API reference
       href: ../blobs/reference.md
     - name: AzCopy v10
       items:
