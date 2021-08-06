@@ -24,7 +24,8 @@ Currently, the following Azure Arc-enabled data services are available:
 
 For an introduction to how Azure Arc enabled data services supports your hybrid work environment, see this introductory video:
 
-> [!VIDEO https://channel9.msdn.com/Shows//Inside-Azure-for-IT/Choose-the-right-data-solution-for-your-hybrid-environment/player?format=ny]]
+> [!VIDEO https://channel9.msdn.com/Shows//Inside-Azure-for-IT/Choose-the-right-data-solution-for-your-hybrid-environment/player?format=ny]
+
 ## Always current
 
 Azure Arc-enabled data services such as Azure Arc-enabled SQL managed instance and Azure Arc-enabled PostgreSQL Hyperscale receive updates on a frequent basis including servicing patches and new features similar to the experience in Azure. Updates from the Microsoft Container Registry are provided to you and deployment cadences are set by you in accordance with your policies. This way, on-premises databases can stay up to date while ensuring you maintain control. Because Azure Arc-enabled data services are a subscription service, you will no longer face end-of-support situations for your databases.
