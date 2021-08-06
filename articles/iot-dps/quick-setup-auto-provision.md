@@ -13,9 +13,9 @@ ms.custom: mvc
 
 # Quickstart: Set up the IoT Hub Device Provisioning Service with the Azure portal
 
-The IoT Hub Device Provisioning Service can be used with IoT Hub to enable zero-touch, just-in-time provisioning to the desired IoT hub without requiring human intervention, enabling customers to provision millions of IoT devices in a secure and scalable manner. Azure IoT Hub Device Provisioning Service supports IoT devices with TPM, symmetric key and X.509 certificate authentications. For more information, please refer to [IoT Hub Device Provisioning Service overview](./about-iot-dps.md)
+The IoT Hub Device Provisioning Service enables zero-touch, just-in-time device provisioning to the desired IoT hub. The Device Provisioning Service enables customers to provision millions of IoT devices in a secure and scalable manner, without requiring human intervention. Azure IoT Hub Device Provisioning Service supports IoT devices with TPM, symmetric key, and X.509 certificate authentications. For more information, please refer to [IoT Hub Device Provisioning Service overview](./about-iot-dps.md)
 
-In this quickstart, you'll learn how to set up the IoT Hub Device Provisioning Service in the Azure Portal.
+In this quickstart, you'll learn how to set up the IoT Hub Device Provisioning Service in the Azure portal.
 
 To provision your devices, you will:
 
@@ -33,7 +33,7 @@ You'll need an Azure subscription to begin with this article. You can create a [
 
 ## Create a new IoT Hub Device Provisioning Service
 
-1. In the Azure Portal, select **+ Create a resource** .
+1. In the Azure portal, select **+ Create a resource** .
 
 2. *Search the Marketplace* for the **Device Provisioning Service**. Select **IoT Hub Device Provisioning Service**.
 
@@ -48,7 +48,7 @@ You'll need an Azure subscription to begin with this article. You can create a [
 
         :::image type="content" source="./media/quick-setup-auto-provision/create-iot-dps-portal.png" alt-text="Enter basic information about your Device Provisioning Service instance in the portal blade":::
 
-5. Select **Review + Create**. This is will validate your provisioning service.
+5. Select **Review + Create** to validate your provisioning service.
 
 6. Select **Create**.
 
