@@ -57,6 +57,8 @@ Follow these commands to create your metrics upload service principal:
 
 To create a service principal, update the following example. Replace `<ServicePrincipalName>`, `SubscriptionId` and `resourcegroup` with your values and run the command:
 
+# User input SHOULD USE <> NOT {}
+
 ```azurecli
 az ad sp create-for-rbac --name <ServicePrincipalName> --role Contributor --scopes /subscriptions/{SubscriptionId}/resourceGroups/{resourcegroup}
 ```
@@ -82,7 +84,8 @@ Example output:
 "password": "5039d676-23f9-416c-9534-3bd6afc78123",
 "tenant": "72f988bf-85f1-41af-91ab-2d7cd01ad1234"
 ```
-
+# Why do we call the app id the client id - can we use one term.
+# When are these used. 
 Save the `appId`, `password`, and `tenant` values in an environment variable for use later. 
 
 ::: zone pivot="client-operating-system-windows-command"
@@ -163,7 +166,15 @@ Example output:
 }
 ```
 
+## Verify service principal role
+
+```azurecli
+az role assignment list -o table
+```
+
 With the service principal assigned to the appropriate role, you can proceed to upload metrics, or user data. 
+
+
 
 ## Upload logs, metrics, or usage data
 
