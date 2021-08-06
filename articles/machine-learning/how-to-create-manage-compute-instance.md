@@ -115,7 +115,7 @@ For more information, see the [az ml computetarget create computeinstance](/cli/
     |Virtual machine size     |  Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 
 1. Select **Create** unless you want to configure advanced settings for the compute instance.
-1. <a href="advanced-settings"></a> Select **Next: Advanced Settings** if you want to:
+1. <a name="advanced-settings"></a> Select **Next: Advanced Settings** if you want to:
 
     * Enable SSH access.  Follow the [detailed SSH access instructions](#enable-ssh) below.
     * Enable virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). For more information, see these [network requirements](./how-to-secure-training-vnet.md) for vnet. 
