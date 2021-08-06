@@ -5,8 +5,8 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/06/2021
-author: mingshen-ms
-ms.author: mingshen
+author: smannepalle
+ms.author: smannepalle
 ---
 
 # Ratings & Reviews analytics dashboard in Partner Center
