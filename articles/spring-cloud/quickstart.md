@@ -396,15 +396,18 @@ The following procedure creates an instance of Azure Spring Cloud using the Azur
 
 6. Click **Review and create**.
 
-## Log in to Azure
 
-1. Log in to the Azure CLI
+## Build and deploy the app
+
+#### [CLI](#tab/Azure-CLI)
+The following procedure builds and deploys the application using the Azure CLI. Execute the following command at the root of the project.
+1. Log in to the Azure CLI and choose subscription
 
     ```azurecli
     az login
     ```
 
-2. If you have more than one subscription, choose the one you want to use for this quickstart.
+   If you have more than one subscription, choose the one you want to use for this quickstart.
 
    ```azurecli
    az account list -o table
@@ -413,10 +416,6 @@ The following procedure creates an instance of Azure Spring Cloud using the Azur
    ```azurecli
    az account set --subscription <Name or ID of a subscription from the last step>
    
-## Build and deploy the app
-    
-#### [CLI](#tab/Azure-CLI)
-The following procedure builds and deploys the application using the Azure CLI. Execute the following command at the root of the project.
 
 1. Build the project using Maven:
 
