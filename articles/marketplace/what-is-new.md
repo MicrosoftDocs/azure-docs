@@ -16,13 +16,12 @@ Learn about important updates in the commercial marketplace program of Partner C
 
 | Category | Description | Date |
 | ------------ | ------------- | ------------- |
-| Offers, VM | Many unique plan properties are now available for Azure Virtual Machine offers. See the [virtual machine technical configuration properties](azure-vm-create-plans.md#properties) article for more information. | 2021-07-26 |
+| Offers, VM | Additional properties at the plan level are now available for Azure Virtual Machine offers. See the [virtual machine technical configuration properties](azure-vm-create-plans.md#properties) article for more information. | 2021-07-26 |
 | Fees | Microsoft has changed its fees for certain services. See [Commercial marketplace transact capabilities](marketplace-commercial-transaction-capabilities-and-considerations.md#examples-of-pricing-and-store-fees) and Common questions about payouts and taxes, "[How do I find the current Store Service Fee and the payout rate?](/partner-center/payout-faq)". | 2021-07-14 |
-| Offers | Publishers can publish a virtual machine (VM) that they have built on premises. To learn more, see [Create a virtual machine using your own image](./azure-vm-create-using-own-image.md). | 2021-06-23 |
+| Offers, VM | Publishers can publish a virtual machine (VM) that they have built on premises. To learn more, see [Create a virtual machine using your own image](./azure-vm-create-using-own-image.md). | 2021-06-23 |
 | Customer engagement | Publishers can now respond to user reviews on Azure Marketplace or AppSource. To learn more, see [Ratings & Reviews analytics dashboard in Partner Center](./ratings-reviews.md). | 2021-06- 03 |
-| Offers | Publishers now have a simpler and faster way to prepare and publish their Azure Virtual Machine-based offers in Partner Center. To learn more, see [How to create a virtual machine using an approved base](azure-vm-create-using-approved-base.md). | 2021-03-22 |
+| Offers, VM | Publishers now have a simpler and faster way to prepare and publish their Azure Virtual Machine-based offers in Partner Center. To learn more, see [How to create a virtual machine using an approved base](azure-vm-create-using-approved-base.md). | 2021-03-22 |
 | Analytics | Developers can use new report APIs to programmatically access commercial marketplace analytics data. You can schedule custom reports and download your marketplace data into your internal analytics systems. To learn more, see [Get started with programmatic access to analytics data](analytics-get-started.md). | 2021-03-08 |
-| Grow your business | <strike>Publishers can more easily mitigate the risk of their customers receiving an incorrect bill for metered billing usage. To learn more, see [Manage metered billing anomalies in Partner Center](anomaly-detection.md).</strike> | 2021-02-18 |
 |
 
 ## Tax updates
