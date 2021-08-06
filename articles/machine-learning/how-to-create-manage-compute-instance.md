@@ -194,6 +194,80 @@ The data scientist can start, stop, and restart the compute instance. They can u
 * RStudio
 * Integrated notebooks
 
+## <a name="schedule"></a> Schedule automatic start and stop (preview)
+
+You can schedule the automatic start and stop of a compute instance by using the [studio](how-to-create-manage-compute-instance.md?tabs=azure-studio#schedule-studio) or a Resource Manager template.  In a Resource Manager template, use either cron or LogicApps expressions to define a schedule to start or stop the instance.  
+
+```json
+"schedules": {
+    "value": {
+    "computeStartStop": [
+        {
+        "TriggerType": "Cron",
+        "Cron": {
+            "StartTime": "2021-03-10T21:21:07",
+            "TimeZone": "Pacific Standard Time",
+            "Expression": "0 18 * * *"
+        },
+        "Action": "Stop",
+        "Status": "Enabled"
+        },
+        {
+        "TriggerType": "Cron",
+        "Cron": {
+            "StartTime": "2021-03-10T21:21:07",
+            "TimeZone": "Pacific Standard Time",
+            "Expression": "0 8 * * *"
+        },
+        "Action": "Start",
+        "Status": "Enabled"
+        },
+        { 
+        "triggerType": "Recurrence", 
+        "recurrence": { 
+            "frequency": "Day", 
+            "interval": 1, 
+            "timeZone": "Pacific Standard Time", 
+          "schedule": { 
+            "hours": [18], 
+            "minutes": [0], 
+            "weekDays": [ 
+                "Saturday", 
+                "Sunday"
+            ] 
+            } 
+        }, 
+        "Action": "Stop", 
+        "Status": "Enabled" 
+        } 
+    ]
+```
+
+* Action can have value of “Start” or “Stop”.
+* For trigger type of `Recurrence` use the same syntax as logic app, with this [recurrence schema](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger).
+* For trigger type of `cron`, use standard cron syntax:  
+
+    ```cron
+    // Crontab expression format: 
+    // 
+    // * * * * * 
+    // - - - - - 
+    // | | | | | 
+    // | | | | +----- day of week (0 - 6) (Sunday=0) 
+    // | | | +------- month (1 - 12) 
+    // | | +--------- day of month (1 - 31) 
+    // | +----------- hour (0 - 23) 
+    // +------------- min (0 - 59) 
+    // 
+    // Star (*) in the value field above means all legal values as in 
+    // braces for that column. The value column can have a * or a list 
+    // of elements separated by commas. An element is either a number in 
+    // the ranges shown above or two numbers in the range separated by a 
+    // hyphen (meaning an inclusive range). 
+    ```
+
+Use Azure policy to enforce a shutdown schedule exists for every compute instance in a subscription or default to a schedule if nothing exists.
+
 ## <a name="setup-script"></a> Customize the compute instance with a script (preview)
 
 Use a setup script for an automated way to customize and configure the compute instance at provisioning time. As an administrator, you can write a customization script to be used to provision all compute instances in the workspace according to your requirements.
@@ -306,79 +380,6 @@ For example, specify a base64 encoded command string for `scriptData`:
 
 Logs from the setup script execution appear in the logs folder in the compute instance details page. Logs are stored back to your notebooks file share under the Logs\<compute instance name> folder. Script file and command arguments for a particular compute instance are shown in the details page.
 
-## <a name="schedule"></a> Schedule automatic start and stop (preview)
-
-You can schedule the automatic start and stop of a compute instance by using the [studio](how-to-create-manage-compute-instance.md?tabs=azure-studio#schedule-studio) or a Resource Manager template.  In a Resource Manager template, use either cron or LogicApps expressions to define a schedule to start or stop the instance.  
-
-```json
-"schedules": {
-    "value": {
-    "computeStartStop": [
-        {
-        "TriggerType": "Cron",
-        "Cron": {
-            "StartTime": "2021-03-10T21:21:07",
-            "TimeZone": "Pacific Standard Time",
-            "Expression": "0 18 * * *"
-        },
-        "Action": "Stop",
-        "Status": "Enabled"
-        },
-        {
-        "TriggerType": "Cron",
-        "Cron": {
-            "StartTime": "2021-03-10T21:21:07",
-            "TimeZone": "Pacific Standard Time",
-            "Expression": "0 8 * * *"
-        },
-        "Action": "Start",
-        "Status": "Enabled"
-        },
-        { 
-        "triggerType": "Recurrence", 
-        "recurrence": { 
-            "frequency": "Day", 
-            "interval": 1, 
-            "timeZone": "Pacific Standard Time", 
-          "schedule": { 
-            "hours": [18], 
-            "minutes": [0], 
-            "weekDays": [ 
-                "Saturday", 
-                "Sunday"
-            ] 
-            } 
-        }, 
-        "Action": "Stop", 
-        "Status": "Enabled" 
-        } 
-    ]
-```
-
-* Action can have value of “Start” or “Stop”.
-* For trigger type of `Recurrence` use the same syntax as logic app, with this [recurrence schema](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger).
-* For trigger type of `cron`, use standard cron syntax:  
-
-    ```cron
-    // Crontab expression format: 
-    // 
-    // * * * * * 
-    // - - - - - 
-    // | | | | | 
-    // | | | | +----- day of week (0 - 6) (Sunday=0) 
-    // | | | +------- month (1 - 12) 
-    // | | +--------- day of month (1 - 31) 
-    // | +----------- hour (0 - 23) 
-    // +------------- min (0 - 59) 
-    // 
-    // Star (*) in the value field above means all legal values as in 
-    // braces for that column. The value column can have a * or a list 
-    // of elements separated by commas. An element is either a number in 
-    // the ranges shown above or two numbers in the range separated by a 
-    // hyphen (meaning an inclusive range). 
-    ```
-
-Use Azure policy to enforce a shutdown schedule exists for every compute instance in a subscription or default to a schedule if nothing exists.
 
 ## Manage
 
