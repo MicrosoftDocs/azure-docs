@@ -24,6 +24,11 @@ For production grade model training, use an [Azure Machine Learning compute clus
 
 For compute instance Jupyter functionality to work, ensure that web socket communication is not disabled. Please ensure your network allows websocket connections to *.instances.azureml.net and *.instances.azureml.ms.
 
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Why use a compute instance?
 
 A compute instance is a fully managed cloud-based workstation optimized for your machine learning development environment. It provides the following benefits:
@@ -41,11 +46,6 @@ A compute instance is a fully managed cloud-based workstation optimized for your
 * To save on costs, **[create  a schedule (preview)](how-to-create-manage-compute-instance.md?tabs=azure-studio#schedule-studio)** to automatically start and stop the compute instance (preview).
 
 ## <a name="contents"></a>Tools and environments
-
-> [!IMPORTANT]
-> Items marked (preview) in this article are currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Machine Learning compute instance enables you to author, train, and deploy models in a fully integrated notebook experience in your workspace.
 
@@ -98,16 +98,6 @@ You can also clone the latest Azure Machine Learning samples to your folder unde
 Writing small files can be slower on network drives than writing to the compute instance local disk itself.  If you are writing many small files, try using a directory directly on the compute instance, such as a `/tmp` directory. Note these files will not be accessible from other compute instances.
 
 Do not store training data on the notebooks file share. You can use the `/tmp` directory on the compute instance for your temporary data.  However, do not write very large files of data on the OS disk of the compute instance. OS disk on compute instance has 128 GB capacity. You can also store temporary training data on temporary disk mounted on /mnt. Temporary disk size is configurable based on the VM size chosen and can store larger amounts of data if a higher size VM is chosen. You can also mount [datastores and datasets](concept-azure-machine-learning-architecture.md#datasets-and-datastores). Any software packages you install are saved on the OS disk of compute instance. Please note customer managed key encryption is currently not supported for OS disk. The OS disk for compute instance is encrypted with Microsoft-managed keys. 
-
-
-
-## Managing a compute instance
-
-In your workspace in Azure Machine Learning studio, select **Compute**, then select **Compute Instance** on the top.
-
-![Manage a compute instance](./media/concept-compute-instance/manage-compute-instance.png)
-
-For more about managing the compute instance, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
 
 ### <a name="create"></a>Create a compute instance
 
