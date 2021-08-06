@@ -91,7 +91,7 @@
     href: concept-custom.md
 - name: Tutorials
   items:
-  - name: Low-code solutions: Form Recognizer and AI Builder
+  - name: "Low-code solutions: Form Recognizer and AI Builder"
     expanded: true 
     items:
     - name:  Custom form processing
