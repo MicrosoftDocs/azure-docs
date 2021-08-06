@@ -63,7 +63,7 @@ To configure SSO for the Logz.io resource in the Azure Portal, you need to add t
 
 In **AD app for a logz.io resource | Overview > Properties**, copy the **Application ID** property.
 
-![Copy Application ID](./media/logzio-cloud-observability-for-engineers-tutorial/liftr-copy-application-id2.png)
+![Copy Application ID](./media/logzio-cloud-observability-for-engineers-tutorial/liftr-copy-application-id-2.png)
 
 ##### Configure Azure AD SSO
 
