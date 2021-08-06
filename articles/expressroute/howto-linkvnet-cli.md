@@ -167,6 +167,10 @@ az network vpn-connection create --name ERConnection --resource-group ExpressRou
 az network vpn-connection update --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true
 ```
 
+> [!NOTE]
+> You can use [Connection Monitor](how-to-configure-connection-monitor.md) to verify that your traffic is reaching the destination using FastPath.
+>
+
 ## Enroll in ExpressRoute FastPath features (preview)
 
 FastPath support for virtual network peering is now in Public preview. Enrollment is only available through Azure PowerShell. See [FastPath preview features](expressroute-howto-linkvnet-arm.md#enroll-in-expressroute-fastpath-features-preview), for instructions on how to enroll.

@@ -195,6 +195,10 @@ $connection.ExpressRouteGatewayBypass = $True
 Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection
 ``` 
 
+> [!NOTE]
+> You can use [Connection Monitor](how-to-configure-connection-monitor.md) to verify that your traffic is reaching the destination using FastPath.
+>
+
 ## Enroll in ExpressRoute FastPath features (preview)
 
 FastPath support for virtual network peering and Private Link is now in Public preview.
