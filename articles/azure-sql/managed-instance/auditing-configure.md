@@ -52,7 +52,7 @@ The following section describes the configuration of auditing on your managed in
       ![Create blob container configuration](./media/auditing-configure/3_create_container_config.png)
 
     > [!IMPORTANT]
-    > Customers wishing to configure an immutable log store for their server- or database-level audit events should follow the [instructions provided by Azure Storage](../../storage/blobs/immutable-time-based-retention-policy-overview.md#enabling-allow-protected-append-blobs-writes). (Please ensure you have selected **Allow additional appends** when you configure the immutable blob storage.)
+    > Customers wishing to configure an immutable log store for their server- or database-level audit events should follow the [instructions provided by Azure Storage](../../storage/blobs/immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes). (Please ensure you have selected **Allow additional appends** when you configure the immutable blob storage.)
   
 3. After you create the container for the audit logs, there are two ways to configure it as the target for the audit logs: [using T-SQL](#blobtsql) or [using the SQL Server Management Studio (SSMS) UI](#blobssms):
 
