@@ -104,7 +104,7 @@ After you identify the data sources, use [SQL Server Migration Assistant for Ora
 To create an assessment, follow these steps:
 
 
-1. Open [SQL Server Migration Assistant for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258).
+1. Open [SQL Server Migration Assistant for Oracle](https://www.microsoft.com/download/details.aspx?id=54258).
 1. On the **File** menu, select **New Project**.
 1. Provide a project name and a location for your project, and then select a SQL Server migration target from the list. Select **OK**:
 
