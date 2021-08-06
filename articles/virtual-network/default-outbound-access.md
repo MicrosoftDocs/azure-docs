@@ -55,9 +55,9 @@ There are multiple ways to turn off default outbound access:
 
     * Associate a public IP to the virtual machine's network interface.
 
-2.	Use virtual machine scale set Flex
+2.	Use Flexible orchestration mode for virtual machine scale sets.
 
-    * Virtual machine scale set Flex is secure by default. Any instances created via Flex won't have the default outbound access IP associated to it
+    * Flexible scale sets are secure by default. Any instances created via Flexible scale sets won't have the default outbound access IP associated to it. For more information, see [Flexible orchestration mode for virtual machine scale sets](http://aka.ms/vmssflex/docs)
 
 ## If I need outbound access, what is the recommended way?
 
