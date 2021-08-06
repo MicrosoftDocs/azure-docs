@@ -47,7 +47,7 @@ To create a flexible server in a virtual network, you need:
     > Only virtual networks and subnets in the same region and subscription will be listed in the drop down. </br>
     > The chosen subnet will be delegated to *Microsoft.DBforMySQL/flexibleServers*. It means that only Azure Database for MySQL Flexible Servers can use that subnet.</br>
 
-    :::image type="content" source="./media/how-to-manage-virtual-network-portal/vnet-creation.png" alt-text="Vnet-creation":::
+    :::image type="content" source="./media/how-to-manage-virtual-network-portal/vnet-creation.png" alt-text="Vnet-integration":::
 
 7. Create a new or Select an existing **Private DNS Zone**.
     > [!NOTE]
