@@ -228,7 +228,7 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
     ```powershell
     $extensionName="appservice-ext" # Name of the App Service extension
     $namespace="appservice-ns" # Namespace in your cluster to install the extension and provision resources
-    $kubeEnvironmentName="freeberg-k8s-env" # Name of the App Service Kubernetes environment resource
+    $kubeEnvironmentName="<kube-environment-name>" # Name of the App Service Kubernetes environment resource
     ```
 
     ---
@@ -315,6 +315,8 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
         
 3. Save the `id` property of the App Service extension for later.
 
+    #[bash](tab/bash)
+
     ```azurecli-interactive
     extensionId=$(az k8s-extension show \
         --cluster-type connectedClusters \
@@ -324,6 +326,20 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
         --query id \
         --output tsv)
     ```
+
+    #[PowerShell](tab/powershell)
+
+    ```powershell
+    $extensionId=$(az k8s-extension show `
+        --cluster-type connectedClusters `
+        --cluster-name $clusterName `
+        --resource-group $groupName `
+        --name $extensionName `
+        --query id `
+        --output tsv)
+    ```
+
+    ---
 
 4. Wait for the extension to fully install before proceeding. You can have your terminal session wait until this complete by running the following command:
 
@@ -347,13 +363,27 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) in Azure is u
 
 1. Set the following environment variables for the desired name of the custom location and for the ID of the Azure Arc connected cluster.
 
+    #[bash](tab/bash)
+
     ```bash
     customLocationName="my-custom-location" # Name of the custom location
     
     connectedClusterId=$(az connectedk8s show --resource-group $groupName --name $clusterName --query id --output tsv)
     ```
+
+    #[PowerShell](tab/powershell)
+
+    ```powershell
+    $customLocationName="my-custom-location" # Name of the custom location
     
-3. Create the custom location:
+    $connectedClusterId=$(az connectedk8s show --resource-group $groupName --name $clusterName --query id --output tsv)
+    ```
+
+    ---
+    
+2. Create the custom location:
+
+    #[bash](tab/bash)
 
     ```azurecli-interactive
     az customlocation create \
@@ -363,18 +393,31 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) in Azure is u
         --namespace $namespace \
         --cluster-extension-ids $extensionId
     ```
+
+    #[PowerShell](tab/powershell)
+
+    ```azurecli-interactive
+    az customlocation create `
+        --resource-group $groupName `
+        --name $customLocationName `
+        --host-resource-id $connectedClusterId `
+        --namespace $namespace `
+        --cluster-extension-ids $extensionId
+    ```
+
+    ---
     
     <!-- --kubeconfig ~/.kube/config # needed for non-Azure -->
 
-4. Validate that the custom location is successfully created with the following command. The output should show the `provisioningState` property as `Succeeded`. If not, run it again after a minute.
+3. Validate that the custom location is successfully created with the following command. The output should show the `provisioningState` property as `Succeeded`. If not, run it again after a minute.
 
     ```azurecli-interactive
-    az customlocation show \
-        --resource-group $groupName \
-        --name $customLocationName
+    az customlocation show --resource-group $groupName --name $customLocationName
     ```
     
-5. Save the custom location ID for the next step.
+4. Save the custom location ID for the next step.
+
+    #[bash](tab/bash)
 
     ```azurecli-interactive
     customLocationId=$(az customlocation show \
@@ -383,12 +426,26 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) in Azure is u
         --query id \
         --output tsv)
     ```
+
+    #[PowerShell](tab/powershell)
+
+    ```azurecli-interactive
+    customLocationId=$(az customlocation show \
+        --resource-group $groupName \
+        --name $customLocationName \
+        --query id \
+        --output tsv)
+    ```
+
+    ---
     
 ## Create the App Service Kubernetes environment
 
 Before you can start creating apps on the custom location, you need an [App Service Kubernetes environment](overview-arc-integration.md#app-service-kubernetes-environment).
 
 1. Create the App Service Kubernetes environment:
+    
+    #[bash](tab/bash)
 
     ```azurecli-interactive
     az appservice kube create \
@@ -397,13 +454,23 @@ Before you can start creating apps on the custom location, you need an [App Serv
         --custom-location $customLocationId \
         --static-ip $staticIp
     ```
+
+    #[PowerShell](tab/powershell)
+
+     ```azurecli-interactive
+    az appservice kube create `
+        --resource-group $groupName `
+        --name $kubeEnvironmentName `
+        --custom-location $customLocationId `
+        --static-ip $staticIp
+    ```
+
+    ---
     
 2. Validate that the App Service Kubernetes environment is successfully created with the following command. The output should show the `provisioningState` property as `Succeeded`. If not, run it again after a minute.
 
     ```azurecli-interactive
-    az appservice kube show \
-        --resource-group $groupName \
-        --name $kubeEnvironmentName
+    az appservice kube show --resource-group $groupName --name $kubeEnvironmentName
     ```
     
 
