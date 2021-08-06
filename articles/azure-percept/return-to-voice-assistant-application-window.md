@@ -1,5 +1,5 @@
 ---
-title: Return to your voice assistant application window
+title: Return to your Azure Percept Audio voice assistant application window
 description: This article shows you how to return to a previously created voice assistant application window. 
 author: mimcco
 ms.author: mimcco

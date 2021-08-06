@@ -1,5 +1,5 @@
 ---
-title: Delete your voice assistant application
+title: Delete your Azure Percept Audio voice assistant application
 description: This article shows you how to delete a previously created voice assistant application.
 author: mimcco
 ms.author: mimcco

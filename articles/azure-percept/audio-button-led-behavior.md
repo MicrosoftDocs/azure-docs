@@ -46,11 +46,11 @@ You can use LED indicators to understand which state your device is in. It takes
 ## Troubleshooting LED issues
 - **If the center LED is solid white**, try [using a template to create a voice assistant](./tutorial-no-code-speech.md).
 - **If the center LED is always blinking**, it indicates an authentication issue. Try these troubleshooting steps:
-    - Make sure that your USB-A and micro USB connections are secured 
-    - Check to see if the [speech module is running](./troubleshoot-audio-accessory-speech-module.md#checking-runtime-status-of-the-speech-module)
-    - Restart the device
-    - [Collect logs](./troubleshoot-audio-accessory-speech-module.md#collecting-speech-module-logs) and attach them to a support request
-    - Check to see if your dev kit is running the latest software and apply an update if available.
+    1. Make sure that your USB-A and micro USB connections are secured 
+    1. Check to see if the [speech module is running](./troubleshoot-audio-accessory-speech-module.md#checking-runtime-status-of-the-speech-module)
+    1. Restart the device
+    1. [Collect logs](./troubleshoot-audio-accessory-speech-module.md#collecting-speech-module-logs) and attach them to a support request
+    1. Check to see if your dev kit is running the latest software and apply an update if available.
 
 ## Next steps
 
