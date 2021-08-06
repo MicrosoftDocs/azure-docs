@@ -30,7 +30,7 @@ landingContent:
           - text: Deploy FHIR service using portal
             url: fhir-portal-quickstart.md
           - text: Deploy FHIR service using ARM template
-            url: fhir-arm-template-quickstart.md
+            url: fhir-service-resource-manager-template.md
 
   - title: Accessing FHIR service
     linkLists:

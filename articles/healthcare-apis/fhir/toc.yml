@@ -15,7 +15,7 @@ items:
     - name: Using Portal
       href: fhir-portal-quickstart.md
     - name: Using ARM template
-      href: fhir-arm-template-quickstart.md
+      href: fhir-service-resource-manager-template.md
   - name: Access FHIR service using Postman
     href: using-postman.md
 
