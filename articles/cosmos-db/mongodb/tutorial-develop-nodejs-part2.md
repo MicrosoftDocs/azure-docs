@@ -16,7 +16,7 @@ ms.reviewer: sngun
 
 This multi-part tutorial demonstrates how to create a new app written in Node.js with Express and Angular and then connect it to your [Cosmos account configured with Cosmos DB's API for MongoDB](mongodb-introduction.md).
 
-Part 2 of the tutorial builds on [the introduction](tutorial-develop-mongodb-nodejs.md) and covers the following tasks:
+Part 2 of the tutorial builds on [the introduction](tutorial-develop-nodejs.md) and covers the following tasks:
 
 > [!div class="checklist"]
 > * Install the Angular CLI and TypeScript
@@ -30,7 +30,7 @@ Part 2 of the tutorial builds on [the introduction](tutorial-develop-mongodb-nod
 
 ## Prerequisites
 
-Before starting this part of the tutorial, ensure you've watched the [introduction video](tutorial-develop-mongodb-nodejs.md).
+Before starting this part of the tutorial, ensure you've watched the [introduction video](tutorial-develop-nodejs.md).
 
 This tutorial also requires: 
 * [Node.js](https://nodejs.org/) version 8.4.0 or above.
@@ -142,11 +142,11 @@ This tutorial also requires:
 
 7. Save all your modified files. 
 
-8. In Visual Studio Code, click the **Debug** button :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png":::, click the Gear button :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png":::. The new launch.json file opens in Visual Studio Code. 
+8. In Visual Studio Code, click the **Debug** button :::image type="icon" source="./media/tutorial-develop-nodejs-part2/debug-button.png":::, click the Gear button :::image type="icon" source="./media/tutorial-develop-nodejs-part2/gear-button.png":::. The new launch.json file opens in Visual Studio Code. 
 
 8. On line 11 of the launch.json file, change `"${workspaceFolder}\\server"` to `"program": "${workspaceRoot}/src/server/index.js"` and save the file.
 
-9. Click the **Start Debugging** button :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png"::: to run the app.
+9. Click the **Start Debugging** button :::image type="icon" source="./media/tutorial-develop-nodejs-part2/start-debugging-button.png"::: to run the app.
 
     The app should run without errors.
 
@@ -158,7 +158,7 @@ This tutorial also requires:
 
     This response shows the app is up and running locally. 
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part2/azure-cosmos-db-postman.png" alt-text="Postman showing the request and the response":::
+    :::image type="content" source="./media/tutorial-develop-nodejs-part2/azure-cosmos-db-postman.png" alt-text="Postman showing the request and the response":::
 
 
 ## Next steps
@@ -172,4 +172,4 @@ In this part of the tutorial, you've done the following:
 You can proceed to the next part of the tutorial to build the UI.
 
 > [!div class="nextstepaction"]
-> [Build the UI with Angular](tutorial-develop-mongodb-nodejs-part3.md)
+> [Build the UI with Angular](tutorial-develop-nodejs-part3.md)

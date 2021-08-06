@@ -116,7 +116,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 2. Run `mvn exec:java -D exec.mainClass=GetStarted.Program` in a terminal to start your Java application.
 
-You can now use [Robomongo](mongodb-robomongo.md) / [Studio 3T](mongodb-mongochef.md) to query, modify, and work with this new data.
+You can now use [Robomongo](connect-using-robomongo.md) / [Studio 3T](connect-using-mongochef.md) to query, modify, and work with this new data.
 
 ## Review SLAs in the Azure portal
 

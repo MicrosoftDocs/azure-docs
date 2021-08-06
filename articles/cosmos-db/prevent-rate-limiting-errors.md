@@ -54,7 +54,7 @@ You can enable the Server Side Retry (SSR) feature and let the server retry thes
 
 ### How are requests retried?
 
-Requests are retried continuously (over and over again) until a 60-second timeout is reached. If the timeout is reached, the client will receive an [ExceededTimeLimit exception (50)](mongodb-troubleshoot.md).
+Requests are retried continuously (over and over again) until a 60-second timeout is reached. If the timeout is reached, the client will receive an [ExceededTimeLimit exception (50)](mongodb/error-codes-solutions.md).
 
 ### How can I monitor the effects of a server-side retry?
 
@@ -68,10 +68,10 @@ server-side retry does not affect a request's consistency. Requests are retried 
 
 ### Does server-side retry affect any type of error that my client might receive?
 
-No, server-side retry only affects rate limiting errors (429) by retrying them server-side. This feature prevents you from having to handle rate-limiting errors in the client application. All [other errors](mongodb-troubleshoot.md) will go to the client.
+No, server-side retry only affects rate limiting errors (429) by retrying them server-side. This feature prevents you from having to handle rate-limiting errors in the client application. All [other errors](mongodb/error-codes-solutions.md) will go to the client.
 
 ## Next steps
 
 To learn more about troubleshooting common errors, see this article:
 
-* [Troubleshoot common issues in Azure Cosmos DB's API for MongoDB](mongodb-troubleshoot.md)
+* [Troubleshoot common issues in Azure Cosmos DB's API for MongoDB](mongodb/error-codes-solutions.md)

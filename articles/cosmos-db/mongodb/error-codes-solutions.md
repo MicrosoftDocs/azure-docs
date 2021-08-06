@@ -16,7 +16,7 @@ ms.author: gahllevy
 The following article describes common errors and solutions for deployments using the Azure Cosmos DB API for MongoDB.
 
 >[!Note]
-> Azure Cosmos DB does not host the MongoDB engine. It provides an implementation of the MongoDB [wire protocol version 4.0](mongodb-feature-support-40.md), [3.6](mongodb-feature-support-36.md), and legacy support for [wire protocol version 3.2](mongodb-feature-support.md). Therefore, some of these errors are only found in Azure Cosmos DB's API for MongoDB.
+> Azure Cosmos DB does not host the MongoDB engine. It provides an implementation of the MongoDB [wire protocol version 4.0](feature-support-40.md), [3.6](feature-support-36.md), and legacy support for [wire protocol version 3.2](feature-support-32.md). Therefore, some of these errors are only found in Azure Cosmos DB's API for MongoDB.
 
 ## Common errors and solutions
 
@@ -43,6 +43,6 @@ The following article describes common errors and solutions for deployments usin
 
 ## Next steps
 
-- Learn how to [use Studio 3T](mongodb-mongochef.md) with Azure Cosmos DB's API for MongoDB.
-- Learn how to [use Robo 3T](mongodb-robomongo.md) with Azure Cosmos DB's API for MongoDB.
-- Explore MongoDB [samples](mongodb-samples.md) with Azure Cosmos DB's API for MongoDB.
+- Learn how to [use Studio 3T](connect-using-mongochef.md) with Azure Cosmos DB's API for MongoDB.
+- Learn how to [use Robo 3T](connect-using-robomongo.md) with Azure Cosmos DB's API for MongoDB.
+- Explore MongoDB [samples](nodejs-console-app.md) with Azure Cosmos DB's API for MongoDB.

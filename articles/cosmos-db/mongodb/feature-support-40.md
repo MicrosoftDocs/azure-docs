@@ -35,7 +35,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 
 | Command | Supported |
 |---------|---------|
-| [change streams](mongodb-change-streams.md) | Yes |
+| [change streams](change-streams.md) | Yes |
 | delete | Yes |
 | eval | No |
 | find | Yes |
@@ -352,7 +352,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 
 Azure Cosmos DB's API for MongoDB supports documents encoded in MongoDB BSON format. The 4.0 API version enhances the internal usage of this format to improve performance and reduce costs. Documents written or updated through an endpoint running 4.0 benefit from this.
  
-In an [upgrade scenario](mongodb-version-upgrade.md), documents written prior to the upgrade to version 4.0 will not benefit from the enhanced performance until they are updated via a write operation through the 4.0 endpoint.
+In an [upgrade scenario](upgrade-mongodb-version.md), documents written prior to the upgrade to version 4.0 will not benefit from the enhanced performance until they are updated via a write operation through the 4.0 endpoint.
 
 | Command | Supported |
 |---------|---------|
@@ -596,6 +596,6 @@ Some applications rely on a [Write Concern](https://docs.mongodb.com/manual/refe
 
 ## Next steps
 
-- Learn how to [use Studio 3T](mongodb-mongochef.md) with Azure Cosmos DB's API for MongoDB.
-- Learn how to [use Robo 3T](mongodb-robomongo.md) with Azure Cosmos DB's API for MongoDB.
-- Explore MongoDB [samples](mongodb-samples.md) with Azure Cosmos DB's API for MongoDB.
+- Learn how to [use Studio 3T](connect-using-mongochef.md) with Azure Cosmos DB's API for MongoDB.
+- Learn how to [use Robo 3T](connect-using-robomongo.md) with Azure Cosmos DB's API for MongoDB.
+- Explore MongoDB [samples](nodejs-console-app.md) with Azure Cosmos DB's API for MongoDB.

@@ -67,17 +67,17 @@ If you are upgrading from version 3.2, you will need to replace the existing end
 
 1. Navigate to your Azure Cosmos DB API for MongoDB account. Open the **Overview** pane and verify that your current **Server version** is either 3.2 or 3.6.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/check-current-version.png" alt-text="Check the current version of your MongoDB account from the Azure portal." border="true":::
+    :::image type="content" source="./media/upgrade-mongodb-version/check-current-version.png" alt-text="Check the current version of your MongoDB account from the Azure portal." border="true":::
 
 1. From the left menu, open the `Features` pane. This pane shows the account level features that are available for your database account.
 
 1. Select the `Upgrade MongoDB server version` row. If you don't see this option, your account might not be eligible for this upgrade. Please file [a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) if that is the case.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/upgrade-server-version.png" alt-text="Open the Features blade and upgrade your account." border="true":::
+    :::image type="content" source="./media/upgrade-mongodb-version/upgrade-server-version.png" alt-text="Open the Features blade and upgrade your account." border="true":::
 
 1. Review the information displayed about the upgrade. Select `Set server version to 4.0` (or 3.6 depending upon your current version).
 
-    :::image type="content" source="./media/mongodb-version-upgrade/select-upgrade.png" alt-text="Review upgrade guidance and select upgrade." border="true":::
+    :::image type="content" source="./media/upgrade-mongodb-version/select-upgrade.png" alt-text="Review upgrade guidance and select upgrade." border="true":::
 
 1. After you start the upgrade, the **Feature** menu is greyed out and the status is set to *Pending*. The upgrade takes around 15 minutes to complete. This process will not affect the existing functionality or operations of your database account. After it's complete, the **Update MongoDB server version** status will show the upgraded version. Please [contact support](https://azure.microsoft.com/en-us/support/create-ticket/) if there was an issue processing your request.
 
@@ -95,6 +95,6 @@ If you upgraded from 3.2 to (4.0 or 3.6) and wish to downgrade back to 3.2, you 
 
 ## Next steps
 
-- Learn about the supported and unsupported [features of MongoDB version 4.0](mongodb-feature-support-40.md).
-- Learn about the supported and unsupported [features of MongoDB version 3.6](mongodb-feature-support-36.md).
+- Learn about the supported and unsupported [features of MongoDB version 4.0](feature-support-40.md).
+- Learn about the supported and unsupported [features of MongoDB version 3.6](feature-support-36.md).
 - For further information check [Mongo 3.6 version features](https://devblogs.microsoft.com/cosmosdb/azure-cosmos-dbs-api-for-mongodb-now-supports-server-version-3-6/)

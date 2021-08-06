@@ -75,4 +75,4 @@ All drivers that support wire protocol version 4.0 or greater will support Azure
 
 ## Next steps
 
-Explore what's new in [Azure Cosmos DB API for MongoDB 4.0](mongodb-feature-support-40.md)
+Explore what's new in [Azure Cosmos DB API for MongoDB 4.0](mongodb/feature-support-40.md)

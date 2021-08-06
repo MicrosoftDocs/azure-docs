@@ -19,7 +19,7 @@ By using the Azure Cosmos DB’s API for MongoDB, you can enjoy the benefits Cos
 
 ## MongoDB protocol support
 
-Azure Cosmos DB’s API for MongoDB is compatible with MongoDB server version 4.0, 3.6, and 3.2. See supported features and syntax in [4.0](mongodb-feature-support-40.md), [3.6](mongodb-feature-support-36.md), and [3.2](mongodb-feature-support.md) articles for more details. 
+Azure Cosmos DB’s API for MongoDB is compatible with MongoDB server version 4.0, 3.6, and 3.2. See supported features and syntax in [4.0](feature-support-40.md), [3.6](feature-support-36.md), and [3.2](feature-support-32.md) articles for more details. 
 
 The following extension commands provide the ability to create and modify Azure Cosmos DB-specific resources via database requests:
 

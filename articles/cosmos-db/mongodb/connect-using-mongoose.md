@@ -35,7 +35,7 @@ Let's create a Cosmos account. If you already have an account you want to use, y
 In this application we will cover two ways of creating collections in Azure Cosmos DB: 
 - **Storing each object model in a separate collection**: We recommend [creating a database with dedicated throughput](set-throughput.md#set-throughput-on-a-database). Using this capacity model will give you better cost efficiency.
 
-    :::image type="content" source="./media/mongodb-mongoose/db-level-throughput.png" alt-text="Node.js tutorial - Screenshot of the Azure portal, showing how to create a database in the Data Explorer for an Azure Cosmos DB account, for use with the Mongoose Node module":::
+    :::image type="content" source="./media/connect-using-mongoose/db-level-throughput.png" alt-text="Node.js tutorial - Screenshot of the Azure portal, showing how to create a database in the Data Explorer for an Azure Cosmos DB account, for use with the Mongoose Node module":::
 
 - **Storing all object models in a single Cosmos DB collection**: If you'd prefer to store all models in a single collection, you can just create a new database without selecting the Provision Throughput option. Using this capacity model will create each collection with its own throughput capacity for every object model.
 
@@ -192,7 +192,7 @@ This section explores how to achieve this with Azure Cosmos DB's API for MongoDB
 
 1. Now, going into the Azure portal, you notice two collections created in Cosmos DB.
 
-   :::image type="content" source="./media/mongodb-mongoose/mongo-mutliple-collections.png" alt-text="Node.js tutorial - Screenshot of the Azure portal, showing an Azure Cosmos DB account, with multiple collection names highlighted - Node database":::
+   :::image type="content" source="./media/connect-using-mongoose/mongo-mutliple-collections.png" alt-text="Node.js tutorial - Screenshot of the Azure portal, showing an Azure Cosmos DB account, with multiple collection names highlighted - Node database":::
 
 1. Finally, let's read the data from Cosmos DB. Since we're using the default Mongoose operating model, the reads are the same as any other reads with Mongoose.
 
@@ -297,7 +297,7 @@ Here, we create a base object model, define a differentiating key and add 'Famil
 
 1. Now, if you go back to the Azure portal, you notice that you have only one collection called ```alldata``` with both 'Family' and 'VacationDestinations' data.
 
-   :::image type="content" source="./media/mongodb-mongoose/mongo-collections-alldata.png" alt-text="Node.js tutorial - Screenshot of the Azure portal, showing an Azure Cosmos DB account, with the collection name highlighted - Node database":::
+   :::image type="content" source="./media/connect-using-mongoose/mongo-collections-alldata.png" alt-text="Node.js tutorial - Screenshot of the Azure portal, showing an Azure Cosmos DB account, with the collection name highlighted - Node database":::
 
 1. Also, notice that each object has another attribute called as ```__type```, which help you differentiate between the two different object models.
 
@@ -317,8 +317,8 @@ As you can see, it is easy to work with Mongoose discriminators. So, if you have
 
 ## Next steps
 
-- Learn how to [use Studio 3T](mongodb-mongochef.md) with Azure Cosmos DB's API for MongoDB.
-- Learn how to [use Robo 3T](mongodb-robomongo.md) with Azure Cosmos DB's API for MongoDB.
-- Explore MongoDB [samples](mongodb-samples.md) with Azure Cosmos DB's API for MongoDB.
+- Learn how to [use Studio 3T](connect-using-mongochef.md) with Azure Cosmos DB's API for MongoDB.
+- Learn how to [use Robo 3T](connect-using-robomongo.md) with Azure Cosmos DB's API for MongoDB.
+- Explore MongoDB [samples](nodejs-console-app.md) with Azure Cosmos DB's API for MongoDB.
 
-[dbleveltp]: ./media/mongodb-mongoose/db-level-throughput.png
+[dbleveltp]: ./media/connect-using-mongoose/db-level-throughput.png

@@ -666,17 +666,17 @@
     "redirect_document_id": false
   },
   {
-    "source_path_from_root": "/articles/documentdb/documentdb-mongodb-mongochef.md",
+    "source_path_from_root": "/articles/documentdb/documentdb-connect-using-mongochef.md",
     "redirect_url": "/azure/cosmos-db/mongodb-mongochef",
     "redirect_document_id": false
   },
   {
-    "source_path_from_root": "/articles/documentdb/documentdb-mongodb-robomongo.md",
+    "source_path_from_root": "/articles/documentdb/documentdb-connect-using-robomongo.md",
     "redirect_url": "/azure/cosmos-db/mongodb-robomongo",
     "redirect_document_id": false
   },
   {
-    "source_path_from_root": "/articles/documentdb/documentdb-mongodb-samples.md",
+    "source_path_from_root": "/articles/documentdb/documentdb-nodejs-console-app.md",
     "redirect_url": "/azure/cosmos-db/mongodb-samples",
     "redirect_document_id": false
   },
@@ -1981,7 +1981,7 @@
     "redirect_document_id": true
   },
   {
-    "source_path_from_root": "/articles/cosmos-db/queries-mongo.md",
+    "source_path_from_root": "/articles/cosmos-db/queries-mongo.md ",
     "redirect_url": "/azure/cosmos-db/mongodb/diagnostic-queries-mongodb",
     "redirect_document_id": true
   },

@@ -13,7 +13,7 @@ robots: noindex
 # Connect a MongoDB application to Azure Cosmos DB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
-Learn how to connect your MongoDB app to an Azure Cosmos DB by using a MongoDB connection string. You can then use an Azure Cosmos database as the data store for your MongoDB app. In addition to the tutorial below, you can explore MongoDB [samples](mongodb-samples.md) with Azure Cosmos DB's API for MongoDB.
+Learn how to connect your MongoDB app to an Azure Cosmos DB by using a MongoDB connection string. You can then use an Azure Cosmos database as the data store for your MongoDB app. In addition to the tutorial below, you can explore MongoDB [samples](mongodb/nodejs-console-app.md) with Azure Cosmos DB's API for MongoDB.
 
 This tutorial provides two ways to retrieve connection string information:
 
@@ -23,7 +23,7 @@ This tutorial provides two ways to retrieve connection string information:
 ## Prerequisites
 
 - An Azure account. If you don't have an Azure account, create a [free Azure account](https://azure.microsoft.com/free/) now.
-- A Cosmos account. For instructions, see [Build a web app using Azure Cosmos DB's API for MongoDB and .NET SDK](create-mongodb-dotnet.md).
+- A Cosmos account. For instructions, see [Build a web app using Azure Cosmos DB's API for MongoDB and .NET SDK](mongodb/create-mongodb-dotnet.md).
 
 ## Get the MongoDB connection string by using the quick start
 
@@ -68,6 +68,6 @@ For example, consider the account shown in the **Connection String** blade. A va
 
 ## Next steps
 
-- Learn how to [use Studio 3T](mongodb-mongochef.md) with Azure Cosmos DB's API for MongoDB.
-- Learn how to [use Robo 3T](mongodb-robomongo.md) with Azure Cosmos DB's API for MongoDB.
-- Explore MongoDB [samples](mongodb-samples.md) with Azure Cosmos DB's API for MongoDB.
+- Learn how to [use Studio 3T](mongodb/connect-using-mongochef.md) with Azure Cosmos DB's API for MongoDB.
+- Learn how to [use Robo 3T](mongodb/connect-using-robomongo.md) with Azure Cosmos DB's API for MongoDB.
+- Explore MongoDB [samples](mongodb/nodejs-console-app.md) with Azure Cosmos DB's API for MongoDB.

@@ -23,39 +23,39 @@ To add your Azure Cosmos account to the Studio 3T connection manager, use the fo
 
 1. Retrieve the connection information for your Azure Cosmos DB's API for MongoDB account using the instructions in the [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md) article.
 
-    :::image type="content" source="./media/mongodb-mongochef/ConnectionStringBlade.png" alt-text="Screenshot of the connection string page":::
+    :::image type="content" source="./media/connect-using-mongochef/ConnectionStringBlade.png" alt-text="Screenshot of the connection string page":::
 
 2. Click **Connect** to open the Connection Manager, then click **New Connection**
 
-    :::image type="content" source="./media/mongodb-mongochef/ConnectionManager.png" alt-text="Screenshot of the Studio 3T connection manager that highlights the New Connection button.":::
+    :::image type="content" source="./media/connect-using-mongochef/ConnectionManager.png" alt-text="Screenshot of the Studio 3T connection manager that highlights the New Connection button.":::
 3. In the **New Connection** window, on the **Server** tab, enter the HOST (FQDN) of the Azure Cosmos account and the PORT.
 
-    :::image type="content" source="./media/mongodb-mongochef/ConnectionManagerServerTab.png" alt-text="Screenshot of the Studio 3T connection manager server tab":::
+    :::image type="content" source="./media/connect-using-mongochef/ConnectionManagerServerTab.png" alt-text="Screenshot of the Studio 3T connection manager server tab":::
 4. In the **New Connection** window, on the **Authentication** tab, choose Authentication Mode **Basic (MONGODB-CR or SCARM-SHA-1)** and enter the USERNAME and PASSWORD.  Accept the default authentication db (admin) or provide your own value.
 
-    :::image type="content" source="./media/mongodb-mongochef/ConnectionManagerAuthenticationTab.png" alt-text="Screenshot of the Studio 3T connection manager authentication tab":::
+    :::image type="content" source="./media/connect-using-mongochef/ConnectionManagerAuthenticationTab.png" alt-text="Screenshot of the Studio 3T connection manager authentication tab":::
 5. In the **New Connection** window, on the **SSL** tab, check the **Use SSL protocol to connect** check box and the **Accept server self-signed SSL certificates** radio button.
 
-    :::image type="content" source="./media/mongodb-mongochef/ConnectionManagerSSLTab.png" alt-text="Screenshot of the Studio 3T connection manager SSL tab":::
+    :::image type="content" source="./media/connect-using-mongochef/ConnectionManagerSSLTab.png" alt-text="Screenshot of the Studio 3T connection manager SSL tab":::
 6. Click the **Test Connection** button to validate the connection information, click **OK** to return to the New Connection window, and then click **Save**.
 
-    :::image type="content" source="./media/mongodb-mongochef/TestConnectionResults.png" alt-text="Screenshot of the Studio 3T test connection window":::
+    :::image type="content" source="./media/connect-using-mongochef/TestConnectionResults.png" alt-text="Screenshot of the Studio 3T test connection window":::
 
 ## Use Studio 3T to create a database, collection, and documents
 To create a database, collection, and documents using Studio 3T, perform the following steps:
 
 1. In **Connection Manager**, highlight the connection and click **Connect**.
 
-    :::image type="content" source="./media/mongodb-mongochef/ConnectToAccount.png" alt-text="Screenshot of the Studio 3T connection manager":::
+    :::image type="content" source="./media/connect-using-mongochef/ConnectToAccount.png" alt-text="Screenshot of the Studio 3T connection manager":::
 2. Right-click the host and choose **Add Database**.  Provide a database name and click **OK**.
 
-    :::image type="content" source="./media/mongodb-mongochef/AddDatabase1.png" alt-text="Screenshot of the Studio 3T Add Database option":::
+    :::image type="content" source="./media/connect-using-mongochef/AddDatabase1.png" alt-text="Screenshot of the Studio 3T Add Database option":::
 3. Right-click the database and choose **Add Collection**.  Provide a collection name and click **Create**.
 
-    :::image type="content" source="./media/mongodb-mongochef/AddCollection.png" alt-text="Screenshot of the Studio 3T Add Collection option":::
+    :::image type="content" source="./media/connect-using-mongochef/AddCollection.png" alt-text="Screenshot of the Studio 3T Add Collection option":::
 4. Click the **Collection** menu item, then click **Add Document**.
 
-    :::image type="content" source="./media/mongodb-mongochef/AddDocument1.png" alt-text="Screenshot of the Studio 3T Add Document menu item":::
+    :::image type="content" source="./media/connect-using-mongochef/AddDocument1.png" alt-text="Screenshot of the Studio 3T Add Document menu item":::
 5. In the Add Document dialog, paste the following and then click **Add Document**.
 
     ```json
@@ -109,9 +109,9 @@ To create a database, collection, and documents using Studio 3T, perform the fol
 
 7. Execute a sample query. For example, search for families with the last name 'Andersen' and return the parents and state fields.
 
-    :::image type="content" source="./media/mongodb-mongochef/QueryDocument1.png" alt-text="Screenshot of Mongo Chef query results":::
+    :::image type="content" source="./media/connect-using-mongochef/QueryDocument1.png" alt-text="Screenshot of Mongo Chef query results":::
 
 ## Next steps
 
-- Learn how to [use Robo 3T](mongodb-robomongo.md) with Azure Cosmos DB's API for MongoDB.
-- Explore MongoDB [samples](mongodb-samples.md) with Azure Cosmos DB's API for MongoDB.
+- Learn how to [use Robo 3T](connect-using-robomongo.md) with Azure Cosmos DB's API for MongoDB.
+- Explore MongoDB [samples](nodejs-console-app.md) with Azure Cosmos DB's API for MongoDB.

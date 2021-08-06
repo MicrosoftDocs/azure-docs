@@ -17,7 +17,7 @@ ms.reviewer: sngun
 > Please read this entire guide before carrying out your migration steps.
 >
 
-This MongoDB migration guide is part of series on MongoDB migration. The critical MongoDB migration steps are [pre-migration](mongodb-pre-migration.md), migration, and [post-migration](mongodb-post-migration.md), as shown below.
+This MongoDB migration guide is part of series on MongoDB migration. The critical MongoDB migration steps are [pre-migration](pre-migration-steps.md), migration, and [post-migration](post-migration-optimization.md), as shown below.
 
 ![Diagram of migration steps.](./media/mongodb-pre-migration/overall-migration-steps.png)
 
@@ -43,7 +43,7 @@ If you don't have a MongoDB source set up already, see the article [Install and 
 
 To complete this tutorial, you need to:
 
-* [Complete the pre-migration](../cosmos-db/mongodb-pre-migration.md) steps such as estimating throughput, choosing a partition key, and the indexing policy.
+* [Complete the pre-migration](../cosmos-db/pre-migration-steps.md) steps such as estimating throughput, choosing a partition key, and the indexing policy.
 * [Create an Azure Cosmos DB API for MongoDB account](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
 * Log into your MongoDB instance
     * [Download and install the MongoDB native tools from this link](https://www.mongodb.com/try/download/database-tools).
@@ -152,7 +152,7 @@ The rest of this section will guide you through using the pair of tools you sele
 
 ## Post-migration optimization
 
-After you migrate the data stored in MongoDB database to Azure Cosmos DB’s API for MongoDB, you can connect to Azure Cosmos DB and manage the data. You can also perform other post-migration optimization steps such as optimizing the indexing policy, update the default consistency level, or configure global distribution for your Azure Cosmos DB account. For more information, see the [Post-migration optimization](../cosmos-db/mongodb-post-migration.md) article.
+After you migrate the data stored in MongoDB database to Azure Cosmos DB’s API for MongoDB, you can connect to Azure Cosmos DB and manage the data. You can also perform other post-migration optimization steps such as optimizing the indexing policy, update the default consistency level, or configure global distribution for your Azure Cosmos DB account. For more information, see the [Post-migration optimization](../cosmos-db/post-migration-optimization.md) article.
 
 ## Additional resources
 

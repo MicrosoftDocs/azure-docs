@@ -17,9 +17,9 @@ ms.author: gahllevy
 > Please read this entire guide before carrying out your post-migration steps.
 >
 
-This MongoDB post-migration guide is part of series on MongoDB migration. The critical MongoDB migration steps are [pre-migration](mongodb-pre-migration.md), migration, and post-migration, as shown below.
+This MongoDB post-migration guide is part of series on MongoDB migration. The critical MongoDB migration steps are [pre-migration](pre-migration-steps.md), migration, and post-migration, as shown below.
 
-![Diagram of migration steps.](./media/mongodb-pre-migration/overall-migration-steps.png)
+![Diagram of migration steps.](./media/pre-migration-steps/overall-migration-steps.png)
 
 ## Overview of post-migration
 
@@ -39,12 +39,12 @@ Follow these steps to perform a post-migration
 
 ## Pre-requisites
 
-In this guide, we assume that you are maintaining a record of your migration's progress using some sort of tracking artifact such as a spreadsheet. If you have not already, we recommend that you read the [pre-migration guide](mongodb-pre-migration.md) for guidance on building a *data estate migration spreadsheet*, discovering your existing MongoDB resources, and planning your migration.
+In this guide, we assume that you are maintaining a record of your migration's progress using some sort of tracking artifact such as a spreadsheet. If you have not already, we recommend that you read the [pre-migration guide](pre-migration-steps.md) for guidance on building a *data estate migration spreadsheet*, discovering your existing MongoDB resources, and planning your migration.
 
 ## Optimize the indexing policy
 
 In order to optimize price and performance, we recommend that you step through your data estate migration spreadsheet and design an index configuration for each resource. 
-1. We actually recommend [planning your indexes during the pre-migration phase](mongodb-pre-migration.md#post-migration). Add a column to your data estate migration spreadsheet for index settings. 
+1. We actually recommend [planning your indexes during the pre-migration phase](pre-migration-steps.md#post-migration). Add a column to your data estate migration spreadsheet for index settings. 
    * The Azure Cosmos DB API for MongoDB server versions 3.6 and higher automatically index the _id field only. This field can't be dropped. It automatically enforces the uniqueness of the _id field per shard key. To index additional fields, you apply the MongoDB index-management commands. This default indexing policy differs from the Azure Cosmos DB SQL API, which indexes all fields by default.
 
    * For the Azure Cosmos DB API for MongoDB server version 3.2, all data fields are automatically indexed, by default, during the migration of data to Azure Cosmos DB. In many cases, this default indexing policy is acceptable. In general, removing indexes optimizes write requests and having the default indexing policy (i.e., automatic indexing) optimizes read requests.
@@ -75,7 +75,7 @@ The processing of cutting-over or connecting your application allows you to swit
 2. From the [Azure portal](https://www.portal.azure.com/), in the left pane open the **All resources** menu and find  the Azure Cosmos DB account to which you have migrated your data.
 3. Open the **Connection String** blade. The right pane contains all the information that you need to successfully connect to your account.
 4. Use the connection information in your application's configuration (or other relevant places) to reflect the Azure Cosmos DB's API for MongoDB connection in your app.
-:::image type="content" source="./media/mongodb-post-migration/connection-string.png" alt-text="Screenshot shows the settings for a Connection String.":::
+:::image type="content" source="./media/post-migration-optimization/connection-string.png" alt-text="Screenshot shows the settings for a Connection String.":::
 
 For more details, please see the [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md) page.
 
@@ -86,8 +86,8 @@ One convenient fact about [indexing](#optimize-the-indexing-policy), [global dis
 ## Next steps
 
 * [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md)
-* [Connect to Azure Cosmos DB account using Studio 3T](mongodb-mongochef.md)
-* [How to globally distribute reads using Azure Cosmos DB's API for MongoDB](mongodb-readpreference.md)
+* [Connect to Azure Cosmos DB account using Studio 3T](connect-using-mongochef.md)
+* [How to globally distribute reads using Azure Cosmos DB's API for MongoDB](readpreference-global-distribution.md)
 * [Expire data with Azure Cosmos DB's API for MongoDB](mongodb-time-to-live.md)
 * [Consistency Levels in Azure Cosmos DB](consistency-levels.md)
 * [Indexing in Azure Cosmos DB](index-overview.md)

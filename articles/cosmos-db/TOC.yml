@@ -1100,21 +1100,21 @@
         - name: 1 - Create and manage data
           items:
             - name: Node.js console app
-              href: mongodb/mongodb-samples.md
+              href: mongodb/nodejs-console-app.md
             - name: Node.js and Angular app
               items:
                 - name: Part 1 - Introduction
-                  href: mongodb/tutorial-develop-mongodb-nodejs.md
+                  href: mongodb/tutorial-develop-nodejs.md
                 - name: Part 2 - Create Node app
-                  href: mongodb/tutorial-develop-mongodb-nodejs-part2.md
+                  href: mongodb/tutorial-develop-nodejs-part2.md
                 - name: Part 3 - Add UI with Angular
-                  href: mongodb/tutorial-develop-mongodb-nodejs-part3.md
+                  href: mongodb/tutorial-develop-nodejs-part3.md
                 - name: Part 4 - Create an account
-                  href: mongodb/tutorial-develop-mongodb-nodejs-part4.md
+                  href: mongodb/tutorial-develop-nodejs-part4.md
                 - name: Part 5 - Connect to Cosmos DB
-                  href: mongodb/tutorial-develop-mongodb-nodejs-part5.md
+                  href: mongodb/tutorial-develop-nodejs-part5.md
                 - name: Part 6 - Perform CRUD operations
-                  href: mongodb/tutorial-develop-mongodb-nodejs-part6.md
+                  href: mongodb/tutorial-develop-nodejs-part6.md
             - name: Node.js and React app
               href: mongodb/tutorial-develop-mongodb-react.md
         - name: 2 - Query data
@@ -1124,11 +1124,11 @@
     - name: Concepts
       items:
         - name: API version 4.0
-          href: mongodb/mongodb-feature-support-40.md
+          href: mongodb/feature-support-40.md
         - name: API version 3.6
-          href: mongodb/mongodb-feature-support-36.md
+          href: mongodb/feature-support-36.md
         - name: API version 3.2
-          href: mongodb/mongodb-feature-support.md
+          href: mongodb/feature-support-32.md
         - name: FAQ
           href: mongodb/mongodb-api-faq.yml
         - name: Mapping consistency levels
@@ -1138,7 +1138,7 @@
         - name: Migrate to MongoDB API
           items:
             - name: Pre-migration guide
-              href: mongodb/mongodb-pre-migration.md
+              href: mongodb/pre-migration-steps.md
             - name: MongoDB native tools (offline)
               href: mongodb/tutorial-mongotools-cosmos-db.md                            
             - name: Database Migration Service (online)
@@ -1146,28 +1146,28 @@
             - name: Database Migration Service (offline)
               href: ../../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Azure Databricks and Spark (offline)
-              href: mongodb/mongodb-migrate-databricks.md  
+              href: mongodb/migrate-databricks.md 
             - name: Post-migration guide
-              href: mongodb/mongodb-post-migration.md
+              href: mongodb/post-migration-optimization.md
         - name: Upgrade to API version 4.0 or 3.6
-          href: mongodb/mongodb-version-upgrade.md
+          href: mongodb/upgrade-mongodb-version.md
         - name: Get the connection string
           href: mongodb/connect-mongodb-account.md
         - name: Connect using Studio 3T
-          href: mongodb/mongodb-mongochef.md
+          href: mongodb/connect-using-mongochef.md
         - name: Connect using Compass
-          href: mongodb/mongodb-compass.md
+          href: mongodb/connect-using-compass.md
         - name: Connect using Robo 3T
-          href: mongodb/mongodb-robomongo.md
+          href: mongodb/connect-using-robomongo.md
         - name: Connect using Mongoose
-          href: mongodb/mongodb-mongoose.md
+          href: mongodb/connect-using-mongoose.md
         - name: Distribute reads globally
           displayName: read preference
-          href: mongodb/mongodb-readpreference.md
+          href: mongodb/readpreference-global-distribution.md
         - name: Time to live - MongoDB
           href: mongodb/mongodb-time-to-live.md
         - name: Change streams
-          href: mongodb/mongodb-change-streams.md
+          href: mongodb/change-streams.md
         - name: Manage data indexing
           href: mongodb/mongodb-indexing.md
         - name: Use multi-document transactions
@@ -1186,11 +1186,11 @@
           displayName: request units, RUs, RU, charge, consumption
           href: mongodb/find-request-unit-charge-mongodb.md
         - name: Monitor using Diagnostics Logs
-          href: mongodb/queries-mongo.md
+          href: mongodb/diagnostic-queries-mongodb.md
         - name: Troubleshoot query performance
-          href: mongodb/mongodb-troubleshoot-query.md
+          href: mongodb/troubleshoot-query-performance.md
         - name: Troubleshoot common issues
-          href: mongodb/mongodb-troubleshoot.md
+          href: mongodb/error-codes-solutions.md
         - name: Prevent rate-limiting errors
           href: mongodb/prevent-rate-limiting-errors.md
         - name: Store and manage Spring Data
@@ -1199,12 +1199,12 @@
           href: mongodb/mongodb-custom-commands.md
           displayName: custom commands
         - name: Manage using Resource Manager templates
-          href: mongodb/templates-samples-mongodb.md
+          href: mongodb/resource-manager-template-samples.md
           displayName: ARM
         - name: Manage using PowerShell
-          href: mongodb/powershell-samples-mongodb.md
+          href: mongodb/powershell-samples.md
         - name: Manage using Azure CLI
-          href: mongodb/cli-samples-mongodb.md
+          href: mongodb/cli-samples.md
     - name: Reference
       items:
         - name: REST resource provider

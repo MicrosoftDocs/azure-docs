@@ -87,31 +87,31 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Cosmos DB API for MongoDB?
-            url: mongodb-introduction.md
+            url: mongodb/mongodb-introduction.md
       - linkListType: quickstart
         links:
           - text: Manage your data using a .NET app
-            url: create-mongodb-dotnet.md
+            url: mongodb/create-mongodb-dotnet.md
           - text: Manage your data using a GoLang app
-            url: create-mongodb-go.md  
+            url: mongodb/create-mongodb-go.md  
       - linkListType: concept
         links:  
           - text: Wire protocol compatibility with MongoDB
-            url: mongodb-feature-support-40.md    
+            url: mongodb/feature-support-40.md    
           - text: MongoDB extension commands
-            url: mongodb/mongodb-custom-commands.md
+            url: mongodb/mongodb/mongodb-custom-commands.md
           - text: Change streams
-            url: mongodb-change-streams.md                       
+            url: mongodb/mongodb/change-streams.md                       
       - linkListType: tutorial
         links:
           - text: Query data with MongoDB shell
-            url: tutorial-query-mongodb.md
+            url: mongodb/tutorial-query-mongodb.md
       - linkListType: how-to-guide
         links:
           - text: Manage data indexing
-            url: mongodb-indexing.md
+            url: mongodb/mongodb-indexing.md
           - text: Connect with Robo 3T
-            url: mongodb-robomongo.md
+            url: mongodb/connect-using-robomongo.md
 
   # Card
   - title: Use Azure Cosmos DB Gremlin API 

@@ -16,9 +16,9 @@ ms.author: gahllevy
 > Please read this entire guide before carrying out your pre-migration steps.
 >
 
-This MongoDB pre-migration guide is part of series on MongoDB migration. The critical MongoDB migration steps are pre-migration, migration, and [post-migration](mongodb-post-migration.md), as shown below.
+This MongoDB pre-migration guide is part of series on MongoDB migration. The critical MongoDB migration steps are pre-migration, migration, and [post-migration](post-migration-optimization.md), as shown below.
 
-![Diagram of migration steps.](./media/mongodb-pre-migration/overall-migration-steps.png)
+![Diagram of migration steps.](./media/pre-migration-steps/overall-migration-steps.png)
 
 ## Overview of pre-migration
 
@@ -32,7 +32,7 @@ Follow these steps to perform a thorough pre-migration
 
 Then, execute your migration in accordance with your pre-migration plan.
 
-Finally, perform the critical [post-migration steps of cut-over and optimization](mongodb-post-migration.md).
+Finally, perform the critical [post-migration steps of cut-over and optimization](post-migration-optimization.md).
 
 All of the above steps are critical for ensuring a successful migration.
 
@@ -154,11 +154,11 @@ Finally, now that you have a view of your existing data estate and a design for 
     
    * If your resource can tolerate an offline migration, use the diagram below to choose the appropriate migration tool:
 
-   ![Offline migration tools.](./media/mongodb-pre-migration/offline-tools.png)
+   ![Offline migration tools.](./media/pre-migration-steps/offline-tools.png)
 
    * If your resource requires an online migration, use the diagram below to choose the appropriate migration tool:
 
-   ![Online migration tools.](./media/mongodb-pre-migration/online-tools.png)
+   ![Online migration tools.](./media/pre-migration-steps/online-tools.png)
    
    Watch this video for an [overview and demo of the migration solutions](https://www.youtube.com/watch?v=WN9h80P4QJM) mentioned above.
 
@@ -174,20 +174,20 @@ The best choice of MongoDB migration tool depends on your migration scenario.
 
 The compatible tools for each migration scenario are shown below:
 
-![Supported migration scenarios.](./media/mongodb-pre-migration/migration-tools-use-case-table.png)
+![Supported migration scenarios.](./media/pre-migration-steps/migration-tools-use-case-table.png)
 
 #### Tooling support for MongoDB versions
 
 Given that you are migrating from a particular MongoDB version, the supported tools are shown below:
 
-![MongoDB versions supported by migration tools.](./media/mongodb-pre-migration/migration-tool-compatibility.png)
+![MongoDB versions supported by migration tools.](./media/pre-migration-steps/migration-tool-compatibility.png)
 
 ### Post-migration
 
 In the pre-migration phase, spend some time to plan what steps you will take toward app migration and optimization post-migration.
 * In the post-migration phase, you will execute a cutover of your application to use Azure Cosmos DB instead of your existing MongoDB data estate. 
 * Make your best effort to plan out indexing, global distribution, consistency, and other *mutable* Azure Cosmos DB properties at a per resource level - however, these Azure Cosmos DB configuration settings *can* be modified later, so expect to make adjustments to these settings down the road. Don’t let these aspects be a cause of analysis paralysis. You will apply these mutable configurations post-migration.
-* The best guide to post-migration can be found [here](mongodb-post-migration.md).
+* The best guide to post-migration can be found [here](post-migration-optimization.md).
 
 ## Next steps
 * [Migrate your MongoDB data to Cosmos DB using the Database Migration Service.](../dms/tutorial-mongodb-cosmos-db.md) 

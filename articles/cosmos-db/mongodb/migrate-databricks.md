@@ -11,7 +11,7 @@ ms.date: 06/29/2021
 # Migrate data from MongoDB to an Azure Cosmos DB API for MongoDB account by using Azure Databricks
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
-This migration guide is part of series on migrating databases from MongoDB to Azure CosmosDB API for MongoDB. The critical migration steps are [pre-migration](mongodb-pre-migration.md), migration, and [post-migration](mongodb-post-migration.md), as shown below.
+This migration guide is part of series on migrating databases from MongoDB to Azure CosmosDB API for MongoDB. The critical migration steps are [pre-migration](pre-migration-steps.md), migration, and [post-migration](post-migration-optimization.md), as shown below.
 
 :::image type="content" source="./media/mongodb-pre-migration/overall-migration-steps.png" alt-text="Diagram of migration steps":::
 
@@ -36,21 +36,21 @@ In this tutorial, you will learn how to:
 
 To complete this tutorial, you need to:
 
-- [Complete the pre-migration](mongodb-pre-migration.md) steps such as estimating throughput and choosing a shard key.
+- [Complete the pre-migration](pre-migration-steps.md) steps such as estimating throughput and choosing a shard key.
 - [Create an Azure Cosmos DB API for MongoDB account](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
 
 ## Provision an Azure Databricks cluster
 
 You can follow instructions to [provision an Azure Databricks cluster](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). We recommend selecting Databricks runtime version 7.6, which supports Spark 3.0.
 
-:::image type="content" source="./media/mongodb-migrate-databricks/databricks-cluster-creation.png" alt-text="Diagram of databricks new cluster creation.":::
+:::image type="content" source="./media/migrate-databricks/databricks-cluster-creation.png" alt-text="Diagram of databricks new cluster creation.":::
 
 
 ## Add dependencies
 
 Add the MongoDB Connector for Spark library to your cluster to connect to both native MongoDB and Azure Cosmos DB API for MongoDB endpoints. In your cluster, select **Libraries** > **Install New** > **Maven**, and then add `org.mongodb.spark:mongo-spark-connector_2.12:3.0.1` Maven coordinates.
 
-:::image type="content" source="./media/mongodb-migrate-databricks/databricks-cluster-dependencies.png" alt-text="Diagram of adding databricks cluster dependencies.":::
+:::image type="content" source="./media/migrate-databricks/databricks-cluster-dependencies.png" alt-text="Diagram of adding databricks cluster dependencies.":::
 
 
 Select **Install**, and then restart the cluster when installation is complete.
@@ -164,7 +164,7 @@ You might see a 16500 error code for operations against the Cosmos DB API for Mo
 
 ## Post-migration optimization
 
-After you migrate the data, you can connect to Azure Cosmos DB and manage the data. You can also follow other post-migration steps such as optimizing the indexing policy, update the default consistency level, or configure global distribution for your Azure Cosmos DB account. For more information, see the [Post-migration optimization](mongodb-post-migration.md) article.
+After you migrate the data, you can connect to Azure Cosmos DB and manage the data. You can also follow other post-migration steps such as optimizing the indexing policy, update the default consistency level, or configure global distribution for your Azure Cosmos DB account. For more information, see the [Post-migration optimization](post-migration-optimization.md) article.
 
 ## Next steps
 

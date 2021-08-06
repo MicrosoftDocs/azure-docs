@@ -21,11 +21,11 @@ Azure Cosmos DB is Microsoft’s fast NoSQL database with open APIs for any scal
 This multi-part tutorial covers the following tasks:
 
 > [!div class="checklist"]
-> * [Create a Node.js Express app with the Angular CLI](tutorial-develop-mongodb-nodejs-part2.md)
-> * [Build the UI with Angular](tutorial-develop-mongodb-nodejs-part3.md)
-> * [Create an Azure Cosmos DB account using the Azure CLI](tutorial-develop-mongodb-nodejs-part4.md) 
-> * [Use Mongoose to connect to Azure Cosmos DB](tutorial-develop-mongodb-nodejs-part5.md)
-> * [Add Post, Put, and Delete functions to the app](tutorial-develop-mongodb-nodejs-part6.md)
+> * [Create a Node.js Express app with the Angular CLI](tutorial-develop-nodejs-part2.md)
+> * [Build the UI with Angular](tutorial-develop-nodejs-part3.md)
+> * [Create an Azure Cosmos DB account using the Azure CLI](tutorial-develop-nodejs-part4.md) 
+> * [Use Mongoose to connect to Azure Cosmos DB](tutorial-develop-nodejs-part5.md)
+> * [Add Post, Put, and Delete functions to the app](tutorial-develop-nodejs-part6.md)
 
 Want to do build this same app with React? See the [React tutorial video series](tutorial-develop-mongodb-react.md).
 
@@ -47,4 +47,4 @@ In this part of the tutorial, you've done the following:
 You can proceed to the next part of the tutorial to create the Node.js Express app.
 
 > [!div class="nextstepaction"]
-> [Create a Node.js Express app with the Angular CLI](tutorial-develop-mongodb-nodejs-part2.md)
+> [Create a Node.js Express app with the Angular CLI](tutorial-develop-nodejs-part2.md)

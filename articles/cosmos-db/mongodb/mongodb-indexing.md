@@ -195,7 +195,7 @@ As an alternative, you could create multiple wildcard indexes.
 
 ## Index properties
 
-The following operations are common for accounts serving wire protocol version 4.0 and accounts serving earlier versions. You can learn more about [supported indexes and indexed properties](mongodb-feature-support-40.md#indexes-and-index-properties).
+The following operations are common for accounts serving wire protocol version 4.0 and accounts serving earlier versions. You can learn more about [supported indexes and indexed properties](feature-support-40.md#indexes-and-index-properties).
 
 ### Unique indexes
 
@@ -404,7 +404,7 @@ Currently, you can only create unique indexes when the collection contains no do
 
 ## Indexing for MongoDB version 3.2
 
-Available indexing features and defaults are different for Azure Cosmos accounts that are compatible with version 3.2 of the MongoDB wire protocol. You can [check your account's version](mongodb-feature-support-36.md#protocol-support) and [upgrade to version 3.6](mongodb-version-upgrade.md).
+Available indexing features and defaults are different for Azure Cosmos accounts that are compatible with version 3.2 of the MongoDB wire protocol. You can [check your account's version](feature-support-36.md#protocol-support) and [upgrade to version 3.6](upgrade-mongodb-version.md).
 
 If you're using version 3.2, this section outlines key differences with versions 3.6+.
 
@@ -421,11 +421,11 @@ After dropping the default indexes, you can add more indexes as you would in ver
 
 ### Compound indexes (version 3.2)
 
-Compound indexes hold references to multiple fields of a document. If you want to create a compound index, [upgrade to version 3.6 or 4.0](mongodb-version-upgrade.md).
+Compound indexes hold references to multiple fields of a document. If you want to create a compound index, [upgrade to version 3.6 or 4.0](upgrade-mongodb-version.md).
 
 ### Wildcard indexes (version 3.2)
 
-If you want to create a wildcard index, [upgrade to version 4.0 or 3.6](mongodb-version-upgrade.md).
+If you want to create a wildcard index, [upgrade to version 4.0 or 3.6](upgrade-mongodb-version.md).
 
 ## Next steps
 

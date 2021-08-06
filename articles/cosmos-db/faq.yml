@@ -252,7 +252,7 @@ additionalContent: |
   
   To learn about frequently asked questions in other APIs, see:
 
-  * Frequently asked questions about [Azure Cosmos DB's API for MongoDB](mongodb-api-faq.yml)
+  * Frequently asked questions about [Azure Cosmos DB's API for MongoDB](mongodb/mongodb-api-faq.yml)
   * Frequently asked questions about [Gremlin API in Azure Cosmos DB](gremlin-api-faq.yml)
   * Frequently asked questions about [Cassandra API in Azure Cosmos DB](cassandra/cassandra-faq.yml)
   * Frequently asked questions about [Table API in Azure Cosmos DB](table/table-api-faq.yml)
