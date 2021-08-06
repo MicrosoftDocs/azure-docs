@@ -14,6 +14,12 @@ items:
     href: custom-classification/faq.md
   - name: Language support
     href: custom-classification/language-support.md
+  - name: Quickstarts
+    items:
+    - name: Use Language Studio
+      href: custom-classification/quickstart/using-language-studio.md
+    - name: Use the API
+      href: custom-classification/quickstart/using-api.md
   - name: How-to guides
     items:
     - name: Create a project
@@ -24,6 +30,14 @@ items:
       href: custom-classification/how-to/improve-model.md
     - name: Run inference
       href: custom-classification/how-to/run-inference.md
+    - name: Tag data
+      href: custom-classification/how-to/tag-data.md
+    - name: Test a model
+      href: custom-classification/how-to/test-model.md
+    - name: Train a model
+      href: custom-classification/how-to/train-model.md
+    - name: View model evaluation
+      href: custom-classification/how-to/view-model-evaluation.md
   - name: Concepts
     items:
     - name: Recommended practices
