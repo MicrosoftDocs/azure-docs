@@ -335,7 +335,7 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 | --- | --- |
 | **[Altogee](https://altogee.be/diensten/express-route/)** | Europe |
 | **[Avanade Inc.](https://www.avanade.com/)** | Asia, Europe, North America, South America |
-| **[Bright Skies GmbH](https://bskies.io/expressroute)** | Europe
+| **[Bright Skies GmbH](https://www.rackspace.com/bright-skies)** | Europe
 | **[Ensyst](https://www.ensyst.com.au)** | Asia
 | **[Equinix Professional Services](https://www.equinix.com/services/consulting/)** | North America |
 | **[FlexManage](https://www.flexmanage.com/cloud)** | North America |
