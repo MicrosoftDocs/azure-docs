@@ -215,7 +215,7 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
 
 1. Set the following environment variables for the desired name of the [App Service extension](overview-arc-integration.md), the cluster namespace in which resources should be provisioned, and the name for the App Service Kubernetes environment. Choose a unique name for `<kube-environment-name>`, because it will be part of the domain name for app created in the App Service Kubernetes environment.
 
-    # [bash](tab/powershell)
+    # [bash](tab/bash)
 
     ```bash
     extensionName="appservice-ext" # Name of the App Service extension
