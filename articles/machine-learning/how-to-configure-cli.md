@@ -64,7 +64,7 @@ If you're using Linux, the fastest way to install the necessary CLI version and 
 
 :::code language="bash" source="~/azureml-examples-main/cli/misc.sh" id="az_extension_install_linux":::
 
-For more, see [Install the Azure CLI for Linux](https://docs.microsoft.com/cli/azure/install-azure-cli-linux).
+For more, see [Install the Azure CLI for Linux](/cli/azure/install-azure-cli-linux).
 
 ## Set up
 

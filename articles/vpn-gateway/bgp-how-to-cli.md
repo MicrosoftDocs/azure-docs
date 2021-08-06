@@ -13,7 +13,7 @@ ms.author: yushwang
 ---
 # How to configure BGP on an Azure VPN gateway by using CLI
 
-This article helps you enable BGP on a cross-premises Site-to-Site (S2S) VPN connection and a VNet-to-VNet connection (that is, a connection between virtual networks) by using the Azure Resource Manager deployment model and Azure CLI.
+This article helps you enable BGP on a cross-premises Site-to-Site (S2S) VPN connection and a VNet-to-VNet connection (that is, a connection between virtual networks) by using the Azure [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) and Azure CLI.
 
 ## About BGP
 

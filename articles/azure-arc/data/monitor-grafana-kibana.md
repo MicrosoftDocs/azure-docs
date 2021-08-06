@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 12/08/2020
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
@@ -15,16 +15,14 @@ ms.topic: how-to
 
 Kibana and Grafana web dashboards are provided to bring insight and clarity to the Kubernetes namespaces being used by Azure Arc-enabled data services.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 
 ## Monitor Azure SQL managed instances on Azure Arc
 
 To access the logs and monitoring dashboards for Arc enabled SQL Managed Instance, run the following `azdata` CLI command
 
-```bash
-
-azdata arc sql endpoint list -n <name of SQL instance>
+```azurecl
+az sql mi-arc endpoint list -n <name of SQL instance>
 
 ```
 The relevant Grafana dashboards are:
@@ -38,7 +36,7 @@ The relevant Grafana dashboards are:
 >  When prompted to enter a username and password, enter the username and password that you provided at the time that you created the Azure Arc data controller.
 
 > [!NOTE]
->  You will be prompted with a certificate warning because the certificates used in preview are self-signed certificates.
+>  You will be prompted with a certificate warning because the certificates are self-signed certificates.
 
 
 ## Monitor Azure Database for PostgreSQL Hyperscale on Azure Arc
@@ -47,7 +45,7 @@ To access the logs and monitoring dashboards for PostgreSQL Hyperscale, run the 
 
 ```bash
 
-azdata arc postgres endpoint list -n <name of postgreSQL instance>
+az postgres arc-server endpoint list -n <name of postgreSQL instance> --k8s-namespace <namespace> --use-k8s
 
 ```
 

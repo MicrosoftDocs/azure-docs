@@ -169,13 +169,13 @@ You'll need to configure a TXT record with your domain provider. Azure DNS is re
 
 1. Create a new **TXT** record set with the following values.
 
-   | Setting  | Value                                       |
-   | -------- | ------------------------------------------- |
-   | Name     | `@` for root domain, or enter the subdomain |
-   | Type     | TXT                                         |
-   | TTL      | Leave as default value                      |
-   | TTL Unit | Leave as default value                      |
-   | Value    | Paste the code from your clipboard          |
+   | Setting  | Value                                                                           |
+   | -------- | ------------------------------------------------------------------------------- |
+   | Name     | `@` for root domain, or enter `_dnsauth.<YOUR_SUBDOMAIN>` for subdomain         |
+   | Type     | TXT                                                                             |
+   | TTL      | Leave as default value                                                          |
+   | TTL Unit | Leave as default value                                                          |
+   | Value    | Paste the code from your clipboard                                              |
 
 1. Select **OK**.
 
@@ -206,15 +206,15 @@ You'll need to configure a TXT record with your domain provider. Azure DNS is re
 
 1. Create a new **TXT** record with the following values...
 
-   | Setting             | Value                                       |
-   | ------------------- | ------------------------------------------- |
-   | Type                | TXT                                         |
-   | Host                | `@` for root domain, or enter the subdomain |
-   | Value               | Paste the code from your clipboard          |
-   | TTL (if applicable) | Leave as default value                      |
+   | Setting             | Value                                                                        |
+   | ------------------- | ---------------------------------------------------------------------------- |
+   | Type                | TXT                                                                          |
+   | Host                | `@` for root domain, or enter `_dnsauth.<YOUR_SUBDOMAIN>` for subdomain      |
+   | Value               | Paste the code from your clipboard                                           |
+   | TTL (if applicable) | Leave as default value                                                       |
 
 > [!NOTE]
-> Some DNS providers will change the "@" to your root domain (i.e. mydomain.com) automatically. This is expected and the validation process will still work.
+> Some DNS providers use a different convention than "@" to indicate a root domain or they change the "@" to your root domain (i.e. mydomain.com) automatically. This is expected and the validation process will still work.
 
 [!INCLUDE [create repository from template](../../includes/static-web-apps-validate-txt.md)]
 

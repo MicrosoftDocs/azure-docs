@@ -1,11 +1,13 @@
 ---
 title: Transform data using Hadoop Hive activity
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how you can use the Hive Activity in an Azure data factory to run Hive queries on an on-demand/your own HDInsight cluster.
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 05/08/2019
 ---
 

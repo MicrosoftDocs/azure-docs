@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 07/26/2021
 
 ms.author: mimart
 author: msmimart
@@ -15,10 +15,7 @@ manager: celestedg
 ms.collection: M365-identity-device-management
 ---
 
-# Microsoft account (MSA) identity provider for External Identities (Preview)
-
-> [!NOTE]
-> The Microsoft account identity provider is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Microsoft account (MSA) identity provider for External Identities
 
 Your B2B guest users can use their own personal Microsoft accounts for B2B collaboration without further configuration. Guest users can redeem your B2B collaboration invitations or complete your sign-up user flows using their personal Microsoft account.
 

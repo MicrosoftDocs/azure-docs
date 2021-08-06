@@ -4,7 +4,7 @@ description: In this tutorial, learn how to integrate ServiceNow with Azure Defe
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 07/26/2021
+ms.date: 07/27/2021
 ms.custom: template-tutorial
 ---
 
@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-### Software Requirements
+### Software requirements
 
 Access to ServiceNow and Defender for IoT 
 
@@ -58,11 +58,11 @@ To access the Defender for IoT application within ServiceNow, you will need to d
 
 1. Search for `Defender for IoT` or `CyberX IoT/ICS Management`.
 
-   :::image type="content" source="media/tutorial-servicenow/search-results.png" alt-text="Search for CyberX in the search bar.":::
+   :::image type="content" source="media/tutorial-servicenow/search-results.png" alt-text="Screenshot of the search screen in ServiceNow.":::
 
 1. Select the application.
 
-   :::image type="content" source="media/tutorial-servicenow/cyberx-app.png" alt-text="Select the application from the list.":::
+   :::image type="content" source="media/tutorial-servicenow/cyberx-app.png" alt-text="Screenshot of the search screen results.":::
 
 1. Select **Request App**.
 
@@ -82,7 +82,7 @@ Configure Defender for IoT to push alert information to the ServiceNow tables. D
 
 1. Select the :::image type="icon" source="media/tutorial-servicenow/plus-icon.png" border="false"::: button.
 
-    :::image type="content" source="media/tutorial-servicenow/forwarding-rule.png" alt-text="Create Forwarding Rule":::
+    :::image type="content" source="media/tutorial-servicenow/forwarding-rule.png" alt-text="Screenshot of the Create Forwarding Rule window.":::
 
 1. Add a rule name.
 
@@ -102,7 +102,7 @@ Configure Defender for IoT to push alert information to the ServiceNow tables. D
 
 1. Enter the ServiceNow action parameters:
 
-    :::image type="content" source="media/tutorial-servicenow/parameters.png" alt-text="Fill in the ServiceNow action parameters":::
+    :::image type="content" source="media/tutorial-servicenow/parameters.png" alt-text="Fill in the ServiceNow action parameters.":::
 
 1. In the **Actions** pane, set the following parameters:
 
@@ -135,11 +135,11 @@ Configure Defender for IoT to push an extensive range of device attributes to th
 
 1. Select **System Settings**, and then **ServiceNow** from the on-premises management console Integration section.
 
-      :::image type="content" source="media/tutorial-servicenow/servicenow.png" alt-text="Select the ServiceNow button.":::
+      :::image type="content" source="media/tutorial-servicenow/servicenow.png" alt-text="Screenshot of the select the ServiceNow button.":::
 
 1. Enter the following sync parameters in the ServiceNow Sync dialog box.
 
-    :::image type="content" source="media/tutorial-servicenow/sync.png" alt-text="The ServiceNow sync dialog box.":::
+    :::image type="content" source="media/tutorial-servicenow/sync.png" alt-text="Screenshot of the ServiceNow sync dialog box.":::
 
      Parameter | Description |
     |--|--|
@@ -155,7 +155,7 @@ Configure Defender for IoT to push an extensive range of device attributes to th
 
 Verify that the on-premises management console is connected to the ServiceNow instance by reviewing the Last Sync date.
 
-:::image type="content" source="media/tutorial-servicenow/sync-confirmation.png" alt-text="Verify the communication occurred by looking at the last sync.":::
+:::image type="content" source="media/tutorial-servicenow/sync-confirmation.png" alt-text="Screenshot of the communication occurring by looking at the last sync.":::
 
 ## Set up the integrations using a HTTPS proxy
 
@@ -201,7 +201,7 @@ This article describes the device attributes and alert information presented in 
 
 3. Navigate to **Inventory**, or **Alert**.
 
-   [:::image type="content" source="media/tutorial-servicenow/alert-list.png" alt-text="Inventory or Alert":::](media/tutorial-servicenow/alert-list.png#lightbox)
+   [:::image type="content" source="media/tutorial-servicenow/alert-list.png" alt-text="Screenshot of the Inventory or Alert.":::](media/tutorial-servicenow/alert-list.png#lightbox)
 
 ## View connected devices
 
@@ -209,7 +209,7 @@ To view connected devices:
 
 1. Select a device, and then select the **Appliance** listed in for that device.
 
-    :::image type="content" source="media/tutorial-servicenow/appliance.png" alt-text="Select the desired appliance from the list.":::
+    :::image type="content" source="media/tutorial-servicenow/appliance.png" alt-text="Screenshot of the desired appliance from the list.":::
 
 1. In the **Device Details** dialog box, select **Connected Devices**.
 
