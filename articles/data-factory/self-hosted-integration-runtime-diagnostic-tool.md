@@ -9,29 +9,30 @@ ms.custom: [seo-lt-2019, references_regions, devx-track-azurepowershell]
 ms.date: 07/28/2021
 ---
 
-# Diagnostic Tool for self-hosted integration runtime
-The self-hosted integration runtime is the compute infrastructure that Azure Data Factory uses to provide data-integration capabilities across different network environments. The installation of a self-hosted integration runtime needs an on-premises machine or a virtual machine inside a private network. Sometimes, it is hard to investigate issues in on-premises machines, like network, firewall, dependency, or OS relative issues. So we introduce a new attached diagnostic tool to troubleshoot problems in on-premises environments.
+# Diagnostic tool for self-hosted integration runtime
+The self-hosted integration runtime is the compute infrastructure that Azure Data Factory uses to provide data-integration capabilities across different network environments. The installation of a self-hosted integration runtime needs an on-premises machine or a virtual machine inside a private network. Sometimes, it's hard to investigate issues in on-premises machines, such as network, firewall, dependency, or OS-related issues. This article describes a new diagnostic tool to troubleshoot problems in on-premises environments.
 
-The tool will run series of test scenarios on the self-hosted integration runtime machine. Every scenario has many typical health check cases, which contain the common issues that users always meet. Customer can trigger “troubleshoot problems” when they meet the problems. The tool will collect the customer environment information and executes every health check cases. 
+The tool runs a series of test scenarios on the self-hosted integration runtime machine. Every scenario has typical health check cases for common issues. Customers can trigger the "troubleshoot problems" feature if they encounter issues. The tool collects the customer environment information and executes the health check cases. 
 
 ## Get started 
-There are two ways to run this diagnostic tool to detect potential issues:
+There are two ways to run the diagnostic tool to detect possible issues:
 
-1. When you install self-hosted integration runtime in on-premises machine and follow the steps on the config manager. you can click **Troubleshoot Problems** when you meet any issues. Or you can also click this button on **Diagnostics** tab at any time when you meet issues after installation.
+- When you install a self-hosted integration runtime in an on-premises machine, you can access the troubleshooting feature from the Configuration Manager. If you encounter issues, select **Troubleshoot Problems** to run the diagnostic tool. You can also select this same option on the **Diagnostics** tab after installation.
 
-:::image type="content" source="./media/self-hosted-integration-runtime-diagnostic-tool/troubleshoot-ui.png" alt-text="Troubleshoot button in config manager":::
+   :::image type="content" source="./media/self-hosted-integration-runtime-diagnostic-tool/troubleshoot-ui.png" alt-text="Screenshot that shows how to troubleshoot problems by using the Runtime Configuration Manager.":::
    
+- You can also start the diagnostic tool from the command line:
 
-2. You can also run command line to start this diagnostics tool.
-
+   ```console
    dmgcmd.exe -ts [AUTH_KEY]
+   ```
 
 ## Diagnostic result
-The execution result and detail log messages will be generated as a HTML report. You can review the error and get the suggested mitigation methods or public documents URL from the report.
+The execution result and detail log messages are generated as a HTML report. You can review the error and get the suggested mitigation methods or public documents URL from the report.
 
-:::image type="content" source="./media/self-hosted-integration-runtime-diagnostic-tool/diagnostic-process.png" alt-text="Diagnostic running process":::
+:::image type="content" source="./media/self-hosted-integration-runtime-diagnostic-tool/diagnostic-process.png" alt-text="Screenshot that shows the diagnostic process.":::
 
-:::image type="content" source="./media/self-hosted-integration-runtime-diagnostic-tool/diagnostic-report.png" alt-text="Report for diagnostic result":::
+:::image type="content" source="./media/self-hosted-integration-runtime-diagnostic-tool/diagnostic-report.png" alt-text="Screenshot that shows the diagnostic result report.":::
 
 ## Next steps
 
