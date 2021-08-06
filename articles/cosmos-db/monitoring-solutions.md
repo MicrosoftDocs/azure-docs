@@ -34,7 +34,7 @@ Datadog is being used by various Cosmos DB customers, which include
 
 
 :::image type="content" source="./media/monitor-solutions/datadog-demo.gif" alt-text="Datadog demo" border="false":::
-<b>Figure:</b> Datadog in action
+**Figure:** Datadog in action
 
 Useful links:
 - [Pricing details](https://www.datadoghq.com/pricing/)
@@ -48,7 +48,7 @@ Useful links:
 Using the Mongo API, Dynatrace collects and delivers CosmosDB metrics, which includes the numbers of calls and response times—all visualized according to aggregation, commands, read-, and write operations.  It also tells you exact database statements executed in your environment.  Lastly with the power of [Davis AI Engine](https://www.dynatrace.com/davis), it can detect exactly which database statement is the root cause of degradation and can see the database identified as the root cause.
 
 :::image type="content" source="./media/monitor-solutions/dynatrace-demo.gif" alt-text="Dynatrace's various screen to provide monitoring information of Cosmos DB" border="false":::
-<b>Figure:</b> Dynatrace in Action
+**Figure:** Dynatrace in Action
 
 ### Useful links
 

@@ -1254,6 +1254,8 @@
       items:
         - name: Graph data modeling
           href: graph-modeling.md
+        - name: Third-party Graph Modeling solutions
+          href: graph-modeling-tools.md
         - name: Graph data partitioning
           href: graph-partitioning.md
         - name: Import graph data
@@ -1520,6 +1522,8 @@
           href: monitor-cosmos-db-reference.md
         - name: Application logging with Logic Apps
           href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Third-party monitoring solutions
+          href: monitoring-solutions.md
     - name: Migrate data to Cosmos DB
       items:
         - name: Options to migrate data into Cosmos DB
