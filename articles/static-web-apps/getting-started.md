@@ -60,11 +60,11 @@ Next, open Visual Studio Code and go to **File > Open Folder** to open the clone
 
     :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="Application presets: No framework":::
 
-    Enter **./** as the location for the application files and press <kbd>Enter</kbd>.
+    Enter **./src** as the location for the application files and press <kbd>Enter</kbd>.
 
     :::image type="content" source="media/getting-started/extension-build-location.png" alt-text="Application build output location":::
 
-    Enter **./** as the build output location and press <kbd>Enter</kbd>.
+    Enter **./src** as the build output location and press <kbd>Enter</kbd>.
 
     # [Angular](#tab/angular)
 
