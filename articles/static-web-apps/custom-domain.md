@@ -290,11 +290,11 @@ Now that the root domain is configured, it may take several hours for the DNS pr
 
 ## Redirect requests to a default domain
 
-Your static web app can be accessed using its automatically generated domain and any custom domains that you have configured. Optionally, you can configure your app to redirect all traffic from the other domains to a default domain.
+Your static web app can be accessed using its automatically generated domain and any custom domains that you have configured. Optionally, you can configure your app to redirect all traffic to a default domain.
 
 ### Set a default domain
 
-When you designate a custom domain as your app's default domain, requests to the auto-generated domain and other configured custom domains are automatically redirected to the default domain. Only one custom domain can be set as the default.
+When you designate a custom domain as your app's default domain, requests to other domains are automatically redirected to the default domain. Only one custom domain can be set as the default.
 
 Follow the below steps to set a custom domain as default.
 
