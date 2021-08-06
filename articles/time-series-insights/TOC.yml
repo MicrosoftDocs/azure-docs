@@ -65,14 +65,10 @@
       href: time-series-insights-explorer.md
     - name: Understand data retention
       href: time-series-insights-concepts-retention.md
-  - name: Security
-    items:
-    - name: Access with Azure Private Link
-      href: concept-private-links.md
-    - name: Authenticate and authorize
-      href: time-series-insights-authentication-and-authorization.md
   - name: Develop
     items:
+    - name: Authenticate and authorize
+      href: time-series-insights-authentication-and-authorization.md
     - name: Query data by using C# - Gen2
       href: time-series-insights-update-query-data-csharp.md
     - name: Query data by using C# - Gen1
