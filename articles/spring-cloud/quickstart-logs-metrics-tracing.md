@@ -173,7 +173,8 @@ To get the logs using Azure Toolkit for IntelliJ:
 
 ## Metrics
 
-Navigate to the `Metrics` blade - you can see metrics contributed by Spring Boot apps, 
+Navigate to the `Application insights` blade 
+Then, navigate to the `Metrics` blade - you can see metrics contributed by Spring Boot apps, 
 Spring Cloud modules, and dependencies. 
 The chart below shows `gateway-requests` (Spring Cloud Gateway), `hikaricp_connections`
  (JDBC Connections) and `http_client_requests`.
