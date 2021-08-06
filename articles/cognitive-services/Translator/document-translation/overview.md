@@ -15,7 +15,7 @@ This documentation contains the following article types:
 
 * [**Quickstarts**](get-started-with-document-translation.md) are getting-started instructions to guide you through making requests to the service.
 * [**How-to guides**](create-sas-tokens.md) contain instructions for using the feature in more specific or customized ways. 
-* [**Reference**](reference/rest-api-guide.md) provide REST API settings, values, keywords and configuration.
+* [**Reference**](reference/rest-api-guide.md) provide REST API settings, values, keywords, and configuration.
 
 ## Document Translation key features
 
@@ -27,7 +27,7 @@ This documentation contains the following article types:
 |**Apply custom translation**| Translate documents using general and [custom translation](../customization.md#custom-translator) models.|
 |**Apply custom glossaries**|Translate documents using custom glossaries.|
 |**Automatically detect document language**|Let the Document Translation service determine the language of the document.|
-|**Translate documents with content in multiple languages**|Use the auto-detect feature to translate documents with content in multiple languages into your target language.|
+|**Translate documents with content in multiple languages**|Use the autodetect feature to translate documents with content in multiple languages into your target language.|
 
 > [!NOTE]
 > When translating documents with content in multiple languages, the feature is intended for complete sentences in a single language. If sentences are composed of more than one language, the content may not all translate into the target language.
@@ -35,11 +35,11 @@ This documentation contains the following article types:
 
 ## Document Translation development options
 
-You can add Document Translation to your projects and applications using the REST API, a client-library SDK, or on-premise Docker containers:
+You can add Document Translation to your applications using the REST API, a client-library SDK, or on-premise Docker containers:
 
 * The [**REST API***](document-translation/reference/rest-api-guide.md). is a language agnostic interface that enables you to manually create HTTP requests and authorization headers to translate text raw binary images or via links to image URLs.
 
-* The [**client-library SDKs**](document-translation/client-sdks.md) are language-specific classes, objects, methods and code that you can quickly use by adding a reference in your project. Currently Document Translation has programming language support for [**C#/.NET**](/dotnet/api/azure.ai.translation.document) and [**Python**](/python/azure-ai-translation-document/latest/azure.ai.translation.document.html)
+* The [**client-library SDKs**](document-translation/client-sdks.md) are language-specific classes, objects, methods, and code that you can quickly use by adding a reference in your project. Currently Document Translation has programming language support for [**C#/.NET**](/dotnet/api/azure.ai.translation.document) and [**Python**](/python/azure-ai-translation-document/latest/azure.ai.translation.document.html)
 
 * The [**Document Translation container**](containers/translator-how-to-install-container.md) enables the service to be deployed for on-premises access and use. Containers give you the flexibility to bring the services closer to your data for compliance, security, or other operational reasons. 
 
