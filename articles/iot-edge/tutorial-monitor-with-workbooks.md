@@ -24,7 +24,6 @@ In this tutorial, you learn how to:
 > * Understand what metrics are shared by IoT Edge devices and how the metrics collector module handles them.
 > * Deploy the metrics collector module to an IoT Edge device.
 > * View curated visualizations of the metrics collected from the device.
-> * Create a log alert rule to monitor your devices.
 
 ## Prerequisites
 
@@ -111,3 +110,59 @@ Follow these steps to deploy and configure the collector module:
 
 1. Select **Create** to finish the deployment.
 
+After completing the module deployment, you return to the device details page where you can see four modules listed as **Specified in Deployment**. It may take a few moments for all four modules to be listed as **Reported by Device**, which means that they've been successfully started and reported their status to IoT Hub. Refresh the page to see the latest status.
+
+## Monitor device health
+
+It may take up to fifteen minutes for your device monitoring workbooks to be ready to view. Once you deploy the metrics collector module, it starts sending metrics messages to Log Analytics where they're organized within a table. The IoT Hub resource ID that you provided links the metrics that are ingested to the hub that they belong to. As a result, the curated IoT Edge workbooks can retrieve metrics by querying against the metrics table using the resource ID.
+
+Azure Monitor provides three default workbook templates for IoT:
+
+* The **IoT Edge fleet view** workbook shows an overview of active devices so that you can identify any unhealthy devices and drill down into how each device is performing. This workbook also shows alerts generated from any alert rules that you may create.
+* The **IoT Edge device details** workbook provides visualizations around three categories: messaging, modules, and host. The messaging view visualizes the message routes for a device and reports on the overall health of the messaging system. The modules view shows how the individual modules on a device are performing. The host view shows information about the host device including version information for host components and resource use.
+* The **IoT Edge health snapshot** workbook measures device signals against configurable thresholds to determine if a device is health or not. This workbook can only be accessed from within the fleet view workbook, which passes the parameters required to initialize the health snapshot of a particular device.
+
+### Explore the fleet view and health snapshot workbooks
+
+Use the following steps to explore the workbook visualizations:
+
+1. Return to your IoT hub page in the Azure portal.
+
+1. Scroll down in the main menu to find the **Monitoring** section, and select **Workbooks**.
+
+   :::image type="content" source="./media/tutorial-monitor-with-workbooks/workbooks-gallery.png" alt-text="Select workbooks to open the Azure Monitor workbooks gallery.":::
+
+1. Select the **IoT Edge fleet view** workbook.
+
+1. You should see your device that's running the metrics collector module. The device is listed as either **healthy** or **unhealthy**. Select the device name to open the **IoT Edge health snapshot** and view specific details about the device health.
+
+1. Close the health snapshot workbook. Select **Workbooks** from the fleet view workbook to return to the workbooks gallery.
+
+### Explore the device details workbook
+
+1. From the workbooks gallery, select the **IoT Edge device details** workbook.
+
+1. The first page you see in the device details workbook is the **messaging** view. A table displays the routes on the device, organized by endpoint. For our device, we see that the **upstream** endpoint, which is the special term used for routing to IoT Hub, is receiving messages from the **temperatureOutput** output of the simulated temperature sensor module.
+
+   :::image type="content" source="./media/tutorial-monitor-with-workbooks/device-details-messaging-routing.png" alt-text="Select the messaging view to see the status of communications on the device.":::
+
+1. Select the **graph** tab to see a different visualization of the routes. On the graph page, you can drag and drop the different endpoints to rearrange the graph. This feature is helpful when you have many routes to visualize.
+
+   :::image type="content" source="./media/tutorial-monitor-with-workbooks/workbooks-gallery.png" alt-text="Select the graph view to see an interactive graph of the device routes.":::
+
+1. The **health** tab reports any issues with messaging, like dropped messages or disconnected clients.
+
+1. Select the **modules** view to see the status of all the modules deployed on the device. You can select each of the modules to see details about how much CPU and memory they use.
+
+   :::image type="content" source="{source}" alt-text="Select the modules view to see the status of each module deployed to the device.":::
+
+1. Select the **host** view to see information about the host device, including it's operating system, the IoT Edge daemon version, and resource use.
+
+## Next steps
+
+As you continue through the rest of the tutorials, keep the metrics collector module on your devices and return to these workbooks to see how the information changes as you add more complex modules and routing.
+
+Continue to the next tutorial where you set up your developer environment to start deploying custom modules to your devices.
+
+> [!div class="nextstepaction"]
+> [Develop IoT Edge modules with Linux containers](tutorial-develop-for-linux.md)
