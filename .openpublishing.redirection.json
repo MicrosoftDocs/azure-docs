@@ -57091,7 +57091,7 @@
     },
     {
       "source_path_from_root": "/articles/load-balancer/egress-only.md",
-      "redirect_url": "/azure/virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal",
       "redirect_document_id": false
     }
   ]
