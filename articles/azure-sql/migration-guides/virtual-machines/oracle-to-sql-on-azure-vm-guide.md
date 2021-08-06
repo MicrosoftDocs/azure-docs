@@ -161,7 +161,7 @@ To convert the schema, follow these steps:
 
    ![Screenshot that shows how to connect to SQL Server.](./media/oracle-to-sql-on-azure-vm-guide/connect-to-sql-vm.png)
 
-1. Right-click the Oracle schema in **Oracle Metadata Explorer** and select **Convert Schema**. Instead, you can select **Convert schema** in the top menu:
+1. Right-click the Oracle schema in **Oracle Metadata Explorer** and select **Convert Schema**. Or, you can select **Convert schema** in the top menu:
 
    ![Screenshot that shows how to convert the schema.](./media/oracle-to-sql-on-azure-vm-guide/convert-schema.png)
 
