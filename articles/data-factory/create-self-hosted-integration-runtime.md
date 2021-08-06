@@ -115,7 +115,7 @@ Use the following steps to create a self-hosted IR using the Azure Data Factory 
 1. On the **Integration runtime setup** page, select **Azure, Self-Hosted**, and then select **Continue**.
 
 1. On the following page, select **Self-Hosted** to create a Self-Hosted IR, and then select **Continue**.
-   :::image type="content" source="media/create-self-hosted-integration-runtime/new-selfhosted-integration-runtime.png" alt-text="Create a selfhosted IR":::
+   :::image type="content" source="media/create-self-hosted-integration-runtime/new-self-hosted-integration-runtime.png" alt-text="Create a selfhosted IR":::
 
 # [Azure Synapse](#tab/synapse-analytics)
 
@@ -128,7 +128,7 @@ Use the following steps to create a self-hosted IR using the Azure Data Factory 
    :::image type="content" source="media/doc-common-process/manage-new-integration-runtime-synapse.png" alt-text="Create an integration runtime":::
 
 1. On the following page, select **Self-Hosted** to create a Self-Hosted IR, and then select **Continue**.
-   :::image type="content" source="media/create-self-hosted-integration-runtime/new-selfhosted-integration-runtime-synapse.png" alt-text="Create a selfhosted IR":::
+   :::image type="content" source="media/create-self-hosted-integration-runtime/new-self-hosted-integration-runtime-synapse.png" alt-text="Create a selfhosted IR":::
 
 ---
 
