@@ -34,8 +34,7 @@ This article summarizes support and prerequisites for disaster recovery of Azure
 
 ## Region support
 
-You can replicate and recover VMs between any two regions within the same geographic cluster. Geographic clusters are defined keeping data latency and sovereignty in mind.
-
+Azure Site Recovery allows you to perform global disaster recovery. You can replicate and recover VMs between any two Azure regions in the world. If you have concerns around data sovereignty, you may choose to limit replication within your specific geographic cluster. The various geographic clusters are as follows:
 
 **Geographic cluster** | **Azure regions**
 -- | --
@@ -50,17 +49,10 @@ China | China East, China North, China North2, China East2
 Brazil | Brazil South
 Restricted Regions reserved for in-country disaster recovery |Switzerland West reserved for Switzerland North, France South reserved for France Central, Norway West for Norway East customers, JIO India Central for JIO India West customers, Brazil Southeast for Brazil South customers, South Africa West for South Africa North customers, Germany North for Germany West Central customers.
 
-Replication and recovery of VMs between two regions in different continents is limited to the following region pairs:
-
-* Southeast Asia and Australia East
-* Southeast Asia and Australia Southeast
-* West Europe and South Central US.
-
 >[!NOTE]
 >
 > - For **Brazil South**, you can replicate and fail over to these regions: Brazil Southeast, South Central US, West Central US, East US, East US 2, West US, West US 2, and North Central US.
-> - Brazil South can only be used as a source region from which VMs can replicate using Site Recovery. It can't act as a target region. This is because of latency issues due to geographical distances. Note that if you fail over from Brazil South as a source region to a target, failback to Brazil South from the target region is supported. Brazil Southeast can only be used as a target region.
-> - You can work within regions for which you have appropriate access.
+> - Brazil South can only be used as a source region from which VMs can replicate using Site Recovery. It can't act as a target region. Note that if you fail over from Brazil South as a source region to a target, failback to Brazil South from the target region is supported. Brazil Southeast can only be used as a target region.
 > - If the region in which you want to create a vault doesn't show, make sure your subscription has access to create resources in that region.
 > - If you can't see a region within a geographic cluster when you enable replication, make sure your subscription has permissions to create VMs in that region.
 

@@ -5,6 +5,7 @@ description: Learn how to use Lookup activity to look up a value from an externa
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
+ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 02/25/2021
