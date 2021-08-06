@@ -71,13 +71,14 @@ The response should provide an access token good for one hour:
 }
 ```
 
-Make note of the token, as you'll use it to authenticate all subsequent administrative requests. You'll do so by setting an Authorization header in all requests:
+Make note of the token, as you'll use it to authenticate all additional administrative requests. You'll do so by setting an Authorization header in all requests:
 
 ```bash
 curl -h "Authorization:Bearer <YOUR-ACCESS-TOKEN>" ...more args...
 ```
 
-Note that the value starts with the string "Bearer " including a single space before you add the token.
+> [!NOTE]
+> The value starts with the string "Bearer " including a single space before you add the token.
 
 ## Get a list of resource groups associated with your subscription
 
@@ -119,7 +120,7 @@ The above call will result in a compacted JSON response of the form:
 
 ## Drill down into workspaces and their resources
 
-To retrieve the set of workspaces in a resource group, run the following, substituting `<YOUR-SUBSCRIPTION-ID>`, `<YOUR-RESOURCE-GROUP>`, and `<YOUR-ACCESS-TOKEN>`: 
+To retrieve the set of workspaces in a resource group, run the following, replacing `<YOUR-SUBSCRIPTION-ID>`, `<YOUR-RESOURCE-GROUP>`, and `<YOUR-ACCESS-TOKEN>`: 
 
 ```
 curl https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/providers/Microsoft.MachineLearningServices/workspaces/?api-version=2021-03-01-preview \
@@ -179,7 +180,7 @@ To work with resources within a workspace, you'll switch from the general **mana
 }
 ```
 
-The value of the `api` response is the URL of the server that you'll use for additional requests. To list experiments, for instance, send the following command. Replace `REGIONAL-API-SERVER` with the value of the `api` response (for instance, `centralus.api.azureml.ms`). Also replace `YOUR-SUBSCRIPTION-ID`, `YOUR-RESOURCE-GROUP`, `YOUR-WORKSPACE-NAME`, and `YOUR-ACCESS-TOKEN` as usual:
+The value of the `api` response is the URL of the server that you'll use for more requests. To list experiments, for instance, send the following command. Replace `REGIONAL-API-SERVER` with the value of the `api` response (for instance, `centralus.api.azureml.ms`). Also replace `YOUR-SUBSCRIPTION-ID`, `YOUR-RESOURCE-GROUP`, `YOUR-WORKSPACE-NAME`, and `YOUR-ACCESS-TOKEN` as usual:
 
 ```bash
 curl https://<REGIONAL-API-SERVER>/history/v1.0/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
@@ -231,11 +232,11 @@ providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/com
 -H "Authorization:Bearer <YOUR-ACCESS-TOKEN>"
 ```
 
-To create or overwrite a named compute resource, you'll use a PUT request. In the following, in addition to the now-familiar substitutions of `YOUR-SUBSCRIPTION-ID`, `YOUR-RESOURCE-GROUP`, `YOUR-WORKSPACE-NAME`, and `YOUR-ACCESS-TOKEN`, substitute `YOUR-COMPUTE-NAME`, and values for `location`, `vmSize`, `vmPriority`, `scaleSettings`, `adminUserName`, and `adminUserPassword`. As specified in the reference at [Machine Learning Compute - Create Or Update SDK Reference](/rest/api/azureml/workspaces/createorupdate), the following command creates a dedicated, single-node Standard_D1 (a basic CPU compute resource) that will scale down after 30 minutes:
+To create or overwrite a named compute resource, you'll use a PUT request. In the following, in addition to the now-familiar replacements of `YOUR-SUBSCRIPTION-ID`, `YOUR-RESOURCE-GROUP`, `YOUR-WORKSPACE-NAME`, and `YOUR-ACCESS-TOKEN`, replace `YOUR-COMPUTE-NAME`, and values for `location`, `vmSize`, `vmPriority`, `scaleSettings`, `adminUserName`, and `adminUserPassword`. As specified in the reference at [Machine Learning Compute - Create Or Update SDK Reference](/rest/api/azureml/workspaces/createorupdate), the following command creates a dedicated, single-node Standard_D1 (a basic CPU compute resource) that will scale down after 30 minutes:
 
 ```bash
 curl -X PUT \
-  'https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/computes/{YOUR-COMPUTE-NAME}?api-version=2021-03-01-preview' \
+  'https://management.azure.com/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/computes/<YOUR-COMPUTE-NAME>?api-version=2021-03-01-preview' \
   -H 'Authorization:Bearer <YOUR-ACCESS-TOKEN>' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -264,7 +265,7 @@ curl -X PUT \
 
 A successful request will get a `201 Created` response, but note that this response simply means that the provisioning process has begun. You'll need to poll (or use the portal) to confirm its successful completion.
 
-### Perform training
+### Train a model
 
 To train a model using REST, see [Train models with REST (preview)](how-to-train-with-rest.md). 
 
@@ -275,7 +276,7 @@ Some, but not all, resources support the DELETE verb. Check the [API Reference](
 ```bash
 curl
   -X DELETE \
-'https://<REGIONAL-API-SERVER>/modelmanagement/v1.0/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/models/{your-model-id}?api-version=2021-03-01-preview' \
+'https://<REGIONAL-API-SERVER>/modelmanagement/v1.0/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/providers/Microsoft.MachineLearningServices/workspaces/<YOUR-WORKSPACE-NAME>/models/<YOUR-MODEL-ID>?api-version=2021-03-01-preview' \
   -H 'Authorization:Bearer <YOUR-ACCESS-TOKEN>' 
 ```
 
@@ -285,7 +286,7 @@ To score a deployed model using REST, see [Consume an Azure Machine Learning mod
 
 ## Create a workspace using REST 
 
-Every Azure ML workspace has a dependency on four other Azure resources: a container registry with administration enabled, a key vault, an Application Insights resource, and a storage account. You cannot create a workspace until these resources exist. Consult the REST API reference for the details of creating each such resource.
+Every Azure ML workspace has a dependency on four other Azure resources: a container registry with administration enabled, a key vault, an Application Insights resource, and a storage account. You can't create a workspace until these resources exist. Consult the REST API reference for the details of creating each such resource.
 
 To create a workspace, PUT a call similar to the following to `management.azure.com`. While this call requires you to set a large number of variables, it's structurally identical to other calls that this article has discussed. 
 
@@ -315,7 +316,7 @@ providers/Microsoft.Storage/storageAccounts/<YOUR-STORAGE-ACCOUNT-NAME>"
 }'
 ```
 
-You should receive a `202 Accepted` response and, in the returned headers, a `Location` URI. You can GET this URI for information on the deployment, including helpful debugging information if there is a problem with one of your dependent resources (for instance, if you forgot to enable admin access on your container registry). 
+You should receive a `202 Accepted` response and, in the returned headers, a `Location` URI. You can GET this URI for information on the deployment, including helpful debugging information if there's a problem with one of your dependent resources (for instance, if you forgot to enable admin access on your container registry). 
 
 ## Troubleshooting
 
