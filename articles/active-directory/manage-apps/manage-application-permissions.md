@@ -2,15 +2,15 @@
 title: Manage user and admin permissions - Azure Active Directory | Microsoft Docs
 description: Learn how to review and manage permissions for the application on Azure AD. For example, revoke all permissions granted to an application.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 7/10/2020
-ms.author: mtillman
-ms.reviewer: luleonpla
+ms.author: davidmu
+ms.reviewer: phsignor
 
 ms.collection: M365-identity-device-management
 ---
@@ -68,10 +68,10 @@ Optionally, you can disable the application to keep users from accessing the app
 We recommend that you restrict access to the application by turning on the **User assignment** setting. Then review the permissions that users and admins have granted to the application.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator, an application administrator, or a cloud application administrator.
-3. Select **Azure Active Directory** > **Enterprise applications**.
-5. Select the application that you want to restrict access to.
-6. Select **Properties**, and then set **User requirement required** to **Yes**.
-7. Select **Permissions**, and review the admin and user consented permissions.
+2. Select **Azure Active Directory** > **Enterprise applications**.
+3. Select the application that you want to restrict access to.
+4. Select **Properties**, and then set **User requirement required** to **Yes**.
+5. Select **Permissions**, and review the admin and user consented permissions.
 
 Optionally, by using PowerShell, you can:
 

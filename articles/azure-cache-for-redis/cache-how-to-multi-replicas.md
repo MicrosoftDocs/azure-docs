@@ -41,7 +41,7 @@ To create a cache, follow these steps:
 
 1. Leave other options in their default settings. 
 
-1. Click **Create**.
+1. Select **Create**.
    
     It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
 

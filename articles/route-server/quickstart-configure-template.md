@@ -12,13 +12,13 @@ ms.author: duau
 
 # Quickstart: Create an Azure Route Server using an ARM template
 
-This quickstart describes how to use an Azure Resource Manager template (ARM Template) to deploy an Azure Route Server into a new or existing virtual network.
+This quickstart describes how to use an Azure Resource Manager template (ARM template) to deploy an Azure Route Server into a new or existing virtual network.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-route-server%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Froute-server%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -26,11 +26,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-route-server).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/route-server).
 
 In this quickstart, you'll deploy an Azure Route Server into a new or existing virtual network. A dedicated subnet named `RouteServerSubnet` will be created to host the Route Server. The Route Server will also be configured with the Peer ASN and Peer IP to establish a BGP peering.
 
-:::code language="json" source="~/quickstart-templates/101-route-server/azuredeploy.json" range="001-145" highlight="105-142":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/route-server/azuredeploy.json" range="001-145" highlight="105-142":::
 
 Multiple Azure resources have been defined in the template:
 
@@ -50,7 +50,7 @@ To find more templates that are related to ExpressRoute, see [Azure Quickstart T
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-route-server/azuredeploy.json"
+    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.network/route-server/azuredeploy.json"
 
     $resourceGroupName = "${projectName}rg"
 

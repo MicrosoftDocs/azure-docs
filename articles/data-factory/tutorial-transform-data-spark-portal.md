@@ -2,10 +2,11 @@
 title: 'Transform data by using Spark in Azure Data Factory '
 description: 'This tutorial provides step-by-step instructions for transforming data by using a Spark activity in Azure Data Factory.'
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
 author: nabhishek
 ms.author: abnarain
-ms.date: 01/10/2018
+ms.date: 06/07/2021
 ---
 # Transform data in the cloud by using a Spark activity in Azure Data Factory
 
@@ -112,9 +113,9 @@ You author two linked services in this section:
 
 ### Create an Azure Storage linked service
 
-1. On the **Let's get started** page, switch to the **Edit** tab in the left panel. 
+1. On the home page, switch to the **Manage** tab in the left panel. 
 
-   !["Let's get started" page](./media/tutorial-transform-data-spark-portal/get-started-page.png)
+   ![Screenshot that shows the Manage tab.](media/doc-common-process/get-started-page-manage-button.png)
 
 1. Select **Connections** at the bottom of the window, and then select **+ New**. 
 

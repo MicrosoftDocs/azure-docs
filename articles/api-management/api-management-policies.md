@@ -4,14 +4,10 @@ description: Learn about the policies available for use in Azure API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: cfowler
-editor: ''
 
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 02/17/2021
+ms.date: 07/19/2021
 ms.author: apimpm
 ---
 # API Management policies
@@ -31,11 +27,13 @@ This section provides a reference for the following API Management policies. For
     -   [Set usage quota by subscription](api-management-access-restriction-policies.md#SetUsageQuota) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis.
     -   [Set usage quota by key](api-management-access-restriction-policies.md#SetUsageQuotaByKey) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per key basis.
     -   [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) - Enforces existence and validity of a JWT extracted from either a specified HTTP Header or a specified query parameter.
+    -   [Validate client certificate](api-management-access-restriction-policies.md#validate-client-certificate) - Enforces that a certificate presented by a client to an API Management instance matches specified validation rules and claims.
 -   [Advanced policies](api-management-advanced-policies.md#AdvancedPolicies)
     -   [Control flow](api-management-advanced-policies.md#choose) - Conditionally applies policy statements based on the evaluation of Boolean expressions.
     -   [Forward request](api-management-advanced-policies.md#ForwardRequest) - Forwards the request to the backend service.
     -   [Limit concurrency](api-management-advanced-policies.md#LimitConcurrency) - Prevents enclosed policies from executing by more than the specified number of requests at a time.
     -   [Log to Event Hub](api-management-advanced-policies.md#log-to-eventhub) - Sends messages in the specified format to a message target defined by a Logger entity.
+    -   [Emit metrics](api-management-advanced-policies.md#emit-metrics) - Sends custom metrics to Application Insights at execution.
     -   [Mock response](api-management-advanced-policies.md#mock-response) - Aborts pipeline execution and returns a mocked response directly to the caller.
     -   [Retry](api-management-advanced-policies.md#Retry) - Retries execution of the enclosed policy statements, if and until the condition is met. Execution will repeat at the specified time intervals and up to the specified retry count.
     -   [Return response](api-management-advanced-policies.md#ReturnResponse) - Aborts pipeline execution and returns the specified response directly to the caller.

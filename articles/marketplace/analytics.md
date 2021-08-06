@@ -15,10 +15,10 @@ Learn how to access analytic reports in Microsoft Partner Center to monitor sale
 
 ## Partner Center analytics tools
 
-To access the Partner Center analytics tools, open the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dashboard under Commercial Marketplace.
+To access the Partner Center analytics tools, go to the **[Summary](https://go.microsoft.com/fwlink/?linkid=2165765)** dashboard.
 
 >[!NOTE]
-> For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](analytics-faq.md).
+> For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](analytics-faq.yml).
 
 ## Next steps
 
@@ -26,6 +26,7 @@ To access the Partner Center analytics tools, open the **[Analyze](https://partn
 - For information about your orders in a graphical and downloadable format, see [Orders dashboard in commercial marketplace analytics](orders-dashboard.md).
 - For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage dashboard in commercial marketplace analytics](usage-dashboard.md).
 - For detailed information about your customers, including growth trends, see [Customer dashboard in commercial marketplace analytics](customer-dashboard.md).
+- For information about your licenses, see [License dashboard in commercial marketplace analytics](license-dashboard.md)
 - For a list of your download requests over the last 30 days, see [Downloads dashboard in commercial marketplace analytics](downloads-dashboard.md).
 - To see a consolidated view of customer feedback for offers on Azure Marketplace and AppSource, see [Ratings and reviews dashboard in commercial marketplace analytics](ratings-reviews.md).
-- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Frequently asked questions and terminology for commercial marketplace analytics](analytics-faq.md).
+- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Frequently asked questions and terminology for commercial marketplace analytics](analytics-faq.yml).

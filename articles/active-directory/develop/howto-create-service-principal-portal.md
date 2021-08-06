@@ -1,7 +1,7 @@
 ---
-title: Create an Azure AD app & service principal in the portal
+title: Create an Azure AD app and service principal in the portal
 titleSuffix: Microsoft identity platform
-description: Create a new Azure Active Directory app & service principal to manage access to resources with role-based access control in Azure Resource Manager.
+description: Create a new Azure Active Directory app and service principal to manage access to resources with role-based access control in Azure Resource Manager.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -9,10 +9,9 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 06/16/2021
 ms.author: ryanwi
-ms.reviewer: tomfitz
-ms.custom: aaddev, seoapril2019, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, subject-rbac-steps
 ---
 
 # How to: Use the portal to create an Azure AD application and service principal that can access resources
@@ -25,6 +24,7 @@ This article shows you how to use the portal to create the service principal in 
 > Instead of creating a service principal, consider using managed identities for Azure resources for your application identity. If your code runs on a service that supports managed identities and accesses resources that support Azure AD authentication, managed identities are a better option for you. To learn more about managed identities for Azure resources, including which services currently support it, see [What is managed identities for Azure resources?](../managed-identities-azure-resources/overview.md).
 
 ## App registration, app objects, and service principals
+
 There is no way to directly create a service principal using the Azure portal.  When you register an application through the Azure portal, an application object and service principal are automatically created in your home directory or tenant.  For more information on the relationship between app registration, application objects, and service principals, read [Application and service principal objects in Azure Active Directory](app-objects-and-service-principals.md).
 
 ## Permissions required for registering an app
@@ -101,12 +101,10 @@ You can set the scope at the level of the subscription, resource group, or resou
    If you don't see the subscription you're looking for, select **global subscriptions filter**. Make sure the subscription you want is selected for the portal.
 
 1. Select **Access control (IAM)**.
-1. Select **Add role assignment**.
-1. Select the role you wish to assign to the application. For example, to allow the application to execute actions like **reboot**, **start** and **stop** instances, select the **Contributor** role.  Read more about the [available roles](../../role-based-access-control/built-in-roles.md) By default, Azure AD applications aren't displayed in the available options. To find your application, search for the name and select it.
+1. Select Select **Add** > **Add role assignment** to open the **Add role assignment** page.
+1. Select the role you wish to assign to the application. For example, to allow the application to execute actions like **reboot**, **start** and **stop** instances, select the **Contributor** role.  Read more about the [available roles](../../role-based-access-control/built-in-roles.md) By default, Azure AD applications aren't displayed in the available options. To find your application, search for the name and select it. 
 
-   ![Select the role to assign to the application](./media/howto-create-service-principal-portal/select-role.png)
-
-1. Select **Save** to finish assigning the role. You see your application in the list of users with a role for that scope.
+    Assign the Contributor role to the application at the subscription scope. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 Your service principal is set up. You can start using it to run your scripts or apps. To manage your service principal (permissions, user consented permissions, see which users have consented, review permissions, see sign in information, and more), go to **Enterprise applications**.
 

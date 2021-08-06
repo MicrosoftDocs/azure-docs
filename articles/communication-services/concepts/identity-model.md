@@ -7,7 +7,7 @@ manager: nmurav
 services: azure-communication-services
 
 ms.author: tchladek
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
@@ -82,3 +82,4 @@ If you cache access tokens to a backing store, we recommend using encryption. An
 * For an introduction to access token management, see [Create and manage access tokens](../quickstarts/access-tokens.md).
 * For an introduction to authentication, see [Authenticate to Azure Communication Services](./authentication.md).
 * For an introduction to data residency and privacy, see [Region availability and data residency](./privacy.md).
+* To learn how to quickly create identities for testing, see the [quick-create identity quickstart](../quickstarts/identity/quick-create-identity.md).

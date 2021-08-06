@@ -26,7 +26,7 @@ Azure Percept Audio works out of the box with Azure Percept DK. No unique setup 
 
 1. (Optional) connect your speaker or headphones to your Azure Percept Audio device via the audio jack, labeled "Line Out." This will allow you to hear audio responses.
 
-1. Power on the devkit. LED L02 will change to blinking white, which indicates that the device was powered on and is authenticating.
+1. Power on the dev kit by connecting it to the power adaptor. LED L02 will change to blinking white, which indicates that the device was powered on and is authenticating.
 
 1. Wait for the authentication process to complete, which takes up to 5 minutes.
 

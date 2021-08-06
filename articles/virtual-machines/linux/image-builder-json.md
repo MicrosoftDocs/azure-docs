@@ -3,12 +3,11 @@ title: Create an Azure Image Builder template
 description: Learn how to create a template to use with Azure Image Builder.
 author: kof-f
 ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 05/24/2021
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: linux
-ms.reviewer: cynthn 
 ms.custom: devx-track-azurepowershell
 ---
 # Create an Azure Image Builder template 
@@ -92,18 +91,8 @@ By default Image Builder will use a "Standard_D1_v2" build VM, this is built fro
 2. Running Windows builds, you should use "Standard_D2_v2" or equivalent VM size.
 3. Require [VM isolation](../isolation.md).
 4. Customize an Image that require specific hardware, e.g. for a GPU VM, you need a GPU VM size. 
-5. Require end to end encryption at rest of the build VM, you need to specify the support build [VM size](../azure-vms-no-temp-disk.md) that don't use local temporary disks.
+5. Require end to end encryption at rest of the build VM, you need to specify the support build [VM size](../azure-vms-no-temp-disk.yml) that don't use local temporary disks.
  
-This is optional.
-
-
-## Proxy VM Size
-The proxy VM is used to send commands between the Azure Image Builder Service and the build VM, this is only deployed when specifying an existing VNET, for more details review the networking options [documentation](image-builder-networking.md#why-deploy-a-proxy-vm).
-```json
- {
-    "proxyVmSize": "Standard A1_v2"
- },
-```
 This is optional.
 
 ## osDiskSizeGB
@@ -175,7 +164,7 @@ The API requires a 'SourceType' that defines the source for the image build, cur
 > When using existing Windows custom images, you can run the Sysprep command up to 3 times on a single Windows 7 or Windows Server 2008 R2 image, or 1001 times on a single Windows image for later versions; for more information, see the [sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) documentation.
 
 ### PlatformImage source 
-Azure Image Builder supports Windows Server and client, and Linux  Azure Marketplace images, see [here](../image-builder-overview.md#os-support) for the full list. 
+Azure Image Builder supports Windows Server and client, and Linux  Azure Marketplace images, see [Learn about Azure Image Builder](../image-builder-overview.md#os-support) for the full list. 
 
 ```json
         "source": {
@@ -720,3 +709,4 @@ az resource invoke-action \
 ## Next steps
 
 There are sample .json files for different scenarios in the [Azure Image Builder GitHub](https://github.com/azure/azvmimagebuilder).
+

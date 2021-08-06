@@ -13,6 +13,10 @@
     - name: ARM template
       displayName: Resource Manager
       href: alerts-activity-log-service-notifications-arm.md
+- name: Samples
+  items:
+  - name: Azure Resource Graph queries
+    href: ./resource-graph-samples.md
 - name: Concepts
   items:
   - name: Azure status page

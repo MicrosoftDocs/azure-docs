@@ -7,7 +7,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 11/10/2020
+ms.date: 06/24/2021
 ---
 
 # Hypervisor security on the Azure fleet
@@ -64,6 +64,7 @@ All VM attack surfaces are threat modeled, code reviewed, fuzzed, and tested by 
 To learn more about what we do to drive platform integrity and security, see:
 
 - [Firmware security](firmware.md)
+- [Platform code integrity](code-integrity.md)
 - [Secure boot](secure-boot.md)
 - [Measured boot and host attestation](measured-boot-host-attestation.md)
 - [Project Cerberus](project-cerberus.md)

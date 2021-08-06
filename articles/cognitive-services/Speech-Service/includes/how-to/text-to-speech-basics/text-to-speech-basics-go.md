@@ -2,7 +2,7 @@
 author: yulin-li
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/17/2021
+ms.date: 07/02/2021
 ms.author: yulili
 ---
 
@@ -24,7 +24,7 @@ Before you can do anything, you'll need to install the [Speech SDK for Go](../..
 ## Text-to-speech to speaker
 
 Use the following code sample to run speech synthesis to your default audio output device.
-Replace the variables `subscription` and `region` with your subscription and region keys.
+Replace the variables `subscription` and `region` with your speech key and location/region.
 Running the script will speak your input text to default speaker.
 
 ```go
@@ -63,8 +63,8 @@ func cancelledHandler(event speech.SpeechSynthesisEventArgs) {
 }
 
 func main() {
-    subscription :=  "YOUR_SUBSCRIPTION_KEY"
-    region := "YOUR_SUBSCRIPTIONKEY_REGION"
+    subscription := "<paste-your-speech-key-here>"
+    region := "<paste-your-speech-location/region-here>"
 
 	audioConfig, err := audio.NewAudioConfigFromDefaultSpeakerOutput()
 	if err != nil {
@@ -162,7 +162,7 @@ This time, you save the result to a [`SpeechSynthesisResult`](https://pkg.go.dev
 The `AudioData` property returns a `[]byte` of the output data. You can work with this `[]byte` manually, or you can use the [`AudioDataStream`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go/speech#AudioDataStream) class to manage the in-memory stream.
 In this example, you use the `NewAudioDataStreamFromSpeechSynthesisResult()` static function to get a stream from the result.
 
-Replace the variables `subscription` and `region` with your subscription and region keys.
+Replace the variables `subscription` and `region` with your speech key and location/region.
 
 ```go
 package main
@@ -179,8 +179,8 @@ import (
 )
 
 func main(subscription string, region string) {
-    subscription :=  "YOUR_SUBSCRIPTION_KEY"
-    region := "YOUR_SUBSCRIPTIONKEY_REGION"
+    subscription := "<paste-your-speech-key-here>"
+    region := "<paste-your-speech-location/region-here>"
 
 	config, err := speech.NewSpeechConfigFromSubscription(subscription, region)
 	if err != nil {

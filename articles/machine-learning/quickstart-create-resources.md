@@ -10,7 +10,7 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 06/10/2021
 adobe-target: true
-ms.custom: contperf-fy21q4
+ms.custom: FY21Q4-aml-seo-hack, contperf-fy21q4
 # Customer intent: As a data scientist, I want to create a workspace so that I can start to use Azure Machine Learning.
 ---
 
@@ -33,10 +33,6 @@ If you don't yet have a workspace, create one now:
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
-> [!div class="nextstepaction"]
-> [I created a workspace](?success=create-workspace#instance) [I ran into an issue](https://www.research.net/r/7C8Z3DN?issue=create-workspace)
-
-
 ## <a name="instance"></a> Create compute instance
 
 You could install Azure Machine Learning on your own computer.  But in this quickstart, you'll create an online compute resource that has a development environment already installed and ready to go.  You'll use this online machine, a *compute instance*, for your development environment to write and run code in Python scripts and Jupyter notebooks.
@@ -50,9 +46,6 @@ Create a *compute instance* to use this development environment for the rest of 
 1. Supply a name and select **Create**.
  
 In about two minutes, you'll see the **State** of the compute instance change from *Creating* to *Running*.  It's now ready to go.  
-
-> [!div class="nextstepaction"]
-> [I created a compute instance](?success=create-instance#cluster) [I ran into an issue](https://www.research.net/r/7C8Z3DN?issue=create-instance)
 
 ## <a name="cluster"></a> Create compute clusters
 
@@ -73,9 +66,6 @@ In less than a minute, the **State** of the cluster will change from *Creating* 
 
 > [!NOTE]
 > When the cluster is created, it will have 0 nodes provisioned. The cluster *does not* incur costs until you submit a job. This cluster will scale down when it has been idle for 2,400 seconds (40 minutes).  This will give you time to use it in a few tutorials if you wish without waiting for it to scale back up.
-
-> [!div class="nextstepaction"]
-> [I created a compute cluster](?success=create-compute-cluster#clean-up) [I ran into an issue](https://www.research.net/r/7C8Z3DN?issue=create-compute-cluster)
 
 ## <a name="studio"></a> Quick tour of the studio
 

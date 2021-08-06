@@ -144,7 +144,7 @@ sections:
       - question: |
           What happens when my organization purchases a subscription that includes Azure Rights Management after using roaming?
         answer: |
-          If your organization is already using roaming in Windows 10 with the Azure Rights Management limited-use free subscription, purchasing a [paid subscription](https://azure.microsoft.com/pricing/details/information-protection/) that includes the Azure Rights Management protection service will not have any impact on the functionality of the roaming feature, and no configuration changes will be required by your IT administrator.
+          If your organization is already using roaming in Windows 10 with the Azure Rights Management limited-use free subscription, purchasing a [paid subscription](https://azure.microsoft.com/services/information-protection/) that includes the Azure Rights Management protection service will not have any impact on the functionality of the roaming feature, and no configuration changes will be required by your IT administrator.
           
       - question: |
           Known issues

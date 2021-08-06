@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 06/03/2021
+ms.date: 06/17/2021
 ms.author: aahi
 ---
 
@@ -40,7 +40,8 @@ The [Text Analytics for Health](../how-tos/text-analytics-for-health.md) contain
 
 | Endpoint                        | Container Image Tag                     | Model version |
 |---------------------------------|-----------------------------------------|---------------|
-| `/entities/health`              | `3.0.015370001-onprem-amd64` or latest          | `2021-03-01`  |
+| `/entities/health`              | `3.0.016230002-onprem-amd64` or latest            | `2021-05-15`  |
+| `/entities/health`              | `3.0.015370001-onprem-amd64`            | `2021-03-01`  |
 | `/entities/health`              | `1.1.013530001-amd64-preview`           | `2020-09-03`  |
 | `/entities/health`              | `1.1.013150001-amd64-preview`           | `2020-07-24`  |
 | `/domains/health`               | `1.1.012640001-amd64-preview`           | `2020-05-08`  |

@@ -19,7 +19,7 @@ Shared private link resources allow Azure Cognitive Search to make secure outbou
 
 There are four distinct steps involved in creation of a shared private link resource:
 
-1. Customer invokes the management plane [CreateOrUpdate API](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) on the Search Resource Provider (RP) with details of the shared private link resource to be created.
+1. Customer invokes the management plane [CreateOrUpdate API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/create-or-update) on the Search Resource Provider (RP) with details of the shared private link resource to be created.
 
 2. Search RP validates the request and if validate commences an asynchronous Azure Resource Manager operation (whose progress can be queried by the customer)
 
@@ -66,7 +66,7 @@ Resources marked with "(preview)" are only available in preview management plane
 | Azure Key Vault | `Microsoft.KeyVault/vaults` | `2020-08-01` |
 | Azure Functions (preview) | `Microsoft.Web/sites` | `2020-08-01-Preview` |
 
-In addition, the specified `groupId` needs to be valid for the specified resource type. For example, `groupId` "blob" is valid for type "Microsoft.Storage/storageAccounts", it cannot be used with any other resource type. For a given search management API version, customers can find out the supported `groupId` and resource type details by utilizing the [List supported API](/rest/api/searchmanagement/privatelinkresources/listsupported).
+In addition, the specified `groupId` needs to be valid for the specified resource type. For example, `groupId` "blob" is valid for type "Microsoft.Storage/storageAccounts", it cannot be used with any other resource type. For a given search management API version, customers can find out the supported `groupId` and resource type details by utilizing the [List supported API](/rest/api/searchmanagement/2021-04-01-preview/private-link-resources/list-supported).
 
 + Quota limit enforcement: Search services have quotas imposed on the distinct number of shared private link resources that can be created and the number of various target resource types that are being used (based on `groupId`). These are documented in the [Shared private link resource limits section](search-limits-quotas-capacity.md#shared-private-link-resource-limits) of the Azure Cognitive Search service limits page.
 
@@ -74,7 +74,7 @@ In addition, the specified `groupId` needs to be valid for the specified resourc
 
 Once search has accepted the request to create a shared private link resource, the Azure Resource Manager deployment that it kicks off can also fail for any number of reasons. In all cases, when customers query for the status of the asynchronous operation (described [here](search-indexer-howto-access-private.md#step-1-create-a-shared-private-link-resource-to-the-storage-account)), an appropriate error message and any available details will be presented.
 
-Shared private link resources that have failed Azure Resource Manager deployment will show up in [List](/rest/api/searchmanagement/sharedprivatelinkresources/listbyservice) and [Get](/rest/api/searchmanagement/sharedprivatelinkresources/get) API calls, but will have a "Provisioning State" of `Failed`. Once the reason of the Azure Resource Manager deployment failure has been ascertained, delete the `Failed` resource and re-create it after applying the appropriate resolution from the table below.
+Shared private link resources that have failed Azure Resource Manager deployment will show up in [List](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/list-by-service) and [Get](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/get) API calls, but will have a "Provisioning State" of `Failed`. Once the reason of the Azure Resource Manager deployment failure has been ascertained, delete the `Failed` resource and re-create it after applying the appropriate resolution from the table below.
 
 | Deployment failure reason | Description | Resolution |
 | --- | --- | --- |
@@ -93,7 +93,7 @@ If you observe that the shared private link resource has not transitioned to a t
 
 ## Updating a shared private link resource
 
-An existing shared private link resource can be updated using the [Create or Update API](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate). Search RP only allows for narrow updates to the shared private link resource - only the request message can be modified via this API.
+An existing shared private link resource can be updated using the [Create or Update API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/create-or-update). Search RP only allows for narrow updates to the shared private link resource - only the request message can be modified via this API.
 
 + It is not possible to update any of the "core" properties of an existing shared private link resource (such as `privateLinkResourceId` or `groupId`) and this will always be unsupported. If any other property besides the request message needs to be changed, we advise customers to delete and re-create the shared private link resource.
 
@@ -101,7 +101,7 @@ An existing shared private link resource can be updated using the [Create or Upd
 
 ## Deleting a shared private link resource
 
-Customers can delete an existing shared private link resource via the [Delete API](/rest/api/searchmanagement/sharedprivatelinkresources/delete). Similar to the process of creation (or update), this is also an asynchronous operation with four steps:
+Customers can delete an existing shared private link resource via the [Delete API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/delete). Similar to the process of creation (or update), this is also an asynchronous operation with four steps:
 
 1. Customer requests search RP to delete the shared private link resource.
 
@@ -109,7 +109,7 @@ Customers can delete an existing shared private link resource via the [Delete AP
 
 3. Search queries for the completion of the operation (which usually takes a few minutes). At this point, the shared private link resource would have a provisioning state of "Deleting".
 
-4. Once the operation completes successfully, the backing private endpoint and any associated DNS mappings are removed. The resource will not show up as part of [List](/rest/api/searchmanagement/sharedprivatelinkresources/listbyservice) operation and attempting a [Get](/rest/api/searchmanagement/sharedprivatelinkresources/get) operation on this resource will result in a 404 Not Found.
+4. Once the operation completes successfully, the backing private endpoint and any associated DNS mappings are removed. The resource will not show up as part of [List](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/list-by-service) operation and attempting a [Get](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/get) operation on this resource will result in a 404 Not Found.
 
 ![Steps involved in deleting shared private link resources ](media\troubleshoot-shared-private-link-resources\shared-private-link-delete-states.png)
 
@@ -127,4 +127,4 @@ Some common errors that occur during the deletion phase are listed below.
 Learn more about shared private link resources and how to use it for secure access to protected content.
 
 + [Accessing protected content via indexers](search-indexer-howto-access-private.md)
-+ [REST API reference](/rest/api/searchmanagement/sharedprivatelinkresources)
++ [REST API reference](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources)

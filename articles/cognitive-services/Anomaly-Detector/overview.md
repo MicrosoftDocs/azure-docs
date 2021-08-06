@@ -14,7 +14,7 @@ keywords: anomaly detection, machine learning, algorithms
 ms.custom: cog-serv-seo-aug-2020
 ---
 
-# What is the Anomaly Detector API?
+# What is the Anomaly Detector univariate API?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
@@ -94,7 +94,6 @@ No customer configuration is necessary to enable zone-resiliency. Zone-resilienc
 ## Join the Anomaly Detector community
 
 * Join the [Anomaly Detector Advisors group on Microsoft Teams](https://aka.ms/AdAdvisorsJoin)
-* See selected [user generated content](user-generated-content.md)
 
 ## Next steps
 

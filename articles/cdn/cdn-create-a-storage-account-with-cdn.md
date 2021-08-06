@@ -73,7 +73,7 @@ To create a storage account, you must be either the service administrator or a c
 
 From the storage account **Azure CDN** page, select the CDN endpoint from the list to open the CDN endpoint configuration page.
 
-From this page, you can enable additional CDN features for your delivery, such as [compression](cdn-improve-performance.md), [query string caching](cdn-query-string.md), and [geo filtering](cdn-restrict-access-by-country.md). 
+From this page, you can enable additional CDN features for your delivery, such as [compression](cdn-improve-performance.md), [query string caching](cdn-query-string.md), and [geo filtering](cdn-restrict-access-by-country-region.md). 
 	
 ## Enable SAS
 

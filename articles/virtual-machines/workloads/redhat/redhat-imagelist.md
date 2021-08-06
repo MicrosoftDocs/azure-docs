@@ -66,9 +66,9 @@ RHEL-SAP      | 7.4      | LVM    | Linux Agent | RHEL 7.4 for SAP HANA and Busi
 |             | 7.6       | LVM    | Linux Agent | RHEL 7.6 for SAP HANA and Business Apps. Attached to E4S repositories, will charge a premium for SAP and RHEL as well as the base compute fee.
 |             | 76sap-gen2| LVM    | Linux Agent | RHEL 7.6 for SAP HANA and Business Apps. Generation 2 image. Attached to E4S repositories, will charge a premium for SAP and RHEL as well as the base compute fee.
 |             | 7.7       | LVM    | Linux Agent | RHEL 7.7 for SAP HANA and Business Apps. Attached to E4S repositories, will charge a premium for SAP and RHEL as well as the base compute fee.
-RHEL-SAP-HANA (To be removed  in November 2020) | 6.7       | RAW    | Linux Agent | RHEL 6.7 for SAP HANA. Outdated in favor of the RHEL-SAP images. This image will be removed in November 2020. More details about Red Hat's SAP cloud offerings are available [here](https://access.redhat.com/articles/3751271).
-|             | 7.2       | LVM    | Linux Agent | RHEL 7.2 for SAP HANA. Outdated in favor of the RHEL-SAP images. This image will be removed in November 2020. More details about Red Hat's SAP cloud offerings are available [here](https://access.redhat.com/articles/3751271).
-|             | 7.3       | LVM    | Linux Agent | RHEL 7.3 for SAP HANA. Outdated in favor of the RHEL-SAP images. This image will be removed in November 2020. More details about Red Hat's SAP cloud offerings are available [here](https://access.redhat.com/articles/3751271).
+RHEL-SAP-HANA (To be removed  in November 2020) | 6.7       | RAW    | Linux Agent | RHEL 6.7 for SAP HANA. Outdated in favor of the RHEL-SAP images. This image will be removed in November 2020. More details about Red Hat's SAP cloud offerings are available at [SAP offerings on certified cloud providers](https://access.redhat.com/articles/3751271).
+|             | 7.2       | LVM    | Linux Agent | RHEL 7.2 for SAP HANA. Outdated in favor of the RHEL-SAP images. This image will be removed in November 2020. More details about Red Hat's SAP cloud offerings are available at [SAP offerings on certified cloud providers](https://access.redhat.com/articles/3751271).
+|             | 7.3       | LVM    | Linux Agent | RHEL 7.3 for SAP HANA. Outdated in favor of the RHEL-SAP images. This image will be removed in November 2020. More details about Red Hat's SAP cloud offerings are available at [SAP offerings on certified cloud providers](https://access.redhat.com/articles/3751271).
 RHEL-SAP-APPS | 6.8       | RAW    | Linux Agent | RHEL 6.8 for SAP Business Applications. Outdated in favor of the RHEL-SAP images.
 |             | 7.3       | LVM    | Linux Agent | RHEL 7.3 for SAP Business Applications. Outdated in favor of the RHEL-SAP images.
 |             | 7.4       | LVM    | Linux Agent | RHEL 7.4 for SAP Business Applications.
@@ -109,7 +109,7 @@ rhel-byos     |rhel-lvm74| LVM    | Linux Agent | RHEL 7.4 BYOS images, not atta
 |             |rhel-lvm82-gen2 | LVM    | Linux Agent | RHEL 8.2 Generation 2 BYOS images , not attached to any source of updates, will not charge a RHEL premium.
 
 > [!NOTE]
-> The RHEL-SAP-HANA product offering is considered end of life by Red Hat. Existing deployments will continue to work normally, but Red Hat recommends that customers migrate from the RHEL-SAP-HANA images to the RHEL-SAP-HA images which includes the SAP HANA repositories as well as the HA add-on. More details about Red Hat's SAP cloud offerings are available [here](https://access.redhat.com/articles/3751271).
+> The RHEL-SAP-HANA product offering is considered end of life by Red Hat. Existing deployments will continue to work normally, but Red Hat recommends that customers migrate from the RHEL-SAP-HANA images to the RHEL-SAP-HA images which includes the SAP HANA repositories as well as the HA add-on. More details about Red Hat's SAP cloud offerings are available at [SAP offerings on certified cloud providers](https://access.redhat.com/articles/3751271).
 
 ## Next steps
 * Learn more about the [Red Hat images in Azure](./redhat-images.md).

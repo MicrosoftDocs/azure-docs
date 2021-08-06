@@ -13,7 +13,7 @@ items:
   - name: What's new
     href: whats-new.md
   - name: Text Analytics FAQ
-    href: text-analytics-resource-faq.md
+    href: text-analytics-resource-faq.yml
 - name: Quickstart
   href: quickstarts/client-libraries-rest-api.md
 - name: Samples
@@ -28,7 +28,7 @@ items:
           href: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.0.0/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics
         - name: JavaScript
           href: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples
-    - name: v3.1-preview
+    - name: v3.1
       items:
         - name: C#
           href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples
@@ -133,15 +133,15 @@ items:
   items:
   - name: Text Analytics API
     items:
-      - name: v3.1.preview.5
-        href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/
+      - name: v3.1
+        href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1
       - name: v3.0
         href: https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0
       - name: v2 (Retiring)
         href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1
   - name: SDKs
     items:
-    - name: v3.1-preview
+    - name: v3.1
       items:
         - name: .NET
           href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true

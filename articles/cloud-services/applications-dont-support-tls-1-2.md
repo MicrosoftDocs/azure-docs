@@ -2,16 +2,13 @@
 title: Troubleshooting issues caused by applications that don't support TLS 1.2 | Microsoft Docs
 description: Troubleshooting issues caused by applications that don't support TLS 1.2
 services: cloud-services
-documentationcenter: ''
-author: tanmaygore
+author: hirenshah1
+ms.author: hirshah
 tags: top-support-issue
-ms.assetid: 
 ms.service: cloud-services
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 03/16/2020
-ms.author: tagore
 ---
 
 # Troubleshooting applications that don't support TLS 1.2

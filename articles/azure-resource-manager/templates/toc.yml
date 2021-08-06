@@ -182,7 +182,7 @@
   - name: Integration
     items:
     - name: API for FHIR
-      href: ../../healthcare-apis/fhir/fhir-paas-arm-template-quickstart.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: ../../healthcare-apis/fhir/fhir-arm-template-quickstart.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Event Grid
       href: ../../event-grid/blob-event-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Logic Apps
@@ -252,7 +252,7 @@
     - name: Load Balancer - public
       href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: NAT gateway
-      href: ../../virtual-network/quickstart-create-nat-gateway-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: ../../virtual-network/nat-gateway/quickstart-create-nat-gateway-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Private Endpoint
       href: ../../private-link/create-private-endpoint-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Private Link service
@@ -294,7 +294,7 @@
   - name: Data types
     href: data-types.md
   - name: Frequently asked questions
-    href: frequently-asked-questions.md
+    href: frequently-asked-questions.yml
   - name: Templates for cloud consistency
     href: template-cloud-consistency.md
   - name: Deployment modes
@@ -347,16 +347,16 @@
     - name: Create multiple instances
       items:
       - name: Resources
-        displayName: iteration,copy,multiple
+        displayName: iteration,copy
         href: copy-resources.md
       - name: Properties
-        displayName: iteration,copy,multiple
+        displayName: iteration,copy
         href: copy-properties.md
       - name: Variables
-        displayName: iteration,copy,multiple
+        displayName: iteration,copy
         href: copy-variables.md
       - name: Outputs
-        displayName: iteration,copy,multiple
+        displayName: iteration,copy
         href: copy-outputs.md
   - name: Deploy templates
     items:
@@ -412,8 +412,14 @@
     items:
     - name: Test toolkit
       href: test-toolkit.md
-    - name: Test cases
-      href: test-cases.md
+    - name: Template test cases
+      href: template-test-cases.md
+    - name: Parameter file test cases
+      href: parameter-file-test-cases.md
+    - name: CreateUiDefinition test cases
+      href: createuidefinition-test-cases.md
+    - name: All files test cases
+      href: all-files-test-cases.md
   - name: Template specs
     items:
     - name: Create & deploy template specs

@@ -26,7 +26,7 @@ For example, you can:
 
 ## Prerequisites
 
-To use data export features, you must have a [V3 application](howto-get-app-info.md), and you must have the [Data export](howto-manage-users-roles.md) permission.
+To use data export features, you must have a [V3 application](howto-faq.yml#how-do-i-get-information-about-my-application-), and you must have the [Data export](howto-manage-users-roles.md) permission.
 
 If you have a V2 application, see [Migrate your V2 IoT Central application to V3](howto-migrate.md).
 
@@ -171,7 +171,7 @@ In addition to seeing the status of your exports in IoT Central, you can use [Az
 - Number of messages successfully exported to destinations.
 - Number of errors encountered.
 
-To learn more, see [Monitor the overall health of an IoT Central application](howto-monitor-application-health.md).
+To learn more, see [Monitor application health](howto-manage-iot-central-from-portal.md#monitor-application-health).
 
 ## Destinations
 
@@ -206,7 +206,7 @@ Each exported message contains a normalized form of the full message the device 
 - `enqueuedTime`: The time at which this message was received by IoT Central.
 - `enrichments`: Any enrichments set up on the export.
 - `module`: The IoT Edge module that sent this message. This field only appears if the message came from an IoT Edge module.
-- `component`: The component that sent this message. This field only appears if the capabilities sent in the message were modelled as a [component in the device template](howto-set-up-template.md#create-a-component).
+- `component`: The component that sent this message. This field only appears if the capabilities sent in the message were modeled as a component in the device template
 - `messageProperties`: Additional properties that the device sent with the message. These properties are sometimes referred to as *application properties*. [Learn more from IoT Hub docs](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 For Event Hubs and Service Bus, IoT Central exports a new message quickly after it receives the message from a device. In the user properties (also referred to as application properties) of each message, the `iotcentral-device-id`, `iotcentral-application-id`, and `iotcentral-message-source` are included automatically.
@@ -346,7 +346,7 @@ The following snippet shows this property in the message exported to Blob storag
 
 ## Property changes format
 
-Each message or record represents one change to a device or cloud property. For device properties, only changes in the reported value are exported as a separate message. Information in the exported message includes:
+Each message or record represents changes to device and cloud properties. Information in the exported message includes:
 
 - `applicationId`: The ID of the IoT Central application.
 - `messageSource`: The source for the message - `properties`.
@@ -355,8 +355,9 @@ Each message or record represents one change to a device or cloud property. For 
 - `schema`: The name and version of the payload schema.
 - `enqueuedTime`: The time at which this change was detected by IoT Central.
 - `templateId`: The ID of the device template associated with the device.
+- `properties`: An array of properties that changed, including the names of the properties and values that changed. The component and module information is included if the property is modeled within a component or an IoT Edge module.
 - `enrichments`: Any enrichments set up on the export.
-
+- 
 For Event Hubs and Service Bus, IoT Central exports new messages data to your event hub or Service Bus queue or topic in near real time. In the user properties (also referred to as application properties) of each message, the `iotcentral-device-id`, `iotcentral-application-id`, `iotcentral-message-source`, and `iotcentral-message-type` are included automatically.
 
 For Blob storage, messages are batched and exported once per minute.
@@ -374,13 +375,13 @@ The following example shows an exported property change message received in Azur
     "enqueuedTime": "2020-08-05T22:37:32.942Z",
     "properties": [{
         "name": "MachineSerialNumber",
-        "value": "abc"
+        "value": "abc",
+        "module": "VitalsModule",
+        "component": "DeviceComponent"
     }],
     "enrichments": {
         "userSpecifiedKey" : "sampleValue"
-    },
-    "module": "VitalsModule",
-    "component": "DeviceComponent"
+    }
 }
 ```
 ## Device connectivity changes format

@@ -102,7 +102,7 @@
   - name: Weather services concepts
     href: weather-services-concepts.md
   - name: Weather services FAQ
-    href: weather-services-faq.md
+    href: weather-services-faq.yml
 - name: How-to guides
   items:
   - name: Manage Maps accounts
@@ -202,6 +202,8 @@
         href: map-add-drawing-toolbar.md
       - name: Get shape data
         href: map-get-shape-data.md
+      - name: Add a snap grid
+        href: map-add-snap-grid.md
       - name: React to drawing events
         href: drawing-tools-events.md
       - name: Interaction types and keyboard shortcuts
@@ -274,6 +276,8 @@
       href: how-to-add-tile-layer-android-map.md
     - name: Show traffic data 
       href: how-to-show-traffic-android.md
+    - name: Cluster point data
+      href: clustering-point-data-android-sdk.md
     - name: Use data-driven expressions
       href: data-driven-style-expressions-android-sdk.md
     - name: Reacting to events
@@ -296,6 +300,8 @@
       href: power-bi-visual-show-real-time-traffic.md
     - name: Manage access
       href: power-bi-visual-manage-access.md
+    - name: Use Azure Maps in Power Apps
+      href: /powerapps/maker/canvas-apps/geospatial-component-map
   - name: Provide data feedback
     href: how-to-use-feedback-tool.md
 - name: Reference
@@ -393,7 +399,7 @@
     - name: IoT solution accelerators
       href: ../iot-accelerators/index.yml
     - name: IoT Plug and Play
-      href: ../iot-pnp/index.yml
+      href: ../iot-develop/index.yml
     - name: Azure Maps
       href: ./index.yml
     - name: Time Series Insights

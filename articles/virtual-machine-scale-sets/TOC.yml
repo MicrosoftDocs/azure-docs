@@ -149,7 +149,7 @@
       href: ../virtual-machines/sizes-hpc.md
       maintainContext: true
     - name: Azure VMs with no temp disk
-      href: ../virtual-machines/azure-vms-no-temp-disk.md
+      href: ../virtual-machines/azure-vms-no-temp-disk.yml
       maintainContext: true
     - name: Azure VM sizes naming conventions
       href: ../virtual-machines/vm-naming-conventions.md
@@ -447,8 +447,8 @@
   - name: FAQ
     items:
     - name: Linux
-      href: ../virtual-machines/linux/faq.md
+      href: ../virtual-machines/linux/faq.yml
     - name: Windows
-      href: ../virtual-machines/windows/faq.md
+      href: ../virtual-machines/windows/faq.yml
 - name: Support and troubleshooting
   href: vmss-support-help.md

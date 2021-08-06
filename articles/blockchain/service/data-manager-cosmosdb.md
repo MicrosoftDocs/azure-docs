@@ -159,7 +159,7 @@ You can delete the Azure Storage account or use it to configure more blockchain 
 
 ## Create Azure Cosmos DB
 
-[!INCLUDE [cosmos-db-create-storage-account](../../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-storage-account](../../cosmos-db/includes/cosmos-db-create-dbaccount.md)]
 
 ### Add a database and container
 

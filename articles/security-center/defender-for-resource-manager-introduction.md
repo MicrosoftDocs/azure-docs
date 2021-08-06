@@ -3,7 +3,7 @@ title: Azure Defender for Resource Manager - the benefits and features
 description: Learn about the benefits and features of Azure Defender for Resource Manager
 author: memildin
 ms.author: memildin
-ms.date: 05/12/2021
+ms.date: 07/14/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
@@ -24,7 +24,7 @@ Azure Defender for Resource Manager automatically monitors the resource manageme
 |----|:----|
 |Release state:|General Availability (GA)|
 |Pricing:|**Azure Defender for Resource Manager** is billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: US Gov<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure China|
 |||
 
 ## What are the benefits of Azure Defender for Resource Manager?
@@ -35,7 +35,7 @@ Azure Defender for Resource Manager protects against issues including:
 - **Use of exploitation toolkits** like Microburst or PowerZure
 - **Lateral movement** from the Azure management layer to the Azure resources data plane
 
-:::image type="content" source="media/defender-for-resource-manager-introduction/consistent-management-layer-with-defender.png" alt-text="Azure Resource Manager overview diagram":::
+:::image type="content" source="media/defender-for-resource-manager-introduction/consistent-management-layer-with-defender.png" alt-text="Azure Resource Manager overview diagram.":::
 
 A full list of the alerts provided by Azure Defender for Resource Manager is on the [alerts reference page](alerts-reference.md#alerts-resourcemanager).
 
@@ -50,7 +50,7 @@ To investigate security alerts from Azure Defender for Resource Manager:
 
 1. Open Azure Activity log.
 
-    :::image type="content" source="media/defender-for-resource-manager-introduction/opening-azure-activity-log.png" alt-text="How to open Azure Activity log":::
+    :::image type="content" source="media/defender-for-resource-manager-introduction/opening-azure-activity-log.png" alt-text="How to open Azure Activity log.":::
 
 1. Filter the events to:
     - The subscription mentioned in the alert

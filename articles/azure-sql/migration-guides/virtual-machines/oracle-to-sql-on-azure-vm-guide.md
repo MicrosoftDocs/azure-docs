@@ -23,7 +23,7 @@ For other migration guides, see [Database Migration](/data-migration).
 To migrate your Oracle schema to SQL Server on Azure Virtual Machines, you need:
 
 - A supported source environment.
-- [SQL Server Migration Assistant (SSMA) for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258).
+- [SQL Server Migration Assistant (SSMA) for Oracle](https://www.microsoft.com/download/details.aspx?id=54258).
 - A target [SQL Server VM](../../virtual-machines/windows/sql-vm-create-portal-quickstart.md).
 - The [necessary permissions for SSMA for Oracle](/sql/ssma/oracle/connecting-to-oracle-database-oracletosql) and the [provider](/sql/ssma/oracle/connect-to-oracle-oracletosql).
 - Connectivity and sufficient permissions to access the source and the target. 
@@ -99,12 +99,12 @@ To use MAP Toolkit to do an inventory scan, follow these steps:
 
 ### Assess
 
-After you identify the data sources, use [SQL Server Migration Assistant for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258) to assess the Oracle instances migrating to the SQL Server VM. The assistant will help you understand the gaps between the source and destination databases. You can review database objects and data, assess databases for migration, migrate database objects to SQL Server, and then migrate data to SQL Server.
+After you identify the data sources, use [SQL Server Migration Assistant for Oracle](https://www.microsoft.com/download/details.aspx?id=54258) to assess the Oracle instances migrating to the SQL Server VM. The assistant will help you understand the gaps between the source and destination databases. You can review database objects and data, assess databases for migration, migrate database objects to SQL Server, and then migrate data to SQL Server.
 
 To create an assessment, follow these steps: 
 
 
-1. Open [SQL Server Migration Assistant for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258). 
+1. Open [SQL Server Migration Assistant for Oracle](https://www.microsoft.com/download/details.aspx?id=54258). 
 1. On the **File** menu, select **New Project**. 
 1. Provide a project name and a location for your project, and then select a SQL Server migration target from the list. Select **OK**: 
 
@@ -214,7 +214,7 @@ To publish your schema and migrate the data, follow these steps:
    ![Screenshot that shows a SQL Server instance in SSMA.](./media/oracle-to-sql-on-azure-vm-guide/validate-in-ssms.png)
 
 Instead of using SSMA, you could use SQL Server Integration Services (SSIS) to migrate the data. To learn more, see: 
-- The article [SQL Server Integration Services](//sql/integration-services/sql-server-integration-services).
+- The article [SQL Server Integration Services](/sql/integration-services/sql-server-integration-services).
 - The white paper [SSIS for Azure and Hybrid Data Movement](https://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/SSIS%20Hybrid%20and%20Azure.docx).
 
 
@@ -254,9 +254,9 @@ For more help with completing this migration scenario, see the following resourc
 
 | **Title/Link**                                                                                                                                          | **Description**                                                                                                                                                                                                                                                                                                   |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Data Workload Assessment Model and Tool](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | This tool provides suggested best-fit target platforms, cloud readiness, and application/database remediation levels for a given workload. It offers simple one-click calculation and report generation that helps to accelerate large estate assessments by providing an automated and uniform target-platform decision process.                                                          |
-| [Oracle Inventory Script Artifacts](https://github.com/Microsoft/DataMigrationTeam/tree/master/Oracle%20Inventory%20Script%20Artifacts)                 | This asset includes a PL/SQL query that targets Oracle system tables and provides a count of objects by schema type, object type, and status. It also provides a rough estimate of raw data in each schema and the sizing of tables in each schema, with results stored in a CSV format.                                                                                                               |
-| [Automate SSMA Oracle Assessment Collection & Consolidation](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Automate%20SSMA%20Oracle%20Assessment%20Collection%20%26%20Consolidation)                                             | This set of resources uses a .csv file as entry (sources.csv in the project folders) to produce the XML files that you need to run an SSMA assessment in console mode. You provide the source.csv file by taking an inventory of existing Oracle instances. The output files are AssessmentReportGeneration_source_1.xml, ServersConnectionFile.xml, and VariableValueFile.xml.|
+| [Data Workload Assessment Model and Tool](https://www.microsoft.com/download/details.aspx?id=103130) | This tool provides suggested best-fit target platforms, cloud readiness, and application/database remediation levels for a given workload. It offers simple one-click calculation and report generation that helps to accelerate large estate assessments by providing an automated and uniform target-platform decision process.                                                          |
+| [Oracle Inventory Script Artifacts](https://www.microsoft.com/download/details.aspx?id=103121)                 | This asset includes a PL/SQL query that targets Oracle system tables and provides a count of objects by schema type, object type, and status. It also provides a rough estimate of raw data in each schema and the sizing of tables in each schema, with results stored in a CSV format.                                                                                                               |
+| [Automate SSMA Oracle Assessment Collection & Consolidation](https://www.microsoft.com/download/details.aspx?id=103120)                                             | This set of resources uses a .csv file as entry (sources.csv in the project folders) to produce the XML files that you need to run an SSMA assessment in console mode. You provide the source.csv file by taking an inventory of existing Oracle instances. The output files are AssessmentReportGeneration_source_1.xml, ServersConnectionFile.xml, and VariableValueFile.xml.|
 | [SSMA issues and possible remedies when migrating Oracle databases](https://aka.ms/dmj-wp-ssma-oracle-errors)                                                           | With Oracle, you can assign a non-scalar condition in a WHERE clause. SQL Server doesn't support this type of condition. So SSMA for Oracle doesn't convert queries that have a non-scalar condition in the WHERE clause. Instead, it generates an error: O2SS0001. This white paper provides details on the problem and ways to resolve it.          |
 | [Oracle to SQL Server Migration Handbook](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20SQL%20Server%20Migration%20Handbook.pdf)                | This document focuses on the tasks associated with migrating an Oracle schema to the latest version of SQL Server. If the migration requires changes to features/functionality, you need to carefully consider the possible effect of each change on the applications that use the database.                                                     |
 |[Oracle to SQL Server - Database Compare utility](https://www.microsoft.com/download/details.aspx?id=103016)|SSMA for Oracle Tester is the recommended tool to automatically validate the database object conversion and data migration, and it's a superset of Database Compare functionality.<br /><br />If you're looking for an alternative data validation option, you can use the Database Compare utility to compare data down to the row or column level in all or selected tables, rows, and columns.|

@@ -46,4 +46,4 @@ Once you submit the support request, we will review the request. If necessary, w
 ## Next steps
 See the following article:
 - [Administrator Guide - VM sizing](administrator-guide.md#vm-sizing).
-- [Frequently asked questions](classroom-labs-faq.md).
+- [Frequently asked questions](classroom-labs-faq.yml).

@@ -5,7 +5,7 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 05/26/2021
+ms.date: 07/15/2021
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
@@ -18,6 +18,7 @@ In this tutorial you learn how to:
 > [!div class="checklist"]
 > * Create a virtual WAN
 > * Create a hub
+> * Create a Site-to-Site VPN gateway
 > * Create a site
 > * Connect a site to a hub
 > * Connect a VPN site to a hub
@@ -43,9 +44,13 @@ Verify that you have met the following criteria before beginning your configurat
 
 ## <a name="hub"></a>Create a hub
 
-A hub is a virtual network that can contain gateways for site-to-site, ExpressRoute, or point-to-site functionality. Once the hub is created, you'll be charged for the hub, even if you don't attach any sites. It takes 30 minutes to create the site-to-site VPN gateway in the virtual hub.
+A hub is a virtual network that can contain gateways for site-to-site, ExpressRoute, or point-to-site functionality. Once the hub is created, you'll be charged for the hub, even if you don't attach any sites.
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-s2s-hub-include.md)]
+
+## <a name="gateway"></a>Create a site-to-site VPN gateway
+
+[!INCLUDE [Create a gateway](../../includes/virtual-wan-tutorial-s2s-gateway-include.md)]
 
 ## <a name="site"></a>Create a site
 
@@ -60,6 +65,8 @@ In this step, you connect your VPN site to the hub.
 [!INCLUDE [Connect VPN sites](../../includes/virtual-wan-tutorial-s2s-connect-vpn-site-include.md)]
 
 ## <a name="vnet"></a>Connect the VNet to the hub
+
+In this section, you create a connection between your hub and VNet.
 
 [!INCLUDE [Connect](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 

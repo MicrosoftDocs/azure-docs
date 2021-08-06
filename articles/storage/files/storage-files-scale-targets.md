@@ -14,6 +14,13 @@ ms.subservice: files
 
 The scalability and performance targets listed here are high-end targets, but may be affected by other variables in your deployment. For example, the throughput for a file may also be limited by your available network bandwidth, not just the servers hosting your Azure file shares. We strongly recommend testing your usage pattern to determine whether the scalability and performance of Azure Files meet your requirements. We are also committed to increasing these limits over time. 
 
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+
 ## Azure Files scale targets
 Azure file shares are deployed into storage accounts, which are top-level objects that represent a shared pool of storage. This pool of storage can be used to deploy multiple file shares. There are therefore three categories to consider: storage accounts, Azure file shares, and files.
 
@@ -47,7 +54,7 @@ Azure supports multiple types of storage accounts for different storage scenario
 | Provisioned size increase/decrease unit | N/A | 1 GiB |
 | Maximum size of a file share | <ul><li>100 TiB, with large file share feature enabled<sup>2</sup></li><li>5 TiB, default</li></ul> | 100 TiB |
 | Maximum number of files in a file share | No limit | No limit |
-| Maximum request rate (Max IOPS) | <ul><li>10,000, with large file share feature enabled<sup>2</sup></li><li>1,000 or 100 requests per 100 ms, default</li></ul> | <ul><li>Baseline IOPS: 400 + 1 IOPS per GiB, up to 100,000</li><li>IOPS bursting: Max (4000,3x IOPS per GiB), up to 100,000</li></ul> |
+| Maximum request rate (Max IOPS) | <ul><li>20,000, with large file share feature enabled<sup>2</sup></li><li>1,000 or 100 requests per 100 ms, default</li></ul> | <ul><li>Baseline IOPS: 400 + 1 IOPS per GiB, up to 100,000</li><li>IOPS bursting: Max (4000,3x IOPS per GiB), up to 100,000</li></ul> |
 | Maximum ingress for a single file share | <ul><li>Up to 300 MiB/sec, with large file share feature enabled<sup>2</sup></li><li>Up to 60 MiB/sec, default</li></ul> | 40 MiB/s + 0.04 * provisioned GiB |
 | Maximum egress for a single file share | <ul><li>Up to 300 MiB/sec, with large file share feature enabled<sup>2</sup></li><li>Up to 60 MiB/sec, default</li></ul> | 60 MiB/s + 0.06 * provisioned GiB |
 | Maximum number of share snapshots | 200 snapshots | 200 snapshots |
@@ -59,7 +66,7 @@ Azure supports multiple types of storage accounts for different storage scenario
 
 <sup>1</sup> The limits for standard file shares apply to all three of the tiers available for standard file shares: transaction optimized, hot, and cool.
 
-<sup>2</sup> Default on standard file shares is 5 TiB, see [Enable and create large file shares](./storage-files-how-to-create-large-file-share.md) for the details on how to increase the standard file shares scale up to 100 TiB.
+<sup>2</sup> Default on standard file shares is 5 TiB, see [Create an Azure file share](./storage-how-to-create-file-share.md) for the details on how to create file shares with 100 TiB size and increase existing standard file shares up to 100 TiB.
 
 ### File scale targets
 | Attribute | Files in standard file shares  | Files in premium file shares  |
@@ -85,7 +92,7 @@ The following table indicates the boundaries of Microsoft's testing and also ind
 | Server endpoints per sync group | 100 server endpoints | Yes |
 | Server endpoints per server | 30 server endpoints | Yes |
 | File system objects (directories and files) per sync group | 100 million objects | No |
-| Maximum number of file system objects (directories and files) in a directory | 5 million objects | Yes |
+| Maximum number of file system objects (directories and files) in a directory **(not recursive)** | 5 million objects | Yes |
 | Maximum object (directories and files) security descriptor size | 64 KiB | Yes |
 | File size | 100 GiB | No |
 | Minimum file size for a file to be tiered | V9 and newer: Based on file system cluster size (double file system cluster size). For example, if the file system cluster size is 4 KiB, the minimum file size will be 8 KiB.<br> V8 and older: 64 KiB  | Yes |

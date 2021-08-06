@@ -1,23 +1,22 @@
 ---
-title: Access Azure resources with a managed online endpoint
-titleSuffix: Azure Machine Learning
-description: Securely access Azure resources for your machine learning model deployment with a managed online endpoint and a system assigned managed identity.
+title: 'Tutorial: Managed online endpoints for accessing resources'
+description: Securely access Azure resources for your machine learning model deployment with a managed online endpoint and a system-assigned managed identity.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur
-ms.date: 05/25/2021
+ms.date: 08/05/2021
 ms.topic: tutorial
-ms.custom: tutorial
+ms.custom: tutorial, devplatv2
 
 # Customer intent: As a data scientist, I want to securely access Azure resources for my machine learning model deployment with a managed online endpoint and system assigned managed identity. 
 ---
 
-# Tutorial: Access Azure resources with a managed online endpoint and system-managed identity (preview)
+# Tutorial: Access resources with managed online endpoints and identity (preview)
 
-In this tutorial, you learn how to securely access Azure resources from your scoring script with a managed online endpoint and a system assigned managed identity.
+In this tutorial, you learn how to securely access Azure resources from your scoring script with a managed online endpoint and a system-assigned managed identity.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 This tutorial demonstrates how to take the following actions with the Azure CLI and its ML extension:
@@ -33,7 +32,7 @@ This tutorial demonstrates how to take the following actions with the Azure CLI 
 
 ## Prerequisites
 
-* To use Azure machine learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+* To use Azure machine learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
 * You must install and configure the Azure CLI and ML extension. For more information, see [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md). 
 
@@ -70,6 +69,7 @@ The following code example creates a managed endpoint that,
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/managed-identities/2-sai-deployment.yml":::
 
+For a reference to the YAML, see [Managed online endpoints (preview) YAML reference](reference-yaml-endpoint-managed-online.md).
 
 ## Configure variables for your deployment
 
@@ -117,6 +117,7 @@ Check the status of the endpoint with the following.
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="check_endpoint_Status" :::
 
+If you encounter any issues, see [Troubleshooting managed online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md).
 
 ## Give storage permission to system-assigned managed identity
 
@@ -189,4 +190,9 @@ In this Azure Machine Learning tutorial, you used the machine learning CLI for t
 
 * For more information on using the CLI, see [Use the CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * To refine JSON queries to only return specific data, see [Query Azure CLI command output](/cli/azure/query-azure-cli).
-* For more information on the YAML schema, see [online endpoint YAML reference](reference-online-endpoint-yaml.md) document.
+* For more information on the YAML schema, see [online endpoint YAML reference](reference-yaml-endpoint-managed-online.md) document.
+* To see which compute resources you can use, see [Managed online endpoints SKU list (preview)](reference-managed-online-endpoints-vm-sku-list.md).
+* For more on costs, see [View costs for an Azure Machine Learning managed online endpoint (preview)](how-to-view-online-endpoints-costs.md).
+* For more on deployment, see [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md).
+* For information on monitoring endpoints, see [Monitor managed online endpoints (preview)](how-to-monitor-online-endpoints.md).
+* For information on limitations for managed endpoints, see [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview).

@@ -140,10 +140,10 @@
     tocHref: /azure/azure-arc/
     topicHref: /azure/azure-arc/
     items:
-      - name: Arc enabled Kubernetes
+      - name: Arc-enabled Kubernetes
         tocHref: /azure/azure-arc/kubernetes/
         topicHref: /azure/azure-arc/kubernetes/
-      - name: Arc enabled servers
+      - name: Arc-enabled servers
         tocHref: /azure/azure-arc/servers/
         topicHref: /azure/azure-arc/servers/
   - name: Automation
@@ -237,6 +237,9 @@
       - name: Azure Percept
         tocHref: /azure/azure-percept/
         topicHref: /azure/azure-percept/
+      - name: Device Development
+        tocHref: /azure/iot-develop/
+        topicHref: /azure/iot-develop/
       - name: Device Update for IoT Hub
         tocHref: /azure/iot-hub-device-update/
         topicHref: /azure/iot-hub-device-update/            
@@ -249,9 +252,6 @@
       - name: IoT Edge
         tocHref: /azure/iot-edge/
         topicHref: /azure/iot-edge/
-      - name: IoT Plug and Play
-        tocHref: /azure/iot-pnp/
-        topicHref: /azure/iot-pnp/
       - name: Azure Digital Twins
         tocHref: /azure/digital-twins/
         topicHref: /azure/digital-twins/
@@ -494,8 +494,14 @@
     topicHref: /azure/cosmos-db/
     items:
     - name: MongoDB API
-      tocHref: /azure/cosmos-db/mongodb-introduction
-      topicHref: /azure/cosmos-db/mongodb-introduction
+      tocHref: /azure/cosmos-db/mongodb
+      topicHref: /azure/cosmos-db/mongodb
+    - name: Table API
+      tocHref: /azure/cosmos-db/table/
+      topicHref: /azure/cosmos-db/table/
+    - name: Cassandra API
+      tocHref: /azure/cosmos-db/cassandra/
+      topicHref: /azure/cosmos-db/cassandra/
   - name: Managed Instance for Apache Cassandra
     tocHref: /azure/managed-instance-apache-cassandra/
     topicHref: /azure/managed-instance-apache-cassandra/
@@ -580,9 +586,25 @@
       - name: Storm
         tocHref: /azure/hdinsight/storm
         topicHref: /azure/hdinsight/storm/apache-storm-overview
+  - name: Healthcare APIs
+    tocHref: /azure/healthcare-apis/
+    topicHref: /azure/healthcare-apis/
+    items:
+    - name: FHIR service
+      tocHref: /azure/healthcare-apis/fhir/
+      topicHref: /azure/healthcare-apis/fhir/index
+    - name: DICOM service
+      tocHref: /azure/healthcare-apis/dicom/
+      topicHref: /azure/healthcare-apis/dicom/index
+    - name: Data Transformation
+      tocHref: /azure/healthcare-apis/data-transformation/
+      topicHref: /azure/healthcare-apis/data-transformation/index
+    - name: IoT Connector
+      tocHref: /azure/healthcare-apis/iot/
+      topicHref: /azure/healthcare-apis/iot/index
   - name: Azure API for FHIR
-    tocHref: /azure/healthcare-apis
-    topicHref: /azure/healthcare-apis
+    tocHref: /azure/healthcare-apis/azure-api-for-fhir/
+    topicHref: /azure/healthcare-apis/azure-api-for-fhir/index
   - name: Azure for Industry
     tocHref: /azure/industry
     topicHref: /azure/industry
@@ -640,9 +662,6 @@
     - name: Studio (classic)
       tocHref: /azure/machine-learning/studio
       topicHref: /azure/machine-learning/studio/
-    - name: Team Data Science Process
-      tocHref: /azure/machine-learning/team-data-science-process
-      topicHref: /azure/machine-learning/team-data-science-process/overview
     - name: Data Science Virtual Machine
       tocHref: /azure/machine-learning/data-science-virtual-machine
       topicHref: /azure/machine-learning/data-science-virtual-machine/
@@ -660,8 +679,8 @@
         tocHref: /azure/media-services/previous/
         topicHref: /azure/media-services/previous/
       - name: Video Indexer
-        tocHref: /azure/media-services/video-indexer/
-        topicHref: /azure/media-services/video-indexer/
+        tocHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview
+        topicHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview
       - name: Azure Media Player
         tocHref: /azure/media-services/azure-media-player/
         topicHref: /azure/media-services/azure-media-player/
@@ -766,6 +785,10 @@
       - name: Virtual Network
         tocHref: /azure/virtual-network/
         topicHref: /azure/virtual-network/
+        items:
+          - name: NAT gateway
+            tocHref: /azure/virtual-network/nat-gateway
+            topicHref: /azure/virtual-network/nat-gateway
       - name: Virtual WAN
         tocHref: /azure/virtual-wan/
         topicHref: /azure/virtual-wan/
@@ -775,6 +798,9 @@
       - name: Web Application Firewall
         tocHref: /azure/web-application-firewall/
         topicHref: /azure/web-application-firewall/
+  - name: Network Function Manager
+    tocHref: /azure/network-function-manager/
+    topicHref: /azure/network-function-manager/
   - name: Notebooks
     tocHref: /azure/notebooks/
     topicHref: /azure/notebooks/azure-notebooks-overview
@@ -796,6 +822,9 @@
   - name: Power BI Workspace Collections
     tocHref: /azure/power-bi-workspace-collections/
     topicHref: /azure/power-bi-workspace-collections/
+  - name: Private multi-access edge compute
+    tocHref: /azure/private-multi-access-edge-compute-mec/
+    topicHref: /azure/private-multi-access-edge-compute-mec/
   - name: Private Link
     tocHref: /azure/private-link/
     topicHref: /azure/private-link/
@@ -807,7 +836,7 @@
     topicHref: /azure/remoteapp/
   - name: Resiliency
     tocHref: /azure/resiliency/
-    topicHref: /azure/architecture/framework/resiliency/overview
+    topicHref: /azure/architecture/framework/resiliency/app-design
   - name: Role-based access control
     tocHref: /azure/role-based-access-control/
     topicHref: /azure/role-based-access-control/
@@ -1014,4 +1043,3 @@
     - name: Video Analyzer for Media
       tocHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
       topicHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
-    

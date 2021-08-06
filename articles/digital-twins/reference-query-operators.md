@@ -29,15 +29,15 @@ The following operators from the comparison family are supported.
 
 ### Example
 
-Here is an example using `=`. The following query returns twins whose Temperature value is equal to 80.
+Here's an example using `=`. The following query returns twins whose Temperature value is equal to 80.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="EqualityExample":::
 
-Here is an example using `<`. The following query returns twins whose Temperature value is less than 80.
+Here's an example using `<`. The following query returns twins whose Temperature value is less than 80.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="ComparisonExample":::
 
-Here is an example using `<=`. The following query returns twins whose Temperature value is less than or equal to 80.
+Here's an example using `<=`. The following query returns twins whose Temperature value is less than or equal to 80.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="OrderedComparisonExample":::
 
@@ -46,32 +46,32 @@ Here is an example using `<=`. The following query returns twins whose Temperatu
 The following operators from the contains family are supported.
 
 * `IN`: Evaluates to true if a given value is in a set of values.
-* `NIN`: Evaluates to true if a given value is not in a set of values.
+* `NIN`: Evaluates to true if a given value isn't in a set of values.
 
 ### Example
 
-Here is an example using `IN`. The following query returns twins whose `owner` property is one of several options from a list.
+Here's an example using `IN`. The following query returns twins whose `owner` property is one of several options from a list.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="InExample":::
 
 ## Logical operators
 
 The following operators from the logical family are supported:
-* `AND`: Used to connect two expressions, evaluates to true if they are both true.
+* `AND`: Used to connect two expressions, evaluates to true if they're both true.
 * `OR`: Used to connect two expressions, evaluates to true if at least one of them is true.
-* `NOT`: Used to negate an expression, evaluates to true if the expression condition is not met.
+* `NOT`: Used to negate an expression, evaluates to true if the expression condition isn't met.
 
 ### Example
 
-Here is an example using `AND`. The following query returns twins who meet both conditions of Temperature less than 80 and Humidity less than 50.
+Here's an example using `AND`. The following query returns twins who meet both conditions of Temperature less than 80 and Humidity less than 50.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="AndExample":::
 
-Here is an example using `OR`. The following query returns twins who meet at least one of the conditions of Temperature less than 80 and Humidity less than 50.
+Here's an example using `OR`. The following query returns twins who meet at least one of the conditions of Temperature less than 80 and Humidity less than 50.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="OrExample":::
 
-Here is an example using `NOT`. The following query returns twins who do not meet the conditions of Temperature less than 80.
+Here's an example using `NOT`. The following query returns twins who don't meet the conditions of Temperature less than 80.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="NotExample":::
 

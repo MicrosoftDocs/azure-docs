@@ -187,7 +187,7 @@ az maintenance update list \
 
 ## Apply updates
 
-Use `az maintenance apply update` to apply pending updates. On success, this command will return JSON containing the details of the update.
+Use `az maintenance apply update` to apply pending updates. On success, this command will return JSON containing the details of the update. Apply update calls can take upto 2 hours to complete.
 
 ### Isolated VM
 

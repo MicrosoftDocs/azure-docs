@@ -10,9 +10,9 @@ ms.devlang:
 ms.topic: how-to
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 02/15/2021
+ms.date: 06/28/2021
 ms.author: rolyon
-ms.custom: it-pro
+ms.custom: it-pro,subject-rbac-steps
 
 ---
 # Assign Azure roles to external guest users using the Azure portal
@@ -24,7 +24,6 @@ ms.custom: it-pro
 To assign Azure roles or remove role assignments, you must have:
 
 - `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
-
 
 ## When would you invite guest users?
 
@@ -42,21 +41,23 @@ Native members of a directory (member users) have different permissions than use
 
 Follow these steps to add a guest user to your directory using the Azure Active Directory page.
 
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
 1. Make sure your organization's external collaboration settings are configured such that you're allowed to invite guests. For more information, see [Enable B2B external collaboration and manage who can invite guests](../active-directory/external-identities/delegate-invitations.md).
 
-1. In the Azure portal, click **Azure Active Directory** > **Users** > **New guest user**.
+1. Click **Azure Active Directory** > **Users** > **New guest user**.
 
-    ![New guest user feature in Azure portal](./media/role-assignments-external-users/invite-guest-user.png)
+    ![Screenshot of New guest user feature in Azure portal.](./media/role-assignments-external-users/invite-guest-user.png)
 
 1. Follow the steps to add a new guest user. For more information, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md#add-guest-users-to-the-directory).
 
-After you add a guest user to the directory, you can either send the guest user a direct link to a shared app, or the guest user can click the redemption URL in the invitation email.
+After you add a guest user to the directory, you can either send the guest user a direct link to a shared app, or the guest user can click the accept invitation link in the invitation email.
 
-![Guest user invite email](./media/role-assignments-external-users/invite-email.png)
+![Screenshot of guest user invite email.](./media/role-assignments-external-users/invite-email.png)
 
 For the guest user to be able to access your directory, they must complete the invitation process.
 
-![Guest user invite review permissions](./media/role-assignments-external-users/invite-review-permissions.png)
+![Screenshot of guest user invite review permissions.](./media/role-assignments-external-users/invite-review-permissions.png)
 
 For more information about the invitation process, see [Azure Active Directory B2B collaboration invitation redemption](../active-directory/external-identities/redemption-experience.md).
 
@@ -64,77 +65,99 @@ For more information about the invitation process, see [Azure Active Directory B
 
 In Azure RBAC, to grant access, you assign a role. To assign a role to a guest user, you follow [same steps](role-assignments-portal.md) as you would for a member user, group, service principal, or managed identity. Follow these steps assign a role to a guest user at different scopes.
 
-1. In the Azure portal, click **All services**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1.  Select the set of resources that the access applies to, also known as the scope. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
+1. In the Search box at the top, search for the scope you want to grant access to. For example, search for **Management groups**, **Subscriptions**, **Resource groups**, or a specific resource.
 
-1. Click the specific resource.
+1. Click the specific resource for that scope.
 
 1. Click **Access control (IAM)**.
 
-    The following screenshot shows an example of the Access control (IAM) blade for a resource group. If you make any access control changes here, they would apply to just to the resource group.
+    The following shows an example of the Access control (IAM) page for a resource group.
 
-    ![Access control (IAM) blade for a resource group](./media/role-assignments-external-users/access-control-resource-group.png)
+    ![Screenshot of Access control (IAM) page for a resource group for preview experience.](./media/shared/rg-access-control.png)
 
-1. Click the **Role assignments** tab to view all the role assignments at this scope.
+1. Click the **Role assignments** tab to view the role assignments at this scope.
 
-1. Click **Add** > **Add role assignment** to open the Add role assignment pane.
+1. Click **Add** > **Add role assignment (Preview)**.
 
     If you don't have permissions to assign roles, the Add role assignment option will be disabled.
 
-    ![Add role assignment menu](./media/shared/add-role-assignment-menu.png)
+    ![Screenshot of Add > Add role assignment menu for preview experience.](./media/shared/add-role-assignment-menu-preview.png)
 
-    The Add role assignment pane opens.
+    The Add role assignment page opens.
 
-1. In the **Role** drop-down list, select a role such as **Virtual Machine Contributor**.
+1. On the **Roles** tab, select a role such as **Virtual Machine Contributor**.
 
-1. In the **Select** list, select the guest user. If you don't see the user in the list, you can type in the **Select** box to search the directory for display names, email addresses, and object identifiers.
+   ![Screenshot of Add role assignment page with Roles tab for preview experience.](./media/shared/roles.png)
 
-   ![Add role assignment pane](./media/role-assignments-external-users/add-role-assignment.png)
+1. On the **Members** tab, select **User, group, or service principal**.
 
-1. Click **Save** to assign the role at the selected scope.
+   ![Screenshot of Add role assignment page with Members tab for preview experience.](./media/shared/members.png)
 
-    ![Role assignment for Virtual Machine Contributor](./media/role-assignments-external-users/access-control-role-assignments.png)
+1. Click **Select members**.
+
+1. Find and select the guest user. If you don't see the user in the list, you can type in the **Select** box to search the directory for display name or email address.
+
+    You can type in the **Select** box to search the directory for display name or email address.
+
+    ![Screenshot of Select members pane for preview experience.](./media/role-assignments-external-users/select-members.png)
+
+1. Click **Select** to add the guest user to the Members list.
+
+1. On the **Review + assign** tab, click **Review + assign**.
+
+    After a few moments, the guest user is assigned the role at the selected scope.
+
+    ![Screenshot of role assignment for Virtual Machine Contributor.](./media/role-assignments-external-users/access-control-role-assignments.png)
 
 ## Assign a role to a guest user not yet in your directory
 
 To assign a role to a guest user, you follow [same steps](role-assignments-portal.md) as you would for a member user, group, service principal, or managed identity.
 
-If the guest user is not yet in your directory, you can invite the user directly from the Add role assignment pane.
+If the guest user is not yet in your directory, you can invite the user directly from the Select members pane.
 
-1. In the Azure portal, click **All services**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1.  Select the set of resources that the access applies to, also known as the scope. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
+1. In the Search box at the top, search for the scope you want to grant access to. For example, search for **Management groups**, **Subscriptions**, **Resource groups**, or a specific resource.
 
-1. Click the specific resource.
+1. Click the specific resource for that scope.
 
 1. Click **Access control (IAM)**.
 
-1. Click the **Role assignments** tab to view all the role assignments at this scope.
+1. Click **Add** > **Add role assignment (Preview)**.
 
-1. Click **Add** > **Add role assignment** to open the Add role assignment pane.
+    If you don't have permissions to assign roles, the Add role assignment option will be disabled.
 
-    ![Add role assignment menu](./media/shared/add-role-assignment-menu.png)
+    ![Screenshot of Add > Add role assignment menu for preview experience.](./media/shared/add-role-assignment-menu-preview.png)
 
-    The Add role assignment pane opens.
+    The Add role assignment page opens.
 
-1. In the **Role** drop-down list, select a role such as **Virtual Machine Contributor**.
+1. On the **Roles** tab, select a role such as **Virtual Machine Contributor**.
 
-1. In the **Select** list, type the email address of the person you want to invite and select that person.
+1. On the **Members** tab, select **User, group, or service principal**.
 
-   ![Invite guest user in Add role assignment pane](./media/role-assignments-external-users/add-role-assignment-new-guest.png)
+   ![Screenshot of Add role assignment page with Members tab for preview experience.](./media/shared/members.png)
 
-1. Click **Save** to add the guest user to your directory, assign the role, and send an invite.
+1. Click **Select members**.
+
+1. In the **Select** box, type the email address of the person you want to invite and select that person.
+
+    ![Screenshot of Invite guest user in Select members pane.](./media/role-assignments-external-users/select-members-new-guest.png)
+
+1. Click **Select** to add the guest user to the Members list.
+
+1. On the **Review + assign** tab, click **Review + assign** to add the guest user to your directory, assign the role, and send an invite.
 
     After a few moments, you'll see a notification of the role assignment and information about the invite.
 
-    ![Role assignment and invited user notification](./media/role-assignments-external-users/invited-user-notification.png)
+    ![Screenshot of role assignment and invited user notification.](./media/role-assignments-external-users/invited-user-notification.png)
 
 1. To manually invite the guest user, right-click and copy the invitation link in the notification. Don't click the invitation link because it starts the invitation process.
 
     The invitation link will have the following format:
 
-    `https://invitations.microsoft.com/redeem/...`
+    `https://login.microsoftonline.com/redeem?rd=https%3a%2f%2finvitations.microsoft.com%2fredeem%2f%3ftenant%3d0000...`
 
 1. Send the invitation link to the guest user to complete the invitation process.
 
@@ -148,13 +171,13 @@ Before you remove a guest user from a directory, you should first remove any rol
 
 1. Click the **Role assignments** tab to view all the role assignments.
 
-1. In the list of role assignments, add a checkmark next to the guest user with the role assignment you want to remove.
+1. In the list of role assignments, add a check mark next to the guest user with the role assignment you want to remove.
 
-   ![Remove role assignment](./media/role-assignments-external-users/remove-role-assignment-select.png)
+   ![Screenshot of selected role assignment to remove.](./media/role-assignments-external-users/remove-role-assignment-select.png)
 
 1. Click **Remove**.
 
-   ![Remove role assignment message](./media/role-assignments-external-users/remove-role-assignment.png)
+   ![Screenshot of Remove role assignment message.](./media/shared/remove-role-assignment.png)
 
 1. In the remove role assignment message that appears, click **Yes**.
 
@@ -164,7 +187,7 @@ Before you remove a guest user from a directory, you should first remove any rol
 
 1. Click **Delete**.
 
-   ![Delete guest user](./media/role-assignments-external-users/delete-guest-user.png)
+   ![Screenshot of deleting guest user.](./media/role-assignments-external-users/delete-guest-user.png)
 
 1. In the delete message that appears, click **Yes**.
 
@@ -174,35 +197,35 @@ Before you remove a guest user from a directory, you should first remove any rol
 
 Guest users have restricted directory permissions. For example, guest users cannot browse the directory and cannot search for groups or applications. For more information, see [What are the default user permissions in Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md).
 
-![Guest user cannot browse users in a directory](./media/role-assignments-external-users/directory-no-users.png)
+![Screenshot of guest user cannot browse users in a directory.](./media/role-assignments-external-users/directory-no-users.png)
 
-If a guest user needs additional privileges in the directory, you can assign a directory role to the guest user. If you really want a guest user to have full read access to your directory, you can add the guest user to the [Directory Readers](../active-directory/roles/permissions-reference.md) role in Azure AD. For more information, see [Grant permissions to users from partner organizations in your Azure Active Directory tenant](../active-directory/external-identities/add-users-administrator.md).
+If a guest user needs additional privileges in the directory, you can assign an Azure AD role to the guest user. If you really want a guest user to have full read access to your directory, you can add the guest user to the [Directory Readers](../active-directory/roles/permissions-reference.md#directory-readers) role in Azure AD. For more information, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md).
 
-![Assign Directory Readers role](./media/role-assignments-external-users/directory-roles.png)
+![Screenshot of assigning Directory Readers role.](./media/role-assignments-external-users/directory-roles.png)
 
 ### Guest user cannot browse users, groups, or service principals to assign roles
 
 Guest users have restricted directory permissions. Even if a guest user is an [Owner](built-in-roles.md#owner) at a scope, if they try to assign a role to grant someone else access, they cannot browse the list of users, groups, or service principals.
 
-![Guest user cannot browse security principals to assign roles](./media/role-assignments-external-users/directory-no-browse.png)
+![Screenshot of guest user cannot browse security principals to assign roles.](./media/role-assignments-external-users/directory-no-browse.png)
 
-If the guest user knows someone's exact sign-in name in the directory, they can grant access. If you really want a guest user to have full read access to your directory, you can add the guest user to the [Directory Readers](../active-directory/roles/permissions-reference.md) role in Azure AD. For more information, see [Grant permissions to users from partner organizations in your Azure Active Directory tenant](../active-directory/external-identities/add-users-administrator.md).
+If the guest user knows someone's exact sign-in name in the directory, they can grant access. If you really want a guest user to have full read access to your directory, you can add the guest user to the [Directory Readers](../active-directory/roles/permissions-reference.md#directory-readers) role in Azure AD. For more information, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md).
 
 ### Guest user cannot register applications or create service principals
 
-Guest users have restricted directory permissions. If a guest user needs to be able to register applications or create service principals, you can add the guest user to the [Application Developer](../active-directory/roles/permissions-reference.md) role in Azure AD. For more information, see [Grant permissions to users from partner organizations in your Azure Active Directory tenant](../active-directory/external-identities/add-users-administrator.md).
+Guest users have restricted directory permissions. If a guest user needs to be able to register applications or create service principals, you can add the guest user to the [Application Developer](../active-directory/roles/permissions-reference.md#application-developer) role in Azure AD. For more information, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md).
 
-![Guest user cannot register applications](./media/role-assignments-external-users/directory-access-denied.png)
+![Screenshot of guest user cannot register applications.](./media/role-assignments-external-users/directory-access-denied.png)
 
 ### Guest user does not see the new directory
 
-If a guest user has been granted access to a directory, but they do not see the new directory listed in the Azure portal when they try to switch in their **Directory + subscription** pane, make sure the guest user has completed the invitation process. For more information about the invitation process, see [Azure Active Directory B2B collaboration invitation redemption](../active-directory/external-identities/redemption-experience.md).
+If a guest user has been granted access to a directory, but they do not see the new directory listed in the Azure portal when they try to switch in their **Directories** page, make sure the guest user has completed the invitation process. For more information about the invitation process, see [Azure Active Directory B2B collaboration invitation redemption](../active-directory/external-identities/redemption-experience.md).
 
 ### Guest user does not see resources
 
-If a guest user has been granted access to a directory, but they do not see the resources they have been granted access to in the Azure portal, make sure the guest user has selected the correct directory. A guest user might have access to multiple directories. To switch directories, in the upper left, click **Directory + subscription**, and then click the appropriate directory.
+If a guest user has been granted access to a directory, but they do not see the resources they have been granted access to in the Azure portal, make sure the guest user has selected the correct directory. A guest user might have access to multiple directories. To switch directories, in the upper left, click **Settings** > **Directories**, and then click the appropriate directory.
 
-![Directories + Subscriptions pane in Azure portal](./media/role-assignments-external-users/directory-subscription.png)
+![Screenshot of Poral setting Directories section in Azure portal.](./media/role-assignments-external-users/directory-switch.png)
 
 ## Next steps
 

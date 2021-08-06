@@ -1272,5 +1272,5 @@ zipp=0.6.0
 ## Next steps
 
 - [Azure Synapse Analytics](../overview-what-is.md)
-- [Apache Spark Documentation](https://spark.apache.org/docs/2.4.4/)
+- [Apache Spark Documentation](https://spark.apache.org/docs/3.0.2/)
 - [Apache Spark Concepts](apache-spark-concepts.md)

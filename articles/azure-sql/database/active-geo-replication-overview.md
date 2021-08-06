@@ -20,8 +20,9 @@ Active geo-replication is an Azure SQL Database feature that allows you to creat
 
 > [!NOTE]
 > Active geo-replication for Azure SQL Hyperscale is [now in public preview](https://aka.ms/hsgeodr). Current limitations include: only one geo-secondary in the same or a different region, forced and planned failover not currently supported, restore database from geo-secondary not supported, using a geo-secondary as the source database for Database Copy, or as the primary for another geo-secondary is not supported.
-> In the case you need to make the geo secondary writable, you can do so by breaking the geo-replication link with the steps below:
-> 1. Make the secondary database a read-write standalone database using the cmdlet [Remove-AzSqlDatabaseSecondary](/powershell/module/az.sql/remove-azsqldatabasesecondary). Any data changes committed to the primary but not yet replicated to the secondary will be lost. These changes could be recovered when the old primary is available, or in some cases by restoring the old primary to the latest available point in time.
+> 
+> In the case you need to make the geo-secondary a primary (writable database), follow the steps below:
+> 1. Break the geo-replication link using the cmdlet [Remove-AzSqlDatabaseSecondary](/powershell/module/az.sql/remove-azsqldatabasesecondary) in PowerShell or [az sql db replica delete-link](/cli/azure/sql/db/replica?view=azure-cli-latest#az_sql_db_replica_delete_link) for Azure CLI, this will make the secondary database a read-write standalone database. Any data changes committed to the primary but not yet replicated to the secondary will be lost. These changes could be recovered when the old primary is available, or in some cases by restoring the old primary to the latest available point in time.
 > 2. If the old primary is available, delete it, then set up geo-replication for the new primary (a new secondary will be seeded). 
 > 3. Update connection strings in your application accordingly.
 
@@ -144,7 +145,9 @@ For more information on the SQL Database compute sizes, see [What are SQL Databa
 ## Cross-subscription geo-replication
 
 > [!NOTE]
-> Creating a geo-replica on a logical server in a different Azure tenant is not supported when [Azure Active Directory](https://techcommunity.microsoft.com/t5/azure-sql/support-for-azure-ad-user-creation-on-behalf-of-azure-ad/ba-p/2346849) auth is active (enabled) on either primary or secondary logical server.
+> Creating a geo-replica on a logical server in a different Azure tenant is not supported when [Azure Active Directory](https://techcommunity.microsoft.com/t5/azure-sql/azure-active-directory-only-authentication-for-azure-sql/ba-p/2417673) only authentication for Azure SQL is active (enabled) on either primary or secondary logical server.
+> [!NOTE]
+> Cross-subscription geo-replication operations including setup and failover are only supported through SQL commands.
 
 To setup active geo-replication between two databases belonging to different subscriptions (whether under the same tenant or not), you must follow the special procedure described in this section.  The procedure is based on SQL commands and requires:
 

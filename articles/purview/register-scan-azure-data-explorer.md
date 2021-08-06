@@ -66,7 +66,7 @@ It is required to get the Service Principal's application ID and secret:
 To register a new Azure Data Explorer (Kusto) account in your data catalog, do the following:
 
 1. Navigate to your Purview account
-1. Select **Sources** on the left navigation
+1. Select **Data Map** on the left navigation.
 1. Select **Register**
 1. On **Register sources**, select **Azure Data Explorer**
 1. Select **Continue**
@@ -87,7 +87,7 @@ On the **Register sources (Azure Data Explorer (Kusto))** screen, do the followi
 
 To create and run a new scan, do the following:
 
-1. Navigate to the **Sources**
+1. Select the **Data Map** tab on the left pane in the Purview Studio.
 
 1. Select the Azure Data Explorer source that you registered.
 

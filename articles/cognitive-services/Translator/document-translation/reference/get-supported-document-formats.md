@@ -260,9 +260,43 @@ Status code: 200
                 "application/vnd.oasis.opendocument.spreadsheet"
             ],
             "versions": []
+        },
+        {
+            "format": "Markdown",
+            "fileExtensions": [
+                ".markdown",
+                ".mdown",
+                ".mkdn",
+                ".md",
+                ".mkd",
+                ".mdwn",
+                ".mdtxt",
+                ".mdtext",
+                ".rmd"
+            ],
+            "contentTypes": [
+                "text/markdown",
+                "text/x-markdown",
+                "text/plain"
+            ],
+            "versions": []
+        },
+        {
+            "format": "Mhtml",
+            "fileExtensions": [
+                ".mhtml",
+                ".mht"
+            ],
+            "contentTypes": [
+                "message/rfc822",
+                "application/x-mimearchive",
+                "multipart/related"
+            ],
+            "versions": []
         }
     ]
 }
+
 ```
 
 ### Example error response

@@ -144,13 +144,17 @@
       href: expressroute-howto-add-ipv6-powershell.md
   - name: Monitoring
     items:
+    - name: Monitoring ExpressRoute
+      href: monitor-expressroute.md
     - name: Network Insights
       href: expressroute-network-insights.md
+    - name: Configure Connection Monitoring for ExpressRoute
+      href: how-to-configure-connection-monitor.md
     - name: ExpressRoute monitoring, metrics, and alerts
       href: expressroute-monitoring-metrics-alerts.md
     - name: View and configure maintenance alerts
       href: maintenance-alerts.md
-    - name: Configure Network Performance Monitor for ExpressRoute
+    - name: Configure Network Performance Monitor for ExpressRoute (deprecated)
       href: how-to-npm.md
     - name: Configure custom alerts to monitor advertised routes
       href: how-to-custom-route-alert.md
@@ -210,6 +214,8 @@
       href: expressroute-troubleshooting-arp-classic.md
 - name: Reference
   items:
+  - name: Monitor data reference
+    href: monitor-expressroute-reference.md
   - name: Azure PowerShell
     href: /powershell/module/az.network#expressroute
   - name: Azure CLI

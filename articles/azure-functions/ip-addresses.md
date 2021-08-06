@@ -21,9 +21,21 @@ IP addresses are associated with function apps, not with individual functions. I
 
 Each function app has a single inbound IP address. To find that IP address:
 
+# [Azure Portal](#tab/portal)
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Navigate to the function app.
 3. Under **Settings**, select **Properties**. The inbound IP address appears under **Virtual IP address**.
+
+# [Azure CLI](#tab/azurecli)
+
+Use the `nslookup` utility from your local client computer:
+
+```command
+nslookup <APP_NAME>.azurewebsites.net
+```
+
+---
 
 ## <a name="find-outbound-ip-addresses"></a>Function app outbound IP addresses
 
@@ -31,22 +43,25 @@ Each function app has a set of available outbound IP addresses. Any outbound con
 
 To find the outbound IP addresses available to a function app:
 
+# [Azure portal](#tab/portal)
+
 1. Sign in to the [Azure Resource Explorer](https://resources.azure.com).
 2. Select **subscriptions > {your subscription} > providers > Microsoft.Web > sites**.
 3. In the JSON panel, find the site with an `id` property that ends in the name of your function app.
 4. See `outboundIpAddresses` and `possibleOutboundIpAddresses`. 
 
-The set of `outboundIpAddresses` is currently available to the function app. The set of `possibleOutboundIpAddresses` includes IP addresses that will be available only if the function app [scales to other pricing tiers](#outbound-ip-address-changes).
-
-An alternative way to find the available outbound IP addresses is by using the [Cloud Shell](../cloud-shell/quickstart.md):
+# [Azure CLI](#tab/azurecli)
 
 ```azurecli-interactive
-az webapp show --resource-group <group_name> --name <app_name> --query outboundIpAddresses --output tsv
-az webapp show --resource-group <group_name> --name <app_name> --query possibleOutboundIpAddresses --output tsv
+az functionapp show --resource-group <GROUP_NAME> --name <APP_NAME> --query outboundIpAddresses --output tsv
+az functionapp show --resource-group <GROUP_NAME> --name <APP_NAME> --query possibleOutboundIpAddresses --output tsv
 ```
+---
+
+The set of `outboundIpAddresses` is currently available to the function app. The set of `possibleOutboundIpAddresses` includes IP addresses that will be available only if the function app [scales to other pricing tiers](#outbound-ip-address-changes).
 
 > [!NOTE]
-> When a function app that runs on the [Consumption plan](consumption-plan.md) or the [Premium plan](functions-premium-plan.md) is scaled, a new range of outbound IP addresses may be assigned. When running on either of these plans, you may need to add the entire data center to an allowlist.
+> When a function app that runs on the [Consumption plan](consumption-plan.md) or the [Premium plan](functions-premium-plan.md) is scaled, a new range of outbound IP addresses may be assigned. When running on either of these plans, you can't rely on the reported outbound IP addresses to create a definitive allowlist. To be able to include all potential outbound addresses used during dynamic scaling, you'll need to add the entire data center to your allowlist.
 
 ## Data center outbound IP addresses
 
@@ -94,7 +109,7 @@ The relative stability of the outbound IP address depends on the hosting plan.
 
 Because of autoscaling behaviors, the outbound IP can change at any time when running on a [Consumption plan](consumption-plan.md) or in a [Premium plan](functions-premium-plan.md). 
 
-If you need to control the outbound IP address of your function app, such as when you need to add it to an allow list, consider implementing a [virtual network NAT gateway](#virtual-network-nat-gateway-for-outbound-static-ip) in your premium plan.
+If you need to control the outbound IP address of your function app, such as when you need to add it to an allow list, consider implementing a [virtual network NAT gateway](#virtual-network-nat-gateway-for-outbound-static-ip) while running in a Premium hosting plan. You can also do this by running in a Dedicated (App Service) plan.
 
 ### Dedicated plans
 
@@ -123,7 +138,7 @@ There are several strategies to explore when your function app requires static, 
 
 ### Virtual network NAT gateway for outbound static IP
 
-You can control the IP address of outbound traffic from your functions by using a virtual network NAT gateway to direct traffic through a static public IP address. You can use this topology when running in a [Premium plan](functions-premium-plan.md). To learn more, see [Tutorial: Control Azure Functions outbound IP with an Azure virtual network NAT gateway](functions-how-to-use-nat-gateway.md).
+You can control the IP address of outbound traffic from your functions by using a virtual network NAT gateway to direct traffic through a static public IP address. You can use this topology when running in a [Premium plan](functions-premium-plan.md) or in a [Dedicated (App Service) plan](dedicated-plan.md). To learn more, see [Tutorial: Control Azure Functions outbound IP with an Azure virtual network NAT gateway](functions-how-to-use-nat-gateway.md).
 
 ### App Service Environments
 
@@ -131,16 +146,20 @@ For full control over the IP addresses, both inbound and outbound, we recommend 
 
 To find out if your function app runs in an App Service Environment:
 
+# [Azure Porta](#tab/portal)
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Navigate to the function app.
 3. Select the **Overview** tab.
 4. The App Service plan tier appears under **App Service plan/pricing tier**. The App Service Environment pricing tier is **Isolated**.
- 
-As an alternative, you can use the [Cloud Shell](../cloud-shell/quickstart.md):
+
+# [Azure CLI](#tab/azurecli)
 
 ```azurecli-interactive
 az webapp show --resource-group <group_name> --name <app_name> --query sku --output tsv
 ```
+
+---
 
 The App Service Environment `sku` is `Isolated`.
 

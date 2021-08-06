@@ -203,7 +203,9 @@ The use of third-party Active Directory Group Policy extensions to roll out the 
 
 #### Known browser limitations
 
-Seamless SSO doesn't work in private browsing mode on Firefox. It also doesn't work on Internet Explorer if the browser is running in Enhanced Protected mode. Seamless SSO supports the next version of Microsoft Edge based on Chromium and it works in InPrivate and Guest mode by design. Microsoft Edge (legacy) is no longer supported.
+Seamless SSO doesn't work in private browsing mode on Firefox. It also doesn't work on Internet Explorer if the browser is running in Enhanced Protected mode. Microsoft Edge (legacy) is no longer supported. Seamless SSO supports the next version of Microsoft Edge based on Chromium and it works in InPrivate and Guest mode by design. Seamless SSO may require additional configuration to work in InPrivate and Guest mode with versions of Microsoft Edge Chromium and Google Chrome browsers: 
+
+**AmbientAuthenticationInPrivateModesEnabled** – may need to be configured for InPrivate and / or guest users based on the corresponding documentations: [Microsoft Edge Chromium](/DeployEdge/microsoft-edge-policies#ambientauthenticationinprivatemodesenabled); [Google Chrome](https://chromeenterprise.google/policies/?policy=AmbientAuthenticationInPrivateModesEnabled).
 
 ## Step 4: Test the feature
 
@@ -227,7 +229,7 @@ In Step 2, Azure AD Connect creates computer accounts (representing Azure AD) in
 >[!IMPORTANT]
 >The Kerberos decryption key on a computer account, if leaked, can be used to generate Kerberos tickets for any user in its AD forest. Malicious actors can then impersonate Azure AD sign-ins for compromised users. We highly recommend that you periodically roll over these Kerberos decryption keys - at least once every 30 days.
 
-For instructions on how to roll over keys, see [Azure Active Directory Seamless Single Sign-On: Frequently asked questions](how-to-connect-sso-faq.md). We are working on a capability to introduce automated roll over of keys.
+For instructions on how to roll over keys, see [Azure Active Directory Seamless Single Sign-On: Frequently asked questions](how-to-connect-sso-faq.yml).
 
 >[!IMPORTANT]
 >You don't need to do this step _immediately_ after you have enabled the feature. Roll over the Kerberos decryption keys at least once every 30 days.
@@ -235,6 +237,6 @@ For instructions on how to roll over keys, see [Azure Active Directory Seamless 
 ## Next steps
 
 - [Technical deep dive](how-to-connect-sso-how-it-works.md): Understand how the Seamless Single Sign-On feature works.
-- [Frequently asked questions](how-to-connect-sso-faq.md): Get answers to frequently asked questions about Seamless Single Sign-On.
+- [Frequently asked questions](how-to-connect-sso-faq.yml): Get answers to frequently asked questions about Seamless Single Sign-On.
 - [Troubleshoot](tshoot-connect-sso.md): Learn how to resolve common problems with the Seamless Single Sign-On feature.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Use the Azure Active Directory Forum to file new feature requests.

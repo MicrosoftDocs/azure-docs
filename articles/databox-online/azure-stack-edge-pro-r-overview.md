@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Stack Edge Pro R overview | Microsoft Docs
-description: Describes Azure Stack Edge Pro R devices, a storage solution for military applications that uses a physical device for network-based transfer into Azure.
+description: Describes Azure Stack Edge Pro R devices, a storage solution that uses a physical device for network-based transfer into Azure and the solution can deployed in harsh environments.
 services: databox
 author: alkohli
 
@@ -35,6 +35,7 @@ Azure Stack Edge Pro R has the following capabilities:
 |Data refresh     | Ability to refresh local files with the latest from cloud.|
 |Double encryption    | Use of self-encrypting drives provides the first layer of encryption. VPN provides the second layer of encryption. BitLocker support to locally encrypt data and secure data transfer to cloud over *https* .|
 |Bandwidth throttling| Throttle to limit bandwidth usage during peak hours.|
+|Easy ordering| Bulk ordering and tracking of the device via Azure Edge Hardware Center (Preview).|
 
 <!--|Scale out file server| Available as 1-node and 4-node cluster configurations|-->
 
@@ -61,6 +62,10 @@ The Azure Stack Edge Pro R solution comprises of an Azure Stack Edge resource, A
 - **Azure Stack Edge Pro R physical device** - A 1-node compute and storage device contained in a rugged transit case. An optional Uninterruptible Power Supply (UPS) is also available.
 
     ![The Azure Stack Edge Pro R 1-node device](media/azure-stack-edge-pro-r-overview/device-image-1.png)
+
+    [!INCLUDE [azure-stack-edge-gateway-edge-hardware-center-overview](../../includes/azure-stack-edge-gateway-edge-hardware-center-overview.md)]    
+
+    For more information, go to [Create an order for your Azure Stack Edge Pro R device](azure-stack-edge-pro-r-deploy-prep.md#create-a-new-resource).
 
 - **Azure Stack Edge resource** – A resource in the Azure portal that lets you manage a rugged, Azure Stack Edge Pro R device from a web interface that you can access from different geographical locations. Use the Azure Stack Edge resource to create and manage resources, view, and manage devices and alerts, and manage shares.  
 

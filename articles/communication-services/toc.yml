@@ -1,28 +1,28 @@
 items:
-- name: Azure Communication Services Documentation
+- name: Azure Communication Services documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
   - name: What is Azure Communication Services?
     href: overview.md
-  - name: Support and Help Options
+  - name: Help and support options
     href: support.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Create a Communication Services resource
     href: quickstarts/create-communication-resource.md
-  - name: Create and manage access tokens
-    href: quickstarts/access-tokens.md
-  - name: Use managed identities
-    href: quickstarts/managed-identity.md
-  - name: Set up managed identities from CLI
-    href: quickstarts/managed-identity-from-cli.md
-  - name: Export SDK telemetry data to Application Insights
-    href: quickstarts/telemetry-application-insights.md
-  - name: Get a relay token
-    href: quickstarts/relay-token.md
+  - name: Identity and access
+    items:
+      - name: Create and manage access tokens
+        href: quickstarts/access-tokens.md
+      - name: Authenticate with Azure AD
+        href: quickstarts/identity/service-principal.md
+      - name: Authenticate with Azure AD (Azure CLI)
+        href: quickstarts/identity/service-principal-from-cli.md
+      - name: Quick-create identities for testing
+        href: quickstarts/identity/quick-create-identity.md
   - name: Chat
     items:
       - name: Add chat to your app
@@ -31,11 +31,11 @@ items:
         href: quickstarts/chat/meeting-interop.md
   - name: Telephony and SMS
     items:
-      - name: Get a telephone number
+      - name: Get and manage phone numbers
         href: quickstarts/telephony-sms/get-phone-number.md
-      - name: Port a telephone number into Azure
+      - name: Port a phone number into Azure
         href: quickstarts/telephony-sms/port-phone-number.md
-      - name: Add telephone calling to your app
+      - name: Add phone calling to your app
         href: quickstarts/voice-video-calling/pstn-call.md
       - name: Send an SMS message
         href: quickstarts/telephony-sms/send.md
@@ -45,14 +45,18 @@ items:
         href: quickstarts/telephony-sms/logic-app.md
   - name: Voice and video calling
     items:
-    - name: Add voice calling to your app
+    - name: Add voice calling to your client app
       href: quickstarts/voice-video-calling/getting-started-with-calling.md
-    - name: Add video calling to your app
+    - name: Add video calling to your client app
       href: quickstarts/voice-video-calling/get-started-with-video-calling.md
     - name: Use the Calling SDK
       href: quickstarts/voice-video-calling/calling-client-samples.md
-    - name: Join your calling app to a Teams meeting
+    - name: Join your calling client app to a Teams meeting
       href: quickstarts/voice-video-calling/get-started-teams-interop.md
+    - name: Use the call automation APIs
+      href: quickstarts/voice-video-calling/call-automation-api-sample.md
+    - name: Record calls
+      href: quickstarts/voice-video-calling/call-recording-sample.md
   - name: UI Library
     items:
       - name: Get started with Composites
@@ -61,16 +65,20 @@ items:
         href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-statefulclient--page
       - name: Get started with UI Components
         href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-uicomponents--page
+  - name: Access TURN relays
+    href: quickstarts/relay-token.md    
 - name: Tutorials
   expanded: false
   items:
   - name: Build a trusted authentication service using Azure Functions
     href: tutorials/trusted-service-tutorial.md
-  - name: Sign an HTTP request with an HMAC signature using C#
-    href: tutorials/hmac-header-tutorial.md
+  - name: Export SDK telemetry data to Application Insights
+    href: quickstarts/telemetry-application-insights.md
   - name: Prepare a web app for Communication Services (Node.js)
     href: tutorials/building-app-start.md
-  - name: Sign and make requests to ACS' SMS API with Postman
+  - name: Sign an HTTP request with an HMAC signature using C#
+    href: tutorials/hmac-header-tutorial.md
+  - name: Sign and make requests to the SMS API with Postman
     href: tutorials/postman-tutorial.md
 - name: Concepts
   expanded: false
@@ -93,6 +101,10 @@ items:
         href: concepts/telephony-sms/plan-solution.md
       - name: Azure direct routing infrastructure requirements
         href: concepts/telephony-sms/sip-interface-infrastructure.md
+      - name: Azure direct routing certified Session Border Controllers
+        href: concepts/telephony-sms/certified-session-border-controllers.md
+      - name: Pair the Session Border Controller and configure voice routing
+        href: concepts/telephony-sms/direct-routing-provisioning.md
       - name: SMS FAQ
         href: concepts/telephony-sms/sms-faq.md
       - name: Messaging policy
@@ -101,14 +113,20 @@ items:
     items:
       - name: Calling SDK overview
         href: concepts/voice-video-calling/calling-sdk-features.md
-      - name: Voice and video concepts
+      - name: Voice and video terminology
         href: concepts/voice-video-calling/about-call-types.md
-      - name: Network requirements
+      - name: Call automation
+        href: concepts/voice-video-calling/call-automation-apis.md
+      - name: Call recording
+        href: concepts/voice-video-calling/call-recording.md
+      - name: Network recommendations
         href: concepts/voice-video-calling/network-requirements.md
       - name: Call flows
         href: concepts/call-flows.md
       - name: Call flow topologies
         href: concepts/detailed-call-flows.md
+      - name: Web best practices
+        href: concepts/best-practices.md
       - name: Known issues
         href: concepts/known-issues.md
   - name: UI Library

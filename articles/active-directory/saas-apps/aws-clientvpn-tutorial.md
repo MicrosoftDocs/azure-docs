@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/29/2020
+ms.date: 06/17/2021
 ms.author: jeedes
 
 ---
@@ -33,11 +33,14 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* AWS ClientVPN supports **SP** initiated SSO
+* AWS ClientVPN supports **SP** initiated SSO.
 
-* AWS ClientVPN supports **Just In Time** user provisioning
+* AWS ClientVPN supports **Just In Time** user provisioning.
 
-## Adding AWS ClientVPN from the gallery
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
+## Add AWS ClientVPN from the gallery
 
 To configure the integration of AWS ClientVPN into Azure AD, you need to add AWS ClientVPN from the gallery to your list of managed SaaS apps.
 
@@ -47,7 +50,6 @@ To configure the integration of AWS ClientVPN into Azure AD, you need to add AWS
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **AWS ClientVPN** in the search box.
 1. Select **AWS ClientVPN** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for AWS ClientVPN
 
@@ -68,11 +70,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **AWS ClientVPN** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://<LOCALHOST>`
@@ -113,6 +115,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up AWS ClientVPN** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -139,7 +142,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure AWS ClientVPN SSO
 
-To configure single sign-on on **AWS ClientVPN** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [AWS ClientVPN support team](https://aws.amazon.com/contact-us/). They set this setting to have the SAML SSO connection set properly on both sides.
+Follow the instructions given in the [link](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/client-authentication.html#federated-authentication) to configure single sign-on on AWS ClientVPN side.
 
 ### Create AWS ClientVPN test user
 

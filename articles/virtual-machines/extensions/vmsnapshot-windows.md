@@ -70,7 +70,7 @@ The following JSON shows the schema for the VM snapshot extension. The extension
 
 ## Template deployment
 
-Azure VM extensions can be deployed with Azure Resource Manager templates. However, the recommended way of adding a VM snapshot extension to a virtual machine is by enabling backup on the virtual machine. This can be achieved through a Resource Manager template.  A sample Resource Manager template that enables backup on a virtual machine can be found on the [Azure Quick Start Gallery](https://azure.microsoft.com/resources/templates/101-recovery-services-backup-vms/).
+Azure VM extensions can be deployed with Azure Resource Manager templates. However, the recommended way of adding a VM snapshot extension to a virtual machine is by enabling backup on the virtual machine. This can be achieved through a Resource Manager template.  A sample Resource Manager template that enables backup on a virtual machine can be found on the [Azure Quick Start Gallery](https://azure.microsoft.com/resources/templates/recovery-services-backup-vms/).
 
 
 ## Azure CLI deployment
