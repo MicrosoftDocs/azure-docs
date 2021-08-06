@@ -30,9 +30,27 @@ Use the LED indicators to understand which state your device is in.
 |L02|1x white, static on|Power on |
 |L02|1x white, 0.5 Hz flashing|Authentication in progress |
 |L01 & L02 & L03|3x blue, static on|Waiting for keyword|
-|L01 & L02 & L03|LED array flashing, 20fps |Listening or speaking|
-|L01 & L02 & L03|LED array racing, 20fps|Thinking|
+|L01 & L02 & L03|LED array flashing, 20 fps |Listening or speaking|
+|L01 & L02 & L03|LED array racing, 20 fps|Thinking|
 |L01 & L02 & L03|3x red, static on |Mute|
+
+## Understanding Ear SoM LED indicators
+You can use LED indicators to understand which state your device is in. It takes around 4-5 minutes for the device to power on and the module to fully initialize. As it goes through initialization steps, you'll see:
+
+1. Center white LED on (static): the device is powered on.
+1. Center white LED on (blinking): authentication is in progress.
+1. Center white LED on (static): the device is authenticated but the keyword isn't configured.​
+1. All three LEDs will change to blue once a demo was deployed and the device is ready to use.
+
+
+## Troubleshooting LED issues
+- **If the center LED is solid white**, try [using a template to create a voice assistant](./tutorial-no-code-speech.md).
+- **If the center LED is always blinking**, it indicates an authentication issue. Try these troubleshooting steps:
+    - Make sure that your USB-A and micro USB connections are secured 
+    - Check to see if the [speech module is running](./troubleshoot-audio-accessory-speech-module.md#checking-runtime-status-of-the-speech-module)
+    - Restart the device
+    - [Collect logs](./troubleshoot-audio-accessory-speech-module.md#collecting-speech-module-logs) and attach them to a support request
+    - Check to see if your dev kit is running the latest software and apply an update if available.
 
 ## Next steps
 
