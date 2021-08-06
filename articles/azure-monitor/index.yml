@@ -49,12 +49,6 @@ landingContent:
             url: alerts/alerts-metric.md
           - text: Analyze logs
             url: ./logs/log-analytics-tutorial.md
-          - text: Azure VMs in Log Analytics
-            url: ./vm/quick-collect-azurevm.md
-          - text: Linux VMs in Log Analytics
-            url: ./vm/quick-collect-linux-computer.md
-          - text: Windows VMs in Log Analytics
-            url: ./vm/quick-collect-windows-computer.md
           - text: Alert on Subscription events
             url: ./alerts/alerts-activity-log.md
 
