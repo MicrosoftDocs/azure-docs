@@ -1,6 +1,6 @@
 ---
 title: Configure continuous deployment
-description: Learn how to enable CI/CD to Azure App Service from GitHub, BitBucket, Azure Repos, or other repos. Select the build pipeline that fits your needs.
+description: Learn how to enable CI/CD to Azure App Service from GitHub, Bitbucket, Azure Repos, or other repos. Select the build pipeline that fits your needs.
 ms.assetid: 6adb5c84-6cf3-424e-a336-c554f23b4000
 ms.topic: article
 ms.date: 03/12/2021
@@ -10,41 +10,41 @@ ms.custom: seodec18
 
 # Continuous deployment to Azure App Service
 
-[Azure App Service](overview.md) enables continuous deployment from [GitHub](https://help.github.com/articles/create-a-repo), [BitBucket](https://confluence.atlassian.com/get-started-with-bitbucket/create-a-repository-861178559.html), and [Azure Repos](/azure/devops/repos/git/creatingrepo) repositories by pulling in the latest updates.
+[Azure App Service](overview.md) enables continuous deployment from [GitHub](https://help.github.com/articles/create-a-repo), [Bitbucket](https://confluence.atlassian.com/get-started-with-bitbucket/create-a-repository-861178559.html), and [Azure Repos](/azure/devops/repos/git/creatingrepo) repositories by pulling in the latest updates.
 
 > [!NOTE]
-> The **Development Center (Classic)** page in the Azure portal, an earlier version of the deployment experience, was deprecated in March 2021. This change doesn't affect existing deployment settings in your app, and you can continue to manage app deployment in the **Deployment Center** page in the portal.
+> The **Development Center (Classic)** page in the Azure portal, an earlier version of the deployment experience, was deprecated in March 2021. This change doesn't affect existing deployment settings in your app, and you can continue to manage app deployment from the **Deployment Center** page in the portal.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
-## Configure deployment source
+## Configure the deployment source
 
-1. In the [Azure portal](https://portal.azure.com), navigate to the management page for your App Service app.
+1. In the [Azure portal](https://portal.azure.com), go to the management page for your App Service app.
 
-1. From the left menu, click **Deployment Center** > **Settings**. 
+1. In the left pane, select **Deployment Center**. Then select **Settings**. 
 
-1. In **Source**, select one of the CI/CD options.
+1. In the **Source** box, select one of the CI/CD options:
 
-    ![Shows how to choose deployment source in Deployment Center for Azure App Service](media/app-service-continuous-deployment/choose-source.png)
+    ![Screenshot that shows how to choose the deployment source.](media/app-service-continuous-deployment/choose-source.png)
 
-Choose the tab that corresponds to your selection for the steps.
+Select the tab that corresponds to your build provider to continue.
 
 # [GitHub](#tab/github)
 
-4. [GitHub Actions](#how-the-github-actions-build-provider-works) is the default build provider. To change it, click **Change provider** > **App Service Build Service** (Kudu) > **OK**.
+4. [GitHub Actions](#how-the-github-actions-build-provider-works) is the default build provider. To change the provider, select **Change provider** > **App Service Build Service** (Kudu) > **OK**.
 
     > [!NOTE]
-    > To use Azure Pipelines as the build provider for your App Service app, don't configure it in App Service. Instead, configure CI/CD directly from Azure Pipelines. The **Azure Pipelines** option just points you in the right direction.
+    > To use Azure Pipelines as the build provider for your App Service app, configure CI/CD directly from Azure Pipelines. Don't configure it in App Service. The **Azure Pipelines** option just points you in the right direction.
 
-1. If you're deploying from GitHub for the first time, click **Authorize** and follow the authorization prompts. If you want to deploy from a different user's repository, click **Change Account**.
+1. If you're deploying from GitHub for the first time, select **Authorize** and follow the authorization prompts. If you want to deploy from a different user's repository, select **Change Account**.
 
-1. Once you authorize your Azure account with GitHub, select the **Organization**, **Repository**, and **Branch** to configure CI/CD for. 
-If you can’t find an organization or repository, you may need to enable additional permissions on GitHub. For more information, see [Managing access to your organization's repositories](https://docs.github.com/organizations/managing-access-to-your-organizations-repositories)
+1. After you authorize your Azure account with GitHub, select the **Organization**, **Repository**, and **Branch** to configure CI/CD for. 
+If you can’t find an organization or repository, you might need to enable more permissions on GitHub. For more information, see [Managing access to your organization's repositories](https://docs.github.com/organizations/managing-access-to-your-organizations-repositories).
 
-1. When GitHub Actions is the chosen build provider, you can select the workflow file you want with the **Runtime stack** and **Version** dropdowns. Azure commits this workflow file into your selected GitHub repository to handle build and deploy tasks. To see the file before saving your changes, click **Preview file**.
+1. When GitHub Actions is selected as the build provider, you can select the workflow file you want by using the **Runtime stack** and **Version** dropdown lists. Azure commits this workflow file into your selected GitHub repository to handle build and deploy tasks. To see the file before saving your changes, select **Preview file**.
 
     > [!NOTE]
-    > App Service detects the [language stack setting](configure-common.md#configure-language-stack-settings) of your app and selects the most appropriate workflow template. If you choose a different template, it may deploy an app that doesn't run properly. For more information, see [How the GitHub Actions build provider works](#how-the-github-actions-build-provider-works).
+    > App Service detects the [language stack setting](configure-common.md#configure-language-stack-settings) of your app and selects the most appropriate workflow template. If you choose a different template, it might deploy an app that doesn't run properly. For more information, see [How the GitHub Actions build provider works](#how-the-github-actions-build-provider-works).
 
 1. Click **Save**.
    
