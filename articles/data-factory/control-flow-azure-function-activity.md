@@ -1,10 +1,13 @@
 ---
 title: Azure Function Activity in Azure Data Factory 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to use the Azure Function activity to run an Azure Function in a Data Factory pipeline
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 07/30/2021
 ---
@@ -22,7 +25,7 @@ For an eight-minute introduction and demonstration of this feature, watch the fo
 
 The return type of the Azure function has to be a valid `JObject`. (Keep in mind that [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) is *not* a `JObject`.) Any return type other than `JObject` fails and raises the user error *Response Content is not a valid JObject*.
 
-Function Key provides secure access to function name with each one having separate unique keys or master key within a function app. Managed identity provides secure access to the entire function app. User is free to provide no key and/or Managed Identity to access function name. Please refer function documentation for more details about [Function access key]( https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#configuration)
+Function Key provides secure access to function name with each one having separate unique keys or master key within a function app. Managed identity provides secure access to the entire function app. User is free to provide no key and/or Managed Identity to access function name. Please refer function documentation for more details about [Function access key](../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#configuration)
 
 
 | **Property** | **Description** | **Required** |

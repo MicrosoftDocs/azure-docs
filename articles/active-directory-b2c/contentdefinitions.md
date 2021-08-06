@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/10/2021
+ms.date: 08/04/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -100,7 +100,7 @@ The **DataUri** element is used to specify the page identifier. Azure AD B2C use
 | `globalexception` | Displays an error page when an exception or an error is encountered. |
 | `providerselection`, `idpselection` |	Lists the identity providers that users can choose from during sign-in.  |
 | `unifiedssp` | Displays a form for signing in with a local account that's based on an email address or a user name. This value also provides the “keep me sign-in functionality” and “Forgot your password?” link. |
-| `unifiedssd` | Displays a form for signing in with a local account that's based on an email address or a user name. |
+| `unifiedssd` | Displays a form for signing in with a local account that's based on an email address or a username. This page identifier is deprecated. Use the `unifiedssp` page identifier instead.  |
 | `multifactor` | Verifies phone numbers by using text or voice during sign-up or sign-in. |
 | `selfasserted` | Displays a form to collect data from a user. For example, enables users to create or update their profile. |
 
@@ -140,15 +140,15 @@ To migrate from the old **DataUri** value (without page contract) to page layout
 | `urn:com:microsoft:aad:b2c:elements:globalexception:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.1` |
 | `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.1` |
 | `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.1` |
-| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.4` |
-| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.4` |
-| `urn:com:microsoft:aad:b2c:elements:unifiedssd:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssd:2.1.4` |
-| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.4` |
-| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.4` |
-| `urn:com:microsoft:aad:b2c:elements:multifactor:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.0` |
-| `urn:com:microsoft:aad:b2c:elements:multifactor:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.7` |
+| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.7` |
+| `urn:com:microsoft:aad:b2c:elements:unifiedssd:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssd:1.2.1` |
+| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.5` |
+| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.5` |
+| `urn:com:microsoft:aad:b2c:elements:multifactor:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.5` |
+| `urn:com:microsoft:aad:b2c:elements:multifactor:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.5` |
 
-The following example shows the content definition identifiers and the corresponding **DataUri** with latest page version: 
+The following example shows the content definition identifiers and the corresponding **DataUri** with [latest page version](page-layout.md): 
 
 ```xml
 <!-- 
@@ -164,22 +164,23 @@ The following example shows the content definition identifiers and the correspon
       <DataUri>urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.1</DataUri>
     </ContentDefinition>
     <ContentDefinition Id="api.signuporsignin">
-      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.4</DataUri>
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.5</DataUri>
     </ContentDefinition>
     <ContentDefinition Id="api.selfasserted">
-      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.4</DataUri>
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.7</DataUri>
     </ContentDefinition>
     <ContentDefinition Id="api.selfasserted.profileupdate">
-      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.4</DataUri>
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.7</DataUri>
     </ContentDefinition>
     <ContentDefinition Id="api.localaccountsignup">
-      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.4</DataUri>
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.7</DataUri>
     </ContentDefinition>
     <ContentDefinition Id="api.localaccountpasswordreset">
-      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.4</DataUri>
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.7</DataUri>
     </ContentDefinition>
     <ContentDefinition Id="api.phonefactor">
-      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.2</DataUri>
+      <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.5</DataUri>
     </ContentDefinition>
   </ContentDefinitions>
 <!-- 

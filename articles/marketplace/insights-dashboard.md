@@ -5,8 +5,8 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 03/23/2021
-author: sayantanroy83
-ms.author: sroy
+author: smannepalle
+ms.author: smannepalle
 ---
 
 # Marketplace Insights dashboard in commercial marketplace analytics
