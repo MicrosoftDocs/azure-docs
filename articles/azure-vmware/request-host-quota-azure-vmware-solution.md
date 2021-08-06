@@ -24,7 +24,7 @@ You'll need an Azure account in an Azure subscription. The Azure subscription mu
 
 - A subscription under an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
 - A Cloud Solution Provider (CSP) managed subscription under an existing CSP Azure offers contract or an Azure plan.
-- A [Modern Commerce Agreement](../cost-management-billing/microsoft-customer-agreement.md) with Microsoft.
+- A [Modern Commerce Agreement](../cost-management-billing/understand/mca-overview.md) with Microsoft.
 
 ## Request host quota for EA customers
 
