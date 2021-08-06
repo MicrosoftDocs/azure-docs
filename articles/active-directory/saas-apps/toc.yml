@@ -353,6 +353,8 @@
         href: checkpoint-infinity-portal-tutorial.md
       - name: Check Point Remote Access VPN
         href: check-point-remote-access-vpn-tutorial.md
+      - name: CheckProof
+        href: checkproof-tutorial.md  
       - name: Cherwell
         href: cherwell-tutorial.md
       - name: Chromeriver
