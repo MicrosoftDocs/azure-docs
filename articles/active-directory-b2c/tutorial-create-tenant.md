@@ -11,6 +11,7 @@ ms.topic: tutorial
 ms.date: 12/03/2020
 ms.author: mimart
 ms.subservice: B2C
+ms.custom: "b2c-support"
 ---
 
 # Tutorial: Create an Azure Active Directory B2C tenant
@@ -45,6 +46,12 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     In the Azure portal toolbar, select the **Directory + Subscription** icon, and then select the directory that contains your subscription. This directory is different from the one that will contain your Azure AD B2C tenant.
 
     ![Subscription tenant, Directory + Subscription filter with subscription tenant selected](media/tutorial-create-tenant/portal-01-pick-directory.png)
+
+1. Add **Microsoft.AzureActiveDirectory** as a resource provider for the Azure subscription your're using ([learn more](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types?WT.mc_id=Portal-Microsoft_Azure_Support#register-resource-provider-1)):
+
+    1. On the Azure portal menu or from the **Home** page, select **Subscriptions**.
+    2. Select your subscription, and then select **Resource providers**.
+    3. Make sure the **Microsoft.AzureActiveDirectory** row shows a status of **Registered**. If it doesn't, select the row, and then select **Register**.
 
 1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
 
