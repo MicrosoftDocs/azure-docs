@@ -1080,7 +1080,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-rest-api-step-custom.md",
-      "redirect_url": "/azure/active-directory-b2c/custom-policy-rest-api-claims-exchange",
+      "redirect_url": "/azure/active-directory-b2c/add-api-connector-token-enrichment",
       "redirect_document_id": true
     },
     {
@@ -1626,6 +1626,11 @@
     {
       "source_path_from_root": "/articles/active-directory-b2c/code-samples.md",
       "redirect_url": "/azure/active-directory-b2c/integrate-with-app-code-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-b2c/custom-policy-rest-api-claims-exchange.md",
+      "redirect_url": "/azure/active-directory-b2c/add-api-connector-token-enrichment",
       "redirect_document_id": false
     },
     {
@@ -9417,6 +9422,26 @@
     {
       "source_path_from_root": "/articles/azure-monitor/azure-monitor-rebrand.md",
       "redirect_url": "/azure/azure-monitor/terminology",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/vm/quick-collect-azurevm.md",
+      "redirect_url": "/azure/azure-monitor//vm/monitor-virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/vm/quick-monitor-azure-vm.md",
+      "redirect_url": "/azure/azure-monitor//vm/monitor-virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/vm/quick-collect-linux-computer.md",
+      "redirect_url": "/azure/azure-monitor//vm/monitor-virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitorvm/quick-collect-windows-computer.md",
+      "redirect_url": "/azure/azure-monitor/vm/monitor-virtual-machine",
       "redirect_document_id": false
     },
     {
