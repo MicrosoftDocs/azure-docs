@@ -29,6 +29,11 @@ In this tutorial, you accomplish the following tasks:
 > * Create an Azure Machine Learning compute cluster. A compute cluster is used when __training machine learning models in the cloud__. In configurations where Azure Container Registry is behind the VNet, it is also used to build Docker images.
 > * Connect to the jump box and use the Azure Machine Learning studio.
 
+If your environment meets the prerequisites and you're familiar with using ARM templates, the first five steps in this tutorial can also be completed by selecting the 'Deploy to Azure button'. You can continue reading from [Connect to the workspace](/azure/machine-learning/tutorial-create-secure-workspace#connect-to-the-workspace).
+
+[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.machinelearningservices%2Fmachine-learning-advanced%2Fazuredeploy.json)
+[![Deploy To Azure US Gov](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazuregov.svg?sanitize=true)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.machinelearningservices%2Fmachine-learning-advanced%2Fazuredeploy.json)
+
 ## Prerequisites
 
 * Familiarity with Azure Virtual Networks and IP networking

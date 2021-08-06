@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file to retrieve values a
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/29/2021
+ms.date: 07/30/2021
 ---
 
 # Resource functions for Bicep
@@ -110,7 +110,7 @@ Built-in policy definitions are tenant level resources. For an example of deploy
 
 `keyVaultName.getSecret(secretName)`
 
-Returns the secret value stored in Azure Key Vault. You can use the getSecret function to obtain a key vault secret and pass the return value to a string parameter of a Bicep module. The getSecret function can only be called on a `Microsoft.KeyVault/vaults` resource and can be used only with parameter with `@secure()` decorator.
+Returns a secret from an Azure Key Vault. The `getSecret` function can only be called on a `Microsoft.KeyVault/vaults` resource. Use this function to pass a secret to a secure string parameter of a Bicep module. The function can be used only with a parameter that has the `@secure()` decorator.
 
 ### Parameters
 
@@ -170,11 +170,11 @@ module sql './sql.bicep' = {
 
 `resourceName.list([apiVersion], [functionValues])`
 
-You can call a list function for any resource type with an operation that starts with `list`. Some common usages are `list`, `listKeys`, `listKeyValue`, and `listSecrets`. The syntax for this function varies by name of the list operations. Each implementation returns values for the resource type.
+You can call a list function for any resource type with an operation that starts with `list`. Some common usages are `list`, `listKeys`, `listKeyValue`, and `listSecrets`. 
 
-To call the list function by using the [accessor operator](operators-access.md#function-accessor) (`.`), you must have Bicep version 0.4.412 or later.
+The syntax for this function varies by the name of the list operation. The returned values also vary by operation. Bicep doesn't currently support completions and validation for `list*` functions.
 
-Bicep doesn't currently support completions and validation for `list*` functions.
+With **Bicep version 0.4.412 or later**, you call the list function by using the [accessor operator](operators-access.md#function-accessor). For example, `stg.listKeys()`. 
 
 ### Parameters
 

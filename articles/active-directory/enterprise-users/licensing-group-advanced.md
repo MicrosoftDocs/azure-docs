@@ -71,7 +71,7 @@ A user can be a member of multiple groups with licenses. Here are some things to
 
 ## Direct licenses coexist with group licenses
 
-When a user inherits a license from a group, you can't directly remove or modify that license assignment in the user's properties. You can change the license assignment only in the group and the changes are then propagated to all users. It is possible, however, to assign the same product license to the user directly and by group license assignment. In this way, you can enable additional services from the product just for one user, without affecting other users.
+When a user inherits a license from a group, you can't directly remove or modify that license assignment in the user's properties. You can change the license assignment only in the group and the changes are then propagated to all users. If you need to assign any additional features to a user that has their license from a group license assignment you must create another group to assign the additional features to the user.
 
 Directly assigned licenses can be removed, and don’t affect a user's inherited licenses. Consider the user who inherits an Office 365 Enterprise E3 license from a group.
 

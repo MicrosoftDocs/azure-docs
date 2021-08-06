@@ -18,6 +18,13 @@ Azure Cosmos DB's point-in-time restore feature helps you to recover from an acc
 
 This article explains how to provision an account with continuous backup and point in time restore using [Azure portal](#provision-portal), [PowerShell](#provision-powershell), [CLI](#provision-cli) and [Resource Manager templates](#provision-arm-template).
 
+> [!NOTE]
+> You can provision continuous backup mode account only if the following conditions are true:
+>
+> * If the account is of type SQL API or API for MongoDB.
+> * If the account has a single write region.
+> * If the account isn't enabled with customer managed keys(CMK).
+
 ## <a id="provision-portal"></a>Provision using Azure portal
 
 When creating a new Azure Cosmos DB account, in the **Backup policy** tab, choose **continuous** mode to enable the point in time restore functionality for the new account. With the point-in-time restore, data is restored to a new account, currently you can't restore to an existing account.

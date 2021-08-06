@@ -25,6 +25,13 @@ The following are the key reasons to migrate into continuous mode:
 
 > [!NOTE]
 > The migration capability is one-way only and it's an irreversible action. Which means once you migrate from periodic mode to continuous mode, you can’t switch back to periodic mode.
+>
+> You can migrate an account to continuous backup mode only if the following conditions are true:
+>
+> * If the account is of type SQL API or API for MongoDB.
+> * If the account has a single write region.
+> * If the account isn't enabled with customer managed keys(CMK).
+> * If the account isn't enabled with analytical store.
 
 ## Permissions
 

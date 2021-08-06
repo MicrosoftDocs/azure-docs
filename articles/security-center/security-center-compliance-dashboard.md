@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: tutorial
-ms.date: 04/21/2021
+ms.date: 08/05/2021
 ms.author: memildin
 
 ---

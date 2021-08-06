@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/15/2021
+ms.date: 07/30/2021
 ms.author: victorh
 ---
 
@@ -63,6 +63,8 @@ You can limit outbound HTTP/S traffic or Azure SQL traffic to a specified list o
 ## Network traffic filtering rules
 
 You can centrally create *allow* or *deny* network filtering rules by source and destination IP address, port, and protocol. Azure Firewall is fully stateful, so it can distinguish legitimate packets for different types of connections. Rules are enforced and logged across multiple subscriptions and virtual networks.
+
+Azure Firewall supports stateful filtering of Layer 3 and Layer 4 network protocols. Layer 3 IP protocols can be filtered by selecting **Any** protocol in the Network rule and  select the wild-card **\*** for the port.
 
 ## FQDN tags
 

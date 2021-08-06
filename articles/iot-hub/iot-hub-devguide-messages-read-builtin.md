@@ -72,6 +72,17 @@ The product integrations you can use with the built-in Event Hub-compatible endp
 * [Apache Spark integration](../hdinsight/spark/apache-spark-ipython-notebook-machine-learning.md).
 * [Azure Databricks](/azure/azure-databricks/).
 
+## Use AMQP-WS or a proxy with Event Hubs SDKs
+
+You can use the Event Hubs SDKs to read from the built-in endpoint in environments where AMQP over WebSockets or reading through a proxy is required. For more information, see the following samples.
+
+| Language | Sample |
+| -------- | ------ |
+| .NET | [ReadD2cMessages .NET](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Quickstarts/ReadD2cMessages) |
+| Java | [read-d2c-messages Java](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Quickstarts/read-d2c-messages) |
+| Node.js | [read-d2c-messages Node.js](https://github.com/Azure-Samples/azure-iot-samples-node/tree/master/iot-hub/Quickstarts/read-d2c-messages) |
+| Python | [read-dec-messages Python](https://github.com/Azure-Samples/azure-iot-samples-python/tree/master/iot-hub/Quickstarts/read-d2c-messages) |
+
 ## Next steps
 
 * For more information about IoT Hub endpoints, see [IoT Hub endpoints](iot-hub-devguide-endpoints.md).
