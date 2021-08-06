@@ -40,9 +40,9 @@ This section shows you how to create a storage event trigger within the Azure Da
 1. Select trigger type **Storage Event**
 
     # [Azure Data Factory](#tab/data-factory)
-    :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image1.png" alt-text="Screenshot of Author page to create a new storage event trigger in Data Factory UI.":::
+    :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image-1.png" alt-text="Screenshot of Author page to create a new storage event trigger in Data Factory UI.":::
     # [Azure Synapse](#tab/synapse-analytics)
-    :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image1-synapse.png" alt-text="Screenshot of Author page to create a new storage event trigger in the Azure Synapse UI.":::
+    :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image-1-synapse.png" alt-text="Screenshot of Author page to create a new storage event trigger in the Azure Synapse UI.":::
 
 ---
 
@@ -62,19 +62,19 @@ This section shows you how to create a storage event trigger within the Azure Da
 
 1. Select whether your trigger will respond to a **Blob created** event, **Blob deleted** event, or both. In your specified storage location, each event will trigger the Data Factory and Synapse pipelines associated with the trigger.
 
-    :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image2.png" alt-text="Screenshot of storage event trigger creation page.":::
+    :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image-2.png" alt-text="Screenshot of storage event trigger creation page.":::
 
 1. Select whether or not your trigger ignores blobs with zero bytes.
 
 1. After you configure you trigger, click on **Next: Data preview**. This screen shows the existing blobs matched by your storage event trigger configuration. Make sure you've specific filters. Configuring filters that are too broad can match a large number of files created/deleted and may significantly impact your cost. Once your filter conditions have been verified, click **Finish**.
 
-    :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image3.png" alt-text="Screenshot of storage event trigger preview page.":::
+    :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image-3.png" alt-text="Screenshot of storage event trigger preview page.":::
 
 1. To attach a pipeline to this trigger, go to the pipeline canvas and click **Trigger** and select **New/Edit**. When the side nav appears, click on the **Choose trigger...** dropdown and select the trigger you created. Click **Next: Data preview** to confirm the configuration is correct and then **Next** to validate the Data preview is correct.
 
 1. If your pipeline has parameters, you can specify them on the trigger runs parameter side nav. The storage event trigger captures the folder path and file name of the blob into the properties `@triggerBody().folderPath` and `@triggerBody().fileName`. To use the values of these properties in a pipeline, you must map the properties to pipeline parameters. After mapping the properties to parameters, you can access the values captured by the trigger through the `@pipeline().parameters.parameterName` expression throughout the pipeline. For detailed explanation, see [Reference Trigger Metadata in Pipelines](how-to-use-trigger-parameterization.md)
 
-   :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image4.png" alt-text="Screenshot of storage event trigger mapping properties to pipeline parameters.":::
+   :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image-4.png" alt-text="Screenshot of storage event trigger mapping properties to pipeline parameters.":::
 
    In the preceding example, the trigger is configured to fire when a blob path ending in .csv is created in the folder _event-testing_ in the container _sample-data_. The **folderPath** and **fileName** properties capture the location of the new blob. For example, when MoviesDB.csv is added to the path sample-data/event-testing, `@triggerBody().folderPath` has a value of `sample-data/event-testing` and `@triggerBody().fileName` has a value of `moviesDB.csv`. These values are mapped, in the example, to the pipeline parameters `sourceFolder` and `sourceFile`, which can be used throughout the pipeline as `@pipeline().parameters.sourceFolder` and `@pipeline().parameters.sourceFile` respectively.
 
