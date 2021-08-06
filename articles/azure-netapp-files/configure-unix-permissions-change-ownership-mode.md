@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/15/2021
+ms.date: 08/06/2021
 ms.author: b-juche
 ---
 # Configure Unix permissions and change ownership mode for NFS and dual-protocol volumes
